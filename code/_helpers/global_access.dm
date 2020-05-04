@@ -55,6 +55,8 @@
 			return global.MUTEBLOCK;
 		if("Master")
 			return global.Master;
+		if("NOIRBLOCK")
+			return global.NOIRBLOCK;
 		if("OOClog")
 			return global.OOClog;
 		if("PSYRESISTBLOCK")
@@ -599,8 +601,6 @@
 			return global.limb_icon_cache;
 		if("loadout_categories")
 			return global.loadout_categories;
-		if("lobby_image")
-			return global.lobby_image;
 		if("log_end")
 			return global.log_end;
 		if("lunchables_drink_reagents_")
@@ -757,6 +757,8 @@
 			return global.pai_software_by_key;
 		if("paramslist_cache")
 			return global.paramslist_cache;
+		if("payment_controller")
+			return global.payment_controller;
 		if("pending_weathers")
 			return global.pending_weathers;
 		if("photo_count")
@@ -895,6 +897,8 @@
 			return global.severity_to_string;
 		if("ship_engines")
 			return global.ship_engines;
+		if("ship_templates")
+			return global.ship_templates;
 		if("side_effects")
 			return global.side_effects;
 		if("skin_styles_female_list")
@@ -1041,6 +1045,8 @@
 			return global.total_lighting_sources;
 		if("total_unit_tests")
 			return global.total_unit_tests;
+		if("trade_controller")
+			return global.trade_controller;
 		if("transfer_controller")
 			return global.transfer_controller;
 		if("turbolift_controller")
@@ -1166,6 +1172,8 @@
 			global.MUTEBLOCK=newval;
 		if("Master")
 			global.Master=newval;
+		if("NOIRBLOCK")
+			global.NOIRBLOCK=newval;
 		if("OOClog")
 			global.OOClog=newval;
 		if("PSYRESISTBLOCK")
@@ -1710,8 +1718,6 @@
 			global.limb_icon_cache=newval;
 		if("loadout_categories")
 			global.loadout_categories=newval;
-		if("lobby_image")
-			global.lobby_image=newval;
 		if("log_end")
 			global.log_end=newval;
 		if("lunchables_drink_reagents_")
@@ -1868,6 +1874,8 @@
 			global.pai_software_by_key=newval;
 		if("paramslist_cache")
 			global.paramslist_cache=newval;
+		if("payment_controller")
+			global.payment_controller=newval;
 		if("pending_weathers")
 			global.pending_weathers=newval;
 		if("photo_count")
@@ -2006,6 +2014,8 @@
 			global.severity_to_string=newval;
 		if("ship_engines")
 			global.ship_engines=newval;
+		if("ship_templates")
+			global.ship_templates=newval;
 		if("side_effects")
 			global.side_effects=newval;
 		if("skin_styles_female_list")
@@ -2152,6 +2162,8 @@
 			global.total_lighting_sources=newval;
 		if("total_unit_tests")
 			global.total_unit_tests=newval;
+		if("trade_controller")
+			global.trade_controller=newval;
 		if("transfer_controller")
 			global.transfer_controller=newval;
 		if("turbolift_controller")
@@ -2249,6 +2261,7 @@
 	"MIGs",
 	"MUTEBLOCK",
 	"Master",
+	"NOIRBLOCK",
 	"OOClog",
 	"PSYRESISTBLOCK",
 	"RADBLOCK",
@@ -2521,7 +2534,6 @@
 	"lighting_overlays_initialised",
 	"limb_icon_cache",
 	"loadout_categories",
-	"lobby_image",
 	"log_end",
 	"lunchables_drink_reagents_",
 	"lunchables_drinks_",
@@ -2600,6 +2612,7 @@
 	"pai_emotions",
 	"pai_software_by_key",
 	"paramslist_cache",
+	"payment_controller",
 	"pending_weathers",
 	"photo_count",
 	"pipe_colors",
@@ -2608,7 +2621,6 @@
 	"plant_controller",
 	"plant_seed_sprites",
 	"playable_species",
-	"point_source_descriptions",
 	"pooledvariables",
 	"possible_changeling_IDs",
 	"power_alarm",
@@ -2670,6 +2682,7 @@
 	"server_name",
 	"severity_to_string",
 	"ship_engines",
+	"ship_templates",
 	"side_effects",
 	"skin_styles_female_list",
 	"skipped_unit_tests",
@@ -2743,6 +2756,7 @@
 	"total_lighting_overlays",
 	"total_lighting_sources",
 	"total_unit_tests",
+	"trade_controller",
 	"transfer_controller",
 	"turbolift_controller",
 	"turbolifts",
