@@ -7,19 +7,19 @@
   overmap_event_areas = 18
 
   allowed_spawns = list(
-    "Cryogenic Storage"
+    "Cryogenic Storage",
     "Cyborg Storage"
   )
   default_spawn = "Cryogenic Storage"
 
-  station_name = full_name
-  station_short = name
+  station_name = "AFCUV Pluto"
+  station_short = "Pluto"
 
-  dock_name     = "TBD"
-  boss_name     = "Automated Announcement Systems"
-	boss_short    = "AAS"
-	company_name  = "Automated Announcement Systems"
-	company_short = "AAS"
+  dock_name = "TBD"
+  boss_name = "Automated Announcement Systems"
+  boss_short = "AAS"
+  company_name  = "Automated Announcement Systems"
+  company_short = "AAS"
 
   map_admin_faxes = list(
     "Bureau of the Interstellar Marshals"

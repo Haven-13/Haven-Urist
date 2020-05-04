@@ -26,7 +26,7 @@
 /obj/effect/shuttle_landmark/cargo_lift_pluto/top
 	name = "Top Deck"
 	landmark_tag = "nav_pluto_lift_top"
-	base_area = /area/logistics/uppercargo
+	//base_area = /area/logistics/uppercargo
 	base_turf = /turf/simulated/open
 
 /obj/effect/shuttle_landmark/cargo_lift_pluto/bottom
