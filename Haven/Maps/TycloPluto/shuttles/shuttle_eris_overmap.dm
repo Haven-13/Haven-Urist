@@ -3,7 +3,7 @@
 	warmup_time = 5
 	move_time = 30
 	shuttle_area = list(
-    /area/courier_shuttle/pluto/cockpit
+    /area/courier_shuttle/pluto/cockpit,
     /area/courier_shuttle/pluto/utility
   )
 	dock_target ="eris_shuttle"
@@ -13,7 +13,7 @@
 	sound_landing = 'sound/effects/rocket_backwards.ogg'
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_eris"
-	logging_access = access_courier_shuttle_helm
+	//logging_access = access_courier_shuttle_helm
 
 /obj/machinery/computer/shuttle_control/explore/eris
 	name = "Eris Control Console"

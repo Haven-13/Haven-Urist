@@ -14,6 +14,9 @@
   #include "shuttles/shuttle_styx_define.dm"
   #include "shuttles/shuttle_styx_overmap.dm"
 
+  #define USING_MAP_DATUM /datum/map/tyclo_pluto
+  #define URISTCODE 1
+
 #elif !defined(MAP_OVERRIDE)
 
   #warn "A map has already been included, ignoring Tyclo-Pluto"

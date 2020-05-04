@@ -15,7 +15,7 @@
 	range = 1
 	fuel_consumption = 4
 	logging_home_tag = "nav_hangar_styx"
-	logging_access = access_expedition_shuttle_helm
+	//logging_access = access_expedition_shuttle_helm
 
 /obj/machinery/computer/shuttle_control/explore/styx
 	name = "Styx Control Console"
