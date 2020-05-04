@@ -1,0 +1,6 @@
+#include "areas/areas_command.dm"
+#include "areas/areas_common.dm"
+#include "areas/areas_engineering.dm"
+#include "areas/areas_medical.dm"
+#include "areas/areas_security.dm"
+#include "areas/areas_supply.dm"
