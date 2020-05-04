@@ -14,7 +14,7 @@
 /obj/effect/shuttle_landmark/pluto/hangar/courier_shuttle
 	name = "Eris Hangar"
 	landmark_tag = "nav_hangar_eris"
-	base_area = /area/quartermaster/hangar
+	base_area = /area
 	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/pluto/transit/courier_shuttle
