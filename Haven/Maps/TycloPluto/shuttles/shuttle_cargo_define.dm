@@ -21,7 +21,7 @@
 /obj/effect/shuttle_landmark/supply/pluto/docked
 	name = "Onboard"
 	landmark_tag = "nav_cargo_dock"
-	base_area = /area/spacestations/nanotrasenspace
+	//base_area = /area/spacestations/nanotrasenspace
 	base_turf = /turf/simulated/floor/plating
 
 

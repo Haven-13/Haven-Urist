@@ -21,7 +21,7 @@
 /obj/effect/shuttle_landmark/pluto/hangar/exploration_shuttle
 	name = "Styx Hangar"
 	landmark_tag = "nav_hangar_styx"
-	base_area = /area/quartermaster/hangar
+	base_area = /area
 	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/pluto/transit/exploration_shuttle
