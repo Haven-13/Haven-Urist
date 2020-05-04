@@ -87,11 +87,12 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/overmap_z = 0		//If 0 will generate overmap zlevel on init. Otherwise will populate the zlevel provided.
 	var/overmap_event_areas = 0 //How many event "clouds" will be generated
 
-	var/lobby_icon									// The icon which contains the lobby image(s)
-	var/list/lobby_screens = list()                 // The list of lobby screen to pick() from. If left unset the first icon state is always selected.
-	var/music_track/lobby_track                     // The track that will play in the lobby screen.
-	var/list/lobby_tracks = list()                  // The list of lobby tracks to pick() from. If left unset will randomly select among all available /music_track subtypes.
-	var/welcome_sound = 'sound/AI/welcome.ogg'		// Sound played on roundstart
+	var/lobby_icon // Deprecated
+	var/list/lobby_screens = list('Haven/Images/default_lobbyscreen.png') // The list of lobby screen to pick() from. If left unset the first icon state is always selected.
+	var/current_lobby_screen
+	var/music_track/lobby_track                              // The track that will play in the lobby screen.
+	var/list/lobby_tracks = list()                           // The list of lobby tracks to pick() from. If left unset will randomly select among all available /music_track subtypes.
+	var/welcome_sound = 'sound/AI/welcome.ogg'		           // Sound played on roundstart
 
 	var/default_law_type = /datum/ai_laws/nanotrasen  // The default lawset use by synth units, if not overriden by their laws var.
 	var/security_state = /decl/security_state/default // The default security state system to use.
@@ -206,6 +207,7 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		allowed_jobs = subtypesof(/datum/job)
 	if(!planet_size)
 		planet_size = list(world.maxx, world.maxy)
+	current_lobby_screen = pick(lobby_screens)
 
 /datum/map/proc/setup_map()
 	var/lobby_track_type
@@ -351,3 +353,14 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		num2text(SUP_FREQ)   = list(access_cargo),
 		num2text(SRV_FREQ)   = list(access_janitor, access_hydroponics),
 	)
+
+/datum/map/proc/show_titlescreen(client/C)
+	winset(C, "lobbybrowser", "is-disabled=false;is-visible=true")
+
+	show_browser(C, current_lobby_screen, "file=titlescreen.png;display=0")
+	show_browser(C, file('html/lobby_titlescreen_holder.html'), "window=lobbybrowser")
+
+/datum/map/proc/hide_titlescreen(client/C)
+	if(C.mob) // Check if the client is still connected to something
+		// Hide title screen, allowing player to see the map
+		winset(C, "lobbybrowser", "is-disabled=true;is-visible=false")
