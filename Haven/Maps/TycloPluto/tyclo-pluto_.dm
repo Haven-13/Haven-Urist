@@ -6,6 +6,10 @@
   #include "tyclo-pluto_lobby.dm"
   #include "tyclo-pluto_overmap.dm"
 
+  #include "objects/nerva_clothes.dm"
+  #include "objects/nerva_ids.dm"
+  #include "objects/nerva_items.dm"
+
   #include "shuttles/shuttle_cargo_define.dm"
   #include "shuttles/shuttle_eris_define.dm"
   #include "shuttles/shuttle_eris_overmap.dm"
