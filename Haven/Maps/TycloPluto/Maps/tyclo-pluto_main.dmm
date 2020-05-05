@@ -1,4 +1,8 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/machinery/door/airlock/autoname,
+/turf/simulated/floor/plating,
+/area/engineering/gas_storage)
 "ac" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/wall/r_wall,
@@ -17,31 +21,30 @@
 "ag" = (
 /turf/simulated/floor/plating,
 /area/civilian/messhall/upper)
-"ai" = (
-/obj/structure/sign/directions/medical{
-	dir = 4
-	},
-/obj/structure/sign/directions/bridge{
-	pixel_y = -7
-	},
-/obj/structure/sign/directions/engineering{
-	dir = 1;
-	pixel_y = 7
-	},
-/turf/simulated/wall/r_wall,
-/area/hallway/aft/second_deck)
+"ah" = (
+/obj/machinery/blackbox_recorder,
+/turf/simulated/floor/tiled/techmaint,
+/area/engineering/tcommsmon)
 "ak" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/security/break_room)
-"an" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/cyan{
-	dir = 8
+"al" = (
+/obj/structure/catwalk,
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
-/obj/machinery/light{
-	dir = 8
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics/upper)
+"am" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 6
 	},
-/turf/simulated/floor/tiled/techfloor,
+/obj/structure/lattice,
+/turf/simulated/open,
 /area/engineering/atmospherics/upper)
 "ao" = (
 /obj/machinery/door/airlock/autoname,
@@ -50,9 +53,29 @@
 "ar" = (
 /turf/simulated/wall/r_wall,
 /area/pluto/gunnery/portside_gun)
+"aw" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/hallway/central/second_port)
 "ax" = (
 /turf/simulated/wall/r_wall,
 /area/civilian/dorms/bedroom1)
+"ay" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
 "az" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
@@ -60,12 +83,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/fuel_burn)
-"aB" = (
-/obj/machinery/light/small/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/civilian/hydro)
 "aC" = (
 /obj/structure/railing{
 	dir = 4
@@ -84,6 +101,20 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/main_shaft_mid)
+"aQ" = (
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/pluto/maintenance/aftport/third)
+"aT" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/machinery/light/small/red,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/smes)
 "aU" = (
 /turf/simulated/floor/plating,
 /area/hallway/aft/bottom)
@@ -99,6 +130,10 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/pluto/crew)
+"bf" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/engineering/engine)
 "bg" = (
 /obj/structure/ladder,
 /obj/structure/catwalk,
@@ -112,12 +147,13 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/medical/cmo)
-"bj" = (
-/turf/space,
-/area/civilian/cryo_robot)
 "bk" = (
 /turf/simulated/floor/wood,
 /area/civilian/chapel)
+"bl" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/pluto/lifepod/bottom1)
 "bn" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -129,6 +165,12 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/foreport/second)
+"bq" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "bs" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/supply,
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
@@ -160,6 +202,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftstar/bottom)
+"bz" = (
+/turf/simulated/floor/tiled/techmaint,
+/area/security/break_room)
 "bB" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -168,21 +213,29 @@
 /obj/structure/grille,
 /turf/space,
 /area/space)
-"bF" = (
-/turf/simulated/floor/tiled/steel_grid,
-/area/logistics/genprep)
-"bI" = (
-/obj/structure/sign/directions/supply{
-	dir = 8
-	},
-/turf/simulated/wall/r_wall,
-/area/logistics/robotics)
+"bE" = (
+/obj/structure/ladder/up,
+/turf/simulated/floor/tiled/techfloor,
+/area/security/break_room)
 "bJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 10
 	},
 /turf/space,
 /area/space)
+"bK" = (
+/obj/machinery/atmospherics/omni/mixer{
+	tag_east = 1;
+	tag_east_con = 0.21;
+	tag_south = 1;
+	tag_south_con = 0.79;
+	tag_west = 2
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/upper)
 "bL" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -191,6 +244,18 @@
 /obj/structure/lattice,
 /turf/simulated/floor/reinforced/airless,
 /area/space)
+"bQ" = (
+/obj/machinery/atmospherics/pipe/zpipe/up{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "16-0"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics/lower)
 "bS" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -198,13 +263,9 @@
 "bT" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/logistics/mechbay)
-"bV" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/floor/plating,
-/area/engineering/tcommsmon)
-"bX" = (
-/turf/simulated/floor/tiled/techfloor,
-/area/logistics/lowercargo)
+"bU" = (
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/logistics/genprep)
 "bY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
@@ -240,6 +301,19 @@
 /obj/structure/table/steel_reinforced,
 /turf/simulated/floor/plating,
 /area/security/checkpoint)
+"cg" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics/lower)
+"ci" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "cj" = (
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -247,21 +321,20 @@
 "ck" = (
 /turf/simulated/wall/r_wall,
 /area/civilian/counselor)
-"cl" = (
-/obj/structure/sign/directions/bridge,
-/turf/simulated/wall/r_wall,
-/area/hallway/fore/third_deck)
 "cm" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/hallway/central/bottom)
 "cn" = (
-/obj/machinery/power/smes/buildable,
+/obj/structure/sign/directions/examroom,
+/turf/simulated/wall/r_wall,
+/area/medical/lobby)
+"cq" = (
+/obj/machinery/power/terminal,
+/obj/structure/cable/green{
+	icon_state = "0-1"
+	},
 /turf/simulated/floor/plating,
-/area/engineering/tcommsmon)
-"co" = (
-/obj/machinery/computer/fusion_fuel_control,
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/engine_monitoring)
+/area/engineering/atmospherics/lower)
 "cu" = (
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -281,13 +354,10 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/engineering/engine)
-"cB" = (
-/obj/structure/closet/crate/radiation,
-/obj/item/stack/material/tritium/ten,
-/obj/item/stack/material/tritium/ten,
-/obj/item/stack/material/deuterium/fifty,
-/turf/simulated/floor/tiled/techmaint,
-/area/engineering/engine)
+"cx" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/engineering/shield_gen_bay)
 "cF" = (
 /turf/simulated/wall/r_wall,
 /area/logistics/fabwork)
@@ -300,6 +370,15 @@
 	},
 /turf/simulated/open,
 /area/command/bridgeupper)
+"cI" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/cyan{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/upper)
 "cJ" = (
 /obj/machinery/fusion_fuel_injector{
 	dir = 8
@@ -315,6 +394,10 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/engineering/atmospherics/lower)
+"cO" = (
+/obj/machinery/door/airlock/autoname,
+/turf/simulated/floor/plating,
+/area/engineering/tcomms)
 "cP" = (
 /obj/structure/lattice,
 /obj/structure/lattice,
@@ -368,6 +451,16 @@
 "cW" = (
 /turf/simulated/floor/plating/airless,
 /area/pluto/maintenance/central/bottom)
+"cX" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/machinery/computer/shuttle_control/cargo_lift_pluto,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/logistics/uppercargo)
 "cY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -379,9 +472,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/main_shaft_mid)
+"cZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/hallway/aft/bottom)
 "da" = (
 /turf/simulated/floor/carpet/red,
 /area/logistics/qm)
+"dd" = (
+/obj/machinery/atmospherics/omni/filter{
+	tag_north = 2;
+	tag_south = 1;
+	tag_west = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "de" = (
 /turf/simulated/floor/carpet/red,
 /area/civilian/library)
@@ -395,6 +501,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/fuel_burn)
+"dj" = (
+/obj/structure/hygiene/shower{
+	dir = 1
+	},
+/obj/structure/curtain/open/shower,
+/turf/simulated/floor/tiled/old_cargo,
+/area/civilian/bath/showers)
 "dk" = (
 /turf/simulated/floor/tiled/old_cargo,
 /area/medical/locker)
@@ -408,16 +521,10 @@
 	},
 /turf/simulated/floor/carpet/orange,
 /area/engineering/break_room)
-"dq" = (
+"dr" = (
 /obj/structure/sign/directions/evac,
 /turf/simulated/wall/r_wall,
 /area/hallway/fore/second_deck)
-"dw" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/upper)
 "dB" = (
 /turf/simulated/floor/plating,
 /area/engineering/engine/tdstar)
@@ -432,10 +539,12 @@
 "dE" = (
 /turf/simulated/floor/tiled/old_tile,
 /area/medical/surgery/b)
-"dF" = (
-/obj/structure/table/rack,
-/turf/simulated/floor/tiled/techmaint,
-/area/engineering/tcommsmon)
+"dG" = (
+/obj/structure/cable/orange{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/engine_monitoring)
 "dH" = (
 /obj/structure/stairs/west,
 /turf/simulated/floor/plating,
@@ -447,16 +556,11 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/security/break_room)
 "dJ" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/engineering/engine)
-"dK" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 4
+/obj/structure/railing{
+	dir = 2
 	},
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
+/turf/simulated/floor/plating,
+/area/pluto/maintenance/aftport/third)
 "dL" = (
 /turf/simulated/wall/r_wall,
 /area/command/safe_room/a)
@@ -470,11 +574,23 @@
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftstar/third)
 "dR" = (
-/obj/structure/shuttle/engine/propulsion{
+/obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/pluto/lifepod/bottom5)
+/area/engineering/engine/tdstar)
+"dS" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "dT" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 5
@@ -488,6 +604,12 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/techfloor,
 /area/command/teleporter)
+"dW" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hallway/aft/third_deck)
 "dY" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -495,6 +617,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/logistics/fabwork)
+"dZ" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
+"ea" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "eb" = (
 /obj/structure/iv_drip,
 /turf/simulated/floor/tiled/steel_grid,
@@ -528,21 +668,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/pluto/crew)
+"ek" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/steel_grid,
+/area/logistics/uppercargo)
 "el" = (
 /obj/structure/catwalk,
 /obj/structure/lattice,
 /turf/space,
 /area/space)
-"em" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 16
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/smes)
 "en" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/hallway/central/second_port)
@@ -573,13 +707,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine/bdstar)
-"ex" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/obj/machinery/light/small/red,
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/smes)
 "ez" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -589,13 +716,6 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftport/second)
-"eB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 4;
-	icon_state = "intact"
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/mon)
 "eC" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -610,6 +730,9 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/hallway/aft/second_deck)
+"eG" = (
+/turf/simulated/floor/tiled/old_tile,
+/area/security/forensics)
 "eH" = (
 /turf/simulated/open,
 /area/pluto/maintenance/centralport/third)
@@ -632,19 +755,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/fuel_burn)
-"eR" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine/bdport)
 "eS" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/genstorage)
 "eV" = (
-/obj/structure/catwalk,
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "eW" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -655,6 +773,10 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/checkpoint)
+"fa" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/engine_monitoring)
 "fc" = (
 /turf/simulated/floor/plating,
 /area/hallway/hangaraccess)
@@ -668,10 +790,6 @@
 	},
 /turf/simulated/open,
 /area/command/bridgeupper)
-"fe" = (
-/obj/machinery/telecomms/relay/preset/seconddeck,
-/turf/simulated/floor/plating,
-/area/engineering/substation/second_deck)
 "ff" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/logistics/robotics)
@@ -695,9 +813,17 @@
 	},
 /turf/simulated/open,
 /area/engineering/atmospherics/upper)
+"fk" = (
+/obj/structure/sign/directions/evac,
+/turf/simulated/wall/r_wall,
+/area/command/bottom_hallway)
 "fl" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/medical/chemistry)
+"fm" = (
+/obj/machinery/telecomms/processor/preset_wyrm,
+/turf/simulated/floor/tiled/techmaint,
+/area/engineering/tcomms)
 "fo" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/fuel{
 	dir = 4
@@ -710,9 +836,22 @@
 	},
 /turf/simulated/floor/plating/airless,
 /area/exploration_shuttle/pluto/cargo)
+"fr" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/structure/lattice,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics/upper)
 "fv" = (
-/turf/simulated/floor/tiled/steel_grid,
-/area/cargo_lift/pluto/lift)
+/obj/machinery/atmospherics/pipe/manifold/visible/green,
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics/lower)
 "fw" = (
 /turf/simulated/floor/plating/airless,
 /area/pluto/maintenance/forestar/bottom)
@@ -735,18 +874,14 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine/tdstar)
 "fE" = (
-/obj/machinery/light{
-	dir = 4
+/obj/structure/railing{
+	dir = 8
 	},
-/turf/simulated/floor/grass{
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass2"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
-/area/civilian/hydro)
-"fF" = (
-/obj/structure/filingcabinet/chestdrawer,
-/turf/simulated/floor/tiled/techfloor,
-/area/logistics/mailing)
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/engineering/engine)
 "fG" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/space,
@@ -769,14 +904,20 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/pluto/gunnery/fore_gun)
-"fR" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/civilian/cryo1)
 "fS" = (
-/obj/machinery/light/small/red,
-/turf/simulated/floor/tiled/techfloor,
-/area/hallway/central/third_port)
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 16
+	},
+/obj/structure/cable/orange{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_monitoring)
 "fT" = (
 /turf/simulated/wall/r_wall,
 /area/logistics/robotics)
@@ -787,24 +928,24 @@
 "fV" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/civilian/exercise)
+"fW" = (
+/obj/structure/cable/orange{
+	icon_state = "1-2"
+	},
+/obj/structure/catwalk,
+/obj/structure/cable/orange{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine)
 "fX" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/engineering/locker)
 "fY" = (
-/obj/structure/stairs/west,
-/turf/simulated/floor/plating,
-/area/engineering/shield_gen_bay)
-"ga" = (
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/structure/lattice,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/civilian/messhall/upper)
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/techmaint,
+/area/engineering/tcommsmon)
 "gb" = (
 /turf/simulated/floor/wood,
 /area/civilian/dorms/bedroom1)
@@ -851,6 +992,10 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/logistics/robotics)
+"gq" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on,
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/engineering/atmospherics/lower)
 "gr" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -858,6 +1003,12 @@
 "gt" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/logistics/lockers)
+"gu" = (
+/obj/structure/sign/directions/supply{
+	dir = 8
+	},
+/turf/simulated/wall/r_wall,
+/area/logistics/primtool)
 "gw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -876,15 +1027,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftport/second)
-"gB" = (
-/obj/machinery/atmospherics/binary/pump/high_power/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/upper)
-"gC" = (
-/turf/simulated/floor/tiled/techmaint,
-/area/pluto/maintenance/aftport/third)
 "gD" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -912,18 +1054,13 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/civilian/observatory)
-"gI" = (
-/obj/machinery/telecomms/server/presets/wyrm,
-/turf/simulated/floor/tiled/techmaint,
-/area/engineering/tcomms)
 "gJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftport/bottom)
 "gK" = (
-/obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/pluto/lifepod/bottom1)
+/turf/simulated/floor/tiled/techmaint,
+/area/engineering/shield_gen_bay)
 "gL" = (
 /turf/simulated/wall/r_wall,
 /area/pluto/maintenance/main_shaft_bottom)
@@ -942,6 +1079,12 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/civilian/library)
+"gS" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/civilian/cryo1)
 "gT" = (
 /obj/machinery/atmospherics/binary/passive_gate/on{
 	dir = 1;
@@ -979,12 +1122,6 @@
 "hb" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/locker)
-"hc" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/tool)
 "hd" = (
 /turf/simulated/floor/carpet/blue2,
 /area/command/meeting)
@@ -997,6 +1134,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftstar/second)
+"hg" = (
+/turf/simulated/wall/r_wall,
+/area/civilian/cryo_robot)
 "hh" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 6
@@ -1006,14 +1146,16 @@
 "hi" = (
 /turf/simulated/floor/plating,
 /area/pluto/gunnery/fore_gun)
-"hj" = (
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor/plating,
-/area/pluto/lifepod/bottom3)
 "hk" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/pluto/atmos)
+"hl" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/civilian/messhall/upper)
 "hm" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -1028,14 +1170,6 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/tiled/techfloor,
 /area/civilian/chapel)
-"hp" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 4;
-	icon_state = "shuttle_chair_preview";
-	tag = "icon-shuttle_chair_preview (EAST)"
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/pluto/lifepod/bottom4)
 "hq" = (
 /turf/simulated/floor/plating,
 /area/civilian/freezer)
@@ -1080,23 +1214,18 @@
 /turf/simulated/floor/tiled/old_cargo,
 /area/medical/surgery/a)
 "hE" = (
-/obj/structure/sign/directions/evac{
-	dir = 1
+/obj/machinery/door/airlock/autoname,
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/obj/structure/sign/directions/supply{
-	dir = 8;
-	pixel_y = 7
+/turf/simulated/floor/plating,
+/area/engineering/smes)
+"hG" = (
+/obj/machinery/atmospherics/unary/freezer{
+	dir = 8
 	},
-/obj/structure/sign/directions/security{
-	pixel_y = -7
-	},
-/turf/simulated/wall/r_wall,
-/area/logistics/prep)
-"hF" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics/lower)
 "hH" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -1127,6 +1256,12 @@
 "hN" = (
 /turf/simulated/floor/plating/airless,
 /area/pluto/gunnery/portside_gun)
+"hP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/engineering/atmospherics/lower)
 "hQ" = (
 /obj/structure/lattice,
 /turf/simulated/floor/plating/airless,
@@ -1168,10 +1303,6 @@
 /obj/structure/stairs/west,
 /turf/simulated/floor/plating,
 /area/hallway/central/bottom)
-"hY" = (
-/obj/machinery/power/terminal,
-/turf/simulated/floor/plating,
-/area/engineering/tcommsmon)
 "hZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/simulated/floor/plating,
@@ -1203,8 +1334,13 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/fuel_burn)
 "ii" = (
+/obj/structure/sign/directions/bridge,
+/turf/simulated/wall/r_wall,
+/area/hallway/fore/third_deck)
+"ij" = (
+/obj/machinery/telecomms/relay/preset/thirddeck,
 /turf/simulated/floor/plating,
-/area/engineering/gas_storage)
+/area/engineering/substation/first_deck)
 "ik" = (
 /obj/structure/lattice,
 /obj/structure/catwalk,
@@ -1216,29 +1352,19 @@
 "im" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/medical/ward)
-"in" = (
-/obj/machinery/power/smes/buildable,
-/turf/simulated/floor/tiled/techfloor,
-/area/command/aichamber)
 "io" = (
 /obj/structure/stairs/west,
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
-"ir" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+"iq" = (
+/obj/structure/shuttle/engine/propulsion/burst{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
-/area/pluto/maintenance/main_shaft_bottom)
+/area/pluto/lifepod/bottom3)
 "is" = (
 /turf/simulated/floor/plating,
 /area/security/prison)
-"it" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 6
-	},
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
 "iv" = (
 /obj/machinery/atmospherics/binary/pump/high_power/on{
 	dir = 1;
@@ -1251,9 +1377,12 @@
 /turf/simulated/floor/plating,
 /area/hallway/aft/third_deck)
 "iy" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled/techfloor,
-/area/hallway/central/third_star)
+/obj/machinery/bluespacerelay,
+/turf/simulated/floor/tiled/techmaint,
+/area/engineering/tcomms)
+"iz" = (
+/turf/simulated/floor/tiled/steel_ridged,
+/area/pluto/lifepod/bottom5)
 "iA" = (
 /turf/simulated/floor/plating,
 /area/turbolift/pluto/third_deck)
@@ -1273,6 +1402,11 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
+"iG" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/lattice,
+/turf/space,
+/area/engineering/engine/bdstar)
 "iH" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 9
@@ -1319,6 +1453,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/engineering/engine)
+"iS" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 2
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/engineering/atmospherics/lower)
 "iT" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet,
@@ -1333,25 +1473,36 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/civilian/messhall)
+"iX" = (
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/civilian/cryo1)
 "iZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/engineering/engine/tdstar)
-"jb" = (
-/obj/machinery/cryopod/robot,
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/civilian/cryo_robot)
 "jc" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/command/safe_room/a)
+"je" = (
+/obj/machinery/sleeper{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/old_cargo,
+/area/pluto/lifepod/bottom3)
 "jf" = (
 /obj/machinery/door/airlock/external/glass,
 /turf/simulated/floor/plating,
 /area/hallway/commandstarboard)
 "jh" = (
-/turf/simulated/floor/tiled/techfloor,
-/area/civilian/cryo_robot)
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine/port)
 "ji" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
@@ -1369,25 +1520,16 @@
 	},
 /turf/simulated/open,
 /area/pluto/maintenance/aftport/third)
-"jk" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine/port)
 "jl" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/forestar/bottom)
-"jm" = (
-/obj/effect/floor_decal/industrial/warning{
+"jn" = (
+/obj/structure/shuttle/engine/propulsion{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/smes)
-"jn" = (
-/turf/simulated/wall/r_wall,
-/area/engineering/tcomms)
+/turf/simulated/floor/plating,
+/area/pluto/lifepod/bottom5)
 "jo" = (
 /obj/structure/ladder/up,
 /turf/simulated/floor/tiled/techmaint,
@@ -1395,6 +1537,12 @@
 "jp" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/engineering/first_deck_storage)
+"jq" = (
+/obj/structure/shuttle/engine/propulsion{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/pluto/lifepod/bottom5)
 "jr" = (
 /obj/structure/lattice,
 /obj/structure/lattice,
@@ -1414,26 +1562,28 @@
 "jw" = (
 /turf/simulated/wall/r_wall,
 /area/command/headquarters)
-"jx" = (
-/obj/structure/catwalk,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/civilian/hydro/upper)
 "jy" = (
 /turf/simulated/floor/reinforced,
 /area/pluto/gunnery/bottom_starboard_gun)
 "jA" = (
 /turf/simulated/wall/r_wall,
 /area/medical/storage)
+"jB" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/techfloor,
+/area/hallway/central/third_star)
 "jC" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/simulated/floor/plating/airless,
 /area/engineering/fuelbay)
 "jE" = (
-/turf/simulated/floor/tiled/steel_grid,
-/area/security/forensics)
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/pluto/lifepod/bottom4)
+"jF" = (
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/civilian/cryo_robot)
 "jJ" = (
 /turf/simulated/wall/r_wall,
 /area/command/meeting)
@@ -1458,19 +1608,42 @@
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/plating,
 /area/engineering/engine)
+"jP" = (
+/obj/structure/sign/directions/medical{
+	dir = 4
+	},
+/obj/structure/sign/directions/bridge{
+	pixel_y = -7
+	},
+/obj/structure/sign/directions/engineering{
+	dir = 1;
+	pixel_y = 7
+	},
+/turf/simulated/wall/r_wall,
+/area/hallway/aft/second_deck)
 "jQ" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/medical/locker)
 "jR" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
+"jS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 10
 	},
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
-/area/engineering/engine/tdstar)
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/lobby)
 "jT" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/civilian/messhall)
@@ -1482,31 +1655,15 @@
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/plating,
 /area/logistics/fabwork)
-"jV" = (
-/turf/simulated/floor/tiled/old_cargo,
-/area/engineering/tcomms)
 "jW" = (
-/obj/machinery/door/airlock/autoname,
-/obj/structure/cable/orange{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_monitoring)
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/structure/catwalk,
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
 "jY" = (
 /turf/simulated/floor/plating,
 /area/pluto/gunnery/bottom_starboard_gun)
-"jZ" = (
-/turf/simulated/wall/r_wall,
-/area/engineering/gas_storage)
-"ka" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine/tdstar)
-"kb" = (
-/turf/simulated/floor/reinforced/n20,
-/area/engineering/atmospherics/lower)
 "kc" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/lowercargo)
@@ -1520,13 +1677,12 @@
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/fuel_burn)
 "kf" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/techmaint,
-/area/logistics/lowercargo)
+/turf/simulated/wall/r_wall,
+/area/engineering/tcomms)
 "ki" = (
-/obj/machinery/door/airlock/autoname,
-/turf/simulated/floor/plating,
-/area/engineering/shield_gen_bay)
+/obj/structure/sign/directions/bridge,
+/turf/simulated/wall/r_wall,
+/area/command/meeting)
 "kj" = (
 /turf/simulated/wall/r_wall,
 /area/pluto/maintenance/aftstar/bottom)
@@ -1564,6 +1720,10 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/fuel_burn)
+"kq" = (
+/obj/machinery/computer/fusion_fuel_control,
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/engine_monitoring)
 "kr" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -1588,13 +1748,13 @@
 	icon_state = "grass2"
 	},
 /area/hallway/aft/second_deck)
-"kv" = (
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor/plating,
-/area/pluto/lifepod/bottom4)
 "kw" = (
 /turf/simulated/wall/titanium,
 /area/exploration_shuttle/pluto/cockpit)
+"ky" = (
+/obj/effect/shuttle_landmark/cargo_lift_pluto/top,
+/turf/simulated/open,
+/area/logistics/uppercargo)
 "kz" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -1618,18 +1778,22 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/airless,
 /area/space)
-"kD" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/open,
-/area/civilian/messhall/upper)
 "kF" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/centralport/second)
+"kH" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/grass{
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass2"
+	},
+/area/civilian/hydro)
+"kI" = (
+/turf/simulated/floor/tiled/steel_ridged,
+/area/pluto/lifepod/bottom1)
 "kJ" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -1639,16 +1803,8 @@
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/main_shaft_top)
 "kL" = (
-/obj/structure/catwalk,
-/obj/machinery/power/apc{
-	pixel_y = -24
-	},
-/obj/structure/cable/orange{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine)
+/turf/simulated/floor/tiled/techfloor,
+/area/logistics/fabwork)
 "kM" = (
 /obj/structure/railing{
 	dir = 4
@@ -1658,6 +1814,28 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine)
+"kO" = (
+/obj/structure/sign/directions/medical{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/medical/treatment)
+"kP" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
+"kQ" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/techfloor,
+/area/civilian/cryo1)
 "kR" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 8;
@@ -1708,30 +1886,27 @@
 /obj/machinery/self_destruct,
 /turf/simulated/floor/blackgrid,
 /area/command/nuke_storage)
-"lb" = (
-/obj/structure/sign/directions/bridge,
-/obj/structure/sign/directions/engineering{
-	dir = 1;
-	pixel_y = 7
-	},
-/turf/simulated/wall/r_wall,
-/area/hallway/aft/third_deck)
 "lc" = (
-/obj/structure/railing{
-	dir = 8
+/obj/effect/catwalk_plated/dark,
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 5
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/engineering/engine)
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics/mon)
 "ld" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/medical/examroom)
 "le" = (
-/turf/simulated/floor/reinforced/carbon_dioxide,
-/area/engineering/atmospherics/lower)
+/turf/simulated/floor/tiled/steel_grid,
+/area/cargo_lift/pluto/lift)
 "lf" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -1752,8 +1927,12 @@
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/main_shaft_mid)
 "li" = (
-/turf/simulated/wall/r_wall,
-/area/pluto/lifepod/bottom2)
+/obj/machinery/computer/shuttle_control/cargo_lift_pluto,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/logistics/lowercargo)
 "lj" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/security/break_room)
@@ -1761,6 +1940,10 @@
 /obj/machinery/door/airlock/external/glass,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftstar/second)
+"ll" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor/plating,
+/area/engineering/fuel_burn)
 "lm" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/first_deck_storage)
@@ -1793,12 +1976,15 @@
 	},
 /turf/simulated/open,
 /area/logistics/uppercargo)
-"lt" = (
-/turf/simulated/wall/r_wall,
-/area/engineering/tcommsmon)
 "lu" = (
 /turf/simulated/wall/r_wall,
 /area/security/boardarmoury)
+"lv" = (
+/obj/machinery/atmospherics/valve/digital{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "lw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/simulated/wall/r_wall,
@@ -1844,6 +2030,12 @@
 "lH" = (
 /turf/simulated/wall/r_wall,
 /area/medical/locker)
+"lI" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/oxygen,
+/area/engineering/atmospherics/lower)
 "lK" = (
 /obj/structure/railing{
 	dir = 1
@@ -1851,9 +2043,8 @@
 /turf/simulated/open,
 /area/medical/treatment)
 "lL" = (
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/tiled/techfloor,
-/area/logistics/uppercargo)
+/turf/simulated/wall/r_wall,
+/area/engineering/shield_gen_bay)
 "lM" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/fuel,
 /turf/simulated/floor/plating,
@@ -1881,13 +2072,9 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/hallway/central/second_star)
 "lX" = (
-/obj/structure/catwalk,
-/obj/structure/lattice,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/engineering/smes/upper)
+/obj/structure/sign/directions/evac,
+/turf/simulated/wall/r_wall,
+/area/hallway/aft/second_deck)
 "lZ" = (
 /turf/simulated/floor/plating,
 /area/engineering/engine)
@@ -1900,17 +2087,21 @@
 /turf/simulated/floor/plating,
 /area/civilian/counselor)
 "mc" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/logistics/lowercargo)
+/turf/simulated/floor/tiled/steel_grid,
+/area/security/forensics)
 "md" = (
-/obj/machinery/light{
-	dir = 4
+/obj/structure/sign/directions/evac{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/techfloor,
-/area/hallway/aft/third_deck)
+/obj/structure/sign/directions/supply{
+	dir = 8;
+	pixel_y = 7
+	},
+/obj/structure/sign/directions/security{
+	pixel_y = -7
+	},
+/turf/simulated/wall/r_wall,
+/area/logistics/prep)
 "me" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/break_room)
@@ -1983,6 +2174,16 @@
 "mu" = (
 /turf/simulated/floor/wood,
 /area/civilian/messhall)
+"mw" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gas_storage)
+"mx" = (
+/obj/structure/catwalk,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/open,
+/area/civilian/hydro/upper)
 "mB" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/pluto/gunnery/bottom_portside_gun)
@@ -2004,15 +2205,21 @@
 /turf/simulated/floor/plating,
 /area/civilian/janitor)
 "mH" = (
-/obj/effect/catwalk_plated/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+/obj/machinery/sleeper{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/turf/simulated/floor/tiled/old_cargo,
+/area/pluto/lifepod/bottom1)
+"mI" = (
+/obj/structure/sign/directions/security{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/engineering/atmospherics/mon)
+/obj/structure/sign/directions/evac{
+	dir = 1;
+	pixel_y = 7
+	},
+/turf/simulated/wall/r_wall,
+/area/hallway/central/bottom)
 "mJ" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -2026,20 +2233,19 @@
 	icon_state = "grass2"
 	},
 /area/hallway/aft/second_deck)
-"mL" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 5;
-	level = 2
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/upper)
 "mM" = (
-/obj/machinery/ntnet_relay,
-/turf/simulated/floor/tiled/techmaint,
-/area/engineering/tcomms)
+/obj/structure/sign/directions/medical{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/hallway/aft/third_deck)
 "mN" = (
 /turf/simulated/wall/r_wall,
 /area/civilian/freezer)
+"mO" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/civilian/cryo1)
 "mR" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/tiled/techfloor,
@@ -2075,13 +2281,6 @@
 /obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/tiled/techfloor,
 /area/civilian/personal)
-"ng" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 9
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/upper)
 "nh" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 9
@@ -2091,33 +2290,17 @@
 "ni" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/advwork)
-"nj" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/lower)
 "nk" = (
-/obj/structure/sign/directions/security{
-	dir = 1
+/obj/structure/lattice,
+/obj/structure/lattice,
+/obj/machinery/light{
+	dir = 8
 	},
-/obj/structure/sign/directions/engineering{
-	dir = 1;
-	pixel_y = 7
-	},
-/obj/structure/sign/directions/supply{
-	dir = 1;
-	pixel_y = -7
-	},
-/turf/simulated/wall/r_wall,
-/area/hallway/fore/second_deck)
+/turf/simulated/open,
+/area/civilian/messhall/upper)
 "nl" = (
 /turf/simulated/wall/r_wall,
 /area/pluto/maintenance/fore/third)
-"nm" = (
-/obj/structure/ladder/up,
-/turf/simulated/floor/tiled/techfloor,
-/area/security/break_room)
 "nn" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/civilian/personal)
@@ -2125,15 +2308,13 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/wall/r_wall,
 /area/hallway/central/bottom)
-"nq" = (
-/obj/structure/cable/orange{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/warning{
+"np" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/engineering/engine)
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
 "nr" = (
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/pluto/cargo)
@@ -2150,16 +2331,12 @@
 	},
 /turf/simulated/floor/plating/airless,
 /area/engineering/engine/tdstar)
-"nw" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 4
-	},
+"nx" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 8
 	},
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
+/turf/simulated/floor/tiled/techfloor,
+/area/hallway/aft/third_deck)
 "ny" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -2168,12 +2345,6 @@
 /obj/structure/table/steel_reinforced,
 /turf/simulated/floor/tiled/techfloor,
 /area/command/bridge)
-"nA" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/civilian/personal)
 "nB" = (
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/pluto/power)
@@ -2199,12 +2370,15 @@
 "nH" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/hallway/aft/bottom)
-"nK" = (
-/obj/machinery/light{
+"nJ" = (
+/obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/civilian/personal)
+/turf/simulated/floor/tiled/techmaint,
+/area/logistics/lowercargo)
+"nL" = (
+/turf/simulated/floor/tiled/techfloor,
+/area/logistics/lowercargo)
 "nM" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
 	dir = 4
@@ -2225,18 +2399,31 @@
 "nQ" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/civilian/cryo1)
+"nR" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/upper)
 "nT" = (
 /turf/simulated/wall/r_wall,
 /area/pluto/gunnery/fore_gun)
+"nW" = (
+/turf/simulated/wall/r_wall,
+/area/pluto/lifepod/bottom5)
 "nX" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
-	dir = 10
-	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/mon)
+"nY" = (
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/engineering/engine/bdstar)
+/turf/simulated/floor/tiled/techmaint,
+/area/hallway/central/second_star)
 "nZ" = (
 /obj/structure/table/steel_reinforced,
 /obj/structure/table/steel_reinforced,
@@ -2252,6 +2439,13 @@
 /obj/machinery/clonepod,
 /turf/simulated/floor/tiled/steel_grid,
 /area/medical/cloning)
+"oe" = (
+/obj/machinery/door/airlock/autoname,
+/obj/structure/cable/orange{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_monitoring)
 "og" = (
 /turf/simulated/wall/r_wall,
 /area/pluto/maintenance/aftport/third)
@@ -2266,9 +2460,15 @@
 	},
 /turf/simulated/open,
 /area/command/bridgeupper)
-"oj" = (
+"ok" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/mon)
+/area/engineering/smes)
 "om" = (
 /turf/simulated/floor/plating,
 /area/engineering/engine/port)
@@ -2276,12 +2476,17 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "oo" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/logistics/uppercargo)
-"oq" = (
-/turf/simulated/floor/tiled/techmaint,
-/area/pluto/lifepod/bottom5)
+/area/civilian/kitchen)
+"op" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/tool)
 "or" = (
 /turf/simulated/floor/plating,
 /area/engineering/first_deck_storage)
@@ -2311,19 +2516,42 @@
 "oz" = (
 /turf/simulated/floor/plating,
 /area/engineering/atmospherics/lower)
-"oA" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
-/turf/simulated/floor/plating,
-/area/engineering/gas_storage)
+"oB" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/lattice,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/civilian/messhall/upper)
 "oC" = (
 /turf/simulated/floor/plating,
 /area/command/storage)
+"oD" = (
+/obj/machinery/telecomms/hub/preset/nerva,
+/turf/simulated/floor/tiled/techmaint,
+/area/engineering/tcomms)
+"oE" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/tcommsmon)
 "oF" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/command/teleporter)
 "oH" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/command/bodyguard)
+"oJ" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/machinery/light/small/red,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/smes)
 "oL" = (
 /turf/simulated/wall/r_wall,
 /area/command/aichamber)
@@ -2356,15 +2584,14 @@
 "oU" = (
 /turf/simulated/wall/r_wall,
 /area/pluto/maintenance/foreport/bottom)
-"oW" = (
-/obj/machinery/light{
-	dir = 1
+"oV" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 9
 	},
-/turf/simulated/floor/grass{
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass2"
-	},
-/area/civilian/hydro)
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
 "oY" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
@@ -2388,10 +2615,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/fabwork)
-"ph" = (
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/pluto/maintenance/aftport/third)
 "pi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
@@ -2416,6 +2639,11 @@
 	icon_state = "grass2"
 	},
 /area/hallway/central/second_star)
+"po" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/pluto/maintenance/main_shaft_bottom)
 "pp" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/engineering/tool)
@@ -2432,12 +2660,18 @@
 /turf/simulated/floor/plating/airless,
 /area/engineering/engine/tdport)
 "px" = (
-/turf/simulated/floor/tiled/steel_grid,
-/area/engineering/tcommsmon)
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "pz" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/command/bridge)
+"pB" = (
+/turf/simulated/floor/tiled/techmaint,
+/area/pluto/maintenance/aftport/third)
 "pC" = (
 /turf/simulated/wall/r_wall,
 /area/civilian/exercise)
@@ -2453,12 +2687,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/civilian/messhall)
-"pG" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/hallway/aft/second_deck)
 "pH" = (
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
@@ -2466,12 +2694,6 @@
 /obj/structure/table/steel_reinforced,
 /turf/simulated/floor/carpet/orange,
 /area/engineering/break_room)
-"pL" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/logistics/lowercargo)
 "pM" = (
 /obj/structure/ladder/up,
 /turf/simulated/floor/plating,
@@ -2543,12 +2765,25 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/main_shaft_bottom)
+"qk" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/hydrogen,
+/area/engineering/atmospherics/lower)
 "ql" = (
-/obj/structure/sign/directions/evac{
-	dir = 1
+/obj/structure/sign/directions/supply{
+	dir = 8
+	},
+/obj/structure/sign/directions/security{
+	pixel_y = -7
+	},
+/obj/structure/sign/directions/engineering{
+	dir = 1;
+	pixel_y = 7
 	},
 /turf/simulated/wall/r_wall,
-/area/hallway/aft/bottom)
+/area/hallway/aft/second_deck)
 "qn" = (
 /turf/simulated/open,
 /area/command/headquarters)
@@ -2569,12 +2804,22 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/engine/bdport)
-"qz" = (
-/obj/structure/shuttle/engine/propulsion/burst{
+"qx" = (
+/obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
+"qz" = (
+/obj/machinery/atmospherics/unary/heater{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
-/area/pluto/lifepod/bottom1)
+/area/engineering/atmospherics/lower)
 "qA" = (
 /obj/structure/railing{
 	dir = 2
@@ -2596,6 +2841,12 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/engineering/lobby)
+"qF" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine/tdport)
 "qI" = (
 /turf/simulated/wall/r_wall,
 /area/hallway/central/bottom)
@@ -2612,6 +2863,9 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/centralport/second)
+"qM" = (
+/turf/simulated/floor/tiled/steel_ridged,
+/area/pluto/lifepod/bottom3)
 "qN" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
@@ -2621,20 +2875,42 @@
 "qO" = (
 /turf/simulated/wall/r_wall,
 /area/medical/extstorage)
-"qU" = (
-/obj/structure/sign/directions/medical{
-	dir = 1
+"qQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4;
+	icon_state = "intact"
 	},
-/obj/structure/sign/directions/engineering{
-	dir = 1;
-	pixel_y = 7
+/obj/structure/cable/green{
+	icon_state = "0-8"
 	},
-/turf/simulated/wall/r_wall,
-/area/hallway/fore/second_deck)
+/obj/machinery/power/apc{
+	dir = 4;
+	pixel_x = 24;
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/mon)
+"qR" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 4;
+	icon_state = "shuttle_chair_preview";
+	tag = "icon-shuttle_chair_preview (EAST)"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/pluto/lifepod/bottom5)
 "qV" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/logistics/fabwork)
+"qW" = (
+/obj/machinery/sleeper{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/old_cargo,
+/area/pluto/lifepod/bottom4)
 "qY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2644,6 +2920,9 @@
 "qZ" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/engine_monitoring)
+"ra" = (
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/civilian/cryo_robot)
 "rf" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/fuel,
 /turf/simulated/floor/plating,
@@ -2659,6 +2938,12 @@
 	},
 /turf/simulated/open,
 /area/engineering/atmospherics/upper)
+"rm" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/fuelbay)
 "rn" = (
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/centralstar/third)
@@ -2667,15 +2952,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/reinforced/airless,
 /area/space)
-"rq" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/engineering/engine)
 "rs" = (
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
@@ -2715,11 +2991,9 @@
 /turf/simulated/floor/plating,
 /area/medical/morgue)
 "rE" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/plating,
+/area/pluto/lifepod/bottom3)
 "rG" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/techstorage)
@@ -2738,10 +3012,15 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/engineering/engine)
-"rK" = (
-/obj/structure/table/rack,
-/turf/simulated/floor/tiled/old_cargo,
-/area/civilian/bath)
+"rJ" = (
+/obj/machinery/atmospherics/binary/pump/high_power/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/upper)
 "rL" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -2749,14 +3028,6 @@
 "rM" = (
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
-"rP" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 8;
-	icon_state = "shuttle_chair_preview";
-	tag = "icon-shuttle_chair_preview (WEST)"
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/pluto/lifepod/bottom2)
 "rQ" = (
 /turf/simulated/floor/plating/airless,
 /area/engineering/fuelbay)
@@ -2779,29 +3050,29 @@
 /obj/machinery/door/airlock/external/glass,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftport/third)
-"rZ" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+"rV" = (
+/obj/machinery/telecomms/broadcaster/preset_wyrm,
+/turf/simulated/floor/tiled/techmaint,
+/area/engineering/tcomms)
+"rW" = (
+/obj/structure/railing{
 	dir = 4
 	},
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
-"sb" = (
-/obj/structure/hygiene/shower{
-	dir = 4
+/obj/structure/railing{
+	dir = 2
 	},
-/obj/structure/curtain/open/shower,
-/turf/simulated/floor/tiled/old_cargo,
-/area/civilian/bath/showers)
-"sd" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/hallway/aft/third_deck)
-"se" = (
-/obj/effect/wallframe_spawn,
 /turf/simulated/floor/plating,
-/area/pluto/maintenance/aftport/third)
+/area/engineering/engine_monitoring)
+"sc" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/planet,
+/area/civilian/personal)
+"sd" = (
+/obj/machinery/door/airlock/autoname,
+/turf/simulated/floor/plating,
+/area/engineering/tcommsmon)
 "sh" = (
 /obj/structure/catwalk,
 /obj/structure/cable/orange{
@@ -2809,10 +3080,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/smes)
-"si" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled/techfloor,
-/area/hallway/aft/third_deck)
 "sk" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -2847,38 +3114,46 @@
 /obj/structure/AIcore,
 /turf/simulated/floor/bluegrid,
 /area/command/aicore)
-"sq" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/lower)
 "ss" = (
 /turf/simulated/wall/r_wall,
 /area/logistics/lowercargo)
 "st" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/logistics/robotics)
+"su" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hallway/central/third_star)
 "sv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /turf/simulated/floor/tiled/techfloor,
 /area/engineering/lobby)
+"sx" = (
+/turf/simulated/wall/r_wall,
+/area/pluto/lifepod/bottom3)
 "sy" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine/bdport)
-"sA" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 6
+"sz" = (
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
+/turf/simulated/floor/plating,
+/area/engineering/engine/bdstar)
+"sA" = (
+/obj/machinery/light/small/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/pluto/maintenance/centralport/third)
 "sB" = (
 /turf/simulated/floor/plating,
 /area/engineering/engine/star)
@@ -2890,20 +3165,20 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/techfloor,
 /area/medical/morgue)
+"sE" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/cyan{
+	dir = 4
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
 "sF" = (
 /turf/simulated/floor/wood,
 /area/command/meeting)
 "sG" = (
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftstar/bottom)
-"sH" = (
-/obj/structure/catwalk,
-/obj/structure/lattice,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/open,
-/area/engineering/smes/upper)
 "sJ" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/hallway/aft/bottom)
@@ -2916,35 +3191,46 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/engineering/substation/first_deck)
+"sM" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/pluto/maintenance/aftport/third)
+"sN" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 6
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
 "sO" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/civilian/personal)
-"sQ" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 16
-	},
-/obj/structure/cable/orange{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_monitoring)
+"sP" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/techfloor,
+/area/civilian/personal)
 "sR" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/command/hop)
 "sU" = (
-/turf/simulated/wall/r_wall,
-/area/engineering/shield_gen_bay)
+/obj/machinery/r_n_d/server/core,
+/turf/simulated/floor/tiled/techmaint,
+/area/engineering/tcomms)
 "sV" = (
 /obj/machinery/cryopod{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/civilian/cryo1)
+"sW" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/engineering/fuel_burn)
 "sX" = (
 /obj/structure/cable/orange{
 	icon_state = "1-2"
@@ -2957,13 +3243,10 @@
 "sZ" = (
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/pluto/atmos)
-"ta" = (
-/obj/structure/catwalk,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/open,
-/area/civilian/hydro/upper)
+"tb" = (
+/obj/machinery/computer/telecomms/monitor,
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/tcommsmon)
 "tc" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/hallway/commandoffices)
@@ -2986,12 +3269,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmospherics/lower)
-"tg" = (
-/obj/machinery/sleeper{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/old_cargo,
-/area/pluto/lifepod/bottom4)
 "th" = (
 /turf/simulated/wall/r_wall,
 /area/pluto/maintenance/centralstar/second)
@@ -3060,22 +3337,17 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/medical/break_room)
+"tv" = (
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 1;
+	tag_north = 5;
+	tag_south = 2
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "tx" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/command/headquarters)
-"ty" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/grass{
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass2"
-	},
-/area/civilian/hydro)
-"tz" = (
-/obj/structure/flora/pottedplant/large,
-/turf/simulated/floor/tiled/steel_grid,
-/area/medical/lobby)
 "tA" = (
 /turf/simulated/floor/plating,
 /area/pluto/gunnery/starboard_gun)
@@ -3091,12 +3363,12 @@
 /area/pluto/gunnery/hall_top)
 "tE" = (
 /obj/structure/bed/chair/shuttle{
-	dir = 4;
+	dir = 1;
 	icon_state = "shuttle_chair_preview";
 	tag = "icon-shuttle_chair_preview (EAST)"
 	},
 /turf/simulated/floor/tiled/techfloor,
-/area/pluto/lifepod/bottom3)
+/area/pluto/lifepod/bottom5)
 "tF" = (
 /obj/machinery/nuclearbomb{
 	name = "AI Loyalty Assurance Device"
@@ -3129,15 +3401,15 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/central/bottom)
-"tN" = (
-/obj/machinery/door/airlock/autoname,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/engineering/substation/third_deck)
 "tO" = (
 /turf/simulated/wall/r_wall,
 /area/logistics/qm)
+"tQ" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine/bdstar)
 "tR" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/command/meeting)
@@ -3147,13 +3419,16 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/engineering/lobby)
-"tT" = (
-/obj/structure/sign/directions/security,
-/obj/structure/sign/directions/supply{
-	pixel_y = -7
+"tV" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
 	},
-/turf/simulated/wall/r_wall,
-/area/civilian/hydro/upper)
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "tX" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -3161,16 +3436,9 @@
 "tZ" = (
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftstar/second)
-"ub" = (
-/obj/machinery/conveyor_switch/oneway{
-	convdir = 1;
-	id = "smelt"
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/logistics/fabwork)
 "uc" = (
 /turf/simulated/wall/r_wall,
-/area/civilian/cryo_robot)
+/area/pluto/lifepod/bottom4)
 "ud" = (
 /obj/structure/railing{
 	dir = 4
@@ -3197,12 +3465,6 @@
 /obj/structure/stairs/south,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftstar/bottom)
-"uj" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/hallway/aft/second_deck)
 "uk" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3220,11 +3482,9 @@
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftstar/third)
 "un" = (
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/machinery/power/smes/buildable,
 /turf/simulated/floor/plating,
-/area/engineering/engine/bdstar)
+/area/engineering/tcommsmon)
 "uo" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -3273,10 +3533,6 @@
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftport/third)
-"uC" = (
-/obj/machinery/door/airlock/autoname,
-/turf/simulated/floor/plating,
-/area/engineering/smes)
 "uD" = (
 /obj/structure/catwalk,
 /obj/structure/lattice,
@@ -3292,6 +3548,12 @@
 "uG" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/security/prison)
+"uH" = (
+/obj/effect/landmark/map_data{
+	height = 3
+	},
+/turf/space,
+/area/space)
 "uI" = (
 /obj/structure/table/marble,
 /turf/simulated/floor/tiled/techmaint,
@@ -3302,16 +3564,31 @@
 "uK" = (
 /turf/simulated/wall/r_wall,
 /area/hallway/central/second_port)
+"uL" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/hydrogen,
+/area/engineering/atmospherics/lower)
+"uM" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/grass{
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass2"
+	},
+/area/civilian/hydro)
 "uN" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/civilian/personal)
+"uP" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/engineering/tcommsmon)
 "uQ" = (
 /turf/simulated/floor/tiled/old_tile,
 /area/medical/treatment)
-"uS" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/floor/plating,
-/area/engineering/tcomms)
 "uT" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/hallway/central/second_star)
@@ -3365,9 +3642,13 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine/bdport)
 "vl" = (
-/obj/machinery/light,
+/obj/structure/bed/chair/shuttle{
+	dir = 8;
+	icon_state = "shuttle_chair_preview";
+	tag = "icon-shuttle_chair_preview (WEST)"
+	},
 /turf/simulated/floor/tiled/techfloor,
-/area/civilian/cryo1)
+/area/pluto/lifepod/bottom5)
 "vm" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/mailing)
@@ -3391,20 +3672,28 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine/port)
 "vt" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/obj/structure/catwalk,
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
+/obj/structure/sign/directions/medical{
+	dir = 1
+	},
+/obj/structure/sign/directions/engineering{
+	dir = 1;
+	pixel_y = 7
+	},
+/turf/simulated/wall/r_wall,
+/area/hallway/fore/second_deck)
+"vu" = (
+/turf/simulated/floor/plating,
+/area/engineering/gas_storage)
 "vv" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/old_cargo,
 /area/medical/chemistry)
-"vx" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green{
-	dir = 9
+"vy" = (
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmospherics/lower)
+/area/engineering/engine/tdport)
 "vA" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
@@ -3434,6 +3723,9 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/engineering/atmospherics/lower)
+"vE" = (
+/turf/simulated/floor/plating,
+/area/pluto/lifepod/bottom5)
 "vF" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/engineering/engine)
@@ -3457,23 +3749,19 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/fuel_burn)
+"vN" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/logistics/lowercargo)
 "vO" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/logistics/mailing)
-"vP" = (
-/obj/machinery/blackbox_recorder,
-/turf/simulated/floor/tiled/techmaint,
-/area/engineering/tcommsmon)
 "vQ" = (
 /turf/simulated/floor/tiled/steel_ridged,
 /area/medical/lobby)
-"vR" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/lobby)
 "vS" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/techmaint,
@@ -3488,11 +3776,15 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine/port)
 "vV" = (
-/obj/structure/sign/directions/medical{
-	dir = 4
+/obj/structure/shuttle/engine/propulsion/burst{
+	dir = 8
 	},
-/turf/simulated/wall/r_wall,
-/area/medical/lobby)
+/turf/simulated/floor/plating,
+/area/pluto/lifepod/bottom4)
+"vW" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/tiled/techfloor,
+/area/logistics/uppercargo)
 "vX" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3503,12 +3795,22 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/civilian/counselor)
+"wa" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hallway/aft/second_deck)
 "wb" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/civilian/observatory)
 "wd" = (
 /turf/simulated/floor/carpet/red,
 /area/civilian/messhall)
+"we" = (
+/obj/machinery/ntnet_relay,
+/turf/simulated/floor/tiled/techmaint,
+/area/engineering/tcomms)
 "wf" = (
 /obj/structure/grille,
 /turf/simulated/floor/plating/airless,
@@ -3533,6 +3835,9 @@
 	},
 /turf/simulated/open,
 /area/logistics/uppercargo)
+"wq" = (
+/turf/simulated/floor/plating,
+/area/civilian/cryo_robot)
 "wr" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -3554,9 +3859,26 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/central/second_star)
-"wy" = (
-/turf/simulated/floor/tiled/techfloor,
+"ww" = (
+/obj/structure/lattice,
+/obj/structure/catwalk,
+/obj/machinery/light/small/red,
+/turf/simulated/open,
+/area/civilian/messhall/upper)
+"wx" = (
+/obj/machinery/power/smes/buildable,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
 /area/engineering/smes)
+"wy" = (
+/obj/machinery/telecomms/relay/preset/firstdeck,
+/turf/simulated/floor/plating,
+/area/engineering/substation/third_deck)
 "wz" = (
 /obj/structure/catwalk,
 /turf/simulated/open,
@@ -3564,6 +3886,13 @@
 "wA" = (
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring)
+"wB" = (
+/obj/machinery/power/smes/buildable,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics/lower)
 "wC" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/medical/surgery/a)
@@ -3586,42 +3915,28 @@
 /obj/machinery/door/airlock/external/glass,
 /turf/simulated/floor/plating,
 /area/courier_shuttle/pluto/utility)
-"wM" = (
-/obj/effect/catwalk_plated/dark,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/engineering/atmospherics/mon)
 "wN" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/civilian/kitchen)
-"wO" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 5
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/upper)
 "wP" = (
 /turf/simulated/wall/r_wall,
 /area/civilian/hydro)
 "wQ" = (
-/obj/structure/shuttle/engine/propulsion/burst{
-	dir = 8
+/obj/machinery/light{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/pluto/lifepod/bottom3)
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/break_room)
 "wS" = (
 /turf/simulated/floor/plating,
 /area/pluto/gunnery/hall_top)
-"wU" = (
-/obj/machinery/light{
-	dir = 1
+"wT" = (
+/obj/machinery/door/airlock/autoname,
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/wood,
-/area/civilian/messhall/upper)
+/turf/simulated/floor/plating,
+/area/engineering/smes)
 "wV" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -3636,29 +3951,12 @@
 "wY" = (
 /turf/simulated/open,
 /area/command/bridgeupper)
-"wZ" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine/tdport)
 "xb" = (
 /turf/simulated/open,
 /area/turbolift/pluto/second_deck)
 "xc" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/logistics/uppercargo)
-"xd" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 8;
-	icon_state = "shuttle_chair_preview";
-	tag = "icon-shuttle_chair_preview (WEST)"
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/pluto/lifepod/bottom5)
 "xe" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 1
@@ -3679,6 +3977,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/logistics/fabwork)
+"xj" = (
+/obj/effect/catwalk_plated/dark,
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics/mon)
 "xk" = (
 /obj/machinery/computer/cloning,
 /turf/simulated/floor/tiled/steel_grid,
@@ -3691,14 +4000,6 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/command/bottom_hallway)
-"xn" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel,
-/obj/machinery/atmospherics/pipe/simple/visible/fuel,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine/port)
 "xo" = (
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/airless,
@@ -3709,11 +4010,12 @@
 /turf/space,
 /area/space)
 "xr" = (
-/obj/structure/sign/directions/supply{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
 	},
-/turf/simulated/wall/r_wall,
-/area/logistics/primtool)
+/turf/simulated/floor/tiled/techmaint,
+/area/logistics/lowercargo)
 "xs" = (
 /obj/structure/stairs/east,
 /turf/simulated/floor/plating,
@@ -3725,6 +4027,10 @@
 "xu" = (
 /turf/simulated/open,
 /area/pluto/gunnery/hall_top)
+"xv" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/plating,
+/area/pluto/lifepod/bottom2)
 "xz" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/techfloor,
@@ -3772,11 +4078,6 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel,
 /turf/simulated/floor/plating,
 /area/engineering/engine/bdstar)
-"xM" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/zpipe/down,
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
 "xO" = (
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/fore/third)
@@ -3790,9 +4091,14 @@
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/pluto/crew)
 "xR" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/railing{
+	dir = 2
+	},
+/obj/structure/railing{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
-/area/pluto/lifepod/bottom2)
+/area/pluto/maintenance/aftport/third)
 "xT" = (
 /turf/simulated/wall/r_wall,
 /area/pluto/gunnery/starboard_gun)
@@ -3802,12 +4108,13 @@
 "xY" = (
 /turf/simulated/wall/r_wall,
 /area/pluto/maintenance/forestar/bottom)
-"ya" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+"xZ" = (
+/obj/machinery/conveyor_switch/oneway{
+	convdir = 1;
+	id = "smelt"
 	},
-/turf/simulated/floor/tiled/techmaint,
-/area/logistics/lowercargo)
+/turf/simulated/floor/tiled/techfloor,
+/area/logistics/fabwork)
 "yc" = (
 /turf/simulated/wall/r_wall,
 /area/command/safe_room/b)
@@ -3815,6 +4122,12 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/pluto/cockpit)
+"yf" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine/tdstar)
 "yh" = (
 /obj/structure/railing{
 	dir = 1
@@ -3858,25 +4171,35 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/fuel_burn)
-"yw" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/green,
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/upper)
-"yx" = (
-/obj/structure/sign/directions/security{
-	dir = 8
+"yv" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 4
 	},
-/turf/simulated/wall/r_wall,
-/area/hallway/central/second_star)
+/turf/simulated/floor/reinforced/nitrogen,
+/area/engineering/atmospherics/lower)
+"yy" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/autoname,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics/mon)
 "yz" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/civilian/messhall)
 "yA" = (
-/obj/machinery/light{
-	dir = 8
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 6
 	},
-/turf/simulated/floor/tiled/techfloor,
-/area/hallway/central/second_star)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
 "yB" = (
 /turf/simulated/floor/tiled/old_cargo,
 /area/logistics/robotics)
@@ -3897,12 +4220,19 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftport/bottom)
+"yF" = (
+/obj/effect/shuttle_landmark/pluto/hangar/courier_shuttle,
+/turf/simulated/wall/titanium,
+/area/courier_shuttle/pluto/utility)
 "yG" = (
 /turf/simulated/floor/plating,
 /area/engineering/atmospherics/upper)
 "yH" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/hallway/central/bottom)
+"yJ" = (
+/turf/simulated/wall/r_wall,
+/area/pluto/lifepod/bottom1)
 "yL" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/logistics/lockers)
@@ -3915,6 +4245,20 @@
 "yQ" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/civilian/chapel)
+"yR" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/lattice,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
 "yS" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -3955,13 +4299,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine)
-"yZ" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/obj/machinery/light/small/red,
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/smes)
 "zb" = (
 /turf/simulated/floor/grass{
 	icon = 'icons/jungle.dmi';
@@ -3977,6 +4314,11 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/main_shaft_mid)
+"zf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/engineering/substation/third_deck)
 "zg" = (
 /obj/structure/railing{
 	dir = 8
@@ -3999,6 +4341,14 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor,
 /area/command/meeting)
+"zn" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/pluto/lifepod/bottom5)
+"zo" = (
+/obj/structure/stairs/west,
+/turf/simulated/floor/plating,
+/area/engineering/shield_gen_bay)
 "zp" = (
 /turf/simulated/wall/r_wall,
 /area/civilian/bath/showers)
@@ -4007,10 +4357,6 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/engineering/engine/bdstar)
-"zr" = (
-/obj/machinery/door/airlock/autoname,
-/turf/simulated/floor/plating,
-/area/engineering/tcomms)
 "zs" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -4037,6 +4383,14 @@
 	icon_state = "grass2"
 	},
 /area/hallway/aft/bottom)
+"zx" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 10
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
 "zy" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/civilian/exercise)
@@ -4049,6 +4403,12 @@
 "zA" = (
 /turf/simulated/wall/titanium,
 /area/exploration_shuttle/pluto/airlock)
+"zB" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "zD" = (
 /turf/simulated/wall/r_wall,
 /area/logistics/lockers)
@@ -4065,8 +4425,12 @@
 /turf/simulated/floor/plating,
 /area/logistics/primtool)
 "zJ" = (
-/turf/simulated/floor/plating,
-/area/pluto/lifepod/bottom5)
+/obj/structure/hygiene/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/old_cargo,
+/area/civilian/bath)
 "zL" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/machinery/door/airlock/autoname,
@@ -4109,6 +4473,12 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/fuel_burn)
+"zZ" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/oxygen,
+/area/engineering/atmospherics/lower)
 "Aa" = (
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
@@ -4155,20 +4525,6 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/aft/third_deck)
-"Al" = (
-/obj/effect/catwalk_plated/dark,
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/engineering/atmospherics/mon)
-"Am" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/hallway/central/second_port)
 "Ao" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -4177,10 +4533,6 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/hallway/aft/bottom)
-"Ar" = (
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor/plating,
-/area/pluto/lifepod/bottom1)
 "At" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 4;
@@ -4191,9 +4543,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/fuel_burn)
-"Au" = (
-/turf/simulated/floor/tiled/techmaint,
-/area/logistics/genprep)
 "Av" = (
 /obj/structure/grille,
 /turf/simulated/floor/plating,
@@ -4213,9 +4562,8 @@
 /turf/simulated/floor/plating,
 /area/medical/cloning)
 "Az" = (
-/obj/machinery/computer/fusion_core_control,
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/engine_monitoring)
+/turf/simulated/floor/tiled/techmaint,
+/area/security/forensics)
 "AC" = (
 /obj/structure/table/steel_reinforced,
 /turf/simulated/floor/tiled/techfloor,
@@ -4242,40 +4590,15 @@
 	},
 /turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmospherics/lower)
-"AJ" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine/bdport)
 "AK" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet/green,
 /area/medical/break_room)
-"AN" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 4;
-	icon_state = "shuttle_chair_preview";
-	tag = "icon-shuttle_chair_preview (EAST)"
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/pluto/lifepod/bottom5)
 "AQ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/steel_reinforced,
 /turf/simulated/floor/plating,
 /area/logistics/mailing)
-"AR" = (
-/obj/machinery/atmospherics/omni/filter,
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/lower)
-"AS" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/pluto/lifepod/bottom5)
 "AT" = (
 /obj/structure/railing{
 	dir = 2
@@ -4304,6 +4627,10 @@
 	},
 /turf/simulated/open,
 /area/pluto/maintenance/aftstar/second)
+"AZ" = (
+/obj/machinery/telecomms/bus/preset_nerva,
+/turf/simulated/floor/tiled/techmaint,
+/area/engineering/tcomms)
 "Ba" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/simulated/floor/plating,
@@ -4324,11 +4651,11 @@
 /turf/simulated/floor/plating/airless,
 /area/pluto/maintenance/aftport/third)
 "Bg" = (
-/obj/machinery/light{
-	dir = 4
+/obj/structure/sign/directions/security{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/techmaint,
-/area/hallway/aft/second_deck)
+/turf/simulated/wall/r_wall,
+/area/hallway/central/second_star)
 "Bh" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/simulated/floor/plating,
@@ -4365,27 +4692,22 @@
 /turf/simulated/floor/plating,
 /area/logistics/prep)
 "Br" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel,
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/engineering/engine/star)
+/area/engineering/tcomms)
 "Bu" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet/red,
 /area/civilian/messhall)
 "Bw" = (
-/obj/structure/table/steel_reinforced,
-/obj/structure/flora/pottedplant/deskfern,
-/turf/simulated/floor/tiled/techfloor,
-/area/medical/lobby)
-"Bx" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 5;
+	level = 2
 	},
-/turf/simulated/open,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/engineering/atmospherics/upper)
 "By" = (
 /turf/simulated/wall/r_wall,
@@ -4404,6 +4726,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/robotics)
+"BD" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/nitrogen,
+/area/engineering/atmospherics/lower)
 "BE" = (
 /turf/simulated/wall/r_wall,
 /area/civilian/personal)
@@ -4436,11 +4764,14 @@
 /turf/simulated/floor/plating,
 /area/civilian/hydro/upper)
 "BS" = (
-/obj/machinery/light/small/red{
+/obj/structure/cable/orange{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/techfloor,
-/area/civilian/hydro)
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/engineering/engine)
 "BU" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -4453,6 +4784,23 @@
 /obj/structure/sign/warning,
 /turf/simulated/wall/r_wall,
 /area/space)
+"BX" = (
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/old_cargo,
+/area/pluto/lifepod/bottom5)
+"BY" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/flora/pottedplant/Nienplants/plant,
+/turf/simulated/floor/grass{
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass2"
+	},
+/area/hallway/aft/second_deck)
+"BZ" = (
+/turf/simulated/floor/plating,
+/area/engineering/shield_gen_bay)
 "Ca" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/simulated/wall/r_wall,
@@ -4473,9 +4821,11 @@
 /turf/simulated/floor/plating,
 /area/engineering/smes)
 "Cg" = (
-/obj/machinery/telecomms/hub/preset/nerva,
-/turf/simulated/floor/tiled/techmaint,
-/area/engineering/tcomms)
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 2
+	},
+/turf/simulated/floor/reinforced/n20,
+/area/engineering/atmospherics/lower)
 "Cj" = (
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/plating,
@@ -4484,16 +4834,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
-"Cm" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/logistics/mailing)
 "Cn" = (
-/obj/machinery/computer/gyrotron_control,
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/engine_monitoring)
+/obj/structure/shuttle/engine/propulsion{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/pluto/lifepod/bottom5)
 "Co" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 8
@@ -4508,13 +4854,21 @@
 /turf/simulated/open,
 /area/command/bridgeupper)
 "Cq" = (
-/obj/machinery/telecomms/bus/preset_nerva,
-/turf/simulated/floor/tiled/techmaint,
-/area/engineering/tcomms)
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/civilian/kitchen)
 "Cr" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/central/bottom)
+"Ct" = (
+/obj/structure/shuttle/engine/propulsion/burst{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/pluto/lifepod/bottom1)
 "Cu" = (
 /obj/machinery/power/terminal{
 	dir = 1;
@@ -4535,6 +4889,15 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/pluto/maintenance/aftstar/third)
+"Cx" = (
+/obj/structure/cable/orange{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/engineering/engine)
 "Cz" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -4571,11 +4934,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/engineering/atmospherics/lower)
-"CK" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/lattice,
-/turf/simulated/open,
-/area/engineering/engine/bdstar)
 "CL" = (
 /turf/simulated/wall/r_wall,
 /area/civilian/dorms/bedroom2)
@@ -4620,11 +4978,9 @@
 /turf/simulated/floor/plating,
 /area/logistics/lowercargo)
 "Dd" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 1
-	},
+/obj/effect/shuttle_landmark/supply/pluto/docked,
 /turf/simulated/floor/plating,
-/area/pluto/lifepod/bottom5)
+/area/supply_drone/dock)
 "De" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/hallway/central/second_port)
@@ -4660,14 +5016,12 @@
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/centralport/third)
 "Dn" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
-	dir = 9
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
 	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/engineering/fuelbay)
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "Do" = (
 /obj/machinery/optable,
 /turf/simulated/floor/tiled/steel_grid,
@@ -4687,47 +5041,44 @@
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /turf/simulated/floor/reinforced/n20,
 /area/engineering/atmospherics/lower)
+"Du" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/structure/lattice,
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics/upper)
 "Dv" = (
 /turf/simulated/wall/titanium,
 /area/supply_drone/dock)
-"Dw" = (
-/turf/simulated/floor/tiled/steel_ridged,
-/area/pluto/lifepod/bottom3)
-"Dz" = (
-/obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/pluto/lifepod/bottom4)
+"Dx" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 9
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
 "DA" = (
-/obj/machinery/computer/telecomms/server,
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/tcommsmon)
-"DB" = (
-/turf/simulated/floor/tiled/old_cargo,
-/area/security/forensics)
-"DC" = (
-/obj/structure/sign/directions/evac,
-/turf/simulated/wall/r_wall,
-/area/command/bottom_hallway)
-"DD" = (
-/turf/simulated/wall/r_wall,
-/area/pluto/lifepod/bottom5)
-"DE" = (
-/obj/machinery/computer/shuttle_control/cargo_lift_pluto,
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/atmospherics/pipe/simple/visible/fuel,
+/obj/machinery/atmospherics/pipe/simple/visible/fuel,
+/obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/techfloor,
-/area/logistics/lowercargo)
-"DF" = (
-/turf/simulated/floor/tiled/techmaint,
-/area/security/forensics)
+/turf/simulated/floor/plating,
+/area/engineering/engine/port)
+"DB" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/civilian/personal)
+"DD" = (
+/obj/effect/shuttle_landmark/cargo_lift_pluto/bottom,
+/turf/simulated/floor/tiled/steel_grid,
+/area/cargo_lift/pluto/lift)
 "DG" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/civilian/bath/showers)
-"DH" = (
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/civilian/cryo_robot)
 "DI" = (
 /turf/simulated/wall/r_wall,
 /area/pluto/maintenance/centralport/third)
@@ -4739,26 +5090,34 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/fuel,
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/fuel_burn)
+"DM" = (
+/obj/structure/sign/directions/security,
+/obj/structure/sign/directions/supply{
+	pixel_y = -7
+	},
+/turf/simulated/wall/r_wall,
+/area/civilian/hydro/upper)
 "DP" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftport/bottom)
-"DS" = (
-/obj/effect/overmap/ship/combat/pluto,
-/turf/simulated/floor/tiled/steel_grid,
-/area/command/bridge)
 "DT" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/engineering/engine/tdport)
+"DU" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "DW" = (
-/obj/effect/landmark{
-	name = "JoinLateCryo"
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/techmaint,
-/area/civilian/personal)
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "DY" = (
 /turf/simulated/wall/r_wall,
 /area/security/forensics)
@@ -4780,12 +5139,6 @@
 	icon_state = "grass2"
 	},
 /area/civilian/messhall)
-"Ed" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/pluto/maintenance/aftport/third)
 "Eg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/door/airlock/autoname,
@@ -4825,6 +5178,16 @@
 "Eq" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/evastorage)
+"Es" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/upper)
 "Eu" = (
 /obj/machinery/body_scanconsole{
 	dir = 4
@@ -4837,10 +5200,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/fuel_burn)
-"Ew" = (
-/obj/machinery/telecomms/processor/preset_wyrm,
-/turf/simulated/floor/tiled/techmaint,
-/area/engineering/tcomms)
 "Ex" = (
 /obj/structure/railing{
 	dir = 2
@@ -4856,31 +5215,29 @@
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/fuel_burn)
 "Ez" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel_grid,
-/area/logistics/uppercargo)
+/turf/simulated/floor/grass{
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass2"
+	},
+/area/civilian/hydro)
 "EB" = (
 /turf/simulated/floor/carpet,
 /area/logistics/lockers)
-"ED" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/turf/simulated/floor/plating,
-/area/engineering/atmospherics/upper)
 "EG" = (
 /turf/simulated/open,
 /area/pluto/maintenance/aftport/third)
-"EH" = (
-/turf/simulated/floor/tiled/old_tile,
-/area/security/forensics)
 "EI" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/command/meeting)
+"EJ" = (
+/obj/machinery/atmospherics/pipe/tank/oxygen{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/engineering/fuel_burn)
 "EK" = (
 /obj/machinery/door/airlock/autoname,
 /obj/machinery/door/firedoor,
@@ -4907,20 +5264,35 @@
 /turf/simulated/floor/plating,
 /area/security/office)
 "ES" = (
-/obj/structure/sign/directions/examroom,
-/turf/simulated/wall/r_wall,
-/area/medical/lobby)
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "16-0"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics/lower)
 "ET" = (
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/main_shaft_top)
-"EU" = (
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/tiled/old_cargo,
-/area/pluto/lifepod/bottom5)
 "EV" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/logistics/genprep)
+"EW" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/civilian/personal)
+"EX" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
 "EY" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -4932,14 +5304,6 @@
 "Fa" = (
 /turf/simulated/wall/r_wall,
 /area/medical/break_room)
-"Fb" = (
-/obj/machinery/bluespacerelay,
-/turf/simulated/floor/tiled/techmaint,
-/area/engineering/tcomms)
-"Fc" = (
-/obj/machinery/computer/telecomms/monitor,
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/tcommsmon)
 "Fe" = (
 /turf/simulated/floor/plating,
 /area/engineering/engine/bdstar)
@@ -4956,10 +5320,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine/star)
+"Fk" = (
+/obj/machinery/computer/gyrotron_control,
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/engine_monitoring)
 "Fl" = (
 /obj/machinery/door/airlock/external/glass,
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/pluto/airlock)
+"Fm" = (
+/obj/structure/catwalk,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/civilian/hydro/upper)
 "Fn" = (
 /obj/machinery/vending/assist,
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -4968,6 +5343,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/simulated/floor/plating,
 /area/engineering/engine/bdport)
+"Fq" = (
+/obj/machinery/fusion_fuel_compressor,
+/turf/simulated/floor/tiled/techmaint,
+/area/engineering/engine)
 "Fr" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/security/cosoffice)
@@ -4980,19 +5359,24 @@
 /turf/simulated/floor/wood,
 /area/command/headquarters)
 "Fw" = (
-/obj/machinery/computer/telecomms/traffic,
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/tcommsmon)
-"Fx" = (
-/obj/structure/table/steel,
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/engine_monitoring)
+/obj/machinery/telecomms/relay/preset/seconddeck,
+/turf/simulated/floor/plating,
+/area/engineering/substation/second_deck)
 "Fz" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/civilian/holodeck)
 "FA" = (
 /turf/simulated/wall/r_wall,
 /area/pluto/gunnery/bottom_starboard_gun)
+"FF" = (
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine/tdstar)
 "FH" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 8
@@ -5011,20 +5395,6 @@
 "FM" = (
 /turf/simulated/wall/r_wall,
 /area/medical/hallway/upper)
-"FQ" = (
-/obj/structure/cable/orange{
-	icon_state = "1-4"
-	},
-/obj/structure/catwalk,
-/obj/structure/cable/orange{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine)
-"FT" = (
-/obj/structure/table/steel,
-/turf/simulated/floor/tiled/techfloor,
-/area/logistics/mailing)
 "FV" = (
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -5033,6 +5403,13 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/central/second_star)
+"FZ" = (
+/turf/space,
+/area/civilian/cryo_robot)
+"Gb" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/pluto/maintenance/aftport/third)
 "Gc" = (
 /obj/machinery/drone_fabricator,
 /turf/simulated/floor/plating,
@@ -5049,11 +5426,15 @@
 /turf/simulated/floor/plating,
 /area/hallway/fore/third_deck)
 "Gh" = (
-/obj/structure/sign/directions/medical{
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on,
+/turf/simulated/floor/reinforced/n20,
+/area/engineering/atmospherics/lower)
+"Gi" = (
+/obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/turf/simulated/wall/r_wall,
-/area/medical/treatment)
+/turf/simulated/floor/tiled/techmaint,
+/area/logistics/lowercargo)
 "Gj" = (
 /turf/simulated/floor/wood,
 /area/civilian/messhall/upper)
@@ -5129,19 +5510,25 @@
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/central/bottom)
 "GB" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
+"GC" = (
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
-/area/engineering/fuelbay)
+/area/engineering/engine/tdport)
 "GD" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/civilian/kitchen/office)
-"GE" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/planet,
-/area/civilian/personal)
 "GF" = (
 /obj/structure/railing{
 	dir = 2
@@ -5163,32 +5550,32 @@
 	},
 /turf/simulated/open,
 /area/logistics/uppercargo)
-"GK" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
+"GI" = (
+/obj/structure/cable/orange{
+	icon_state = "1-4"
 	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/lower)
-"GL" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/autoname,
+/obj/structure/catwalk,
+/obj/structure/cable/orange{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/engineering/atmospherics/mon)
+/area/engineering/engine)
 "GM" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/medical/morgue)
 "GN" = (
-/obj/structure/railing{
-	dir = 4
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 2
 	},
-/obj/structure/flora/pottedplant/Nienplants/plant,
-/turf/simulated/floor/grass{
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass2"
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/area/hallway/aft/second_deck)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "GO" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/smes)
@@ -5235,16 +5622,24 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/hallway/fore/second_deck)
+"Hc" = (
+/obj/machinery/telecomms/server/presets/wyrm,
+/turf/simulated/floor/tiled/techmaint,
+/area/engineering/tcomms)
 "Hd" = (
-/obj/machinery/light{
-	dir = 8
+/obj/machinery/light/small/red{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/engineering/engine/tdport)
+/turf/simulated/floor/tiled/techfloor,
+/area/civilian/hydro)
 "He" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/fuel,
 /turf/simulated/floor/plating,
 /area/engineering/engine/tdport)
+"Hf" = (
+/obj/machinery/cryopod/robot,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/civilian/cryo_robot)
 "Hg" = (
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
@@ -5260,19 +5655,26 @@
 "Hl" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/hallway/commandstarboard)
-"Ho" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/floor/plating,
-/area/pluto/maintenance/aftport/third)
+"Hm" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 4;
+	icon_state = "shuttle_chair_preview";
+	tag = "icon-shuttle_chair_preview (EAST)"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/pluto/lifepod/bottom4)
 "Hq" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/command/aichamber)
 "Hr" = (
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor,
-/area/hallway/central/third_star)
+/area/engineering/atmospherics/lower)
 "Ht" = (
 /obj/structure/railing{
 	dir = 1
@@ -5282,9 +5684,6 @@
 	},
 /turf/simulated/open,
 /area/command/bridgeupper)
-"Hu" = (
-/turf/simulated/floor/tiled/steel_ridged,
-/area/pluto/lifepod/bottom4)
 "Hv" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/security/brig)
@@ -5329,10 +5728,10 @@
 /area/logistics/uppercargo)
 "HJ" = (
 /obj/machinery/light{
-	dir = 4
+	dir = 8
 	},
-/turf/simulated/floor/tiled/steel_grid,
-/area/engineering/tcommsmon)
+/turf/simulated/floor/planet,
+/area/hallway/central/third_star)
 "HL" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -5342,8 +5741,11 @@
 /turf/simulated/floor/plating,
 /area/engineering/smes/upper)
 "HP" = (
-/turf/simulated/floor/tiled/steel_ridged,
-/area/pluto/lifepod/bottom5)
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/pluto/maintenance/aftport/third)
 "HR" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bridge)
@@ -5368,18 +5770,22 @@
 /turf/simulated/floor/tiled/old_cargo,
 /area/medical/treatment)
 "HX" = (
-/obj/structure/hygiene/shower{
-	dir = 1
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/obj/structure/curtain/open/shower,
-/turf/simulated/floor/tiled/old_cargo,
-/area/civilian/bath/showers)
-"HZ" = (
-/obj/machinery/light{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/engineering/engine/star)
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
+"HZ" = (
+/obj/structure/catwalk,
+/obj/structure/lattice,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/open,
+/area/engineering/smes/upper)
 "Ia" = (
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
@@ -5406,6 +5812,21 @@
 /obj/effect/wingrille_spawn/reinforced_phoron/full,
 /turf/simulated/floor/plating,
 /area/engineering/engine/star)
+"Ih" = (
+/obj/machinery/atmospherics/binary/pump/high_power/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/upper)
+"Ii" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/engine)
 "Ij" = (
 /obj/structure/catwalk,
 /turf/simulated/open,
@@ -5426,22 +5847,25 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/hallway/aft/second_deck)
+"Io" = (
+/turf/simulated/floor/tiled/techmaint,
+/area/logistics/genprep)
 "Ip" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/engine)
-"It" = (
-/obj/effect/landmark{
-	name = "JoinLateCryo"
+"Is" = (
+/obj/structure/lattice,
+/obj/machinery/light/small/red{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/techmaint,
-/area/civilian/cryo1)
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
 "Iu" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/obj/machinery/door/airlock/autoname,
-/turf/simulated/floor/plating,
-/area/engineering/atmospherics/mon)
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/lattice,
+/turf/space,
+/area/engineering/engine/bdport)
 "Iv" = (
 /obj/structure/stairs/north,
 /turf/simulated/floor/plating,
@@ -5494,45 +5918,43 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/engineering/engine)
-"IL" = (
-/obj/machinery/light{
-	dir = 8
+"IJ" = (
+/obj/machinery/atmospherics/omni/filter{
+	tag_north = 2;
+	tag_south = 1;
+	tag_west = 3
 	},
 /turf/simulated/floor/tiled/techfloor,
-/area/hallway/aft/third_deck)
-"IN" = (
-/obj/machinery/atmospherics/omni/mixer,
-/turf/simulated/floor/plating,
-/area/engineering/fuel_burn)
+/area/engineering/atmospherics/lower)
+"IL" = (
+/turf/simulated/floor/tiled/steel_ridged,
+/area/pluto/lifepod/bottom4)
 "IP" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/fabwork)
-"IQ" = (
-/obj/structure/closet/firecloset,
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/pluto/lifepod/bottom5)
 "IR" = (
 /turf/simulated/wall/r_wall,
 /area/medical/ward)
 "IT" = (
 /turf/simulated/wall/r_wall,
 /area/logistics/advwork)
+"IU" = (
+/turf/simulated/floor/tiled/old_cargo,
+/area/engineering/tcomms)
 "IW" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/engineering/fuelbay)
+"IY" = (
+/obj/machinery/power/smes/buildable,
+/turf/simulated/floor/tiled/techfloor,
+/area/command/aichamber)
 "IZ" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/command/headquarters)
-"Ja" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/civilian/cryo1)
 "Jb" = (
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/techmaint,
@@ -5550,13 +5972,10 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/logistics/robotics)
-"Jg" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 10
-	},
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
+"Jf" = (
+/obj/effect/wallframe_spawn,
+/turf/simulated/floor/plating,
+/area/pluto/maintenance/aftport/third)
 "Ji" = (
 /obj/structure/railing{
 	dir = 2
@@ -5581,6 +6000,20 @@
 "Jr" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/hallway/central/second_star)
+"Js" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
 "Jt" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -5594,11 +6027,30 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/hangaraccess)
+"Jx" = (
+/turf/simulated/floor/tiled/old_cargo,
+/area/security/forensics)
+"Jy" = (
+/obj/machinery/power/smes/buildable,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/smes)
 "JA" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftport/second)
+"JB" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "JC" = (
 /turf/simulated/wall/r_wall,
 /area/civilian/library)
@@ -5616,9 +6068,14 @@
 /turf/simulated/floor/tiled/old_cargo,
 /area/medical/treatment)
 "JH" = (
-/obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/techfloor,
-/area/civilian/personal)
+/area/engineering/atmospherics/lower)
 "JI" = (
 /obj/structure/grille,
 /turf/simulated/floor/plating,
@@ -5629,6 +6086,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine/star)
+"JL" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/techmaint,
+/area/logistics/lowercargo)
 "JM" = (
 /turf/simulated/wall/r_wall,
 /area/security/office)
@@ -5669,6 +6130,9 @@
 "JU" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/civilian/hydro)
+"JV" = (
+/turf/simulated/floor/tiled/techmaint,
+/area/engineering/tcomms)
 "JW" = (
 /turf/simulated/wall/r_wall,
 /area/pluto/maintenance/main_shaft_top)
@@ -5702,11 +6166,11 @@
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
 "Kf" = (
-/obj/machinery/light{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 9
 	},
-/turf/simulated/floor/plating,
-/area/civilian/kitchen)
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "Kg" = (
 /turf/simulated/wall/r_wall,
 /area/medical/surgery/a)
@@ -5722,6 +6186,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftstar/third)
+"Kk" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "32-2"
+	},
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
 "Kl" = (
 /obj/structure/railing{
 	dir = 4
@@ -5785,12 +6261,13 @@
 	},
 /turf/simulated/open,
 /area/command/bridgeupper)
-"KG" = (
-/turf/simulated/floor/tiled/techmaint,
-/area/engineering/tcomms)
 "KH" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/medical/hallway/upper)
+"KI" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/plating,
+/area/pluto/lifepod/bottom1)
 "KJ" = (
 /obj/structure/sign/osha/magneticsign,
 /turf/simulated/wall/r_wall,
@@ -5802,6 +6279,20 @@
 "KM" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/hallway/central/second_port)
+"KO" = (
+/obj/structure/sign/directions/security{
+	dir = 1
+	},
+/obj/structure/sign/directions/engineering{
+	dir = 1;
+	pixel_y = 7
+	},
+/obj/structure/sign/directions/supply{
+	dir = 1;
+	pixel_y = -7
+	},
+/turf/simulated/wall/r_wall,
+/area/hallway/fore/second_deck)
 "KP" = (
 /obj/structure/railing{
 	dir = 8
@@ -5852,10 +6343,6 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/tool)
-"Lf" = (
-/obj/structure/sign/directions/bridge,
-/turf/simulated/wall/r_wall,
-/area/command/meeting)
 "Lh" = (
 /obj/structure/catwalk,
 /obj/structure/lattice,
@@ -5864,6 +6351,10 @@
 	},
 /turf/simulated/open,
 /area/engineering/atmospherics/upper)
+"Lj" = (
+/obj/effect/shuttle_landmark/pluto/hangar/exploration_shuttle,
+/turf/simulated/floor/plating,
+/area/exploration_shuttle/pluto/airlock)
 "Lk" = (
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
@@ -5873,6 +6364,10 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/foreport/second)
+"Lm" = (
+/obj/structure/flora/pottedplant/large,
+/turf/simulated/floor/tiled/steel_grid,
+/area/medical/lobby)
 "Ln" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -5896,15 +6391,28 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/fuel_burn)
-"Lq" = (
-/turf/simulated/floor/plating,
-/area/civilian/cryo_robot)
+"Lp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/obj/machinery/light/small/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/mon)
 "Lr" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/engine/bdport)
+"Ls" = (
+/obj/machinery/computer/telecomms/traffic,
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/tcommsmon)
 "Lt" = (
 /obj/machinery/mineral/stacking_machine,
 /turf/simulated/floor/plating,
@@ -5912,19 +6420,28 @@
 "Lv" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/hallway/central/bottom)
+"Lw" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 8;
+	icon_state = "shuttle_chair_preview";
+	tag = "icon-shuttle_chair_preview (WEST)"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/pluto/lifepod/bottom2)
 "Lx" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/plating,
 /area/civilian/hydro)
 "LB" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/manifold/visible/cyan{
-	dir = 1
+/obj/structure/lattice,
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 16
 	},
-/turf/simulated/open,
+/turf/simulated/floor/plating,
 /area/engineering/atmospherics/upper)
 "LC" = (
 /obj/machinery/door/airlock/autoname,
@@ -5941,22 +6458,10 @@
 "LF" = (
 /turf/simulated/floor/tiled/old_cargo,
 /area/medical/chemistry)
-"LG" = (
-/obj/machinery/sleeper{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/old_cargo,
-/area/pluto/lifepod/bottom3)
 "LH" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel,
 /turf/simulated/floor/plating,
 /area/engineering/engine/star)
-"LI" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel_grid,
-/area/civilian/kitchen)
 "LJ" = (
 /obj/machinery/door/blast/shutters,
 /turf/simulated/floor/plating,
@@ -5983,15 +6488,25 @@
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/main_shaft_mid)
 "LO" = (
-/obj/structure/sign/directions/evac,
-/turf/simulated/wall/r_wall,
-/area/hallway/aft/second_deck)
-"LQ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techfloor,
-/area/engineering/smes)
+/area/hallway/central/second_star)
+"LP" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/pluto/maintenance/main_shaft_bottom)
+"LQ" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 8;
+	icon_state = "shuttle_chair_preview";
+	tag = "icon-shuttle_chair_preview (WEST)"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/pluto/lifepod/bottom1)
 "LS" = (
 /turf/simulated/wall/titanium,
 /area/exploration_shuttle/pluto/cargo)
@@ -6003,8 +6518,11 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/engineering/evastorage)
 "LY" = (
-/turf/simulated/floor/reinforced/nitrogen,
-/area/engineering/atmospherics/lower)
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/civilian/kitchen)
 "LZ" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/civilian/kitchen/office)
@@ -6016,37 +6534,24 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/hallway/commandport)
 "Md" = (
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/telecomms/receiver/preset_wyrm,
 /turf/simulated/floor/tiled/techmaint,
-/area/hallway/central/second_port)
+/area/engineering/tcomms)
 "Me" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/command/bottom_hallway)
-"Mf" = (
-/obj/structure/shuttle/engine/propulsion/burst{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/pluto/lifepod/bottom2)
 "Mi" = (
-/obj/machinery/light/small/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel_grid,
-/area/pluto/maintenance/centralport/third)
+/turf/simulated/floor/tiled/techmaint,
+/area/pluto/lifepod/bottom5)
 "Mj" = (
 /obj/structure/catwalk,
 /turf/simulated/open,
 /area/pluto/maintenance/aftstar/second)
 "Ml" = (
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled/techfloor,
-/area/engineering/engine)
+/area/logistics/mailing)
 "Mp" = (
 /turf/simulated/floor/carpet,
 /area/hallway/aft/bottom)
@@ -6054,6 +6559,32 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/command/meeting)
+"Mu" = (
+/obj/machinery/sleeper{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/old_cargo,
+/area/pluto/lifepod/bottom2)
+"Mv" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/cyan{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
+"Mw" = (
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/machinery/door/airlock/autoname,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics/mon)
 "Mx" = (
 /turf/simulated/floor/tiled/old_tile,
 /area/medical/morgue)
@@ -6068,6 +6599,12 @@
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/plating,
 /area/engineering/engine/bdport)
+"MB" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/lobby)
 "MC" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/command/bridge)
@@ -6075,15 +6612,6 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/engineering/fuel_burn)
-"ME" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine/bdstar)
 "MF" = (
 /obj/structure/catwalk,
 /turf/simulated/open,
@@ -6104,22 +6632,16 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/pluto/gunnery/bottom_portside_gun)
-"MM" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine/tdport)
 "MN" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/civilian/hydro/upper)
 "MO" = (
-/obj/machinery/light{
+/obj/structure/sign/directions/supply{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/engineering/engine/tdstar)
+/turf/simulated/wall/r_wall,
+/area/logistics/robotics)
 "MP" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
 	dir = 8
@@ -6133,10 +6655,6 @@
 /obj/machinery/door/airlock/external/glass,
 /turf/simulated/floor/plating,
 /area/hallway/central/third_port)
-"MX" = (
-/obj/machinery/telecomms/relay/preset/thirddeck,
-/turf/simulated/floor/plating,
-/area/engineering/substation/first_deck)
 "MZ" = (
 /obj/structure/railing{
 	dir = 8
@@ -6147,6 +6665,10 @@
 /obj/structure/stairs/west,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/main_shaft_bottom)
+"Nb" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/simulated/floor/plating,
+/area/pluto/lifepod/bottom5)
 "Nc" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -6155,16 +6677,6 @@
 /obj/structure/ladder,
 /turf/simulated/floor/plating,
 /area/hallway/fore/third_deck)
-"Ne" = (
-/obj/structure/sign/directions/medical{
-	dir = 4
-	},
-/turf/simulated/wall/r_wall,
-/area/hallway/aft/third_deck)
-"Nf" = (
-/obj/effect/shuttle_landmark/cargo_lift_pluto/bottom,
-/turf/simulated/floor/tiled/steel_grid,
-/area/cargo_lift/pluto/lift)
 "Nh" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/structure/railing{
@@ -6184,6 +6696,15 @@
 "Nm" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/security/boardarmoury)
+"No" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/upper)
 "Np" = (
 /obj/machinery/door/airlock/autoname,
 /obj/machinery/door/firedoor,
@@ -6204,6 +6725,18 @@
 "Nr" = (
 /turf/simulated/wall/r_wall,
 /area/command/eva)
+"Nt" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/smes)
 "Nv" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -6239,6 +6772,12 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/engineering/engine/tdport)
+"NI" = (
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/civilian/personal)
 "NJ" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/fuel{
 	dir = 8
@@ -6249,25 +6788,27 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet/red,
 /area/security/office)
-"NL" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/lattice,
-/turf/simulated/open,
-/area/engineering/engine/bdport)
+"NM" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 5
+	},
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/upper)
 "NO" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/hallway/central/bottom)
 "NP" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 9
+/obj/machinery/atmospherics/pipe/simple/visible/fuel,
+/obj/machinery/light{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
+/turf/simulated/floor/plating,
+/area/engineering/engine/star)
 "NQ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/standard,
@@ -6290,9 +6831,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/simulated/wall/r_wall,
 /area/engineering/fuel_burn)
-"NU" = (
-/turf/simulated/floor/tiled/techfloor,
-/area/logistics/fabwork)
 "NV" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -6324,10 +6862,10 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/hallway/commandoffices)
-"Ob" = (
-/obj/effect/shuttle_landmark/cargo_lift_pluto/top,
-/turf/simulated/open,
-/area/logistics/uppercargo)
+"Od" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/civilian/cryo_robot)
 "Oe" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -6336,13 +6874,25 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/central/second_port)
-"Ol" = (
-/obj/effect/wallframe_spawn/reinforced,
+"Oh" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/logistics/uppercargo)
+"Ok" = (
+/obj/machinery/light/small/red,
 /turf/simulated/floor/plating,
-/area/engineering/shield_gen_bay)
-"Om" = (
-/turf/simulated/floor/tiled/techmaint,
-/area/security/break_room)
+/area/engineering/fuelbay)
+"On" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
 "Oo" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/simulated/floor/plating/airless,
@@ -6354,6 +6904,10 @@
 "Oq" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/civilian/hydro)
+"Or" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/pluto/lifepod/bottom2)
 "Ot" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -6374,15 +6928,6 @@
 	},
 /turf/simulated/open,
 /area/hallway/fore/third_deck)
-"Ow" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
 "Ox" = (
 /turf/simulated/floor/plating,
 /area/hallway/fore/third_deck)
@@ -6395,13 +6940,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine/bdport)
-"OA" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/upper)
+"OB" = (
+/obj/effect/overmap/ship/combat/pluto,
+/turf/simulated/floor/tiled/steel_grid,
+/area/command/bridge)
 "OD" = (
 /obj/machinery/door/blast/shutters,
 /turf/simulated/floor/plating,
@@ -6421,6 +6963,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/fuel_burn)
+"OJ" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/plating,
+/area/pluto/lifepod/bottom5)
 "OK" = (
 /turf/simulated/wall/titanium,
 /area/exploration_shuttle/pluto/crew)
@@ -6428,12 +6974,16 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/simulated/floor/plating,
 /area/engineering/engine/tdport)
-"OM" = (
-/turf/simulated/floor/tiled/techmaint,
-/area/engineering/shield_gen_bay)
 "ON" = (
 /turf/simulated/floor/carpet/red,
 /area/security/cosoffice)
+"OO" = (
+/obj/machinery/atmospherics/pipe/simple/visible/fuel,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine/bdport)
 "OP" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -6461,16 +7011,9 @@
 "OW" = (
 /turf/simulated/floor/tiled/steel_ridged,
 /area/hallway/aft/bottom)
-"OX" = (
-/turf/simulated/floor/tiled/steel_ridged,
-/area/pluto/lifepod/bottom1)
 "OZ" = (
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor/plating,
-/area/pluto/lifepod/bottom5)
-"Pa" = (
-/turf/simulated/floor/tiled/steel_ridged,
-/area/pluto/lifepod/bottom2)
+/turf/simulated/floor/tiled/steel_grid,
+/area/logistics/genprep)
 "Pb" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -6519,13 +7062,24 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/pluto/crew)
-"Pp" = (
-/obj/structure/hygiene/sink{
-	dir = 8;
-	pixel_x = -12
+"Po" = (
+/obj/machinery/light{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/old_cargo,
-/area/civilian/bath)
+/turf/simulated/floor/tiled/techfloor,
+/area/hallway/aft/third_deck)
+"Pp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/lobby)
 "Pr" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/civilian/cryo1)
@@ -6542,6 +7096,10 @@
 "Pv" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/pluto/maintenance/fore/third)
+"Px" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/old_cargo,
+/area/civilian/bath)
 "PB" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -6571,12 +7129,12 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/fuel,
 /turf/simulated/wall/r_wall,
 /area/engineering/fuel_burn)
-"PM" = (
-/obj/effect/landmark/map_data{
-	height = 3
+"PR" = (
+/obj/machinery/light{
+	dir = 4
 	},
-/turf/space,
-/area/space)
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/engine)
 "PS" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -6596,6 +7154,12 @@
 	},
 /turf/simulated/open,
 /area/pluto/maintenance/aftstar/second)
+"PZ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/logistics/mailing)
 "Qa" = (
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -6620,15 +7184,6 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/tiled/techfloor,
 /area/hallway/aft/third_deck)
-"Qh" = (
-/obj/structure/railing{
-	dir = 2
-	},
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/pluto/maintenance/aftport/third)
 "Qi" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/primtool)
@@ -6669,14 +7224,6 @@
 	},
 /turf/simulated/floor/plating/airless,
 /area/engineering/engine/bdstar)
-"Qv" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 1;
-	icon_state = "shuttle_chair_preview";
-	tag = "icon-shuttle_chair_preview (EAST)"
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/pluto/lifepod/bottom5)
 "Qw" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/hallway/commandstarboard)
@@ -6684,43 +7231,87 @@
 /obj/machinery/optable,
 /turf/simulated/floor/tiled/steel_grid,
 /area/medical/surgery/a)
+"QA" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/mon)
 "QB" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/command/aicore)
+"QC" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "QD" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/command/ce)
 "QE" = (
-/obj/structure/sign/directions/engineering{
-	dir = 1;
-	pixel_y = 0
+/obj/machinery/light{
+	dir = 4
 	},
-/turf/simulated/wall/r_wall,
-/area/hallway/aft/second_deck)
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "QF" = (
 /turf/simulated/wall/r_wall,
 /area/civilian/kitchen/office)
+"QG" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/fuel_burn)
 "QH" = (
 /obj/structure/railing{
 	dir = 1
 	},
 /turf/simulated/open,
 /area/hallway/fore/third_deck)
+"QI" = (
+/obj/machinery/atmospherics/pipe/manifold4w/visible,
+/obj/machinery/power/apc{
+	dir = 8;
+	pixel_x = -24;
+	pixel_y = 0
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "QJ" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmospherics/lower)
-"QL" = (
-/obj/structure/catwalk,
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 4
+"QK" = (
+/obj/structure/sign/directions/engineering{
+	dir = 1;
+	pixel_y = 0
 	},
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
+/turf/simulated/wall/r_wall,
+/area/hallway/aft/second_deck)
 "QM" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
@@ -6776,14 +7367,16 @@
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/plating,
 /area/engineering/engine/star)
-"Rd" = (
-/obj/machinery/fusion_fuel_compressor,
-/turf/simulated/floor/tiled/techmaint,
-/area/engineering/engine)
 "Re" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/engineering/evastorage)
+"Rg" = (
+/obj/structure/sign/directions/medical{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/medical/lobby)
 "Rh" = (
 /turf/simulated/wall/r_wall,
 /area/logistics/prep)
@@ -6812,15 +7405,15 @@
 	},
 /turf/space,
 /area/space)
-"Rr" = (
-/obj/structure/railing{
+"Rq" = (
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 9
+	},
+/obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/logistics/uppercargo)
+/turf/simulated/floor/plating,
+/area/engineering/fuelbay)
 "Rs" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/simulated/floor/plating,
@@ -6831,30 +7424,28 @@
 	},
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftport/bottom)
-"Ru" = (
-/obj/machinery/atmospherics/binary/pump/high_power/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/upper)
 "Rv" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
+"Rx" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
-/area/engineering/tcommsmon)
-"Rw" = (
-/obj/machinery/recharge_station,
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/civilian/cryo_robot)
+/area/engineering/shield_gen_bay)
 "Ry" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/hallway/commandstarboard)
 "Rz" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/pluto/maintenance/aftport/third)
+/turf/simulated/wall/r_wall,
+/area/pluto/lifepod/bottom2)
 "RA" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
@@ -6867,21 +7458,6 @@
 	},
 /turf/simulated/open,
 /area/pluto/maintenance/aftport/third)
-"RC" = (
-/obj/structure/sign/directions/security{
-	dir = 8
-	},
-/obj/structure/sign/directions/evac{
-	dir = 1;
-	pixel_y = 7
-	},
-/turf/simulated/wall/r_wall,
-/area/hallway/central/bottom)
-"RD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/hallway/aft/bottom)
 "RE" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
@@ -6890,6 +7466,22 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/command/safe_room/a)
+"RJ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 9
+	},
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/upper)
+"RK" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine/bdport)
 "RL" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -6900,29 +7492,22 @@
 "RO" = (
 /turf/simulated/floor/planet,
 /area/pluto/maintenance/centralport/third)
-"RP" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/engine)
-"RR" = (
-/obj/structure/railing{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/pluto/maintenance/aftport/third)
 "RS" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/civilian/messhall)
-"RX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/engineering/substation/third_deck)
+"RV" = (
+/obj/machinery/light/small/red,
+/turf/simulated/floor/tiled/techfloor,
+/area/hallway/central/third_port)
+"RW" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/lobby)
 "RY" = (
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
@@ -6930,6 +7515,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftport/third)
+"Sa" = (
+/obj/structure/table/steel_reinforced,
+/obj/structure/flora/pottedplant/deskfern,
+/turf/simulated/floor/tiled/techfloor,
+/area/medical/lobby)
 "Sc" = (
 /obj/machinery/door/firedoor,
 /obj/effect/wallframe_spawn/reinforced,
@@ -6938,6 +7528,20 @@
 "Sd" = (
 /turf/simulated/wall/r_wall,
 /area/command/storage)
+"Se" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
+"Sf" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/smes)
 "Sg" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -6963,17 +7567,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftport/third)
-"Sk" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/turf/simulated/floor/plating,
-/area/engineering/atmospherics/upper)
-"Sm" = (
-/obj/machinery/telecomms/receiver/preset_wyrm,
-/turf/simulated/floor/tiled/techmaint,
-/area/engineering/tcomms)
 "So" = (
-/obj/machinery/door/airlock/autoname,
+/obj/structure/bed/chair/shuttle{
+	dir = 4;
+	icon_state = "shuttle_chair_preview";
+	tag = "icon-shuttle_chair_preview (EAST)"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/pluto/lifepod/bottom3)
+"Sp" = (
+/obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/engineering/gas_storage)
 "Sr" = (
@@ -6982,6 +7585,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine/port)
+"Ss" = (
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 2;
+	tag_north = 7;
+	tag_west = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "St" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
@@ -7004,10 +7615,6 @@
 "Sy" = (
 /turf/simulated/open,
 /area/security/office)
-"Sz" = (
-/obj/machinery/atmospherics/omni/mixer,
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/upper)
 "SD" = (
 /turf/simulated/floor/plating,
 /area/hallway/central/bottom)
@@ -7015,10 +7622,6 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/command/ce)
-"SF" = (
-/obj/machinery/telecomms/relay/preset/firstdeck,
-/turf/simulated/floor/plating,
-/area/engineering/substation/third_deck)
 "SG" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -7058,19 +7661,6 @@
 	},
 /turf/space,
 /area/space)
-"SO" = (
-/obj/structure/shuttle/engine/propulsion/burst{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/pluto/lifepod/bottom4)
-"SP" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
 "SU" = (
 /obj/structure/railing{
 	dir = 8
@@ -7111,11 +7701,9 @@
 /turf/simulated/wall/r_wall,
 /area/pluto/maintenance/aftstar/bottom)
 "Th" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/structure/grille,
-/turf/space,
-/area/space)
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/pluto/lifepod/bottom5)
 "Ti" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 8
@@ -7157,6 +7745,12 @@
 "Tx" = (
 /turf/simulated/floor/plating,
 /area/hallway/central/second_star)
+"Tz" = (
+/obj/structure/shuttle/engine/propulsion/burst{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/pluto/lifepod/bottom2)
 "TB" = (
 /obj/machinery/door/airlock/autoname,
 /obj/machinery/door/firedoor,
@@ -7179,9 +7773,9 @@
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/forestar/second)
 "TJ" = (
-/obj/machinery/power/smes/buildable,
-/turf/simulated/floor/plating,
-/area/engineering/smes)
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/tiled/techfloor,
+/area/logistics/mailing)
 "TK" = (
 /obj/structure/railing{
 	dir = 1
@@ -7189,6 +7783,13 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/civilian/messhall/upper)
+"TM" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/green,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/upper)
 "TN" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -7218,6 +7819,16 @@
 "TX" = (
 /turf/simulated/open,
 /area/pluto/maintenance/main_shaft_mid)
+"TY" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 16
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/smes)
 "TZ" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -7231,22 +7842,10 @@
 "Ub" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/medical/cloning)
-"Ue" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 10
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/lobby)
 "Uf" = (
-/obj/effect/floor_decal/industrial/warning/corner,
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/logistics/lowercargo)
+/obj/machinery/light,
+/turf/simulated/floor/tiled/techfloor,
+/area/hallway/aft/third_deck)
 "Ug" = (
 /turf/simulated/wall/r_wall,
 /area/pluto/maintenance/aftport/bottom)
@@ -7256,15 +7855,19 @@
 "Ui" = (
 /turf/simulated/wall/r_wall,
 /area/security/cosoffice)
+"Ul" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/upper)
 "Um" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmospherics/lower)
-"Un" = (
-/turf/simulated/floor/plating,
-/area/engineering/shield_gen_bay)
 "Uo" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/command/teleporter)
@@ -7275,39 +7878,29 @@
 	},
 /turf/space,
 /area/space)
+"Uq" = (
+/obj/machinery/computer/fusion_core_control,
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/engine_monitoring)
 "Ur" = (
 /turf/simulated/wall/titanium,
 /area/courier_shuttle/pluto/cockpit)
-"Ut" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 6
-	},
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
 "Uu" = (
-/obj/structure/cable/orange{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/engine_monitoring)
+/turf/simulated/floor/tiled/steel_ridged,
+/area/pluto/lifepod/bottom2)
 "Uv" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/logistics/primtool)
+"Uw" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "Uy" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/command/aichamber)
-"UA" = (
-/obj/structure/cable/orange{
-	icon_state = "1-2"
-	},
-/obj/structure/catwalk,
-/obj/structure/cable/orange{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine)
 "UB" = (
 /turf/simulated/wall/r_wall,
 /area/command/fobedroom)
@@ -7321,10 +7914,34 @@
 /obj/machinery/door/airlock/external/glass,
 /turf/simulated/floor/plating,
 /area/logistics/lowercargo)
+"UG" = (
+/obj/structure/catwalk,
+/obj/machinery/power/apc{
+	pixel_y = -24
+	},
+/obj/structure/cable/orange{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine)
 "UH" = (
 /obj/structure/ladder,
 /turf/simulated/floor/tiled/steel_grid,
 /area/logistics/uppercargo)
+"UI" = (
+/obj/effect/catwalk_plated/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics/mon)
 "UJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
@@ -7334,43 +7951,15 @@
 "UK" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/command/ce)
-"UL" = (
-/obj/structure/sign/directions/supply{
-	dir = 8
-	},
-/obj/structure/sign/directions/security{
-	pixel_y = -7
-	},
-/obj/structure/sign/directions/engineering{
-	dir = 1;
-	pixel_y = 7
-	},
-/turf/simulated/wall/r_wall,
-/area/hallway/aft/second_deck)
-"UM" = (
-/obj/machinery/sleeper{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/old_cargo,
-/area/pluto/lifepod/bottom2)
 "UO" = (
 /turf/simulated/wall/r_wall,
 /area/command/bridgeupper)
-"UP" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
 "UQ" = (
 /obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 9
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
 	},
+/obj/structure/lattice,
 /turf/simulated/open,
 /area/engineering/atmospherics/upper)
 "UR" = (
@@ -7378,6 +7967,12 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/techfloor,
 /area/civilian/personal)
+"UT" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/upper)
 "UU" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/hallway/aft/third_deck)
@@ -7390,13 +7985,9 @@
 /turf/simulated/floor/plating/airless,
 /area/engineering/fuel_burn)
 "UW" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 8;
-	icon_state = "shuttle_chair_preview";
-	tag = "icon-shuttle_chair_preview (WEST)"
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/pluto/lifepod/bottom1)
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/pluto/lifepod/bottom3)
 "UX" = (
 /obj/structure/closet/secure_closet/nuke_wall{
 	pixel_x = -32;
@@ -7416,15 +8007,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/fuel_burn)
-"Va" = (
-/turf/simulated/wall/r_wall,
-/area/pluto/lifepod/bottom1)
-"Vb" = (
-/obj/machinery/sleeper{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/old_cargo,
-/area/pluto/lifepod/bottom1)
 "Vc" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/medical/treatment)
@@ -7456,11 +8038,11 @@
 /turf/simulated/wall/r_wall,
 /area/command/ce)
 "Vj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/mon)
+/area/hallway/central/second_port)
 "Vk" = (
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
@@ -7472,8 +8054,11 @@
 /turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmospherics/lower)
 "Vn" = (
-/turf/simulated/floor/reinforced/oxygen,
-/area/engineering/atmospherics/lower)
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/logistics/uppercargo)
 "Vo" = (
 /turf/simulated/open,
 /area/engineering/atmospherics/upper)
@@ -7493,6 +8078,20 @@
 "Vu" = (
 /turf/simulated/floor/carpet/red,
 /area/security/office)
+"Vv" = (
+/obj/machinery/power/terminal,
+/turf/simulated/floor/plating,
+/area/engineering/tcommsmon)
+"Vw" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/plating,
+/area/pluto/lifepod/bottom4)
+"Vx" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/hallway/aft/second_deck)
 "Vy" = (
 /turf/simulated/floor/tiled/old_tile,
 /area/medical/lobby)
@@ -7543,15 +8142,6 @@
 "VM" = (
 /turf/simulated/floor/plating,
 /area/engineering/engine/tdport)
-"VN" = (
-/obj/structure/cable/orange{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/engineering/engine)
 "VO" = (
 /obj/machinery/door/airlock/external/glass,
 /turf/simulated/floor/plating,
@@ -7564,6 +8154,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/primtool)
+"VR" = (
+/obj/machinery/atmospherics/omni/filter{
+	tag_north = 2;
+	tag_south = 1;
+	tag_west = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "VS" = (
 /turf/simulated/floor/tiled/old_cargo,
 /area/civilian/bath)
@@ -7598,9 +8196,6 @@
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/plating,
 /area/engineering/engine)
-"VZ" = (
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/civilian/cryo_robot)
 "Wa" = (
 /turf/simulated/floor/plating,
 /area/security/break_room)
@@ -7625,12 +8220,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/engineering/atmospherics/lower)
-"Wi" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/break_room)
 "Wj" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 6
@@ -7656,6 +8245,15 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/medical/cloning)
+"Wp" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/smes)
 "Wr" = (
 /turf/simulated/open,
 /area/civilian/messhall/upper)
@@ -7665,9 +8263,28 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine/star)
+"Wu" = (
+/obj/structure/closet/crate/radiation,
+/obj/item/stack/material/tritium/ten,
+/obj/item/stack/material/tritium/ten,
+/obj/item/stack/material/deuterium/fifty,
+/turf/simulated/floor/tiled/techmaint,
+/area/engineering/engine)
+"Wv" = (
+/obj/machinery/computer/telecomms/server,
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/tcommsmon)
 "Wy" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/prep)
+"Wz" = (
+/obj/structure/catwalk,
+/obj/structure/lattice,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/engineering/smes/upper)
 "WA" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -7677,16 +8294,15 @@
 "WB" = (
 /turf/simulated/wall/r_wall,
 /area/security/brig)
-"WC" = (
-/turf/simulated/wall/r_wall,
-/area/pluto/lifepod/bottom3)
 "WD" = (
 /turf/simulated/floor/carpet,
 /area/civilian/library)
 "WG" = (
-/obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/pluto/lifepod/bottom2)
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine/star)
 "WJ" = (
 /obj/structure/grille,
 /turf/simulated/floor/plating/airless,
@@ -7709,16 +8325,6 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/pluto/gunnery/hall_top)
-"WO" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/machinery/computer/shuttle_control/cargo_lift_pluto,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/logistics/uppercargo)
 "WP" = (
 /obj/structure/stairs/west,
 /turf/simulated/floor/plating,
@@ -7744,12 +8350,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/engineering/atmospherics/upper)
-"WW" = (
-/obj/structure/catwalk,
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/turf/simulated/floor/plating,
-/area/engineering/atmospherics/upper)
 "WX" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
@@ -7757,13 +8357,18 @@
 "WY" = (
 /turf/simulated/wall/r_wall,
 /area/civilian/bath)
+"WZ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 10
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine/bdstar)
 "Xa" = (
 /turf/simulated/floor/plating,
 /area/courier_shuttle/pluto/cockpit)
-"Xb" = (
-/obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/pluto/lifepod/bottom3)
 "Xc" = (
 /turf/simulated/wall/r_wall,
 /area/medical/treatment)
@@ -7777,9 +8382,6 @@
 	},
 /turf/space,
 /area/space)
-"Xf" = (
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/upper)
 "Xg" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/engine/tdstar)
@@ -7805,9 +8407,13 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/medical/morgue)
 "Xo" = (
-/obj/structure/shuttle/engine/propulsion,
-/turf/simulated/floor/plating,
-/area/pluto/lifepod/bottom5)
+/obj/structure/sign/directions/bridge,
+/obj/structure/sign/directions/engineering{
+	dir = 1;
+	pixel_y = 7
+	},
+/turf/simulated/wall/r_wall,
+/area/hallway/aft/third_deck)
 "Xt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/machinery/door/airlock/autoname,
@@ -7822,6 +8428,12 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/engineering/engine)
+"Xx" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/engineering/tcommsmon)
 "Xy" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/logistics/lowercargo)
@@ -7835,12 +8447,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/aftstar/second)
-"XB" = (
-/obj/machinery/light{
-	dir = 8
+"XC" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/engineering/fuelbay)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/engineering/atmospherics/lower)
 "XF" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
 	dir = 4
@@ -7852,6 +8467,12 @@
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
 /turf/simulated/open,
 /area/pluto/maintenance/main_shaft_top)
+"XI" = (
+/obj/structure/sign/directions/evac{
+	dir = 1
+	},
+/turf/simulated/wall/r_wall,
+/area/hallway/aft/bottom)
 "XJ" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/command/nuke_storage)
@@ -7863,13 +8484,6 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/techfloor,
 /area/medical/treatment)
-"XM" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 9
-	},
-/turf/simulated/open,
-/area/engineering/atmospherics/upper)
 "XN" = (
 /obj/structure/catwalk,
 /turf/simulated/open,
@@ -7880,15 +8494,9 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/engineering/atmospherics/lower)
-"XP" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/planet,
-/area/hallway/central/third_star)
-"XS" = (
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/logistics/genprep)
+"XT" = (
+/turf/simulated/floor/tiled/techfloor,
+/area/civilian/cryo_robot)
 "XW" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/pluto/maintenance/main_shaft_mid)
@@ -7899,13 +8507,9 @@
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/pluto/gunnery/portside_gun)
-"XZ" = (
-/obj/machinery/telecomms/broadcaster/preset_wyrm,
-/turf/simulated/floor/tiled/techmaint,
-/area/engineering/tcomms)
 "Ya" = (
-/turf/simulated/floor/reinforced/hydrogen,
-/area/engineering/atmospherics/lower)
+/turf/simulated/floor/tiled/steel_grid,
+/area/engineering/tcommsmon)
 "Yb" = (
 /turf/simulated/wall/r_wall,
 /area/hallway/fore/third_deck)
@@ -7944,6 +8548,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/pluto/crew)
+"Yt" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/engineering/engine)
+"Yu" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/hallway/aft/second_deck)
 "Yv" = (
 /obj/structure/stairs/east,
 /turf/simulated/floor/plating,
@@ -7967,18 +8586,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/pluto/gunnery/fore_gun)
-"YD" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/hallway/central/second_star)
-"YF" = (
-/obj/structure/lattice,
-/obj/structure/catwalk,
-/obj/machinery/light/small/red,
-/turf/simulated/open,
-/area/civilian/messhall/upper)
 "YH" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -7986,6 +8593,18 @@
 	},
 /turf/simulated/open,
 /area/engineering/atmospherics/upper)
+"YJ" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics/lower)
+"YK" = (
+/obj/machinery/light/small/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/civilian/hydro)
 "YM" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -8045,6 +8664,12 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/fuel_burn)
+"Zb" = (
+/obj/machinery/door/airlock/autoname,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/engineering/substation/third_deck)
 "Zc" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/lattice,
@@ -8071,34 +8696,34 @@
 "Zk" = (
 /turf/simulated/wall/r_wall,
 /area/pluto/maintenance/central/bottom)
-"Zm" = (
-/obj/structure/railing{
-	dir = 4
+"Zl" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/zpipe/down,
+/obj/structure/cable/green{
+	icon_state = "32-1"
 	},
-/obj/structure/railing{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_monitoring)
+/turf/simulated/open,
+/area/engineering/atmospherics/upper)
 "Zo" = (
 /obj/machinery/door/airlock/autoname,
 /turf/simulated/floor/plating,
 /area/pluto/maintenance/main_shaft_bottom)
-"Zp" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/engineering/atmospherics/lower)
 "Zq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine/bdstar)
-"Zu" = (
-/turf/simulated/wall/r_wall,
-/area/pluto/lifepod/bottom4)
+"Zr" = (
+/obj/machinery/atmospherics/omni/mixer{
+	tag_east = 1;
+	tag_east_con = 1;
+	tag_north = 2;
+	tag_west = 1;
+	tag_west_con = 0
+	},
+/turf/simulated/floor/plating,
+/area/engineering/fuel_burn)
 "Zw" = (
 /obj/structure/ladder,
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -8117,12 +8742,6 @@
 	},
 /turf/simulated/open,
 /area/engineering/smes/upper)
-"Zz" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel_grid,
-/area/civilian/kitchen)
 "ZB" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 9
@@ -8132,12 +8751,6 @@
 	},
 /turf/simulated/open,
 /area/pluto/maintenance/aftport/third)
-"ZD" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
-/area/pluto/maintenance/main_shaft_bottom)
 "ZE" = (
 /obj/structure/morgue{
 	dir = 2
@@ -8173,10 +8786,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine/port)
-"ZL" = (
-/obj/machinery/r_n_d/server/core,
-/turf/simulated/floor/tiled/techmaint,
-/area/engineering/tcomms)
+"ZK" = (
+/obj/structure/hygiene/shower{
+	dir = 4
+	},
+/obj/structure/curtain/open/shower,
+/turf/simulated/floor/tiled/old_cargo,
+/area/civilian/bath/showers)
 "ZP" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/engine/port)
@@ -8193,10 +8809,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/engineering/engine)
-"ZT" = (
-/obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/pluto/lifepod/bottom5)
 "ZV" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/zpipe/down{
@@ -8422,7 +9034,7 @@ uw
 uw
 uw
 uw
-PM
+uw
 "}
 (2,1,1) = {"
 uw
@@ -23669,10 +24281,10 @@ lr
 Zk
 Cr
 ss
-fv
-fv
-fv
-ya
+le
+le
+le
+nJ
 kc
 kc
 kc
@@ -23840,14 +24452,14 @@ kj
 lr
 te
 lr
-Ya
-Ya
+uL
+qk
 hK
-Vn
-Vn
+lI
+zZ
 hK
-LY
-LY
+BD
+yv
 hK
 Zk
 Zk
@@ -23871,10 +24483,10 @@ GA
 GA
 GA
 ss
-fv
-Nf
-fv
-ya
+le
+DD
+le
+nJ
 kc
 kc
 kc
@@ -24073,10 +24685,10 @@ GA
 GA
 GA
 ss
-fv
-fv
-fv
-ya
+le
+le
+le
+nJ
 kc
 kc
 kc
@@ -24277,10 +24889,10 @@ IT
 ss
 ss
 ss
-DE
-Uf
-mc
-pL
+li
+xr
+vN
+Gi
 kc
 kc
 UD
@@ -24289,7 +24901,7 @@ Da
 wW
 GG
 GG
-GG
+Dd
 GG
 GG
 Dv
@@ -24479,10 +25091,10 @@ ni
 ni
 ni
 uy
-bX
-kf
+nL
+JL
 Xy
-ya
+nJ
 kc
 kc
 UD
@@ -24622,7 +25234,7 @@ uw
 uw
 gO
 lr
-Th
+gG
 vp
 vp
 vp
@@ -24649,13 +25261,13 @@ oz
 Wj
 Tc
 Wg
-AR
+VR
 kz
 Wg
-AR
+IJ
 kz
 Wg
-AR
+dd
 cN
 hK
 GA
@@ -24681,10 +25293,10 @@ ni
 ni
 ni
 uy
-bX
-kf
+nL
+JL
 Xy
-ya
+nJ
 kc
 kc
 ss
@@ -24825,7 +25437,7 @@ uw
 uw
 uw
 uw
-CK
+iG
 Wl
 zz
 Fe
@@ -24849,16 +25461,16 @@ hK
 hK
 oz
 XO
-fH
-sq
-fH
-GK
-fH
-sq
-GK
-fH
-fH
-XO
+Uw
+qx
+Hr
+tV
+Hr
+dS
+JH
+ci
+ci
+XC
 hK
 hK
 Zk
@@ -24883,10 +25495,10 @@ ni
 ni
 ni
 uy
-bX
-kf
+nL
+JL
 iN
-ya
+nJ
 kc
 kc
 ss
@@ -25027,7 +25639,7 @@ uw
 uw
 uw
 uw
-CK
+iG
 Wl
 xK
 Fe
@@ -25046,32 +25658,32 @@ vp
 sG
 sG
 hK
-kb
+Gh
 mi
 eW
 QJ
 tl
-fH
+lv
 hK
-oz
-pS
-oz
-hK
+hG
+bQ
+qz
+hP
 pS
 oz
 rT
-vx
+fv
 hK
 hK
-Va
-Va
-Va
-Va
+yJ
+yJ
+yJ
+yJ
 gW
-li
-li
-li
-li
+Rz
+Rz
+Rz
+Rz
 Zk
 GA
 GA
@@ -25085,7 +25697,7 @@ KD
 yj
 IT
 ss
-bX
+nL
 kc
 kc
 kc
@@ -25229,7 +25841,7 @@ uw
 uw
 uw
 uw
-CK
+iG
 Wl
 xK
 Fe
@@ -25248,32 +25860,32 @@ vp
 sG
 sG
 hK
-kb
+Cg
 Dt
 Nj
 TC
-AR
-fH
-Zp
-fH
-fH
-fH
-fH
-fH
-fH
-fH
-fH
+Ss
+bq
+ea
+DW
+jR
+QC
+QI
+QC
+QC
+GN
+kP
 hK
 hK
-Va
-OX
-gK
-Va
+yJ
+kI
+bl
+yJ
 gW
-li
-Pa
-WG
-li
+Rz
+Uu
+Or
+Rz
 Zk
 GA
 GA
@@ -25431,7 +26043,7 @@ uw
 uw
 uw
 uw
-CK
+iG
 Wl
 xK
 Fe
@@ -25455,27 +26067,27 @@ hK
 hK
 oz
 XO
-fH
-fH
-fH
-fH
-nj
-fH
-nj
-fH
-fH
-fH
+dZ
+Dn
+JB
+Hr
+QE
+Kf
+GB
+ci
+ci
+HX
 hK
 hK
-Va
-OX
-UW
-Va
+yJ
+kI
+LQ
+yJ
 gW
-li
-Pa
-rP
-li
+Rz
+Uu
+Lw
+Rz
 Zk
 GA
 GA
@@ -25641,43 +26253,43 @@ Su
 CZ
 CZ
 CZ
-ME
+sz
 Fe
 Fe
 Fe
 Fe
-nX
+WZ
 CZ
 zq
 GW
 sG
 hK
-le
+gq
 CJ
 eW
 QJ
 tl
-fH
-fH
+px
+DU
 oz
-oz
+YJ
 hK
 vD
 hK
-oz
-fH
-oz
+ES
+cq
+wB
 hK
 hK
-Va
-OX
-UW
-Va
+yJ
+kI
+LQ
+yJ
 gW
-li
-Pa
-rP
-li
+Rz
+Uu
+Lw
+Rz
 Zk
 GA
 GA
@@ -25835,7 +26447,7 @@ uw
 uw
 uw
 uw
-CK
+iG
 Wl
 xK
 Fe
@@ -25854,14 +26466,14 @@ vp
 VI
 sG
 hK
-le
+iS
 Wh
 Nj
 TC
-AR
-fH
-fH
-oz
+tv
+zB
+eV
+cg
 hK
 hK
 pM
@@ -25871,15 +26483,15 @@ fH
 hK
 hK
 hK
-Va
-OX
-UW
-Va
+yJ
+kI
+LQ
+yJ
 gW
-li
-Pa
-rP
-li
+Rz
+Uu
+Lw
+Rz
 Zk
 GA
 GA
@@ -25910,9 +26522,9 @@ GA
 GA
 GA
 yn
-nm
-Om
-Om
+bE
+bz
+bz
 ak
 is
 is
@@ -26037,10 +26649,10 @@ uw
 uw
 uw
 uw
-CK
+iG
 Wl
 xK
-un
+tQ
 bZ
 Fe
 Fe
@@ -26073,30 +26685,30 @@ vD
 hK
 Na
 gL
-Va
-OX
-UW
-Va
+yJ
+kI
+LQ
+yJ
 gW
-li
-Pa
-rP
-li
+Rz
+Uu
+Lw
+Rz
 Zk
 GA
 GA
 GA
 cF
 pf
-ub
-NU
-NU
-NU
-NU
-NU
-NU
-NU
-ub
+xZ
+kL
+kL
+kL
+kL
+kL
+kL
+kL
+xZ
 cF
 kc
 kc
@@ -26113,7 +26725,7 @@ GA
 Zk
 yn
 lj
-Om
+bz
 lj
 yn
 yn
@@ -26239,7 +26851,7 @@ uw
 uw
 uw
 uw
-CK
+iG
 Wl
 xK
 vp
@@ -26265,25 +26877,25 @@ hK
 hK
 or
 or
-jZ
-jZ
-ii
-ii
-ii
+mw
+mw
+vu
+vu
+vu
 hK
 oz
 hK
 pN
 gL
-Va
-OX
-Vb
-Va
+yJ
+kI
+mH
+yJ
 gW
-li
-Pa
-UM
-li
+Rz
+Uu
+Mu
+Rz
 Zk
 GA
 GA
@@ -26315,17 +26927,17 @@ GA
 GA
 yn
 lj
-Om
+bz
 lj
 yn
 WP
 dI
 DY
-DF
-DF
-DF
-DB
-EH
+Az
+Az
+Az
+Jx
+eG
 DY
 Tn
 Tn
@@ -26441,7 +27053,7 @@ uw
 uw
 uw
 uw
-CK
+iG
 Wl
 Zq
 vp
@@ -26467,25 +27079,25 @@ sG
 lm
 jp
 jp
-jZ
-ii
-ii
-ii
-ii
+mw
+vu
+vu
+vu
+vu
 hK
 fH
 hK
 pN
 gL
-qz
-Ar
-Va
-qz
+Ct
+KI
+yJ
+Ct
 gW
-Mf
-xR
-li
-Mf
+Tz
+xv
+Rz
+Tz
 Zk
 GA
 GA
@@ -26517,17 +27129,17 @@ GA
 GA
 yn
 lj
-Om
+bz
 lj
 yn
 Wa
 dI
 DY
-DF
-DF
-DF
-DB
-EH
+Az
+Az
+Az
+Jx
+eG
 DY
 Tn
 Tn
@@ -26669,11 +27281,11 @@ kj
 lm
 jp
 jp
-So
-ii
-ii
-ii
-ii
+aa
+vu
+vu
+vu
+vu
 hK
 oz
 hK
@@ -26719,17 +27331,17 @@ GA
 GA
 yn
 lj
-Om
-Om
+bz
+bz
 ak
 Wa
 Wa
 mC
-jE
-jE
-jE
-DB
-EH
+mc
+mc
+mc
+Jx
+eG
 DY
 Tn
 Tn
@@ -26871,11 +27483,11 @@ lm
 lm
 jp
 jp
-jZ
-ii
-ii
-ii
-ii
+mw
+vu
+vu
+vu
+vu
 hK
 Yv
 hK
@@ -26921,17 +27533,17 @@ GA
 Zk
 yn
 lj
-Om
+bz
 lj
 yn
 lj
 lj
 DY
-DF
-DF
-DF
-DB
-EH
+Az
+Az
+Az
+Jx
+eG
 DY
 Tn
 Tn
@@ -27073,11 +27685,11 @@ jp
 jp
 jp
 jp
-jZ
-jZ
-ii
-ii
-ii
+mw
+mw
+vu
+vu
+vu
 hK
 hK
 hK
@@ -27092,7 +27704,7 @@ he
 OW
 OW
 gW
-ql
+XI
 gW
 Cr
 gW
@@ -27277,10 +27889,10 @@ jp
 jp
 jp
 lm
-oA
-oA
-oA
-sU
+Sp
+Sp
+Sp
+lL
 pN
 pN
 pN
@@ -27479,10 +28091,10 @@ jp
 jp
 jp
 lm
-Un
-Un
-Un
-sU
+BZ
+BZ
+BZ
+lL
 gL
 pN
 pN
@@ -27515,7 +28127,7 @@ qI
 Lv
 Lv
 Lv
-hE
+md
 ZF
 Bq
 Bq
@@ -27525,7 +28137,7 @@ Rh
 Cr
 qI
 qI
-RC
+mI
 cm
 cm
 tG
@@ -27535,7 +28147,7 @@ tG
 tG
 cm
 cm
-RC
+mI
 qI
 qI
 qI
@@ -27681,10 +28293,10 @@ jp
 jp
 jp
 lf
-OM
-OM
-OM
-OM
+gK
+gK
+gK
+gK
 gL
 pN
 gL
@@ -27698,7 +28310,7 @@ Mz
 Mz
 Mz
 gW
-ql
+XI
 nH
 nH
 nH
@@ -27883,10 +28495,10 @@ jp
 jp
 jp
 lf
-OM
-OM
-OM
-OM
+gK
+gK
+gK
+gK
 gL
 pN
 gL
@@ -27895,7 +28507,7 @@ qj
 pN
 pN
 Mz
-SF
+wy
 Bj
 Bj
 Mz
@@ -27966,11 +28578,11 @@ GZ
 nt
 nt
 nt
-dR
-DD
-DD
-DD
-dR
+jq
+nW
+nW
+nW
+jq
 lr
 lr
 lr
@@ -28076,33 +28688,33 @@ cb
 lA
 qB
 BA
-BA
-BA
-BA
-gl
+sW
+ll
+ll
+EJ
 Bz
 Bz
 OP
 Bz
 Bz
-OM
-OM
-OM
-OM
+gK
+gK
+gK
+gK
 Zo
 pN
 gL
 QY
-ZD
-ir
-ir
-tN
-RX
-RX
-RX
-tN
-RD
-RD
+LP
+po
+po
+Zb
+zf
+zf
+zf
+Zb
+cZ
+cZ
 nH
 nH
 gW
@@ -28114,7 +28726,7 @@ nH
 nH
 nH
 nH
-ql
+XI
 qI
 cm
 cm
@@ -28162,18 +28774,18 @@ nt
 nt
 xm
 nt
-DC
+fk
 EN
 GZ
 Me
 EN
-Dd
-DD
-AN
-ZT
-AN
-DD
-Xo
+jn
+nW
+qR
+zn
+qR
+nW
+Nb
 lr
 lr
 uw
@@ -28278,7 +28890,7 @@ Ot
 Lo
 qB
 BA
-BA
+QG
 pr
 pr
 wh
@@ -28287,10 +28899,10 @@ jM
 jM
 Gc
 SW
-OM
-OM
-OM
-OM
+gK
+gK
+gK
+gK
 gL
 pN
 gL
@@ -28360,7 +28972,7 @@ GZ
 GZ
 GZ
 GZ
-DC
+fk
 GZ
 GZ
 GZ
@@ -28369,13 +28981,13 @@ GZ
 GZ
 Me
 Me
-DD
-EU
-oq
-HP
-oq
-Qv
-DD
+nW
+BX
+Mi
+iz
+Mi
+tE
+nW
 lr
 lr
 uw
@@ -28480,7 +29092,7 @@ At
 DL
 NT
 di
-IN
+Zr
 pr
 pr
 pr
@@ -28489,13 +29101,13 @@ jM
 jM
 KB
 SW
-OM
-OM
-OM
-OM
-sU
-sU
-sU
+gK
+gK
+gK
+gK
+lL
+lL
+lL
 pN
 pN
 pN
@@ -28571,13 +29183,13 @@ GZ
 GZ
 EN
 EN
-OZ
-zJ
-HP
-DD
-HP
-IQ
-DD
+OJ
+vE
+iz
+nW
+iz
+Th
+nW
 lr
 lr
 uw
@@ -28691,13 +29303,13 @@ jM
 jM
 jM
 SW
-OM
-OM
-OM
-OM
-sU
-fY
-sU
+gK
+gK
+gK
+gK
+lL
+zo
+lL
 pN
 pN
 pN
@@ -28741,13 +29353,13 @@ Nx
 Jm
 Nx
 Nx
-XS
-bF
-Au
-Au
-Au
-bF
-XS
+bU
+OZ
+Io
+Io
+Io
+OZ
+bU
 qI
 qI
 qI
@@ -28764,7 +29376,7 @@ GZ
 GZ
 GZ
 GZ
-DC
+fk
 GZ
 GZ
 GZ
@@ -28773,13 +29385,13 @@ GZ
 GZ
 Me
 Me
-DD
-EU
-oq
-HP
-oq
-Qv
-DD
+nW
+BX
+Mi
+iz
+Mi
+tE
+nW
 lr
 lr
 uw
@@ -28893,13 +29505,13 @@ jM
 jM
 Gc
 SW
-OM
-OM
-OM
-OM
-Ol
-Un
-sU
+gK
+gK
+gK
+gK
+cx
+BZ
+lL
 pN
 pN
 pN
@@ -28944,15 +29556,15 @@ fc
 fc
 Nx
 vr
-bF
-bF
-bF
-bF
-bF
-bF
-Au
-Au
-Au
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Io
+Io
+Io
 JO
 QZ
 QZ
@@ -28970,18 +29582,18 @@ nt
 nt
 xm
 nt
-DC
+fk
 EN
 GZ
 Me
 EN
-Dd
-DD
-xd
-ZT
-xd
-DD
-Xo
+jn
+nW
+vl
+zn
+vl
+nW
+Nb
 lr
 lr
 uw
@@ -29095,13 +29707,13 @@ jM
 jM
 KB
 SW
-OM
-OM
-OM
-OM
-ki
-OM
-sU
+gK
+gK
+gK
+gK
+Rx
+gK
+lL
 pN
 pN
 pN
@@ -29146,15 +29758,15 @@ fc
 fc
 Nx
 vr
-bF
-bF
-bF
-bF
-bF
-bF
-bF
-bF
-bF
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
 JO
 QZ
 QZ
@@ -29178,11 +29790,11 @@ GZ
 nt
 nt
 nt
-AS
-DD
-DD
-DD
-AS
+Cn
+nW
+nW
+nW
+Cn
 lr
 lr
 lr
@@ -29297,14 +29909,14 @@ jM
 jM
 jM
 Bz
-OM
-OM
-OM
-sU
-sU
-sU
-sU
-sU
+gK
+gK
+gK
+lL
+lL
+lL
+lL
+lL
 gW
 Zo
 gW
@@ -29314,7 +29926,7 @@ nH
 gW
 Zo
 gW
-ql
+XI
 Ap
 Ap
 gW
@@ -29353,10 +29965,10 @@ vr
 vr
 vr
 vr
-bF
-Au
-Au
-Au
+OZ
+Io
+Io
+Io
 JO
 CC
 QZ
@@ -29499,14 +30111,14 @@ jM
 jM
 jM
 OP
-OM
-OM
-OM
-ki
-OM
-OM
-OM
-ki
+gK
+gK
+gK
+Rx
+gK
+gK
+gK
+Rx
 OW
 OW
 OW
@@ -29701,14 +30313,14 @@ jM
 jM
 jM
 OP
-OM
-OM
-OM
-ki
-OM
-OM
-OM
-ki
+gK
+gK
+gK
+Rx
+gK
+gK
+gK
+Rx
 he
 OW
 he
@@ -29903,14 +30515,14 @@ Bz
 NE
 Bz
 Bz
-sU
-sU
-sU
-sU
-OM
-OM
-OM
-sU
+lL
+lL
+lL
+lL
+gK
+gK
+gK
+lL
 gW
 OW
 OW
@@ -29920,7 +30532,7 @@ he
 OW
 OW
 gW
-ql
+XI
 aU
 aU
 Gs
@@ -30108,10 +30720,10 @@ MI
 MI
 MI
 MI
-sU
-sU
-ki
-sU
+lL
+lL
+Rx
+lL
 gW
 gW
 Bd
@@ -30481,7 +31093,7 @@ uw
 uw
 uw
 uw
-NL
+Iu
 uU
 ks
 wX
@@ -30517,15 +31129,15 @@ MI
 MI
 MI
 Ug
-wQ
-hj
-WC
-wQ
+iq
+rE
+sx
+iq
 gW
-SO
-kv
-Zu
-SO
+vV
+Vw
+uc
+vV
 Ug
 MI
 Gs
@@ -30683,7 +31295,7 @@ uw
 uw
 uw
 uw
-NL
+Iu
 uU
 gY
 wX
@@ -30719,15 +31331,15 @@ MI
 MI
 MI
 Ug
-WC
-Dw
-LG
-WC
+sx
+qM
+je
+sx
 gW
-Zu
-Hu
-tg
-Zu
+uc
+IL
+qW
+uc
 Ug
 MI
 Gs
@@ -30754,7 +31366,7 @@ OK
 AV
 AV
 zA
-AV
+Lj
 fc
 Nx
 fc
@@ -30762,7 +31374,7 @@ fc
 fc
 Nx
 fc
-MQ
+yF
 Xk
 Xk
 Xk
@@ -30885,10 +31497,10 @@ uw
 uw
 uw
 uw
-NL
+Iu
 uU
 gY
-eR
+RK
 UJ
 dD
 dD
@@ -30921,15 +31533,15 @@ MI
 MI
 MI
 Ug
-WC
-Dw
-tE
-WC
+sx
+qM
+So
+sx
 gW
-Zu
-Hu
-hp
-Zu
+uc
+IL
+Hm
+uc
 Ug
 MI
 MI
@@ -31087,7 +31699,7 @@ uw
 uw
 uw
 uw
-NL
+Iu
 uU
 gY
 dD
@@ -31123,15 +31735,15 @@ MI
 MI
 MI
 Ug
-WC
-Dw
-tE
-WC
+sx
+qM
+So
+sx
 gW
-Zu
-Hu
-hp
-Zu
+uc
+IL
+Hm
+uc
 Ug
 MI
 MI
@@ -31297,12 +31909,12 @@ kZ
 dD
 dD
 dD
-eR
+RK
 dD
 dD
 dD
 dD
-AJ
+OO
 Fo
 Bl
 gJ
@@ -31325,15 +31937,15 @@ MI
 MI
 MI
 Ug
-WC
-Dw
-tE
-WC
+sx
+qM
+So
+sx
 gW
-Zu
-Hu
-hp
-Zu
+uc
+IL
+Hm
+uc
 Ug
 MI
 MI
@@ -31491,7 +32103,7 @@ uw
 uw
 uw
 uw
-NL
+Iu
 uU
 gY
 dD
@@ -31527,15 +32139,15 @@ MI
 MI
 MI
 Ug
-WC
-Dw
-tE
-WC
+sx
+qM
+So
+sx
 gW
-Zu
-Hu
-hp
-Zu
+uc
+IL
+Hm
+uc
 Ug
 MI
 MI
@@ -31693,7 +32305,7 @@ uw
 uw
 uw
 uw
-NL
+Iu
 uU
 gY
 dD
@@ -31729,15 +32341,15 @@ MI
 MI
 MI
 Ug
-WC
-Dw
-Xb
-WC
+sx
+qM
+UW
+sx
 gW
-Zu
-Hu
-Dz
-Zu
+uc
+IL
+jE
+uc
 Ug
 MI
 MI
@@ -31895,7 +32507,7 @@ uw
 uw
 uw
 uw
-NL
+Iu
 uU
 gY
 dD
@@ -31931,15 +32543,15 @@ MI
 MI
 MI
 Ug
-WC
-WC
-WC
-WC
+sx
+sx
+sx
+sx
 gW
-Zu
-Zu
-Zu
-Zu
+uc
+uc
+uc
+uc
 Ug
 MI
 MI
@@ -32097,7 +32709,7 @@ uw
 uw
 uw
 uw
-NL
+Iu
 uU
 mj
 dD
@@ -63867,8 +64479,8 @@ th
 qh
 xc
 xc
-lL
-Rr
+vW
+Oh
 qh
 qh
 qh
@@ -64069,7 +64681,7 @@ tO
 xc
 KZ
 KZ
-oo
+ek
 cG
 cG
 cG
@@ -64241,10 +64853,10 @@ tZ
 IE
 IE
 yT
-OA
+Ul
 rR
 iv
-an
+cI
 Tj
 IE
 tZ
@@ -64271,9 +64883,9 @@ tO
 xc
 KZ
 KZ
-oo
+ek
 cG
-Ob
+ky
 cG
 cG
 cG
@@ -64441,7 +65053,7 @@ rz
 tZ
 tZ
 IE
-Xf
+UT
 Xi
 yT
 os
@@ -64473,7 +65085,7 @@ tO
 xc
 KZ
 KZ
-oo
+ek
 cG
 cG
 cG
@@ -64643,13 +65255,13 @@ rz
 tZ
 IE
 IE
-Xf
-Xi
-dw
-dw
-dw
-Sz
-mL
+No
+nR
+Es
+Es
+Es
+bK
+Bw
 IE
 IE
 LW
@@ -64675,8 +65287,8 @@ tO
 xc
 KZ
 KZ
-Ez
-WO
+Vn
+cX
 TE
 HE
 HE
@@ -64844,17 +65456,17 @@ tZ
 tZ
 tZ
 IE
-it
-hF
-UQ
+am
+sE
+oV
 VB
-eV
-eV
-SP
+VB
+VB
+UQ
 Lh
-eV
-eV
-eV
+VB
+VB
+VB
 IE
 IE
 tZ
@@ -65046,18 +65658,18 @@ tZ
 tZ
 tZ
 IE
-nw
+Rv
 Vo
 Vo
 Qa
+VB
 Vo
-Vo
-rZ
+np
 rh
 Vo
 Vo
-Ut
-wO
+sN
+NM
 IE
 tZ
 tZ
@@ -65248,18 +65860,18 @@ tZ
 tZ
 tZ
 IE
-dK
+Se
 Vo
 Vo
-Qa
+Is
+VB
 Vo
-Vo
-rZ
+np
 rh
 Vo
 fj
-XM
-gB
+Dx
+rJ
 IE
 tZ
 tZ
@@ -65432,12 +66044,12 @@ Wt
 sB
 sB
 sB
-HZ
+WG
 sB
 sB
 sB
 dh
-Br
+NP
 dh
 dM
 af
@@ -65450,18 +66062,18 @@ tZ
 tZ
 tZ
 IE
-QL
+Se
 Qa
 Qa
 IE
-Qa
-xM
+LB
+Zl
 mZ
 iQ
 ZV
 gQ
 ob
-yw
+TM
 IE
 tZ
 tZ
@@ -65652,7 +66264,7 @@ tZ
 tZ
 tZ
 IE
-dK
+Se
 Vo
 Vo
 Qa
@@ -65662,8 +66274,8 @@ Vo
 Qa
 Vo
 ZR
-Bx
-Ru
+EX
+Ih
 IE
 tZ
 tZ
@@ -65831,7 +66443,7 @@ uw
 bb
 Ig
 LH
-HZ
+WG
 Id
 sB
 sB
@@ -65854,18 +66466,18 @@ tZ
 tZ
 tZ
 IE
-dK
+Se
 Vo
 Vo
 Qa
 Vo
 Vo
-rE
+On
 Qa
-rE
+On
 Vo
-sA
-ng
+yA
+RJ
 IE
 tZ
 tZ
@@ -66056,7 +66668,7 @@ tZ
 tZ
 tZ
 IE
-dK
+Se
 Vo
 Vo
 Qa
@@ -66065,8 +66677,8 @@ YH
 pP
 pP
 pP
-Ow
-UP
+Kk
+ay
 IE
 IE
 tZ
@@ -66258,17 +66870,17 @@ tZ
 tZ
 tZ
 IE
-LB
-vt
+Mv
+jW
 Xd
 Gw
 zG
 pP
-oj
+nX
 Tu
-oj
+QA
 pP
-UP
+Js
 LW
 tZ
 tZ
@@ -66281,7 +66893,7 @@ tZ
 tZ
 zQ
 yM
-Cm
+PZ
 vm
 vm
 zQ
@@ -66460,17 +67072,17 @@ tZ
 tZ
 tZ
 IE
-Jg
-Sk
-Sk
-WW
-ED
-Iu
-wM
-mH
-Al
-GL
-NP
+zx
+Du
+Du
+al
+fr
+Mw
+lc
+UI
+xj
+yy
+yR
 IE
 PY
 tZ
@@ -66483,7 +67095,7 @@ tZ
 tZ
 zQ
 yM
-Cm
+PZ
 vm
 vm
 vm
@@ -66665,12 +67277,12 @@ IE
 IE
 GO
 GO
-uC
+hE
 GO
 GO
-eB
+qQ
 pT
-Vj
+Lp
 pP
 yG
 IE
@@ -66685,13 +67297,13 @@ tZ
 tZ
 zQ
 yM
-Cm
+PZ
 vm
 vm
 vm
 Pc
 Pc
-fF
+TJ
 cK
 bT
 bT
@@ -66866,9 +67478,9 @@ Mj
 Mj
 tZ
 GO
-LQ
-LQ
-ex
+ok
+Nt
+oJ
 GO
 tL
 qD
@@ -66887,10 +67499,10 @@ tZ
 tZ
 zQ
 yM
-Cm
+PZ
 vm
 vm
-FT
+Ml
 vm
 vm
 uF
@@ -67068,9 +67680,9 @@ AY
 AY
 tZ
 GO
-TJ
+wx
 Kp
-jm
+Wp
 GO
 to
 Gr
@@ -67117,7 +67729,7 @@ oO
 oO
 wv
 wv
-yx
+Bg
 JM
 JM
 JM
@@ -67270,9 +67882,9 @@ Ac
 Ac
 ee
 GO
-TJ
+wx
 Cu
-jm
+Wp
 GO
 to
 Gr
@@ -67309,7 +67921,7 @@ BC
 BC
 fT
 fT
-bI
+MO
 lU
 lU
 oO
@@ -67466,15 +68078,15 @@ dm
 dm
 dm
 OU
-RP
-cB
-Rd
+Ii
+Wu
+Fq
 vF
 OU
 GO
-TJ
+Jy
 Cu
-jm
+Wp
 GO
 to
 HD
@@ -67509,7 +68121,7 @@ lU
 lU
 lU
 lU
-yA
+LO
 lU
 lU
 lU
@@ -67674,11 +68286,11 @@ dm
 dm
 dm
 Ix
-em
+TY
 sh
-yZ
+aT
 Ix
-Ue
+jS
 sv
 sv
 gk
@@ -67697,7 +68309,7 @@ Cl
 lR
 yq
 yq
-Bg
+Yu
 yq
 yq
 yq
@@ -67707,7 +68319,7 @@ yq
 yq
 yq
 Cl
-YD
+nY
 Jr
 Jr
 Jr
@@ -67715,7 +68327,7 @@ Jr
 Jr
 Jr
 Jr
-YD
+nY
 Jr
 Jr
 Jr
@@ -67874,16 +68486,16 @@ lZ
 lZ
 eL
 sX
-UA
+fW
 Wn
 Cd
 OS
-wy
-uC
-VP
-VP
-VP
-Gr
+Sf
+wT
+MB
+MB
+MB
+Pp
 VP
 WQ
 eF
@@ -67891,7 +68503,7 @@ eF
 eF
 eF
 lR
-QE
+QK
 rs
 rs
 rs
@@ -67899,7 +68511,7 @@ uW
 BN
 Np
 BN
-xr
+gu
 KR
 lR
 lR
@@ -67908,7 +68520,7 @@ lR
 lR
 yq
 lR
-UL
+ql
 uW
 pn
 pn
@@ -67938,11 +68550,11 @@ rM
 cj
 rM
 vq
-nk
+KO
 AG
 cj
 AG
-Lf
+ki
 jJ
 jJ
 Mt
@@ -68076,7 +68688,7 @@ Ac
 lZ
 jL
 lZ
-kL
+UG
 GO
 GO
 GO
@@ -68279,7 +68891,7 @@ Ac
 BG
 kM
 OU
-dJ
+bf
 Ac
 gy
 gy
@@ -68317,11 +68929,11 @@ uW
 Rl
 Lx
 Lx
-ty
+Ez
 Lx
 Lx
 Rl
-aB
+YK
 JU
 JU
 JU
@@ -68338,7 +68950,7 @@ mu
 pq
 gi
 ju
-Kf
+Cq
 kA
 vS
 vq
@@ -68511,7 +69123,7 @@ Ke
 Ke
 Ke
 uW
-pG
+wa
 yq
 GQ
 xs
@@ -68539,8 +69151,8 @@ mu
 mu
 pq
 ma
-Zz
-Zz
+LY
+LY
 kA
 vS
 vq
@@ -68680,8 +69292,8 @@ pb
 pb
 pb
 Bn
-nq
-rq
+BS
+Yt
 OU
 OU
 ee
@@ -68885,13 +69497,13 @@ hM
 td
 yY
 cw
-dJ
+bf
 Ac
 gy
 gy
 gy
 WQ
-vR
+RW
 VP
 HD
 yV
@@ -68918,16 +69530,16 @@ rs
 lR
 yq
 lR
-LO
+lX
 uW
-oW
+uM
 Oq
 Ph
 Ph
 Ph
 Oq
 Oq
-BS
+Hd
 JU
 JU
 JU
@@ -68948,7 +69560,7 @@ kA
 Yi
 uI
 vq
-dq
+dr
 AG
 JS
 AG
@@ -68963,7 +69575,7 @@ MC
 MC
 tH
 yt
-DS
+OB
 VD
 VD
 wE
@@ -69084,8 +69696,8 @@ pb
 pb
 pb
 KJ
-VN
-lc
+Cx
+fE
 yU
 qZ
 qZ
@@ -69290,9 +69902,9 @@ wu
 vF
 yU
 qZ
-Zm
-Fx
-Fx
+rW
+fa
+fa
 qZ
 CB
 VP
@@ -69319,7 +69931,7 @@ Ke
 Ke
 Ke
 uW
-pG
+wa
 yq
 GQ
 CI
@@ -69492,7 +70104,7 @@ JT
 TP
 yU
 IB
-co
+kq
 aY
 aY
 qZ
@@ -69508,7 +70120,7 @@ vX
 zv
 uk
 ND
-fe
+Fw
 fz
 fz
 ND
@@ -69529,7 +70141,7 @@ uW
 Rl
 Lx
 Lx
-fE
+kH
 Lx
 Lx
 Rl
@@ -69550,7 +70162,7 @@ wd
 Yx
 Xz
 Qf
-LI
+oo
 kA
 vS
 vq
@@ -69694,7 +70306,7 @@ jL
 lZ
 yU
 IB
-Az
+Uq
 aY
 aY
 qJ
@@ -69719,7 +70331,7 @@ Qi
 Qs
 Gf
 Gf
-GN
+BY
 mK
 GF
 lR
@@ -69896,7 +70508,7 @@ jL
 lZ
 yU
 IB
-Cn
+Fk
 aY
 aY
 qJ
@@ -69911,7 +70523,7 @@ lR
 lR
 lR
 lR
-QE
+QK
 rs
 rs
 rs
@@ -69928,7 +70540,7 @@ lR
 lR
 yq
 lR
-ai
+jP
 uK
 zb
 zb
@@ -69958,11 +70570,11 @@ rM
 cj
 rM
 vq
-qU
+vt
 AG
 cj
 AG
-Lf
+ki
 jJ
 jJ
 Mt
@@ -70098,11 +70710,11 @@ ZS
 II
 gZ
 qZ
-sQ
+fS
 aY
 aY
 qJ
-hc
+op
 pp
 pp
 pp
@@ -70121,7 +70733,7 @@ Cl
 lR
 yq
 yq
-uj
+Vx
 yq
 yq
 yq
@@ -70131,7 +70743,7 @@ yq
 yq
 yq
 Cl
-Md
+aw
 De
 De
 De
@@ -70139,7 +70751,7 @@ De
 De
 De
 De
-Md
+aw
 De
 De
 De
@@ -70294,13 +70906,13 @@ dm
 dm
 dm
 OU
-Ml
+PR
 OU
 Xu
 rI
-FQ
-jW
-Uu
+GI
+oe
+dG
 aY
 aY
 XK
@@ -70336,7 +70948,7 @@ Cl
 en
 en
 en
-Am
+Vj
 en
 en
 en
@@ -70525,7 +71137,7 @@ nC
 nC
 Dg
 Dg
-vV
+Rg
 pa
 pa
 nC
@@ -70537,7 +71149,7 @@ Kr
 Kr
 Zj
 Zj
-Gh
+kO
 QN
 gj
 gj
@@ -70756,7 +71368,7 @@ LL
 ZW
 Nr
 Nr
-Lq
+wq
 Tq
 Tq
 bp
@@ -71135,7 +71747,7 @@ xf
 Ym
 Ym
 vQ
-ES
+cn
 Il
 Il
 Il
@@ -71333,7 +71945,7 @@ nC
 Ym
 Ym
 Ym
-Bw
+Sa
 Ym
 Ym
 vQ
@@ -71532,7 +72144,7 @@ hb
 hR
 hR
 nC
-tz
+Lm
 Ym
 Ym
 xf
@@ -71891,7 +72503,7 @@ uw
 bx
 YA
 YX
-jk
+jh
 Sr
 om
 om
@@ -72300,12 +72912,12 @@ XF
 om
 om
 om
-jk
+jh
 om
 om
 om
 Bh
-xn
+DA
 Bh
 JX
 hZ
@@ -89224,7 +89836,7 @@ uw
 uw
 uw
 uw
-uw
+uH
 "}
 (2,1,3) = {"
 uw
@@ -103752,7 +104364,7 @@ uw
 uw
 uw
 uw
-bj
+FZ
 uw
 uw
 uw
@@ -105279,14 +105891,14 @@ sV
 sV
 sV
 nQ
-fR
+mO
 Xl
 zp
-sb
-sb
-sb
-sb
-sb
+ZK
+ZK
+ZK
+ZK
+ZK
 zp
 zp
 rn
@@ -105477,9 +106089,9 @@ FL
 FL
 Wd
 nQ
-It
-It
-It
+iX
+iX
+iX
 Pr
 Pr
 Wd
@@ -105489,7 +106101,7 @@ QV
 QV
 QV
 QV
-HX
+dj
 zp
 rn
 rn
@@ -105678,10 +106290,10 @@ zi
 FL
 FL
 Xl
-Ja
-It
-It
-It
+gS
+iX
+iX
+iX
 Pr
 Pr
 Wd
@@ -105691,7 +106303,7 @@ DG
 DG
 DG
 QV
-HX
+dj
 zp
 rn
 rn
@@ -106087,19 +106699,19 @@ sV
 sV
 sV
 Pr
-vl
+kQ
 Xl
-nK
+DB
 nf
 nf
 nf
 uN
 sO
-JH
+sP
 WY
-Pp
-rK
-Pp
+zJ
+Px
+zJ
 WY
 zy
 zy
@@ -106284,10 +106896,10 @@ zi
 FL
 FL
 Xl
-Ja
-It
-It
-It
+gS
+iX
+iX
+iX
 Pr
 Pr
 Wd
@@ -106437,13 +107049,13 @@ lr
 WR
 Xg
 Xg
-jR
+FF
 dB
 dB
 dB
 dB
 dB
-MO
+dR
 dB
 dB
 dB
@@ -106487,16 +107099,16 @@ FL
 FL
 Wd
 nQ
-It
-It
-It
+iX
+iX
+iX
 Pr
 Pr
 Wd
 uN
 uN
 uN
-DW
+NI
 uN
 uN
 nf
@@ -106851,7 +107463,7 @@ dB
 dB
 dB
 dB
-ka
+yf
 dB
 KQ
 Nz
@@ -106897,7 +107509,7 @@ Xl
 nG
 nG
 Xl
-nA
+EW
 sO
 uN
 sO
@@ -107269,7 +107881,7 @@ FL
 HO
 ik
 uD
-sH
+HZ
 me
 gX
 gX
@@ -107304,7 +107916,7 @@ zi
 AC
 sO
 uN
-GE
+sc
 uN
 sO
 AC
@@ -107708,7 +108320,7 @@ cv
 Vs
 Vs
 MJ
-XP
+HJ
 MJ
 Vs
 Vs
@@ -107901,7 +108513,7 @@ nF
 UU
 UU
 UU
-IL
+nx
 UU
 UU
 UU
@@ -108083,7 +108695,7 @@ dn
 xF
 Ve
 gX
-Wi
+wQ
 gX
 pk
 mD
@@ -108279,7 +108891,7 @@ lr
 zh
 Zy
 uD
-lX
+Wz
 pk
 pQ
 pQ
@@ -108308,16 +108920,16 @@ Ak
 cv
 nF
 nF
-lb
+Xo
 cv
 cv
-Hr
+su
 MJ
 MJ
 MJ
 MJ
 MJ
-iy
+jB
 ax
 ax
 ax
@@ -108338,7 +108950,7 @@ mN
 Ox
 Ox
 Ox
-cl
+ii
 sY
 sY
 sY
@@ -108684,7 +109296,7 @@ zh
 xX
 xX
 QR
-XB
+rm
 yi
 so
 so
@@ -108721,7 +109333,7 @@ oN
 oN
 oN
 oN
-ta
+mx
 ax
 gb
 gb
@@ -108731,7 +109343,7 @@ Gj
 Gj
 Gj
 mn
-kD
+nk
 qu
 Ic
 yW
@@ -108906,17 +109518,17 @@ UU
 UU
 UU
 UU
-si
+Uf
 cv
 Ak
 Ak
 Ak
 cv
-sd
+dW
 UU
 UU
 LK
-tT
+DM
 oN
 oN
 oN
@@ -108929,7 +109541,7 @@ gb
 gb
 gb
 ax
-wU
+hl
 Gj
 Gj
 Kc
@@ -109340,7 +109952,7 @@ TK
 cP
 qu
 qu
-YF
+ww
 QF
 QF
 hy
@@ -109493,7 +110105,7 @@ wj
 oY
 zX
 IW
-GB
+Ok
 yi
 kK
 kK
@@ -109505,7 +110117,7 @@ JW
 ET
 ET
 VH
-MX
+ij
 ae
 ae
 VH
@@ -109714,13 +110326,13 @@ sL
 UU
 UU
 UU
-si
+Uf
 cv
 Ak
 Ak
 Ak
 cv
-sd
+dW
 UU
 UU
 UU
@@ -109737,7 +110349,7 @@ FK
 FK
 FK
 CL
-wU
+hl
 Gj
 Gj
 Kc
@@ -109896,7 +110508,7 @@ og
 mT
 Ba
 zL
-Dn
+Rq
 yi
 so
 so
@@ -109927,13 +110539,13 @@ UU
 UU
 UU
 cS
-jx
+Fm
 yp
 yp
 yp
 yp
 yp
-jx
+Fm
 CL
 FK
 FK
@@ -109943,7 +110555,7 @@ Gj
 Gj
 Gj
 Kc
-ga
+oB
 qu
 Ic
 yW
@@ -110101,10 +110713,10 @@ og
 og
 og
 og
-Ho
-Ho
-Ho
-Ho
+Gb
+Gb
+Gb
+Gb
 og
 og
 JW
@@ -110302,20 +110914,20 @@ QO
 QO
 QO
 yl
-ph
-ph
-ph
-ph
-ph
-ph
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
 yl
 QO
-gC
-gC
-Rz
-Rz
-Rz
-Rz
+pB
+pB
+sM
+sM
+sM
+sM
 cv
 UU
 UU
@@ -110328,7 +110940,7 @@ Ak
 cv
 nF
 nF
-Ne
+mM
 cv
 cv
 lE
@@ -110358,7 +110970,7 @@ QF
 Ox
 Ox
 Ox
-cl
+ii
 Yb
 Ox
 Ox
@@ -110504,20 +111116,20 @@ QO
 QO
 QO
 og
-Ed
-gC
-gC
-gC
-gC
-Ed
-se
-Qh
-gC
-gC
-gC
-gC
-gC
-gC
+HP
+pB
+pB
+pB
+pB
+HP
+Jf
+xR
+pB
+pB
+pB
+pB
+pB
+pB
 iw
 UU
 UU
@@ -110706,20 +111318,20 @@ QO
 QO
 QO
 og
-jn
-uS
-uS
-uS
-uS
-jn
-jn
-RR
-gC
-gC
-gC
-Ed
-gC
-gC
+kf
+Br
+Br
+Br
+Br
+kf
+kf
+dJ
+pB
+pB
+pB
+HP
+pB
+pB
 iw
 UU
 UU
@@ -110729,7 +111341,7 @@ nF
 UU
 UU
 UU
-md
+Po
 UU
 UU
 UU
@@ -110908,17 +111520,17 @@ QO
 QO
 QO
 QO
-jn
-Fb
-KG
-mM
-ZL
-KG
-jn
-lt
-Rv
-bV
-lt
+kf
+iy
+JV
+we
+sU
+JV
+kf
+oE
+sd
+uP
+oE
 og
 og
 QO
@@ -110953,7 +111565,7 @@ DI
 lE
 lE
 lE
-fS
+RV
 Yb
 Yb
 Yb
@@ -111110,17 +111722,17 @@ QO
 og
 og
 og
-jn
-Sm
-jV
-jV
-jV
-jV
-uS
-dF
-px
-px
-Fc
+kf
+Md
+IU
+IU
+IU
+IU
+Br
+fY
+Ya
+Ya
+tb
 og
 QO
 QO
@@ -111129,11 +111741,11 @@ og
 cv
 Qg
 cv
-uc
-Lq
-VZ
-Lq
-uc
+hg
+wq
+ra
+wq
+hg
 ck
 vZ
 mb
@@ -111312,17 +111924,17 @@ og
 og
 Bf
 Bf
-jn
-XZ
-jV
-jV
-jV
-jV
-zr
-px
-px
-px
-DA
+kf
+rV
+IU
+IU
+IU
+IU
+cO
+Ya
+Ya
+Ya
+Wv
 og
 QO
 QO
@@ -111331,11 +111943,11 @@ og
 nF
 UU
 cv
-jb
-DH
-jh
-DH
-Rw
+Hf
+jF
+XT
+jF
+Od
 ck
 VK
 VK
@@ -111514,17 +112126,17 @@ og
 Bf
 Bf
 og
-jn
-gI
-KG
-Cq
-Ew
-Cg
-uS
-vP
-HJ
-px
-Fw
+kf
+Hc
+JV
+AZ
+fm
+oD
+Br
+ah
+Xx
+Ya
+Ls
 og
 sm
 Bm
@@ -111533,11 +112145,11 @@ yl
 nF
 UU
 cv
-jb
-DH
-jh
-DH
-Rw
+Hf
+jF
+XT
+jF
+Od
 ck
 VK
 VK
@@ -111699,7 +112311,7 @@ pw
 pw
 VM
 VM
-Hd
+vy
 VM
 DT
 mT
@@ -111723,10 +112335,10 @@ oL
 oL
 oL
 oL
-lt
-lt
-hY
-cn
+oE
+oE
+Vv
+un
 og
 EG
 Bm
@@ -111735,11 +112347,11 @@ og
 nF
 UU
 Ak
-DH
-VZ
-DH
-VZ
-DH
+jF
+ra
+jF
+ra
+jF
 ck
 VK
 VK
@@ -111921,14 +112533,14 @@ oL
 Vp
 Vp
 Hq
-in
+IY
 Hq
 Vp
 Vp
 oL
-lt
-lt
-lt
+oE
+oE
+oE
 og
 og
 og
@@ -111937,11 +112549,11 @@ og
 nF
 UU
 cv
-jb
-DH
-jh
-DH
-Rw
+Hf
+jF
+XT
+jF
+Od
 ck
 VK
 VK
@@ -112093,13 +112705,13 @@ lr
 WR
 lT
 lT
-wZ
+GC
 VM
 VM
 VM
 VM
 VM
-MM
+qF
 VM
 VM
 VM
@@ -112139,11 +112751,11 @@ cv
 nF
 UU
 cv
-jb
-DH
-jh
-DH
-Rw
+Hf
+jF
+XT
+jF
+Od
 ck
 VK
 VK
@@ -112341,11 +112953,11 @@ dU
 dU
 js
 dU
-uc
-Lq
-Lq
-Lq
-uc
+hg
+wq
+wq
+wq
+hg
 ck
 VK
 VK
@@ -114176,7 +114788,7 @@ IR
 WX
 DI
 Dm
-Mi
+sA
 kY
 kY
 kY
