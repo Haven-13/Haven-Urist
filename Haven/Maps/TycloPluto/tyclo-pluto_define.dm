@@ -6,7 +6,9 @@
   station_levels = list(1,2,3)
   contact_levels = list(1,2,3)
   player_levels = list(1,2,3)
+  empty_levels = list(4)
 
+  use_overmap = 1
   overmap_size = 24
   overmap_event_areas = 18
 
