@@ -9,7 +9,7 @@
   empty_levels = list(4)
 
   use_overmap = 1
-  overmap_size = 24
+  overmap_size = 35
   overmap_event_areas = 18
 
   allowed_spawns = list(
