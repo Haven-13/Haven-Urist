@@ -16,6 +16,10 @@
 	name = "\improper Medical Hallway"
 	icon_state = "medbay2"
 
+/area/medical/hallway/upper
+	name = "\improper Upper Medical Hallway"
+	icon_state = "medbay2"
+
 /area/medical/morgue
 	name = "\improper Morgue"
 	icon_state = "morgue"
@@ -26,6 +30,10 @@
 
 /area/medical/ward
 	name = "\improper Patient Ward"
+
+/area/medical/break_room
+	name = "\improper Medical Breakroom"
+	icon_state = "bluenew"
 
 /area/medical/locker
 	name = "\improper Medical Locker Room"
@@ -40,8 +48,11 @@
 	icon_state = "chem"
 
 /area/medical/surgery
-	name = "\improper Operating Theatre"
 	icon_state = "surgery"
+/area/medical/surgery/a
+	name = "\improper Operation Room 1"
+/area/medical/surgery/b
+	name = "\improper Operation Room 2"
 
 /area/medical/virology
 	name = "\improper Virology Lab"
