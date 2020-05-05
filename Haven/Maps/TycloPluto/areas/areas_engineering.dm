@@ -20,16 +20,31 @@
 	name = "\improper Engineering Storage"
 	icon_state = "engineering_storage"
 
-/area/engineering/smmon
-	name = "\improper Supermatter Monitoring Room"
+/area/engineering/engine_monitoring
+	name = "\improper Reactor Monitoring Room"
 	icon_state = "engine_monitoring"
 
+/area/engineering/fuel_burn
+	name = "\improper Fuel Combustion"
+
 /area/engineering/atmospherics
-	name = "\improper Atmospherics"
+	icon_state = "atmos"
+/area/engineering/atmospherics/upper
+		name = "\improper Atmospherics, Upper Floor"
+/area/engineering/atmospherics/lower
+		name = "\improper Atmospherics"
+/area/engineering/atmospherics/mon
+		name = "\improper Atmospherics Monitoring Room"
+
+/area/engineering/gas_storage
+	name = "\improper Gas Vessel Storage"
 	icon_state = "atmos"
 
+/area/engineering/shield_gen_bay
+	name = "\improper Shield Generator Bay"
+
 /area/engineering/engine
-	name = "\improper Engine Room"
+	name = "\improper Reactor Room"
 	icon_state = "engine"
 	sound_env = LARGE_ENCLOSED
 
@@ -37,6 +52,9 @@
 	name = "\improper SMES Room"
 	sound_env = SMALL_ENCLOSED
 	icon_state = "engine_smes"
+
+/area/engineering/smes/upper
+	name = "\improper SMES Room, Upper Floor"
 
 /area/engineering/securestorage
 	name = "\improper Secure Storage"
@@ -47,6 +65,9 @@
 
 /area/engineering/stech
 	name = "\improper Secure Tech Storage"
+
+/area/engineering/evastorage
+	name = "\improper Engineering EVA Storage"
 
 /area/engineering/tcomms
 	name = "\improper Telecommunications Server"
@@ -61,14 +82,20 @@
 /area/engineering/fuelbay
 	name = "\improper Fuel Bay"
 
-/area/engineering/fdengine
-	name = "\improper Top Deck Engine Bay"
-
-/area/engineering/bdportengine
-	name = "\improper Bottom Deck Port Engine Bay"
-
-/area/engineering/bdstarengine
-	name = "\improper Bottom Deck Starboard Engine Bay"
+/area/engineering/engine
+	name = "\improper Engine Bay"
+/area/engineering/engine/bdport
+		name = "\improper First Deck Port Engine Bay"
+/area/engineering/engine/bdstar
+		name = "\improper First Deck Starboard Engine Bay"
+/area/engineering/engine/port
+		name = "\improper Second Deck Port Engine Bay"
+/area/engineering/engine/star
+		name = "\improper Second Deck Starboard Engine Bay"
+/area/engineering/engine/tdport
+		name = "\improper Third Deck Port Engine Bay"
+/area/engineering/engine/tdstar
+		name = "\improper Third Deck Starboard Engine Bay"
 
 /area/engineering/drone_fabrication
 	name = "\improper Drone Fabrication"
@@ -101,9 +128,6 @@
 
 /area/engineering/substation/third_deck
 	name = "\improper Third Deck Substation"
-
-/area/engineering/substation/fourth_deck
-	name = "\improper Fourth Deck Substation"
 
 /area/engineering/substation/atmos
 	name = "\improper Atmospherics Substation"

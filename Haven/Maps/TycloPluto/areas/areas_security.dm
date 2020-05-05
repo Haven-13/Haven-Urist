@@ -29,7 +29,11 @@
 	name = "\improper Armoury"
 	icon_state = "Warden"
 
-/area/security/breakroom
+/area/security/warden
+	name = "\improper Warden's Office"
+	icon_state = "Warden"
+
+/area/security/break_room
 	name = "\improper Security Dorms"
 
 /area/security/office
@@ -53,19 +57,3 @@
 
 /area/security/lockers
 	name = "\improper Security Locker Room"
-
-/area/security/portgun
-	name = "\improper Port Gunnery Room"
-	icon_state = "LP"
-
-/area/security/starboardgun
-	name = "\improper Starboard Gunnery Room"
-	icon_state = "LP"
-
-/area/security/bottomgun
-	name = "\improper Fourth Deck Gunnery Room"
-	icon_state = "LP"
-
-/area/security/topgun
-	name = "\improper First Deck Gunnery Room"
-	icon_state = "LP"
