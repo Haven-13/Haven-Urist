@@ -3,8 +3,8 @@
 	shipid = "pluto"
 	vessel_mass = 200 //bigger than wyrm, smaller than torch
 	fore_dir = SOUTH
-	start_x = 6
-	start_y = 7
+	start_x = 17
+	start_y = 17
 	can_board = TRUE
 
 	initial_restricted_waypoints = list(
