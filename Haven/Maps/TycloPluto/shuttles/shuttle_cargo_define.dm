@@ -9,8 +9,8 @@
 	warmup_time = 5
 	move_time = 30
 	shuttle_area = /area/supply_drone/dock
-	waypoint_offsite = "nav_cargo_start"
-	waypoint_station = "nav_cargo_station"
+	waypoint_offsite = "nav_cargo_away"
+	waypoint_station = "nav_cargo_dock"
 	var/doorid = "supplyshuttledoors"
 
 

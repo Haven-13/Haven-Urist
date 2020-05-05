@@ -3,6 +3,10 @@
   full_name = "AFCUV Pluto"
   path = "tyclo-pluto"
 
+  station_levels = list(1,2,3)
+  contact_levels = list(1,2,3)
+  player_levels = list(1,2,3)
+
   overmap_size = 24
   overmap_event_areas = 18
 
