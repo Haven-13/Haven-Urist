@@ -26,9 +26,17 @@
 
 /obj/turbolift_map_holder/pluto
 	name = "Pluto turbolift map placeholder"
+	icon = ''
 	depth = 3
-	lift_size_x = 3
-	lift_size_y = 3
+	// These below are added to 1 to make a 3x3, this is just about smart as
+	// giving an orangutan in special edu. class a loaded gun and ask it to not
+	// do anything dumb. Whose fucking idea was it, jesus fucking christ.
+	lift_size_x = 2
+	lift_size_y = 2
+
+	create_inner_doors = FALSE
+
+	wall_type = null
 
 	areas_to_use = list(
 		/area/turbolift/pluto/first_deck,
