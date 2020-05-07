@@ -1,5 +1,6 @@
 
 /datum/job/assistant
+	title = "Crewman"
 	alt_titles = list(
 	"Technical Assistant","Medical Intern","Cargo Assistant", "Security Deputy",
 	"Botanist" = /decl/hierarchy/outfit/job/service/gardener,
