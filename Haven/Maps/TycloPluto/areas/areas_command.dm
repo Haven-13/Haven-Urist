@@ -88,3 +88,6 @@
 	name = "\improper Safe Room A"
 /area/command/safe_room/b
 	name = "\improper Safe Room B"
+
+/area/command/sensors
+	name = "\improper Sensors Chamber"
