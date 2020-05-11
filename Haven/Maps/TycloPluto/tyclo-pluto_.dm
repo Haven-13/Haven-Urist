@@ -19,6 +19,7 @@
   #include "shuttles/shuttle_styx_overmap.dm"
 
   #include "Maps/tyclo-pluto_main.dmm"
+  #include "Maps/tyclo-pluto_remote.dmm"
 
 //  #include "tyclo-pluto_aways.dm"
 

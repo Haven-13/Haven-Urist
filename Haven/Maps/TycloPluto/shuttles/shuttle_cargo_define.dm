@@ -12,13 +12,15 @@
 
 /datum/shuttle/autodock/ferry/supply/drone/pluto
 	name = "Supply Drone"
-	location = 1
+	location = 0
 	warmup_time = 5
 	move_time = 30
 	shuttle_area = /area/supply_drone/dock
+	dock_target = "pluto_supply_drone"
+	current_location = "nav_cargo_dock"
 	waypoint_offsite = "nav_cargo_away"
 	waypoint_station = "nav_cargo_dock"
-	var/doorid = "supplyshuttledoors"
+//	var/doorid = "supplyshuttledoors"
 
 
 /obj/effect/shuttle_landmark/supply/pluto/away
@@ -28,10 +30,11 @@
 /obj/effect/shuttle_landmark/supply/pluto/docked
 	name = "Onboard"
 	landmark_tag = "nav_cargo_dock"
-	//base_area = /area/spacestations/nanotrasenspace
-	base_turf = /turf/simulated/floor/plating
+	base_area = /area/pluto/maintenance/central/bottom
+	base_turf = /turf/space
+	docking_controller = "supply_drone_dock"
 
-
+/*
 /datum/shuttle/autodock/ferry/supply/drone/pluto/attempt_move(var/obj/effect/shuttle_landmark/destination)
 	if(!destination)
 		return FALSE
@@ -40,6 +43,7 @@
 		..()
 
 /datum/shuttle/autodock/ferry/supply/drone/pluto/arrived()
+	. = ..()
 	if(location == 0)
 		for(var/obj/machinery/door/blast/M in SSmachines.machinery)
 			if(M.id == src.doorid)
@@ -66,3 +70,4 @@
 						return
 
 	..()
+*/
