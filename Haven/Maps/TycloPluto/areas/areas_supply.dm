@@ -25,6 +25,9 @@
 	name = "\improper Cargo Locker Room"
 	icon_state = "quartstorage"
 
+/area/logistics/breakroom
+	name = "\improper Cargo Break Room"
+
 /area/logistics/fabwork
 	name = "\improper Cargo Fabrication Workshop"
 	icon_state = "quartoffice"
