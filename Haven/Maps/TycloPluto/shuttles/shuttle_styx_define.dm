@@ -21,8 +21,9 @@
 /obj/effect/shuttle_landmark/pluto/hangar/exploration_shuttle
 	name = "Styx Hangar"
 	landmark_tag = "nav_hangar_styx"
-	base_area = /area
+	base_area = /area/space
 	base_turf = /turf/space
+	docking_controller = "styx_shuttle_dock_airlock"
 
 /obj/effect/shuttle_landmark/pluto/transit/exploration_shuttle
 	name = "In transit"

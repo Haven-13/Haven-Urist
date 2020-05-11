@@ -1,3 +1,8 @@
+
+// See comments in shuttle_cargo_define.dm on why this exists.
+/datum/shuttle/autodock/overmap/exploration_shuttle
+	category = /datum/shuttle/autodock/overmap/exploration_shuttle
+
 /datum/shuttle/autodock/overmap/exploration_shuttle/pluto
 	name = "Styx"
 	move_time = 90
