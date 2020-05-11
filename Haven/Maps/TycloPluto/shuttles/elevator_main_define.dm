@@ -26,7 +26,7 @@
 
 /obj/turbolift_map_holder/pluto
 	name = "Pluto turbolift map placeholder"
-	icon = ''
+
 	depth = 3
 	// These below are added to 1 to make a 3x3, this is just about smart as
 	// giving an orangutan in special edu. class a loaded gun and ask it to not
