@@ -6,7 +6,8 @@
   station_levels = list(1,2,3)
   contact_levels = list(1,2,3)
   player_levels = list(1,2,3)
-  empty_levels = list(4)
+  admin_levels = list(4)
+  empty_levels = list(5)
 
   use_overmap = 1
   overmap_size = 35
