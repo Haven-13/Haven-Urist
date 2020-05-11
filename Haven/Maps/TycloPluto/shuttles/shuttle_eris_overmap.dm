@@ -1,3 +1,8 @@
+
+// See comments in shuttle_cargo_define.dm on why this exists.
+/datum/shuttle/autodock/overmap/courier_shuttle
+	category = /datum/shuttle/autodock/overmap/courier_shuttle
+
 /datum/shuttle/autodock/overmap/courier_shuttle/pluto
 	name = "Eris"
 	warmup_time = 5
