@@ -3,6 +3,13 @@
 	icon_state = "shuttle3"
 	requires_power = 0
 
+// Subtyping shuttles make the Shuttles subsystem whine, SSshuttle use
+// subtypesof(/datum/shuttle) to initialize shuttle datums. Unless the type has
+// itself as its own category, excluding it.
+// So categorizing them make the subsystem ignore them.
+/datum/shuttle/autodock/ferry/supply/drone
+	category = /datum/shuttle/autodock/ferry/supply/drone
+
 /datum/shuttle/autodock/ferry/supply/drone/pluto
 	name = "Supply Drone"
 	location = 1
