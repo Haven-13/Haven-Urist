@@ -5,6 +5,7 @@
   #include "tyclo-pluto_jobs.dm"
   #include "tyclo-pluto_lobby.dm"
   #include "tyclo-pluto_overmap.dm"
+  #include "tyclo-pluto_presets.dm"
 
   #include "objects/nerva_clothes.dm"
   #include "objects/nerva_ids.dm"
@@ -19,7 +20,7 @@
 
   #include "Maps/tyclo-pluto_main.dmm"
 
-  #include "tyclo-pluto_aways.dm"
+//  #include "tyclo-pluto_aways.dm"
 
   #define USING_MAP_DATUM /datum/map/tyclo_pluto
   #define URISTCODE 1
