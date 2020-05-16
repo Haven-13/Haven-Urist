@@ -2,6 +2,8 @@
  * Copy of Nerva's aways in nerva.dm
 */
 
+#include "../CommonAways/StationNevastapol/nevastapol.dm"
+
 #include "../../../maps/away/mining/mining.dm"
 //	#include "../away/derelict/derelict.dm"
 #include "../../../maps/away/bearcat/bearcat.dm"
