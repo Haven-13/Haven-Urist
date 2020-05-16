@@ -21,7 +21,7 @@
   #include "Maps/tyclo-pluto_main.dmm"
   #include "Maps/tyclo-pluto_remote.dmm"
 
-//  #include "tyclo-pluto_aways.dm"
+  #include "tyclo-pluto_aways.dm"
 
   #define USING_MAP_DATUM /datum/map/tyclo_pluto
   #define URISTCODE 1
