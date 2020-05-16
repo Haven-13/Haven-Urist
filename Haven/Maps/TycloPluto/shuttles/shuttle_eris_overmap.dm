@@ -16,6 +16,7 @@
 	landmark_transition = "nav_transit_eris"
 	sound_takeoff = 'sound/effects/rocket.ogg'
 	sound_landing = 'sound/effects/rocket_backwards.ogg'
+	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_eris"
 	//logging_access = access_courier_shuttle_helm
