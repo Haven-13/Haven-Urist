@@ -7,9 +7,12 @@
   #include "tyclo-pluto_overmap.dm"
   #include "tyclo-pluto_presets.dm"
 
+  #include "datums/pluto_network.dm"
+
   #include "objects/nerva_clothes.dm"
   #include "objects/nerva_ids.dm"
   #include "objects/nerva_items.dm"
+  #include "objects/pluto_cameras.dm"
   #include "objects/pluto_computers.dm"
 
   #include "shuttles/shuttle_cargo_define.dm"
