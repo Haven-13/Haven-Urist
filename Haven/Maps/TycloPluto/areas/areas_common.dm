@@ -1,6 +1,9 @@
 /area/civilian
 	icon_state = "green"
 
+/area/civilian/saferoom/d1
+	name = "\improper D1 Safe Room"
+
 /area/civilian/observatory
 	name = "\improper Portside Observatory"
 
