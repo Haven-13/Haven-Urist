@@ -12,6 +12,8 @@
 # define COLOR_SPACE_CADET "#152050"
 # define COLOR_ROMAN_SILVER "#7e8495"
 
+# define COLOR_MEDICAL_GREEN "#448044"
+
 /*
  Colour list:
  Command:
@@ -75,31 +77,31 @@
  */
 #define CREATE_DOOR_VARIETIES(base)\
 base/command {\
-	door_color = COLOR_SPACE_CADET;\
-	stripe_color = COLOR_ROMAN_SILVER;\
+	door_color = COLOR_COMMAND_BLUE;\
+	stripe_color = COLOR_WHITE;\
 }\
 base/gunnery {\
-	door_color = COLOR_SPACE_CADET;\
+	door_color = COLOR_COMMAND_BLUE;\
 	stripe_color = COLOR_NT_RED;\
 }\
 base/security {\
-	door_color = COLOR_NT_RED;\
+	door_color = COLOR_ROMAN_SILVER;\
 	stripe_color = COLOR_MAROON;\
 }\
 base/medical {\
-	door_color = COLOR_GREEN;\
+	door_color = COLOR_MEDICAL_GREEN;\
 	stripe_color = COLOR_WHITE;\
 }\
 base/medical/inverted {\
 	door_color = COLOR_WHITE;\
-	stripe_color = COLOR_GREEN;\
+	stripe_color = COLOR_MEDICAL_GREEN;\
 }\
 base/engineering {\
 	door_color = COLOR_AMBER;\
-	stripe_color = COLOR_ORANGE;\
+	stripe_color = COLOR_NT_RED;\
 }\
 base/engineering/inverted {\
-	door_color = COLOR_ORANGE;\
+	door_color = COLOR_NT_RED;\
 	stripe_color = COLOR_AMBER;\
 }\
 base/engineering/atmos {\
@@ -155,6 +157,7 @@ CREATE_DOOR_VARIETIES(/obj/machinery/door/airlock/multi_tile/autoname/glass/plut
 
 CREATE_MAINT_DOOR_VARIETIES(/obj/machinery/door/airlock/autoname/pluto)
 CREATE_MAINT_DOOR_VARIETIES(/obj/machinery/door/airlock/autoname/glass/pluto)
+CREATE_MAINT_DOOR_VARIETIES(/obj/machinery/door/airlock/multi_tile/autoname/pluto)
 
 // Clean up - undefine macros, because we don't need them anymore
 #undef CREATE_DOOR_VARIETIES
