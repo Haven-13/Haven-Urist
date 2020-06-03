@@ -3,6 +3,7 @@
 #include "areas/areas_engineering.dm"
 #include "areas/areas_gunnery.dm"
 #include "areas/areas_hallways.dm"
+#include "areas/areas_holodeck.dm"
 #include "areas/areas_lifepods.dm"
 #include "areas/areas_maintenance.dm"
 #include "areas/areas_medical.dm"
