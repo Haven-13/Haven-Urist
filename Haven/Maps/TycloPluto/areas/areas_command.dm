@@ -41,6 +41,10 @@
 	name = "\improper Bridge Storage"
 	icon_state = "bridge"
 
+/area/command/office_storage
+	name = "\improper Office Supply Storage"
+	icon_state = "bridge"
+
 /area/command/aiupload
 	name = "\improper AI Upload"
 	icon_state = "ai_chamber"
