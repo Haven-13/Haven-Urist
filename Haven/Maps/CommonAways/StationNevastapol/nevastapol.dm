@@ -15,6 +15,9 @@
 	name = "IDSS Nevastapol"
 	desc = "An independent deep-space colony, one can find opportunities for contracts and trading when visiting there."
 	faction = "nevastapol"
+
+	known = 1
+	in_space = 0 // it is a huge station and the map is not good for bumping into from EVA.
 	spawn_ships = FALSE
 	//spawn_type = /mob/living/simple_animal/hostile/overmapship/nanotrasen/ntmerchant
 
