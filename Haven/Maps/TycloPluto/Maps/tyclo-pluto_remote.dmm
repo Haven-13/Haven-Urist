@@ -1,208 +1,5 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"bn" = (
-/obj/structure/holohoop,
-/obj/effect/floor_decal/corner/blue/half{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"cv" = (
-/turf/simulated/floor/holofloor/beach/water,
-/area/space)
-"dF" = (
-/obj/effect/floor_decal/corner/red/border{
-	dir = 8
-	},
-/obj/structure/window/reinforced/holowindow{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"hM" = (
-/obj/structure/table/holotable,
-/obj/item/clothing/gloves/boxing/hologlove{
-	icon_state = "boxingblue";
-	item_state = "boxingblue"
-	},
-/obj/item/clothing/gloves/boxing/hologlove{
-	icon_state = "boxingblue";
-	item_state = "boxingblue"
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"ib" = (
-/obj/effect/floor_decal/corner/red/border{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red/border,
-/obj/effect/floor_decal/corner/red/bordercorner{
-	dir = 1
-	},
-/obj/structure/window/reinforced/holowindow,
-/obj/machinery/door/window/holowindoor{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"iu" = (
-/turf/space,
-/area/space)
-"jK" = (
-/turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"jL" = (
-/obj/effect/floor_decal/corner/red/border{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/red/border,
-/obj/effect/floor_decal/corner/red/bordercorner{
-	dir = 4
-	},
-/obj/structure/window/reinforced/holowindow,
-/obj/structure/window/reinforced/holowindow{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"ky" = (
-/obj/effect/floor_decal/corner/orange/half{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"kI" = (
-/obj/structure/bed/chair/holochair{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"mO" = (
-/obj/effect/floor_decal/corner/red/border,
-/obj/effect/floor_decal/corner/red/border{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"nu" = (
-/turf/unsimulated/wall,
-/area/space)
-"oB" = (
-/obj/effect/floor_decal/corner/red/border{
-	dir = 1
-	},
-/obj/structure/window/reinforced/holowindow{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"oE" = (
-/obj/item/weapon/beach_ball/holoball,
-/obj/effect/floor_decal/corner/orange/half,
-/obj/effect/floor_decal/corner/blue/half{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"pe" = (
-/turf/simulated/floor/holofloor/tiled,
-/area/space)
-"pm" = (
-/obj/effect/floor_decal/corner/orange/three_quarters,
-/turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"pX" = (
-/obj/effect/floor_decal/corner/orange/half,
-/obj/effect/floor_decal/corner/blue/half{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"qD" = (
-/obj/effect/floor_decal/corner/orange/half{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"rM" = (
-/obj/effect/floor_decal/corner/orange/three_quarters,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"sj" = (
-/obj/effect/floor_decal/corner/orange/half,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"tE" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/space)
-"tK" = (
-/obj/effect/floor_decal/corner/orange/half{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"uy" = (
-/obj/structure/holohoop{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/orange/half,
-/turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"xG" = (
-/turf/simulated/floor/holofloor/beach/sand,
-/area/space)
-"yn" = (
-/obj/structure/bed/chair/holochair,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"yy" = (
-/obj/effect/floor_decal/corner/red/border{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/red/border{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"AF" = (
-/obj/effect/shuttle_landmark/pluto/transit/exploration_shuttle,
-/turf/space,
-/area/space)
-"AM" = (
-/obj/effect/floor_decal/corner/red/border{
-	dir = 4
-	},
-/obj/structure/window/reinforced/holowindow{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"AV" = (
-/obj/effect/floor_decal/corner/red/border{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/red/border{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"BN" = (
-/obj/structure/table/holotable,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"CO" = (
-/obj/effect/shuttle_landmark/supply/pluto/away,
-/turf/unsimulated/floor/plating,
-/area/space)
-"Dx" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/unsimulated/floor/plating,
-/area/space)
-"DT" = (
+"bg" = (
 /obj/effect/floor_decal/corner/red/border{
 	dir = 8
 	},
@@ -217,72 +14,264 @@
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_boxingcourt)
+"bq" = (
+/obj/item/weapon/beach_ball/holoball,
+/obj/effect/floor_decal/corner/orange/half,
+/obj/effect/floor_decal/corner/blue/half{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_basketball)
+"dt" = (
+/obj/structure/holohoop{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/orange/half,
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_basketball)
+"eq" = (
+/obj/effect/floor_decal/corner/orange/half{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_basketball)
+"gv" = (
+/obj/structure/table/holotable,
+/obj/item/clothing/gloves/boxing/hologlove{
+	icon_state = "boxinggreen";
+	item_state = "boxinggreen"
+	},
+/obj/item/clothing/gloves/boxing/hologlove{
+	icon_state = "boxinggreen";
+	item_state = "boxinggreen"
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_boxingcourt)
+"hY" = (
+/obj/effect/floor_decal/corner/orange/half{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_basketball)
+"iu" = (
+/turf/space,
 /area/space)
-"Fj" = (
+"jJ" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_basketball)
+"kW" = (
+/obj/effect/floor_decal/corner/red/border{
+	dir = 4
+	},
+/obj/structure/window/reinforced/holowindow{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_boxingcourt)
+"lT" = (
+/obj/effect/floor_decal/corner/red/border,
+/obj/effect/floor_decal/corner/red/border{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_boxingcourt)
+"nu" = (
+/turf/unsimulated/wall,
+/area/space)
+"ow" = (
+/obj/effect/floor_decal/corner/orange/half{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_basketball)
+"pP" = (
+/obj/effect/floor_decal/corner/red/border{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red/border{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_boxingcourt)
+"ri" = (
+/obj/effect/floor_decal/corner/blue/half{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_basketball)
+"tE" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/unsimulated/floor/plating,
+/area/space)
+"tO" = (
+/obj/effect/floor_decal/corner/orange/three_quarters{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_basketball)
+"tT" = (
+/obj/effect/floor_decal/corner/red/border{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/red/border,
+/obj/effect/floor_decal/corner/red/bordercorner{
+	dir = 4
+	},
+/obj/structure/window/reinforced/holowindow,
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_boxingcourt)
+"uX" = (
+/obj/effect/floor_decal/corner/orange/three_quarters,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_basketball)
+"vx" = (
+/obj/effect/floor_decal/corner/red/border{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red/border{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_boxingcourt)
+"xo" = (
+/turf/simulated/floor/reinforced,
+/area/holodeck/source_plating)
+"xC" = (
+/obj/effect/floor_decal/corner/orange/half,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_basketball)
+"xD" = (
 /obj/effect/floor_decal/corner/blue/half{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_basketball)
+"zY" = (
+/obj/effect/floor_decal/corner/blue/three_quarters{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_basketball)
+"AF" = (
+/obj/effect/shuttle_landmark/pluto/transit/exploration_shuttle,
+/turf/space,
 /area/space)
-"Ft" = (
+"AX" = (
+/obj/effect/floor_decal/corner/blue/half{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_basketball)
+"Bm" = (
 /obj/effect/floor_decal/corner/red/border,
 /obj/structure/window/reinforced/holowindow,
 /turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"Gp" = (
-/turf/unsimulated/floor/plating,
-/area/space)
-"GA" = (
-/obj/effect/floor_decal/corner/blue/three_quarters{
+/area/holodeck/source_boxingcourt)
+"Cw" = (
+/obj/effect/floor_decal/corner/orange/half,
+/obj/effect/floor_decal/corner/blue/half{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/white,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_basketball)
+"CO" = (
+/obj/effect/shuttle_landmark/supply/pluto/away,
+/turf/unsimulated/floor/plating,
 /area/space)
-"HG" = (
+"Dx" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/unsimulated/floor/plating,
+/area/space)
+"EH" = (
+/obj/effect/floor_decal/corner/blue/three_quarters{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_basketball)
+"Fa" = (
 /obj/effect/floor_decal/corner/orange/three_quarters{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_basketball)
+"FU" = (
+/obj/effect/floor_decal/corner/orange/three_quarters,
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_basketball)
+"Gp" = (
+/turf/unsimulated/floor/plating,
 /area/space)
+"Hv" = (
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_basketball)
+"HZ" = (
+/obj/structure/bed/chair/holochair{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_boxingcourt)
 "IM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/unsimulated/floor/plating,
 /area/space)
+"JB" = (
+/obj/effect/floor_decal/corner/orange/half{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_basketball)
+"JY" = (
+/turf/simulated/floor/holofloor/beach/water,
+/area/holodeck/source_beach)
 "Ky" = (
 /obj/effect/shuttle_landmark/pluto/transit/courier_shuttle,
 /turf/space,
 /area/space)
-"MX" = (
-/turf/simulated/floor/reinforced,
-/area/space)
-"Ng" = (
-/obj/effect/floor_decal/corner/red/border,
-/obj/effect/floor_decal/corner/red/border{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"NP" = (
-/obj/effect/floor_decal/corner/orange/three_quarters{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"Of" = (
+"Np" = (
 /obj/effect/floor_decal/corner/blue/half{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"OA" = (
-/obj/effect/floor_decal/corner/blue/three_quarters{
+/area/holodeck/source_basketball)
+"NU" = (
+/obj/structure/bed/chair/holochair,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_boxingcourt)
+"QJ" = (
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_boxingcourt)
+"Uu" = (
+/obj/effect/floor_decal/corner/red/border{
 	dir = 8
 	},
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_boxingcourt)
+"UE" = (
+/obj/structure/table/holotable,
+/obj/item/clothing/gloves/boxing/hologlove{
+	icon_state = "boxingblue";
+	item_state = "boxingblue"
+	},
+/obj/item/clothing/gloves/boxing/hologlove{
+	icon_state = "boxingblue";
+	item_state = "boxingblue"
+	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"PH" = (
+/area/holodeck/source_boxingcourt)
+"UP" = (
 /obj/effect/floor_decal/corner/red/border{
 	dir = 1
 	},
@@ -299,62 +288,76 @@
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"PI" = (
-/obj/effect/floor_decal/corner/orange/half{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"PP" = (
-/obj/effect/floor_decal/corner/blue/half{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"Sl" = (
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"TQ" = (
-/obj/effect/floor_decal/corner/blue/half{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"Uw" = (
-/obj/effect/floor_decal/corner/blue/three_quarters{
+/area/holodeck/source_boxingcourt)
+"UV" = (
+/obj/effect/floor_decal/corner/red/border,
+/obj/effect/floor_decal/corner/red/border{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled/white,
-/area/space)
-"Vp" = (
-/obj/effect/floor_decal/corner/blue/half{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"Vu" = (
+/area/holodeck/source_boxingcourt)
+"Vk" = (
+/turf/simulated/floor/holofloor/beach/sand,
+/area/holodeck/source_beach)
+"Vl" = (
 /obj/effect/floor_decal/corner/blue/three_quarters{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
-"VS" = (
-/obj/structure/table/holotable,
-/obj/item/clothing/gloves/boxing/hologlove{
-	icon_state = "boxinggreen";
-	item_state = "boxinggreen"
+/area/holodeck/source_basketball)
+"Wx" = (
+/obj/effect/floor_decal/corner/blue/three_quarters{
+	dir = 1
 	},
-/obj/item/clothing/gloves/boxing/hologlove{
-	icon_state = "boxinggreen";
-	item_state = "boxinggreen"
-	},
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_basketball)
+"WR" = (
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/space)
+/area/holodeck/source_boxingcourt)
 "XU" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor/plating,
 /area/space)
+"YS" = (
+/obj/structure/table/holotable,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_boxingcourt)
+"YT" = (
+/obj/effect/floor_decal/corner/red/border{
+	dir = 1
+	},
+/obj/structure/window/reinforced/holowindow{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_boxingcourt)
+"YZ" = (
+/obj/structure/holohoop,
+/obj/effect/floor_decal/corner/blue/half{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_basketball)
+"ZN" = (
+/obj/effect/floor_decal/corner/blue/half{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_basketball)
+"ZR" = (
+/obj/effect/floor_decal/corner/red/border{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red/border,
+/obj/effect/floor_decal/corner/red/bordercorner{
+	dir = 1
+	},
+/obj/structure/window/reinforced/holowindow,
+/obj/machinery/door/window/holowindoor{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled/white,
+/area/holodeck/source_boxingcourt)
 
 (1,1,1) = {"
 iu
@@ -1971,21 +1974,21 @@ iu
 iu
 iu
 nu
-OA
-Of
-Of
-pX
-PI
-PI
-rM
+EH
+Np
+Np
+Cw
+eq
+eq
+uX
 nu
-MX
-MX
-MX
-MX
-MX
-MX
-MX
+xo
+xo
+xo
+xo
+xo
+xo
+xo
 nu
 "}
 (17,1,1) = {"
@@ -2073,21 +2076,21 @@ iu
 iu
 iu
 nu
-TQ
-Sl
-Sl
-pX
-Sl
-Sl
-sj
+ZN
+jJ
+jJ
+Cw
+jJ
+jJ
+xC
 nu
-MX
-MX
-MX
-MX
-MX
-MX
-MX
+xo
+xo
+xo
+xo
+xo
+xo
+xo
 nu
 "}
 (18,1,1) = {"
@@ -2175,21 +2178,21 @@ iu
 iu
 iu
 nu
-Uw
-Fj
-TQ
-pX
-sj
-tK
-pm
+zY
+xD
+ZN
+Cw
+xC
+hY
+FU
 nu
-MX
-MX
-MX
-MX
-MX
-MX
-MX
+xo
+xo
+xo
+xo
+xo
+xo
+xo
 nu
 "}
 (19,1,1) = {"
@@ -2277,21 +2280,21 @@ iu
 iu
 iu
 nu
-bn
-jK
-TQ
-oE
-sj
-jK
-uy
+YZ
+Hv
+ZN
+bq
+xC
+Hv
+dt
 nu
-MX
-MX
-MX
-MX
-MX
-MX
-MX
+xo
+xo
+xo
+xo
+xo
+xo
+xo
 nu
 "}
 (20,1,1) = {"
@@ -2379,21 +2382,21 @@ iu
 iu
 iu
 nu
-GA
-PP
-TQ
-pX
-sj
-qD
-HG
+Wx
+ri
+ZN
+Cw
+xC
+ow
+Fa
 nu
-MX
-MX
-MX
-MX
-MX
-MX
-MX
+xo
+xo
+xo
+xo
+xo
+xo
+xo
 nu
 "}
 (21,1,1) = {"
@@ -2481,21 +2484,21 @@ iu
 iu
 iu
 nu
-TQ
-Sl
-Sl
-pX
-Sl
-Sl
-sj
+ZN
+jJ
+jJ
+Cw
+jJ
+jJ
+xC
 nu
-MX
-MX
-MX
-MX
-MX
-MX
-MX
+xo
+xo
+xo
+xo
+xo
+xo
+xo
 nu
 "}
 (22,1,1) = {"
@@ -2583,21 +2586,21 @@ iu
 iu
 iu
 nu
-Vu
-Vp
-Vp
-pX
-ky
-ky
-NP
+Vl
+AX
+AX
+Cw
+JB
+JB
+tO
 nu
-MX
-MX
-MX
-MX
-MX
-MX
-MX
+xo
+xo
+xo
+xo
+xo
+xo
+xo
 nu
 "}
 (23,1,1) = {"
@@ -2787,21 +2790,21 @@ iu
 iu
 iu
 nu
-xG
-xG
-xG
-xG
-xG
-cv
-cv
+Vk
+Vk
+Vk
+Vk
+Vk
+JY
+JY
 nu
-Sl
-VS
-pe
-DT
-dF
-dF
-jL
+WR
+gv
+QJ
+bg
+Uu
+Uu
+tT
 nu
 "}
 (25,1,1) = {"
@@ -2889,21 +2892,21 @@ iu
 iu
 iu
 nu
-xG
-xG
-xG
-xG
-cv
-cv
-cv
+Vk
+Vk
+Vk
+Vk
+JY
+JY
+JY
 nu
-Sl
-Sl
-pe
-oB
-yy
-mO
-Ft
+WR
+WR
+QJ
+YT
+vx
+UV
+Bm
 nu
 "}
 (26,1,1) = {"
@@ -2991,21 +2994,21 @@ iu
 iu
 iu
 nu
-xG
-xG
-xG
-xG
-cv
-cv
-cv
+Vk
+Vk
+Vk
+Vk
+JY
+JY
+JY
 nu
-Sl
-yn
-pe
-oB
-AV
-Ng
-Ft
+WR
+NU
+QJ
+YT
+pP
+lT
+Bm
 nu
 "}
 (27,1,1) = {"
@@ -3093,21 +3096,21 @@ iu
 iu
 iu
 nu
-xG
-xG
-xG
-xG
-cv
-cv
-cv
+Vk
+Vk
+Vk
+Vk
+JY
+JY
+JY
 nu
-BN
-yn
-pe
-PH
-AM
-AM
-ib
+YS
+NU
+QJ
+UP
+kW
+kW
+ZR
 nu
 "}
 (28,1,1) = {"
@@ -3195,21 +3198,21 @@ iu
 iu
 iu
 nu
-xG
-xG
-xG
-xG
-cv
-cv
-cv
+Vk
+Vk
+Vk
+Vk
+JY
+JY
+JY
 nu
-yn
-yn
-pe
-pe
-pe
-pe
-pe
+NU
+NU
+QJ
+QJ
+QJ
+QJ
+QJ
 nu
 "}
 (29,1,1) = {"
@@ -3297,21 +3300,21 @@ iu
 iu
 iu
 nu
-xG
-xG
-xG
-xG
-cv
-cv
-cv
+Vk
+Vk
+Vk
+Vk
+JY
+JY
+JY
 nu
-Sl
-Sl
-kI
-kI
-kI
-Sl
-hM
+WR
+WR
+HZ
+HZ
+HZ
+WR
+UE
 nu
 "}
 (30,1,1) = {"
@@ -3399,21 +3402,21 @@ iu
 iu
 iu
 nu
-xG
-xG
-xG
-xG
-xG
-cv
-cv
+Vk
+Vk
+Vk
+Vk
+Vk
+JY
+JY
 nu
-Sl
-Sl
-Sl
-Sl
-Sl
-Sl
-Sl
+WR
+WR
+WR
+WR
+WR
+WR
+WR
 nu
 "}
 (31,1,1) = {"
