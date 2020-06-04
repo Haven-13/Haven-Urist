@@ -15,6 +15,7 @@
   #include "objects/nerva_items.dm"
   #include "objects/pluto_cameras.dm"
   #include "objects/pluto_computers.dm"
+  #include "objects/pluto_docking_controllers.dm"
   #include "objects/pluto_doors.dm"
 
   #include "shuttles/shuttle_cargo_define.dm"
