@@ -3,7 +3,7 @@
 	icon_state = "shuttle3"
 	requires_power = 0
 
-// Subtyping shuttles make the Shuttles subsystem whine, SSshuttle use
+// Subtyping shuttles make the Shuttles subsystem whine, SSshuttle uses
 // subtypesof(/datum/shuttle) to initialize shuttle datums. Unless the type has
 // itself as its own category, excluding it.
 // So categorizing them make the subsystem ignore them.
