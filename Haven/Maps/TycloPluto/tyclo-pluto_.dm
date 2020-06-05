@@ -1,5 +1,6 @@
 #if !defined(USING_MAP_DATUM)
 
+  #include "tyclo-pluto_announcements.dm"
   #include "tyclo-pluto_areas.dm"
   #include "tyclo-pluto_elevators.dm"
   #include "tyclo-pluto_holodecks.dm"
@@ -7,6 +8,7 @@
   #include "tyclo-pluto_lobby.dm"
   #include "tyclo-pluto_overmap.dm"
   #include "tyclo-pluto_presets.dm"
+  #include "tyclo-pluto_setup.dm"
 
   #include "datums/pluto_network.dm"
 
