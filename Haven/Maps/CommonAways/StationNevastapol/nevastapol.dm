@@ -16,6 +16,9 @@
 	desc = "An independent deep-space colony, one can find opportunities for contracts and trading when visiting there."
 	faction = "nevastapol"
 
+	icon = 'icons/obj/overmap.dmi'
+	icon_state = "station_0"
+
 	known = 1
 	in_space = 0 // it is a huge station and the map is not good for bumping into from EVA.
 	spawn_ships = FALSE
