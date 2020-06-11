@@ -1,7 +1,7 @@
 /obj/effect/overmap/ship/combat/pluto
 	name = "AFCUV Pluto"
 	shipid = "pluto"
-	vessel_mass = 200 //bigger than wyrm, smaller than torch
+	vessel_mass = 125
 	fore_dir = SOUTH
 	start_x = 17
 	start_y = 17
