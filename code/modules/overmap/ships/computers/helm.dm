@@ -19,16 +19,22 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	linked = map_sectors["[z]"]
 	get_known_sectors()
 
+/obj/machinery/computer/helm/proc/get_overmap_area()
+	var/turf/T = locate(1,1,GLOB.using_map.overmap_z)
+	if (T) // Baycode overmap may be the simplest, but it is also the shittest
+		return T.loc
+
 /obj/machinery/computer/helm/proc/get_known_sectors()
-	var/area/overmap/map = locate() in world
-	for(var/obj/effect/overmap/sector/S in map)
+	var/area/overmap/map = get_overmap_area()
+	if (!map)
+		return
+	for(var/obj/effect/overmap/sector/S in map.contents)
 		if (S.known)
 			var/datum/computer_file/data/waypoint/R = new()
 			R.fields["name"] = S.name
 			R.fields["x"] = S.x
 			R.fields["y"] = S.y
 			known_sectors[S.name] = R
-	..()
 
 /obj/machinery/computer/helm/Process()
 	..()
