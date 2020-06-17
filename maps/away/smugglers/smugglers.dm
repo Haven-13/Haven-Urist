@@ -71,7 +71,7 @@
 		new /datum/atom_creator/simple(/obj/item/clothing/gloves/duty, 80),
 		new /datum/atom_creator/simple(/obj/item/clothing/mask/balaclava/tactical, 30))
 
-/obj/random/ore
+/obj/random/ore_smug
 	name = "random ore"
 	desc = "This is a random ore."
 	icon = 'icons/obj/clothing/ties.dmi'
