@@ -12,6 +12,8 @@
 
   #include "datums/pluto_network.dm"
 
+  #include "datums/lore/_module_lore_ah13.dm"
+
   #include "objects/nerva_clothes.dm"
   #include "objects/nerva_ids.dm"
   #include "objects/nerva_items.dm"
@@ -19,6 +21,7 @@
   #include "objects/pluto_computers.dm"
   #include "objects/pluto_docking_controllers.dm"
   #include "objects/pluto_doors.dm"
+  #include "objects/pluto_random.dm"
 
   #include "shuttles/shuttle_cargo_define.dm"
   #include "shuttles/shuttle_eris_define.dm"
