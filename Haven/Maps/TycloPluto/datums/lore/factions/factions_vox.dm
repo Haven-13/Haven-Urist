@@ -5,6 +5,12 @@
   Except, you ahere to a shoal of like-minded vox rather than being completely \
   to your own device. There are no clear goal, and this disorganized group is \
   a meeting place for vox who go and announce new factions or organizations."
+  language = LANGUAGE_GALCOM
+  secondary_langs = list(
+    LANGUAGE_VOX,
+    LANGUAGE_SIGN,
+    LANGUAGE_SPACER
+  )
 
 /decl/cultural_info/faction/vox/celeste
   name = FACTION_VCC
