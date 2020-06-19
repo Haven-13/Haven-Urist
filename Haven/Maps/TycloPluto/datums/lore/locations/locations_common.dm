@@ -1,5 +1,7 @@
 /decl/cultural_info/location/other
 	name = LOCATION_OTHER
+	system = ""
 	description = ""
-	economic_power = 1
 	ruling_body = ""
+	language = LANGUAGE_GALCOM
+	secondary_langs = list(LANGUAGE_SPACER)
