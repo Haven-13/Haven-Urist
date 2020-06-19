@@ -1,16 +1,16 @@
 
 /decl/cultural_info/location/teshari
   name = LOCATION_CIMA
+  system = "Qerr'sakerra"
   description = ""
-  economic_power = 1.0
-//  language =
-//  secondary_langs list()
+  language = LANGUAGE_RESOMI
+  secondary_langs = list(LANGUAGE_GALCOM, LANGUAGE_SPACER)
   ruling_body = FACTION_QBT
 
 /decl/cultural_info/location/teshari/edes
   name = LOCATION_EDES
+  system = "Edes"
   description = ""
-  economic_power = 1.0
-//  language =
-//  secondary_langs list()
+  language = LANGUAGE_RESOMI
+  secondary_langs = list(LANGUAGE_GALCOM, LANGUAGE_SPACER)
   ruling_body = FACTION_IND
