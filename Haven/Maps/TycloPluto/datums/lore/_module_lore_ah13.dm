@@ -1,4 +1,8 @@
 
+// Include guard
+#ifndef MODULE_LORE_AH13_INCLUDED
+#define MODULE_LORE_AH13_INCLUDED
+
 /*
   Because I don't have the resources or the time to go make a more sane rewrite
   of the system used by Baycode. Specially not one that relies on macros as
@@ -71,13 +75,13 @@
     ),
     TAG_CULTURE = list(
       CULTURE_OTHER
-    ),
-    TAG_RELIGION = list()
+    )
   )
 
   default_cultural_info = list(
     TAG_HOMEWORLD = HOME_SYSTEM_OTHER,
     TAG_FACTION =   FACTION_IND,
-    TAG_CULTURE =   CULTURE_OTHER,
-    TAG_RELIGION =  ""
+    TAG_CULTURE =   CULTURE_OTHER
   )
+
+#endif

@@ -27,7 +27,7 @@
       FACTION_ORA,
       FACTION_UHA,
       FACTION_SOU,
-      FACTION_PLF,
+//      FACTION_PLF,
       FACTION_FPU,
       FACTION_OTHER
     )
