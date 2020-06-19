@@ -1,10 +1,10 @@
-/decl/cultural_info/faction/skrell/moghes_hegemony
+/decl/cultural_info/faction/unathi/moghes_hegemony
   name = FACTION_HGM
   description = ""
   language = LANGUAGE_UNATHI
   additional_langs = list(LANGUAGE_GALCOM)
 
-/decl/cultural_info/faction/skrell/democratic_unathi
+/decl/cultural_info/faction/unathi/democratic_unathi
   name = FACTION_UDR
   description = ""
   language = LANGUAGE_GALCOM
