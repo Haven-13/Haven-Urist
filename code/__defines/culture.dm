@@ -6,7 +6,6 @@
 	TAG_CULTURE = "Culture", \
 	TAG_HOMEWORLD = "Homeworld", \
 	TAG_FACTION = "Faction", \
-	TAG_RELIGION = "Beliefs" \
 	)
 
 // Cultural IDs.
