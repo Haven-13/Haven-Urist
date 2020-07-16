@@ -71,9 +71,9 @@ What is the naming convention for planes or layers?
 
 //Reserve planes for openspace
 #define OPENSPACE_PLANE_START -462
-#define OPENSPACE_PLANE_END -22
+#define OPENSPACE_PLANE_END -24
 #define OPENSPACE_PLANE -463
-#define OVER_OPENSPACE_PLANE -18
+#define OVER_OPENSPACE_PLANE -23
 
 #define OPENSPACE_LAYER_OBJS 2
 #define OPENSPACE_LAYER_MOBS 3
@@ -88,8 +88,8 @@ What is the naming convention for planes or layers?
 
 	#define HOLOMAP_LAYER        1 // NOTE: ENSURE this is equal to the one at ABOVE_TURF_PLANE!
 	#define DECAL_PLATING_LAYER  2
-	#define DISPOSALS_PIPE_LAYER 3
-	#define LATTICE_LAYER        4
+	#define LATTICE_LAYER        3
+	#define DISPOSALS_PIPE_LAYER 4
 	#define PIPE_LAYER           5
 	#define WIRE_LAYER           6
 	#define WIRE_TERMINAL_LAYER  7
