@@ -86,6 +86,7 @@
 
 
 
+// TODO: Use icon caching for this shit, holy fickleshit
 /**
 * Update icon and overlays of open space to be that of the turf below, plus any visible objects on that turf.
 */
@@ -99,13 +100,32 @@
 			underlays = below.underlays
 			overlays = below.overlays
 
+		// TODO: Especially this bloody part
 		else
-			var/image/bottom_turf = image(icon = below.icon, icon_state = below.icon_state, dir=below.dir, layer=below.layer)
+			var/image/bottom_turf = image(
+				icon = below.icon,
+				icon_state = below.icon_state,
+				dir=below.dir,
+				layer=below.layer
+			)
 			bottom_turf.plane = below.plane + src.plane
 			bottom_turf.color = below.color
 			underlays += bottom_turf
-			underlays += below.overlays
-
+			// Fix overlayers not getting modified, for fucks sake
+			for (var/oo in below.overlays)
+				if (!oo) continue
+				var/image/O = oo
+				var/image/underlay_image = image(
+					icon = O.icon,
+					icon_state = O.icon_state,
+					dir = O.dir,
+					layer = O.layer
+				)
+				underlay_image.plane = bottom_turf.plane
+				underlay_image.color = O.color
+				underlays += underlay_image
+			//underlays += below.overlays
+		// End of TODO detail for this fucking shithole file
 
 		// get objects (not mobs, they are handled by /obj/zshadow)
 		var/list/o_img = list()
@@ -114,8 +134,32 @@
 			if(O.loc != below) continue // Ignore multi-turf objects not directly below
 			if(abs(O.pixel_y) >= 8 || abs(O.pixel_x) >= 8 && !istype(O, /obj/structure/stairs)) continue // Ignore objects that would be in the wall
 			var/image/temp2 = image(O, dir = O.dir, layer = (OPENSPACE_LAYER_OBJS + (O.plane/100) + below_is_open)) //Need to layer things properly, and stay low enough for the things on top of us
+			// I should not have to explain this shit block, bloody hell why...
+			if (!O.icon)
+				temp2.icon = null
+				temp2.icon_state = ""
 			temp2.plane = OVER_OPENSPACE_PLANE
 			temp2.color = O.color
+			// my fucking god why
+			// this piece of shit code I did to hopefully fix some shitty
+			// object overlays showing OVER EVERYTHING ON OPEN SPACES
+			// did only make it even worse
+			// fuck you so fucking much BYOND and Baystation12, preferrably with a
+			// plug wrapped in sandpaper
+			/*
+			for (var/oo in O.overlays)
+				var/image/ooo = oo
+				var/image/o_image = image(
+					icon = ooo.icon,
+					icon_state = ooo.icon_state,
+					dir = ooo.dir,
+					layer = (OPENSPACE_LAYER_OBJS + (ooo.plane/100) + below_is_open)
+				)
+				o_image.plane = OVER_OPENSPACE_PLANE
+				o_image.color = ooo.color
+				temp2.overlays += o_image
+			*/
+			// we are going to REGRET THIS someday
 			temp2.overlays += O.overlays
 			// TODO Is pixelx/y needed?
 			o_img += temp2
