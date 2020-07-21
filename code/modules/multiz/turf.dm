@@ -130,7 +130,8 @@
 			if (O.invisibility) continue // Ignore objects that have any form of invisibility
 			if (O.plane < below.plane) continue
 			if (O.loc != below) continue // Ignore multi-turf objects not directly below
-			if (abs(O.pixel_y) >= 8 || abs(O.pixel_x) >= 8 && !istype(O, /obj/structure/stairs)) continue // Ignore objects that would be in the wall
+			// The type-check part is a too late old fix, but I'll keep it in just in case
+			if ((abs(O.pixel_y) >= 8 || abs(O.pixel_x) >= 8) && !istype(O, /obj/structure/stairs)) continue // Ignore objects that would be in the wall
 
 			var/image/temp2 = image(O, dir = O.dir)
 			//Need to layer things properly, and stay low enough for the things on top of us
