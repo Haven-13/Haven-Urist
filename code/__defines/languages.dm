@@ -1,9 +1,9 @@
 // Languages.
-#define LANGUAGE_GALCOM         "Galactic Common"
+#define LANGUAGE_GALCOM         "Santiago Basic"
 #define LANGUAGE_EAL            "Encoded Audio Language"
-#define LANGUAGE_SOL_COMMON     "Sol Common"
+#define LANGUAGE_SOL_COMMON     "Sol Standard"
 #define LANGUAGE_UNATHI         "Sinta'unathi"
-#define LANGUAGE_SKRELLIAN      "Skrellian"
+#define LANGUAGE_SKRELLIAN      "Qerr Pidgin"
 #define LANGUAGE_ROOTLOCAL      "Local Rootspeak"
 #define LANGUAGE_ROOTGLOBAL     "Global Rootspeak"
 #define LANGUAGE_LUNAR          "Selenian"
@@ -12,14 +12,14 @@
 #define LANGUAGE_SIGN           "Sign Language"
 #define LANGUAGE_INDEPENDENT    "Independent"
 #define LANGUAGE_NABBER         "Serpentid"
-#define LANGUAGE_SPACER         "Spacer"
+#define LANGUAGE_SPACER         "Spacer Creole"
 #define LANGUAGE_ALIUM          "Alium"
 #define LANGUAGE_OCCULT         "Occult"
 #define LANGUAGE_ADHERENT       "Protocol"
-#define LANGUAGE_VOX            "Vox-pidgin"
+#define LANGUAGE_VOX            "Vox Pidgin"
 #define LANGUAGE_XENOPHAGE      "Xenophage"
 #define LANGUAGE_XENOPHAGE_HIVE "Hivemind"
-#define LANGUAGE_RESOMI "Schechi"
+#define LANGUAGE_RESOMI         "Schechi"
 
 // Language flags.
 #define WHITELISTED  1   // Language is available if the speaker is whitelisted.

@@ -32,6 +32,7 @@
 			event.SetName(overmap_event.name)
 			event.icon_state = pick(overmap_event.event_icon_states)
 			event.opacity =  overmap_event.opacity
+			event.color = overmap_event.icon_color
 
 /decl/overmap_event_handler/proc/get_event_turfs_by_z_level(var/z_level)
 	var/z_level_text = num2text(z_level)
@@ -122,6 +123,7 @@
 	var/count = 6
 	var/event = null
 	var/list/event_icon_states = list("event")
+	var/icon_color = ""
 	var/opacity = 1
 	var/difficulty = EVENT_LEVEL_MODERATE
 	var/list/victims
@@ -148,6 +150,7 @@
 /datum/overmap_event/meteor
 	name = "asteroid field"
 	event = /datum/event/meteor_wave/overmap
+	icon_color = "#cc5474"
 	count = 15
 	radius = 4
 	continuous = FALSE
@@ -163,6 +166,7 @@
 /datum/overmap_event/electric
 	name = "electrical storm"
 	event = /datum/event/electrical_storm
+	icon_color = "#e8da5f"
 	count = 11
 	radius = 3
 	opacity = 0
@@ -172,6 +176,7 @@
 /datum/overmap_event/dust
 	name = "dust cloud"
 	event = /datum/event/dust
+	icon_color = "#ada89e"
 	count = 16
 	radius = 4
 	event_icon_states = list("dust1", "dust2", "dust3", "dust4")
@@ -179,6 +184,7 @@
 /datum/overmap_event/ion
 	name = "ion cloud"
 	event = /datum/event/ionstorm/overmap
+	icon_color = "#85f5ff"
 	count = 8
 	radius = 3
 	opacity = 0
@@ -188,6 +194,7 @@
 /datum/overmap_event/carp
 	name = "carp shoal"
 	event = /datum/event/carp_migration
+	icon_color = "#bc85ff"
 	count = 8
 	radius = 3
 	opacity = 0

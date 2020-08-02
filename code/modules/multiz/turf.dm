@@ -86,6 +86,9 @@
 
 
 
+// TODO: Use icon caching for this shit, holy fickleshit
+// TODO: Refactor this piece of shit code by extracting out chucks of this
+// piece of shit into overridable functions. Why does this even exist.
 /**
 * Update icon and overlays of open space to be that of the turf below, plus any visible objects on that turf.
 */
@@ -99,25 +102,69 @@
 			underlays = below.underlays
 			overlays = below.overlays
 
+		// TODO: Especially this bloody part
 		else
-			var/image/bottom_turf = image(icon = below.icon, icon_state = below.icon_state, dir=below.dir, layer=below.layer)
+			var/image/bottom_turf = image(
+				icon = below.icon,
+				icon_state = below.icon_state,
+				dir=below.dir,
+				layer=below.layer
+			)
 			bottom_turf.plane = below.plane + src.plane
 			bottom_turf.color = below.color
 			underlays += bottom_turf
-			underlays += below.overlays
-
+			// Fix overlayers not getting modified, for fucks sake
+			for (var/oo in below.overlays)
+				var/image/O = oo
+				if (!O || !O.icon) continue
+				var/image/underlay_image = image(O, dir = O.dir) // make a copy
+				underlay_image.layer = O.layer
+				underlay_image.plane = bottom_turf.plane
+				underlays += underlay_image
+			//underlays += below.overlays
+		// End of TODO detail for this fucking shithole file
 
 		// get objects (not mobs, they are handled by /obj/zshadow)
 		var/list/o_img = list()
 		for(var/obj/O in below)
-			if(O.invisibility) continue // Ignore objects that have any form of invisibility
-			if(O.loc != below) continue // Ignore multi-turf objects not directly below
-			if(abs(O.pixel_y) >= 8 || abs(O.pixel_x) >= 8 && !istype(O, /obj/structure/stairs)) continue // Ignore objects that would be in the wall
-			var/image/temp2 = image(O, dir = O.dir, layer = (OPENSPACE_LAYER_OBJS + (O.plane/100) + below_is_open)) //Need to layer things properly, and stay low enough for the things on top of us
+			if (O.invisibility) continue // Ignore objects that have any form of invisibility
+			if (O.plane < below.plane) continue
+			if (O.loc != below) continue // Ignore multi-turf objects not directly below
+			// The type-check part is a too late old fix, but I'll keep it in just in case
+			if ((abs(O.pixel_y) >= 8 || abs(O.pixel_x) >= 8) && !istype(O, /obj/structure/stairs)) continue // Ignore objects that would be in the wall
+
+			var/image/temp2 = image(O, dir = O.dir)
+			//Need to layer things properly, and stay low enough for the things on top of us
+			temp2.layer = (OPENSPACE_LAYER_OBJS + (O.plane/100) + (O.layer/10000) + below_is_open)
 			temp2.plane = OVER_OPENSPACE_PLANE
 			temp2.color = O.color
-			temp2.overlays += O.overlays
+			// my fucking god why
+			// fuck you so fucking much BYOND and Baystation12, preferrably with a
+			// plug wrapped in sandpaper
+			// no one told me that images created from image(obj) inherit EVEN ALL THE
+			// UNDERLAYS AND OVERLAYS, except the direction. Keep that in mind.
+			temp2.overlays.Cut()
+			for (var/oo in O.overlays)
+				var/image/ooo = oo
+				// There are lot of garbage, clear em out
+				if (!ooo || !ooo.icon || !ooo.icon_state || ooo.icon_state == "") continue
+				var/image/o_image = image(
+					ooo,
+					layer = ((ooo.plane > OBJ_PLANE ? OPENSPACE_LAYER_MOBS : OPENSPACE_LAYER_OBJS) + (ooo.plane/100) + (ooo.layer/10000) + below_is_open)
+				)
+				o_image.plane = OVER_OPENSPACE_PLANE
+				temp2.overlays += o_image
+			// we are going to REGRET THIS someday
+			// indeed we did regret this, because of ABOVE_MOB_LAYERs showing ontop
+			// of every fucking thing
+			// temp2.overlays += O.overlays
 			// TODO Is pixelx/y needed?
+			// I should not have to explain this shit block, bloody hell why...
+			// Don't ever do a 'continue' at this point, because using blanks to
+			// construct an icon by applying under- and overlays is a legit strategy
+			if (!O.icon)
+				temp2.icon = null
+				temp2.icon_state = ""
 			o_img += temp2
 
 		var/overlays_pre = overlays.len
@@ -131,8 +178,7 @@
 
 		//TODO : Add overlays if people fall down holes
 
-		if(!below_is_open)
-			overlays += GLOB.over_OS_darkness
+		overlays += GLOB.over_OS_darkness
 
 		return 0
 	return PROCESS_KILL

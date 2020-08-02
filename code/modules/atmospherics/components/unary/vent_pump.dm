@@ -106,8 +106,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/update_icon(var/safety = 0)
 	if(!check_icon_cache())
 		return
-	if (!node)
-		use_power = 0
+	// previously shut the vent off due to lack of nodes when spawned over open
+	// space
+	//if (!node)
+	//	use_power = 0
 
 	overlays.Cut()
 
