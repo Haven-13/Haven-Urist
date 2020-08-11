@@ -113,7 +113,7 @@
 
 	if(is_mature())
 		if(!buckled_mob)
-			var/mob/living/list/targets = targets_in_range()
+			var/list/mob/living/targets = targets_in_range()
 			if(targets && targets.len && prob(round(seed.get_trait(TRAIT_POTENCY)/4)))
 				entangle(pick(targets))
 
@@ -193,7 +193,7 @@
 			START_PROCESSING(SSvines, neighbor)
 
 /obj/effect/vine/proc/targets_in_range()
-	var/mob/list/targets = list()
+	var/list/mob/targets = list()
 	for(var/turf/simulated/check_turf in (get_cardinal_neighbors() | get_zlevel_neighbors() | list(loc)))
 		if(!istype(check_turf))
 			continue
