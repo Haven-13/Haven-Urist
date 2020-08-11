@@ -14,27 +14,27 @@
     /datum/job/captain,
     /datum/job/firstofficer,
     /datum/job/bodybuard,
-    //
+    
     /datum/job/chief_engineer,
     /datum/job/senior_engineer,
     /datum/job/engineer,
-    //
+    
     /datum/job/qm,
     /datum/job/cargo_tech,
-    //
+    
     /datum/job/cmo,
     /datum/job/doctor,
-    //
+    
     /datum/job/hos,
     /datum/job/officer,
-    //
+    
     /datum/job/chef,
     /datum/job/janitor,
     /datum/job/chaplain,
-    //
+    
     /datum/job/ai,
     /datum/job/cyborg,
-    //
+    
     /datum/job/assistant
   )
 
