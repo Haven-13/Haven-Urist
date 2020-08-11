@@ -4,13 +4,14 @@ dist: trusty
 
 env:
   global:
-    BYOND_MAJOR="512"
-    BYOND_MINOR="1471"
+    BYOND_MAJOR="513"
+    BYOND_MINOR="1511"
 
 # ALL MAPS MUST BE PRESENT HERE
 # IF THEY ARE NOT, YOUR BUILD WILL FAIL
   matrix:
-    - TEST=CODE
+    - TEST=CODE_QUALITY
+    - TEST=CHANGELOG
     - TEST=WEB
     - TEST=MAP MAP_PATH=glloydstation
     - TEST=MAP MAP_PATH=nerva
