@@ -16,7 +16,13 @@
 		}
 	}
 
-	if ($0 ~ /,[\t ]*\\?\r?$/ || # comma at EOL
+	if ( comma ) {
+	    	if ($0 ~ /^\s*?$/ || # skip empty spacing lines in lists
+		    $0 ~ /^[\t ]+(?:(\*|[/*]{2}))/ ) { # skip comment lines
+			next
+		}
+	}
+	else if ($0 ~ /,[\t ]*\\?\r?$/ || # comma at EOL
 	    $0 ~ /list[\t ]*\([\t ]*\\?\r?$/ || # start of a list()
 	    $0 ~ /pick[\t ]*\([\t ]*\\?\r?$/ ) { # start of a pick()
 		comma = 1
