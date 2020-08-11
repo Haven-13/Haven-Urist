@@ -101,7 +101,7 @@
 			card = input(usr, "Select a card to pick.", "Card hand") in contents
 			card.loc = M
 			M.put_in_hands(card)
-		else:
+		else
 			card = contents[1]
 			card.loc = M
 			M.put_in_hands(card)
