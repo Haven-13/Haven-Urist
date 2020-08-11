@@ -30,20 +30,16 @@ then
 	exit 2
 fi
 
-for var
-do
-	arg=`echo $var | sed -r 's/^.{2}//'`
-	if [[ $var == -D* ]]
-	then
-		sed -i '1s/^/#define '$arg'\n/' $dmepath.mdme
-		continue
-	fi
-	if [[ $var == -M* ]]
-	then
-		sed -i '1s/^/#define MAP_OVERRIDE\n/' $dmepath.mdme
-		sed -i 's!// BEGIN_INCLUDE!// BEGIN_INCLUDE\n#include "_maps\\'$arg'.dm"!' $dmepath.mdme
-		continue
-	fi
+for var; do
+    arg=$(echo $var | sed -r 's/^.{2}//')
+    if [[ $var == -D* ]]; then
+        sed -i '1s!^!#define '$arg'\n!' $dmepath.mdme
+    elif [[ $var == -I* ]]; then
+        sed -i 's!// BEGIN_INCLUDE!// BEGIN_INCLUDE\n#include "'$arg'"!' $dmepath.mdme
+    elif [[ $var == -M* ]]; then
+        sed -i '1s/^/#define MAP_OVERRIDE\n/' $dmepath.mdme
+        sed -i 's!#include "maps\\_map_include.dm"!#include "maps\\'$arg'\\'$arg'.dm"!' $dmepath.mdme
+    fi
 done
 
 #windows
