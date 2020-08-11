@@ -1,23 +1,28 @@
-UristMcStation
+# Astro Haven 13
 
-Urist McStation's BS12 branch. [![Build Status](https://travis-ci.org/UristMcStation/UristMcStation.png)](https://travis-ci.org/UristMcStation/UristMcStation)
+AH13's Urist McStation's BS12 branch. 
 
-# baystation12
-
-[Website](http://www.prevess.com/) - [Code](http://github.com/UristMcStation/UristMcStation/) - [IRC](http://baystation12.net/forums/viewtopic.php?f=12&t=5088)
+[Website](http://astrohaven-13.github.io/) - [Github](https://github.com/AstroHaven-13/Haven-Urist) -  [Original Code](http://github.com/UristMcStation/UristMcStation/) - [IRC](http://baystation12.net/forums/viewtopic.php?f=12&t=5088)
 
 ---
 
 ### LICENSE
-The code for Baystation12 is licensed under the [GNU Affero General Public License v3](http://www.gnu.org/licenses/agpl.html), which can be found in full in LICENSE-AGPL3.txt.
 
-Code with a git authorship date prior to `1420675200 +0000` (2015/01/08 00:00) is licensed under the GNU General Public License version 3, which can be found in full in LICENSE-GPL3.txt.
+Licenses used in this repo, applicable for the entire repo *and* distribution:
+* [GNU Affero General Public License v3](http://www.gnu.org/licenses/agpl-3.0.html) - Primary
+* [GNU General Public License v3](https://www.gnu.org/licenses/gpl-3.0.html)
 
-All code where the authorship dates are not prior to `1420675200 +0000` is assumed to be licensed under AGPL v3, if you wish to license under GPL v3 please make this clear in the commit message and any added files.
+Submodule licenses, for double licensing:
+* [MIT License](https://tldrlegal.com/l/mit) for tgui subproject
 
-If you wish to develop and host this codebase in a closed source manner you may use all commits prior to `1420675200 +0000`, which are licensed under GPL v3.  The major change here is that if you host a server using any code licensed under AGPLv3 you are required to provide full source code for your servers users as well including addons and modifications you have made.
+For assets and other works:
+* [Creative Commons 3.0 BY-SA license](http://creativecommons.org/licenses/by-sa/3.0/)
+* [SIL Open Font License](https://www.tldrlegal.com/l/ofl) for Font Awesome fonts
 
-See [here](https://www.gnu.org/licenses/why-affero-gpl.html) for more information.
+Other exceptions may exist
+
+#### In detail
+The code for Baystation12 is licensed under the [GNU Affero General Public License v3](http://www.gnu.org/licenses/agpl.html), which can be found in full in LICENSE-AGPL3.txt. See Urist McStation's [readme](https://github.com/UristMcStation/UristMcStation/blob/master/README.md) for more licensing information related to using the Baystation12 code modified by Urist and Haven.
 
 tgui clientside is licensed as a subproject under the MIT license.
 Font Awesome font files, used by tgui, are licensed under the SIL Open Font License v1.1
@@ -29,17 +34,16 @@ See tgui/assets/fonts/SIL-OFL-1.1-LICENSE.md for the SIL Open Font License.
 All assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](http://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated.
 
 ### GETTING THE CODE
-The simplest way to obtain the code is using the github .zip feature.
 
-Click [here](https://github.com/Baystation12/Baystation12/archive/dev.zip) to get the latest code as a .zip file, then unzip it to wherever you want.
-
-The more complicated and easier to update method is using git.  You'll need to download git or some client from [here](http://git-scm.com/).  When that's installed, right click in any folder and click on "Git Bash".  When that opens, type in:
-
-    git clone https://github.com/Baystation12/Baystation12.git
-
-(hint: hold down ctrl and press insert to paste into git bash)
-
-This will take a while to download, but it provides an easier method for updating.
+In a terminal, run this to start cloning this entire codebase with its history.
+    
+    git clone https://github.com/AstroHaven-13/Haven-Urist.git
+    
+Or if you want to shorten your download time. By fetching the lastest revision and only the master branch, otherwise add `--branch` and then the name of the branch you wish to clone.
+    
+    git clone --depth 1 https://github.com/AstroHaven-13/Haven-Urist.git
+    
+The caveat is tools used to trace back in git's revision history can not be used. The history has to be fetched first using `git fetch --unshallow`.
 
 ---
 
@@ -53,8 +57,6 @@ This is a sourcecode-only release, so the next step is to compile the server fil
     
     baystation12.dmb - 0 errors, 0 warnings
 
-If you see any errors or warnings, something has gone wrong - possibly a corrupt download or the files extracted wrong, or a code issue on the main repo.  Ask on IRC.
-
 Once that's done, open up the config folder.  You'll want to edit config.txt to set the probabilities for different gamemodes in Secret and to set your server location so that all your players don't get disconnected at the end of each round.  It's recommended you don't turn on the gamemodes with probability 0, as they have various issues and aren't currently being tested, so they may have unknown and bizarre bugs.
 
 You'll also want to edit admins.txt to remove the default admins and add your own.  "Game Master" is the highest level of access, and the other recommended admin levels for now are "Game Admin" and "Moderator".  The format is:
@@ -63,7 +65,7 @@ You'll also want to edit admins.txt to remove the default admins and add your ow
 
 where the BYOND key must be in lowercase and the admin rank must be properly capitalised.  There are a bunch more admin ranks, but these two should be enough for most servers, assuming you have trustworthy admins.
 
-Finally, to start the server, run Dream Daemon and enter the path to your compiled baystation12.dmb file.  Make sure to set the port to the one you  specified in the config.txt, and set the Security box to 'Trusted'.  Then press GO and the server should start up and be ready to join.
+Finally, to start the server, run Dream Daemon and enter the path to your compiled `baystation12.dmb` file.  Make sure to set the port to the one you  specified in the config.txt, and set the Security box to 'Trusted'.  Then press GO and the server should start up and be ready to join.
 
 ---
 
@@ -72,15 +74,11 @@ Finally, to start the server, run Dream Daemon and enter the path to your compil
 To update an existing installation, first back up your /config and /data folders
 as these store your server configuration, player preferences and banlist.
 
-If you used the zip method, you'll need to download the zip file again and unzip it somewhere else, and then copy the /config and /data folders over.
-
-If you used the git method, you simply need to type this in to git bash:
+Run in a terminal of your choice:
 
     git pull
 
-When this completes, copy over your /data and /config folders again, just in case.
-
-When you have done this, you'll need to recompile the code, but then it should work fine.
+Then restore your /config and /data
 
 ---
 
