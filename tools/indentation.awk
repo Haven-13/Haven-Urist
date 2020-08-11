@@ -18,8 +18,7 @@
 
 	if ( comma ) {
 	    if ($0 ~ /^\s*?$/ || # skip empty spacing lines in lists
-	    $0 ~ /^[\t ]+(?:(\*|[/*]{2}))/ || # skip comment lines
-	    ) {
+	    $0 ~ /^[\t ]+(?:(\*|[/*]{2}))/ ) { # skip comment lines
 		next
 	}
 	else if ($0 ~ /,[\t ]*\\?\r?$/ || # comma at EOL
