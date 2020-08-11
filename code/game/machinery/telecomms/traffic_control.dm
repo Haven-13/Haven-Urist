@@ -102,12 +102,6 @@
 				dat += "<center><a href='?src=\ref[src];operation=mainmenu'>\[Main Menu\]</a>     <a href='?src=\ref[src];operation=refresh'>\[Refresh\]</a></center>"
 				dat += "<br>Current Network: [network]"
 				dat += "<br>Selected Server: [SelectedServer.id]<br><br>"
-				dat += "<br><a href='?src=\ref[src];operation=editcode'>\[Edit Code\]</a>"
-				dat += "<br>Signal Execution: "
-				if(SelectedServer.autoruncode)
-					dat += "<a href='?src=\ref[src];operation=togglerun'>ALWAYS</a>"
-				else
-					dat += "<a href='?src=\ref[src];operation=togglerun'>NEVER</a>"
 
 
 		user << browse(dat, "window=traffic_control;size=575x400")
@@ -158,33 +152,6 @@
 							temp = "<font color = #336699>- [servers.len] SERVERS PROBED & BUFFERED -</font>"
 
 						screen = 0
-
-				if("editcode")
-					if(editingcode == usr) return
-					if(usr in viewingcode) return
-
-					if(!editingcode)
-						lasteditor = usr
-						editingcode = usr
-						winshow(editingcode, "Telecomms IDE", 1) // show the IDE
-						winset(editingcode, "tcscode", "is-disabled=false")
-						winset(editingcode, "tcscode", "text=\"\"")
-						var/showcode = replacetext(storedcode, "\\\"", "\\\\\"")
-						showcode = replacetext(storedcode, "\"", "\\\"")
-						winset(editingcode, "tcscode", "text=\"[showcode]\"")
-						spawn()
-							update_ide()
-
-					else
-						viewingcode.Add(usr)
-						winshow(usr, "Telecomms IDE", 1) // show the IDE
-						winset(usr, "tcscode", "is-disabled=true")
-						winset(editingcode, "tcscode", "text=\"\"")
-						var/showcode = replacetext(storedcode, "\"", "\\\"")
-						winset(usr, "tcscode", "text=\"[showcode]\"")
-
-				if("togglerun")
-					SelectedServer.autoruncode = !(SelectedServer.autoruncode)
 
 		if(href_list["network"])
 
