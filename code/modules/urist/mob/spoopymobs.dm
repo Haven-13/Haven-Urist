@@ -243,7 +243,7 @@
 	if(!infectee || infectee.stat != DEAD)
 		return
 
-	var/munch_msg_ext = "<span class = 'warning'> <b>[src]</b> chomps at [infectee]'s brain!</span>",
+	var/munch_msg_ext = "<span class = 'warning'> <b>[src]</b> chomps at [infectee]'s brain!</span>"
 	var/munch_msg_self = "<span class = 'warning'>You chomps at [infectee]'s brain!</span>"
 
 	if(ishuman(infectee))
