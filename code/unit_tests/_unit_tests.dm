@@ -3,7 +3,7 @@
 #include "~unit_test_types.dm"
 
 #include "alt_appearances_test.dm"
-#include "area_tests.dm"
+//#include "area_tests.dm"
 #include "atmospherics_tests.dm"
 #include "cargo_tests.dm"
 //#include "culture.dm"
