@@ -25,7 +25,7 @@ jobs:
       install:
         - ./.travis/install_spaceman_dmm.sh dreamchecker
       script:
-        - ~/dreamchecker
+        - ~/dreamchecker -c ./SpacemanDMM.toml
 
     - name: "Code Quality Check"
       addon:

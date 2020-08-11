@@ -1,0 +1,5 @@
+[display]
+error_level = "warnings"
+
+[langserver]
+dreamchecker = true
