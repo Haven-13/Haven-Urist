@@ -19,7 +19,7 @@ jobs:
         directories:
           - $HOME/SpacemanDMM
       install:
-        - chmod +x ./.travis/install_spaceman_dmm
+        - chmod +x ./.travis/install_spaceman_dmm.sh
         - ./.travis/install_spaceman_dmm.sh dreamchecker
       script:
         - ~/dreamchecker
