@@ -12,6 +12,9 @@ env:
     - TARGET_PROJECT_NAME="baystation12"
     - SPACEMAN_DMM_VERSION=suite-1.4
 
+before_install:
+  - find ./.travis -type f -print0 | xargs -0 chmod +x
+
 jobs:
   include:
     - name: "Run Linters - Dreamchecker"
