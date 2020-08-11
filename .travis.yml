@@ -1,7 +1,9 @@
 language: generic
-sudo: false
 os: linux
 dist: xenial
+
+git:
+  depth: 1
 
 env:
   global:
@@ -17,7 +19,7 @@ jobs:
         directories:
           - $HOME/SpacemanDMM
       install:
-        - tools/travis/install_spaceman_dmm.sh dreamchecker
+        - ./.travis/install_spaceman_dmm.sh dreamchecker
       script:
         - ~/dreamchecker
 
@@ -28,7 +30,7 @@ jobs:
             - python
             - python-pip
       env: 
-        - TEST=CODE
+        - TEST=CODE_QUALITY
       script:
         - bash ./.travis/run-test.sh
     
