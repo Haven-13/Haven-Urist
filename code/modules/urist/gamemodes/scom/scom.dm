@@ -148,7 +148,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 	..()
 
 	sleep(600)
-	if(!ticker.delay_end)
+	if(!SSticker.delay_end)
 		world.Reboot()
 	else
 		world << "<span class='notice'> <B>An admin has delayed the round end</B></span>"

@@ -357,7 +357,7 @@
 		else
 			AnnounceCyborg(character, job, spawnpoint.msg)
 		matchmaker.do_matchmaking()
-		if(master_mode=="scom")
+		if(SSticker.master_mode=="scom")
 			if(istype(character, /mob/living/carbon))
 				ScomLateJoin(character)
 			else if(istype(character, /mob/living/silicon))
@@ -365,7 +365,7 @@
 			else
 				log_and_message_admins("Latejoining S-COM failed for [src]: character is neither carbon nor silicon. Somehow.")
 
-		else if(master_mode=="assault")
+		else if(SSticker.master_mode=="assault")
 			AssaultLateJoin(character)
 
 	log_and_message_admins("has joined the round as [character.mind.assigned_role].", character)
