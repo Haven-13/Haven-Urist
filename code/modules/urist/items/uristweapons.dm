@@ -36,7 +36,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 				user.adjustBrainLoss(10)
 		else
 			user << "<span class='notice'>You attach the ends of the two energy swords, making a single double-bladed weapon! You're cool.</span>"
-			new /obj/item/weapon/material/twohanded/dualsaber(user.loc)
+			new/obj/item/weapon/material/twohanded/dualsaber(user.loc)
 			user.remove_from_mob(W)
 			user.remove_from_mob(src)
 			qdel(W)
