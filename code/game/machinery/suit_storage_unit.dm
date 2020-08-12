@@ -199,8 +199,6 @@
 				dump_everything()
 				qdel(src)
 			return
-		else
-			return
 	return
 
 
