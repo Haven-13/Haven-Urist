@@ -314,7 +314,7 @@ var/last_message_id = 0
 		if("image")
 			status_signal.data["picture_state"] = data1
 
-	frequency.post_signal(status = status_signal)
+	frequency.post_signal(signal = status_signal)
 
 /proc/cancel_call_proc(var/mob/user)
 	if (!ticker || !evacuation_controller)
