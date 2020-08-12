@@ -149,21 +149,21 @@ obj/item/device/suit_sensor_jammer/ui_act(action, params)
 	switch(action)
 		if("enable_jammer")
 			enable()
-			. TRUE
+			return TRUE
 		if("disable_jammer")
 			disable()
-			. FALSE
+			return FALSE
 		if("increase_range")
 			set_range(range + 1)
-			. = 1
+			return TRUE
 		if("decrease_range")
 			set_range(range - 1)
-			. = 1
+			return TRUE
 		if("select_method")
 			var/method = locate(params["method"]) in suit_sensor_jammer_methods
 			if(method)
 				set_method(method)
-				. = TRUE
+				return TRUE
 
 /obj/item/device/suit_sensor_jammer/Process(var/wait)
 	if(bcell)
