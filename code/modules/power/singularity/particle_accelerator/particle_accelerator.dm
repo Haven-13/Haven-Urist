@@ -389,5 +389,4 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 		if(src.construction_state >= 3)
 			use_power = 1
 		update_icon()
-		return 1
-	return 0
+	return 1
