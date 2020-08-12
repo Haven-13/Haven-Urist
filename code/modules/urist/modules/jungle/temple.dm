@@ -302,7 +302,7 @@
 	switch(trap_type)
 		if("sawburst")
 			M << "<span class='danger'>A sawblade shoots out of the ground and strikes you!</span>"
-			M.apply_damage(rand(5,10), BRUTE, sharp=1, edge=1)
+			M.apply_damage(rand(5,10), BRUTE, damage_flags = (DAM_SHARP | DAM_EDGE))
 
 			var/atom/myloc = src.loc
 			var/image/flicker = image('icons/jungle.dmi',"sawblade")
