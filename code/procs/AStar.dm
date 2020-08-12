@@ -85,7 +85,7 @@ proc/AStar(var/start, var/end, var/adjacent_proc, var/dist_proc, var/max_nodes, 
 				path[index--] = current.position
 			break
 
-		if(min_node_dist && max_node_depth)
+		if(min_node_dist_proc && max_node_depth)
 			if(call(current.position, min_node_dist_proc)(end) + current.nodes_traversed >= max_node_depth)
 				continue
 
