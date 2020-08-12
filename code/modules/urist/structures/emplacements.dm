@@ -222,14 +222,13 @@
 		return ..()
 
 /obj/structure/emplacement/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return 1
+	if(air_group || (height==0)) 
+		return 1
 	if(istype(mover,/obj/item/projectile))
 		return (check_cover(mover,target))
 	if (get_dir(loc, target) == dir)
 		return !density
-	else
-		return 1
-	return 0
+	return 1
 
 //checks if projectile 'P' from turf 'from' can hit whatever is behind the table. Returns 1 if it can, 0 if bullet stops.
 /obj/structure/emplacement/proc/check_cover(obj/item/projectile/P, turf/from)
@@ -261,11 +260,8 @@
 	return 1
 
 /obj/structure/emplacement/CheckExit(atom/movable/O as mob|obj, target as turf)
-
 	if (get_dir(loc, target) == dir)
 		return !density
-	else
-		return 1
 	return 1
 
 /obj/item/machinegunammo
