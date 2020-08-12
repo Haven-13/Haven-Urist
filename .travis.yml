@@ -8,7 +8,7 @@ git:
 env:
   global:
     - BYOND_MAJOR="513"
-    - BYOND_MINOR="1511"
+    - BYOND_MINOR="1528"
     - TARGET_PROJECT_NAME="baystation12"
     - SPACEMAN_DMM_VERSION=suite-1.5
 
@@ -18,7 +18,7 @@ before_install:
 
 jobs:
   include:
-    - name: "Run Linters - Dreamchecker"
+    - name: "Code Quality Check - SpacemanDMM"
       cache:
         directories:
           - $HOME/SpacemanDMM
@@ -27,7 +27,7 @@ jobs:
       script:
         - ~/dreamchecker -c ./SpacemanDMM.toml
 
-    - name: "Code Quality Check"
+    - name: "Code Quality Check - run-test.sh"
       addon:
         apt:
           packages:
