@@ -240,13 +240,12 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 				temp_state--
 	if(temp_state == src.construction_state)//Nothing changed
 		return 0
-	else
-		src.construction_state = temp_state
-		if(src.construction_state < 3)//Was taken apart, update state
-			update_state()
-		update_icon()
-		return 1
-	return 0
+
+	src.construction_state = temp_state
+	if(src.construction_state < 3)//Was taken apart, update state
+		update_state()
+	update_icon()
+	return 1
 
 
 
