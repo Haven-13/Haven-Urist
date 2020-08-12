@@ -59,24 +59,25 @@ var/datum/antagonist/agent/agents
 	var/datum/antagonist/agent/conspiracy = M.get_mob_conspiracy(src)
 
 	if(!conspiracy)
-		src << "<span class='warning'>Something's wrong. You belong to too many conspiracies at once!</span>"
+		to_chat(src, "<span class='warning'>Something's wrong. You belong to too many conspiracies at once!</span>")
 		return
 	else if (conspiracy == -1)
-		src << "<span class='warning'>Something's wrong. You don't seem to be in a conspiracy!</span>"
+		to_chat(src, "<span class='warning'>Something's wrong. You don't seem to be in a conspiracy!</span>")
+		return
 
 	var/converteval = is_other_conspiracy(M.mind)
 	if(converteval == -1)
-		src << "<span class='warning'>[M] is already an agent of your conspiracy!</span>"
+		to_chat(src, "<span class='warning'>[M] is already an agent of your conspiracy!</span>")
 	else if(converteval)
 		var/choice = alert(M,"Asked by [src]: Do you want to abandon your current conspiracy?","Abandon the current conspiracy?","No!","Yes!")
 		if(choice == "Yes!")
-			src << "<span class='notice'>You convince [M] to abandon the cause of other conspiracies!</span>"
+			to_chat(src, "<span class='notice'>You convince [M] to abandon the cause of other conspiracies!</span>")
 			strip_all_other_conspiracies(M.mind,conspiracy)
 		else
-			src << "<span class='warning'>[M] refuses to abandon their cause!"
+			to_chat(src, "<span class='warning'>[M] refuses to abandon their cause!</span>")
 			return
-	else if(0)
-		src << "span class='warning'>Something's wrong, yell at the coders!</span>"
+	else
+		to_chat(src, "<span class='warning'>Something's wrong, yell at the coders!</span>")
 		return
 
 	convert_to_faction(M.mind, conspiracy)
