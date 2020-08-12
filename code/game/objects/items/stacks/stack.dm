@@ -183,9 +183,7 @@
 		if (amount <= 0)
 			qdel(src) //should be safe to qdel immediately since if someone is still using this stack it will persist for a little while longer
 		return 1
-	else
-		if(get_amount() < used)
-			return 0
+	else if(get_amount() >= used)
 		for(var/i = 1 to charge_costs.len)
 			var/datum/matter_synth/S = synths[i]
 			S.use_charge(charge_costs[i] * used) // Doesn't need to be deleted
