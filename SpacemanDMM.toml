@@ -1,5 +1,85 @@
+# Configuration file for SpacemanDMM suite
+#   https://github.com/SpaceManiac/SpacemanDMM
+#
+# Built according to the specification and documentation of SpacemanDMM, more at:
+#   https://github.com/SpaceManiac/SpacemanDMM/blob/master/CONFIGURING.md
+#
+# Last accessed and edited in 2020-08-12
+
+# NOTE
+# This was specifically configured for AstroHaven-13/HavenUrist project at:
+#   https://github.com/AstroHaven-13/Haven-Urist
+# Feel free to delete this disclaimer or edit it accordingly
+# Kind regards, AstroHaven-13
+
+[diagnostics]
+# Valid values are:
+# "error", "errors"
+# "warning", "warnings"
+# "info", "infos"
+# "hint", "hints"
+# "disabled", "false", "off"    note: false without quotation marks won't work
+# "unset"                       note: sets to default
+#
+
+# Raised by DreamChecker
+disabled_directive =            "unset"
+sets_directive_twice =          "unset"
+invalid_lint_directive_value =  "unset"
+invalid_set_value =             "unset"
+override_missing_keyword_arg =  "unset"
+must_not_override =             "unset"
+must_call_parent =              "unset"
+final_var =                     "unset"
+private_proc =                  "unset"
+protected_proc =                "unset"
+private_var =                   "unset"
+protected_var =                 "unset"
+must_be_pure =                  "unset"
+must_not_sleep =                "unset"
+redefined_proc =                "unset"
+ambiguous_in_lhs =              "unset"
+no_typehint_implicit_new =      "unset"
+field_access_static_type =      "unset"
+proc_call_static_type =         "unset"
+no_operator_overload =          "unset"
+control_condition_static =      "unset"
+if_condition_determinate =      "unset"
+
+# Raised by Lexer
+integer_precision_loss =        "unset"
+static_in_proc_parameter =      "unset"
+semicolon_in_proc_parameter =   "unset"
+in_precedes_as =                "unset"
+tmp_no_effect =                 "unset"
+final_no_effect =               "unset"
+as_local_var =                  "unset"
+
+# Raised by Parser
+var_in_proc_parameter =         "unset"
+
+# Raised by PreProcessor
+duplicate_include =             "unset"
+macro_redefined =               "unset"
+macro_undefined_no_definition = "unset"
+
+# Raised by Object Tree
+override_precedes_definition =  "unset"
+
 [display]
-error_level = "warnings"
+# Set to "warning"/"warnings" by default
+# The given severity level and above will be shown as errors and cause dreamchecker
+# to return with 1. The settings can affect how the Travis CI treats the codebase.
+error_level = "error"
 
 [langserver]
 dreamchecker = true
+
+[code_standards]
+# When set to true, they will show as warning-severity errors.
+disallow_relative_proc_definitions = true
+disallow_relative_type_definitions = true
+
+[dmdoc]
+# Use the full typepath instead of the last part (name)?
+use_typepath_names = true
