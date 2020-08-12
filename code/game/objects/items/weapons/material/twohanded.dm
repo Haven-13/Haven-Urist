@@ -94,10 +94,10 @@
 			var/obj/effect/vine/P = A
 			P.die_off()
 
-/*
+
 /*
  * Double-Bladed Energy Swords - Cheridan
- */*/
+ */
  // Not sure what to do with this one, it won't work nicely with the material system,
  // but I don't want to copypaste all the twohanded procs..
 /obj/item/weapon/material/twohanded/dualsaber
