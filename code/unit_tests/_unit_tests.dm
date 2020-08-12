@@ -23,7 +23,7 @@
 #include "organ_tests.dm"
 #include "power_tests.dm"
 #include "seed_tests.dm"
-#include "shuttle_tests.dm"
+//#include "shuttle_tests.dm"
 #include "subsystem_tests.dm"
 #include "test_obj.dm"
 #include "unique_tests.dm"
