@@ -52,8 +52,8 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 
 	update_dyndifficulty()
 
-	SSshuttle.initialise_shuttle(/datum/shuttle/autodock/ferry/scom/s1)
-	SSshuttle.initialise_shuttle(/datum/shuttle/autodock/ferry/scom/s2)
+	//SSshuttle.initialize_shuttle(/datum/shuttle/autodock/ferry/scom/s1)
+	//SSshuttle.initialize_shuttle(/datum/shuttle/autodock/ferry/scom/s2)
 
 	return 1 //ever get that feeling you're talking to yourself?
 
