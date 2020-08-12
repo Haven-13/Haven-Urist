@@ -141,12 +141,16 @@
 			return global.SStimer;
 		if("SStrade")
 			return global.SStrade;
+		if("SStrade_controller")
+			return global.SStrade_controller;
 		if("SSturf")
 			return global.SSturf;
 		if("SSvines")
 			return global.SSvines;
 		if("SSvote")
 			return global.SSvote;
+		if("SSweather")
+			return global.SSweather;
 		if("SSwireless")
 			return global.SSwireless;
 		if("SSxenoarch")
@@ -639,10 +643,6 @@
 			return global.markup_tags;
 		if("markup_underline")
 			return global.markup_underline;
-		if("master_controller")
-			return global.master_controller;
-		if("master_mode")
-			return global.master_mode;
 		if("masterdatumPool")
 			return global.masterdatumPool;
 		if("matchmaker")
@@ -753,16 +753,12 @@
 			return global.pai_software_by_key;
 		if("paramslist_cache")
 			return global.paramslist_cache;
-		if("payment_controller")
-			return global.payment_controller;
 		if("pending_weathers")
 			return global.pending_weathers;
 		if("photo_count")
 			return global.photo_count;
 		if("pipe_colors")
 			return global.pipe_colors;
-		if("pipe_processing_killed")
-			return global.pipe_processing_killed;
 		if("planet_templates")
 			return global.planet_templates;
 		if("plant_controller")
@@ -875,8 +871,6 @@
 			return global.scomspawn2;
 		if("scomspawn3")
 			return global.scomspawn3;
-		if("secondary_mode")
-			return global.secondary_mode;
 		if("secret_force_mode")
 			return global.secret_force_mode;
 		if("send_emergency_team")
@@ -1031,8 +1025,6 @@
 			return global.total_lighting_sources;
 		if("total_unit_tests")
 			return global.total_unit_tests;
-		if("trade_controller")
-			return global.trade_controller;
 		if("transfer_controller")
 			return global.transfer_controller;
 		if("turbolifts")
@@ -1071,8 +1063,6 @@
 			return global.vsc;
 		if("wax_recipes")
 			return global.wax_recipes;
-		if("SSweather")
-			return global.SSweather;
 		if("weighted_mundaneevent_locations")
 			return global.weighted_mundaneevent_locations;
 		if("weighted_randomevent_locations")
@@ -1097,7 +1087,7 @@
 			return global.z_levels;
 		if("zone_blocked")
 			return global.zone_blocked;
-
+		
 /proc/writeglobal(which, newval)
 	switch(which)
 		if("ALL_ANTIGENS")
@@ -1240,12 +1230,16 @@
 			global.SStimer=newval;
 		if("SStrade")
 			global.SStrade=newval;
+		if("SStrade_controller")
+			global.SStrade_controller=newval;
 		if("SSturf")
 			global.SSturf=newval;
 		if("SSvines")
 			global.SSvines=newval;
 		if("SSvote")
 			global.SSvote=newval;
+		if("SSweather")
+			global.SSweather=newval;
 		if("SSwireless")
 			global.SSwireless=newval;
 		if("SSxenoarch")
@@ -1738,10 +1732,6 @@
 			global.markup_tags=newval;
 		if("markup_underline")
 			global.markup_underline=newval;
-		if("master_controller")
-			global.master_controller=newval;
-		if("master_mode")
-			global.master_mode=newval;
 		if("masterdatumPool")
 			global.masterdatumPool=newval;
 		if("matchmaker")
@@ -1852,16 +1842,12 @@
 			global.pai_software_by_key=newval;
 		if("paramslist_cache")
 			global.paramslist_cache=newval;
-		if("payment_controller")
-			global.payment_controller=newval;
 		if("pending_weathers")
 			global.pending_weathers=newval;
 		if("photo_count")
 			global.photo_count=newval;
 		if("pipe_colors")
 			global.pipe_colors=newval;
-		if("pipe_processing_killed")
-			global.pipe_processing_killed=newval;
 		if("planet_templates")
 			global.planet_templates=newval;
 		if("plant_controller")
@@ -1974,8 +1960,6 @@
 			global.scomspawn2=newval;
 		if("scomspawn3")
 			global.scomspawn3=newval;
-		if("secondary_mode")
-			global.secondary_mode=newval;
 		if("secret_force_mode")
 			global.secret_force_mode=newval;
 		if("send_emergency_team")
@@ -2130,8 +2114,6 @@
 			global.total_lighting_sources=newval;
 		if("total_unit_tests")
 			global.total_unit_tests=newval;
-		if("trade_controller")
-			global.trade_controller=newval;
 		if("transfer_controller")
 			global.transfer_controller=newval;
 		if("turbolifts")
@@ -2170,8 +2152,6 @@
 			global.vsc=newval;
 		if("wax_recipes")
 			global.wax_recipes=newval;
-		if("SSweather")
-			global.SSweather=newval;
 		if("weighted_mundaneevent_locations")
 			global.weighted_mundaneevent_locations=newval;
 		if("weighted_randomevent_locations")
@@ -2196,7 +2176,7 @@
 			global.z_levels=newval;
 		if("zone_blocked")
 			global.zone_blocked=newval;
-
+		
 /var/list/_all_globals=list(
 	"ALL_ANTIGENS",
 	"ANTAG_FREQS",
@@ -2268,9 +2248,11 @@
 	"SSticker",
 	"SStimer",
 	"SStrade",
+	"SStrade_controller",
 	"SSturf",
 	"SSvines",
 	"SSvote",
+	"SSweather",
 	"SSwireless",
 	"SSxenoarch",
 	"SWEDEBLOCK",
@@ -2517,8 +2499,6 @@
 	"markup_strike",
 	"markup_tags",
 	"markup_underline",
-	"master_controller",
-	"master_mode",
 	"masterdatumPool",
 	"matchmaker",
 	"maze_cell_count",
@@ -2574,11 +2554,9 @@
 	"pai_emotions",
 	"pai_software_by_key",
 	"paramslist_cache",
-	"payment_controller",
 	"pending_weathers",
 	"photo_count",
 	"pipe_colors",
-	"pipe_processing_killed",
 	"planet_templates",
 	"plant_controller",
 	"plant_seed_sprites",
@@ -2635,7 +2613,6 @@
 	"scomspawn1",
 	"scomspawn2",
 	"scomspawn3",
-	"secondary_mode",
 	"secret_force_mode",
 	"send_emergency_team",
 	"sent_spiders_to_station",
@@ -2713,7 +2690,6 @@
 	"total_lighting_overlays",
 	"total_lighting_sources",
 	"total_unit_tests",
-	"trade_controller",
 	"transfer_controller",
 	"turbolifts",
 	"turret_icons",
@@ -2733,7 +2709,6 @@
 	"visual_nets",
 	"vsc",
 	"wax_recipes",
-	"SSweather",
 	"weighted_mundaneevent_locations",
 	"weighted_randomevent_locations",
 	"whitelist",
