@@ -29,4 +29,7 @@
 		to_chat(user, "<span class='notice'><b>Your [power_cell] has been charged to capacity.</b></span>")
 		return
 	visible_message("<span class='danger'>\The [user] has been shocked by \the [src]!</span>")
-	user.electrocute_act(50, src, def_zone = BP_CHEST)
+	if (ishuman(user))
+		H.electrocute_act(50, src, def_zone = BP_CHEST)
+	else
+		user.electrocute_act(50, src)
