@@ -53,9 +53,9 @@ Please only put items here that don't have a huge definition - Glloyd											
 	reduces space tremendously, allowing you to create much more complex and interesting books (such as a googlespreadsheet.)
 	Just replace the var with your own bookname, and point the var into the right direction. - Skeeve2 */
 
-	var/seclaw = file2text('ingame_manuals/corporate_regulations.html')
+	var/seclaw = file2text('html/ingame_manuals/corporate_regulations.html')
 	if(!seclaw)
-		seclaw = "Error loading help (file /ingame_manuals/corporate_regulations.html is probably missing). Please report this to server administration staff."
+		seclaw = "Error loading help (file html/ingame_manuals/corporate_regulations.html is probably missing). Please report this to server administration staff."
 
 	dat = seclaw
 
@@ -72,9 +72,9 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/item/weapon/book/manual/security_space_law/nervaspacelaw/New()
 	..()
 
-	var/nervalaw = file2text('ingame_manuals/icsnervalaw.html')
+	var/nervalaw = file2text('html/ingame_manuals/icsnervalaw.html')
 	if(!nervalaw)
-		nervalaw = "Error loading help (file /ingame_manuals/icsnervalaw.html is probably missing). Please report this to server administration staff."
+		nervalaw = "Error loading help (file html/ingame_manuals/icsnervalaw.html is probably missing). Please report this to server administration staff."
 
 	dat = nervalaw
 
