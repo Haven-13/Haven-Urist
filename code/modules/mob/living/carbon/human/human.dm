@@ -104,7 +104,7 @@
 			if(mind.vampire)
 				stat("Total Blood", mind.vampire.bloodtotal)
 				stat("Usable Blood", mind.vampire.bloodusable)
-		if(master_mode == "assault")
+		if(SSticker.master_mode == "assault")
 			stat("Remaining Lactera", remaininglactera)
 			stat("Remaining Shieldgens", remaininggens)
 

@@ -17,7 +17,7 @@ backpack_overrides[/decl/backpack_outfit/messenger_bag] = /obj/item/weapon/stora
 
 #define BACKPACK_OVERRIDE_RESEARCH \
 backpack_overrides[/decl/backpack_outfit/backpack]      = /obj/item/weapon/storage/backpack/toxins; \
-backpack_overrides[/decl/backpack_outfit/satchel]       = /obj/item/weapon/storage/backpack/satchel_tox; \
+backpack_overrides[/decl/backpack_outfit/satchel]       = /obj/item/weapon/storage/backpack/satchel/tox; \
 backpack_overrides[/decl/backpack_outfit/messenger_bag] = /obj/item/weapon/storage/backpack/messenger/viro;
 
 #define BACKPACK_OVERRIDE_SECURITY \
