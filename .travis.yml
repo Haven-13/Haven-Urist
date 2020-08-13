@@ -3,7 +3,7 @@ os: linux
 dist: bionic
 
 git:
-  depth: 1
+  depth: 2
 # Build only the master-branch when building pushes to branches
 branches:
   only:
