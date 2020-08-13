@@ -121,6 +121,26 @@
 			facial_s.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial), ICON_ADD)*/
 		res2.overlays |= facial_s
 
+	//skin_tone = random_skin_tone()
+	//overlays += res
+	overlays += res2
+
+	//update_interact_icon()
+
+	//SStrade_controller_debug = SStrade_controller
+
+//this proc does not check the simple animal type! only use it on human type mobs
+/mob/living/simple_animal/hostile/npc/proc/sprite_set_human()
+	src.icon = 'npc.dmi'
+	if(src.gender == FEMALE)
+		src.icon_state = "body_f_s"
+	else
+		src.icon_state = "body_m_s"
+
+//repository/images/proc/overlay_image(var/icon, var/icon_state, var/alpha, var/appearance_flags, var/color, var/dir, var/plane = FLOAT_PLANE, var/layer = FLOAT_LAYER)
+/mob/living/simple_animal/hostile/npc/proc/sprite_equip_human(var/obj/item/I, var/slot)
+	overlays += I.get_mob_overlay(src, slot)
+
 /mob/living/simple_animal/hostile/npc/proc/update_interact_icon()
 	src.dir = SOUTH
 	interact_icon = getFlatIcon(src)
