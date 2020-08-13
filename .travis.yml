@@ -34,11 +34,11 @@ jobs:
       script:
         - bash ./.travis/run-test.sh
         
-    - name: "Icon Validity Check"
-      env:
-        - TEST=ICON_VALIDITY
-      script:
-        - bash ./.travis/run-test.sh
+#    - name: "Icon Validity Check"
+#      env:
+#        - TEST=ICON_VALIDITY
+#      script:
+#        - bash ./.travis/run-test.sh
     
     - name: "Compile"
       addon: 
