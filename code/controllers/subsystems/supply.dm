@@ -250,6 +250,6 @@ SUBSYSTEM_DEF(supply)
 	var/datum/trade_item/T
 
 	//try and find it via the global controller
-	T = trade_controller.trade_items_by_type[object.type]
+	T = SStrade_controller.trade_items_by_type[object.type]
 	if(T)
 		return T.value

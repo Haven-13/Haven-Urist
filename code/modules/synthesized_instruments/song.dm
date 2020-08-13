@@ -51,7 +51,7 @@
 
 	var/note_num = delta1+delta2+GLOB.musical_config.nn2no[note]
 	if (note_num < 0 || note_num > 127)
-		CRASH("play_synthesized note failed because of 0..127 condition, [note], [acc], [oct]")
+		crash_with("play_synthesized note failed because of 0..127 condition, [note], [acc], [oct]")
 		return
 
 	var/datum/sample_pair/pair = src.instrument_data.sample_map[GLOB.musical_config.n2t(note_num)]
@@ -117,10 +117,9 @@
 #define CP(L, S) copytext(L, S, S+1)
 #define IS_DIGIT(L) (L >= "0" && L <= "9" ? 1 : 0)
 
-
-/datum/synthesized_song/proc/play_lines(mob/user, list/allowed_suff, list/note_off_delta, list/lines)
-	Start
-	if (!lines.len) goto Stop
+/datum/synthesized_song/proc/play_lines_once(mob/user, list/allowed_suff, list/note_off_delta, list/lines)
+	if (!lines.len)
+		return 0
 	var/list/cur_accidentals = list("n", "n", "n", "n", "n", "n", "n")
 	var/list/cur_octaves = list(3, 3, 3, 3, 3, 3, 3)
 	src.current_line = 1
@@ -171,21 +170,26 @@
 					cur_accidentals[note_off] = accidental
 					play_synthesized_note(note_off, accidental, octave+transposition, duration, src.current_line, cur_note)
 					if (src.player.event_manager.is_overloaded())
-						goto Stop
+						return 0
 			cur_note++
 			src.player.event_manager.suspended = 0
-			if (!src.playing || src.player.shouldStopPlaying(user)) goto Stop
+			if (!src.playing || src.player.shouldStopPlaying(user))
+				return 0
 			sleep(duration)
 		src.current_line++
+	
 	if (src.autorepeat)
-		goto Start
+		return 1
 
-	Stop
+/datum/synthesized_song/proc/cleanup()
 	src.autorepeat = 0
 	src.playing = 0
 	src.current_line = 0
 	src.player.event_manager.deactivate()
 
+/datum/synthesized_song/proc/play_lines(mob/user, list/allowed_suff, list/note_off_delta, list/lines)
+	while (play_lines_once())
+	cleanup()
 
 /datum/synthesized_song/proc/play_song(mob/user)
 	// This code is really fucking horrible.

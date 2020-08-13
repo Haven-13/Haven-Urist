@@ -122,9 +122,9 @@ var/global/list/protected_objects = list(/obj/machinery,
 		qdel(src)
 
 
-/mob/living/simple_animal/hostile/mimic/DestroySurroundings()
+/mob/living/simple_animal/hostile/mimic/DestroySurroundings(directions)
 	if(destroy_objects)
-		..()
+		..(directions)
 
 /mob/living/simple_animal/hostile/mimic/UnarmedAttack(var/atom/A, var/proximity)
 	. =..()
@@ -164,6 +164,6 @@ var/global/list/protected_objects = list(/obj/machinery,
 	trigger()
 	..()
 
-/mob/living/simple_animal/hostile/mimic/sleeping/DestroySurroundings()
+/mob/living/simple_animal/hostile/mimic/sleeping/DestroySurroundings(directions)
 	if(awake)
-		..()
+		..(directions)

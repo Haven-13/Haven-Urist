@@ -191,7 +191,7 @@
 		return 1
 
 /mob/living/silicon/remove_language(var/rem_language)
-	var/var/datum/language/removed_language = all_languages[rem_language]
+	var/datum/language/removed_language = all_languages[rem_language]
 	if(!removed_language)
 		return
 
@@ -362,7 +362,7 @@
 	//Handle job slot/tater cleanup.
 	var/job = mind.assigned_role
 
-	job_master.FreeRole(job)
+	job_master.ClearSlot(job)
 
 	if(mind.objectives.len)
 		qdel(mind.objectives)

@@ -169,6 +169,11 @@ function find_code_deps {
     need_cmd pip
 }
 
+function find_icon_deps {
+    need_cmd python2
+    need_cmd python3
+}
+
 function find_web_deps {
     need_cmd npm
     [[ "$CI" != "true" ]] && need_cmd gulp
@@ -194,8 +199,8 @@ function find_code {
     fi
 }
 
-function run_code_tests {
-    msg "*** running code tests ***"
+function run_code_quality_tests {
+    msg "*** Running Code Quality Checks ***"
     find_code_deps
     pip install --user PyYaml -q
     pip install --user beautifulsoup4 -q
@@ -204,18 +209,31 @@ function run_code_tests {
     run_test_fail "maps contain no step_[xy]" "grep 'step_[xy]' maps/**/*.dmm"
     run_test_fail "ensure nanoui templates unique" "find nano/templates/ -type f -exec md5sum {} + | sort | uniq -D -w 32 | grep nano"
     run_test_fail "no invalid spans" "grep -En \"<\s*span\s+class\s*=\s*('[^'>]+|[^'>]+')\s*>\" **/*.dm"
-    run_test "code quality checks" "test/check-paths.sh"
-    run_test "indentation check" "awk -f tools/indentation.awk **/*.dm"
+    run_test "code quality checks" "./.travis/check-paths.sh"
+    run_test "indentation check" "awk -f ./.travis/indentation.awk **/*.dm"
+    run_test "check tags" "python2 ./tools/TagMatcher/tag-matcher.py ."
+    run_test "check color hex" "python3 ./tools/ColorHexChecker/color-hex-checker.py ."
+    run_test "check punctuation" "python2 ./tools/PunctuationChecker/punctuation-checker.py ."
+}
+
+function run_icon_validity_tests {
+    msg "*** Running Icon Validity Checks ***"
+    find_icon_deps
+    run_test "check icon state limit" "python2 ./tools/dmitool/check_icon_state_limit.py ."
+}
+
+function run_changelog_tests {
+    msg "*** Running Changelog Tests ***"
+    find_code_deps
+    pip install --user PyYaml -q
+    pip install --user beautifulsoup4 -q
+    shopt -s globstar
     run_test "check changelog example unchanged" "md5sum -c - <<< '79e058ac02ed52aad99a489ab4c8f75b *html/changelogs/example.yml'"
-    run_test "check tags" "python2 tools/TagMatcher/tag-matcher.py ."
-    run_test "check color hex" "python3 tools/ColorHexChecker/color-hex-checker.py ."
-    run_test "check punctuation" "python2 tools/PunctuationChecker/punctuation-checker.py ."
-    run_test "check icon state limit" "python2 tools/dmitool/check_icon_state_limit.py ."
-    run_test_ci "check changelog builds" "python2 tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs"
+    run_test_ci "check changelog builds" "python2 ./tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs"
 }
 
 function run_web_tests {
-    msg "*** running web tests ***"
+    msg "*** Running Web Tests ***"
     find_web_deps
     msg "installing web tools"
     if [[ "$CI" == "true" ]]; then
@@ -229,23 +247,19 @@ function run_web_tests {
 }
 
 function run_byond_tests {
-    msg "*** running map tests ***"
+    msg "*** Running Map Tests ***"
     find_byond_deps
     if [[ -z "${MAP_PATH+x}" ]]
     then exit 1
     else msg "configured map is '$MAP_PATH'"
     fi
     cp config/example/* config/
-    if [[ "$CI" == "true" ]]; then
-        msg "installing BYOND"
-        ./install-byond.sh || exit 1
-        source $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}/byond/bin/byondsetup
-    fi
-    run_test_ci "check globals build" "python tools/GenerateGlobalVarAccess/gen_globals.py baystation12.dme code/_helpers/global_access.dm"
+
+    run_test_ci "check globals build" "python ./tools/GenerateGlobalVarAccess/gen_globals.py $TARGET_PROJECT_NAME.dme code/_helpers/global_access.dm"
 #    run_test "check globals unchanged" "md5sum -c - <<< '5eaa581969e84a62c292a7015fee8960 *code/_helpers/global_access.dm'"
-    run_test "build map unit tests" "scripts/dm.sh -DUNIT_TEST -M$MAP_PATH baystation12.dme"
+    run_test "build map unit tests" "./.travis/dm.sh -DUNIT_TEST -M$MAP_PATH $TARGET_PROJECT_NAME.dme"
     run_test "check no warnings in build" "grep ', 0 warnings' build_log.txt"
-    run_test "run unit tests" "DreamDaemon baystation12.dmb -invisible -trusted -core 2>&1 | tee log.txt"
+    run_test "run unit tests" "DreamDaemon $TARGET_PROJECT_NAME.dmb -invisible -trusted -core 2>&1 | tee log.txt"
     run_test "check tests passed" "grep 'All Unit Tests Passed' log.txt"
     run_test "check no runtimes" "grep 'Caught 0 Runtimes' log.txt"
     run_test_fail "check no runtimes 2" "grep 'runtime error:' log.txt"
@@ -255,17 +269,21 @@ function run_byond_tests {
 }
 
 function run_all_tests {
-    run_code_tests
+    run_code_quality_tests
+    run_icon_validity_tests
     run_web_tests
     run_byond_tests
+    run_changelog_tests
 }
 
 function run_configured_tests {
     if [[ -z ${TEST+z} ]]; then
-        msg_bad "You must provide TEST in environment; valid options ALL,MAP,WEB,CODE"
+        msg_bad "You must provide TEST in environment; valid options ALL,MAP,WEB,CODE_QUALITY,ICON_VALIDITY,CHANGELOG"
         msg_meh "Note: map tests require MAP_PATH set"
         exit 1
     fi
+    msg "Running with TARGET_PROJECT_NAME = $TARGET_PROJECT_NAME"
+    msg "Runner will load $TARGET_PROJECT_NAME.dme and output $TARGET_PROJECT_NAME.dmb"
     case $TEST in
         "ALL")
             run_all_tests
@@ -276,8 +294,14 @@ function run_configured_tests {
         "WEB")
             run_web_tests
             ;;
-        "CODE")
-            run_code_tests
+        "CODE_QUALITY")
+            run_code_quality_tests
+            ;;
+        "ICON_VALIDITY")
+            run_icon_validity_tests
+            ;;
+        "CHANGELOG")
+            run_changelog_tests
             ;;
         *)
             fail "invalid option for \$TEST: '$TEST'"
