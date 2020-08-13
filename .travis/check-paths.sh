@@ -36,10 +36,6 @@ exactly 564 "incorrect indentations" '^( {4,})' -P
 exactly 29 "text2path uses" 'text2path'
 # With the potential exception of << if you increase any of these numbers you're probably doing it wrong
 
-num=`find ./html/changelogs -not -name "*.yml" | wc -l`
-echo "$num non-yml files (expecting exactly 2)"
-[ $num -eq 2 ] || FAILED=1
-
 num=`find . -perm /111 -name "*.dm*" | wc -l`
 echo "$num executable *.dm? files (expecting exactly 0)"
 [ $num -eq 0 ] || FAILED=1
