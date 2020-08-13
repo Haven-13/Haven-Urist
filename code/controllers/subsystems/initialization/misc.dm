@@ -4,6 +4,8 @@ SUBSYSTEM_DEF(misc)
 	flags = SS_NO_FIRE
 
 /datum/controller/subsystem/misc/Initialize()
+	plant_controller = new()
+
 	if(config.generate_map)
 		GLOB.using_map.perform_map_generation()
 
