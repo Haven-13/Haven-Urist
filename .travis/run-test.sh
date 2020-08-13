@@ -169,6 +169,11 @@ function find_code_deps {
     need_cmd pip
 }
 
+function find_icon_deps {
+    need_cmd python2
+    need_cmd python3
+}
+
 function find_web_deps {
     need_cmd npm
     [[ "$CI" != "true" ]] && need_cmd gulp
@@ -209,6 +214,11 @@ function run_code_quality_tests {
     run_test "check tags" "python2 ./tools/TagMatcher/tag-matcher.py ."
     run_test "check color hex" "python3 ./tools/ColorHexChecker/color-hex-checker.py ."
     run_test "check punctuation" "python2 ./tools/PunctuationChecker/punctuation-checker.py ."
+}
+
+function run_icon_validity_tests {
+    msg "*** Running Icon Validity Checks ***"
+    find_icon_deps
     run_test "check icon state limit" "python2 ./tools/dmitool/check_icon_state_limit.py ."
 }
 
@@ -260,6 +270,7 @@ function run_byond_tests {
 
 function run_all_tests {
     run_code_quality_tests
+    run_icon_validity_tests
     run_web_tests
     run_byond_tests
     run_changelog_tests
@@ -267,7 +278,7 @@ function run_all_tests {
 
 function run_configured_tests {
     if [[ -z ${TEST+z} ]]; then
-        msg_bad "You must provide TEST in environment; valid options ALL,MAP,WEB,CODE_QUALITY,CHANGELOG"
+        msg_bad "You must provide TEST in environment; valid options ALL,MAP,WEB,CODE_QUALITY,ICON_VALIDITY,CHANGELOG"
         msg_meh "Note: map tests require MAP_PATH set"
         exit 1
     fi
@@ -285,6 +296,9 @@ function run_configured_tests {
             ;;
         "CODE_QUALITY")
             run_code_quality_tests
+            ;;
+        "ICON_VALIDITY")
+            run_icon_validity_tests
             ;;
         "CHANGELOG")
             run_changelog_tests

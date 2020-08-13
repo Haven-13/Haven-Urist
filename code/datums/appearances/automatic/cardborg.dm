@@ -78,7 +78,7 @@
 	backpack_type = /obj/item/weapon/storage/backpack/toxins
 
 /decl/cardborg_appearance/science/satchel
-	backpack_type = /obj/item/weapon/storage/backpack/satchel_tox
+	backpack_type = /obj/item/weapon/storage/backpack/satchel/tox
 
 /decl/cardborg_appearance/security
 	icon_state = "securityrobot"
