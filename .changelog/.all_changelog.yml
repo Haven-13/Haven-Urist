@@ -2,16 +2,4 @@
 ---
 2020-08-13:
   martinlyra:
-  - tweak: tweaked a few things
-  - balance: rebalanced something
-  - bugfix: fixed a few things
-  - soundadd: added a new sound thingy
-  - sounddel: removed an old sound thingy
-  - imageadd: added some icons and images
-  - imagedel: deleted some icons and images
-  - spellcheck: fixed a few typos
-  - code_imp: changed some code
-  - refactor: refactored some code
-  - config: changed some config setting
-  - admin: messed with admin stuff
-  - server: something server ops should know
+  - code_imp: An automatic CL (changelog) generator has been added to AstroHaven-13/Haven-Urist
