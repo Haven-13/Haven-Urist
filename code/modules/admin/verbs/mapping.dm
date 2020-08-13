@@ -40,8 +40,7 @@ var/intercom_range_display_status = 0
 /client/proc/do_not_use_these()
 	set category = "Mapping"
 	set name = "-None of these are for ingame use!!"
-
-	..()
+	return
 
 /client/proc/camera_view()
 	set category = "Mapping"
@@ -67,10 +66,6 @@ var/intercom_range_display_status = 0
 /client/proc/sec_camera_report()
 	set category = "Mapping"
 	set name = "Camera Report"
-
-	if(!master_controller)
-		alert(usr,"Master_controller not found.","Sec Camera Report")
-		return 0
 
 	var/list/obj/machinery/camera/CL = list()
 

@@ -197,7 +197,7 @@ var/list/gear_datums = list()
 		if(ticked)
 			entry += "<tr><td colspan=3>"
 			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
-				entry += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
+				entry += " <a href='?src=\ref[src];gear=\ref[G];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
 			entry += "</td></tr>"
 		if(!hide_unavailable_gear || allowed || ticked)
 			. += entry
@@ -225,7 +225,9 @@ var/list/gear_datums = list()
 
 /datum/category_item/player_setup_item/loadout/OnTopic(href, href_list, user)
 	if(href_list["toggle_gear"])
-		var/datum/gear/TG = gear_datums[href_list["toggle_gear"]]
+		var/datum/gear/TG = locate(href_list["toggle_gear"])
+		if(!istype(TG) || gear_datums[TG.display_name] != TG)
+			return TOPIC_REFRESH
 		if(TG.display_name in pref.gear_list[pref.gear_slot])
 			pref.gear_list[pref.gear_slot] -= TG.display_name
 		else
@@ -237,9 +239,9 @@ var/list/gear_datums = list()
 				pref.gear_list[pref.gear_slot] += TG.display_name
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 	if(href_list["gear"] && href_list["tweak"])
-		var/datum/gear/gear = gear_datums[href_list["gear"]]
+		var/datum/gear/gear = locate(href_list["gear"])
 		var/datum/gear_tweak/tweak = locate(href_list["tweak"])
-		if(!tweak || !istype(gear) || !(tweak in gear.gear_tweaks))
+		if(!tweak || !istype(gear) || !(tweak in gear.gear_tweaks) || gear_datums[gear.display_name] != gear)
 			return TOPIC_NOACTION
 		var/metadata = tweak.get_metadata(user, get_tweak_metadata(gear, tweak))
 		if(!metadata || !CanUseTopic(user))

@@ -282,7 +282,6 @@ BLIND     // can't see anything
 		return item_state_slots[slot]
 	else
 		return icon_state
-	return ..()
 
 /obj/item/clothing/glasses/update_clothing_icon()
 	if (ismob(src.loc))
@@ -914,7 +913,6 @@ BLIND     // can't see anything
 	set category = "Object"
 	set src in usr
 	set_sensors(usr)
-	..()
 
 /obj/item/clothing/under/verb/rollsuit()
 	set name = "Roll Down Jumpsuit"

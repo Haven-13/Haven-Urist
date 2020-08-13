@@ -312,7 +312,7 @@
 	desc = "A sterile satchel with geneticist colours."
 	icon_state = "satchel-gen"
 
-/obj/item/weapon/storage/backpack/satchel_tox
+/obj/item/weapon/storage/backpack/satchel/tox
 	name = "scientist satchel"
 	desc = "Useful for holding research materials."
 	icon_state = "satchel-tox"

@@ -1,6 +1,6 @@
 language: generic
 os: linux
-dist: xenial
+dist: bionic
 
 git:
   depth: 1
@@ -8,9 +8,8 @@ git:
 env:
   global:
     - BYOND_MAJOR="513"
-    - BYOND_MINOR="1511"
+    - BYOND_MINOR="1528"
     - TARGET_PROJECT_NAME="baystation12"
-    - SPACEMAN_DMM_VERSION=suite-1.5
 
 before_install:
   - chmod +x ./install-byond.sh
@@ -18,7 +17,9 @@ before_install:
 
 jobs:
   include:
-    - name: "Run Linters - Dreamchecker"
+    - name: "Code Quality Check - SpacemanDMM"
+      env:
+        - SPACEMAN_DMM_VERSION=suite-1.5
       cache:
         directories:
           - $HOME/SpacemanDMM
@@ -27,16 +28,17 @@ jobs:
       script:
         - ~/dreamchecker -c ./SpacemanDMM.toml
 
-    - name: "Code Quality Check"
-      addon:
-        apt:
-          packages:
-            - python
-            - python-pip
+    - name: "Code Quality Check - run-test.sh"
       env: 
         - TEST=CODE_QUALITY
       script:
         - bash ./.travis/run-test.sh
+        
+#    - name: "Icon Validity Check"
+#      env:
+#        - TEST=ICON_VALIDITY
+#      script:
+#        - bash ./.travis/run-test.sh
     
     - name: "Compile"
       addon: 
@@ -61,8 +63,6 @@ jobs:
             - libc6-i386
             - libgcc1:i386
             - libstdc++6:i386
-            - python
-            - python-pip
       env: 
         - TEST=MAP MAP_PATH=example
       cache:
