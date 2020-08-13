@@ -222,16 +222,6 @@ function run_icon_validity_tests {
     run_test "check icon state limit" "python2 ./tools/dmitool/check_icon_state_limit.py ."
 }
 
-function run_changelog_tests {
-    msg "*** Running Changelog Tests ***"
-    find_code_deps
-    pip install --user PyYaml -q
-    pip install --user beautifulsoup4 -q
-    shopt -s globstar
-    run_test "check changelog example unchanged" "md5sum -c - <<< '79e058ac02ed52aad99a489ab4c8f75b *html/changelogs/example.yml'"
-    run_test_ci "check changelog builds" "python2 ./tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs"
-}
-
 function run_web_tests {
     msg "*** Running Web Tests ***"
     find_web_deps
@@ -278,7 +268,7 @@ function run_all_tests {
 
 function run_configured_tests {
     if [[ -z ${TEST+z} ]]; then
-        msg_bad "You must provide TEST in environment; valid options ALL,MAP,WEB,CODE_QUALITY,ICON_VALIDITY,CHANGELOG"
+        msg_bad "You must provide TEST in environment; valid options ALL,MAP,WEB,CODE_QUALITY,ICON_VALIDITY"
         msg_meh "Note: map tests require MAP_PATH set"
         exit 1
     fi
@@ -299,9 +289,6 @@ function run_configured_tests {
             ;;
         "ICON_VALIDITY")
             run_icon_validity_tests
-            ;;
-        "CHANGELOG")
-            run_changelog_tests
             ;;
         *)
             fail "invalid option for \$TEST: '$TEST'"
