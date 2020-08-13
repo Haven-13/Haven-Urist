@@ -4,6 +4,10 @@ dist: bionic
 
 git:
   depth: 1
+# Build only the master-branch when building pushes to branches
+branches:
+  only:
+    - master
 
 env:
   global:
