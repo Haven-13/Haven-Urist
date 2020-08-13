@@ -2,9 +2,18 @@
 
 AH13's Urist McStation's BS12 branch. 
 
-[Website](http://astrohaven-13.github.io/) - [Github](https://github.com/AstroHaven-13/Haven-Urist) -  [Original Code](http://github.com/UristMcStation/UristMcStation/) - [IRC](http://baystation12.net/forums/viewtopic.php?f=12&t=5088)
+[Website](http://astrohaven-13.github.io/) - [Github](https://github.com/AstroHaven-13/Haven-Urist) -  [Original Code](http://github.com/UristMcStation/UristMcStation/)
 
 ---
+
+### INSTALLING
+
+- [Installing](.github/INSTALLING.md)
+
+### Contributing
+
+- [Code of Conduct](.github/CODE_OF_CONDUCT.md)
+- [Contributing](.github/CONTRIBUTING.md)
 
 ### LICENSE
 
@@ -32,4 +41,3 @@ See tgui/LICENSE.md for the MIT license.
 See tgui/assets/fonts/SIL-OFL-1.1-LICENSE.md for the SIL Open Font License.
 
 All assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](http://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated.
-
