@@ -6,7 +6,7 @@ on:
 
 env:
   GIT_EMAIL: "action@github.com"
-  GIT_NAME: "\"Changelog Automaker\"" 
+  GIT_NAME: "Changelog Automaker" 
   CL_AUTOMAKER_DIR: "./tools/ChangelogAutomaker"
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
       - name: Commit
         run: |
           git config --local user.email $GIT_EMAIL
-          git config --local user.name $GIT_NAME
+          git config --local user.name "$GIT_NAME"
           git pull origin master
           git commit -m "Automatic changelog compile [ci skip]" -a || true
       - name: Push
