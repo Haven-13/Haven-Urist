@@ -3,3 +3,6 @@
 2020-08-13:
   martinlyra:
   - code_imp: An automatic CL (changelog) generator has been added to AstroHaven-13/Haven-Urist
+2020-08-17:
+  martinlyra:
+  - server: AstroHaven-13 can now be deployed using Docker & UNIX systemd
