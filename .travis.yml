@@ -3,7 +3,7 @@ os: linux
 dist: bionic
 
 git:
-  depth: 2
+  depth: 5
 # Build only the master-branch when building pushes to branches
 branches:
   only:
@@ -16,7 +16,7 @@ env:
     - TARGET_PROJECT_NAME="baystation12"
 
 before_install:
-  - chmod +x ./install-byond.sh
+  - chmod +x ./scripts/install-byond.sh
   - find ./.travis -type f -print0 | xargs -0 chmod +x
 
 jobs:
@@ -55,7 +55,7 @@ jobs:
         directories:
           - $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}
       install:
-        - ./install-byond.sh
+        - ./scripts/install-byond.sh
       script:
         - source $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}/byond/bin/byondsetup
         - bash ./.travis/dm.sh ${TARGET_PROJECT_NAME}.dme
@@ -73,7 +73,7 @@ jobs:
         directories:
           - $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}
       install:
-        - ./install-byond.sh
+        - ./scripts/install-byond.sh
       script:
         - source $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}/byond/bin/byondsetup
         - bash ./.travis/run-test.sh
