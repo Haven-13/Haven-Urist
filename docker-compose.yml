@@ -7,6 +7,7 @@ services:
       - internal
     volumes:
       - "./sql/test_db:/var/lib/mysql"
+    restart: unless-stopped
   game:
     build: .
     image: ah13:latest
