@@ -1,0 +1,19 @@
+version: "3"
+services:
+  db:
+    build: ./sql
+    image: ah13-db:latest
+    networks:
+      - internal
+    volumes:
+      - "./sql/test_db:/var/lib/mysql"
+    restart: unless-stopped
+  game:
+    build: .
+    image: ah13:latest
+    networks:
+      - internal
+    ports:
+      - "8000:8000"
+networks:
+  internal:
