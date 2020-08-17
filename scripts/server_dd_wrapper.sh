@@ -1,5 +1,8 @@
 #! /bin/bash
 
+SERVER_PORT=8000
+SERVER_DD_ARGS="-trusted -verbose -close"
+
 [[ -e reboot_called ]] && rm reboot_called
 # Reboot or start server
 echo "Starting Dream Daemon using a wrapper shell script."
