@@ -151,6 +151,8 @@
 			return global.SSvote;
 		if("SSweather")
 			return global.SSweather;
+		if("SSwebhooks")
+			return global.SSwebhooks;
 		if("SSwireless")
 			return global.SSwireless;
 		if("SSxenoarch")
@@ -1240,6 +1242,8 @@
 			global.SSvote=newval;
 		if("SSweather")
 			global.SSweather=newval;
+		if("SSwebhooks")
+			global.SSwebhooks=newval;
 		if("SSwireless")
 			global.SSwireless=newval;
 		if("SSxenoarch")
@@ -2253,6 +2257,7 @@
 	"SSvines",
 	"SSvote",
 	"SSweather",
+	"SSwebhooks",
 	"SSwireless",
 	"SSxenoarch",
 	"SWEDEBLOCK",
