@@ -23,6 +23,8 @@ FROM tgstation/byond:513.1528
 ARG BUILD_ARGS
 ARG RUN_AS=ah13-srv-usr
 
+RUN apt-get update && apt-get install -y gosu
+
 RUN groupadd -r ${RUN_AS} && useradd --no-log-init -mrg ${RUN_AS} ${RUN_AS} 
 USER ${RUN_AS}
 
@@ -33,7 +35,6 @@ COPY . ${BUILD_DIR}
 COPY --from=0 /byhttp/to_copy ${BUILD_DIR}/lib
 
 WORKDIR ${BUILD_DIR}
-RUN apt-get update && apt-get install -y gosu
 RUN ./scripts/dm.sh ${BUILD_ARGS} ${BUILD_TARGET}.dme
 
 EXPOSE 8000
