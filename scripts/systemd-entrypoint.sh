@@ -1,6 +1,7 @@
 #!/bin/sh
 
-DD_ARGS="-close" # added to the DreamDaemon in docker-entrypoint.sh
+SERVER_PORT=8000
+SERVER_DD_ARGS="-trusted -verbose -close" # added to the DreamDaemon in docker-entrypoint.sh
 RUN_BRANCH=master
 
 git --version
