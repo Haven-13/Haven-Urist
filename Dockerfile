@@ -21,7 +21,7 @@ RUN mkdir to_copy;\
 FROM tgstation/byond:513.1528
 
 ARG BUILD_ARGS
-ARG RUN_AS=ah13-svr-usr
+ARG RUN_AS=ah13-srv-usr
 
 USER ${RUN_AS}
 
