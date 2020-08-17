@@ -1,0 +1,12 @@
+[
+    {
+        "id" : "webhook_roundend",
+        "url" : "someurl",
+        "mentions" : []
+    },
+    {
+        "id" : "webhook_roundstart",
+        "url" : "someurl",
+        "mentions" : []
+    }
+]
