@@ -21,10 +21,11 @@ RUN mkdir to_copy;\
 FROM tgstation/byond:513.1528
 
 ARG BUILD_ARGS
-ARG RUN_AS=root
+ARG RUN_USER=root
 
 RUN apt-get update && apt-get install -y gosu
 
+ENV RUN_AS=${RUN_USER}
 ENV BUILD_TARGET=baystation12
 ENV BUILD_DIR=/docker-deployed-${BUILD_TARGET}
 
