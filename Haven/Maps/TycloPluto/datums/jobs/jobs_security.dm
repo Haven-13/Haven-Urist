@@ -1,7 +1,7 @@
 /datum/job/hos
 	minimal_player_age = 5
 	title = "Security Chief"
-	supervisors = "the captain and the first officer."
+	supervisors = "the captain and the first mate."
 	outfit_type = /decl/hierarchy/outfit/job/security/pluto/cos
 	hud_icon = "hudheadofsecurity"
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_heads,

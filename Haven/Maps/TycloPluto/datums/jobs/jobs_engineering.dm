@@ -23,6 +23,7 @@
 	spawn_positions = 1
 	supervisors = "the Chief Engineer"
 	selection_color = "#5b4d20"
+	hud_icon = "hudengineer"
 
 	outfit_type = /decl/hierarchy/outfit/job/engineering/engineer
 
