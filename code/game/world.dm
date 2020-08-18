@@ -1,4 +1,4 @@
-/var/server_name = "Baystation 12"
+/var/default_server_name = "SpaceUrist McDefaultStation 12"
 
 /var/game_id = null
 /hook/global_init/proc/generate_gameid()
@@ -64,10 +64,14 @@
 
 	return match
 
-#define RECOMMENDED_VERSION 511
+#define RECOMMENDED_VERSION 513
 /world/New()
 	//set window title
-	name = "[server_name] - [GLOB.using_map.full_name]"
+	if (config.server_name)
+		name = config.server_name
+	else
+		name = default_server_name
+	name += " - [GLOB.using_map.full_name]"
 
 	//logs
 	SetupLogs()
@@ -514,7 +518,7 @@ var/world_topic_spam_protect_time = world.timeofday
 	s += " - Beginner friendly MRP set on a spaceship"
 
 	s += " ("
-	s += "<a href=\"https://discord.gg/0oRsdvoS1DDd5Rv0/\">" //Change this to wherever you want the hub to link to.
+	s += "<a href=\"[config.forumurl]\">" //Change this to wherever you want the hub to link to.
 //	s += "[game_version]"
 	s += "Discord"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
 	s += "</a>"
