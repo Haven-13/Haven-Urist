@@ -1,6 +1,8 @@
 .git
 !.git/HEAD
 !.git/logs/HEAD
+config
+data
 baystation12.dmb
 baystation12.rsc
 baystation12.dyn.rsc

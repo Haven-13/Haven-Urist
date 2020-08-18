@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y gosu
 
 ENV RUN_AS=${RUN_USER}
 ENV BUILD_TARGET=baystation12
-ENV BUILD_DIR=/docker-deployed-${BUILD_TARGET}
+ENV BUILD_DIR=/bin
 
 COPY . ${BUILD_DIR}
 COPY --from=0 /byhttp/to_copy ${BUILD_DIR}/lib
