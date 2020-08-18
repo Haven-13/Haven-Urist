@@ -12,8 +12,8 @@
 	atmos = 1
 
 /area/spacestations/nevastapol/bottom
-  name = "Deep Space Station Nevastapol (Bottom Floor)"
+	name = "Deep Space Station Nevastapol (Bottom Floor)"
 /area/spacestations/nevastapol/mid
-  name = "Deep Space Station Nevastapol (Ground Floor)"
+	name = "Deep Space Station Nevastapol (Ground Floor)"
 /area/spacestations/nevastapol/top
-  name = "Deep Space Station Nevastapol (Top Floor)"
+	name = "Deep Space Station Nevastapol (Top Floor)"

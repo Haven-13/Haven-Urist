@@ -1,7 +1,7 @@
 /area/cargo_lift/pluto/lift
-  name = "Cargo Lift"
-  icon_state = "shuttle3"
-  base_turf = /turf/simulated/open
+	name = "Cargo Lift"
+	icon_state = "shuttle3"
+	base_turf = /turf/simulated/open
 
 /datum/shuttle/autodock/ferry/cargo_lift_pluto
 	name = "Cargo Freight Elevator"

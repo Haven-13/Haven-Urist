@@ -12,9 +12,9 @@
 
 /var/const/access_courier_shuttle_helm = 75
 /datum/access/courier_shuttle_helm
-  id = access_courier_shuttle_helm
-  desc = "Eris Helm"
-  region = ACCESS_REGION_GENERAL
+	id = access_courier_shuttle_helm
+	desc = "Eris Helm"
+	region = ACCESS_REGION_GENERAL
 
 /var/const/access_expedition = 76
 /datum/access/expedition_prep
