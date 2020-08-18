@@ -25,14 +25,15 @@
 		// Actual parts of Pluto
 		/area/engineering/stech = NO_SCRUBBER|NO_VENT,
 		/area/pluto/maintenance/forestar/bottom = NO_SCRUBBER|NO_VENT,
-		/area/pluto/maintenance/foreport/bottom = NO_SCRUBBER,
+		/area/pluto/maintenance/foreport/bottom = NO_SCRUBBER|NO_VENT,
 		/area/pluto/maintenance/aftport/bottom = NO_SCRUBBER,
-		/area/pluto/maintenance/aftstar/bottom = NO_SCRUBBER|NO_VENT,
+		/area/pluto/maintenance/aftstar/bottom = NO_SCRUBBER,
 		/area/pluto/maintenance/foreport/second = NO_SCRUBBER,
 		/area/pluto/maintenance/forestar/second = NO_SCRUBBER|NO_VENT,
 		/area/pluto/maintenance/aftstar/second = NO_SCRUBBER|NO_VENT,
 		/area/pluto/maintenance/aftport/second = NO_SCRUBBER|NO_VENT,
 		/area/pluto/maintenance/centralstar/second = NO_SCRUBBER,
+		/area/pluto/maintenance/centralstar/third = NO_SCRUBBER|NO_VENT,
 		/area/pluto/maintenance/centralport/third = NO_SCRUBBER,
 		/area/pluto/maintenance/fore/third = NO_SCRUBBER|NO_VENT
 		
