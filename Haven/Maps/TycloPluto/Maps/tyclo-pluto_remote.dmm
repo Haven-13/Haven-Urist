@@ -85,6 +85,9 @@
 	},
 /turf/simulated/floor/holofloor/tiled/white,
 /area/holodeck/source_basketball)
+"oJ" = (
+/turf/simulated/floor/tiled/steel_grid,
+/area/space)
 "pP" = (
 /obj/effect/floor_decal/corner/red/border{
 	dir = 1
@@ -152,6 +155,10 @@
 	},
 /turf/simulated/floor/holofloor/tiled/white,
 /area/holodeck/source_basketball)
+"zc" = (
+/obj/effect/landmark/test/safe_turf,
+/turf/simulated/floor/tiled/steel_grid,
+/area/space)
 "zY" = (
 /obj/effect/floor_decal/corner/blue/three_quarters{
 	dir = 8
@@ -183,6 +190,10 @@
 "CO" = (
 /obj/effect/shuttle_landmark/supply/pluto/away,
 /turf/unsimulated/floor/plating,
+/area/space)
+"Dt" = (
+/obj/effect/landmark/test/space_turf,
+/turf/space,
 /area/space)
 "Dx" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -441,12 +452,12 @@ iu
 iu
 iu
 iu
-iu
-iu
-iu
-iu
-iu
-iu
+nu
+nu
+nu
+nu
+nu
+nu
 nu
 nu
 nu
@@ -543,7 +554,7 @@ iu
 iu
 iu
 iu
-iu
+nu
 iu
 iu
 iu
@@ -645,7 +656,7 @@ iu
 iu
 iu
 iu
-iu
+nu
 iu
 iu
 iu
@@ -747,10 +758,10 @@ iu
 iu
 iu
 iu
+nu
 iu
 iu
-iu
-iu
+Dt
 iu
 iu
 nu
@@ -849,7 +860,7 @@ iu
 iu
 iu
 iu
-iu
+nu
 iu
 iu
 iu
@@ -951,7 +962,7 @@ iu
 iu
 iu
 iu
-iu
+nu
 iu
 iu
 iu
@@ -1053,12 +1064,12 @@ iu
 iu
 iu
 iu
-iu
-iu
-iu
-iu
-iu
-iu
+nu
+nu
+nu
+nu
+nu
+nu
 nu
 Gp
 XU
@@ -1155,12 +1166,12 @@ iu
 iu
 iu
 iu
-iu
-iu
-iu
-iu
-iu
-iu
+nu
+oJ
+oJ
+oJ
+oJ
+oJ
 nu
 Gp
 XU
@@ -1257,12 +1268,12 @@ iu
 iu
 iu
 iu
-iu
-iu
-iu
-iu
-iu
-iu
+nu
+oJ
+oJ
+oJ
+oJ
+oJ
 nu
 Gp
 XU
@@ -1359,12 +1370,12 @@ iu
 iu
 iu
 iu
-iu
-iu
-iu
-iu
-iu
-iu
+nu
+oJ
+oJ
+zc
+oJ
+oJ
 nu
 Gp
 XU
@@ -1461,12 +1472,12 @@ iu
 iu
 iu
 iu
-iu
-iu
-iu
-iu
-iu
-iu
+nu
+oJ
+oJ
+oJ
+oJ
+oJ
 nu
 Gp
 Gp
@@ -1563,12 +1574,12 @@ iu
 iu
 iu
 iu
-iu
-iu
-iu
-iu
-iu
-iu
+nu
+oJ
+oJ
+oJ
+oJ
+oJ
 nu
 Gp
 Gp
@@ -1665,12 +1676,12 @@ iu
 iu
 iu
 iu
-iu
-iu
-iu
-iu
-iu
-iu
+nu
+nu
+nu
+nu
+nu
+nu
 nu
 nu
 nu
@@ -1686,15 +1697,6 @@ nu
 nu
 "}
 (14,1,1) = {"
-iu
-iu
-iu
-iu
-iu
-iu
-iu
-iu
-iu
 iu
 iu
 iu
@@ -1760,6 +1762,15 @@ iu
 iu
 iu
 AF
+iu
+iu
+iu
+iu
+iu
+iu
+iu
+iu
+iu
 iu
 iu
 iu
