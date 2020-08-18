@@ -5,7 +5,7 @@
 	icon_state = "hallF"
 
 /area/hallway/central
-  icon_state = "hallC1"
+	icon_state = "hallC1"
 
 /area/hallway/aft
 	icon_state = "hallA"
@@ -16,23 +16,23 @@
 	icon_state = "hallC1"
 
 /area/hallway/central/bottom
-  name = "\improper Central First Deck Hallway"
+	name = "\improper Central First Deck Hallway"
 
 /area/hallway/hangaraccess
-  name = "\improper Hangar Bay Dock Arm"
-  icon_state = "hallC1"
+	name = "\improper Hangar Bay Dock Arm"
+	icon_state = "hallC1"
 
 //second deck
 /area/hallway/fore/second_deck
 	name = "\improper Fore Second Deck Hallway"
 
 /area/hallway/central/second_port
-  name = "\improper Portside Second Deck Hallway"
-  icon_state = "hallP"
+	name = "\improper Portside Second Deck Hallway"
+	icon_state = "hallP"
 
 /area/hallway/central/second_star
-  name = "\improper Starboard Second Deck Hallway"
-  icon_state = "hallS"
+	name = "\improper Starboard Second Deck Hallway"
+	icon_state = "hallS"
 
 /area/hallway/aft/second_deck
 	name = "\improper Aft Second Deck Hallway"
@@ -46,8 +46,8 @@
 	icon_state = "hallP"
 
 /area/hallway/central/third_star
-  name = "\improper Starboard Third Deck Hallway"
-  icon_state = "hallS"
+	name = "\improper Starboard Third Deck Hallway"
+	icon_state = "hallS"
 
 /area/hallway/aft/third_deck
 	name = "\improper Aft Third Deck Hallway"

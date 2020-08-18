@@ -1,5 +1,5 @@
 /obj/effect/shuttle_landmark/nav_nevastapol
-  base_area = /area/spacestations/nevastapol
+	base_area = /area/spacestations/nevastapol
 
 /obj/effect/shuttle_landmark/nav_nevastapol/nav1
 	name = "Shuttle Dock Bay A"
