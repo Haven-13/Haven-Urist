@@ -3,7 +3,7 @@
 	economic_power = 9
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the captain and the first officer."
+	supervisors = "the captain and the first mate."
 	outfit_type = /decl/hierarchy/outfit/job/pluto/qm
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station,
 	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research,

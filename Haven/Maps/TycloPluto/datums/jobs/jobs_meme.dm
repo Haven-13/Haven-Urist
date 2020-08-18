@@ -28,7 +28,7 @@
 	department_flag = CIV
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the second officer"
+	supervisors = "the second mate"
 	selection_color = "#515151"
 	access = list(access_maint_tunnels, access_theatre)
 	minimal_player_age = 0
@@ -51,7 +51,7 @@
 	department_flag = CIV
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the second officer"
+	supervisors = "the second mate"
 	selection_color = "#515151"
 	access = list(access_maint_tunnels, access_theatre)
 	minimal_player_age = 1
