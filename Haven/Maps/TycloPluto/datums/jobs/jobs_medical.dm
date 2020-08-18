@@ -3,7 +3,7 @@
 	title = "Second Mate"
 	minimal_player_age = 3
 	supervisors = "the captain and the first mate."
-	hud_icon = "hudcmo"
+	hud_icon = "hudchiefmedicalofficer"
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_bridge, access_heads,
 			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_maint_tunnels, access_external_airlocks,

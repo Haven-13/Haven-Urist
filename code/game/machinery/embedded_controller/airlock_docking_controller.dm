@@ -3,13 +3,17 @@
 	name = "docking port controller"
 	var/datum/computer/file/embedded_program/airlock/docking/airlock_program
 	var/datum/computer/file/embedded_program/docking/airlock/docking_program
+
+	var/airlock_program_type = /datum/computer/file/embedded_program/airlock/docking
+	var/docking_program_type = /datum/computer/file/embedded_program/docking/airlock
+
 	var/display_name			//how would it show up on docking monitoring program, area name + coordinates if unset
 	tag_secure = 1
 
 /obj/machinery/embedded_controller/radio/airlock/docking_port/New()
 	..()
-	airlock_program = new/datum/computer/file/embedded_program/airlock/docking(src)
-	docking_program = new/datum/computer/file/embedded_program/docking/airlock(src, airlock_program)
+	airlock_program = new airlock_program_type(src)
+	docking_program = new docking_program_type(src, airlock_program)
 	program = docking_program
 	if(display_name)
 		docking_program.display_name = display_name
