@@ -14,8 +14,14 @@
 
 /decl/cultural_info/faction/vox/celeste
   name = FACTION_VCC
-  description = ""
+  description = "Named after the colour of the ichor drawn from the body of Vox, \
+  the Celeste Chorus are a reformed community of Vox raiders. Having put down weapons \
+  and aggressive raiding in favour of selling their martial skills and proficiency for \
+  coin, or simply living a different life yet let to be known as a former warrior."
 
 /decl/cultural_info/faction/vox/wayfarer
   name = FACTION_VWC
-  description = ""
+  description = "Known as travelling merchants with prechant for prospecting for salvage \
+  and anything that they can profit from. Members and mercantile convoys either travel \
+  around the civilizations, usually along the margins where they are most welcome. Some \
+  stay and settle down, since employment is a legitimate mercantile service too."

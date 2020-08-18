@@ -1,5 +1,5 @@
 /decl/cultural_info
-	economic_power = null
+	economic_power = null // no
 
 /decl/cultural_info/culture
 	economic_power = null
