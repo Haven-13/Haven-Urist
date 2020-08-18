@@ -1,8 +1,8 @@
 /area/pluto/gunnery/hall_bottom
-  name = "\improper First Deck Gunnery Access"
+	name = "\improper First Deck Gunnery Access"
 
 /area/pluto/gunnery/hall_top
-  name = "\improper Second Deck Gunnery Access"
+	name = "\improper Second Deck Gunnery Access"
 
 /area/pluto/gunnery/portside_gun
 	name = "\improper Second Deck Port Gunnery Room"
