@@ -17,55 +17,55 @@
 /*
  Colour list:
  Command:
-  - COLOR_SPACE_CADET (#152050)
-  - COLOR_ROMAN_SILVER (#7e8495)
+	- COLOR_SPACE_CADET (#152050)
+	- COLOR_ROMAN_SILVER (#7e8495)
 
  Command (Gunnery):
-  - COLOR_SPACE_CADET (#152050)
-  - COLOR_NT_RED
+	- COLOR_SPACE_CADET (#152050)
+	- COLOR_NT_RED
 
  Security:
-  - COLOR_NT_RED
-  - COLOR_MAROON
+	- COLOR_NT_RED
+	- COLOR_MAROON
 
  Medical:
-  - COLOR_GREEN
-  - COLOR_WHITE
+	- COLOR_GREEN
+	- COLOR_WHITE
 
  Medical (inverted):
-  - COLOR_WHITE
-  - COLOR_GREEN
+	- COLOR_WHITE
+	- COLOR_GREEN
 
  Engineering:
-  - COLOR_AMBER
-  - COLOR_ORANGE
+	- COLOR_AMBER
+	- COLOR_ORANGE
 
  Engineering (Engine/Inverted)
-  - COLOR_ORANGE
-  - COLOR_AMBER
+	- COLOR_ORANGE
+	- COLOR_AMBER
 
  Engineering (Atmos)
-  - COLOR_AMBER
-  - COLOR_CYAN
+	- COLOR_AMBER
+	- COLOR_CYAN
 
  Cargo:
-  - COLOR_PALE_ORANGE
-  - COLOR_BEASTY_BROWN
+	- COLOR_PALE_ORANGE
+	- COLOR_BEASTY_BROWN
 
-  Maintenance:
-   - COLOR_AMBER
-   - COLOR_DARK_GREY
+	Maintenance:
+	 - COLOR_AMBER
+	 - COLOR_DARK_GREY
 
-  Maintenance (Substation):
-   - COLOR_DARK_GREY
-   - COLOR_AMBER
+	Maintenance (Substation):
+	 - COLOR_DARK_GREY
+	 - COLOR_AMBER
 
-  Maintenance (Firefighter closet):
-   - COLOR_DARK_GREY
-   - COLOR_NT_RED
+	Maintenance (Firefighter closet):
+	 - COLOR_DARK_GREY
+	 - COLOR_NT_RED
 
-  Maintenance (Thruster)
-   -
+	Maintenance (Thruster)
+	 -
 
 */
 
@@ -136,13 +136,13 @@ base/maintenance/air {\
 // PS: Another TODO here; port this back to the base code
 // But who fucking cares about Bay and Baycode holy shit
 /obj/machinery/door/airlock/autoname/glass
-  glass = TRUE
-  opacity = FALSE
+	glass = TRUE
+	opacity = FALSE
 
 /obj/machinery/door/airlock/multi_tile/autoname
 /obj/machinery/door/airlock/multi_tile/autoname/glass
-  glass = TRUE
-  opacity = FALSE
+	glass = TRUE
+	opacity = FALSE
 
 /obj/machinery/door/airlock/multi_tile/autoname/New()
 	var/area/A = get_area(src)

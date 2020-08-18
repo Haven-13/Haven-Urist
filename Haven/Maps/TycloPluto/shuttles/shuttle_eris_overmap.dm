@@ -8,9 +8,9 @@
 	warmup_time = 5
 	move_time = 30
 	shuttle_area = list(
-    /area/courier_shuttle/pluto/cockpit,
-    /area/courier_shuttle/pluto/utility
-  )
+		/area/courier_shuttle/pluto/cockpit,
+		/area/courier_shuttle/pluto/utility
+	)
 	dock_target ="eris_shuttle"
 	current_location = "nav_hangar_eris"
 	landmark_transition = "nav_transit_eris"

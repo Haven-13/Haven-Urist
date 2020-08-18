@@ -8,11 +8,11 @@
 	can_board = TRUE
 
 	initial_restricted_waypoints = list(
-    "Styx" = list("nav_hangar_styx"),
-    "Eris" = list("nav_hangar_eris")
-  )
+		"Styx" = list("nav_hangar_styx"),
+		"Eris" = list("nav_hangar_eris")
+	)
 
 	hostile_factions = list(
-    "pirate",
-    "hostile"
-  )
+		"pirate",
+		"hostile"
+	)
