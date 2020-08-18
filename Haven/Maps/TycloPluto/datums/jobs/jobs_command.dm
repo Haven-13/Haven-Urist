@@ -82,12 +82,13 @@
 /datum/job/captain/get_description_blurb()
 	return "You are the Captain and owner of the ICS Nerva. You are the top dog. Your backstory and destiny is your own to decide, however, you are ultimately responsible for all that happens onboard. Your job is to make sure the that Nerva survives its time in this sector, and turns a profit for you. Delegate to your First Officer, the Second Officer, and your department heads to effectively manage the ship, and listen to and trust their expertise. It might be the difference between life and death. Oh, and watch out for pirates. The ICS Nerva only has a small complement of weapons at first, which can be upgraded at certain stations in the sector. Good luck."
 
+/*
 /datum/job/secondofficer
 	minimal_player_age = 3
 	title = "Second Mate"
 	supervisors = "the captain and the first mate."
-	outfit_type = /decl/hierarchy/outfit/job/pluto/secondofficer
 	hud_icon = "hudheadofpersonnel"
+	outfit_type = /decl/hierarchy/outfit/job/pluto/secondofficer
 	access = list(access_security, access_sec_doors, access_brig, access_forensics_lockers, access_heads,
 						access_medical, access_engine, access_change_ids, access_ai_upload, access_eva, access_bridge,
 						access_all_personal_lockers, access_maint_tunnels, access_janitor, access_construction, access_morgue,
@@ -105,3 +106,4 @@
 
 /datum/job/secondofficer/get_description_blurb()
 	return "You are the Second Mate, third in command, after the First Officer and the Captain. As the Second Officer, it is your job to oversee personnel issues, which includes managing access, delegating crew grievances, and ensuring the proper upkeep and operation of the ship's recreational and mess facilities. Thus, you are the direct supervisor for the janitorial staff, as well as the culinary and hydroponics staff. As Second Officer, it is also your job to organize and lead awaymissions, and in cases where there is no First Officer present, to pilot the AFCUV Pluto."
+*/

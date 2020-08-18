@@ -5,18 +5,19 @@
 	"Technical Assistant","Medical Intern","Cargo Assistant", "Security Deputy",
 	"Botanist" = /decl/hierarchy/outfit/job/service/gardener,
 	)
+	hud_icon = "hudassistant"
 
 /datum/job/chef
 	economic_power = 3
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_hydroponics, access_bar, access_kitchen)
 	alt_titles = list("Bartender" = /decl/hierarchy/outfit/job/service/pluto/bartender)
-	supervisors = "the quartermaster and the second officer."
+	supervisors = "the quartermaster and the second mate."
 	minimal_player_age = 0
 
 /datum/job/janitor
 	economic_power = 2
-	supervisors = "the second officer."
+	supervisors = "the second mate."
 	total_positions = 1
 	spawn_positions = 1
 	minimal_player_age = 0
@@ -30,7 +31,7 @@
 	hud_icon = "hudchaplain"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the second officer and the chief medical officer"
+	supervisors = "the second mate."
 	access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels, access_psychiatrist)
 	minimal_access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels, access_psychiatrist)
 	alt_titles = list(
