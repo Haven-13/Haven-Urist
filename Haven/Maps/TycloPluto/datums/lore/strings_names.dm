@@ -23,7 +23,8 @@
 #define CULTURE_SCEECHI       "Sceechi"
 
 #define CULTURE_VOX_ARK       "Arker"
-#define CULTURE_VOX_COLONIST  "Neoedener"
+#define CULTURE_VOX_COLONIST  "Colonist"
+#define CULTURE_VOX_NEOEDENER "Neoedener"
 
 /*
   Factions macros
