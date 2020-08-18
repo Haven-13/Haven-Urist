@@ -411,6 +411,8 @@
 			return global.default_onmob_icons;
 		if("default_pai_software")
 			return global.default_pai_software;
+		if("default_server_name")
+			return global.default_server_name;
 		if("delta_index")
 			return global.delta_index;
 		if("department_accounts")
@@ -879,8 +881,6 @@
 			return global.send_emergency_team;
 		if("sent_spiders_to_station")
 			return global.sent_spiders_to_station;
-		if("server_name")
-			return global.server_name;
 		if("severity_to_string")
 			return global.severity_to_string;
 		if("ship_engines")
@@ -1502,6 +1502,8 @@
 			global.default_onmob_icons=newval;
 		if("default_pai_software")
 			global.default_pai_software=newval;
+		if("default_server_name")
+			global.default_server_name=newval;
 		if("delta_index")
 			global.delta_index=newval;
 		if("department_accounts")
@@ -1970,8 +1972,6 @@
 			global.send_emergency_team=newval;
 		if("sent_spiders_to_station")
 			global.sent_spiders_to_station=newval;
-		if("server_name")
-			global.server_name=newval;
 		if("severity_to_string")
 			global.severity_to_string=newval;
 		if("ship_engines")
@@ -2387,6 +2387,7 @@
 	"default_mobloc",
 	"default_onmob_icons",
 	"default_pai_software",
+	"default_server_name",
 	"delta_index",
 	"department_accounts",
 	"department_radio_keys",
@@ -2621,7 +2622,6 @@
 	"secret_force_mode",
 	"send_emergency_team",
 	"sent_spiders_to_station",
-	"server_name",
 	"severity_to_string",
 	"ship_engines",
 	"ship_templates",
