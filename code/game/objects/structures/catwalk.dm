@@ -20,7 +20,8 @@
 	. = ..()
 	for(var/obj/structure/catwalk/C in get_turf(src))
 		if(C != src)
-			qdel(C)
+			crash_with("Found multiple catwalks at '[log_info_line(loc)]'")
+			return INITIALIZE_HINT_QDEL
 	update_connections(1)
 	update_icon()
 
