@@ -1,8 +1,12 @@
+.changelog
 .git
 !.git/HEAD
 !.git/logs/HEAD
+.travis
+.github
 config
 data
+tools
 baystation12.dmb
 baystation12.rsc
 baystation12.dyn.rsc
