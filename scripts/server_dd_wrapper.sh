@@ -1,7 +1,7 @@
 #! /bin/bash
 
-SERVER_PORT=8000
-SERVER_DD_ARGS="-trusted -verbose -close"
+[[ ! -e SERVER_PORT ]] && SERVER_PORT=8000
+[[ ! -e SERVER_DD_ARGS ]] && SERVER_DD_ARGS="-trusted -verbose -close"
 
 [[ -e reboot_called ]] && rm reboot_called
 # Reboot or start server
