@@ -1,3 +1,6 @@
+/decl/hierarchy/outfit/job/pluto
+	hierarchy_type = /decl/hierarchy/outfit/job/pluto
+
 /decl/hierarchy/outfit/job/bodyguard
 	name = OUTFIT_JOB_NAME("Bodyguard") //done
 	uniform = /obj/item/clothing/under/bodyguard
@@ -84,6 +87,8 @@
 	head = /obj/item/clothing/head/urist/beret/nervacap
 
 //sec
+/decl/hierarchy/outfit/job/security/pluto
+	hierarchy_type = /decl/hierarchy/outfit/job/security/pluto
 
 /decl/hierarchy/outfit/job/security/pluto/secofficer
 	name = OUTFIT_JOB_NAME("Pluto Security Officer") //done
@@ -105,6 +110,8 @@
 	head = /obj/item/clothing/head/beret/sec/nervacos
 
 //bartender
+/decl/hierarchy/outfit/job/service/pluto
+	hierarchy_type = /decl/hierarchy/outfit/job/service/pluto
 
 /decl/hierarchy/outfit/job/service/pluto/bartender
 	name = OUTFIT_JOB_NAME("Pluto Bartender")

@@ -9,6 +9,7 @@
 	#include "tyclo-pluto_overmap.dm"
 	#include "tyclo-pluto_presets.dm"
 	#include "tyclo-pluto_setup.dm"
+	#include "tyclo-pluto_unit_testing.dm"
 
 	#include "datums/pluto_network.dm"
 

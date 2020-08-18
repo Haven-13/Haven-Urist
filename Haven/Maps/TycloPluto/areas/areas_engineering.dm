@@ -132,6 +132,9 @@
 /area/engineering/substation/atmos
 	name = "\improper Atmospherics Substation"
 
+/area/engineering/substation/bridge
+	name = "\improper Bridge Substation"
+
 //solars
 
 /area/solar/main
