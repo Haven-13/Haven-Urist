@@ -6,12 +6,12 @@
 git --version
 git pull origin
 git checkout $RUN_BRANCH
-docker build --tag havenurist:latest
+docker build --tag havenurist:latest .
 docker run \
     --network="host" \
-    --name havenurist \
-    -p $SERVER_PORT:$SERVER_PORT \
-    --mount type=bind, source="/bin/config" target="/home/ah13-srv-usr/config" \
-    --mount type=bind, source="/bin/data" target="/home/ah13-srv-usr/data" \
+    --name hu \
+    -p 8000:8000 \
+    --mount type=bind,source="/home/ah13-srv-usr/config",target="/bin/config" \
+    --mount type=bind,source="/home/ah13-srv-usr/data",target="/bin/data" \
     havenurist:latest
-docker rm --force havenurist
+docker rm --force hu
