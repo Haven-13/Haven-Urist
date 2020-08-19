@@ -7,3 +7,20 @@
   martinlyra:
   - server: AstroHaven-13 can now be deployed using Docker & UNIX systemd
   - rscadd: Webhooks for posting round starts and ends have been ported from BS12
+2020-08-19:
+  martinlyra:
+  - rscadd: Added descriptions to factions
+  - rscadd: Added descriptions to cultures
+  - rscadd: Pluto engines now have vents and scrubbers
+  - rscadd: Pluto airlocks are now connected to supply for constant refilling
+  - rscadd: Pluto now has images for nanoUI, such as suit sensors
+  - rscadd: Added vents and scrubbers to Upper Hydroponics
+  - rscadd: Added vents and scrubbers to Bridge Storage
+  - bugfix: Removed unused disposals
+  - bugfix: Removed duplicate objects from Pluto and Nevestapol
+  - bugfix: Removed duplicate APCs
+  - bugfix: Bridge substation now is its own area
+  - bugfix: Office storage now is its own area
+  - bugfix: Ladders can be used while in SPACE
+  - bugfix: Lattice and catwalks now return QDEL-hint instead of qdel-ing themselves
+  - config: Pluto is now subject to unit-testing for better quality assurance
