@@ -4,30 +4,30 @@
 #define MODULE_LORE_AH13_INCLUDED
 
 /*
-  Because I don't have the resources or the time to go make a more sane rewrite
-  of the system used by Baycode. Specially not one that relies on macros as
-  a total solution to everything.
+	Because I don't have the resources or the time to go make a more sane rewrite
+	of the system used by Baycode. Specially not one that relies on macros as
+	a total solution to everything.
 
-  Here's an explanation of how Bay's system serves as evidence of how Bay is
-  completely stripped of any sign of intelligence and rational thinking.
-  Fuck you, Bay, with a five-grit sandpaper cactus.
+	Here's an explanation of how Bay's system serves as evidence of how Bay is
+	completely stripped of any sign of intelligence and rational thinking.
+	Fuck you, Bay, with a five-grit sandpaper cactus.
 
-  Either way, this is how the sytem works:
+	Either way, this is how the sytem works:
 
-  1. Define name macros with human-readable string values
-  2. Use the macros inside /decl/culture_info declarations and definitions
-  3. Put them inside species datums' available_cultural_info list of associated
-    lists with corresponding tags;
-    - Cultures                -> TAG_CULTURE
-    - Factions | nations      -> TAG_FACTION
-    - Locations | homeworlds  -> TAG_HOMEWORLD
-  4. The game looks up those strings inserted from the macros and return it
+	1. Define name macros with human-readable string values
+	2. Use the macros inside /decl/culture_info declarations and definitions
+	3. Put them inside species datums' available_cultural_info list of associated
+		lists with corresponding tags;
+		- Cultures								-> TAG_CULTURE
+		- Factions | nations			-> TAG_FACTION
+		- Locations | homeworlds	-> TAG_HOMEWORLD
+	4. The game looks up those strings inserted from the macros and return it
 
-  And you're done. Enjoy your technical debt!
+	And you're done. Enjoy your technical debt!
 
-  Also, this one file should be marked as included in either the .dme or from
-  inside the map's top-level .dm, you decide. In the original, it was included
-  from the top-level .dm.
+	Also, this one file should be marked as included in either the .dme or from
+	inside the map's top-level .dm, you decide. In the original, it was included
+	from the top-level .dm.
 */
 
 // Set new default values
@@ -65,23 +65,23 @@
 
 // Fallback
 /datum/map/tyclo_pluto
-  available_cultural_info = list(
-    TAG_HOMEWORLD = list(
-      LOCATION_OTHER
-    ),
-    TAG_FACTION = list(
-      FACTION_IND,
-      FACTION_OTHER
-    ),
-    TAG_CULTURE = list(
-      CULTURE_OTHER
-    )
-  )
+	available_cultural_info = list(
+		TAG_HOMEWORLD = list(
+			LOCATION_OTHER
+		),
+		TAG_FACTION = list(
+			FACTION_IND,
+			FACTION_OTHER
+		),
+		TAG_CULTURE = list(
+			CULTURE_OTHER
+		)
+	)
 
-  default_cultural_info = list(
-    TAG_HOMEWORLD = HOME_SYSTEM_OTHER,
-    TAG_FACTION =   FACTION_IND,
-    TAG_CULTURE =   CULTURE_OTHER
-  )
+	default_cultural_info = list(
+		TAG_HOMEWORLD = HOME_SYSTEM_OTHER,
+		TAG_FACTION =	 FACTION_IND,
+		TAG_CULTURE =	 CULTURE_OTHER
+	)
 
 #endif

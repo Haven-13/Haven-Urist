@@ -1,9 +1,5 @@
-/obj/machinery/embedded_controller/radio/airlock/docking_port/pluto/New()
-	..()
-	docking_program = new/datum/computer/file/embedded_program/docking/airlock/pluto(src, airlock_program)
-	program = docking_program
-	if(display_name)
-		docking_program.display_name = display_name
+/obj/machinery/embedded_controller/radio/airlock/docking_port/pluto
+	docking_program_type = /datum/computer/file/embedded_program/docking/airlock/pluto
 
 //tell the docking port to start getting ready for undocking - e.g. close those doors.
 /datum/computer/file/embedded_program/docking/airlock/pluto/prepare_for_undocking()
