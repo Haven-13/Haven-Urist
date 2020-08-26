@@ -89,8 +89,15 @@
 /obj/structure/ladder/attack_ghost(var/mob/M)
 	instant_climb(M)
 
+
+// This is horrible. If you plan on killing me over this code. Please go murder 
+// the guys who originally wrote this and Baystation12's code first.
+// Fullfilling that last wish would do me a great service. Thanks.
+/obj/structure/ladder/proc/check_open_turf(var/turf/T)
+	return (istype(T, /turf/simulated/open) || istype(T, /turf/space))
+
 /obj/structure/ladder/proc/getTargetLadder(var/mob/M)
-	if((!target_up && !target_down) || (target_up && !istype(target_up.loc, /turf/simulated/open) || (target_down && !istype(target_down.loc, /turf))))
+	if((!target_up && !target_down) || (target_up && !check_open_turf(target_up.loc) || (target_down && !istype(target_down.loc, /turf))))
 		to_chat(M, "<span class='notice'>\The [src] is incomplete and can't be climbed.</span>")
 		return
 	if(target_down && target_up)
