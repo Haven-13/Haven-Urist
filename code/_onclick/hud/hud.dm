@@ -14,7 +14,12 @@
 	if(hud_type)
 		hud_used = new hud_type(src)
 	else
-		hud_used = new /datum/hud
+		hud_used = new /datum/hud(src)
+
+/mob/update_plane()
+	..()
+	if(hud_used)
+		hud_used.update_plane_masters()
 
 /datum/hud
 	var/mob/mymob
@@ -37,9 +42,59 @@
 	var/obj/screen/movable/action_button/hide_toggle/hide_actions_toggle
 	var/action_buttons_hidden = 0
 
+	var/old_z
+	var/list/obj/screen/plane_master/plane_masters = list()
+
+/datum/hud/proc/update_plane_masters()
+	if(!mymob || !mymob.client)
+		return 0
+
+	var/atom/player = mymob
+	if(mymob.client.virtual_eye)
+		player = mymob.client.virtual_eye
+	
+	var/turf/T = get_turf(player)
+	if (!T)
+		return 0
+
+	var/z = T.z
+	if (z == old_z)
+		return 0
+
+	old_z = z
+
+	for(var/plane_master in plane_masters)
+		var/obj/screen/plane_master/instance = plane_masters[plane_master]
+		mymob.client.screen -= instance
+		qdel(instance)
+
+	plane_masters.Cut()
+
+	var/obj/effect/landmark/submap_data/SMD = GetSubmapData(z)
+
+	var/bottom_z
+	if (SMD)
+		bottom_z = SMD.get_bottommost_z()
+	else
+		bottom_z = z
+
+
+	for(var/idx in 1 to (z - bottom_z + 1))
+		for(var/mytype in subtypesof(/obj/screen/plane_master))
+			var/obj/screen/plane_master/instance = new mytype()
+
+			instance.plane = calculate_plane(idx, instance.plane)
+
+			plane_masters["[idx]-[mytype]"] = instance
+			mymob.client.screen += instance
+			instance.backdrop(mymob)
+			
+	return 1
+
 /datum/hud/New(mob/owner)
 	mymob = owner
 	instantiate()
+	update_plane_masters()
 	..()
 
 /datum/hud/Destroy()

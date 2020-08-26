@@ -92,6 +92,8 @@
 		owner.client.eye = src
 	if(owner_follows_eye)
 		owner.forceMove(loc)
+	if(owner.hud_used)
+		owner.hud_used.update_plane_masters()
 
 	visualnet.update_eye_chunks(src)
 	return TRUE
@@ -128,4 +130,13 @@
 		sprint = min(sprint + 0.5, max_sprint)
 	else
 		sprint = initial
+
+	if(owner.hud_used)
+		owner.hud_used.update_plane_masters()
+
 	return 1
+
+/mob/observer/eye/forceMove(atom/destination, var/special_event, glide_size_override=0)
+	. = ..()
+	if(owner && owner.hud_used)
+		owner.hud_used.update_plane_masters()

@@ -89,7 +89,7 @@
 		var/turf/turf_to_check = get_step(src,direction)
 		if(!istype(turf_to_check, type))
 			var/image/rock_side = image(icon, "edge[pick(1,2)]", dir = turn(direction, 180))
-			rock_side.plating_decal_layerise()
+			rock_side.plating_decal_layerise(target = src)
 			switch(direction)
 				if(NORTH)
 					rock_side.pixel_y += world.icon_size

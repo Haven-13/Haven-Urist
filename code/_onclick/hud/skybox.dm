@@ -49,6 +49,12 @@
 	SSskybox.skyboxes -= src
 	return ..()
 
+/obj/skybox/update_plane()
+	return
+
+/obj/skybox/set_plane(new_plane)
+	plane = new_plane
+
 /mob
 	var/obj/skybox/skybox
 

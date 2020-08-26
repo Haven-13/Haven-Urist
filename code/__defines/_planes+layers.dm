@@ -209,12 +209,12 @@ What is the naming convention for planes or layers?
 /image
 	plane = FLOAT_PLANE			// this is defunct, lummox fixed this on recent compilers, but it will bug out if I remove it for coders not on the most recent compile.
 
-/image/proc/plating_decal_layerise()
-	plane = ABOVE_PLATING_PLANE
+/image/proc/plating_decal_layerise(atom/target)
+	plane = target.get_relative_plane(ABOVE_PLATING_PLANE)
 	layer = DECAL_PLATING_LAYER
 
-/image/proc/turf_decal_layerise()
-	plane = ABOVE_TURF_PLANE
+/image/proc/turf_decal_layerise(atom/target)
+	plane = target.get_relative_plane(ABOVE_TURF_PLANE)
 	layer = DECAL_LAYER
 
 /atom/proc/hud_layerise()
@@ -222,28 +222,5 @@ What is the naming convention for planes or layers?
 	layer = HUD_ITEM_LAYER
 
 /atom/proc/reset_plane_and_layer()
-	plane = initial(plane)
-	layer = initial(layer)
-
-/*
-  PLANE MASTERS
-*/
-
-/obj/screen/plane_master
-	appearance_flags = PLANE_MASTER
-	screen_loc = "CENTER,CENTER"
-	globalscreen = 1
-
-/obj/screen/plane_master/ghost_master
-	plane = OBSERVER_PLANE
-
-/obj/screen/plane_master/ghost_dummy
-	// this avoids a bug which means plane masters which have nothing to control get angry and mess with the other plane masters out of spite
-	alpha = 0
-	appearance_flags = 0
-	plane = OBSERVER_PLANE
-
-GLOBAL_LIST_INIT(ghost_master, list(
-	new /obj/screen/plane_master/ghost_master(),
-	new /obj/screen/plane_master/ghost_dummy()
-))
+	set_plane(original_plane)
+	layer = initial(plane)

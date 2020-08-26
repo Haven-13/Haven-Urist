@@ -5,23 +5,38 @@ var/list/z_levels = list()// Each bit re... haha just kidding this is a list of 
 /obj/effect/landmark/map_data/New()
 	..()
 
-	for(var/i = (z - height + 1) to (z-1))
+	var/obj/effect/landmark/submap_data/previous
+	var/obj/effect/landmark/submap_data/current
+
+	testing("Running linking from Z:[z-height+1] to Z:[(z)]")
+	for(var/i = (z - height + 1) to (z))
 		if (z_levels.len <i)
 			z_levels.len = i
 		z_levels[i] = TRUE
 
+		// Generate submap chunks
+		current = new/obj/effect/landmark/submap_data(locate(1,1,i))
+		if (previous)
+			previous.register_link_above(current)
+		previous = current
+		
 /obj/effect/landmark/map_data/Initialize()
 	..()
 	return INITIALIZE_HINT_QDEL
 
+
 /proc/HasAbove(var/z)
 	if(z >= world.maxz || z < 1 || z > z_levels.len)
 		return 0
+	if (HasSubmapData(z))
+		return GetSubmapData(z).has_above()
 	return z_levels[z]
 
 /proc/HasBelow(var/z)
 	if(z > world.maxz || z < 2 || (z-1) > z_levels.len)
 		return 0
+	if (HasSubmapData(z))
+		return GetSubmapData(z).has_below()
 	return z_levels[z-1]
 
 // Thankfully, no bitwise magic is needed here.
