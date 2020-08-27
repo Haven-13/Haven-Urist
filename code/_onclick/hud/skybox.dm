@@ -1,8 +1,9 @@
 /obj/skybox
 	name = "skybox"
 	mouse_opacity = 0
-	blend_mode = BLEND_MULTIPLY
+	blend_mode = BLEND_DEFAULT
 	plane = SKYBOX_PLANE
+	layer = BASE_SKYBOX_LAYER
 //	invisibility = 101
 	anchored = 1
 	var/mob/owner

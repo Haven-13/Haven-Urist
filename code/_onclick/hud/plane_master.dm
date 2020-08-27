@@ -11,6 +11,9 @@
 	var/show_alpha = 255
 	var/hide_alpha = 0
 
+/obj/screen/plane_master/proc/update_screen_plane(var/z_level)
+	src.plane = calculate_plane(z_level, src.plane)
+
 /obj/screen/plane_master/proc/Show(override)
 	alpha = override || show_alpha
 
@@ -20,6 +23,57 @@
 //Why do plane masters need a backdrop sometimes? Read https://secure.byond.com/forum/?post=2141928
 //Trust me, you need one. Period. If you don't think you do, you're doing something extremely wrong.
 /obj/screen/plane_master/proc/backdrop(mob/mymob)
+
+/obj/screen/plane_master/openspace_master
+	plane = OPENSPACE_PLANE
+
+/obj/screen/plane_master/below_turf_master
+	plane = BELOW_TURF_PLANE
+
+/obj/screen/plane_master/plating_plane_master
+	plane = PLATING_PLANE
+
+/obj/screen/plane_master/above_plating_master
+	plane = ABOVE_PLATING_PLANE
+
+/obj/screen/plane_master/turf_master
+	plane = TURF_PLANE
+
+/obj/screen/plane_master/above_turf_master
+	plane = ABOVE_TURF_PLANE
+
+/obj/screen/plane_master/under_obj_master
+	plane = UNDER_OBJ_PLANE
+
+/obj/screen/plane_master/hiding_mob_master
+	plane = HIDING_MOB_PLANE
+
+/obj/screen/plane_master/obj_plane_master
+	plane = OBJ_PLANE
+
+/obj/screen/plane_master/lying_mob_master
+	plane = LYING_MOB_PLANE
+
+/obj/screen/plane_master/lying_human_master
+	plane = LYING_HUMAN_PLANE
+
+/obj/screen/plane_master/above_obj_master
+	plane = ABOVE_OBJ_PLANE
+
+/obj/screen/plane_master/human_plane_master
+	plane = HUMAN_PLANE
+
+/obj/screen/plane_master/mob_plane_master
+	plane = MOB_PLANE
+
+/obj/screen/plane_master/above_human_master
+	plane = ABOVE_HUMAN_PLANE
+
+/obj/screen/plane_master/blob_plane_master
+	plane = BLOB_PLANE
+
+/obj/screen/plane_master/effects_below_lighting_master
+	plane = EFFECTS_BELOW_LIGHTING_PLANE
 
 /obj/screen/plane_master/ghost_master
 	plane = OBSERVER_PLANE
@@ -51,3 +105,9 @@ GLOBAL_LIST_INIT(ghost_master, list(
 			00, 00, 00, 00,
 			01, 01, 01, 01
 		)
+
+/obj/screen/plane_master/effects_above_lighting_master
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+
+/obj/screen/plane_master/obscurity_master
+	plane = OBSCURITY_PLANE

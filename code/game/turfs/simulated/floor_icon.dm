@@ -65,7 +65,6 @@ var/list/flooring_cache = list()
 
 /turf/simulated/floor/proc/get_flooring_overlay(var/cache_key, var/icon_base, var/icon_dir = 0)
 	if(!flooring_cache[cache_key])
-		testing("Generating cached icon for cache_key: [cache_key]")
 		var/image/I = image(icon = flooring.icon, icon_state = icon_base, dir = icon_dir)
 		I.turf_decal_layerise(target = src)
 		flooring_cache[cache_key] = I

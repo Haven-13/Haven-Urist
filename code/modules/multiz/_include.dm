@@ -1,6 +1,7 @@
 #include "_stubs.dm"
 #include "basic.dm"
 #include "movement.dm"
+#include "open_darkness.dm"
 #include "planes.dm"
 #include "turf.dm"
 #include "turf_open.dm"

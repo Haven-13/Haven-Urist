@@ -44,6 +44,7 @@
 
 	var/old_z
 	var/list/obj/screen/plane_master/plane_masters = list()
+	var/list/obj/screen/openspace_overlay/openspace_overlays = list()
 
 /datum/hud/proc/update_plane_masters()
 	if(!mymob || !mymob.client)
@@ -70,6 +71,13 @@
 
 	plane_masters.Cut()
 
+	for(var/key in openspace_overlays)
+		var/obj/screen/openspace_overlay/instance = openspace_overlays[key]
+		mymob.client.screen -= instance
+		qdel(instance)
+	
+	openspace_overlays.Cut()
+
 	var/obj/effect/landmark/submap_data/SMD = GetSubmapData(z)
 
 	var/bottom_z
@@ -78,17 +86,26 @@
 	else
 		bottom_z = z
 
-
-	for(var/idx in 1 to (z - bottom_z + 1))
+	var/relative_top_z = (z - bottom_z + 1)
+	for(var/idx in 1 to relative_top_z)
 		for(var/mytype in subtypesof(/obj/screen/plane_master))
 			var/obj/screen/plane_master/instance = new mytype()
 
-			instance.plane = calculate_plane(idx, instance.plane)
+			instance.update_screen_plane(idx)
 
 			plane_masters["[idx]-[mytype]"] = instance
 			mymob.client.screen += instance
 			instance.backdrop(mymob)
-			
+
+		var/z_delta = relative_top_z - idx // How far away from top are we?
+		if (z_delta)
+			for (var/pidx in 1 to PLANE_DIFFERENCE - 1)
+				var/obj/screen/openspace_overlay/oover = new
+				oover.plane = calculate_plane(idx, pidx)
+				oover.alpha = min(255,z_delta*60 + 30)
+				openspace_overlays["[idx]-[oover.plane]"] = oover
+				mymob.client.screen += oover
+		
 	return 1
 
 /datum/hud/New(mob/owner)

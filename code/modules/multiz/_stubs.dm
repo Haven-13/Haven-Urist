@@ -21,10 +21,8 @@
 		is_bad = 1
 		crash_with("Another Submap Object already exists at [loc]!")
 		return INITIALIZE_HINT_QDEL
-	testing("Submap Chunk: A submap object created at [x],[y],[z]")
 
 /obj/effect/landmark/submap_data/proc/register_link_above(obj/effect/landmark/submap_data/other)
-	testing("Submap Chunk: Pairing Z:[get_z(src)] -> Z:[get_z(other)]")
 	src.above = other
 	other.below = src
 

@@ -2,7 +2,7 @@
 	name = "open space"
 	icon = 'icons/turf/open_space.dmi'
 	icon_state = "black_open"
-	plane = OVER_OPENSPACE_PLANE
+	plane = OPENSPACE_PLANE
 	blend_mode = BLEND_OVERLAY
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
@@ -15,6 +15,8 @@
 
 /turf/simulated/open/Initialize()
 	. = ..()
+	icon = null
+	icon_state = "blank"
 	update()
 
 /turf/simulated/open/LateInitialize()

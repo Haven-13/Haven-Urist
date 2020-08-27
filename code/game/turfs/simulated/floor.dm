@@ -38,13 +38,13 @@
 	if(!floortype && initial_flooring)
 		floortype = initial_flooring
 	if(floortype)
-		set_flooring(get_flooring_data(floortype), defer_icon_update = 1)
+		set_flooring(get_flooring_data(floortype), 1)
 
 /turf/simulated/floor/Initialize()
 	. = ..()
 	update_icon()
 
-/turf/simulated/floor/proc/set_flooring(var/decl/flooring/newflooring, defer_icon_update = 0)
+/turf/simulated/floor/proc/set_flooring(var/decl/flooring/newflooring, var/defer_icon_update = 0)
 	make_plating(defer_icon_update = 1) // always defer an icon update
 	flooring = newflooring
 	if (defer_icon_update)

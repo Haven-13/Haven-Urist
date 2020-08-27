@@ -8,7 +8,6 @@ var/list/z_levels = list()// Each bit re... haha just kidding this is a list of 
 	var/obj/effect/landmark/submap_data/previous
 	var/obj/effect/landmark/submap_data/current
 
-	testing("Running linking from Z:[z-height+1] to Z:[(z)]")
 	for(var/i = (z - height + 1) to (z))
 		if (z_levels.len <i)
 			z_levels.len = i

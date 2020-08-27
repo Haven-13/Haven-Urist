@@ -58,24 +58,23 @@ What is the naming convention for planes or layers?
 	FLOAT_PLANE = -32767
 */
 
-#define CLICKCATCHER_PLANE -10000
+#define MAX_PLANE 10000
+#define MIN_PLANE -MAX_PLANE
+
+// Background planes
+#define CLICKCATCHER_PLANE MIN_PLANE
 
 #define SPACE_PLANE -9000
 
 #define SKYBOX_PLANE SPACE_PLANE + 1
-
-#define DUST_PLANE SPACE_PLANE + 2
-	#define DEBRIS_LAYER 1
+	#define BASE_SKYBOX_LAYER 1
 	#define DUST_LAYER 2
 
-//Reserve planes for openspace
-#define OPENSPACE_PLANE -5000
-#define OPENSPACE_PLANE_START OPENSPACE_PLANE + 1
-#define OPENSPACE_PLANE_END -1
-	#define OPENSPACE_LAYER_OBJS 2
-	#define OPENSPACE_LAYER_MOBS 3
-
-#define OVER_OPENSPACE_PLANE         1
+// Visible game planes
+#define OPENSPACE_PLANE              1
+	#define OPENSPACE_LAYER_OBJS 2 // unused
+	#define OPENSPACE_LAYER_MOBS 3 
+	#define OPENSPACE_DARKNESS_LAYER 15
 
 #define BELOW_TURF_PLANE             2 // objects that are below turfs. Useful for asteroid smoothing or other such magic.
 	// TURF_LAYER 2
