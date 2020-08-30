@@ -205,15 +205,42 @@ What is the naming convention for planes or layers?
 // This is the difference between the highest and lowest visible FULLSCREEN planes
 #define FULLSCREEN_PLANE_DIFFERENCE   3
 
-/image
-	plane = FLOAT_PLANE			// this is defunct, lummox fixed this on recent compilers, but it will bug out if I remove it for coders not on the most recent compile.
+// List of all planes that should be rendered to the HUD's
+// handling of rendering multi-z
+//
+// Planes that are not included are:
+// - OPENSPACE_PLANE; not needed
+// - LIGHTING_PLANE; blending cause the lighting overlay to be 
+//       almost invisible in multi-z. Undesired effect
+/proc/multiz_rendering_planes()
+	return list(
+			BELOW_TURF_PLANE,
+			PLATING_PLANE,
+			ABOVE_PLATING_PLANE,
+			TURF_PLANE,
+			ABOVE_TURF_PLANE,
+			UNDER_OBJ_PLANE,
+			HIDING_MOB_PLANE,
+			OBJ_PLANE,
+			LYING_MOB_PLANE,
+			LYING_HUMAN_PLANE,
+			ABOVE_OBJ_PLANE,
+			HUMAN_PLANE,
+			MOB_PLANE,
+			ABOVE_HUMAN_PLANE,
+			BLOB_PLANE,
+			EFFECTS_BELOW_LIGHTING_PLANE,
+			OBSERVER_PLANE,
+			EFFECTS_ABOVE_LIGHTING_PLANE,
+			OBSCURITY_PLANE
+		)
 
 /image/proc/plating_decal_layerise(atom/target)
-	plane = target.get_relative_plane(ABOVE_PLATING_PLANE)
+	plane = target.get_float_plane(ABOVE_PLATING_PLANE)
 	layer = DECAL_PLATING_LAYER
 
 /image/proc/turf_decal_layerise(atom/target)
-	plane = target.get_relative_plane(ABOVE_TURF_PLANE)
+	plane = target.get_float_plane(ABOVE_TURF_PLANE)
 	layer = DECAL_LAYER
 
 /atom/proc/hud_layerise()

@@ -99,7 +99,7 @@
 
 		var/z_delta = relative_top_z - idx // How far away from top are we?
 		if (z_delta)
-			for (var/pidx in 1 to PLANE_DIFFERENCE - 1)
+			for (var/pidx in multiz_rendering_planes())
 				var/obj/screen/openspace_overlay/oover = new
 				oover.plane = calculate_plane(idx, pidx)
 				oover.alpha = min(255,z_delta*60 + 30)

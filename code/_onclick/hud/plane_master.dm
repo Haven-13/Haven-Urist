@@ -24,6 +24,15 @@
 //Trust me, you need one. Period. If you don't think you do, you're doing something extremely wrong.
 /obj/screen/plane_master/proc/backdrop(mob/mymob)
 
+/*
+   I hate myself, I hate Baycode, I hate Byond
+
+   Welcome to the wonders of BYOND DM coding!
+
+   For multi_z rendering, take a look in _onclick/hud.dm
+   For a list of what planes are included, take a look in
+   __defines/_planes+layers.dm
+ */
 /obj/screen/plane_master/openspace_master
 	plane = OPENSPACE_PLANE
 
@@ -75,18 +84,18 @@
 /obj/screen/plane_master/effects_below_lighting_master
 	plane = EFFECTS_BELOW_LIGHTING_PLANE
 
-/obj/screen/plane_master/ghost_master
+/obj/screen/plane_master/observer_master
 	plane = OBSERVER_PLANE
 
-/obj/screen/plane_master/ghost_dummy
+/obj/screen/plane_master/observer_dummy
 	// this avoids a bug which means plane masters which have nothing to control get angry and mess with the other plane masters out of spite
 	alpha = 0
 	appearance_flags = 0
 	plane = OBSERVER_PLANE
 
 GLOBAL_LIST_INIT(ghost_master, list(
-	new /obj/screen/plane_master/ghost_master(),
-	new /obj/screen/plane_master/ghost_dummy()
+	new /obj/screen/plane_master/observer_master(),
+	new /obj/screen/plane_master/observer_dummy()
 ))
 
 /obj/screen/plane_master/lighting_plane

@@ -29,15 +29,15 @@ var/list/flooring_cache = list()
 				var/turf/simulated/floor/T = get_step(src, step_dir)
 				if(!istype(T) || !T.flooring || T.flooring.name != flooring.name)
 					has_border |= step_dir
-					overlays |= get_flooring_overlay("[flooring.icon]-[flooring.icon_base]-edge-[step_dir]-[src.plane]", "[flooring.icon_base]_edges", step_dir)
+					overlays |= get_flooring_overlay("[flooring.icon]-[flooring.icon_base]-edge-[step_dir]", "[flooring.icon_base]_edges", step_dir)
 
 			for(var/diagonal in list(NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST))
 				if((has_border & diagonal) == diagonal)
-					overlays |= get_flooring_overlay("[flooring.icon]-[flooring.icon_base]-edge-[diagonal]-[src.plane]", "[flooring.icon_base]_edges", diagonal)
+					overlays |= get_flooring_overlay("[flooring.icon]-[flooring.icon_base]-edge-[diagonal]", "[flooring.icon_base]_edges", diagonal)
 				if((has_border & diagonal) == 0 && (flooring.flags & TURF_HAS_CORNERS))
 					var/turf/simulated/floor/T = get_step(src, diagonal)
 					if(!(istype(T) && T.flooring && T.flooring.name == flooring.name))
-						overlays |= get_flooring_overlay("[flooring.icon]-[flooring.icon_base]-corner-[diagonal]-[src.plane]", "[flooring.icon_base]_corners", diagonal)
+						overlays |= get_flooring_overlay("[flooring.icon]-[flooring.icon_base]-corner-[diagonal]", "[flooring.icon_base]_corners", diagonal)
 
 		if(flooring.can_paint && decals && decals.len)
 			overlays |= decals
@@ -53,9 +53,9 @@ var/list/flooring_cache = list()
 		icon_state = "dmg[rand(1,4)]"
 	else if(flooring)
 		if(!isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
-			overlays |= get_damage_overlay("[flooring.icon]-broken[broken]-[src.plane]", BLEND_MULTIPLY)
+			overlays |= get_damage_overlay("[flooring.icon]-broken[broken]", BLEND_MULTIPLY)
 		if(!isnull(burnt) && (flooring.flags & TURF_CAN_BURN))
-			overlays |= get_damage_overlay("[flooring.icon]-burned[burnt]-[src.plane]")
+			overlays |= get_damage_overlay("[flooring.icon]-burned[burnt]")
 
 	if(update_neighbors)
 		for(var/turf/simulated/floor/F in orange(src, 1))
