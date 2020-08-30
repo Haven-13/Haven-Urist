@@ -16,15 +16,15 @@
 /area/constructionsite)
 "e" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/constructionsite)
 "f" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
+	dir = 4;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/constructionsite)
@@ -71,45 +71,45 @@
 /area/constructionsite)
 "m" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	 icon_state = "intact";
-	dir = 5
+	dir = 5;
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled,
 /area/constructionsite)
 "n" = (
 /obj/machinery/atmospherics/portables_connector{
-	 icon_state = "map_connector";
-	dir = 8
+	dir = 8;
+	icon_state = "map_connector"
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/tiled,
 /area/constructionsite)
 "o" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	 icon_state = "intact";
-	dir = 4
+	dir = 4;
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled,
 /area/constructionsite)
 "p" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	 icon_state = "intact";
-	dir = 6
+	dir = 6;
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled,
 /area/constructionsite)
 "q" = (
 /obj/machinery/atmospherics/portables_connector{
-	 icon_state = "map_connector";
-	dir = 8
+	dir = 8;
+	icon_state = "map_connector"
 	},
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/tiled,
 /area/constructionsite)
 "r" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	 icon_state = "map_scrubber_on";
-	dir = 1
+	dir = 1;
+	icon_state = "map_scrubber_on"
 	},
 /turf/simulated/floor/tiled,
 /area/constructionsite)
@@ -213,6 +213,29 @@
 /area/constructionsite)
 "J" = (
 /obj/effect/landmark/test/space_turf,
+/turf/space,
+/area/space)
+"K" = (
+/obj/structure/catwalk,
+/turf/space,
+/area/space)
+"P" = (
+/obj/effect/wingrille_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/constructionsite)
+"Q" = (
+/obj/structure/catwalk,
+/obj/structure/ladder/up,
+/obj/structure/lattice,
+/turf/space,
+/area/space)
+"T" = (
+/obj/structure/lattice,
+/turf/space,
+/area/space)
+"Y" = (
+/obj/structure/catwalk,
+/obj/structure/lattice,
 /turf/space,
 /area/space)
 
@@ -605,13 +628,13 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
+Y
+K
+K
+K
+K
+K
+Y
 a
 a
 a
@@ -639,13 +662,13 @@ a
 a
 a
 a
-a
+Y
 y
 z
 z
 D
 y
-a
+Y
 a
 a
 a
@@ -673,13 +696,13 @@ a
 a
 a
 a
-a
+Y
 y
 A
 B
 C
 y
-a
+Y
 a
 a
 a
@@ -707,13 +730,13 @@ a
 a
 a
 a
-a
+Y
 y
 z
 z
 E
 y
-a
+Y
 a
 a
 a
@@ -741,13 +764,13 @@ a
 a
 a
 a
-a
+Q
 a
 a
 b
 G
 b
-a
+Y
 a
 a
 a
@@ -775,13 +798,13 @@ a
 a
 a
 a
-a
+T
 a
 a
 b
 F
 b
-a
+T
 a
 a
 a
@@ -806,8 +829,8 @@ a
 a
 b
 b
-b
-b
+P
+P
 b
 b
 b
@@ -974,7 +997,7 @@ a
 a
 a
 a
-b
+P
 c
 c
 c
@@ -1008,7 +1031,7 @@ a
 a
 a
 a
-b
+P
 c
 w
 w
@@ -1076,7 +1099,7 @@ a
 a
 a
 a
-b
+P
 c
 w
 w
@@ -1110,7 +1133,7 @@ a
 a
 a
 a
-b
+P
 c
 c
 c
