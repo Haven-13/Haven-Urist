@@ -87,17 +87,6 @@
 /obj/screen/plane_master/observer_master
 	plane = OBSERVER_PLANE
 
-/obj/screen/plane_master/observer_dummy
-	// this avoids a bug which means plane masters which have nothing to control get angry and mess with the other plane masters out of spite
-	alpha = 0
-	appearance_flags = 0
-	plane = OBSERVER_PLANE
-
-GLOBAL_LIST_INIT(ghost_master, list(
-	new /obj/screen/plane_master/observer_master(),
-	new /obj/screen/plane_master/observer_dummy()
-))
-
 /obj/screen/plane_master/lighting_plane
 	name = "lighting plane master"
 	plane = LIGHTING_PLANE
