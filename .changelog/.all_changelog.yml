@@ -33,3 +33,6 @@
       control of effects
   - refactor: Ported CEV-Eris' plane system, there may be problems with objects showing
       up over or underneath other objects when they should not.
+  - bugfix: Removed a duplicate object in Nevestapol
+  - bugfix: Fixed Loadout not registering user choices for gear to use
+  - bugfix: Disabled access checking on Pluto's two public hallway turrets
