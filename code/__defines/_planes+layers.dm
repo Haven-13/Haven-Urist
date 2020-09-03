@@ -183,6 +183,14 @@ What is the naming convention for planes or layers?
 	#define SUPERMATTER_WALL_LAYER 3
 
 #define OBSCURITY_PLANE 		      22 // For visualnets, such as the AI's static.
+#define EMISSIVE_PLANE -2
+	#define EMISSIVE_LAYER 13
+
+#define EMISSIVE_BLOCKER_PLANE -1
+	#define EMISSIVE_BLOCKER_LAYER 14
+
+#define BASE_PLANE 0 // Not for anything, but this is the default.
+	#define BASE_AREA_LAYER 999
 
 //This is difference between highest and lowest visible game planes
 #define PLANE_DIFFERENCE              23

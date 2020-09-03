@@ -66,6 +66,8 @@
 
 /obj/machinery/computer/update_icon()
 	overlays.Cut()
+
+	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	if(stat & NOPOWER)
 		set_light(0)
 		if(icon_keyboard)
@@ -77,7 +79,8 @@
 	if(stat & BROKEN)
 		overlays += image(icon,"[icon_state]_broken", overlay_layer)
 	else
-		overlays += image(icon,icon_screen, overlay_layer)
+		//overlays += image(icon,icon_screen, overlay_layer)
+		add_emissive_overlay(icon, icon_screen, overlay_layer)
 
 	if(icon_keyboard)
 		overlays += image(icon, icon_keyboard, overlay_layer)
