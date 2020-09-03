@@ -2,12 +2,6 @@
 "a" = (
 /turf/space,
 /area/space)
-"b" = (
-/obj/effect/landmark/map_data{
-	height = 2
-	},
-/turf/space,
-/area/space)
 "c" = (
 /turf/simulated/wall,
 /area/maintenance/fsmaint2)
@@ -36,14 +30,10 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
-"i" = (
-/obj/effect/shuttle_landmark/upper_level,
-/turf/space,
-/area/space)
 "j" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
@@ -78,31 +68,31 @@
 "p" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
+	dir = 4;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 "q" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	 icon_state = "intact";
-	dir = 5
+	dir = 5;
+	icon_state = "intact"
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 "r" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	 icon_state = "intact";
-	dir = 4
+	dir = 4;
+	icon_state = "intact"
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 "s" = (
 /obj/machinery/atmospherics/portables_connector{
-	 icon_state = "map_connector";
-	dir = 8
+	dir = 8;
+	icon_state = "map_connector"
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -110,16 +100,16 @@
 /area/maintenance/fsmaint2)
 "t" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	 icon_state = "intact";
-	dir = 6
+	dir = 6;
+	icon_state = "intact"
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 "u" = (
 /obj/machinery/atmospherics/portables_connector{
-	 icon_state = "map_connector";
-	dir = 8
+	dir = 8;
+	icon_state = "map_connector"
 	},
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -134,16 +124,16 @@
 /area/maintenance/fsmaint2)
 "w" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	 icon_state = "map_scrubber_on";
-	dir = 1
+	dir = 1;
+	icon_state = "map_scrubber_on"
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 "x" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
+	dir = 4;
+	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
@@ -183,6 +173,39 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
+"D" = (
+/obj/effect/wingrille_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/maintenance/fsmaint2)
+"F" = (
+/obj/structure/lattice,
+/turf/space,
+/area/space)
+"N" = (
+/obj/effect/shuttle_landmark/upper_level,
+/obj/structure/catwalk,
+/turf/space,
+/area/space)
+"R" = (
+/obj/structure/lattice,
+/obj/structure/catwalk,
+/turf/space,
+/area/space)
+"S" = (
+/obj/structure/lattice,
+/obj/structure/ladder,
+/turf/space,
+/area/space)
+"X" = (
+/obj/effect/landmark/map_data{
+	height = 3
+	},
+/turf/space,
+/area/space)
+"Y" = (
+/obj/structure/catwalk,
+/turf/space,
+/area/space)
 
 (1,1,1) = {"
 a
@@ -636,7 +659,7 @@ a
 a
 a
 a
-b
+X
 a
 a
 a
@@ -675,11 +698,11 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
+R
+R
+R
+R
+R
 a
 a
 a
@@ -702,25 +725,25 @@ a
 a
 a
 a
+F
+F
+F
+F
+F
+F
+F
+S
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+F
+F
+F
+F
+F
+F
+F
+F
 a
 a
 a
@@ -736,25 +759,25 @@ a
 a
 a
 a
+F
 a
 a
 a
 a
 a
 a
+F
+a
+a
+a
+F
 a
 a
 a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
+F
 a
 a
 a
@@ -770,25 +793,25 @@ a
 a
 a
 a
+F
 a
+c
+c
+c
+c
+c
+c
+D
+D
+D
+c
+c
+c
+c
+c
+c
 a
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-a
-a
+F
 a
 a
 a
@@ -804,7 +827,7 @@ a
 a
 a
 a
-a
+F
 a
 c
 d
@@ -822,7 +845,7 @@ z
 A
 c
 a
-a
+F
 a
 a
 a
@@ -838,7 +861,7 @@ a
 a
 a
 a
-a
+F
 a
 c
 d
@@ -856,7 +879,7 @@ d
 d
 c
 a
-a
+F
 a
 a
 a
@@ -872,7 +895,7 @@ a
 a
 a
 a
-a
+F
 a
 c
 d
@@ -890,7 +913,7 @@ d
 d
 c
 a
-a
+F
 a
 a
 a
@@ -906,7 +929,7 @@ a
 a
 a
 a
-a
+F
 a
 c
 e
@@ -924,7 +947,7 @@ d
 B
 c
 a
-a
+F
 a
 a
 a
@@ -940,7 +963,7 @@ a
 a
 a
 a
-a
+F
 a
 c
 d
@@ -958,7 +981,7 @@ d
 d
 c
 a
-a
+F
 a
 a
 a
@@ -974,7 +997,7 @@ a
 a
 a
 a
-a
+F
 a
 c
 d
@@ -984,15 +1007,15 @@ g
 d
 d
 d
-d
-d
-d
-d
+g
+g
+g
+g
 d
 d
 c
 a
-a
+F
 a
 a
 a
@@ -1008,8 +1031,8 @@ a
 a
 a
 a
-a
-a
+F
+F
 c
 f
 f
@@ -1018,15 +1041,15 @@ g
 d
 d
 d
-d
-d
-d
-d
+g
+g
+g
+g
 d
 d
 c
-a
-a
+F
+F
 a
 a
 a
@@ -1042,7 +1065,7 @@ a
 a
 a
 a
-a
+F
 a
 c
 d
@@ -1052,15 +1075,15 @@ g
 d
 d
 d
-d
-d
-d
-d
+g
+g
+g
+g
 d
 d
 c
 a
-a
+F
 a
 a
 a
@@ -1076,7 +1099,7 @@ a
 a
 a
 a
-a
+F
 a
 c
 d
@@ -1094,7 +1117,7 @@ d
 d
 c
 a
-a
+F
 a
 a
 a
@@ -1110,7 +1133,7 @@ a
 a
 a
 a
-a
+F
 a
 c
 e
@@ -1128,7 +1151,7 @@ d
 B
 c
 a
-a
+F
 a
 a
 a
@@ -1144,7 +1167,7 @@ a
 a
 a
 a
-a
+F
 a
 c
 d
@@ -1162,7 +1185,7 @@ d
 d
 c
 a
-a
+F
 a
 a
 a
@@ -1178,7 +1201,7 @@ a
 a
 a
 a
-a
+F
 a
 c
 d
@@ -1196,7 +1219,7 @@ d
 d
 c
 a
-a
+F
 a
 a
 a
@@ -1212,7 +1235,7 @@ a
 a
 a
 a
-a
+F
 a
 c
 d
@@ -1230,7 +1253,7 @@ d
 d
 c
 a
-a
+F
 a
 a
 a
@@ -1246,7 +1269,7 @@ a
 a
 a
 a
-a
+F
 a
 c
 c
@@ -1254,9 +1277,9 @@ c
 c
 l
 c
-c
-c
-c
+D
+D
+D
 c
 c
 c
@@ -1264,7 +1287,7 @@ c
 c
 c
 a
-a
+F
 a
 a
 a
@@ -1280,14 +1303,15 @@ a
 a
 a
 a
+F
 a
 a
 a
-a
-a
+F
 c
 l
 c
+F
 a
 a
 a
@@ -1297,8 +1321,7 @@ a
 a
 a
 a
-a
-a
+F
 a
 a
 a
@@ -1314,14 +1337,15 @@ a
 a
 a
 a
+F
 a
 a
 a
-a
-a
+F
 c
 m
 c
+F
 a
 a
 a
@@ -1331,8 +1355,7 @@ a
 a
 a
 a
-a
-a
+F
 a
 a
 a
@@ -1348,14 +1371,15 @@ a
 a
 a
 a
+F
 a
 a
 a
-a
-a
+F
 c
 n
 c
+F
 a
 a
 a
@@ -1365,8 +1389,7 @@ a
 a
 a
 a
-a
-a
+F
 a
 a
 a
@@ -1382,25 +1405,25 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+F
+F
+F
+F
+F
+R
+R
+R
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
 a
 a
 a
@@ -1421,9 +1444,9 @@ a
 a
 a
 a
-i
-a
-a
+N
+Y
+Y
 a
 a
 a

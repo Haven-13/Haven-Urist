@@ -38,12 +38,17 @@
 	if(!floortype && initial_flooring)
 		floortype = initial_flooring
 	if(floortype)
-		set_flooring(get_flooring_data(floortype))
+		set_flooring(get_flooring_data(floortype), 1)
 
-/turf/simulated/floor/proc/set_flooring(var/decl/flooring/newflooring)
-	make_plating(defer_icon_update = 1)
+/turf/simulated/floor/Initialize()
+	. = ..()
+	update_icon()
+
+/turf/simulated/floor/proc/set_flooring(var/decl/flooring/newflooring, var/defer_icon_update = 0)
+	make_plating(defer_icon_update = 1) // always defer an icon update
 	flooring = newflooring
-	update_icon(1)
+	if (defer_icon_update)
+		update_icon(1)
 	levelupdate()
 
 //This proc will set floor_type to null and the update_icon() proc will then change the icon_state of the turf
