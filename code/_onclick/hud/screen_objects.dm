@@ -17,6 +17,12 @@
 	var/globalscreen = FALSE //Global screens are not qdeled when the holding mob is destroyed.
 	appearance_flags = NO_CLIENT_COLOR
 
+/obj/screen/update_plane()
+	return
+
+/obj/screen/set_plane(new_plane)
+	plane = new_plane
+
 /obj/screen/Destroy()
 	master = null
 	return ..()

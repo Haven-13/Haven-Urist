@@ -267,6 +267,9 @@
 			else
 				client.perspective = EYE_PERSPECTIVE
 				client.eye = loc
+	if (hud_used)
+		hud_used.update_plane_masters()
+
 	return
 
 

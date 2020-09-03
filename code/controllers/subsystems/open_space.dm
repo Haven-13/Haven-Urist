@@ -3,8 +3,6 @@
 //
 
 GLOBAL_VAR_INIT(open_space_initialised, FALSE)
-GLOBAL_DATUM_INIT(over_OS_darkness, /image, image('icons/turf/open_space.dmi', "black_open"))
-
 
 SUBSYSTEM_DEF(open_space)
 	name = "Open Space"
@@ -14,21 +12,11 @@ SUBSYSTEM_DEF(open_space)
 	var/counter = 1 //Can't use .len because we need to iterate in order
 
 
-
 /datum/controller/subsystem/open_space/Initialize()
 	. = ..()
 	wait = world.tick_lag // every second
-	GLOB.over_OS_darkness.plane = OVER_OPENSPACE_PLANE
-	GLOB.over_OS_darkness.layer = MOB_LAYER
 	GLOB.open_space_initialised = TRUE
 	return INITIALIZE_HINT_LATELOAD
-
-
-//Add the turf
-turf/simulated/open/LateInitialize()
-	SSopen_space.add_turf(src)
-
-
 
 
 /datum/controller/subsystem/open_space/fire(resumed = 0)
@@ -72,27 +60,10 @@ turf/simulated/open/LateInitialize()
 		if(above && isopenspace(above))
 			add_turf(above, recursive)
 
-/turf/simulated/open/Initialize()
-	. = ..()
-	if(GLOB.open_space_initialised)
-		// log_debug("[src] ([x],[y],[z]) queued for update for initialize()")
-		SSopen_space.add_turf(src)
-
-
-/obj/update_icon()
-	. = ..()
-	if(GLOB.open_space_initialised && !invisibility && isturf(loc))
-		var/turf/T = GetAbove(src)
-		if(isopenspace(T))
-			// log_debug("[T] ([T.x],[T.y],[T.z]) queued for update for [src].update_icon()")
-			SSopen_space.add_turf(T, 1)
-
-
-
-//Probably should hook Destroy() If we can think of something more efficient, lets hear it.
-/obj/Destroy()
-	if(GLOB.open_space_initialised && !invisibility && isturf(loc))
-		var/turf/T = GetAbove(src)
-		if(isopenspace(T))
-			SSopen_space.add_turf(T, 1)
-	. = ..() // Important that this be at the bottom, or we will have been moved to nullspace.
+// Can't trust the Open-Space subsystem to do its work properly, that piece of shit
+/hook/roundstart/proc/initialize_space_transparency()
+	var/list/turf/turfs = SSopen_space.turfs_to_process.Copy()
+	for(var/turf/T in turfs)
+		if (T && T.is_transparent)
+			T.update_icon()
+	return 1
