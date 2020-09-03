@@ -24,3 +24,12 @@
   - bugfix: Ladders can be used while in SPACE
   - bugfix: Lattice and catwalks now return QDEL-hint instead of qdel-ing themselves
   - config: Pluto is now subject to unit-testing for better quality assurance
+2020-09-03:
+  martinlyra:
+  - rscadd: Improved the multi-Z rendering by using CEV-Eris' plane system
+  - rscadd: Space tiles are now candidates for rendering multi-Z objects underneath
+      them
+  - refactor: Moved lot of the pre-existing planes to plane-master objects for better
+      control of effects
+  - refactor: Ported CEV-Eris' plane system, there may be problems with objects showing
+      up over or underneath other objects when they should not.
