@@ -25,6 +25,9 @@
 	if(GLOB.use_preloader && (src.type == GLOB._preloader.target_path))//in case the instanciated atom is creating other atoms in New()
 		GLOB._preloader.load(src)
 
+	init_plane()
+	update_plane()
+
 	var/do_initialize = SSatoms.initialized
 	if(do_initialize != INITIALIZATION_INSSATOMS)
 		args[1] = do_initialize == INITIALIZATION_INNEW_MAPLOAD
@@ -57,6 +60,8 @@
 	if(light_max_bright && light_outer_range)
 		update_light()
 
+	update_plane()
+
 	return INITIALIZE_HINT_NORMAL
 
 //called if Initialize returns INITIALIZE_HINT_LATELOAD
@@ -65,6 +70,8 @@
 
 /atom/Destroy()
 	QDEL_NULL(reagents)
+	spawn()
+		update_openspace()
 	. = ..()
 
 /atom/proc/reveal_blood()

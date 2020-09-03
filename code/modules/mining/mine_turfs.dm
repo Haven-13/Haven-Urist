@@ -73,7 +73,7 @@ var/list/mining_floors = list()
 			T.updateMineralOverlays()
 		else if(istype(turf_to_check,/turf/space) || istype(turf_to_check,/turf/simulated/floor) || istype(turf_to_check,/turf/simulated/open))
 			var/image/rock_side = image(icon, "rock_side", dir = turn(direction, 180))
-			rock_side.turf_decal_layerise()
+			rock_side.turf_decal_layerise(target = src)
 			if(istype(turf_to_check, /turf/simulated/open))
 				rock_side.layer = MOB_LAYER + 1
 			switch(direction)
@@ -154,7 +154,7 @@ var/list/mining_floors = list()
 		M.Scale(-1,1)
 		ore_overlay.transform = M
 	ore_overlay.color = mineral.icon_colour
-	ore_overlay.turf_decal_layerise()
+	ore_overlay.turf_decal_layerise(target = src)
 	update_icon()
 
 //Not even going to touch this pile of spaghetti
@@ -532,20 +532,20 @@ var/list/mining_floors = list()
 
 		if(istype(T, /turf/space) || istype(T, /turf/simulated/open))
 			var/image/aster_edge = image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = direction)
-			aster_edge.turf_decal_layerise()
+			aster_edge.turf_decal_layerise(target = src)
 			if(istype(T, /turf/simulated/open))
 				aster_edge.layer = MOB_LAYER + 1
 			overlays += aster_edge
 
 		if(istype(T, /turf/simulated/mineral))
 			var/image/rock_wall = image('icons/turf/walls.dmi', "rock_side", dir = direction)
-			rock_wall.turf_decal_layerise()
+			rock_wall.turf_decal_layerise(target = src)
 			overlays += rock_wall
 
 	//todo cache
 	if(overlay_detail)
 		var/image/floor_decal = image(icon = 'icons/turf/flooring/decals.dmi', icon_state = overlay_detail)
-		floor_decal.turf_decal_layerise()
+		floor_decal.turf_decal_layerise(target = src)
 		overlays |= floor_decal
 
 	if(update_neighbors)

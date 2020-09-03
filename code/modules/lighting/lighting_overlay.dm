@@ -22,6 +22,7 @@
 
 /atom/movable/lighting_overlay/Initialize()
 	// doesn't need special init
+	update_plane() // This is needed for maps loaded by the runtime map loader
 	atom_flags |= ATOM_FLAG_INITIALIZED
 	return INITIALIZE_HINT_NORMAL
 
