@@ -12,6 +12,7 @@
 
 /obj/skybox/Initialize()
 	. = ..()
+	filters += filter(type="alpha", render_source="*SPACE_BACKGROUND", flags=MASK_SWAP)
 	var/mob/M = loc
 	SSskybox.skyboxes += src
 	owner = M

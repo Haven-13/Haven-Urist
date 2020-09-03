@@ -1,3 +1,10 @@
+var/image/white_background = _create_white_background()
+
+/proc/_create_white_background()
+	var/image/I = image('icons/primitives.dmi', icon_state = "white")
+	I.plane = SPACE_PLANE
+	return I
+
 /turf
 	var/is_transparent = FALSE
 
@@ -9,10 +16,8 @@
 
 /proc/_update_multiz_icons(turf/source)
 	var/turf/below = GetBelow(source)
-	if (!below || (source.is_transparent && istype(below, /turf/space)))
-		source.ChangeTurf(/turf/space)
-		if(!below)
-			return
+	if (!below)
+		return
 
 	source.vis_contents.Cut()
 	if (below)
@@ -25,6 +30,10 @@
 
 /turf/space/update_icon()
 	_update_multiz_icons(src)
+
+	if (!GetBelow(src))
+		underlays.Cut()
+		underlays |= white_background
 
 /atom/proc/update_openspace()
 	var/turf/T = GetAbove(src)

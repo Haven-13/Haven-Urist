@@ -33,6 +33,13 @@
    For a list of what planes are included, take a look in
    __defines/_planes+layers.dm
  */
+/obj/screen/plane_master/space_master
+	plane = SPACE_PLANE
+	render_target = "*SPACE_BACKGROUND" // used by /obj/skybox for its alpha mask
+
+/obj/screen/plane_master/space_master/update_screen_plane(z_level)
+	return
+
 /obj/screen/plane_master/openspace_master
 	plane = OPENSPACE_PLANE
 
