@@ -225,7 +225,7 @@ var/list/gear_datums = list()
 
 /datum/category_item/player_setup_item/loadout/OnTopic(href, href_list, user)
 	if(href_list["toggle_gear"])
-		var/datum/gear/TG = locate(href_list["toggle_gear"])
+		var/datum/gear/TG = gear_datums[href_list["toggle_gear"]]
 		if(!istype(TG) || gear_datums[TG.display_name] != TG)
 			return TOPIC_REFRESH
 		if(TG.display_name in pref.gear_list[pref.gear_slot])
@@ -319,7 +319,7 @@ var/list/gear_datums = list()
 		gear_tweaks += new/datum/gear_tweak/path/type(path)
 	if(flags & GEAR_HAS_SUBTYPE_SELECTION)
 		gear_tweaks += new/datum/gear_tweak/path/subtype(path)
-		
+
 /datum/gear/proc/get_description(var/metadata)
 	. = description
 	for(var/datum/gear_tweak/gt in gear_tweaks)
