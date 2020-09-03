@@ -240,9 +240,12 @@ var/obj/machinery/blackbox_recorder/blackbox
 
 	//Only one can exist in the world!
 /obj/machinery/blackbox_recorder/New()
+	. = ..()
 	if(blackbox)
 		if(istype(blackbox,/obj/machinery/blackbox_recorder))
+			crash_with("There already exists one [name] at [blackbox.loc]! Duplicate at [src.loc]")
 			qdel(src)
+			return 0
 	blackbox = src
 
 /obj/machinery/blackbox_recorder/Destroy()

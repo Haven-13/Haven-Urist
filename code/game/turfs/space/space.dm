@@ -13,7 +13,8 @@
 	LAZYINITLIST(dust_cache)
 	for (var/i in 0 to 25)
 		var/image/im = image('icons/turf/space_dust.dmi',"[i]")
-		im.plane = DUST_PLANE
+		im.plane = SKYBOX_PLANE
+		im.layer = DUST_LAYER
 		im.alpha = 80
 		im.blend_mode = BLEND_ADD
 		dust_cache["[i]"] = im
@@ -21,7 +22,10 @@
 
 /turf/space/Initialize()
 	. = ..()
-	icon_state = "white"
+	icon = null
+	icon_state = "blank"
+	plane = OPENSPACE_PLANE
+	
 	update_starlight()
 	if (!dust_cache)
 		build_dust_cache()

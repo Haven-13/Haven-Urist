@@ -10,7 +10,7 @@
 	density = 0
 	opacity = 0					// Don't trigger lighting recalcs gah! TODO - consider multi-z lighting.
 	layer = OPENSPACE_LAYER_MOBS
-	plane = OVER_OPENSPACE_PLANE
+	plane = OPENSPACE_PLANE
 	//auto_init = FALSE 			// We do not need to be initialize()d
 	var/mob/owner = null		// What we are a shadow of.
 
@@ -53,7 +53,7 @@
 /mob/zshadow/proc/sync_icon(var/mob/M)
 	appearance = M
 	layer = OPENSPACE_LAYER_MOBS
-	plane = OVER_OPENSPACE_PLANE
+	plane = OPENSPACE_PLANE
 	dir = M.dir
 	if(shadow)
 		shadow.sync_icon(src)

@@ -76,7 +76,24 @@
 					AM.Crossed(src)
 			if(is_new_area && is_destination_turf)
 				destination.loc.Entered(src, origin)
+
+	// Only update plane if we're located on map
+	if (isturf(src.loc))
+		// if we wasn't on map OR our Z coord was changed
+		if (!isturf(origin) || (get_z(loc) != get_z(origin)))
+			update_plane()
+
 	return 1
+
+// Keep in mind that this is also overriden in  code/datums/observation/moved.dm
+/atom/movable/Move()
+	var/atom/origin = loc
+	. = ..()
+	// Only update plane if we're located on map
+	if (isturf(src.loc))
+		// if we wasn't on map OR our Z coord was changed
+		if (!isturf(origin) || (get_z(loc) != get_z(origin)))
+			update_plane()
 
 //called when src is thrown into hit_atom
 /atom/movable/proc/throw_impact(atom/hit_atom, var/speed)
