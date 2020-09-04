@@ -8,7 +8,6 @@
 echo "Starting Dream Daemon using a wrapper shell script."
 DreamDaemon $BUILD_TARGET.dmb $SERVER_PORT $SERVER_DD_ARGS &
 pid=$!
-trap "cleanup $pid" EXIT
 
 echo "Wrapper will now enter a loop waiting for a signal..."
 # Wait for end of round or server death

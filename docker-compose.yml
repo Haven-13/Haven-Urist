@@ -1,4 +1,4 @@
-version: "3"
+version: "3.3"
 services:
   db:
     build: ./sql
@@ -6,15 +6,21 @@ services:
     networks:
       - internal
     volumes:
-      - "./sql/test_db:/var/lib/mysql"
+      - ".sql/test-db:/var/lib/mysql"
     restart: unless-stopped
   game:
     build: .
     image: ah13:latest
     networks:
       - internal
+    volumes:
+      - type: volume
+        source: ./config
+        target: /home/ah13-srv-usr/config
+      - type: volume
+        source: ./data
+        target: /home/ah13-srv-usr/data
     ports:
       - "8000:8000"
 networks:
-  frontend:
   internal:
