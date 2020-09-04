@@ -2,12 +2,14 @@
 "as" = (/obj/effect/landmark/map_data{height = 3},/turf/unsimulated/wall/blank,/area/space)
 "aD" = (/obj/structure/bed/chair/urist/bench/bench1/mid{dir = 8},/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "aL" = (/turf/unsimulated/wall,/area/space)
+"aW" = (/obj/structure/railing/mapped{dir = 2},/turf/simulated/open,/area/spacestations/nevastapol)
 "bm" = (/mob/living/simple_animal/hostile/npc/colonist/trader/tool_trader,/turf/simulated/floor/tiled/steel_grid,/area/spacestations/nevastapol)
 "by" = (/obj/structure/railing/mapped{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/spacestations/nevastapol)
 "cb" = (/obj/effect/floor_decal/industrial/warning{dir = 9},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "cg" = (/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "cr" = (/obj/machinery/door/airlock/multi_tile/freezer{dir = 8; locked = 1; name = "Airlock"; secured_wires = 1},/turf/simulated/floor/plating,/area/spacestations/nevastapol)
 "cw" = (/obj/structure/closet/crate,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techmaint,/area/spacestations/nevastapol)
+"cN" = (/obj/structure/flora/shrub{dir = 1},/obj/structure/flora/small/bushc2,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "cU" = (/obj/structure/bed/chair/urist/bench/bench1/right{dir = 8},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "cY" = (/obj/machinery/door/airlock/external/bolted{frequency = 1331; id_tag = "nevastapol_dock_2_outer"},/turf/simulated/floor/plating,/area/spacestations/nevastapol)
 "cZ" = (/obj/structure/lattice,/obj/machinery/atmospherics/pipe/tank/air{dir = 8},/turf/simulated/open{initial_gas = null},/area/spacestations/nevastapol)
@@ -15,6 +17,7 @@
 "dB" = (/obj/machinery/vending/cigarette,/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "dK" = (/obj/structure/closet/crate/plastic,/obj/effect/floor_decal/industrial/warning{dir = 9},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "dO" = (/obj/item/weapon/stool/bar/padded,/mob/living/simple_animal/hostile/npc/colonist{dir = 4},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
+"ee" = (/obj/structure/flora/shrub{dir = 2},/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "eq" = (/turf/simulated/floor/tiled/techfloor/grid,/area/spacestations/nevastapol)
 "es" = (/obj/structure/grille,/obj/structure/lattice,/turf/simulated/open{initial_gas = null},/area/spacestations/nevastapol)
 "et" = (/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/simulated/floor/plating/airless,/area/spacestations/nevastapol/bottom)
@@ -25,9 +28,12 @@
 "eT" = (/obj/machinery/door/airlock/multi_tile/glass/civilian,/turf/simulated/floor/plating,/area/spacestations/nevastapol)
 "fk" = (/obj/structure/railing/mapped{dir = 8},/turf/simulated/open,/area/spacestations/nevastapol)
 "fB" = (/obj/structure/catwalk,/turf/simulated/open{initial_gas = null},/area/spacestations/nevastapol)
+"fH" = (/obj/structure/railing/mapped{dir = 2},/obj/structure/flora/big/bush2,/obj/structure/flora/small/busha2,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "gl" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/spacestations/nevastapol)
 "gr" = (/turf/simulated/floor/tiled/old_tile,/area/spacestations/nevastapol)
+"gs" = (/obj/structure/flora/big/bush3,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "gt" = (/obj/effect/floor_decal/industrial/hatch/red,/turf/simulated/floor/plating/airless,/area/spacestations/nevastapol/bottom)
+"gv" = (/obj/structure/railing/mapped{dir = 2},/obj/structure/flora/small/bushc1,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "gE" = (/obj/effect/overmap/sector/station/nevastapol,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/nevastapol)
 "hw" = (/obj/structure/table/reinforced,/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/techmaint,/area/spacestations/nevastapol)
 "hM" = (/obj/effect/floor_decal/industrial/warning/corner,/turf/simulated/floor/plating/airless,/area/spacestations/nevastapol/bottom)
@@ -38,25 +44,39 @@
 "im" = (/obj/item/modular_computer/console/preset/security,/turf/simulated/floor/tiled/techmaint,/area/spacestations/nevastapol)
 "ir" = (/obj/effect/floor_decal/industrial/hatch/orange,/turf/simulated/floor/tiled/old_cargo,/area/spacestations/nevastapol)
 "is" = (/obj/structure/catwalk,/obj/effect/floor_decal/industrial/hatch/yellow,/turf/simulated/floor/plating/airless,/area/spacestations/nevastapol/bottom)
+"jk" = (/obj/structure/flora/shrub{dir = 8},/obj/machinery/light/coldtint{dir = 2},/turf/simulated/floor/grass,/area/spacestations/nevastapol)
+"jl" = (/obj/structure/railing/mapped{dir = 2},/obj/structure/flora/shrub{dir = 8},/obj/structure/flora/small/grassa1,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "jm" = (/obj/structure/closet/emcloset,/obj/effect/floor_decal/industrial/outline/blue,/turf/simulated/floor/tiled/techmaint,/area/spacestations/nevastapol)
 "jN" = (/obj/machinery/light{dir = 1},/obj/effect/floor_decal/industrial/outline/blue,/turf/simulated/floor/tiled/techmaint,/area/spacestations/nevastapol)
+"jU" = (/obj/structure/flora/small/busha1,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "kg" = (/obj/item/weapon/stool/bar/padded,/obj/machinery/light/colored/green{dir = 4},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "kk" = (/obj/machinery/light/coldtint{dir = 1},/turf/simulated/floor/plating/airless,/area/spacestations/nevastapol)
 "kp" = (/obj/structure/bed/chair/urist/bench/bench1/right{dir = 4},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "kw" = (/obj/machinery/light,/turf/simulated/floor/tiled/techfloor/grid,/area/spacestations/nevastapol)
+"kx" = (/obj/structure/flora/small/rock2,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
+"lg" = (/obj/structure/flora/shrub{dir = 8},/obj/structure/flora/small/grassa5,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "lw" = (/obj/structure/lattice,/turf/space,/area/spacestations/nevastapol/bottom)
+"ly" = (/obj/structure/flora/big/bush2,/obj/structure/flora/small/grassa4,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
+"lO" = (/obj/structure/railing/mapped{dir = 2},/obj/structure/flora/shrub{dir = 6},/obj/structure/flora/small/grassb2,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
+"lY" = (/obj/structure/flora/shrub{dir = 8},/obj/structure/flora/small/grassb5,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
+"mM" = (/obj/structure/flora/shrub{dir = 2},/obj/structure/flora/small/grassa4,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "nh" = (/turf/simulated/floor/plating/airless,/area/spacestations/nevastapol)
 "ni" = (/obj/item/weapon/stool/bar/padded,/mob/living/simple_animal/hostile/npc/colonist{dir = 8},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "nK" = (/obj/machinery/light/coldtint{dir = 8},/turf/simulated/floor/plating/airless,/area/spacestations/nevastapol)
 "ob" = (/obj/structure/bed/chair{dir = 8},/turf/simulated/floor/tiled/steel_grid,/area/spacestations/nevastapol)
 "oc" = (/obj/machinery/vending/cola,/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "oJ" = (/mob/living/simple_animal/hostile/npc/colonist/contract/ntchef,/turf/simulated/floor/tiled/old_tile,/area/spacestations/nevastapol)
+"oL" = (/obj/structure/flora/big/rocks1,/obj/machinery/light/coldtint{dir = 8},/obj/structure/flora/small/bushc2,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
+"oT" = (/obj/structure/flora/small/grassb4,/obj/structure/flora/shrub{dir = 10},/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "pK" = (/obj/structure/bed/chair{dir = 4},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "pS" = (/obj/structure/catwalk,/obj/structure/lattice,/turf/space,/area/spacestations/nevastapol/bottom)
 "pY" = (/obj/machinery/light{dir = 1},/obj/structure/closet/emcloset,/obj/effect/floor_decal/industrial/outline/blue,/turf/simulated/floor/tiled/techmaint,/area/spacestations/nevastapol)
+"pZ" = (/turf/simulated/floor/grass,/area/spacestations/nevastapol)
+"qh" = (/obj/structure/flora/small/rock4,/obj/structure/flora/small/grassb2,/obj/structure/flora/shrub{dir = 6},/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "qv" = (/obj/structure/catwalk,/obj/machinery/light,/turf/simulated/floor/plating,/area/spacestations/nevastapol)
 "qw" = (/obj/machinery/door/firedoor,/obj/effect/floor_decal/industrial/warning/fulltile,/obj/machinery/embedded_controller/radio/airlock/docking_port{frequency = 1331; id_tag = "nevastapol_dock_1"; pixel_x = 26},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "qB" = (/turf/simulated/wall/r_wall,/area/spacestations/nevastapol)
+"qN" = (/obj/structure/flora/shrub{dir = 10},/obj/structure/flora/small/bushb2,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "qV" = (/turf/simulated/floor/tiled/techmaint,/area/spacestations/nevastapol)
 "rk" = (/turf/unsimulated/floor/plating,/area/spacestations/nevastapol)
 "rp" = (/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techmaint,/area/spacestations/nevastapol)
@@ -71,6 +91,7 @@
 "tE" = (/obj/structure/table/reinforced,/turf/simulated/floor/tiled/techmaint,/area/spacestations/nevastapol)
 "tH" = (/obj/effect/floor_decal/industrial/warning/fulltile,/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 1; frequency = 1331; id_tag = "nevastapol_dock_2_pump"},/turf/simulated/floor/plating,/area/spacestations/nevastapol)
 "tX" = (/obj/effect/floor_decal/industrial/warning{dir = 5},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
+"ug" = (/obj/structure/railing/mapped{dir = 2},/obj/structure/flora/big/bush1,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "um" = (/obj/machinery/door/firedoor,/obj/effect/floor_decal/industrial/warning/fulltile,/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "un" = (/mob/living/simple_animal/hostile/npc/colonist{dir = 4},/obj/structure/bed/chair/urist/bench/bench1/mid{dir = 4},/turf/simulated/floor/tiled/techfloor/grid,/area/spacestations/nevastapol)
 "uw" = (/obj/structure/railing/mapped{dir = 4},/obj/structure/lattice,/turf/simulated/open,/area/spacestations/nevastapol)
@@ -79,6 +100,7 @@
 "vN" = (/obj/item/weapon/stool/bar/padded,/obj/machinery/light/colored/green{dir = 8},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "vS" = (/obj/structure/bed/chair/urist/bench/bench1/left{dir = 8},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "wt" = (/turf/simulated/floor/plating,/area/spacestations/nevastapol)
+"wK" = (/obj/structure/flora/big/rocks3,/obj/structure/flora/tree/jungle_small/variant2,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "xq" = (/obj/effect/floor_decal/industrial/warning/fulltile,/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 2; frequency = 1331; id_tag = "nevastapol_dock_1_pump"},/turf/simulated/floor/plating,/area/spacestations/nevastapol)
 "xB" = (/obj/structure/bed/chair{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/spacestations/nevastapol)
 "xI" = (/obj/structure/closet,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techmaint,/area/spacestations/nevastapol)
@@ -87,9 +109,10 @@
 "yb" = (/turf/simulated/floor/tiled/steel_grid,/area/spacestations/nevastapol)
 "yo" = (/obj/structure/stairs/north,/turf/simulated/floor/plating,/area/spacestations/nevastapol)
 "yX" = (/obj/machinery/vending/coffee,/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
-"zd" = (/obj/machinery/light{dir = 8},/turf/simulated/floor/planet,/area/spacestations/nevastapol)
+"zk" = (/obj/structure/flora/big/bush2,/obj/structure/flora/shrub{dir = 4},/obj/machinery/light/coldtint{dir = 2},/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "zm" = (/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled/steel_grid,/area/spacestations/nevastapol)
 "zr" = (/obj/structure/table/steel,/turf/simulated/floor/tiled/steel_grid,/area/spacestations/nevastapol)
+"zT" = (/obj/machinery/light/coldtint{dir = 4},/obj/structure/flora/small/grassa5,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "Ad" = (/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor/plating,/area/spacestations/nevastapol)
 "Ai" = (/obj/structure/railing/mapped{dir = 4},/obj/structure/lattice,/obj/machinery/light,/turf/simulated/open,/area/spacestations/nevastapol)
 "AA" = (/obj/effect/floor_decal/industrial/warning/fulltile,/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
@@ -102,16 +125,20 @@
 "Cc" = (/obj/structure/railing/mapped{dir = 4},/turf/simulated/open,/area/spacestations/nevastapol)
 "CA" = (/turf/space,/area/spacestations/nevastapol/bottom)
 "CQ" = (/obj/machinery/power/apc/hyper{cell_type = /obj/item/weapon/cell/infinite; dir = 1; pixel_y = 16},/turf/unsimulated/floor/plating,/area/spacestations/nevastapol)
+"Df" = (/obj/structure/flora/shrub{dir = 1},/obj/structure/flora/small/bushb2,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "Dt" = (/obj/effect/floor_decal/industrial/warning/corner{dir = 1},/turf/simulated/floor/plating/airless,/area/spacestations/nevastapol/bottom)
 "Ed" = (/obj/effect/floor_decal/industrial/outline/blue,/obj/structure/closet/emcloset,/turf/simulated/floor/tiled/techmaint,/area/spacestations/nevastapol)
 "Ef" = (/obj/structure/bed/chair/urist/bench/bench1/left{dir = 4},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "Eh" = (/obj/machinery/door/airlock/maintenance{locked = 1; secured_wires = 1},/turf/simulated/floor/plating,/area/spacestations/nevastapol)
 "Ek" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 5},/obj/machinery/door/airlock/external/glass/bolted{frequency = 1331; id_tag = "nevastapol_dock_1_inner"},/turf/simulated/floor/plating,/area/spacestations/nevastapol)
 "Et" = (/obj/effect/shuttle_landmark/nav_nevastapol/nav2{autoset = 1; landmark_tag = "nav_nevastapol_2_eris"; name = "Shuttle Dock Bay B (Eris)"},/turf/simulated/open{initial_gas = null},/area/spacestations/nevastapol)
+"EC" = (/obj/structure/flora/small/bushb1,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "Ff" = (/mob/living/simple_animal/hostile/npc/colonist/trader/bartender_trader,/turf/simulated/floor/tiled/old_tile,/area/spacestations/nevastapol)
 "Fn" = (/obj/machinery/light,/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "FE" = (/obj/structure/railing/mapped{dir = 8},/obj/structure/lattice,/obj/machinery/light,/turf/simulated/open,/area/spacestations/nevastapol)
 "FZ" = (/obj/structure/bed/chair/urist/bench/bench1/right{dir = 1},/obj/structure/railing/mapped{dir = 2},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
+"Gv" = (/obj/structure/railing/mapped{dir = 2},/obj/structure/flora/shrub{dir = 1},/turf/simulated/floor/grass,/area/spacestations/nevastapol)
+"GE" = (/obj/structure/railing/mapped{dir = 2},/obj/structure/flora/big/bush1,/obj/structure/flora/small/grassb2,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "GK" = (/turf/simulated/open,/area/spacestations/nevastapol)
 "GM" = (/obj/structure/table/rack,/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "GW" = (/obj/structure/table/reinforced,/turf/simulated/floor/plating,/area/spacestations/nevastapol)
@@ -125,16 +152,18 @@
 "Iw" = (/obj/structure/flora/pottedplant/minitree,/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "Jh" = (/obj/structure/bed/chair/urist/bench/bench1/right{dir = 4},/turf/simulated/floor/tiled/techfloor/grid,/area/spacestations/nevastapol)
 "Jx" = (/obj/machinery/light/coldtint{dir = 4},/turf/simulated/floor/plating/airless,/area/spacestations/nevastapol)
-"JM" = (/obj/structure/railing/mapped{dir = 2},/turf/simulated/floor/planet,/area/spacestations/nevastapol)
-"JR" = (/turf/simulated/floor/planet,/area/spacestations/nevastapol)
+"JB" = (/obj/structure/flora/small/grassb4,/obj/structure/flora/small/bushb2,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "JZ" = (/turf/unsimulated/wall,/area/spacestations/nevastapol/bottom)
 "Ka" = (/obj/structure/flora/pottedplant/orientaltree,/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "Ke" = (/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/spacestations/nevastapol)
 "Kk" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "KG" = (/obj/structure/railing/mapped{dir = 8},/obj/structure/lattice,/turf/simulated/open,/area/spacestations/nevastapol)
 "KM" = (/obj/machinery/door/airlock/civilian{locked = 1; secured_wires = 1},/turf/simulated/floor/plating,/area/spacestations/nevastapol)
+"Lo" = (/obj/structure/railing/mapped{dir = 2},/obj/structure/flora/shrub{dir = 10},/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "LI" = (/obj/machinery/atmospherics/pipe/manifold/hidden{dir = 1},/obj/machinery/door/airlock/external/glass/bolted{frequency = 1331; id_tag = "nevastapol_dock_2_inner"},/turf/simulated/floor/plating,/area/spacestations/nevastapol)
 "LO" = (/obj/structure/table/reinforced,/obj/structure/flora/pottedplant/deskferntrim,/turf/simulated/floor/tiled/techfloor/grid,/area/spacestations/nevastapol)
+"LZ" = (/obj/structure/flora/small/busha2,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
+"My" = (/obj/structure/railing/mapped{dir = 2},/obj/structure/flora/big/bush3,/obj/structure/flora/small/rock5,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "Ng" = (/obj/structure/lattice,/turf/simulated/open,/area/spacestations/nevastapol)
 "No" = (/obj/structure/railing/mapped{dir = 8},/obj/structure/lattice,/obj/machinery/light{dir = 1},/turf/simulated/open,/area/spacestations/nevastapol)
 "NJ" = (/obj/machinery/door/airlock/freezer{locked = 1; name = "Airlock"; secured_wires = 8},/turf/simulated/floor/plating,/area/spacestations/nevastapol)
@@ -163,6 +192,7 @@
 "Uf" = (/obj/structure/flora/pottedplant/minitree,/obj/structure/railing/mapped{dir = 8},/obj/structure/railing/mapped{dir = 2},/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "Us" = (/obj/effect/floor_decal/industrial/warning/corner{dir = 8},/turf/simulated/floor/plating/airless,/area/spacestations/nevastapol/bottom)
 "Ut" = (/obj/machinery/door/airlock/multi_tile/glass/civilian{dir = 8; name = "Bar"},/turf/simulated/floor/plating,/area/spacestations/nevastapol)
+"Uv" = (/obj/machinery/light{dir = 8},/obj/structure/flora/small/bushb2,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "UE" = (/obj/structure/railing/mapped{dir = 4},/obj/structure/lattice,/obj/machinery/light{dir = 1},/turf/simulated/open,/area/spacestations/nevastapol)
 "UP" = (/obj/machinery/vending/snack,/turf/simulated/floor/tiled/techfloor/grid,/area/spacestations/nevastapol)
 "Vs" = (/obj/machinery/light,/turf/simulated/floor/tiled/techmaint,/area/spacestations/nevastapol)
@@ -173,6 +203,7 @@
 "Wp" = (/obj/structure/closet/crate/secure/biohazard,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techmaint,/area/spacestations/nevastapol)
 "WM" = (/obj/machinery/light{dir = 4},/turf/simulated/open,/area/spacestations/nevastapol)
 "Xh" = (/obj/effect/floor_decal/industrial/warning{dir = 4},/turf/simulated/floor/plating/airless,/area/spacestations/nevastapol/bottom)
+"Ya" = (/obj/structure/flora/shrub{dir = 8},/obj/structure/flora/small/grassa4,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "Yg" = (/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "Yj" = (/obj/effect/floor_decal/industrial/warning,/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "Yk" = (/turf/simulated/open{initial_gas = null},/area/spacestations/nevastapol)
@@ -180,6 +211,7 @@
 "YF" = (/obj/machinery/vending/snack,/turf/simulated/floor/tiled/techfloor,/area/spacestations/nevastapol)
 "YY" = (/obj/machinery/light{dir = 1},/obj/effect/floor_decal/industrial/hatch/orange,/turf/simulated/floor/tiled/old_cargo,/area/spacestations/nevastapol)
 "Zh" = (/obj/structure/catwalk,/turf/space,/area/spacestations/nevastapol/bottom)
+"Zk" = (/obj/structure/flora/shrub{dir = 1},/obj/structure/flora/small/rock2,/turf/simulated/floor/grass,/area/spacestations/nevastapol)
 "ZF" = (/obj/structure/railing/mapped{dir = 8},/turf/simulated/floor/tiled/steel_grid,/area/spacestations/nevastapol)
 "ZN" = (/obj/effect/shuttle_landmark/nav_nevastapol/nav1{autoset = 1; landmark_tag = "nav_nevastapol_1_styx"; name = "Shuttle Dock Bay A (Styx)"},/turf/simulated/open{initial_gas = null},/area/spacestations/nevastapol)
 "ZQ" = (/obj/effect/floor_decal/industrial/warning/corner{dir = 4},/turf/simulated/floor/plating/airless,/area/spacestations/nevastapol/bottom)
@@ -395,15 +427,15 @@ arararararararararararararararararararararararaLqBnhYkHMYkYkYkYkYkYkYkYkYkYkYkYk
 arararararararararararararararararararararararaLqBnhQqHMQqYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkQqHMQqnhqBaLqBOzybybybVWqBcgYgYgYgYgzrybglqBqBqBqBqBqBYgvftvtEKaqBqBqBqBqBqBYgYgYgYgYgzrybglqBaLararararararararararararararararararararararararararararararararararararararararararararararararararar
 arararararararararararararararararararararararaLqBnhYkfBYkYkYkYkYkYkYkQqqBWhWhWhWhqBQqYkYkYkYkYkYkYkYkYkfBYknhqBaLqBunybtvybeqqBPrPrYgYgYgxZybybqBqByoyoqBqBRzybtvybhwqBqByoyoqBqBGMGMYgYgYgybybybqBaLararararararararararararararararararararararararararararararararararararararararararararararararararar
 arararararararararararararararararararararararaLqBnhYkHMHMHMHMHMfBfBfBezAdxqxqxqxqAdezfBfBfBHMHMHMHMfBHMfBYknhqBaLqBunybtvybQiqBcgYgYgYgYgzrzrzrqBqBwtwtqBqBimobybxBimqBqBwtwtqBqBYgYgYgYgYgzrzrzrqBaLararararararararararararararararararararararararararararararararararararararararararararararararararar
-arararararararararararararararararararararararaLqBnhQqARezezezARezezezesqBEkTRTRTRTocZezezezARezezezARQqQqnhnhqBaLqBJhybtvybQFqBPrPrYgYgYgeqeqeqqBJRqVqVYrAdAdGWAdGWAdAdYrqVqVJRqBGMGMYgYgYgeqeqeqqBaLararararararararararararararararararararararararararararararararararararararararararararararararararar
+arararararararararararararararararararararararaLqBnhQqARezezezARezezezesqBEkTRTRTRTocZezezezARezezezARQqQqnhnhqBaLqBJhybtvybQFqBPrPrYgYgYgeqeqeqqBqNqVqVYrAdAdGWAdGWAdAdYrqVqVYaqBGMGMYgYgYgeqeqeqqBaLararararararararararararararararararararararararararararararararararararararararararararararararararar
 arararararararararararararararararararararararaLqBqBqBqBAdAdAdqBAdAdAdqBqBumumumqwqBqBAdAdAdqBAdAdAdqBqBqBqBqBqBqBqBryybtvybQOqBqBAdeTwtAdAdAdqBqBYgqVqVYgYgqVqVvsqVqVYgYgqVqVYgqBqBAdeTwtAdAdAdqBqBqBaLarararararararararararararararararararararararararararararararararararararararararararararararararar
 arararararararararararararararararararararararaLaLaLaLHkcwxIcwstrpcwrppYjmiriririrEdjNcwcwWpstrpcwrprpYYAAKeAAHJAAKetuybtvybybKeHtqVqVqVqVqVqVHtKeqVybtvybybybybtvybybybybtvybqVKeHtqVqVqVqVqVqVHtqVHkaLarararararararararararararararararararararararararararararararararararararararararararararararararar
-ararararararararararararararararararararararararararaLHkdKrYrYrYrYrYrYrYtXtvtvtvtvcbrYrYrYrYrYrYrYrYtXirAAKeAAYgAAKetutvtvtvybKeqVYgJRJRJRJRYgqVKeqVtvtvtvtvtvtvgEtvtvtvtvtvtvqVKeqVYgJRJRJRJRJRYgqVHkaLarararararararararararararararararararararararararararararararararararararararararararararararararar
+ararararararararararararararararararararararararararaLHkdKrYrYrYrYrYrYrYtXtvtvtvtvcbrYrYrYrYrYrYrYrYtXirAAKeAAYgAAKetutvtvtvybKeqVYglyeeLZZkYgqVKeqVtvtvtvtvtvtvgEtvtvtvtvtvtvqVKeqVYglgmMJBlYkxYgqVHkaLarararararararararararararararararararararararararararararararararararararararararararararararararar
 arararararararararararararararararararararararaLaLaLaLHkdfYjYjOXYjYjYjOXZYiriririrdfOXYjYjYjOXYjYjYjZYSnAAKeAAFnAAKetuybtvybybKeVsqVqVqVqVqVqVVsKeqVybtvybybybybtvybybybybtvybqVKeVsqVqVqVqVqVqVVsqVHkaLarararararararararararararararararararararararararararararararararararararararararararararararararar
 arararararararararararararararararararararararaLqBqBqBqBAdAdAdqBAdAdAdqBqBumumumNPqBqBAdAdAdqBAdAdAdqBqBqBqBqBqBqBqBYgybybybYgqBqBAdeTwtAdAdAdqBqByXYgqVqVqVqVqVqVqVqVqVqVqVYgdBqBqBAdeTwtAdAdAdqBqBqBaLarararararararararararararararararararararararararararararararararararararararararararararararararar
 arararararararararararararararararararararararaLqBnhQqSIezezezSIezezezesqBNQLILILITocZezezezSIezezezSIQqQqnhnhqBaLqBqBHkHkHkqBqBPrPrYgYgYgeqeqeqqBTCYgtvybYgTUIhIhIhFZYgybtvYgTCqBGMGMYgYgYgeqeqeqqBaLaLarararararararararararararararararararararararararararararararararararararararararararararararararar
-arararararararararararararararararararararararaLqBnhYkHMHMHMHMHMfBfBfBezAdtHtHtHtHAdezfBfBfBHMHMHMHMHMfBfBYknhqBaLaLaLaLaLaLaLqBcgYgYgYgYgzrzrzrqBUPYgtvybALJRJRJRJRJRUfybtvYgADqBYgYgYgYgYgzrzrzrqBaLararararararararararararararararararararararararararararararararararararararararararararararararararar
-arararararararararararararararararararararararaLqBnhYkfBYkYkYkYkYkYkYkQqqBcYcYcYcYqBQqYkYkYkYkYkYkYkYkYkfBYknhqBaLarararararaLqBPrPrYgYgYgsYybybqBqBkwtvbyJRqBJRJRJRqBJRZFtvkwqBqBGMGMYgYgYgbmybybqBaLararararararararararararararararararararararararararararararararararararararararararararararararararar
+arararararararararararararararararararararararaLqBnhYkHMHMHMHMHMfBfBfBezAdtHtHtHtHAdezfBfBfBHMHMHMHMHMfBfBYknhqBaLaLaLaLaLaLaLqBcgYgYgYgYgzrzrzrqBUPYgtvybALzkpZpZgsjkUfybtvYgADqBYgYgYgYgYgzrzrzrqBaLararararararararararararararararararararararararararararararararararararararararararararararararararar
+arararararararararararararararararararararararaLqBnhYkfBYkYkYkYkYkYkYkQqqBcYcYcYcYqBQqYkYkYkYkYkYkYkYkYkfBYknhqBaLarararararaLqBPrPrYgYgYgsYybybqBqBkwtvbyDfqBoLwKzTqBcNZFtvkwqBqBGMGMYgYgYgbmybybqBaLararararararararararararararararararararararararararararararararararararararararararararararararararar
 arararararararararararararararararararararararaLqBnhQqHMQqYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkQqHMQqnhqBaLarararararaLqBcgYgYgYgYgzrybglqBqBqBikwtqBqBqBqBqBqBqBikwtqBqBqBYgYgYgYgYgzrybglqBaLararararararararararararararararararararararararararararararararararararararararararararararararararar
 arararararararararararararararararararararararaLqBnhYkHMYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkHMYknhqBaLarararararaLqBPrPrrrrrrrzrybybqBaLaLaLaLaLaLaLaLaLaLaLaLaLaLaLqBGMGMrrrrrrzrybybqBaLararararararararararararararararararararararararararararararararararararararararararararararararararar
 arararararararararararararararararararararararaLqBnKYkHMYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkYkHMYkJxqBaLarararararaLqBqBqBrrrrrrqBKMqBqBaLarararararararararararararaLqBqBqBrrrrrrqBKMqBqBaLararararararararararararararararararararararararararararararararararararararararararararararararararar
@@ -542,11 +574,11 @@ arararararararararararararararararararararararararararararararararararararararar
 arararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLaLqBikwtqBqBqBVSVSsososoVSVSqBqBqBikwtqBaLaLarararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
 ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLaLqBqBRwqVYgqBqBdOVSsososoVSniqBqBYgqVBAqBqBaLaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
 ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBqBYgqVqVYgYgqBkgVSFfLOoJVSvNqBIwYgqVqVYgqBqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
-ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBJRqVqVqVqVqVAdYghVYgYgYghVYgAdqVqVqVqVqVJRqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
-ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBJRybybybybybwtYgYgYgYgYgYgYgwtybybybybybdBqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
-ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBzdybybybybybUtYgYgYgYgYgYgYgUtybybybybybocqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
-ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBJRybybybybybAdVShVpKTBePhVVSAdybybybybybYFqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
-ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBJRybybYgfkGKAdVSnipKTBePhVVSAdGKCcYgybybJRqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
+ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBjUqVqVqVqVqVAdYghVYgYgYghVYgAdqVqVqVqVqVECqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
+ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBECybybybybybwtYgYgYgYgYgYgYgwtybybybybybdBqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
+ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBUvybybybybybUtYgYgYgYgYgYgYgUtybybybybybocqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
+ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBqhybybybybybAdVShVpKTBePhVVSAdybybybybybYFqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
+ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBkxybybYgfkGKAdVSnipKTBePhVVSAdGKCcYgybyboTqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
 ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBqBzmglqBNOWMqBhUhVYgHXYgdOhPqBNOWMqBzmglqBqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
 ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBIwybybNoGKGKAdAdAdAdqBAdAdAdAdGKGKUEybybIwqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
 ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBEfybybKGGKGKGKNgNgNgNgNgNgNgGKGKGKuwybybvSqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
@@ -556,7 +588,7 @@ arararararararararararararararararararararararararararararararararararararararar
 ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLwtybybybKGGKGKGKGKNgGKGKGKNgGKGKGKGKuwybybybwtaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
 ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLcrybybybKGGKGKGKGKNgGKGKGKNgGKGKGKGKuwybybybcraLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
 ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBcgybybFEGKGKGKGKNgGKGKGKNgGKGKGKGKAiybybKkqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
-ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBqBNJqBqBJMJMJMJMJMJMJMJMJMJMJMJMJMqBqBNJqBqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
+ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBqBNJqBqBugLofHLogvaWaWaWMyGvjlGElOqBqBNJqBqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
 ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLaLaLaLaLqBVFVFVFqvVFVFVFVFVFqvVFVFVFqBaLaLaLaLaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
 ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLqBqBEhqBqBqBqBqBqBqBqBqBEhqBqBaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
 ararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararaLaLaLaLaLaLaLaLaLaLaLaLaLaLaLaLaLararararararararararararararararararararararararararararararararararararararararararararararararararararararararararararar
