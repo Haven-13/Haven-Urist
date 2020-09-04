@@ -1,7 +1,7 @@
 /obj/structure/flora/shrub
 	name = "shrub"
-	icon = 'icon/obj/flora/goonflora.dmi'
-	icon_state = 'shrub'
+	icon = 'icons/obj/flora/goonflora.dmi'
+	icon_state = "shrub"
 	anchored = 1
 
 	plane = ABOVE_HUMAN_PLANE

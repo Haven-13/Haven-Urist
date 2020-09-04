@@ -1488,6 +1488,7 @@
 #include "code\modules\decorations\flora\alien_flora.dm"
 #include "code\modules\decorations\flora\mundae_bush.dm"
 #include "code\modules\decorations\flora\mundae_grass.dm"
+#include "code\modules\decorations\flora\mundae_shrub.dm"
 #include "code\modules\decorations\flora\mundae_tree.dm"
 #include "code\modules\decorations\flora\potted_plant.dm"
 #include "code\modules\detectivework\footprints.dm"
