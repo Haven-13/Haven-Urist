@@ -36,3 +36,12 @@
   - bugfix: Removed a duplicate object in Nevestapol
   - bugfix: Fixed Loadout not registering user choices for gear to use
   - bugfix: Disabled access checking on Pluto's two public hallway turrets
+2020-09-04:
+  martinlyra:
+  - rscadd: Added FastDMM2 integration
+  - rscadd: Added shrubs from Goonstation
+  - rscadd: Added jungle plants from CEV-Eris
+  - rscadd: Added rocks from CEV-Eris
+  - bugfix: Fixed the grass having ugly-ass sprites
+  - imageadd: Grass sprites from CEV-Eris replace the old one
+  - imageadd: Added potted plants from Goonstation, to be yet used
