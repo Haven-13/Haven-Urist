@@ -33,6 +33,10 @@
 	..()
 	icon_state = "tree_[rand(1, 6)]"
 
+//
+// Jungle trees
+//
+
 /obj/structure/flora/tree/jungle
 	name = "tree"
 	icon = 'icons/obj/flora/jungletree.dmi'
