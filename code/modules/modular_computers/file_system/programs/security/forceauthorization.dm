@@ -54,7 +54,7 @@
 
 			data["cyborg_guns"] += list(list("name" = "[G]", "ref" = "\ref[G]", "owner" = G.registered_owner, "modes" = modes))
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "forceauthorization.tmpl", name, 700, 450, state = state)
 		ui.auto_update_layout = 1

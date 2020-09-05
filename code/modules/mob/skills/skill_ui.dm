@@ -25,7 +25,7 @@
 	var/list/data = skillset.get_nano_data()
 	data += get_data()
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, template, "Skills", 600, 900, src, state = state)
 		ui.set_initial_data(data)

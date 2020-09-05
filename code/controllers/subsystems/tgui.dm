@@ -11,7 +11,7 @@ SUBSYSTEM_DEF(tgui)
 	name = "tgui"
 	wait = 9
 	flags = SS_NO_INIT
-	priority = FIRE_PRIORITY_TGUI
+	priority = SS_PRIORITY_TGUI
 	runlevels = RUNLEVEL_LOBBY | RUNLEVELS_DEFAULT
 
 	/// A list of UIs scheduled to process
@@ -164,7 +164,7 @@ SUBSYSTEM_DEF(tgui)
  * return datum/tgui The found UI.
  */
 /datum/controller/subsystem/tgui/proc/get_open_ui(mob/user, datum/src_object)
-	var/key = "[REF(src_object)]"
+	var/key = "\ref[src_object]"
 	// No UIs opened for this src_object
 	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
 		return null
@@ -185,7 +185,7 @@ SUBSYSTEM_DEF(tgui)
  */
 /datum/controller/subsystem/tgui/proc/update_uis(datum/src_object)
 	var/count = 0
-	var/key = "[REF(src_object)]"
+	var/key = "\ref[src_object]"
 	// No UIs opened for this src_object
 	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
 		return count
@@ -207,7 +207,7 @@ SUBSYSTEM_DEF(tgui)
  */
 /datum/controller/subsystem/tgui/proc/close_uis(datum/src_object)
 	var/count = 0
-	var/key = "[REF(src_object)]"
+	var/key = "\ref[src_object]"
 	// No UIs opened for this src_object
 	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
 		return count
@@ -283,7 +283,7 @@ SUBSYSTEM_DEF(tgui)
  * required ui datum/tgui The UI to be added.
  */
 /datum/controller/subsystem/tgui/proc/on_open(datum/tgui/ui)
-	var/key = "[REF(ui.src_object)]"
+	var/key = "\ref[src_object]"
 	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
 		open_uis_by_src[key] = list()
 	ui.user.tgui_open_uis |= ui
@@ -301,7 +301,7 @@ SUBSYSTEM_DEF(tgui)
  * return bool If the UI was removed or not.
  */
 /datum/controller/subsystem/tgui/proc/on_close(datum/tgui/ui)
-	var/key = "[REF(ui.src_object)]"
+	var/key = "\ref[src_object]"
 	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
 		return FALSE
 	// Remove it from the list of processing UIs.

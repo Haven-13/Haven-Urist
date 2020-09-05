@@ -6,20 +6,26 @@
  * SPDX-License-Identifier: MIT
  */
 
- /**
-  * public
-  *
-  * Checks the UI state for a mob.
-  *
-  * required user mob The mob who opened/is using the UI.
-  * required state datum/ui_state The state to check.
-  *
-  * return UI_state The state of the UI.
- **/
+/**
+ * public
+ *
+ * Checks the UI state for a mob.
+ *
+ * required user mob The mob who opened/is using the UI.
+ * required state datum/ui_state The state to check.
+ *
+ * return UI_state The state of the UI.
+ */
 /datum/proc/ui_status(mob/user, datum/ui_state/state)
-	var/datum/src_object = ui_host()
-	if(src_object != src)
-		return src_object.ui_status(user, state)
+	var/src_object = ui_host(user)
+	. = UI_CLOSE
+	if(!state)
+		return
+
+	if(isobserver(user))
+		// If they turn on ghost AI control, admins can always interact.
+		if(isAdminGhostAI(user))
+			. = max(., UI_INTERACTIVE)
 
 		// Regular ghosts can always at least view if in range.
 		if(user.client)
@@ -27,28 +33,32 @@
 			if(get_dist(src_object, user) < max(clientviewlist[1], clientviewlist[2]))
 				. = max(., UI_UPDATE)
 
- /**
-  * private
-  *
-  * Checks if a user can use src_object's UI, and returns the state.
-  * Can call a mob proc, which allows overrides for each mob.
-  *
-  * required src_object datum The object/datum which owns the UI.
-  * required user mob The mob who opened/is using the UI.
-  *
-  * return UI_state The state of the UI.
- **/
+	// Check if the state allows interaction
+	var/result = state.can_use_topic(src_object, user)
+	. = max(., result)
+
+/**
+ * private
+ *
+ * Checks if a user can use src_object's UI, and returns the state.
+ * Can call a mob proc, which allows overrides for each mob.
+ *
+ * required src_object datum The object/datum which owns the UI.
+ * required user mob The mob who opened/is using the UI.
+ *
+ * return UI_state The state of the UI.
+ */
 /datum/ui_state/proc/can_use_topic(src_object, mob/user)
 	// Don't allow interaction by default.
 	return UI_CLOSE
 
- /**
-  * public
-  *
-  * Standard interaction/sanity checks. Different mob types may have overrides.
-  *
-  * return UI_state The state of the UI.
- **/
+/**
+ * public
+ *
+ * Standard interaction/sanity checks. Different mob types may have overrides.
+ *
+ * return UI_state The state of the UI.
+ */
 /mob/proc/shared_ui_interaction(src_object)
 	// Close UIs if mindless.
 	if(!client)
@@ -60,6 +70,11 @@
 	else if(incapacitated())
 		return UI_UPDATE
 	return UI_INTERACTIVE
+
+/mob/living/shared_ui_interaction(src_object)
+	. = ..()
+	if(!(mobility_flags & MOBILITY_UI) && . == UI_INTERACTIVE)
+		return UI_UPDATE
 
 /mob/living/silicon/ai/shared_ui_interaction(src_object)
 	// Disable UIs if the AI is unpowered.
@@ -74,17 +89,17 @@
 	return ..()
 
 /**
-  * public
-  *
-  * Check the distance for a living mob.
-  * Really only used for checks outside the context of a mob.
-  * Otherwise, use shared_living_ui_distance().
-  *
-  * required src_object The object which owns the UI.
-  * required user mob The mob who opened/is using the UI.
-  *
-  * return UI_state The state of the UI.
- **/
+ * public
+ *
+ * Check the distance for a living mob.
+ * Really only used for checks outside the context of a mob.
+ * Otherwise, use shared_living_ui_distance().
+ *
+ * required src_object The object which owns the UI.
+ * required user mob The mob who opened/is using the UI.
+ *
+ * return UI_state The state of the UI.
+ */
 /atom/proc/contents_ui_distance(src_object, mob/living/user)
 	// Just call this mob's check.
 	return user.shared_living_ui_distance(src_object)
@@ -115,7 +130,7 @@
 	// Otherwise, we got nothing.
 	return UI_CLOSE
 
-/mob/living/carbon/human/shared_living_ui_distance(atom/movable/src_object)
-	if((TK in mutations))
+/mob/living/carbon/human/shared_living_ui_distance(atom/movable/src_object, viewcheck = TRUE)
+	if(dna.check_mutation(TK) && tkMaxRangeCheck(src, src_object))
 		return UI_INTERACTIVE
 	return ..()

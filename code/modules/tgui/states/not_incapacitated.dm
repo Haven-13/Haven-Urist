@@ -7,7 +7,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-/var/global/datum/ui_state/not_incapacitated_state/tg_not_incapacitated_state = new()
+GLOBAL_DATUM_INIT(tgui_not_incapacitated_state, /datum/ui_state/not_incapacitated_state, new)
 
  /**
   * tgui state: not_incapacitated_turf_state
@@ -15,7 +15,7 @@
   * Checks that the user isn't incapacitated and that their loc is a turf
  **/
 
-/var/global/datum/ui_state/not_incapacitated_state/not_incapacitated_turf_state = new(no_turfs = TRUE)
+GLOBAL_DATUM_INIT(tgui_not_incapacitated_turf_state, /datum/ui_state/not_incapacitated_state, new(no_turfs = TRUE))
 
 /datum/ui_state/not_incapacitated_state
 	var/turf_check = FALSE

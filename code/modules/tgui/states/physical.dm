@@ -7,7 +7,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-/var/global/datum/ui_state/physical/tg_physical_state = new()
+GLOBAL_DATUM_INIT(tgui_physical_state, /datum/ui_state/physical, new)
 
 /datum/ui_state/physical/can_use_topic(src_object, mob/user)
 	. = user.shared_ui_interaction(src_object)

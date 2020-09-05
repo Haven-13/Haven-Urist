@@ -46,7 +46,7 @@
 /area/unishi/bridge)
 "al" = (
 /obj/structure/table/reinforced,
-/obj/item/paper/cig/fancy,
+/obj/item/weapon/paper/cig/fancy,
 /obj/random/action_figure,
 /obj/machinery/recharger,
 /turf/simulated/floor/tiled,

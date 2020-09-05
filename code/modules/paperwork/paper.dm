@@ -17,7 +17,7 @@
  * so we do loose a bit of functionality but we gain in easy of use of
  * paper and getting rid of that crashing bug
  */
-/obj/item/paper
+/obj/item/weapon/paper
 	name = "paper"
 	gender = NEUTER
 	icon = 'icons/obj/bureaucracy.dmi'
@@ -55,7 +55,7 @@
 	var/list/form_fields = list()
 	var/field_counter = 1
 
-/obj/item/paper/Destroy()
+/obj/item/weapon/paper/Destroy()
 	stamps = null
 	stamped = null
 	form_fields = null
@@ -67,8 +67,8 @@
  * sheet,  Makes it nice and easy for carbon and
  * the copyer machine
  */
-/obj/item/paper/proc/copy()
-	var/obj/item/paper/N = new(arglist(args))
+/obj/item/weapon/paper/proc/copy()
+	var/obj/item/weapon/paper/N = new(arglist(args))
 	N.info = info
 	N.color = color
 	N.update_icon_state()
@@ -84,13 +84,13 @@
  * icons.  You can modify the pen_color after if need
  * be.
  */
-/obj/item/paper/proc/setText(text)
+/obj/item/weapon/paper/proc/setText(text)
 	info = text
 	form_fields = null
 	field_counter = 0
 	update_icon_state()
 
-/obj/item/paper/pickup(user)
+/obj/item/weapon/paper/pickup(user)
 	if(contact_poison && ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/clothing/gloves/G = H.gloves
@@ -99,17 +99,17 @@
 			contact_poison = null
 	. = ..()
 
-/obj/item/paper/Initialize()
+/obj/item/weapon/paper/Initialize()
 	. = ..()
 	pixel_y = rand(-8, 8)
 	pixel_x = rand(-9, 9)
 	update_icon()
 
-/obj/item/paper/update_icon_state()
+/obj/item/weapon/paper/update_icon_state()
 	if(info && show_written_words)
 		icon_state = "[initial(icon_state)]_words"
 
-/obj/item/paper/verb/rename()
+/obj/item/weapon/paper/verb/rename()
 	set name = "Rename paper"
 	set category = "Object"
 	set src in usr
@@ -128,18 +128,18 @@
 		name = "paper[(n_name ? text("- '[n_name]'") : null)]"
 	add_fingerprint(usr)
 
-/obj/item/paper/suicide_act(mob/user)
+/obj/item/weapon/paper/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] scratches a grid on [user.p_their()] wrist with the paper! It looks like [user.p_theyre()] trying to commit sudoku...</span>")
 	return (BRUTELOSS)
 
-/obj/item/paper/proc/clearpaper()
+/obj/item/weapon/paper/proc/clearpaper()
 	info = ""
 	stamps = null
 	LAZYCLEARLIST(stamped)
 	cut_overlays()
 	update_icon_state()
 
-/obj/item/paper/examine(mob/user)
+/obj/item/weapon/paper/examine(mob/user)
 	. = ..()
 	if(!in_range(user, src) && !isobserver(user))
 		. += "<span class='warning'>You're too far away to read it!</span>"
@@ -149,7 +149,7 @@
 		return
 	. += "<span class='warning'>You cannot read it!</span>"
 
-/obj/item/paper/ui_status(mob/user,/datum/ui_state/state)
+/obj/item/weapon/paper/ui_status(mob/user,/datum/ui_state/state)
 		// Are we on fire?  Hard ot read if so
 	if(resistance_flags & ON_FIRE)
 		return UI_CLOSE
@@ -167,7 +167,7 @@
 
 
 
-/obj/item/paper/can_interact(mob/user)
+/obj/item/weapon/paper/can_interact(mob/user)
 	if(in_contents_of(/obj/machinery/door/airlock))
 		return TRUE
 	return ..()
@@ -193,7 +193,7 @@
 	add_fingerprint(user)
 	fire_act(I.get_temperature())
 
-/obj/item/paper/attackby(obj/item/P, mob/living/user, params)
+/obj/item/weapon/paper/attackby(obj/item/P, mob/living/user, params)
 	if(burn_paper_product_attackby_check(P, user))
 		SStgui.close_uis(src)
 		return
@@ -215,17 +215,17 @@
 	return ..()
 
 
-/obj/item/paper/fire_act(exposed_temperature, exposed_volume)
+/obj/item/weapon/paper/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
 	if(.)
 		info = "[stars(info)]"
 
-/obj/item/paper/ui_assets(mob/user)
+/obj/item/weapon/paper/ui_assets(mob/user)
 	return list(
 		get_asset_datum(/datum/asset/spritesheet/simple/paper),
 	)
 
-/obj/item/paper/ui_interact(mob/user, datum/tgui/ui)
+/obj/item/weapon/paper/ui_interact(mob/user, datum/tgui/ui)
 	// Update the UI
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -233,7 +233,7 @@
 		ui.open()
 
 
-/obj/item/paper/ui_static_data(mob/user)
+/obj/item/weapon/paper/ui_static_data(mob/user)
 	. = list()
 	.["text"] = info
 	.["max_length"] = MAX_PAPER_LENGTH
@@ -243,7 +243,7 @@
 
 
 
-/obj/item/paper/ui_data(mob/user)
+/obj/item/weapon/paper/ui_data(mob/user)
 	var/list/data = list()
 	data["edit_usr"] = "[user]"
 
@@ -284,7 +284,7 @@
 
 	return data
 
-/obj/item/paper/ui_act(action, params,datum/tgui/ui)
+/obj/item/weapon/paper/ui_act(action, params,datum/tgui/ui)
 	if(..())
 		return
 	switch(action)
@@ -343,32 +343,32 @@
 /**
  * Construction paper
  */
-/obj/item/paper/construction
+/obj/item/weapon/paper/construction
 
-/obj/item/paper/construction/Initialize()
+/obj/item/weapon/paper/construction/Initialize()
 	. = ..()
 	color = pick("FF0000", "#33cc33", "#ffb366", "#551A8B", "#ff80d5", "#4d94ff")
 
 /**
  * Natural paper
  */
-/obj/item/paper/natural/Initialize()
+/obj/item/weapon/paper/natural/Initialize()
 	. = ..()
 	color = "#FFF5ED"
 
-/obj/item/paper/crumpled
+/obj/item/weapon/paper/crumpled
 	name = "paper scrap"
 	icon_state = "scrap"
 	slot_flags = null
 	show_written_words = FALSE
 
-/obj/item/paper/crumpled/update_icon_state()
+/obj/item/weapon/paper/crumpled/update_icon_state()
 	return
 
-/obj/item/paper/crumpled/bloody
+/obj/item/weapon/paper/crumpled/bloody
 	icon_state = "scrap_bloodied"
 
-/obj/item/paper/crumpled/muddy
+/obj/item/weapon/paper/crumpled/muddy
 	icon_state = "scrap_mud"
 
 #undef MAX_PAPER_LENGTH

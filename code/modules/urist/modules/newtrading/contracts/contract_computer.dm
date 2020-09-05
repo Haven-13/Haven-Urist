@@ -43,7 +43,7 @@
 //	data["category"] = selected_category
 //	data["existing_contracts"] = category_contents
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "contract_database.tmpl", name, 1050, 800, state = state)
 		ui.set_auto_update(1)

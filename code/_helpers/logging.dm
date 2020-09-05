@@ -143,7 +143,7 @@
 		var/client/client = user_or_client
 		entry += "[client.ckey]"
 	entry += ":\n[text]"
-	WRITE_LOG(GLOB.tgui_log, entry)
+	WRITE_FILE(GLOB.tgui_log, entry)
 
 //This replaces world.log so it displays both in DD and the file
 /proc/log_world(text)

@@ -122,7 +122,7 @@
 
 //make all the components visible, then kill myself
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "combat_computer.tmpl", name, 1050, 800)
 		ui.set_auto_update(1)

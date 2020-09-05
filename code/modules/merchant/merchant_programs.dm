@@ -18,9 +18,6 @@
 	var/temp = null
 	var/bank = 0 //A straight up money till
 
-/datum/nano_module/program/merchant
-	name = "Merchant's List"
-
 /datum/computer_file/program/merchant/proc/get_merchant(var/num)
 	if(num > SStrade.traders.len)
 		num = SStrade.traders.len
@@ -53,7 +50,7 @@
 				for(var/i in 1 to T.trading_items.len)
 					trades += T.print_trading_items(i)
 			data["trades"] = trades
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "merchant.tmpl", "Merchant List", 575, 700, state = state)
 		ui.auto_update_layout = 1

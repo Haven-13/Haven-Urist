@@ -146,7 +146,7 @@
 		var/datum/computer_file/C = F.clone(0)
 		HDD.store_file(C)
 	if(.)
-		SSnano.update_uis(NM)
+		SStgui.update_uis(NM)
 
 /datum/nano_module/program/computer_filemanager
 	name = "NTOS File Manager"
@@ -200,7 +200,7 @@
 					)))
 				data["usbfiles"] = usbfiles
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "file_manager.tmpl", "NTOS File Manager", 575, 700, state = state)
 		ui.auto_update_layout = 1

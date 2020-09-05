@@ -126,4 +126,4 @@ datum/skillset/proc/open_ui()
 
 datum/skillset/proc/refresh_uis()
 	for(var/nano_module in nm_viewing)
-		SSnano.update_uis(nano_module)
+		SStgui.update_uis(nano_module)

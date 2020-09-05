@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-/var/global/datum/ui_state/default/tg_default_state = new()
+GLOBAL_DATUM_INIT(tgui_default_state, /datum/ui_state/default, new)
 
 /datum/ui_state/default/can_use_topic(src_object, mob/user)
 	return user.tg_default_can_use_topic(src_object) // Call the individual mob-overriden procs.

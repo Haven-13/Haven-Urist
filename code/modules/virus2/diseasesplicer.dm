@@ -78,7 +78,7 @@
 	else
 		data["info"] = "No dish loaded."
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "disease_splicer.tmpl", src.name, 400, 600)
 		ui.set_initial_data(data)
@@ -92,12 +92,12 @@
 		scanning -= 1
 		if(!scanning)
 			ping("\The [src] pings, \"Analysis complete.\"")
-			SSnano.update_uis(src)
+			SStgui.update_uis(src)
 	if(splicing)
 		splicing -= 1
 		if(!splicing)
 			ping("\The [src] pings, \"Splicing operation complete.\"")
-			SSnano.update_uis(src)
+			SStgui.update_uis(src)
 	if(burning)
 		burning -= 1
 		if(!burning)
@@ -119,11 +119,11 @@
 					d.species = species_buffer
 
 			ping("\The [src] pings, \"Backup disk saved.\"")
-			SSnano.update_uis(src)
+			SStgui.update_uis(src)
 
 /obj/machinery/computer/diseasesplicer/OnTopic(user, href_list)
 	if (href_list["close"])
-		SSnano.close_user_uis(user, src, "main")
+		SStgui.close_user_uis(user, src, "main")
 		return TOPIC_HANDLED
 
 	if (href_list["grab"])
