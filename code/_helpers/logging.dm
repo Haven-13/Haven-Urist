@@ -1,6 +1,12 @@
 //wrapper macros for easier grepping
 #define DIRECT_OUTPUT(A, B) A << B
+#define SEND_IMAGE(target, image) DIRECT_OUTPUT(target, image)
+#define SEND_SOUND(target, sound) DIRECT_OUTPUT(target, sound)
+#define SEND_TEXT(target, text) DIRECT_OUTPUT(target, text)
 #define WRITE_FILE(file, text) DIRECT_OUTPUT(file, text)
+//This is an external call, "true" and "false" are how rust parses out booleans
+#define WRITE_LOG(log, text) rustg_log_write(log, text, "true")
+#define WRITE_LOG_NO_FORMAT(log, text) rustg_log_write(log, text, "false")
 
 
 // On Linux/Unix systems the line endings are LF, on windows it's CRLF, admins that don't use notepad++
@@ -24,10 +30,17 @@
 /proc/log_ss_init(text)
 	game_log("SS", "[text]")
 
-#define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 //print a warning message to world.log
+#define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [UNLINT(src)] usr: [usr].")
 /proc/warning(msg)
-	to_world_log("## WARNING: [msg][log_end]")
+	msg = "## WARNING: [msg]"
+	log_world(msg)
+
+//not an error or a warning, but worth to mention on the world log, just in case.
+#define NOTICE(MSG) notice(MSG)
+/proc/notice(msg)
+	msg = "## NOTICE: [msg]"
+	log_world(msg)
 
 //print a testing-mode debug message to world.log
 /proc/testing(msg)
@@ -117,6 +130,20 @@
 
 /proc/log_qdel(text)
 	WRITE_FILE(GLOB.world_qdel_log, "\[[time_stamp()]]QDEL: [text]")
+
+/* ui logging */
+/proc/log_tgui(user_or_client, text)
+	var/entry = ""
+	if(!user_or_client)
+		entry += "no user"
+	else if(istype(user_or_client, /mob))
+		var/mob/user = user_or_client
+		entry += "[user.ckey] (as [user])"
+	else if(istype(user_or_client, /client))
+		var/client/client = user_or_client
+		entry += "[client.ckey]"
+	entry += ":\n[text]"
+	WRITE_LOG(GLOB.tgui_log, entry)
 
 //This replaces world.log so it displays both in DD and the file
 /proc/log_world(text)
