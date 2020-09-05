@@ -407,14 +407,6 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/pickaxe/diamonddrill
 	sort_string = "KAAAE"
 
-/datum/design/item/mining/depth_scanner
-	desc = "Used to check spatial depth and density of rock outcroppings."
-	id = "depth_scanner"
-	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2, TECH_BLUESPACE = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 1000,"glass" = 1000)
-	build_path = /obj/item/device/depth_scanner
-	sort_string = "KAAAF"
-
 /datum/design/item/medical
 	materials = list(DEFAULT_WALL_MATERIAL = 30, "glass" = 20)
 	category = BIOMEDICAL_DEVICES
@@ -954,24 +946,6 @@ other types of metals and chemistry for reagents).
 	materials = list(DEFAULT_WALL_MATERIAL = 500)
 	build_path = /obj/item/device/gps
 	sort_string = "VADAB"
-
-/datum/design/item/bluespace/beacon_locator
-	name = "beacon tracking pinpointer"
-	desc = "Used to scan and locate signals on a particular frequency."
-	id = "beacon_locator"
-	req_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 2, TECH_BLUESPACE = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 1000,"glass" = 500)
-	build_path = /obj/item/weapon/pinpointer/radio
-	sort_string = "VADAC"
-
-/datum/design/item/bluespace/ano_scanner
-	name = "Alden-Saraspova counter"
-	id = "ano_scanner"
-	desc = "Aids in triangulation of exotic particles."
-	req_tech = list(TECH_BLUESPACE = 3, TECH_MAGNET = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 10000,"glass" = 5000)
-	build_path = /obj/item/device/ano_scanner
-	sort_string = "VAEAA"
 
 /datum/design/item/bluespace/bag_holding
 	name = "Bag of Holding"
@@ -1561,15 +1535,6 @@ other types of metals and chemistry for reagents).
 	materials = list("plastic" = 1000, DEFAULT_WALL_MATERIAL = 800, "glass" = 500)
 	build_path = /obj/item/rig_module/device/orescanner
 	sort_string = "WCDAA"
-
-/datum/design/item/rig/anomaly_scanner
-	name = "Anomaly Scanner"
-	desc = "An exotic particle detector commonly used by xenoarchaeologists, mountable on a RIG."
-	id = "rig_anomaly_scanner"
-	req_tech = list(TECH_BLUESPACE = 4, TECH_MAGNET = 4, TECH_ENGINEERING = 6)
-	materials = list("plastic" = 1000, DEFAULT_WALL_MATERIAL = 800, "glass" = 500)
-	build_path = /obj/item/rig_module/device/anomaly_scanner
-	sort_string = "WCDAB"
 
 /datum/design/item/rig/rcd
 	name = "RCD"
