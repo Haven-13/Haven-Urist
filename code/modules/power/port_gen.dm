@@ -4,9 +4,9 @@
 	desc = "A portable generator for emergency backup power."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "portgen0"
-	density = 1
-	anchored = 0
-	use_power = 0
+	density = TRUE
+	anchored = FALSE
+	use_power = NO_POWER_USE
 
 	var/active = 0
 	var/power_gen = 5000
@@ -315,36 +315,10 @@
 	if(IsBroken())
 		return
 
-	var/data[0]
-	data["active"] = active
-	if(istype(user, /mob/living/silicon/ai))
-		data["is_ai"] = 1
-	else if(istype(user, /mob/living/silicon/robot) && !Adjacent(user))
-		data["is_ai"] = 1
-	else
-		data["is_ai"] = 0
-	data["output_set"] = power_output
-	data["output_max"] = max_power_output
-	data["output_safe"] = max_safe_output
-	data["output_watts"] = power_output * power_gen
-	data["temperature_current"] = src.temperature
-	data["temperature_max"] = src.max_temperature
-	if(overheating)
-		data["temperature_overheat"] = ((overheating / max_overheat) * 100)		// Overheat percentage. Generator explodes at 100%
-	else
-		data["temperature_overheat"] = 0
-	// 1 sheet = 1000cm3?
-	data["fuel_stored"] = round((sheets * 1000) + (sheet_left * 1000))
-	data["fuel_capacity"] = round(max_sheets * 1000, 0.1)
-	data["fuel_usage"] = active ? round((power_output / time_per_sheet) * 1000) : 0
-	data["fuel_type"] = sheet_name
-
-
-
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "pacman.tmpl", src.name, 500, 560)
-		ui.set_initial_data(data)
+/obj/machinery/power/port_gen/pacman/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "PortableGenerator", name)
 		ui.open()
 		ui.set_auto_update(1)
 

@@ -49,7 +49,11 @@
 		//qdel(usr)
 		return
 
-	//Admin PM
+	// Tgui Topic middleware
+	if(!tgui_Topic(href_list))
+		return
+
+	// Admin PM
 	if(href_list["priv_msg"])
 		var/client/C = locate(href_list["priv_msg"])
 		var/datum/ticket/ticket = locate(href_list["ticket"])

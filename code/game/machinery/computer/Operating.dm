@@ -39,21 +39,32 @@
 			user << browse(null, "window=op")
 			return
 
-	user.set_machine(src)
-	var/dat = "<HEAD><TITLE>Operating Computer</TITLE><META HTTP-EQUIV='Refresh' CONTENT='10'></HEAD><BODY>\n"
-	dat += "<A HREF='?src=\ref[user];mach_close=op'>Close</A><br><br>" //| <A HREF='?src=\ref[user];update=1'>Update</A>"
-	if(istype(watching, /obj/machinery/optable))
-		var/obj/machinery/optable/OT = watching
-		if(OT.victim)
-			victim = OT.victim
-	else if(watching.buckled_mob)
-		victim = watching.buckled_mob
-	if(victim)
-		dat += {"
-<B>Patient Information:</B><BR>
-<BR>
-[medical_scan_results(victim, 1)]
-"}
+/obj/machinery/computer/operating/ui_state(mob/user)
+	return GLOB.not_incapacitated_state
+
+/obj/machinery/computer/operating/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "OperatingComputer", name)
+		ui.open()
+
+/obj/machinery/computer/operating/ui_data(mob/user)
+	var/list/data = list()
+	var/list/surgeries = list()
+	for(var/X in advanced_surgeries)
+		var/datum/surgery/S = X
+		var/list/surgery = list()
+		surgery["name"] = initial(S.name)
+		surgery["desc"] = initial(S.desc)
+		surgeries += list(surgery)
+	data["surgeries"] = surgeries
+	data["patient"] = null
+	if(table)
+		data["table"] = table
+		if(!table.check_eligible_patient())
+			return data
+		data["patient"] = list()
+		patient = table.patient
 	else
 		dat += {"
 <B>Patient Information:</B><BR>

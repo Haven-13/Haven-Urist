@@ -5,8 +5,8 @@ var/global/list/minor_air_alarms = list()
 
 
 /obj/machinery/computer/atmos_alert
+	desc = "Used to monitor the station's air alarms."
 	name = "atmospheric alert computer"
-	desc = "Used to access the atmospheric sensors."
 	circuit = /obj/item/weapon/circuitboard/atmos_alert
 	icon_keyboard = "atmos_key"
 	icon_screen = "alert:0"
@@ -20,8 +20,11 @@ var/global/list/minor_air_alarms = list()
 	atmosphere_alarm.unregister_alarm(src)
 	. = ..()
 
-/obj/machinery/computer/atmos_alert/attack_hand(mob/user)
-	ui_interact(user)
+/obj/machinery/computer/atmos_alert/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "AtmosAlertConsole", name)
+		ui.open()
 
 /obj/machinery/computer/atmos_alert/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]

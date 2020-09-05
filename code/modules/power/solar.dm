@@ -342,6 +342,11 @@ var/list/solars_list = list()
 		if(2) // auto-tracking
 			if(connected_tracker)
 				connected_tracker.set_angle(GLOB.sun.angle)
+/obj/machinery/power/solar_control/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "SolarControl", name)
+		ui.open()
 
 	set_panels(cdir)
 	updateDialog()

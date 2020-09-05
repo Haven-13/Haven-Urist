@@ -5,9 +5,8 @@
 	icon_keyboard = "tech_key"
 	icon_screen = "alert:0"
 	light_color = "#e6ffff"
+	var/alarms = list("Fire" = list(), "Atmosphere" = list(), "Power" = list())
 	circuit = /obj/item/weapon/circuitboard/stationalert
-	var/datum/nano_module/alarm_monitor/alarm_monitor
-	var/monitor_type = /datum/nano_module/alarm_monitor
 
 /obj/machinery/computer/station_alert/engineering
 	monitor_type = /datum/nano_module/alarm_monitor/engineering
@@ -29,6 +28,11 @@
 	. = ..()
 	unregister_monitor()
 
+/obj/machinery/computer/station_alert/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "StationAlertConsole", name)
+		ui.open()
 /obj/machinery/computer/station_alert/proc/register_monitor(var/datum/nano_module/alarm_monitor/monitor)
 	if(monitor.host != src)
 		return

@@ -27,12 +27,13 @@
 
 
 //tgui interact code generously lifted from tgstation.
-/obj/item/weapon/airlock_electronics/tg_ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = 0, \
-	datum/tgui/master_ui = null, datum/ui_state/state = tg_hands_state)
+/obj/item/electronics/airlock/ui_state(mob/user)
+	return GLOB.hands_state
 
-	SStgui.try_update_ui(user, src, ui_key, ui, force_open)
+/obj/item/electronics/airlock/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, ui_key, "airlock_electronics", src.name, 1000, 500, master_ui, state)
+		ui = new(user, src, "AirlockElectronics", name)
 		ui.open()
 
 /obj/item/weapon/airlock_electronics/ui_data(mob/user)

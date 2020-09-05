@@ -114,6 +114,11 @@
 	..()
 	sense()
 	return
+/obj/item/assembly/prox_sensor/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "ProximitySensor", name)
+		ui.open()
 
 
 /obj/item/device/assembly/prox_sensor/interact(mob/user as mob)//TODO: Change this to the wires thingy

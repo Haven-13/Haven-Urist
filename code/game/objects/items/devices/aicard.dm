@@ -88,6 +88,14 @@
 	else
 		icon_state = "aicard"
 
+/obj/item/aicard/ui_state(mob/user)
+	return GLOB.hands_state
+
+/obj/item/aicard/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Intellicard", name)
+		ui.open()
 /obj/item/weapon/aicard/proc/grab_ai(var/mob/living/silicon/ai/ai, var/mob/living/user)
 	if(!ai.client)
 		to_chat(user, "<span class='danger'>ERROR:</span> AI [ai.name] is offline. Unable to download.")

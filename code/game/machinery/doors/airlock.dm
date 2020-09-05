@@ -1266,6 +1266,12 @@ About the new airlock wires panel:
 	if(!src.locked)
 		return
 
+/obj/machinery/door/airlock/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "AiAirlock", name)
+		ui.open()
+	return TRUE
 	if (!forced)
 		if(operating || !src.arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_DOOR_BOLTS))
 			return

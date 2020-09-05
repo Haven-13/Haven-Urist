@@ -93,6 +93,8 @@
 		num2text(COMM_FREQ) = list()
 	)
 
+/obj/item/radio/intercom/ui_state(mob/user)
+	return GLOB.default_state
 /obj/item/device/radio/intercom/syndicate
 	name = "illicit intercom"
 	desc = "Talk through this. Evilly."

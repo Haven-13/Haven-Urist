@@ -13,6 +13,11 @@ var/list/doppler_arrays = list()
 	doppler_arrays -= src
 	..()
 
+/obj/machinery/doppler_array/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "TachyonArray", name)
+		ui.open()
 /obj/machinery/doppler_array/proc/sense_explosion(var/x0,var/y0,var/z0,var/devastation_range,var/heavy_impact_range,var/light_impact_range,var/took)
 	if(stat & NOPOWER)	return
 	if(z != z0)			return

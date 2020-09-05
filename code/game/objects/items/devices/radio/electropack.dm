@@ -104,7 +104,26 @@
 
 /obj/item/device/radio/electropack/attack_self(mob/user as mob, flag1)
 
-	if(!istype(user, /mob/living/carbon/human))
+/obj/item/electropack/ui_state(mob/user)
+	return GLOB.hands_state
+
+/obj/item/electropack/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Electropack", name)
+		ui.open()
+
+/obj/item/electropack/ui_data(mob/user)
+	var/list/data = list()
+	data["power"] = on
+	data["frequency"] = frequency
+	data["code"] = code
+	data["minFrequency"] = MIN_FREE_FREQ
+	data["maxFrequency"] = MAX_FREE_FREQ
+	return data
+
+/obj/item/electropack/ui_act(action, params)
+	if(..())
 		return
 	user.set_machine(src)
 	var/dat = {"<TT>

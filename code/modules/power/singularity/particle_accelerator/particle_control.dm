@@ -259,3 +259,52 @@
 	user << browse(dat, "window=pacontrol;size=420x500")
 	onclose(user, "pacontrol")
 	return
+
+/obj/machinery/particle_accelerator/control_box/ui_status(mob/user)
+	if(is_interactive(user))
+		return ..()
+	return UI_CLOSE
+
+/obj/machinery/particle_accelerator/control_box/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "ParticleAccelerator", name)
+		ui.open()
+
+/obj/machinery/particle_accelerator/control_box/ui_data(mob/user)
+	var/list/data = list()
+	data["assembled"] = assembled
+	data["power"] = active
+	data["strength"] = strength
+	return data
+
+/obj/machinery/particle_accelerator/control_box/ui_act(action, params)
+	if(..())
+		return
+
+	switch(action)
+		if("power")
+			if(wires.is_cut(WIRE_POWER))
+				return
+			toggle_power()
+			. = TRUE
+		if("scan")
+			part_scan()
+			. = TRUE
+		if("add_strength")
+			if(wires.is_cut(WIRE_STRENGTH))
+				return
+			add_strength()
+			. = TRUE
+		if("remove_strength")
+			if(wires.is_cut(WIRE_STRENGTH))
+				return
+			remove_strength()
+			. = TRUE
+
+	update_icon()
+
+#undef PA_CONSTRUCTION_UNSECURED
+#undef PA_CONSTRUCTION_UNWIRED
+#undef PA_CONSTRUCTION_PANEL_OPEN
+#undef PA_CONSTRUCTION_COMPLETE

@@ -202,10 +202,10 @@
 	return TRUE
 
 
-/obj/machinery/door_timer/tg_ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = 0, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
+/obj/machinery/door_timer/ui_interact(mob/user, datum/tgui/ui)
 	if(!ui)
-		ui = new(user, src, ui_key, "brig_timer", name , 300, 150, master_ui, state)
+		ui = new(user, src, "BrigTimer", name)
 		ui.open()
 
 //icon update function

@@ -230,14 +230,57 @@
 
 /obj/machinery/lapvend/attack_hand(var/mob/user)
 	ui_interact(user)
-
-/obj/machinery/lapvend/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	if(stat & (BROKEN | NOPOWER | MAINT))
+/obj/machinery/lapvend/ui_interact(mob/user, datum/tgui/ui)
+	if(machine_stat & (BROKEN | NOPOWER | MAINT))
 		if(ui)
 			ui.close()
 		return 0
 
-	var/list/data[0]
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "ComputerFabricator")
+		ui.open()
+
+/obj/machinery/lapvend/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/stack/spacecash))
+		var/obj/item/stack/spacecash/c = I
+		if(!user.temporarilyRemoveItemFromInventory(c))
+			return
+		credits += c.value
+		visible_message("<span class='info'><span class='name'>[user]</span> inserts [c.value] cr into [src].</span>")
+		qdel(c)
+		return
+	else if(istype(I, /obj/item/holochip))
+		var/obj/item/holochip/HC = I
+		credits += HC.credits
+		visible_message("<span class='info'>[user] inserts a [HC.credits] cr holocredit chip into [src].</span>")
+		qdel(HC)
+		return
+	else if(istype(I, /obj/item/card/id))
+		if(state != 2)
+			return
+		var/obj/item/card/id/ID = I
+		var/datum/bank_account/account = ID.registered_account
+		var/target_credits = total_price - credits
+		if(!account.adjust_money(-target_credits))
+			say("Insufficient credits on card to purchase!")
+			return
+		credits += target_credits
+		say("[target_credits] cr has been deposited from your account.")
+		return
+	return ..()
+
+// Simplified payment processing, returns 1 on success.
+/obj/machinery/lapvend/proc/process_payment()
+	if(total_price > credits)
+		say("Insufficient credits.")
+		return FALSE
+	else
+		return TRUE
+
+/obj/machinery/lapvend/ui_data(mob/user)
+
+	var/list/data = list()
 	data["state"] = state
 	if(state == 1)
 		data["devtype"] = devtype

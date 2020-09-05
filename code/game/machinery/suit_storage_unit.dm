@@ -833,8 +833,14 @@
 
 	var/dat = "<HEAD><TITLE>Suit Cycler Interface</TITLE></HEAD>"
 
-	if(active)
-		dat+= "<br><font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently in use. Please wait...</b></font>"
+/obj/machinery/suit_storage_unit/ui_state(mob/user)
+	return GLOB.notcontained_state
+
+/obj/machinery/suit_storage_unit/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "SuitStorageUnit", name)
+		ui.open()
 
 	else if(locked)
 		dat += "<br><font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently locked. Please contact your system administrator.</b></font>"

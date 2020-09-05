@@ -150,6 +150,11 @@
 					usr.visible_message("<span class='notice'>[usr] inserts \the [C] into \the [src].</span>", "<span class='notice'>You insert \the [C] into \the [src].</span>")
 
 	updateDialog()
+/obj/machinery/space_heater/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "SpaceHeater", name)
+		ui.open()
 
 /obj/machinery/space_heater/Process()
 	if(on)

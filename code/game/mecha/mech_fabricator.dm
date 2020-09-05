@@ -173,6 +173,13 @@
 	if(stack.uses_charge)
 		return
 
+/obj/machinery/mecha_part_fabricator/ui_interact(mob/user)
+	. = ..()
+	var/dat, left_part
+	user.set_machine(src)
+	var/turf/exit = get_step(src,(dir))
+	if(exit.density)
+		say("Error! Part outlet is obstructed.")
 	if(!(material in materials))
 		to_chat(user, "<span class=warning>\The [src] does not accept [stack_plural]!</span>")
 		return

@@ -97,10 +97,15 @@
 	if(syndie)
 		data["useSyndMode"] = 1
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+/obj/item/radio/ui_state(mob/user)
+	return GLOB.inventory_state
+
+/obj/item/radio/ui_interact(mob/user, datum/tgui/ui, datum/ui_state/state)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, ui_key, "radio_basic.tmpl", "[name]", 400, 430)
-		ui.set_initial_data(data)
+		ui = new(user, src, "Radio", name)
+		if(state)
+			ui.set_state(state)
 		ui.open()
 
 /obj/item/device/radio/proc/list_channels(var/mob/user)

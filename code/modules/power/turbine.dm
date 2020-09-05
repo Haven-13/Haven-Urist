@@ -158,7 +158,11 @@
 
 	user.machine = src
 
-	var/t = "<TT><B>Gas Turbine Generator</B><HR><PRE>"
+/obj/machinery/power/turbine/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "TurbineComputer", name)
+		ui.open()
 
 	t += "Generated power : [round(lastgen)] W<BR><BR>"
 
@@ -197,6 +201,14 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+/obj/machinery/computer/turbine_computer
+	name = "gas turbine control computer"
+	desc = "A computer to remotely control a gas turbine."
+	icon_screen = "turbinecomp"
+	icon_keyboard = "tech_key"
+	circuit = /obj/item/circuitboard/computer/turbine_computer
+	var/obj/machinery/power/compressor/compressor
+	var/id = 0
 
 /obj/machinery/computer/turbine_computer/Initialize()
 	. = ..()
@@ -264,6 +276,11 @@
 	user << browse(dat, "window=computer;size=400x500")
 	onclose(user, "computer")
 	return
+/obj/machinery/computer/turbine_computer/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "TurbineComputer", name)
+		ui.open()
 
 
 

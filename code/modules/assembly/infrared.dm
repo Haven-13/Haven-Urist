@@ -123,6 +123,11 @@
 
 /obj/item/device/assembly/infra/proc/update_beams()
 	create_update_and_delete_beams(on, visible, dir, seen_turfs, beams)
+/obj/item/assembly/infra/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "InfraredEmitter", name)
+		ui.open()
 
 /proc/create_update_and_delete_beams(var/active, var/visible, var/dir, var/list/seen_turfs, var/list/existing_beams)
 	if(!active)

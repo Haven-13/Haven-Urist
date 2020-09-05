@@ -133,7 +133,16 @@
 
 /obj/machinery/sleeper/attack_ai(var/mob/user)
 	return attack_hand(user)
+/obj/machinery/sleeper/ui_state(mob/user)
+	if(controls_inside)
+		return GLOB.notcontained_state
+	return GLOB.default_state
 
+/obj/machinery/sleeper/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Sleeper", name)
+		ui.open()
 /obj/machinery/sleeper/attackby(var/obj/item/I, var/mob/user)
 	if(default_deconstruction_screwdriver(user, I))
 		updateUsrDialog()

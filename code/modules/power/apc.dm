@@ -752,6 +752,11 @@
 	// do APC interaction
 	src.interact(user)
 
+/obj/machinery/power/apc/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Apc", name)
+		ui.open()
 /obj/machinery/power/apc/interact(mob/user)
 	if(!user)
 		return

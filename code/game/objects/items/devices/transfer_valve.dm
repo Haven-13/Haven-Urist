@@ -225,6 +225,14 @@
 		split_gases()
 
 	src.update_icon()
+/obj/item/transfer_valve/ui_state(mob/user)
+	return GLOB.hands_state
+
+/obj/item/transfer_valve/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "TransferValve", name)
+		ui.open()
 
 // this doesn't do anything but the timer etc. expects it to be here
 // eventually maybe have it update icon to show state (timer, prox etc.) like old bombs

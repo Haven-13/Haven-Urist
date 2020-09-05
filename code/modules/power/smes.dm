@@ -429,6 +429,11 @@
 
 /obj/machinery/power/smes/proc/energy_fail(var/duration)
 	failure_timer = max(failure_timer, duration)
+/obj/machinery/power/smes/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Smes", name)
+		ui.open()
 
 /obj/machinery/power/smes/proc/inputting(var/do_input)
 	input_attempt = do_input

@@ -1,8 +1,51 @@
-/*
+/**
  * Paper
  * also scraps of paper
  */
 
+/**
+ * This is a custom ui state.  All it really does is keep track of pen
+ * being used and if they are editing it or not.  This way we can keep
+ * the data with the ui rather than on the paper
+ */
+/datum/ui_state/default/paper_state
+	/// What edit mode we are in and who is
+	/// writing on it right now
+	var/edit_mode = MODE_READING
+	/// Setup for writing to a sheet
+	var/pen_color = "black"
+	var/pen_font = ""
+	var/is_crayon = FALSE
+	/// Setup for stamping a sheet
+	// Why not the stamp obj?  I have no idea
+	// what happens to states out of scope so
+	// don't want to put instances in this
+	var/stamp_icon_state = ""
+	var/stamp_name = ""
+	var/stamp_class = ""
+
+/datum/ui_state/default/paper_state/proc/copy_from(datum/ui_state/default/paper_state/from)
+	switch(from.edit_mode)
+		if(MODE_READING)
+			edit_mode = MODE_READING
+		if(MODE_WRITING)
+			edit_mode = MODE_WRITING
+			pen_color = from.pen_color
+			pen_font = from.pen_font
+			is_crayon = from.is_crayon
+		if(MODE_STAMPING)
+			edit_mode = MODE_STAMPING
+			stamp_icon_state = from.stamp_icon_state
+			stamp_class = from.stamp_class
+			stamp_name = from.stamp_name
+
+/**
+ * Paper is now using markdown (like in github pull notes) for ALL rendering
+ * so we do loose a bit of functionality but we gain in easy of use of
+ * paper and getting rid of that crashing bug
+ */
+/obj/item/paper
+	name = "paper"
 /obj/item/weapon/paper
 	name = "sheet of paper"
 	gender = NEUTER
@@ -36,10 +79,24 @@
 	var/const/crayonfont = "Comic Sans MS"
 	var/const/fancyfont = "Segoe Script"
 
+	// Ok, so WHY are we caching the ui's?
+	// Since we are not using autoupdate we
+	// need some way to update the ui's of
+	// other people looking at it and if
+	// its been updated.  Yes yes, lame
+	// but canot be helped.  However by
+	// doing it this way, we can see
+	// live updates and have multipule
+	// people look at it
+	var/list/viewing_ui = list()
 /obj/item/weapon/paper/New(loc, text,title)
 	..(loc)
 	set_content(text ? text : info, title)
 
+	/// When the sheet can be "filled out"
+	/// This is an associated list
+	var/list/form_fields = list()
+	var/field_counter = 1
 /obj/item/weapon/paper/proc/set_content(text,title)
 	if(title)
 		SetName(title)
@@ -70,6 +127,22 @@
 	else
 		to_chat(user, "<span class='notice'>You have to go closer if you want to read it.</span>")
 
+/**
+ * This proc copies this sheet of paper to a new
+ * sheet,  Makes it nice and easy for carbon and
+ * the copyer machine
+ */
+/obj/item/paper/proc/copy()
+	var/obj/item/paper/N = new(arglist(args))
+	N.info = info
+	N.color = color
+	N.update_icon_state()
+	N.stamps = stamps
+	N.stamped = stamped.Copy()
+	N.form_fields = form_fields.Copy()
+	N.field_counter = field_counter
+	copy_overlays(N, TRUE)
+	return N
 /obj/item/weapon/paper/proc/show_content(mob/user, forceshow)
 	var/can_read = (istype(user, /mob/living/carbon/human) || isghost(user) || istype(user, /mob/living/silicon)) || forceshow
 	if(!forceshow && istype(user,/mob/living/silicon/ai))
@@ -78,6 +151,16 @@
 	user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[can_read ? info : stars(info)][stamps]</BODY></HTML>", "window=[name]")
 	onclose(user, "[name]")
 
+/**
+ * This proc sets the text of the paper and updates the
+ * icons.  You can modify the pen_color after if need
+ * be.
+ */
+/obj/item/paper/proc/setText(text)
+	info = text
+	form_fields = null
+	field_counter = 0
+	update_icon_state()
 /obj/item/weapon/paper/verb/rename()
 	set name = "Rename paper"
 	set category = "Object"
@@ -88,6 +171,11 @@
 		return
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null)  as text, MAX_NAME_LEN)
 
+/obj/item/paper/Initialize()
+	. = ..()
+	pixel_y = rand(-8, 8)
+	pixel_x = rand(-9, 9)
+	update_icon()
 	// We check loc one level up, so we can rename in clipboards and such. See also: /obj/item/weapon/photo/rename()
 	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0 && n_name)
 		SetName(n_name)
@@ -111,6 +199,9 @@
 			spawn(20)
 				spam_flag = 0
 
+/obj/item/paper/update_icon_state()
+	if(info && show_written_words)
+		icon_state = "[initial(icon_state)]_words"
 /obj/item/weapon/paper/attack_ai(var/mob/living/silicon/ai/user)
 	show_content(user)
 
@@ -120,6 +211,10 @@
 			"<span class='notice'> [user] holds up a paper and shows it to [M]. </span>")
 		M.examinate(src)
 
+/obj/item/paper/verb/rename()
+	set name = "Rename paper"
+	set category = "Object"
+	set src in usr
 	else if(user.zone_sel.selecting == BP_MOUTH) // lipstick wiping
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
@@ -159,6 +254,9 @@
 			else
 				iend = findtext(info, "</span>", istart)
 
+/obj/item/paper/suicide_act(mob/user)
+	user.visible_message("<span class='suicide'>[user] scratches a grid on [user.p_their()] wrist with the paper! It looks like [user.p_theyre()] trying to commit sudoku...</span>")
+	return (BRUTELOSS)
 			textindex = iend
 			break
 
@@ -172,6 +270,9 @@
 		info = before + text + after
 		updateinfolinks()
 
+/// ONLY USED FOR APRIL FOOLS
+/obj/item/paper/proc/reset_spamflag()
+	spam_flag = FALSE
 /obj/item/weapon/paper/proc/updateinfolinks()
 	info_links = info
 	var/i = 0
@@ -180,6 +281,13 @@
 	info_links = info_links + "<font face=\"[deffont]\"><A href='?src=\ref[src];write=end'>write</A></font>"
 
 
+/obj/item/paper/attack_self(mob/user)
+	if(rigged && (SSevents.holidays && SSevents.holidays[APRIL_FOOLS]))
+		if(!spam_flag)
+			spam_flag = TRUE
+			playsound(loc, 'sound/items/bikehorn.ogg', 50, TRUE)
+			addtimer(CALLBACK(src, .proc/reset_spamflag), 20)
+	. = ..()
 /obj/item/weapon/paper/proc/clearpaper()
 	info = null
 	stamps = null
@@ -194,6 +302,12 @@
 		return P.get_signature(user)
 	return (user && user.real_name) ? user.real_name : "Anonymous"
 
+/obj/item/paper/proc/clearpaper()
+	info = ""
+	stamps = null
+	LAZYCLEARLIST(stamped)
+	cut_overlays()
+	update_icon_state()
 /obj/item/weapon/paper/proc/parsepencode(t, obj/item/weapon/pen/P, mob/user, iscrayon, isfancy)
 	if(length(t) == 0)
 		return ""
@@ -201,6 +315,9 @@
 	if(findtext(t, "\[sign\]"))
 		t = replacetext(t, "\[sign\]", "<font face=\"[signfont]\"><i>[get_signature(P, user)]</i></font>")
 
+/obj/item/paper/examine_more(mob/user)
+	ui_interact(user)
+	return list("<span class='notice'><i>You try to read [src]...</i></span>")
 	if(iscrayon) // If it is a crayon, and he still tries to use these, make them empty!
 		t = replacetext(t, "\[*\]", "")
 		t = replacetext(t, "\[hr\]", "")
@@ -221,6 +338,17 @@
 	else
 		t = "<font face=\"[deffont]\" color=[P ? P.colour : "black"]>[t]</font>"
 
+/obj/item/paper/can_interact(mob/user)
+	if(!..())
+		return FALSE
+	// Are we on fire?  Hard ot read if so
+	if(resistance_flags & ON_FIRE)
+		return FALSE
+	// Even harder to read if your blind...braile? humm
+	if(user.is_blind())
+		return FALSE
+	// checks if the user can read.
+	return user.can_read(src)
 	t = pencode2html(t)
 
 	//Count the fields
@@ -232,9 +360,28 @@
 		laststart = i+1
 		fields++
 
+/**
+ * This creates the ui, since we are using a custom state but not much else
+ * just makes it easyer to make it.
+ */
+/obj/item/paper/proc/create_ui(mob/user, datum/ui_state/default/paper_state/state)
+	ui_interact(user, state = state)
 	return t
 
 
+/obj/item/proc/burn_paper_product_attackby_check(obj/item/I, mob/living/user, bypass_clumsy)
+	var/ignition_message = I.ignition_effect(src, user)
+	if(!ignition_message)
+		return
+	. = TRUE
+	if(!bypass_clumsy && HAS_TRAIT(user, TRAIT_CLUMSY) && prob(10) && Adjacent(user))
+		user.visible_message("<span class='warning'>[user] accidentally ignites [user.p_them()]self!</span>", \
+							"<span class='userdanger'>You miss [src] and accidentally light yourself on fire!</span>")
+		if(user.is_holding(I)) //checking if they're holding it in case TK is involved
+			user.dropItemToGround(I)
+		user.adjust_fire_stacks(1)
+		user.IgniteMob()
+		return
 /obj/item/weapon/paper/proc/burnpaper(obj/item/weapon/flame/P, mob/user)
 	var/class = "warning"
 
@@ -295,13 +442,42 @@
 		if(istype(i, /obj/item/weapon/pen/fancy))
 			isfancy = 1
 
+/obj/item/paper/ui_assets(mob/user)
+	return list(
+		get_asset_datum(/datum/asset/spritesheet/simple/paper),
+	)
 
+/obj/item/paper/ui_interact(mob/user, datum/tgui/ui,
+		datum/ui_state/default/paper_state/state)
+	// Update the state
+	ui = ui || SStgui.get_open_ui(user, src)
+	if(ui && state)
+		var/datum/ui_state/default/paper_state/current_state = ui.state
+		current_state.copy_from(state)
+	// Update the UI
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "PaperSheet", name)
+		state = new
+		ui.set_state(state)
+		ui.set_autoupdate(FALSE)
+		viewing_ui[user] = ui
+		ui.open()
+
+/obj/item/paper/ui_close(mob/user)
+	/// close the editing window and change the mode
+	viewing_ui[user] = null
+	. = ..()
 		// if paper is not in usr, then it must be near them, or in a clipboard or folder, which must be in or near usr
 		if(src.loc != usr && !src.Adjacent(usr) && !((istype(src.loc, /obj/item/weapon/clipboard) || istype(src.loc, /obj/item/weapon/folder)) && (src.loc.loc == usr || src.loc.Adjacent(usr)) ) )
 			return
 
 		var/last_fields_value = fields
 
+// Again, we have to do this as autoupdate is off
+/obj/item/paper/proc/update_all_ui()
+	for(var/datum/tgui/ui in viewing_ui)
+		ui.process(force = TRUE)
 		t = parsepencode(t, i, usr, iscrayon, isfancy) // Encode everything from pencode to html
 
 
@@ -330,6 +506,8 @@
 	if(user.mind && (user.mind.assigned_role == "Clown"))
 		clown = 1
 
+/obj/item/paper/ui_act(action, params, datum/tgui/ui, datum/ui_state/default/paper_state/state)
+	if(..())
 	if(istype(P, /obj/item/weapon/tape_roll))
 		var/obj/item/weapon/tape_roll/tape = P
 		tape.stick(src, user)
