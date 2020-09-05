@@ -39,8 +39,7 @@
 		/obj/machinery/sleeper,
 		/obj/machinery/smartfridge/,
 		/obj/machinery/biogenerator,
-		/obj/machinery/constructable_frame,
-		/obj/machinery/radiocarbon_spectrometer
+		/obj/machinery/constructable_frame
 	)
 
 /obj/item/weapon/reagent_containers/glass/New()

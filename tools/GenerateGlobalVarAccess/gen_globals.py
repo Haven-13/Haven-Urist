@@ -42,17 +42,17 @@ def main():
 	if not os.access(namespace.projectfile, os.F_OK):
 		print("Unable to access file, aborting.")
 		return;
-		
+
 	print("Beginning global var generation...")
 
 	tree = ""
 	if namespace.projectfile[-4:] == ".txt":
-		with open(namespace.projectfile, "r") as f:
+		with open(namespace.projectfile, "r", encoding="latin-1") as f:
 			tree = f.read()
 
 	else:
 		tree = CompileFile(namespace.projectfile)
-		with open("dump.txt", "wt") as f:
+		with open("dump.txt", "wt", encoding="latin-1") as f:
 			f.write(tree)
 
 
@@ -65,14 +65,14 @@ def main():
 
 	variables.sort()
 	code = GenCode(variables)
-	
+
 	with open(namespace.outfile, 'wb') as outfile:
 		outfile.write(code.encode('utf-8'))
-	
+
 	hash = GenerateMD5(namespace.outfile)
 	print("Global var generation complete. MD5 is: " + hash)
-	
-	
+
+
 def GenerateMD5(fname):
     hash_md5 = hashlib.md5()
     with open(fname, "rb") as f:
@@ -83,7 +83,7 @@ def GenerateMD5(fname):
 def CompileFile(filename):
 	compiler_path = FindCompiler()
 
-	return subprocess.check_output([compiler_path, "-code_tree", filename], universal_newlines=True)
+	return subprocess.check_output([compiler_path, "-code_tree", filename]).decode(encoding="latin-1")
 
 def FindCompiler():
 	compiler_path = None;
@@ -140,7 +140,7 @@ def ParseTree(tree):
 	for index, line in enumerate(lines):
 		# Root level
 		node = line.split(" ", 1)[0].strip()
-		
+
 		indent = line.count("\t")
 
 		# We're skipping some levels.

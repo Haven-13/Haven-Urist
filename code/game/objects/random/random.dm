@@ -985,8 +985,6 @@ something, make sure it's not in one of the other lists.*/
 				/obj/item/weapon/storage/box/monkeycubes/farwacubes = 4,
 				/obj/item/weapon/storage/firstaid/surgery = 4,
 				/obj/item/weapon/cell/infinite = 1,
-				/obj/item/weapon/archaeological_find = 2,
-				/obj/machinery/artifact = 1,
 				/obj/item/device/multitool/hacktool = 2,
 				/obj/item/weapon/surgicaldrill = 7,
 				/obj/item/weapon/FixOVein = 7,
