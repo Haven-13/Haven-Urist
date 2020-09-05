@@ -164,13 +164,11 @@ function find_code_deps {
     need_cmd grep
     need_cmd awk
     need_cmd md5sum
-    need_cmd python2
     need_cmd python3
     need_cmd pip
 }
 
 function find_icon_deps {
-    need_cmd python2
     need_cmd python3
 }
 
@@ -211,15 +209,15 @@ function run_code_quality_tests {
     run_test_fail "no invalid spans" "grep -En \"<\s*span\s+class\s*=\s*('[^'>]+|[^'>]+')\s*>\" **/*.dm"
     run_test "code quality checks" "./.travis/check-paths.sh"
     run_test "indentation check" "awk -f ./.travis/indentation.awk **/*.dm"
-    run_test "check tags" "python2 ./tools/TagMatcher/tag-matcher.py ."
+    run_test "check tags" "python3 ./tools/TagMatcher/tag-matcher.py ."
     run_test "check color hex" "python3 ./tools/ColorHexChecker/color-hex-checker.py ."
-    run_test "check punctuation" "python2 ./tools/PunctuationChecker/punctuation-checker.py ."
+    run_test "check punctuation" "python3 ./tools/PunctuationChecker/punctuation-checker.py ."
 }
 
 function run_icon_validity_tests {
     msg "*** Running Icon Validity Checks ***"
     find_icon_deps
-    run_test "check icon state limit" "python2 ./tools/dmitool/check_icon_state_limit.py ."
+    run_test "check icon state limit" "python3 ./tools/dmitool/check_icon_state_limit.py ."
 }
 
 function run_web_tests {
@@ -245,7 +243,7 @@ function run_byond_tests {
     fi
     cp config/example/* config/
 
-    run_test_ci "check globals build" "python ./tools/GenerateGlobalVarAccess/gen_globals.py $TARGET_PROJECT_NAME.dme code/_helpers/global_access.dm"
+    run_test_ci "check globals build" "python3 ./tools/GenerateGlobalVarAccess/gen_globals.py $TARGET_PROJECT_NAME.dme code/_helpers/global_access.dm"
 #    run_test "check globals unchanged" "md5sum -c - <<< '5eaa581969e84a62c292a7015fee8960 *code/_helpers/global_access.dm'"
     run_test "build map unit tests" "./.travis/dm.sh -DUNIT_TEST -M$MAP_PATH $TARGET_PROJECT_NAME.dme"
     run_test "check no warnings in build" "grep ', 0 warnings' build_log.txt"

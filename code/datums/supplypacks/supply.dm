@@ -80,13 +80,6 @@
 	containername = "\improper Snack foods crate"
 	supply_method = /decl/supply_method/randomized
 
-/decl/hierarchy/supply_pack/supply/coolanttank
-	name = "Liquid - Coolant tank crate"
-	contains = list(/obj/structure/reagent_dispensers/coolanttank)
-	cost = 16
-	containertype = /obj/structure/largecrate
-	containername = "\improper coolant tank crate"
-
 /decl/hierarchy/supply_pack/supply/fueltank
 	name = "Liquid - Fuel tank crate"
 	contains = list(/obj/structure/reagent_dispensers/fueltank)

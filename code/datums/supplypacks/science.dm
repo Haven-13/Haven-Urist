@@ -18,13 +18,6 @@
 	containername = "\improper Virus sample crate"
 	access = access_cmo
 
-/decl/hierarchy/supply_pack/science/coolanttank
-	name = "Liquid - Coolant tank crate"
-	contains = list(/obj/structure/reagent_dispensers/coolanttank)
-	cost = 16
-	containertype = /obj/structure/largecrate
-	containername = "\improper coolant tank crate"
-
 /decl/hierarchy/supply_pack/science/mecha_odysseus
 	name = "Electronics - Circuit Crate (\"Odysseus\")"
 	contains = list(/obj/item/weapon/circuitboard/mecha/odysseus/peripherals, //TEMPORARY due to lack of circuitboard printer,

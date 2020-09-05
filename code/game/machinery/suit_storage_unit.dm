@@ -111,16 +111,6 @@
 	helmet_type = /obj/item/clothing/head/helmet/space/void/mining/alt
 	mask_type = /obj/item/clothing/mask/breath
 
-/obj/machinery/suit_storage_unit/science
-	name = "Excavation Voidsuit Storage Unit"
-	suit_type = /obj/item/clothing/suit/space/void/excavation
-	helmet_type = /obj/item/clothing/head/helmet/space/void/excavation
-	boots_type = /obj/item/clothing/shoes/magboots
-	tank_type = /obj/item/weapon/tank/oxygen
-	mask_type = /obj/item/clothing/mask/breath
-	req_access = list(access_xenoarch)
-	islocked = 1
-
 /obj/machinery/suit_storage_unit/security
 	name = "Security Voidsuit Storage Unit"
 	suit_type = /obj/item/clothing/suit/space/void/security
