@@ -45,3 +45,8 @@
   - bugfix: Fixed the grass having ugly-ass sprites
   - imageadd: Grass sprites from CEV-Eris replace the old one
   - imageadd: Added potted plants from Goonstation, to be yet used
+2020-09-05:
+  martinlyra:
+  - rscdel: Removed Xenoarcheology and all features related to it.
+  - rscadd: Added bugs to fill in the void left by Xenoarcheology
+  - code_imp: Updated gen_globals.py to work on newer versions of Python
