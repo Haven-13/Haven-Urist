@@ -155,8 +155,6 @@
 			return global.SSwebhooks;
 		if("SSwireless")
 			return global.SSwireless;
-		if("SSxenoarch")
-			return global.SSxenoarch;
 		if("SWEDEBLOCK")
 			return global.SWEDEBLOCK;
 		if("Tier1Runes")
@@ -475,8 +473,6 @@
 			return global.file_uid;
 		if("fileaccess_timer")
 			return global.fileaccess_timer;
-		if("finds_as_strings")
-			return global.finds_as_strings;
 		if("fire_alarm")
 			return global.fire_alarm;
 		if("flesh_hud_colours")
@@ -839,8 +835,6 @@
 			return global.req_console_supplies;
 		if("respawntime")
 			return global.respawntime;
-		if("responsive_carriers")
-			return global.responsive_carriers;
 		if("restricted_camera_networks")
 			return global.restricted_camera_networks;
 		if("revdata")
@@ -1069,6 +1063,8 @@
 			return global.weighted_mundaneevent_locations;
 		if("weighted_randomevent_locations")
 			return global.weighted_randomevent_locations;
+		if("white_background")
+			return global.white_background;
 		if("whitelist")
 			return global.whitelist;
 		if("whitelisted_species")
@@ -1246,8 +1242,6 @@
 			global.SSwebhooks=newval;
 		if("SSwireless")
 			global.SSwireless=newval;
-		if("SSxenoarch")
-			global.SSxenoarch=newval;
 		if("SWEDEBLOCK")
 			global.SWEDEBLOCK=newval;
 		if("Tier1Runes")
@@ -1566,8 +1560,6 @@
 			global.file_uid=newval;
 		if("fileaccess_timer")
 			global.fileaccess_timer=newval;
-		if("finds_as_strings")
-			global.finds_as_strings=newval;
 		if("fire_alarm")
 			global.fire_alarm=newval;
 		if("flesh_hud_colours")
@@ -1930,8 +1922,6 @@
 			global.req_console_supplies=newval;
 		if("respawntime")
 			global.respawntime=newval;
-		if("responsive_carriers")
-			global.responsive_carriers=newval;
 		if("restricted_camera_networks")
 			global.restricted_camera_networks=newval;
 		if("revdata")
@@ -2160,6 +2150,8 @@
 			global.weighted_mundaneevent_locations=newval;
 		if("weighted_randomevent_locations")
 			global.weighted_randomevent_locations=newval;
+		if("white_background")
+			global.white_background=newval;
 		if("whitelist")
 			global.whitelist=newval;
 		if("whitelisted_species")
@@ -2259,7 +2251,6 @@
 	"SSweather",
 	"SSwebhooks",
 	"SSwireless",
-	"SSxenoarch",
 	"SWEDEBLOCK",
 	"Tier1Runes",
 	"Tier2Runes",
@@ -2419,7 +2410,6 @@
 	"failed_unit_tests",
 	"file_uid",
 	"fileaccess_timer",
-	"finds_as_strings",
 	"fire_alarm",
 	"flesh_hud_colours",
 	"floorIsLava",
@@ -2601,7 +2591,6 @@
 	"req_console_information",
 	"req_console_supplies",
 	"respawntime",
-	"responsive_carriers",
 	"restricted_camera_networks",
 	"revdata",
 	"robot_custom_icons",
@@ -2716,6 +2705,7 @@
 	"wax_recipes",
 	"weighted_mundaneevent_locations",
 	"weighted_randomevent_locations",
+	"white_background",
 	"whitelist",
 	"whitelisted_species",
 	"wireColours",

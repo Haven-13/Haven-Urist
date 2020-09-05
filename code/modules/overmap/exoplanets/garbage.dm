@@ -62,10 +62,6 @@
 			var/datum/radiation_source/S = new(T, 2*fallout, FALSE)
 			S.range = 4
 			SSradiation.add_source(S)
-		if(prob(0.02))
-			var/datum/artifact_find/A = new()
-			new A.artifact_find_type(T)
-			qdel(A)
 
 /datum/random_map/noise/exoplanet/garbage/apply_to_map()
 	..()

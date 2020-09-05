@@ -253,7 +253,7 @@
 
 /decl/hierarchy/outfit/nanotrasensci/exec/armed
 	name = "NT Senior Scientist - Armed"
-	backpack_contents = list(/obj/random/energy, /obj/item/weapon/archaeological_find)
+	backpack_contents = list(/obj/random/energy)
 
 /decl/hierarchy/outfit/vaultrich
 	name = "Banker"

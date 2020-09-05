@@ -222,11 +222,6 @@ Sells devices, odds and ends, and medical stuff
 								/obj/item/device/camera                    = TRADER_THIS_TYPE,
 								/obj/item/device/destTagger                = TRADER_THIS_TYPE,
 								/obj/item/device/gps                       = TRADER_THIS_TYPE,
-								/obj/item/device/measuring_tape            = TRADER_THIS_TYPE,
-								/obj/item/device/ano_scanner               = TRADER_THIS_TYPE,
-								/obj/item/device/core_sampler              = TRADER_THIS_TYPE,
-								/obj/item/device/depth_scanner             = TRADER_THIS_TYPE,
-								/obj/item/weapon/pinpointer/radio            = TRADER_THIS_TYPE,
 								/obj/item/device/antibody_scanner          = TRADER_THIS_TYPE,
 								/obj/item/stack/medical/advanced           = TRADER_BLACKLIST)
 	speech = list("hail_generic"    = "Hello, hello! Bits and bobs and everything in between, I hope you find what you're looking for!",
