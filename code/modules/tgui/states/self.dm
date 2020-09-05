@@ -1,10 +1,3 @@
-<<<<<<< HEAD
- /**
-  * tgui state: self_state
-  *
-  * Only checks that the user and src_object are the same.
- **/
-=======
 /**
  * tgui state: self_state
  *
@@ -13,7 +6,6 @@
  * Copyright (c) 2020 Aleksej Komarov
  * SPDX-License-Identifier: MIT
  */
->>>>>>> 0cf00a2... tgui 4.0 (#52085)
 
 /var/global/datum/ui_state/self_state/tg_self_state = new()
 

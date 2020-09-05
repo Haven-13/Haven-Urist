@@ -1,10 +1,3 @@
-<<<<<<< HEAD
- /**
-  * tgui state: not_incapacitated_state
-  *
-  * Checks that the user isn't incapacitated
- **/
-=======
 /**
  * tgui state: not_incapacitated_state
  *
@@ -13,7 +6,6 @@
  * Copyright (c) 2020 Aleksej Komarov
  * SPDX-License-Identifier: MIT
  */
->>>>>>> 0cf00a2... tgui 4.0 (#52085)
 
 /var/global/datum/ui_state/not_incapacitated_state/tg_not_incapacitated_state = new()
 

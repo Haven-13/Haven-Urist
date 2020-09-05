@@ -1,10 +1,3 @@
-<<<<<<< HEAD
- /**
-  * tgui state: admin_state
-  *
-  * Checks that the user is an admin, end-of-story.
- **/
-=======
 /**
  * tgui state: admin_state
  *
@@ -13,7 +6,6 @@
  * Copyright (c) 2020 Aleksej Komarov
  * SPDX-License-Identifier: MIT
  */
->>>>>>> 0cf00a2... tgui 4.0 (#52085)
 
 /var/global/datum/ui_state/admin_state/tg_admin_state = new()
 

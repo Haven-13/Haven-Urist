@@ -1,10 +1,3 @@
-<<<<<<< HEAD
- /**
-  * tgui state: physical_state
-  *
-  * Short-circuits the default state to only check physical distance.
- **/
-=======
 /**
  * tgui state: physical_state
  *
@@ -13,7 +6,6 @@
  * Copyright (c) 2020 Aleksej Komarov
  * SPDX-License-Identifier: MIT
  */
->>>>>>> 0cf00a2... tgui 4.0 (#52085)
 
 /var/global/datum/ui_state/physical/tg_physical_state = new()
 

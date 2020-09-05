@@ -1,10 +1,3 @@
-<<<<<<< HEAD
- /**
-  * tgui state: default_state
-  *
-  * Checks a number of things -- mostly physical distance for humans and view for robots.
- **/
-=======
 /**
  * tgui state: default_state
  *
@@ -14,7 +7,6 @@
  * Copyright (c) 2020 Aleksej Komarov
  * SPDX-License-Identifier: MIT
  */
->>>>>>> 0cf00a2... tgui 4.0 (#52085)
 
 /var/global/datum/ui_state/default/tg_default_state = new()
 

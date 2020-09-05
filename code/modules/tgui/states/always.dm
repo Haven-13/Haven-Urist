@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /**
  * tgui state: always_state
  *
@@ -8,7 +6,6 @@
  * Copyright (c) 2020 Aleksej Komarov
  * SPDX-License-Identifier: MIT
  */
->>>>>>> 0cf00a2... tgui 4.0 (#52085)
 
  /**
   * tgui state: always_state

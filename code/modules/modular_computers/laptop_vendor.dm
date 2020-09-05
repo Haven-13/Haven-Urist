@@ -270,14 +270,6 @@
 		return
 	return ..()
 
-// Simplified payment processing, returns 1 on success.
-/obj/machinery/lapvend/proc/process_payment()
-	if(total_price > credits)
-		say("Insufficient credits.")
-		return FALSE
-	else
-		return TRUE
-
 /obj/machinery/lapvend/ui_data(mob/user)
 
 	var/list/data = list()
