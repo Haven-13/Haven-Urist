@@ -52,6 +52,7 @@ GLOBAL_LIST_EMPTY(asset_datums)
 	. = list()
 	for (var/asset_name in assets)
 		.[asset_name] = SSassets.transport.get_asset_url(asset_name, assets[asset_name])
+		testing("[asset_name] -> [.[asset_name]]")
 
 /datum/asset/simple/send(client)
 	. = SSassets.transport.send_assets(client, assets)

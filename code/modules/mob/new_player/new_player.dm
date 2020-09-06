@@ -64,6 +64,9 @@
 
 	output += "</div>"
 
+	testing("Ref: \ref[src]")
+	testing(output)
+
 	panel = new(src, "Welcome","Welcome", 210, 280, src)
 	panel.set_window_options("can_close=0")
 	panel.set_content(output)
@@ -95,7 +98,6 @@
 				if(player.ready)totalPlayersReady++
 
 /mob/new_player/Topic(href, href_list[])
-	testing("Hello there! Hello there!")
 	if(!client)	return 0
 
 	if(href_list["show_preferences"])
