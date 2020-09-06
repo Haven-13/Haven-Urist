@@ -1,5 +1,9 @@
 /var/default_server_name = "SpaceUrist McDefaultStation 12"
 
+#define RESTART_COUNTER_PATH "data/round_counter.txt"
+
+GLOBAL_VAR(restart_counter)
+
 /var/game_id = null
 /hook/global_init/proc/generate_gameid()
 	if(game_id != null)
@@ -73,6 +77,8 @@
 		name = default_server_name
 	name += " - [GLOB.using_map.full_name]"
 
+	TgsNew(minimum_required_security_level = TGS_SECURITY_TRUSTED)
+
 	//logs
 	SetupLogs()
 	var/date_string = time2text(world.realtime, "YYYY/MM/DD")
@@ -80,6 +86,9 @@
 	diary = file("data/logs/[date_string].log")
 	diary << "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [time2text(world.timeofday, "hh:mm.ss")][log_end]\n---------------------[log_end]"
 	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
+	if(fexists(RESTART_COUNTER_PATH))
+		GLOB.restart_counter = text2num(trim(file2text(RESTART_COUNTER_PATH)))
+		fdel(RESTART_COUNTER_PATH)
 
 	if(byond_version < RECOMMENDED_VERSION)
 		world.log << "Your server's byond version does not meet the recommended requirements for this server. Please update BYOND"
@@ -104,11 +113,14 @@
 	Master.Initialize(10, FALSE)
 
 #undef RECOMMENDED_VERSION
+	TgsInitializationComplete()
 
 var/world_topic_spam_protect_ip = "0.0.0.0"
 var/world_topic_spam_protect_time = world.timeofday
 
 /world/Topic(T, addr, master, key)
+	TGS_TOPIC	//redirect to server tools if necessary
+
 	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key][log_end]"
 
 	if (T == "ping")
@@ -458,6 +470,8 @@ var/world_topic_spam_protect_time = world.timeofday
 
 	Master.Shutdown()
 
+	TgsReboot()
+
 	if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 		for(var/client/C in GLOB.clients)
 			to_chat(C, link("byond://[config.server]"))
@@ -466,6 +480,26 @@ var/world_topic_spam_protect_time = world.timeofday
 		text2file("foo", "reboot_called")
 		to_world("<span class=danger>World reboot waiting for external scripts. Please be patient.</span>")
 		return
+
+	if(TgsAvailable())
+		var/do_hard_reboot
+		// check the hard reboot counter
+		var/ruhr = config.rounds_until_hard_restart
+		switch(ruhr)
+			if(-1)
+				do_hard_reboot = FALSE
+			if(0)
+				do_hard_reboot = TRUE
+			else
+				if(GLOB.restart_counter >= ruhr)
+					do_hard_reboot = TRUE
+				else
+					text2file("[++GLOB.restart_counter]", RESTART_COUNTER_PATH)
+					do_hard_reboot = FALSE
+
+		if(do_hard_reboot)
+			log_world("World hard rebooted at [time_stamp()]")
+			TgsEndProcess()
 
 	..(reason)
 
@@ -498,7 +532,9 @@ var/world_topic_spam_protect_time = world.timeofday
 
 /world/proc/load_motd()
 	join_motd = file2text("config/motd.txt")
-
+	var/tm_info = revdata.GetTestMergeInfo()
+	if(join_motd || tm_info)
+		join_motd = join_motd ? "[join_motd]<br>[tm_info]" : tm_info
 
 /proc/load_configuration()
 	config = new /datum/configuration()

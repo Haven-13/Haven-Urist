@@ -12,12 +12,21 @@
 /proc/send2mainirc(var/msg)
 	if(config.main_irc)
 		send2irc(config.main_irc, msg)
+	else if(world.TgsAvailable())
+		send2tgs("Server", msg, FALSE)
 	return
 
 /proc/send2adminirc(var/msg)
 	if(config.admin_irc)
 		send2irc(config.admin_irc, msg)
+	else if(world.TgsAvailable())
+		send2tgs("Server", msg, TRUE)
 	return
+
+/proc/send2tgs(msg,msg2,admin)
+	msg = replacetext(replacetext(msg, "\proper", ""), "\improper", "")
+	msg2 = replacetext(replacetext(msg2, "\proper", ""), "\improper", "")
+	world.TgsTargetedChatBroadcast("[msg] | [msg2]", admin)
 
 /proc/adminmsg2adminirc(client/source, client/target, msg)
 	if(config.admin_irc)

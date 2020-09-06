@@ -225,6 +225,8 @@ var/list/gamemode_cache = list()
 
 	var/allow_ic_printing = TRUE //Whether players should be allowed to print IC circuits from scripts.
 
+	var/rounds_until_hard_restart //Rounds until TGS will hard restart DD
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -752,6 +754,8 @@ var/list/gamemode_cache = list()
 					player_limit = text2num(value)
 				if("hub")
 					world.update_hub_visibility()
+				if("rounds_until_hard_restart")
+					rounds_until_hard_restart = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
