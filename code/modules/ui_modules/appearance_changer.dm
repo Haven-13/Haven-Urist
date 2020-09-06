@@ -18,7 +18,7 @@
 	src.whitelist = species_whitelist
 	src.blacklist = species_blacklist
 
-/datum/ui_module/appearance_changer/Topic(ref, href_list, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/appearance_changer/Topic(ref, href_list, var/datum/ui_state/state = ui_default_state())
 	if(..())
 		return 1
 

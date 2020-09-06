@@ -94,7 +94,8 @@
 	)
 
 /obj/item/radio/intercom/ui_state(mob/user)
-	return GLOB.default_state
+	return ui_default_state()
+
 /obj/item/device/radio/intercom/syndicate
 	name = "illicit intercom"
 	desc = "Talk through this. Evilly."

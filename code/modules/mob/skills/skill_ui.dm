@@ -192,8 +192,8 @@ Admin version, with debugging options.
 /datum/ui_module/skill_ui/admin
 	template = "skill_ui_admin.tmpl"
 
-/datum/ui_module/skill_ui/admin/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = ui_admin_state())
-	..() //Uses different default state.
+/datum/ui_module/skill_ui/admin/ui_state()
+	return ui_admin_state()
 
 /datum/ui_module/skill_ui/admin/get_data()
 	. = ..()

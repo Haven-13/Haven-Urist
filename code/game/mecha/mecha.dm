@@ -319,8 +319,8 @@
 		return 1
 	return 0
 
-/obj/mecha/contents_nano_distance(var/src_object, var/mob/living/user)
-	. = user.shared_living_nano_distance(src_object) //allow them to interact with anything they can interact with normally.
+/obj/mecha/contents_ui_distance(var/src_object, var/mob/living/user)
+	. = user.shared_living_ui_distance(src_object) //allow them to interact with anything they can interact with normally.
 	if(. != STATUS_INTERACTIVE)
 		//Allow interaction with the mecha or anything that is part of the mecha
 		if(src_object == src || (src_object in src))

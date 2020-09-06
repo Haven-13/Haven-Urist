@@ -20,12 +20,7 @@
 
 	ui_interact(user)
 
-/obj/machinery/computer/shuttle_control/ui_data(mob/user)
-	var/datum/shuttle/autodock/shuttle = SSshuttle.shuttles[shuttle_tag]
-	if (!istype(shuttle))
-		to_chat(user,"<span class='warning'>Unable to establish link with the shuttle.</span>")
-		return list()
-
+/obj/machinery/computer/shuttle_control/proc/get_shuttle_ui_data(var/datum/shuttle/autodock/shuttle)
 	var/shuttle_state
 	switch(shuttle.moving_status)
 		if(SHUTTLE_IDLE) shuttle_state = "idle"
@@ -58,6 +53,15 @@
 		"can_force" = shuttle.can_force(),
 		"docking_codes" = shuttle.docking_codes
 	)
+
+/obj/machinery/computer/shuttle_control/ui_data(mob/user)
+	var/datum/shuttle/autodock/shuttle = SSshuttle.shuttles[shuttle_tag]
+
+	if (!istype(shuttle))
+		to_chat(user,"<span class='warning'>Unable to establish link with the shuttle.</span>")
+		return list()
+
+	return get_shuttle_ui_data(shuttle)
 
 /obj/machinery/computer/shuttle_control/proc/handle_topic_href(var/datum/shuttle/autodock/shuttle, var/list/href_list, var/user)
 	if(!istype(shuttle))

@@ -102,10 +102,10 @@ obj/machinery/resleever/Process()
 	return ..()
 
 
-/obj/machinery/resleever/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = 0, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
+/obj/machinery/resleever/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, ui_key, "resleever", "Neural Lace Resleever", 300, 300, master_ui, state)
+		ui = new(user, src, "Resleever")
 		ui.open()
 
 /obj/machinery/resleever/ui_data()

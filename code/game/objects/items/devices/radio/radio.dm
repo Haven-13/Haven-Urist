@@ -734,6 +734,12 @@
 	. = ..()
 
 /obj/item/device/radio/borg/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "RadioBasic")
+		ui.open()
+
+/obj/item/device/radio/borg/ui_data(mob/user)
 	var/data[0]
 
 	data["mic_status"] = broadcasting
@@ -754,11 +760,7 @@
 	data["has_subspace"] = 1
 	data["subspace"] = subspace_transmission
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, ui_key, "radio_basic.tmpl", "[name]", 400, 430)
-
-		ui.open()
+	return data
 
 /obj/item/device/radio/proc/config(op)
 	if(radio_controller)

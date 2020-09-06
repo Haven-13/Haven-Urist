@@ -47,6 +47,9 @@
 		if (MED_HUD)
 			process_med_hud(src,0,src.eyeobj)
 
+/mob/living/silicon/ai/proc/lacks_power()
+	return !has_power(0)
+
 /mob/living/silicon/ai/update_living_sight()
 	if(!has_power() || self_shutdown)
 		update_icon()

@@ -229,8 +229,6 @@
 			return global.ai_status_emotions;
 		if("ai_verbs_default")
 			return global.ai_verbs_default;
-		if("air_alarm_topic")
-			return global.air_alarm_topic;
 		if("air_blocked")
 			return global.air_blocked;
 		if("airlock_overlays")
@@ -285,8 +283,6 @@
 			return global.ascii_yellow;
 		if("asset_cache")
 			return global.asset_cache;
-		if("asset_datums")
-			return global.asset_datums;
 		if("assigned")
 			return global.assigned;
 		if("assigned_blocks")
@@ -1284,8 +1280,6 @@
 			global.ai_status_emotions=newval;
 		if("ai_verbs_default")
 			global.ai_verbs_default=newval;
-		if("air_alarm_topic")
-			global.air_alarm_topic=newval;
 		if("air_blocked")
 			global.air_blocked=newval;
 		if("airlock_overlays")
@@ -1340,8 +1334,6 @@
 			global.ascii_yellow=newval;
 		if("asset_cache")
 			global.asset_cache=newval;
-		if("asset_datums")
-			global.asset_datums=newval;
 		if("assigned")
 			global.assigned=newval;
 		if("assigned_blocks")
@@ -2224,7 +2216,6 @@
 	"ai_list",
 	"ai_status_emotions",
 	"ai_verbs_default",
-	"air_alarm_topic",
 	"air_blocked",
 	"airlock_overlays",
 	"alien_whitelist",
@@ -2252,7 +2243,6 @@
 	"ascii_reset",
 	"ascii_yellow",
 	"asset_cache",
-	"asset_datums",
 	"assigned",
 	"assigned_blocks",
 	"atmosphere_alarm",

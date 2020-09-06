@@ -113,8 +113,8 @@
 	locked = 0
 	lockable = 0
 
-/obj/item/weapon/airlock_electronics/brace/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = 0, datum/tgui/master_ui = null, datum/ui_state/state = tg_deep_inventory_state)
-	SStgui.try_update_ui(user, src, ui_key, ui, force_open)
+/obj/item/weapon/airlock_electronics/brace/ui_interact(mob/user, datum/tgui/ui)
+	SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, ui_key, "airlock_electronics", src.name, 1000, 500, master_ui, state)
+		ui = new(user, src, "AirlockElectronics")
 		ui.open()

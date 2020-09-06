@@ -113,8 +113,13 @@
 /*
 	NANO UI FOR UPLINK WOOP WOOP
 */
-/obj/item/device/uplink/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/uistate = ui_inventory_state())
-	var/title = "Remote Uplink"
+/obj/item/device/uplink/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)	// No auto-refresh
+		ui = new(user, src, "Uplink")
+		ui.open()
+
+/obj/item/device/uplink/ui_data(mob/user)
 	var/data[0]
 
 	data["welcome"] = welcome
@@ -127,13 +132,7 @@
 
 	data += nanoui_data
 
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)	// No auto-refresh
-		ui = new(user, src, ui_key, "uplink.tmpl", title, 450, 600, state = uistate)
-
-		ui.open()
-
+	return data
 
 // Interaction code. Gathers a list of items purchasable from the paren't uplink and displays it. It also adds a lock button.
 /obj/item/device/uplink/interact(mob/user)
@@ -239,5 +238,5 @@
 	..()
 	hidden_uplink = new(src)
 
-/obj/item/device/uplink/contained/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/uistate = ui_contained_state())
+/obj/item/device/uplink/contained/ui_interact(mob/user, datum/tgui/ui)
 	return ..()

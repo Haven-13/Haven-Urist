@@ -62,6 +62,12 @@
 		signal.data["sigtype"]="status"
 		radio_connection.post_signal(src, signal, radio_filter = RADIO_ATMOSIA)
 
+
+/obj/machinery/air_sensor/proc/set_frequency(new_frequency)
+	radio_controller.remove_object(src, frequency)
+	frequency = new_frequency
+	radio_connection = radio_controller.add_object(src, frequency, RADIO_ATMOSIA)
+
 /obj/machinery/air_sensor/Initialize()
 	set_frequency(frequency)
 	. = ..()
@@ -522,7 +528,6 @@ Rate: [volume_rate] L/sec<BR>"}
 		)
 
 		radio_connection.post_signal(src, signal, radio_filter = RADIO_ATMOSIA)
-
 
 
 

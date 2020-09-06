@@ -36,7 +36,7 @@
 			var/obj/structure/deity/S = s
 			S.linked_god = null
 
-/mob/living/deity/shared_nano_interaction()
+/mob/living/deity/shared_ui_interaction()
 	if(stat == DEAD)
 		return STATUS_CLOSE
 	return STATUS_INTERACTIVE

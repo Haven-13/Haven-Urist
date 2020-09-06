@@ -22,12 +22,6 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "CrewMonitorProgram")
-
-		// adding a template with the key "mapContent" enables the map ui functionality
-		ui.add_template("mapContent", "crew_monitor_map_content.tmpl")
-		// adding a template with the key "mapHeader" replaces the map header content
-		ui.add_template("mapHeader", "crew_monitor_map_header.tmpl")
-
 		ui.open()
 
 /datum/ui_module/crew_monitor/ui_data(mob/user)

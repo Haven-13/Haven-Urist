@@ -24,12 +24,12 @@
 
 	if(isobserver(user))
 		// If they turn on ghost AI control, admins can always interact.
-		if(isAdminGhostAI(user))
+		if(is_admin(user))
 			. = max(., UI_INTERACTIVE)
 
 		// Regular ghosts can always at least view if in range.
 		if(user.client)
-			var/clientviewlist = getviewsize(user.client.view)
+			var/clientviewlist = get_view_size(user.client.view)
 			if(get_dist(src_object, user) < max(clientviewlist[1], clientviewlist[2]))
 				. = max(., UI_UPDATE)
 
@@ -70,11 +70,6 @@
 	else if(incapacitated())
 		return UI_UPDATE
 	return UI_INTERACTIVE
-
-/mob/living/shared_ui_interaction(src_object)
-	. = ..()
-	if(!(mobility_flags & MOBILITY_UI) && . == UI_INTERACTIVE)
-		return UI_UPDATE
 
 /mob/living/silicon/ai/shared_ui_interaction(src_object)
 	// Disable UIs if the AI is unpowered.
@@ -129,8 +124,3 @@
 		return UI_DISABLED
 	// Otherwise, we got nothing.
 	return UI_CLOSE
-
-/mob/living/carbon/human/shared_living_ui_distance(atom/movable/src_object, viewcheck = TRUE)
-	if(dna.check_mutation(TK) && tkMaxRangeCheck(src, src_object))
-		return UI_INTERACTIVE
-	return ..()

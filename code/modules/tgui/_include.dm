@@ -14,7 +14,7 @@
 #include "states/hands.dm"
 #include "states/human_adjacent.dm"
 #include "states/inventory.dm"
-#include "states/language_menu.dm"
+//#include "states/language_menu.dm"
 #include "states/not_contained.dm"
 #include "states/not_incapacitated.dm"
 #include "states/observer.dm"

@@ -505,10 +505,6 @@
 	var/data[0]
 	var/remote_connection = 0
 	var/remote_access = 0
-	if(state)
-		var/list/href = state.href_list(user)
-		remote_connection = href["remote_connection"]	// Remote connection means we're non-adjacent/connecting from another computer
-		remote_access = href["remote_access"]			// Remote access means we also have the privilege to alter the air alarm.
 
 	data["locked"] = locked && !issilicon(user)
 	data["remote_connection"] = remote_connection
@@ -639,7 +635,7 @@
 	. = shorted ? STATUS_DISABLED : STATUS_INTERACTIVE
 
 	if(. == STATUS_INTERACTIVE)
-		var/extra_href = state.href_list(user)
+		var/extra_href = list()
 		// Prevent remote users from altering RCON settings unless they already have access
 		if(href_list["rcon"] && extra_href["remote_connection"] && !extra_href["remote_access"])
 			. = STATUS_UPDATE
@@ -673,7 +669,7 @@
 		return TOPIC_REFRESH
 
 	// hrefs that need the AA unlocked -walter0o
-	var/extra_href = state.href_list(user)
+	var/extra_href = list()
 	if(!(locked && !extra_href["remote_connection"]) || extra_href["remote_access"] || issilicon(user))
 		if(href_list["command"])
 			var/device_id = href_list["id_tag"]

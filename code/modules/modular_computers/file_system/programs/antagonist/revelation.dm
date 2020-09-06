@@ -9,7 +9,6 @@
 	requires_ntnet = FALSE
 	available_on_ntnet = FALSE
 	available_on_syndinet = TRUE
-	tgui_id = "NtosRevelation"
 	var/armed = 0
 
 /datum/computer_file/program/revelation/run_program(var/mob/living/user)

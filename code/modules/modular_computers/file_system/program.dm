@@ -24,7 +24,6 @@
 	var/computer_emagged = 0						// Set to 1 if computer that's running us was emagged. Computer updates this every Process() tick
 	var/ui_header = null							// Example: "something.gif" - a header image that will be rendered in computer's UI when this program is running at background. Images are taken from /nano/images/status_icons. Be careful not to use too large images!
 	var/ntnet_speed = 0								// GQ/s - current network connectivity transfer rate
-	var/tgui_id										// Name of the tgui interface
 
 /datum/computer_file/program/New(var/obj/item/modular_computer/comp = null)
 	..()
@@ -171,46 +170,29 @@
 		NM = null
 	return 1
 
+// This is called every tick when the program is enabled. Ensure you do parent call if you override it. If parent returns 1 continue with UI initialisation.
+// It returns 0 if it can't run or if NanoModule was used instead. I suggest using NanoModules where applicable.
 /datum/computer_file/program/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui && tgui_id)
-		ui = new(user, src, tgui_id, filedesc)
-		ui.open()
-		ui.send_asset(get_asset_datum(/datum/asset/simple/headers))
+	if(program_state != PROGRAM_STATE_ACTIVE) // Our program was closed. Close the ui if it exists.
+		if(ui)
+			ui.close()
+		return computer.ui_interact(user)
+	if(istype(NM))
+		NM.ui_interact(user, null)
+		return 0
+	return 1
+
 
 // CONVENTIONS, READ THIS WHEN CREATING NEW PROGRAM AND OVERRIDING THIS PROC:
 // Topic calls are automagically forwarded from NanoModule this program contains.
 // Calls beginning with "PRG_" are reserved for programs handling.
 // Calls beginning with "PC_" are reserved for computer handling (by whatever runs the program)
 // ALWAYS INCLUDE PARENT CALL ..() OR DIE IN FIRE.
-/datum/computer_file/program/ui_act(action,list/params,datum/tgui/ui)
+/datum/computer_file/program/Topic(href, href_list)
 	if(..())
 		return 1
 	if(computer)
-		switch(action)
-			if("PC_exit")
-				computer.kill_program()
-				ui.close()
-				return 1
-			if("PC_shutdown")
-				computer.shutdown_computer()
-				ui.close()
-				return 1
-			if("PC_minimize")
-				var/mob/user = usr
-				if(!computer.active_program || !computer.all_components[MC_CPU])
-					return
-
-				computer.idle_threads.Add(computer.active_program)
-				program_state = PROGRAM_STATE_BACKGROUND // Should close any existing UIs
-
-				computer.active_program = null
-				computer.update_icon()
-				ui.close()
-
-				if(user && istype(user))
-					computer.ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.
-
+		return computer.Topic(href, href_list)
 
 // Relays the call to nano module, if we have one
 /datum/computer_file/program/proc/check_eye(var/mob/user)

@@ -36,7 +36,7 @@
 	if(!in_hack_mode || !attempt_hack(user, A)) //will still show the unable to hack message, oh well
 		return ..()
 
-	A.ui_interact(user, state = hack_state)
+	A.ui_interact(user)
 	return 1
 
 /obj/item/device/multitool/hacktool/proc/attempt_hack(var/mob/user, var/atom/target)
