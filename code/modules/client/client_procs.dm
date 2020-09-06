@@ -59,7 +59,7 @@
 		return
 
 	// Tgui Topic middleware
-	if(!tgui_Topic(href_list))
+	if(tgui_Topic(href_list))
 		return
 
 	// Admin PM
