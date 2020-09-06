@@ -38,8 +38,8 @@
 
 /mob/living/deity/shared_ui_interaction()
 	if(stat == DEAD)
-		return STATUS_CLOSE
-	return STATUS_INTERACTIVE
+		return UI_CLOSE
+	return UI_INTERACTIVE
 
 /mob/living/deity/Destroy()
 	death(0)

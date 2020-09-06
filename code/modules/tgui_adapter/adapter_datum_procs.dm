@@ -13,7 +13,7 @@
 	return state.can_use_topic(src_object, user)
 
 /datum/proc/CanInteract(user, state)
-	return (src.CanUseTopic(user, state) == STATUS_INTERACTIVE)
+	return (src.CanUseTopic(user, state) == UI_INTERACTIVE)
 
 /datum/proc/CanPhysicallyInteract(user)
 	return src.CanInteract(user, ui_physical_state())

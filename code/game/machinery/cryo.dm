@@ -150,7 +150,7 @@
 
 /obj/machinery/atmospherics/unary/cryo_cell/OnTopic(user, href_list)
 	if(user == occupant)
-		return STATUS_CLOSE
+		return UI_CLOSE
 	. = ..()
 
 /obj/machinery/atmospherics/unary/cryo_cell/OnTopic(user, href_list)

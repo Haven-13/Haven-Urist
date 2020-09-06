@@ -30,7 +30,7 @@
 
 /obj/structure/deity/blood_forge/CanUseTopic(var/user)
 	if(!linked_god || !linked_god.is_follower(user, silent = 1) || !ishuman(user))
-		return STATUS_CLOSE
+		return UI_CLOSE
 	return ..()
 
 /obj/structure/deity/blood_forge/OnTopic(var/user, var/list/href_list)

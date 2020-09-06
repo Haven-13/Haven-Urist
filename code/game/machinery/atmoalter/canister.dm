@@ -375,7 +375,7 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/CanUseTopic()
 	if(destroyed)
-		return STATUS_CLOSE
+		return UI_CLOSE
 	return ..()
 
 /obj/machinery/portable_atmospherics/canister/phoron/New()

@@ -140,7 +140,7 @@
 
 /obj/item/device/uplink/CanUseTopic()
 	if(!active)
-		return STATUS_CLOSE
+		return UI_CLOSE
 	return ..()
 
 // The purchasing code.

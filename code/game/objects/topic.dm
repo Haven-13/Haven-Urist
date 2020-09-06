@@ -5,7 +5,7 @@
 	if((. = ..()))
 		return
 	state = state || DefaultTopicState() || GLOB.tgui_default_state
-	if(CanUseTopic(usr, state, href_list) == STATUS_INTERACTIVE)
+	if(CanUseTopic(usr, state, href_list) == UI_INTERACTIVE)
 		CouldUseTopic(usr)
 		return OnTopic(usr, href_list, state)
 	CouldNotUseTopic(usr)
@@ -17,7 +17,7 @@
 /obj/CanUseTopic(var/mob/user, var/datum/ui_state/state, var/href_list)
 	if(user.CanUseObjTopic(src))
 		return ..()
-	return STATUS_CLOSE
+	return UI_CLOSE
 
 /mob/living/silicon/CanUseObjTopic(var/obj/O)
 	var/id = src.GetIdCard()

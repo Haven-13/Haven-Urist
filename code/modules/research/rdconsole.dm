@@ -162,7 +162,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		var/temp_screen = text2num(href_list["menu"])
 		if(!(temp_screen <= 1.1 || (3 <= temp_screen && 4.9 >= temp_screen) || allowed(usr) || emagged))
 			to_chat(usr, "Unauthorized Access.")
-			return STATUS_CLOSE
+			return UI_CLOSE
 	return ..()
 
 /obj/machinery/computer/rdconsole/OnTopic(user, href_list)

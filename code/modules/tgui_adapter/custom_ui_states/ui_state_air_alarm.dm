@@ -4,8 +4,8 @@
 
 /datum/ui_state/air_alarm/can_use_topic(var/src_object, var/mob/user)
 	if(has_access(user))
-		return STATUS_INTERACTIVE
-	return STATUS_UPDATE
+		return UI_INTERACTIVE
+	return UI_UPDATE
 
 /datum/ui_state/air_alarm/proc/href_list(var/mob/user)
 	var/list/extra_href = list()

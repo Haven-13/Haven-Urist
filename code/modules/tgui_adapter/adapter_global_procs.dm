@@ -32,7 +32,7 @@
 	return GLOB.tgui_admin_state
 
 /proc/CanInteractWith(datum/user, datum/target, state)
-	return (target.CanUseTopic(user, state) == STATUS_INTERACTIVE)
+	return (target.CanUseTopic(user, state) == UI_INTERACTIVE)
 
 /proc/CanPhysicallyInteractWith(user, target)
 	return CanInteractWith(user, target, ui_physical_state())

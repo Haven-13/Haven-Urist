@@ -87,7 +87,7 @@
 /obj/machinery/ai_slipper/CanUseTopic(user)
 	if(locked && !issilicon(user))
 		to_chat(user, "<span class='warning'>The control panel is locked!</span>")
-		return min(..(), STATUS_UPDATE)
+		return min(..(), UI_UPDATE)
 	return ..()
 
 /obj/machinery/ai_slipper/OnTopic(user, href_list)

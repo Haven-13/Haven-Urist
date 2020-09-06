@@ -39,7 +39,7 @@
 	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
 		var/area/thearea = input("Area to jump bombard", "Open Fire") as null|anything in teleportlocs
 		thearea = thearea ? teleportlocs[thearea] : thearea
-		if (!thearea || CanUseTopic(usr, ui_physical_state()) != STATUS_INTERACTIVE)
+		if (!thearea || CanUseTopic(usr, ui_physical_state()) != UI_INTERACTIVE)
 			return
 		if (src.reload < 180)
 			return

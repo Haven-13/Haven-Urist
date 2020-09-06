@@ -46,7 +46,7 @@ var/global/list/default_pai_software = list()
 /mob/living/silicon/pai/ui_interact(mob/user, datum/tgui/ui = null)
 /*
 	if(user != src)
-		if(ui) ui.set_status(STATUS_CLOSE, 0)
+		if(ui) ui.set_status(UI_CLOSE, 0)
 		return
 
 	if(ui_key != "main")
@@ -54,7 +54,7 @@ var/global/list/default_pai_software = list()
 		if(S && !S.toggle)
 			S.on_ui_interact(src, ui, force_open)
 		else
-			if(ui) ui.set_status(STATUS_CLOSE, 0)
+			if(ui) ui.set_status(UI_CLOSE, 0)
 		return
 */
 	ui = SStgui.try_update_ui(user, src, ui)

@@ -283,14 +283,14 @@
 /obj/machinery/disposal/CanUseTopic(user, state, href_list)
 	if(usr.loc == src)
 		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
-		return STATUS_CLOSE
+		return UI_CLOSE
 	if(isAI(user) && (href_list["handle"] || href_list["eject"]))
-		return min(STATUS_UPDATE, ..())
+		return min(UI_UPDATE, ..())
 	if(mode==-1 && !href_list["eject"]) // only allow ejecting if mode is -1
 		to_chat(user, "<span class='warning'>The disposal units power is disabled.</span>")
-		return min(STATUS_UPDATE, ..())
+		return min(UI_UPDATE, ..())
 	if(flushing)
-		return min(STATUS_UPDATE, ..())
+		return min(UI_UPDATE, ..())
 	return ..()
 
 /obj/machinery/disposal/OnTopic(user, href_list)

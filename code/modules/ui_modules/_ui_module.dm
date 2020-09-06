@@ -19,7 +19,7 @@
 	return host ? host : src
 
 /datum/ui_module/proc/can_still_topic(datum/ui_state/state = ui_default_state())
-	return CanUseTopic(usr, state) == STATUS_INTERACTIVE
+	return CanUseTopic(usr, state) == UI_INTERACTIVE
 
 /datum/ui_module/proc/check_eye(var/mob/user)
 	return -1
