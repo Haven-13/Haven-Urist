@@ -43,7 +43,7 @@
 	user << browse(dat, "window=freezegun;size=450x300;can_resize=1;can_close=1;can_minimize=1")
 	onclose(user, "window=freezegun", src)
 
-/obj/item/weapon/gun/energy/temperature/Topic(user, href_list, state = GLOB.inventory_state)
+/obj/item/weapon/gun/energy/temperature/Topic(user, href_list, state = ui_inventory_state())
 	..()
 
 /obj/item/weapon/gun/energy/temperature/OnTopic(user, href_list)

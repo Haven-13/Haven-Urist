@@ -37,6 +37,12 @@
 	. = ..()
 
 /datum/ui_module/deck_management/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "DeckManagementProgram")
+		ui.open()
+
+/datum/ui_module/deck_management/ui_data(mob/user)
 	var/list/data = host.initial_data()
 	var/logs = SSshuttle.shuttle_logs
 
@@ -116,12 +122,7 @@
 			data["mission_data"] = generate_mission_data(selected_mission)
 			data["view_only"] = can_view_only
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "deck_management.tmpl", name, 700, 800, state = state)
-		ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 //Checks that the selected shuttle is valid, and resets to home screen if not.
 /datum/ui_module/deck_management/proc/ensure_valid_shuttle()

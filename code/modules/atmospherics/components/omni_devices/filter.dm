@@ -93,19 +93,19 @@
 	return 1
 
 /obj/machinery/atmospherics/omni/filter/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "OmniFilter")
+		ui.open()
+
+/obj/machinery/atmospherics/omni/filter/ui_data(mob/user)
 	usr.set_machine(src)
 
 	var/list/data = new()
 
 	data = build_uidata()
 
-	ui = SStgui.try_update_ui(user, src, ui)
-
-	if (!ui)
-		ui = new(user, src, ui_key, "omni_filter.tmpl", "Omni Filter Control", 330, 330)
-		ui.set_initial_data(data)
-
-		ui.open()
+	return data
 
 /obj/machinery/atmospherics/omni/filter/proc/build_uidata()
 	var/list/data = new()

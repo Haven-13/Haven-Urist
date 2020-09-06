@@ -451,6 +451,12 @@
 
 // This is purely informational UI that may be accessed by AIs or robots
 /obj/machinery/power/supermatter/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "SupermatterCrystal")
+		ui.open()
+
+/obj/machinery/power/supermatter/ui_data(mob/user)
 	var/data[0]
 
 	data["integrity_percentage"] = round(get_integrity())
@@ -469,13 +475,7 @@
 	data["detonating"] = grav_pulling
 	data["energy"] = power
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "supermatter_crystal.tmpl", "Supermatter Crystal", 500, 300)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
-
+	return data
 
 /obj/machinery/power/supermatter/attackby(obj/item/weapon/W as obj, mob/living/user as mob)
 	if(istype(W, /obj/item/weapon/tape_roll))

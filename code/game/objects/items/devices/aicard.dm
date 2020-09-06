@@ -21,7 +21,13 @@
 
 	ui_interact(user)
 
-/obj/item/weapon/aicard/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.inventory_state)
+/obj/item/weapon/aicard/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, "AiCard")
+		ui.open()
+
+/obj/item/weapon/aicard/ui_data(mob/user)
 	var/data[0]
 	data["has_ai"] = carded_ai != null
 	if(carded_ai)
@@ -39,12 +45,7 @@
 		data["laws"] = laws
 		data["has_laws"] = laws.len
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "aicard.tmpl", "[name]", 600, 400, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/item/weapon/aicard/Topic(href, href_list, state)
 	if(..())
@@ -89,7 +90,7 @@
 		icon_state = "aicard"
 
 /obj/item/aicard/ui_state(mob/user)
-	return GLOB.hands_state
+	return ui_hands_state()
 
 /obj/item/aicard/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

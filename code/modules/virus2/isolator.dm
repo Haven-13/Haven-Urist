@@ -53,6 +53,12 @@
 /obj/machinery/disease2/isolator/ui_interact(mob/user, var/datum/tgui/ui)
 	user.set_machine(src)
 
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "PathogenicIsolator")
+		ui.open()
+
+/obj/machinery/disease2/isolator/ui_data(mob/user)
 	var/data[0]
 	data["syringe_inserted"] = !!sample
 	data["isolating"] = isolating
@@ -102,11 +108,7 @@
 					"name" = entry.fields["name"], \
 					"description" = replacetext(desc, "\n", ""))
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "pathogenic_isolator.tmpl", src.name, 400, 500)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /obj/machinery/disease2/isolator/Process()
 	if (isolating > 0)

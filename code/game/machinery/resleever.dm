@@ -94,7 +94,7 @@ obj/machinery/resleever/Process()
 		to_chat(usr, "\The [src] doesn't appear to function.")
 		return
 
-	tg_ui_interact(user)
+	ui_interact(user)
 
 /obj/machinery/resleever/ui_status(mob/user, datum/ui_state/state)
 	if(!anchored || inoperable())
@@ -102,7 +102,7 @@ obj/machinery/resleever/Process()
 	return ..()
 
 
-/obj/machinery/resleever/tg_ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = 0, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
+/obj/machinery/resleever/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = 0, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "resleever", "Neural Lace Resleever", 300, 300, master_ui, state)

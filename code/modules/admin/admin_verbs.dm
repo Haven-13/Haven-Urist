@@ -170,7 +170,6 @@ var/list/admin_verbs_server = list(
 	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/toggle_random_events,
 	/client/proc/check_customitem_activity,
-	/client/proc/nanomapgen_DumpImage,
 	/client/proc/load_event_map
 	)
 var/list/admin_verbs_debug = list(
@@ -733,7 +732,7 @@ var/list/admin_verbs_mentor = list(
 	if(!S) return
 
 	var/datum/ui_module/law_manager/L = new(S)
-	L.ui_interact(usr, state = GLOB.admin_state)
+	L.ui_interact(usr)
 	log_and_message_admins("has opened [S]'s law manager.")
 	feedback_add_details("admin_verb","MSL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -748,7 +747,7 @@ var/list/admin_verbs_mentor = list(
 	if(!H) return
 
 	log_and_message_admins("is altering the appearance of [H].")
-	H.change_appearance(APPEARANCE_ALL, usr, usr, check_species_whitelist = 0, state = GLOB.admin_state)
+	H.change_appearance(APPEARANCE_ALL, usr, usr, check_species_whitelist = 0, state = ui_admin_state())
 	feedback_add_details("admin_verb","CHAA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/change_human_appearance_self()

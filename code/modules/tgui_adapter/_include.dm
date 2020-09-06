@@ -2,4 +2,5 @@
 
 #include "adapter_datum_procs.dm"
 #include "adapter_mob_procs.dm"
-#include "adapter_ui_modules.dm"
+
+#include "custom_ui_states/ui_state_remote.dm"

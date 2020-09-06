@@ -98,7 +98,7 @@
 		data["useSyndMode"] = 1
 
 /obj/item/radio/ui_state(mob/user)
-	return GLOB.inventory_state
+	return ui_inventory_state()
 
 /obj/item/radio/ui_interact(mob/user, datum/tgui/ui, datum/ui_state/state)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -757,7 +757,7 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, ui_key, "radio_basic.tmpl", "[name]", 400, 430)
-		ui.set_initial_data(data)
+
 		ui.open()
 
 /obj/item/device/radio/proc/config(op)

@@ -495,7 +495,13 @@
 	ui_interact(user)
 	wires.Interact(user)
 
-/obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/alarm/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "AirAlarm")
+		ui.open()
+
+/obj/machinery/alarm/ui_data(mob/user)
 	var/data[0]
 	var/remote_connection = 0
 	var/remote_access = 0
@@ -515,12 +521,7 @@
 	if(!(locked && !remote_connection) || remote_access || issilicon(user))
 		populate_controls(data)
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, ui_key, "air_alarm.tmpl", src.name, 325, 625, master_ui = master_ui, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/alarm/proc/populate_status(var/data)
 	var/turf/location = get_turf(src)
@@ -627,7 +628,7 @@
 
 			data["thresholds"] = thresholds
 
-/obj/machinery/alarm/CanUseTopic(var/mob/user, var/datum/topic_state/state, var/href_list = list())
+/obj/machinery/alarm/CanUseTopic(var/mob/user, var/datum/ui_state/state, var/href_list = list())
 	if(buildstage != 2)
 		return STATUS_CLOSE
 
@@ -645,7 +646,7 @@
 
 	return min(..(), .)
 
-/obj/machinery/alarm/OnTopic(user, href_list, var/datum/topic_state/state)
+/obj/machinery/alarm/OnTopic(user, href_list, var/datum/ui_state/state)
 	// hrefs that can always be called -walter0o
 	if(href_list["rcon"])
 		var/attempted_rcon_setting = text2num(href_list["rcon"])

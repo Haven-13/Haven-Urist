@@ -215,6 +215,13 @@ var/list/global/tank_gauge_cache = list()
 
 
 /obj/item/weapon/tank/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "GasTank")
+		ui.open()
+
+
+/obj/item/weapon/tank/ui_data(mob/user)
 	var/mob/living/carbon/location = null
 
 	if(istype(loc, /obj/item/weapon/rig))		// check for tanks in rigs
@@ -257,20 +264,9 @@ var/list/global/tank_gauge_cache = list()
 				if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
 					data["maskConnected"] = 1
 
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "tanks.tmpl", "Tank", 500, 300)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
-		// open the new ui window
-		ui.open()
-		// auto update every Master Controller tick
-		ui.set_auto_update(1)
+	return data
 
-/obj/item/weapon/tank/Topic(user, href_list, state = GLOB.inventory_state)
+/obj/item/weapon/tank/Topic(user, href_list, state = ui_inventory_state())
 	..()
 
 /obj/item/weapon/tank/OnTopic(user, href_list)

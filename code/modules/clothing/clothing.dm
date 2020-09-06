@@ -155,7 +155,7 @@
 	if(user in view(get_turf(src)))
 		return STATUS_INTERACTIVE
 
-/obj/item/clothing/OnTopic(var/user, var/list/href_list, var/datum/topic_state/state)
+/obj/item/clothing/OnTopic(var/user, var/list/href_list, var/datum/ui_state/state)
 	if(href_list["list_ungabunga"])
 		if(accessories.len)
 			var/list/ties = list()

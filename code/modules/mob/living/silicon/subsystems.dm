@@ -40,7 +40,7 @@
 	if(existing_entry && !ispath(existing_entry))
 		return FALSE
 
-	var/ui_state = subsystem_type == /datum/ui_module/law_manager ? GLOB.conscious_state : GLOB.self_state
+	var/ui_state = subsystem_type == /datum/ui_module/law_manager ? ui_conscious_state() : ui_self_state()
 	var/stat_silicon_subsystem/SSS = new(src, subsystem_type, ui_state)
 	silicon_subsystems[subsystem_type] = SSS
 	silicon_subsystems_by_name[SSS.name] = SSS
@@ -113,6 +113,6 @@
 
 /stat_silicon_subsystem/Click(var/mob/given = usr)
 	if (istype(given))
-		subsystem.ui_interact(given, state = ui_state)
+		subsystem.ui_interact(given)
 	else
-		subsystem.ui_interact(usr, state = ui_state)
+		subsystem.ui_interact(usr)

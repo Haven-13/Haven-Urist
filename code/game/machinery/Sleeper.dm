@@ -62,7 +62,13 @@
 
 	ui_interact(user)
 
-/obj/machinery/sleeper/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.outside_state)
+/obj/machinery/sleeper/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Sleeper")
+		ui.open()
+
+/obj/machinery/sleeper/ui_data(mob/user)
 	var/data[0]
 
 	data["power"] = stat & (NOPOWER|BROKEN) ? 0 : 1
@@ -92,12 +98,7 @@
 	data["pump"] = pump
 	data["stasis"] = stasis
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, ui_key, "sleeper.tmpl", "Sleeper UI", 600, 600, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/sleeper/CanUseTopic(user)
 	if(user == occupant)
@@ -133,16 +134,7 @@
 
 /obj/machinery/sleeper/attack_ai(var/mob/user)
 	return attack_hand(user)
-/obj/machinery/sleeper/ui_state(mob/user)
-	if(controls_inside)
-		return GLOB.notcontained_state
-	return GLOB.default_state
 
-/obj/machinery/sleeper/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "Sleeper", name)
-		ui.open()
 /obj/machinery/sleeper/attackby(var/obj/item/I, var/mob/user)
 	if(default_deconstruction_screwdriver(user, I))
 		updateUsrDialog()

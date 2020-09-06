@@ -208,6 +208,12 @@ var/list/turret_icons
 	ui_interact(user)
 
 /obj/machinery/porta_turret/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "TurretControl")
+		ui.open()
+
+/obj/machinery/porta_turret/ui_data(mob/user)
 	var/data[0]
 	data["access"] = !isLocked(user)
 	data["locked"] = locked
@@ -225,12 +231,7 @@ var/list/turret_icons
 		settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies)
 		data["settings"] = settings
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "turret_control.tmpl", "Turret Controls", 500, 300)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/porta_turret/proc/HasController()
 	var/area/A = get_area(src)

@@ -96,7 +96,7 @@
 		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
 		ui = new(user, src, ui_key, "transfer_valve.tmpl", "Tank Transfer Valve", 460, 280)
 		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
+
 		// open the new ui window
 		ui.open()
 		// auto update every Master Controller tick
@@ -226,7 +226,7 @@
 
 	src.update_icon()
 /obj/item/transfer_valve/ui_state(mob/user)
-	return GLOB.hands_state
+	return ui_hands_state()
 
 /obj/item/transfer_valve/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

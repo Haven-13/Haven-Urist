@@ -19,7 +19,7 @@
 	if(!ui)
 		ui = new(user, src, "RoboticsControlConsole", name)
 		ui.open()
-		ui.set_auto_update(1)
+
 
 /obj/machinery/computer/robotics/CanUseTopic(user)
 	if(!allowed(user))

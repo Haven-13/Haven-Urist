@@ -19,17 +19,19 @@
 	skillset = null
 	. = ..()
 
-/datum/ui_module/skill_ui/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.self_state)
+/datum/ui_module/skill_ui/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "SkillMenu")
+		ui.open()
+
+/datum/ui_module/skill_ui/ui_data(mob/user)
 	if(!skillset)
 		return
 	var/list/data = skillset.get_nano_data()
 	data += get_data()
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, template, "Skills", 600, 900, src, state = state)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /datum/ui_module/skill_ui/proc/get_data()
 	return list()
@@ -190,7 +192,7 @@ Admin version, with debugging options.
 /datum/ui_module/skill_ui/admin
 	template = "skill_ui_admin.tmpl"
 
-/datum/ui_module/skill_ui/admin/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.admin_state)
+/datum/ui_module/skill_ui/admin/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = ui_admin_state())
 	..() //Uses different default state.
 
 /datum/ui_module/skill_ui/admin/get_data()

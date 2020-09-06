@@ -17,6 +17,12 @@
 //	var/list/category_contents
 
 /datum/ui_module/contract_database/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "ContractDatabase")
+		ui.open()
+
+/datum/ui_module/contract_database/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 //	category_contents = list()
@@ -43,12 +49,8 @@
 //	data["category"] = selected_category
 //	data["existing_contracts"] = category_contents
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "contract_database.tmpl", name, 1050, 800, state = state)
-		ui.set_auto_update(1)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
+
 /*
 /datum/ui_module/contract_database/Topic(href, href_list)
 //	var/mob/user = usr

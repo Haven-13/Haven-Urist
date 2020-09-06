@@ -45,9 +45,16 @@
 		to_chat(user, "<span class='warning'>\The [src] only accepts used swabs.</span>")
 		return
 
-/obj/machinery/dnaforensics/ui_interact(mob/user, ui_key = "main",var/datum/nanoui/ui = null)
+/obj/machinery/dnaforensics/ui_interact(mob/user, datum/tgui/ui)
 	if(stat & (NOPOWER)) return
 	if(user.stat || user.restrained()) return
+
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "DnaForsenics")
+		ui.open()
+
+/obj/machinery/dnaforensics/ui_data(mob/user)
 	var/list/data = list()
 	data["scan_progress"] = round(scanner_progress)
 	data["scanning"] = scanning
@@ -55,12 +62,7 @@
 	data["bloodsamp_desc"] = (bloodsamp ? (bloodsamp.desc ? bloodsamp.desc : "No information on record.") : "")
 	data["lidstate"] = closed
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data)
-	if (!ui)
-		ui = new(user, src, ui_key, "dnaforensics.tmpl", "QuikScan DNA Analyzer", 540, 326)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/dnaforensics/Topic(href, href_list)
 

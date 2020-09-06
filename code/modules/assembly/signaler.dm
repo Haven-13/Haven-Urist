@@ -74,7 +74,7 @@
 	return
 
 
-/obj/item/device/assembly/signaler/Topic(href, href_list, state = GLOB.physical_state)
+/obj/item/device/assembly/signaler/Topic(href, href_list, state = ui_physical_state())
 	if((. = ..()))
 		usr << browse(null, "window=radio")
 		onclose(usr, "radio")

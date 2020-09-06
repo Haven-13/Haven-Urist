@@ -26,7 +26,13 @@
 		min(GLOB.musical_config.song_editor_lines_per_page * page_num, src.song.lines.len))
 
 
-/datum/ui_module/song_editor/ui_interact(mob/user, ui_key = "song_editor", var/datum/nanoui/ui = null, var/force_open = 0)
+/datum/ui_module/song_editor/ui_interact(mob/user, datum/tgui/ui)
+	ui =  SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new (user, src, "MusicSongEditor")
+		ui.open()
+
+/datum/ui_module/song_editor/ui_data(mob/user)
 	var/list/data = list()
 
 	var/current_page = src.current_page()
@@ -41,12 +47,7 @@
 	data["page_num"] = current_page
 	data["page_offset"] = GLOB.musical_config.song_editor_lines_per_page * (current_page-1)
 
-	ui =  SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new (user, src, ui_key, "song_editor.tmpl", "Song Editor", 550, 600)
-		ui.set_initial_data(data)
-		ui.open()
-
+	return data
 
 /datum/ui_module/song_editor/Topic(href, href_list)
 	if (..())

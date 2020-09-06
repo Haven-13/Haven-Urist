@@ -25,16 +25,17 @@
 //	shipid = CC.shipid
 
 /datum/ui_module/ship_contact/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "ShipContact")
+		ui.open()
+
+/datum/ui_module/ship_contact/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 	data["nearby_ship"] = category_contents
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "ship_contact.tmpl", name, 450, 600, state = state)
-		ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /datum/ui_module/ship_contact/Topic(href, href_list)
 	ship = CC.target

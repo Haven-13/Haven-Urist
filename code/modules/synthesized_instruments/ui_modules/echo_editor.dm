@@ -10,7 +10,13 @@
 	src.player = player
 
 
-/datum/ui_module/echo_editor/ui_interact(mob/user, ui_key = "echo_editor", var/datum/nanoui/ui = null, var/force_open = 0)
+/datum/ui_module/echo_editor/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new (user, src, "MusicEchoEditor")
+		ui.open()
+
+/datum/ui_module/echo_editor/ui_data(mob/user)
 	var/list/list/data = list()
 	data["echo_params"] = list()
 	for (var/i=1 to 18)
@@ -21,12 +27,7 @@
 		echo_data["real"] = GLOB.musical_config.echo_params_bounds[i][3]
 		data["echo_params"] += list(echo_data)
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new (user, src, ui_key, "echo_editor.tmpl", "Echo Editor", 300, 600)
-		ui.set_initial_data(data)
-		ui.open()
-
+	return data
 
 /datum/ui_module/echo_editor/Topic(href, href_list)
 	if (..())

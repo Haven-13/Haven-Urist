@@ -27,6 +27,12 @@
 		to_chat(user, "<span class='warning'>Unable to connect to ship control systems.</span>")
 		return
 
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "ShipEnginesControl")
+		ui.open()
+
+/obj/machinery/computer/engines/ui_data(mob/user)
 	var/data[0]
 	data["state"] = state
 	data["global_state"] = linked.engines_state
@@ -48,12 +54,7 @@
 	data["engines_info"] = enginfo
 	data["total_thrust"] = total_thrust
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "engines_control.tmpl", "[linked.name] Engines Control", 380, 530)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/computer/engines/Topic(href, href_list, ui_state)
 	if(..())

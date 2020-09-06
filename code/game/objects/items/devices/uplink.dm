@@ -113,7 +113,7 @@
 /*
 	NANO UI FOR UPLINK WOOP WOOP
 */
-/obj/item/device/uplink/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/uistate = GLOB.inventory_state)
+/obj/item/device/uplink/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/uistate = ui_inventory_state())
 	var/title = "Remote Uplink"
 	var/data[0]
 
@@ -131,7 +131,7 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)	// No auto-refresh
 		ui = new(user, src, ui_key, "uplink.tmpl", title, 450, 600, state = uistate)
-		ui.set_initial_data(data)
+
 		ui.open()
 
 
@@ -239,5 +239,5 @@
 	..()
 	hidden_uplink = new(src)
 
-/obj/item/device/uplink/contained/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/uistate = GLOB.contained_state)
+/obj/item/device/uplink/contained/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/uistate = ui_contained_state())
 	return ..()

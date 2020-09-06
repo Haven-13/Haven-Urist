@@ -108,8 +108,13 @@
 		..()
 	return
 
-/obj/machinery/chemical_dispenser/ui_interact(mob/user, ui_key = "main",var/datum/nanoui/ui = null, var/force_open = 1)
-	// this is the data which will be sent to the ui
+/obj/machinery/chemical_dispenser/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "ChemistryDispenser")
+		ui.open()
+
+/obj/machinery/chemical_dispenser/ui_data(mob/user)
 	var/data[0]
 	data["amount"] = amount
 	data["isBeakerLoaded"] = container ? 1 : 0
@@ -133,12 +138,7 @@
 		chemicals[++chemicals.len] = list("label" = label, "amount" = C.reagents.total_volume)
 	data["chemicals"] = chemicals
 
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, ui_key, "chem_disp.tmpl", ui_title, 390, 680)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /obj/machinery/chemical_dispenser/OnTopic(user, href_list)
 	if(href_list["amount"])

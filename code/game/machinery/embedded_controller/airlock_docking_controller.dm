@@ -29,7 +29,13 @@
 	else
 		..()
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/embedded_controller/radio/airlock/docking_port/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "AirlockDockingController")
+		ui.open()
+
+/obj/machinery/embedded_controller/radio/airlock/docking_port/ui_data(mob/user)
 	var/data[0]
 
 	data = list(
@@ -44,13 +50,7 @@
 		"name" = docking_program.get_name()
 	)
 
-	ui = SStgui.try_update_ui(user, src, ui)
-
-	if (!ui)
-		ui = new(user, src, ui_key, "docking_airlock_console.tmpl", name, 470, 290, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/embedded_controller/radio/airlock/docking_port/Topic(href, href_list)
 	if(..())

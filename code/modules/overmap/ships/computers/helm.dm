@@ -84,6 +84,12 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	if(!linked)
 		return
 
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "ShipHelm")
+		ui.open()
+
+/obj/machinery/computer/helm/ui_data(mob/user)
 	var/data[0]
 
 	var/turf/T = get_turf(linked)
@@ -121,12 +127,7 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 
 	data["locations"] = locations
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "helm.tmpl", "[linked.name] Helm Control", 380, 530)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/computer/helm/Topic(href, href_list, state)
 	if(..())
@@ -222,9 +223,13 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 /obj/machinery/computer/navigation/ui_interact(mob/user, var/datum/tgui/ui)
 	if(!linked)
 		return
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "ShipNavigation")
+		ui.open()
 
+/obj/machinery/computer/navigation/ui_data(mob/user)
 	var/data[0]
-
 
 	var/turf/T = get_turf(linked)
 	var/obj/effect/overmap/sector/current_sector = locate() in T
@@ -243,12 +248,7 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	else
 		data["ETAnext"] = "N/A"
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "nav.tmpl", "[linked.name] Navigation Screen", 380, 530)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/computer/navigation/check_eye(var/mob/user as mob)
 	if (!viewing)

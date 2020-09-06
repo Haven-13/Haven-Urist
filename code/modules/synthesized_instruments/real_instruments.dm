@@ -39,12 +39,12 @@
 			var/t = ""
 			do
 				t = html_encode(input(usr, "Please paste the entire song, formatted:", text("[]", owner.name), t)  as message)
-				if(!CanInteractWith(usr, owner, GLOB.physical_state))
+				if(!CanInteractWith(usr, owner, ui_physical_state()))
 					return
 
 				if(length(t) >= 2*src.maximum_lines*src.maximum_line_length)
 					var/cont = input(usr, "Your message is too long! Would you like to continue editing it?", "", "yes") in list("yes", "no")
-					if(!CanInteractWith(usr, owner, GLOB.physical_state))
+					if(!CanInteractWith(usr, owner, ui_physical_state()))
 						return
 					if(cont == "no")
 						break
@@ -92,7 +92,7 @@
 			src.player.song.sustain_timer = max(min(player.song.sustain_timer+value, GLOB.musical_config.longest_sustain_timer), 1)
 		if ("soft_coeff")
 			var/new_coeff = input(usr, "from [GLOB.musical_config.gentlest_drop] to [GLOB.musical_config.steepest_drop]") as num
-			if(!CanInteractWith(usr, owner, GLOB.physical_state))
+			if(!CanInteractWith(usr, owner, ui_physical_state()))
 				return
 			new_coeff = round(min(max(new_coeff, GLOB.musical_config.gentlest_drop), GLOB.musical_config.steepest_drop), 0.001)
 			src.player.song.soft_coeff = new_coeff
@@ -103,7 +103,7 @@
 				categories |= instrument.category
 
 			var/category = input(usr, "Choose a category") in categories as text|null
-			if(!CanInteractWith(usr, owner, GLOB.physical_state))
+			if(!CanInteractWith(usr, owner, ui_physical_state()))
 				return
 			var/list/instruments_available = list()
 			for (var/key in instruments)
@@ -112,7 +112,7 @@
 					instruments_available += key
 
 			var/new_instrument = input(usr, "Choose an instrument") in instruments_available as text|null
-			if(!CanInteractWith(usr, owner, GLOB.physical_state))
+			if(!CanInteractWith(usr, owner, ui_physical_state()))
 				return
 			if (new_instrument)
 				src.player.song.instrument_data = instruments[new_instrument]
@@ -142,7 +142,13 @@
 
 
 
-/datum/real_instrument/proc/ui_call(mob/user, ui_key, var/datum/nanoui/ui = null, var/force_open = 0)
+/datum/real_instrument/proc/ui_call(mob/user, datum/tgui/ui)
+	ui =  SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new (user, src.owner, "Synthesizer")
+		ui.open()
+
+/datum/real_instrument/ui_data(mob/user)
 	var/list/data
 	data = list(
 		"playback" = list(
@@ -182,15 +188,7 @@
 		)
 	)
 
-
-	ui =  SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new (user, src.owner, ui_key, "synthesizer.tmpl", owner.name, 600, 800)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
-
-
+	return data
 
 /datum/real_instrument/Destroy()
 	QDEL_NULL(player)
@@ -229,8 +227,8 @@
 	src.ui_interact(user)
 
 
-/obj/structure/synthesized_instrument/ui_interact(mob/user, ui_key = "instrument", var/datum/nanoui/ui = null, var/force_open = 0)
-	real_instrument.ui_call(user,ui_key,ui,force_open)
+/obj/structure/synthesized_instrument/ui_interact(mob/user, datum/tgui/ui)
+	real_instrument.ui_call(user, ui)
 
 
 /obj/structure/synthesized_instrument/proc/shouldStopPlaying(mob/user)
@@ -281,8 +279,8 @@
 	src.ui_interact(user)
 
 
-/obj/item/device/synthesized_instrument/ui_interact(mob/user, ui_key = "instrument", var/datum/nanoui/ui = null, var/force_open = 0)
-	real_instrument.ui_call(user,ui_key,ui,force_open)
+/obj/item/device/synthesized_instrument/ui_interact(mob/user, datum/tgui/ui)
+	real_instrument.ui_call(user, ui)
 
 
 /obj/item/device/synthesized_instrument/proc/shouldStopPlaying(mob/user)

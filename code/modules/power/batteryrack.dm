@@ -204,6 +204,12 @@
 		least.give(most.use(celldiff))
 
 /obj/machinery/power/smes/batteryrack/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "PowerBatteryRack")
+		ui.open()
+
+/obj/machinery/power/smes/batteryrack/ui_data(mob/user)
 	var/data[0]
 
 	data["mode"] = mode
@@ -232,12 +238,7 @@
 		cells += list(cell)
 	data["cells_list"] = cells
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "psu.tmpl", "Cell Rack PSU", 500, 430)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/power/smes/batteryrack/dismantle()
 	for(var/obj/item/weapon/cell/C in internal_cells)

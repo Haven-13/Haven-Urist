@@ -352,6 +352,12 @@
 	if(stat & BROKEN)
 		return
 
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "PowerSmes")
+		ui.open()
+
+/obj/machinery/power/smes/ui_data(mob/user)
 	// this is the data which will be sent to the ui
 	var/data[0]
 	data["nameTag"] = name_tag
@@ -370,19 +376,7 @@
 	data["failTime"] = failure_timer * 2
 	data["outputting"] = outputting
 
-
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "smes.tmpl", "SMES Unit", 540, 380)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
-		// open the new ui window
-		ui.open()
-		// auto update every Master Controller tick
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/power/smes/proc/Percentage()
 	if(!capacity)

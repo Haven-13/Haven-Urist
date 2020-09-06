@@ -117,6 +117,12 @@
  *  See NanoUI documentation for details.
  */
 /obj/machinery/biogenerator/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "Biogenerator")
+		ui.open()
+
+/obj/machinery/biogenerator/ui_data(mob/user)
 	user.set_machine(src)
 	var/list/data = list()
 	data["state"] = state
@@ -144,11 +150,8 @@
 				"type_name" = type_name,
 				"products" = listed_products)))
 		data["types"] = listed_types
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "biogenerator.tmpl", "Biogenerator", 440, 600)
-		ui.set_initial_data(data)
-		ui.open()
+
+	return data
 
 /obj/machinery/biogenerator/OnTopic(user, href_list)
 	switch (href_list["action"])

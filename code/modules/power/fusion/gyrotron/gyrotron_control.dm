@@ -52,7 +52,7 @@
 	add_fingerprint(user)
 	user.set_machine(src)
 
-/obj/machinery/computer/gyrotron_control/OnTopic(var/mob/user, var/href_list, var/datum/topic_state/state)
+/obj/machinery/computer/gyrotron_control/OnTopic(var/mob/user, var/href_list, var/datum/ui_state/state)
 	var/obj/machinery/power/emitter/gyrotron/G = locate(href_list["machine"])
 	if(!G || G.id_tag != id_tag || get_dist(src, G) > scan_range)
 		return

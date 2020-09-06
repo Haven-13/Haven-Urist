@@ -24,10 +24,10 @@
 	QDEL_NULL_LIST(queued_missions)
 	. = ..()
 
-/datum/shuttle_log/proc/register(datum/nano_module/module)
+/datum/shuttle_log/proc/register(datum/ui_module/module)
 	registered += module
 
-/datum/shuttle_log/proc/unregister(datum/nano_module/module)
+/datum/shuttle_log/proc/unregister(datum/ui_module/module)
 	registered -= module
 
 /datum/shuttle_log/proc/update_registred()

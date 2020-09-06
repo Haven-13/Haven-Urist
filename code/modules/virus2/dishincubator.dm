@@ -58,6 +58,12 @@
 /obj/machinery/disease2/incubator/ui_interact(mob/user, var/datum/tgui/ui)
 	user.set_machine(src)
 
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "DishIncubator")
+		ui.open()
+
+/obj/machinery/disease2/incubator/ui_data(mob/user)
 	var/data[0]
 	data["chemicals_inserted"] = !!beaker
 	data["dish_inserted"] = !!dish
@@ -87,11 +93,7 @@
 			for (var/ID in virus)
 				data["blood_already_infected"] = virus[ID]
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "dish_incubator.tmpl", src.name, 400, 600)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /obj/machinery/disease2/incubator/Process()
 	if(dish && on && dish.virus2)

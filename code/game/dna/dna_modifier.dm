@@ -341,6 +341,12 @@
 	if(user == connected.occupant || user.stat)
 		return
 
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "DnaModifier")
+		ui.open()
+
+/obj/machinery/computer/scan_consolenew/ui_data(mob/user)
 	// this is the data which will be sent to the ui
 	var/data[0]
 	data["selectedMenuKey"] = selected_menu_key
@@ -415,18 +421,7 @@
 			for(var/datum/reagent/R in connected.beaker.reagents.reagent_list)
 				data["beakerVolume"] += R.volume
 
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-        // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "dna_modifier.tmpl", "DNA Modifier Console", 660, 700)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
-		// open the new ui window
-		ui.open()
-		// auto update every Master Controller tick
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/computer/scan_consolenew/Topic(href, href_list)
 	if(..())

@@ -137,7 +137,7 @@
 	return
 
 
-/obj/item/device/assembly/prox_sensor/Topic(href, href_list, state = GLOB.physical_state)
+/obj/item/device/assembly/prox_sensor/Topic(href, href_list, state = ui_physical_state())
 	if((. = ..()))
 		usr << browse(null, "window=prox")
 		onclose(usr, "prox")

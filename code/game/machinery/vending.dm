@@ -342,7 +342,12 @@
  */
 /obj/machinery/vending/ui_interact(mob/user, var/datum/tgui/ui)
 	user.set_machine(src)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "VendingMachine")
+		ui.open()
 
+/obj/machinery/vending/ui_data(mob/user)
 	var/list/data = list()
 	if(currently_vending)
 		data["mode"] = 1
@@ -379,11 +384,7 @@
 	else
 		data["panel"] = 0
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "vending_machine.tmpl", src.name, 440, 600)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /obj/machinery/vending/Topic(href, href_list)
 	if(stat & (BROKEN|NOPOWER))

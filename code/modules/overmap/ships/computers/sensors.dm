@@ -33,6 +33,12 @@
 	if(!linked)
 		return
 
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "ShipSensors")
+		ui.open()
+
+/obj/machinery/computer/sensors/ui_data(mob/user)
 	var/data[0]
 
 	data["viewing"] = viewing
@@ -56,12 +62,7 @@
 		data["range"] = "N/A"
 		data["on"] = 0
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "shipsensors.tmpl", "[linked.name] Sensors Control", 420, 530)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/computer/sensors/check_eye(var/mob/user as mob)
 	if (!get_dist(user, src) > 1 || user.blinded || !linked )

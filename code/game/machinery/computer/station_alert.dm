@@ -1,12 +1,12 @@
-
 /obj/machinery/computer/station_alert
 	name = "alert console"
 	desc = "Used to access the automated alert system."
 	icon_keyboard = "tech_key"
 	icon_screen = "alert:0"
 	light_color = "#e6ffff"
-	var/alarms = list("Fire" = list(), "Atmosphere" = list(), "Power" = list())
 	circuit = /obj/item/weapon/circuitboard/stationalert
+	var/datum/ui_module/alarm_monitor/alarm_monitor
+	var/monitor_type = /datum/ui_module/alarm_monitor
 
 /obj/machinery/computer/station_alert/engineering
 	monitor_type = /datum/ui_module/alarm_monitor/engineering
@@ -19,7 +19,7 @@
 
 /obj/machinery/computer/station_alert/Initialize()
 	alarm_monitor = new monitor_type(src)
-	alarm_monitor.register_alarm(src, /atom/proc/update_icon)
+	alarm_monitor.register_alarm(src, /obj/machinery/computer/station_alert/update_icon)
 	. = ..()
 	if(monitor_type)
 		register_monitor(new monitor_type(src))
@@ -28,17 +28,12 @@
 	. = ..()
 	unregister_monitor()
 
-/obj/machinery/computer/station_alert/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "StationAlertConsole", name)
-		ui.open()
 /obj/machinery/computer/station_alert/proc/register_monitor(var/datum/ui_module/alarm_monitor/monitor)
 	if(monitor.host != src)
 		return
 
 	alarm_monitor = monitor
-	alarm_monitor.register_alarm(src, /atom/proc/update_icon)
+	alarm_monitor.register_alarm(src, /obj/machinery/computer/station_alert/update_icon)
 
 /obj/machinery/computer/station_alert/proc/unregister_monitor()
 	if(alarm_monitor)
@@ -56,7 +51,7 @@
 	if(alarm_monitor)
 		alarm_monitor.ui_interact(user)
 
-/obj/machinery/computer/station_alert/nano_container()
+/obj/machinery/computer/station_alert/ui_container()
 	return alarm_monitor
 
 /obj/machinery/computer/station_alert/update_icon()

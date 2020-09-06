@@ -141,4 +141,4 @@
 	return ..()
 
 /obj/item/assembly/ui_state(mob/user)
-	return GLOB.hands_state
+	return ui_hands_state()

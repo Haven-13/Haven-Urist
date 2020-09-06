@@ -42,6 +42,12 @@
 		..()
 
 /obj/item/weapon/card/id/syndicate/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "AgentId")
+		ui.open()
+
+/obj/item/weapon/card/id/syndicate/ui_data(mob/user)
 	var/data[0]
 	var/entries[0]
 	entries[++entries.len] = list("name" = "Age", 				"value" = age)
@@ -61,11 +67,7 @@
 	data["electronic_warfare"] = electronic_warfare
 	data["entries"] = entries
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "agent_id_card.tmpl", "Agent id", 600, 400)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /obj/item/weapon/card/id/syndicate/proc/register_user(var/mob/user)
 	if(!istype(user) || user == registered_user)
@@ -87,7 +89,7 @@
 		return STATUS_CLOSE
 	return ..()
 
-/obj/item/weapon/card/id/syndicate/Topic(href, href_list, var/datum/topic_state/state)
+/obj/item/weapon/card/id/syndicate/Topic(href, href_list, var/datum/ui_state/state)
 	if(..())
 		return 1
 

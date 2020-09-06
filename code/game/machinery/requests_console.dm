@@ -100,6 +100,12 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	ui_interact(user)
 
 /obj/machinery/requests_console/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "RequestsConsole")
+		ui.open()
+
+/obj/machinery/requests_console/ui_data(mob/user)
 	var/data[0]
 
 	data["department"] = department
@@ -120,11 +126,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	data["msgVerified"] = msgVerified
 	data["announceAuth"] = announceAuth
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "request_console.tmpl", "[department] Request Console", 520, 410)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /obj/machinery/requests_console/Topic(href, href_list)
 	if(..())	return

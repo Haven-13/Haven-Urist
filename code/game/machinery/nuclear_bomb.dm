@@ -167,6 +167,12 @@ var/bomb_set
 	return
 
 /obj/machinery/nuclearbomb/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "NuclearBomb")
+		ui.open()
+
+/obj/machinery/nuclearbomb/ui_data(mob/user)
 	var/data[0]
 	data["hacking"] = 0
 	data["auth"] = is_auth(user)
@@ -193,12 +199,7 @@ var/bomb_set
 		if(yes_code)
 			data["message"] = "*****"
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, ui_key, "nuclear_bomb.tmpl", "Nuke Control Panel", 300, 510)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/nuclearbomb/verb/toggle_deployable()
 	set category = "Object"

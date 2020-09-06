@@ -56,7 +56,7 @@
 
 // Uses dark magic to operate the NanoUI of this computer.
 /obj/machinery/computer/power_monitor/ui_interact(mob/user, var/datum/tgui/ui)
-	power_monitor.ui_interact(user, ui_key, ui, force_open)
+	power_monitor.ui_interact(user, ui)
 
 
 // Verifies if any warnings were registered by connected sensors.

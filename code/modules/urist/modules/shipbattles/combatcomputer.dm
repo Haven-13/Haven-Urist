@@ -66,6 +66,12 @@
 	ui_interact(user)
 
 /obj/machinery/computer/combatcomputer/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "ShipCombatComputer")
+		ui.open()
+
+/obj/machinery/computer/combatcomputer/ui_data(mob/user)
 	var/data[0]
 	var/list/weapons[0]
 	var/list/targetcomponents[0]
@@ -120,14 +126,7 @@
 	else if(!target)
 		data["target"] = 0
 
-//make all the components visible, then kill myself
-
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "combat_computer.tmpl", name, 1050, 800)
-		ui.set_auto_update(1)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /obj/machinery/computer/combatcomputer/Topic(href, href_list)
 	if(..())

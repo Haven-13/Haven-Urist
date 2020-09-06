@@ -148,7 +148,7 @@
 	return 0
 
 /datum/ui_module/law_manager/ui_interact(mob/user, datum/tgui/ui)
-	ui = SSnano.try_update_ui(user, src, ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "LawManagerModule")
 		ui.open()

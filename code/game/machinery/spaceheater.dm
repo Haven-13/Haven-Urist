@@ -115,7 +115,7 @@
 	return
 
 
-/obj/machinery/space_heater/Topic(href, href_list, state = GLOB.physical_state)
+/obj/machinery/space_heater/Topic(href, href_list, state = ui_physical_state())
 	if (..())
 		show_browser(usr, null, "window=spaceheater")
 		usr.unset_machine()

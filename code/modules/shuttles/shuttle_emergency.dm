@@ -184,7 +184,7 @@
 		ui.open()
 
 /obj/machinery/computer/shuttle_control/emergency/ui_data(mob/user)
-var/data[0]
+	var/data[0]
 	var/datum/shuttle/autodock/ferry/emergency/shuttle = SSshuttle.shuttles[shuttle_tag]
 	if (!istype(shuttle))
 		return

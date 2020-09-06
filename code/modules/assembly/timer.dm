@@ -75,7 +75,7 @@
 		ui.open()
 
 
-/obj/item/device/assembly/timer/Topic(href, href_list, state = GLOB.physical_state)
+/obj/item/device/assembly/timer/Topic(href, href_list, state = ui_physical_state())
 	if((. = ..()))
 		usr << browse(null, "window=timer")
 		onclose(usr, "timer")

@@ -90,7 +90,13 @@
 		return
 	ui_interact(user)
 
-/obj/machinery/mecha_part_fabricator/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/mecha_part_fabricator/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "MechFabricator")
+		ui.open()
+
+/obj/machinery/mecha_part_fabricator/ui_data(mob/user)
 	var/data[0]
 
 	var/datum/design/current = queue.len ? queue[1] : null
@@ -115,12 +121,7 @@
 	if(current)
 		data["builtperc"] = round((progress / current.time) * 100)
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, ui_key, "mechfab.tmpl", "Exosuit Fabricator UI", 800, 600)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/mecha_part_fabricator/Topic(href, href_list)
 	if(..())
@@ -173,13 +174,6 @@
 	if(stack.uses_charge)
 		return
 
-/obj/machinery/mecha_part_fabricator/ui_interact(mob/user)
-	. = ..()
-	var/dat, left_part
-	user.set_machine(src)
-	var/turf/exit = get_step(src,(dir))
-	if(exit.density)
-		say("Error! Part outlet is obstructed.")
 	if(!(material in materials))
 		to_chat(user, "<span class=warning>\The [src] does not accept [stack_plural]!</span>")
 		return

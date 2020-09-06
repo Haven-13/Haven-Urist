@@ -131,19 +131,19 @@
 	return 1
 
 /obj/machinery/atmospherics/omni/mixer/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "OmniMixer")
+		ui.open()
+
+/obj/machinery/atmospherics/omni/mixer/ui_data(mob/user)
 	usr.set_machine(src)
 
 	var/list/data = new()
 
 	data = build_uidata()
 
-	ui = SStgui.try_update_ui(user, src, ui)
-
-	if (!ui)
-		ui = new(user, src, ui_key, "omni_mixer.tmpl", "Omni Mixer Control", 360, 330)
-		ui.set_initial_data(data)
-
-		ui.open()
+	return data
 
 /obj/machinery/atmospherics/omni/mixer/proc/build_uidata()
 	var/list/data = new()

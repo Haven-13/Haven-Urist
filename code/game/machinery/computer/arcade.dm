@@ -134,7 +134,7 @@
 	onclose(user, "arcade")
 	return
 
-/obj/machinery/computer/arcade/battle/CanUseTopic(var/mob/user, var/datum/topic_state/state, var/href_list)
+/obj/machinery/computer/arcade/battle/CanUseTopic(var/mob/user, var/datum/ui_state/state, var/href_list)
 	if((blocked || gameover) && (href_list["attack"] || href_list["heal"] || href_list["charge"]))
 		return min(..(), STATUS_UPDATE)
 	return ..()

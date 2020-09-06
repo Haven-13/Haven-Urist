@@ -80,17 +80,16 @@
 
 	if(href_list["set_codes"])
 		var/newcode = input("Input new docking codes", "Docking codes", shuttle.docking_codes) as text|null
-		if (newcode && CanInteract(usr, GLOB.default_state))
+		if (newcode && CanInteract(usr, ui_default_state()))
 			shuttle.set_docking_codes(uppertext(newcode))
 		return TOPIC_REFRESH
 
 /obj/machinery/computer/shuttle_control/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, ui_key, ui_template, "[shuttle_tag] Shuttle Control", 470, 450)
-		ui.set_initial_data(data)
+		ui = new(user, src, ui_template)
 		ui.open()
-		ui.set_auto_update(1)
+
 
 /obj/machinery/computer/shuttle_control/OnTopic(user, href_list)
 	return handle_topic_href(SSshuttle.shuttles[shuttle_tag], href_list, user)

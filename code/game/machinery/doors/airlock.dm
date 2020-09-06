@@ -761,6 +761,12 @@ About the new airlock wires panel:
 	ui_interact(user)
 
 /obj/machinery/door/airlock/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "AirlockControl")
+		ui.open()
+
+/obj/machinery/door/airlock/ui_data(mob/user)
 	var/data[0]
 
 	data["main_power_loss"]		= round(main_power_lost_until 	> 0 ? max(main_power_lost_until - world.time,	0) / 10 : main_power_lost_until,	1)
@@ -778,12 +784,7 @@ About the new airlock wires panel:
 
 	data["commands"] = commands
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "door_control.tmpl", "Door Controls", 450, 350, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/door/airlock/proc/hack(mob/user as mob)
 	if(src.aiHacking==0)
@@ -1266,12 +1267,6 @@ About the new airlock wires panel:
 	if(!src.locked)
 		return
 
-/obj/machinery/door/airlock/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "AiAirlock", name)
-		ui.open()
-	return TRUE
 	if (!forced)
 		if(operating || !src.arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_DOOR_BOLTS))
 			return
@@ -1281,6 +1276,13 @@ About the new airlock wires panel:
 	audible_message("You hear a click from the bottom of the door.", hearing_distance = 1)
 	update_icon()
 	return 1
+
+
+/obj/machinery/door/airlock/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "AiAirlockControl", name)
+		ui.open()
 
 /obj/machinery/door/airlock/allowed(mob/M)
 	if(locked)

@@ -125,10 +125,14 @@
 	var/degradation = 0     // Increments with each scan, stops allowing gene mods after a certain point.
 
 /obj/machinery/botany/extractor/ui_interact(mob/user, var/datum/tgui/ui)
-
 	if(!user)
 		return
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "BotanyIsolator")
+		ui.open()
 
+/obj/machinery/botany/extractor/ui_data(mob/user)
 	var/list/data = list()
 
 	var/list/geneMasks = plant_controller.gene_masked_list
@@ -156,12 +160,7 @@
 		data["hasGenetics"] = 0
 		data["sourceName"] = 0
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "botany_isolator.tmpl", "Lysis-isolation Centrifuge UI", 470, 450)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/botany/Topic(href, href_list)
 
@@ -254,10 +253,16 @@
 	disk_needs_genes = 1
 
 /obj/machinery/botany/editor/ui_interact(mob/user, var/datum/tgui/ui)
-
 	if(!user)
 		return
 
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "BotanyEditor")
+		ui.open()
+
+
+/obj/machinery/botany/editor/ui_data(mob/user)
 	var/list/data = list()
 
 	data["activity"] = active
@@ -286,12 +291,7 @@
 	else
 		data["loaded"] = 0
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "botany_editor.tmpl", "Bioballistic Delivery UI", 470, 450)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/botany/editor/Topic(href, href_list)
 

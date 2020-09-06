@@ -98,17 +98,17 @@ datum/track/proc/GetTrack()
 		to_chat(usr, "\The [src] doesn't appear to function.")
 		return
 
-	tg_ui_interact(user)
+	ui_interact(user)
 
 /obj/machinery/media/jukebox/ui_status(mob/user, datum/ui_state/state)
 	if(!anchored || inoperable())
 		return UI_CLOSE
 	return ..()
 
-/obj/machinery/media/jukebox/tg_ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = 0, datum/tgui/master_ui = null, datum/ui_state/state = tg_default_state)
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
+/obj/machinery/media/jukebox/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, ui_key, "jukebox", "Your Media Library", 340, 440, master_ui, state)
+		ui = new(user, src, "Jukebox")
 		ui.open()
 
 /obj/machinery/media/jukebox/ui_data()

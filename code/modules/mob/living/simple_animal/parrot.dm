@@ -132,7 +132,7 @@
 	onclose(user, "mob[real_name]")
 	return
 
-/mob/living/simple_animal/parrot/Topic(href, href_list, state = GLOB.physical_state)
+/mob/living/simple_animal/parrot/Topic(href, href_list, state = ui_physical_state())
 	if((. = ..()))
 		return
 

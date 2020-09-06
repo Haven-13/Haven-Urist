@@ -101,7 +101,7 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, ui_key, "janitorcart.tmpl", "Janitorial cart", 240, 160)
-		ui.set_initial_data(data)
+
 		ui.open()
 
 /obj/structure/janitorialcart/Topic(href, href_list)

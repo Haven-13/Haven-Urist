@@ -203,6 +203,12 @@
 	ui_interact(user)
 
 /obj/machinery/power/generator/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "TegGenerator")
+		ui.open()
+
+/obj/machinery/power/generator/ui_data(mob/user)
 	// this is the data which will be sent to the ui
 	var/vertical = 0
 	if (dir == NORTH || dir == SOUTH)
@@ -239,19 +245,7 @@
 	else
 		data["circConnected"] = 0
 
-
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		// the ui does not exist, so we'll create a new() one
-		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "generator.tmpl", "Thermoelectric Generator", 450, 500)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
-		// open the new ui window
-		ui.open()
-		// auto update every Master Controller tick
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/power/generator/verb/rotate_clock()
 	set category = "Object"

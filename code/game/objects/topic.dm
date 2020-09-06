@@ -1,20 +1,20 @@
 /obj/proc/DefaultTopicState()
-	return GLOB.default_state
+	return GLOB.tgui_default_state
 
-/obj/Topic(var/href, var/href_list = list(), var/datum/topic_state/state)
+/obj/Topic(var/href, var/href_list = list(), var/datum/ui_state/state)
 	if((. = ..()))
 		return
-	state = state || DefaultTopicState() || GLOB.default_state
+	state = state || DefaultTopicState() || GLOB.tgui_default_state
 	if(CanUseTopic(usr, state, href_list) == STATUS_INTERACTIVE)
 		CouldUseTopic(usr)
 		return OnTopic(usr, href_list, state)
 	CouldNotUseTopic(usr)
 	return TRUE
 
-/obj/proc/OnTopic(var/mob/user, var/href_list, var/datum/topic_state/state)
+/obj/proc/OnTopic(var/mob/user, var/href_list, var/datum/ui_state/state)
 	return TOPIC_NOACTION
 
-/obj/CanUseTopic(var/mob/user, var/datum/topic_state/state, var/href_list)
+/obj/CanUseTopic(var/mob/user, var/datum/ui_state/state, var/href_list)
 	if(user.CanUseObjTopic(src))
 		return ..()
 	return STATUS_CLOSE

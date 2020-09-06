@@ -28,7 +28,7 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "MerchantListProgram")
-		ui.set_initial_data(data)
+
 
 /datum/ui_module/program/merchant/ui_data(mob/user)
 	var/list/data = host.initial_data()

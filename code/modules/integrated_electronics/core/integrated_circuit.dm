@@ -233,7 +233,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 	onclose(user, "assembly-\ref[src.assembly]")
 
-/obj/item/integrated_circuit/Topic(href, href_list, state = GLOB.physical_state)
+/obj/item/integrated_circuit/Topic(href, href_list, state = ui_physical_state())
 	if(..())
 		return 1
 

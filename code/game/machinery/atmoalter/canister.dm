@@ -291,6 +291,12 @@ update_flag
 	ui_interact(user)
 
 /obj/machinery/portable_atmospherics/canister/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "Canister")
+		ui.open()
+
+/obj/machinery/portable_atmospherics/canister/ui_data(mob/user)
 	// this is the data which will be sent to the ui
 	var/data[0]
 	data["name"] = name
@@ -306,12 +312,8 @@ update_flag
 	if (holding)
 		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure()))
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "canister.tmpl", "Canister", 480, 400)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
+
 
 /obj/machinery/portable_atmospherics/canister/OnTopic(var/mob/user, href_list, state)
 	if(href_list["toggle"])

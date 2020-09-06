@@ -42,6 +42,12 @@
 /obj/machinery/disease2/centrifuge/ui_interact(mob/user, var/datum/tgui/ui)
 	user.set_machine(src)
 
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "IsolationCentrifuge")
+		ui.open()
+
+/obj/machinery/disease2/centrifuge/ui_data(mob/user)
 	var/data[0]
 	data["antibodies"] = null
 	data["pathogens"] = null
@@ -74,11 +80,7 @@
 					data["antibodies"] = antigens2string(A.data["antibodies"], none=null)
 				data["is_antibody_sample"] = 1
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "isolation_centrifuge.tmpl", src.name, 400, 500)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /obj/machinery/disease2/centrifuge/Process()
 	..()

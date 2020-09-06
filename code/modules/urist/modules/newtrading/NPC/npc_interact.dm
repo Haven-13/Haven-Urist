@@ -31,6 +31,12 @@
 		close_ui(ui)
 		return
 
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "NpcInteraction")
+		ui.open()
+
+/mob/living/simple_animal/hostile/npc/ui_data(mob/user)
 	wander = 0
 	/*spawn(600)
 		wander = 1
@@ -94,14 +100,10 @@
 
 	data["user"] = "\ref[user]"
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "npc.tmpl", "Talking to [src.name]", 800, 600)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
-/mob/living/simple_animal/hostile/npc/proc/close_ui(var/datum/nanoui/ui = null)
+
+/mob/living/simple_animal/hostile/npc/proc/close_ui(var/datum/tgui/ui = null)
 	if(ui)
 		ui.close()
 	interacting_mob = null

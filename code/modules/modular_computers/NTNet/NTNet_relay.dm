@@ -66,18 +66,20 @@
 	..()
 
 /obj/machinery/ntnet_relay/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "NtnetRelay")
+		ui.open()
+
+/obj/machinery/ntnet_relay/ui_data(mob/user)
 	var/list/data = list()
 	data["enabled"] = enabled
 	data["dos_capacity"] = dos_capacity
 	data["dos_overload"] = dos_overload
 	data["dos_crashed"] = dos_failure
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "ntnet_relay.tmpl", "NTNet Quantum Relay", 500, 300, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
+
 
 /obj/machinery/ntnet_relay/attack_hand(var/mob/living/user)
 	ui_interact(user)

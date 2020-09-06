@@ -43,6 +43,12 @@
 /obj/machinery/computer/diseasesplicer/ui_interact(mob/user, var/datum/tgui/ui)
 	user.set_machine(src)
 
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "DiseaseSplicer")
+		ui.open()
+
+/obj/machinery/computer/diseasesplicer/ui_data(mob/user)
 	var/data[0]
 	data["dish_inserted"] = !!dish
 	data["growth"] = 0
@@ -78,11 +84,7 @@
 	else
 		data["info"] = "No dish loaded."
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "disease_splicer.tmpl", src.name, 400, 600)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /obj/machinery/computer/diseasesplicer/Process()
 	if(stat & (NOPOWER|BROKEN))

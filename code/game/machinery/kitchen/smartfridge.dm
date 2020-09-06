@@ -280,6 +280,12 @@
 /obj/machinery/smartfridge/ui_interact(mob/user, var/datum/tgui/ui)
 	user.set_machine(src)
 
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "SmartFridge")
+		ui.open()
+
+/obj/machinery/smartfridge/ui_data(mob/user)
 	var/data[0]
 	data["contents"] = null
 	data["electrified"] = seconds_electrified > 0
@@ -297,17 +303,13 @@
 	if(items.len > 0)
 		data["contents"] = items
 
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, ui_key, "smartfridge.tmpl", src.name, 400, 500)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /obj/machinery/smartfridge/Topic(href, href_list)
 	if(..()) return 0
 
 	var/mob/user = usr
-	var/datum/nanoui/ui = SStgui.get_open_ui(user, src, "main")
+	var/datum/tgui/ui = SStgui.get_open_ui(user, src, "main")
 
 	if(href_list["close"])
 		user.unset_machine()

@@ -79,7 +79,7 @@
 	onclose(user, "pipedispenser")
 	return
 
-/obj/machinery/pipedispenser/Topic(href, href_list, state = GLOB.physical_state)
+/obj/machinery/pipedispenser/Topic(href, href_list, state = ui_physical_state())
 	if((. = ..()) || unwrenched)
 		usr << browse(null, "window=pipedispenser")
 		return
@@ -199,7 +199,7 @@ Nah
 // 0=straight, 1=bent, 2=junction-j1, 3=junction-j2, 4=junction-y, 5=trunk
 
 
-/obj/machinery/pipedispenser/disposal/Topic(href, href_list, state = GLOB.physical_state)
+/obj/machinery/pipedispenser/disposal/Topic(href, href_list, state = ui_physical_state())
 	if((. = ..()) || unwrenched)
 		usr << browse(null, "window=pipedispenser")
 		return

@@ -22,6 +22,12 @@
 		visible_message("\The [src] beeps three times, it's screen displaying \"DISK ERROR\" warning.")
 		return // No HDD, No HDD files list or no stored files. Something is very broken.
 
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "ModularComputerScreen")
+		ui.open()
+
+/obj/item/modular_computer/ui_data(mob/user)
 	var/datum/computer_file/data/autorun = hard_drive.find_file_by_name("autorun")
 
 	var/list/data = get_header_data()
@@ -38,13 +44,7 @@
 		programs.Add(list(program))
 
 	data["programs"] = programs
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, ui_key, "laptop_mainscreen.tmpl", "NTOS Main Menu", 400, 500)
-		ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 // Handles user's GUI input
 /obj/item/modular_computer/Topic(href, href_list)
