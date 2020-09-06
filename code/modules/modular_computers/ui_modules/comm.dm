@@ -66,7 +66,7 @@
 
 	var/datum/comm_message_listener/l = obtain_message_listener()
 	data["messages"] = l.messages
-	data["message_deletion_allowed"] = l != global_message_listener
+	data["message_deletion_allowed"] = l != GLOB.global_message_listener
 	data["message_current_id"] = current_viewing_message_id
 	if(current_viewing_message)
 		data["message_current"] = current_viewing_message
@@ -95,7 +95,7 @@
 	if(program)
 		var/datum/computer_file/program/comm/P = program
 		return P.message_core
-	return global_message_listener
+	return GLOB.global_message_listener
 
 /datum/ui_module/program/comm/Topic(href, href_list)
 	if(..())
@@ -217,7 +217,7 @@
 				current_status = STATE_VIEWMESSAGE
 		if("delmessage")
 			. = 1
-			if(is_autenthicated(user) && ntn_comm && l != global_message_listener)
+			if(is_autenthicated(user) && ntn_comm && l != GLOB.global_message_listener)
 				l.Remove(current_viewing_message)
 			current_status = STATE_MESSAGELIST
 		if("printmessage")
@@ -245,13 +245,13 @@
 /*
 General message handling stuff
 */
-var/list/comm_message_listeners = list() //We first have to initialize list then we can use it.
-var/datum/comm_message_listener/global_message_listener = new //May be used by admins
-var/last_message_id = 0
+GLOBAL_LIST_EMPTY(comm_message_listeners) //We first have to initialize list then we can use it.
+GLOBAL_DATUM_INIT(global_message_listener, /datum/comm_message_listener, new) //May be used by admins
+GLOBAL_VAR_INIT(last_message_id, 0)
 
 /proc/get_comm_message_id()
-	last_message_id = last_message_id + 1
-	return last_message_id
+	GLOB.last_message_id += 1
+	return GLOB.last_message_id
 
 /proc/post_comm_message(var/message_title, var/message_text)
 	var/list/message = list()
@@ -259,7 +259,7 @@ var/last_message_id = 0
 	message["title"] = message_title
 	message["contents"] = message_text
 
-	for (var/datum/comm_message_listener/l in comm_message_listeners)
+	for (var/datum/comm_message_listener/l in GLOB.comm_message_listeners)
 		l.Add(message)
 
 /datum/comm_message_listener
@@ -268,7 +268,7 @@ var/last_message_id = 0
 /datum/comm_message_listener/New()
 	..()
 	messages = list()
-	comm_message_listeners.Add(src)
+	GLOB.comm_message_listeners.Add(src)
 
 /datum/comm_message_listener/proc/Add(var/list/message)
 	messages[++messages.len] = message

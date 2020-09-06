@@ -227,6 +227,11 @@ var/list/gamemode_cache = list()
 
 	var/rounds_until_hard_restart //Rounds until TGS will hard restart DD
 
+	var/asset_simple_preload = 0
+	var/asset_cdn_webroot = null
+	var/asset_cdn_url = null
+	var/asset_transport = null
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -271,6 +276,18 @@ var/list/gamemode_cache = list()
 
 		if(type == "config")
 			switch (name)
+				if ("asset_simple_preload")
+					config.asset_simple_preload = 1
+
+				if ("asset_cdn_webroot")
+					config.asset_cdn_webroot = value
+
+				if ("asset_cdn_url")
+					config.asset_cdn_url = value
+
+				if ("asset_transport")
+					config.asset_transport = value
+
 				if ("resource_urls")
 					config.resource_urls = splittext(value, " ")
 

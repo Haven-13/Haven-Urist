@@ -13,7 +13,7 @@
 #define TGUI_WINDOW_HARD_LIMIT 9
 
 /// Maximum ping timeout allowed to detect zombie windows
-#define TGUI_PING_TIMEOUT 5 SECONDS
+#define TGUI_PING_TIMEOUT 4 SECONDS
 
 /// Window does not exist
 #define TGUI_WINDOW_CLOSED 0
@@ -21,10 +21,15 @@
 #define TGUI_WINDOW_LOADING 1
 /// Window is free and ready to receive data
 #define TGUI_WINDOW_READY 2
-/// Window is in use by a tgui datum
-#define TGUI_WINDOW_ACTIVE 3
 
 /// Get a window id based on the provided pool index
 #define TGUI_WINDOW_ID(index) "tgui-window-[index]"
 /// Get a pool index of the provided window id
 #define TGUI_WINDOW_INDEX(window_id) text2num(copytext(window_id, 13))
+
+/// Creates a message packet for sending via output()
+#define TGUI_CREATE_MESSAGE(type, payload) ( \
+	url_encode(json_encode(list( \
+		"type" = type, \
+		"payload" = payload, \
+	))))

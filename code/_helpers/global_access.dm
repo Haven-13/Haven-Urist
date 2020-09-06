@@ -79,6 +79,8 @@
 			return global.SSalarm;
 		if("SSantags")
 			return global.SSantags;
+		if("SSassets")
+			return global.SSassets;
 		if("SSatoms")
 			return global.SSatoms;
 		if("SScircuit")
@@ -281,8 +283,6 @@
 			return global.ascii_reset;
 		if("ascii_yellow")
 			return global.ascii_yellow;
-		if("asset_cache")
-			return global.asset_cache;
 		if("assigned")
 			return global.assigned;
 		if("assigned_blocks")
@@ -357,8 +357,6 @@
 			return global.client_repository;
 		if("combatlog")
 			return global.combatlog;
-		if("comm_message_listeners")
-			return global.comm_message_listeners;
 		if("command_announcement")
 			return global.command_announcement;
 		if("command_name")
@@ -523,8 +521,6 @@
 			return global.ghost_sightless_images;
 		if("ghost_traps")
 			return global.ghost_traps;
-		if("global_message_listener")
-			return global.global_message_listener;
 		if("global_vars_")
 			return global.global_vars_;
 		if("good_blocks")
@@ -583,8 +579,6 @@
 			return global.language_keys;
 		if("last_chew")
 			return global.last_chew;
-		if("last_message_id")
-			return global.last_message_id;
 		if("last_round_duration")
 			return global.last_round_duration;
 		if("light_overlay_cache")
@@ -1130,6 +1124,8 @@
 			global.SSalarm=newval;
 		if("SSantags")
 			global.SSantags=newval;
+		if("SSassets")
+			global.SSassets=newval;
 		if("SSatoms")
 			global.SSatoms=newval;
 		if("SScircuit")
@@ -1332,8 +1328,6 @@
 			global.ascii_reset=newval;
 		if("ascii_yellow")
 			global.ascii_yellow=newval;
-		if("asset_cache")
-			global.asset_cache=newval;
 		if("assigned")
 			global.assigned=newval;
 		if("assigned_blocks")
@@ -1408,8 +1402,6 @@
 			global.client_repository=newval;
 		if("combatlog")
 			global.combatlog=newval;
-		if("comm_message_listeners")
-			global.comm_message_listeners=newval;
 		if("command_announcement")
 			global.command_announcement=newval;
 		if("command_name")
@@ -1574,8 +1566,6 @@
 			global.ghost_sightless_images=newval;
 		if("ghost_traps")
 			global.ghost_traps=newval;
-		if("global_message_listener")
-			global.global_message_listener=newval;
 		if("global_vars_")
 			global.global_vars_=newval;
 		if("good_blocks")
@@ -1634,8 +1624,6 @@
 			global.language_keys=newval;
 		if("last_chew")
 			global.last_chew=newval;
-		if("last_message_id")
-			global.last_message_id=newval;
 		if("last_round_duration")
 			global.last_round_duration=newval;
 		if("light_overlay_cache")
@@ -2141,6 +2129,7 @@
 	"SSairflow",
 	"SSalarm",
 	"SSantags",
+	"SSassets",
 	"SSatoms",
 	"SScircuit",
 	"SSculture",
@@ -2242,7 +2231,6 @@
 	"ascii_red",
 	"ascii_reset",
 	"ascii_yellow",
-	"asset_cache",
 	"assigned",
 	"assigned_blocks",
 	"atmosphere_alarm",
@@ -2280,7 +2268,6 @@
 	"client_preference_stats_",
 	"client_repository",
 	"combatlog",
-	"comm_message_listeners",
 	"command_announcement",
 	"command_name",
 	"common_tools",
@@ -2363,7 +2350,6 @@
 	"ghost_darkness_images",
 	"ghost_sightless_images",
 	"ghost_traps",
-	"global_message_listener",
 	"global_vars_",
 	"good_blocks",
 	"gravity_is_on",
@@ -2393,7 +2379,6 @@
 	"landmarks_list",
 	"language_keys",
 	"last_chew",
-	"last_message_id",
 	"last_round_duration",
 	"light_overlay_cache",
 	"lighting_overlays_initialised",

@@ -1,14 +1,20 @@
 //DEFINITIONS FOR ASSET DATUMS START HERE.
 
+/datum/asset/simple/tgui_common
+	assets = list(
+		"tgui-common.chunk.js" = 'tgui/public/tgui-common.chunk.js',
+	)
+
 /datum/asset/simple/tgui
 	assets = list(
 		"tgui.bundle.js" = 'tgui/public/tgui.bundle.js',
 		"tgui.bundle.css" = 'tgui/public/tgui.bundle.css',
 	)
 
-/datum/asset/group/tgui
-	children = list(
-		/datum/asset/simple/tgui
+/datum/asset/simple/tgui_panel
+	assets = list(
+		"tgui-panel.bundle.js" = 'tgui/public/tgui-panel.bundle.js',
+		"tgui-panel.bundle.css" = 'tgui/public/tgui-panel.bundle.css',
 	)
 
 /datum/asset/simple/headers
@@ -125,14 +131,14 @@
 	)
 
 /datum/asset/simple/jquery
+	legacy = TRUE
 	assets = list(
 		"jquery.min.js" = 'html/jquery.min.js',
 	)
 
-/datum/asset/simple/permissions
-	assets = list(
-		"padlock.png" = 'html/padlock.png'
-	)
+/datum/asset/simple/namespaced/common
+	assets = list("padlock.png"	= 'html/padlock.png')
+	parents = list("common.css" = 'html/browser/common.css')
 
 /datum/asset/simple/arcade
 	assets = list(

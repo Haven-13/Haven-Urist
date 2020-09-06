@@ -297,3 +297,7 @@ var/list/slot_equipment_priority = list( \
 		var/obj/item/I = entry
 		if(I.body_parts_covered & body_parts)
 			. += I
+
+// Returns whether the mob is holding this in their hands
+/mob/proc/is_holding(obj/item/I)
+	return (I in get_both_hands()) == I

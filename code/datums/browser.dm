@@ -14,10 +14,10 @@
 	var/head_content = ""
 	var/content = ""
 	var/title_buttons = ""
+	var/static/datum/asset/simple/namespaced/common/common_asset = get_asset_datum(/datum/asset/simple/namespaced/common)
 
 
 /datum/browser/New(nuser, nwindow_id, ntitle = 0, nwidth = 0, nheight = 0, var/atom/nref = null)
-
 	user = nuser
 	window_id = nwindow_id
 	if (ntitle)
@@ -28,10 +28,6 @@
 		height = nheight
 	if (nref)
 		ref = nref
-	// If a client exists, but they have disabled fancy windowing, disable it!
-	if(user && user.client && user.client.get_preference_value(/datum/client_preference/browser_style) == GLOB.PREF_PLAIN)
-		return
-	add_stylesheet("common", 'html/browser/common.css') // this CSS sheet is common to all UIs
 
 /datum/browser/proc/set_title(ntitle)
 	title = format_text(ntitle)
@@ -104,13 +100,22 @@
 	[get_footer()]
 	"}
 
-/datum/browser/proc/open(var/use_onclose = 1)
+/datum/browser/proc/open(use_onclose = TRUE)
+	if(isnull(window_id))	//null check because this can potentially nuke goonchat
+		WARNING("Browser [title] tried to open with a null ID")
+		to_chat(user, "<span class='userdanger'>The [title] browser you tried to open failed a sanity check! Please report this on github!</span>")
+		return
 	var/window_size = ""
 	if (width && height)
 		window_size = "size=[width]x[height];"
+	common_asset.send(user)
+	if (stylesheets.len)
+		SSassets.transport.send_assets(user, stylesheets)
+	if (scripts.len)
+		SSassets.transport.send_assets(user, scripts)
 	user << browse(get_content(), "window=[window_id];[window_size][window_options]")
 	if (use_onclose)
-		onclose(user, window_id, ref)
+		setup_onclose()
 
 /datum/browser/proc/update(var/force_open = 0, var/use_onclose = 1)
 	if(force_open)
@@ -118,8 +123,18 @@
 	else
 		send_output(user, get_content(), "[window_id].browser")
 
+/datum/browser/proc/setup_onclose()
+	set waitfor = 0 //winexists sleeps, so we don't need to.
+	for (var/i in 1 to 10)
+		if (user && winexists(user, window_id))
+			onclose(user, window_id, ref)
+			break
+
 /datum/browser/proc/close()
-	user << browse(null, "window=[window_id]")
+	if(!isnull(window_id))//null check because this can potentially nuke goonchat
+		user << browse(null, "window=[window_id]")
+	else
+		WARNING("Browser [title] tried to close with a null ID")
 
 // This will allow you to show an icon in the browse window
 // This is added to mob so that it can be used without a reference to the browser object

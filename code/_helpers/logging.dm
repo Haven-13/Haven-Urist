@@ -80,6 +80,9 @@
 	if (config.log_vote)
 		game_log("VOTE", text)
 
+/proc/log_asset(text)
+	game_log("ASSET", text)
+
 /proc/log_access(text)
 	if (config.log_access)
 		game_log("ACCESS", text)
@@ -131,19 +134,38 @@
 /proc/log_qdel(text)
 	WRITE_FILE(GLOB.world_qdel_log, "\[[time_stamp()]]QDEL: [text]")
 
-/* ui logging */
-/proc/log_tgui(user_or_client, text)
+/**
+ * Appends a tgui-related log entry. All arguments are optional.
+ */
+/proc/log_tgui(user, message, context,
+		datum/tgui_window/window,
+		datum/src_object)
 	var/entry = ""
-	if(!user_or_client)
-		entry += "no user"
-	else if(istype(user_or_client, /mob))
-		var/mob/user = user_or_client
-		entry += "[user.ckey] (as [user])"
-	else if(istype(user_or_client, /client))
-		var/client/client = user_or_client
+	// Insert user info
+	if(!user)
+		entry += "<nobody>"
+	else if(istype(user, /mob))
+		var/mob/mob = user
+		entry += "[mob.ckey] (as [mob] at [mob.x],[mob.y],[mob.z])"
+	else if(istype(user, /client))
+		var/client/client = user
 		entry += "[client.ckey]"
-	entry += ":\n[text]"
+	// Insert context
+	if(context)
+		entry += " in [context]"
+	else if(window)
+		entry += " in [window.id]"
+	// Resolve src_object
+	if(!src_object && window && window.locked_by)
+		src_object = window.locked_by.src_object
+	// Insert src_object info
+	if(src_object)
+		entry += "\nUsing: [src_object.type] \ref[src_object]"
+	// Insert message
+	if(message)
+		entry += "\n[message]"
 	WRITE_FILE(GLOB.tgui_log, entry)
+
 
 //This replaces world.log so it displays both in DD and the file
 /proc/log_world(text)

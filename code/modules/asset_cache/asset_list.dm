@@ -16,6 +16,9 @@ GLOBAL_LIST_EMPTY(asset_datums)
 	GLOB.asset_datums[type] = src
 	register()
 
+/datum/asset/proc/get_url_mappings()
+	return list()
+
 /datum/asset/proc/register()
 	return
 
@@ -27,14 +30,31 @@ GLOBAL_LIST_EMPTY(asset_datums)
 /datum/asset/simple
 	_abstract = /datum/asset/simple
 	var/assets = list()
-	var/verify = FALSE
+	/// Set to true to have this asset also be sent via the legacy browse_rsc
+	/// system when cdn transports are enabled?
+	var/legacy = FALSE
+	/// TRUE for keeping local asset names when browse_rsc backend is used
+	var/keep_local_name = FALSE
 
 /datum/asset/simple/register()
 	for(var/asset_name in assets)
-		register_asset(asset_name, assets[asset_name])
+		var/datum/asset_cache_item/ACI = SSassets.transport.register_asset(asset_name, assets[asset_name])
+		if (!ACI)
+			log_asset("ERROR: Invalid asset: [type]:[asset_name]:[ACI]")
+			continue
+		if (legacy)
+			ACI.legacy = legacy
+		if (keep_local_name)
+			ACI.keep_local_name = keep_local_name
+		assets[asset_name] = ACI
+
+/datum/asset/simple/get_url_mappings()
+	. = list()
+	for (var/asset_name in assets)
+		.[asset_name] = SSassets.transport.get_asset_url(asset_name, assets[asset_name])
 
 /datum/asset/simple/send(client)
-	. = send_asset_list(client, assets, verify)
+	. = SSassets.transport.send_assets(client, assets)
 
 
 // For registering or sending multiple others at once
@@ -74,7 +94,7 @@ GLOBAL_LIST_EMPTY(asset_datums)
 			if (generic_icon_names)
 				asset_name = "[generate_asset_name(asset)].png"
 
-			register_asset(asset_name, asset)
+			SSassets.transport.register_asset(asset_name, asset)
 
 /datum/asset/simple/icon_states/multiple_icons
 	_abstract = /datum/asset/simple/icon_states/multiple_icons
@@ -84,4 +104,51 @@ GLOBAL_LIST_EMPTY(asset_datums)
 	for(var/i in icons)
 		..(i)
 
+/datum/asset/simple/namespaced
+	_abstract = /datum/asset/simple/namespaced
+	/// parents - list of the parent asset or assets (in name = file assoicated format) for this namespace.
+	/// parent assets must be referenced by their generated url, but if an update changes a parent asset, it won't change the namespace's identity.
+	var/list/parents = list()
 
+/datum/asset/simple/namespaced/register()
+	if (legacy)
+		assets |= parents
+	var/list/hashlist = list()
+	var/list/sorted_assets = sortList(assets)
+
+	for (var/asset_name in sorted_assets)
+		var/datum/asset_cache_item/ACI = new(asset_name, sorted_assets[asset_name])
+		if (!ACI?.hash)
+			log_asset("ERROR: Invalid asset: [type]:[asset_name]:[ACI]")
+			continue
+		hashlist += ACI.hash
+		sorted_assets[asset_name] = ACI
+	var/namespace = md5(hashlist.Join())
+
+	for (var/asset_name in parents)
+		var/datum/asset_cache_item/ACI = new(asset_name, parents[asset_name])
+		if (!ACI?.hash)
+			log_asset("ERROR: Invalid asset: [type]:[asset_name]:[ACI]")
+			continue
+		ACI.namespace_parent = TRUE
+		sorted_assets[asset_name] = ACI
+
+	for (var/asset_name in sorted_assets)
+		var/datum/asset_cache_item/ACI = sorted_assets[asset_name]
+		if (!ACI?.hash)
+			log_asset("ERROR: Invalid asset: [type]:[asset_name]:[ACI]")
+			continue
+		ACI.namespace = namespace
+
+	assets = sorted_assets
+	..()
+
+/// Get a html string that will load a html asset.
+/// Needed because byond doesn't allow you to browse() to a url.
+/datum/asset/simple/namespaced/proc/get_htmlloader(filename)
+	return url2htmlloader(SSassets.transport.get_asset_url(filename, assets[filename]))
+
+/// Return html to load a url.
+/// for use inside of browse() calls to html assets that might be loaded on a cdn.
+/proc/url2htmlloader(url)
+	return {"<html><head><meta http-equiv="refresh" content="0;URL='[url]'"/></head><body onLoad="parent.location='[url]'"></body></html>"}

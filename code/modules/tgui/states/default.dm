@@ -46,14 +46,14 @@ GLOBAL_DATUM_INIT(tgui_default_state, /datum/ui_state/default, new)
 	if(. < UI_INTERACTIVE)
 		return
 
-	// The AI can interact with anything it can see nearby, or with cameras.
-	if((get_dist(src, src_object) <= client.view) || cameranet.is_turf_visible(get_turf_pixel(src_object)))
+	// The AI can interact with anything it can see nearby, or with cameras while wireless control is enabled.
+	if(!control_disabled && can_see(src_object))
 		return UI_INTERACTIVE
 	return UI_CLOSE
 
-/mob/living/silicon/pai/tgui_default_can_use_topic(src_object)
-	// pAIs can only use themselves and the owner's radio.
-	if((src_object == src || src_object == silicon_radio) && !stat)
-		return UI_INTERACTIVE
+/mob/living/simple_animal/tgui_default_can_use_topic(src_object)
+	. = shared_ui_interaction(src_object)
+	if(. > UI_CLOSE)
+		. = min(., shared_living_ui_distance(src_object)) //simple animals can only use things they're near.
 	else
 		return ..()

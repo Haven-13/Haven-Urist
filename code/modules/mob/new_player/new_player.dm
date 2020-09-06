@@ -95,6 +95,7 @@
 				if(player.ready)totalPlayersReady++
 
 /mob/new_player/Topic(href, href_list[])
+	testing("Hello there! Hello there!")
 	if(!client)	return 0
 
 	if(href_list["show_preferences"])
