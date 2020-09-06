@@ -36,10 +36,19 @@
 	#endif
 
 	// asset_cache
+	var/asset_cache_job
 	if(href_list["asset_cache_confirm_arrival"])
-//		to_chat(src, "ASSET JOB [href_list["asset_cache_confirm_arrival"]] ARRIVED.")
-		var/job = text2num(href_list["asset_cache_confirm_arrival"])
-		completed_asset_jobs += job
+		asset_cache_job = asset_cache_confirm_arrival(href_list["asset_cache_confirm_arrival"])
+		if (!asset_cache_job)
+			return
+
+	//byond bug ID:2256651
+	if (asset_cache_job && (asset_cache_job in completed_asset_jobs))
+		to_chat(src, "<span class='danger'>An error has been detected in how your client is receiving resources. Attempting to correct.... (If you keep seeing these messages you might want to close byond and reconnect)</span>")
+		src << browse("...", "window=asset_cache_browser")
+		return
+	if (href_list["asset_cache_preload_data"])
+		asset_cache_preload_data(href_list["asset_cache_preload_data"])
 		return
 
 	//search the href for script injection
@@ -172,6 +181,9 @@
 		to_chat(src, "<span class='alert'>[custom_event_msg]</span>")
 		to_chat(src, "<br>")
 
+	connection_time = world.time
+	connection_realtime = world.realtime
+	connection_timeofday = world.timeofday
 
 	if(holder)
 		add_admin_verbs()

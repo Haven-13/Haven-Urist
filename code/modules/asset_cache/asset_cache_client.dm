@@ -52,6 +52,9 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 
 /// Updates the client side stored json file used to keep track of what assets the client has between restarts/reconnects.
 /client/proc/asset_cache_update_json()
+	if (world.time - connection_time < 10 SECONDS) //don't override the existing data file on a new connection
+		return
+
 	src << browse(json_encode(sent_assets), "file=asset_data.json&display=0")
 
 /// Blocks until all currently sending browse and browse_rsc assets have been sent.
