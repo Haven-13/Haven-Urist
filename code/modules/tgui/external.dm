@@ -107,6 +107,7 @@
  * This is a proc over a var for memory reasons
  */
 /datum/proc/ui_state(mob/user)
+	testing("Returning default state")
 	return GLOB.tgui_default_state
 
 /**

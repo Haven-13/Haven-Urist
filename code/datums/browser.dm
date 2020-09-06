@@ -32,23 +32,29 @@
 /datum/browser/proc/set_title(ntitle)
 	title = format_text(ntitle)
 
-/datum/browser/proc/add_head_content(nhead_content)
-	head_content = nhead_content
-
 /datum/browser/proc/set_title_buttons(ntitle_buttons)
 	title_buttons = ntitle_buttons
+
+/datum/browser/proc/set_title_image(ntitle_image)
+	title_image = ntitle_image
+
+/datum/browser/proc/add_head_content(nhead_content)
+	head_content = nhead_content
 
 /datum/browser/proc/set_window_options(nwindow_options)
 	window_options = nwindow_options
 
-/datum/browser/proc/set_title_image(ntitle_image)
-	//title_image = ntitle_image
-
 /datum/browser/proc/add_stylesheet(name, file)
-	stylesheets[name] = file
+	var/asset_name = "[name].css"
+
+	stylesheets[asset_name] = file
+
+	if (!SSassets.cache[asset_name])
+		SSassets.transport.register_asset(asset_name, file)
 
 /datum/browser/proc/add_script(name, file)
-	scripts[name] = file
+	scripts["[ckey(name)].js"] = file
+	SSassets.transport.register_asset("[ckey(name)].js", file)
 
 /datum/browser/proc/set_content(ncontent)
 	content = ncontent
@@ -57,35 +63,29 @@
 	content += ncontent
 
 /datum/browser/proc/get_header()
-	var/key
-	var/filename
-	for (key in stylesheets)
-		filename = "[ckey(key)].css"
-		user << browse_rsc(stylesheets[key], filename)
-		head_content += "<link rel='stylesheet' type='text/css' href='[filename]'>"
+	var/file
+	head_content += "<link rel='stylesheet' type='text/css' href='[common_asset.get_url_mappings()["common.css"]]'>"
+	for (file in stylesheets)
+		testing("[SSassets.transport.get_asset_url(file)]")
+		head_content += "<link rel='stylesheet' type='text/css' href='[SSassets.transport.get_asset_url(file)]'>"
 
-	for (key in scripts)
-		filename = "[ckey(key)].js"
-		user << browse_rsc(scripts[key], filename)
-		head_content += "<script type='text/javascript' src='[filename]'></script>"
+	for (file in scripts)
+		testing("[SSassets.transport.get_asset_url(file)]")
+		head_content += "<script type='text/javascript' src='[SSassets.transport.get_asset_url(file)]'></script>"
 
-	var/title_attributes = "class='uiTitle'"
-	if (title_image)
-		title_attributes = "class='uiTitle icon' style='background-image: url([title_image]);'"
-
-	return {"<!DOCTYPE html>
+	return {"<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<meta charset=ISO-8859-1">
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 		[head_content]
 	</head>
 	<body scroll=auto>
 		<div class='uiWrapper'>
-			[title ? "<div class='uiTitleWrapper'><div [title_attributes]><tt>[title]</tt></div><div class='uiTitleButtons'>[title_buttons]</div></div>" : ""]
+			[title ? "<div class='uiTitleWrapper'><div class='uiTitle'><tt>[title]</tt></div></div>" : ""]
 			<div class='uiContent'>
 	"}
-
+//" This is here because else the rest of the file looks like a string in notepad++.
 /datum/browser/proc/get_footer()
 	return {"
 			</div>
@@ -110,8 +110,10 @@
 		window_size = "size=[width]x[height];"
 	common_asset.send(user)
 	if (stylesheets.len)
+		testing("Sending stylesheets")
 		SSassets.transport.send_assets(user, stylesheets)
 	if (scripts.len)
+		testing("Sending scripts")
 		SSassets.transport.send_assets(user, scripts)
 	user << browse(get_content(), "window=[window_id];[window_size][window_options]")
 	if (use_onclose)
