@@ -25,7 +25,7 @@
 			interacting_mob = user
 			ui_interact(user)
 
-/mob/living/simple_animal/hostile/npc/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/mob/living/simple_animal/hostile/npc/ui_interact(mob/user, var/datum/tgui/ui)
 
 	if(!can_use(user))
 		close_ui(ui)
@@ -94,7 +94,7 @@
 
 	data["user"] = "\ref[user]"
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, ui_key, "npc.tmpl", "Talking to [src.name]", 800, 600)
 		ui.set_initial_data(data)

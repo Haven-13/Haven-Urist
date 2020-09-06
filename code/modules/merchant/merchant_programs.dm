@@ -4,7 +4,7 @@
 	extended_desc = "Allows communication and trade between passing vessels, even while jumping."
 	program_icon_state = "comm"
 	program_menu_icon = "cart"
-	nanomodule_path = /datum/nano_module/program/merchant
+	ui_module_path = /datum/ui_module/program/merchant
 	requires_ntnet = 1
 	available_on_ntnet = 1
 	size = 12
@@ -24,7 +24,13 @@
 	if(num)
 		return SStrade.traders[num]
 
-/datum/nano_module/program/merchant/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/program/merchant/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "MerchantListProgram")
+		ui.set_initial_data(data)
+
+/datum/ui_module/program/merchant/ui_data(mob/user)
 	var/list/data = host.initial_data()
 	var/show_trade = 0
 	var/hailed = 0
@@ -50,12 +56,7 @@
 				for(var/i in 1 to T.trading_items.len)
 					trades += T.print_trading_items(i)
 			data["trades"] = trades
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "merchant.tmpl", "Merchant List", 575, 700, state = state)
-		ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /datum/computer_file/program/merchant/proc/connect_pad()
 	for(var/obj/machinery/merchant_pad/P in orange(1,get_turf(computer)))

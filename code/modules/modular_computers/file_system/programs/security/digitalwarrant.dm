@@ -13,14 +13,14 @@ LEGACY_RECORD_STRUCTURE(all_warrants, warrant)
 	requires_ntnet = 1
 	available_on_ntnet = 1
 	required_access = access_security
-	nanomodule_path = /datum/nano_module/digitalwarrant/
+	ui_module_path = /datum/ui_module/digitalwarrant/
 	usage_flags = PROGRAM_ALL
 
-/datum/nano_module/digitalwarrant/
+/datum/ui_module/digitalwarrant/
 	name = "Warrant Assistant"
 	var/datum/computer_file/data/warrant/activewarrant
 
-/datum/nano_module/digitalwarrant/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/digitalwarrant/ui_interact(mob/user, datum/tgui/ui)
 	var/list/data = host.initial_data()
 
 	if(activewarrant)
@@ -53,14 +53,14 @@ LEGACY_RECORD_STRUCTURE(all_warrants, warrant)
 		data["searchwarrants"] = searchwarrants.len ? searchwarrants : null
 		data["archivedwarrants"] = archivedwarrants.len? archivedwarrants :null
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, ui_key, "digitalwarrant.tmpl", name, 700, 450, state = state)
 		ui.auto_update_layout = 1
 		ui.set_initial_data(data)
 		ui.open()
 
-/datum/nano_module/digitalwarrant/Topic(href, href_list)
+/datum/ui_module/digitalwarrant/Topic(href, href_list)
 	if(..())
 		return 1
 
@@ -118,7 +118,7 @@ LEGACY_RECORD_STRUCTURE(all_warrants, warrant)
 
 	if(href_list["savewarrant"])
 		. = 1
-		broadcast_security_hud_message("\A [activewarrant.fields["arrestsearch"]] warrant for <b>[activewarrant.fields["namewarrant"]]</b> has been [(activewarrant in GLOB.all_warrants) ? "edited" : "uploaded"].", nano_host())
+		broadcast_security_hud_message("\A [activewarrant.fields["arrestsearch"]] warrant for <b>[activewarrant.fields["namewarrant"]]</b> has been [(activewarrant in GLOB.all_warrants) ? "edited" : "uploaded"].", ui_host())
 		GLOB.all_warrants |= activewarrant
 		activewarrant = null
 

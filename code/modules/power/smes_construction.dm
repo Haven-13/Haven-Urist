@@ -103,7 +103,7 @@
 	for(var/obj/machinery/power/terminal/T in terminals)
 		T.master = null
 	terminals = null
-	for(var/datum/nano_module/rcon/R in world)
+	for(var/datum/ui_module/rcon/R in world)
 		R.FindDevices()
 	return ..()
 

@@ -9,17 +9,17 @@
 	requires_ntnet = 1
 	available_on_ntnet = 1
 	required_access = access_armory
-	nanomodule_path = /datum/nano_module/forceauthorization/
+	ui_module_path = /datum/ui_module/forceauthorization/
 
-/datum/nano_module/forceauthorization/
+/datum/ui_module/forceauthorization/
 	name = "Use of Force Authorization Manager"
 
-/datum/nano_module/forceauthorization/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/forceauthorization/ui_interact(mob/user, datum/tgui/ui)
 	var/list/data = host.initial_data()
 	data["is_silicon_usr"] = issilicon(user)
 
 	data["guns"] = list()
-	var/atom/movable/AM = nano_host()
+	var/atom/movable/AM = ui_host()
 	if(!istype(AM))
 		return
 	var/list/zlevels = GetConnectedZlevels(AM.z)
@@ -54,14 +54,14 @@
 
 			data["cyborg_guns"] += list(list("name" = "[G]", "ref" = "\ref[G]", "owner" = G.registered_owner, "modes" = modes))
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, ui_key, "forceauthorization.tmpl", name, 700, 450, state = state)
 		ui.auto_update_layout = 1
 		ui.set_initial_data(data)
 		ui.open()
 
-/datum/nano_module/forceauthorization/Topic(href, href_list)
+/datum/ui_module/forceauthorization/Topic(href, href_list)
 	if(..())
 		return 1
 

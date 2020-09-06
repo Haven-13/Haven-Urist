@@ -65,7 +65,7 @@
 
 	ui_interact(user)
 
-/obj/machinery/computer/combatcomputer/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/computer/combatcomputer/ui_interact(mob/user, var/datum/tgui/ui)
 	var/data[0]
 	var/list/weapons[0]
 	var/list/targetcomponents[0]
@@ -122,7 +122,7 @@
 
 //make all the components visible, then kill myself
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, ui_key, "combat_computer.tmpl", name, 1050, 800)
 		ui.set_auto_update(1)

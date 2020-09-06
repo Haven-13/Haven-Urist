@@ -35,7 +35,7 @@
 /datum/computer_file/program/conspiracy_uplink
 	filename = "babylon"
 	filedesc = "BABYLON Uplink Client"
-	//nanomodule_path = /datum/nano_module/camera_monitor/hacked
+	//ui_module_path = /datum/ui_module/camera_monitor/hacked
 	program_icon_state = "command"
 	extended_desc = "A secure client for accessing and uploading data to remote darknets, rumored to be popular among covert organizations."
 	size = 13

@@ -8,7 +8,7 @@
 	requires_ntnet = 0
 	available_on_ntnet = 1
 	usage_flags = PROGRAM_ALL
-	nanomodule_path = /datum/nano_module/program/scanner
+	ui_module_path = /datum/ui_module/program/scanner
 
 	var/using_scanner = 0	//Whether or not the program is synched with the scanner module.
 	var/data_buffer = ""	//Buffers scan output for saving/viewing.
@@ -75,10 +75,10 @@
 	if(.)
 		SStgui.update_uis(NM)
 
-/datum/nano_module/program/scanner
+/datum/ui_module/program/scanner
 	name = "Scanner"
 
-/datum/nano_module/program/scanner/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/program/scanner/ui_interact(mob/user, datum/tgui/ui)
 	var/list/data = host.initial_data()
 	var/datum/computer_file/program/scanner/prog = program
 	if(!prog.computer)
@@ -92,7 +92,7 @@
 	data["check_scanning"] = prog.check_scanning()
 	data["data_buffer"] = pencode2html(prog.data_buffer)
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, ui_key, "scanner.tmpl", name, 575, 700, state = state)
 		ui.auto_update_layout = 1

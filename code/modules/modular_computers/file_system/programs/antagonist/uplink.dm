@@ -7,7 +7,7 @@
 	requires_ntnet = 0
 	available_on_ntnet = 0
 	usage_flags = PROGRAM_PDA
-	nanomodule_path = /datum/nano_module/program/uplink
+	ui_module_path = /datum/ui_module/program/uplink
 
 	var/password
 	var/authenticated = 0
@@ -15,10 +15,10 @@
 /datum/computer_file/program/uplink/New(var/password)
 	src.password = password
 
-/datum/nano_module/program/uplink
+/datum/ui_module/program/uplink
 	name = "TaxQuickly 2559"
 
-/datum/nano_module/program/uplink/ui_interact(var/mob/user)
+/datum/ui_module/program/uplink/ui_interact(var/mob/user)
 	var/datum/computer_file/program/uplink/prog = program
 	var/obj/item/modular_computer/computer = host
 	if(istype(computer) && istype(prog))

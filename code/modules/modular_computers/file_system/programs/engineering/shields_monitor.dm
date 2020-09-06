@@ -1,7 +1,7 @@
 /datum/computer_file/program/shields_monitor
 	filename = "shieldsmonitor"
 	filedesc = "Shield Generators Monitoring"
-	nanomodule_path = /datum/nano_module/shields_monitor/
+	ui_module_path = /datum/ui_module/shields_monitor/
 	program_icon_state = "shield"
 	program_key_state = "generic_key"
 	program_menu_icon = "radio-on"
@@ -11,16 +11,16 @@
 	network_destination = "shields monitoring system"
 	size = 10
 
-/datum/nano_module/shields_monitor
+/datum/ui_module/shields_monitor
 	name = "Shields monitor"
 	var/obj/machinery/power/shield_generator/active = null
 
-/datum/nano_module/shields_monitor/Destroy()
+/datum/ui_module/shields_monitor/Destroy()
 	. = ..()
 	deselect_shield()
 
-/datum/nano_module/shields_monitor/proc/get_shields()
-	var/turf/T = get_turf(nano_host())
+/datum/ui_module/shields_monitor/proc/get_shields()
+	var/turf/T = get_turf(ui_host())
 	if(!T)
 		return list()
 
@@ -35,7 +35,13 @@
 		deselect_shield()
 	return shields
 
-/datum/nano_module/shields_monitor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/shields_monitor/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "ShieldsMonitorProgram")
+		ui.open()
+
+/datum/ui_module/shields_monitor/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 	if (active)
@@ -74,16 +80,9 @@
 			shields_info.Add(temp)
 		data["shields"] = shields_info
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "shields_monitor.tmpl", "Shield Generators Monitoring", 400, 500, state = state)
-		if(host.update_layout())
-			ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
-/datum/nano_module/shields_monitor/Topic(href, href_list)
+/datum/ui_module/shields_monitor/Topic(href, href_list)
 	if(..())
 		return 1
 	if( href_list["refresh"] )
@@ -97,11 +96,11 @@
 		var/obj/machinery/power/shield_generator/S = locate(href_list["ref"]) in shields
 		if(S)
 			deselect_shield()
-			GLOB.destroyed_event.register(S, src, /datum/nano_module/shields_monitor/proc/deselect_shield)
+			GLOB.destroyed_event.register(S, src, /datum/ui_module/shields_monitor/proc/deselect_shield)
 			active = S
 		return 1
 
-/datum/nano_module/shields_monitor/proc/deselect_shield(var/source)
+/datum/ui_module/shields_monitor/proc/deselect_shield(var/source)
 	if(!active)
 		return
 	GLOB.destroyed_event.unregister(active, src)

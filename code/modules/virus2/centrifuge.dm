@@ -39,7 +39,7 @@
 	if(..()) return
 	ui_interact(user)
 
-/obj/machinery/disease2/centrifuge/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/disease2/centrifuge/ui_interact(mob/user, var/datum/tgui/ui)
 	user.set_machine(src)
 
 	var/data[0]
@@ -74,7 +74,7 @@
 					data["antibodies"] = antigens2string(A.data["antibodies"], none=null)
 				data["is_antibody_sample"] = 1
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, ui_key, "isolation_centrifuge.tmpl", src.name, 400, 500)
 		ui.set_initial_data(data)

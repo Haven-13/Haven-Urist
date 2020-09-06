@@ -7,18 +7,18 @@
 	size = 4
 	requires_ntnet = 1
 	available_on_ntnet = 1
-	nanomodule_path = /datum/nano_module/crew_manifest
+	ui_module_path = /datum/ui_module/crew_manifest
 	usage_flags = PROGRAM_ALL
 
-/datum/nano_module/crew_manifest
+/datum/ui_module/crew_manifest
 	name = "Crew Manifest"
 
-/datum/nano_module/crew_manifest/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
+/datum/ui_module/crew_manifest/ui_interact(mob/user, datum/tgui/ui)
 	var/list/data = host.initial_data()
 
 	data["crew_manifest"] = html_crew_manifest(TRUE)
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, ui_key, "crew_manifest.tmpl", name, 450, 600, state = state)
 		ui.auto_update_layout = 1

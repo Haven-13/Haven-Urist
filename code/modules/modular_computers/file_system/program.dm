@@ -5,8 +5,8 @@
 	var/required_access = null						// List of required accesses to run/download the program.
 	var/requires_access_to_run = 1					// Whether the program checks for required_access when run.
 	var/requires_access_to_download = 1				// Whether the program checks for required_access when downloading.
-	var/datum/nano_module/NM = null					// If the program uses NanoModule, put it here and it will be automagically opened. Otherwise implement ui_interact.
-	var/nanomodule_path = null						// Path to nanomodule, make sure to set this if implementing new program.
+	var/datum/ui_module/NM = null					// If the program uses NanoModule, put it here and it will be automagically opened. Otherwise implement ui_interact.
+	var/ui_module_path = null						// Path to nanomodule, make sure to set this if implementing new program.
 	var/program_state = PROGRAM_STATE_KILLED		// PROGRAM_STATE_KILLED or PROGRAM_STATE_BACKGROUND or PROGRAM_STATE_ACTIVE - specifies whether this program is running.
 	var/obj/item/modular_computer/computer			// Device that runs this program.
 	var/filedesc = "Unknown Program"				// User-friendly name of this program.
@@ -24,6 +24,7 @@
 	var/computer_emagged = 0						// Set to 1 if computer that's running us was emagged. Computer updates this every Process() tick
 	var/ui_header = null							// Example: "something.gif" - a header image that will be rendered in computer's UI when this program is running at background. Images are taken from /nano/images/status_icons. Be careful not to use too large images!
 	var/ntnet_speed = 0								// GQ/s - current network connectivity transfer rate
+	var/tgui_id										// Name of the tgui interface
 
 /datum/computer_file/program/New(var/obj/item/modular_computer/comp = null)
 	..()
@@ -34,13 +35,13 @@
 	computer = null
 	. = ..()
 
-/datum/computer_file/program/nano_host()
-	return computer.nano_host()
+/datum/computer_file/program/ui_host()
+	return computer.ui_host()
 
 /datum/computer_file/program/clone()
 	var/datum/computer_file/program/temp = ..()
 	temp.required_access = required_access
-	temp.nanomodule_path = nanomodule_path
+	temp.ui_module_path = ui_module_path
 	temp.filedesc = filedesc
 	temp.program_icon_state = program_icon_state
 	temp.requires_ntnet = requires_ntnet
@@ -150,8 +151,8 @@
 // When implementing new program based device, use this to run the program.
 /datum/computer_file/program/proc/run_program(var/mob/living/user)
 	if(can_run(user, 1) || !requires_access_to_run)
-		if(nanomodule_path)
-			NM = new nanomodule_path(src, new /datum/topic_manager/program(src), src)
+		if(ui_module_path)
+			NM = new ui_module_path(src, new /datum/topic_manager/program(src), src)
 			if(user)
 				NM.using_access = user.GetAccess()
 		if(requires_ntnet && network_destination)
@@ -174,19 +175,42 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui && tgui_id)
 		ui = new(user, src, tgui_id, filedesc)
-		ui.send_asset(get_asset_datum(/datum/asset/simple/headers))
 		ui.open()
+		ui.send_asset(get_asset_datum(/datum/asset/simple/headers))
 
 // CONVENTIONS, READ THIS WHEN CREATING NEW PROGRAM AND OVERRIDING THIS PROC:
 // Topic calls are automagically forwarded from NanoModule this program contains.
 // Calls beginning with "PRG_" are reserved for programs handling.
 // Calls beginning with "PC_" are reserved for computer handling (by whatever runs the program)
 // ALWAYS INCLUDE PARENT CALL ..() OR DIE IN FIRE.
-/datum/computer_file/program/Topic(href, href_list)
+/datum/computer_file/program/ui_act(action,list/params,datum/tgui/ui)
 	if(..())
 		return 1
 	if(computer)
-		return computer.Topic(href, href_list)
+		switch(action)
+			if("PC_exit")
+				computer.kill_program()
+				ui.close()
+				return 1
+			if("PC_shutdown")
+				computer.shutdown_computer()
+				ui.close()
+				return 1
+			if("PC_minimize")
+				var/mob/user = usr
+				if(!computer.active_program || !computer.all_components[MC_CPU])
+					return
+
+				computer.idle_threads.Add(computer.active_program)
+				program_state = PROGRAM_STATE_BACKGROUND // Should close any existing UIs
+
+				computer.active_program = null
+				computer.update_icon()
+				ui.close()
+
+				if(user && istype(user))
+					computer.ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.
+
 
 // Relays the call to nano module, if we have one
 /datum/computer_file/program/proc/check_eye(var/mob/user)
@@ -201,11 +225,11 @@
 /obj/item/modular_computer/update_layout()
 	return TRUE
 
-/datum/nano_module/program
+/datum/ui_module/program
 	available_to_ai = FALSE
 	var/datum/computer_file/program/program = null	// Program-Based computer program that runs this nano module. Defaults to null.
 
-/datum/nano_module/program/New(var/host, var/topic_manager, var/program)
+/datum/ui_module/program/New(var/host, var/topic_manager, var/program)
 	..()
 	src.program = program
 

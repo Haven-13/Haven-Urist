@@ -1,3 +1,5 @@
+#define UI_TGUI_4
+
 #include "external.dm"
 #include "states.dm"
 #include "tgui.dm"

@@ -8,7 +8,7 @@
 	idle_power_usage = 250
 	active_power_usage = 500
 	circuit = /obj/item/weapon/circuitboard/crew
-	var/datum/nano_module/crew_monitor/crew_monitor
+	var/datum/ui_module/crew_monitor/crew_monitor
 
 /obj/machinery/computer/crew/New()
 	crew_monitor = new(src)
@@ -28,7 +28,7 @@
 		return
 	ui_interact(user)
 
-/obj/machinery/computer/crew/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/computer/crew/ui_interact(mob/user, datum/tgui/ui)
 	crew_monitor.ui_interact(user, ui_key, ui, force_open, state)
 
 /obj/machinery/computer/crew/nano_container()
@@ -84,47 +84,6 @@
 	var/pos_x
 	var/pos_y
 	var/life_status
-
-	for(var/i in GLOB.nanite_sensors_list)
-		var/mob/living/carbon/human/H = i
-		var/nanite_sensors = FALSE
-		if(H in SSnanites.nanite_monitored_mobs)
-			nanite_sensors = TRUE
-		// Check if their z-level is correct and if they are wearing a uniform.
-		// Accept H.z==0 as well in case the mob is inside an object.
-		if(((H.z == 0 || H.z == z) && (nanite_sensors)))
-
-			pos = H.z == 0 || (nanite_sensors) ? get_turf(H) : null
-
-			// Special case: If the mob is inside an object confirm the z-level on turf level.
-			if (H.z == 0 && (!pos || pos.z != z))
-				continue
-
-			I = H.wear_id ? H.wear_id.GetID() : null
-
-			if (I)
-				name = I.registered_name
-				assignment = I.assignment
-				ijob = jobs[I.assignment]
-			else
-				name = "Unknown"
-				assignment = ""
-				ijob = 80
-
-			life_status = (!H.stat ? TRUE : FALSE)
-
-			oxydam = round(H.getOxyLoss(),1)
-			toxdam = round(H.getToxLoss(),1)
-			burndam = round(H.getFireLoss(),1)
-			brutedam = round(H.getBruteLoss(),1)
-
-			if (!pos)
-				pos = get_turf(H)
-			area = get_area_name(H, TRUE)
-			pos_x = pos.x
-			pos_y = pos.y
-
-			results[++results.len] = list("name" = name, "assignment" = assignment, "ijob" = ijob, "life_status" = life_status, "oxydam" = oxydam, "toxdam" = toxdam, "burndam" = burndam, "brutedam" = brutedam, "area" = area, "pos_x" = pos_x, "pos_y" = pos_y, "can_track" = H.can_track(null))
 
 	for(var/i in GLOB.suit_sensors_list)
 		var/mob/living/carbon/human/H = i

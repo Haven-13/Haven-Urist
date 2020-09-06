@@ -10,7 +10,7 @@
 	required_access = access_bridge
 	requires_access_to_run = 0
 	available_on_ntnet = 1
-	nanomodule_path = /datum/nano_module/program/computer_aidiag/
+	ui_module_path = /datum/ui_module/program/computer_aidiag/
 	var/restoring = 0
 
 /datum/computer_file/program/aidiag/proc/get_ai()
@@ -80,10 +80,16 @@
 	if((A.hardware_integrity() == 100) && (A.backup_capacitor() == 100))
 		restoring = 0
 
-/datum/nano_module/program/computer_aidiag
+/datum/ui_module/program/computer_aidiag
 	name = "AI Maintenance Utility"
 
-/datum/nano_module/program/computer_aidiag/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/program/computer_aidiag/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "AiFixerProgram")
+		ui.open()
+
+/datum/ui_module/program/computer_aidiag/ui_data(mob/user)
 	var/list/data = host.initial_data()
 	var/mob/living/silicon/ai/A
 	// A shortcut for getting the AI stored inside the computer. The program already does necessary checks.
@@ -108,12 +114,4 @@
 			)))
 
 		data["ai_laws"] = all_laws
-
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "aidiag.tmpl", "AI Maintenance Utility", 600, 400, state = state)
-		if(host.update_layout())
-			ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data

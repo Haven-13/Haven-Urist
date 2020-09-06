@@ -9,7 +9,7 @@
 	program_icon_state = "comm"
 	program_key_state = "med_key"
 	program_menu_icon = "flag"
-	nanomodule_path = /datum/nano_module/program/comm
+	ui_module_path = /datum/ui_module/program/comm
 	extended_desc = "Used to command and control. Can relay long-range communications. This program can not be run on tablet computers."
 	required_access = access_bridge
 	requires_ntnet = 1
@@ -24,7 +24,7 @@
 	temp.message_core.messages = message_core.messages.Copy()
 	return temp
 
-/datum/nano_module/program/comm
+/datum/ui_module/program/comm
 	name = "Command and Communications Program"
 	available_to_ai = TRUE
 	var/current_status = STATE_DEFAULT
@@ -36,12 +36,17 @@
 	var/current_viewing_message_id = 0
 	var/current_viewing_message = null
 
-/datum/nano_module/program/comm/New()
+/datum/ui_module/program/comm/New()
 	..()
 	crew_announcement.newscast = 1
 
-/datum/nano_module/program/comm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/program/comm/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "CommunicationProgram")
+		ui.open()
 
+/datum/ui_module/program/comm/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 	if(program)
@@ -99,25 +104,20 @@
 			processed_evac_options[++processed_evac_options.len] = option
 	data["evac_options"] = processed_evac_options
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "communication.tmpl", name, 550, 420, state = state)
-		ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
-/datum/nano_module/program/comm/proc/is_autenthicated(var/mob/user)
+/datum/ui_module/program/comm/proc/is_autenthicated(var/mob/user)
 	if(program)
 		return program.can_run(user)
 	return 1
 
-/datum/nano_module/program/comm/proc/obtain_message_listener()
+/datum/ui_module/program/comm/proc/obtain_message_listener()
 	if(program)
 		var/datum/computer_file/program/comm/P = program
 		return P.message_core
 	return global_message_listener
 
-/datum/nano_module/program/comm/Topic(href, href_list)
+/datum/ui_module/program/comm/Topic(href, href_list)
 	if(..())
 		return 1
 	var/mob/user = usr

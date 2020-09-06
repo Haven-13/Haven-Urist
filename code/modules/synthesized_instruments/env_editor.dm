@@ -1,15 +1,15 @@
-/datum/nano_module/env_editor
+/datum/ui_module/env_editor
 	name = "Environment Editor"
 	available_to_ai = 0
 	var/datum/sound_player/player
 
 
-/datum/nano_module/env_editor/New(datum/sound_player/player)
+/datum/ui_module/env_editor/New(datum/sound_player/player)
 	src.host = player.actual_instrument
 	src.player = player
 
 
-/datum/nano_module/env_editor/ui_interact(mob/user, ui_key = "env_editor", var/datum/nanoui/ui = null, var/force_open = 0)
+/datum/ui_module/env_editor/ui_interact(mob/user, ui_key = "env_editor", var/datum/nanoui/ui = null, var/force_open = 0)
 	var/list/list/data = list()
 	data["env_params"] = list()
 	for (var/i=1 to 23)
@@ -20,14 +20,14 @@
 		env_data["real"] = GLOB.musical_config.env_params_bounds[i][3]
 		data["env_params"] += list(env_data)
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new (user, src, ui_key, "env_editor.tmpl", "Environment Editor", 300, 800)
 		ui.set_initial_data(data)
 		ui.open()
 
 
-/datum/nano_module/env_editor/Topic(href, href_list)
+/datum/ui_module/env_editor/Topic(href, href_list)
 	if (!GLOB.musical_config.env_settings_available)
 		return 0
 

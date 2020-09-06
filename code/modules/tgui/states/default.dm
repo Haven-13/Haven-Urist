@@ -11,19 +11,19 @@
 GLOBAL_DATUM_INIT(tgui_default_state, /datum/ui_state/default, new)
 
 /datum/ui_state/default/can_use_topic(src_object, mob/user)
-	return user.tg_default_can_use_topic(src_object) // Call the individual mob-overriden procs.
+	return user.tgui_default_can_use_topic(src_object) // Call the individual mob-overriden procs.
 
-/mob/proc/tg_default_can_use_topic(src_object)
+/mob/proc/tgui_default_can_use_topic(src_object)
 	return UI_CLOSE // Don't allow interaction by default.
 
-/mob/living/tg_default_can_use_topic(src_object)
+/mob/living/tgui_default_can_use_topic(src_object)
 	. = shared_ui_interaction(src_object)
 	if(. > UI_CLOSE && loc)
 		. = min(., loc.contents_ui_distance(src_object, src)) // Check the distance...
 	if(. == UI_INTERACTIVE) // Non-human living mobs can only look, not touch.
 		return UI_UPDATE
 
-/mob/living/carbon/human/tg_default_can_use_topic(src_object)
+/mob/living/carbon/human/tgui_default_can_use_topic(src_object)
 	. = shared_ui_interaction(src_object)
 	if(. > UI_CLOSE)
 		. = min(., shared_living_ui_distance(src_object)) // Check the distance...
@@ -31,7 +31,7 @@ GLOBAL_DATUM_INIT(tgui_default_state, /datum/ui_state/default, new)
 		if(prob(getBrainLoss()))
 			return UI_UPDATE
 
-/mob/living/silicon/robot/tg_default_can_use_topic(src_object)
+/mob/living/silicon/robot/tgui_default_can_use_topic(src_object)
 	. = shared_ui_interaction(src_object)
 	if(. <= UI_DISABLED)
 		return
@@ -41,7 +41,7 @@ GLOBAL_DATUM_INIT(tgui_default_state, /datum/ui_state/default, new)
 		return UI_INTERACTIVE
 	return UI_DISABLED // Otherwise they can keep the UI open.
 
-/mob/living/silicon/ai/tg_default_can_use_topic(src_object)
+/mob/living/silicon/ai/tgui_default_can_use_topic(src_object)
 	. = shared_ui_interaction(src_object)
 	if(. < UI_INTERACTIVE)
 		return
@@ -51,7 +51,7 @@ GLOBAL_DATUM_INIT(tgui_default_state, /datum/ui_state/default, new)
 		return UI_INTERACTIVE
 	return UI_CLOSE
 
-/mob/living/silicon/pai/tg_default_can_use_topic(src_object)
+/mob/living/silicon/pai/tgui_default_can_use_topic(src_object)
 	// pAIs can only use themselves and the owner's radio.
 	if((src_object == src || src_object == silicon_radio) && !stat)
 		return UI_INTERACTIVE

@@ -7,7 +7,7 @@
 	size = 4
 	requires_ntnet = 0
 	available_on_ntnet = 1
-	nanomodule_path = /datum/nano_module/program/computer_wordprocessor/
+	ui_module_path = /datum/ui_module/program/computer_wordprocessor/
 	var/browsing
 	var/open_file
 	var/loaded_data
@@ -159,10 +159,18 @@
 			error = "Hardware error: Printer was unable to print the file. It may be out of paper."
 			return 1
 
-/datum/nano_module/program/computer_wordprocessor
+/datum/ui_module/program/computer_wordprocessor
 	name = "Word Processor"
 
-/datum/nano_module/program/computer_wordprocessor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/program/computer_wordprocessor/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, ui_key, "word_processor.tmpl", "Word Processor", 575, 700, state = state)
+		ui.auto_update_layout = 1
+		ui.set_initial_data(data)
+		ui.open()
+
+/datum/ui_module/program/computer_wordprocessor/ui_data(mob/user)
 	var/list/data = host.initial_data()
 	var/datum/computer_file/program/wordprocessor/PRG
 	PRG = program
@@ -204,9 +212,4 @@
 		data["filedata"] = pencode2html(PRG.loaded_data)
 		data["filename"] = "UNNAMED"
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "word_processor.tmpl", "Word Processor", 575, 700, state = state)
-		ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
+	return data

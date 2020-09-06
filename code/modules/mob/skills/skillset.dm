@@ -7,8 +7,8 @@
 	var/skills_transferable = TRUE
 	var/list/skill_buffs                                            // A list of /datum/skill_buff being applied to the skillset.
 	var/list/skill_verbs                                            // A list of skill-related verb datums.
-	var/nm_type = /datum/nano_module/skill_ui
-	var/datum/nano_module/skill_ui/NM
+	var/nm_type = /datum/ui_module/skill_ui
+	var/datum/ui_module/skill_ui/NM
 	var/list/nm_viewing
 
 /datum/skillset/New(mob/mob)

@@ -203,7 +203,7 @@
 		celldiff = min(min(celldiff, most.charge), least.maxcharge - least.charge)
 		least.give(most.use(celldiff))
 
-/obj/machinery/power/smes/batteryrack/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/power/smes/batteryrack/ui_interact(mob/user, var/datum/tgui/ui)
 	var/data[0]
 
 	data["mode"] = mode
@@ -232,7 +232,7 @@
 		cells += list(cell)
 	data["cells_list"] = cells
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, ui_key, "psu.tmpl", "Cell Rack PSU", 500, 430)
 		ui.set_initial_data(data)

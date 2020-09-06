@@ -18,16 +18,16 @@ The answer was five and a half years -ZeroBits
 	available_on_ntnet = 1
 	usage_flags = PROGRAM_ALL
 
-	nanomodule_path = /datum/nano_module/library
+	ui_module_path = /datum/ui_module/library
 
-/datum/nano_module/library
+/datum/ui_module/library
 	name = "Library"
 	var/error_message = ""
 	var/current_book
 	var/obj/machinery/libraryscanner/scanner
 	var/sort_by = "id"
 
-/datum/nano_module/library/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/library/ui_interact(mob/user, datum/tgui/ui)
 	var/list/data = host.initial_data()
 
 	if(error_message)
@@ -53,14 +53,14 @@ The answer was five and a half years -ZeroBits
 		data["book_list"] = all_entries
 		data["scanner"] = istype(scanner)
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, ui_key, "library.tmpl", "Library Program", 575, 700, state = state)
 		ui.auto_update_layout = 1
 		ui.set_initial_data(data)
 		ui.open()
 
-/datum/nano_module/library/Topic(href, href_list)
+/datum/ui_module/library/Topic(href, href_list)
 	if(..())
 		return 1
 	if(href_list["viewbook"])
@@ -73,10 +73,10 @@ The answer was five and a half years -ZeroBits
 		current_book = null
 		return 1
 	if(href_list["connectscanner"])
-		if(!nano_host())
+		if(!ui_host())
 			return 1
 		for(var/d in GLOB.cardinal)
-			var/obj/machinery/libraryscanner/scn = locate(/obj/machinery/libraryscanner, get_step(nano_host(), d))
+			var/obj/machinery/libraryscanner/scn = locate(/obj/machinery/libraryscanner, get_step(ui_host(), d))
 			if(scn && scn.anchored)
 				scanner = scn
 				return 1
@@ -139,10 +139,10 @@ The answer was five and a half years -ZeroBits
 			return 1
 
 		//PRINT TO BINDER
-		if(!nano_host())
+		if(!ui_host())
 			return 1
 		for(var/d in GLOB.cardinal)
-			var/obj/machinery/bookbinder/bndr = locate(/obj/machinery/bookbinder, get_step(nano_host(), d))
+			var/obj/machinery/bookbinder/bndr = locate(/obj/machinery/bookbinder, get_step(ui_host(), d))
 			if(bndr && bndr.anchored)
 				var/obj/item/weapon/book/B = new(bndr.loc)
 				B.SetName(current_book["title"])
@@ -168,7 +168,7 @@ The answer was five and a half years -ZeroBits
 			error_message = ""
 		return 1
 
-/datum/nano_module/library/proc/view_book(var/id)
+/datum/ui_module/library/proc/view_book(var/id)
 	if(current_book || !id)
 		return 0
 

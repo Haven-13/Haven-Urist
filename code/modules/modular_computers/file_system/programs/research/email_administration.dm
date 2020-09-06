@@ -8,19 +8,25 @@
 	size = 12
 	requires_ntnet = 1
 	available_on_ntnet = 1
-	nanomodule_path = /datum/nano_module/email_administration
+	ui_module_path = /datum/ui_module/email_administration
 	required_access = access_network
 
 
 
 
-/datum/nano_module/email_administration/
+/datum/ui_module/email_administration/
 	name = "Email Administration"
 	var/datum/computer_file/data/email_account/current_account = null
 	var/datum/computer_file/data/email_message/current_message = null
 	var/error = ""
 
-/datum/nano_module/email_administration/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/email_administration/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "EmailAdministrationProgram")
+		ui.open()
+
+/datum/ui_module/email_administration/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 	if(error)
@@ -55,17 +61,9 @@
 		data["accounts"] = all_accounts
 		data["accountcount"] = all_accounts.len
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "email_administration.tmpl", "Email Administration Utility", 600, 450, state = state)
-		if(host.update_layout())
-			ui.auto_update_layout = 1
-		ui.set_auto_update(1)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
-
-/datum/nano_module/email_administration/Topic(href, href_list)
+/datum/ui_module/email_administration/Topic(href, href_list)
 	if(..())
 		return 1
 

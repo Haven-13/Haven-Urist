@@ -1,4 +1,4 @@
-/datum/nano_module/song_editor
+/datum/ui_module/song_editor
 	name = "Song Editor"
 	available_to_ai = 0
 	var/datum/synthesized_song/song
@@ -6,27 +6,27 @@
 	var/page = 1
 
 
-/datum/nano_module/song_editor/New(var/host, var/topic_manager, datum/synthesized_song/song)
+/datum/ui_module/song_editor/New(var/host, var/topic_manager, datum/synthesized_song/song)
 	..()
 	src.host = host
 	src.song = song
 
 
-/datum/nano_module/song_editor/proc/pages()
+/datum/ui_module/song_editor/proc/pages()
 	return Ceiling(src.song.lines.len / GLOB.musical_config.song_editor_lines_per_page)
 
 
-/datum/nano_module/song_editor/proc/current_page()
+/datum/ui_module/song_editor/proc/current_page()
 	return src.song.current_line > 0 ? Ceiling(src.song.current_line / GLOB.musical_config.song_editor_lines_per_page) : src.page
 
 
-/datum/nano_module/song_editor/proc/page_bounds(page_num)
+/datum/ui_module/song_editor/proc/page_bounds(page_num)
 	return list(
 		max(1 + GLOB.musical_config.song_editor_lines_per_page * (page_num-1), 1),
 		min(GLOB.musical_config.song_editor_lines_per_page * page_num, src.song.lines.len))
 
 
-/datum/nano_module/song_editor/ui_interact(mob/user, ui_key = "song_editor", var/datum/nanoui/ui = null, var/force_open = 0)
+/datum/ui_module/song_editor/ui_interact(mob/user, ui_key = "song_editor", var/datum/nanoui/ui = null, var/force_open = 0)
 	var/list/data = list()
 
 	var/current_page = src.current_page()
@@ -48,7 +48,7 @@
 		ui.open()
 
 
-/datum/nano_module/song_editor/Topic(href, href_list)
+/datum/ui_module/song_editor/Topic(href, href_list)
 	if (..())
 		return 1
 

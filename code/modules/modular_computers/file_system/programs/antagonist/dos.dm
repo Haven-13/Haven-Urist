@@ -9,7 +9,7 @@
 	requires_ntnet = 1
 	available_on_ntnet = 0
 	available_on_syndinet = 1
-	nanomodule_path = /datum/nano_module/program/computer_dos/
+	ui_module_path = /datum/ui_module/program/computer_dos/
 	usage_flags = PROGRAM_ALL
 	var/obj/machinery/ntnet_relay/target = null
 	var/dos_speed = 0
@@ -40,10 +40,16 @@
 
 	..(forced)
 
-/datum/nano_module/program/computer_dos
+/datum/ui_module/program/computer_dos
 	name = "DoS Traffic Generator"
 
-/datum/nano_module/program/computer_dos/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/program/computer_dos/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "DosTraffiProgram")
+		ui.open()
+
+/datum/ui_module/program/computer_dos/ui_data(mob/user)
 	if(!ntnet_global)
 		return
 	var/datum/computer_file/program/ntnet_dos/PRG = program
@@ -76,13 +82,7 @@
 		data["relays"] = relays
 		data["focus"] = PRG.target ? PRG.target.uid : null
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "ntnet_dos.tmpl", "DoS Traffic Generator", 400, 250, state = state)
-		ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /datum/computer_file/program/ntnet_dos/Topic(href, href_list)
 	if(..())

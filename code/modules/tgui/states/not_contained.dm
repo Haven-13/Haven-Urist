@@ -1,5 +1,5 @@
 /**
- * tgui state: notcontained_state
+ * tgui state: not_contained_state
  *
  * Checks that the user is not inside src_object, and then makes the
  * default checks.
@@ -8,23 +8,23 @@
  * SPDX-License-Identifier: MIT
  */
 
-GLOBAL_DATUM_INIT(tgui_not_contained_state, /datum/ui_state/notcontained_state, new)
+GLOBAL_DATUM_INIT(tgui_not_contained_state, /datum/ui_state/not_contained_state, new)
 
-/datum/ui_state/notcontained_state/can_use_topic(atom/src_object, mob/user)
+/datum/ui_state/not_contained_state/can_use_topic(atom/src_object, mob/user)
 	. = user.shared_ui_interaction(src_object)
 	if(. > UI_CLOSE)
 		return min(., user.notcontained_can_use_topic(src_object))
 
-/mob/proc/notcontained_can_use_topic(src_object)
+/mob/proc/not_contained_can_use_topic(src_object)
 	return UI_CLOSE
 
-/mob/living/notcontained_can_use_topic(atom/src_object)
+/mob/living/not_contained_can_use_topic(atom/src_object)
 	if(src_object.contains(src))
 		return UI_CLOSE // Close if we're inside it.
-	return default_can_use_topic(src_object)
+	return tgui_default_can_use_topic(src_object)
 
-/mob/living/silicon/notcontained_can_use_topic(src_object)
-	return default_can_use_topic(src_object) // Silicons use default bevhavior.
+/mob/living/silicon/not_contained_can_use_topic(src_object)
+	return tgui_default_can_use_topic(src_object) // Silicons use default bevhavior.
 
-/mob/living/simple_animal/drone/notcontained_can_use_topic(src_object)
-	return default_can_use_topic(src_object) // Drones use default bevhavior.
+/mob/living/simple_animal/drone/not_contained_can_use_topic(src_object)
+	return tgui_default_can_use_topic(src_object) // Drones use default bevhavior.

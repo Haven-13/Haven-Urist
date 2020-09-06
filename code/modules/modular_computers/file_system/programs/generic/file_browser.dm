@@ -9,7 +9,7 @@
 	requires_ntnet = 0
 	available_on_ntnet = 0
 	undeletable = 1
-	nanomodule_path = /datum/nano_module/program/computer_filemanager/
+	ui_module_path = /datum/ui_module/program/computer_filemanager/
 	var/open_file
 	var/error
 	usage_flags = PROGRAM_ALL
@@ -148,10 +148,10 @@
 	if(.)
 		SStgui.update_uis(NM)
 
-/datum/nano_module/program/computer_filemanager
+/datum/ui_module/program/computer_filemanager
 	name = "NTOS File Manager"
 
-/datum/nano_module/program/computer_filemanager/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/program/computer_filemanager/ui_interact(mob/user, datum/tgui/ui)
 	var/list/data = host.initial_data()
 	var/datum/computer_file/program/filemanager/PRG
 	PRG = program
@@ -200,7 +200,7 @@
 					)))
 				data["usbfiles"] = usbfiles
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, ui_key, "file_manager.tmpl", "NTOS File Manager", 575, 700, state = state)
 		ui.auto_update_layout = 1

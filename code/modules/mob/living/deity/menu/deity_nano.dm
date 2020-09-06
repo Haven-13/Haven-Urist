@@ -3,7 +3,13 @@
 	var/list/nano_data = list()
 	var/datum/phenomena/selected
 
-/mob/living/deity/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/uistate = GLOB.self_state)
+/mob/living/deity/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "DeityMenu")
+		ui.open()
+
+/mob/living/deity/ui_data(mob/user)
 	if(!nano_data["categories"]) //If we don't have the categories set yet, we should populate our data.
 		var/list/categories = list()
 		for(var/cat in items_by_category)
@@ -22,12 +28,8 @@
 	nano_data["power"] = power
 	nano_data["power_min"] = power_min
 	nano_data["regen"] = power_per_regen
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, nano_data, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "deity.tmpl", "Deity Menu", 650, 600, state = uistate)
-		ui.set_initial_data(nano_data)
-		ui.open()
-		ui.set_auto_update(TRUE)
+
+	return nano_data
 
 /mob/living/deity/proc/set_nano_category(var/num)
 	nano_data["category"] = num

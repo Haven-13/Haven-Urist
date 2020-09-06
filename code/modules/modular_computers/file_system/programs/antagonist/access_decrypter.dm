@@ -9,7 +9,7 @@
 	requires_ntnet = 1
 	available_on_ntnet = 0
 	available_on_syndinet = 1
-	nanomodule_path = /datum/nano_module/program/access_decrypter/
+	ui_module_path = /datum/ui_module/program/access_decrypter/
 	var/message = ""
 	var/running = FALSE
 	var/progress = 0
@@ -74,11 +74,17 @@
 			ntnet_global.intrusion_detection_alarm = 1
 		return 1
 
-/datum/nano_module/program/access_decrypter
+/datum/ui_module/program/access_decrypter
 	name = "NTNet Access Decrypter"
 	var/list/restricted_access_codes = list(access_change_ids, access_network) // access codes that are not hackable due to balance reasons
 
-/datum/nano_module/program/access_decrypter/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/program/access_decrypter/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "AccessDecrypterProgram")
+		ui.open()
+
+/datum/ui_module/program/access_decrypter/ui_data(mob/user)
 	if(!ntnet_global)
 		return
 	var/datum/computer_file/program/access_decrypter/PRG = program
@@ -120,10 +126,4 @@
 				"accesses" = accesses)))
 		data["regions"] = regions
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "access_decrypter.tmpl", "NTNet Access Decrypter", 550, 400, state = state)
-		ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data

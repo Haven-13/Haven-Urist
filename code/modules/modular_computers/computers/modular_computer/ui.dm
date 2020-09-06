@@ -1,5 +1,5 @@
 // Operates NanoUI
-/obj/item/modular_computer/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/item/modular_computer/ui_interact(mob/user, var/datum/tgui/ui)
 	if(!screen_on || !enabled || bsod)
 		if(ui)
 			ui.close()
@@ -38,7 +38,7 @@
 		programs.Add(list(program))
 
 	data["programs"] = programs
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, ui_key, "laptop_mainscreen.tmpl", "NTOS Main Menu", 400, 500)
 		ui.auto_update_layout = 1

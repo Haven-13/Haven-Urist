@@ -3,7 +3,7 @@
 /datum/antag_skill_setter
 	var/nm_type                        //A nano_module with custom ui, if any.
 	var/list/base_skill_list = list()  //Format: list(path = value).
-	var/default_value = SKILL_DEFAULT  //If not in base_skill_list or added in another way, skill value will be this. 
+	var/default_value = SKILL_DEFAULT  //If not in base_skill_list or added in another way, skill value will be this.
 
 /datum/antag_skill_setter/proc/initialize_skills(datum/skillset/skillset)
 	skillset.skill_list = base_skill_list.Copy()
@@ -16,7 +16,7 @@
 
 //This is the generic antag skill setter, used for most antag types.
 /datum/antag_skill_setter/generic
-	nm_type = /datum/nano_module/skill_ui/antag
+	nm_type = /datum/ui_module/skill_ui/antag
 	default_value = SKILL_BASIC
 
 /datum/antag_skill_setter/generic/initialize_skills(datum/skillset/skillset)
@@ -25,7 +25,7 @@
 
 //This will obtain skills from the job selection before giving additional buffs.
 /datum/antag_skill_setter/station
-	nm_type = /datum/nano_module/skill_ui/antag/station
+	nm_type = /datum/ui_module/skill_ui/antag/station
 
 /datum/antag_skill_setter/station/initialize_skills(datum/skillset/skillset)
 	..()

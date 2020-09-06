@@ -11,7 +11,7 @@
 	requires_ntnet = 1
 	requires_ntnet_feature = NTNET_SOFTWAREDOWNLOAD
 	available_on_ntnet = 0
-	nanomodule_path = /datum/nano_module/program/computer_ntnetdownload/
+	ui_module_path = /datum/ui_module/program/computer_ntnetdownload/
 	ui_header = "downloader_finished.gif"
 	var/datum/computer_file/program/downloaded_file = null
 	var/hacked_download = 0
@@ -130,11 +130,11 @@
 		return 1
 	return 0
 
-/datum/nano_module/program/computer_ntnetdownload
+/datum/ui_module/program/computer_ntnetdownload
 	name = "Network Downloader"
 	var/obj/item/modular_computer/my_computer = null
 
-/datum/nano_module/program/computer_ntnetdownload/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/program/computer_ntnetdownload/ui_interact(mob/user, datum/tgui/ui)
 	if(program)
 		my_computer = program.computer
 
@@ -194,7 +194,7 @@
 	if(prog.downloads_queue.len > 0)
 		data["downloads_queue"] = prog.downloads_queue
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, ui_key, "ntnet_downloader.tmpl", "NTNet Download Program", 575, 700, state = state)
 		ui.auto_update_layout = 1

@@ -1,7 +1,7 @@
 /datum/computer_file/program/supermatter_monitor
 	filename = "supmon"
 	filedesc = "Supermatter Monitoring"
-	nanomodule_path = /datum/nano_module/supermatter_monitor/
+	ui_module_path = /datum/ui_module/supermatter_monitor/
 	program_icon_state = "smmon_0"
 	program_key_state = "tech_key"
 	program_menu_icon = "notice"
@@ -15,7 +15,7 @@
 
 /datum/computer_file/program/supermatter_monitor/process_tick()
 	..()
-	var/datum/nano_module/supermatter_monitor/NMS = NM
+	var/datum/ui_module/supermatter_monitor/NMS = NM
 	var/new_status = istype(NMS) ? NMS.get_status() : 0
 	if(last_status != new_status)
 		last_status = new_status
@@ -24,24 +24,24 @@
 		if(istype(computer))
 			computer.update_icon()
 
-/datum/nano_module/supermatter_monitor
+/datum/ui_module/supermatter_monitor
 	name = "Supermatter monitor"
 	var/list/supermatters
 	var/obj/machinery/power/supermatter/active = null		// Currently selected supermatter crystal.
 
-/datum/nano_module/supermatter_monitor/Destroy()
+/datum/ui_module/supermatter_monitor/Destroy()
 	. = ..()
 	active = null
 	supermatters = null
 
-/datum/nano_module/supermatter_monitor/New()
+/datum/ui_module/supermatter_monitor/New()
 	..()
 	refresh()
 
 // Refreshes list of active supermatter crystals
-/datum/nano_module/supermatter_monitor/proc/refresh()
+/datum/ui_module/supermatter_monitor/proc/refresh()
 	supermatters = list()
-	var/turf/T = get_turf(nano_host())
+	var/turf/T = get_turf(ui_host())
 	if(!T)
 		return
 	var/valid_z_levels = (GetConnectedZlevels(T.z) & GLOB.using_map.station_levels)
@@ -54,12 +54,18 @@
 	if(!(active in supermatters))
 		active = null
 
-/datum/nano_module/supermatter_monitor/proc/get_status()
+/datum/ui_module/supermatter_monitor/proc/get_status()
 	. = SUPERMATTER_INACTIVE
 	for(var/obj/machinery/power/supermatter/S in supermatters)
 		. = max(., S.get_status())
 
-/datum/nano_module/supermatter_monitor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/supermatter_monitor/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "SupermatterMonitorProgram")
+		ui.open()
+
+/datum/ui_module/supermatter_monitor/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 	if(istype(active))
@@ -112,16 +118,9 @@
 		data["active"] = 0
 		data["supermatters"] = SMS
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "supermatter_monitor.tmpl", "Supermatter Monitoring", 600, 400, state = state)
-		if(host.update_layout())
-			ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
-/datum/nano_module/supermatter_monitor/Topic(href, href_list)
+/datum/ui_module/supermatter_monitor/Topic(href, href_list)
 	if(..())
 		return 1
 	if( href_list["clear"] )

@@ -656,7 +656,7 @@
 
 
 //Makes the deck management program use hangar access
-/datum/nano_module/deck_management
+/datum/ui_module/deck_management
 	default_access = list(access_expedition_shuttle_helm, access_cargo, access_heads)
 
 /////////////////////

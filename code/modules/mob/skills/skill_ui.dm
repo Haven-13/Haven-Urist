@@ -1,10 +1,10 @@
 //Holders/managers for nano_ui for the skill panel.
 
-/datum/nano_module/skill_ui
+/datum/ui_module/skill_ui
 	var/datum/skillset/skillset
 	var/template = "skill_ui.tmpl"
 
-/datum/nano_module/skill_ui/New(datum/host, topic_manager, datum/skillset/override)
+/datum/ui_module/skill_ui/New(datum/host, topic_manager, datum/skillset/override)
 	skillset = override
 	if(!skillset && ismob(host))
 		var/mob/M = host
@@ -13,25 +13,25 @@
 		LAZYADD(skillset.nm_viewing, src)
 	..()
 
-/datum/nano_module/skill_ui/Destroy()
+/datum/ui_module/skill_ui/Destroy()
 	if(skillset)
 		LAZYREMOVE(skillset.nm_viewing, src)
 	skillset = null
 	. = ..()
 
-/datum/nano_module/skill_ui/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.self_state)
+/datum/ui_module/skill_ui/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.self_state)
 	if(!skillset)
 		return
 	var/list/data = skillset.get_nano_data()
 	data += get_data()
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, ui_key, template, "Skills", 600, 900, src, state = state)
 		ui.set_initial_data(data)
 		ui.open()
 
-/datum/nano_module/skill_ui/proc/get_data()
+/datum/ui_module/skill_ui/proc/get_data()
 	return list()
 
 /datum/skillset/proc/get_nano_data()
@@ -66,13 +66,13 @@
 /*
 The generic antag version.
 */
-/datum/nano_module/skill_ui/antag
+/datum/ui_module/skill_ui/antag
 	var/list/max_choices = list(0, 0, 4, 2, 1)
 	var/list/currently_selected
 	var/buff_type = /datum/skill_buff/antag
 	template = "skill_ui_antag.tmpl"
 
-/datum/nano_module/skill_ui/antag/get_data()
+/datum/ui_module/skill_ui/antag/get_data()
 	. = ..()
 	.["can_choose"] = can_choose()
 	var/list/selection_data = list()
@@ -93,7 +93,7 @@ The generic antag version.
 		selection_data += list(level_data)
 	.["selection_data"] = selection_data
 
-/datum/nano_module/skill_ui/antag/Topic(href, href_list)
+/datum/ui_module/skill_ui/antag/Topic(href, href_list)
 	if(..())
 		return 1
 
@@ -134,10 +134,10 @@ The generic antag version.
 			usr.client.adminhelp("I am requesting an antag skill selection reset.")
 		return 1
 
-/datum/nano_module/skill_ui/antag/proc/can_choose()
+/datum/ui_module/skill_ui/antag/proc/can_choose()
 	return !skillset.owner.too_many_buffs(buff_type)
 
-/datum/nano_module/skill_ui/antag/proc/can_select(skill_type, level)
+/datum/ui_module/skill_ui/antag/proc/can_select(skill_type, level)
 	var/remaining = LAZYACCESS(max_choices, level)
 	var/selected = LAZYACCESS(currently_selected, level)
 
@@ -149,7 +149,7 @@ The generic antag version.
 		return
 	return 1
 
-/datum/nano_module/skill_ui/antag/proc/select(skill_type, level)
+/datum/ui_module/skill_ui/antag/proc/select(skill_type, level)
 	if(!can_select(skill_type, level))
 		return
 	deselect(skill_type)
@@ -160,13 +160,13 @@ The generic antag version.
 	LAZYADD(selection, skill_type)
 	currently_selected[level] = selection
 
-/datum/nano_module/skill_ui/antag/proc/deselect(skill_type)
+/datum/ui_module/skill_ui/antag/proc/deselect(skill_type)
 	for(var/i in 1 to length(currently_selected))
 		var/list/selection = currently_selected[i]
 		LAZYREMOVE(selection, skill_type) // Can't send list[key] into the macro.
 		currently_selected[i] = selection
 
-/datum/nano_module/skill_ui/antag/proc/commit()
+/datum/ui_module/skill_ui/antag/proc/commit()
 	if(!skillset || !skillset.owner)
 		return
 	var/list/buff = list()
@@ -182,23 +182,23 @@ The generic antag version.
 /*
 Similar, but for station antags that have jobs.
 */
-/datum/nano_module/skill_ui/antag/station
+/datum/ui_module/skill_ui/antag/station
 	max_choices = list(0, 0, 3, 1, 0)
 /*
 Admin version, with debugging options.
 */
-/datum/nano_module/skill_ui/admin
+/datum/ui_module/skill_ui/admin
 	template = "skill_ui_admin.tmpl"
 
-/datum/nano_module/skill_ui/admin/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.admin_state)
+/datum/ui_module/skill_ui/admin/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.admin_state)
 	..() //Uses different default state.
 
-/datum/nano_module/skill_ui/admin/get_data()
+/datum/ui_module/skill_ui/admin/get_data()
 	. = ..()
 	.["antag_buff"] = length(skillset.owner.fetch_buffs_of_type(/datum/skill_buff/antag))
 	.["antag"] = skillset.owner && skillset.owner.mind && player_is_antag(skillset.owner.mind)
 
-/datum/nano_module/skill_ui/admin/Topic(href, href_list)
+/datum/ui_module/skill_ui/admin/Topic(href, href_list)
 	if(..())
 		return 1
 	if(href_list["close"]) // This is called when the window is closed; we've signed up to get notified of it.

@@ -11,7 +11,7 @@
 	network_destination = "NTNRC server"
 	ui_header = "ntnrc_idle.gif"
 	available_on_ntnet = 1
-	nanomodule_path = /datum/nano_module/program/computer_chatclient/
+	ui_module_path = /datum/ui_module/program/computer_chatclient/
 	var/last_message = null				// Used to generate the toolbar icon
 	var/username
 	var/datum/ntnet_conversation/channel = null
@@ -181,10 +181,10 @@
 		channel = null
 	..(forced)
 
-/datum/nano_module/program/computer_chatclient
+/datum/ui_module/program/computer_chatclient
 	name = "NTNet Relay Chat Client"
 
-/datum/nano_module/program/computer_chatclient/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/ui_module/program/computer_chatclient/ui_interact(mob/user, datum/tgui/ui)
 	if(!ntnet_global || !ntnet_global.chat_channels)
 		return
 
@@ -224,7 +224,7 @@
 				)))
 		data["all_channels"] = all_channels
 
-	ui = SStgui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, ui_key, "ntnet_chat.tmpl", "NTNet Relay Chat Client", 575, 700, state = state)
 		ui.auto_update_layout = 1

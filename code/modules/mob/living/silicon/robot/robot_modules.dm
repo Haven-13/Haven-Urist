@@ -200,7 +200,7 @@ var/global/list/robot_modules = list(
 	name = "medical robot module"
 	channels = list("Medical" = 1)
 	networks = list(NETWORK_MEDICAL)
-	subsystems = list(/datum/nano_module/crew_monitor)
+	subsystems = list(/datum/ui_module/crew_monitor)
 	can_be_pushed = 0
 
 /obj/item/weapon/robot_module/medical/surgeon
@@ -338,7 +338,7 @@ var/global/list/robot_modules = list(
 	name = "engineering robot module"
 	channels = list("Engineering" = 1)
 	networks = list(NETWORK_ENGINEERING)
-	subsystems = list(/datum/nano_module/power_monitor, /datum/nano_module/supermatter_monitor)
+	subsystems = list(/datum/ui_module/power_monitor, /datum/ui_module/supermatter_monitor)
 	supported_upgrades = list(/obj/item/borg/upgrade/rcd)
 	sprites = list(
 					"Basic" = "Engineering",
@@ -431,7 +431,7 @@ var/global/list/robot_modules = list(
 	name = "security robot module"
 	channels = list("Security" = 1)
 	networks = list(NETWORK_SECURITY)
-	subsystems = list(/datum/nano_module/crew_monitor, /datum/nano_module/digitalwarrant)
+	subsystems = list(/datum/ui_module/crew_monitor, /datum/ui_module/digitalwarrant)
 	can_be_pushed = 0
 	supported_upgrades = list(/obj/item/borg/upgrade/weaponcooler)
 
@@ -623,7 +623,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/miner
 	name = "miner robot module"
-	subsystems = list(/datum/nano_module/supply)
+	subsystems = list(/datum/ui_module/supply)
 	channels = list("Supply" = 1, "Science" = 1)
 	networks = list(NETWORK_MINE)
 	sprites = list(
