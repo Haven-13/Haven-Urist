@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-assets/* binary
-=======
 * text=auto
 
 ## Enforce text mode and LF line breaks
@@ -20,4 +17,4 @@ bin/tgui text eol=lf
 
 ## Treat bundles as binary and ignore them during conflicts
 *.bundle.* binary merge=tgui-merge-bundle
->>>>>>> 0cf00a2... tgui 4.0 (#52085)
+*.chunk.* binary merge=tgui-merge-bundle

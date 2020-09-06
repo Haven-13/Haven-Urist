@@ -5,37 +5,46 @@
  */
 
 import { flow } from 'common/fp';
-import { applyMiddleware, combineReducers, createStore as createReduxStore } from 'common/redux';
+import { applyMiddleware, combineReducers, createStore } from 'common/redux';
 import { Component } from 'inferno';
+import { assetMiddleware } from './assets';
 import { backendMiddleware, backendReducer } from './backend';
-import { debugReducer } from './debug';
-import { hotKeyMiddleware } from './hotkeys';
+import { debugMiddleware, debugReducer, relayMiddleware } from './debug';
 import { createLogger } from './logging';
 
 const logger = createLogger('store');
 
-export const createStore = () => {
+export const configureStore = (options = {}) => {
   const reducer = flow([
-    // State initializer
-    (state = {}, action) => state,
     combineReducers({
       debug: debugReducer,
       backend: backendReducer,
     }),
+    options.reducer,
   ]);
   const middleware = [
-    hotKeyMiddleware,
+    ...(options.middleware?.pre || []),
+    assetMiddleware,
     backendMiddleware,
+    ...(options.middleware?.post || []),
   ];
   if (process.env.NODE_ENV !== 'production') {
-    middleware.push(loggingMiddleware);
+    middleware.unshift(
+      loggingMiddleware,
+      debugMiddleware,
+      relayMiddleware);
   }
-  return createReduxStore(reducer, applyMiddleware(...middleware));
+  const enhancer = applyMiddleware(...middleware);
+  const store = createStore(reducer, enhancer);
+  // Globals
+  window.__store__ = store;
+  window.__augmentStack__ = createStackAugmentor(store);
+  return store;
 };
 
 const loggingMiddleware = store => next => action => {
   const { type, payload } = action;
-  if (type === 'backend/update') {
+  if (type === 'update' || type === 'backend/update') {
     logger.debug('action', { type });
   }
   else {
@@ -44,6 +53,34 @@ const loggingMiddleware = store => next => action => {
   return next(action);
 };
 
+/**
+ * Creates a function, which can be assigned to window.__augmentStack__
+ * to augment reported stack traces with useful data for debugging.
+ */
+const createStackAugmentor = store => (stack, error) => {
+  if (!error) {
+    error = new Error(stack.split('\n')[0]);
+    error.stack = stack;
+  }
+  else if (typeof error === 'object' && !error.stack) {
+    error.stack = stack;
+  }
+  logger.log('FatalError:', error);
+  const state = store.getState();
+  const config = state?.backend?.config;
+  let augmentedStack = stack;
+  augmentedStack += '\nUser Agent: ' + navigator.userAgent;
+  augmentedStack += '\nState: ' + JSON.stringify({
+    ckey: config?.client?.ckey,
+    interface: config?.interface,
+    window: config?.window,
+  });
+  return augmentedStack;
+};
+
+/**
+ * Store provider for Inferno apps.
+ */
 export class StoreProvider extends Component {
   getChildContext() {
     const { store } = this.props;
@@ -54,7 +91,3 @@ export class StoreProvider extends Component {
     return this.props.children;
   }
 }
-
-export const useDispatch = context => {
-  return context.store.dispatch;
-};

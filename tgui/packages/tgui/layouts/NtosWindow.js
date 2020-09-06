@@ -4,9 +4,9 @@
  * @license MIT
  */
 
+import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
 import { Box, Button } from '../components';
-import { refocusLayout } from './Layout';
 import { Window } from './Window';
 
 export const NtosWindow = (props, context) => {
@@ -38,11 +38,7 @@ export const NtosWindow = (props, context) => {
       theme={theme}
       resizable={resizable}>
       <div className="NtosWindow">
-        <div
-          className="NtosWindow__header NtosHeader"
-          onMouseDown={() => {
-            refocusLayout();
-          }}>
+        <div className="NtosWindow__header NtosHeader">
           <div className="NtosHeader__left">
             <Box inline bold mr={2}>
               {PC_stationtime}
@@ -57,14 +53,14 @@ export const NtosWindow = (props, context) => {
               <Box key={header.icon} inline mr={1}>
                 <img
                   className="NtosHeader__icon"
-                  src={header.icon} />
+                  src={resolveAsset(header.icon)} />
               </Box>
             ))}
             <Box inline>
               {PC_ntneticon && (
                 <img
                   className="NtosHeader__icon"
-                  src={PC_ntneticon} />
+                  src={resolveAsset(PC_ntneticon)} />
               )}
             </Box>
             {!!PC_showbatteryicon && PC_batteryicon && (
@@ -72,7 +68,7 @@ export const NtosWindow = (props, context) => {
                 {PC_batteryicon && (
                   <img
                     className="NtosHeader__icon"
-                    src={PC_batteryicon} />
+                    src={resolveAsset(PC_batteryicon)} />
                 )}
                 {PC_batterypercent && (
                   PC_batterypercent
@@ -83,7 +79,7 @@ export const NtosWindow = (props, context) => {
               <Box inline mr={1}>
                 <img
                   className="NtosHeader__icon"
-                  src={PC_apclinkicon} />
+                  src={resolveAsset(PC_apclinkicon)} />
               </Box>
             )}
             {!!PC_showexitprogram && (
