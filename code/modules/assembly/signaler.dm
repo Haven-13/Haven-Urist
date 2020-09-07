@@ -68,6 +68,9 @@
 	onclose(user, "radio")
 	return
 
+/obj/item/assembly/signaler/ui_state(mob/user)
+	return ui_physical_state()
+
 /obj/item/assembly/signaler/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)

@@ -24,6 +24,9 @@
 	cached_ui_data = null
 	ui_interact(user)
 
+/datum/storage_ui/tgui/ui_state(mob/user)
+	return ui_physical_state()
+
 /datum/storage_ui/tgui/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)

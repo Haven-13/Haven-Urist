@@ -125,8 +125,6 @@
 	var/degradation = 0     // Increments with each scan, stops allowing gene mods after a certain point.
 
 /obj/machinery/botany/extractor/ui_interact(mob/user, var/datum/tgui/ui)
-	if(!user)
-		return
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "BotanyIsolator")

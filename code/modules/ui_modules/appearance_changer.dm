@@ -91,9 +91,11 @@
 
 	return 0
 
-/datum/ui_module/appearance_changer/ui_interact(mob/user, datum/tgui/ui)
+/datum/ui_module/appearance_changer/ui_status(mob/user, datum/ui_state/state)
 	if(!owner || !owner.species)
-		return
+		return UI_CLOSE
+
+/datum/ui_module/appearance_changer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "ApperanceChanger")

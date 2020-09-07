@@ -56,13 +56,11 @@
 
 	attack_hand(user)
 
-/obj/machinery/computer/account_database/attack_hand(mob/user as mob)
-	if(stat & (NOPOWER|BROKEN)) return
-	ui_interact(user)
+/obj/machinery/computer/account_database/ui_status(mob/user, datum/ui_state/state)
+	if(stat & (NOPOWER|BROKEN))
+		return
 
 /obj/machinery/computer/account_database/ui_interact(mob/user, datum/tgui/ui)
-	user.set_machine(src)
-
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "AccountDatabase")

@@ -98,7 +98,7 @@ datum/track/proc/GetTrack()
 		to_chat(usr, "\The [src] doesn't appear to function.")
 		return
 
-	ui_interact(user)
+	..()
 
 /obj/machinery/media/jukebox/ui_status(mob/user, datum/ui_state/state)
 	if(!anchored || inoperable())

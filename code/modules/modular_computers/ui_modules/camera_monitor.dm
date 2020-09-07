@@ -31,8 +31,6 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "CameraMonitorProgram")
-		// ui.auto_update_layout = 1 // Disabled as with suit sensors monitor - breaks the UI map. Re-enable once it's fixed somehow.
-
 		//ui.add_template("mapContent", "sec_camera_map_content.tmpl")
 		//ui.add_template("mapHeader", "sec_camera_map_header.tmpl")
 		ui.open()

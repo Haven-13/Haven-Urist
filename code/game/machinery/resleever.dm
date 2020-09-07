@@ -101,7 +101,6 @@ obj/machinery/resleever/Process()
 		return UI_CLOSE
 	return ..()
 
-
 /obj/machinery/resleever/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)

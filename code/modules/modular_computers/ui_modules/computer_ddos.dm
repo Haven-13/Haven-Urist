@@ -2,6 +2,12 @@
 /datum/ui_module/program/computer_dos
 	name = "DoS Traffic Generator"
 
+/datum/ui_module/program/computer_dos/ui_status(mob/user, datum/ui_state/state)
+	if(!ntnet_global)
+		return UI_CLOSE
+	if(!istype(program))
+		return UI_CLOSE
+
 /datum/ui_module/program/computer_dos/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
@@ -9,12 +15,9 @@
 		ui.open()
 
 /datum/ui_module/program/computer_dos/ui_data(mob/user)
-	if(!ntnet_global)
-		return
 	var/datum/computer_file/program/ntnet_dos/PRG = program
 	var/list/data = list()
-	if(!istype(PRG))
-		return
+
 	data = PRG.get_header_data()
 
 	if(PRG.error)

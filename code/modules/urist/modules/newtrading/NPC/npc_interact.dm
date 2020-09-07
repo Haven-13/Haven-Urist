@@ -25,12 +25,11 @@
 			interacting_mob = user
 			ui_interact(user)
 
-/mob/living/simple_animal/hostile/npc/ui_interact(mob/user, var/datum/tgui/ui)
-
+/mob/living/simple_animal/hostile/npc/ui_status(mob/user, datum/ui_state/state)
 	if(!can_use(user))
-		close_ui(ui)
-		return
+		return UI_CLOSE
 
+/mob/living/simple_animal/hostile/npc/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "NpcInteraction")

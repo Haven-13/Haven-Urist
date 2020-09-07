@@ -41,8 +41,6 @@
 	ui_interact(user)
 
 /obj/machinery/computer/diseasesplicer/ui_interact(mob/user, var/datum/tgui/ui)
-	user.set_machine(src)
-
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "DiseaseSplicer")

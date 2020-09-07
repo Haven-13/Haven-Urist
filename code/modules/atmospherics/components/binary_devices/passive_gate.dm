@@ -176,6 +176,10 @@
 	ui_interact(user)
 	return
 
+/obj/machinery/atmospherics/binary/passive_gate/ui_status(mob/user, datum/ui_state/state)
+	if(stat & (BROKEN|NOPOWER))
+		return
+
 /obj/machinery/atmospherics/binary/passive_gate/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
@@ -183,10 +187,6 @@
 		ui.open()					// open the new ui window
 
 /obj/machinery/atmospherics/binary/passive_gate/ui_data(mob/user)
-	if(stat & (BROKEN|NOPOWER))
-		return
-
-	// this is the data which will be sent to the ui
 	var/data[0]
 
 	data = list(

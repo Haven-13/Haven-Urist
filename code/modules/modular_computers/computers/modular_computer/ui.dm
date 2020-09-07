@@ -1,27 +1,23 @@
-// Operates NanoUI
-/obj/item/modular_computer/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/item/modular_computer/ui_status(mob/user, datum/ui_state/state)
 	if(!screen_on || !enabled || bsod)
-		if(ui)
-			ui.close()
-		return 0
+		return UI_CLOSE
+
 	if(!apc_power(0) && !battery_power(0))
-		if(ui)
-			ui.close()
-		return 0
+		return UI_CLOSE
 
 	// If we have an active program switch to it now.
 	if(active_program)
-		if(ui) // This is the main laptop screen. Since we are switching to program's UI close it for now.
-			ui.close()
 		active_program.ui_interact(user)
-		return
+		return UI_CLOSE
 
 	// We are still here, that means there is no program loaded. Load the BIOS/ROM/OS/whatever you want to call it.
 	// This screen simply lists available programs and user may select them.
 	if(!hard_drive || !hard_drive.stored_files || !hard_drive.stored_files.len)
 		visible_message("\The [src] beeps three times, it's screen displaying \"DISK ERROR\" warning.")
-		return // No HDD, No HDD files list or no stored files. Something is very broken.
+		return UI_CLOSE // No HDD, No HDD files list or no stored files. Something is very broken.
 
+// Operates tgUI
+/obj/item/modular_computer/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "ModularComputerScreen")

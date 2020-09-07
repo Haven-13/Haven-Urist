@@ -123,7 +123,6 @@
 		ui.open()
 
 /obj/machinery/biogenerator/ui_data(mob/user)
-	user.set_machine(src)
 	var/list/data = list()
 	data["state"] = state
 	var/name

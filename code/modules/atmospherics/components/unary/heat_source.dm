@@ -99,7 +99,6 @@
 		ui.open()
 
 /obj/machinery/atmospherics/unary/heater/ui_data(mob/user)
-	// this is the data which will be sent to the ui
 	var/data[0]
 	data["on"] = use_power ? 1 : 0
 	data["gasPressure"] = round(air_contents.return_pressure())

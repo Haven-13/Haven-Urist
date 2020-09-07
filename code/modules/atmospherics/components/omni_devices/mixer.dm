@@ -137,8 +137,6 @@
 		ui.open()
 
 /obj/machinery/atmospherics/omni/mixer/ui_data(mob/user)
-	usr.set_machine(src)
-
 	var/list/data = new()
 
 	data = build_uidata()

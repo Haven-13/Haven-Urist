@@ -27,7 +27,7 @@
 
 //tgui interact code generously lifted from tgstation.
 /obj/item/electronics/airlock/ui_state(mob/user)
-	return GLOB.tgui_hands_state
+	return ui_hands_state()
 
 /obj/item/electronics/airlock/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -112,6 +112,9 @@
 	req_access = list()
 	locked = 0
 	lockable = 0
+
+/obj/item/weapon/airalarm_electronics/brace/ui_state(mob/user)
+	return ui_deep_inventory_state()
 
 /obj/item/weapon/airlock_electronics/brace/ui_interact(mob/user, datum/tgui/ui)
 	SStgui.try_update_ui(user, src, ui)

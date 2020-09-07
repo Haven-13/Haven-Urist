@@ -16,7 +16,7 @@
 
 	// No computer connection, we can't get data from that.
 	if(!movable)
-		return 0
+		return list()
 
 	var/list/data = list()
 

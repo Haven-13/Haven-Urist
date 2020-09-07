@@ -178,7 +178,6 @@
 
 /obj/machinery/computer/shuttle_control/emergency/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
-
 	if (!ui)
 		ui = new(user, src, "EscapeShuttleControlConsole")
 		ui.open()

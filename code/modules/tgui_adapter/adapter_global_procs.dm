@@ -22,6 +22,9 @@
 /proc/ui_contained_state()
 	return GLOB.tgui_contained_state
 
+/proc/ui_not_contained_state()
+	return GLOB.tgui_not_contained_state
+
 /proc/ui_conscious_state()
 	return GLOB.tgui_conscious_state
 

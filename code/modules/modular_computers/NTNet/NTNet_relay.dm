@@ -73,6 +73,7 @@
 
 /obj/machinery/ntnet_relay/ui_data(mob/user)
 	var/list/data = list()
+
 	data["enabled"] = enabled
 	data["dos_capacity"] = dos_capacity
 	data["dos_overload"] = dos_overload

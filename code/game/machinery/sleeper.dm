@@ -56,11 +56,8 @@
 /obj/machinery/sleeper/update_icon()
 	icon_state = "sleeper_[occupant ? "1" : "0"]"
 
-/obj/machinery/sleeper/attack_hand(var/mob/user)
-	if(..())
-		return 1
-
-	ui_interact(user)
+/obj/machinery/sleeper/ui_state(mob/user)
+	return ui_not_contained_state()
 
 /obj/machinery/sleeper/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

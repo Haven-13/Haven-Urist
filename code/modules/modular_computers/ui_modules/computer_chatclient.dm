@@ -1,6 +1,10 @@
 /datum/ui_module/program/computer_chatclient
 	name = "NTNet Relay Chat Client"
 
+/datum/ui_module/program/computer_chatclient/ui_status(mob/user, datum/ui_state/state)
+	if(!ntnet_global || !ntnet_global.chat_channels)
+		return
+
 /datum/ui_module/program/computer_chatclient/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
@@ -8,16 +12,11 @@
 		ui.open()
 
 /datum/ui_module/program/computer_chatclient/ui_data(mob/user)
-	if(!ntnet_global || !ntnet_global.chat_channels)
-		return
-
 	var/list/data = list()
 	if(program)
 		data = program.get_header_data()
 
 	var/datum/computer_file/program/chatclient/C = program
-	if(!istype(C))
-		return
 
 	data["adminmode"] = C.netadmin_mode
 	if(C.channel)

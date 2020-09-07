@@ -18,8 +18,10 @@
 		to_chat(user, "<b>ERROR ERROR ERROR</b>")
 
 /obj/item/weapon/aicard/attack_self(mob/user)
-
 	ui_interact(user)
+
+/obj/item/weapon/aicard/ui_state(mob/user)
+	return ui_inventory_state()
 
 /obj/item/weapon/aicard/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

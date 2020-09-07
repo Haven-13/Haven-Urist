@@ -347,11 +347,11 @@
 		return 0
 	return 1
 
-/obj/machinery/power/smes/ui_interact(mob/user, var/datum/tgui/ui)
-
+/obj/machinery/power/smes/ui_status(mob/user, datum/ui_state/state)
 	if(stat & BROKEN)
 		return
 
+/obj/machinery/power/smes/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "PowerSmes")

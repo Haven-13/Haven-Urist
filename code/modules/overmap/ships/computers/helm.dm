@@ -80,10 +80,11 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 
 	ui_interact(user)
 
-/obj/machinery/computer/helm/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/computer/helm/ui_status(mob/user, datum/ui_state/state)
 	if(!linked)
-		return
+		return UI_CLOSE
 
+/obj/machinery/computer/helm/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "ShipHelm")

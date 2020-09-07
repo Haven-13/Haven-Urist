@@ -2,6 +2,10 @@
 	name = "NTNet Diagnostics and Monitoring"
 	available_to_ai = TRUE
 
+/datum/ui_module/computer_ntnetmonitor/ui_status(mob/user, datum/ui_state/state)
+	if(!ntnet_global)
+		return UI_CLOSE
+
 /datum/ui_module/computer_ntnetmonitor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
@@ -9,8 +13,6 @@
 		ui.open()
 
 /datum/ui_module/computer_ntnetmonitor/ui_data(mob/user)
-	if(!ntnet_global)
-		return
 	var/list/data = host.initial_data()
 
 	data["ntnetstatus"] = ntnet_global.check_function()

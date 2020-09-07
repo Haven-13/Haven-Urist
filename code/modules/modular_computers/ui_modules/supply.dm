@@ -12,8 +12,6 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "SupplyProgram")
-
-
 		ui.open()
 
 /datum/ui_module/supply/ui_data(mob/user)

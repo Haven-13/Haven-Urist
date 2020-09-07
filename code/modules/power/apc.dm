@@ -768,9 +768,6 @@
 
 
 /obj/machinery/power/apc/ui_interact(mob/user, var/datum/tgui/ui)
-	if(!user)
-		return
-
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "Apc")
