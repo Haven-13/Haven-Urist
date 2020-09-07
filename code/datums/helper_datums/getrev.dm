@@ -12,7 +12,6 @@ var/global/datum/getrev/revdata = new()
 	var/datum/tgs_revision_information/revinfo = world.TgsRevision()
 	if(revinfo)
 		revision = revinfo.commit
-		originmastercommit = revinfo.origin_commit
 	else
 		var/list/head_branch = file2list(".git/HEAD", "\n")
 		if(head_branch.len)
