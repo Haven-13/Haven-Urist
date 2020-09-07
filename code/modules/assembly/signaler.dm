@@ -55,11 +55,6 @@
 		[format_frequency(src.frequency)]
 		<A href='byond://?src=\ref[src];freq=2'>+</A>
 		<A href='byond://?src=\ref[src];freq=10'>+</A><BR>
-/obj/item/assembly/signaler/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "Signaler", name)
-		ui.open()
 
 		Code:
 		<A href='byond://?src=\ref[src];code=-5'>-</A>
@@ -73,6 +68,11 @@
 	onclose(user, "radio")
 	return
 
+/obj/item/assembly/signaler/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Signaler", name)
+		ui.open()
 
 /obj/item/device/assembly/signaler/Topic(href, href_list, state = ui_physical_state())
 	if((. = ..()))
