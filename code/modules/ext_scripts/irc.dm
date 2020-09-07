@@ -49,6 +49,8 @@
 			params["trg_char"] = target.mob.real_name || target.mob.name
 
 		export2irc(params)
+		if(world.TgsAvailable())
+			send2tgs("[params["type"]] from [params["src_key"]] ([params["src_char"]]) [target ? "to [istext(target) ? "[params["target"]] ([params["rank"])" : "[params["trg_key"]] ([params["trg_char"])"]" : null]", msg, TRUE)
 
 /hook/startup/proc/ircNotify()
 	send2mainirc("Server starting up on byond://[config.serverurl ? config.serverurl : (config.server ? config.server : "[world.address]:[world.port]")]")

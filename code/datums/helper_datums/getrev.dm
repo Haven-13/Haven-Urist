@@ -9,22 +9,27 @@ var/global/datum/getrev/revdata = new()
 
 /datum/getrev/New()
 	testmerge = world.TgsTestMerges()
-	var/list/head_branch = file2list(".git/HEAD", "\n")
-	if(head_branch.len)
-		branch = copytext(head_branch[1], 17)
+	var/datum/tgs_revision_information/revinfo = world.TgsRevision()
+	if(revinfo)
+		revision = revinfo.commit
+		originmastercommit = revinfo.origin_commit
+	else
+		var/list/head_branch = file2list(".git/HEAD", "\n")
+		if(head_branch.len)
+			branch = copytext(head_branch[1], 17)
 
-	var/list/head_log = file2list(".git/logs/HEAD", "\n")
-	for(var/line=head_log.len, line>=1, line--)
-		if(head_log[line])
-			var/list/last_entry = splittext(head_log[line], " ")
-			if(last_entry.len < 2)	continue
-			revision = last_entry[2]
-			// Get date/time
-			if(last_entry.len >= 5)
-				var/unix_time = text2num(last_entry[5])
-				if(unix_time)
-					date = unix2date(unix_time)
-			break
+		var/list/head_log = file2list(".git/logs/HEAD", "\n")
+		for(var/line=head_log.len, line>=1, line--)
+			if(head_log[line])
+				var/list/last_entry = splittext(head_log[line], " ")
+				if(last_entry.len < 2)	continue
+				revision = last_entry[2]
+				// Get date/time
+				if(last_entry.len >= 5)
+					var/unix_time = text2num(last_entry[5])
+					if(unix_time)
+						date = unix2date(unix_time)
+				break
 
 	world.log << "Running revision:"
 	world.log << branch
@@ -41,7 +46,9 @@ var/global/datum/getrev/revdata = new()
 		var/server_revision = revdata.revision
 		if(config.githuburl)
 			server_revision = "<a href='[config.githuburl]/commit/[server_revision]'>[server_revision]</a>"
-		to_chat(src, "<b>Server Revision:</b> [server_revision] - [revdata.branch] - [revdata.date]")
+		to_chat(src, "<b>Server Revision:</b> [server_revision]")
+		if(revdata.branch && revdata.date)
+			to_chat(src, "<b>[revdata.branch] [revdata.date]")
 	else
 		to_chat(src, "<b>Server Revision:</b> Revision Unknown")
 	if(revdata.testmerge.len)
