@@ -64,9 +64,6 @@
 
 	output += "</div>"
 
-	testing("Ref: \ref[src]")
-	testing(output)
-
 	panel = new(src, "Welcome","Welcome", 210, 280, src)
 	panel.set_window_options("can_close=0")
 	panel.set_content(output)
