@@ -50,3 +50,12 @@
   - rscdel: Removed Xenoarcheology and all features related to it.
   - rscadd: Added bugs to fill in the void left by Xenoarcheology
   - code_imp: Updated gen_globals.py to work on newer versions of Python
+2020-09-07:
+  MarkSuckerberg:
+  - rscadd: compatibility with TGS4 (https://github.com/tgstation/tgstation-server)
+      through the included DMAPI
+  - rscadd: config option (rounds_until_hard_restart) which, after set amount of rounds,
+      makes TGS force DD to hard restart.
+  - rscadd: if bay's IRC relay bot isn't set up, send2irc calls are redirected to
+      TGS and it's discord bots
+  - server: see DMAPI Integration PR for control panel for and setup of TGS
