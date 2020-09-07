@@ -46,7 +46,7 @@ var/global/datum/getrev/revdata = new()
 		if(config.githuburl)
 			server_revision = "<a href='[config.githuburl]/commit/[server_revision]'>[server_revision]</a>"
 		if(revdata.branch && revdata.date)
-			server_revision += " [revdata.branch] [revdata.date]")
+			server_revision = "[server_revision] [revdata.branch] [revdata.date]")
 		to_chat(src, "<b>Server Revision:</b> [server_revision]")
 	else
 		to_chat(src, "<b>Server Revision:</b> Revision Unknown")
