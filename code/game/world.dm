@@ -80,7 +80,7 @@ GLOBAL_VAR(restart_counter)
 	TgsNew(minimum_required_security_level = TGS_SECURITY_TRUSTED)
 
 	//logs
-	SetupLogs()
+	setup_logs()
 	var/date_string = time2text(world.realtime, "YYYY/MM/DD")
 	href_logfile = file("data/logs/[date_string] hrefs.htm")
 	diary = file("data/logs/[date_string].log")
@@ -601,7 +601,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 #define WORLD_LOG_START(X) WRITE_FILE(GLOB.world_##X##_log, "\n\nStarting up round ID [game_id]. [time_stamp()]\n---------------------")
 #define WORLD_SETUP_LOG(X) GLOB.world_##X##_log = file("[GLOB.log_directory]/[#X].log") ; WORLD_LOG_START(X)
-/world/proc/SetupLogs()
+/world/proc/setup_logs()
 	GLOB.log_directory = "data/logs/[time2text(world.realtime, "YYYY/MM/DD")]/round-"
 	if(game_id)
 		GLOB.log_directory += "[game_id]"
@@ -609,7 +609,9 @@ var/world_topic_spam_protect_time = world.timeofday
 		GLOB.log_directory += "[replacetext(time_stamp(), ":", ".")]"
 
 	WORLD_SETUP_LOG(runtime)
+	WORLD_SETUP_LOG(href)
 	WORLD_SETUP_LOG(qdel)
+	WORLD_SETUP_LOG(tgui)
 
 #undef WORLD_SETUP_LOG
 #undef WORLD_LOG_START

@@ -62,6 +62,9 @@
 	if(tgui_Topic(href_list))
 		return
 
+	// Log all hrefs
+	log_href("[src] (usr:[usr]\[[coordinates(usr)]\]) : [hsrc ? "[hsrc] " : ""][href]")
+
 	// Admin PM
 	if(href_list["priv_msg"])
 		var/client/C = locate(href_list["priv_msg"])
@@ -102,6 +105,15 @@
 		if("usr")		hsrc = mob
 		if("prefs")		return prefs.process_link(usr,href_list)
 		if("vars")		return view_var_Topic(href,href_list,hsrc)
+
+	switch(href_list["action"])
+		if("openLink")
+			src << link(href_list["link"])
+
+	if (hsrc)
+		var/datum/real_src = hsrc
+		if(QDELETED(real_src))
+			return
 
 	..()	//redirect to hsrc.Topic()
 

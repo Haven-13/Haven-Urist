@@ -132,6 +132,9 @@
 	to_world_log("## UNIT_TEST ##: [text]")
 	log_debug(text)
 
+/proc/log_href(text)
+	WRITE_FILE(GLOB.world_href_log, "HREF: [text]")
+
 /proc/log_qdel(text)
 	WRITE_FILE(GLOB.world_qdel_log, "\[[time_stamp()]]QDEL: [text]")
 
@@ -165,7 +168,7 @@
 	// Insert message
 	if(message)
 		entry += "\n[message]"
-	WRITE_FILE(GLOB.tgui_log, entry)
+	WRITE_FILE(GLOB.world_tgui_log, entry)
 
 
 //This replaces world.log so it displays both in DD and the file

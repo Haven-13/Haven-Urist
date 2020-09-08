@@ -116,7 +116,7 @@ const ApcContent = (props, context) => {
                 icon={data.chargeMode ? 'sync' : 'close'}
                 content={data.chargeMode ? 'Auto' : 'Off'}
                 disabled={locked}
-                onClick={() => act('charge')} />
+                onClick={() => act('cmode')} />
             )}>
             [ {chargingStatus.chargingText} ]
           </LabeledList.Item>
@@ -133,21 +133,21 @@ const ApcContent = (props, context) => {
                 buttons={(
                   <Fragment>
                     <Box inline mx={2}
-                      color={channel.status >= 2 ? 'good' : 'bad'}>
-                      {channel.status >= 2 ? 'On' : 'Off'}
+                      color={channel.status >= 1 ? 'good' : 'bad'}>
+                      {channel.status >= 1 ? 'On' : 'Off'}
                     </Box>
                     <Button
                       icon="sync"
                       content="Auto"
                       selected={!locked && (
-                        channel.status === 1 || channel.status === 3
+                        channel.status === 0 || channel.status === 1
                       )}
                       disabled={locked}
                       onClick={() => act('channel', topicParams.auto)} />
                     <Button
                       icon="power-off"
                       content="On"
-                      selected={!locked && channel.status === 2}
+                      selected={!locked && channel.status === 1}
                       disabled={locked}
                       onClick={() => act('channel', topicParams.on)} />
                     <Button
@@ -194,23 +194,7 @@ const ApcContent = (props, context) => {
                 disabled={locked}
                 onClick={() => act('cover')} />
             )} />
-          <LabeledList.Item
-            label="Emergency Lighting"
-            buttons={(
-              <Button
-                icon="lightbulb-o"
-                content={data.emergencyLights ? 'Enabled' : 'Disabled'}
-                disabled={locked}
-                onClick={() => act('emergency_lighting')} />
-            )} />
-          <LabeledList.Item
-            label="Night Shift Lighting"
-            buttons={(
-              <Button
-                icon="lightbulb-o"
-                content={data.nightshiftLights ? 'Enabled' : 'Disabled'}
-                onClick={() => act('toggle_nightshift')} />
-            )} />
+
         </LabeledList>
       </Section>
     </Fragment>

@@ -752,11 +752,6 @@
 	// do APC interaction
 	src.interact(user)
 
-/obj/machinery/power/apc/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "Apc", name)
-		ui.open()
 /obj/machinery/power/apc/interact(mob/user)
 	if(!user)
 		return
@@ -770,7 +765,7 @@
 /obj/machinery/power/apc/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "Apc")
+		ui = new(user, src, "Apc", name)
 		ui.open()
 
 /obj/machinery/power/apc/ui_data(mob/user)
@@ -825,6 +820,62 @@
 		)
 	)
 	return data
+
+/obj/machinery/power/apc/ui_act(action, list/params)
+	if(..() || !can_use(usr, 1) || ((locked && !emagged) && !istype(usr, /mob/living/silicon)))
+		return FALSE
+
+	switch(action)
+		if ("lock")
+			coverlocked = !coverlocked
+
+		if("reboot")
+			failure_timer = 0
+			update_icon()
+			update()
+
+		if("breaker")
+			toggle_breaker()
+
+
+		if ("cmode")
+			chargemode = !chargemode
+			if(!chargemode)
+				charging = 0
+				update_icon()
+
+		if ("channel")
+			if (params["eqp"])
+				var/val = text2num(params["eqp"])
+				equipment = setsubsystem(val)
+				update_icon()
+				update()
+
+			else if (params["lgt"])
+				var/val = text2num(params["lgt"])
+				lighting = setsubsystem(val)
+				update_icon()
+				update()
+
+			else if (params["env"])
+				var/val = text2num(params["env"])
+				environ = setsubsystem(val)
+				update_icon()
+				update()
+
+		if ("overload")
+			if(istype(usr, /mob/living/silicon))
+				src.overload_lighting()
+
+		if ("toggleaccess")
+			if(istype(usr, /mob/living/silicon))
+				if(emagged || (stat & (BROKEN|MAINT)))
+					to_chat(usr, "The APC does not respond to the command.")
+				else
+					locked = !locked
+					update_icon()
+
+	return TRUE
 
 /obj/machinery/power/apc/proc/report()
 	return "[area.name] : [equipment]/[lighting]/[environ] ([lastused_equip+lastused_light+lastused_environ]) : [cell? cell.percent() : "N/C"] ([charging])"
@@ -897,67 +948,6 @@
 		to_chat(user, "<span class='danger'>You momentarily forget how to use \the [src].</span>")
 		return 0
 	return 1
-
-/obj/machinery/power/apc/Topic(href, href_list)
-	if(..())
-		return 1
-
-	if(!can_use(usr, 1))
-		return 1
-
-	if(!istype(usr, /mob/living/silicon) && (locked && !emagged))
-		// Shouldn't happen, this is here to prevent href exploits
-		to_chat(usr, "You must unlock the panel to use this!")
-		return 1
-
-	if (href_list["lock"])
-		coverlocked = !coverlocked
-
-	else if( href_list["reboot"] )
-		failure_timer = 0
-		update_icon()
-		update()
-
-	else if (href_list["breaker"])
-		toggle_breaker()
-
-	else if (href_list["cmode"])
-		chargemode = !chargemode
-		if(!chargemode)
-			charging = 0
-			update_icon()
-
-	else if (href_list["eqp"])
-		var/val = text2num(href_list["eqp"])
-		equipment = setsubsystem(val)
-		update_icon()
-		update()
-
-	else if (href_list["lgt"])
-		var/val = text2num(href_list["lgt"])
-		lighting = setsubsystem(val)
-		update_icon()
-		update()
-
-	else if (href_list["env"])
-		var/val = text2num(href_list["env"])
-		environ = setsubsystem(val)
-		update_icon()
-		update()
-
-	else if (href_list["overload"])
-		if(istype(usr, /mob/living/silicon))
-			src.overload_lighting()
-
-	else if (href_list["toggleaccess"])
-		if(istype(usr, /mob/living/silicon))
-			if(emagged || (stat & (BROKEN|MAINT)))
-				to_chat(usr, "The APC does not respond to the command.")
-			else
-				locked = !locked
-				update_icon()
-
-	return 0
 
 /obj/machinery/power/apc/proc/toggle_breaker()
 	operating = !operating

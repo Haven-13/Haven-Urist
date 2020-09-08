@@ -1103,3 +1103,12 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 		M.start_pulling(t)
 	else
 		step(user.pulling, get_dir(user.pulling.loc, A))
+
+// get coordinates to an atom
+
+/proc/coordinates(atom/src, jump_link = 0)
+	return src ? src.coordinates(jump_link) : "nullspace"
+
+/atom/proc/coordinates(jump_link = 0)
+	var/turf/T = src.loc
+	return T ? "([T.x],[T.y],[T.z])[jump_link ? admin_jump_link(T) : ""]" : "nullspace"
