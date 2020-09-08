@@ -59,3 +59,7 @@
   - rscadd: if bay's IRC relay bot isn't set up, send2irc calls are redirected to
       TGS and it's discord bots
   - server: see DMAPI Integration PR for control panel for and setup of TGS
+2020-09-08:
+  martinlyra:
+  - bugfix: Fixed multi-z transition not working for non-ghosts
+  - bugfix: Fixed the space background showing up everywhere
