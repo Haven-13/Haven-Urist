@@ -17,7 +17,7 @@
 	return 1
 
 /turf/simulated/open/CanZPass(atom/A, direction)
-	_can_z_pass(src, A, direction)
+	return _can_z_pass(src, A, direction)
 
 /turf/space/CanZPass(atom/A, direction)
-	_can_z_pass(src, A, direction)
+	return _can_z_pass(src, A, direction)

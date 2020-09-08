@@ -35,7 +35,6 @@
  */
 /obj/screen/plane_master/space_master
 	plane = SPACE_PLANE
-	render_target = "*SPACE_BACKGROUND" // used by /obj/skybox for its alpha mask
 
 /obj/screen/plane_master/space_master/update_screen_plane(z_level)
 	return
@@ -100,8 +99,8 @@
 
 	blend_mode = BLEND_MULTIPLY
 	mouse_opacity = 0    // nothing on this plane is mouse-visible
-	
-	
+
+
 	// use 20% ambient lighting; be sure to add full alpha
 	color = list(
 			-1, 00, 00, 00,
