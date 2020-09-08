@@ -312,6 +312,7 @@
 		if("openLink")
 			client << link(href_list["url"])
 		if("cacheReloaded")
+			testing("Reloading cache for window '[id]'")
 			// Reinitialize
 			initialize(inline_assets = inline_assets, fancy = fancy)
 			// Resend the assets

@@ -29,7 +29,7 @@ export const AirAlarm = (props, context) => {
 
 const AirAlarmStatus = (props, context) => {
   const { data } = useBackend(context);
-  const entries = (data.environment_data || [])
+  const entries = (data.environment || [])
     .filter(entry => entry.value >= 0.01);
   const dangerMap = {
     0: {
@@ -195,7 +195,7 @@ const AirAlarmControlHome = (props, context) => {
 
 const AirAlarmControlVents = (props, context) => {
   const { data } = useBackend(context);
-  const { vents } = data;
+  const { vents } = data.vents;
   if (!vents || vents.length === 0) {
     return 'Nothing to show';
   }

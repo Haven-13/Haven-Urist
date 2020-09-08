@@ -792,9 +792,9 @@
 				"powerLoad" = lastused_equip,
 				"status" = equipment,
 				"topicParams" = list(
-					"auto" = list("eqp" = 2),
-					"on"   = list("eqp" = 1),
-					"off"  = list("eqp" = 0)
+					"auto" = list("eqp" = 3),
+					"on"   = list("eqp" = 2),
+					"off"  = list("eqp" = 1)
 				)
 			),
 			list(
@@ -802,9 +802,9 @@
 				"powerLoad" = round(lastused_light),
 				"status" = lighting,
 				"topicParams" = list(
-					"auto" = list("lgt" = 2),
-					"on"   = list("lgt" = 1),
-					"off"  = list("lgt" = 0)
+					"auto" = list("lgt" = 3),
+					"on"   = list("lgt" = 2),
+					"off"  = list("lgt" = 1)
 				)
 			),
 			list(
@@ -812,9 +812,9 @@
 				"powerLoad" = round(lastused_environ),
 				"status" = environ,
 				"topicParams" = list(
-					"auto" = list("env" = 2),
-					"on"   = list("env" = 1),
-					"off"  = list("env" = 0)
+					"auto" = list("env" = 3),
+					"on"   = list("env" = 2),
+					"off"  = list("env" = 1)
 				)
 			)
 		)
@@ -1252,13 +1252,13 @@ obj/machinery/power/apc/proc/autoset(var/cur_state, var/on)
 /obj/machinery/power/apc/proc/setsubsystem(val)
 	if(cell && cell.charge > 0)
 		switch(val)
-			if(2) return POWERCHAN_ON_AUTO
-			if(1) return POWERCHAN_ON
+			if(3) return POWERCHAN_ON_AUTO
+			if(2) return POWERCHAN_ON
 			else return POWERCHAN_OFF
 	else
 		switch(val)
-			if(2) return POWERCHAN_OFF_AUTO
-			if(1) return POWERCHAN_OFF_TEMP
+			if(3) return POWERCHAN_OFF_AUTO
+			if(2) return POWERCHAN_OFF_TEMP
 			else return POWERCHAN_OFF
 
 

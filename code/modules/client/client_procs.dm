@@ -26,14 +26,8 @@
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
-	#if defined(TOPIC_DEBUGGING)
-	log_debug("[src]'s Topic: [href] destined for [hsrc].")
-
-	if(href_list["nano_err"]) //nano throwing errors
-		log_debug("## NanoUI, Subject [src]: " + html_decode(href_list["nano_err"]))//NANO DEBUG HOOK
-
-
-	#endif
+	// Log all hrefs
+	log_href("[src] (usr:[usr]\[[coordinates(usr)]\]) : [hsrc ? "[hsrc] " : ""][href]")
 
 	// asset_cache
 	var/asset_cache_job
@@ -62,8 +56,6 @@
 	if(tgui_Topic(href_list))
 		return
 
-	// Log all hrefs
-	log_href("[src] (usr:[usr]\[[coordinates(usr)]\]) : [hsrc ? "[hsrc] " : ""][href]")
 
 	// Admin PM
 	if(href_list["priv_msg"])

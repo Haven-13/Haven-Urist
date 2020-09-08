@@ -182,7 +182,8 @@
 			context = context)
 	// Reload all tgui windows
 	if(type == "cacheReloaded")
-		if(!check_rights(R_ADMIN) || usr.client.tgui_cache_reloaded)
+		if(!check_rights(R_ADMIN) && usr.client.tgui_cache_reloaded)
+			testing("Skipped cacheReloaded because of lack of R_ADMIN ([!check_rights(R_ADMIN)]) and [usr.client.tgui_cache_reloaded]")
 			return TRUE
 		// Mark as reloaded
 		usr.client.tgui_cache_reloaded = TRUE
@@ -191,7 +192,10 @@
 		for(var/window_id in windows)
 			var/datum/tgui_window/window = windows[window_id]
 			if (window.status == TGUI_WINDOW_READY)
+				testing("Attempting to reload cache for [window_id]")
 				window.on_message(type, null, href_list)
+			else
+				testing("Skipping cacheReloaded on [window_id] because it was not ready")
 		return TRUE
 	// Locate window
 	var/window_id = href_list["window_id"]

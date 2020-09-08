@@ -498,7 +498,7 @@
 /obj/machinery/alarm/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "AirAlarm")
+		ui = new(user, src, "AirAlarm", name)
 		ui.open()
 
 /obj/machinery/alarm/ui_data(mob/user)

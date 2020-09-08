@@ -133,21 +133,21 @@ const ApcContent = (props, context) => {
                 buttons={(
                   <Fragment>
                     <Box inline mx={2}
-                      color={channel.status >= 1 ? 'good' : 'bad'}>
-                      {channel.status >= 1 ? 'On' : 'Off'}
+                      color={channel.status >= 2 ? 'good' : 'bad'}>
+                      {channel.status >= 3 ? 'On' : 'Off'}
                     </Box>
                     <Button
                       icon="sync"
                       content="Auto"
                       selected={!locked && (
-                        channel.status === 0 || channel.status === 1
+                        channel.status === 2 || channel.status === 4
                       )}
                       disabled={locked}
                       onClick={() => act('channel', topicParams.auto)} />
                     <Button
                       icon="power-off"
                       content="On"
-                      selected={!locked && channel.status === 1}
+                      selected={!locked && channel.status === 3}
                       disabled={locked}
                       onClick={() => act('channel', topicParams.on)} />
                     <Button
@@ -192,9 +192,8 @@ const ApcContent = (props, context) => {
                 icon={data.coverLocked ? 'lock' : 'unlock'}
                 content={data.coverLocked ? 'Engaged' : 'Disengaged'}
                 disabled={locked}
-                onClick={() => act('cover')} />
+                onClick={() => act('lock')} />
             )} />
-
         </LabeledList>
       </Section>
     </Fragment>
