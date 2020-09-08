@@ -1,7 +1,7 @@
 /obj/skybox
 	name = "skybox"
 	mouse_opacity = 0
-	blend_mode = BLEND_DEFAULT
+	blend_mode = BLEND_MULTIPLY
 	plane = SKYBOX_PLANE
 	layer = BASE_SKYBOX_LAYER
 //	invisibility = 101
@@ -12,7 +12,6 @@
 
 /obj/skybox/Initialize()
 	. = ..()
-	filters += filter(type="alpha", render_source="*SPACE_BACKGROUND", flags=MASK_SWAP)
 	var/mob/M = loc
 	SSskybox.skyboxes += src
 	owner = M
