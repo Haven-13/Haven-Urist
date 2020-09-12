@@ -1,11 +1,6 @@
 /datum/ui_module/program/scanner
 	name = "Scanner"
-
-/datum/ui_module/program/scanner/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "ScannerProgram")
-		ui.open()
+	ui_interface_name = "programs/ScannerProgram"
 
 /datum/ui_module/program/scanner/ui_data(mob/user)
 	var/list/data = host.initial_data()

@@ -1,11 +1,6 @@
 /datum/ui_module/program/computer_wordprocessor
 	name = "Word Processor"
-
-/datum/ui_module/program/computer_wordprocessor/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "WordProcessorProgram")
-		ui.open()
+	ui_interface_name = "programs/WordProcessorProgram"
 
 /datum/ui_module/program/computer_wordprocessor/ui_data(mob/user)
 	var/list/data = host.initial_data()

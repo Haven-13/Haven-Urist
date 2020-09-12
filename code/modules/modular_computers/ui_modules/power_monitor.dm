@@ -1,6 +1,8 @@
 
 /datum/ui_module/power_monitor
 	name = "Power monitor"
+	ui_interface_name = "programs/PowerMonitorProgram"
+
 	var/list/grid_sensors
 	var/active_sensor = null	//name_tag of the currently selected sensor
 
@@ -20,14 +22,6 @@
 		if(S.check_grid_warning())
 			return 1
 	return 0
-
-// If PC is not null header template is loaded. Use PC.get_header_data() to get relevant nanoui data from it. All data entries begin with "PC_...."
-// In future it may be expanded to other modular computer devices.
-/datum/ui_module/power_monitor/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "PowerMonitorProgram")
-		ui.open()
 
 /datum/ui_module/power_monitor/ui_data(mob/user)
 	var/list/data = host.initial_data()

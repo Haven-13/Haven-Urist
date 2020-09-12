@@ -1,11 +1,6 @@
 /datum/ui_module/forceauthorization/
 	name = "Use of Force Authorization Manager"
-
-/datum/ui_module/forceauthorization/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "ForceAuthorizationProgram")
-		ui.open()
+	ui_interface_name = "programs/ForceAuthorizationProgram"
 
 /datum/ui_module/forceauthorization/ui_data(mob/user)
 	var/list/data = host.initial_data()

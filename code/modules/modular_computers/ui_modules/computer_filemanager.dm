@@ -1,12 +1,7 @@
 
 /datum/ui_module/program/computer_filemanager
 	name = "NTOS File Manager"
-
-/datum/ui_module/program/computer_filemanager/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "FileManagerProgram")
-		ui.open()
+	ui_interface_name = "FileManagerProgram"
 
 /datum/ui_module/program/computer_filemanager/ui_data(mob/user)
 	var/list/data = host.initial_data()

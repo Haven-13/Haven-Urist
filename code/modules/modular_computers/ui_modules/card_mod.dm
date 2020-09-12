@@ -1,15 +1,10 @@
 
 /datum/ui_module/program/card_mod
 	name = "ID card modification program"
+	ui_interface_name = "programs/IdentificationComputer"
 	var/mod_mode = 1
 	var/is_centcom = 0
 	var/show_assignments = 0
-
-/datum/ui_module/program/card_mod/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "IdentificationComputer")
-		ui.open()
 
 /datum/ui_module/program/card_mod/ui_data(mob/user)
 	var/list/data = host.initial_data()

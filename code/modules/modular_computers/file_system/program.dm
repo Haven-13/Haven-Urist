@@ -209,11 +209,18 @@
 
 /datum/ui_module/program
 	available_to_ai = FALSE
+	var/ui_interface_name = "programs/NotDefined"
 	var/datum/computer_file/program/program = null	// Program-Based computer program that runs this nano module. Defaults to null.
 
 /datum/ui_module/program/New(var/host, var/topic_manager, var/program)
 	..()
 	src.program = program
+
+/datum/ui_module/program/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, ui_interface_name, name)
+		ui.open()
 
 /datum/topic_manager/program
 	var/datum/program

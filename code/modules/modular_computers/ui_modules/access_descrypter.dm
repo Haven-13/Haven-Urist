@@ -1,6 +1,8 @@
 
 /datum/ui_module/program/access_decrypter
 	name = "NTNet Access Decrypter"
+	ui_interface_name = "programs/AccessDecrypterProgram"
+
 	var/list/restricted_access_codes = list(access_change_ids, access_network) // access codes that are not hackable due to balance reasons
 
 /datum/ui_module/program/access_decrypter/ui_status(mob/user, datum/ui_state/state)
@@ -8,12 +10,6 @@
 		return UI_CLOSE
 	if(!istype(program))
 		return UI_CLOSE
-
-/datum/ui_module/program/access_decrypter/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "AccessDecrypterProgram")
-		ui.open()
 
 /datum/ui_module/program/access_decrypter/ui_data(mob/user)
 	var/datum/computer_file/program/access_decrypter/PRG = program

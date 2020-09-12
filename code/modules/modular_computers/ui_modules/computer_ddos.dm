@@ -1,18 +1,13 @@
 
 /datum/ui_module/program/computer_dos
 	name = "DoS Traffic Generator"
+	ui_interface_name = "programs/DosTraffiProgram"
 
 /datum/ui_module/program/computer_dos/ui_status(mob/user, datum/ui_state/state)
 	if(!ntnet_global)
 		return UI_CLOSE
 	if(!istype(program))
 		return UI_CLOSE
-
-/datum/ui_module/program/computer_dos/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "DosTraffiProgram")
-		ui.open()
 
 /datum/ui_module/program/computer_dos/ui_data(mob/user)
 	var/datum/computer_file/program/ntnet_dos/PRG = program

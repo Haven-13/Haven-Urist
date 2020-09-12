@@ -1,5 +1,6 @@
 /datum/ui_module/crew_monitor
 	name = "Crew monitor"
+	ui_interface_name = "programs/CrewMonitorProgram"
 
 /datum/ui_module/crew_monitor/proc/has_alerts()
 	for(var/z_level in GLOB.using_map.map_levels)
@@ -17,12 +18,6 @@
 			if(hassensorlevel(H, SUIT_SENSOR_TRACKING))
 				AI.ai_actual_track(H)
 		return 1
-
-/datum/ui_module/crew_monitor/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "programs/CrewMonitorProgram")
-		ui.open()
 
 /datum/ui_module/crew_monitor/ui_data(mob/user)
 	var/list/data = host.initial_data()

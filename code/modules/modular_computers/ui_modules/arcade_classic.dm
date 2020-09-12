@@ -3,6 +3,7 @@
 // and should generally not be used, as such nano modules are hard to use on other places.
 /datum/ui_module/arcade_classic/
 	name = "Classic Arcade"
+	ui_interface_name = "programs/ArcadeClassicGame"
 	var/player_mana			// Various variables specific to the nano module. In this case, the nano module is a simple arcade game, so the variables store health and other stats.
 	var/player_health
 	var/enemy_mana
@@ -14,14 +15,6 @@
 /datum/ui_module/arcade_classic/New()
 	..()
 	new_game()
-
-// ui_interact handles transfer of data to NanoUI. Keep in mind that data you pass from here is actually sent to the client. In other words, don't send anything you don't want a client
-// to see, and don't send unnecessarily large amounts of data (due to laginess).
-/datum/ui_module/arcade_classic/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "ArcadeClassicGame")
-		ui.open()
 
 /datum/ui_module/arcade_classic/ui_data(mob/user)
 	var/list/data = host.initial_data()

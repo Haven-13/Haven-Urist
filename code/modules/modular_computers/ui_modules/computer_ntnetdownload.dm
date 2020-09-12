@@ -1,12 +1,7 @@
 /datum/ui_module/program/computer_ntnetdownload
 	name = "Network Downloader"
+	ui_interface_name = "programs/NtnetDownloaderProgram"
 	var/obj/item/modular_computer/my_computer = null
-
-/datum/ui_module/program/computer_ntnetdownload/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "NtnetDownloaderProgram")
-		ui.open()
 
 /datum/ui_module/program/computer_ntnetdownload/ui_data(mob/user)
 	if(program)

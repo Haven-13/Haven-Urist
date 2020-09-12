@@ -24,16 +24,9 @@
 
 /datum/ui_module/camera_monitor
 	name = "Camera Monitoring program"
+	ui_interface_name = "programs/CameraMonitorProgram"
 	var/obj/machinery/camera/current_camera = null
 	var/current_network = null
-
-/datum/ui_module/camera_monitor/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "CameraMonitorProgram")
-		//ui.add_template("mapContent", "sec_camera_map_content.tmpl")
-		//ui.add_template("mapHeader", "sec_camera_map_header.tmpl")
-		ui.open()
 
 /datum/ui_module/camera_monitor/ui_data(mob/user)
 	var/list/data = host.initial_data()

@@ -1,11 +1,6 @@
 /datum/ui_module/program/computer_aidiag
 	name = "AI Maintenance Utility"
-
-/datum/ui_module/program/computer_aidiag/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "AiFixerProgram")
-		ui.open()
+	ui_interface_name = "programs/AiFixerProgram"
 
 /datum/ui_module/program/computer_aidiag/ui_data(mob/user)
 	var/list/data = host.initial_data()

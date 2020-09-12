@@ -1,6 +1,8 @@
 
 /datum/ui_module/email_client/
 	name = "Email Client"
+	ui_interface_name = "programs/EmailClientProgram"
+
 	var/stored_login = ""
 	var/stored_password = ""
 	var/error = ""
@@ -113,12 +115,6 @@
 	download_progress = 0
 	last_message_count = 0
 	read_message_count = 0
-
-/datum/ui_module/email_client/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "EmailClientProgram")
-		ui.open()
 
 /datum/ui_module/email_client/ui_data(mob/user)
 	var/list/data = host.initial_data()

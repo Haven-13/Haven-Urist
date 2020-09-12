@@ -1,12 +1,7 @@
 /datum/ui_module/digitalwarrant/
 	name = "Warrant Assistant"
+	ui_interface_name = "programs/DigitalWarrantProgram"
 	var/datum/computer_file/data/warrant/activewarrant
-
-/datum/ui_module/digitalwarrant/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "DigitalWarrantProgram")
-		ui.open()
 
 /datum/ui_module/digitalwarrant/ui_data(mob/user)
 	var/list/data = host.initial_data()

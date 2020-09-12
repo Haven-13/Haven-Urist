@@ -1,5 +1,7 @@
 /datum/ui_module/supermatter_monitor
 	name = "Supermatter monitor"
+	ui_interface_name = "programs/SupermatterMonitorProgram"
+
 	var/list/supermatters
 	var/obj/machinery/power/supermatter/active = null		// Currently selected supermatter crystal.
 
@@ -32,12 +34,6 @@
 	. = SUPERMATTER_INACTIVE
 	for(var/obj/machinery/power/supermatter/S in supermatters)
 		. = max(., S.get_status())
-
-/datum/ui_module/supermatter_monitor/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "SupermatterMonitorProgram")
-		ui.open()
 
 /datum/ui_module/supermatter_monitor/ui_data(mob/user)
 	var/list/data = host.initial_data()

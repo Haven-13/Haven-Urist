@@ -1,5 +1,6 @@
 /datum/ui_module/atmos_control
 	name = "Atmospherics Control"
+	ui_interface_name = "programs/AtmosControlProgram"
 	var/obj/access = new()
 	var/emagged = 0
 	var/ui_ref
@@ -35,12 +36,6 @@
 			if(alarm)
 				alarm.ui_interact(usr)
 		return 1
-
-/datum/ui_module/atmos_control/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "AtmosControlProgram")
-		ui.open()
 
 /datum/ui_module/atmos_control/ui_data(mob/user)
 	var/list/data = host.initial_data()

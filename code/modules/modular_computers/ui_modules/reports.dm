@@ -3,16 +3,12 @@
 
 /datum/ui_module/program/reports
 	name = "Report Editor"
+	ui_interface_name = "programs/ReportsEditorProgram"
+
 	var/can_view_only = 0                              //Whether we are in view-only mode.
 	var/datum/computer_file/report/selected_report     //A report being viewed/edited. This is a temporary copy.
 	var/datum/computer_file/report/saved_report        //The computer file open.
 	var/prog_state = REPORTS_VIEW
-
-/datum/ui_module/program/reports/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "ReportsEditorProgram")
-		ui.open()
 
 /datum/ui_module/program/reports/ui_data(mob/user)
 	var/list/data = host.initial_data()

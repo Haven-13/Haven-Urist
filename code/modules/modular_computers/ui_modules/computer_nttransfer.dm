@@ -1,11 +1,6 @@
 /datum/ui_module/program/computer_nttransfer
 	name = "NTNet P2P Transfer Client"
-
-/datum/ui_module/program/computer_nttransfer/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "NtnetTransferProgram")
-		ui.open()
+	ui_interface_name = "programs/NtnetTransferProgram"
 
 /datum/ui_module/program/computer_nttransfer/ui_data(mob/user)
 	if(!program)

@@ -1,5 +1,7 @@
 /datum/ui_module/alarm_monitor
 	name = "Alarm monitor"
+	ui_interface_name = "programs/AlarmMonitorProgram"
+
 	var/list_cameras = 0						// Whether or not to list camera references. A future goal would be to merge this with the enginering/security camera console. Currently really only for AI-use.
 	var/list/datum/alarm_handler/alarm_handlers // The particular list of alarm handlers this alarm monitor should present to the user.
 	available_to_ai = FALSE
@@ -70,12 +72,6 @@
 
 		usr.switch_to_camera(C)
 		return 1
-
-/datum/ui_module/alarm_monitor/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "programs/AlarmMonitorProgram")
-		ui.open()
 
 /datum/ui_module/alarm_monitor/ui_data(mob/user)
 	var/list/data = host.initial_data()

@@ -1,14 +1,10 @@
 /datum/ui_module/email_administration/
 	name = "Email Administration"
+	ui_interface_name = "program/EmailAdministrationProgram"
+
 	var/datum/computer_file/data/email_account/current_account = null
 	var/datum/computer_file/data/email_message/current_message = null
 	var/error = ""
-
-/datum/ui_module/email_administration/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "EmailAdministrationProgram")
-		ui.open()
 
 /datum/ui_module/email_administration/ui_data(mob/user)
 	var/list/data = host.initial_data()

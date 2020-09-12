@@ -1,13 +1,9 @@
 /datum/ui_module/records
 	name = "Crew Records"
+	ui_interface_name = "programs/CrewRecordsProgram"
+
 	var/datum/computer_file/report/crew_record/active_record
 	var/message = null
-
-/datum/ui_module/records/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "CrewRecordsProgram")
-		ui.open()
 
 /datum/ui_module/records/ui_data(mob/user)
 	var/list/data = host.initial_data()

@@ -1,15 +1,11 @@
 /datum/ui_module/library
 	name = "Library"
+	ui_interface_name = "programs/LibraryProgram"
+
 	var/error_message = ""
 	var/current_book
 	var/obj/machinery/libraryscanner/scanner
 	var/sort_by = "id"
-
-/datum/ui_module/library/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "LibraryProgram")
-		ui.open()
 
 /datum/ui_module/library/ui_data(mob/user)
 	var/list/data = host.initial_data()

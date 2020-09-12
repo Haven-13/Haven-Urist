@@ -1,5 +1,6 @@
 /datum/ui_module/docking
 	name = "Docking Control program"
+	ui_interface_name = "programs/DockingProgram"
 	var/list/docking_controllers = list() //list of tags
 
 /datum/ui_module/docking/proc/refresh_docks()
@@ -20,12 +21,6 @@
 			if(shuttleside)
 				continue
 			docking_controllers += D.docking_program.id_tag
-
-/datum/ui_module/docking/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "DockingProgram")
-		ui.open()
 
 /datum/ui_module/docking/ui_data(mob/user)
 	var/list/data = host.initial_data()

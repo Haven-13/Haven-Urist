@@ -1,18 +1,14 @@
 
 /datum/ui_module/supply
 	name = "Supply Management program"
+	ui_interface_name = "programs/ShippingProgram"
+
 	var/screen = 1		// 0: Ordering menu, 1: Statistics 2: Shuttle control, 3: Orders menu
 	var/selected_category
 	var/list/category_names
 	var/list/category_contents
 	var/emagged = FALSE	// TODO: Implement synchronisation with modular computer framework.
 	var/current_security_level
-
-/datum/ui_module/supply/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "SupplyProgram")
-		ui.open()
 
 /datum/ui_module/supply/ui_data(mob/user)
 	var/list/data = host.initial_data()

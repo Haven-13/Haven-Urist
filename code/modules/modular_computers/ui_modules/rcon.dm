@@ -1,18 +1,14 @@
 
 /datum/ui_module/rcon
 	name = "Power RCON"
+	ui_interface_name = "programs/RemoteControlProgram"
+
 	var/list/known_SMESs = null
 	var/list/known_breakers = null
 	// Allows you to hide specific parts of the UI
 	var/hide_SMES = 0
 	var/hide_SMES_details = 0
 	var/hide_breakers = 0
-
-/datum/ui_module/rcon/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "RemoteControlProgram")
-		ui.open()
 
 /datum/ui_module/rcon/ui_data(mob/user)
 	FindDevices() // Update our devices list

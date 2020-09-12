@@ -1,5 +1,6 @@
 /datum/ui_module/program/uplink
 	name = "TaxQuickly 2559"
+	ui_interface_name = "programs/UplinkProgram"
 
 /datum/ui_module/program/uplink/ui_interact(var/mob/user)
 	var/datum/computer_file/program/uplink/prog = program

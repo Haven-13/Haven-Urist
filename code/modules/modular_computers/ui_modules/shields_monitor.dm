@@ -1,6 +1,8 @@
 
 /datum/ui_module/shields_monitor
 	name = "Shields monitor"
+	ui_interface_name = "programs/ShieldsMonitorProgram"
+
 	var/obj/machinery/power/shield_generator/active = null
 
 /datum/ui_module/shields_monitor/Destroy()
@@ -22,12 +24,6 @@
 	if(!(active in shields))
 		deselect_shield()
 	return shields
-
-/datum/ui_module/shields_monitor/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "ShieldsMonitorProgram")
-		ui.open()
 
 /datum/ui_module/shields_monitor/ui_data(mob/user)
 	var/list/data = host.initial_data()

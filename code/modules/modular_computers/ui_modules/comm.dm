@@ -6,6 +6,7 @@
 
 /datum/ui_module/program/comm
 	name = "Command and Communications Program"
+	ui_interface_name = "programs/CommunicationProgram"
 	available_to_ai = TRUE
 	var/current_status = STATE_DEFAULT
 	var/msg_line1 = ""
@@ -19,12 +20,6 @@
 /datum/ui_module/program/comm/New()
 	..()
 	crew_announcement.newscast = 1
-
-/datum/ui_module/program/comm/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "CommunicationProgram")
-		ui.open()
 
 /datum/ui_module/program/comm/ui_data(mob/user)
 	var/list/data = host.initial_data()
