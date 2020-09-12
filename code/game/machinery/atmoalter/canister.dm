@@ -302,76 +302,75 @@ update_flag
 	data["name"] = name
 	data["canLabel"] = can_label ? 1 : 0
 	data["portConnected"] = connected_port ? 1 : 0
-	data["tankPressure"] = round(air_contents.return_pressure() ? air_contents.return_pressure() : 0)
+	data["pressure"] = round(air_contents.return_pressure() ? air_contents.return_pressure() : 0)
 	data["releasePressure"] = round(release_pressure ? release_pressure : 0)
 	data["minReleasePressure"] = round(ONE_ATMOSPHERE/10)
 	data["maxReleasePressure"] = round(10*ONE_ATMOSPHERE)
 	data["valveOpen"] = valve_open ? 1 : 0
 
-	data["hasHoldingTank"] = holding ? 1 : 0
 	if (holding)
-		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure()))
+		data["holdingTank"] = list("name" = holding.name, "pressure" = round(holding.air_contents.return_pressure()))
 
 	return data
 
+/obj/machinery/portable_atmospherics/canister/ui_act(action, list/params)
+	switch(action)
+		if("valve")
+			if (valve_open)
+				if (holding)
+					release_log += "Valve was <b>closed</b> by [user] ([user.ckey]), stopping the transfer into the [holding]<br>"
+				else
+					release_log += "Valve was <b>closed</b> by [user] ([user.ckey]), stopping the transfer into the <font color='red'><b>air</b></font><br>"
+			else
+				if (holding)
+					release_log += "Valve was <b>opened</b> by [user] ([user.ckey]), starting the transfer into the [holding]<br>"
+				else
+					release_log += "Valve was <b>opened</b> by [user] ([user.ckey]), starting the transfer into the <font color='red'><b>air</b></font><br>"
+					log_open()
+			valve_open = !valve_open
+			return TRUE
 
-/obj/machinery/portable_atmospherics/canister/OnTopic(var/mob/user, href_list, state)
-	if(href_list["toggle"])
-		if (valve_open)
-			if (holding)
+		if ("eject")
+			if(!holding)
+				return FALSE
+			if (valve_open)
+				valve_open = 0
 				release_log += "Valve was <b>closed</b> by [user] ([user.ckey]), stopping the transfer into the [holding]<br>"
+			if(istype(holding, /obj/item/weapon/tank))
+				holding.manipulated_by = user.real_name
+			holding.dropInto(loc)
+			holding = null
+			update_icon()
+			return TRUE
+
+		if ("pressure")
+			var/diff = text2num(params["pressure"])
+			if(diff > 0)
+				release_pressure = min(10*ONE_ATMOSPHERE, release_pressure+diff)
 			else
-				release_log += "Valve was <b>closed</b> by [user] ([user.ckey]), stopping the transfer into the <font color='red'><b>air</b></font><br>"
-		else
-			if (holding)
-				release_log += "Valve was <b>opened</b> by [user] ([user.ckey]), starting the transfer into the [holding]<br>"
-			else
-				release_log += "Valve was <b>opened</b> by [user] ([user.ckey]), starting the transfer into the <font color='red'><b>air</b></font><br>"
-				log_open()
-		valve_open = !valve_open
-		. = TOPIC_REFRESH
+				release_pressure = max(ONE_ATMOSPHERE/10, release_pressure+diff)
+			return TRUE
 
-	else if (href_list["remove_tank"])
-		if(!holding)
-			return TOPIC_HANDLED
-		if (valve_open)
-			valve_open = 0
-			release_log += "Valve was <b>closed</b> by [user] ([user.ckey]), stopping the transfer into the [holding]<br>"
-		if(istype(holding, /obj/item/weapon/tank))
-			holding.manipulated_by = user.real_name
-		holding.dropInto(loc)
-		holding = null
-		update_icon()
-		. = TOPIC_REFRESH
-
-	else if (href_list["pressure_adj"])
-		var/diff = text2num(href_list["pressure_adj"])
-		if(diff > 0)
-			release_pressure = min(10*ONE_ATMOSPHERE, release_pressure+diff)
-		else
-			release_pressure = max(ONE_ATMOSPHERE/10, release_pressure+diff)
-		. = TOPIC_REFRESH
-
-	else if (href_list["relabel"])
-		if (!can_label)
-			return 0
-		var/list/colors = list(\
-			"\[N2O\]" = "redws", \
-			"\[N2\]" = "red", \
-			"\[O2\]" = "blue", \
-			"\[Phoron\]" = "orange", \
-			"\[CO2\]" = "black", \
-			"\[H2\]" = "purple", \
-			"\[Air\]" = "grey", \
-			"\[CAUTION\]" = "yellow", \
-		)
-		var/label = input(user, "Choose canister label", "Gas canister") as null|anything in colors
-		if (label && CanUseTopic(user, state))
-			canister_color = colors[label]
-			icon_state = colors[label]
-			SetName("\improper Canister: [label]")
-		update_icon()
-		. = TOPIC_REFRESH
+		if ("relabel")
+			if (!can_label)
+				return 0
+			var/list/colors = list(\
+				"\[N2O\]" = "redws", \
+				"\[N2\]" = "red", \
+				"\[O2\]" = "blue", \
+				"\[Phoron\]" = "orange", \
+				"\[CO2\]" = "black", \
+				"\[H2\]" = "purple", \
+				"\[Air\]" = "grey", \
+				"\[CAUTION\]" = "yellow", \
+			)
+			var/label = input(user, "Choose canister label", "Gas canister") as null|anything in colors
+			if (label && CanUseTopic(user, state))
+				canister_color = colors[label]
+				icon_state = colors[label]
+				SetName("\improper Canister: [label]")
+			update_icon()
+			return TRUE
 
 /obj/machinery/portable_atmospherics/canister/CanUseTopic()
 	if(destroyed)

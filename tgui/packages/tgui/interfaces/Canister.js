@@ -103,7 +103,7 @@ export const Canister = (props, context) => {
                 lineHeight={2}
                 fontSize="11px"
                 color={valveOpen
-                  ? (hasHoldingTank ? 'caution' : 'danger')
+                  ? (holdingTank ? 'caution' : 'danger')
                   : null}
                 content={valveOpen ? 'Open' : 'Closed'}
                 onClick={() => act('valve')} />
@@ -127,7 +127,7 @@ export const Canister = (props, context) => {
         </Section>
         <Section
           title="Holding Tank"
-          buttons={!!hasHoldingTank && (
+          buttons={!!holdingTank && (
             <Button
               icon="eject"
               color={valveOpen && 'danger'}
@@ -140,11 +140,11 @@ export const Canister = (props, context) => {
                 {holdingTank.name}
               </LabeledList.Item>
               <LabeledList.Item label="Pressure">
-                <AnimatedNumber value={holdingTank.tankPressure} /> kPa
+                <AnimatedNumber value={holdingTank.pressure} /> kPa
               </LabeledList.Item>
             </LabeledList>
           )}
-          {!hasHoldingTank && (
+          {!holdingTank && (
             <Box color="average">
               No Holding Tank
             </Box>
