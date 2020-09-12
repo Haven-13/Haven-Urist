@@ -1,7 +1,7 @@
 /datum/computer_file/program/shields_monitor
 	filename = "shieldsmonitor"
 	filedesc = "Shield Generators Monitoring"
-	ui_module_path = /datum/ui_module/shields_monitor/
+	ui_module_path = /datum/ui_module/program/shields_monitor/
 	program_icon_state = "shield"
 	program_key_state = "generic_key"
 	program_menu_icon = "radio-on"

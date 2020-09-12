@@ -2,7 +2,7 @@
 	filename = "docking"
 	filedesc = "Docking Control"
 	required_access = access_bridge
-	ui_module_path = /datum/ui_module/docking
+	ui_module_path = /datum/ui_module/program/docking
 	program_icon_state = "supply"
 	program_key_state = "rd_key"
 	program_menu_icon = "triangle-2-e-w"
@@ -15,5 +15,5 @@
 /datum/computer_file/program/docking/run_program()
 	. = ..()
 	if(NM)
-		var/datum/ui_module/docking/NMD = NM
+		var/datum/ui_module/program/docking/NMD = NM
 		NMD.refresh_docks()

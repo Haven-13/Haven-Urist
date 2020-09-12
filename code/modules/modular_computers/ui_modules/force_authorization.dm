@@ -1,8 +1,8 @@
-/datum/ui_module/forceauthorization/
+/datum/ui_module/program/forceauthorization/
 	name = "Use of Force Authorization Manager"
 	ui_interface_name = "programs/ForceAuthorizationProgram"
 
-/datum/ui_module/forceauthorization/ui_data(mob/user)
+/datum/ui_module/program/forceauthorization/ui_data(mob/user)
 	var/list/data = host.initial_data()
 	data["is_silicon_usr"] = issilicon(user)
 
@@ -44,7 +44,7 @@
 
 	return data
 
-/datum/ui_module/forceauthorization/Topic(href, href_list)
+/datum/ui_module/program/forceauthorization/Topic(href, href_list)
 	if(..())
 		return 1
 

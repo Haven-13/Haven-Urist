@@ -1,4 +1,4 @@
-/datum/ui_module/library
+/datum/ui_module/program/library
 	name = "Library"
 	ui_interface_name = "programs/LibraryProgram"
 
@@ -7,7 +7,7 @@
 	var/obj/machinery/libraryscanner/scanner
 	var/sort_by = "id"
 
-/datum/ui_module/library/ui_data(mob/user)
+/datum/ui_module/program/library/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 	if(error_message)
@@ -35,7 +35,7 @@
 
 	return data
 
-/datum/ui_module/library/Topic(href, href_list)
+/datum/ui_module/program/library/Topic(href, href_list)
 	if(..())
 		return 1
 	if(href_list["viewbook"])
@@ -143,7 +143,7 @@
 			error_message = ""
 		return 1
 
-/datum/ui_module/library/proc/view_book(var/id)
+/datum/ui_module/program/library/proc/view_book(var/id)
 	if(current_book || !id)
 		return 0
 

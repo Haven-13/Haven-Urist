@@ -1,7 +1,7 @@
 /datum/computer_file/program/rcon_console
 	filename = "rconconsole"
 	filedesc = "RCON Remote Control"
-	ui_module_path = /datum/ui_module/rcon
+	ui_module_path = /datum/ui_module/program/rcon
 	program_icon_state = "generic"
 	program_key_state = "rd_key"
 	program_menu_icon = "power"

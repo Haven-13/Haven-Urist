@@ -1,5 +1,5 @@
 /datum/ui_state/air_alarm
-	var/datum/ui_module/atmos_control/atmos_control	= null
+	var/datum/ui_module/program/atmos_control/atmos_control	= null
 	var/obj/machinery/alarm/air_alarm					= null
 
 /datum/ui_state/air_alarm/can_use_topic(var/src_object, var/mob/user)

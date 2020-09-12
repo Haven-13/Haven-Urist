@@ -1,5 +1,5 @@
 
-/datum/ui_module/supply
+/datum/ui_module/program/supply
 	name = "Supply Management program"
 	ui_interface_name = "programs/ShippingProgram"
 
@@ -10,7 +10,7 @@
 	var/emagged = FALSE	// TODO: Implement synchronisation with modular computer framework.
 	var/current_security_level
 
-/datum/ui_module/supply/ui_data(mob/user)
+/datum/ui_module/program/supply/ui_data(mob/user)
 	var/list/data = host.initial_data()
 	var/is_admin = check_access(user, access_cargo)
 	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
@@ -67,7 +67,7 @@
 
 	return data
 
-/datum/ui_module/supply/Topic(href, href_list)
+/datum/ui_module/program/supply/Topic(href, href_list)
 	var/mob/user = usr
 	if(..())
 		return 1
@@ -191,7 +191,7 @@
 				break
 		return 1
 
-/datum/ui_module/supply/proc/generate_categories()
+/datum/ui_module/program/supply/proc/generate_categories()
 	category_names = list()
 	category_contents = list()
 	for(var/decl/hierarchy/supply_pack/sp in cargo_supply_pack_root.children)
@@ -208,7 +208,7 @@
 				)))
 			category_contents[sp.name] = category
 
-/datum/ui_module/supply/proc/get_shuttle_status()
+/datum/ui_module/program/supply/proc/get_shuttle_status()
 	var/datum/shuttle/autodock/ferry/supply/shuttle = SSsupply.shuttle
 	if(!istype(shuttle))
 		return "No Connection"
@@ -220,7 +220,7 @@
 		return "Docked"
 	return "Docking/Undocking"
 
-/datum/ui_module/supply/proc/order_to_nanoui(var/datum/supply_order/SO)
+/datum/ui_module/program/supply/proc/order_to_nanoui(var/datum/supply_order/SO)
 	return list(list(
 		"id" = SO.ordernum,
 		"object" = SO.object.name,
@@ -229,13 +229,13 @@
 		"reason" = SO.reason
 		))
 
-/datum/ui_module/supply/proc/can_print()
+/datum/ui_module/program/supply/proc/can_print()
 	var/obj/item/modular_computer/MC = ui_host()
 	if(!istype(MC) || !istype(MC.nano_printer))
 		return 0
 	return 1
 
-/datum/ui_module/supply/proc/print_order(var/datum/supply_order/O, var/mob/user)
+/datum/ui_module/program/supply/proc/print_order(var/datum/supply_order/O, var/mob/user)
 	if(!O)
 		return
 
@@ -252,7 +252,7 @@
 	t += "<hr>"
 	print_text(t, user)
 
-/datum/ui_module/supply/proc/print_summary(var/mob/user)
+/datum/ui_module/program/supply/proc/print_summary(var/mob/user)
 	var/t = ""
 	t += "<center><BR><b><large>[GLOB.using_map.station_name]</large></b><BR><i>[station_date]</i><BR><i>Export overview<field></i></center><hr>"
 	for(var/source in SSsupply.point_source_descriptions)

@@ -18,4 +18,4 @@ The answer was five and a half years -ZeroBits
 	available_on_ntnet = 1
 	usage_flags = PROGRAM_ALL
 
-	ui_module_path = /datum/ui_module/library
+	ui_module_path = /datum/ui_module/program/library

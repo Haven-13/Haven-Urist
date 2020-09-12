@@ -1,7 +1,7 @@
 /datum/computer_file/program/supply
 	filename = "supply"
 	filedesc = "Supply Management"
-	ui_module_path = /datum/ui_module/supply
+	ui_module_path = /datum/ui_module/program/supply
 	program_icon_state = "supply"
 	program_key_state = "rd_key"
 	program_menu_icon = "cart"
@@ -12,6 +12,6 @@
 
 /datum/computer_file/program/supply/process_tick()
 	..()
-	var/datum/ui_module/supply/SNM = NM
+	var/datum/ui_module/program/supply/SNM = NM
 	if(istype(SNM))
 		SNM.emagged = computer_emagged

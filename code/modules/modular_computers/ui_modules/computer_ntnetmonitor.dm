@@ -1,13 +1,13 @@
-/datum/ui_module/computer_ntnetmonitor
+/datum/ui_module/program/computer_ntnetmonitor
 	name = "NTNet Diagnostics and Monitoring"
 	ui_interface_name = "programs/NtnetMonitorProgram"
 	available_to_ai = TRUE
 
-/datum/ui_module/computer_ntnetmonitor/ui_status(mob/user, datum/ui_state/state)
+/datum/ui_module/program/computer_ntnetmonitor/ui_status(mob/user, datum/ui_state/state)
 	if(!ntnet_global)
 		return UI_CLOSE
 
-/datum/ui_module/computer_ntnetmonitor/ui_data(mob/user)
+/datum/ui_module/program/computer_ntnetmonitor/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 	data["ntnetstatus"] = ntnet_global.check_function()
@@ -27,7 +27,7 @@
 
 	return data
 
-/datum/ui_module/computer_ntnetmonitor/Topic(href, href_list, state)
+/datum/ui_module/program/computer_ntnetmonitor/Topic(href, href_list, state)
 	var/mob/user = usr
 	if(..())
 		return 1

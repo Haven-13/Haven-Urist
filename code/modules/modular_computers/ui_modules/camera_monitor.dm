@@ -22,13 +22,13 @@
 
 	return access_security // Default for all other networks
 
-/datum/ui_module/camera_monitor
+/datum/ui_module/program/camera_monitor
 	name = "Camera Monitoring program"
 	ui_interface_name = "programs/CameraMonitorProgram"
 	var/obj/machinery/camera/current_camera = null
 	var/current_network = null
 
-/datum/ui_module/camera_monitor/ui_data(mob/user)
+/datum/ui_module/program/camera_monitor/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 	data["current_camera"] = current_camera ? current_camera.nano_structure() : null
@@ -51,17 +51,17 @@
 	return data
 
 // Intended to be overriden by subtypes to manually add non-station networks to the list.
-/datum/ui_module/camera_monitor/proc/modify_networks_list(var/list/networks)
+/datum/ui_module/program/camera_monitor/proc/modify_networks_list(var/list/networks)
 	return networks
 
-/datum/ui_module/camera_monitor/proc/can_access_network(var/mob/user, var/network_access)
+/datum/ui_module/program/camera_monitor/proc/can_access_network(var/mob/user, var/network_access)
 	// No access passed, or 0 which is considered no access requirement. Allow it.
 	if(!network_access)
 		return 1
 
 	return check_access(user, access_security) || check_access(user, network_access)
 
-/datum/ui_module/camera_monitor/Topic(href, href_list)
+/datum/ui_module/program/camera_monitor/Topic(href, href_list)
 	if(..())
 		return 1
 
@@ -88,7 +88,7 @@
 		usr.reset_view(current_camera)
 		return 1
 
-/datum/ui_module/camera_monitor/proc/switch_to_camera(var/mob/user, var/obj/machinery/camera/C)
+/datum/ui_module/program/camera_monitor/proc/switch_to_camera(var/mob/user, var/obj/machinery/camera/C)
 	//don't need to check if the camera works for AI because the AI jumps to the camera location and doesn't actually look through cameras.
 	if(isAI(user))
 		var/mob/living/silicon/ai/A = user
@@ -105,7 +105,7 @@
 	user.reset_view(C)
 	return 1
 
-/datum/ui_module/camera_monitor/proc/set_current(var/obj/machinery/camera/C)
+/datum/ui_module/program/camera_monitor/proc/set_current(var/obj/machinery/camera/C)
 	if(current_camera == C)
 		return
 
@@ -118,14 +118,14 @@
 		if(istype(L))
 			L.tracking_initiated()
 
-/datum/ui_module/camera_monitor/proc/reset_current()
+/datum/ui_module/program/camera_monitor/proc/reset_current()
 	if(current_camera)
 		var/mob/living/L = current_camera.loc
 		if(istype(L))
 			L.tracking_cancelled()
 	current_camera = null
 
-/datum/ui_module/camera_monitor/check_eye(var/mob/user as mob)
+/datum/ui_module/program/camera_monitor/check_eye(var/mob/user as mob)
 	if(!current_camera)
 		return 0
 	var/viewflag = current_camera.check_eye(user)

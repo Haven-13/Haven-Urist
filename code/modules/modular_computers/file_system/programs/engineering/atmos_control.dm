@@ -1,7 +1,7 @@
 /datum/computer_file/program/atmos_control
 	filename = "atmoscontrol"
 	filedesc = "Atmosphere Control"
-	ui_module_path = /datum/ui_module/atmos_control
+	ui_module_path = /datum/ui_module/program/atmos_control
 	program_icon_state = "atmos_control"
 	program_key_state = "atmos_key"
 	program_menu_icon = "shuffle"

@@ -1,5 +1,5 @@
 
-/mob/living/simple_animal/hostile/npc/verb/interact()
+/mob/living/simple_animal/hostile/npc/verb/npc_interact()
 	set src in view(1)
 	set name = "Interact with NPC"
 	set category = "NPC"

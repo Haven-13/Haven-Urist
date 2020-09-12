@@ -1,15 +1,15 @@
 
-/datum/ui_module/shields_monitor
+/datum/ui_module/program/shields_monitor
 	name = "Shields monitor"
 	ui_interface_name = "programs/ShieldsMonitorProgram"
 
 	var/obj/machinery/power/shield_generator/active = null
 
-/datum/ui_module/shields_monitor/Destroy()
+/datum/ui_module/program/shields_monitor/Destroy()
 	. = ..()
 	deselect_shield()
 
-/datum/ui_module/shields_monitor/proc/get_shields()
+/datum/ui_module/program/shields_monitor/proc/get_shields()
 	var/turf/T = get_turf(ui_host())
 	if(!T)
 		return list()
@@ -25,7 +25,7 @@
 		deselect_shield()
 	return shields
 
-/datum/ui_module/shields_monitor/ui_data(mob/user)
+/datum/ui_module/program/shields_monitor/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 	if (active)
@@ -66,7 +66,7 @@
 
 	return data
 
-/datum/ui_module/shields_monitor/Topic(href, href_list)
+/datum/ui_module/program/shields_monitor/Topic(href, href_list)
 	if(..())
 		return 1
 	if( href_list["refresh"] )
@@ -80,11 +80,11 @@
 		var/obj/machinery/power/shield_generator/S = locate(href_list["ref"]) in shields
 		if(S)
 			deselect_shield()
-			GLOB.destroyed_event.register(S, src, /datum/ui_module/shields_monitor/proc/deselect_shield)
+			GLOB.destroyed_event.register(S, src, /datum/ui_module/program/shields_monitor/proc/deselect_shield)
 			active = S
 		return 1
 
-/datum/ui_module/shields_monitor/proc/deselect_shield(var/source)
+/datum/ui_module/program/shields_monitor/proc/deselect_shield(var/source)
 	if(!active)
 		return
 	GLOB.destroyed_event.unregister(active, src)

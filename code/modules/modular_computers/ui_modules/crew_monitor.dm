@@ -1,14 +1,14 @@
-/datum/ui_module/crew_monitor
+/datum/ui_module/program/crew_monitor
 	name = "Crew monitor"
 	ui_interface_name = "programs/CrewMonitorProgram"
 
-/datum/ui_module/crew_monitor/proc/has_alerts()
+/datum/ui_module/program/crew_monitor/proc/has_alerts()
 	for(var/z_level in GLOB.using_map.map_levels)
 		if (crew_repository.has_health_alert(z_level))
 			return TRUE
 	return FALSE
 
-/datum/ui_module/crew_monitor/Topic(href, href_list)
+/datum/ui_module/program/crew_monitor/Topic(href, href_list)
 	if(..()) return 1
 
 	if(href_list["track"])
@@ -19,7 +19,7 @@
 				AI.ai_actual_track(H)
 		return 1
 
-/datum/ui_module/crew_monitor/ui_data(mob/user)
+/datum/ui_module/program/crew_monitor/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 	data["isAI"] = isAI(user)

@@ -9,4 +9,4 @@
 	requires_ntnet = 1
 	required_access = access_network
 	available_on_ntnet = 1
-	ui_module_path = /datum/ui_module/computer_ntnetmonitor/
+	ui_module_path = /datum/ui_module/program/computer_ntnetmonitor/

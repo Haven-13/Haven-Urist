@@ -1,11 +1,11 @@
-/datum/ui_module/records
+/datum/ui_module/program/records
 	name = "Crew Records"
 	ui_interface_name = "programs/CrewRecordsProgram"
 
 	var/datum/computer_file/report/crew_record/active_record
 	var/message = null
 
-/datum/ui_module/records/ui_data(mob/user)
+/datum/ui_module/program/records/ui_data(mob/user)
 	var/list/data = host.initial_data()
 	var/list/user_access = get_record_access(user)
 
@@ -32,7 +32,7 @@
 
 	return data
 
-/datum/ui_module/records/proc/get_record_access(var/mob/user)
+/datum/ui_module/program/records/proc/get_record_access(var/mob/user)
 	var/list/user_access = using_access || user.GetAccess()
 
 	var/obj/item/modular_computer/PC = ui_host()
@@ -42,7 +42,7 @@
 
 	return user_access
 
-/datum/ui_module/records/proc/edit_field(var/mob/user, var/field_ID)
+/datum/ui_module/program/records/proc/edit_field(var/mob/user, var/field_ID)
 	var/datum/computer_file/report/crew_record/R = active_record
 	if(!R)
 		return
@@ -54,7 +54,7 @@
 		return
 	F.ask_value(user)
 
-/datum/ui_module/records/Topic(href, href_list)
+/datum/ui_module/program/records/Topic(href, href_list)
 	if(..())
 		return 1
 	if(href_list["clear_active"])
@@ -112,7 +112,7 @@
 		edit_field(usr, text2num(href_list["edit_field"]))
 		return 1
 
-/datum/ui_module/records/proc/get_photo(var/mob/user)
+/datum/ui_module/program/records/proc/get_photo(var/mob/user)
 	if(istype(user.get_active_hand(), /obj/item/weapon/photo))
 		var/obj/item/weapon/photo/photo = user.get_active_hand()
 		return photo.img

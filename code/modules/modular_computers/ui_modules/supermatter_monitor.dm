@@ -1,21 +1,21 @@
-/datum/ui_module/supermatter_monitor
+/datum/ui_module/program/supermatter_monitor
 	name = "Supermatter monitor"
 	ui_interface_name = "programs/SupermatterMonitorProgram"
 
 	var/list/supermatters
 	var/obj/machinery/power/supermatter/active = null		// Currently selected supermatter crystal.
 
-/datum/ui_module/supermatter_monitor/Destroy()
+/datum/ui_module/program/supermatter_monitor/Destroy()
 	. = ..()
 	active = null
 	supermatters = null
 
-/datum/ui_module/supermatter_monitor/New()
+/datum/ui_module/program/supermatter_monitor/New()
 	..()
 	refresh()
 
 // Refreshes list of active supermatter crystals
-/datum/ui_module/supermatter_monitor/proc/refresh()
+/datum/ui_module/program/supermatter_monitor/proc/refresh()
 	supermatters = list()
 	var/turf/T = get_turf(ui_host())
 	if(!T)
@@ -30,12 +30,12 @@
 	if(!(active in supermatters))
 		active = null
 
-/datum/ui_module/supermatter_monitor/proc/get_status()
+/datum/ui_module/program/supermatter_monitor/proc/get_status()
 	. = SUPERMATTER_INACTIVE
 	for(var/obj/machinery/power/supermatter/S in supermatters)
 		. = max(., S.get_status())
 
-/datum/ui_module/supermatter_monitor/ui_data(mob/user)
+/datum/ui_module/program/supermatter_monitor/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 	if(istype(active))
@@ -90,7 +90,7 @@
 
 	return data
 
-/datum/ui_module/supermatter_monitor/Topic(href, href_list)
+/datum/ui_module/program/supermatter_monitor/Topic(href, href_list)
 	if(..())
 		return 1
 	if( href_list["clear"] )

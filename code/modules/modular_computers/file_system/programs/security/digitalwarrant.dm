@@ -13,5 +13,5 @@ LEGACY_RECORD_STRUCTURE(all_warrants, warrant)
 	requires_ntnet = 1
 	available_on_ntnet = 1
 	required_access = access_security
-	ui_module_path = /datum/ui_module/digitalwarrant/
+	ui_module_path = /datum/ui_module/program/digitalwarrant/
 	usage_flags = PROGRAM_ALL

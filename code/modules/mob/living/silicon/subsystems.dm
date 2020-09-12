@@ -1,9 +1,9 @@
 /mob/living/silicon
 	var/list/silicon_subsystems_by_name = list()
 	var/list/silicon_subsystems = list(
-		/datum/ui_module/alarm_monitor/all,
+		/datum/ui_module/program/alarm_monitor/all,
 		/datum/ui_module/law_manager,
-		/datum/ui_module/email_client
+		/datum/ui_module/program/email_client
 	)
 
 /mob/living/silicon/ai/New()
@@ -17,7 +17,7 @@
 /mob/living/silicon/robot/syndicate
 	silicon_subsystems = list(
 		/datum/ui_module/law_manager,
-		/datum/ui_module/email_client
+		/datum/ui_module/program/email_client
 	)
 
 /mob/living/silicon/Destroy()
@@ -30,7 +30,7 @@
 	for(var/subsystem_type in silicon_subsystems)
 		init_subsystem(subsystem_type)
 
-	if(/datum/ui_module/alarm_monitor/all in silicon_subsystems)
+	if(/datum/ui_module/program/alarm_monitor/all in silicon_subsystems)
 		for(var/datum/alarm_handler/AH in SSalarm.all_handlers)
 			AH.register_alarm(src, /mob/living/silicon/proc/receive_alarm)
 			queued_alarms[AH] = list()	// Makes sure alarms remain listed in consistent order

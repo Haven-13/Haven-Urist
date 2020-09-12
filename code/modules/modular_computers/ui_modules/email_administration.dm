@@ -1,4 +1,4 @@
-/datum/ui_module/email_administration/
+/datum/ui_module/program/email_administration/
 	name = "Email Administration"
 	ui_interface_name = "program/EmailAdministrationProgram"
 
@@ -6,7 +6,7 @@
 	var/datum/computer_file/data/email_message/current_message = null
 	var/error = ""
 
-/datum/ui_module/email_administration/ui_data(mob/user)
+/datum/ui_module/program/email_administration/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 	if(error)
@@ -43,7 +43,7 @@
 
 	return data
 
-/datum/ui_module/email_administration/Topic(href, href_list)
+/datum/ui_module/program/email_administration/Topic(href, href_list)
 	if(..())
 		return 1
 

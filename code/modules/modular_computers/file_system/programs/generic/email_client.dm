@@ -12,12 +12,12 @@
 	var/stored_password = ""
 	usage_flags = PROGRAM_ALL
 
-	ui_module_path = /datum/ui_module/email_client
+	ui_module_path = /datum/ui_module/program/email_client
 
 // Persistency. Unless you log out, or unless your password changes, this will pre-fill the login data when restarting the program
 /datum/computer_file/program/email_client/kill_program()
 	if(NM)
-		var/datum/ui_module/email_client/NME = NM
+		var/datum/ui_module/program/email_client/NME = NM
 		if(NME.current_account)
 			stored_login = NME.stored_login
 			stored_password = NME.stored_password
@@ -31,7 +31,7 @@
 	. = ..()
 
 	if(NM)
-		var/datum/ui_module/email_client/NME = NM
+		var/datum/ui_module/program/email_client/NME = NM
 		NME.stored_login = stored_login
 		NME.stored_password = stored_password
 		NME.log_in()
@@ -44,7 +44,7 @@
 
 /datum/computer_file/program/email_client/process_tick()
 	..()
-	var/datum/ui_module/email_client/NME = NM
+	var/datum/ui_module/program/email_client/NME = NM
 	if(!istype(NME))
 		return
 	NME.relayed_process(ntnet_speed)

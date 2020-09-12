@@ -1,9 +1,9 @@
-/datum/ui_module/docking
+/datum/ui_module/program/docking
 	name = "Docking Control program"
 	ui_interface_name = "programs/DockingProgram"
 	var/list/docking_controllers = list() //list of tags
 
-/datum/ui_module/docking/proc/refresh_docks()
+/datum/ui_module/program/docking/proc/refresh_docks()
 	var/atom/movable/AM = ui_host()
 	if(!istype(AM))
 		return
@@ -22,7 +22,7 @@
 				continue
 			docking_controllers += D.docking_program.id_tag
 
-/datum/ui_module/docking/ui_data(mob/user)
+/datum/ui_module/program/docking/ui_data(mob/user)
 	var/list/data = host.initial_data()
 	var/list/docks = list()
 	for(var/docktag in docking_controllers)
@@ -42,7 +42,7 @@
 
 	return data
 
-/datum/ui_module/docking/Topic(href, href_list, state)
+/datum/ui_module/program/docking/Topic(href, href_list, state)
 	if(..())
 		return 1
 	if(href_list["edit_code"])

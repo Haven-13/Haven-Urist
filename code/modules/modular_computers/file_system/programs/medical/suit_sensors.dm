@@ -1,7 +1,7 @@
 /datum/computer_file/program/suit_sensors
 	filename = "sensormonitor"
 	filedesc = "Suit Sensors Monitoring"
-	ui_module_path = /datum/ui_module/crew_monitor
+	ui_module_path = /datum/ui_module/program/crew_monitor
 	ui_header = "crew_green.gif"
 	program_icon_state = "crew"
 	program_key_state = "med_key"
@@ -16,7 +16,7 @@
 /datum/computer_file/program/suit_sensors/process_tick()
 	..()
 
-	var/datum/ui_module/crew_monitor/NMC = NM
+	var/datum/ui_module/program/crew_monitor/NMC = NM
 	if(istype(NMC) && (NMC.has_alerts() != has_alert))
 		if(!has_alert)
 			program_icon_state = "crew-red"

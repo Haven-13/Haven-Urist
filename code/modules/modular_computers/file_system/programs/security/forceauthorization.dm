@@ -9,4 +9,4 @@
 	requires_ntnet = 1
 	available_on_ntnet = 1
 	required_access = access_armory
-	ui_module_path = /datum/ui_module/forceauthorization/
+	ui_module_path = /datum/ui_module/program/forceauthorization/

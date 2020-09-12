@@ -1,7 +1,7 @@
 /datum/computer_file/program/power_monitor
 	filename = "powermonitor"
 	filedesc = "Power Monitoring"
-	ui_module_path = /datum/ui_module/power_monitor/
+	ui_module_path = /datum/ui_module/program/power_monitor/
 	program_icon_state = "power_monitor"
 	program_key_state = "power_key"
 	program_menu_icon = "battery-3"
@@ -15,7 +15,7 @@
 
 /datum/computer_file/program/power_monitor/process_tick()
 	..()
-	var/datum/ui_module/power_monitor/NMA = NM
+	var/datum/ui_module/program/power_monitor/NMA = NM
 	if(istype(NMA) && NMA.has_alarm())
 		if(!has_alert)
 			program_icon_state = "power_monitor_warn"

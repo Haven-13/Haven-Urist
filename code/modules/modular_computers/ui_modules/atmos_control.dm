@@ -1,4 +1,4 @@
-/datum/ui_module/atmos_control
+/datum/ui_module/program/atmos_control
 	name = "Atmospherics Control"
 	ui_interface_name = "programs/AtmosControlProgram"
 	var/obj/access = new()
@@ -6,7 +6,7 @@
 	var/ui_ref
 	var/list/monitored_alarms = list()
 
-/datum/ui_module/atmos_control/New(atmos_computer, var/list/req_access, var/list/req_one_access, monitored_alarm_ids)
+/datum/ui_module/program/atmos_control/New(atmos_computer, var/list/req_access, var/list/req_one_access, monitored_alarm_ids)
 	..()
 
 	if(istype(req_access))
@@ -26,7 +26,7 @@
 		// machines may not yet be ordered at this point
 		monitored_alarms = dd_sortedObjectList(monitored_alarms)
 
-/datum/ui_module/atmos_control/Topic(href, href_list)
+/datum/ui_module/program/atmos_control/Topic(href, href_list)
 	if(..())
 		return 1
 
@@ -37,7 +37,7 @@
 				alarm.ui_interact(usr)
 		return 1
 
-/datum/ui_module/atmos_control/ui_data(mob/user)
+/datum/ui_module/program/atmos_control/ui_data(mob/user)
 	var/list/data = host.initial_data()
 	var/alarms[0]
 
@@ -48,7 +48,7 @@
 
 	return data
 
-/datum/ui_module/atmos_control/proc/generate_state(air_alarm)
+/datum/ui_module/program/atmos_control/proc/generate_state(air_alarm)
 	var/datum/ui_state/air_alarm/state = new()
 	state.atmos_control = src
 	state.air_alarm = air_alarm

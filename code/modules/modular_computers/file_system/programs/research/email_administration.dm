@@ -8,5 +8,5 @@
 	size = 12
 	requires_ntnet = 1
 	available_on_ntnet = 1
-	ui_module_path = /datum/ui_module/email_administration
+	ui_module_path = /datum/ui_module/program/email_administration
 	required_access = access_network

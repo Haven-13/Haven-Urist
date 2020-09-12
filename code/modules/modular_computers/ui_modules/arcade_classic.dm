@@ -1,7 +1,7 @@
 // Nano module the program uses.
 // This can be either /datum/ui_module/ or /datum/ui_module/program. The latter is intended for nano modules that are suposed to be exclusively used with modular computers,
 // and should generally not be used, as such nano modules are hard to use on other places.
-/datum/ui_module/arcade_classic/
+/datum/ui_module/program/arcade_classic/
 	name = "Classic Arcade"
 	ui_interface_name = "programs/ArcadeClassicGame"
 	var/player_mana			// Various variables specific to the nano module. In this case, the nano module is a simple arcade game, so the variables store health and other stats.
@@ -12,11 +12,11 @@
 	var/gameover
 	var/information
 
-/datum/ui_module/arcade_classic/New()
+/datum/ui_module/program/arcade_classic/New()
 	..()
 	new_game()
 
-/datum/ui_module/arcade_classic/ui_data(mob/user)
+/datum/ui_module/program/arcade_classic/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 	data["player_health"] = player_health
@@ -30,7 +30,7 @@
 	return data
 
 // Three helper procs i've created. These are unique to this particular nano module. If you are creating your own nano module, you'll most likely create similar procs too.
-/datum/ui_module/arcade_classic/proc/enemy_play()
+/datum/ui_module/program/arcade_classic/proc/enemy_play()
 	if((enemy_mana < 5) && prob(60))
 		var/steal = rand(2, 3)
 		player_mana -= steal
@@ -46,7 +46,7 @@
 		player_health -= dam
 		information += "[enemy_name] attacks for [dam] damage!"
 
-/datum/ui_module/arcade_classic/proc/check_gameover()
+/datum/ui_module/program/arcade_classic/proc/check_gameover()
 	if((player_health <= 0) || player_mana <= 0)
 		if(enemy_health <= 0)
 			information += "You have defeated [enemy_name], but you have died in the fight!"
@@ -60,7 +60,7 @@
 		return TRUE
 	return FALSE
 
-/datum/ui_module/arcade_classic/proc/new_game()
+/datum/ui_module/program/arcade_classic/proc/new_game()
 	player_mana = 10
 	player_health = 30
 	enemy_mana = 20
@@ -70,7 +70,7 @@
 
 
 
-/datum/ui_module/arcade_classic/Topic(href, href_list)
+/datum/ui_module/program/arcade_classic/Topic(href, href_list)
 	if(..())		// Always begin your Topic() calls with a parent call!
 		return 1
 	if(href_list["new_game"])

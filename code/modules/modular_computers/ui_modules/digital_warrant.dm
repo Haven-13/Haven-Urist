@@ -1,9 +1,9 @@
-/datum/ui_module/digitalwarrant/
+/datum/ui_module/program/digitalwarrant
 	name = "Warrant Assistant"
 	ui_interface_name = "programs/DigitalWarrantProgram"
 	var/datum/computer_file/data/warrant/activewarrant
 
-/datum/ui_module/digitalwarrant/ui_data(mob/user)
+/datum/ui_module/program/digitalwarrant/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 	if(activewarrant)
@@ -38,7 +38,7 @@
 
 	return data
 
-/datum/ui_module/digitalwarrant/Topic(href, href_list)
+/datum/ui_module/program/digitalwarrant/Topic(href, href_list)
 	if(..())
 		return 1
 

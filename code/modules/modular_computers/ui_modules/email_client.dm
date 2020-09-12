@@ -1,5 +1,5 @@
 
-/datum/ui_module/email_client/
+/datum/ui_module/program/email_client/
 	name = "Email Client"
 	ui_interface_name = "programs/EmailClientProgram"
 
@@ -25,7 +25,7 @@
 	var/datum/computer_file/data/email_account/current_account = null
 	var/datum/computer_file/data/email_message/current_message = null
 
-/datum/ui_module/email_client/proc/mail_received(var/datum/computer_file/data/email_message/received_message)
+/datum/ui_module/program/email_client/proc/mail_received(var/datum/computer_file/data/email_message/received_message)
 	var/mob/living/L = get_holder_of_type(host, /mob/living)
 	if(L)
 		var/list/msg = list()
@@ -38,11 +38,11 @@
 		msg += "*--*"
 		to_chat(L, jointext(msg, null))
 
-/datum/ui_module/email_client/Destroy()
+/datum/ui_module/program/email_client/Destroy()
 	log_out()
 	. = ..()
 
-/datum/ui_module/email_client/proc/log_in()
+/datum/ui_module/program/email_client/proc/log_in()
 	var/list/id_login
 
 	if(istype(host, /obj/item/modular_computer))
@@ -89,7 +89,7 @@
 
 // Returns 0 if no new messages were received, 1 if there is an unread message but notification has already been sent.
 // and 2 if there is a new message that appeared in this tick (and therefore notification should be sent by the program).
-/datum/ui_module/email_client/proc/check_for_new_messages(var/messages_read = FALSE)
+/datum/ui_module/program/email_client/proc/check_for_new_messages(var/messages_read = FALSE)
 	if(!current_account)
 		return 0
 
@@ -107,7 +107,7 @@
 		read_message_count = allmails.len
 
 
-/datum/ui_module/email_client/proc/log_out()
+/datum/ui_module/program/email_client/proc/log_out()
 	if(current_account)
 		current_account.connected_clients -= src
 	current_account = null
@@ -116,7 +116,7 @@
 	last_message_count = 0
 	read_message_count = 0
 
-/datum/ui_module/email_client/ui_data(mob/user)
+/datum/ui_module/program/email_client/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 	// Password has been changed by other client connected to this email account
@@ -206,7 +206,7 @@
 
 	return data
 
-/datum/ui_module/email_client/proc/find_message_by_fuid(var/fuid)
+/datum/ui_module/program/email_client/proc/find_message_by_fuid(var/fuid)
 	if(!istype(current_account))
 		return
 
@@ -218,7 +218,7 @@
 		if(message.uid == fuid)
 			return message
 
-/datum/ui_module/email_client/proc/clear_message()
+/datum/ui_module/program/email_client/proc/clear_message()
 	new_message = FALSE
 	msg_title = ""
 	msg_body = ""
@@ -226,7 +226,7 @@
 	msg_attachment = null
 	current_message = null
 
-/datum/ui_module/email_client/proc/relayed_process(var/netspeed)
+/datum/ui_module/program/email_client/proc/relayed_process(var/netspeed)
 	download_speed = netspeed
 	if(!downloading)
 		return
@@ -248,7 +248,7 @@
 	return 1
 
 
-/datum/ui_module/email_client/Topic(href, href_list)
+/datum/ui_module/program/email_client/Topic(href, href_list)
 	if(..())
 		return 1
 	var/mob/living/user = usr
