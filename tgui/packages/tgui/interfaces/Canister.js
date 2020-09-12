@@ -9,7 +9,7 @@ export const Canister = (props, context) => {
   const { act, data } = useBackend(context);
   const {
     portConnected,
-    tankPressure,
+    pressure,
     releasePressure,
     defaultReleasePressure,
     minReleasePressure,
@@ -50,7 +50,7 @@ export const Canister = (props, context) => {
               minWidth="66px"
               label="Pressure">
               <AnimatedNumber
-                value={tankPressure}
+                value={pressure}
                 format={value => {
                   if (value < 10000) {
                     return toFixed(value) + ' kPa';

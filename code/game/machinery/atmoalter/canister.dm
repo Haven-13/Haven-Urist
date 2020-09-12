@@ -11,6 +11,9 @@
 	var/release_pressure = ONE_ATMOSPHERE
 	var/release_flow_rate = ATMOS_DEFAULT_VOLUME_PUMP //in L/s
 
+	var/min_release_pressure = ONE_ATMOSPHERE/10
+	var/max_release_pressure = 10 * ONE_ATMOSPHERE
+
 	var/canister_color = "yellow"
 	var/can_label = 1
 	start_pressure = 45 * ONE_ATMOSPHERE
@@ -304,8 +307,9 @@ update_flag
 	data["portConnected"] = connected_port ? 1 : 0
 	data["pressure"] = round(air_contents.return_pressure() ? air_contents.return_pressure() : 0)
 	data["releasePressure"] = round(release_pressure ? release_pressure : 0)
-	data["minReleasePressure"] = round(ONE_ATMOSPHERE/10)
-	data["maxReleasePressure"] = round(10*ONE_ATMOSPHERE)
+	data["defaultReleasePressure"] = initial(release_pressure)
+	data["minReleasePressure"] = min_release_pressure
+	data["maxReleasePressure"] = max_release_pressure
 	data["valveOpen"] = valve_open ? 1 : 0
 
 	if (holding)
@@ -344,12 +348,27 @@ update_flag
 			return TRUE
 
 		if ("pressure")
-			var/diff = text2num(params["pressure"])
-			if(diff > 0)
-				release_pressure = min(10*ONE_ATMOSPHERE, release_pressure+diff)
-			else
-				release_pressure = max(ONE_ATMOSPHERE/10, release_pressure+diff)
-			return TRUE
+			var/pressure = params["pressure"]
+			if(pressure == "reset")
+				pressure = initial(release_pressure)
+				. = TRUE
+			else if(pressure == "min")
+				pressure = min_release_pressure
+				. = TRUE
+			else if(pressure == "max")
+				pressure = max_release_pressure
+				. = TRUE
+			else if(pressure == "input")
+				pressure = input("New release pressure ([min_release_pressure]-[max_release_pressure] kPa):", name, release_pressure) as num|null
+				if(!isnull(pressure) && !..())
+					. = TRUE
+			else if(text2num(pressure) != null)
+				pressure = text2num(pressure)
+				. = TRUE
+			if(.)
+				release_pressure = clamp(round(pressure), min_release_pressure, max_release_pressure)
+				//investigate_log("was set to [release_pressure] kPa by [key_name(usr)].", INVESTIGATE_ATMOS)
+			return
 
 		if ("relabel")
 			if (!can_label)
