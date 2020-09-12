@@ -1,13 +1,13 @@
-import { useBackend } from '../../backend';
+import { useBackend } from "tgui/backend";
 import { Fragment } from 'inferno';
-import { Box, Section, LabeledList, Button, AnimatedNumber } from '../../components';
+import { Box, Section, LabeledList, Button, AnimatedNumber } from "tgui/components";
 
 export const PortableBasicInfo = (props, context) => {
   const { act, data } = useBackend(context);
 
   const {
-    connected,
-    holding,
+    port_connected,
+    holding_tank,
     on,
     pressure,
   } = data;
@@ -30,8 +30,8 @@ export const PortableBasicInfo = (props, context) => {
           </LabeledList.Item>
           <LabeledList.Item
             label="Port"
-            color={connected ? 'good' : 'average'}>
-            {connected ? 'Connected' : 'Not Connected'}
+            color={port_connected ? 'good' : 'average'}>
+            {port_connected ? 'Connected' : 'Not Connected'}
           </LabeledList.Item>
         </LabeledList>
       </Section>
@@ -42,17 +42,17 @@ export const PortableBasicInfo = (props, context) => {
           <Button
             icon="eject"
             content="Eject"
-            disabled={!holding}
+            disabled={!holding_tank}
             onClick={() => act('eject')} />
         )}>
-        {holding ? (
+        {holding_tank ? (
           <LabeledList>
             <LabeledList.Item label="Label">
-              {holding.name}
+              {holding_tank.name}
             </LabeledList.Item>
             <LabeledList.Item label="Pressure">
               <AnimatedNumber
-                value={holding.pressure} />
+                value={holding_tank.pressure} />
               {' kPa'}
             </LabeledList.Item>
           </LabeledList>

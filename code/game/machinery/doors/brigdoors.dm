@@ -62,7 +62,7 @@
 
 		// poorly done midnight rollover
 		// (no seriously there's gotta be a better way to do this)
-		var/timeleft = timeleft()
+		var/timeleft = time_left(TRUE)
 		if(timeleft > 1e5)
 			src.releasetime = 0
 
@@ -134,10 +134,10 @@
 
 
 // Check for releasetime timeleft
-/obj/machinery/door_timer/proc/timeleft()
-	. = (releasetime - world.timeofday)/10
-	if(. < 0)
-		. = 0
+/obj/machinery/door_timer/proc/time_left(seconds = FALSE)
+	. = max(0,(releasetime - world.timeofday))
+	if(seconds)
+		. /= 10
 
 // Set timetoset
 /obj/machinery/door_timer/proc/timeset(var/seconds)
@@ -158,10 +158,14 @@
 /obj/machinery/door_timer/ui_data(mob/user)
 	var/list/data = list()
 
+	var/time_left = time_left(TRUE)
+
 	data["timing"] = timing
 	data["releasetime"] = releasetime
 	data["timetoset"] = timetoset
-	data["timeleft"] = timeleft()
+	data["timeleft"] = time_left
+	data["seconds"] = round(time_left % 60)
+	data["minutes"] = round((time_left - data["seconds"]) / 60)
 
 	var/list/flashes = list()
 
@@ -220,7 +224,7 @@
 		return
 	if(src.timing)
 		var/disp1 = id
-		var/timeleft = timeleft()
+		var/timeleft = time_left(TRUE)
 		var/disp2 = "[add_zero(num2text((timeleft / 60) % 60),2)]~[add_zero(num2text(timeleft % 60), 2)]"
 		if(length(disp2) > CHARS_PER_LINE)
 			disp2 = "Error"

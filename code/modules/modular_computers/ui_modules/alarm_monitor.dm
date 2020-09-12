@@ -74,7 +74,7 @@
 /datum/ui_module/alarm_monitor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "AlarmMonitorProgram")
+		ui = new(user, src, "programs/AlarmMonitorProgram")
 		ui.open()
 
 /datum/ui_module/alarm_monitor/ui_data(mob/user)

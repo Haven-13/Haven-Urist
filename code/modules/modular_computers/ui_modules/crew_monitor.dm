@@ -21,15 +21,15 @@
 /datum/ui_module/crew_monitor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "CrewMonitorProgram")
+		ui = new(user, src, "programs/CrewMonitorProgram")
 		ui.open()
 
 /datum/ui_module/crew_monitor/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 	data["isAI"] = isAI(user)
-	data["crewmembers"] = list()
+	data["sensors"] = list()
 	for(var/z_level in GLOB.using_map.map_levels)
-		data["crewmembers"] += crew_repository.health_data(z_level)
+		data["sensors"] += crew_repository.health_data(z_level)
 
 	return data

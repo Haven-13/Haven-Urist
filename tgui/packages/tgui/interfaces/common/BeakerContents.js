@@ -1,4 +1,4 @@
-import { Box } from '../../components';
+import { Box } from "tgui/components";
 
 export const BeakerContents = props => {
   const { beakerLoaded, beakerContents } = props;

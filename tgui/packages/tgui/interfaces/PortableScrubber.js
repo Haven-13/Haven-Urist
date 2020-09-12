@@ -6,7 +6,7 @@ import { PortableBasicInfo } from './common/PortableAtmos';
 
 export const PortableScrubber = (props, context) => {
   const { act, data } = useBackend(context);
-  const filter_types = data.filter_types || [];
+  const filter_types = data.filters || [];
   return (
     <Window
       width={320}
@@ -18,8 +18,8 @@ export const PortableScrubber = (props, context) => {
             <Button
               key={filter.id}
               icon={filter.enabled ? 'check-square-o' : 'square-o'}
-              content={getGasLabel(filter.gas_id, filter.gas_name)}
-              selected={filter.enabled}
+              content={getGasLabel(filter.name, filter.name)}
+              selected={filter.val}
               onClick={() => act('toggle_filter', {
                 val: filter.gas_id,
               })} />

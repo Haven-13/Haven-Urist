@@ -4,6 +4,13 @@
  * @license MIT
  */
 
+/**
+ * Haven Changelog
+ *   DD/MM/YYYY
+ *
+ * - 12/09/2020: Gave the module an export id - martinlyra
+ */
+
 // Themes
 import './styles/main.scss';
 import './styles/themes/abductor.scss';
@@ -26,6 +33,8 @@ import { setupGlobalEvents } from './events';
 
 perf.mark('inception', window.performance?.timing?.navigationStart);
 perf.mark('init');
+
+exports.id = "tgui";
 
 const store = configureStore();
 

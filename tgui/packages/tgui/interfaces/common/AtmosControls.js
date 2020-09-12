@@ -1,7 +1,7 @@
 import { decodeHtmlEntities } from 'common/string';
-import { useBackend, useLocalState } from '../../backend';
-import { Box, Button, LabeledList, NumberInput, Section } from '../../components';
-import { getGasLabel } from '../../constants';
+import { useBackend, useLocalState } from "tgui/backend";
+import { Box, Button, LabeledList, NumberInput, Section } from "tgui/components";
+import { getGasLabel } from "tgui/constants";
 
 
 export const Vent = (props, context) => {
@@ -49,7 +49,7 @@ export const Vent = (props, context) => {
           <Button
             icon="sign-in-alt"
             content="Internal"
-            selected={incheck}
+            selected={!external}
             onClick={() => act('incheck', {
               id_tag,
               val: checks,
@@ -57,7 +57,7 @@ export const Vent = (props, context) => {
           <Button
             icon="sign-out-alt"
             content="External"
-            selected={excheck}
+            selected={external}
             onClick={() => act('excheck', {
               id_tag,
               val: checks,
@@ -122,7 +122,7 @@ export const Scrubber = (props, context) => {
     scrubbing,
     id_tag,
     widenet,
-    filter_types,
+    filters,
   } = scrubber;
   return (
     <Section
@@ -159,15 +159,15 @@ export const Scrubber = (props, context) => {
         </LabeledList.Item>
         <LabeledList.Item label="Filters">
           {scrubbing
-            && filter_types.map(filter => (
-              <Button key={filter.gas_id}
-                icon={filter.enabled ? 'check-square-o' : 'square-o'}
-                content={getGasLabel(filter.gas_id, filter.gas_name)}
-                title={filter.gas_name}
-                selected={filter.enabled}
+            && filters.map(filter => (
+              <Button key={filter.name}
+                icon={filter.val ? 'check-square-o' : 'square-o'}
+                content={getGasLabel(filter.name, filter.name)}
+                title={filter.name}
+                selected={filter.val}
                 onClick={() => act('toggle_filter', {
                   id_tag,
-                  val: filter.gas_id,
+                  val: filter.name,
                 })} />
             ))
             || 'N/A'}

@@ -2,7 +2,7 @@ import { Fragment } from 'inferno';
 import { useBackend } from '../backend';
 import { AnimatedNumber, Box, Button, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
-import { CargoCatalog } from './Cargo';
+import { CargoCatalog } from './SupplyProgram';
 import { InterfaceLockNoticeBox } from './common/InterfaceLockNoticeBox';
 
 export const CargoExpress = (props, context) => {

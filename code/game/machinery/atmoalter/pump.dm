@@ -129,20 +129,19 @@
 
 /obj/machinery/portable_atmospherics/powered/pump/ui_data(mob/user)
 	var/list/data[0]
-	data["portConnected"] = connected_port ? 1 : 0
-	data["tankPressure"] = round(air_contents.return_pressure() > 0 ? air_contents.return_pressure() : 0)
-	data["targetpressure"] = round(target_pressure)
+	data["port_connected"] = connected_port ? 1 : 0
+	data["pressure"] = round(air_contents.return_pressure() > 0 ? air_contents.return_pressure() : 0)
+	data["target_pressure"] = round(target_pressure)
 	data["pump_dir"] = direction_out
-	data["minpressure"] = round(pressuremin)
-	data["maxpressure"] = round(pressuremax)
-	data["powerDraw"] = round(last_power_draw)
-	data["cellCharge"] = cell ? cell.charge : 0
-	data["cellMaxCharge"] = cell ? cell.maxcharge : 1
+	data["min_pressure"] = round(pressuremin)
+	data["max_pressure"] = round(pressuremax)
+	data["power_draw"] = round(last_power_draw)
+	data["cell_charge"] = cell ? cell.charge : 0
+	data["cell_max_charge"] = cell ? cell.maxcharge : 1
 	data["on"] = on ? 1 : 0
 
-	data["hasHoldingTank"] = holding ? 1 : 0
 	if (holding)
-		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure() > 0 ? holding.air_contents.return_pressure() : 0))
+		data["holding_tank"] = list("name" = holding.name, "pressure" = round(holding.air_contents.return_pressure() > 0 ? holding.air_contents.return_pressure() : 0))
 
 	return data
 

@@ -4,11 +4,18 @@
  * @license MIT
  */
 
+/**
+ * Haven Changelog
+ *   DD/MM/YYYY
+ *
+ * - 12/09/2020: Support interfaces in subdirs - martinlyra
+ */
+
 import { selectBackend } from './backend';
 import { selectDebug } from './debug/selectors';
 import { Window } from './layouts';
 
-const requireInterface = require.context('./interfaces', false, /\.js$/);
+const requireInterface = require.context('./interfaces', true, /\.js$/);
 
 const routingError = (type, name) => () => {
   return (
@@ -57,7 +64,8 @@ export const getRoutedComponent = store => {
     }
     throw err;
   }
-  const Component = esModule[name];
+  // Haven modification to support interface .js in subdirs
+  const Component = esModule[name.split('/').slice(-1)[0]];
   if (!Component) {
     return routingError('missingExport', name);
   }

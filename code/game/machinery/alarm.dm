@@ -137,6 +137,7 @@
 	// breathable air according to human/Life()
 	TLV["oxygen"] =			list(16, 19, 135, 140) // Partial pressure, kpa
 	TLV["carbon dioxide"] = list(-1.0, -1.0, 5, 10) // Partial pressure, kpa
+	TLV["phoron"] =         list(-1.0, -1.0, 0.1, 0.2) // Partial pressure, kpa
 	TLV["other"] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*0.90,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(T0C-26, T0C, T0C+40, T0C+66) // K
@@ -498,8 +499,22 @@
 /obj/machinery/alarm/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "AirAlarm", name)
+		ui = new(user, src, "terminals/AirAlarm", name)
 		ui.open()
+
+/obj/machinery/alarm/ui_static_data(mob/user)
+	var/data = list()
+
+	var/modes[0]
+	modes[++modes.len] = list("name" = "Filtering - Scrubs out contaminants", 			"mode" = AALARM_MODE_SCRUBBING,		"selected" = mode == AALARM_MODE_SCRUBBING, 	"danger" = 0)
+	modes[++modes.len] = list("name" = "Replace Air - Siphons out air while replacing", "mode" = AALARM_MODE_REPLACEMENT,	"selected" = mode == AALARM_MODE_REPLACEMENT,	"danger" = 0)
+	modes[++modes.len] = list("name" = "Panic - Siphons air out of the room", 			"mode" = AALARM_MODE_PANIC,			"selected" = mode == AALARM_MODE_PANIC, 		"danger" = 1)
+	modes[++modes.len] = list("name" = "Cycle - Siphons air before replacing", 			"mode" = AALARM_MODE_CYCLE,			"selected" = mode == AALARM_MODE_CYCLE, 		"danger" = 1)
+	modes[++modes.len] = list("name" = "Fill - Shuts off scrubbers and opens vents", 	"mode" = AALARM_MODE_FILL,			"selected" = mode == AALARM_MODE_FILL, 			"danger" = 0)
+	modes[++modes.len] = list("name" = "Off - Shuts off vents and scrubbers", 			"mode" = AALARM_MODE_OFF,			"selected" = mode == AALARM_MODE_OFF, 			"danger" = 0)
+	data["modes"] = modes
+
+	return data
 
 /obj/machinery/alarm/ui_data(mob/user)
 	var/data[0]
@@ -546,83 +561,74 @@
 	data["target_temperature"] = "[target_temperature - T0C]C"
 
 /obj/machinery/alarm/proc/populate_controls(var/list/data)
-	switch(screen)
-		if(AALARM_SCREEN_MAIN)
-			data["mode"] = mode
-		if(AALARM_SCREEN_VENT)
-			var/vents[0]
-			for(var/id_tag in alarm_area.air_vent_names)
-				var/long_name = alarm_area.air_vent_names[id_tag]
-				var/list/info = alarm_area.air_vent_info[id_tag]
-				if(!info)
-					continue
-				vents[++vents.len] = list(
-						"id_tag"	= id_tag,
-						"long_name" = sanitize(long_name),
-						"power"		= info["power"],
-						"checks"	= info["checks"],
-						"direction"	= info["direction"],
-						"external"	= info["external"]
-					)
-			data["vents"] = vents
-		if(AALARM_SCREEN_SCRUB)
-			var/scrubbers[0]
-			for(var/id_tag in alarm_area.air_scrub_names)
-				var/long_name = alarm_area.air_scrub_names[id_tag]
-				var/list/info = alarm_area.air_scrub_info[id_tag]
-				if(!info)
-					continue
-				scrubbers[++scrubbers.len] = list(
-						"id_tag"	= id_tag,
-						"long_name" = sanitize(long_name),
-						"power"		= info["power"],
-						"scrubbing"	= info["scrubbing"],
-						"panic"		= info["panic"],
-						"filters"	= list()
-					)
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Oxygen",			"command" = "o2_scrub",	"val" = info["filter_o2"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrogen",		"command" = "n2_scrub",	"val" = info["filter_n2"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Carbon Dioxide", "command" = "co2_scrub","val" = info["filter_co2"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Toxin"	, 		"command" = "tox_scrub","val" = info["filter_phoron"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrous Oxide",	"command" = "n2o_scrub","val" = info["filter_n2o"]))
-			data["scrubbers"] = scrubbers
-		if(AALARM_SCREEN_MODE)
-			var/modes[0]
-			modes[++modes.len] = list("name" = "Filtering - Scrubs out contaminants", 			"mode" = AALARM_MODE_SCRUBBING,		"selected" = mode == AALARM_MODE_SCRUBBING, 	"danger" = 0)
-			modes[++modes.len] = list("name" = "Replace Air - Siphons out air while replacing", "mode" = AALARM_MODE_REPLACEMENT,	"selected" = mode == AALARM_MODE_REPLACEMENT,	"danger" = 0)
-			modes[++modes.len] = list("name" = "Panic - Siphons air out of the room", 			"mode" = AALARM_MODE_PANIC,			"selected" = mode == AALARM_MODE_PANIC, 		"danger" = 1)
-			modes[++modes.len] = list("name" = "Cycle - Siphons air before replacing", 			"mode" = AALARM_MODE_CYCLE,			"selected" = mode == AALARM_MODE_CYCLE, 		"danger" = 1)
-			modes[++modes.len] = list("name" = "Fill - Shuts off scrubbers and opens vents", 	"mode" = AALARM_MODE_FILL,			"selected" = mode == AALARM_MODE_FILL, 			"danger" = 0)
-			modes[++modes.len] = list("name" = "Off - Shuts off vents and scrubbers", 			"mode" = AALARM_MODE_OFF,			"selected" = mode == AALARM_MODE_OFF, 			"danger" = 0)
-			data["modes"] = modes
-			data["mode"] = mode
-		if(AALARM_SCREEN_SENSORS)
-			var/list/selected
-			var/thresholds[0]
+	data["mode"] = mode
 
-			var/list/gas_names = list(
-				"oxygen"         = "O<sub>2</sub>",
-				"carbon dioxide" = "CO<sub>2</sub>",
-				"phoron"         = "Toxin",
-				"other"          = "Other")
-			for (var/g in gas_names)
-				thresholds[++thresholds.len] = list("name" = gas_names[g], "settings" = list())
-				selected = TLV[g]
-				for(var/i = 1, i <= 4, i++)
-					thresholds[thresholds.len]["settings"] += list(list("env" = g, "val" = i, "selected" = selected[i]))
+	// Vents
+	var/vents[0]
+	for(var/id_tag in alarm_area.air_vent_names)
+		var/long_name = alarm_area.air_vent_names[id_tag]
+		var/list/info = alarm_area.air_vent_info[id_tag]
+		if(!info)
+			continue
+		vents[++vents.len] = list(
+				"id_tag"	= id_tag,
+				"long_name" = sanitize(long_name),
+				"power"		= info["power"],
+				"checks"	= info["checks"],
+				"direction"	= info["direction"],
+				"external"	= info["external"]
+			)
+	data["vents"] = vents
 
-			selected = TLV["pressure"]
-			thresholds[++thresholds.len] = list("name" = "Pressure", "settings" = list())
-			for(var/i = 1, i <= 4, i++)
-				thresholds[thresholds.len]["settings"] += list(list("env" = "pressure", "val" = i, "selected" = selected[i]))
+	// Scrubbers
+	var/scrubbers[0]
+	for(var/id_tag in alarm_area.air_scrub_names)
+		var/long_name = alarm_area.air_scrub_names[id_tag]
+		var/list/info = alarm_area.air_scrub_info[id_tag]
+		if(!info)
+			continue
+		scrubbers[++scrubbers.len] = list(
+				"id_tag"	= id_tag,
+				"long_name" = sanitize(long_name),
+				"power"		= info["power"],
+				"scrubbing"	= info["scrubbing"],
+				"panic"		= info["panic"],
+				"filters"	= list()
+			)
+		scrubbers[scrubbers.len]["filters"] += list(list("name" = "Oxygen",			"command" = "o2_scrub",	"val" = info["filter_o2"]))
+		scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrogen",		"command" = "n2_scrub",	"val" = info["filter_n2"]))
+		scrubbers[scrubbers.len]["filters"] += list(list("name" = "Carbon Dioxide", "command" = "co2_scrub","val" = info["filter_co2"]))
+		scrubbers[scrubbers.len]["filters"] += list(list("name" = "Toxin"	, 		"command" = "tox_scrub","val" = info["filter_phoron"]))
+		scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrous Oxide",	"command" = "n2o_scrub","val" = info["filter_n2o"]))
+	data["scrubbers"] = scrubbers
 
-			selected = TLV["temperature"]
-			thresholds[++thresholds.len] = list("name" = "Temperature", "settings" = list())
-			for(var/i = 1, i <= 4, i++)
-				thresholds[thresholds.len]["settings"] += list(list("env" = "temperature", "val" = i, "selected" = selected[i]))
+	// Sensor settings
+	var/list/selected
+	var/thresholds[0]
+
+	var/list/gas_names = list(
+		"oxygen"         = "O<sub>2</sub>",
+		"carbon dioxide" = "CO<sub>2</sub>",
+		"phoron"         = "Toxin",
+		"other"          = "Other")
+	for (var/g in gas_names)
+		thresholds[++thresholds.len] = list("name" = gas_names[g], "settings" = list())
+		selected = TLV[g]
+		for(var/i = 1, i <= 4, i++)
+			thresholds[thresholds.len]["settings"] += list(list("env" = g, "val" = i, "selected" = selected[i]))
+
+	selected = TLV["pressure"]
+	thresholds[++thresholds.len] = list("name" = "Pressure", "settings" = list())
+	for(var/i = 1, i <= 4, i++)
+		thresholds[thresholds.len]["settings"] += list(list("env" = "pressure", "val" = i, "selected" = selected[i]))
+
+	selected = TLV["temperature"]
+	thresholds[++thresholds.len] = list("name" = "Temperature", "settings" = list())
+	for(var/i = 1, i <= 4, i++)
+		thresholds[thresholds.len]["settings"] += list(list("env" = "temperature", "val" = i, "selected" = selected[i]))
 
 
-			data["thresholds"] = thresholds
+	data["thresholds"] = thresholds
 
 /obj/machinery/alarm/CanUseTopic(var/mob/user, var/datum/ui_state/state, var/href_list = list())
 	if(buildstage != 2)
