@@ -1,3 +1,13 @@
+#define COLOUR_NORMAL_TEXT "#202020"
+
+#define COLOUR_DARK_BG "#202020"
+#define COLOUR_DARK_BG_DARKER "#171717"
+#define COLOUR_DARK_TEXT "#a4bad6"
+
+#define COLOUR_DARK_BUTTON_BG "#494949"
+#define COLOUR_DARK_GITHUB_BUTTON_BG "#a3a3a3"
+#define COLOUR_DARK_ISSUE_BUTTON_BG "#492020"
+
 client/script = {"<style>
 body					{font-family: Verdana, sans-serif;}
 
@@ -111,3 +121,54 @@ h1.alert, h2.alert		{color: #000000;}
 BIG IMG.icon 			{width: 32px; height: 32px;}
 
 </style>"}
+
+/proc/apply_skin_theme(client/user, list/theme)
+	for (var/line in theme)
+		winset(user, null, line)
+
+/proc/apply_dark_theme(client/user)
+	apply_skin_theme(user, list(
+		"infowindow.background-color=[COLOUR_DARK_BG]",
+		"infowindow.text-color=[COLOUR_DARK_TEXT]",
+		"browseroutput.background-color=[COLOUR_DARK_BG]",
+		"browseroutput.text-color=[COLOUR_DARK_TEXT]",
+		"outputwindow.background-color=[COLOUR_DARK_BG]",
+		"outputwindow.text-color=[COLOUR_DARK_TEXT]",
+		"mainwindow.background-color=[COLOUR_DARK_BG]",
+		"rpanewindow.background-color=[COLOUR_DARK_BG]",
+		"mainvsplit.background-color=[COLOUR_DARK_BG]",
+
+		"text-button.background-color=[COLOUR_DARK_BUTTON_BG]",
+		"text-button.text-color=[COLOUR_DARK_TEXT]",
+		"info-button.background-color=[COLOUR_DARK_BUTTON_BG]",
+		"info-button.text-color=[COLOUR_DARK_TEXT]",
+		"changelog.background-color=[COLOUR_DARK_BUTTON_BG]",
+		"changelog.text-color=[COLOUR_NORMAL_TEXT]",
+		"rules.background-color=[COLOUR_DARK_BUTTON_BG]",
+		"rules.text-color=[COLOUR_DARK_TEXT]",
+		"wiki.background-color=[COLOUR_DARK_BUTTON_BG]",
+		"wiki.text-color=[COLOUR_DARK_TEXT]",
+		"forum.background-color=[COLOUR_DARK_BUTTON_BG]",
+		"forum.text-color=[COLOUR_DARK_TEXT]",
+		"github.background-color=[COLOUR_DARK_GITHUB_BUTTON_BG]",
+		"github.text-color=[COLOUR_NORMAL_TEXT]",
+		"report-issue.background-color=[COLOUR_DARK_ISSUE_BUTTON_BG]",
+		"report-issue.text-color=[COLOUR_DARK_TEXT]",
+
+		"output.background-color=[COLOUR_DARK_BG_DARKER]",
+		"output.text-color=[COLOUR_DARK_TEXT]",
+		"rpane.background-color=[COLOUR_DARK_BG]",
+		"rpane.text-color=[COLOUR_DARK_TEXT]",
+		"info.background-color=[COLOUR_DARK_BG_DARKER]",
+		"info.tab-background-color=[COLOUR_DARK_BG]",
+		"info.tab-text-color=[COLOUR_DARK_TEXT]",
+		"info.text-color=[COLOUR_DARK_TEXT]",
+		"info.prefix-color=[COLOUR_DARK_TEXT]",
+		"info.suffix-color=[COLOUR_DARK_TEXT]",
+
+		"saybutton.background-color=[COLOUR_DARK_BG]",
+		"saybutton.text-color=[COLOUR_DARK_TEXT]",
+		"hotkey_toggle.background-color=[COLOUR_DARK_BG]",
+		"hotkey_toggle.text-color=[COLOUR_DARK_TEXT]"
+	))
+
