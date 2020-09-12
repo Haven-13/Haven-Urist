@@ -665,24 +665,24 @@
 			var/list/selected = TLV["temperature"]
 			var/max_temperature = min(selected[3] - T0C, MAX_TEMPERATURE)
 			var/min_temperature = max(selected[2] - T0C, MIN_TEMPERATURE)
-			var/input_temperature = input(user, "What temperature would you like the system to mantain? (Capped between [min_temperature] and [max_temperature]C)", "Thermostat Controls", target_temperature - T0C) as num|null
-			if(isnum(input_temperature) && CanUseTopic(user, state))
+			var/input_temperature = input(usr, "What temperature would you like the system to mantain? (Capped between [min_temperature] and [max_temperature]C)", "Thermostat Controls", target_temperature - T0C) as num|null
+			if(isnum(input_temperature))
 				if(input_temperature > max_temperature || input_temperature < min_temperature)
-					to_chat(user, "Temperature must be between [min_temperature]C and [max_temperature]C")
+					to_chat(usr, "Temperature must be between [min_temperature]C and [max_temperature]C")
 				else
 					target_temperature = input_temperature + T0C
 			return TRUE
 
 	// hrefs that need the AA unlocked -walter0o
 	var/extra_href = list()
-	if(!(locked && !extra_href["remote_connection"]) || extra_href["remote_access"] || issilicon(user))
+	if(!(locked && !extra_href["remote_connection"]) || extra_href["remote_access"] || issilicon(usr))
 		switch(action)
 			if("command")
 				var/device_id = params["id_tag"]
 				switch(params["command"])
 					if("set_external_pressure")
-						var/input_pressure = input(user, "What pressure you like the system to mantain?", "Pressure Controls") as num|null
-						if(isnum(input_pressure) && CanUseTopic(user, state))
+						var/input_pressure = input(usr, "What pressure you like the system to mantain?", "Pressure Controls") as num|null
+						if(isnum(input_pressure))
 							send_signal(device_id, list(params["command"] = input_pressure))
 						return TRUE
 
@@ -713,8 +713,8 @@
 						var/threshold = text2num(params["var"])
 						var/list/selected = TLV[env]
 						var/list/thresholds = list("lower bound", "low warning", "high warning", "upper bound")
-						var/newval = input(user, "Enter [thresholds[threshold]] for [env]", "Alarm triggers", selected[threshold]) as null|num
-						if (isnull(newval) || !CanUseTopic(user, state))
+						var/newval = input(usr, "Enter [thresholds[threshold]] for [env]", "Alarm triggers", selected[threshold]) as null|num
+						if (isnull(newval))
 							return FALSE
 						if (newval<0)
 							selected[threshold] = -1.0

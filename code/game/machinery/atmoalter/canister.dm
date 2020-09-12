@@ -318,14 +318,14 @@ update_flag
 		if("valve")
 			if (valve_open)
 				if (holding)
-					release_log += "Valve was <b>closed</b> by [user] ([user.ckey]), stopping the transfer into the [holding]<br>"
+					release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the [holding]<br>"
 				else
-					release_log += "Valve was <b>closed</b> by [user] ([user.ckey]), stopping the transfer into the <font color='red'><b>air</b></font><br>"
+					release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the <font color='red'><b>air</b></font><br>"
 			else
 				if (holding)
-					release_log += "Valve was <b>opened</b> by [user] ([user.ckey]), starting the transfer into the [holding]<br>"
+					release_log += "Valve was <b>opened</b> by [usr] ([usr.ckey]), starting the transfer into the [holding]<br>"
 				else
-					release_log += "Valve was <b>opened</b> by [user] ([user.ckey]), starting the transfer into the <font color='red'><b>air</b></font><br>"
+					release_log += "Valve was <b>opened</b> by [usr] ([usr.ckey]), starting the transfer into the <font color='red'><b>air</b></font><br>"
 					log_open()
 			valve_open = !valve_open
 			return TRUE
@@ -335,9 +335,9 @@ update_flag
 				return FALSE
 			if (valve_open)
 				valve_open = 0
-				release_log += "Valve was <b>closed</b> by [user] ([user.ckey]), stopping the transfer into the [holding]<br>"
+				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the [holding]<br>"
 			if(istype(holding, /obj/item/weapon/tank))
-				holding.manipulated_by = user.real_name
+				holding.manipulated_by = usr.real_name
 			holding.dropInto(loc)
 			holding = null
 			update_icon()
@@ -364,8 +364,8 @@ update_flag
 				"\[Air\]" = "grey", \
 				"\[CAUTION\]" = "yellow", \
 			)
-			var/label = input(user, "Choose canister label", "Gas canister") as null|anything in colors
-			if (label && CanUseTopic(user, state))
+			var/label = input(usr, "Choose canister label", "Gas canister") as null|anything in colors
+			if (label)
 				canister_color = colors[label]
 				icon_state = colors[label]
 				SetName("\improper Canister: [label]")
