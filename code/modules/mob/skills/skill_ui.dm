@@ -21,7 +21,8 @@
 
 /datum/ui_module/skill_ui/ui_status(mob/user, datum/ui_state/state)
 	if(!skillset)
-		return
+		return UI_CLOSE
+	return ..()
 
 /datum/ui_module/skill_ui/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

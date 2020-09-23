@@ -178,7 +178,8 @@
 
 /obj/machinery/atmospherics/binary/passive_gate/ui_status(mob/user, datum/ui_state/state)
 	if(stat & (BROKEN|NOPOWER))
-		return
+		return UI_CLOSE
+	return ..()
 
 /obj/machinery/atmospherics/binary/passive_gate/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

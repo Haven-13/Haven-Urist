@@ -2,10 +2,6 @@
 	name = "NTNet Relay Chat Client"
 	ui_interface_name = "programs/NtChatClientProgram"
 
-/datum/ui_module/program/computer_chatclient/ui_status(mob/user, datum/ui_state/state)
-	if(!ntnet_global || !ntnet_global.chat_channels)
-		return
-
 /datum/ui_module/program/computer_chatclient/ui_data(mob/user)
 	var/list/data = list()
 	if(program)

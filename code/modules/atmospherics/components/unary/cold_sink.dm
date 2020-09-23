@@ -72,7 +72,7 @@
 /obj/machinery/atmospherics/unary/freezer/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Freezer")
+		ui = new(user, src, "atmospherics/GasFreezer")
 		ui.open()
 
 /obj/machinery/atmospherics/unary/freezer/ui_data(mob/user)

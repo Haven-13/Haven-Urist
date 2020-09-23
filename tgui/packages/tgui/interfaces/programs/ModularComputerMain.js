@@ -20,7 +20,7 @@ const PROGRAM_ICONS = {
   shipping: 'tags',
 };
 
-export const NtosMain = (props, context) => {
+export const ModularComputerMain = (props, context) => {
   const { act, data } = useBackend(context);
   const {
     device_theme,

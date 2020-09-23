@@ -486,14 +486,8 @@
 /obj/machinery/alarm/attack_ai(mob/user)
 	ui_interact(user)
 
-/obj/machinery/alarm/attack_hand(mob/user)
-	. = ..()
-	if (.)
-		return
-	return interact(user)
-
 /obj/machinery/alarm/interact(mob/user)
-	ui_interact(user)
+	..()
 	wires.Interact(user)
 
 /obj/machinery/alarm/ui_interact(mob/user, datum/tgui/ui)

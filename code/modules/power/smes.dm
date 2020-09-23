@@ -349,12 +349,13 @@
 
 /obj/machinery/power/smes/ui_status(mob/user, datum/ui_state/state)
 	if(stat & BROKEN)
-		return
+		return UI_CLOSE
+	return ..()
 
 /obj/machinery/power/smes/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "PowerSmes")
+		ui = new(user, src, "power/PowerSmes", name)
 		ui.open()
 
 /obj/machinery/power/smes/ui_data(mob/user)
@@ -364,19 +365,23 @@
 	data["storedCapacity"] = round(100.0*charge/capacity, 0.1)
 	data["storedCapacityAbs"] = round(charge/1000, 0.1)
 	data["storedCapacityMax"] = round(capacity/1000, 0.1)
-	data["charging"] = inputting
-	data["chargeMode"] = input_attempt
-	data["chargeLevel"] = round(input_level/1000, 0.1)
-	data["chargeMax"] = round(input_level_max/1000)
-	data["chargeLoad"] = round(input_available/1000, 0.1)
-	data["outputOnline"] = output_attempt
-	data["outputLevel"] = round(output_level/1000, 0.1)
-	data["outputMax"] = round(output_level_max/1000)
-	data["outputLoad"] = round(output_used/1000, 0.1)
-	data["failTime"] = failure_timer * 2
+	data["inputting"] = inputting
+	data["inputAttempt"] = input_attempt
+	data["inputLevel"] = round(input_level/1000, 0.1)
+	data["inputLevelMax"] = round(input_level_max/1000)
+	data["inputAvailable"] = round(input_available/1000, 0.1)
 	data["outputting"] = outputting
+	data["outputAttempt"] = output_attempt
+	data["outputLevel"] = round(output_level/1000, 0.1)
+	data["outputLevelMax"] = round(output_level_max/1000)
+	data["outputUsed"] = round(output_used/1000, 0.1)
+	data["failureTimer"] = failure_timer * 2
 
 	return data
+
+/obj/machinery/power/smes/ui_act(action, list/params)
+
+	return ..()
 
 /obj/machinery/power/smes/proc/Percentage()
 	if(!capacity)
@@ -423,11 +428,6 @@
 
 /obj/machinery/power/smes/proc/energy_fail(var/duration)
 	failure_timer = max(failure_timer, duration)
-/obj/machinery/power/smes/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "Smes", name)
-		ui.open()
 
 /obj/machinery/power/smes/proc/inputting(var/do_input)
 	input_attempt = do_input

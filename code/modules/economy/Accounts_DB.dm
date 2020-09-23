@@ -59,6 +59,7 @@
 /obj/machinery/computer/account_database/ui_status(mob/user, datum/ui_state/state)
 	if(stat & (NOPOWER|BROKEN))
 		return
+	return ..()
 
 /obj/machinery/computer/account_database/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

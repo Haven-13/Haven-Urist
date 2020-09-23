@@ -16,11 +16,13 @@
 		visible_message("\The [src] beeps three times, it's screen displaying \"DISK ERROR\" warning.")
 		return UI_CLOSE // No HDD, No HDD files list or no stored files. Something is very broken.
 
+	return ..()
+
 // Operates tgUI
 /obj/item/modular_computer/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "ModularComputerScreen")
+		ui = new(user, src, "programs/ModularComputerMain")
 		ui.open()
 
 /obj/item/modular_computer/ui_data(mob/user)

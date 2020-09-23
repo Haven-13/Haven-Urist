@@ -95,7 +95,7 @@
 /obj/machinery/atmospherics/unary/heater/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Heater")
+		ui = new(user, src, "atmospherics/GasHeater")
 		ui.open()
 
 /obj/machinery/atmospherics/unary/heater/ui_data(mob/user)

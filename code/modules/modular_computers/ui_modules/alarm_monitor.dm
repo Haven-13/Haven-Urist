@@ -78,7 +78,7 @@
 
 	var/categories[0]
 	for(var/datum/alarm_handler/AH in alarm_handlers)
-		categories[++categories.len] = list("category" = AH.category, "alarms" = list())
+		categories[++categories.len] = list("name" = AH.category, "alarms" = list())
 		for(var/datum/alarm/A in AH.major_alarms(get_host_z()))
 
 			var/cameras[0]

@@ -1,17 +1,18 @@
-import { useBackend } from '../backend';
-import { Box, Button, Flex, LabeledList, ProgressBar, Section, Slider } from '../components';
-import { formatPower } from '../format';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Box, Button, Flex, LabeledList, ProgressBar, Section, Slider } from 'tgui/components';
+import { formatPower } from 'tgui/format';
+import { Window } from 'tgui/layouts';
 
 // Common power multiplier
 const POWER_MUL = 1e3;
 
-export const Smes = (props, context) => {
+export const PowerSmes = (props, context) => {
   const { act, data } = useBackend(context);
   const {
-    capacityPercent,
-    capacity,
-    charge,
+    nameTag,
+    storedCapacity,
+    storedCapacityAbs,
+    storedCapacityMax,
     inputAttempt,
     inputting,
     inputLevel,
@@ -24,13 +25,13 @@ export const Smes = (props, context) => {
     outputUsed,
   } = data;
   const inputState = (
-    capacityPercent >= 100 && 'good'
+    storedCapacity >= 100 && 'good'
     || inputting && 'average'
     || 'bad'
   );
   const outputState = (
     outputting && 'good'
-    || charge > 0 && 'average'
+    || storedCapacity > 0 && 'average'
     || 'bad'
   );
   return (
@@ -40,7 +41,7 @@ export const Smes = (props, context) => {
       <Window.Content>
         <Section title="Stored Energy">
           <ProgressBar
-            value={capacityPercent * 0.01}
+            value={storedCapacity * 0.01}
             ranges={{
               good: [0.5, Infinity],
               average: [0.15, 0.5],
@@ -60,7 +61,7 @@ export const Smes = (props, context) => {
                 </Button>
               }>
               <Box color={inputState}>
-                {capacityPercent >= 100 && 'Fully Charged'
+                {storedCapacity >= 100 && 'Fully Charged'
                   || inputting && 'Charging'
                   || 'Not Charging'}
               </Box>
@@ -130,7 +131,7 @@ export const Smes = (props, context) => {
               <Box color={outputState}>
                 {outputting
                   ? 'Sending'
-                  : charge > 0
+                  : storedCapacity > 0
                     ? 'Not Sending'
                     : 'No Charge'}
               </Box>

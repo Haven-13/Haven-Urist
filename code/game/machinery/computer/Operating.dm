@@ -23,14 +23,6 @@
 		return
 	interact(user)
 
-
-/obj/machinery/computer/operating/attack_hand(mob/user)
-	..()
-	if(stat & (BROKEN|NOPOWER))
-		return
-	interact(user)
-
-
 /obj/machinery/computer/operating/interact(mob/user)
 	victim = null
 	if(!Adjacent(user) || (stat & (BROKEN|NOPOWER)))

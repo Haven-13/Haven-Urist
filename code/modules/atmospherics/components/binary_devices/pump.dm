@@ -122,12 +122,13 @@ Thus, the two variables affect pump operation are set in New():
 
 /obj/machinery/atmospherics/binary/pump/ui_status(mob/user, datum/ui_state/state)
 	if(stat & (BROKEN|NOPOWER))
-		return
+		return UI_CLOSE
+	return ..()
 
 /obj/machinery/atmospherics/binary/pump/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "GasPump")
+		ui = new(user, src, "atmospherics/Pump", name)
 		ui.open()
 
 /obj/machinery/atmospherics/binary/pump/ui_data(mob/user)
@@ -135,11 +136,11 @@ Thus, the two variables affect pump operation are set in New():
 
 	data = list(
 		"on" = use_power,
-		"pressure_set" = round(target_pressure*100),	//Nano UI can't handle rounded non-integers, apparently.
-		"max_pressure" = max_pressure_setting,
-		"last_flow_rate" = round(last_flow_rate*10),
-		"last_power_draw" = round(last_power_draw),
-		"max_power_draw" = power_rating,
+		"setPressure" = target_pressure,
+		"maxPressure" = max_pressure_setting,
+		"flowRate" = round(last_flow_rate*10),
+		"lastPowerDraw" = round(last_power_draw),
+		"maxPowerDraw" = power_rating,
 	)
 
 	return data

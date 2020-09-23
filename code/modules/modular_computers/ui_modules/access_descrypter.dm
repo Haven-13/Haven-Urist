@@ -5,12 +5,6 @@
 
 	var/list/restricted_access_codes = list(access_change_ids, access_network) // access codes that are not hackable due to balance reasons
 
-/datum/ui_module/program/access_decrypter/ui_status(mob/user, datum/ui_state/state)
-	if(!ntnet_global)
-		return UI_CLOSE
-	if(!istype(program))
-		return UI_CLOSE
-
 /datum/ui_module/program/access_decrypter/ui_data(mob/user)
 	var/datum/computer_file/program/access_decrypter/PRG = program
 	var/list/data = list()

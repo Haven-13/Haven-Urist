@@ -1,9 +1,9 @@
 import { toFixed } from 'common/math';
 import { Fragment } from 'inferno';
-import { useBackend } from '../backend';
-import { AnimatedNumber, Box, Button, Icon, Knob, LabeledControls, LabeledList, Section, Tooltip } from '../components';
-import { formatSiUnit } from '../format';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { AnimatedNumber, Box, Button, Icon, Knob, LabeledControls, LabeledList, Section, Tooltip } from 'tgui/components';
+import { formatSiUnit } from 'tgui/format';
+import { Window } from 'tgui/layouts';
 
 export const Canister = (props, context) => {
   const { act, data } = useBackend(context);

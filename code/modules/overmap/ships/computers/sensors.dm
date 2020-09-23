@@ -29,10 +29,6 @@
 			sensors = S
 			break
 
-/obj/machinery/computer/sensors/ui_status(mob/user, datum/ui_state/state)
-	if(!linked)
-		return
-
 /obj/machinery/computer/sensors/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)

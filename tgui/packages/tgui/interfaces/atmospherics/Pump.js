@@ -1,13 +1,13 @@
 import { useBackend } from "tgui/backend";
-import { Button, LabeledList, NumberInput, Section } from "tgui/components";
+import { Button, LabeledList, NumberInput, ProgressBar, Section } from "tgui/components";
 import { Window } from "tgui/layouts";
 
-export const AtmosPump = (props, context) => {
+export const Pump = (props, context) => {
   const { act, data } = useBackend(context);
   return (
     <Window
       width={335}
-      height={115}>
+      height={130}>
       <Window.Content>
         <Section>
           <LabeledList>
@@ -17,6 +17,11 @@ export const AtmosPump = (props, context) => {
                 content={data.on ? 'On' : 'Off'}
                 selected={data.on}
                 onClick={() => act('power')} />
+            </LabeledList.Item>
+            <LabeledList.Item label="Power Load">
+              <ProgressBar
+                value={data.lastPowerDraw / data.maxPowerDraw}
+              />
             </LabeledList.Item>
             {data.max_rate ? (
               <LabeledList.Item label="Transfer Rate">
@@ -43,11 +48,11 @@ export const AtmosPump = (props, context) => {
               <LabeledList.Item label="Output Pressure">
                 <NumberInput
                   animated
-                  value={parseFloat(data.pressure)}
+                  value={parseFloat(data.setPressure)}
                   unit="kPa"
                   width="75px"
                   minValue={0}
-                  maxValue={4500}
+                  maxValue={data.maxPressure}
                   step={10}
                   onChange={(e, value) => act('pressure', {
                     pressure: value,
@@ -56,7 +61,7 @@ export const AtmosPump = (props, context) => {
                   ml={1}
                   icon="plus"
                   content="Max"
-                  disabled={data.pressure === data.max_pressure}
+                  disabled={data.setPressure === data.maxPressure}
                   onClick={() => act('pressure', {
                     pressure: 'max',
                   })} />

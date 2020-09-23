@@ -3,10 +3,6 @@
 	ui_interface_name = "programs/NtnetMonitorProgram"
 	available_to_ai = TRUE
 
-/datum/ui_module/program/computer_ntnetmonitor/ui_status(mob/user, datum/ui_state/state)
-	if(!ntnet_global)
-		return UI_CLOSE
-
 /datum/ui_module/program/computer_ntnetmonitor/ui_data(mob/user)
 	var/list/data = host.initial_data()
 

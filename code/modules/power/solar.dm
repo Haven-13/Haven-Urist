@@ -342,15 +342,19 @@ var/list/solars_list = list()
 		if(2) // auto-tracking
 			if(connected_tracker)
 				connected_tracker.set_angle(GLOB.sun.angle)
+
+	set_panels(cdir)
+
+/obj/machinery/power/solar_control/ui_status(mob/user, datum/ui_state/state)
+	if(stat & (NOPOWER | BROKEN))
+		return UI_CLOSE
+	return ..()
+
 /obj/machinery/power/solar_control/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "SolarControl", name)
+		ui = new(user, src, "power/SolarControl", name)
 		ui.open()
-
-	set_panels(cdir)
-	updateDialog()
-
 
 /obj/machinery/power/solar_control/Initialize()
 	. = ..()

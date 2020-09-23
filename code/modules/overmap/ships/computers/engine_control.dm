@@ -22,11 +22,6 @@
 
 	ui_interact(user)
 
-/obj/machinery/computer/engines/ui_status(mob/user, datum/ui_state/state)
-	if(!linked)
-		to_chat(user, "<span class='warning'>Unable to connect to ship control systems.</span>")
-		return UI_CLOSE
-
 /obj/machinery/computer/engines/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
