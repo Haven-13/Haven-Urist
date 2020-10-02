@@ -99,6 +99,10 @@
 /obj/effect/spawner
 	invisibility = 101
 
+/obj/effect/spawner/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
+	return INITIALIZE_HINT_NORMAL
+
 /obj/effect/spawner/proc/activate()
 	return
 
