@@ -116,18 +116,19 @@
 		deactivate(user)
 
 /obj/item/weapon/melee/energy/sword/New()
-	blade_color = pick("red","blue","green","purple")
+	if (!blade_color)
+		blade_color = pick("red","blue","green","purple")
 
-/obj/item/weapon/melee/energy/sword/green/New()
+/obj/item/weapon/melee/energy/sword/green
 	blade_color = "green"
 
-/obj/item/weapon/melee/energy/sword/red/New()
+/obj/item/weapon/melee/energy/sword/red
 	blade_color = "red"
 
-/obj/item/weapon/melee/energy/sword/blue/New()
+/obj/item/weapon/melee/energy/sword/blue
 	blade_color = "blue"
 
-/obj/item/weapon/melee/energy/sword/purple/New()
+/obj/item/weapon/melee/energy/sword/purple
 	blade_color = "purple"
 
 /obj/item/weapon/melee/energy/sword/activate(mob/living/user)
