@@ -63,3 +63,10 @@
   martinlyra:
   - bugfix: Fixed multi-z transition not working for non-ghosts
   - bugfix: Fixed the space background showing up everywhere
+2020-10-02:
+  martinlyra:
+  - bugfix: Fix toilets appearing under floors
+  - bugfix: Fix mobs appearing under floors when lying down above the first z-level
+  - bugfix: Fix floors not being updated properly in elevators
+  - bugfix: Fix floors not being updated properly in holodeck environments
+  - bugfix: Fix floor decals not being transferred correctly in holodeck environments
