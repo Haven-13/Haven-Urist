@@ -70,3 +70,8 @@
   - bugfix: Fix floors not being updated properly in elevators
   - bugfix: Fix floors not being updated properly in holodeck environments
   - bugfix: Fix floor decals not being transferred correctly in holodeck environments
+  - bugfix: Telecomms' monitoring room should be a bit more fancy
+  - bugfix: Changed the APC in engine room to a hyper-cell one
+  - bugfix: Changed the core airlocks in AI to high-security, they start bolted
+  - bugfix: Changed the tech storage airlocks to engineering-styled ones
+  - bugfix: Quartermaster's office's has been refurnished to improve accessibility
