@@ -21,6 +21,7 @@
 	var/needs_update = FALSE
 
 /atom/movable/lighting_overlay/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
 	// doesn't need special init
 	update_plane() // This is needed for maps loaded by the runtime map loader
 	atom_flags |= ATOM_FLAG_INITIALIZED

@@ -70,6 +70,7 @@
 	prefab_type = /decl/prefab/ic_assembly/bluespace_radio
 
 /obj/prefab/bluespace_radio/Initialize() //The circuit verify absolutely hates this prefab
+	SHOULD_CALL_PARENT(FALSE)
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/prefab/bluespace_radio/LateInitialize()
