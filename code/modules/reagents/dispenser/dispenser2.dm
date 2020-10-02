@@ -154,7 +154,7 @@
 				C.reagents.trans_to(container, amount)
 				return TRUE
 
-		else if("eject_beaker")
+		if("eject_beaker")
 			if(container)
 				var/obj/item/weapon/reagent_containers/B = container
 				B.dropInto(loc)

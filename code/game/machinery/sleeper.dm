@@ -120,7 +120,7 @@
 		if("chemical")
 			if(params["amount"] && occupant && occupant.stat != DEAD)
 				if(params["chemical"] in available_chemicals)
-					inject_chemical(user, params["chemical"], text2num(params["amount"]))
+					inject_chemical(usr, params["chemical"], text2num(params["amount"]))
 					return TRUE
 		if("stasis")
 			var/nstasis = text2num(params["stasis"])
