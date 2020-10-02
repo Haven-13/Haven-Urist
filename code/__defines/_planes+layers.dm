@@ -5,7 +5,7 @@ All planes & layers should be given a value here instead of using a magic/arbitr
 After fiddling with planes and layers for some time, I figured I may as well provide some documentation:
 
 What are planes?
-	Think of Planes as a sort of layer for a layer - if plane X is a larger number than plane Y, the highest number for a layer in X will be 
+	Think of Planes as a sort of layer for a layer - if plane X is a larger number than plane Y, the highest number for a layer in X will be
 	below the lowest number for a layer in Y.
 	Planes also have the added bonus of having planesmasters.
 
@@ -73,7 +73,7 @@ What is the naming convention for planes or layers?
 // Visible game planes
 #define OPENSPACE_PLANE              1
 	#define OPENSPACE_LAYER_OBJS 2 // unused
-	#define OPENSPACE_LAYER_MOBS 3 
+	#define OPENSPACE_LAYER_MOBS 3
 	#define OPENSPACE_DARKNESS_LAYER 15
 
 #define BELOW_TURF_PLANE             2 // objects that are below turfs. Useful for asteroid smoothing or other such magic.
@@ -210,7 +210,7 @@ What is the naming convention for planes or layers?
 //
 // Planes that are not included are:
 // - OPENSPACE_PLANE; not needed
-// - LIGHTING_PLANE; blending cause the lighting overlay to be 
+// - LIGHTING_PLANE; blending cause the lighting overlay to be
 //       almost invisible in multi-z. Undesired effect
 /proc/multiz_rendering_planes()
 	return list(
@@ -248,5 +248,5 @@ What is the naming convention for planes or layers?
 	layer = HUD_ITEM_LAYER
 
 /atom/proc/reset_plane_and_layer()
-	set_plane(original_plane)
-	layer = initial(plane)
+	set_plane(initial(plane))
+	layer = initial(layer)

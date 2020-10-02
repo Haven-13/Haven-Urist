@@ -17,11 +17,13 @@ var/list/floor_decals = list()
 	..(newloc)
 
 /obj/effect/floor_decal/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
+
 	if(supplied_dir) set_dir(supplied_dir)
 	var/turf/T = get_turf(src)
 	if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
 		var/target_plane = T.is_plating() ? ABOVE_PLATING_PLANE : ABOVE_TURF_PLANE
-		plane = T.get_relative_plane(target_plane)
+		plane = T.get_float_plane(target_plane)
 		var/cache_key = "[alpha]-[color]-[dir]-[icon_state]-[plane]-[layer]"
 		if(!floor_decals[cache_key])
 			var/image/I = image(icon = src.icon, icon_state = src.icon_state, dir = src.dir)
