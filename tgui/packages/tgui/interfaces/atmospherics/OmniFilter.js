@@ -49,29 +49,29 @@ export const OmniFilter = (props, context) => {
                     key={port.dir}
                     label={port.dir}>
                     <Button
-                    selected={port.input}
-                    content="Input"
-                    onClick={() => act('switch_mode', {
-                      dir: port.dir,
-                      mode: "in",
-                    })}
+                      selected={port.input}
+                      content="Input"
+                      onClick={() => act('switch_mode', {
+                        dir: port.dir,
+                        mode: "in",
+                      })}
                     />
                     <Button
-                    selected={port.output}
-                    content="Output"
-                    onClick={() => act('switch_mode', {
-                      dir: port.dir,
-                      mode: "out",
-                    })}
+                      selected={port.output}
+                      content="Output"
+                      onClick={() => act('switch_mode', {
+                        dir: port.dir,
+                        mode: "out",
+                      })}
                     />
                     <Button
-                    width="110px"
-                    selected={port.isFilter}
-                    content={port.fType || "Filter"}
-                    onClick={() => act('switch_filter', {
-                      dir: port.dir,
-                      mode: port.fType,
-                    })} />
+                      width="110px"
+                      selected={port.isFilter}
+                      content={port.fType || "Filter"}
+                      onClick={() => act('switch_filter', {
+                        dir: port.dir,
+                        mode: port.fType,
+                      })} />
                   </LabeledList.Item>
                 ))}
               </LabeledList>

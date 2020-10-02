@@ -21,7 +21,7 @@ export const StationAlertConsoleContent = (props, context) => {
   const categories = data.categories || [];
   return (
     <Fragment>
-      {categories.map((category) => (
+      {categories.map(category => (
         <Section title={category.name} key={category.name}>
           <ul>
             {category.alarms.length === 0 && (

@@ -130,19 +130,20 @@
 
 	return data
 
-/obj/machinery/portable_atmospherics/powered/scrubber/OnTopic(user, href_list)
-	if(href_list["power"])
-		on = !on
-		. = TOPIC_REFRESH
-	if (href_list["remove_tank"])
-		if(holding)
-			holding.dropInto(loc)
-			holding = null
-		. = TOPIC_REFRESH
-	if (href_list["volume_adj"])
-		var/diff = text2num(href_list["volume_adj"])
-		volume_rate = Clamp(volume_rate+diff, minrate, maxrate)
-		. = TOPIC_REFRESH
+/obj/machinery/portable_atmospherics/powered/scrubber/ui_act(action, list/params)
+	switch(action)
+		if("power")
+			on = !on
+			. = TRUE
+		if ("remove_tank")
+			if(holding)
+				holding.dropInto(loc)
+				holding = null
+			. = TRUE
+		if ("volume_adj")
+			var/diff = text2num(params["volume_adj"])
+			volume_rate = Clamp(volume_rate+diff, minrate, maxrate)
+			. = TRUE
 
 	if(.)
 		update_icon()

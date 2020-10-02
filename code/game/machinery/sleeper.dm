@@ -103,31 +103,30 @@
 		return UI_CLOSE
 	. = ..()
 
-/obj/machinery/sleeper/OnTopic(user, href_list)
-	if(href_list["eject"])
-		go_out()
-		return TOPIC_REFRESH
-	if(href_list["beaker"])
-		remove_beaker()
-		return TOPIC_REFRESH
-	if(href_list["filter"])
-		if(filtering != text2num(href_list["filter"]))
+/obj/machinery/sleeper/ui_act(action, list/params)
+	switch(action)
+		if("eject")
+			go_out()
+			return TRUE
+		if("beaker")
+			remove_beaker()
+			return TRUE
+		if("filter")
 			toggle_filter()
-			return TOPIC_REFRESH
-	if(href_list["pump"])
-		if(filtering != text2num(href_list["pump"]))
+			return TRUE
+		if("pump")
 			toggle_pump()
-			return TOPIC_REFRESH
-	if(href_list["chemical"] && href_list["amount"])
-		if(occupant && occupant.stat != DEAD)
-			if(href_list["chemical"] in available_chemicals) // Your hacks are bad and you should feel bad
-				inject_chemical(user, href_list["chemical"], text2num(href_list["amount"]))
-				return TOPIC_REFRESH
-	if(href_list["stasis"])
-		var/nstasis = text2num(href_list["stasis"])
-		if(stasis != nstasis && nstasis in stasis_settings)
-			stasis = text2num(href_list["stasis"])
-			return TOPIC_REFRESH
+			return TRUE
+		if("chemical")
+			if(params["amount"] && occupant && occupant.stat != DEAD)
+				if(params["chemical"] in available_chemicals)
+					inject_chemical(user, params["chemical"], text2num(params["amount"]))
+					return TRUE
+		if("stasis")
+			var/nstasis = text2num(params["stasis"])
+			if(stasis != nstasis && nstasis in stasis_settings)
+				stasis = text2num(params["stasis"])
+				return TRUE
 
 /obj/machinery/sleeper/attack_ai(var/mob/user)
 	return attack_hand(user)

@@ -52,8 +52,9 @@
 		. = ..()
 
 /obj/machinery/disease2/incubator/attack_hand(mob/user as mob)
-	if(stat & (NOPOWER|BROKEN)) return
-	ui_interact(user)
+	if(stat & (NOPOWER|BROKEN))
+		return
+	return ..()
 
 /obj/machinery/disease2/incubator/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -92,6 +93,53 @@
 				data["blood_already_infected"] = virus[ID]
 
 	return data
+
+/obj/machinery/disease2/incubator/ui_act(action, list/params)
+	switch(action)
+		if ("eject_chem")
+			if(beaker)
+				beaker.dropInto(loc)
+				beaker = null
+			return TRUE
+
+		if ("power")
+			if (dish)
+				on = !on
+				icon_state = on ? "incubator_on" : "incubator"
+			return TRUE
+
+		if ("eject_dish")
+			if(dish)
+				dish.dropInto(loc)
+				dish = null
+			return TRUE
+
+		if ("rad")
+			radiation = min(100, radiation + 10)
+			return TRUE
+
+		if ("flush")
+			radiation = 0
+			toxins = 0
+			foodsupply = 0
+			return TRUE
+
+		if("virus")
+			if (!dish)
+				return TRUE
+
+			var/datum/reagent/blood/B = locate(/datum/reagent/blood) in beaker.reagents.reagent_list
+			if (!B)
+				return TRUE
+
+			if (!B.data["virus2"])
+				B.data["virus2"] = list()
+
+			var/list/virus = list("[dish.virus2.uniqueID]" = dish.virus2.getcopy())
+			B.data["virus2"] += virus
+
+			ping("\The [src] pings, \"Injection complete.\"")
+			return TRUE
 
 /obj/machinery/disease2/incubator/Process()
 	if(dish && on && dish.virus2)
@@ -149,53 +197,3 @@
 					toxins = 100
 					break
 			SStgui.update_uis(src)
-
-/obj/machinery/disease2/incubator/OnTopic(user, href_list)
-	if (href_list["close"])
-		SStgui.close_user_uis(user, src, "main")
-		return TOPIC_HANDLED
-
-	if (href_list["ejectchem"])
-		if(beaker)
-			beaker.dropInto(loc)
-			beaker = null
-		return TOPIC_REFRESH
-
-	if (href_list["power"])
-		if (dish)
-			on = !on
-			icon_state = on ? "incubator_on" : "incubator"
-		return TOPIC_REFRESH
-
-	if (href_list["ejectdish"])
-		if(dish)
-			dish.dropInto(loc)
-			dish = null
-		return TOPIC_REFRESH
-
-	if (href_list["rad"])
-		radiation = min(100, radiation + 10)
-		return TOPIC_REFRESH
-
-	if (href_list["flush"])
-		radiation = 0
-		toxins = 0
-		foodsupply = 0
-		return TOPIC_REFRESH
-
-	if(href_list["virus"])
-		if (!dish)
-			return TOPIC_HANDLED
-
-		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in beaker.reagents.reagent_list
-		if (!B)
-			return TOPIC_HANDLED
-
-		if (!B.data["virus2"])
-			B.data["virus2"] = list()
-
-		var/list/virus = list("[dish.virus2.uniqueID]" = dish.virus2.getcopy())
-		B.data["virus2"] += virus
-
-		ping("\The [src] pings, \"Injection complete.\"")
-		return TOPIC_REFRESH

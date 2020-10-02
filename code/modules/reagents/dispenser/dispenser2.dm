@@ -140,28 +140,27 @@
 
 	return data
 
-/obj/machinery/chemical_dispenser/OnTopic(user, href_list)
-	if(href_list["amount"])
-		amount = round(text2num(href_list["amount"]), 1) // round to nearest 1
-		amount = max(0, min(120, amount)) // Since the user can actually type the commands himself, some sanity checking
-		return TOPIC_REFRESH
+/obj/machinery/chemical_dispenser/ui_act(action, list/params)
+	switch(action)
+		if("amount")
+			amount = round(text2num(params["amount"]), 1) // round to nearest 1
+			amount = max(0, min(120, amount)) // Since the user can actually type the commands himself, some sanity checking
+			return TRUE
 
-	if(href_list["dispense"])
-		var/label = href_list["dispense"]
-		if(cartridges[label] && container && container.is_open_container())
-			var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = cartridges[label]
-			C.reagents.trans_to(container, amount)
-			return TOPIC_REFRESH
-		return TOPIC_HANDLED
+		if("dispense")
+			var/label = params["dispense"]
+			if(cartridges[label] && container && container.is_open_container())
+				var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = cartridges[label]
+				C.reagents.trans_to(container, amount)
+				return TRUE
 
-	else if(href_list["ejectBeaker"])
-		if(container)
-			var/obj/item/weapon/reagent_containers/B = container
-			B.dropInto(loc)
-			container = null
-			update_icon()
-			return TOPIC_REFRESH
-		return TOPIC_HANDLED
+		else if("eject_beaker")
+			if(container)
+				var/obj/item/weapon/reagent_containers/B = container
+				B.dropInto(loc)
+				container = null
+				update_icon()
+				return TRUE
 
 /obj/machinery/chemical_dispenser/attack_ai(mob/user as mob)
 	ui_interact(user)

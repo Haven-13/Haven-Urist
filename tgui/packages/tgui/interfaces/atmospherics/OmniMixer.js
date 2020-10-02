@@ -5,7 +5,7 @@ import { Window } from "tgui/layouts";
 
 export const OmniMixer = (props, context) => {
   const { act, data } = useBackend(context);
-  const ports = data.ports
+  const ports = data.ports;
   return (
     <Window
       width={400}
@@ -40,7 +40,7 @@ export const OmniMixer = (props, context) => {
                   data.set_flow_rate === data.maxFlowRate
                 }
                 onClick={() => act('set_flow_rate', {
-                  set_flow_rate: data.maxFlowRate
+                  set_flow_rate: data.maxFlowRate,
                 })} />
             </LabeledList.Item>
             <LabeledList.Item label="Mixing">

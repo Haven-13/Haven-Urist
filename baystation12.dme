@@ -70,7 +70,6 @@
 #include "code\__defines\tgs.config.dm"
 #include "code\__defines\tgs.dm"
 #include "code\__defines\tgui.dm"
-#include "code\__defines\topic.dm"
 #include "code\__defines\turfs.dm"
 #include "code\__defines\ZAS.dm"
 #include "code\__defines\urist\_colormatrix_defines.dm"

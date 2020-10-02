@@ -145,22 +145,23 @@
 
 	return data
 
-/obj/machinery/portable_atmospherics/powered/pump/OnTopic(user, href_list)
-	if(href_list["power"])
-		on = !on
-		. = TOPIC_REFRESH
-	if(href_list["direction"])
-		direction_out = !direction_out
-		. = TOPIC_REFRESH
-	if (href_list["remove_tank"])
-		if(holding)
-			holding.dropInto(loc)
-			holding = null
-		. = TOPIC_REFRESH
-	if (href_list["pressure_adj"])
-		var/diff = text2num(href_list["pressure_adj"])
-		target_pressure = min(10*ONE_ATMOSPHERE, max(0, target_pressure+diff))
-		. = TOPIC_REFRESH
+/obj/machinery/portable_atmospherics/powered/pump/ui_act(action, list/params)
+	switch(action)
+		if ("power")
+			on = !on
+			. = TRUE
+		if("direction")
+			direction_out = !direction_out
+			. = TRUE
+		if ("remove_tank")
+			if(holding)
+				holding.dropInto(loc)
+				holding = null
+			. = TRUE
+		if ("pressure_adj")
+			var/diff = text2num(params["pressure_adj"])
+			target_pressure = min(10*ONE_ATMOSPHERE, max(0, target_pressure+diff))
+			. = TRUE
 
-	if(.)
+	if (.)
 		update_icon()
