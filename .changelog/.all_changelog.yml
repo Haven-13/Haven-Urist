@@ -75,3 +75,9 @@
   - bugfix: Changed the core airlocks in AI to high-security, they start bolted
   - bugfix: Changed the tech storage airlocks to engineering-styled ones
   - bugfix: Quartermaster's office's has been refurnished to improve accessibility
+2020-10-03:
+  martinlyra:
+  - rscadd: Items can now be clicked on and picked up via their container blocks from
+      storage, pixel-hunting is no longer necessary.
+  - bugfix: Fixed items rendering behind storage blocks in variable width storages
+      (backpacks, etc.)
