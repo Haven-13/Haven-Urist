@@ -363,68 +363,61 @@
 	var/data[0]
 	data["nameTag"] = name_tag
 	data["storedCapacity"] = round(100.0*charge/capacity, 0.1)
-	data["storedCapacityAbs"] = round(charge/1000, 0.1)
-	data["storedCapacityMax"] = round(capacity/1000, 0.1)
+	data["storedCapacityAbs"] = charge
+	data["storedCapacityMax"] = capacity
 	data["inputting"] = inputting
 	data["inputAttempt"] = input_attempt
-	data["inputLevel"] = round(input_level/1000, 0.1)
-	data["inputLevelMax"] = round(input_level_max/1000)
-	data["inputAvailable"] = round(input_available/1000, 0.1)
+	data["inputLevel"] = input_level
+	data["inputLevelMax"] = input_level_max
+	data["inputAvailable"] = input_available
 	data["outputting"] = outputting
 	data["outputAttempt"] = output_attempt
-	data["outputLevel"] = round(output_level/1000, 0.1)
-	data["outputLevelMax"] = round(output_level_max/1000)
-	data["outputUsed"] = round(output_used/1000, 0.1)
+	data["outputLevel"] = output_level
+	data["outputLevelMax"] = output_level_max
+	data["outputUsed"] = output_used
 	data["failureTimer"] = failure_timer * 2
 
 	return data
 
 /obj/machinery/power/smes/ui_act(action, list/params)
+	switch(action)
+		if("try_input")
+			inputting(!input_attempt)
+			update_icon()
+			return TRUE
+		if("try_output")
+			outputting(!output_attempt)
+			update_icon()
+			return TRUE
+		if("reboot")
+			failure_timer = 0
+			update_icon()
+			return TRUE
+		if("input")
+			input_level = handle_power_channel_adjustment(input_level, 0, input_level_max, params)
+			return TRUE
+		if("output")
+			output_level = handle_power_channel_adjustment(output_level, 0, output_level_max, params)
+			return TRUE
 
-	return ..()
+proc/handle_power_channel_adjustment(value, min, max, params)
+	if("adjust" in params)
+		value += params["adjust"]
+	if("target" in params)
+		switch(params["target"])
+			if("min")
+				value = min
+			if("max")
+				value = max
+			else
+				value = params["target"]
+	return between(min, value, max)	// clamp to range
+
 
 /obj/machinery/power/smes/proc/Percentage()
 	if(!capacity)
 		return 0
 	return round(100.0*charge/capacity, 0.1)
-
-/obj/machinery/power/smes/Topic(href, href_list)
-	if(..())
-		return 1
-
-	if( href_list["cmode"] )
-		inputting(!input_attempt)
-		update_icon()
-		return 1
-	else if( href_list["online"] )
-		outputting(!output_attempt)
-		update_icon()
-		return 1
-	else if( href_list["reboot"] )
-		failure_timer = 0
-		update_icon()
-		return 1
-	else if( href_list["input"] )
-		switch( href_list["input"] )
-			if("min")
-				input_level = 0
-			if("max")
-				input_level = input_level_max
-			if("set")
-				input_level = (input(usr, "Enter new input level (0-[input_level_max/1000] kW)", "SMES Input Power Control", input_level/1000) as num) * 1000
-		input_level = max(0, min(input_level_max, input_level))	// clamp to range
-		return 1
-	else if( href_list["output"] )
-		switch( href_list["output"] )
-			if("min")
-				output_level = 0
-			if("max")
-				output_level = output_level_max
-			if("set")
-				output_level = (input(usr, "Enter new output level (0-[output_level_max/1000] kW)", "SMES Output Power Control", output_level/1000) as num) * 1000
-		output_level = max(0, min(output_level_max, output_level))	// clamp to range
-		return 1
-
 
 /obj/machinery/power/smes/proc/energy_fail(var/duration)
 	failure_timer = max(failure_timer, duration)

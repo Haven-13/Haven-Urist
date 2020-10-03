@@ -1,10 +1,10 @@
 import { useBackend } from 'tgui/backend';
-import { Box, Button, Flex, LabeledList, ProgressBar, Section, Slider } from 'tgui/components';
+import { AnimatedNumber, Box, Button, Flex, LabeledList, ProgressBar, Section, Slider } from 'tgui/components';
 import { formatPower } from 'tgui/format';
 import { Window } from 'tgui/layouts';
 
 // Common power multiplier
-const POWER_MUL = 1e3;
+const POWER_MUL = 1e6;
 
 export const PowerSmes = (props, context) => {
   const { act, data } = useBackend(context);
@@ -56,7 +56,7 @@ export const PowerSmes = (props, context) => {
                 <Button
                   icon={inputAttempt ? 'sync-alt' : 'times'}
                   selected={inputAttempt}
-                  onClick={() => act('tryinput')}>
+                  onClick={() => act('try_input')}>
                   {inputAttempt ? 'Auto' : 'Off'}
                 </Button>
               }>
@@ -84,15 +84,15 @@ export const PowerSmes = (props, context) => {
                 </Flex.Item>
                 <Flex.Item grow={1} mx={1}>
                   <Slider
-                    value={inputLevel / POWER_MUL}
-                    fillValue={inputAvailable / POWER_MUL}
+                    value={inputLevel}
+                    fillValue={inputAvailable}
                     minValue={0}
-                    maxValue={inputLevelMax / POWER_MUL}
-                    step={5}
+                    maxValue={inputLevelMax}
+                    step={5000}
                     stepPixelSize={4}
-                    format={value => formatPower(value * POWER_MUL, 1)}
+                    format={value => formatPower(value, 0)}
                     onDrag={(e, value) => act('input', {
-                      target: value * POWER_MUL,
+                      target: value,
                     })} />
                 </Flex.Item>
                 <Flex.Item>
@@ -112,7 +112,9 @@ export const PowerSmes = (props, context) => {
               </Flex>
             </LabeledList.Item>
             <LabeledList.Item label="Available">
-              {formatPower(inputAvailable)}
+              <AnimatedNumber
+                value = {inputAvailable}
+                format = {value => formatPower(value)}/>
             </LabeledList.Item>
           </LabeledList>
         </Section>
@@ -124,7 +126,7 @@ export const PowerSmes = (props, context) => {
                 <Button
                   icon={outputAttempt ? 'power-off' : 'times'}
                   selected={outputAttempt}
-                  onClick={() => act('tryoutput')}>
+                  onClick={() => act('try_output')}>
                   {outputAttempt ? 'On' : 'Off'}
                 </Button>
               }>
@@ -154,14 +156,14 @@ export const PowerSmes = (props, context) => {
                 </Flex.Item>
                 <Flex.Item grow={1} mx={1}>
                   <Slider
-                    value={outputLevel / POWER_MUL}
+                    value={outputLevel}
                     minValue={0}
-                    maxValue={outputLevelMax / POWER_MUL}
-                    step={5}
+                    maxValue={outputLevelMax}
+                    step={5000}
                     stepPixelSize={4}
-                    format={value => formatPower(value * POWER_MUL, 1)}
+                    format={value => formatPower(value, 0)}
                     onDrag={(e, value) => act('output', {
-                      target: value * POWER_MUL,
+                      target: value,
                     })} />
                 </Flex.Item>
                 <Flex.Item>
@@ -181,7 +183,9 @@ export const PowerSmes = (props, context) => {
               </Flex>
             </LabeledList.Item>
             <LabeledList.Item label="Outputting">
-              {formatPower(outputUsed)}
+              <AnimatedNumber
+              value = {outputUsed}
+              format = {value => formatPower(value)}/>
             </LabeledList.Item>
           </LabeledList>
         </Section>
