@@ -81,3 +81,5 @@
       storage, pixel-hunting is no longer necessary.
   - bugfix: Fixed items rendering behind storage blocks in variable width storages
       (backpacks, etc.)
+  - bugfix: Turrets no longer target crewmen that are smaller than human (specially
+      Teshari)
