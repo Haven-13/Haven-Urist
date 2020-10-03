@@ -84,7 +84,7 @@
 	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
 		return 1
 	if(master)
-		usr.ClickOn(master)]
+		usr.ClickOn(master)
 	return 1
 
 /obj/screen/zone_sel
