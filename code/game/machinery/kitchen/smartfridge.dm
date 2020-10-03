@@ -278,11 +278,9 @@
 ********************/
 
 /obj/machinery/smartfridge/ui_interact(mob/user, var/datum/tgui/ui)
-	user.set_machine(src)
-
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "SmartFridge")
+		ui = new(user, src, "SmartFridge", name)
 		ui.open()
 
 /obj/machinery/smartfridge/ui_data(mob/user)
@@ -305,32 +303,22 @@
 
 	return data
 
-/obj/machinery/smartfridge/Topic(href, href_list)
-	if(..()) return 0
+/obj/machinery/smartfridge/ui_act(action, list/params)
+	switch(action)
+		if("vend")
+			var/index = params["vend"]
+			var/amount = params["amount"]
+			var/datum/stored_items/I = item_records[index]
+			var/count = I.get_amount()
 
-	var/mob/user = usr
-	var/datum/tgui/ui = SStgui.get_open_ui(user, src, "main")
+			// Sanity check, there are probably ways to press the button when it shouldn't be possible.
+			if(count > 0)
+				if((count - amount) < 0)
+					amount = count
+				for(var/i = 1 to amount)
+					I.get_product(get_turf(src))
 
-	if(href_list["close"])
-		user.unset_machine()
-		ui.close()
-		return 0
-
-	if(href_list["vend"])
-		var/index = text2num(href_list["vend"])
-		var/amount = text2num(href_list["amount"])
-		var/datum/stored_items/I = item_records[index]
-		var/count = I.get_amount()
-
-		// Sanity check, there are probably ways to press the button when it shouldn't be possible.
-		if(count > 0)
-			if((count - amount) < 0)
-				amount = count
-			for(var/i = 1 to amount)
-				I.get_product(get_turf(src))
-
-		return 1
-	return 0
+			return TRUE
 
 /obj/machinery/smartfridge/proc/throw_item()
 	var/obj/throw_item = null

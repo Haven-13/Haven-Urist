@@ -42,7 +42,7 @@
 /obj/machinery/disease2/centrifuge/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "IsolationCentrifuge")
+		ui = new(user, src, "virology/IsolationCentrifuge")
 		ui.open()
 
 /obj/machinery/disease2/centrifuge/ui_data(mob/user)

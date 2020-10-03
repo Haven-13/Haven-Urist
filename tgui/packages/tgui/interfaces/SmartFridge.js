@@ -1,10 +1,11 @@
 import { map } from 'common/collections';
-import { useBackend } from '../backend';
-import { Button, NoticeBox, Section, Table } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Button, NoticeBox, Section, Table } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
-export const SmartVend = (props, context) => {
+export const SmartFridge = (props, context) => {
   const { act, data } = useBackend(context);
+  const contents = data.contents || [];
   return (
     <Window
       width={440}
@@ -20,7 +21,12 @@ export const SmartVend = (props, context) => {
               {data.drying ? 'Stop drying' : 'Dry'}
             </Button>
           )}>
-          {data.contents.length === 0 && (
+          {!!data.secure && (
+            <NoticeBox>
+              Secure Access: Please have your access card ready.
+            </NoticeBox>
+          )}
+          {contents.length === 0 && (
             <NoticeBox>
               Unfortunately, this {data.name} is empty.
             </NoticeBox>
@@ -30,7 +36,9 @@ export const SmartVend = (props, context) => {
                 <Table.Cell>
                   Item
                 </Table.Cell>
-                <Table.Cell collapsing />
+                <Table.Cell collapsing>
+                  Amount
+                </Table.Cell>
                 <Table.Cell collapsing textAlign="center">
                   {data.verb ? data.verb : 'Dispense'}
                 </Table.Cell>
@@ -38,24 +46,32 @@ export const SmartVend = (props, context) => {
               {map((value, key) => (
                 <Table.Row key={key}>
                   <Table.Cell>
-                    {value.name}
+                    {value.display_name}
                   </Table.Cell>
                   <Table.Cell collapsing textAlign="right">
-                    {value.amount}
+                    {value.quantity}
                   </Table.Cell>
                   <Table.Cell collapsing>
                     <Button
-                      content="One"
+                      content="1"
                       disabled={value.amount < 1}
-                      onClick={() => act('Release', {
-                        name: value.name,
+                      onClick={() => act('vend', {
+                        vend: value.vend,
                         amount: 1,
                       })} />
                     <Button
-                      content="Many"
+                      content="5"
                       disabled={value.amount <= 1}
-                      onClick={() => act('Release', {
-                        name: value.name,
+                      onClick={() => act('vend', {
+                        vend: value.vend,
+                        amount: 5,
+                      })} />
+                    <Button
+                      content="10"
+                      disabled={value.amount <= 1}
+                      onClick={() => act('vend', {
+                        vend: value.vend,
+                        amount: 10,
                       })} />
                   </Table.Cell>
                 </Table.Row>
