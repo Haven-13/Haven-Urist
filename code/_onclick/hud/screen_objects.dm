@@ -84,9 +84,7 @@
 	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
 		return 1
 	if(master)
-		var/obj/item/I = usr.get_active_hand()
-		if(I)
-			usr.ClickOn(master)
+		usr.ClickOn(master)]
 	return 1
 
 /obj/screen/zone_sel
