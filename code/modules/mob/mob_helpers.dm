@@ -528,9 +528,6 @@ proc/is_blind(A)
 		if(istype(belt, /obj/item/weapon/gun) || istype(belt, /obj/item/weapon/melee))
 			threatcount += 2
 
-		if(species.name != SPECIES_HUMAN)
-			threatcount += 2
-
 	if(check_records || check_arrest)
 		var/perpname = name
 		if(id)
