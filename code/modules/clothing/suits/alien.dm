@@ -79,7 +79,7 @@
 
 //Resomi clothing
 
-/obj/item/clothing/suit/storage/toggle/Resomicoat
+/obj/item/clothing/suit/storage/toggle/resomicoat
  	name = "small coat"
  	desc = "A coat that seems too small to fit a human."
  	icon_state = "resomicoat"
@@ -89,7 +89,7 @@
  	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS
  	species_restricted = list(SPECIES_RESOMI)
 
-/obj/item/clothing/suit/storage/toggle/Resomicoat/white
+/obj/item/clothing/suit/storage/toggle/resomicoat/white
  	name = "small coat"
  	desc = "A coat that seems too small to fit a human."
  	icon_state = "resomicoatwhite"

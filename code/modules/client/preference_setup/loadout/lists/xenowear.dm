@@ -187,13 +187,13 @@
 //Teshari coats
 /datum/gear/suit/teshcoat
 	display_name = "black Teshari coat w/ orange stripes"
-	path = /obj/item/clothing/suit/storage/toggle/Resomicoat
+	path = /obj/item/clothing/suit/storage/toggle/resomicoat
 	sort_category = "Xenowear"
 	whitelisted = list(SPECIES_RESOMI)
 
 /datum/gear/suit/teshcoat/color
 	display_name = "Teshari coat (color select)"
-	path = /obj/item/clothing/suit/storage/toggle/Resomicoat/white
+	path = /obj/item/clothing/suit/storage/toggle/resomicoat/white
 	sort_category = "Xenowear"
 	whitelisted = list(SPECIES_RESOMI)
 	flags = GEAR_HAS_COLOR_SELECTION
