@@ -52,6 +52,26 @@
 	name = "Teshari Mushroom"
 	icon_state = "resomi_mushroom"
 
+/datum/sprite_accessory/hair/resomi/twies
+	name = "Teshari Twies"
+	icon_state = "resomi_twies"
+
+/datum/sprite_accessory/hair/resomi/backstrafe
+	name = "Teshari Backstrafe"
+	icon_state = "resomi_backstrafe"
+
+/datum/sprite_accessory/hair/resomi/longway
+	name = "Teshari Long Way"
+	icon_state = "resomi_longway"
+
+/datum/sprite_accessory/hair/resomi/notree
+	name = "Teshari Tree"
+	icon_state = "resomi_tree"
+
+/datum/sprite_accessory/hair/resomi/fluffymohawk
+	name = "Teshari Fluffy Mohawk"
+	icon_state = "resomi_fluffymohawk"
+
 /datum/sprite_accessory/hair/resomi/bald
 	name = "Bald (use with FBP)"
 	icon_state = "resomi_bald"

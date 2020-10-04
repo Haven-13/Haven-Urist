@@ -162,3 +162,61 @@
 	path = /obj/item/clothing/mask/gas/vox
 	sort_category = "Xenowear"
 	whitelisted = list(SPECIES_VOX)
+
+//Teshari cloaks
+/datum/gear/suit/teshcloak/color
+	display_name = "Teshari cloak selection"
+	path = /obj/item/clothing/suit/storage/teshari/cloak/color
+	sort_category = "Xenowear"
+	whitelisted = list(SPECIES_RESOMI)
+	flags = GEAR_HAS_TYPE_SELECTION
+
+/datum/gear/suit/teshcloak/colorselect
+	display_name = "Teshari cloak (color select)"
+	path = /obj/item/clothing/suit/storage/teshari/cloak/color/standard/white
+	sort_category = "Xenowear"
+	whitelisted = list(SPECIES_RESOMI)
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/teshcloak/job
+	display_name = "Teshari departmental cloak selection"
+	path = /obj/item/clothing/suit/storage/teshari/cloak/jobs
+	sort_category = "Xenowear"
+	whitelisted = list(SPECIES_RESOMI)
+	flags = GEAR_HAS_TYPE_SELECTION
+//Teshari coats
+/datum/gear/suit/teshcoat
+	display_name = "black Teshari coat w/ orange stripes"
+	path = /obj/item/clothing/suit/storage/toggle/Resomicoat
+	sort_category = "Xenowear"
+	whitelisted = list(SPECIES_RESOMI)
+
+/datum/gear/suit/teshcoat/color
+	display_name = "Teshari coat (color select)"
+	path = /obj/item/clothing/suit/storage/toggle/Resomicoat/white
+	sort_category = "Xenowear"
+	whitelisted = list(SPECIES_RESOMI)
+	flags = GEAR_HAS_COLOR_SELECTION
+
+//Teshari uniforms
+
+/datum/gear/uniform/teshuniform
+	display_name = "Teshari uniform selection"
+	path = /obj/item/clothing/under/resomi/uniform
+	sort_category = "Xenowear"
+	whitelisted = list(SPECIES_RESOMI)
+	flags = GEAR_HAS_TYPE_SELECTION
+
+/datum/gear/uniform/teshuniform/colorsmock
+	display_name = "Teshari smock (color selection)"
+	path = /obj/item/clothing/under/resomi/uniform/white
+	sort_category = "Xenowear"
+	whitelisted = list(SPECIES_RESOMI)
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/uniform/teshuniform/worksuit
+	display_name = "Teshari worksuit selection"
+	path = /obj/item/clothing/under/resomi/worksuit
+	sort_category = "Xenowear"
+	whitelisted = list(SPECIES_RESOMI)
+	flags = GEAR_HAS_TYPE_SELECTION
