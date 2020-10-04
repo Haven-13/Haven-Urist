@@ -164,7 +164,7 @@
 	whitelisted = list(SPECIES_VOX)
 
 //Teshari cloaks
-/datum/gear/suit/teshcloak/color
+/datum/gear/suit/teshcloak
 	display_name = "Teshari cloak selection"
 	path = /obj/item/clothing/suit/storage/teshari/cloak/color
 	sort_category = "Xenowear"
