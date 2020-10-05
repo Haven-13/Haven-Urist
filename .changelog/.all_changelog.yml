@@ -83,3 +83,11 @@
       (backpacks, etc.)
   - bugfix: Turrets no longer target crewmen that are smaller than human (specially
       Teshari)
+2020-10-05:
+  Greenjoe12345:
+  - rscadd: Adds a bunch of Teshari stuff
+  - tweak: edited the Teshari head sprites to make them have two ears.
+  - bugfix: fixed some sprite errors on Teshari clothing
+  - imageadd: adds a lot of new sprites for Teshari clothing
+  - code_imp: Edits the xeno locker slightly to add a new bit of Tesh clothing, adds
+      some stuff to the xenowear loadout.
