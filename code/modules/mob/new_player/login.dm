@@ -1,5 +1,5 @@
 /mob/new_player/Login()
-	apply_dark_theme(src.client)
+	apply_global_theme(src.client)
 
 	update_Login_details()	//handles setting lastKnownIP and computer_id for use by the ban systems as well as checking for multikeying
 	if(join_motd)

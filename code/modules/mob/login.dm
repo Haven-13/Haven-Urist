@@ -56,6 +56,7 @@
 	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
 
 /mob/Login()
+	apply_global_theme(src.client)
 
 	GLOB.player_list |= src
 	update_Login_details()
@@ -88,8 +89,6 @@
 	reload_fullscreen() // Reload any fullscreen overlays this mob has.
 	add_click_catcher()
 	update_action_buttons()
-
-	apply_dark_theme(src.client)
 
 	//set macro to normal incase it was overriden (like cyborg currently does)
 	winset(src.client, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#d3b5b5")
