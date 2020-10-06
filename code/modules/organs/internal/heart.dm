@@ -152,7 +152,7 @@
 			blood_max *= 0.8
 
 		if(world.time >= next_blood_squirt && istype(owner.loc, /turf) && do_spray.len)
-			owner.visible_message("<span class='danger'>Blood squirts from [pick(do_spray)]!</span>")
+			owner.visible_message("<span class='critical'>Blood squirts from [pick(do_spray)]!</span>")
 			// It becomes very spammy otherwise. Arterial bleeding will still happen outside of this block, just not the squirt effect.
 			next_blood_squirt = world.time + 100
 			var/turf/sprayloc = get_turf(owner)
