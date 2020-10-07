@@ -80,12 +80,6 @@
 
 	return 0
 
-/obj/machinery/turretid/CanUseTopic(mob/user)
-	if(isLocked(user))
-		return UI_CLOSE
-
-	return ..()
-
 /obj/machinery/turretid/attackby(obj/item/weapon/W, mob/user)
 	if(stat & BROKEN)
 		return
@@ -108,18 +102,6 @@
 		ailock = 0
 		return 1
 
-/obj/machinery/turretid/attack_ai(mob/user as mob)
-	if(isLocked(user))
-		return
-
-	ui_interact(user)
-
-/obj/machinery/turretid/attack_hand(mob/user as mob)
-	if(isLocked(user))
-		return
-
-	ui_interact(user)
-
 /obj/machinery/turretid/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
@@ -130,58 +112,52 @@
 	var/data[0]
 	data["access"] = !isLocked(user)
 	data["locked"] = locked
+	data["siliconUser"] = issilicon(user)
 	data["enabled"] = enabled
-	data["is_lethal"] = 1
 	data["lethal"] = lethal
 
-	if(data["access"])
-		var/settings[0]
-		settings[++settings.len] = list("category" = "Neutralize All Non-Synthetics", "setting" = "check_synth", "value" = check_synth)
-		settings[++settings.len] = list("category" = "Check Weapon Authorization", "setting" = "check_weapons", "value" = check_weapons)
-		settings[++settings.len] = list("category" = "Check Security Records", "setting" = "check_records", "value" = check_records)
-		settings[++settings.len] = list("category" = "Check Arrest Status", "setting" = "check_arrest", "value" = check_arrest)
-		settings[++settings.len] = list("category" = "Check Access Authorization", "setting" = "check_access", "value" = check_access)
-		settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies)
-		data["settings"] = settings
+	var/settings[0]
+	settings[++settings.len] = list("category" = "Neutralize All Non-Synthetics", "setting" = "check_synth", "value" = check_synth)
+	settings[++settings.len] = list("category" = "Check Weapon Authorization", "setting" = "check_weapons", "value" = check_weapons)
+	settings[++settings.len] = list("category" = "Check Security Records", "setting" = "check_records", "value" = check_records)
+	settings[++settings.len] = list("category" = "Check Arrest Status", "setting" = "check_arrest", "value" = check_arrest)
+	settings[++settings.len] = list("category" = "Check Access Authorization", "setting" = "check_access", "value" = check_access)
+	settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies)
+	data["settings"] = settings
 
 	return data
 
-/obj/machinery/turretid/Topic(href, href_list)
-	if(..())
-		return 1
+/obj/machinery/turretid/ui_act(action, list/params)
+	switch(action)
+		if("command")
+			var/log_action = null
+			var/value = params["value"]
+			switch(params["command"])
+				if("enable")
+					enabled = value
+					log_action = "[value ? "enabled" : "disabled"] the turrets"
+				if("lethal")
+					lethal = value
+					log_action = "[value ? "enabled" : "disabled"] the turrets lethal mode."
+				if("check_synth")
+					check_synth = value
+				if("check_weapons")
+					check_weapons = value
+				if("check_records")
+					check_records = value
+				if("check_arrest")
+					check_arrest = value
+				if("check_access")
+					check_access = value
+				if("check_anomalies")
+					check_anomalies = value
 
+			if(!isnull(log_action))
+				log_admin("[key_name(usr)] has [log_action] in [control_area.name] ([control_area])")
+				message_admins("[key_name_admin(usr)] has [log_action] in [control_area.name] ([control_area])", 1)
 
-	if(href_list["command"] && href_list["value"])
-		var/log_action = null
-
-		var/list/toggle = list("disabled","enabled")
-
-		var/value = text2num(href_list["value"])
-		if(href_list["command"] == "enable")
-			enabled = value
-			log_action = "[toggle[enabled+1]] the turrets"
-		else if(href_list["command"] == "lethal")
-			lethal = value
-			log_action = "[toggle[lethal+1]] the turrets lethal mode."
-		else if(href_list["command"] == "check_synth")
-			check_synth = value
-		else if(href_list["command"] == "check_weapons")
-			check_weapons = value
-		else if(href_list["command"] == "check_records")
-			check_records = value
-		else if(href_list["command"] == "check_arrest")
-			check_arrest = value
-		else if(href_list["command"] == "check_access")
-			check_access = value
-		else if(href_list["command"] == "check_anomalies")
-			check_anomalies = value
-
-		if(!isnull(log_action))
-			log_admin("[key_name(usr)] has [log_action]")
-			message_admins("[key_name_admin(usr)] has [log_action]", 1)
-
-		updateTurrets()
-		return 1
+			updateTurrets()
+			return TRUE
 
 /obj/machinery/turretid/proc/updateTurrets()
 	var/datum/turret_checks/TC = new

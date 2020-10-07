@@ -1,20 +1,23 @@
-import { useBackend } from '../backend';
-import { Button, LabeledList, Section } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Fragment } from 'inferno';
+import { Button, Box, LabeledList, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 import { InterfaceLockNoticeBox } from './common/InterfaceLockNoticeBox';
 
 export const TurretControl = (props, context) => {
   const { act, data } = useBackend(context);
-  const locked = data.locked && !data.siliconUser;
   const {
+    access,
+    locked,
     enabled,
     lethal,
-    shootCyborgs,
+    settings
   } = data;
+
   return (
     <Window
       width={305}
-      height={172}>
+      height={310}>
       <Window.Content>
         <InterfaceLockNoticeBox />
         <Section>
@@ -25,7 +28,10 @@ export const TurretControl = (props, context) => {
                 content={enabled ? 'Enabled' : 'Disabled'}
                 selected={enabled}
                 disabled={locked}
-                onClick={() => act('power')} />
+                onClick={() => act('command', {
+                  command: "enable",
+                  value: !enabled
+                })} />
             </LabeledList.Item>
             <LabeledList.Item label="Turret Mode">
               <Button
@@ -33,16 +39,30 @@ export const TurretControl = (props, context) => {
                 content={lethal ? 'Lethal' : 'Stun'}
                 color={lethal ? "bad" : "average"}
                 disabled={locked}
-                onClick={() => act('mode')} />
+                onClick={() => act('command', {
+                  command: "lethal",
+                  value: !lethal
+                })} />
             </LabeledList.Item>
-            <LabeledList.Item label="Target Cyborgs">
-              <Button
-                icon={shootCyborgs ? 'check' : 'times'}
-                content={shootCyborgs ? 'Yes' : 'No'}
-                selected={shootCyborgs}
-                disabled={locked}
-                onClick={() => act('shoot_silicons')} />
-            </LabeledList.Item>
+          </LabeledList>
+        </Section>
+        <Section>
+          <LabeledList>
+            {settings.map(setting => (
+              <LabeledList.Item
+                key={setting.setting}
+                label={setting.category}
+              >
+                <Button
+                  selected={setting.value}
+                  content="Toggle"
+                  onClick={() => act('command', {
+                    command: setting.setting,
+                    value: !setting.value
+                  })}
+                />
+              </LabeledList.Item>
+            ))}
           </LabeledList>
         </Section>
       </Window.Content>
