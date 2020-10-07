@@ -61,11 +61,11 @@
 		var/new_val = input("Enter new emission power level (1 - 50)", "Modifying power level", G.mega_energy) as num
 		if(!new_val)
 			to_chat(user, "<span class='warning'>That's not a valid number.</span>")
-			return TOPIC_REFRESH
+			return TRUE
 		G.mega_energy = Clamp(new_val, 1, 50)
 		G.active_power_usage = G.mega_energy * 1500
 		updateUsrDialog()
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["modifyrate"])
 		var/new_val = input("Enter new emission delay between 1 and 10 seconds.", "Modifying emission rate", G.rate) as num
@@ -74,14 +74,14 @@
 			return 1
 		G.rate = Clamp(new_val, 1, 10)
 		updateUsrDialog()
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["toggle"])
 		G.activate(user)
 		updateUsrDialog()
-		return TOPIC_REFRESH
+		return TRUE
 
-	return TOPIC_NOACTION
+	return FALSE
 
 /obj/machinery/computer/gyrotron_control/attackby(var/obj/item/W, var/mob/user)
 	if(isMultitool(W))

@@ -65,28 +65,28 @@
 
 /obj/machinery/computer/shuttle_control/proc/handle_topic_href(var/datum/shuttle/autodock/shuttle, var/list/href_list, var/user)
 	if(!istype(shuttle))
-		return TOPIC_NOACTION
+		return FALSE
 
 	if(href_list["move"])
 		if(!shuttle.next_location.is_valid(shuttle))
 			to_chat(user, "<span class='warning'>Destination zone is invalid or obstructed.</span>")
-			return TOPIC_HANDLED
+			return FALSE
 		shuttle.launch(src)
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["force"])
 		shuttle.force_launch(src)
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["cancel"])
 		shuttle.cancel_launch(src)
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["set_codes"])
 		var/newcode = input("Input new docking codes", "Docking codes", shuttle.docking_codes) as text|null
 		if (newcode && CanInteract(usr, ui_default_state()))
 			shuttle.set_docking_codes(uppertext(newcode))
-		return TOPIC_REFRESH
+		return TRUE
 
 /obj/machinery/computer/shuttle_control/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

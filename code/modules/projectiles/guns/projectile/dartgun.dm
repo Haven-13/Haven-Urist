@@ -178,19 +178,19 @@
 	if(href_list["stop_mix"])
 		var/index = text2num(href_list["stop_mix"])
 		mixing -= beakers[index]
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if (href_list["mix"])
 		var/index = text2num(href_list["mix"])
 		mixing |= beakers[index]
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if (href_list["eject"])
 		var/index = text2num(href_list["eject"])
 		if(beakers[index])
 			remove_beaker(beakers[index], usr)
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if (href_list["eject_cart"])
 		unload_ammo(usr)
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	Interact(usr)
 

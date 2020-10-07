@@ -67,18 +67,18 @@ datum/preferences
 			var/new_name = check.sanitize_name(raw_name, pref.species)
 			if(new_name)
 				pref.real_name = new_name
-				return TOPIC_REFRESH
+				return TRUE
 			else
 				to_chat(user, "<span class='warning'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</span>")
-				return TOPIC_NOACTION
+				return FALSE
 
 	else if(href_list["random_name"])
 		pref.real_name = random_name(pref.gender, pref.species)
-		return TOPIC_REFRESH
+		return TRUE
 
 	else if(href_list["always_random_name"])
 		pref.be_random_name = !pref.be_random_name
-		return TOPIC_REFRESH
+		return TRUE
 
 	else if(href_list["gender"])
 		var/new_gender = input(user, "Choose your character's gender:", CHARACTER_PREFERENCE_INPUT_TITLE, pref.gender) as null|anything in S.genders
@@ -87,28 +87,28 @@ datum/preferences
 			pref.gender = new_gender
 			if(!(pref.f_style in S.get_facial_hair_styles(pref.gender)))
 				ResetFacialHair()
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 
 	else if(href_list["age"])
 		var/new_age = input(user, "Choose your character's age:\n([S.min_age]-[S.max_age])", CHARACTER_PREFERENCE_INPUT_TITLE, pref.age) as num|null
 		if(new_age && CanUseTopic(user))
 			pref.age = max(min(round(text2num(new_age)), S.max_age), S.min_age)
 			pref.skills_allocated = pref.sanitize_skills(pref.skills_allocated)		// The age may invalidate skill loadouts
-			return TOPIC_REFRESH
+			return TRUE
 
 	else if(href_list["spawnpoint"])
 		var/list/spawnkeys = list()
 		for(var/spawntype in spawntypes())
 			spawnkeys += spawntype
 		var/choice = input(user, "Where would you like to spawn when late-joining?") as null|anything in spawnkeys
-		if(!choice || !spawntypes()[choice] || !CanUseTopic(user))	return TOPIC_NOACTION
+		if(!choice || !spawntypes()[choice] || !CanUseTopic(user))	return FALSE
 		pref.spawnpoint = choice
-		return TOPIC_REFRESH
+		return TRUE
 
 	else if(href_list["metadata"])
 		var/new_metadata = sanitize(input(user, "Enter any information you'd like others to see, such as Roleplay-preferences:", "Game Preference" , pref.metadata)) as message|null
 		if(new_metadata && CanUseTopic(user))
 			pref.metadata = new_metadata
-			return TOPIC_REFRESH
+			return TRUE
 
 	return ..()

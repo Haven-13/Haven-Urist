@@ -279,11 +279,11 @@ var/list/global/tank_gauge_cache = list()
 			var/cp = text2num(href_list["dist_p"])
 			distribute_pressure += cp
 		distribute_pressure = min(max(round(distribute_pressure), 0), TANK_MAX_RELEASE_PRESSURE)
-		return TOPIC_REFRESH
+		return TRUE
 
 	if (href_list["stat"])
 		toggle_valve(usr)
-		return TOPIC_REFRESH
+		return TRUE
 
 /obj/item/weapon/tank/proc/toggle_valve(var/mob/user)
 	if(istype(loc,/mob/living/carbon))

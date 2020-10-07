@@ -168,11 +168,11 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/OnTopic(user, href_list)
 	if(href_list["menu"]) //Switches menu screens. Converts a sent text string into a number. Saves a LOT of code.
 		screen = text2num(href_list["menu"])
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["updt_tech"]) //Update the research holder with information from the technology disk.
 		screen = 0.0
-		. = TOPIC_REFRESH
+		. = TRUE
 		spawn(50)
 			screen = 1.2
 			files.AddTech2Known(t_disk.stored)
@@ -181,13 +181,13 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	else if(href_list["clear_tech"]) //Erase data on the technology disk.
 		t_disk.stored = null
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["eject_tech"]) //Eject the technology disk.
 		t_disk.dropInto(loc)
 		t_disk = null
 		screen = 1.0
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["copy_tech"]) //Copys some technology data from the research holder to the disk.
 		for(var/datum/tech/T in files.known_tech)
@@ -195,11 +195,11 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				t_disk.stored = T
 				break
 		screen = 1.2
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["updt_design"]) //Updates the research holder with design data from the design disk.
 		screen = 0.0
-		. = TOPIC_REFRESH
+		. = TRUE
 		spawn(50)
 			screen = 1.4
 			files.AddDesign2Known(d_disk.blueprint)
@@ -208,7 +208,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	else if(href_list["clear_design"]) //Erases data on the design disk.
 		d_disk.blueprint = null
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["eject_design"]) //Eject the design disk.
 		d_disk.dropInto(loc)
@@ -221,7 +221,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				d_disk.blueprint = D
 				break
 		screen = 1.4
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["eject_item"]) //Eject the item inside the destructive analyzer.
 		if(linked_destroy)
@@ -233,7 +233,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				linked_destroy.loaded_item = null
 				linked_destroy.icon_state = "d_analyzer"
 				screen = 2.1
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["deconstruct"]) //Deconstruct the item in the destructive analyzer and update the research holder.
 		if(linked_destroy)
@@ -244,7 +244,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					return
 				linked_destroy.busy = 1
 				screen = 0.1
-				. = TOPIC_REFRESH
+				. = TRUE
 				flick("d_analyzer_process", linked_destroy)
 				spawn(24)
 					if(linked_destroy)
@@ -280,21 +280,21 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 						use_power(linked_destroy.active_power_usage)
 						screen = 1.0
 						attack_hand(user)
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["lock"]) //Lock the console from use by anyone without tox access.
 		if(allowed(usr))
 			screen = text2num(href_list["lock"])
 		else
 			to_chat(usr, "Unauthorized Access.")
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["sync"]) //Sync the research holder with all the R&D consoles in the game that aren't sync protected.
 		screen = 0.0
 		if(!sync)
 			to_chat(usr, "<span class='notice'>You must connect to the network first.</span>")
 		else
-			. = TOPIC_HANDLED
+			. = FALSE
 			griefProtection() //Putting this here because I dont trust the sync process
 			spawn(30)
 				if(src)
@@ -321,7 +321,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	else if(href_list["togglesync"]) //Prevents the console from being synced by other consoles. Can still send data.
 		sync = !sync
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["build"] || href_list["buildmult"]) //Causes the Protolathe to build something.
 		if(linked_lathe)
@@ -337,7 +337,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					count = Clamp(count, 1, 100)
 				for(var/i=1, i<=count, i++)
 					linked_lathe.addToQueue(being_built)
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["imprint"] || href_list["imprintmult"]) //Causes the Circuit Imprinter to build something.
 		if(linked_imprinter)
@@ -353,47 +353,47 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					count = Clamp(count, 1, 100)
 				for(var/i=1, i<=count, i++)
 					linked_imprinter.addToQueue(being_built)
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["disposeI"] && linked_imprinter)  //Causes the circuit imprinter to dispose of a single reagent (all of it)
 		var/datum/reagent/R = locate(href_list["disposeI"]) in linked_imprinter.reagents.reagent_list
 		if(R)
 			linked_imprinter.reagents.del_reagent(href_list["dispose"])
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["disposeallI"] && linked_imprinter) //Causes the circuit imprinter to dispose of all it's reagents.
 		linked_imprinter.reagents.clear_reagents()
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["removeI"] && linked_lathe)
 		linked_imprinter.removeFromQueue(text2num(href_list["removeI"]))
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["disposeP"] && linked_lathe)  //Causes the protolathe to dispose of a single reagent (all of it)
 		var/datum/reagent/R = locate(href_list["disposeP"]) in linked_lathe.reagents.reagent_list
 		if(R)
 			linked_lathe.reagents.del_reagent(R.type)
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["disposeallP"] && linked_lathe) //Causes the protolathe to dispose of all it's reagents.
 		linked_lathe.reagents.clear_reagents()
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["removeP"] && linked_lathe)
 		linked_lathe.removeFromQueue(text2num(href_list["removeP"]))
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["lathe_ejectsheet"] && linked_lathe) //Causes the protolathe to eject a sheet of material
 		linked_lathe.eject(href_list["lathe_ejectsheet"], text2num(href_list["amount"]))
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["imprinter_ejectsheet"] && linked_imprinter) //Causes the protolathe to eject a sheet of material
 		linked_imprinter.eject(href_list["imprinter_ejectsheet"], text2num(href_list["amount"]))
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["find_device"]) //The R&D console looks for devices nearby to link up with.
 		screen = 0.0
-		. = TOPIC_HANDLED
+		. = FALSE
 		spawn(10)
 			SyncRDevices()
 			screen = 1.7
@@ -410,12 +410,12 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			if("imprinter")
 				linked_imprinter.linked_console = null
 				linked_imprinter = null
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["reset"]) //Reset the R&D console's database.
 		griefProtection()
 		var/choice = alert("R&D Console Database Reset", "Are you sure you want to reset the R&D console's database? Data lost cannot be recovered.", "Continue", "Cancel")
-		. = TOPIC_HANDLED
+		. = FALSE
 		if(choice == "Continue")
 			screen = 0.0
 			qdel(files)
@@ -426,7 +426,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	else if (href_list["print"]) //Print research information
 		screen = 0.5
-		. = TOPIC_HANDLED
+		. = FALSE
 		spawn(20)
 			var/obj/item/weapon/paper/PR = new/obj/item/weapon/paper
 			PR.name = "fabricator report"
@@ -444,7 +444,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				screen = ((text2num(href_list["print"]) == 2) ? 5.0 : 1.1)
 				attack_hand(user)
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		attack_hand(user)
 
 /obj/machinery/computer/rdconsole/proc/GetResearchLevelsInfo()

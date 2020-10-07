@@ -72,19 +72,19 @@
 			track_num = tracks.len
 		if(playing)
 			start()
-		return TOPIC_REFRESH
+		return TRUE
 	if(href_list["stop"])
 		stop()
-		return TOPIC_HANDLED
+		return FALSE
 	if(href_list["start"] && !broken)
 		start()
-		return TOPIC_HANDLED
+		return FALSE
 	if(href_list["volup"])
 		change_volume(volume + 10)
-		return TOPIC_HANDLED
+		return FALSE
 	if(href_list["voldown"])
 		change_volume(volume - 10)
-		return TOPIC_HANDLED
+		return FALSE
 
 /obj/item/device/boombox/attackby(var/obj/item/W, var/mob/user)
 	if(isScrewdriver(W))

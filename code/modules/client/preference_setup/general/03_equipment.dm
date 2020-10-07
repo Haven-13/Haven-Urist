@@ -137,39 +137,39 @@
 	if(href_list["change_underwear"])
 		var/datum/category_group/underwear/UWC = GLOB.underwear.categories_by_name[href_list["change_underwear"]]
 		if(!UWC)
-			return TOPIC_NOACTION
+			return FALSE
 		var/datum/category_item/underwear/selected_underwear = input(user, "Choose underwear:", CHARACTER_PREFERENCE_INPUT_TITLE, pref.all_underwear[UWC.name]) as null|anything in UWC.items
 		if(selected_underwear && CanUseTopic(user))
 			pref.all_underwear[UWC.name] = selected_underwear.name
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 	else if(href_list["underwear"] && href_list["tweak"])
 		var/underwear = href_list["underwear"]
 		if(!(underwear in pref.all_underwear))
-			return TOPIC_NOACTION
+			return FALSE
 		var/datum/gear_tweak/gt = locate(href_list["tweak"])
 		if(!gt)
-			return TOPIC_NOACTION
+			return FALSE
 		var/new_metadata = gt.get_metadata(user, get_underwear_metadata(underwear, gt))
 		if(new_metadata)
 			set_underwear_metadata(underwear, gt, new_metadata)
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			return UPDATE_PREVIEW
 	else if(href_list["change_backpack"])
 		var/new_backpack = input(user, "Choose backpack style:", CHARACTER_PREFERENCE_INPUT_TITLE, pref.backpack) as null|anything in backpacks_by_name
 		if(!isnull(new_backpack) && CanUseTopic(user))
 			pref.backpack = backpacks_by_name[new_backpack]
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			return UPDATE_PREVIEW
 	else if(href_list["backpack"] && href_list["tweak"])
 		var/backpack_name = href_list["backpack"]
 		if(!(backpack_name in backpacks_by_name))
-			return TOPIC_NOACTION
+			return FALSE
 		var/decl/backpack_outfit/bo = backpacks_by_name[backpack_name]
 		var/datum/backpack_tweak/bt = locate(href_list["tweak"]) in bo.tweaks
 		if(!bt)
-			return TOPIC_NOACTION
+			return FALSE
 		var/new_metadata = bt.get_metadata(user, get_backpack_metadata(bo, bt))
 		if(new_metadata)
 			set_backpack_metadata(bo, bt, new_metadata)
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			return UPDATE_PREVIEW
 
 	return ..()
 

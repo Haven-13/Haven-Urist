@@ -75,7 +75,7 @@
 /obj/item/weapon/virusdish/OnTopic(user, href_list)
 	if(href_list["info"])
 		show_browser(user, info, "window=info_\ref[src]")
-		return TOPIC_HANDLED
+		return FALSE
 
 /obj/item/weapon/ruinedvirusdish
 	name = "ruined virus sample"

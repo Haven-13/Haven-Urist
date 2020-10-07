@@ -55,6 +55,6 @@
 				t = input(user, "Enter any OOC comments", "Global Preference", html_decode(candidate.comments)) as message
 				if(!isnull(t) && CanUseTopic(user))
 					candidate.comments = sanitize(t)
-		return TOPIC_REFRESH
+		return TRUE
 
 	return ..()

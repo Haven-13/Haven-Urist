@@ -146,18 +146,18 @@
 /obj/structure/lift/panel/OnTopic(user, href_list)
 	if(href_list["move_to_floor"])
 		lift.queue_move_to(locate(href_list["move_to_floor"]))
-		. = TOPIC_REFRESH
+		. = TRUE
 	if(href_list["open_doors"])
 		lift.open_doors()
-		. = TOPIC_REFRESH
+		. = TRUE
 	if(href_list["close_doors"])
 		lift.close_doors()
-		. = TOPIC_REFRESH
+		. = TRUE
 	if(href_list["emergency_stop"])
 		lift.emergency_stop()
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		pressed(user)
 
 // End panel.

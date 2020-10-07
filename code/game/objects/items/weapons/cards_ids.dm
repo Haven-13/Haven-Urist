@@ -139,7 +139,7 @@ var/const/NO_EMAG_ACT = -50
 	if(href_list["look_at_id"])
 		if(istype(user))
 			user.examinate(src)
-			return TOPIC_HANDLED
+			return FALSE
 
 /obj/item/weapon/card/id/examine(mob/user)
 	..()

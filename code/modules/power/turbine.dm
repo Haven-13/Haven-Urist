@@ -183,13 +183,13 @@
 /obj/machinery/power/turbine/OnTopic(user, href_list)
 	if(href_list["close"])
 		usr << browse(null, "window=turbine")
-		return TOPIC_HANDLED
+		return FALSE
 
 	if(href_list["str"])
 		compressor.starter = !compressor.starter
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		interact(user)
 
 
@@ -270,10 +270,10 @@
 /obj/machinery/computer/turbine_computer/OnTopic(user, href_list)
 	if( href_list["view"] )
 		usr.client.eye = src.compressor
-		. = TOPIC_HANDLED
+		. = FALSE
 	else if( href_list["str"] )
 		src.compressor.starter = !src.compressor.starter
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if (href_list["doors"])
 		for(var/obj/machinery/door/blast/D in src.doors)
 			if (door_status == 0)
@@ -284,12 +284,12 @@
 				spawn( 0 )
 					D.close()
 					door_status = 0
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if( href_list["close"] )
 		user << browse(null, "window=computer")
-		return TOPIC_HANDLED
+		return FALSE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		interact(user)
 
 /obj/machinery/computer/turbine_computer/Process()

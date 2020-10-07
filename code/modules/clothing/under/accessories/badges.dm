@@ -27,7 +27,7 @@
 	if(href_list["look_at_me"])
 		if(istype(user))
 			user.examinate(src)
-			return TOPIC_HANDLED
+			return FALSE
 
 /obj/item/clothing/accessory/badge/get_examine_line()
 	. = ..()

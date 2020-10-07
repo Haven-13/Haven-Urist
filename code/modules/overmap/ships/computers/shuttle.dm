@@ -39,4 +39,4 @@
 		possible_d = shuttle.get_possible_destinations()
 		if(CanInteract(usr, ui_default_state()) && (D in possible_d))
 			shuttle.set_destination(possible_d[D])
-		return TOPIC_REFRESH
+		return TRUE

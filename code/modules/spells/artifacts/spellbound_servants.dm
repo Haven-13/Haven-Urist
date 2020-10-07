@@ -199,7 +199,7 @@
 		var/mob/master = locate(href_list["master"])
 		stype.spawn_servant(get_turf(src),master,user)
 		qdel(src)
-	return TOPIC_HANDLED
+	return FALSE
 
 /obj/effect/cleanable/spellbound/Destroy()
 	qdel(stype)
@@ -256,4 +256,4 @@
 /obj/item/weapon/summoning_stone/OnTopic(user, href_list, state)
 	if(href_list["type"])
 		use_type(href_list["type"],user)
-	return TOPIC_HANDLED
+	return FALSE

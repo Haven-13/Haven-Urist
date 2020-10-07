@@ -44,7 +44,7 @@ Single Use Emergency Pouches
 /obj/item/weapon/storage/med_pouch/OnTopic(var/user, var/list/href_list)
 	if(href_list["show_info"])
 		to_chat(user, instructions)
-		return TOPIC_HANDLED
+		return FALSE
 
 /obj/item/weapon/storage/med_pouch/update_icon()
 	if(opened)

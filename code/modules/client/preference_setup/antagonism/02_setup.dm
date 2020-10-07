@@ -61,38 +61,38 @@
 		var/source_selection = input(user, "Select Uplink Source to Add", CHARACTER_PREFERENCE_INPUT_TITLE) as null|anything in (list_values(uplink_sources_by_name) - pref.uplink_sources)
 		if(source_selection && CanUseTopic(user))
 			pref.uplink_sources |= source_selection
-			return TOPIC_REFRESH
+			return TRUE
 
 	if(href_list["remove_source"])
 		var/decl/uplink_source/US = locate(href_list["remove_source"]) in pref.uplink_sources
 		if(US && pref.uplink_sources.Remove(US))
-			return TOPIC_REFRESH
+			return TRUE
 
 	if(href_list["move_source_up"])
 		var/decl/uplink_source/US = locate(href_list["move_source_up"]) in pref.uplink_sources
 		if(!US)
-			return TOPIC_NOACTION
+			return FALSE
 		var/index = pref.uplink_sources.Find(US)
 		if(index <= 1)
-			return TOPIC_NOACTION
+			return FALSE
 		pref.uplink_sources.Swap(index, index - 1)
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["move_source_down"])
 		var/decl/uplink_source/US = locate(href_list["move_source_down"]) in pref.uplink_sources
 		if(!US)
-			return TOPIC_NOACTION
+			return FALSE
 		var/index = pref.uplink_sources.Find(US)
 		if(index >= pref.uplink_sources.len)
-			return TOPIC_NOACTION
+			return FALSE
 		pref.uplink_sources.Swap(index, index + 1)
-		return TOPIC_REFRESH
+		return TRUE
 
 
 	if(href_list["exploitable_record"])
 		var/exploitmsg = sanitize(input(user,"Set exploitable information about you here.","Exploitable Information", html_decode(pref.exploit_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
 		if(!isnull(exploitmsg) && !jobban_isbanned(user, "Records") && CanUseTopic(user))
 			pref.exploit_record = exploitmsg
-			return TOPIC_REFRESH
+			return TRUE
 
 	return ..()

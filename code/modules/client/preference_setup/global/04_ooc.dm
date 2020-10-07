@@ -28,13 +28,13 @@
 /datum/category_item/player_setup_item/player_global/ooc/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["unignore_player"])
 		pref.ignored_players -= href_list["unignore_player"]
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["ignore_player"])
 		var/player_to_ignore = sanitize(ckey(input(user, "Who do you want to ignore?","Ignore") as null|text))
 		//input() sleeps while waiting for the user to respond, so we need to check CanUseTopic() again here
 		if(player_to_ignore && CanUseTopic(user))
 			pref.ignored_players |= player_to_ignore
-		return TOPIC_REFRESH
+		return TRUE
 
 	return ..()

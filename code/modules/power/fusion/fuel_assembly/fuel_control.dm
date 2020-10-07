@@ -78,21 +78,21 @@
 	if(href_list["toggle_injecting"])
 		var/obj/machinery/fusion_fuel_injector/I = locate(href_list["toggle_injecting"])
 		if(I.id_tag != id_tag || get_dist(src, I) > scan_range)
-			return TOPIC_NOACTION
+			return FALSE
 
 		if(istype(I))
 			if(I.injecting)
 				I.StopInjecting()
-				return TOPIC_REFRESH
+				return TRUE
 			else
 				I.BeginInjecting()
-				return TOPIC_REFRESH
+				return TRUE
 
 	if( href_list["close"] )
 		user << browse(null, "window=fuel_control")
 		user.unset_machine()
 
-	return TOPIC_REFRESH
+	return TRUE
 
 
 /obj/machinery/computer/fusion_fuel_control/attackby(var/obj/item/W, var/mob/user)

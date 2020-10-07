@@ -51,7 +51,7 @@
 			user.eyeobj.setLoc(locate(href_list["vision_jump"]))
 		else
 			CRASH("[user] does not have an eyeobj")
-		. = TOPIC_REFRESH
+		. = TRUE
 	. = ..()
 
 /obj/structure/deity/pylon/hear_talk(mob/M as mob, text, verb, datum/language/speaking)

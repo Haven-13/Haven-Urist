@@ -296,7 +296,7 @@
 /obj/machinery/disposal/OnTopic(user, href_list)
 	if(href_list["close"])
 		close_browser(user, "window=disposal")
-		return TOPIC_HANDLED
+		return FALSE
 
 	if(href_list["pump"])
 		if(text2num(href_list["pump"]))
@@ -304,18 +304,18 @@
 		else
 			mode = 0
 		update_icon()
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["handle"])
 		flush = text2num(href_list["handle"])
 		update_icon()
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["eject"])
 		eject()
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		interact(user)
 
 // eject the contents of the disposal unit

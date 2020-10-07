@@ -144,7 +144,7 @@
 
 	if (href_list["close"])
 		close_browser(user, "window=arcade")
-		return TOPIC_HANDLED
+		return FALSE
 
 	if (href_list["attack"])
 		src.blocked = 1
@@ -154,7 +154,7 @@
 			turtle--
 		src.enemy_hp -= attackamt
 
-		. = TOPIC_REFRESH
+		. = TRUE
 		sleep(10)
 		src.arcade_action(user)
 
@@ -169,7 +169,7 @@
 		src.player_hp += healamt
 		src.blocked = 1
 
-		. = TOPIC_REFRESH
+		. = TRUE
 		sleep(10)
 		src.arcade_action(user)
 
@@ -181,7 +181,7 @@
 		if(turtle > 0)
 			turtle--
 
-		. = TOPIC_REFRESH
+		. = TRUE
 		sleep(10)
 		src.arcade_action(user)
 
@@ -196,9 +196,9 @@
 		if(emagged)
 			emagged = 0
 			SetupGame()
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		attack_hand(user)
 
 /obj/machinery/computer/arcade/battle/proc/arcade_action(var/user)

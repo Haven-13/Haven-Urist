@@ -124,28 +124,28 @@
 /obj/machinery/disease2/isolator/OnTopic(user, href_list)
 	if (href_list["close"])
 		SStgui.close_user_uis(user, src, "main")
-		return TOPIC_HANDLED
+		return FALSE
 
 	if (href_list[HOME])
 		state = HOME
-		return TOPIC_REFRESH
+		return TRUE
 
 	if (href_list[LIST])
 		state = LIST
-		return TOPIC_REFRESH
+		return TRUE
 
 	if (href_list[ENTRY])
 		if (istype(locate(href_list["view"]), /datum/computer_file/data/virus_record))
 			entry = locate(href_list["view"])
 
 		state = ENTRY
-		return TOPIC_REFRESH
+		return TRUE
 
 	if (href_list["print"])
 		print(user)
-		return TOPIC_REFRESH
+		return TRUE
 
-	if(!sample) return TOPIC_HANDLED
+	if(!sample) return FALSE
 
 	if (href_list["isolate"])
 		var/datum/disease2/disease/V = locate(href_list["isolate"])
@@ -153,13 +153,13 @@
 			virus2 = V
 			isolating = 20
 			update_icon()
-		return TOPIC_REFRESH
+		return TRUE
 
 	if (href_list["eject"])
 		sample.dropInto(loc)
 		sample = null
 		update_icon()
-		return TOPIC_REFRESH
+		return TRUE
 
 /obj/machinery/disease2/isolator/proc/print(var/mob/user)
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(loc)

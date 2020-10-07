@@ -252,23 +252,23 @@
 		if(running != SHIELD_RUNNING)
 			return
 		running = SHIELD_DISCHARGING
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["start_generator"])
 		if(offline_for)
 			return
 		running = SHIELD_RUNNING
 		regenerate_field()
-		return TOPIC_REFRESH
+		return TRUE
 
 	// Instantly drops the shield, but causes a cooldown before it may be started again. Also carries a risk of EMP at high charge.
 	if(href_list["emergency_shutdown"])
 		if(!running)
-			return TOPIC_HANDLED
+			return FALSE
 
 		var/choice = input(user, "Are you sure that you want to initiate an emergency shield shutdown? This will instantly drop the shield, and may result in unstable release of stored electromagnetic energy. Proceed at your own risk.") in list("Yes", "No")
 		if((choice != "Yes") || !running)
-			return TOPIC_HANDLED
+			return FALSE
 
 		// If the shield would take 5 minutes to disperse and shut down using regular methods, it will take x1.5 (7 minutes and 30 seconds) of this time to cool down after emergency shutdown
 		offline_for = round(current_energy / (SHIELD_SHUTDOWN_DISPERSION_RATE / 1.5))
@@ -279,18 +279,18 @@
 			empulse(src, old_energy / 60000000, old_energy / 32000000, 1) // If shields are charged at 450 MJ, the EMP will be 7.5, 14.0625. 90 MJ, 1.5, 2.8125
 		old_energy = 0
 
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(mode_changes_locked)
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["set_range"])
 		var/new_range = input(user, "Enter new field range (1-[world.maxx]). Leave blank to cancel.", "Field Radius Control", field_radius) as num
 		if(!new_range)
-			return TOPIC_HANDLED
+			return FALSE
 		field_radius = between(1, new_range, world.maxx)
 		regenerate_field()
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["set_input_cap"])
 		var/new_cap = round(input(user, "Enter new input cap (in kW). Enter 0 or nothing to disable input cap.", "Generator Power Control", round(input_cap / 1000)) as num)
@@ -298,15 +298,15 @@
 			input_cap = 0
 			return
 		input_cap = max(0, new_cap) * 1000
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["toggle_mode"])
 		// Toggling hacked-only modes requires the hacked var to be set to 1
 		if((text2num(href_list["toggle_mode"]) & (MODEFLAG_BYPASS | MODEFLAG_OVERCHARGE)) && !hacked)
-			return TOPIC_HANDLED
+			return FALSE
 
 		toggle_flag(text2num(href_list["toggle_mode"]))
-		return TOPIC_REFRESH
+		return TRUE
 
 
 /obj/machinery/power/shield_generator/proc/field_integrity()

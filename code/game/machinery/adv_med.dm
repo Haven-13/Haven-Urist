@@ -248,29 +248,29 @@
 	if (href_list["print"])
 		if (!stored_scan)
 			to_chat(user, "\icon[src]<span class='warning'>Error: No scan stored.</span>")
-			return TOPIC_REFRESH
+			return TRUE
 		new/obj/item/weapon/paper/(loc, "<tt>[stored_scan]</tt>", "Body scan report - [stored_scan_subject]")
-		return TOPIC_REFRESH
+		return TRUE
 	if(href_list["scan"])
 		if (!connected.occupant)
 			to_chat(user, "\icon[src]<span class='warning'>The body scanner is empty.</span>")
-			return TOPIC_REFRESH
+			return TRUE
 		if (!istype(connected.occupant))
 			to_chat(user, "\icon[src]<span class='warning'>The body scanner cannot scan that lifeform.</span>")
-			return TOPIC_REFRESH
+			return TRUE
 		stored_scan = connected.occupant.get_medical_data()
 		stored_scan_subject = connected.occupant
 		user.visible_message("<span class='notice'>\The [user] performs a scan of \the [connected.occupant] using \the [connected].</span>")
 		generate_window(user)
-		return TOPIC_REFRESH
+		return TRUE
 	if(href_list["erase"])
 		stored_scan = null
 		stored_scan_subject = null
 		generate_window(user)
-		return TOPIC_REFRESH
+		return TRUE
 	if(href_list["scan_refresh"])
 		generate_window(user)
-		return TOPIC_REFRESH
+		return TRUE
 
 /proc/get_severity(amount)
 	if(!amount)

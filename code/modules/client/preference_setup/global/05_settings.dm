@@ -93,7 +93,7 @@
 		. = pref_mob.set_preference(href_list["pref"], href_list["value"])
 
 	if(.)
-		return TOPIC_REFRESH
+		return TRUE
 
 	return ..()
 

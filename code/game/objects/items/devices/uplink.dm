@@ -148,23 +148,23 @@
 	if(href_list["buy_item"])
 		var/datum/uplink_item/UI = (locate(href_list["buy_item"]) in uplink.items)
 		UI.buy(src, usr)
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if(href_list["lock"])
 		toggle()
 		SStgui.close_user_uis(user, src, "main")
-		. = TOPIC_HANDLED
+		. = FALSE
 	else if(href_list["return"])
 		nanoui_menu = round(nanoui_menu/10)
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if(href_list["menu"])
 		nanoui_menu = text2num(href_list["menu"])
 		if(href_list["id"])
 			exploit_id = text2num(href_list["id"])
 		if(href_list["category"])
 			category = locate(href_list["category"]) in uplink.categories
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		update_nano_data()
 
 /obj/item/device/uplink/proc/update_nano_data()

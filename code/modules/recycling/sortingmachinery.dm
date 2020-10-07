@@ -367,7 +367,7 @@
 		src.currTag = href_list["nextTag"]
 		to_chat(user, "<span class='notice'>You set [src] to <b>[src.currTag]</b>.</span>")
 		playsound(src.loc, 'sound/machines/chime.ogg', 50, 1)
-		. = TOPIC_REFRESH
+		. = TRUE
 	if(href_list["nextTag"] == "CUSTOM")
 		var/dest = input(user, "Please enter custom location.", "Location", src.currTag ? src.currTag : "None")
 		if(CanUseTopic(user, state))
@@ -379,11 +379,11 @@
 				src.currTag = 0
 				to_chat(user, "<span class='notice'>You clear [src]'s custom location.</span>")
 				playsound(src.loc, 'sound/machines/chime.ogg', 50, 1)
-			. = TOPIC_REFRESH
+			. = TRUE
 		else
-			. = TOPIC_HANDLED
+			. = FALSE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		openwindow(user)
 
 /obj/machinery/disposal/deliveryChute

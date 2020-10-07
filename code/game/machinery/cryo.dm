@@ -157,24 +157,24 @@
 	if(href_list["switchOn"])
 		on = 1
 		update_icon()
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["switchOff"])
 		on = 0
 		update_icon()
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["ejectBeaker"])
 		if(beaker)
 			beaker.forceMove(get_step(loc, SOUTH))
 			beaker = null
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["ejectOccupant"])
 		if(!occupant || isslime(user) || ispAI(user))
-			return TOPIC_HANDLED // don't update UIs attached to this object
+			return FALSE // don't update UIs attached to this object
 		go_out()
-		return TOPIC_REFRESH
+		return TRUE
 
 
 /obj/machinery/atmospherics/unary/cryo_cell/attackby(var/obj/G, var/mob/user as mob)

@@ -12,7 +12,7 @@
 	return TRUE
 
 /obj/proc/OnTopic(var/mob/user, var/href_list, var/datum/ui_state/state)
-	return TOPIC_NOACTION
+	return FALSE
 
 /obj/CanUseTopic(var/mob/user, var/datum/ui_state/state, var/href_list)
 	if(user.CanUseObjTopic(src))

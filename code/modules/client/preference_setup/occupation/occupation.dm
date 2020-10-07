@@ -210,14 +210,14 @@
 /datum/category_item/player_setup_item/occupation/OnTopic(href, href_list, user)
 	if(href_list["reset_jobs"])
 		ResetJobs()
-		return TOPIC_REFRESH
+		return TRUE
 
 	else if(href_list["job_alternative"])
 		if(pref.alternate_option == GET_RANDOM_JOB || pref.alternate_option == BE_ASSISTANT)
 			pref.alternate_option += 1
 		else if(pref.alternate_option == RETURN_TO_LOBBY)
 			pref.alternate_option = 0
-		return TOPIC_REFRESH
+		return TRUE
 
 	else if(href_list["select_alt_title"])
 		var/datum/job/job = locate(href_list["select_alt_title"])
@@ -226,10 +226,10 @@
 			var/choice = input("Choose an title for [job.title].", "Choose Title", pref.GetPlayerAltTitle(job)) as anything in choices|null
 			if(choice && CanUseTopic(user))
 				SetPlayerAltTitle(job, choice)
-				return (pref.equip_preview_mob ? TOPIC_REFRESH_UPDATE_PREVIEW : TOPIC_REFRESH)
+				return (pref.equip_preview_mob ? UPDATE_PREVIEW : TRUE)
 
 	else if(href_list["set_job"] && href_list["set_level"])
-		if(SetJob(user, href_list["set_job"], text2num(href_list["set_level"]))) return (pref.equip_preview_mob ? TOPIC_REFRESH_UPDATE_PREVIEW : TOPIC_REFRESH)
+		if(SetJob(user, href_list["set_job"], text2num(href_list["set_level"]))) return (pref.equip_preview_mob ? UPDATE_PREVIEW : TRUE)
 
 	else if(href_list["char_branch"])
 		var/choice = input(user, "Choose your branch of service.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.char_branch) as null|anything in mil_branches.spawn_branches(preference_species())
@@ -238,7 +238,7 @@
 			pref.char_rank = "None"
 			prune_job_prefs()
 			pref.skills_allocated = pref.sanitize_skills(pref.skills_allocated)		// Check our skillset is still valid
-			return TOPIC_REFRESH
+			return TRUE
 
 	else if(href_list["char_rank"])
 		var/choice = null
@@ -250,7 +250,7 @@
 		if(choice && CanUseTopic(user) && mil_branches.is_spawn_rank(pref.char_branch, choice, preference_species()))
 			pref.char_rank = choice
 			prune_job_prefs()
-			return TOPIC_REFRESH
+			return TRUE
 	else if(href_list["show_branches"])
 		var/rank = href_list["show_branches"]
 		var/datum/job/job = job_master.GetJob(rank)

@@ -69,7 +69,7 @@
 			dat += "[person]<br/>"
 		dat += "<hr/>"
 		show_browser(user, dat, "window=cryolog")
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["view"])
 		if(!allow_items) return
@@ -80,42 +80,42 @@
 		dat += "<hr/>"
 
 		show_browser(user, dat, "window=cryoitems")
-		. = TOPIC_HANDLED
+		. = FALSE
 
 	else if(href_list["item"])
 		if(!allow_items) return
 
 		if(frozen_items.len == 0)
 			to_chat(user, "<span class='notice'>There is nothing to recover from storage.</span>")
-			return TOPIC_HANDLED
+			return FALSE
 
 		var/obj/item/I = input(user, "Please choose which object to retrieve.","Object recovery",null) as null|anything in frozen_items
 		if(!I || !CanUseTopic(user, state))
-			return TOPIC_HANDLED
+			return FALSE
 
 		if(!(I in frozen_items))
 			to_chat(user, "<span class='notice'>\The [I] is no longer in storage.</span>")
-			return TOPIC_HANDLED
+			return FALSE
 
 		visible_message("<span class='notice'>The console beeps happily as it disgorges \the [I].</span>", 3)
 
 		I.dropInto(loc)
 		frozen_items -= I
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["allitems"])
-		if(!allow_items) return TOPIC_HANDLED
+		if(!allow_items) return FALSE
 
 		if(frozen_items.len == 0)
 			to_chat(user, "<span class='notice'>There is nothing to recover from storage.</span>")
-			return TOPIC_HANDLED
+			return FALSE
 
 		visible_message("<span class='notice'>The console beeps happily as it disgorges the desired objects.</span>", 3)
 
 		for(var/obj/item/I in frozen_items)
 			I.dropInto(loc)
 			frozen_items -= I
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	attack_hand(user)
 

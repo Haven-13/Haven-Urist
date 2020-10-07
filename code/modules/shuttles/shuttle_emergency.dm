@@ -246,7 +246,7 @@
 	if(href_list["removeid"])
 		var/dna_hash = href_list["removeid"]
 		authorized -= dna_hash
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(!emagged && href_list["scanid"])
 		//They selected an empty entry. Try to scan their id.
@@ -254,4 +254,4 @@
 		if (istype(H))
 			if (!read_authorization(H.get_active_hand()))	//try to read what's in their hand first
 				read_authorization(H.wear_id)
-				. = TOPIC_REFRESH
+				. = TRUE

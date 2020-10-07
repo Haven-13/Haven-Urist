@@ -61,4 +61,4 @@ var/global/list/minor_air_alarms = list()
 				if(istype(air_alarm))
 					var/list/new_ref = list("atmos_reset" = 1)
 					air_alarm.Topic(air_alarm, new_ref)
-		return TOPIC_REFRESH
+		return TRUE

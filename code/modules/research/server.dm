@@ -169,7 +169,7 @@
 /obj/machinery/computer/rdservercontrol/OnTopic(user, href_list, state)
 	if(href_list["main"])
 		screen = 0
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["access"] || href_list["data"] || href_list["transfer"])
 		temp_server = null
@@ -192,7 +192,7 @@
 				if(S == src)
 					continue
 				servers += S
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["upload_toggle"])
 		var/num = text2num(href_list["upload_toggle"])
@@ -200,7 +200,7 @@
 			temp_server.id_with_upload -= num
 		else
 			temp_server.id_with_upload += num
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["download_toggle"])
 		var/num = text2num(href_list["download_toggle"])
@@ -208,7 +208,7 @@
 			temp_server.id_with_download -= num
 		else
 			temp_server.id_with_download += num
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["reset_tech"])
 		var/choice = alert(user, "Technology Data Rest", "Are you sure you want to reset this technology to its default data? Data lost cannot be recovered.", "Continue", "Cancel")
@@ -218,7 +218,7 @@
 					T.level = 1
 					break
 		temp_server.files.RefreshResearch()
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["reset_design"])
 		var/choice = alert(user, "Design Data Deletion", "Are you sure you want to delete this design? If you still have the prerequisites for the design, it'll reset to its base reliability. Data lost cannot be recovered.", "Continue", "Cancel")
@@ -228,9 +228,9 @@
 					temp_server.files.known_designs -= D
 					break
 		temp_server.files.RefreshResearch()
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		attack_hand(user)
 
 /obj/machinery/computer/rdservercontrol/attack_hand(mob/user as mob)

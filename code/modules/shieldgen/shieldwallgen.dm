@@ -60,7 +60,7 @@
 			user.visible_message("\The [user] turned the shield generator on.", \
 				"You turn on the shield generator.", \
 				"You hear heavy droning.")
-		return TOPIC_REFRESH
+		return TRUE
 
 /obj/machinery/shieldwallgen/ex_act(var/severity)
 	switch(severity)

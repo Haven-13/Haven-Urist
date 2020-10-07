@@ -231,12 +231,12 @@
 	if(href_list["change_category"])
 		var/choice = input("Which category do you wish to display?") as null|anything in autolathe_categories+"All"
 		if(!choice)
-			return TOPIC_HANDLED
+			return FALSE
 		show_category = choice
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["make"] && machine_recipes)
-		. = TOPIC_REFRESH
+		. = TRUE
 		var/index = text2num(href_list["make"])
 		var/datum/autolathe/recipe/making
 
@@ -246,7 +246,7 @@
 		//Exploit detection, not sure if necessary after rewrite.
 		if(!making)
 			log_and_message_admins("tried to exploit an autolathe to duplicate an item!", user)
-			return TOPIC_HANDLED
+			return FALSE
 		if(queue.len > max_queue_length)
 			to_chat(user, "<span class='warning'>[src] buzzes, 'Queue full!' </span>")
 			return
@@ -325,7 +325,7 @@
 			if(stored_material[material] < round(making.resources[material] * mat_efficiency))
 				visible_message("<span class='warning'>[src] buzzes, 'Not enough materials for [making.name], flushing queue.'</span>")
 				queue.Cut(1)
-				return TOPIC_REFRESH
+				return TRUE
 
 	//Consume materials.
 	for(var/material in making.resources)
@@ -341,7 +341,7 @@
 	update_use_power(1)
 
 	//Sanity check.
-	if(!making || QDELETED(src)) return TOPIC_HANDLED
+	if(!making || QDELETED(src)) return FALSE
 	//Create the desired item.
 	new making.path(loc)
 	removeFromQueue(1)

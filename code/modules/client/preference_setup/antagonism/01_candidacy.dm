@@ -78,22 +78,22 @@
 /datum/category_item/player_setup_item/antagonism/candidacy/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["add_special"])
 		if(!(href_list["add_special"] in valid_special_roles()))
-			return TOPIC_HANDLED
+			return FALSE
 		pref.be_special_role |= href_list["add_special"]
 		pref.never_be_special_role -= href_list["add_special"]
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["del_special"])
 		if(!(href_list["del_special"] in valid_special_roles()))
-			return TOPIC_HANDLED
+			return FALSE
 		pref.be_special_role -= href_list["del_special"]
 		pref.never_be_special_role -= href_list["del_special"]
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["add_never"])
 		pref.be_special_role -= href_list["add_never"]
 		pref.never_be_special_role |= href_list["add_never"]
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["set_all"])
 		switch(href_list["set_all"])
@@ -109,7 +109,7 @@
 				for(var/role in valid_special_roles())
 					pref.be_special_role -= role
 					pref.never_be_special_role |= role
-		return TOPIC_REFRESH
+		return TRUE
 
 	return ..()
 

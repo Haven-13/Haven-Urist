@@ -97,11 +97,11 @@
 /obj/machinery/disease2/centrifuge/OnTopic(user, href_list)
 	if (href_list["close"])
 		SStgui.close_user_uis(user, src, "main")
-		return TOPIC_HANDLED
+		return FALSE
 
 	if (href_list["print"])
 		print(user)
-		return TOPIC_HANDLED
+		return FALSE
 
 	if(href_list["isolate"])
 		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in sample.reagents.reagent_list
@@ -110,7 +110,7 @@
 			virus2 = virus.getcopy()
 			isolating = 40
 			update_icon()
-		return TOPIC_REFRESH
+		return TRUE
 
 	switch(href_list["action"])
 		if ("antibody")
@@ -118,7 +118,7 @@
 			var/datum/reagent/blood/B = locate(/datum/reagent/blood) in sample.reagents.reagent_list
 			if (!B)
 				state("\The [src] buzzes, \"No antibody carrier detected.\"", "blue")
-				return TOPIC_HANDLED
+				return FALSE
 
 			var/has_toxins = locate(/datum/reagent/toxin) in sample.reagents.reagent_list
 			var/has_radium = sample.reagents.has_reagent(/datum/reagent/radium)
@@ -132,13 +132,13 @@
 			curing = round(delay)
 			playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
 			update_icon()
-			return TOPIC_REFRESH
+			return TRUE
 
 		if("sample")
 			if(sample)
 				sample.dropInto(loc)
 				sample = null
-			return TOPIC_REFRESH
+			return TRUE
 
 /obj/machinery/disease2/centrifuge/proc/cure()
 	if (!sample) return

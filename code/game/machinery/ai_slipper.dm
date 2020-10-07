@@ -94,7 +94,7 @@
 	if (href_list["toggleOn"])
 		src.disabled = !src.disabled
 		update_icon()
-		. = TOPIC_REFRESH
+		. = TRUE
 	if (href_list["toggleUse"])
 		if(!(cooldown_on || disabled))
 			new /obj/effect/effect/foam(src.loc)
@@ -102,9 +102,9 @@
 			cooldown_on = 1
 			cooldown_time = world.timeofday + 100
 			slip_process()
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		attack_hand(user)
 
 /obj/machinery/ai_slipper/proc/slip_process()

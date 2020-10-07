@@ -17,7 +17,7 @@
 		var/dest_key = input("Choose shuttle destination", "Shuttle Destination") as null|anything in shuttle.get_destinations()
 		if(dest_key && CanInteract(usr, ui_default_state()))
 			shuttle.set_destination(dest_key, usr)
-		return TOPIC_REFRESH
+		return TRUE
 
 
 /obj/machinery/computer/shuttle_control/multi/antag
@@ -36,4 +36,4 @@
 
 	if(href_list["toggle_cloaked"])
 		shuttle.cloaked = !shuttle.cloaked
-		return TOPIC_REFRESH
+		return TRUE

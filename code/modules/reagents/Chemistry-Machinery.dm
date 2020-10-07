@@ -465,7 +465,7 @@
 			if ("detach")
 				detach()
 		interact(user)
-		return TOPIC_REFRESH
+		return TRUE
 
 /obj/machinery/reagentgrinder/proc/detach()
 	if (!beaker)

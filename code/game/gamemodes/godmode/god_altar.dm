@@ -79,7 +79,7 @@
 	if(href_list["resist"])
 		var/mob/living/M = locate(href_list["resist"])
 		if(!istype(M) || target != M || M.stat || M.last_special > world.time)
-			return TOPIC_HANDLED
+			return FALSE
 
 		M.last_special = world.time + 10 SECONDS
 		M.visible_message("<span class='warning'>\The [M] writhes on top of \the [src]!</span>", "<span class='notice'>You struggle against the intruding thoughts, keeping them at bay!</span>")
@@ -89,7 +89,7 @@
 			to_chat(M, "<span class='danger'>The mental strain is too much for you! You feel your body weakening!</span>")
 			M.adjustToxLoss(15)
 			M.adjustHalLoss(30)
-		return TOPIC_REFRESH
+		return TRUE
 
 /obj/structure/deity/altar/update_icon()
 	overlays.Cut()

@@ -110,7 +110,7 @@
 /obj/machinery/computer/guestpass/OnTopic(var/mob/user, href_list, state)
 	if (href_list["mode"])
 		mode = text2num(href_list["mode"])
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if (href_list["choice"])
 		switch(href_list["choice"])
@@ -135,7 +135,7 @@
 					accesses.Remove(A)
 				else if(giver && (A in giver.access))
 					accesses.Add(A)
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if (href_list["action"])
 		switch(href_list["action"])
 			if ("id")
@@ -150,7 +150,7 @@
 					if (istype(I, /obj/item/weapon/card/id) && user.unEquip(I))
 						I.forceMove(src)
 						giver = I
-				. = TOPIC_REFRESH
+				. = TRUE
 			if ("print")
 				var/dat = "<h3>Activity log of guest pass terminal #[uid]</h3><br>"
 				for (var/entry in internal_log)
@@ -160,7 +160,7 @@
 				var/obj/item/weapon/paper/P = new/obj/item/weapon/paper( loc )
 				P.SetName("activity log")
 				P.info = dat
-				. = TOPIC_REFRESH
+				. = TRUE
 
 			if ("issue")
 				if (giver && accesses.len)
@@ -182,7 +182,7 @@
 					pass.SetName("guest pass #[number]")
 					pass.assignment = "Guest"
 					playsound(src.loc, 'sound/machines/ping.ogg', 25, 0)
-					. = TOPIC_REFRESH
+					. = TRUE
 				else if(!giver)
 					to_chat(user, "<span class='warning'>Cannot issue pass without issuing ID.</span>")
 				else if(!accesses.len)

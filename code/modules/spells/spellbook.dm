@@ -164,11 +164,11 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			spellbook.book_flags &= ~LOCKED
 		else
 			spellbook.book_flags |= LOCKED
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["temp"])
 		temp = null
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["book"])
 		if(initial(spellbook.max_uses) != spellbook.max_uses || uses != spellbook.max_uses)
@@ -176,19 +176,19 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 		else
 			src.set_spellbook(/datum/spellbook)
 			temp = "You have reverted back to the Book of Tomes."
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["invest"])
 		temp = invest()
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["path"])
 		var/path = locate(href_list["path"]) in spellbook.spells
 		if(!path)
-			return TOPIC_HANDLED
+			return FALSE
 		if(uses < spellbook.spells[path])
 			to_chat(user, "<span class='notice'>You do not have enough spell slots to purchase this.</span>")
-			return TOPIC_HANDLED
+			return FALSE
 		send_feedback(path) //feedback stuff
 		if(ispath(path,/datum/spellbook))
 			src.set_spellbook(path)
@@ -213,7 +213,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 					spellbook.max_uses -= spellbook.spells[path]
 					//finally give it a bit of an oomf
 					playsound(get_turf(user),'sound/effects/phasein.ogg',50,1)
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["reset"])
 		var/area/wizard_station/A = get_area(user)
@@ -226,7 +226,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			feedback_add_details("wizard_spell_learned","UM") //please do not change the abbreviation to keep data processing consistent. Add a unique id to any new spells
 		else
 			to_chat(user, "<span class='warning'>You must be in the wizard academy to re-memorize your spells.</span>")
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	src.interact(user)
 

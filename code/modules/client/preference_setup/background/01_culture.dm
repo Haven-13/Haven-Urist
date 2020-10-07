@@ -65,7 +65,7 @@
 
 		if(href_list["toggle_verbose_[token]"])
 			hidden[token] = !hidden[token]
-			return TOPIC_REFRESH
+			return TRUE
 
 		var/check_href = text2num(href_list["set_[token]"])
 		if(check_href > 0)
@@ -92,7 +92,7 @@
 					user << browse(culture.get_description(), "window=[token];size=700x400")
 				else
 					pref.cultural_info[token] = choice
-				return TOPIC_REFRESH
+				return TRUE
 	. = ..()
 
 #undef GET_ALLOWED_VALUES

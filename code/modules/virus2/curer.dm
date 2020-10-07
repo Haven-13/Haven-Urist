@@ -81,13 +81,13 @@
 /obj/machinery/computer/curer/OnTopic(user, href_list)
 	if (href_list["antibody"])
 		curing = 10
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if(href_list["eject"])
 		container.dropInto(loc)
 		container = null
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		attack_hand(user)
 
 /obj/machinery/computer/curer/proc/createcure(var/obj/item/weapon/reagent_containers/container)

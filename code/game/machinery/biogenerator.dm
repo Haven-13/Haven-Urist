@@ -164,18 +164,18 @@
 				update_icon()
 		if("create")
 			if (state == BG_PROCESSING)
-				return TOPIC_REFRESH
+				return TRUE
 			var/type = href_list["type"]
 			var/product_index = text2num(href_list["product_index"])
 			if (isnull(products[type]))
-				return TOPIC_REFRESH
+				return TRUE
 			var/list/sub_products = products[type]
 			if (product_index < 1 || product_index > sub_products.len)
-				return TOPIC_REFRESH
+				return TRUE
 			create_product(type, sub_products[product_index])
 		if("return")
 			state = BG_READY
-	return TOPIC_REFRESH
+	return TRUE
 
 /obj/machinery/biogenerator/attack_hand(mob/user as mob)
 	if(stat & (BROKEN|NOPOWER))

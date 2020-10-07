@@ -103,12 +103,12 @@
 	if(href_list["triggerevent"])
 		event = href_list["triggerevent"]
 		screen = 2
-		. = TOPIC_REFRESH
+		. = TRUE
 	if(href_list["reset"])
 		reset()
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		attack_hand(user)
 
 /obj/machinery/keycard_auth/proc/reset()

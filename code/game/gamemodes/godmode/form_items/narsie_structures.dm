@@ -40,7 +40,7 @@
 		if(type)
 			var/cost = recipes[type]
 			craft_item(type, cost, user)
-		return TOPIC_REFRESH
+		return TRUE
 
 /obj/structure/deity/blood_forge/proc/craft_item(var/path, var/blood_cost, var/mob/user)
 	if(busy)

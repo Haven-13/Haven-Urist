@@ -142,13 +142,13 @@
 /obj/machinery/icecream_vat/OnTopic(user, href_list)
 	if(href_list["close"])
 		usr << browse(null,"window=icecreamvat")
-		return TOPIC_HANDLED
+		return FALSE
 
 	if(href_list["select"])
 		dispense_flavour = text2num(href_list["select"])
 		flavour_name = get_flavour_name(dispense_flavour)
 		src.visible_message("<span class='notice'>[user] sets [src] to dispense [flavour_name] flavoured icecream.</span>")
-		. = TOPIC_HANDLED
+		. = FALSE
 
 	else if(href_list["cone"])
 		var/dispense_cone = text2num(href_list["cone"])
@@ -162,21 +162,21 @@
 			src.visible_message("<span class='info'>[user] dispenses a crunchy [cone_name] cone from [src].</span>")
 		else
 			to_chat(user, "<span class='warning'>There are no [cone_name] cones left!</span>")
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["make"])
 		var/amount = (text2num(href_list["amount"]))
 		var/C = text2num(href_list["make"])
 		make(user, C, amount)
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["disposeI"])
 		var/datum/reagent/R = locate(href_list["disposeI"]) in reagents.reagent_list
 		if(R)
 			reagents.del_reagent(R.type)
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(href_list["refresh"] || . == TOPIC_REFRESH)
+	if(href_list["refresh"] || . == TRUE)
 		interact(user)
 
 /obj/item/weapon/reagent_containers/food/snacks/icecream
