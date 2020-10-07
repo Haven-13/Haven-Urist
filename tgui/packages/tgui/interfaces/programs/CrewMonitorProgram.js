@@ -1,62 +1,7 @@
 import { useBackend } from "tgui/backend";
-import { Box, Button, ColorBox, Section, Table } from "tgui/components";
-import { COLORS } from "tgui/constants";
+import { Box, Section, Table } from "tgui/components";
+import { round } from "common/math";
 import { Window } from "tgui/layouts";
-
-const HEALTH_COLOR_BY_LEVEL = [
-  '#17d568',
-  '#2ecc71',
-  '#e67e22',
-  '#ed5100',
-  '#e74c3c',
-  '#ed2814',
-];
-
-const jobIsHead = jobId => jobId % 10 === 0;
-
-const jobToColor = jobId => {
-  if (jobId === 0) {
-    return COLORS.department.captain;
-  }
-  if (jobId >= 10 && jobId < 20) {
-    return COLORS.department.security;
-  }
-  if (jobId >= 20 && jobId < 30) {
-    return COLORS.department.medbay;
-  }
-  if (jobId >= 30 && jobId < 40) {
-    return COLORS.department.science;
-  }
-  if (jobId >= 40 && jobId < 50) {
-    return COLORS.department.engineering;
-  }
-  if (jobId >= 50 && jobId < 60) {
-    return COLORS.department.cargo;
-  }
-  if (jobId >= 200 && jobId < 230) {
-    return COLORS.department.centcom;
-  }
-  return COLORS.department.other;
-};
-
-const healthToColor = (oxy, tox, burn, brute) => {
-  const healthSum = oxy + tox + burn + brute;
-  const level = Math.min(Math.max(Math.ceil(healthSum / 25), 0), 5);
-  return HEALTH_COLOR_BY_LEVEL[level];
-};
-
-const HealthStat = props => {
-  const { type, value } = props;
-  return (
-    <Box
-      inline
-      width={2}
-      color={COLORS.damageType[type]}
-      textAlign="center">
-      {value}
-    </Box>
-  );
-};
 
 export const CrewMonitorProgram = () => {
   return (
@@ -77,68 +22,70 @@ export const CrewMonitorProgram = () => {
 const CrewTable = (props, context) => {
   const { act, data } = useBackend(context);
   const sensors = data.sensors || [];
+
+  const crewVitalsEnty = sensor => {
+    if (sensor.sensor_type == 1) {
+      return (
+        <Fragment>
+          {sensor.alert ?
+          (<Box color="bad">Medical alert</Box>) :
+          (<Box>No alert</Box>)}
+        </Fragment>
+      )
+    }
+    else {
+      return (
+        <Fragment>
+          <Box color={sensor.pulse_span} inline={true}>
+            {sensor.pulse} bpm
+          </Box>
+          &emsp;/&emsp;
+          <Box color={sensor.oxygenation_span} inline={true}>
+            {sensor.pressure} ({sensor.oxygenation})
+          </Box>
+          &emsp;/&emsp;
+          <Box inline={true}>
+            {round(sensor.bodytemp)}&deg;C
+          </Box>
+        </Fragment>
+      )
+    }
+  }
+
   return (
     <Table>
       <Table.Row>
         <Table.Cell bold>
           Name
         </Table.Cell>
-        <Table.Cell bold collapsing />
-        <Table.Cell bold collapsing textAlign="center">
+        <Table.Cell bold>
+          Assignment
+        </Table.Cell>
+        <Table.Cell bold textAlign="center" width="260px">
           Vitals
         </Table.Cell>
-        <Table.Cell bold>
+        <Table.Cell bold width="200px">
           Position
         </Table.Cell>
-        {!!data.link_allowed && (
-          <Table.Cell bold collapsing>
-            Tracking
-          </Table.Cell>
-        )}
       </Table.Row>
       {sensors.map(sensor => (
         <Table.Row key={sensor.name}>
-          <Table.Cell
-            bold={jobIsHead(sensor.ijob)}
-            color={jobToColor(sensor.ijob)}>
-            {sensor.name} ({sensor.assignment})
-          </Table.Cell>
-          <Table.Cell collapsing textAlign="center">
-            <ColorBox
-              color={healthToColor(
-                sensor.oxydam,
-                sensor.toxdam,
-                sensor.burndam,
-                sensor.brutedam)} />
-          </Table.Cell>
-          <Table.Cell collapsing textAlign="center">
-            {sensor.oxydam !== null ? (
-              <Box inline>
-                <HealthStat type="oxy" value={sensor.oxydam} />
-                {'/'}
-                <HealthStat type="toxin" value={sensor.toxdam} />
-                {'/'}
-                <HealthStat type="burn" value={sensor.burndam} />
-                {'/'}
-                <HealthStat type="brute" value={sensor.brutedam} />
-              </Box>
-            ) : (
-              sensor.life_status ? 'Alive' : 'Dead'
-            )}
+          <Table.Cell color={sensor.alert > 0 ? "bad" : "normal"}>
+            {sensor.name}
           </Table.Cell>
           <Table.Cell>
-            {sensor.pos_x !== null ? sensor.area : 'N/A'}
+            {sensor.assignment}
           </Table.Cell>
-          {!!data.link_allowed && (
-            <Table.Cell collapsing>
-              <Button
-                content="Track"
-                disabled={!sensor.can_track}
-                onClick={() => act('select_person', {
-                  name: sensor.name,
-                })} />
-            </Table.Cell>
-          )}
+          <Table.Cell>
+            {crewVitalsEnty(sensor)}
+          </Table.Cell>
+          <Table.Cell>
+            {sensor.x != null ? (
+              <Box>{sensor.area}&emsp;({sensor.x}/{sensor.y}/{sensor.z})</Box>
+            ) : (
+              <Box color="grey"><i>N/A</i></Box>
+            )}
+          </Table.Cell>
         </Table.Row>
       ))}
     </Table>
