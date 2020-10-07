@@ -63,3 +63,31 @@
   martinlyra:
   - bugfix: Fixed multi-z transition not working for non-ghosts
   - bugfix: Fixed the space background showing up everywhere
+2020-10-02:
+  martinlyra:
+  - bugfix: Fix toilets appearing under floors
+  - bugfix: Fix mobs appearing under floors when lying down above the first z-level
+  - bugfix: Fix floors not being updated properly in elevators
+  - bugfix: Fix floors not being updated properly in holodeck environments
+  - bugfix: Fix floor decals not being transferred correctly in holodeck environments
+  - bugfix: Telecomms' monitoring room should be a bit more fancy
+  - bugfix: Changed the APC in engine room to a hyper-cell one
+  - bugfix: Changed the core airlocks in AI to high-security, they start bolted
+  - bugfix: Changed the tech storage airlocks to engineering-styled ones
+  - bugfix: Quartermaster's office's has been refurnished to improve accessibility
+2020-10-03:
+  martinlyra:
+  - rscadd: Items can now be clicked on and picked up via their container blocks from
+      storage, pixel-hunting is no longer necessary.
+  - bugfix: Fixed items rendering behind storage blocks in variable width storages
+      (backpacks, etc.)
+  - bugfix: Turrets no longer target crewmen that are smaller than human (specially
+      Teshari)
+2020-10-05:
+  Greenjoe12345:
+  - rscadd: Adds a bunch of Teshari stuff
+  - tweak: edited the Teshari head sprites to make them have two ears.
+  - bugfix: fixed some sprite errors on Teshari clothing
+  - imageadd: adds a lot of new sprites for Teshari clothing
+  - code_imp: Edits the xeno locker slightly to add a new bit of Tesh clothing, adds
+      some stuff to the xenowear loadout.

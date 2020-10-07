@@ -14,6 +14,9 @@
 	return
 	// HOLOFLOOR DOES NOT GIVE A FUCK
 
+/turf/simulated/floor/holofloor/is_plating()
+	return 0
+
 /turf/simulated/floor/holofloor/set_flooring()
 	return
 
@@ -250,12 +253,10 @@
 	var/blade_color
 
 /obj/item/weapon/holo/esword/green
-	New()
-		blade_color = "green"
+	blade_color = "green"
 
 /obj/item/weapon/holo/esword/red
-	New()
-		blade_color = "red"
+	blade_color = "red"
 
 /obj/item/weapon/holo/esword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	. = ..()
@@ -269,7 +270,8 @@
 	return active ? ..() : 0
 
 /obj/item/weapon/holo/esword/New()
-	blade_color = pick("red","blue","green","purple")
+	if (blade_color)
+		blade_color = pick("red","blue","green","purple")
 
 /obj/item/weapon/holo/esword/attack_self(mob/living/user as mob)
 	active = !active

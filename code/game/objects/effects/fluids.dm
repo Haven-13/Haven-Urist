@@ -81,6 +81,8 @@
 	var/fluid_amount = FLUID_MAX_DEPTH
 
 /obj/effect/fluid_mapped/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
+
 	var/turf/T = get_turf(src)
 	if(istype(T))
 		var/obj/effect/fluid/F = locate() in T
