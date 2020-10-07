@@ -137,6 +137,7 @@ Thus, the two variables affect pump operation are set in New():
 	data = list(
 		"on" = use_power,
 		"setPressure" = target_pressure,
+		"minPressure" = 0,
 		"maxPressure" = max_pressure_setting,
 		"flowRate" = round(last_flow_rate*10),
 		"lastPowerDraw" = round(last_power_draw),
@@ -144,6 +145,28 @@ Thus, the two variables affect pump operation are set in New():
 	)
 
 	return data
+
+/obj/machinery/atmospherics/binary/pump/ui_act(action, list/params)
+	switch(action)
+		if("power")
+			use_power = !use_power
+			. = TRUE
+
+		if("pressure")
+			switch(params["pressure"])
+				if ("min")
+					target_pressure = 0
+					. = TRUE
+				if ("max")
+					target_pressure = max_pressure_setting
+					. = TRUE
+				else
+					var/new_pressure = params["pressure"]
+					src.target_pressure = between(0, new_pressure, max_pressure_setting)
+					. = TRUE
+
+	if(.)
+		src.update_icon()
 
 /obj/machinery/atmospherics/binary/pump/Initialize()
 	. = ..()
@@ -190,28 +213,6 @@ Thus, the two variables affect pump operation are set in New():
 	usr.set_machine(src)
 	ui_interact(user)
 	return
-
-/obj/machinery/atmospherics/binary/pump/Topic(href,href_list)
-	if((. = ..())) return
-
-	if(href_list["power"])
-		use_power = !use_power
-		. = 1
-
-	switch(href_list["set_press"])
-		if ("min")
-			target_pressure = 0
-			. = 1
-		if ("max")
-			target_pressure = max_pressure_setting
-			. = 1
-		if ("set")
-			var/new_pressure = input(usr,"Enter new output pressure (0-[max_pressure_setting]kPa)","Pressure control",src.target_pressure) as num
-			src.target_pressure = between(0, new_pressure, max_pressure_setting)
-			. = 1
-
-	if(.)
-		src.update_icon()
 
 /obj/machinery/atmospherics/binary/pump/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if(!isWrench(W))

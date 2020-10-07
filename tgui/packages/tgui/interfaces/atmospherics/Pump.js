@@ -6,8 +6,8 @@ export const Pump = (props, context) => {
   const { act, data } = useBackend(context);
   return (
     <Window
-      width={335}
-      height={130}>
+      width={310}
+      height={135}>
       <Window.Content>
         <Section>
           <LabeledList>
@@ -48,14 +48,22 @@ export const Pump = (props, context) => {
               <LabeledList.Item label="Output Pressure">
                 <NumberInput
                   animated
+                  width="85px"
                   value={parseFloat(data.setPressure)}
                   unit="kPa"
-                  width="75px"
                   minValue={0}
                   maxValue={data.maxPressure}
                   step={10}
                   onChange={(e, value) => act('pressure', {
                     pressure: value,
+                  })} />
+                <Button
+                  ml={1}
+                  icon="plus"
+                  content="Min"
+                  disabled={data.setPressure === data.minPressure}
+                  onClick={() => act('pressure', {
+                    pressure: 'min',
                   })} />
                 <Button
                   ml={1}
