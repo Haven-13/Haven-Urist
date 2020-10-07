@@ -1,36 +1,41 @@
-import { useBackend } from '../backend';
-import { Box, Section, LabeledList, Button, ProgressBar } from '../components';
+import { useBackend } from 'tgui/backend';
+import { AnimatedNumber, Box, Flex, Section, LabeledList, Button, ProgressBar, Table } from 'tgui/components';
+import { round } from 'common/math';
 import { Fragment } from 'inferno';
-import { Window } from '../layouts';
+import { Window } from 'tgui/layouts';
+import { MedicalScanInfo } from './common/MedicalScans';
 
-const damageTypes = [
-  {
-    label: 'Brute',
-    type: 'bruteLoss',
-  },
-  {
-    label: 'Burn',
-    type: 'fireLoss',
-  },
-  {
-    label: 'Toxin',
-    type: 'toxLoss',
-  },
-  {
-    label: 'Oxygen',
-    type: 'oxyLoss',
-  },
-];
+const MedicineInjection = (props, context) => {
+  const {act} = useBackend(context);
+  const amounts = [5,10,15];
+  const {medicine} = props;
+  return (
+    <Fragment>
+      {amounts.map(x => (
+        <Button
+          key={x}
+          content={x + "u"}
+          onClick={() => act('chemical', {
+            chemical: medicine,
+            amount: x,
+          })}
+        />
+      ))}
+    </Fragment>
+  )
+}
 
 export const Sleeper = (props, context) => {
   const { act, data } = useBackend(context);
   const {
-    open,
-    occupant = {},
-    occupied,
+    occupant = {name},
+    filtering,
+    pump,
+    stasis,
+    beaker
   } = data;
-  const preSortChems = data.chems || [];
-  const chems = preSortChems.sort((a, b) => {
+  const preSortReagents = data.reagents || [];
+  const reagents = preSortReagents.sort((a, b) => {
     const descA = a.name.toLowerCase();
     const descB = b.name.toLowerCase();
     if (descA < descB) {
@@ -43,78 +48,145 @@ export const Sleeper = (props, context) => {
   });
   return (
     <Window
-      width={310}
+      width={620}
       height={465}>
       <Window.Content>
         <Section
-          title={occupant.name ? occupant.name : 'No Occupant'}
-          minHeight="210px"
-          buttons={!!occupant.stat && (
-            <Box
-              inline
-              bold
-              color={occupant.statstate}>
-              {occupant.stat}
-            </Box>
-          )}>
-          {!!occupied && (
-            <Fragment>
-              <ProgressBar
-                value={occupant.health}
-                minValue={occupant.minHealth}
-                maxValue={occupant.maxHealth}
-                ranges={{
-                  good: [50, Infinity],
-                  average: [0, 50],
-                  bad: [-Infinity, 0],
-                }} />
-              <Box mt={1} />
-              <LabeledList>
-                {damageTypes.map(type => (
-                  <LabeledList.Item
-                    key={type.type}
-                    label={type.label}>
-                    <ProgressBar
-                      value={occupant[type.type]}
-                      minValue={0}
-                      maxValue={occupant.maxHealth}
-                      color="bad" />
+          title={<Box inline="true">Occupant:&emsp;
+            {occupant ?
+              occupant.name :
+              (<Box color="grey" inline="true"><i>None</i></Box>)}
+            </Box>}
+          buttons={
+            <Button
+              disabled={!occupant}
+              content="Eject Occupant"
+              onClick={() => act('eject')}
+            />
+          }
+        >
+          <Flex
+            direction="row"
+            spacing={1}
+            justify="space-evenly">
+            <Flex.Item
+              maxWidth="300px"
+            >
+              <MedicalScanInfo />
+            </Flex.Item>
+            <Flex.Item
+              maxWidth="300px"
+            >
+              <Section
+                title="Actions"
+              >
+                <Table>
+                  <Table.Row>
+                    <Table.Cell
+                      textAlign="center"
+                    >
+                      <Button
+                        selected={stasis > 1}
+                        content="Toggle"
+                        onClick={()=>act('stasis', {stasis: stasis > 1 ? 1 : 5})}
+                      />
+                    </Table.Cell>
+                    <Table.Cell
+                      textAlign="center"
+                    >
+                      <Button
+                        selected={filtering}
+                        content="Toggle"
+                        onClick={()=>act('filter')}
+                      />
+                    </Table.Cell>
+                    <Table.Cell
+                      textAlign="center"
+                    >
+                      <Button
+                        selected={pump}
+                        content="Toggle"
+                        onClick={()=>act('pump')}
+                      />
+                    </Table.Cell>
+                    <Table.Cell
+                      textAlign="center"
+                    >
+                      <Button
+                        disabled={beaker < 0}
+                        content="Eject"
+                        onClick={()=> act('beaker')}
+                      />
+                    </Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                  <Table.Cell
+                      color="label"
+                      width="25%"
+                      textAlign="center"
+                    >
+                      Stasis
+                    </Table.Cell>
+                    <Table.Cell
+                      color="label"
+                      width="25%"
+                      textAlign="center"
+                    >
+                      Dialysis
+                    </Table.Cell>
+                    <Table.Cell
+                      color="label"
+                      width="25%"
+                      textAlign="center"
+                    >
+                      Stomach Pump
+                    </Table.Cell>
+                    <Table.Cell
+                      color="label"
+                      width="25%"
+                      textAlign="center"
+                    >
+                      Beaker
+                    </Table.Cell>
+                  </Table.Row>
+                </Table>
+                <hr/>
+                <LabeledList>
+                  <LabeledList.Item label="Loaded container">
+                    {beaker ? beaker.name : (<Box color="grey"><i>None</i></Box>)}
                   </LabeledList.Item>
-                ))}
-                <LabeledList.Item
-                  label="Cells"
-                  color={occupant.cloneLoss ? 'bad' : 'good'}>
-                  {occupant.cloneLoss ? 'Damaged' : 'Healthy'}
-                </LabeledList.Item>
-                <LabeledList.Item
-                  label="Brain"
-                  color={occupant.brainLoss ? 'bad' : 'good'}>
-                  {occupant.brainLoss ? 'Abnormal' : 'Healthy'}
-                </LabeledList.Item>
-              </LabeledList>
-            </Fragment>
-          )}
-        </Section>
-        <Section
-          title="Medicines"
-          minHeight="205px"
-          buttons={(
-            <Button
-              icon={open ? 'door-open' : 'door-closed'}
-              content={open ? 'Open' : 'Closed'}
-              onClick={() => act('door')} />
-          )}>
-          {chems.map(chem => (
-            <Button
-              key={chem.name}
-              icon="flask"
-              content={chem.name}
-              disabled={!occupied || !chem.allowed}
-              width="140px"
-              onClick={() => act('inject', {
-                chem: chem.id,
-              })} />
-          ))}
+                </LabeledList>
+                <ProgressBar
+                  value = {round(beaker.total - beaker.free, 1)}
+                  minValue={0}
+                  maxValue={beaker.total}
+                  children={
+                    <Fragment>
+                      <AnimatedNumber value={round(beaker.total - beaker.free, 1)}/> / {beaker.total} u
+                    </Fragment>
+                  }
+                />
+              </Section>
+              <Section
+                title="Medicines"
+                minHeight="205px"
+              >
+                <LabeledList style="width:100%">
+                  {reagents.map(reagent => (
+                    <LabeledList.Item
+                      style="width:100%"
+                      key={reagent.name}
+                      label={reagent.name}
+                    >
+                      <MedicineInjection
+                        medicine={reagent.name}
+                      />
+                    </LabeledList.Item>
+                  ))}
+                </LabeledList>
+              </Section>
+            </Flex.Item>
+          </Flex>
         </Section>
       </Window.Content>
     </Window>

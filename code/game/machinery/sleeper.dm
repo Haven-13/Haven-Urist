@@ -62,7 +62,7 @@
 /obj/machinery/sleeper/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Sleeper")
+		ui = new(user, src, "Sleeper", name)
 		ui.open()
 
 /obj/machinery/sleeper/ui_data(mob/user)
@@ -80,17 +80,19 @@
 	data["reagents"] = reagents.Copy()
 
 	if(occupant)
-		var/scan = medical_scan_results(occupant)
-		scan = replacetext(scan,"'notice'","'white'")
-		scan = replacetext(scan,"'warning'","'average'")
-		scan = replacetext(scan,"'danger'","'bad'")
+		var/scan = medical_scan_json(occupant)
+		var/legacy = medical_scan_results(occupant)
 		data["occupant"] =scan
 	else
 		data["occupant"] = 0
 	if(beaker)
-		data["beaker"] = beaker.reagents.get_free_space()
+		data["beaker"] = list(
+			"name" = beaker.name,
+			"total" = beaker.volume,
+			"free" = beaker.reagents.get_free_space()
+		)
 	else
-		data["beaker"] = -1
+		data["beaker"] = 0
 	data["filtering"] = filtering
 	data["pump"] = pump
 	data["stasis"] = stasis

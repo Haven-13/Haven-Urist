@@ -79,6 +79,124 @@ REAGENT SCANNER
 	to_chat(user, medical_scan_results(scan_subject, verbose))
 	to_chat(user, "<hr>")
 
+proc/medical_scan_deep_primitive(mob/living/carbon/human/H)
+	var/found_broken
+	var/found_infection
+	var/found_bleed
+	var/found_tendon
+	var/found_disloc
+	for(var/obj/item/organ/external/e in H.organs)
+		if(e)
+			if(!found_broken && e.status & ORGAN_BROKEN)
+				found_broken = TRUE
+			if(!found_infection && e.has_infected_wound())
+				found_infection = TRUE
+			if(!found_disloc && e.dislocated == 2)
+				found_disloc = TRUE
+			if(!found_bleed && (e.status & ORGAN_ARTERY_CUT))
+				found_bleed = TRUE
+			if(!found_tendon && (e.status & ORGAN_TENDON_CUT))
+				found_tendon = TRUE
+		if(found_broken && found_infection && found_disloc && found_bleed && found_tendon)
+			break
+	return list(
+		"hasBrokenBones" = found_broken,
+		"hasInfections" = found_infection,
+		"hasBleeding" = found_bleed,
+		"hasTendonDamage" = found_tendon,
+		"hasDislocation" = found_disloc
+	)
+
+proc/medical_scan_json(mob/living/carbon/human/H)
+	. = list()
+
+	.["name"] = H.name
+	.["species"] = H.species.name
+	.["status"] = H.stat
+	.["statusFlags"] = H.status_flags
+	.["timeOfDeath"] = time2text(worldtime2stationtime(H.timeofdeath), "hh:mm")
+
+	.["bodyTemperature"] = H.bodytemperature - T0C
+	.["radiation"] = H.radiation
+	.["shockStage"] = H.shock_stage
+
+	.["toxinLoss"] = H.getToxLoss()
+	.["bruteLoss"] = H.getBruteLoss()
+	.["fireLoss"] = H.getFireLoss()
+	.["oxyLoss"] = H.getOxyLoss()
+
+	if(H.internal_organs_by_name[BP_STACK])
+		.["stack"] = list("hasOrgan" = TRUE)
+
+	var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
+	.["brain"] = list(
+		"shouldHave" = H.should_have_organ(BP_BRAIN),
+		"hasOrgan" = brain != null,
+		"hasWorms" = H.has_brain_worms(),
+		"damage" = brain ? brain.get_current_damage_threshold() : -1
+	)
+
+	var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
+	.["heart"] = list(
+		"shouldHave" = H.should_have_organ(BP_HEART),
+		"hasOrgan" = heart != null,
+		"pulse" = H.get_pulse(1),
+		"bloodVolume" = H.get_blood_volume(),
+		"bloodPressure" = H.get_blood_pressure(),
+		"bloodOxygenation" = H.get_blood_oxygenation(),
+		"asystole" = H.is_asystole()
+	)
+
+	var/l = medical_scan_deep_primitive(H)
+	for (var/k in l)
+		.[k] = l[k]
+
+	.["reagents"] = list()
+	if (H.reagents.total_volume)
+		for(var/A in H.reagents.reagent_list)
+			var/datum/reagent/R = A
+			if (!R) continue
+			.["reagents"] += list(list(
+				"scannable" = R.scannable,
+				"type" = R.type,
+				"name" = R.name,
+				"amount" = H.reagents.get_reagent_amount(R.type)
+			))
+
+	.["ingested"] = list()
+	if (H.ingested && H.ingested.total_volume)
+		for(var/A in H.ingested.reagent_list)
+			var/datum/reagent/R = A
+			if (!R) continue
+			.["reagents"] += list(list(
+				"scannable" = R.scannable,
+				"type" = R.type,
+				"name" = R.name,
+				"amount" = H.ingested.get_reagent_amount(R.type)
+			))
+
+	.["chemTraces"] = list()
+	if (H.chem_doses && H.chem_doses.len)
+		for(var/T in H.chem_doses)
+			var/datum/reagent/R = T
+			if (!R) continue
+			.["chemTraces"] += list(list(
+				"scannable" = initial(R.scannable),
+				"name" = initial(R.name),
+				"amount" = H.chem_doses[T]
+			))
+
+	.["pathogens"] = list()
+	if (H.virus2 && H.virus2.len)
+		for (var/ID in H.virus2)
+			if (ID in virusDB)
+				var/datum/computer_file/data/virus_record/V = virusDB[ID]
+				.["pathogens"] += list(list(
+					"name" = V.fields["name"],
+					"antigens" = V.fields["antigen"]
+				))
+
+
 proc/medical_scan_results(var/mob/living/carbon/human/H, var/verbose)
 	. = list()
 	. += "<span class='notice'><b>Scan results for \the [H]:</b></span>"
