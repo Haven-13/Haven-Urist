@@ -72,13 +72,13 @@
 /obj/machinery/atmospherics/unary/freezer/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "atmospherics/GasFreezer")
+		ui = new(user, src, "atmospherics/GasTempRegulator", name)
 		ui.open()
 
 /obj/machinery/atmospherics/unary/freezer/ui_data(mob/user)
 	var/data[0]
 	data["on"] = use_power ? 1 : 0
-	data["gasPressure"] = round(air_contents.return_pressure())
+	data["gasPressure"] = air_contents.return_pressure()
 	data["gasTemperature"] = round(air_contents.temperature)
 	data["minGasTemperature"] = 0
 	data["maxGasTemperature"] = round(T20C+500)
@@ -94,23 +94,19 @@
 
 	return data
 
-/obj/machinery/atmospherics/unary/freezer/Topic(href, href_list)
-	if(..())
-		return 1
-	if(href_list["toggleStatus"])
-		use_power = !use_power
-		update_icon()
-	if(href_list["temp"])
-		var/amount = text2num(href_list["temp"])
-		if(amount > 0)
-			set_temperature = min(set_temperature + amount, 1000)
-		else
-			set_temperature = max(set_temperature + amount, 0)
-	if(href_list["setPower"]) //setting power to 0 is redundant anyways
-		var/new_setting = between(0, text2num(href_list["setPower"]), 100)
-		set_power_level(new_setting)
-
-	add_fingerprint(usr)
+/obj/machinery/atmospherics/unary/freezer/ui_act(action, list/params)
+	switch(action)
+		if("toggleStatus")
+			use_power = !use_power
+			update_icon()
+			return TRUE
+		if("temp")
+			var/target = params["temp"]
+			set_temperature = between(0, target, 1000)
+			return TRUE
+		if("setPower")
+			set_power_level(between(0, params["setPower"], 100))
+			return TRUE
 
 /obj/machinery/atmospherics/unary/freezer/Process()
 	..()
