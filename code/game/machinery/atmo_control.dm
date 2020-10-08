@@ -258,11 +258,10 @@ obj/machinery/computer/general_air_control/Destroy()
 
 
 /obj/machinery/computer/general_air_control/supermatter_core/proc/return_text()
-	var/output = ..()
 	//if(signal.data)
 	//	input_info = signal.data // Attempting to fix intake control -- TLE
 
-	output += "<B>Core Cooling Control System</B><BR><BR>"
+	var/output = "<B>Core Cooling Control System</B><BR><BR>"
 	if(input_info)
 		var/power = (input_info["power"])
 		var/volume_rate = round(input_info["volume_rate"], 0.1)
@@ -410,9 +409,7 @@ Min Core Pressure: [pressure_limit] kPa<BR>"}
 	..()
 
 /obj/machinery/computer/general_air_control/fuel_injection/proc/return_text()
-	var/output = ..()
-
-	output += "<B>Fuel Injection System</B><BR>"
+	var/output = "<B>Fuel Injection System</B><BR>"
 	if(device_info)
 		var/power = device_info["power"]
 		var/volume_rate = device_info["volume_rate"]
