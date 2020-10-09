@@ -13,13 +13,6 @@
 		"tgui.bundle.css" = 'tgui/public/tgui.bundle.css',
 	)
 
-/datum/asset/simple/tgui_panel
-	keep_local_name = TRUE
-	assets = list(
-		"tgui-panel.bundle.js" = 'tgui/public/tgui-panel.bundle.js',
-		"tgui-panel.bundle.css" = 'tgui/public/tgui-panel.bundle.css',
-	)
-
 /datum/asset/simple/headers
 	assets = list(
 		"alarm_green.gif" 			= 'images/program_icons/alarm_green.gif',

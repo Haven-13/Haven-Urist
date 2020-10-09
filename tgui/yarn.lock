@@ -8096,18 +8096,6 @@ fsevents@~2.1.2:
   languageName: unknown
   linkType: soft
 
-"tgui-panel@workspace:packages/tgui-panel":
-  version: 0.0.0-use.local
-  resolution: "tgui-panel@workspace:packages/tgui-panel"
-  dependencies:
-    common: "workspace:*"
-    inferno: ^7.4.2
-    tgui: "workspace:*"
-    tgui-dev-server: "workspace:*"
-    tgui-polyfill: "workspace:*"
-  languageName: unknown
-  linkType: soft
-
 "tgui-polyfill@workspace:*, tgui-polyfill@workspace:packages/tgui-polyfill":
   version: 0.0.0-use.local
   resolution: "tgui-polyfill@workspace:packages/tgui-polyfill"
@@ -8150,7 +8138,7 @@ fsevents@~2.1.2:
   languageName: unknown
   linkType: soft
 
-"tgui@workspace:*, tgui@workspace:packages/tgui":
+"tgui@workspace:packages/tgui":
   version: 0.0.0-use.local
   resolution: "tgui@workspace:packages/tgui"
   dependencies:
