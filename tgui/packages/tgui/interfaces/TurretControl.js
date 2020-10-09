@@ -11,7 +11,7 @@ export const TurretControl = (props, context) => {
     locked,
     enabled,
     lethal,
-    settings
+    settings,
   } = data;
 
   return (
@@ -30,7 +30,7 @@ export const TurretControl = (props, context) => {
                 disabled={locked}
                 onClick={() => act('command', {
                   command: "enable",
-                  value: !enabled
+                  value: !enabled,
                 })} />
             </LabeledList.Item>
             <LabeledList.Item label="Turret Mode">
@@ -41,7 +41,7 @@ export const TurretControl = (props, context) => {
                 disabled={locked}
                 onClick={() => act('command', {
                   command: "lethal",
-                  value: !lethal
+                  value: !lethal,
                 })} />
             </LabeledList.Item>
           </LabeledList>
@@ -51,14 +51,13 @@ export const TurretControl = (props, context) => {
             {settings.map(setting => (
               <LabeledList.Item
                 key={setting.setting}
-                label={setting.category}
-              >
+                label={setting.category}>
                 <Button
                   selected={setting.value}
                   content="Toggle"
                   onClick={() => act('command', {
                     command: setting.setting,
-                    value: !setting.value
+                    value: !setting.value,
                   })}
                 />
               </LabeledList.Item>

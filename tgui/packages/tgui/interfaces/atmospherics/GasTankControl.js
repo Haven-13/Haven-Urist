@@ -20,6 +20,7 @@ export const GasTankControl = (props, context) => {
               sensors.map(sensor => {
                 return (
                   <LabeledList.Item
+                    key={sensor.name}
                     label={sensor.name}>
                     <LabeledList>
                       <LabeledList.Item label="Temperature">

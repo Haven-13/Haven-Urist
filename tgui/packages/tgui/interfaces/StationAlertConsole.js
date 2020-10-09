@@ -20,7 +20,7 @@ export const StationAlertConsoleContent = (props, context) => {
   const { data } = useBackend(context);
   const categories = data.categories || [];
   return (
-    <Fragment>
+    <div>
       {categories.map(category => (
         <Section title={category.name} key={category.name}>
           <ul>
@@ -36,6 +36,6 @@ export const StationAlertConsoleContent = (props, context) => {
           </ul>
         </Section>
       ))}
-    </Fragment>
+    </div>
   );
 };

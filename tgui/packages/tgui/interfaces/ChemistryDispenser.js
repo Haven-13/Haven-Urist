@@ -39,7 +39,7 @@ export const ChemistryDispenser = (props, context) => {
                     <span>
                       {chemical.label}
                     </span>
-                    <span style="float:right;text-align:right">
+                    <span style={{ float: "right", textAlign: "right" }}>
                       (<AnimatedNumber
                         initial={0}
                         value={chemical.amount} /> u)

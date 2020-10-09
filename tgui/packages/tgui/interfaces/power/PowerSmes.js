@@ -113,8 +113,8 @@ export const PowerSmes = (props, context) => {
             </LabeledList.Item>
             <LabeledList.Item label="Available">
               <AnimatedNumber
-                value = {inputAvailable}
-                format = {value => formatPower(value)}/>
+                value={inputAvailable}
+                format={value => formatPower(value)} />
             </LabeledList.Item>
           </LabeledList>
         </Section>
@@ -184,8 +184,8 @@ export const PowerSmes = (props, context) => {
             </LabeledList.Item>
             <LabeledList.Item label="Outputting">
               <AnimatedNumber
-              value = {outputUsed}
-              format = {value => formatPower(value)}/>
+                value={outputUsed}
+                format={value => formatPower(value)} />
             </LabeledList.Item>
           </LabeledList>
         </Section>

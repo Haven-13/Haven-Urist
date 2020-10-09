@@ -1,4 +1,5 @@
 import { useBackend } from "tgui/backend";
+import { Fragment } from 'inferno';
 import { Box, Section, Table } from "tgui/components";
 import { round } from "common/math";
 import { Window } from "tgui/layouts";
@@ -24,33 +25,33 @@ const CrewTable = (props, context) => {
   const sensors = data.sensors || [];
 
   const crewVitalsEnty = sensor => {
-    if (sensor.sensor_type == 1) {
+    if (sensor.sensor_type === 1) {
       return (
-        <Fragment>
-          {sensor.alert ?
-          (<Box color="bad">Medical alert</Box>) :
-          (<Box>No alert</Box>)}
-        </Fragment>
-      )
+        <Box color={sensor.alert ? "bad" : "normal"}>
+          {sensor.alert
+            ? "Medical alert"
+            : "No alert"}
+        </Box>
+      );
     }
     else {
       return (
         <Fragment>
-          <Box color={sensor.pulse_span} inline={true}>
+          <Box color={sensor.pulse_span} inline>
             {sensor.pulse} bpm
           </Box>
           &emsp;/&emsp;
-          <Box color={sensor.oxygenation_span} inline={true}>
+          <Box color={sensor.oxygenation_span} inline>
             {sensor.pressure} ({sensor.oxygenation})
           </Box>
           &emsp;/&emsp;
-          <Box inline={true}>
+          <Box inline>
             {round(sensor.bodytemp)}&deg;C
           </Box>
         </Fragment>
-      )
+      );
     }
-  }
+  };
 
   return (
     <Table>
@@ -80,7 +81,7 @@ const CrewTable = (props, context) => {
             {crewVitalsEnty(sensor)}
           </Table.Cell>
           <Table.Cell>
-            {sensor.x != null ? (
+            {sensor.x !== null ? (
               <Box>{sensor.area}&emsp;({sensor.x}/{sensor.y}/{sensor.z})</Box>
             ) : (
               <Box color="grey"><i>N/A</i></Box>

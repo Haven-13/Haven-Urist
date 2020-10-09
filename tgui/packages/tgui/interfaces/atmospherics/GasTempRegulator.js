@@ -1,11 +1,11 @@
 import { useBackend } from 'tgui/backend';
-import { Button, Knob, LabeledControls, LabeledList, NumberInput, ProgressBar, Section} from 'tgui/components';
+import { Button, Knob, LabeledControls, LabeledList, NumberInput, ProgressBar, Section } from 'tgui/components';
 import { formatSiUnit } from 'tgui/format';
 import { Window } from 'tgui/layouts';
-import { round } from "common/math"
+import { round } from "common/math";
 
 export const GasTempRegulator = (props, context) => {
-  const {act, data} = useBackend(context);
+  const { act, data } = useBackend(context);
   const {
     on,
     gasPressure,
@@ -14,36 +14,31 @@ export const GasTempRegulator = (props, context) => {
     maxGasTemperature,
     targetGasTemperature,
     powerSetting,
-    gasTemperatureClass
+    gasTemperatureClass,
   } = data;
 
   return (
     <Window
       width={310}
-      height={170}
-    >
+      height={170}>
       <Window.Content>
         <Section>
           <LabeledList>
             <LabeledList.Item
-              label="Temperature"
-            >
+              label="Temperature">
               <ProgressBar
                 value={gasTemperature}
                 minValue={minGasTemperature}
-                maxValue={maxGasTemperature}
-              >
+                maxValue={maxGasTemperature}>
                 {gasTemperature} &deg;K / {gasTemperature-273.15} &deg;C
               </ProgressBar>
             </LabeledList.Item>
             <LabeledList.Item
-              label="Pressure"
-            >
+              label="Pressure">
               <ProgressBar
                 value={gasPressure}
                 minValue={0}
-                maxValue={15*101.325}
-              >
+                maxValue={15*101.325}>
                 {formatSiUnit(round(gasPressure, 1), 1, 'Pa')}
               </ProgressBar>
             </LabeledList.Item>
@@ -52,8 +47,7 @@ export const GasTempRegulator = (props, context) => {
         <Section>
           <LabeledControls>
             <LabeledControls.Item
-              label="Target Temperature"
-            >
+              label="Target Temperature">
               <NumberInput
                 width="100px"
                 value={targetGasTemperature}
@@ -61,13 +55,12 @@ export const GasTempRegulator = (props, context) => {
                 maxValue={maxGasTemperature}
                 unit="°K"
                 onChange={(e, value) => act('temp', {
-                  temp: value
+                  temp: value,
                 })}
               />
             </LabeledControls.Item>
             <LabeledControls.Item
-              label="Power"
-            >
+              label="Power">
               <Button
                 selected={on}
                 content="Toggle"
@@ -75,15 +68,14 @@ export const GasTempRegulator = (props, context) => {
               />
             </LabeledControls.Item>
             <LabeledControls.Item
-              label="Power Setting"
-            >
+              label="Power Setting">
               <Knob
                 value={powerSetting}
                 minValue={20}
                 maxValue={100}
                 step={20}
-                onDrag={(e,value) => act('setPower', {
-                  setPower: value
+                onDrag={(e, value) => act('setPower', {
+                  setPower: value,
                 })}
               />
             </LabeledControls.Item>
