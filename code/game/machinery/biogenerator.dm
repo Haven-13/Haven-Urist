@@ -152,8 +152,8 @@
 
 	return data
 
-/obj/machinery/biogenerator/OnTopic(user, href_list)
-	switch (href_list["action"])
+/obj/machinery/biogenerator/ui_act(action, list/params)
+	switch ("action")
 		if("activate")
 			activate()
 		if("detach")
@@ -165,8 +165,8 @@
 		if("create")
 			if (state == BG_PROCESSING)
 				return TRUE
-			var/type = href_list["type"]
-			var/product_index = text2num(href_list["product_index"])
+			var/type = params["type"]
+			var/product_index = params["product_index"]
 			if (isnull(products[type]))
 				return TRUE
 			var/list/sub_products = products[type]
