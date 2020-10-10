@@ -153,7 +153,7 @@
 	return data
 
 /obj/machinery/biogenerator/ui_act(action, list/params)
-	switch ("action")
+	switch (action)
 		if("activate")
 			activate()
 		if("detach")
