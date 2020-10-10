@@ -83,204 +83,86 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 /obj/machinery/computer/helm/ui_status(mob/user, datum/ui_state/state)
 	if(!linked)
 		return UI_CLOSE
+	return ..()
 
 /obj/machinery/computer/helm/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "ShipHelm")
+		ui = new(user, src, "spacecraft/ShipHelm")
 		ui.open()
 
 /obj/machinery/computer/helm/ui_data(mob/user)
-	var/data[0]
-
 	var/turf/T = get_turf(linked)
 	var/obj/effect/overmap/sector/current_sector = locate() in T
 
-	data["sector"] = current_sector ? current_sector.name : "Deep Space"
-	data["sector_info"] = current_sector ? current_sector.desc : "Not Available"
-	data["s_x"] = linked.x
-	data["s_y"] = linked.y
-	data["dest"] = dy && dx
-	data["d_x"] = dx
-	data["d_y"] = dy
-	data["speedlimit"] = speedlimit ? speedlimit : "None"
-	data["speed"] = linked.get_speed()
-	data["accel"] = linked.get_acceleration()
-	data["heading"] = linked.get_heading() ? dir2angle(linked.get_heading()) : 0
-	data["autopilot"] = autopilot
-	data["manual_control"] = manual_control
-	data["canburn"] = linked.can_burn()
-
-	if(linked.get_speed())
-		data["ETAnext"] = "[round(linked.ETA()/10)] seconds"
-	else
-		data["ETAnext"] = "N/A"
+	. = list(
+		"sector" = current_sector ? current_sector.name : "Deep Space",
+		"sectorInfo" = current_sector ? current_sector.desc : "Not Available",
+		"s_x" = linked.x,
+		"s_y" = linked.y,
+		"dest" = dy && dx,
+		"d_x" = dx,
+		"d_y" = dy,
+		"speedlimit" = speedlimit ? speedlimit : "None",
+		"speed" = linked.get_speed(),
+		"accel" = linked.get_acceleration(),
+		"heading" = linked.get_heading() ? dir2angle(linked.get_heading()) : 0,
+		"autopilot" = autopilot,
+		"manualControl" = manual_control,
+		"canburn" = linked.can_burn(),
+		"etaNext" = linked.get_speed() ? round(linked.ETA()/10) : "N/A"
+	)
 
 	var/list/locations[0]
 	for (var/key in known_sectors)
 		var/datum/computer_file/data/waypoint/R = known_sectors[key]
-		var/list/rdata[0]
-		rdata["name"] = R.fields["name"]
-		rdata["x"] = R.fields["x"]
-		rdata["y"] = R.fields["y"]
-		rdata["reference"] = "\ref[R]"
-		locations.Add(list(rdata))
+		locations.Add(list(list(
+			"name" = R.fields["name"],
+			"x" = R.fields["x"],
+			"y" = R.fields["y"],
+			"reference" = "\ref[R]"
+		)))
 
-	data["locations"] = locations
+	.["locations"] = locations
 
-	return data
+/obj/machinery/computer/helm/ui_act(action, list/params)
+	switch(action)
+		if("waypoint")
+			switch(params["waypoint"])
+				if("add")
+					add_waypoint(params["new_data"])
+				if("remove")
+					remove_waypoint(params["remove"])
+		if("set")
+			switch(params["set"])
+				if("dest_x")
+					dx = between(1, params["dest_x"], world.maxx)
+				if("dest_y")
+					dy = between(1, params["dest_y"], world.maxy)
+				if("reset")
+					dx = dy = 0
+				if("speedLimit")
+					speedlimit = between(0, params["speedLimit"], 100)
+		if ("move")
+			linked.relaymove(usr, params["move"])
+		if ("brake")
+			linked.decelerate()
+		if ("apilot")
+			autopilot = !autopilot
+		if ("manual")
+			manual_control = !manual_control
 
-/obj/machinery/computer/helm/Topic(href, href_list, state)
-	if(..())
-		return 1
+	return TRUE
 
-	if (!linked)
-		return
+/obj/machinery/computer/helm/proc/add_waypoint(list/data)
+	var/datum/computer_file/data/waypoint/R = new()
+	R.fields["name"] = data["name"]
+	R.fields["x"] = data["x"]
+	R.fields["y"] = data["y"]
+	known_sectors[data["name"]] = R
 
-	if (href_list["add"])
-		var/datum/computer_file/data/waypoint/R = new()
-		var/sec_name = input("Input naviation entry name", "New navigation entry", "Sector #[known_sectors.len]") as text
-		if(!CanInteract(usr,state))
-			return
-		if(!sec_name)
-			sec_name = "Sector #[known_sectors.len]"
-		R.fields["name"] = sec_name
-		if(sec_name in known_sectors)
-			to_chat(usr, "<span class='warning'>Sector with that name already exists, please input a different name.</span>")
-			return
-		switch(href_list["add"])
-			if("current")
-				R.fields["x"] = linked.x
-				R.fields["y"] = linked.y
-			if("new")
-				var/newx = input("Input new entry x coordinate", "Coordinate input", linked.x) as num
-				if(!CanInteract(usr,state))
-					return
-				var/newy = input("Input new entry y coordinate", "Coordinate input", linked.y) as num
-				if(!CanInteract(usr,state))
-					return
-				R.fields["x"] = Clamp(newx, 1, world.maxx)
-				R.fields["y"] = Clamp(newy, 1, world.maxy)
-		known_sectors[sec_name] = R
-
-	if (href_list["remove"])
-		var/datum/computer_file/data/waypoint/R = locate(href_list["remove"])
-		if(R)
-			known_sectors.Remove(R.fields["name"])
-			qdel(R)
-
-	if (href_list["setx"])
-		var/newx = input("Input new destiniation x coordinate", "Coordinate input", dx) as num|null
-		if(!CanInteract(usr,state))
-			return
-		if (newx)
-			dx = Clamp(newx, 1, world.maxx)
-
-	if (href_list["sety"])
-		var/newy = input("Input new destiniation y coordinate", "Coordinate input", dy) as num|null
-		if(!CanInteract(usr,state))
-			return
-		if (newy)
-			dy = Clamp(newy, 1, world.maxy)
-
-	if (href_list["x"] && href_list["y"])
-		dx = text2num(href_list["x"])
-		dy = text2num(href_list["y"])
-
-	if (href_list["reset"])
-		dx = 0
-		dy = 0
-
-	if (href_list["speedlimit"])
-		var/newlimit = input("Input new speed limit for autopilot (0 to disable)", "Autopilot speed limit", speedlimit) as num|null
-		if(newlimit)
-			speedlimit = Clamp(newlimit, 0, 100)
-
-	if (href_list["move"])
-		var/ndir = text2num(href_list["move"])
-		linked.relaymove(usr, ndir)
-
-	if (href_list["brake"])
-		linked.decelerate()
-
-	if (href_list["apilot"])
-		autopilot = !autopilot
-
-	if (href_list["manual"])
-		manual_control = !manual_control
-
-	add_fingerprint(usr)
-	updateUsrDialog()
-
-
-/obj/machinery/computer/navigation
-	name = "navigation console"
-	circuit = /obj/item/weapon/circuitboard/nav
-	var/viewing = 0
-	var/obj/effect/overmap/ship/linked
-	icon_keyboard = "generic_key"
-	icon_screen = "helm"
-
-/obj/machinery/computer/navigation/ui_interact(mob/user, var/datum/tgui/ui)
-	if(!linked)
-		return
-	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "ShipNavigation")
-		ui.open()
-
-/obj/machinery/computer/navigation/ui_data(mob/user)
-	var/data[0]
-
-	var/turf/T = get_turf(linked)
-	var/obj/effect/overmap/sector/current_sector = locate() in T
-
-	data["sector"] = current_sector ? current_sector.name : "Deep Space"
-	data["sector_info"] = current_sector ? current_sector.desc : "Not Available"
-	data["s_x"] = linked.x
-	data["s_y"] = linked.y
-	data["speed"] = linked.get_speed()
-	data["accel"] = linked.get_acceleration()
-	data["heading"] = linked.get_heading() ? dir2angle(linked.get_heading()) : 0
-	data["viewing"] = viewing
-
-	if(linked.get_speed())
-		data["ETAnext"] = "[round(linked.ETA()/10)] seconds"
-	else
-		data["ETAnext"] = "N/A"
-
-	return data
-
-/obj/machinery/computer/navigation/check_eye(var/mob/user as mob)
-	if (!viewing)
-		return -1
-	if (!get_dist(user, src) > 1 || user.blinded || !linked )
-		viewing = 0
-		return -1
-	return 0
-
-/obj/machinery/computer/navigation/attack_hand(var/mob/user as mob)
-	if(..())
-		user.unset_machine()
-		viewing = 0
-		return
-
-	if(viewing && linked &&!isAI(user))
-		user.set_machine(src)
-		user.reset_view(linked)
-
-	ui_interact(user)
-
-/obj/machinery/computer/navigation/Topic(href, href_list)
-	if(..())
-		return 1
-
-	if (!linked)
-		return
-
-	if (href_list["viewing"])
-		viewing = !viewing
-		if(viewing && !isAI(usr))
-			var/mob/user = usr
-			user.reset_view(linked)
-		return 1
+/obj/machinery/computer/helm/proc/remove_waypoint(ref)
+	var/datum/computer_file/data/waypoint/R = locate(ref)
+	if(R)
+		known_sectors.Remove(R.fields["name"])
+		qdel(R)
