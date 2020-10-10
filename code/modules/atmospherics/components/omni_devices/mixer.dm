@@ -166,7 +166,8 @@
 	return data
 
 /obj/machinery/atmospherics/omni/mixer/ui_act(action, list/params)
-	if(. = ..()) return
+	. = ..()
+	if (.) return
 
 	switch(action)
 		if("power")
@@ -239,17 +240,15 @@
 	tag_east_con = null
 	tag_west_con = null
 
-	var/old_con = 0
 	var/non_locked = 0
 	var/remain_con = 1
 
 	for(var/datum/omni_port/P in inputs)
-		if(P.dir == port)
-			old_con = P.concentration
-		else if(!P.con_lock)
-			non_locked++
-		else
-			remain_con -= P.concentration
+		if(P.dir != port)
+			if(!P.con_lock)
+				non_locked++
+			else
+				remain_con -= P.concentration
 
 	//return if no adjustable ports
 	if(non_locked < 1)

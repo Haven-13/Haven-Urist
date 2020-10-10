@@ -81,7 +81,6 @@
 
 	if(occupant)
 		var/scan = medical_scan_json(occupant)
-		var/legacy = medical_scan_results(occupant)
 		data["occupant"] =scan
 	else
 		data["occupant"] = 0

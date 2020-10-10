@@ -150,7 +150,8 @@
 			return null
 
 /obj/machinery/atmospherics/omni/filter/ui_act(action, list/params)
-	if(. = ..()) return
+	. = ..()
+	if(.) return
 
 	switch(action)
 		if("power")
