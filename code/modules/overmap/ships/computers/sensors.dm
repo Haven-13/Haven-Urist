@@ -32,14 +32,15 @@
 /obj/machinery/computer/sensors/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "spacecraft/ShipSensors")
+		ui = new(user, src, "spacecraft/ShipSensors", name)
 		ui.open()
 
 /obj/machinery/computer/sensors/ui_static_data(mob/user)
 	. = list(
 		"minRange" = 1,
 		"maxRange" = world.view,
-		"maxHealth" = sensors.max_health
+		"maxHealth" = sensors.max_health,
+		"criticalHeat" = sensors.critical_heat
 	)
 
 /obj/machinery/computer/sensors/ui_data(mob/user)
@@ -51,7 +52,6 @@
 		data["range"] = sensors.range
 		data["health"] = sensors.health
 		data["heat"] = sensors.heat
-		data["criticalHeat"] = sensors.critical_heat
 		if(sensors.health == 0)
 			data["status"] = "DESTROYED"
 		else if(!sensors.powered())
