@@ -34,7 +34,6 @@
 		if (H.z in map_z)
 			nav_control = H
 			H.linked = src
-			H.get_known_sectors()
 			//testing("Helm console at level [H.z] linked to overmap object '[name]'.")
 	for(var/obj/machinery/computer/navigation/N in SSmachines.machinery)
 		if (N.z in map_z)

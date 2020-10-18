@@ -80,8 +80,6 @@ obj/effect/overmap/proc/add_landmark(obj/effect/shuttle_landmark/landmark, shutt
 	if(known)
 		layer = ABOVE_LIGHTING_LAYER
 		plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		for(var/obj/machinery/computer/helm/H in SSmachines.machinery)
-			H.get_known_sectors()
 
 /proc/build_overmap()
 	if(!GLOB.using_map.use_overmap)

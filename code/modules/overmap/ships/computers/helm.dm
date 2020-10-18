@@ -8,16 +8,11 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	circuit = /obj/item/weapon/circuitboard/helm
 	var/obj/effect/overmap/ship/linked			//connected overmap object
 	var/viewing = 0
-	var/list/viewers
-	var/list/known_sectors = list()
-	var/dx		//desitnation
-	var/dy		//coordinates
-	var/speedlimit = 2 //top speed for autopilot
+	var/list/viewers = list()
 
 /obj/machinery/computer/helm/Initialize()
 	. = ..()
 	linked = map_sectors["[z]"]
-	get_known_sectors()
 
 /obj/machinery/computer/helm/Destroy()
 	if(LAZYLEN(viewers))
@@ -25,25 +20,12 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 			var/M = W.resolve()
 			if(M)
 				unlook(M)
-	QDEL_NULL_LIST(known_sectors)
 	. = ..()
 
 /obj/machinery/computer/helm/proc/get_overmap_area()
 	var/turf/T = locate(1,1,GLOB.using_map.overmap_z)
 	if (T) // Baycode overmap may be the simplest, but it is also the shittest
 		return T.loc
-
-/obj/machinery/computer/helm/proc/get_known_sectors()
-	var/area/overmap/map = get_overmap_area()
-	if (!map)
-		return
-	for(var/obj/effect/overmap/sector/S in map.contents)
-		if (S.known)
-			var/datum/computer_file/data/waypoint/R = new()
-			R.fields["name"] = S.name
-			R.fields["x"] = S.x
-			R.fields["y"] = S.y
-			known_sectors[S.name] = R
 
 /obj/machinery/computer/helm/relaymove(var/mob/user, direction)
 	if(viewing && linked)
@@ -108,9 +90,6 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 		"sectorInfo" = current_sector ? current_sector.desc : "Not Available",
 		"s_x" = linked.x,
 		"s_y" = linked.y,
-		"dest" = dy && dx,
-		"d_x" = dx,
-		"d_y" = dy,
 		"speed" = linked.get_speed(),
 		"accel" = linked.get_acceleration(),
 		"heading" = linked.get_heading() ? dir2angle(linked.get_heading()) : 0,
@@ -119,34 +98,8 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 		"etaNext" = linked.get_speed() ? round(linked.ETA()/10) : "N/A"
 	)
 
-	var/list/locations[0]
-	for (var/key in known_sectors)
-		var/datum/computer_file/data/waypoint/R = known_sectors[key]
-		locations.Add(list(list(
-			"name" = R.fields["name"],
-			"x" = R.fields["x"],
-			"y" = R.fields["y"],
-			"reference" = "\ref[R]"
-		)))
-
-	.["locations"] = locations
-
 /obj/machinery/computer/helm/ui_act(action, list/params)
 	switch(action)
-		if("waypoint")
-			switch(params["waypoint"])
-				if("add")
-					add_waypoint(params["new_data"])
-				if("remove")
-					remove_waypoint(params["remove"])
-		if("set")
-			switch(params["set"])
-				if("dest_x")
-					dx = between(1, params["dest_x"], world.maxx)
-				if("dest_y")
-					dy = between(1, params["dest_y"], world.maxy)
-				if("reset")
-					dx = dy = 0
 		if ("move")
 			linked.relaymove(usr, params["move"])
 		if ("brake")
@@ -157,16 +110,3 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 				viewing ? look(usr) : unlook(usr)
 
 	return TRUE
-
-/obj/machinery/computer/helm/proc/add_waypoint(list/data)
-	var/datum/computer_file/data/waypoint/R = new()
-	R.fields["name"] = data["name"]
-	R.fields["x"] = data["x"]
-	R.fields["y"] = data["y"]
-	known_sectors[data["name"]] = R
-
-/obj/machinery/computer/helm/proc/remove_waypoint(ref)
-	var/datum/computer_file/data/waypoint/R = locate(ref)
-	if(R)
-		known_sectors.Remove(R.fields["name"])
-		qdel(R)
