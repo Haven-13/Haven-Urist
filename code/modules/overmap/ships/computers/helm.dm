@@ -7,7 +7,6 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	light_color = "#7faaff"
 	circuit = /obj/item/weapon/circuitboard/helm
 	var/obj/effect/overmap/ship/linked			//connected overmap object
-	var/autopilot = 0
 	var/viewing = 0
 	var/list/viewers
 	var/list/known_sectors = list()
@@ -45,25 +44,6 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 			R.fields["x"] = S.x
 			R.fields["y"] = S.y
 			known_sectors[S.name] = R
-
-/obj/machinery/computer/helm/Process()
-	..()
-	if (autopilot && dx && dy)
-		var/turf/T = locate(dx,dy,GLOB.using_map.overmap_z)
-		if(linked.loc == T)
-			if(linked.is_still())
-				autopilot = 0
-			else
-				linked.decelerate()
-
-		var/brake_path = linked.get_brake_path()
-
-		if((!speedlimit || linked.get_speed() < speedlimit) && get_dist(linked.loc, T) > brake_path)
-			linked.accelerate(get_dir(linked.loc, T))
-		else
-			linked.decelerate()
-
-		return
 
 /obj/machinery/computer/helm/relaymove(var/mob/user, direction)
 	if(viewing && linked)
