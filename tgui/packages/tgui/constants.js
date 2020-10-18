@@ -10,6 +10,17 @@ export const UI_UPDATE = 1;
 export const UI_DISABLED = 0;
 export const UI_CLOSE = -1;
 
+export const DIRECTIONS = {
+  north: 1,
+  south: 2,
+  east:  4,
+  west:  8,
+  northeast: 1 + 4,
+  northwest: 1 + 8,
+  southeast: 2 + 4,
+  southwest: 2 + 8
+}
+
 // All game related colors are stored here
 export const COLORS = {
   // Department colors

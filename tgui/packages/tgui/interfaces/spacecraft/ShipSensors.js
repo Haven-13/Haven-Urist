@@ -83,6 +83,7 @@ export const ShipSensors = (props, context) => {
               label="Map View"
             >
               <Button
+                icon="eye"
                 selected={data.viewing}
                 content={"Toggle"}
                 onClick={() => {act("viewing")}}

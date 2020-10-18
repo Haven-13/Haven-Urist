@@ -8,7 +8,8 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	circuit = /obj/item/weapon/circuitboard/helm
 	var/obj/effect/overmap/ship/linked			//connected overmap object
 	var/autopilot = 0
-	var/manual_control = 0
+	var/viewing = 0
+	var/list/viewers
 	var/list/known_sectors = list()
 	var/dx		//desitnation
 	var/dy		//coordinates
@@ -18,6 +19,15 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	. = ..()
 	linked = map_sectors["[z]"]
 	get_known_sectors()
+
+/obj/machinery/computer/helm/Destroy()
+	if(LAZYLEN(viewers))
+		for(var/weakref/W in viewers)
+			var/M = W.resolve()
+			if(M)
+				unlook(M)
+	QDEL_NULL_LIST(known_sectors)
+	. = ..()
 
 /obj/machinery/computer/helm/proc/get_overmap_area()
 	var/turf/T = locate(1,1,GLOB.using_map.overmap_z)
@@ -56,12 +66,12 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 		return
 
 /obj/machinery/computer/helm/relaymove(var/mob/user, direction)
-	if(manual_control && linked)
+	if(viewing && linked)
 		linked.relaymove(user,direction)
 		return 1
 
 /obj/machinery/computer/helm/check_eye(var/mob/user as mob)
-	if (!manual_control)
+	if (!viewing)
 		return -1
 	if (!get_dist(user, src) > 1 || user.blinded || !linked )
 		return -1
@@ -70,15 +80,33 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 /obj/machinery/computer/helm/attack_hand(var/mob/user as mob)
 	if(..())
 		user.unset_machine()
-		manual_control = 0
+		unlook(user)
+		viewing = 0
 		return
 
 	if(!isAI(user))
 		user.set_machine(src)
-		if(linked)
-			user.reset_view(linked)
+		if(linked && viewing)
+			look(user)
 
 	ui_interact(user)
+
+/obj/machinery/computer/helm/proc/look(var/mob/user)
+	if(linked)
+		user.reset_view(linked)
+	if(user.client)
+		user.client.view = world.view + 4
+	GLOB.moved_event.register(user, src, /obj/machinery/computer/helm/proc/unlook)
+	GLOB.stat_set_event.register(user, src, /obj/machinery/computer/helm/proc/unlook)
+	LAZYDISTINCTADD(viewers, weakref(user))
+
+/obj/machinery/computer/helm/proc/unlook(var/mob/user)
+	user.reset_view()
+	if(user.client)
+		user.client.view = world.view
+	GLOB.moved_event.unregister(user, src, /obj/machinery/computer/helm/proc/unlook)
+	GLOB.stat_set_event.unregister(user, src, /obj/machinery/computer/helm/proc/unlook)
+	LAZYREMOVE(viewers, weakref(user))
 
 /obj/machinery/computer/helm/ui_status(mob/user, datum/ui_state/state)
 	if(!linked)
@@ -103,12 +131,10 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 		"dest" = dy && dx,
 		"d_x" = dx,
 		"d_y" = dy,
-		"speedlimit" = speedlimit ? speedlimit : "None",
 		"speed" = linked.get_speed(),
 		"accel" = linked.get_acceleration(),
 		"heading" = linked.get_heading() ? dir2angle(linked.get_heading()) : 0,
-		"autopilot" = autopilot,
-		"manualControl" = manual_control,
+		"viewing" = viewing,
 		"canburn" = linked.can_burn(),
 		"etaNext" = linked.get_speed() ? round(linked.ETA()/10) : "N/A"
 	)
@@ -141,16 +167,14 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 					dy = between(1, params["dest_y"], world.maxy)
 				if("reset")
 					dx = dy = 0
-				if("speedLimit")
-					speedlimit = between(0, params["speedLimit"], 100)
 		if ("move")
 			linked.relaymove(usr, params["move"])
 		if ("brake")
 			linked.decelerate()
-		if ("apilot")
-			autopilot = !autopilot
-		if ("manual")
-			manual_control = !manual_control
+		if ("view")
+			viewing = !viewing
+			if(usr && !isAI(usr))
+				viewing ? look(usr) : unlook(usr)
 
 	return TRUE
 
