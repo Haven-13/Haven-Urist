@@ -101,3 +101,7 @@
       of full-tiles.
   - tweak: Changed one of the kitchen supply fridges to a proper one featuring then
       missing kitchen supplies.
+  - rscadd: Added some space cleaners around the ship, mostly at the deck two.
+  - rscadd: Fleshed out the oxygen supply room, port-side of the Bridge.
+  - bugfix: Fixed ship weapons not having a ship-id set
+  - bugfix: Fixed command offices' atmospherics being not connected to main.
