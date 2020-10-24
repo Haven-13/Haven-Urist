@@ -94,3 +94,10 @@
 2020-10-24:
   martinlyra:
   - server: Changed host-end settings to fix long-term issues.
+  - rscadd: Clone lab has been renovated, replacing an unused room opposite the AI
+      chamber access. The clone lab now features a body scanner and a double cryo-tube
+      set.
+  - tweak: The glass bridge above engineering foyer now use one-side-windows instead
+      of full-tiles.
+  - tweak: Changed one of the kitchen supply fridges to a proper one featuring then
+      missing kitchen supplies.
