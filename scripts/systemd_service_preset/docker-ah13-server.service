@@ -1,5 +1,5 @@
 [Unit]
-Description=Systemd service for keeping the SS13 codebase AstroHaven13 up to date and running using docker-compose.
+Description=Systemd service for keeping the SS13 codebase AstroHaven13 up to date and running using docker.
 Requires=docker.service
 After=docker.service
 StartLimitBurst=5
@@ -9,8 +9,8 @@ StartLimitIntervalSec=30
 Type=simple
 WorkingDirectory=/home/ah13-srv-usr/Haven-Urist
 ExecStart=/home/ah13-srv-usr/Haven-Urist/scripts/systemd-entrypoint.sh
-ExecStop=/usr/local/bin/docker-compose down
 RestartSec=20
+Restart=always
 
 [Install]
-WantedBy=mutli-user.target
+WantedBy=multi-user.target
