@@ -91,3 +91,6 @@
   - imageadd: adds a lot of new sprites for Teshari clothing
   - code_imp: Edits the xeno locker slightly to add a new bit of Tesh clothing, adds
       some stuff to the xenowear loadout.
+2020-10-24:
+  martinlyra:
+  - server: Changed host-end settings to fix long-term issues.
