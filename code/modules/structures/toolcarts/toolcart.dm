@@ -86,7 +86,7 @@
 	return TRUE
 
 /obj/structure/tool_cart/proc/take_cart_stack_item(target)
-	var/item = locate(stacks[target].type) in src
+	var/item = locate(stacks[target].my_type) in src
 	if(item)
 		usr.put_in_hands(item)
 		to_chat(usr, "<span class='notice'>You take \a [item] from [src].</span>")
