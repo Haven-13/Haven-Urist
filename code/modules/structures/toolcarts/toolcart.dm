@@ -21,6 +21,7 @@
 				put_in_cart(I, user)
 				items[item].item = I
 				update_icon()
+				return TRUE
 			else
 				to_chat(user, "<span class='notice'>There is already one [items[item].item.name] in [src].</span>")
 	for (var/stack in stacks)
@@ -29,6 +30,7 @@
 				put_in_cart(I, user)
 				stacks[stack].amount++
 				update_icon()
+				return TRUE
 			else
 				to_chat(user, "<span class='notice'>You can't fit more of [I.name] in [src].</span>")
 
@@ -59,8 +61,9 @@
 			))
 	if(stacks)
 		for (var/stack in stacks)
-			.["items"] += list(list(
+			.["stacks"] += list(list(
 				"key" = stack,
+				"label" = stacks[stack].label,
 				"amount" = stacks[stack].amount
 			))
 

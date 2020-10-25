@@ -35,7 +35,7 @@
 	stacks = list(
 		"signs" = new /datum/tool_cart_stack(
 			"Signs",
-			"cart_signs",
+			"cart_sign",
 			/obj/item/weapon/caution,
 			4
 		)
