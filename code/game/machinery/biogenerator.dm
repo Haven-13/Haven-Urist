@@ -1,8 +1,7 @@
 #define BG_READY 0
 #define BG_PROCESSING 1
-#define BG_NO_BEAKER 2
-#define BG_COMPLETE 3
-#define BG_EMPTY 4
+#define BG_COMPLETE 2
+#define BG_EMPTY 3
 
 /obj/machinery/biogenerator
 	name = "Biogenerator"
@@ -14,7 +13,6 @@
 	use_power = 1
 	idle_power_usage = 40
 	var/processing = 0
-	var/obj/item/weapon/reagent_containers/glass/beaker = null
 	var/points = 0
 	var/state = BG_READY
 	var/denied = 0
@@ -48,7 +46,6 @@
 /obj/machinery/biogenerator/New()
 	..()
 	create_reagents(1000)
-	beaker = new /obj/item/weapon/reagent_containers/glass/bottle(src)
 
 	component_parts = list()
 	component_parts += new /obj/item/weapon/circuitboard/biogenerator(src)
@@ -61,9 +58,7 @@
 	update_icon()
 
 /obj/machinery/biogenerator/update_icon()
-	if(state == BG_NO_BEAKER)
-		icon_state = "biogen-empty"
-	else if(state == BG_READY || state == BG_COMPLETE)
+	if(state == BG_READY || state == BG_COMPLETE)
 		icon_state = "biogen-stand"
 	else
 		icon_state = "biogen-work"
@@ -76,14 +71,8 @@
 		return
 	if(default_part_replacement(user, O))
 		return
-	if(istype(O, /obj/item/weapon/reagent_containers/glass))
-		if(beaker)
-			to_chat(user, "<span class='notice'>]The [src] is already loaded.</span>")
-		else if(user.unEquip(O, src))
-			beaker = O
-			state = BG_READY
-			updateUsrDialog()
-	else if(processing)
+
+	if(processing)
 		to_chat(user, "<span class='notice'>\The [src] is currently processing.</span>")
 	else if(ingredients >= capacity)
 		to_chat(user, "<span class='notice'>\The [src] is already full! Activate it.</span>")
@@ -119,62 +108,57 @@
 /obj/machinery/biogenerator/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "Biogenerator")
+		ui = new(user, src, "Biogenerator", name)
 		ui.open()
 
-/obj/machinery/biogenerator/ui_data(mob/user)
-	var/list/data = list()
-	data["state"] = state
-	var/name
-	var/cost
-	var/type_name
-	var/path
-	if (state == BG_READY)
-		data["points"] = points
-		var/list/listed_types = list()
-		for(var/c_type =1 to products.len)
-			type_name = products[c_type]
-			var/list/current_content = products[type_name]
-			var/list/listed_products = list()
-			for(var/c_product =1 to current_content.len)
-				path = current_content[c_product]
-				var/atom/A = path
-				name = initial(A.name)
-				cost = current_content[path]
-				listed_products.Add(list(list(
-					"product_index" = c_product,
-					"name" = name,
-					"cost" = cost)))
-			listed_types.Add(list(list(
-				"type_name" = type_name,
-				"products" = listed_products)))
-		data["types"] = listed_types
+/obj/machinery/biogenerator/ui_static_data(mob/user)
+	var/list/categories = list()
+	for(var/c_type =1 to products.len)
+		var/category_name = products[c_type]
+		var/list/current_content = products[category_name]
+		var/list/listed_products = list()
+		for(var/c_product =1 to current_content.len)
+			var/path = current_content[c_product]
+			var/atom/A = path
+			var/name = initial(A.name)
+			var/cost = current_content[path]
+			listed_products.Add(list(list(
+				"id" = c_product,
+				"name" = name,
+				"cost" = cost)))
+		categories.Add(list(list(
+			"name" = category_name,
+			"items" = listed_products)))
+	return list(
+		"capacity" = capacity,
+		"categories" = categories
+	)
 
-	return data
+/obj/machinery/biogenerator/ui_data(mob/user)
+	. = list(
+		"state" = state,
+		"can_process" = BG_READY && ingredients > 0,
+		"ingredients" = ingredients,
+		"biomass" = points,
+		"processing" = state == BG_PROCESSING
+	)
 
 /obj/machinery/biogenerator/ui_act(action, list/params)
 	switch (action)
 		if("activate")
 			activate()
-		if("detach")
-			if(beaker)
-				beaker.dropInto(src.loc)
-				beaker = null
-				state = BG_NO_BEAKER
-				update_icon()
 		if("create")
 			if (state == BG_PROCESSING)
 				return TRUE
-			var/type = params["type"]
-			var/product_index = params["product_index"]
+			var/type = params["category"]
+			var/product_index = params["id"]
+			var/amount = max(1, params["amount"])
 			if (isnull(products[type]))
 				return TRUE
 			var/list/sub_products = products[type]
 			if (product_index < 1 || product_index > sub_products.len)
 				return TRUE
-			create_product(type, sub_products[product_index])
-		if("return")
-			state = BG_READY
+			create_product(type, sub_products[product_index], amount)
 	return TRUE
 
 /obj/machinery/biogenerator/attack_hand(mob/user as mob)
@@ -198,7 +182,6 @@
 		qdel(I)
 	if(S)
 		state = BG_PROCESSING
-		SStgui.update_uis(src)
 		update_icon()
 		playsound(src.loc, 'sound/machines/blender.ogg', 50, 1)
 		use_power(S * 30)
@@ -209,16 +192,16 @@
 		state = BG_EMPTY
 	return
 
-/obj/machinery/biogenerator/proc/create_product(var/type, var/path)
+/obj/machinery/biogenerator/proc/create_product(var/type, var/path, var/amount)
 	state = BG_PROCESSING
-	var/cost = products[type][path]
+	var/cost = products[type][path] * amount
 	cost = round(cost/build_eff)
 	points -= cost
-	SStgui.update_uis(src)
 	update_icon()
 	sleep(30)
-	var/atom/movable/result = new path
-	result.dropInto(loc)
+	for (var/i in 1 to amount)
+		var/atom/movable/result = new path
+		result.dropInto(loc)
 	state = BG_COMPLETE
 	update_icon()
 	return 1

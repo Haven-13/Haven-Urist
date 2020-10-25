@@ -2,7 +2,8 @@ import { classes } from 'common/react';
 import { createSearch } from 'common/string';
 import { Fragment } from 'inferno';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Dimmer, Flex, Icon, Input, NoticeBox, NumberInput, Section, Table, Tabs } from '../components';
+import { Box, Button, Dimmer, Flex, Icon, Input, LabeledList, NoticeBox, NumberInput, ProgressBar, Section, Table, Tabs } from '../components';
+import { TableRow } from '../components/Table';
 import { formatMoney } from '../format';
 import { Window } from '../layouts';
 
@@ -11,7 +12,6 @@ const MAX_SEARCH_RESULTS = 25;
 export const Biogenerator = (props, context) => {
   const { data } = useBackend(context);
   const {
-    beaker,
     processing,
   } = data;
   return (
@@ -26,12 +26,7 @@ export const Biogenerator = (props, context) => {
         </Dimmer>
       )}
       <Window.Content scrollable>
-        {!beaker && (
-          <NoticeBox>No Container</NoticeBox>
-        )}
-        {!!beaker && (
-          <BiogeneratorContent />
-        )}
+        <BiogeneratorContent />
       </Window.Content>
     </Window>
   );
@@ -68,64 +63,91 @@ export const BiogeneratorContent = (props, context) => {
     // If none of that results in a list, return an empty list
     || [];
   return (
-    <Section
-      title={(
-        <Box
-          inline
-          color={biomass > 0 ? 'good' : 'bad'}>
-          {formatMoney(biomass)} Biomass
-        </Box>
-      )}
-      buttons={(
-        <Fragment>
-          Search
-          <Input
-            autoFocus
-            value={searchText}
-            onInput={(e, value) => setSearchText(value)}
-            mx={1} />
-          <Button
-            icon="eject"
-            content="Eject"
-            onClick={() => act('detach')} />
-          <Button
-            icon="cog"
-            content="Activate"
-            disabled={!can_process}
-            onClick={() => act('activate')} />
-        </Fragment>
-      )}>
-      <Flex>
-        {searchText.length === 0 && (
-          <Flex.Item>
-            <Tabs vertical>
-              {categories.map(category => (
-                <Tabs.Tab
-                  key={category.name}
-                  selected={category.name === selectedCategory}
-                  onClick={() => setSelectedCategory(category.name)}>
-                  {category.name} ({category.items?.length || 0})
-                </Tabs.Tab>
-              ))}
-            </Tabs>
-          </Flex.Item>
+    <Fragment>
+      <Section
+        title={(
+          <Box
+            inline
+            color={biomass > 0 ? 'good' : 'bad'}>
+            {formatMoney(biomass)} Biomass
+          </Box>
         )}
-        <Flex.Item grow={1} basis={0}>
-          {items.length === 0 && (
-            <NoticeBox>
-              {searchText.length === 0
-                ? 'No items in this category.'
-                : 'No results found.'}
-            </NoticeBox>
+      >
+        <LabeledList>
+          <LabeledList.Item
+            label="Buffer"
+          >
+            <Flex
+              direction="row"
+              spacing={2}
+            >
+              <Flex.Item
+                grow={1}
+              >
+                <ProgressBar
+                  value={data.ingredients}
+                  maxValue={data.capacity}
+                >
+                  {data.ingredients} / {data.capacity}
+                </ProgressBar>
+              </Flex.Item>
+              <Flex.Item>
+                <Button
+                  icon="cog"
+                  content="Activate"
+                  width="80px"
+                  disabled={!can_process}
+                  onClick={() => act('activate')} />
+              </Flex.Item>
+            </Flex>
+          </LabeledList.Item>
+        </LabeledList>
+      </Section>
+      <Section
+        title="Products"
+        buttons={(
+          <Fragment>
+            Search
+            <Input
+              autoFocus
+              value={searchText}
+              onInput={(e, value) => setSearchText(value)}
+              mx={1} />
+          </Fragment>
+        )}>
+        <Flex>
+          {searchText.length === 0 && (
+            <Flex.Item>
+              <Tabs vertical>
+                {categories.map(category => (
+                  <Tabs.Tab
+                    key={category.name}
+                    selected={category.name === selectedCategory}
+                    onClick={() => setSelectedCategory(category.name)}>
+                    {category.name} ({category.items?.length || 0})
+                  </Tabs.Tab>
+                ))}
+              </Tabs>
+            </Flex.Item>
           )}
-          <Table>
-            <ItemList
-              biomass={biomass}
-              items={items} />
-          </Table>
-        </Flex.Item>
-      </Flex>
-    </Section>
+          <Flex.Item grow={1} basis={0}>
+            {items.length === 0 && (
+              <NoticeBox>
+                {searchText.length === 0
+                  ? 'No items in this category.'
+                  : 'No results found.'}
+              </NoticeBox>
+            )}
+            <Table>
+              <ItemList
+                category={selectedCategory}
+                biomass={biomass}
+                items={items} />
+            </Table>
+          </Flex.Item>
+        </Flex>
+      </Section>
+    </Fragment>
   );
 };
 
@@ -183,6 +205,7 @@ const ItemList = (props, context) => {
           onmouseover={() => setHoveredItem(item)}
           onmouseout={() => setHoveredItem({})}
           onClick={() => act('create', {
+            category: props.category,
             id: item.id,
             amount: item.amount,
           })} />
