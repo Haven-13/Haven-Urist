@@ -12,7 +12,7 @@ branches:
 env:
   global:
     - BYOND_MAJOR="513"
-    - BYOND_MINOR="1528"
+    - BYOND_MINOR="1536"
     - TARGET_PROJECT_NAME="baystation12"
 
 before_install:

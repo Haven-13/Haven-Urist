@@ -1,4 +1,4 @@
-FROM tgstation/byond:513.1528
+FROM tgstation/byond:513.1536
 
 ENV PATH=/root/cargo/bin:/root/rustup/bin:$PATH\
 	CARGO_HOME=/root/cargo\
