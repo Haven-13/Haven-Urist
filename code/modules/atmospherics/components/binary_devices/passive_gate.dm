@@ -225,6 +225,7 @@
 					target_pressure = max_pressure_setting
 				else
 					target_pressure = between(0, params["set_pressure"], max_pressure_setting)
+			. = TRUE
 		if("set_flow_rate")
 			switch(params["set_flow_rate"])
 				if("min")
@@ -233,6 +234,7 @@
 					set_flow_rate = air1.volume
 				else
 					set_flow_rate = between(0, params["set_flow_rate"], air1.volume)
+			. = TRUE
 	if(.)
 		src.update_icon()
 
