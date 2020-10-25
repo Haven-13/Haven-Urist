@@ -443,7 +443,6 @@ its easier to just keep the beam vertical.
 		object_shaken()
 
 /atom/proc/climb_on()
-
 	set name = "Climb"
 	set desc = "Climbs onto an object."
 	set category = "Object"

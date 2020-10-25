@@ -2076,7 +2076,7 @@
 /turf/simulated/floor/airless,
 /area/magshield/north)
 "fa" = (
-/obj/structure/janitorialcart,
+/obj/structure/tool_cart/janitorial,
 /turf/simulated/floor/airless,
 /area/magshield/north)
 "fb" = (

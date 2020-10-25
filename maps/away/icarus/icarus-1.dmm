@@ -221,7 +221,7 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "aV" = (
-/obj/structure/janitorialcart,
+/obj/structure/tool_cart/janitorial,
 /obj/item/weapon/mop,
 /turf/simulated/floor/plating,
 /area/icarus/vessel)

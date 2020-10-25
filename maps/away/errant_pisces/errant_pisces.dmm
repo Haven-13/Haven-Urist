@@ -6720,7 +6720,7 @@
 /turf/simulated/floor/plating,
 /area/errant_pisces/fishing_wing)
 "qq" = (
-/obj/structure/janitorialcart,
+/obj/structure/tool_cart/janitorial,
 /obj/item/weapon/mop,
 /turf/simulated/floor/tiled,
 /area/errant_pisces/fishing_wing)

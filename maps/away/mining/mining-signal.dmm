@@ -998,7 +998,7 @@
 /turf/simulated/floor/carpet/blue,
 /area/outpost/abandoned)
 "dp" = (
-/obj/structure/janitorialcart,
+/obj/structure/tool_cart/janitorial,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/abandoned)
 "dq" = (

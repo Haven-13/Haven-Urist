@@ -668,7 +668,7 @@
 /turf/simulated/floor/airless,
 /area/unishi/living)
 "cf" = (
-/obj/structure/janitorialcart,
+/obj/structure/tool_cart/janitorial,
 /obj/machinery/light/small{
 	dir = 4;
 	pixel_y = 0

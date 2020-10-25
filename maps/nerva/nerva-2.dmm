@@ -4476,7 +4476,7 @@
 	icon_state = "map_vent_out";
 	dir = 4
 	},
-/obj/structure/engineeringcart,
+/obj/structure/tool_cart/engineering,
 /turf/simulated/floor/plating,
 /area/engineering/securestorage)
 "aiG" = (
@@ -19702,7 +19702,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/genstorage)
 "aHk" = (
-/obj/structure/janitorialcart,
+/obj/structure/tool_cart/janitorial,
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";

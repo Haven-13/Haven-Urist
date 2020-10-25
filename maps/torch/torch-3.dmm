@@ -4618,7 +4618,7 @@
 	dir = 8;
 	pixel_x = 21
 	},
-/obj/structure/janitorialcart,
+/obj/structure/tool_cart/janitorial,
 /obj/item/weapon/mop,
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,

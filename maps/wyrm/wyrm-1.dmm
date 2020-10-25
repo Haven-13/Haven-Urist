@@ -485,7 +485,7 @@
 "jq" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 10},/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/tiled,/area/civilian/personal)
 "jr" = (/obj/effect/floor_decal/corner/purple{icon_state = "corner_white"; dir = 6},/turf/simulated/floor/tiled,/area/civilian/personal)
 "js" = (/obj/machinery/door/airlock{name = "Janitorial Supplies"},/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/civilian/personal)
-"jt" = (/obj/structure/janitorialcart,/obj/item/weapon/mop,/turf/simulated/floor/plating,/area/maintenance/sub/fore)
+"jt" = (/obj/structure/tool_cart/janitorial,/obj/item/weapon/mop,/turf/simulated/floor/plating,/area/maintenance/sub/fore)
 "ju" = (/obj/item/device/radio/intercom{dir = 4; icon_state = "intercom"; pixel_x = -23; tag = "icon-intercom (EAST)"},/obj/effect/floor_decal/corner/white{icon_state = "corner_white"; dir = 8},/obj/structure/table/reinforced,/obj/structure/closet/medical_wall{pixel_y = -32},/obj/item/weapon/storage/firstaid/regular,/obj/random/medical/lite,/obj/random/medical/lite,/obj/random/medical/lite,/obj/random/medical/lite,/turf/simulated/floor/tiled,/area/hatchling/start)
 "jv" = (/obj/structure/bed/chair/urist/shuttle{icon_state = "shuttlechair"; dir = 4},/obj/effect/floor_decal/corner/white{icon_state = "corner_white"; dir = 8},/turf/simulated/floor/tiled,/area/hatchling/start)
 "jw" = (/obj/structure/table/reinforced,/obj/item/weapon/board,/turf/simulated/floor/tiled,/area/hatchling/start)

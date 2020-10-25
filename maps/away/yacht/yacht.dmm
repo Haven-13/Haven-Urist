@@ -795,7 +795,7 @@
 /turf/simulated/floor/wood,
 /area/yacht/living)
 "cl" = (
-/obj/structure/janitorialcart,
+/obj/structure/tool_cart/janitorial,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/yacht/living)

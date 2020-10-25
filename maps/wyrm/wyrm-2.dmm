@@ -209,7 +209,7 @@
 "ea" = (/obj/machinery/power/emitter,/obj/effect/floor_decal/industrial/hatch/yellow,/turf/simulated/floor/plating,/area/engineering/securestorage)
 "eb" = (/obj/machinery/portable_atmospherics/canister/phoron,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/plating,/area/engineering/securestorage)
 "ec" = (/obj/machinery/power/port_gen/pacman,/turf/simulated/floor/plating,/area/engineering/securestorage)
-"ed" = (/obj/machinery/power/apc{name = "south bump"; pixel_y = -22},/obj/structure/cable{d2 = 4; icon_state = "0-4"},/obj/structure/engineeringcart,/turf/simulated/floor/plating,/area/engineering/securestorage)
+"ed" = (/obj/machinery/power/apc{name = "south bump"; pixel_y = -22},/obj/structure/cable{d2 = 4; icon_state = "0-4"},/obj/structure/tool_cart/engineering,/turf/simulated/floor/plating,/area/engineering/securestorage)
 "ee" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/plating,/area/engineering/securestorage)
 "ef" = (/turf/simulated/floor/plating,/area/engineering/securestorage)
 "eg" = (/obj/structure/closet/crate,/obj/item/stack/material/phoron{amount = 30},/turf/simulated/floor/plating,/area/engineering/securestorage)

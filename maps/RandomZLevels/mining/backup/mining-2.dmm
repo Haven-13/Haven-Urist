@@ -158,7 +158,7 @@
 "dl" = (/obj/effect/floor_decal/spline/fancy/wood{icon_state = "spline_fancy"; dir = 6},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/carpet,/area/outpost/abandoned)
 "dm" = (/obj/effect/wingrille_spawn/reinforced,/obj/machinery/door/blast/regular{id = "mars_blast"},/turf/simulated/floor/plating,/area/outpost/abandoned)
 "do" = (/obj/effect/decal/cleanable/blood/gibs/limb,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/carpet/blue,/area/outpost/abandoned)
-"dp" = (/obj/structure/janitorialcart,/turf/simulated/floor/tiled/dark,/area/outpost/abandoned)
+"dp" = (/obj/structure/tool_cart/janitorial,/turf/simulated/floor/tiled/dark,/area/outpost/abandoned)
 "dq" = (/obj/structure/dispenser,/turf/simulated/floor/tiled/dark,/area/outpost/abandoned)
 "dr" = (/obj/structure/barricade,/turf/simulated/floor/tiled/dark,/area/outpost/abandoned)
 "ds" = (/obj/machinery/door/airlock/medical{density = 0; icon_state = "door_open"; opacity = 0},/obj/machinery/holosign/surgery,/turf/simulated/floor/tiled/airless,/area/outpost/abandoned)
