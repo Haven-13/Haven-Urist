@@ -39,3 +39,7 @@
 	hard_drive.store_file(new/datum/computer_file/program/contract_database())
 	hard_drive.store_file(new/datum/computer_file/program/supply())
 	set_autorun("supply")
+
+/obj/machinery/computer/combatcomputer/nerva //different def just in case we have multiple ships that do combat. although, i think i might keep the cargo ship noncombat, fluff it as it being too small, slips right by the enemies. i dunno
+	name = "ICS Nerva Combat Computer"
+	shipid = "nerva"

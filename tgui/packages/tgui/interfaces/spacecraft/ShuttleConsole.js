@@ -1,6 +1,6 @@
-import { useBackend } from '../backend';
-import { Box, Button, Dropdown, Flex, Icon, LabeledList, Modal, Section } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from '../../backend';
+import { Box, Button, Dropdown, Flex, Icon, LabeledList, Modal, Section } from '../../components';
+import { Window } from '../../layouts';
 
 export const ShuttleConsole = (props, context) => {
   const { act, data } = useBackend(context);

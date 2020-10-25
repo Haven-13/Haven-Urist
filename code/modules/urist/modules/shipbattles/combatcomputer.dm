@@ -7,37 +7,6 @@
 	var/target = null
 	var/obj/effect/overmap/ship/combat/homeship
 	var/fallback_connect = FALSE
-/*
-/obj/machinery/computer/combatcomputer/attack_hand(user as mob)
-	if(..(user))
-		return
-	if(!allowed(user))
-		to_chat(user, "<span class='warning'>Access Denied.</span>")
-		return 1
-
-	//quick and dirty hack below, make a real UI for this
-
-	var/list/selectable = list()
-	for(var/obj/machinery/shipweapons/SW in linkedweapons)
-		if(SW.canfire)
-			selectable |= SW
-
-	if(target && homeship.incombat)
-		var/obj/machinery/shipweapons/SW = input("Which charged weapon do you wish to fire?") as null|anything in selectable
-
-		if(!istype(SW))
-	//		to_chat(usr, "<font color='blue'><b>You don't do anything.</b></font>")
-			return
-
-		if(SW.charged && !SW.firing)
-			SW.Fire()
-			to_chat(user, "<span class='warning'>You fire the [SW.name].</span>")
-
-		else
-			to_chat(user, "<span class='warning'>The [SW.name] cannot be fired right now.</span>")
-
-	else
-		to_chat(user, "<span class='warning'>The ship is not in combat.</span>")*/
 
 /obj/machinery/computer/combatcomputer/attack_hand(var/mob/user as mob)
 	if(..())
@@ -68,45 +37,30 @@
 /obj/machinery/computer/combatcomputer/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "ShipCombatComputer")
+		ui = new(user, src, "spacecraft/ShipCombatComputer", name)
 		ui.open()
 
 /obj/machinery/computer/combatcomputer/ui_data(mob/user)
-	var/data[0]
-	var/list/weapons[0]
-	var/list/targetcomponents[0]
+	. = list()
 
 	if(linkedweapons.len)
+		var/list/weapons[0]
 		for(var/obj/machinery/shipweapons/S in linkedweapons)
-			/*var/status
-			if(istype(S))
-				if(S.canfire)
-					status = "Ready to Fire"
-				else if(S.recharging)
-					status = "Charging"
-				else if(!S.canfire)
-					status = "Unable to Fire" */
-
 			weapons.Add(list(list(
 			"name" = S.name,
 			"status" = S.status,
-			"strengthhull" = S.hulldamage,
-			"strengthshield" = S.shielddamage,
-			"shieldpass" = S.passshield,
+			"strengthHull" = S.hulldamage,
+			"strengthShield" = S.shielddamage,
+			"shieldPass" = S.passshield,
 			"location" = S.loc.loc.name,
 			"ref" = "\ref[S]"
 			)))
 			//maybe change passshield data to ammo?
-			data["existing_weapons"] = weapons
+			.["weapons"] = weapons
 
 	if(target) //come back to this when making pvp
 		var/mob/living/simple_animal/hostile/overmapship/OM = target
-		var/integrity = (OM.health / OM.maxHealth) * 100
-		data["target"] = 1
-		data["targetname"] = OM.name
-		data["targethealth"] = integrity
-		data["targetshield"] = OM.shields
-
+		var/list/targetcomponents[0]
 		for(var/datum/shipcomponents/C in OM.components)
 			var/status
 			if(C.broken)
@@ -115,64 +69,57 @@
 				status = "Operational"
 
 			targetcomponents.Add(list(list(
-			"componentname" = C.name,
-			"componentstatus" = status,
-			"componenttargeted" = C.targeted,
+			"name" = C.name,
+			"status" = status,
+			"targeted" = C.targeted,
 			"ref" = "\ref[C]"
 			)))
+		.["target"] = list(
+			"name" = OM.name,
+			"type" = OM.ship_category,
+			"health" = OM.health,
+			"maxHealth" = OM.maxHealth,
+			"shields" = OM.shields,
+			"maxShields" = initial(OM.shields),
+			"components" = targetcomponents
+		)
+	else
+		.["target"] = null
 
-			data["target_components"] = targetcomponents
-
-	else if(!target)
-		data["target"] = 0
-
-	return data
-
-/obj/machinery/computer/combatcomputer/Topic(href, href_list)
+/obj/machinery/computer/combatcomputer/ui_act(action, list/params)
 	if(..())
-		return 1
+		return TRUE
 
-	if(href_list["fire"])
-		if(homeship?.incombat)
-			var/obj/machinery/shipweapons/S = locate(href_list["fire"]) in linkedweapons
-
-			if(S?.canfire)
-
-				if(!istype(S))
-					return
-
-				if(S.charged && !S.firing)
-					S.Fire()
-					to_chat(usr, "<span class='warning'>You fire the [S.name].</span>")
-
+	switch(action)
+		if("fire")
+			if(homeship?.incombat)
+				var/obj/machinery/shipweapons/S = locate(params["fire"]) in linkedweapons
+				if(S?.canfire)
+					if(!istype(S))
+						return
+					if(S.charged && !S.firing)
+						S.Fire()
+						to_chat(usr, "<span class='warning'>You fire the [S.name].</span>")
 				else
 					to_chat(usr, "<span class='warning'>The [S.name] cannot be fired right now.</span>")
+			else
+				to_chat(usr, "<span class='warning'>You cannot fire right now.</span>")	//this shouldn't happen
+		if("set_target")
+			if(target)
+				var/mob/living/simple_animal/hostile/overmapship/OM = target
+				for(var/datum/shipcomponents/SC in OM.components)
+					SC.targeted = FALSE
 
-		else
-			to_chat(usr, "<span class='warning'>You cannot fire right now.</span>")	//this shouldn't happen
+				var/datum/shipcomponents/C = locate(params["set_target"]) in OM.components
+				C.targeted = TRUE
 
-	if(href_list["settarget"])
-		if(target)
-			var/mob/living/simple_animal/hostile/overmapship/OM = target
-			for(var/datum/shipcomponents/SC in OM.components)
-				SC.targeted = FALSE
-
-			var/datum/shipcomponents/C = locate(href_list["settarget"]) in OM.components
-			C.targeted = TRUE
-
+				for(var/obj/machinery/shipweapons/S in linkedweapons)
+					S.targeted_component = C
+		if("unset_target")
 			for(var/obj/machinery/shipweapons/S in linkedweapons)
-				S.targeted_component = C
-
-	if(href_list["unsettarget"])
-		for(var/obj/machinery/shipweapons/S in linkedweapons)
-			S.targeted_component = null
-		if(target)
-			var/mob/living/simple_animal/hostile/overmapship/OM = target
-			for(var/datum/shipcomponents/C in OM.components)
-				C.targeted = FALSE
-
-	updateUsrDialog()
-
-/obj/machinery/computer/combatcomputer/nerva //different def just in case we have multiple ships that do combat. although, i think i might keep the cargo ship noncombat, fluff it as it being too small, slips right by the enemies. i dunno
-	name = "ICS Nerva Combat Computer"
-	shipid = "nerva"
+				S.targeted_component = null
+			if(target)
+				var/mob/living/simple_animal/hostile/overmapship/OM = target
+				for(var/datum/shipcomponents/C in OM.components)
+					C.targeted = FALSE
+	return TRUE
