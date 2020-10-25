@@ -35,12 +35,12 @@
 		"myredtoolbox" = new /datum/tool_cart_item(
 			"Toolbox (red)",
 			"cart_redtoolbox",
-			/obj/item/weapon/storage/toolbox/electrical
+			/obj/item/weapon/storage/toolbox/emergency
 		),
 		"myyellowtoolbox" = new /datum/tool_cart_item(
 			"Toolbox (yellow)",
 			"cart_yellowtoolbox",
-			/obj/item/weapon/storage/toolbox/emergency
+			/obj/item/weapon/storage/toolbox/electrical
 		),
 		"myengitape" = new /datum/tool_cart_item(
 			"Engineering tape",

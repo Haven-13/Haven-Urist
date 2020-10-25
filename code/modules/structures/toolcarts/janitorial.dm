@@ -36,7 +36,8 @@
 		"signs" = new /datum/tool_cart_stack(
 			"Signs",
 			"cart_signs",
-			/obj/item/weapon/caution
+			/obj/item/weapon/caution,
+			4
 		)
 	)
 
@@ -53,13 +54,14 @@
 				reagents.trans_to_obj(I, I.reagents.maximum_volume)
 				to_chat(user, "<span class='notice'>You wet [I] in [src].</span>")
 				playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-				return
+		else
+			..()
+
+	else if(..())
+		return TRUE
 
 	else if(istype(I, /obj/item/weapon/reagent_containers/glass))
 		return // So we do not put them in the trash bag as we mean to fill the mop bucket
 
 	else if(items["mybag"].item)
 		items["mybag"].item.attackby(I, user)
-
-	else
-		..()

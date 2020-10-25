@@ -16,7 +16,7 @@
 
 /obj/structure/tool_cart/attackby(obj/item/I, mob/user)
 	for (var/item in items)
-		if(istype(I, items[item].type))
+		if(istype(I, items[item].my_type))
 			if(!items[item].item)
 				put_in_cart(I, user)
 				items[item].item = I
@@ -24,7 +24,7 @@
 			else
 				to_chat(user, "<span class='notice'>There is already one [items[item].item.name] in [src].</span>")
 	for (var/stack in stacks)
-		if(istype(I, stacks[stack].type))
+		if(istype(I, stacks[stack].my_type))
 			if(stacks[stack].amount < stacks[stack].maxAmount)
 				put_in_cart(I, user)
 				stacks[stack].amount++
