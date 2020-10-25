@@ -59,7 +59,7 @@
 /obj/machinery/disease2/incubator/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "virology/DishIncubator")
+		ui = new(user, src, "virology/PathogenicIncubator")
 		ui.open()
 
 /obj/machinery/disease2/incubator/ui_data(mob/user)

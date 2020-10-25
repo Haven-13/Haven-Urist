@@ -64,6 +64,17 @@ export const toFixed = (value, fractionDigits = 0) => {
 };
 
 /**
+ * Returns an integer range starting at start to end, for every step
+ * @param {number} start
+ * @param {number} end
+ * @param {number} step
+ */
+export const range = (start, end, step=1) => {
+  if (start >= end) return [end];
+  return [start, ...range(start + step, end)]
+}
+
+/**
  * Checks whether a value is within the provided range.
  *
  * Range is an array of two numbers, for example: [0, 15].
