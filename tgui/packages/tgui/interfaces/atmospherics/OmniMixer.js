@@ -80,7 +80,7 @@ export const OmniMixer = (props, context) => {
                     />
                     <Button
                       selected={port.lock}
-                      icon="padlock"
+                      icon={port.lock ? "lock" : "unlock"}
                       onClick={() => act('switch_conlock', {
                         dir: port.dir,
                       })}

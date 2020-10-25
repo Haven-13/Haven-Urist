@@ -1,6 +1,7 @@
 import { useBackend } from "tgui/backend";
 import { Button, LabeledList, NumberInput, ProgressBar, Section } from "tgui/components";
 import { Window } from "tgui/layouts";
+import { round } from "common/math";
 
 export const Pump = (props, context) => {
   const { act, data } = useBackend(context);
@@ -20,14 +21,17 @@ export const Pump = (props, context) => {
             </LabeledList.Item>
             <LabeledList.Item label="Power Load">
               <ProgressBar
-                value={data.lastPowerDraw / data.maxPowerDraw}
-              />
+                value={data.lastPowerDraw}
+                maxValue={data.maxPowerDraw}
+              >
+                {data.lastPowerDraw} W
+              </ProgressBar>
             </LabeledList.Item>
             {data.max_rate ? (
               <LabeledList.Item label="Transfer Rate">
                 <NumberInput
                   animated
-                  value={parseFloat(data.rate)}
+                  value={round(parseFloat(data.rate))}
                   width="63px"
                   unit="L/s"
                   minValue={0}
@@ -49,7 +53,7 @@ export const Pump = (props, context) => {
                 <NumberInput
                   animated
                   width="85px"
-                  value={parseFloat(data.setPressure)}
+                  value={round(parseFloat(data.setPressure))}
                   unit="kPa"
                   minValue={0}
                   maxValue={data.maxPressure}
@@ -59,7 +63,6 @@ export const Pump = (props, context) => {
                   })} />
                 <Button
                   ml={1}
-                  icon="plus"
                   content="Min"
                   disabled={data.setPressure === data.minPressure}
                   onClick={() => act('pressure', {
@@ -67,7 +70,6 @@ export const Pump = (props, context) => {
                   })} />
                 <Button
                   ml={1}
-                  icon="plus"
                   content="Max"
                   disabled={data.setPressure === data.maxPressure}
                   onClick={() => act('pressure', {
