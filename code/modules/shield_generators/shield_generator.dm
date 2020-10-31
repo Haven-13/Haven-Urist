@@ -258,7 +258,7 @@
 			offline_for = round(current_energy / (SHIELD_SHUTDOWN_DISPERSION_RATE / 1.5))
 			var/old_energy = current_energy
 			shutdown_field()
-			log_and_message_admins("has triggered \the [src]'s emergency shutdown!", user)
+			log_and_message_admins("has triggered \the [src]'s emergency shutdown!", usr)
 			spawn()
 				empulse(src, old_energy / 60000000, old_energy / 32000000, 1) // If shields are charged at 450 MJ, the EMP will be 7.5, 14.0625. 90 MJ, 1.5, 2.8125
 			old_energy = 0
@@ -289,10 +289,10 @@
 			if(mode_changes_locked)
 				return TRUE
 			// Toggling hacked-only modes requires the hacked var to be set to 1
-			if((text2num(href_list["toggle_mode"]) & (MODEFLAG_BYPASS | MODEFLAG_OVERCHARGE)) && !hacked)
+			if((params["toggle_mode"] & (MODEFLAG_BYPASS | MODEFLAG_OVERCHARGE)) && !hacked)
 				return FALSE
 
-			toggle_flag(text2num(href_list["toggle_mode"]))
+			toggle_flag(params["toggle_mode"])
 			return TRUE
 
 /obj/machinery/power/shield_generator/attack_hand(var/mob/user)
