@@ -218,21 +218,21 @@
 		"running" = running,
 		"modes" = get_flag_descriptions(),
 		"overloaded" = overloaded,
-		"mitigation_max" = mitigation_max,
-		"mitigation_physical" = round(mitigation_physical, 0.1),
-		"mitigation_em" = round(mitigation_em, 0.1),
-		"mitigation_heat" = round(mitigation_heat, 0.1),
-		"field_integrity" = field_integrity(),
-		"max_energy" = max_energy,
-		"current_energy" = current_energy,
-		"total_segments" = total_segments,
-		"functional_segments" = damaged_segments ? total_segments - damaged_segments.len : total_segments,
-		"field_radius" = field_radius,
-		"input_cap_kw" = round(input_cap / 1000),
-		"upkeep_power_usage" = round(upkeep_power_usage / 1000, 0.1),
-		"power_usage" = round(power_usage / 1000),
+		"mitigationMax" = mitigation_max,
+		"mitigationPhysical" = round(mitigation_physical, 0.1),
+		"mitigationEm" = round(mitigation_em, 0.1),
+		"mitigationHeat" = round(mitigation_heat, 0.1),
+		"fieldIntegrity" = field_integrity(),
+		"maxEnergy" = max_energy,
+		"currentEnergy" = current_energy,
+		"totalSegments" = total_segments,
+		"functionalSegments" = damaged_segments ? total_segments - damaged_segments.len : total_segments,
+		"fieldRadius" = field_radius,
+		"inputCap" = input_cap,
+		"upkeepPowerUsage" = upkeep_power_usage,
+		"powerUsage" = power_usage,
 		"hacked" = hacked,
-		"offline_for" = offline_for * 2
+		"offlineFor" = offline_for * 2
 	)
 
 /obj/machinery/power/shield_generator/ui_act(action, list/params)
@@ -282,7 +282,7 @@
 			if(!new_cap)
 				input_cap = 0
 				return FALSE
-			input_cap = max(0, new_cap) * 1000
+			input_cap = max(0, new_cap)
 			return TRUE
 
 		if("toggle_mode")
@@ -305,68 +305,6 @@
 	if(issilicon(user) && !Adjacent(user) && ai_control_disabled)
 		return UI_UPDATE
 	return ..()
-
-
-/obj/machinery/power/shield_generator/OnTopic(user, href_list)
-	if(href_list["begin_shutdown"])
-		if(running != SHIELD_RUNNING)
-			return
-		running = SHIELD_DISCHARGING
-		return TRUE
-
-	if(href_list["start_generator"])
-		if(offline_for)
-			return
-		running = SHIELD_RUNNING
-		regenerate_field()
-		return TRUE
-
-	// Instantly drops the shield, but causes a cooldown before it may be started again. Also carries a risk of EMP at high charge.
-	if(href_list["emergency_shutdown"])
-		if(!running)
-			return FALSE
-
-		var/choice = input(user, "Are you sure that you want to initiate an emergency shield shutdown? This will instantly drop the shield, and may result in unstable release of stored electromagnetic energy. Proceed at your own risk.") in list("Yes", "No")
-		if((choice != "Yes") || !running)
-			return FALSE
-
-		// If the shield would take 5 minutes to disperse and shut down using regular methods, it will take x1.5 (7 minutes and 30 seconds) of this time to cool down after emergency shutdown
-		offline_for = round(current_energy / (SHIELD_SHUTDOWN_DISPERSION_RATE / 1.5))
-		var/old_energy = current_energy
-		shutdown_field()
-		log_and_message_admins("has triggered \the [src]'s emergency shutdown!", user)
-		spawn()
-			empulse(src, old_energy / 60000000, old_energy / 32000000, 1) // If shields are charged at 450 MJ, the EMP will be 7.5, 14.0625. 90 MJ, 1.5, 2.8125
-		old_energy = 0
-
-		return TRUE
-
-	if(mode_changes_locked)
-		return TRUE
-
-	if(href_list["set_range"])
-		var/new_range = input(user, "Enter new field range (1-[world.maxx]). Leave blank to cancel.", "Field Radius Control", field_radius) as num
-		if(!new_range)
-			return FALSE
-		field_radius = between(1, new_range, world.maxx)
-		regenerate_field()
-		return TRUE
-
-	if(href_list["set_input_cap"])
-		var/new_cap = round(input(user, "Enter new input cap (in kW). Enter 0 or nothing to disable input cap.", "Generator Power Control", round(input_cap / 1000)) as num)
-		if(!new_cap)
-			input_cap = 0
-			return
-		input_cap = max(0, new_cap) * 1000
-		return TRUE
-
-	if(href_list["toggle_mode"])
-		// Toggling hacked-only modes requires the hacked var to be set to 1
-		if((text2num(href_list["toggle_mode"]) & (MODEFLAG_BYPASS | MODEFLAG_OVERCHARGE)) && !hacked)
-			return FALSE
-
-		toggle_flag(text2num(href_list["toggle_mode"]))
-		return TRUE
 
 
 /obj/machinery/power/shield_generator/proc/field_integrity()
