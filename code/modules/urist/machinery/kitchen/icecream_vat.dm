@@ -69,7 +69,7 @@
 	usr.set_machine(src)
 
 	if(href_list["close"])
-		usr << browse(null, "window=cream_master")
+		close_browser(usr, "window=cream_master")
 		usr.unset_machine()
 		return
 

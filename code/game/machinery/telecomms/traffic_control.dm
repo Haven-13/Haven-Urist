@@ -104,7 +104,7 @@
 				dat += "<br>Selected Server: [SelectedServer.id]<br><br>"
 
 
-		user << browse(dat, "window=traffic_control;size=575x400")
+		show_browser(user, dat, "window=traffic_control;size=575x400")
 		onclose(user, "server_control")
 
 		temp = ""

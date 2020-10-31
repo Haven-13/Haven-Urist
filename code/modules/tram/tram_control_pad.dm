@@ -12,12 +12,12 @@
 	var/dat = "Tram Controller"
 	dat += "<br>Tram engine: <a href=?src=\ref[src];engine_toggle=1>[tram_linked.automode ? "<font color='green'>On</font>" : "<font color='red'>Off</font>"]</a>"
 	dat += "<br><A href='?src=\ref[src];close=1'>Close console</A>"
-	user << browse(dat, "window=trampad")
+	show_browser(user, dat, "window=trampad")
 	onclose(user,"trampad")
 
 /obj/tram/controlpad/Topic(href, href_list)
 	if(..())
-		usr << browse(null, "window=publiclibrary")
+		close_browser(usr, "window=publiclibrary")
 		onclose(usr, "publiclibrary")
 		return
 
@@ -27,7 +27,7 @@
 		else	tram_linked.killLoop()
 	else if(href_list["close"])
 		usr.unset_machine()
-		usr << browse(null, "window=trampad")
+		close_browser(usr, "window=trampad")
 
 	src.add_fingerprint(usr)
 	src.updateUsrDialog()

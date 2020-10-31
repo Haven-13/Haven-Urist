@@ -24,7 +24,7 @@
 			var/dat = {"<B>Slot Machine</B><BR>
 			<HR><BR>
 			<B>Please wait!</B><BR>"}
-			user << browse(dat, "window=slotmachine;size=450x500")
+			show_browser(user, dat, "window=slotmachine;size=450x500")
 			onclose(user, "slotmachine")
 		else
 			var/dat = {"<B>Slot Machine</B><BR>
@@ -35,7 +35,7 @@
 			[src.plays] players have tried their luck today!<BR>
 			<HR><BR>
 			<A href='?src=\ref[src];ops=1'>Play!<BR>"}
-			user << browse(dat, "window=slotmachine;size=400x500")
+			show_browser(user, dat, "window=slotmachine;size=400x500")
 			onclose(user, "slotmachine")
 
 	Topic(href, href_list)

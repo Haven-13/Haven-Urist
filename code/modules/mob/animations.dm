@@ -105,7 +105,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 	is_floating = 1
 
 	var/amplitude = 2 //maximum displacement from original position
-	var/period = 36 //time taken for the mob to go up >> down >> original position, in deciseconds. Should be multiple of 4
+	var/period = 36 //time taken for the mob to go from_file(up, down) >> original position, in deciseconds. Should be multiple of 4
 
 	var/top = default_pixel_y + amplitude
 	var/bottom = default_pixel_y - amplitude

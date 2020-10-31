@@ -37,7 +37,7 @@
 	t += "<A href='?src=\ref[src];on2=Testloop2'>TestLoop2</A><br>"
 	t += "<A href='?src=\ref[src];on3=Testloop3'>TestLoop3</A><br>"
 
-	user << browse(t, "window=turntable;size=420x700")
+	show_browser(user, t, "window=turntable;size=420x700")
 
 
 /obj/machinery/party/turntable/Topic(href, href_list)
@@ -81,7 +81,7 @@
 	S.environment = 0
 	//for(var/mob/M in world)
 	//	if(M.loc.loc == src.loc.loc && M.music == 0)
-	//		world << "Found the song..."
+	//		to_world("Found the song...")
 	//		M << S
 	//		M.music = 1
 	var/area/A = src.loc.loc

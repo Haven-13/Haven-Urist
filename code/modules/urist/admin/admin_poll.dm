@@ -14,7 +14,7 @@
 	dat += "<br><a href='?_src_=holder;create_poll_panel=1'>Create Poll</A>"
 	dat += "<br><a href='?_src_=holder;manage_poll_panel=1'>Manage Polls</A>"
 	dat += "</body></html>"
-	usr << browse(dat, "window=adminpollpanel;size=200x150")
+	show_browser(usr, dat, "window=adminpollpanel;size=200x150")
 	return
 
 /datum/admins/proc/view_poll_panel(var/pollid)
@@ -68,7 +68,7 @@
 			dat += "</td></tr>"
 
 		dat += "</table></body></html>"
-		usr << browse(dat, "window=viewpollpanel;size=500x500")
+		show_browser(usr, dat, "window=viewpollpanel;size=500x500")
 	else if(polltype == "TEXT")
 
 
@@ -87,7 +87,7 @@
 			dat += "<tr><td>[text_query.item[2]]</td><td>[text_query.item[1]]</td>"
 
 		dat += "</table></body></html>"
-		usr << browse(dat, "window=viewpollpanel;size=400x600")
+		show_browser(usr, dat, "window=viewpollpanel;size=400x600")
 
 	else if(polltype == "NUMVAL")
 		var/polloptions[0]
@@ -133,7 +133,7 @@
 			dat += "</td></tr>"
 
 		dat += "</table></body></html>"
-		usr << browse(dat, "window=viewpollpanel;size=400x600")
+		show_browser(usr, dat, "window=viewpollpanel;size=400x600")
 
 /datum/admins/proc/manage_poll_panel()
 	if(!check_rights(R_ADMIN,1))	return
@@ -193,7 +193,7 @@
 		dat += "</td><td><a href='?_src_=holder;remove_poll=[pollid[i]]'>X</a></td></tr>"
 
 	dat += "</table></body></html>"
-	usr << browse(dat, "window=managepollpanel;size=750x600")
+	show_browser(usr, dat, "window=managepollpanel;size=750x600")
 	return
 
 /datum/admins/proc/create_poll_panel()
@@ -315,7 +315,7 @@
 	dat += "</body>"
 	dat += "</html>"
 
-	usr << browse(dat, "window=admincreatepolls;size=600x650")
+	show_browser(usr, dat, "window=admincreatepolls;size=600x650")
 	return
 
 /datum/admins/proc/remove_poll(var/pollid)

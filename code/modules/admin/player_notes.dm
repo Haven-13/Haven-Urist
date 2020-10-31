@@ -5,7 +5,7 @@
 #define NOTESFILE "data/player_notes.sav"	//where the player notes are saved
 
 datum/admins/proc/notes_show(var/ckey)
-	usr << browse("<head><title>Player Notes</title></head><body>[notes_gethtml(ckey)]</body>","window=player_notes;size=700x400")
+	show_browser(usr, "<head><title>Player Notes</title></head><body>[notes_gethtml(ckey)]</body>","window=player_notes;size=700x400")
 
 
 datum/admins/proc/notes_gethtml(var/ckey)
@@ -17,7 +17,7 @@ datum/admins/proc/notes_gethtml(var/ckey)
 		var/index = 1
 		while( !notesfile.eof )
 			var/note
-			notesfile >> note
+			from_file(notesfile, note)
 			. += "[note] <a href='?src=\ref[src];notes=remove;ckey=[ckey];from=[index]'>\[-\]</a><br>"
 			index++
 	else
@@ -45,7 +45,7 @@ datum/admins/proc/notes_gethtml(var/ckey)
 		while( !notesfile.eof )
 			index++
 			var/temp
-			notesfile >> temp
+			from_file(notesfile, temp)
 			if( (start_index <= index) && (index <= end_index) )
 				continue
 			noteslist += temp
@@ -72,7 +72,7 @@ datum/admins/proc/notes_gethtml(var/ckey)
 	//Loading list of notes for this key
 	var/savefile/info = new("data/player_saves/[copytext(key, 1, 2)]/[key]/info.sav")
 	var/list/infos
-	info >> infos
+	from_file(info, infos)
 	if(!infos) infos = list()
 
 	//Overly complex timestamp creation
@@ -114,7 +114,7 @@ datum/admins/proc/notes_gethtml(var/ckey)
 	//Updating list of keys with notes on them
 	var/savefile/note_list = new("data/player_notes.sav")
 	var/list/note_keys
-	note_list >> note_keys
+	from_file(note_list, note_keys)
 	if(!note_keys) note_keys = list()
 	if(!note_keys.Find(key)) note_keys += key
 	note_list << note_keys
@@ -124,7 +124,7 @@ datum/admins/proc/notes_gethtml(var/ckey)
 /proc/notes_del(var/key, var/index)
 	var/savefile/info = new("data/player_saves/[copytext(key, 1, 2)]/[key]/info.sav")
 	var/list/infos
-	info >> infos
+	from_file(info, infos)
 	if(!infos || infos.len < index) return
 
 	var/datum/player_info/item = infos[index]
@@ -140,7 +140,7 @@ datum/admins/proc/notes_gethtml(var/ckey)
 	var/dat = "          Info on [key]\n"
 	var/savefile/info = new("data/player_saves/[copytext(key, 1, 2)]/[key]/info.sav")
 	var/list/infos
-	info >> infos
+	from_file(info, infos)
 	if(!infos)
 		dat = "No information found on the given key."
 	else

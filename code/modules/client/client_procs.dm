@@ -39,7 +39,7 @@
 	//byond bug ID:2256651
 	if (asset_cache_job && (asset_cache_job in completed_asset_jobs))
 		to_chat(src, "<span class='danger'>An error has been detected in how your client is receiving resources. Attempting to correct.... (If you keep seeing these messages you might want to close byond and reconnect)</span>")
-		src << browse("...", "window=asset_cache_browser")
+		show_browser(src, "...", "window=asset_cache_browser")
 		return
 	if (href_list["asset_cache_preload_data"])
 		asset_cache_preload_data(href_list["asset_cache_preload_data"])
@@ -47,7 +47,7 @@
 
 	//search the href for script injection
 	if( findtext(href,"<script",1,0) )
-		world.log << "Attempted use of scripts within a topic call, by [src]"
+		to_world_log("Attempted use of scripts within a topic call, by [src]")
 		message_admins("Attempted use of scripts within a topic call, by [src]")
 		//qdel(usr)
 		return
@@ -100,7 +100,7 @@
 
 	switch(href_list["action"])
 		if("openLink")
-			src << link(href_list["link"])
+			open_link(src, href_list["link"])
 
 	if (hsrc)
 		var/datum/real_src = hsrc
@@ -364,7 +364,7 @@
 	spawn (10) //removing this spawn causes all clients to not get verbs.
 
 		//load info on what assets the client has
-		src << browse('code/modules/asset_cache/validate_assets.html', "window=asset_cache_browser")
+		show_browser(src, 'code/modules/asset_cache/validate_assets.html', "window=asset_cache_browser")
 
 		//Precache the client with all other assets slowly, so as to not block other browse() calls
 		if (config.asset_simple_preload)

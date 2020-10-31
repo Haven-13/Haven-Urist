@@ -185,7 +185,7 @@ td.cost.toomuch {
 	</table>
 	</body>
 </html>"}
-	user << browse(dat, "window=merch")
+	show_browser(user, dat, "window=merch")
 	onclose(user, "merch")
 	return
 

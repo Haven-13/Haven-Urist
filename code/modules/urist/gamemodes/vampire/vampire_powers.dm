@@ -10,7 +10,7 @@
 	var/datum/vampire/vampire = src.mind.vampire
 
 	if(!vampire)
-		world.log << "[src] has vampire verbs but isn't a vampire."
+		to_world_log("[src] has vampire verbs but isn't a vampire.")
 		return 0
 
 	var/fullpower = (VAMP_FULL in vampire.powers)
@@ -398,7 +398,7 @@
 	var/vampirize_safe = 0
 
 	if(!C)
-		world.log << "something bad happened on vampirizing a mob src is [src] [src.key] \ref[src]"
+		to_world_log("something bad happened on vampirizing a mob src is [src] [src.key] \ref[src]")
 		return 0
 	if(!C.mind)
 		src << "<span class='warning'> [C.name]'s mind is not there for you to vampirize.</span>"

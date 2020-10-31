@@ -208,33 +208,92 @@
 /obj/machinery/power/shield_generator/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "AdvancedShieldGenerator")
+		ui = new(user, src, "AdvancedShieldGenerator", name)
 		ui.open()
 
+
 /obj/machinery/power/shield_generator/ui_data(mob/user)
-	var/data[0]
+	var/total_segments = field_segments ? field_segments.len : 0
+	. = list(
+		"running" = running,
+		"modes" = get_flag_descriptions(),
+		"overloaded" = overloaded,
+		"mitigation_max" = mitigation_max,
+		"mitigation_physical" = round(mitigation_physical, 0.1),
+		"mitigation_em" = round(mitigation_em, 0.1),
+		"mitigation_heat" = round(mitigation_heat, 0.1),
+		"field_integrity" = field_integrity(),
+		"max_energy" = max_energy,
+		"current_energy" = current_energy,
+		"total_segments" = total_segments,
+		"functional_segments" = damaged_segments ? total_segments - damaged_segments.len : total_segments,
+		"field_radius" = field_radius,
+		"input_cap_kw" = round(input_cap / 1000),
+		"upkeep_power_usage" = round(upkeep_power_usage / 1000, 0.1),
+		"power_usage" = round(power_usage / 1000),
+		"hacked" = hacked,
+		"offline_for" = offline_for * 2
+	)
 
-	data["running"] = running
-	data["modes"] = get_flag_descriptions()
-	data["overloaded"] = overloaded
-	data["mitigation_max"] = mitigation_max
-	data["mitigation_physical"] = round(mitigation_physical, 0.1)
-	data["mitigation_em"] = round(mitigation_em, 0.1)
-	data["mitigation_heat"] = round(mitigation_heat, 0.1)
-	data["field_integrity"] = field_integrity()
-	data["max_energy"] = round(max_energy / 1000000, 0.1)
-	data["current_energy"] = round(current_energy / 1000000, 0.1)
-	data["total_segments"] = field_segments ? field_segments.len : 0
-	data["functional_segments"] = damaged_segments ? data["total_segments"] - damaged_segments.len : data["total_segments"]
-	data["field_radius"] = field_radius
-	data["input_cap_kw"] = round(input_cap / 1000)
-	data["upkeep_power_usage"] = round(upkeep_power_usage / 1000, 0.1)
-	data["power_usage"] = round(power_usage / 1000)
-	data["hacked"] = hacked
-	data["offline_for"] = offline_for * 2
+/obj/machinery/power/shield_generator/ui_act(action, list/params)
+	switch(action)
+		if("begin_shutdown")
+			if(running != SHIELD_RUNNING)
+				return FALSE
+			running = SHIELD_DISCHARGING
+			return TRUE
 
-	return data
+		if("start_generator")
+			if(offline_for)
+				return FALSE
+			running = SHIELD_RUNNING
+			regenerate_field()
+			return TRUE
 
+		if("emergency_shutdown")
+			if(!running)
+				return FALSE
+
+			// If the shield would take 5 minutes to disperse and shut down using regular methods, it will take x1.5 (7 minutes and 30 seconds) of this time to cool down after emergency shutdown
+			offline_for = round(current_energy / (SHIELD_SHUTDOWN_DISPERSION_RATE / 1.5))
+			var/old_energy = current_energy
+			shutdown_field()
+			log_and_message_admins("has triggered \the [src]'s emergency shutdown!", user)
+			spawn()
+				empulse(src, old_energy / 60000000, old_energy / 32000000, 1) // If shields are charged at 450 MJ, the EMP will be 7.5, 14.0625. 90 MJ, 1.5, 2.8125
+			old_energy = 0
+
+			return TRUE
+
+		if("set_range")
+			if(mode_changes_locked)
+				return TRUE
+			var/new_range = params["set_range"]
+			if(!new_range)
+				return FALSE
+			field_radius = between(1, new_range, world.maxx)
+			regenerate_field()
+			return TRUE
+
+		if("set_input_cap")
+			if(mode_changes_locked)
+				return TRUE
+			var/new_cap = params["set_input_cap"]
+			if(!new_cap)
+				input_cap = 0
+				return FALSE
+			input_cap = max(0, new_cap) * 1000
+			return TRUE
+
+		if("toggle_mode")
+			if(mode_changes_locked)
+				return TRUE
+			// Toggling hacked-only modes requires the hacked var to be set to 1
+			if((text2num(href_list["toggle_mode"]) & (MODEFLAG_BYPASS | MODEFLAG_OVERCHARGE)) && !hacked)
+				return FALSE
+
+			toggle_flag(text2num(href_list["toggle_mode"]))
+			return TRUE
 
 /obj/machinery/power/shield_generator/attack_hand(var/mob/user)
 	ui_interact(user)
@@ -246,6 +305,7 @@
 	if(issilicon(user) && !Adjacent(user) && ai_control_disabled)
 		return UI_UPDATE
 	return ..()
+
 
 /obj/machinery/power/shield_generator/OnTopic(user, href_list)
 	if(href_list["begin_shutdown"])

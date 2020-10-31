@@ -70,7 +70,7 @@
 
 	dat += "</table><hr>"
 
-	user << browse(dat, "window=autolathe")
+	show_browser(user, dat, "window=autolathe")
 	onclose(user, "autolathe")
 
 /obj/machinery/scom/scomscience/attackby(var/obj/item/O as obj, var/mob/user as mob)

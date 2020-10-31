@@ -28,7 +28,7 @@
 	if(!Adjacent(user) || (stat & (BROKEN|NOPOWER)))
 		if(!istype(user, /mob/living/silicon))
 			user.unset_machine()
-			user << browse(null, "window=op")
+			close_browser(user, "window=op")
 			return
 
 	user.set_machine(src)
@@ -52,7 +52,7 @@
 <BR>
 <B>No Patient Detected</B>
 "}
-	user << browse(dat, "window=op")
+	show_browser(user, dat, "window=op")
 	onclose(user, "op")
 
 /obj/machinery/computer/operating/Process()

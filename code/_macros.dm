@@ -96,8 +96,8 @@
 #define random_id(key,min_id,max_id) uniqueness_repository.Generate(/datum/uniqueness_generator/id_random, key, min_id, max_id)
 
 #define to_chat(target, message)                            target << message
-#define to_world(message)                                   world << message
-#define to_world_log(message)                               world.log << message
+#define to_world(message)                                   to_chat(world, message)
+#define to_world_log(message)                               to_chat(world.log, message)
 #define sound_to(target, sound)                             target << sound
 #define to_file(file_entry, source_var)                     file_entry << source_var
 #define from_file(file_entry, target_var)                   file_entry >> target_var
@@ -105,7 +105,7 @@
 #define close_browser(target, browser_name)                 target << browse(null, browser_name)
 #define show_image(target, image)                           target << image
 #define send_rsc(target, rsc_content, rsc_name)             target << browse_rsc(rsc_content, rsc_name)
-#define open_link(target, url)             target << link(url)
+#define open_link(target, url)                              target << link(url)
 
 #define MAP_IMAGE_PATH "html/images/[GLOB.using_map.path]/"
 
@@ -158,7 +158,7 @@
 
 //Currently used in SDQL2 stuff
 #define send_output(target, msg, control) target << output(msg, control)
-#define send_link(target, url) target << link(url)
+#define send_link(target, url) open_link(target, url)
 
 // Spawns multiple objects of the same type
 #define cast_new(type, num, args...) if((num) == 1) { new type(args) } else { for(var/i=0;i<(num),i++) { new type(args) } }

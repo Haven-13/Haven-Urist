@@ -12,7 +12,7 @@
 /datum/game_mode/scom_gd/on_selection()
 	GLOB.using_map.allowed_jobs = list(/datum/job/scom/captain)
 	job_master.ResetOccupations()
-	world << "Standard job table overwriten, please reselect your job."
+	to_world("Standard job table overwriten, please reselect your job.")
 
 	if(GLOB.using_map.use_overmap)
 		for(var/square in block(locate(1,1,GLOB.using_map.overmap_z), locate(GLOB.using_map.overmap_size,GLOB.using_map.overmap_size,GLOB.using_map.overmap_z)))
@@ -22,7 +22,7 @@
 	else
 		GLOB.using_map.use_overmap = TRUE
 		build_overmap()
-	world << "Overmap prepared"
+	to_world("Overmap prepared")
 
 	GLOB.latejoin = list()
 	GLOB.latejoin_cryo = list()
@@ -30,5 +30,5 @@
 
 	maploader.load_map('maps/templates/scomhq.dmm')
 	maploader.load_map('maps/templates/scomcruiser.dmm')
-	world << "SCOM Z-levels setup"
+	to_world("SCOM Z-levels setup")
 

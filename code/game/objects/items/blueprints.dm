@@ -56,7 +56,7 @@
 	else
 		text += "You may not touch turbolifts"
 		text += "</BODY></HTML>"
-	usr << browse(text, "window=blueprints")
+	show_browser(usr, text, "window=blueprints")
 	onclose(usr, "blueprints")
 
 /obj/item/blueprints/proc/CheckArea(var/area/A)

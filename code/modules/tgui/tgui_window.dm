@@ -89,7 +89,7 @@
 	// Inject custom HTML
 	html = replacetextEx(html, "<!-- tgui:html -->\n", inline_html)
 	// Open the window
-	client << browse(html, "window=[id];[options]")
+	show_browser(client, html, "window=[id];[options]")
 	// Instruct the client to signal UI when the window is closed.
 	winset(client, id, "on-close=\"uiclose [id]\"")
 	// Detect whether the control is a browser
@@ -194,7 +194,7 @@
 	// Do not close the window to give user some time
 	// to read the error message.
 	if(!fatally_errored)
-		client << browse(null, "window=[id]")
+		close_browser(client, "window=[id]")
 
 /**
  * public
@@ -310,7 +310,7 @@
 		if("close")
 			close(can_be_suspended = FALSE)
 		if("openLink")
-			client << link(href_list["url"])
+			open_link(client, href_list["url"])
 		if("cacheReloaded")
 			testing("Reloading cache for window '[id]'")
 			// Reinitialize

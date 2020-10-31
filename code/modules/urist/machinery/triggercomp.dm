@@ -57,7 +57,7 @@
 				t += "<A href='?src=\ref[src];on6=[id6]'>[id6]</A><br>"
 				t += "<A href='?src=\ref[src];on7=[id7]'>[id7]</A><br>"
 
-			user << browse(t, "window=computer;size=420x700")
+			show_browser(user, t, "window=computer;size=420x700")
 
 	else
 		user << "<span class='warning'>Access denied.</span>"
