@@ -38,7 +38,7 @@
 /obj/machinery/disease2/centrifuge/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "virology/PathogenicCentrifuge")
+		ui = new(user, src, "virology/PathogenicCentrifuge", name)
 		ui.open()
 
 /obj/machinery/disease2/centrifuge/ui_data(mob/user)
@@ -62,7 +62,7 @@
 	if (sample)
 		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in sample.reagents.reagent_list
 		if (B)
-			.["antibodies"] = antigens2string(B.data["antibodies"], none=null)
+			.["antibodies"] = antigens2string(B.data["antibodies"], none=list())
 
 			var/list/pathogens[0]
 			var/list/virus = B.data["virus2"]
@@ -76,7 +76,7 @@
 		else
 			var/datum/reagent/antibodies/A = locate(/datum/reagent/antibodies) in sample.reagents.reagent_list
 			if(A)
-				.["antibodies"] = antigens2string(A.data["antibodies"], none=null)
+				.["antibodies"] = antigens2string(A.data["antibodies"], none=list())
 			.["isAntibodySample"] = TRUE
 
 /obj/machinery/disease2/centrifuge/Process()

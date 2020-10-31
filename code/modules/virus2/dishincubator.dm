@@ -59,40 +59,37 @@
 /obj/machinery/disease2/incubator/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "virology/PathogenicIncubator")
+		ui = new(user, src, "virology/PathogenicIncubator", name)
 		ui.open()
 
+/obj/machinery/disease2/incubator/ui_static_data(mob/user)
+	. = list(
+		"minFood" = 0,
+		"maxFood" = 100,
+		"minRadiation" = 0,
+		"maxRadiation" = 100,
+		"minToxins" = 0,
+		"maxToxins" = 100,
+		"minGrowth" = 0,
+		"maxGrowth" = 100
+	)
+
 /obj/machinery/disease2/incubator/ui_data(mob/user)
-	var/data[0]
-	data["chemicals_inserted"] = !!beaker
-	data["dish_inserted"] = !!dish
-	data["food_supply"] = foodsupply
-	data["radiation"] = radiation
-	data["toxins"] = min(toxins, 100)
-	data["on"] = on
-	data["system_in_use"] = foodsupply > 0 || radiation > 0 || toxins > 0
-	data["chemical_volume"] = beaker ? beaker.reagents.total_volume : 0
-	data["max_chemical_volume"] = beaker ? beaker.volume : 1
-	data["virus"] = dish ? dish.virus2 : null
-	data["growth"] = dish ? min(dish.growth, 100) : 0
-	data["infection_rate"] = dish && dish.virus2 ? dish.virus2.infectionchance * 10 : 0
-	data["analysed"] = dish && dish.analysed ? 1 : 0
-	data["can_breed_virus"] = null
-	data["blood_already_infected"] = null
-
-	if (beaker)
-		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in beaker.reagents.reagent_list
-		data["can_breed_virus"] = dish && dish.virus2 && B
-
-		if (B)
-			if (!B.data["virus2"])
-				B.data["virus2"] = list()
-
-			var/list/virus = B.data["virus2"]
-			for (var/ID in virus)
-				data["blood_already_infected"] = virus[ID]
-
-	return data
+	. = list(
+		"chemicalsInserted" = !!beaker,
+		"dishInserted" = !!dish,
+		"foodSupply" = foodsupply,
+		"radiation" = radiation,
+		"toxins" = min(toxins, 100),
+		"on" = on,
+		"systemInUse" = foodsupply > 0 || radiation > 0 || toxins > 0,
+		"chemicalVolume" = beaker ? beaker.reagents.total_volume : 0,
+		"maxChemicalVolume" = beaker ? beaker.volume : 1,
+		"virus" = dish ? dish.virus2.name() : null,
+		"growth" = dish ? min(dish.growth, 100) : 0,
+		"infectionRate" = dish && dish.virus2 ? dish.virus2.infectionchance : 0,
+		"analysed" = dish && dish.analysed ? 1 : 0
+	)
 
 /obj/machinery/disease2/incubator/ui_act(action, list/params)
 	switch(action)
@@ -122,23 +119,6 @@
 			radiation = 0
 			toxins = 0
 			foodsupply = 0
-			return TRUE
-
-		if("virus")
-			if (!dish)
-				return TRUE
-
-			var/datum/reagent/blood/B = locate(/datum/reagent/blood) in beaker.reagents.reagent_list
-			if (!B)
-				return TRUE
-
-			if (!B.data["virus2"])
-				B.data["virus2"] = list()
-
-			var/list/virus = list("[dish.virus2.uniqueID]" = dish.virus2.getcopy())
-			B.data["virus2"] += virus
-
-			ping("\The [src] pings, \"Injection complete.\"")
 			return TRUE
 
 /obj/machinery/disease2/incubator/Process()
