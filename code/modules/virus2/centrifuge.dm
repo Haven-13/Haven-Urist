@@ -45,16 +45,19 @@
 	. = list(
 		"antibodies" = null,
 		"pathogens" = null,
-		"is_antibody_sample" = FALSE,
-		"busy" = null
+		"isAntibodySample" = FALSE,
+		"busy" = null,
+		"timeLeft" = 0
 	)
 
 	if (curing)
 		.["busy"] = "Isolating antibodies..."
+		.["timeLeft"] = curing
 	else if (isolating)
 		.["busy"] = "Isolating pathogens..."
+		.["timeLeft"] = isolating
 
-	.["sample_inserted"] = !!sample
+	.["sampleInserted"] = !!sample
 
 	if (sample)
 		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in sample.reagents.reagent_list
@@ -65,7 +68,7 @@
 			var/list/virus = B.data["virus2"]
 			for (var/ID in virus)
 				var/datum/disease2/disease/V = virus[ID]
-				pathogens.Add(list(list("name" = V.name(), "spread_type" = V.spreadtype, "reference" = "\ref[V]")))
+				pathogens.Add(list(list("name" = V.name(), "spreadType" = V.spreadtype, "reference" = "\ref[V]")))
 
 			if (pathogens.len > 0)
 				.["pathogens"] = pathogens
@@ -74,7 +77,7 @@
 			var/datum/reagent/antibodies/A = locate(/datum/reagent/antibodies) in sample.reagents.reagent_list
 			if(A)
 				.["antibodies"] = antigens2string(A.data["antibodies"], none=null)
-			.["is_antibody_sample"] = TRUE
+			.["isAntibodySample"] = TRUE
 
 /obj/machinery/disease2/centrifuge/Process()
 	..()
