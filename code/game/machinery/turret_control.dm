@@ -66,7 +66,6 @@
 
 /obj/machinery/turretid/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
-		to_chat(user, "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>")
 		return 1
 
 	if(malf_upgraded && master_ai)
@@ -75,10 +74,23 @@
 		return 1
 
 	if(locked && !issilicon(user))
-		to_chat(user, "<span class='notice'>Access denied.</span>")
 		return 1
 
 	return 0
+
+/obj/machinery/turretid/attack_ai(mob/user)
+	if(isLocked(user))
+		to_chat(user, "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>")
+		return
+
+	ui_interact(user)
+
+/obj/machinery/turretid/attack_hand(mob/user)
+	if(isLocked(user))
+		to_chat(user, "<span class='notice'>Access denied.</span>")
+		return
+
+	ui_interact(user)
 
 /obj/machinery/turretid/attackby(obj/item/weapon/W, mob/user)
 	if(stat & BROKEN)
