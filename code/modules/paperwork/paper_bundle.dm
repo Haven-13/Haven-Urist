@@ -127,12 +127,12 @@
 		show_browser(user, dat, "window=[name]")
 	else if(istype(pages[page], /obj/item/weapon/photo))
 		var/obj/item/weapon/photo/P = W
-		send_rsc(user, (P.img, "tmp_photo.png")
-		show_browser(user, dat + "<html><head><title>[P.name]</title></head>" \
-		+ "<body style='overflow:hidden'>" \
-		+ "<div> <img src='tmp_photo.png' width = '180'" \
-		+ "[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : ]"\
-		+ "</body></html>", "window=[name]")
+		dat += "<html><head><title>[P.name]</title></head>"
+		dat += "<body style='overflow:hidden'><div> <img src='tmp_photo.png' width = '180'"
+		dat += ("[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : ]")
+		dat += "</body></html>"
+		send_rsc(user, P.img, "tmp_photo.png")
+		show_browser(user, dat, "window=[name]")
 
 /obj/item/weapon/paper_bundle/attack_self(mob/user as mob)
 	src.show_content(user)
