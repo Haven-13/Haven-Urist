@@ -22,6 +22,8 @@
 	var/progress = 0
 	var/busy = 0
 
+	var/brand
+	var/list/brands = list()
 	var/list/categories = list()
 	var/sync_message = ""
 
@@ -104,10 +106,12 @@
 	. = list(
 		"buildable" = get_build_options(),
 		"categories" = categories,
+		"brands" = brands
 	)
 
 /obj/machinery/mecha_part_fabricator/ui_data(mob/user)
 	. = list(
+		"brand" = brand,
 		"current" = current ? list(
 			"name" = current.name,
 			"duration" = current.time - progress,
@@ -137,6 +141,8 @@
 			queue.Cut()
 		if("eject_material")
 			eject_materials(params["eject_material"], params["amount"])
+		if("set_brand")
+			brand = params["set_brand"] ? params["set_brand"] : brand
 		if("sync_rnd")
 			sync()
 	return TRUE
@@ -312,12 +318,13 @@
 			continue
 		categories |= D.category
 
-	if(all_robolimbs)
-		for(var/A in all_robolimbs)
-			var/datum/robolimb/R = all_robolimbs[A]
-			if(R.unavailable_at_fab || R.applies_to_part.len)
-				continue
-			categories |= R.company
+	brands = list()
+	for(var/A in all_robolimbs)
+		var/datum/robolimb/R = all_robolimbs[A]
+		if(R.unavailable_at_fab || R.applies_to_part.len)
+			continue
+		brands |= R.company
+		brand = R.company
 
 /obj/machinery/mecha_part_fabricator/proc/get_materials()
 	. = list()
@@ -325,7 +332,18 @@
 		. += list(list(
 			"name" = capitalize(T),
 			"amount" = materials[T],
-			"removable" = 1, // This sucks donkey balls because whoever chickendipshit wrote the materials system didn't make a database controller so we could check them against it instead of going through the highly-galaxy-cultivated method as seen in the method below. Fuck you, Bay.
+			// This sucks donkey balls because whoever chickendipshit wrote the materials system didn't make a
+			// database controller. So we could check them against it instead of going through the
+			// highly-galaxy-brain-cultivated method as seen in the proc/eject_materials method below.
+			//
+			// Why? Because apparently the stack/material objects have a non-constant var/perunit variable
+			// which dictate how much one unit in the stack represent. A database controller COULD have
+			// made this trivial. Like... SSmaterials.get_material("steel").sheet_per_unit, something like that.
+			//
+			// Fuck you, Bay.
+			// I ain't cleaning up your mess after you.
+			"sheets" = ceil(materials[T]/SHEET_MATERIAL_AMOUNT),
+			"removable" = materials[T] >= SHEET_MATERIAL_AMOUNT,
 			"ref" = T
 		))
 

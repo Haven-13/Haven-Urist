@@ -126,6 +126,8 @@ const searchFilter = (search, allparts) => {
 export const ExosuitFabricator = (props, context) => {
   const { act, data } = useBackend(context);
 
+  const brands = data.brands || [];
+  const categories = data.categories || [];
   const queue = data.queue || [];
   const materialAsObj = materialArrayToObj(data.materials || []);
 
@@ -143,7 +145,7 @@ export const ExosuitFabricator = (props, context) => {
   return (
     <Window
       title="Exosuit Fabricator"
-      width={900}
+      width={950}
       height={540}>
       <Window.Content>
         <Flex
@@ -153,24 +155,35 @@ export const ExosuitFabricator = (props, context) => {
         >
           <Flex.Item>
             <Flex
-              width="auto"
-              spacing={1}
-              align="start"
-              direction="row">
+              width="100%"
+              direction="row"
+              >
               <Flex.Item
-                basis="content"
-                grow={1}>
+                grow={1}
+                width="100%"
+                >
                 <Section
+                  fill
+                  width="100%"
                   title="Materials">
                   <Materials />
                 </Section>
               </Flex.Item>
               <Flex.Item
+                ml={1}
                 grow={1}
+                basis="content"
               >
                 <Section
                   title="Settings"
-                  height="100%">
+                  height="100%"
+                  width="250px"
+                  buttons={(
+                    <Button
+                      content="R&D Sync"
+                      onClick={() => act("sync_rnd")} />
+                  )}
+                  >
                   <Button.Checkbox
                     onClick={() => setDisplayMatCost(!displayMatCost)}
                     checked={displayMatCost}>
@@ -191,13 +204,22 @@ export const ExosuitFabricator = (props, context) => {
                   height="100%"
                   fill
                   fitted
-                  width={20}
+                  width={15}
+                  title="Brands"
+                >
+                  <Brands
+                    height="100%"
+                    overflowY="auto"
+                  />
+                </Section>
+              </Flex.Item>
+              <Flex.Item>
+                <Section
+                  height="100%"
+                  fill
+                  fitted
+                  width={15}
                   title="Categories"
-                  buttons={(
-                    <Button
-                      content="R&D Sync"
-                      onClick={() => act("sync_rnd")} />
-                  )}
                 >
                   <Categories
                     height="100%"
@@ -211,7 +233,7 @@ export const ExosuitFabricator = (props, context) => {
                   queueMaterials={materialTally}
                   materials={materialAsObj} />
               </Flex.Item>
-              <Flex.Item width="320px">
+              <Flex.Item width="250px">
                 <Queue
                   queueMaterials={materialTally}
                   missingMaterials={missingMatTally}
@@ -350,6 +372,30 @@ const MaterialAmount = (props, context) => {
         </Box>
       </Flex.Item>
     </Flex>
+  );
+};
+
+const Brands = (props, context) => {
+  const { act, data } = useBackend(context);
+
+  const brands = data.brands || [];
+
+  return (
+    <Tabs
+      vertical
+      {...props}
+    >
+      {brands.map(brand => (
+        <Tabs.Tab
+          key={brand}
+          selected={brand === data.brand}
+          onClick={() => act("set_brand", {
+            set_brand: brand
+          })}>
+          {brand}
+        </Tabs.Tab>
+      ))}
+    </Tabs>
   );
 };
 
@@ -641,20 +687,32 @@ const Queue = (props, context) => {
                 disabled={!queue.length}
                 color="bad"
                 icon="minus-circle"
-                content="Clear Queue"
-                onClick={() => act("clear_queue")} />
+                content="Clear"
+                onClick={() => act("clear_queue")}
+                tooltip={
+                  "Clear the queue"
+                }
+                tooltipPosition="left" />
               {(!!isProcessingQueue && (
                 <Button
                   disabled={!queue.length}
                   content="Stop"
                   icon="stop"
-                  onClick={() => act("stop_queue")} />
+                  onClick={() => act("stop_queue")}
+                  tooltip={
+                    "Stop building the queue"
+                  }
+                  tooltipPosition="left"/>
               )) || (
                 <Button
                   disabled={!queue.length}
-                  content="Build Queue"
+                  content="Start"
                   icon="play"
-                  onClick={() => act("build_queue")} />
+                  onClick={() => act("build_queue")}
+                  tooltip={
+                    "Start building the queue"
+                  }
+                  tooltipPosition="left"/>
               )}
             </Fragment>
           }>
