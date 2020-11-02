@@ -298,7 +298,7 @@
 	. = list(
 		"name" = D.name,
 		"desc" = D.desc,
-		"id" = idx ? idx : D.id,
+		"id" = idx || D.id,
 		"cost" = get_design_cost(D),
 		"time" = get_design_time(D)
 	)

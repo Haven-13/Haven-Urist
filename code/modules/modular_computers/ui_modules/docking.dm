@@ -36,7 +36,7 @@
 				"status" = capitalize(P.get_docking_status()),
 				"docking_attempt" = docking_attempt,
 				"docked" = docked,
-				"codes" = P.docking_codes ? P.docking_codes : "Unset"
+				"codes" = P.docking_codes || "Unset"
 				)))
 	data["docks"] = docks
 

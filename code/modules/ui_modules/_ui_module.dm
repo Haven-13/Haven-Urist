@@ -16,7 +16,7 @@
 	. = ..()
 
 /datum/ui_module/ui_host()
-	return host ? host : src
+	return host || src
 
 /datum/ui_module/proc/can_still_topic(datum/ui_state/state = ui_default_state())
 	return CanUseTopic(usr, state) == UI_INTERACTIVE

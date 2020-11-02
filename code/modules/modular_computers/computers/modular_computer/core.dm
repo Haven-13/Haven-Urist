@@ -185,7 +185,7 @@
 
 	idle_threads.Add(active_program)
 	active_program.program_state = PROGRAM_STATE_BACKGROUND // Should close any existing UIs
-	SStgui.close_uis(active_program.NM ? active_program.NM : active_program)
+	SStgui.close_uis(active_program.NM || active_program)
 	active_program = null
 	update_icon()
 	if(istype(user))
