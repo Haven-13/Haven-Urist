@@ -1320,7 +1320,7 @@ obj/item/organ/external/proc/remove_clamps()
 	if(brute_dam + force < min_broken_damage/5)	//no papercuts moving bones
 		return
 	if(internal_organs.len && prob(brute_dam + force))
-		owner.custom_pain("A piece of bone in your [encased ? encased : name] moves painfully!", 50, affecting = src)
+		owner.custom_pain("A piece of bone in your [encased || name] moves painfully!", 50, affecting = src)
 		var/obj/item/organ/internal/I = pick(internal_organs)
 		I.take_internal_damage(rand(3,5))
 
@@ -1376,7 +1376,7 @@ obj/item/organ/external/proc/remove_clamps()
 			wound_descriptors[this_wound_desc] = W.amount
 
 	if(how_open() >= SURGERY_RETRACTED)
-		var/bone = encased ? encased : "bone"
+		var/bone = encased || "bone"
 		if(status & ORGAN_BROKEN)
 			bone = "broken [bone]"
 		wound_descriptors["a [bone] exposed"] = 1
@@ -1470,10 +1470,10 @@ obj/item/organ/external/proc/remove_clamps()
 		return
 
 	if(status & ORGAN_BROKEN)
-		to_chat(user, "<span class='warning'>The [encased ? encased : "bone in the [name]"] moves slightly when you poke it!</span>")
+		to_chat(user, "<span class='warning'>The [encased || "bone in the [name]"] moves slightly when you poke it!</span>")
 		owner.custom_pain("Your [name] hurts where it's poked.",40, affecting = src)
 	else
-		to_chat(user, "<span class='notice'>The [encased ? encased : "bones in the [name]"] seem to be fine.</span>")
+		to_chat(user, "<span class='notice'>The [encased || "bones in the [name]"] seem to be fine.</span>")
 
 	if(status & ORGAN_TENDON_CUT)
 		to_chat(user, "<span class='warning'>The tendons in [name] are severed!</span>")

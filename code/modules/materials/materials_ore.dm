@@ -21,7 +21,7 @@
 		var/material/M = SSmaterials.get_material_by_name(stuff)
 		if(M)
 			name = M.ore_name
-			desc = M.ore_desc ? M.ore_desc : "A lump of ore."
+			desc = M.ore_desc || "A lump of ore."
 			material = M
 			color = M.icon_colour
 			icon_state = M.ore_icon_overlay

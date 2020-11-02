@@ -134,7 +134,7 @@
 			else // Used for compression
 				message = RadioChat(null, message, 80, 1+(hard_to_hear/10))
 
-	var/speaker_name = vname ? vname : speaker.name
+	var/speaker_name = vname || speaker.name
 
 	if(istype(speaker, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = speaker

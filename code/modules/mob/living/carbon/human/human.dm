@@ -267,7 +267,7 @@
 /mob/living/carbon/human/proc/get_authentification_rank(var/if_no_id = "No id", var/if_no_job = "No job")
 	var/obj/item/weapon/card/id/id = GetIdCard()
 	if(istype(id))
-		return id.rank ? id.rank : if_no_job
+		return id.rank || if_no_job
 	else
 		return if_no_id
 
@@ -276,7 +276,7 @@
 /mob/living/carbon/human/proc/get_assignment(var/if_no_id = "No id", var/if_no_job = "No job")
 	var/obj/item/weapon/card/id/id = GetIdCard()
 	if(istype(id))
-		return id.assignment ? id.assignment : if_no_job
+		return id.assignment || if_no_job
 	else
 		return if_no_id
 

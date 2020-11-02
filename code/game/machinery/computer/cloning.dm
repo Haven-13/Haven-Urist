@@ -409,7 +409,7 @@
 
 	var/datum/dna2/record/R = new /datum/dna2/record()
 	R.dna=subject.dna
-	R.ckey = subject.ckey ? subject.ckey : "no ckey"
+	R.ckey = subject.ckey || "no ckey"
 	R.id= copytext(md5(subject.real_name), 2, 6)
 	R.name=R.dna.real_name
 	R.types=DNA2_BUF_UI|DNA2_BUF_UE|DNA2_BUF_SE

@@ -135,7 +135,7 @@
 		return 0
 	var/found = H.internal_organs_by_name[I.organ_tag]
 	if(I != found)
-		fail("[H.species.name] internal organ [I] not in internal_organs_by_name. Organ tag was \"[I.organ_tag]\", found [found? found : "nothing"] instead.")
+		fail("[H.species.name] internal organ [I] not in internal_organs_by_name. Organ tag was \"[I.organ_tag]\", found [found || "nothing"] instead.")
 		return 0
 	var/obj/item/organ/external/parent = H.organs_by_name[I.parent_organ]
 	if(!istype(parent))
@@ -165,7 +165,7 @@
 		return 0
 	var/found = H.organs_by_name[E.organ_tag]
 	if(E != found)
-		fail("[H.species.name] external organ [E] not in organs_by_name. Organ tag was \"[E.organ_tag]\", found [found? found : "nothing"] instead.")
+		fail("[H.species.name] external organ [E] not in organs_by_name. Organ tag was \"[E.organ_tag]\", found [found || "nothing"] instead.")
 		return 0
 	if(E.parent_organ)
 		var/obj/item/organ/external/parent = E.parent

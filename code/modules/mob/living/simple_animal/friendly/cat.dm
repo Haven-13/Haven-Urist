@@ -109,7 +109,7 @@
 /mob/living/simple_animal/cat/attackby(var/obj/item/O, var/mob/user)
 	. = ..()
 	if(O.force)
-		set_flee_target(user? user : src.loc)
+		set_flee_target(user || src.loc)
 
 /mob/living/simple_animal/cat/attack_hand(mob/living/carbon/human/M as mob)
 	. = ..()
@@ -122,11 +122,11 @@
 
 /mob/living/simple_animal/cat/bullet_act(var/obj/item/projectile/proj)
 	. = ..()
-	set_flee_target(proj.firer? proj.firer : src.loc)
+	set_flee_target(proj.firer || src.loc)
 
 /mob/living/simple_animal/cat/hitby(atom/movable/AM)
 	. = ..()
-	set_flee_target(AM.thrower? AM.thrower : src.loc)
+	set_flee_target(AM.thrower || src.loc)
 
 //Basic friend AI
 /mob/living/simple_animal/cat/fluff

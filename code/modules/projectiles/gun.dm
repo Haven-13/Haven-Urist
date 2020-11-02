@@ -385,7 +385,7 @@
 	var/obj/item/projectile/in_chamber = consume_next_projectile()
 	if (istype(in_chamber))
 		user.visible_message("<span class = 'warning'>[user] pulls the trigger.</span>")
-		var/shot_sound = in_chamber.fire_sound? in_chamber.fire_sound : fire_sound
+		var/shot_sound = in_chamber.fire_sound || fire_sound
 		if(silenced)
 			playsound(user, shot_sound, 10, 1)
 		else
