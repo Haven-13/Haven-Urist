@@ -94,7 +94,7 @@ RSF
 			product = new /obj/item/weapon/storage/pill_bottle/dice()
 			used_energy = 200
 
-	to_chat(user, "Dispensing [product ? product : "product"]...")
+	to_chat(user, "Dispensing [product || "product"]...")
 	product.loc = get_turf(A)
 
 	if(isrobot(user))

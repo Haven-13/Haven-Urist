@@ -143,5 +143,5 @@ proc/announce_newscaster_news(datum/news_announcement/news)
 		sendto.is_admin_channel = 1
 		news_network.network_channels += sendto
 
-	var/author = news.author ? news.author : sendto.author
+	var/author = news.author || sendto.author
 	news_network.SubmitArticle(news.message, author, news.channel_name, null, !news.can_be_redacted, news.message_type)

@@ -47,7 +47,7 @@
 	..()
 	var/list/nearby_things = range(0, get_turf(src))
 	for(var/mob/M in nearby_things)
-		var/obj/O = assembly ? assembly : src
+		var/obj/O = assembly || src
 		to_chat(M, "<span class='notice'>\icon[O] [stuff_to_display]</span>")
 
 /obj/item/integrated_circuit/output/screen/large

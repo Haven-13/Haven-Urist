@@ -42,8 +42,8 @@
 		data["id_account_number"] = id_card ? id_card.associated_account_number : null
 		data["id_email_login"] = id_card ? id_card.associated_email_login["login"] : null
 		data["id_email_password"] = id_card ? stars(id_card.associated_email_login["password"], 0) : null
-		data["id_rank"] = id_card && id_card.assignment ? id_card.assignment : "Unassigned"
-		data["id_owner"] = id_card && id_card.registered_name ? id_card.registered_name : "-----"
+		data["id_rank"] = id_card && id_card.assignment || "Unassigned"
+		data["id_owner"] = id_card && id_card.registered_name || "-----"
 		data["id_name"] = id_card ? id_card.name : "-----"
 
 	data["command_jobs"] = format_jobs(GLOB.command_positions)
@@ -100,7 +100,7 @@
 	for(var/job in jobs)
 		formatted.Add(list(list(
 			"display_name" = replacetext(job, " ", "&nbsp"),
-			"target_rank" = id_card && id_card.assignment ? id_card.assignment : "Unassigned",
+			"target_rank" = id_card && id_card.assignment || "Unassigned",
 			"job" = job)))
 
 	return formatted
@@ -136,8 +136,8 @@
 				if(module.mod_mode)
 					if(can_run(user, 1))
 						var/contents = {"<h4>Access Report</h4>
-									<u>Prepared By:</u> [user_id_card.registered_name ? user_id_card.registered_name : "Unknown"]<br>
-									<u>For:</u> [id_card.registered_name ? id_card.registered_name : "Unregistered"]<br>
+									<u>Prepared By:</u> [user_id_card.registered_name || "Unknown"]<br>
+									<u>For:</u> [id_card.registered_name || "Unregistered"]<br>
 									<hr>
 									<u>Assignment:</u> [id_card.assignment]<br>
 									<u>Account Number:</u> #[id_card.associated_account_number]<br>

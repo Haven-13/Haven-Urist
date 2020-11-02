@@ -14,7 +14,7 @@ function replaceContent() {
 	}
 	var parent = document.getElementById(id);
 	if(typeof(parent)!=='undefined' && parent!=null){
-		parent.innerHTML = content?content:'';
+		parent.innerHTML = content || '';
 	}
 	if(callback && window\[callback\]){
 		window\[callback\].apply(null,args);

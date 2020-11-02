@@ -57,7 +57,7 @@
 	src.user = user
 	src.src_object = src_object
 	src.ui_key = ui_key
-	src.window_id = browser_id ? browser_id : "\ref[src_object]-[ui_key]"
+	src.window_id = browser_id || "\ref[src_object]-[ui_key]"
 	src.custom_browser_id = browser_id ? TRUE : FALSE
 
 	set_interface(interface)

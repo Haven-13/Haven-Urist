@@ -10,7 +10,7 @@
 	return val - (t * d)
 
 /proc/Default(a, b)
-	return a ? a : b
+	return a || b
 
 // Trigonometric functions.
 /proc/Tan(x)

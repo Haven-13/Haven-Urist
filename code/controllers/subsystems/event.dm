@@ -62,7 +62,7 @@ SUBSYSTEM_DEF(event)
 		var/datum/event_container/EC = event_containers[pos]
 		EC.process()
 		pos++
-		
+
 		if (MC_TICK_CHECK)
 			return
 
@@ -118,7 +118,7 @@ SUBSYSTEM_DEF(event)
 
 		to_world(message)
 
-//Event manager UI 
+//Event manager UI
 /datum/controller/subsystem/event/proc/GetInteractWindow()
 	var/html = "<A align='right' href='?src=\ref[src];refresh=1'>Refresh</A>"
 	html += "<A align='right' href='?src=\ref[src];pause_all=[!config.allow_random_events]'>Pause All - [config.allow_random_events ? "Pause" : "Resume"]</A>"
@@ -151,9 +151,9 @@ SUBSYSTEM_DEF(event)
 		html += "<table[table_options]>"
 		html += "<tr><td[row_options2]>Name</td><td[row_options2]>Type</td><td[row_options1]>Weight</td><td[row_options1]>OneShot</td></tr>"
 		html += "<tr>"
-		html += "<td><A align='right' href='?src=\ref[src];set_name=\ref[new_event]'>[new_event.name ? new_event.name : "Enter Event"]</A></td>"
-		html += "<td><A align='right' href='?src=\ref[src];set_type=\ref[new_event]'>[new_event.event_type ? new_event.event_type : "Select Type"]</A></td>"
-		html += "<td><A align='right' href='?src=\ref[src];set_weight=\ref[new_event]'>[new_event.weight ? new_event.weight : 0]</A></td>"
+		html += "<td><A align='right' href='?src=\ref[src];set_name=\ref[new_event]'>[new_event.name || "Enter Event"]</A></td>"
+		html += "<td><A align='right' href='?src=\ref[src];set_type=\ref[new_event]'>[new_event.event_type || "Select Type"]</A></td>"
+		html += "<td><A align='right' href='?src=\ref[src];set_weight=\ref[new_event]'>[new_event.weight || 0]</A></td>"
 		html += "<td><A align='right' href='?src=\ref[src];toggle_oneshot=\ref[new_event]'>[new_event.one_shot]</A></td>"
 		html += "</tr>"
 		html += "</table>"

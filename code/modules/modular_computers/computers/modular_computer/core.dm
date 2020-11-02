@@ -104,7 +104,7 @@
 		return
 	set_light(0.2, 0.1, light_strength)
 	if(active_program)
-		overlays.Add(active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu)
+		overlays.Add(active_program.program_icon_state || icon_state_menu)
 		if(active_program.program_key_state)
 			overlays.Add(active_program.program_key_state)
 	else
@@ -185,7 +185,7 @@
 
 	idle_threads.Add(active_program)
 	active_program.program_state = PROGRAM_STATE_BACKGROUND // Should close any existing UIs
-	SSnano.close_uis(active_program.NM ? active_program.NM : active_program)
+	SSnano.close_uis(active_program.NM || active_program)
 	active_program = null
 	update_icon()
 	if(istype(user))

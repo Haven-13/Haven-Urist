@@ -163,7 +163,7 @@ LEGACY_RECORD_STRUCTURE(all_warrants, warrant)
 		. = 1
 		if(!activewarrant)
 			return
-		activewarrant.fields["auth"] = "[I.registered_name] - [I.assignment ? I.assignment : "(Unknown)"]"
+		activewarrant.fields["auth"] = "[I.registered_name] - [I.assignment || "(Unknown)"]"
 
 	if(href_list["back"])
 		. = 1

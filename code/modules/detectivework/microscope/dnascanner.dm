@@ -52,7 +52,7 @@
 	data["scan_progress"] = round(scanner_progress)
 	data["scanning"] = scanning
 	data["bloodsamp"] = (bloodsamp ? bloodsamp.name : "")
-	data["bloodsamp_desc"] = (bloodsamp ? (bloodsamp.desc ? bloodsamp.desc : "No information on record.") : "")
+	data["bloodsamp_desc"] = (bloodsamp ? (bloodsamp.desc || "No information on record.") : "")
 	data["lidstate"] = closed
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data)

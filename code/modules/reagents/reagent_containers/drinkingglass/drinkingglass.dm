@@ -96,8 +96,8 @@
 
 	if (reagents.reagent_list.len > 0)
 		var/datum/reagent/R = reagents.get_master_reagent()
-		SetName("[base_name] of [R.glass_name ? R.glass_name : "something"]")
-		desc = R.glass_desc ? R.glass_desc : initial(desc)
+		SetName("[base_name] of [R.glass_name || "something"]")
+		desc = R.glass_desc || initial(desc)
 
 		var/list/under_liquid = list()
 		var/list/over_liquid = list()

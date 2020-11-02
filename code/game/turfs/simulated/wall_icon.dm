@@ -46,7 +46,7 @@
 	overlays.Cut()
 	var/image/I
 
-	var/base_color = paint_color ? paint_color : material.icon_colour
+	var/base_color = paint_color || material.icon_colour
 	if(!density)
 		I = image('icons/turf/wall_masks.dmi', "[material.icon_base]fwall_open")
 		I.color = base_color
@@ -63,7 +63,7 @@
 			overlays += I
 
 	if(reinf_material)
-		var/reinf_color = paint_color ? paint_color : reinf_material.icon_colour
+		var/reinf_color = paint_color || reinf_material.icon_colour
 		if(construction_stage != null && construction_stage < 6)
 			I = image('icons/turf/wall_masks.dmi', "reinf_construct-[construction_stage]")
 			I.color = reinf_color

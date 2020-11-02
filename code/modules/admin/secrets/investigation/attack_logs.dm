@@ -168,7 +168,7 @@
 	ckey_filter = null
 
 /attack_filter/must_be_given_ckey/get_html()
-	return "[description]: <a href='?src=\ref[src];select_ckey=1'>[ckey_filter ? ckey_filter : "*ANY*"]</a>"
+	return "[description]: <a href='?src=\ref[src];select_ckey=1'>[ckey_filter || "*ANY*"]</a>"
 
 /attack_filter/must_be_given_ckey/OnTopic(href_list)
 	if(!href_list["select_ckey"])
