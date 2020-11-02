@@ -97,8 +97,8 @@
 			user.last_failed_malf_title = null
 			user.last_failed_malf_message = null
 
-	var/title = user.last_failed_malf_title ? user.last_failed_malf_title : sanitize(input("Select message title: "))
-	var/text = user.last_failed_malf_message ? user.last_failed_malf_message : sanitize(input("Select message text: "))
+	var/title = user.last_failed_malf_title || sanitize(input("Select message title: "))
+	var/text = user.last_failed_malf_message || sanitize(input("Select message text: "))
 
 	if(!title || !text || !ability_pay(user, price))
 		to_chat(user, "Hack Aborted")

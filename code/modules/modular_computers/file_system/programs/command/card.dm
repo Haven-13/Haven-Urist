@@ -37,8 +37,8 @@
 				if(module.mod_mode)
 					if(can_run(user, 1))
 						var/contents = {"<h4>Access Report</h4>
-									<u>Prepared By:</u> [user_id_card.registered_name ? user_id_card.registered_name : "Unknown"]<br>
-									<u>For:</u> [id_card.registered_name ? id_card.registered_name : "Unregistered"]<br>
+									<u>Prepared By:</u> [user_id_card.registered_name || "Unknown"]<br>
+									<u>For:</u> [id_card.registered_name || "Unregistered"]<br>
 									<hr>
 									<u>Assignment:</u> [id_card.assignment]<br>
 									<u>Account Number:</u> #[id_card.associated_account_number]<br>

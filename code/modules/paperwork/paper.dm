@@ -38,7 +38,7 @@
 
 /obj/item/weapon/paper/New(loc, text,title)
 	..(loc)
-	set_content(text ? text : info, title)
+	set_content(text || info, title)
 
 /obj/item/weapon/paper/proc/set_content(text,title)
 	if(title)

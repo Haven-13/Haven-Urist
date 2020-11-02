@@ -20,7 +20,7 @@ var/repository/mob/mob_repository = new()
 	var/datum/client_lite/client
 
 /datum/mob_lite/New(var/mob/M)
-	name = M ? (M.real_name ? M.real_name : M.name) : name
+	name = M ? (M.real_name || M.name) : name
 	ref = any2ref(M)
 	client = client_repository.get_lite_client(M)
 

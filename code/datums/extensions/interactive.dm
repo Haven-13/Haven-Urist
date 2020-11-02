@@ -6,8 +6,8 @@
 /datum/extension/interactive/New(var/datum/holder, var/host_predicates = list(), var/user_predicates = list())
 	..()
 
-	src.host_predicates = host_predicates ? host_predicates : list()
-	src.user_predicates = user_predicates ? user_predicates : list()
+	src.host_predicates = host_predicates || list()
+	src.user_predicates = user_predicates || list()
 
 /datum/extension/interactive/Destroy()
 	host_predicates.Cut()

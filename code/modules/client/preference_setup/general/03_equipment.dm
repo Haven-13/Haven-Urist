@@ -42,7 +42,7 @@
 
 		for(var/datum/category_group/underwear/WRC in GLOB.underwear.categories)
 			for(var/datum/category_item/underwear/WRI in WRC.items)
-				if(WRI.is_default(pref.gender ? pref.gender : MALE))
+				if(WRI.is_default(pref.gender || MALE))
 					pref.all_underwear[WRC.name] = WRI.name
 					break
 

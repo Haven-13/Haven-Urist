@@ -117,7 +117,7 @@
 		overlays += image('icons/obj/power.dmi', "smes-op0")
 
 /obj/machinery/power/smes/proc/chargedisplay()
-	return round(5.5*charge/(capacity ? capacity : 5e6))
+	return round(5.5*charge/(capacity || 5e6))
 
 /obj/machinery/power/smes/proc/input_power(var/percentage)
 	var/to_input = target_load * (percentage/100)

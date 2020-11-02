@@ -47,14 +47,14 @@
 		if(cycle_to_external_air)
 			tag_pump_out_external = "[id_tag]_pump_out_external"
 			tag_pump_out_internal = "[id_tag]_pump_out_internal"
-		tag_exterior_door = controller.tag_exterior_door? controller.tag_exterior_door : "[id_tag]_outer"
-		tag_interior_door = controller.tag_interior_door? controller.tag_interior_door : "[id_tag]_inner"
-		tag_airpump = controller.tag_airpump? controller.tag_airpump : "[id_tag]_pump"
-		tag_chamber_sensor = controller.tag_chamber_sensor? controller.tag_chamber_sensor : "[id_tag]_sensor"
-		tag_exterior_sensor = controller.tag_exterior_sensor
-		tag_interior_sensor = controller.tag_interior_sensor
-		tag_airlock_mech_sensor = controller.tag_airlock_mech_sensor? controller.tag_airlock_mech_sensor : "[id_tag]_airlock_mech"
-		tag_shuttle_mech_sensor = controller.tag_shuttle_mech_sensor? controller.tag_shuttle_mech_sensor : "[id_tag]_shuttle_mech"
+		tag_exterior_door = controller.tag_exterior_door || "[id_tag]_outer"
+		tag_interior_door = controller.tag_interior_door || "[id_tag]_inner"
+		tag_airpump = controller.tag_airpump || "[id_tag]_pump"
+		tag_chamber_sensor = controller.tag_chamber_sensor || "[id_tag]_sensor"
+		tag_exterior_sensor = controller.tag_exterior_sensor || "[id_tag]_sensor_exterior"
+		tag_interior_sensor = controller.tag_interior_sensor || "[id_tag]_sensor_interior"
+		tag_airlock_mech_sensor = controller.tag_airlock_mech_sensor || "[id_tag]_airlock_mech"
+		tag_shuttle_mech_sensor = controller.tag_shuttle_mech_sensor || "[id_tag]_shuttle_mech"
 		memory["secure"] = controller.tag_secure
 
 		spawn(10)
@@ -262,6 +262,7 @@
 						target_state = TARGET_NONE
 
 
+	memory["target_state"] = target_state
 	memory["processing"] = (state != target_state)
 
 	return 1

@@ -131,7 +131,7 @@
 
 						//transfer the money
 						E.worth -= transaction_amount
-						var/datum/transaction/T = new(E.owner_name, (transaction_purpose ? transaction_purpose : "None supplied."), transaction_amount, machine_id)
+						var/datum/transaction/T = new(E.owner_name, (transaction_purpose || "None supplied."), transaction_amount, machine_id)
 						linked_account.do_transaction(T)
 					else
 						to_chat(usr, "\icon[src]<span class='warning'>\The [O] doesn't have that much money!</span>")

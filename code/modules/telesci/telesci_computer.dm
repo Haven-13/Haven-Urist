@@ -87,7 +87,7 @@
 
 	t += "</div>"
 	t += "<A href='?src=\ref[src];setz=1'>Set Sector</A>"
-	t += "<div class='statusDisplay'>[z_co ? z_co : "NULL"]</div>"
+	t += "<div class='statusDisplay'>[z_co || "NULL"]</div>"
 
 	t += "<BR><A href='?src=\ref[src];send=1'>Send</A>"
 	t += " <A href='?src=\ref[src];receive=1'>Receive</A>"

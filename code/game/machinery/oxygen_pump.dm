@@ -205,7 +205,7 @@
 	// this is the data which will be sent to the ui
 	if(tank)
 		data["tankPressure"] = round(tank.air_contents.return_pressure() ? tank.air_contents.return_pressure() : 0)
-		data["releasePressure"] = round(tank.distribute_pressure ? tank.distribute_pressure : 0)
+		data["releasePressure"] = round(tank.distribute_pressure || 0)
 		data["defaultReleasePressure"] = round(TANK_DEFAULT_RELEASE_PRESSURE)
 		data["maxReleasePressure"] = round(TANK_MAX_RELEASE_PRESSURE)
 		data["maskConnected"] = 0

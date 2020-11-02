@@ -153,7 +153,7 @@ var/global/datum/matchmaker/matchmaker = new()
 		dat += "An <b>\[F\]</b> indicates that the other player has finalized the connection.<br>"
 		dat += "<br>"
 	for(var/datum/relation/R in relations)
-		dat += "<b>[R.other.finalized ? "\[F\] " : ""][R.other.holder]</b>, [R.other.holder.role_alt_title ? R.other.holder.role_alt_title : R.other.holder.assigned_role]."
+		dat += "<b>[R.other.finalized ? "\[F\] " : ""][R.other.holder]</b>, [R.other.holder.role_alt_title || R.other.holder.assigned_role]."
 		if (!R.finalized)
 			dat += " <a href='?src=\ref[src];del_relation=\ref[R]'>Remove</a>"
 			editable = 1

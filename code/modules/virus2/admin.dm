@@ -109,7 +109,7 @@
 		<a href="?src=\ref[src];what=antigen;reset=1" style="color:#0000aa">Reset</a>
 		<br />
 		<hr />
-		<b>Initial infectee:</b> <a href="?src=\ref[src];what=infectee">[infectee ? infectee : "(choose)"]</a>
+		<b>Initial infectee:</b> <a href="?src=\ref[src];what=infectee">[infectee || "(choose)"]</a>
 		<a href="?src=\ref[src];what=go" style="color:#ff0000">RELEASE</a>
 		"}
 

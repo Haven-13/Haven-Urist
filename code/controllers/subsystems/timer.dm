@@ -138,7 +138,7 @@ SUBSYSTEM_DEF(timer)
 
 /datum/controller/subsystem/timer/proc/get_timer_debug_string(datum/timedevent/TE)
 	. = "Timer: [TE]"
-	. += "Prev: [TE.prev ? TE.prev : "NULL"], Next: [TE.next ? TE.next : "NULL"]"
+	. += "Prev: [TE.prev || "NULL"], Next: [TE.next || "NULL"]"
 	if(TE.spent)
 		. += ", SPENT"
 	if(QDELETED(TE))

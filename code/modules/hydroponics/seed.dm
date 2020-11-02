@@ -65,7 +65,7 @@
 	spawn(5)
 		sleep(-1)
 		update_growth_stages()
-	
+
 	uid = plant_controller.seeds.len + 1
 
 	uid = plant_controller.seeds.len + 1
@@ -688,7 +688,7 @@
 
 	for(var/trait in traits_to_copy)
 		P.values["[trait]"] = get_trait(trait)
-	return (P ? P : 0)
+	return (P || 0)
 
 //Place the plant products at the feet of the user.
 /datum/seed/proc/harvest(var/mob/user,var/yield_mod,var/harvest_sample,var/force_amount)

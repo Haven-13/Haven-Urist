@@ -150,7 +150,7 @@
 		for_all_chunks_in_range(source, /datum/chunk/proc/add_source, list(source), new_turf)
 
 /datum/visualnet/proc/for_all_chunks_in_range(var/atom/source, var/proc_call, var/list/proc_args, var/turf/T)
-	T = T ? T : get_turf(source)
+	T = T || get_turf(source)
 	if(!T)
 		return
 

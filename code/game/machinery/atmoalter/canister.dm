@@ -305,11 +305,10 @@ update_flag
 	data["name"] = name
 	data["canLabel"] = can_label ? 1 : 0
 	data["portConnected"] = connected_port ? 1 : 0
-	data["pressure"] = round(air_contents.return_pressure() ? air_contents.return_pressure() : 0)
-	data["releasePressure"] = round(release_pressure ? release_pressure : 0)
-	data["defaultReleasePressure"] = initial(release_pressure)
-	data["minReleasePressure"] = min_release_pressure
-	data["maxReleasePressure"] = max_release_pressure
+	data["tankPressure"] = round(air_contents.return_pressure() ? air_contents.return_pressure() : 0)
+	data["releasePressure"] = round(release_pressure || 0)
+	data["minReleasePressure"] = round(ONE_ATMOSPHERE/10)
+	data["maxReleasePressure"] = round(10*ONE_ATMOSPHERE)
 	data["valveOpen"] = valve_open ? 1 : 0
 
 	if (holding)

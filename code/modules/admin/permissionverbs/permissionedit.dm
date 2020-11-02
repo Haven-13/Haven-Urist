@@ -26,7 +26,7 @@
 	for(var/adm_ckey in admin_datums)
 		var/datum/admins/D = admin_datums[adm_ckey]
 		if(!D)	continue
-		var/rank = D.rank ? D.rank : "*none*"
+		var/rank = D.rank || "*none*"
 		var/rights = rights2text(D.rights," ")
 		if(!rights)	rights = "*none*"
 

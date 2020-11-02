@@ -29,8 +29,8 @@
 	if(!GLOB.using_map.use_overmap)
 		return
 
-	maxx = max_x ? max_x : world.maxx
-	maxy = max_y ? max_y : world.maxy
+	maxx = max_x || world.maxx
+	maxy = max_y || world.maxy
 
 	name = "[generate_planet_name()], \a [name]"
 

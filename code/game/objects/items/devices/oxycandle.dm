@@ -51,7 +51,7 @@
 	var/datum/gas_mixture/environment = loc.return_air()
 	var/pressure_delta = target_pressure - environment.return_pressure()
 	var/output_volume = environment.volume * environment.group_multiplier
-	var/air_temperature = air_contents.temperature? air_contents.temperature : environment.temperature
+	var/air_temperature = air_contents.temperature || environment.temperature
 	var/transfer_moles = pressure_delta*output_volume/(air_temperature * R_IDEAL_GAS_EQUATION)
 	var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
 	if (!removed) //Just in case

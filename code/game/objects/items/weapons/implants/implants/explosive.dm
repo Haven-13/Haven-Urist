@@ -25,9 +25,9 @@
 	if(!malfunction)
 		. += {"
 		<HR><B>Explosion yield mode:</B><BR>
-		<A href='byond://?src=\ref[src];mode=1'>[elevel ? elevel : "NONE SET"]</A><BR>
+		<A href='byond://?src=\ref[src];mode=1'>[elevel || "NONE SET"]</A><BR>
 		<B>Activation phrase:</B><BR>
-		<A href='byond://?src=\ref[src];phrase=1'>[phrase ? phrase : "NONE SET"]</A><BR>
+		<A href='byond://?src=\ref[src];phrase=1'>[phrase || "NONE SET"]</A><BR>
 		<B>Frequency:</B><BR>
 		<A href='byond://?src=\ref[src];freq=-10'>-</A>
 		<A href='byond://?src=\ref[src];freq=-2'>-</A>
@@ -42,7 +42,7 @@
 		<A href='byond://?src=\ref[src];code=5'>+</A><BR>
 		<B>Tampering warning message:</B><BR>
 		This will be broadcasted on radio if implant is exposed during surgery.<BR>
-		<A href='byond://?src=\ref[src];msg=1'>[warning_message ? warning_message : "NONE SET"]</A>
+		<A href='byond://?src=\ref[src];msg=1'>[warning_message || "NONE SET"]</A>
 		"}
 
 /obj/item/weapon/implant/explosive/Initialize()

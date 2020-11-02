@@ -133,7 +133,7 @@
 		src.overlays = null
 		overlays += image('icons/obj/storage.dmi', icon_locking)
 		locked = 0
-		to_chat(user, (feedback ? feedback : "You short out the lock of \the [src]."))
+		to_chat(user, (feedback || "You short out the lock of \the [src]."))
 		return 1
 
 // -----------------------------
