@@ -237,7 +237,7 @@ var/list/global/tank_gauge_cache = list()
 
 	// this is the data which will be sent to the ui
 	var/data[0]
-	data["tankPressure"] = round(air_contents.return_pressure() ? air_contents.return_pressure() : 0)
+	data["tankPressure"] = round(air_contents.return_pressure() || 0)
 	data["releasePressure"] = round(distribute_pressure || 0)
 	data["defaultReleasePressure"] = round(TANK_DEFAULT_RELEASE_PRESSURE)
 	data["maxReleasePressure"] = round(TANK_MAX_RELEASE_PRESSURE)

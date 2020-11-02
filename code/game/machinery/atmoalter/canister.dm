@@ -305,7 +305,7 @@ update_flag
 	data["name"] = name
 	data["canLabel"] = can_label ? 1 : 0
 	data["portConnected"] = connected_port ? 1 : 0
-	data["tankPressure"] = round(air_contents.return_pressure() ? air_contents.return_pressure() : 0)
+	data["tankPressure"] = round(air_contents.return_pressure() || 0)
 	data["releasePressure"] = round(release_pressure || 0)
 	data["minReleasePressure"] = round(ONE_ATMOSPHERE/10)
 	data["maxReleasePressure"] = round(10*ONE_ATMOSPHERE)
