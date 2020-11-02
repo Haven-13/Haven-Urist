@@ -205,7 +205,7 @@
 			attacher_name = "[attacher.name]([attacher.ckey])"
 
 		var/log_str = "Bomb valve opened in <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[bombturf.x];Y=[bombturf.y];Z=[bombturf.z]'>[A.name]</a> "
-		log_str += "with [attached_device ? attached_device : "no device"] attacher: [attacher_name]"
+		log_str += "with [attached_device || "no device"] attacher: [attacher_name]"
 
 		if(attacher)
 			log_str += "(<A HREF='?_src_=holder;adminmoreinfo=\ref[attacher]'>?</A>)"

@@ -182,7 +182,7 @@
 	else
 		to_chat(usr, "<span class='notice'>No chemicals are attached.</span>")
 
-	to_chat(usr, "<span class='notice'>[attached ? attached : "No one"] is hooked up to it.</span>")
+	to_chat(usr, "<span class='notice'>[attached || "No one"] is hooked up to it.</span>")
 
 /obj/structure/iv_drip/proc/rip_out()
 	visible_message("The needle is ripped out of [src.attached], doesn't that hurt?")

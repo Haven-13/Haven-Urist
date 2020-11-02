@@ -143,9 +143,9 @@ var/global/list/map_count = list()
 	return 1
 
 /datum/random_map/proc/set_origins(var/tx, var/ty, var/tz)
-	origin_x = tx ? tx : 1
-	origin_y = ty ? ty : 1
-	origin_z = tz ? tz : 1
+	origin_x = tx || 1
+	origin_y = ty || 1
+	origin_z = tz || 1
 
 /datum/random_map/proc/apply_to_map()
 	if(!origin_x) origin_x = 1

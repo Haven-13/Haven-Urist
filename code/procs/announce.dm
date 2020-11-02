@@ -32,8 +32,8 @@
 /datum/announcement/proc/Announce(var/message as text, var/new_title = "", var/new_sound = null, var/do_newscast = newscast, var/msg_sanitized = 0, var/zlevels = GLOB.using_map.contact_levels)
 	if(!message)
 		return
-	var/message_title = new_title ? new_title : title
-	var/message_sound = new_sound ? new_sound : sound
+	var/message_title = new_title || title
+	var/message_sound = new_sound || sound
 
 	if(!msg_sanitized)
 		message = sanitize(message, extra = 0)

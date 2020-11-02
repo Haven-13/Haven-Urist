@@ -28,7 +28,7 @@
 
 /obj/item/clothing/accessory/proc/get_inv_overlay()
 	if(!inv_overlay)
-		var/tmp_icon_state = overlay_state? overlay_state : icon_state
+		var/tmp_icon_state = overlay_state || icon_state
 		if(icon_override && ("[tmp_icon_state]_tie" in icon_states(icon_override)))
 			inv_overlay = image(icon = icon_override, icon_state = "[tmp_icon_state]_tie", dir = SOUTH)
 		else if("[tmp_icon_state]_tie" in icon_states(default_onmob_icons[slot_tie_str]))
@@ -47,7 +47,7 @@
 		if(user_human.species.get_bodytype(user_human) in sprite_sheets)
 			bodytype = user_human.species.get_bodytype(user_human)
 
-		var/tmp_icon_state = overlay_state? overlay_state : icon_state
+		var/tmp_icon_state = overlay_state || icon_state
 
 		if(istype(loc,/obj/item/clothing/under))
 			var/obj/item/clothing/under/C = loc

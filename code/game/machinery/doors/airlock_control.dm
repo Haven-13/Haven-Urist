@@ -185,15 +185,6 @@ obj/machinery/airlock_sensor/update_icon()
 	else
 		icon_state = "airlock_sensor_off"
 
-obj/machinery/airlock_sensor/attack_hand(mob/user)
-	var/datum/signal/signal = new
-	signal.transmission_method = 1 //radio signal
-	signal.data["tag"] = master_tag
-	signal.data["command"] = command
-
-	radio_connection.post_signal(src, signal, range = AIRLOCK_CONTROL_RANGE, radio_filter = RADIO_AIRLOCK)
-	flick("airlock_sensor_cycle", src)
-
 obj/machinery/airlock_sensor/Process()
 	if(on)
 		var/datum/gas_mixture/air_sample = return_air()

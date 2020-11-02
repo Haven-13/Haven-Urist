@@ -29,9 +29,9 @@ var/repository/client/client_repository = new()
 	if(!M)
 		return
 
-	name = M.real_name ? M.real_name : M.name
-	key = M.key ? M.key : key
-	ckey = M.ckey ? M.ckey : ckey
+	name = M.real_name || M.name
+	key = M.key || key
+	ckey = M.ckey || ckey
 	ref = M.client ? any2ref(M.client) : ref
 
 /datum/client_lite/proc/key_name(var/pm_link = TRUE, var/check_if_offline = TRUE, var/datum/ticket/ticket = null)

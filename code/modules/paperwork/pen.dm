@@ -149,7 +149,7 @@
 	return (user && user.real_name) ? user.real_name : "Anonymous"
 
 /obj/item/weapon/pen/chameleon/get_signature(var/mob/user)
-	return signature ? signature : "Anonymous"
+	return signature || "Anonymous"
 
 /obj/item/weapon/pen/chameleon/verb/set_colour()
 	set name = "Change Pen Colour"

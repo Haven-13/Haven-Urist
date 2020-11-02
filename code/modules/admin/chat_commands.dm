@@ -27,4 +27,4 @@
 		return
 	last_tgs_check = rtod
 	var/server = config.server
-	return "[game_id ? "Round #[game_id]: " : ""][GLOB.clients.len] players on [GLOB.using_map.full_name], Mode: [SSticker.mode ? SSticker.mode.name : "Not started"]; Round [Master.current_runlevel >= RUNLEVEL_GAME ? (Master.current_runlevel == RUNLEVEL_GAME ? "Active" : "Finishing") : "Starting"] -- [server ? server : "[world.internet_address]:[world.port]"]"
+	return "[game_id ? "Round #[game_id]: " : ""][GLOB.clients.len] players on [GLOB.using_map.full_name], Mode: [SSticker.mode ? SSticker.mode.name : "Not started"]; Round [Master.current_runlevel >= RUNLEVEL_GAME ? (Master.current_runlevel == RUNLEVEL_GAME ? "Active" : "Finishing") : "Starting"] -- [server || "[world.internet_address]:[world.port]"]"

@@ -96,7 +96,7 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	data["dest"] = dy && dx
 	data["d_x"] = dx
 	data["d_y"] = dy
-	data["speedlimit"] = speedlimit ? speedlimit : "None"
+	data["speedlimit"] = speedlimit || "None"
 	data["speed"] = linked.get_speed()
 	data["accel"] = linked.get_acceleration()
 	data["heading"] = linked.get_heading() ? dir2angle(linked.get_heading()) : 0

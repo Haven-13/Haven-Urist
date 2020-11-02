@@ -94,8 +94,8 @@
 
 /datum/surgery_step/set_bone/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='warning'>[user]'s hand slips, damaging the [affected.encased ? affected.encased : "bones"] in [target]'s [affected.name] with \the [tool]!</span>" , \
-		"<span class='warning'>Your hand slips, damaging the [affected.encased ? affected.encased : "bones"] in [target]'s [affected.name] with \the [tool]!</span>")
+	user.visible_message("<span class='warning'>[user]'s hand slips, damaging the [affected.encased || "bones"] in [target]'s [affected.name] with \the [tool]!</span>" , \
+		"<span class='warning'>Your hand slips, damaging the [affected.encased || "bones"] in [target]'s [affected.name] with \the [tool]!</span>")
 	affected.fracture()
 	affected.take_external_damage(5, used_weapon = tool)
 

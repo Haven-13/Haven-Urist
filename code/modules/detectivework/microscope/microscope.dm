@@ -77,7 +77,7 @@
 	else if(istype(sample, /obj/item/weapon/sample/print))
 		report.SetName("Fingerprint report #[report_num]: [sample.name]")
 		var/obj/item/weapon/sample/print/card = sample
-		report.info = "<b>Fingerprint analysis report #[report_num]</b>: [card.object ? card.object : card.name]<br>"
+		report.info = "<b>Fingerprint analysis report #[report_num]</b>: [card.object || card.name]<br>"
 		if(card.evidence && card.evidence.len)
 			report.info += "Surface analysis has determined unique fingerprint strings:<br><br>"
 			for(var/prints in card.evidence)
