@@ -92,43 +92,23 @@
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "AirlockController")
+		ui = new(user, src, "AirlockController", name)
 		ui.open()
 
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_data(mob/user)
-	var/data[0]
-
-	data = list(
-		"chamber_pressure" = round(program.memory["chamber_sensor_pressure"]),
-		"exterior_status" = program.memory["exterior_status"],
-		"interior_status" = program.memory["interior_status"],
+	. = list(
+		"chamberPressure" = program.memory["chamber_sensor_pressure"],
+		"exteriorStatus" = program.memory["exterior_status"],
+		"interiorStatus" = program.memory["interior_status"],
+		"targetState" = program.memory["target_state"],
 		"processing" = program.memory["processing"],
 	)
 
-	return data
-
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller/Topic(href, href_list)
-	if(..())
-		return
-
-	usr.set_machine(src)
-
-	var/clean = 0
-	switch(href_list["command"])	//anti-HTML-hacking checks
-		if("cycle_ext")
-			clean = 1
-		if("cycle_int")
-			clean = 1
-		if("force_ext")
-			clean = 1
-		if("force_int")
-			clean = 1
-		if("abort")
-			clean = 1
-
-	if(clean)
-		program.receive_user_command(href_list["command"])
-
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_act(action, list/params)
+	switch(action)
+		if("command")
+			if(params["command"] in list("cycle_ext", "cycle_int", "force_int", "force_ext", "abort"))
+				program.receive_user_command(params["command"])
 	return 1
 
 
