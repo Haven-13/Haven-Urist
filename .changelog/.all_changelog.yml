@@ -105,3 +105,6 @@
   - rscadd: Fleshed out the oxygen supply room, port-side of the Bridge.
   - bugfix: Fixed ship weapons not having a ship-id set
   - bugfix: Fixed command offices' atmospherics being not connected to main.
+2020-11-02:
+  martinlyra:
+  - rscadd: Added sensors to the airlocks that had them missing on Pluto
