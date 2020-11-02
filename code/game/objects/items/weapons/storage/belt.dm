@@ -37,7 +37,7 @@
 	if(slot == slot_belt_str && contents.len)
 		var/list/ret_overlays = list()
 		for(var/obj/item/I in contents)
-			var/use_state = (I.item_state ? I.item_state : I.icon_state)
+			var/use_state = (I.item_state || I.icon_state)
 			if(ishuman(user_mob))
 				var/mob/living/carbon/human/H = user_mob
 				ret_overlays += H.species.get_offset_overlay_image(FALSE, 'icons/mob/onmob/belt.dmi', use_state, I.color, slot)

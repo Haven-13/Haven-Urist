@@ -44,7 +44,7 @@ var/religion_name = null
 	return capitalize(name)
 
 /proc/system_name()
-	return GLOB.using_map.system_name ? GLOB.using_map.system_name : generate_system_name()
+	return GLOB.using_map.system_name || generate_system_name()
 
 /proc/generate_system_name()
 	return "[pick("Gilese","GSC", "Luyten", "GJ", "HD", "SCGECO")][prob(10) ? " Eridani" : ""] [rand(100,999)]"

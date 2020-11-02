@@ -53,7 +53,7 @@ proc/arrange_hud_process(var/mob/M, var/mob/Alt, var/list/hud_list)
 	hud_list |= M
 	var/datum/arranged_hud_process/P = new
 	P.Client = M.client
-	P.Mob = Alt ? Alt : M
+	P.Mob = Alt || M
 	P.Turf = get_turf(P.Mob)
 	return P
 

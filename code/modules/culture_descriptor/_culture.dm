@@ -56,7 +56,7 @@
 	var/list/dat = list()
 	dat += "<table padding='8px'><tr>"
 	dat += "<td width='210px'>"
-	dat += "[header ? header : "<b>[desc_type]:</b> [name]"]<br>"
+	dat += "[header || "<b>[desc_type]:</b> [name]"]<br>"
 	dat += "<small>"
 	dat += "[jointext(get_text_details(), "<br>")]"
 	dat += "</small></td>"

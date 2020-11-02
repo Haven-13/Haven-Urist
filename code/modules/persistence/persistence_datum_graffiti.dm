@@ -66,5 +66,5 @@
 /datum/persistent/graffiti/compile_entry(var/atom/entry, var/write_file)
 	. = ..()
 	var/obj/effect/decal/writing/save_graffiti = entry
-	LAZYADD(., "[save_graffiti.author ? save_graffiti.author : "unknown"]")
+	LAZYADD(., "[save_graffiti.author || "unknown"]")
 	LAZYADD(., "[save_graffiti.message]")

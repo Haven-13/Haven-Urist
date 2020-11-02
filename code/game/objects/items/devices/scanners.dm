@@ -494,7 +494,7 @@ proc/get_wound_severity(var/damage_ratio, var/can_heal_overkill = 0)
 
 	var/value = get_value(target)
 	user.visible_message("\The [user] scans \the [target] with \the [src]")
-	user.show_message("Price estimation of \the [target]: [value ? value : "N/A"] Thalers")
+	user.show_message("Price estimation of \the [target]: [value || "N/A"] Thalers")
 
 /obj/item/device/slime_scanner
 	name = "xenolife scanner"
