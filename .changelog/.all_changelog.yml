@@ -111,3 +111,10 @@
   - bugfix: Airlock sensors no longer trigger airlock cycles
   - refactor: 'Changed ternary operators (a ? a : c) to ORs (a || b). It''s syntactically
       better.'
+2020-11-03:
+  martinlyra:
+  - server: The server description (in Byond hub) is now configurable through the
+      SERVERTAGLINE option in config.txt
+  - tweak: Changed the changelog template, now properly crediting both Astro-Haven
+      13 and Urist McStation developers and contributors.
+  - tweak: Changed the hub status message to supposedly less misleading and more concise.
