@@ -549,51 +549,18 @@ var/world_topic_spam_protect_time = world.timeofday
 	if (config && config.server_name)
 		s += "<b>[config.server_name]</b> &#8212; "
 
-	s += "<b>[station_name()]</b>";
+	s += "<b>[station_name()]</b>\]<br/>"
+	if (config && config.server_tag_line)
+		s += " - [config.server_tag_line]<br/>"
 
-	s += " - Beginner friendly MRP set on a spaceship"
+	s += "Mode: <b>[SSticker.master_mode || "STARTING"]</b><br/>"
 
-	s += " ("
-	s += "<a href=[config.forumurl]>" //Change this to wherever you want the hub to link to.
-//	s += "[game_version]"
-	s += "Discord"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
-	s += "</a>"
-	s += ")"
-
-	var/list/features = list()
-
-	if(SSticker.master_mode)
-		features += SSticker.master_mode
-	else
-		features += "<b>STARTING</b>"
-
-	if (!config.enter_allowed)
-		features += "closed"
-
-	features += config.abandon_allowed ? "respawn" : "no respawn"
-
-	if (config && config.allow_vote_mode)
-		features += "vote"
-
-	if (config && config.allow_ai)
-		features += "AI allowed"
-
-	var/n = 0
-	for (var/mob/M in GLOB.player_list)
-		if (M.client)
-			n++
-
-	if (n > 1)
-		features += "~[n] players"
-	else if (n > 0)
-		features += "~[n] player"
-
-
+	s += "\[Hosted by "
 	if (config && config.hostedby)
-		features += "hosted by <b>[config.hostedby]</b>"
-
-	if (features)
-		s += ": [jointext(features, ", ")]"
+		s += "<b>[config.hostedby]</b> &#8212;"
+		s += "(<a href=[config.forumurl]>Discord</a>)"
+	else
+		s += "<i>Urist McAnonymous Host</i>"
 
 	/* does this help? I do not know */
 	if (src.status != s)
