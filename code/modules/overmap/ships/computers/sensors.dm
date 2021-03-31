@@ -69,7 +69,7 @@
 
 /obj/machinery/computer/sensors/ui_act(action, list/params)
 	switch(action)
-		if("viewing")
+		if("view")
 			viewing = !viewing
 			if(usr && !isAI(usr))
 				viewing ? look(usr) : unlook(usr)

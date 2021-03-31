@@ -7,7 +7,7 @@ import { Flex, LabeledList, ProgressBar } from '../../components';
 import { TableCell, TableRow } from '../../components/Table';
 
 const TargetInfoContent = (props, context) => {
-  const {act, data} = useBackend(context);
+  const { act, data } = useBackend(context);
   const target = props.target || {};
   const name = target.name || null;
   const type = target.type || null;
@@ -22,39 +22,32 @@ const TargetInfoContent = (props, context) => {
         <Fragment>
           Target Info ({name ? name : "No target"})
         </Fragment>
-      )}
-    >
+      )}>
       <Flex
         direction="row"
-        spacing={2}
-      >
+        spacing={2}>
         <Flex.Item
-          maxWidth="50%"
-        >
+          maxWidth="50%">
           <LabeledList>
             <LabeledList.Item
               label="Name"
-              color={name ? "normal" : "grey"}
-            >
+              color={name ? "normal" : "grey"}>
               {name ? name : "Undefined"}
             </LabeledList.Item>
             <LabeledList.Item
               label="Type"
-              color={type ? "normal" : "grey"}
-            >
+              color={type ? "normal" : "grey"}>
               {type ? type : "Undefined"}
             </LabeledList.Item>
             <LabeledList.Item
-              label="Integrity"
-            >
+              label="Integrity">
               <ProgressBar
                 value={health}
                 maxValue={maxHealth}
               />
             </LabeledList.Item>
             <LabeledList.Item
-              label="Shields"
-            >
+              label="Shields">
               <ProgressBar
                 value={shields}
                 maxValue={maxShields}
@@ -63,8 +56,7 @@ const TargetInfoContent = (props, context) => {
           </LabeledList>
         </Flex.Item>
         <Flex.Item
-          width="50%"
-        >
+          width="50%">
           <Table>
             <TableRow bold={1}>
               <TableCell>
@@ -90,14 +82,14 @@ const TargetInfoContent = (props, context) => {
                     content="Set"
                     selected={component.targeted}
                     onClick={() => act("set_target", {
-                      set_target: component.ref
+                      set_target: component.ref,
                     })}
                   />
                   <Button
                     content="Unset"
                     disabled={!component.targeted}
                     onClick={() => act("unset_target", {
-                      unset_target: component.ref
+                      unset_target: component.ref,
                     })}
                   />
                 </TableCell>
@@ -107,8 +99,8 @@ const TargetInfoContent = (props, context) => {
         </Flex.Item>
       </Flex>
     </Section>
-  )
-}
+  );
+};
 
 export const ShipCombatComputer = (props, context) => {
   const { act, data } = useBackend(context);
@@ -117,19 +109,16 @@ export const ShipCombatComputer = (props, context) => {
   return (
     <Window
       width={800}
-      height={500}
-    >
+      height={500}>
       <Window.Content>
         <TargetInfoContent
           target={target}
         />
         <Section
-          title="Available Weaponry"
-        >
+          title="Available Weaponry">
           <Table>
             <TableRow
-              bold={1}
-            >
+              bold={1}>
               <TableCell>
                 Actions
               </TableCell>
@@ -158,7 +147,7 @@ export const ShipCombatComputer = (props, context) => {
                   <Button
                     content="Fire"
                     onClick={() => act("fire", {
-                      fire: weapon.ref
+                      fire: weapon.ref,
                     })}
                   />
                 </TableCell>
@@ -175,8 +164,7 @@ export const ShipCombatComputer = (props, context) => {
                   {weapon.strengthShield}
                 </TableCell>
                 <TableCell
-                  color={weapon.shieldPass ? "good" : "average"}
-                >
+                  color={weapon.shieldPass ? "good" : "average"}>
                   {weapon.shieldPass ? "Yes" : "No"}
                 </TableCell>
                 <TableCell>
@@ -189,4 +177,4 @@ export const ShipCombatComputer = (props, context) => {
       </Window.Content>
     </Window>
   );
-}
+};

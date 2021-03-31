@@ -56,7 +56,7 @@
 
 /obj/machinery/computer/navigation/ui_act(action, list/params)
 	switch(action)
-		if("viewing")
+		if("view")
 			viewing = !viewing
 			if(viewing && !isAI(usr))
 				var/mob/user = usr

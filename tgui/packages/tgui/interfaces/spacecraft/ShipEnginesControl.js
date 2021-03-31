@@ -9,48 +9,44 @@ export const ShipEnginesControl = (props, context) => {
   return (
     <Window
       width={600}
-      height={400}
-    >
+      height={400}>
       <Window.Content>
         <Section>
           <LabeledList>
             <LabeledList.Item
-              label="All Engines"
-            >
+              label="All Engines">
               <Button
                 selected={data.globalState}
                 content="Start"
-                onClick={() => {act("global_set_state", {
-                  state: 1
-                })}}
+                onClick={() => { act("global_set_state", {
+                  state: 1,
+                }); }}
               />
               <Button
                 selected={!data.globalState}
                 content="Shutdown"
-                onClick={() => {act("global_set_state", {
-                  state: 0
-                })}}
+                onClick={() => { act("global_set_state", {
+                  state: 0,
+                }); }}
               />
             </LabeledList.Item>
             <LabeledList.Item
-              label="Throttle"
-            >
+              label="Throttle">
               <Slider
                 value={data.globalThrustLimit}
                 minValue={0}
                 maxValue={1}
                 step={0.05}
                 stepPixelSize={10}
-                format={(value) => (round(value * 100))}
+                format={value => (round(value * 100))}
                 unit="%"
-                onChange={(e, value) => {act("set_global_limit", {
-                    set_global_limit: round(value, 2)
-                  })}}
+                onChange={(e, value) => { act("set_global_limit", {
+                  set_global_limit: round(value, 2),
+                }); }}
               />
             </LabeledList.Item>
             <LabeledList.Item
-              label="Total Thrust"
-            >
+              label="Total Thrust">
               <AnimatedNumber
                 value={data.totalThrust}
               />
@@ -100,12 +96,12 @@ export const ShipEnginesControl = (props, context) => {
                     minValue={0}
                     maxValue={1}
                     step={0.05}
-                    format={(value) => (round(value*100))}
+                    format={value => (round(value*100))}
                     unit="%"
-                    onChange={(e,value) => act("engine", {
+                    onChange={(e, value) => act("engine", {
                       engine: engine.reference,
                       action: "set_limit",
-                      value: round(value,2)
+                      value: round(value, 2),
                     })}
                   />
                 </Table.Cell>
@@ -113,9 +109,9 @@ export const ShipEnginesControl = (props, context) => {
                   <Button
                     selected={engine.on}
                     content="Toggle"
-                    onClick={() => act("engine",{
+                    onClick={() => act("engine", {
                       engine: engine.reference,
-                      action: "toggle"
+                      action: "toggle",
                     })}
                   />
                 </Table.Cell>
@@ -125,5 +121,5 @@ export const ShipEnginesControl = (props, context) => {
         </Section>
       </Window.Content>
     </Window>
-  )
-}
+  );
+};
