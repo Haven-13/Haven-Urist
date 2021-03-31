@@ -6,21 +6,19 @@ import { Flex, Section, LabeledList, Tabs, Box, Button, Fragment, ProgressBar, N
 import { Window } from 'tgui/layouts';
 import { createSearch } from 'common/string';
 import { AnimatedNumber, LabeledControls } from '../components';
-import { inRange } from 'common/math'
+import { inRange } from 'common/math';
 
 export const AirlockController = (props, context) => {
   const { act, data } = useBackend(context);
-  return(
+  return (
     <Window
       width={360}
-      height={220}
-    >
+      height={220}>
       <Window.Content>
         <Section>
           <LabeledList>
             <LabeledList.Item
-              label="Status"
-            >
+              label="Status">
               {data.processing ? (
                 <Box>
                   Cycling to {data.targetState === -1 ? 'Interior' : 'Exterior'}
@@ -28,62 +26,58 @@ export const AirlockController = (props, context) => {
               ) : "Idle"}
             </LabeledList.Item>
             <LabeledList.Item
-              label="Chamber Pressure"
-            >
+              label="Chamber Pressure">
               <ProgressBar
                 value={data.chamberPressure}
                 maxValue={200}
                 color={
-                  inRange(data.chamberPressure, [95, 110]) ? "good" :
-                  inRange(data.chamberPressure, [80, 120]) ? "average" :
-                  "bad"}
-              >
+                  inRange(data.chamberPressure, [95, 110]) ? "good"
+                    : inRange(data.chamberPressure, [80, 120]) ? "average"
+                      : "bad"
+                }>
                 <AnimatedNumber
                   value={data.chamberPressure * 1000}
-                  format={(value) => formatSiUnit(value, 1, 'Pa')}
+                  format={value => formatSiUnit(value, 1, 'Pa')}
                 />
               </ProgressBar>
             </LabeledList.Item>
           </LabeledList>
         </Section>
         <Section
-          title="Controls"
-        >
+          title="Controls">
           <LabeledControls>
             <LabeledControls.Item
-              label="Emergency"
-            >
+              label="Emergency">
               <Button
                 fluid
                 icon="sign-out-alt"
                 content="Force Exterior"
-                color={data.interiorStatus.state === "open" ? 'red' :
-                  data.processing ? 'yellow' : null}
+                color={data.interiorStatus.state === "open" ? 'red'
+                  : data.processing ? 'yellow' : null}
                 onClick={() => act("command", {
-                  command: "force_ext"
+                  command: "force_ext",
                 })}
               />
               <Button
                 fluid
                 icon="sign-in-alt"
                 content="Force Interior"
-                color={data.exteriorStatus.state === "open" ? 'red' :
-                  data.processing ? 'yellow' : null}
+                color={data.exteriorStatus.state === "open" ? 'red'
+                  : data.processing ? 'yellow' : null}
                 onClick={() => act("command", {
-                  command: "force_int"
+                  command: "force_int",
                 })}
               />
             </LabeledControls.Item>
             <LabeledControls.Item
-              label="Cycling"
-            >
+              label="Cycling">
               <Button
                 fluid
                 icon="sign-out-alt"
                 content="Cycle to Exterior"
                 disabled={data.processing}
                 onClick={() => act("command", {
-                  command: "cycle_ext"
+                  command: "cycle_ext",
                 })}
               />
               <Button
@@ -92,20 +86,19 @@ export const AirlockController = (props, context) => {
                 content="Cycle to Interior"
                 disabled={data.processing}
                 onClick={() => act("command", {
-                  command: "cycle_int"
+                  command: "cycle_int",
                 })}
               />
             </LabeledControls.Item>
             <LabeledControls.Item
-              label="Actions"
-            >
+              label="Actions">
               <Button
                 fluid
                 icon="stop"
                 content="Abort"
                 disabled={!data.processing}
                 onClick={() => act("command", {
-                  command: "abort"
+                  command: "abort",
                 })}
               />
             </LabeledControls.Item>
@@ -114,4 +107,4 @@ export const AirlockController = (props, context) => {
       </Window.Content>
     </Window>
   );
-}
+};

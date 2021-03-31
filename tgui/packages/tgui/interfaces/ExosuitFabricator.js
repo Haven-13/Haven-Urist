@@ -151,17 +151,14 @@ export const ExosuitFabricator = (props, context) => {
         <Flex
           spacing={1}
           direction="column"
-          height="100%"
-        >
+          height="100%">
           <Flex.Item>
             <Flex
               width="100%"
-              direction="row"
-              >
+              direction="row">
               <Flex.Item
                 grow={1}
-                width="100%"
-                >
+                width="100%">
                 <Section
                   fill
                   width="100%"
@@ -172,8 +169,7 @@ export const ExosuitFabricator = (props, context) => {
               <Flex.Item
                 ml={1}
                 grow={1}
-                basis="content"
-              >
+                basis="content">
                 <Section
                   title="Settings"
                   height="100%"
@@ -182,8 +178,7 @@ export const ExosuitFabricator = (props, context) => {
                     <Button
                       content="R&D Sync"
                       onClick={() => act("sync_rnd")} />
-                  )}
-                  >
+                  )}>
                   <Button.Checkbox
                     onClick={() => setDisplayMatCost(!displayMatCost)}
                     checked={displayMatCost}>
@@ -197,16 +192,14 @@ export const ExosuitFabricator = (props, context) => {
             <Flex
               spacing={1}
               direction="row"
-              height="100%"
-            >
+              height="100%">
               <Flex.Item>
                 <Section
                   height="100%"
                   fill
                   fitted
                   width={15}
-                  title="Brands"
-                >
+                  title="Brands">
                   <Brands
                     height="100%"
                     overflowY="auto"
@@ -219,8 +212,7 @@ export const ExosuitFabricator = (props, context) => {
                   fill
                   fitted
                   width={15}
-                  title="Categories"
-                >
+                  title="Categories">
                   <Categories
                     height="100%"
                     overflowY="auto"
@@ -337,7 +329,7 @@ const MaterialAmount = (props, context) => {
   } = props;
 
   return list ? (<Box height="15px">
-    <Box textAlign="center" style={{position: "relative", "z-index": 1, "line-height": 2}}>{(formatsi && formatSiUnit(amount, 0)) || (formatmoney && formatMoney(amount)) || (amount)}</Box>
+    <Box textAlign="center" style={{ position: "relative", "z-index": 1, "line-height": 2 }}>{(formatsi && formatSiUnit(amount, 0)) || (formatmoney && formatMoney(amount)) || (amount)}</Box>
     <Box
       className={classes([
         'sheetmaterials32x32',
@@ -346,31 +338,31 @@ const MaterialAmount = (props, context) => {
       style={style}
     />
   </Box>) : (
-    <Flex
+                   <Flex
       direction="column"
       align="center">
       <Flex.Item>
-        <Box
+                       <Box
           className={classes([
             'sheetmaterials32x32',
             MATERIAL_KEYS[reference ? reference : name],
           ])}
           style={style} />
-      </Flex.Item>
+                     </Flex.Item>
       {!small && (
-        <Flex.Item>
+                     <Flex.Item>
           {name}
         </Flex.Item>
       )}
       <Flex.Item>
-        <Box
+                       <Box
           textColor={color}
           style={{ "text-align": "center" }}>
           {(formatsi && formatSiUnit(amount, 0))
           || (formatmoney && formatMoney(amount))
           || (amount)}
         </Box>
-      </Flex.Item>
+                     </Flex.Item>
     </Flex>
   );
 };
@@ -383,14 +375,13 @@ const Brands = (props, context) => {
   return (
     <Tabs
       vertical
-      {...props}
-    >
+      {...props}>
       {brands.map(brand => (
         <Tabs.Tab
           key={brand}
           selected={brand === data.brand}
           onClick={() => act("set_brand", {
-            set_brand: brand
+            set_brand: brand,
           })}>
           {brand}
         </Tabs.Tab>
@@ -417,8 +408,7 @@ const Categories = (props, context) => {
   return (
     <Tabs
       vertical
-      {...props}
-    >
+      {...props}>
       {categories.map(category => (
         !!(buildable[category]) && (
           <Tabs.Tab
@@ -507,8 +497,7 @@ const PartLists = (props, context) => {
     <Box {...props}>
       <Flex
         direction="column"
-        height="100%"
-      >
+        height="100%">
         <Flex.Item basis="content">
           <Section fill height={3}>
             <Flex>
@@ -528,22 +517,22 @@ const PartLists = (props, context) => {
           </Section>
         </Flex.Item>
         <Flex.Item mt={1} height="100%">
-            {(!!searchText && (
+          {(!!searchText && (
+            <PartCategory
+              height="100%"
+              name={"Search Results"}
+              parts={partsList}
+              forceShow
+              placeholder="No matching results..." />
+          )) || (
+            Object.keys(partsList).map(category => (
               <PartCategory
                 height="100%"
-                name={"Search Results"}
-                parts={partsList}
-                forceShow
-                placeholder="No matching results..." />
-            )) || (
-              Object.keys(partsList).map(category => (
-                <PartCategory
-                  height="100%"
-                  key={category}
-                  name={category}
-                  parts={partsList[category]} />
-              ))
-            )}
+                key={category}
+                name={category}
+                parts={partsList[category]} />
+            ))
+          )}
         </Flex.Item>
       </Flex>
     </Box>
@@ -580,77 +569,75 @@ const PartCategory = (props, context) => {
               category: parts.map(part => part.id),
             })} />
         }
-        {...props}
-        >
-          <Box
-            mt={1}
-            pl={1}
-            pr={1}
-            height="100%"
-            overflow="auto"
-          >
-            {(!parts.length) && (placeholder)}
-            {parts.map(part => (
-              <Fragment
-                key={part.name}>
-                <Flex
-                  align="center">
-                  <Flex.Item>
-                    <Button
-                      color="average"
-                      height="20px"
-                      mr={1}
-                      icon="plus-circle"
-                      onClick={() => act("add_queue_part", { id: part.id })} />
-                  </Flex.Item>
-                  <Flex.Item>
-                    <Box
-                      inline
-                      textColor={COLOR_KEYS[part.format.textColor]}>
-                      {part.name}
-                    </Box>
-                  </Flex.Item>
-                  <Flex.Item
-                    grow={1} />
-                  <Flex.Item>
-                    <Button
-                      icon="question-circle"
-                      transparent
-                      height="20px"
-                      tooltip={
-                        "Build Time: "
+        {...props}>
+        <Box
+          mt={1}
+          pl={1}
+          pr={1}
+          height="100%"
+          overflow="auto">
+          {(!parts.length) && (placeholder)}
+          {parts.map(part => (
+            <Fragment
+              key={part.name}>
+              <Flex
+                align="center">
+                <Flex.Item>
+                  <Button
+                    color="average"
+                    height="20px"
+                    mr={1}
+                    icon="plus-circle"
+                    onClick={() => act("add_queue_part", { id: part.id })} />
+                </Flex.Item>
+                <Flex.Item>
+                  <Box
+                    inline
+                    textColor={COLOR_KEYS[part.format.textColor]}>
+                    {part.name}
+                  </Box>
+                </Flex.Item>
+                <Flex.Item
+                  grow={1} />
+                <Flex.Item>
+                  <Button
+                    icon="question-circle"
+                    transparent
+                    height="20px"
+                    tooltip={
+                      "Build Time: "
                       + part.time + "s. "
                       + (part.desc || "")
-                      }
-                      tooltipPosition="left" />
-                  </Flex.Item>
+                    }
+                    tooltipPosition="left" />
+                </Flex.Item>
+              </Flex>
+              {(displayMatCost && (
+                <Flex mb={2}>
+                  {Object.keys(part.cost).map(material => (
+                    <Flex.Item
+                      width={"40px"}
+                      key={material}
+                      color={COLOR_KEYS[part.format[material].color]}>
+                      <MaterialAmount
+                        style={{
+                          position: "relative",
+                          opacity: 0.7,
+                          transform: 'scale(0.8) translate(0%, -100%)',
+                        }}
+                        name={material}
+                        reference={material}
+                        small
+                        list
+                        formatsi
+                        amount={part.cost[material]} />
+                    </Flex.Item>
+                  ))}
                 </Flex>
-                {(displayMatCost && (
-                  <Flex mb={2}>
-                    {Object.keys(part.cost).map(material => (
-                      <Flex.Item
-                        width={"40px"}
-                        key={material}
-                        color={COLOR_KEYS[part.format[material].color]}>
-                        <MaterialAmount
-                          style={{
-                            position: "relative",
-                            opacity: 0.7,
-                            transform: 'scale(0.8) translate(0%, -100%)',
-                          }}
-                          name={material}
-                          reference={material}
-                          small
-                          list
-                          formatsi
-                          amount={part.cost[material]} />
-                      </Flex.Item>
-                    ))}
-                  </Flex>
-                ))}
-              </Fragment>
-            ))}
-          </Box>
+              ))}
+            </Fragment>
+          ))}
+        </Box>
       </Section>
     ))
   );
@@ -702,7 +689,7 @@ const Queue = (props, context) => {
                   tooltip={
                     "Stop building the queue"
                   }
-                  tooltipPosition="left"/>
+                  tooltipPosition="left" />
               )) || (
                 <Button
                   disabled={!queue.length}
@@ -712,7 +699,7 @@ const Queue = (props, context) => {
                   tooltip={
                     "Start building the queue"
                   }
-                  tooltipPosition="left"/>
+                  tooltipPosition="left" />
               )}
             </Fragment>
           }>

@@ -9,8 +9,7 @@ export const PathogenicIncubator = (props, context) => {
   return (
     <Window
       width={300}
-      height={330}
-    >
+      height={330}>
       <Window.Content>
         <Section>
           <Table width="100%">
@@ -46,8 +45,7 @@ export const PathogenicIncubator = (props, context) => {
                 <ProgressBar
                   value={data.chemicalVolume}
                   maxValue={data.maxChemicalVolume}
-                  textAlign={data.chemicalsInserted ? "right" : "left"}
-                >
+                  textAlign={data.chemicalsInserted ? "right" : "left"}>
                   {data.chemicalsInserted ? (
                     <Box>
                       {data.chemicalVolume} / {data.maxChemicalVolume} u
@@ -86,24 +84,21 @@ export const PathogenicIncubator = (props, context) => {
                 onClick={() => act("flush")}
               />
             </Fragment>
-          )}
-        >
+          )}>
           <LabeledList>
             <LabeledList.Item
-              label="Food"
-            >
+              label="Food">
               <ProgressBar
                 value={data.foodSupply}
                 minValue={data.minFood}
                 maxValue={data.maxFood}
                 ranges={{
-                  good: [-Infinity, Infinity]
+                  good: [-Infinity, Infinity],
                 }}
               />
             </LabeledList.Item>
             <LabeledList.Item
-              label="Radiation"
-            >
+              label="Radiation">
               <ProgressBar
                 value={data.radiation}
                 minValue={data.minRadiation}
@@ -111,15 +106,13 @@ export const PathogenicIncubator = (props, context) => {
                 ranges={{
                   good: [-Infinity, 25],
                   average: [25, 50],
-                  bad: [50, Infinity]
-                }}
-              >
+                  bad: [50, Infinity],
+                }}>
                 {data.radiation} &micro;Sv
               </ProgressBar>
             </LabeledList.Item>
             <LabeledList.Item
-              label="Toxicity"
-            >
+              label="Toxicity">
               <ProgressBar
                 value={data.toxins}
                 minValue={data.minToxins}
@@ -127,7 +120,7 @@ export const PathogenicIncubator = (props, context) => {
                 ranges={{
                   good: [-Infinity, 25],
                   average: [25, 50],
-                  bad: [50, Infinity]
+                  bad: [50, Infinity],
                 }}
               />
             </LabeledList.Item>
@@ -143,12 +136,10 @@ export const PathogenicIncubator = (props, context) => {
               selected={data.on}
               onClick={() => act("power")}
             />
-          )}
-        >
+          )}>
           <LabeledList>
             <LabeledList.Item
-              label="Growth"
-            >
+              label="Growth">
               <ProgressBar
                 value={data.growth}
                 minValue={data.minGrowth}
@@ -156,20 +147,17 @@ export const PathogenicIncubator = (props, context) => {
                 ranges={{
                   good: [50, Infinity],
                   average: [25, 50],
-                  bad: [-Infinity, 25]
-                }}
-              >
+                  bad: [-Infinity, 25],
+                }}>
                 <Box color={data.virus ? "normal" : "average"}>
                   {data.virus ? data.growth + " %" : "No sample"}
                 </Box>
               </ProgressBar>
             </LabeledList.Item>
             <LabeledList.Item
-              label="Infectivity"
-            >
+              label="Infectivity">
               <ProgressBar
-                value={data.analysed ? data.infectionRate/100 : 0}
-              >
+                value={data.analysed ? data.infectionRate/100 : 0}>
                 <Box color={data.virus && data.analysed ? "normal" : "average"}>
                   {data.virus ? data.analysed ? data.infectionRate + " %" : "Unknown" : "No sample"}
                 </Box>
@@ -179,5 +167,5 @@ export const PathogenicIncubator = (props, context) => {
         </Section>
       </Window.Content>
     </Window>
-  )
-}
+  );
+};

@@ -22,8 +22,7 @@ export const Pump = (props, context) => {
             <LabeledList.Item label="Power Load">
               <ProgressBar
                 value={data.lastPowerDraw}
-                maxValue={data.maxPowerDraw}
-              >
+                maxValue={data.maxPowerDraw}>
                 {data.lastPowerDraw} W
               </ProgressBar>
             </LabeledList.Item>

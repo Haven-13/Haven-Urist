@@ -71,23 +71,18 @@ export const BiogeneratorContent = (props, context) => {
             color={biomass > 0 ? 'good' : 'bad'}>
             {formatMoney(biomass)} Biomass
           </Box>
-        )}
-      >
+        )}>
         <LabeledList>
           <LabeledList.Item
-            label="Buffer"
-          >
+            label="Buffer">
             <Flex
               direction="row"
-              spacing={2}
-            >
+              spacing={2}>
               <Flex.Item
-                grow={1}
-              >
+                grow={1}>
                 <ProgressBar
                   value={data.ingredients}
-                  maxValue={data.capacity}
-                >
+                  maxValue={data.capacity}>
                   {data.ingredients} / {data.capacity}
                 </ProgressBar>
               </Flex.Item>

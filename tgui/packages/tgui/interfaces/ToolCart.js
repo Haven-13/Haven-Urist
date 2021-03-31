@@ -6,21 +6,19 @@ import { Table } from '../components';
 import { TableCell, TableRow } from '../components/Table';
 
 export const ToolCart = (props, context) => {
-  const {act, data} = useBackend(context);
+  const { act, data } = useBackend(context);
   const items = data.items || [];
   const stacks = data.stacks || [];
   return (
     <Window
       width={300}
       height={250}
-      resizeable
-    >
+      resizeable>
       <Window.Content >
         <Table>
           <TableRow
             bold={1}
-            color="label"
-          >
+            color="label">
             <TableCell>
               Label
             </TableCell>
@@ -33,16 +31,13 @@ export const ToolCart = (props, context) => {
           </TableRow>
           {items.map(item => (
             <TableRow
-              key={item.key}
-            >
+              key={item.key}>
               <TableCell
-                color="label"
-              >
+                color="label">
                 {item.label}
               </TableCell>
               <TableCell
-                color={item.name ? "normal" : "grey"}
-              >
+                color={item.name ? "normal" : "grey"}>
                 {item.name ? item.name : "None"}
               </TableCell>
               <TableCell>
@@ -50,7 +45,7 @@ export const ToolCart = (props, context) => {
                   disabled={!item.name}
                   content="Take"
                   onClick={() => act("take", {
-                    take: item.key
+                    take: item.key,
                   })}
                 />
               </TableCell>
@@ -58,11 +53,9 @@ export const ToolCart = (props, context) => {
           ))}
           {stacks.map(stack => (
             <TableRow
-              key={stack.key}
-            >
+              key={stack.key}>
               <TableCell
-                color="label"
-              >
+                color="label">
                 {stack.label}
               </TableCell>
               <TableCell>
@@ -81,7 +74,7 @@ export const ToolCart = (props, context) => {
                   disabled={stack.amount <= 0}
                   content="Take"
                   onClick={() => act("take", {
-                    take: stack.key
+                    take: stack.key,
                   })}
                 />
               </TableCell>
@@ -91,4 +84,4 @@ export const ToolCart = (props, context) => {
       </Window.Content>
     </Window>
   );
-}
+};

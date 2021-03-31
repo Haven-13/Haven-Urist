@@ -1,7 +1,7 @@
 import { Fragment } from 'inferno';
 import { useBackend } from '../backend';
 import { Button, Flex, LabeledControls, LabeledList, NoticeBox, NumberInput, ProgressBar, Section, Table, Tooltip } from '../components';
-import { round } from 'common/math'
+import { round } from 'common/math';
 import { formatSiUnit } from 'tgui/format';
 import { Window } from '../layouts';
 
@@ -14,103 +14,87 @@ export const AdvancedShieldGenerator = (props, context) => {
     { name: "EM", value: data.mitigationEm },
     { name: "Physical", value: data.mitigationPhysical },
     { name: "Thermal", value: data.mitigationHeat },
-    { name: "Max", value: data.mitigationMax }
-  ]
+    { name: "Max", value: data.mitigationMax },
+  ];
 
   return (
     <Window
       width={600}
-      height={370}
-    >
+      height={370}>
       <Window.Content>
         <Flex
-          spacing={1}
-        >
+          spacing={1}>
           <Flex.Item maxWidth={20}>
             <Section
               title="System Status"
               buttons={(
-                <Fragment>
-                  <Button
-                    icon="power-off"
-                    content="Power"
-                    selected={data.running === 2}
-                    onClick={() => data.running === 2 ?
-                      act("begin_shutdown") :
-                      act("start_generator")
-                    }
-                  />
-                </Fragment>
-              )}
-            >
+                <Button
+                  icon="power-off"
+                  content="Power"
+                  selected={data.running === 2}
+                  onClick={() => data.running === 2
+                    ? act("begin_shutdown")
+                    : act("start_generator")}
+                />
+              )}>
               <LabeledList>
                 <LabeledList.Item
                   label="Status"
                   color={
-                    data.running === 2 && !data.overloaded ? "good" :
-                    data.running === 1 || (data.running === 2 && data.overloaded) ? "average" :
-                    "normal"
-                  }
-                >
+                    data.running === 2 && !data.overloaded ? "good"
+                      : data.running === 1 || (data.running === 2 && data.overloaded) ? "average"
+                        : "normal"
+                  }>
                   {data.running === 2 ? (
                     data.overloaded ? (
                       "Recovering"
                     ) : (
                       "Online"
                     )) : data.running === 1 ? (
-                      "Shutting down"
-                    ) : (
-                      "Offline"
+                    "Shutting down"
+                  ) : (
+                    "Offline"
                   )}
                 </LabeledList.Item>
                 <LabeledList.Item
-                  label="Capacity"
-                >
+                  label="Capacity">
                   <ProgressBar>
                     {formatSiUnit(data.currentEnergy, 0)} / {formatSiUnit(data.maxEnergy, 0, 'J')}
                   </ProgressBar>
                 </LabeledList.Item>
                 <LabeledList.Item
-                  label="Upkeep"
-                >
+                  label="Upkeep">
                   <ProgressBar
                     value={data.upKeepPowerUsage}
-                    maxValue={data.inputCap}
-                  >
-                    {formatSiUnit(data.upkeepPowerUsage, 0, data.inputCap ? '' : 'W')} {data.inputCap > 0 ?
-                    "/ " + formatSiUnit(data.inputCap, 0, "W") : "(No limit)"}
+                    maxValue={data.inputCap}>
+                    {formatSiUnit(data.upkeepPowerUsage, 0, data.inputCap ? '' : 'W')} {data.inputCap > 0
+                      ? "/ " + formatSiUnit(data.inputCap, 0, "W") : "(No limit)"}
                   </ProgressBar>
                 </LabeledList.Item>
                 <LabeledList.Item
-                  label="Power use"
-                >
+                  label="Power use">
                   <ProgressBar
                     value={data.powerUsage}
-                    maxValue={data.inputCap}
-                  >
-                    {formatSiUnit(data.powerUsage, 0, data.inputCap ? '' : 'W')} {data.inputCap > 0 ?
-                    "/ " + formatSiUnit(data.inputCap, 0, "W") : "(No limit)"}
+                    maxValue={data.inputCap}>
+                    {formatSiUnit(data.powerUsage, 0, data.inputCap ? '' : 'W')} {data.inputCap > 0
+                      ? "/ " + formatSiUnit(data.inputCap, 0, "W") : "(No limit)"}
                   </ProgressBar>
                 </LabeledList.Item>
                 <LabeledList.Item
-                  label="Coverage"
-                >
+                  label="Coverage">
                   <ProgressBar
                     value={data.functionalSegments}
-                    maxValue={data.totalSegments}
-                  >
+                    maxValue={data.totalSegments}>
                     {data.functionalSegments} / {data.totalSegments} m2
                   </ProgressBar>
                 </LabeledList.Item>
                 <LabeledList.Item
-                  label="Mitigation"
-                >
+                  label="Mitigation">
                   <LabeledList>
                     {mitigations.map(mitigation => (
                       <LabeledList.Item
                         key={mitigation.name}
-                        label={mitigation.name}
-                      >
+                        label={mitigation.name}>
                         {mitigation.value} %
                       </LabeledList.Item>
                     ))}
@@ -119,37 +103,34 @@ export const AdvancedShieldGenerator = (props, context) => {
               </LabeledList>
             </Section>
             <Section
-              title="Configuration"
-            >
+              title="Configuration">
               <LabeledControls>
                 <LabeledControls.Item
-                  label="Field Radius"
-                >
+                  label="Field Radius">
                   <NumberInput
                     value={data.fieldRadius}
                     minValue={1}
                     maxValue={200}
                     width={8}
-                    onChange={(e,value) => act("set_range", {
-                      set_range: value
+                    onChange={(e, value) => act("set_range", {
+                      set_range: value,
                     })}
                   />
                 </LabeledControls.Item>
                 <LabeledControls.Item
-                  label="Power Limit"
-                >
+                  label="Power Limit">
                   <NumberInput
                     value={data.inputCap}
                     minValue={0}
                     maxValue={Infinity}
                     step={100000}
                     width={8}
-                    format={(value) => formatSiUnit(value, 0, 'W')}
+                    format={value => formatSiUnit(value, 0, 'W')}
                     onDrag={(e, value) => act("set_input_cap", {
-                      set_input_cap: round(value)
+                      set_input_cap: round(value),
                     })}
-                    onChange={(e,value) => act("set_input_cap", {
-                      set_input_cap: round(value)
+                    onChange={(e, value) => act("set_input_cap", {
+                      set_input_cap: round(value),
                     })}
                   />
                 </LabeledControls.Item>
@@ -159,17 +140,15 @@ export const AdvancedShieldGenerator = (props, context) => {
           <Flex.Item
             grow={1}
             style={{
-              overflow:"visible"
-            }}
-          >
+              overflow: "visible",
+            }}>
             <Section
               title="Mode Settings"
               style={{
-                overflowX:"visible",
-                overflowY:"scroll"
+                overflowX: "visible",
+                overflowY: "scroll",
               }}
-              fill
-            >
+              fill>
               <Table>
                 <Table.Row color="label">
                   <Table.Cell>
@@ -201,7 +180,7 @@ export const AdvancedShieldGenerator = (props, context) => {
                         selected={mode.status > 0}
                         content={mode.status > 0 ? "Enabled" : "Disabled"}
                         onClick={() => act("toggle_mode", {
-                          toggle_mode: mode.flag
+                          toggle_mode: mode.flag,
                         })}
                       />
                     </Table.Cell>
@@ -214,4 +193,4 @@ export const AdvancedShieldGenerator = (props, context) => {
       </Window.Content>
     </Window>
   );
-}
+};

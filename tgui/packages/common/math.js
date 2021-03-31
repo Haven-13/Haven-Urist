@@ -71,8 +71,8 @@ export const toFixed = (value, fractionDigits = 0) => {
  */
 export const range = (start, end, step=1) => {
   if (start >= end) return [end];
-  return [start, ...range(start + step, end)]
-}
+  return [start, ...range(start + step, end)];
+};
 
 /**
  * Checks whether a value is within the provided range.

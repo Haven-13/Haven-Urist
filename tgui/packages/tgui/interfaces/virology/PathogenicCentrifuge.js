@@ -10,23 +10,22 @@ export const PathogenicCentrifuge = (props, context) => {
   const antibodies = data.antibodies || [];
   const pathogens = data.pathogens || [];
 
-  const indices = antibodies.length > 0 || pathogens.length > 0 ?
-    range(0, Math.max(antibodies.length, pathogens.length)-1) : [];
+  const indices = antibodies.length > 0 || pathogens.length > 0
+    ? range(0, Math.max(antibodies.length, pathogens.length)-1) : [];
 
   const [
     isolateTarget,
-    setIsolateTarget
+    setIsolateTarget,
   ] = useLocalState(context, "isolateTarget", null);
 
   return (
     <Window
       width={320}
       height={300}
-      resizable
-    >
+      resizable>
       {!!data.busy && (
         <Dimmer fontSize="32px" textAlign="center">
-          <Icon name="cog" spin mr={2}/>
+          <Icon name="cog" spin mr={2} />
           {data.busy}
         </Dimmer>
       )}
@@ -38,10 +37,10 @@ export const PathogenicCentrifuge = (props, context) => {
               <Button
                 content="Isolate"
                 disabled={!data.sampleInserted || data.isAntibodySample || !isolateTarget}
-                onClick={() => isolateTarget == "antibodies" ?
-                act("antibody") : act("isolate", {
-                  isolate: isolateTarget
-                })}
+                onClick={() => isolateTarget == "antibodies"
+                  ? act("antibody") : act("isolate", {
+                    isolate: isolateTarget,
+                  })}
               />
               <Button
                 icon="eject"
@@ -55,12 +54,10 @@ export const PathogenicCentrifuge = (props, context) => {
                 onClick={() => act("print")}
               />
             </Fragment>
-          )}
-        >
+          )}>
           <LabeledList>
             <LabeledList.Item
-              label="Sample type"
-            >
+              label="Sample type">
               {data.sampleInserted ? (
                 <Box>
                   {data.isAntibodySample ? "Antibody" : "Blood"} sample
@@ -74,8 +71,7 @@ export const PathogenicCentrifuge = (props, context) => {
           </LabeledList>
           <Table mt={2}>
             <Table.Row
-              color="label"
-            >
+              color="label">
               <Table.Cell width="50%">
                 Antigens
               </Table.Cell>
@@ -97,11 +93,10 @@ export const PathogenicCentrifuge = (props, context) => {
                           onClick={() => setIsolateTarget("antibodies")}
                         />) : (
                         <Box
-                          width={2}
-                          textAlign="center"
-                          >
+                            width={2}
+                            textAlign="center">
                             {antibodies[idx]}
-                        </Box>
+                          </Box>
                       )}
                     </Fragment>
                   ) : antibodies.length || idx ? null : (
@@ -143,5 +138,5 @@ export const PathogenicCentrifuge = (props, context) => {
         </Section>
       </Window.Content>
     </Window>
-  )
-}
+  );
+};
