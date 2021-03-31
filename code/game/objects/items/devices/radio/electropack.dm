@@ -4,6 +4,7 @@
 	icon_state = "electropack0"
 	item_state = "electropack"
 	frequency = 1449
+	can_use_channels = FALSE
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BACK
 	w_class = ITEM_SIZE_HUGE

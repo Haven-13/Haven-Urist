@@ -7,7 +7,10 @@
 
 	var/on = 1 // 0 for off
 	var/last_transmission
+	var/frequency_min = PUBLIC_LOW_FREQ
+	var/frequency_max = PUBLIC_HIGH_FREQ
 	var/frequency = PUB_FREQ //common chat
+	var/locked_frequency
 	var/traitor_frequency = 0 //tune to frequency to unlock traitor supplies
 	var/canhear_range = 3 // the range which mobs can hear this radio from
 	var/datum/wires/radio/wires = null
@@ -15,6 +18,7 @@
 	var/broadcasting = 0
 	var/listening = 1
 	var/list/channels = list() //see communications.dm for full list. First channel is a "default" for :h
+	var/can_use_channels = TRUE
 	var/subspace_transmission = 0
 	var/syndie = 0//Holder to see if it's a syndicate encrypted radio
 	var/intercept = 0 //can intercept other channels
@@ -76,59 +80,98 @@
 
 	return ui_interact(user)
 
-/obj/item/device/radio/ui_interact(mob/user, var/datum/tgui/ui)
-	var/data[0]
+/obj/item/device/radio/ui_static_data(mob/user)
+	. = list(
+		"frequencyMin" = frequency_min,
+		"frequencyMax" = frequency_max
+	)
 
-	data["mic_status"] = broadcasting
-	data["speaker"] = listening
-	data["freq"] = format_frequency(frequency)
-	data["rawfreq"] = num2text(frequency)
-	if(cell)
-		var/charge = round(cell.percent())
-		data["charge"] = charge ? "[charge]%" : "NONE"
-	data["mic_cut"] = (wires.IsIndexCut(WIRE_TRANSMIT) || wires.IsIndexCut(WIRE_SIGNAL))
-	data["spk_cut"] = (wires.IsIndexCut(WIRE_RECEIVE) || wires.IsIndexCut(WIRE_SIGNAL))
+/obj/item/device/radio/ui_data(mob/user)
+	. = list(
+		"microphone" = list(
+			"status" = broadcasting,
+			"wireCut" = (wires.IsIndexCut(WIRE_TRANSMIT) || wires.IsIndexCut(WIRE_SIGNAL)),
+		),
+		"speaker" = list(
+			"status" = listening,
+			"wireCut" = (wires.IsIndexCut(WIRE_RECEIVE) || wires.IsIndexCut(WIRE_SIGNAL)),
+		),
+		"frequencyLock" = locked_frequency > 0,
+		"frequency" = frequency,
+		"subspace" = subspace_transmission,
+		"charge" = cell ? cell.percent() : null,
+		"channels" = list_channels(user),
+		"canUseChannels" = can_use_channels,
+		"useTraitorMode" = syndie
+	)
 
-	var/list/chanlist = list_channels(user)
-	if(islist(chanlist) && chanlist.len)
-		data["chan_list"] = chanlist
-		data["chan_list_len"] = chanlist.len
-
-	if(syndie)
-		data["useSyndMode"] = 1
-
-/obj/item/radio/ui_state(mob/user)
+/obj/item/device/radio/ui_state(mob/user)
 	return ui_inventory_state()
 
-/obj/item/radio/ui_interact(mob/user, datum/tgui/ui, datum/ui_state/state)
+/obj/item/device/radio/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Radio", name)
-		if(state)
-			ui.set_state(state)
 		ui.open()
+
+/obj/item/device/radio/ui_act(action, list/params)
+	switch(action)
+		if("frequency")
+			if (locked_frequency)
+				. = TRUE
+			else if (params["channel"])
+				var/channel = params["channel"]
+				if(has_channel_access(usr, channel))
+					set_frequency(text2num(channel))
+				. = TRUE
+			else
+				var/new_frequency = params["value"]
+				new_frequency = clamp(new_frequency, frequency_min, frequency_max)
+				set_frequency(new_frequency)
+				. = TRUE
+
+		if("listen")
+			ToggleReception()
+			. = TRUE
+
+		if("broadcast")
+			ToggleBroadcast()
+			. = TRUE
+
+		if("channel")
+			var/name = params["channel"]
+			if (channels[name] & FREQ_LISTENING)
+				channels[name] &= ~FREQ_LISTENING
+			else
+				channels[name] |= FREQ_LISTENING
+			. = TRUE
 
 /obj/item/device/radio/proc/list_channels(var/mob/user)
 	return list_internal_channels(user)
 
 /obj/item/device/radio/proc/list_secure_channels(var/mob/user)
-	var/dat[0]
-
+	. = list()
 	for(var/ch_name in channels)
 		var/chan_stat = channels[ch_name]
 		var/listening = !!(chan_stat & FREQ_LISTENING) != 0
 
-		dat.Add(list(list("chan" = ch_name, "display_name" = ch_name, "secure_channel" = 1, "sec_channel_listen" = !listening, "chan_span" = frequency_span_class(radiochannels[ch_name]))))
-
-	return dat
+		(.).Add(list(list(
+			"channel" = ch_name,
+			"displayName" = ch_name,
+			"secure" = 1,
+			"listening" = listening,
+			"channelSpan" = frequency_span_class(radiochannels[ch_name])
+		)))
 
 /obj/item/device/radio/proc/list_internal_channels(var/mob/user)
-	var/dat[0]
+	. = list()
 	for(var/internal_chan in internal_channels)
 		if(has_channel_access(user, internal_chan))
-			dat.Add(list(list("chan" = internal_chan, "display_name" = get_frequency_default_name(text2num(internal_chan)), "chan_span" = frequency_span_class(text2num(internal_chan)))))
-
-	return dat
+			(.).Add(list(list(
+				"channel" = internal_chan,
+				"displayName" = get_frequency_default_name(text2num(internal_chan)),
+				"channelSpan" = frequency_span_class(text2num(internal_chan))
+			)))
 
 /obj/item/device/radio/proc/has_channel_access(var/mob/user, var/freq)
 	if(!user)
@@ -166,64 +209,6 @@
 
 /obj/item/device/radio/proc/ToggleReception()
 	listening = !listening && !(wires.IsIndexCut(WIRE_RECEIVE) || wires.IsIndexCut(WIRE_SIGNAL))
-
-/obj/item/device/radio/CanUseTopic()
-	if(!on)
-		return UI_CLOSE
-	return ..()
-
-/obj/item/device/radio/Topic(href, href_list)
-	if(..())
-		return 1
-
-	usr.set_machine(src)
-	if (href_list["track"])
-		var/mob/target = locate(href_list["track"])
-		var/mob/living/silicon/ai/A = locate(href_list["track2"])
-		if(A && target)
-			A.ai_actual_track(target)
-		. = 1
-
-	else if (href_list["freq"])
-		var/new_frequency = (frequency + text2num(href_list["freq"]))
-		if ((new_frequency < PUBLIC_LOW_FREQ || new_frequency > PUBLIC_HIGH_FREQ))
-			new_frequency = sanitize_frequency(new_frequency)
-		set_frequency(new_frequency)
-		if(hidden_uplink)
-			if(hidden_uplink.check_trigger(usr, frequency, traitor_frequency))
-				close_browser(usr, "window=radio")
-		. = 1
-	else if (href_list["talk"])
-		ToggleBroadcast()
-		. = 1
-	else if (href_list["listen"])
-		var/chan_name = href_list["ch_name"]
-		if (!chan_name)
-			ToggleReception()
-		else
-			if (channels[chan_name] & FREQ_LISTENING)
-				channels[chan_name] &= ~FREQ_LISTENING
-			else
-				channels[chan_name] |= FREQ_LISTENING
-		. = 1
-	else if(href_list["spec_freq"])
-		var freq = href_list["spec_freq"]
-		if(has_channel_access(usr, freq))
-			set_frequency(text2num(freq))
-		. = 1
-	if(href_list["nowindow"]) // here for pAIs, maybe others will want it, idk
-		return 1
-
-	if(href_list["remove_cell"])
-		if(cell)
-			var/mob/user = usr
-			user.put_in_hands(cell)
-			to_chat(user, "<span class='notice'>You remove [cell] from \the [src].</span>")
-			cell = null
-		return 1
-
-	if(.)
-		SStgui.update_uis(src)
 
 /obj/item/device/radio/proc/autosay(var/message, var/from, var/channel) //BS12 EDIT
 	var/datum/radio_frequency/connection = null

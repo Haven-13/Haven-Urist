@@ -131,6 +131,16 @@ export const RADIO_CHANNELS = [
     freq: 1459,
     color: '#1ecc43',
   },
+  {
+    name: 'Entertainment',
+    freq: 1461,
+    color: '#6eaa2c',
+  },
+  {
+    name: 'AI Private',
+    freq: 1343,
+    color: '#f777e4'
+  },
 ];
 
 const GASES = [

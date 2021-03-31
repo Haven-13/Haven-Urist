@@ -14,6 +14,9 @@
 	var/number = 0
 	var/last_tick //used to delay the powercheck
 
+/obj/item/device/radio/intercom/ui_state(mob/user)
+	return ui_default_state()
+
 /obj/item/device/radio/intercom/get_storage_cost()
 	return ITEM_SIZE_NO_CONTAINER
 
@@ -164,9 +167,6 @@
 
 /obj/item/device/radio/intercom/broadcasting
 	broadcasting = 1
-
-/obj/item/device/radio/intercom/locked
-	var/locked_frequency
 
 /obj/item/device/radio/intercom/locked/set_frequency()
 	..(locked_frequency)
