@@ -1,6 +1,6 @@
-import { useBackend } from '../../backend';
-import { Box, Button, LabeledList, NoticeBox, ProgressBar, Section } from '../../components';
-import { Window } from '../../layouts';
+import { useBackend } from 'tgui/backend';
+import { Box, Button, LabeledList, NoticeBox, ProgressBar, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const PortableGenerator = (props, context) => {
   const { act, data } = useBackend(context);

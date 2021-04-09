@@ -1,6 +1,6 @@
-import { useBackend } from '../backend';
-import { Box, Button, Grid, Section } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Box, Button, Grid, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const EmergencyShuttleConsole = (props, context) => {
   const { act, data } = useBackend(context);

@@ -1,9 +1,9 @@
 import { map } from 'common/collections';
 import { toFixed } from 'common/math';
-import { useBackend } from '../backend';
-import { Box, Button, ColorBox, LabeledList, NumberInput, Section } from '../components';
-import { RADIO_CHANNELS } from '../constants';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Box, Button, ColorBox, LabeledList, NumberInput, Section } from 'tgui/components';
+import { RADIO_CHANNELS } from 'tgui/constants';
+import { Window } from 'tgui/layouts';
 
 export const Radio = (props, context) => {
   const { act, data } = useBackend(context);
@@ -25,7 +25,7 @@ export const Radio = (props, context) => {
     name: value.displayName,
     status: value.listening,
   }))(data.channels);
-  const showChannels = !frequencyLock && (subspace || canUseChannels)
+  const showChannels = !frequencyLock && (subspace || canUseChannels);
   // Calculate window height
   let height = 106;
   if (showChannels) {
@@ -59,7 +59,7 @@ export const Radio = (props, context) => {
                   value={frequency}
                   format={value => toFixed(value/10, 1)}
                   onDrag={(e, value) => act('frequency', {
-                    value: value
+                    value: value,
                   })} />
               )}
               {tunedChannel && (
@@ -103,7 +103,7 @@ export const Radio = (props, context) => {
                       onClick={() => subspace ? act('channel', {
                         channel: channel.name,
                       }) : act('frequency', {
-                        channel: channel.frequency
+                        channel: channel.frequency,
                       })} />
                   </Box>
                 ))}

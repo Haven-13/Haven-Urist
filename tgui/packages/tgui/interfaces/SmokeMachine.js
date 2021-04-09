@@ -1,6 +1,6 @@
-import { useBackend } from '../backend';
-import { AnimatedNumber, Box, Button, LabeledList, ProgressBar, Section } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { AnimatedNumber, Box, Button, LabeledList, ProgressBar, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const SmokeMachine = (props, context) => {
   const { act, data } = useBackend(context);

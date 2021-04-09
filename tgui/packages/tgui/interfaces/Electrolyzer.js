@@ -1,7 +1,7 @@
 import { Fragment } from 'inferno';
-import { useBackend } from '../backend';
-import { Button, LabeledList, ProgressBar, Section } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Button, LabeledList, ProgressBar, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const Electrolyzer = (props, context) => {
   const { act, data } = useBackend(context);

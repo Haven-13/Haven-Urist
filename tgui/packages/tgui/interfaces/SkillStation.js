@@ -1,6 +1,6 @@
-import { useBackend } from '../backend';
-import { Button, Box, Section, NoticeBox, TimeDisplay, Flex, Icon, Table, Fragment, LabeledList } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Button, Box, Section, NoticeBox, TimeDisplay, Flex, Icon, Table, Fragment, LabeledList } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 import { toFixed } from 'common/math';
 
 export const InsertedSkillchip = (props, context) => {

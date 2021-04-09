@@ -1,5 +1,5 @@
-import { NtosWindow } from '../.././layouts';
-import { AiRestorerContent } from '../AiRestorer';
+import { NtosWindow } from 'tgui/layouts';
+import { AiRestorerContent } from 'tgui/interfaces/AiRestorer';
 
 export const NtosAiRestorer = () => {
   return (

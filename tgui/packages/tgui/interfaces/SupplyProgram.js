@@ -1,9 +1,9 @@
 import { toArray } from 'common/collections';
 import { Fragment } from 'inferno';
-import { useBackend, useSharedState } from '../backend';
-import { AnimatedNumber, Box, Button, Flex, LabeledList, Section, Table, Tabs } from '../components';
-import { formatMoney } from '../format';
-import { Window } from '../layouts';
+import { useBackend, useSharedState } from 'tgui/backend';
+import { AnimatedNumber, Box, Button, Flex, LabeledList, Section, Table, Tabs } from 'tgui/components';
+import { formatMoney } from 'tgui/format';
+import { Window } from 'tgui/layouts';
 
 export const SupplyProgram = (props, context) => {
   const { act, data } = useBackend(context);

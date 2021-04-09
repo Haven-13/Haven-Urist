@@ -5,11 +5,11 @@
  */
 
 import { Fragment } from 'inferno';
-import { useBackend, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, ByondUi, Collapsible, DraggableControl, Flex, Icon, Input, Knob, LabeledList, NoticeBox, NumberInput, ProgressBar, Section, Slider, Tabs, Tooltip } from '../components';
-import { formatSiUnit } from '../format';
-import { Pane, Window } from '../layouts';
-import { createLogger } from '../logging';
+import { useBackend, useLocalState } from 'tgui/backend';
+import { BlockQuote, Box, Button, ByondUi, Collapsible, DraggableControl, Flex, Icon, Input, Knob, LabeledList, NoticeBox, NumberInput, ProgressBar, Section, Slider, Tabs, Tooltip } from 'tgui/components';
+import { formatSiUnit } from 'tgui/format';
+import { Pane, Window } from 'tgui/layouts';
+import { createLogger } from 'tgui/logging';
 
 const logger = createLogger('KitchenSink');
 

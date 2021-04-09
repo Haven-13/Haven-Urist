@@ -1,7 +1,7 @@
 import { useBackend } from 'tgui/backend';
 import { Button, LabeledList, NumberInput, Section } from 'tgui/components';
 import { Window } from 'tgui/layouts';
-import { PortableBasicInfo } from '../common/PortableAtmos';
+import { PortableBasicInfo } from 'tgui/interfaces/common/PortableAtmos';
 
 export const PortablePump = (props, context) => {
   const { act, data } = useBackend(context);

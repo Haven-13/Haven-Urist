@@ -1,8 +1,8 @@
 import { createSearch } from 'common/string';
-import { resolveAsset } from '../assets';
-import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Flex, Icon, Input, Section } from '../components';
-import { Window } from '../layouts';
+import { resolveAsset } from 'tgui/assets';
+import { useBackend, useLocalState } from 'tgui/backend';
+import { Box, Button, Flex, Icon, Input, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 const PATTERN_DESCRIPTOR = / \[(?:ghost|dead)\]$/;
 const PATTERN_NUMBER = / \(([0-9]+)\)$/;

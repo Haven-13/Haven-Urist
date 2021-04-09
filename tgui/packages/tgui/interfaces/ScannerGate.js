@@ -1,8 +1,8 @@
 import { Fragment } from 'inferno';
-import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NumberInput, Section } from '../components';
+import { useBackend } from 'tgui/backend';
+import { Box, Button, LabeledList, NumberInput, Section } from 'tgui/components';
 import { InterfaceLockNoticeBox } from './common/InterfaceLockNoticeBox';
-import { Window } from '../layouts';
+import { Window } from 'tgui/layouts';
 
 const DISEASE_THEASHOLD_LIST = [
   'Positive',

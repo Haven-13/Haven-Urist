@@ -1,7 +1,7 @@
 import { Fragment } from 'inferno';
-import { useBackend, useSharedState } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section, Tabs } from '../components';
-import { Window } from '../layouts';
+import { useBackend, useSharedState } from 'tgui/backend';
+import { Box, Button, LabeledList, NoticeBox, Section, Tabs } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const RoboticsControlConsole = (props, context) => {
   const { act, data } = useBackend(context);

@@ -106,7 +106,7 @@ export const AccessList = (props, context) => {
                 icon="check"
                 content="Grant Region"
                 color="good"
-                onClick={() => grantDep(selectedAccess.regid)} />
+                onClick={() => grantDep(selectedAccess.id)} />
             </Grid.Column>
             <Grid.Column ml={0}>
               <Button
@@ -114,16 +114,16 @@ export const AccessList = (props, context) => {
                 icon="times"
                 content="Deny Region"
                 color="bad"
-                onClick={() => denyDep(selectedAccess.regid)} />
+                onClick={() => denyDep(selectedAccess.id)} />
             </Grid.Column>
           </Grid>
           {selectedAccessEntries.map(entry => (
             <Button.Checkbox
               fluid
-              key={entry.desc}
-              content={entry.desc}
-              checked={selectedList.includes(entry.ref)}
-              onClick={() => accessMod(entry.ref)} />
+              key={entry.id}
+              content={entry.name}
+              checked={selectedList.includes(entry.id)}
+              onClick={() => accessMod(entry.id)} />
           ))}
         </Flex.Item>
       </Flex>

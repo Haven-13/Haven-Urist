@@ -1,7 +1,7 @@
 import { Fragment } from 'inferno';
-import { useBackend } from '../backend';
-import { NoticeBox, Section } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { NoticeBox, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const StationAlertConsole = () => {
   return (

@@ -3,10 +3,10 @@ import { flow } from 'common/fp';
 import { classes } from 'common/react';
 import { capitalize } from 'common/string';
 import { Fragment } from 'inferno';
-import { resolveAsset } from '../assets';
-import { useBackend } from '../backend';
-import { Box, Button, Collapsible, Dimmer, Divider, Dropdown, Flex, Icon, LabeledList, NumberInput, ProgressBar, Section } from '../components';
-import { Window } from '../layouts';
+import { resolveAsset } from 'tgui/assets';
+import { useBackend } from 'tgui/backend';
+import { Box, Button, Collapsible, Dimmer, Divider, Dropdown, Flex, Icon, LabeledList, NumberInput, ProgressBar, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 const SUBJECT_CONCIOUS = 0;
 const SUBJECT_SOFT_CRIT = 1;

@@ -1,8 +1,8 @@
 import { Fragment } from 'inferno';
-import { useBackend } from '../backend';
-import { Box, Button, Collapsible, Flex, LabeledList, NumberInput, Section, TextArea } from '../components';
-import { formatMoney } from '../format';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Box, Button, Collapsible, Flex, LabeledList, NumberInput, Section, TextArea } from 'tgui/components';
+import { formatMoney } from 'tgui/format';
+import { Window } from 'tgui/layouts';
 
 export const RequestKiosk = (props, context) => {
   return (

@@ -1,7 +1,7 @@
 import { Fragment } from 'inferno';
-import { useBackend, useSharedState } from '../backend';
-import { Button, Flex, LabeledList, NoticeBox, Section, Tabs } from '../components';
-import { Window } from '../layouts';
+import { useBackend, useSharedState } from 'tgui/backend';
+import { Button, Flex, LabeledList, NoticeBox, Section, Tabs } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const TachyonArray = (props, context) => {
   const { act, data } = useBackend(context);

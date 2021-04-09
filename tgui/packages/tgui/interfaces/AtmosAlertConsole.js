@@ -1,6 +1,6 @@
-import { useBackend } from '../backend';
-import { Button, Section } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Button, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const AtmosAlertConsole = (props, context) => {
   const { act, data } = useBackend(context);

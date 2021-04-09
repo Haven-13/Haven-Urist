@@ -13,16 +13,16 @@ export const ShipNavigation = (props, context) => {
       <Window.Content>
         <Section
           buttons={(
-              <Button
-                icon="eye"
-                selected={data.viewing}
-                content="Toggle"
-                onClick={() => act("view")}
-              />
-            )}
+            <Button
+              icon="eye"
+              selected={data.viewing}
+              content="Toggle"
+              onClick={() => act("view")}
+            />
+          )}
           title="Sector Info">
           <Flex
-          spacing={1}>
+            spacing={1}>
             <Flex.Item>
               <ShipOvermapNavigationInfo />
             </Flex.Item>

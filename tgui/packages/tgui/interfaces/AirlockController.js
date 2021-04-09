@@ -5,7 +5,7 @@ import { formatSiUnit, formatMoney } from 'tgui/format';
 import { Flex, Section, LabeledList, Tabs, Box, Button, Fragment, ProgressBar, NumberInput, Icon, Input } from 'tgui/components';
 import { Window } from 'tgui/layouts';
 import { createSearch } from 'common/string';
-import { AnimatedNumber, LabeledControls } from '../components';
+import { AnimatedNumber, LabeledControls } from 'tgui/components';
 import { inRange } from 'common/math';
 
 export const AirlockController = (props, context) => {

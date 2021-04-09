@@ -1,8 +1,8 @@
 import { Fragment } from 'inferno';
-import { useBackend } from '../backend';
-import { AnimatedNumber, Button, LabeledList, ProgressBar, Section } from '../components';
+import { useBackend } from 'tgui/backend';
+import { AnimatedNumber, Button, LabeledList, ProgressBar, Section } from 'tgui/components';
 import { BeakerContents } from './common/BeakerContents';
-import { Window } from '../layouts';
+import { Window } from 'tgui/layouts';
 
 const damageTypes = [
   {

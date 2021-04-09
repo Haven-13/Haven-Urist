@@ -1,8 +1,8 @@
 import { map } from 'common/collections';
 import { Fragment } from 'inferno';
-import { useBackend, useLocalState } from '../backend';
-import { Button, Flex, LabeledList, Section, Table, Tabs } from '../components';
-import { Window } from '../layouts';
+import { useBackend, useLocalState } from 'tgui/backend';
+import { Button, Flex, LabeledList, Section, Table, Tabs } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const ShuttleManipulator = (props, context) => {
   const [tab, setTab] = useLocalState(context, 'tab', 1);

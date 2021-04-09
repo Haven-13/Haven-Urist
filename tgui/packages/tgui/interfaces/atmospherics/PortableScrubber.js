@@ -2,7 +2,7 @@ import { useBackend } from 'tgui/backend';
 import { Button, Section } from 'tgui/components';
 import { getGasLabel } from 'tgui/constants';
 import { Window } from 'tgui/layouts';
-import { PortableBasicInfo } from '../common/PortableAtmos';
+import { PortableBasicInfo } from 'tgui/interfaces/common/PortableAtmos';
 
 export const PortableScrubber = (props, context) => {
   const { act, data } = useBackend(context);

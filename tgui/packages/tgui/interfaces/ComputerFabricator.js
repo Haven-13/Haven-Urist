@@ -1,8 +1,8 @@
 import { multiline } from 'common/string';
 import { Fragment } from 'inferno';
-import { useBackend } from '../backend';
-import { Box, Button, Grid, Section, Table, Tooltip } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Box, Button, Grid, Section, Table, Tooltip } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const ComputerFabricator = (props, context) => {
   const { act, data } = useBackend(context);

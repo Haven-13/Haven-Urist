@@ -1,7 +1,7 @@
 import { toTitleCase } from 'common/string';
-import { Box, Button, Section, Table } from '../components';
-import { useBackend } from '../backend';
-import { Window } from '../layouts';
+import { Box, Button, Section, Table } from 'tgui/components';
+import { useBackend } from 'tgui/backend';
+import { Window } from 'tgui/layouts';
 
 export const OreBox = (props, context) => {
   const { act, data } = useBackend(context);

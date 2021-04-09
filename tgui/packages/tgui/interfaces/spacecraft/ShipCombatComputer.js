@@ -3,8 +3,8 @@ import { Fragment } from 'inferno';
 import { Box, Button, ColorBox, Section, Table } from 'tgui/components';
 import { COLORS } from 'tgui/constants';
 import { Window } from 'tgui/layouts';
-import { Flex, LabeledList, ProgressBar } from '../../components';
-import { TableCell, TableRow } from '../../components/Table';
+import { Flex, LabeledList, ProgressBar } from 'tgui/components';
+import { TableCell, TableRow } from 'tgui/components/Table';
 
 const TargetInfoContent = (props, context) => {
   const { act, data } = useBackend(context);

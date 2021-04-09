@@ -1,7 +1,7 @@
 import { Component, createRef } from 'inferno';
-import { useBackend } from '../backend';
-import { Box, Button } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Box, Button } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 const PX_PER_UNIT = 28;
 

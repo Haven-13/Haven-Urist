@@ -1,6 +1,6 @@
-import { useBackend } from '../backend';
-import { Box, Button, LabeledList, ProgressBar, Section } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Box, Button, LabeledList, ProgressBar, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 const skillgreen = {
   color: 'lightgreen',
@@ -38,7 +38,7 @@ export const SkillPanel = (props, context) => {
                 <br />
                 Total Experience: [{skill.exp} XP]
                 <br />
-                XP To Next Level: 
+                XP To Next Level:
                 {skill.exp_req !== 0 ? (
                   <span>
                     [{skill.exp_prog} / {skill.exp_req}]

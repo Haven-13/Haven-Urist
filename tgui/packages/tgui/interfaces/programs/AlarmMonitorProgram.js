@@ -1,5 +1,5 @@
 import { NtosWindow } from "tgui/layouts";
-import { StationAlertConsoleContent } from '../StationAlertConsole';
+import { StationAlertConsoleContent } from 'tgui/interfaces/StationAlertConsole';
 
 export const AlarmMonitorProgram= () => {
   return (

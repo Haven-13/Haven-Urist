@@ -1,6 +1,6 @@
-import { useBackend } from '../backend';
-import { AnimatedNumber, Button, LabeledList, NoticeBox, ProgressBar, Section } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { AnimatedNumber, Button, LabeledList, NoticeBox, ProgressBar, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const MechBayPowerConsole = (props, context) => {
   const { act, data } = useBackend(context);

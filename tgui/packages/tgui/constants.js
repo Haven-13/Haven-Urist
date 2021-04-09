@@ -139,7 +139,7 @@ export const RADIO_CHANNELS = [
   {
     name: 'AI Private',
     freq: 1343,
-    color: '#f777e4'
+    color: '#f777e4',
   },
 ];
 

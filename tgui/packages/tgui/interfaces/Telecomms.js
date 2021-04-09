@@ -1,9 +1,9 @@
 import { map, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
-import { useBackend } from '../backend';
-import { Button, Input, LabeledList, Section, Table, NoticeBox, NumberInput, LabeledControls, Box } from '../components';
-import { RADIO_CHANNELS } from '../constants';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Button, Input, LabeledList, Section, Table, NoticeBox, NumberInput, LabeledControls, Box } from 'tgui/components';
+import { RADIO_CHANNELS } from 'tgui/constants';
+import { Window } from 'tgui/layouts';
 
 export const Telecomms = (props, context) => {
   const { act, data } = useBackend(context);
@@ -26,8 +26,8 @@ export const Telecomms = (props, context) => {
   const linked = data.linked || [];
   const frequencies = data.frequencies || [];
   return (
-    <Window 
-      resizable 
+    <Window
+      resizable
       title={id}
       width={400}
       height={600}>
@@ -37,17 +37,17 @@ export const Telecomms = (props, context) => {
         )}
         <Section title="Settings">
           <LabeledList>
-            <LabeledList.Item 
+            <LabeledList.Item
               label="Power"
               buttons={
-                <Button 
+                <Button
                   icon={toggled ? "power-off" : "times"}
                   content={toggled ? "On" : "Off"}
                   color={toggled ? "good" : "bad"}
                   disabled={!multitool}
                   onClick={() => act('toggle')} />
               } />
-            <LabeledList.Item 
+            <LabeledList.Item
               label="Identification String"
               buttons={
                 <Input
@@ -55,7 +55,7 @@ export const Telecomms = (props, context) => {
                   value={id}
                   onChange={(e, value) => act('id', { value })} />
               } />
-            <LabeledList.Item 
+            <LabeledList.Item
               label="Network"
               buttons={
                 <Input
@@ -64,10 +64,10 @@ export const Telecomms = (props, context) => {
                   defaultValue={"tcommsat"}
                   onChange={(e, value) => act('network', { value })} />
               } />
-            <LabeledList.Item 
+            <LabeledList.Item
               label="Prefabrication"
               buttons={
-                <Button 
+                <Button
                   icon={prefab ? "check" : "times"}
                   content={prefab ? "True" : "False"}
                   disabled={"True"} />
@@ -90,7 +90,7 @@ export const Telecomms = (props, context) => {
                           inline
                           color={RADIO_CHANNELS
                             .find(channel => channel.freq === changefrequency)
-                            .color} 
+                            .color}
                           ml={2}>
                           [{RADIO_CHANNELS
                             .find(channel => channel
@@ -109,13 +109,13 @@ export const Telecomms = (props, context) => {
                       onChange={(e, value) => act(
                         'change_freq', { value })}
                     />
-                    <Button 
+                    <Button
                       icon={"times"}
                       disabled={changefrequency === 0}
-                      onClick={() => act('change_freq', { value: 10001 })} 
+                      onClick={() => act('change_freq', { value: 10001 })}
                     />
                   </Table.Row>
-                </Table>              
+                </Table>
               </Section>
             )}
             {(type === 'relay') && (
@@ -140,7 +140,7 @@ export const Telecomms = (props, context) => {
                       {entry.index}. {entry.id} ({entry.name})
                     </Table.Cell>
                     {!!multitool && (
-                      <Button 
+                      <Button
                         icon={"times"}
                         disabled={!multitool}
                         onClick={() => act('unlink', { value: entry.index })} />
@@ -160,10 +160,10 @@ export const Telecomms = (props, context) => {
                       {RADIO_CHANNELS
                         .find(channel => channel.freq === entry) && (
                         <Box
-                          inline 
+                          inline
                           color={RADIO_CHANNELS
                             .find(channel => channel.freq === entry)
-                            .color} 
+                            .color}
                           ml={2}>
                           [{RADIO_CHANNELS
                             .find(channel => channel
@@ -173,7 +173,7 @@ export const Telecomms = (props, context) => {
                     </Table.Cell>
                     <Table.Cell />
                     {!!multitool && (
-                      <Button 
+                      <Button
                         icon={"times"}
                         disabled={!multitool}
                         onClick={() => act('delete', { value: entry })} />
@@ -188,11 +188,11 @@ export const Telecomms = (props, context) => {
                     <Table.Cell>
                       {RADIO_CHANNELS
                         .find(channel => channel.freq === frequency) && (
-                        <Box 
-                          inline 
+                        <Box
+                          inline
                           color={RADIO_CHANNELS
                             .find(channel => channel.freq === frequency)
-                            .color} 
+                            .color}
                           ml={2}>
                           [{RADIO_CHANNELS
                             .find(channel => channel
@@ -213,7 +213,7 @@ export const Telecomms = (props, context) => {
                           "tempfreq", { value })}
                       />
                     </Table.Cell>
-                    <Button 
+                    <Button
                       icon={"plus"}
                       disabled={!multitool}
                       onClick={() => act('freq')} />
@@ -229,24 +229,24 @@ export const Telecomms = (props, context) => {
                   </Box>
                 )}
                 <LabeledControls m={1}>
-                  <Button 
+                  <Button
                     icon={"plus"}
                     content={"Add Machine"}
                     disabled={!multitool}
                     onClick={() => act('buffer')} />
-                  <Button 
+                  <Button
                     icon={"link"}
                     content={"Link"}
                     disabled={!multibuff}
                     onClick={() => act('link')} />
-                  <Button 
+                  <Button
                     icon={"times"}
                     content={"Flush"}
                     disabled={!multibuff}
                     onClick={() => act('flush')} />
                 </LabeledControls>
               </Section>)}
-          </Box>  
+          </Box>
         )}
       </Window.Content>
     </Window>

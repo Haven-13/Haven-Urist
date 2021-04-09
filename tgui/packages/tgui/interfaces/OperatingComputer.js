@@ -1,7 +1,7 @@
 import { Fragment } from 'inferno';
-import { useBackend, useSharedState } from '../backend';
-import { AnimatedNumber, Button, LabeledList, NoticeBox, ProgressBar, Section, Tabs } from '../components';
-import { Window } from '../layouts';
+import { useBackend, useSharedState } from 'tgui/backend';
+import { AnimatedNumber, Button, LabeledList, NoticeBox, ProgressBar, Section, Tabs } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 const damageTypes = [
   {

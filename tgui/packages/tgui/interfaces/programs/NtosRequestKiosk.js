@@ -1,4 +1,4 @@
-import { RequestKioskContent } from '../RequestKiosk';
+import { RequestKioskContent } from 'tgui/interfaces/RequestKiosk';
 import { NtosWindow } from "tgui/layouts";
 
 export const NtosRequestKiosk = (props, context) => {

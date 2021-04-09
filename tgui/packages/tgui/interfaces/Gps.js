@@ -3,9 +3,9 @@ import { flow } from 'common/fp';
 import { clamp } from 'common/math';
 import { vecLength, vecSubtract } from 'common/vector';
 import { Fragment } from 'inferno';
-import { useBackend } from '../backend';
-import { Box, Button, Icon, LabeledList, Section, Table } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Box, Button, Icon, LabeledList, Section, Table } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 const coordsToVec = coords => map(parseFloat)(coords.split(', '));
 

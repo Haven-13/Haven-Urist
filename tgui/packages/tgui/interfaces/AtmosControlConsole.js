@@ -1,8 +1,8 @@
 import { map } from 'common/collections';
 import { toFixed } from 'common/math';
-import { useBackend } from '../backend';
-import { Button, LabeledList, NumberInput, Section } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Button, LabeledList, NumberInput, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const AtmosControlConsole = (props, context) => {
   const { act, data } = useBackend(context);

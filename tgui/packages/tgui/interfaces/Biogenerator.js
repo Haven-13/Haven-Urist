@@ -1,11 +1,11 @@
 import { classes } from 'common/react';
 import { createSearch } from 'common/string';
 import { Fragment } from 'inferno';
-import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Dimmer, Flex, Icon, Input, LabeledList, NoticeBox, NumberInput, ProgressBar, Section, Table, Tabs } from '../components';
-import { TableRow } from '../components/Table';
-import { formatMoney } from '../format';
-import { Window } from '../layouts';
+import { useBackend, useLocalState } from 'tgui/backend';
+import { Box, Button, Dimmer, Flex, Icon, Input, LabeledList, NoticeBox, NumberInput, ProgressBar, Section, Table, Tabs } from 'tgui/components';
+import { TableRow } from 'tgui/components/Table';
+import { formatMoney } from 'tgui/format';
+import { Window } from 'tgui/layouts';
 
 const MAX_SEARCH_RESULTS = 25;
 

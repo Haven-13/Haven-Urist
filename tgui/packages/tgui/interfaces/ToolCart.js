@@ -1,9 +1,9 @@
 import { Fragment } from 'inferno';
-import { useBackend } from '../backend';
+import { useBackend } from 'tgui/backend';
 import { Box, Button, Section, LabeledList } from 'tgui/components';
-import { Window } from '../layouts';
-import { Table } from '../components';
-import { TableCell, TableRow } from '../components/Table';
+import { Window } from 'tgui/layouts';
+import { Table } from 'tgui/components';
+import { TableCell, TableRow } from 'tgui/components/Table';
 
 export const ToolCart = (props, context) => {
   const { act, data } = useBackend(context);

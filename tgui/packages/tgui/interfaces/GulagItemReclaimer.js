@@ -1,6 +1,6 @@
-import { useBackend } from '../backend';
-import { Button, NoticeBox, Section, Table } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Button, NoticeBox, Section, Table } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const GulagItemReclaimer = (props, context) => {
   const { act, data } = useBackend(context);

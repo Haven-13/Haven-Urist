@@ -1,9 +1,9 @@
 import { createSearch, decodeHtmlEntities } from 'common/string';
 import { Fragment } from 'inferno';
-import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Flex, Input, Section, Table, Tabs, NoticeBox } from '../components';
-import { formatMoney } from '../format';
-import { Window } from '../layouts';
+import { useBackend, useLocalState } from 'tgui/backend';
+import { Box, Button, Flex, Input, Section, Table, Tabs, NoticeBox } from 'tgui/components';
+import { formatMoney } from 'tgui/format';
+import { Window } from 'tgui/layouts';
 
 const MAX_SEARCH_RESULTS = 25;
 

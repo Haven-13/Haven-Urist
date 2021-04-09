@@ -1,7 +1,7 @@
 import { toFixed } from 'common/math';
-import { useBackend } from '../backend';
-import { AnimatedNumber, Button, LabeledList, NumberInput, Section } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { AnimatedNumber, Button, LabeledList, NumberInput, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const ThermoMachine = (props, context) => {
   const { act, data } = useBackend(context);

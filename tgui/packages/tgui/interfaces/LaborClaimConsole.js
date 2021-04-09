@@ -1,7 +1,7 @@
 import { toTitleCase } from 'common/string';
-import { useBackend } from '../backend';
-import { Box, Button, LabeledList, Section, Table } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Box, Button, LabeledList, Section, Table } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const LaborClaimConsole = (props, context) => {
   const { act, data } = useBackend(context);

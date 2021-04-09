@@ -5,7 +5,7 @@
  */
 
 import { resolveAsset } from '../assets';
-import { useBackend } from '../backend';
+import { useBackend } from 'tgui/backend';
 import { Box, Button } from '../components';
 import { Window } from './Window';
 

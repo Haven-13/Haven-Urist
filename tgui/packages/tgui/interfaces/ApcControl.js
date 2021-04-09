@@ -1,9 +1,9 @@
 import { map, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { pureComponentHooks } from 'common/react';
-import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Dimmer, Flex, Icon, Table, Tabs } from '../components';
-import { Fragment, Window } from '../layouts';
+import { useBackend, useLocalState } from 'tgui/backend';
+import { Box, Button, Dimmer, Flex, Icon, Table, Tabs } from 'tgui/components';
+import { Fragment, Window } from 'tgui/layouts';
 import { AreaCharge, powerRank } from './PowerMonitor';
 
 export const ApcControl = (props, context) => {

@@ -1,6 +1,6 @@
-import { useBackend } from '../backend';
-import { NoticeBox } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { NoticeBox } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 import { LaunchpadControl } from './LaunchpadConsole';
 
 export const LaunchpadRemote = (props, context) => {

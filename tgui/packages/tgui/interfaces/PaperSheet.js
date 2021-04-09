@@ -11,9 +11,9 @@ import { vecScale, vecSubtract } from 'common/vector';
 import DOMPurify from 'dompurify';
 import { Component } from 'inferno';
 import marked from 'marked';
-import { useBackend } from '../backend';
-import { Box, Flex, Tabs, TextArea } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Box, Flex, Tabs, TextArea } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 const MAX_PAPER_LENGTH = 5000; // Question, should we send this with ui_data?
 

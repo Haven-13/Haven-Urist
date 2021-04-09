@@ -1,7 +1,7 @@
 import { multiline } from 'common/string';
-import { useBackend } from '../backend';
-import { Button, Input, LabeledList, Section } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Button, Input, LabeledList, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 const TOOLTIP_TEXT = multiline`
   %PERSON will be replaced with their name.

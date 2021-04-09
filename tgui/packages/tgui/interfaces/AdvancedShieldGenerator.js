@@ -1,9 +1,9 @@
 import { Fragment } from 'inferno';
-import { useBackend } from '../backend';
-import { Button, Flex, LabeledControls, LabeledList, NoticeBox, NumberInput, ProgressBar, Section, Table, Tooltip } from '../components';
+import { useBackend } from 'tgui/backend';
+import { Button, Flex, LabeledControls, LabeledList, NoticeBox, NumberInput, ProgressBar, Section, Table, Tooltip } from 'tgui/components';
 import { round } from 'common/math';
 import { formatSiUnit } from 'tgui/format';
-import { Window } from '../layouts';
+import { Window } from 'tgui/layouts';
 
 export const AdvancedShieldGenerator = (props, context) => {
   const { act, data } = useBackend(context);

@@ -1,6 +1,6 @@
-import { useBackend } from '../backend';
-import { Box, Button, Divider, Flex, Grid, Input, NoticeBox, NumberInput, Section } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Box, Button, Divider, Flex, Grid, Input, NoticeBox, NumberInput, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const MechpadControl = (props, context) => {
   const { topLevel } = props;

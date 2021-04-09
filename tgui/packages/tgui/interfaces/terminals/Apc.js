@@ -2,7 +2,7 @@ import { Fragment } from 'inferno';
 import { useBackend } from "tgui/backend";
 import { Box, Button, LabeledList, NoticeBox, ProgressBar, Section } from "tgui/components";
 import { Window } from "tgui/layouts";
-import { InterfaceLockNoticeBox } from '../common/InterfaceLockNoticeBox';
+import { InterfaceLockNoticeBox } from 'tgui/interfaces/common/InterfaceLockNoticeBox';
 
 export const Apc = (props, context) => {
   return (

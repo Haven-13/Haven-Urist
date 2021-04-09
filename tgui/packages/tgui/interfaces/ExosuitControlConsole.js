@@ -1,8 +1,8 @@
 import { toFixed } from 'common/math';
 import { Fragment } from 'inferno';
-import { useBackend } from '../backend';
-import { AnimatedNumber, Box, Button, LabeledList, NoticeBox, Section } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { AnimatedNumber, Box, Button, LabeledList, NoticeBox, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const ExosuitControlConsole = (props, context) => {
   const { act, data } = useBackend(context);

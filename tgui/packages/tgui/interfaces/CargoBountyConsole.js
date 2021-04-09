@@ -1,7 +1,7 @@
-import { useBackend } from '../backend';
-import { AnimatedNumber, Box, Button, Section, Table } from '../components';
-import { formatMoney } from '../format';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { AnimatedNumber, Box, Button, Section, Table } from 'tgui/components';
+import { formatMoney } from 'tgui/format';
+import { Window } from 'tgui/layouts';
 
 export const CargoBountyConsole = (props, context) => {
   const { act, data } = useBackend(context);

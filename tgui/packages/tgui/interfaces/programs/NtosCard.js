@@ -2,7 +2,7 @@ import { Fragment } from 'inferno';
 import { useBackend, useLocalState } from "tgui/backend";
 import { Box, Button, Flex, Input, NoticeBox, Section, Tabs } from "tgui/components";
 import { NtosWindow } from "tgui/layouts";
-import { AccessList } from '../common/AccessList';
+import { AccessList } from 'tgui/interfaces/common/AccessList';
 
 export const NtosCard = (props, context) => {
   return (

@@ -5,8 +5,8 @@ import { useBackend, useLocalState } from "tgui/backend";
 import { Box, Button, LabeledList, NumberInput, Section } from "tgui/components";
 import { getGasLabel } from "tgui/constants";
 import { Window } from "tgui/layouts";
-import { InterfaceLockNoticeBox } from '../common/InterfaceLockNoticeBox';
-import { Vent, Scrubber } from '../common/AtmosControls';
+import { InterfaceLockNoticeBox } from 'tgui/interfaces/common/InterfaceLockNoticeBox';
+import { Vent, Scrubber } from 'tgui/interfaces/common/AtmosControls';
 
 export const AirAlarm = (props, context) => {
   const { act, data } = useBackend(context);

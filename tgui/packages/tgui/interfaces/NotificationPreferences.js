@@ -1,6 +1,6 @@
-import { useBackend } from '../backend';
-import { Section, Button } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Section, Button } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const NotificationPreferences = (props, context) => {
   const { act, data } = useBackend(context);

@@ -1,8 +1,8 @@
 import { sortBy } from 'common/collections';
 import { flow } from 'common/fp';
-import { useBackend } from '../backend';
-import { Box, Button, Dropdown, Section, Knob, LabeledControls, LabeledList } from '../components';
-import { Window } from '../layouts';
+import { useBackend } from 'tgui/backend';
+import { Box, Button, Dropdown, Section, Knob, LabeledControls, LabeledList } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const Jukebox = (props, context) => {
   const { act, data } = useBackend(context);

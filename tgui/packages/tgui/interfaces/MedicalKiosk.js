@@ -1,7 +1,7 @@
 import { multiline } from 'common/string';
-import { useBackend, useSharedState } from '../backend';
-import { AnimatedNumber, Box, Button, Flex, Icon, LabeledList, ProgressBar, Section } from '../components';
-import { Window } from '../layouts';
+import { useBackend, useSharedState } from 'tgui/backend';
+import { AnimatedNumber, Box, Button, Flex, Icon, LabeledList, ProgressBar, Section } from 'tgui/components';
+import { Window } from 'tgui/layouts';
 
 export const MedicalKiosk = (props, context) => {
   const { act, data } = useBackend(context);

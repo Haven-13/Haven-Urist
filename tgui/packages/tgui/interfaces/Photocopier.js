@@ -1,6 +1,6 @@
-import { ProgressBar, NumberInput, Button, Section, Box, Flex } from '../components';
-import { useBackend } from '../backend';
-import { Window } from '../layouts';
+import { ProgressBar, NumberInput, Button, Section, Box, Flex } from 'tgui/components';
+import { useBackend } from 'tgui/backend';
+import { Window } from 'tgui/layouts';
 
 export const Photocopier = (props, context) => {
   const { data } = useBackend(context);
