@@ -107,7 +107,12 @@
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_act(action, list/params)
 	switch(action)
 		if("command")
-			if(params["command"] in list("cycle_ext", "cycle_int", "force_int", "force_ext", "abort"))
+			if(params["command"] in list(
+				"cycle_ext",
+				"cycle_int",
+				"force_int",
+				"force_ext",
+				"abort"))
 				program.receive_user_command(params["command"])
 	return 1
 

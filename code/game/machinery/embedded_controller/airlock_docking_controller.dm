@@ -36,51 +36,31 @@
 		ui.open()
 
 /obj/machinery/embedded_controller/radio/airlock/docking_port/ui_data(mob/user)
-	var/data[0]
-
-	data = list(
-		"chamber_pressure" = round(airlock_program.memory["chamber_sensor_pressure"]),
-		"exterior_status" = airlock_program.memory["exterior_status"],
-		"interior_status" = airlock_program.memory["interior_status"],
+	. = list(
+		"chamberPressure" = round(airlock_program.memory["chamber_sensor_pressure"]),
+		"exteriorStatus" = airlock_program.memory["exterior_status"],
+		"interiorStatus" = airlock_program.memory["interior_status"],
 		"processing" = airlock_program.memory["processing"],
-		"docking_status" = docking_program.get_docking_status(),
-		"airlock_disabled" = !(docking_program.undocked() || docking_program.override_enabled),
-		"override_enabled" = docking_program.override_enabled,
-		"docking_codes" = docking_program.docking_codes,
+		"dockingStatus" = docking_program.get_docking_status(),
+		"airlockDisabled" = !(docking_program.undocked() || docking_program.override_enabled),
+		"overrideEnabled" = docking_program.override_enabled,
+		"dockingCodes" = docking_program.docking_codes,
 		"name" = docking_program.get_name()
 	)
 
-	return data
-
-/obj/machinery/embedded_controller/radio/airlock/docking_port/Topic(href, href_list)
-	if(..())
-		return
-
-	usr.set_machine(src)
-
-	var/clean = 0
-	switch(href_list["command"])	//anti-HTML-hacking checks
-		if("cycle_ext")
-			clean = 1
-		if("cycle_int")
-			clean = 1
-		if("force_ext")
-			clean = 1
-		if("force_int")
-			clean = 1
-		if("abort")
-			clean = 1
-		if("toggle_override")
-			clean = 1
-		if("dock")
-			clean = 1
-
-	if(clean)
-		program.receive_user_command(href_list["command"])
-
-	return 1
-
-
+/obj/machinery/embedded_controller/radio/airlock/ui_act(action, list/params)
+	switch(action)
+		if("command")
+			if(params["command"] in list(
+					"cycle_ext",
+					"cycle_int",
+					"force_int",
+					"force_ext",
+					"abort",
+					"toggle_override",
+					"dock"))
+				program.receive_user_command(params["command"])
+			. = TRUE
 
 //A docking controller for an airlock based docking port
 /datum/computer/file/embedded_program/docking/airlock

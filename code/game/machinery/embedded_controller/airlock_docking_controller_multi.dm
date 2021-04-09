@@ -68,48 +68,29 @@
 		ui.open()
 
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_data(mob/user)
-	var/data[0]
-
-	data = list(
-		"chamber_pressure" = round(airlock_program.memory["chamber_sensor_pressure"]),
-		"exterior_status" = airlock_program.memory["exterior_status"],
-		"interior_status" = airlock_program.memory["interior_status"],
+	. = list(
+		"chamberPressure" = round(airlock_program.memory["chamber_sensor_pressure"]),
+		"exteriorStatus" = airlock_program.memory["exterior_status"],
+		"interiorStatus" = airlock_program.memory["interior_status"],
 		"processing" = airlock_program.memory["processing"],
-		"docking_status" = airlock_program.master_status,
-		"airlock_disabled" = (airlock_program.docking_enabled && !airlock_program.override_enabled),
-		"override_enabled" = airlock_program.override_enabled,
+		"dockingStatus" = airlock_program.master_status,
+		"airlockDisabled" = (airlock_program.docking_enabled && !airlock_program.override_enabled),
+		"overrideEnabled" = airlock_program.override_enabled,
 	)
 
-	return data
-
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi/Topic(href, href_list)
-	if(..())
-		return
-
-	usr.set_machine(src)
-
-	var/clean = 0
-	switch(href_list["command"])	//anti-HTML-hacking checks
-		if("cycle_ext")
-			clean = 1
-		if("cycle_int")
-			clean = 1
-		if("force_ext")
-			clean = 1
-		if("force_int")
-			clean = 1
-		if("abort")
-			clean = 1
-		if("toggle_override")
-			clean = 1
-
-	if(clean)
-		program.receive_user_command(href_list["command"])
-
-	return 1
-
-
-
+/obj/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_act(action, list/params)
+	switch(action)
+		if("command")
+			if(params["command"] in list(
+					"cycle_ext",
+					"cycle_int",
+					"force_int",
+					"force_ext",
+					"abort",
+					"toggle_override",
+					"dock"))
+				program.receive_user_command(params["command"])
+			. = TRUE
 /*** DEBUG VERBS ***
 
 /datum/computer/file/embedded_program/docking/multi/proc/print_state()
