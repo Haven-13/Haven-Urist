@@ -300,4 +300,4 @@ var/list/slot_equipment_priority = list( \
 
 // Returns whether the mob is holding this in their hands
 /mob/proc/is_holding(obj/item/I)
-	return (I in get_both_hands()) == I
+	return (I in get_all_hands())

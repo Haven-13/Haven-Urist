@@ -370,7 +370,8 @@
 				"name" = I.item_name,
 				"price" = I.price,
 				"color" = I.display_color,
-				"amount" = I.get_amount())))
+				"amount" = I.get_amount()
+			)))
 
 		data["product_records"] = listed_products
 
@@ -379,65 +380,61 @@
 
 	if(src.panel_open)
 		data["panel"] = 1
-		data["speaker"] = src.shut_up ? 0 : 1
+		data["speaker"] = !src.shut_up
 	else
 		data["panel"] = 0
 
 	return data
 
-/obj/machinery/vending/Topic(href, href_list)
-	if(stat & (BROKEN|NOPOWER))
-		return
-	if(..())
-		return
+/obj/machinery/vending/ui_act(action, list/params)
+	switch(action)
+		if("remove_coin")
+			if(!istype(usr, /mob/living/silicon))
+				if(!coin)
+					to_chat(usr, "There is no coin in this machine.")
+					return FALSE
 
-	if(href_list["remove_coin"] && !istype(usr,/mob/living/silicon))
-		if(!coin)
-			to_chat(usr, "There is no coin in this machine.")
-			return
+				coin.forceMove(src.loc)
+				if(!usr.get_active_hand())
+					usr.put_in_hands(coin)
+				to_chat(usr, "<span class='notice'>You remove \the [coin] from \the [src]</span>")
+				coin = null
+				categories &= ~CAT_COIN
+				. = TRUE
+		if("dispense")
+			if (vend_ready && !currently_vending)
+				if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
+					to_chat(usr, "<span class='warning'>Access denied.</span>")//Unless emagged of course
+					flick(icon_deny,src)
+					return FALSE
 
-		coin.forceMove(src.loc)
-		if(!usr.get_active_hand())
-			usr.put_in_hands(coin)
-		to_chat(usr, "<span class='notice'>You remove \the [coin] from \the [src]</span>")
-		coin = null
-		categories &= ~CAT_COIN
+				var/key = text2num(params["ref"])
+				var/datum/stored_items/vending_products/R = product_records[key]
 
-	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))))
-		if ((href_list["vend"]) && (src.vend_ready) && (!currently_vending))
-			if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
-				to_chat(usr, "<span class='warning'>Access denied.</span>")//Unless emagged of course
-				flick(icon_deny,src)
-				return
+				// This should not happen unless the request from NanoUI was bad
+				if(!(R.category & src.categories))
+					return FALSE
 
-			var/key = text2num(href_list["vend"])
-			var/datum/stored_items/vending_products/R = product_records[key]
-
-			// This should not happen unless the request from NanoUI was bad
-			if(!(R.category & src.categories))
-				return
-
-			if(R.price <= 0)
-				src.vend(R, usr)
-			else if(istype(usr,/mob/living/silicon)) //If the item is not free, provide feedback if a synth is trying to buy something.
-				to_chat(usr, "<span class='danger'>Artificial unit recognized.  Artificial units cannot complete this transaction.  Purchase canceled.</span>")
-				return
-			else
-				src.currently_vending = R
-				if(!vendor_account || vendor_account.suspended)
-					src.status_message = "This machine is currently unable to process payments due to problems with the associated account."
-					src.status_error = 1
+				if(R.price <= 0)
+					src.vend(R, usr)
+				else if(istype(usr,/mob/living/silicon)) //If the item is not free, provide feedback if a synth is trying to buy something.
+					to_chat(usr, "<span class='danger'>Artificial unit recognized.  Artificial units cannot complete this transaction.  Purchase canceled.</span>")
 				else
-					src.status_message = "Please swipe a card or insert cash to pay for the item."
-					src.status_error = 0
-
-		else if (href_list["cancelpurchase"])
+					src.currently_vending = R
+					if(!vendor_account || vendor_account.suspended)
+						src.status_message = "This machine is currently unable to process payments due to problems with the associated account."
+						src.status_error = 1
+					else
+						src.status_message = "Please swipe a card or insert cash to pay for the item."
+						src.status_error = 0
+				. = TRUE
+		if ("cancel_purchase")
 			src.currently_vending = null
-
-		else if ((href_list["togglevoice"]) && (src.panel_open))
-			src.shut_up = !src.shut_up
-
-		SStgui.update_uis(src)
+			. = TRUE
+		if ("toggle_voice")
+			if(src.panel_open)
+				src.shut_up = !src.shut_up
+				. = TRUE
 
 /obj/machinery/vending/proc/vend(var/datum/stored_items/vending_products/R, mob/user)
 	if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
@@ -447,7 +444,6 @@
 	src.vend_ready = 0 //One thing at a time!!
 	src.status_message = "Vending..."
 	src.status_error = 0
-	SStgui.update_uis(src)
 
 	if (R.category & CAT_COIN)
 		if(!coin)
@@ -491,7 +487,6 @@
 		src.status_error = 0
 		src.vend_ready = 1
 		currently_vending = null
-		SStgui.update_uis(src)
 
 /**
  * Add item to the machine

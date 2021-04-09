@@ -1,6 +1,7 @@
 import { classes } from 'common/react';
 import { useBackend } from '../backend';
-import { Box, Button, Section, Table } from '../components';
+import { Box, Button, Dimmer, Flex, Section, Table } from '../components';
+import { TableCell, TableRow } from '../components/Table';
 import { Window } from '../layouts';
 
 const VendingRow = (props, context) => {
@@ -10,20 +11,8 @@ const VendingRow = (props, context) => {
     productStock,
     custom,
   } = props;
-  const {
-    onstation,
-    department,
-    user,
-  } = data;
   const free = (
-    !onstation
-    || product.price === 0
-    || (
-      !product.premium
-      && department
-      && user
-      && department === user.department
-    )
+    product.price === 0
   );
   return (
     <Table.Row>
@@ -74,14 +63,10 @@ const VendingRow = (props, context) => {
             fluid
             disabled={(
               productStock === 0
-              || !free && (
-                !data.user
-                || product.price > data.user.cash
-              )
             )}
             content={free ? 'FREE' : product.price + ' cr'}
-            onClick={() => act('vend', {
-              'ref': product.ref,
+            onClick={() => act('dispense', {
+              'ref': product.key,
             })} />
         )}
       </Table.Cell>
@@ -92,12 +77,10 @@ const VendingRow = (props, context) => {
 export const VendingMachine = (props, context) => {
   const { act, data } = useBackend(context);
   const {
-    user,
-    onstation,
+    mode,
     product_records = [],
     coin_records = [],
     hidden_records = [],
-    stock,
   } = data;
   let inventory;
   let custom = false;
@@ -125,26 +108,68 @@ export const VendingMachine = (props, context) => {
       width={450}
       height={600}
       resizable>
-      <Window.Content scrollable>
-        {!!onstation && (
-          <Section title="User">
-            {user && (
-              <Box>
-                Welcome, <b>{user.name}</b>,
-                {' '}
-                <b>{user.job || 'Unemployed'}</b>!
-                <br />
-                Your balance is <b>{user.cash} credits</b>.
-              </Box>
-            ) || (
-              <Box color="light-grey">
-                No registered ID card!<br />
-                Please contact your local HoP!
-              </Box>
-            )}
+      {!!mode && (
+        <Dimmer>
+          <Section
+            title={"Purchasing"}
+            height={12}
+            width={30}
+            pl={1}
+            pr={1}>
+            <Flex
+              height={8}
+              direction={"column"}
+              justify={"space-between"}>
+              <Flex.Item>
+                <Table>
+                  <TableRow>
+                    <TableCell bold>
+                      Item
+                    </TableCell>
+                    <TableCell bold textAlign="right">
+                      Price
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      {data.product}
+                    </TableCell>
+                    <TableCell textAlign="right">
+                      {data.price} cr
+                    </TableCell>
+                  </TableRow>
+                </Table>
+              </Flex.Item>
+              <Flex.Item>
+                <Box color={data.message_err ? 'bad' : null}>
+                  {data.message}
+                </Box>
+              </Flex.Item>
+              <Flex.Item align="center">
+                <Button
+                  content={"Cancel"}
+                  onClick={() => act("cancel_purchase")}/>
+              </Flex.Item>
+            </Flex>
           </Section>
-        )}
-        <Section title="Products">
+        </Dimmer>
+      )}
+      <Window.Content scrollable>
+        <Section
+          title="Products"
+          buttons={
+            <Box>
+              {!!data.coin && (<Button
+              content="Remove coin"
+              onClick={() => act("remove_coin")}/>)}
+              {!!data.panel && (<Button
+              icon={data.speaker ? 'check-square-o' : 'square-o'}
+              selected={data.speaker}
+              content="Speaker"
+              onClick={() => act("toggle_voice")}
+              />)}
+            </Box>
+            }>
           <Table>
             {inventory.map(product => (
               <VendingRow
