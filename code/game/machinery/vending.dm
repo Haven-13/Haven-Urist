@@ -349,7 +349,7 @@
 /obj/machinery/vending/ui_data(mob/user)
 	var/list/data = list()
 	if(currently_vending)
-		data["mode"] = 1
+		data["mode"] = vend_ready ? 1 : 2 // busy vending item if false
 		data["product"] = currently_vending.item_name
 		data["price"] = currently_vending.price
 		data["message_err"] = 0
@@ -357,23 +357,24 @@
 		data["message_err"] = src.status_error
 	else
 		data["mode"] = 0
-		var/list/listed_products = list()
 
-		for(var/key = 1 to src.product_records.len)
-			var/datum/stored_items/vending_products/I = src.product_records[key]
+	var/list/listed_products = list()
 
-			if(!(I.category & src.categories))
-				continue
+	for(var/key = 1 to src.product_records.len)
+		var/datum/stored_items/vending_products/I = src.product_records[key]
 
-			listed_products.Add(list(list(
-				"key" = key,
-				"name" = I.item_name,
-				"price" = I.price,
-				"color" = I.display_color,
-				"amount" = I.get_amount()
-			)))
+		if(!(I.category & src.categories))
+			continue
 
-		data["product_records"] = listed_products
+		listed_products.Add(list(list(
+			"key" = key,
+			"name" = I.item_name,
+			"price" = I.price,
+			"color" = I.display_color,
+			"amount" = I.get_amount()
+		)))
+
+	data["product_records"] = listed_products
 
 	if(src.coin)
 		data["coin"] = src.coin.name
