@@ -60,7 +60,7 @@
 		to_chat(user, "<span class='notice'>The maintenance panel [opened ? "can be" : "is"] <b>screwed</b> in place.</span>")
 
 	if((isobserver(user) && ckeys_allowed_to_scan[user.ckey]) || check_rights(R_ADMIN, 0, user))
-		to_chat(user, "You can <a href='?src=\ref[src];ghostscan=1'>scan</a> this circuit.");
+		to_chat(user, "You can <a href='?src=[REF(src)];ghostscan=1'>scan</a> this circuit.");
 
 /obj/item/device/electronic_assembly/proc/check_interactivity(mob/user)
 	return (!user.incapacitated() && CanUseTopic(user))
@@ -117,7 +117,7 @@
 /obj/item/device/electronic_assembly/proc/closed_interact(mob/user)
 	var/HTML = list()
 	HTML += "<html><head><title>[src.name]</title></head><body>"
-	HTML += "<br><a href='?src=\ref[src];refresh=1'>\[Refresh\]</a>"
+	HTML += "<br><a href='?src=[REF(src)];refresh=1'>\[Refresh\]</a>"
 	HTML += "<br><br>"
 
 	var/listed_components = FALSE
@@ -131,7 +131,7 @@
 			for(var/entry in topic_data)
 				var/href = topic_data[entry]
 				if(href)
-					HTML += "<a href=?src=\ref[circuit];[href]>[entry]</a>"
+					HTML += "<a href=?src=[REF(circuit)];[href]>[entry]</a>"
 				else
 					HTML += entry
 				HTML += "<br>"
@@ -139,7 +139,7 @@
 	HTML += "</body></html>"
 
 	if(listed_components)
-		show_browser(user, jointext(HTML,null), "window=closed-assembly-\ref[src];size=600x350;border=1;can_resize=1;can_close=1;can_minimize=1")
+		show_browser(user, jointext(HTML,null), "window=closed-assembly-[REF(src)];size=600x350;border=1;can_resize=1;can_close=1;can_minimize=1")
 
 
 /obj/item/device/electronic_assembly/proc/open_interact(mob/user)
@@ -149,11 +149,11 @@
 
 	HTML += "<html><head><title>[name]</title></head><body>"
 
-	HTML += "<a href='?src=\ref[src]'>\[Refresh\]</a>  |  <a href='?src=\ref[src];rename=1'>\[Rename\]</a><br>"
+	HTML += "<a href='?src=[REF(src)]'>\[Refresh\]</a>  |  <a href='?src=[REF(src)];rename=1'>\[Rename\]</a><br>"
 	HTML += "[total_part_size]/[max_components] space taken up in the assembly.<br>"
 	HTML += "[total_complexity]/[max_complexity] complexity in the assembly.<br>"
 	if(battery)
-		HTML += "[round(battery.charge, 0.1)]/[battery.maxcharge] ([round(battery.percent(), 0.1)]%) cell charge. <a href='?src=\ref[src];remove_cell=1'>\[Remove\]</a>"
+		HTML += "[round(battery.charge, 0.1)]/[battery.maxcharge] ([round(battery.percent(), 0.1)]%) cell charge. <a href='?src=[REF(src)];remove_cell=1'>\[Remove\]</a>"
 	else
 		HTML += "<span class='danger'>No power cell detected!</span>"
 
@@ -164,13 +164,13 @@
 		var/start_index = ((components_per_page * interact_page) + 1)
 		for(var/i = start_index to min(length(assembly_components), start_index + (components_per_page - 1)))
 			var/obj/item/integrated_circuit/circuit = assembly_components[i]
-			HTML += "\[ <a href='?src=\ref[src];component=\ref[circuit];set_slot=1'>[i]</a> \] | "
-			HTML += "<a href='?src=\ref[circuit];component=\ref[circuit];rename=1'>\[R\]</a> | "
+			HTML += "\[ <a href='?src=[REF(src)];component=[REF(circuit)];set_slot=1'>[i]</a> \] | "
+			HTML += "<a href='?src=[REF(circuit)];component=[REF(circuit)];rename=1'>\[R\]</a> | "
 			if(circuit.removable)
-				HTML += "<a href='?src=\ref[src];component=\ref[circuit];remove=1'>\[-\]</a> | "
+				HTML += "<a href='?src=[REF(src)];component=[REF(circuit)];remove=1'>\[-\]</a> | "
 			else
 				HTML += "\[-\] | "
-			HTML += "<a href='?src=\ref[circuit];examine=1'>[circuit.displayed_name]</a>"
+			HTML += "<a href='?src=[REF(circuit)];examine=1'>[circuit.displayed_name]</a>"
 			HTML += "<br>"
 
 		if(length(assembly_components) > components_per_page)
@@ -179,11 +179,11 @@
 				if(i == interact_page)
 					HTML += " [i+1]"
 				else
-					HTML += " <a href='?src=\ref[src];select_page=[i]'>[i+1]</a>"
+					HTML += " <a href='?src=[REF(src)];select_page=[i]'>[i+1]</a>"
 			HTML += " \]"
 
 	HTML += "</body></html>"
-	show_browser(user, jointext(HTML, null), "window=assembly-\ref[src];size=655x350;border=1;can_resize=1;can_close=1;can_minimize=1")
+	show_browser(user, jointext(HTML, null), "window=assembly-[REF(src)];size=655x350;border=1;can_resize=1;can_close=1;can_minimize=1")
 
 /obj/item/device/electronic_assembly/Topic(href, href_list)
 	if(href_list["ghostscan"])

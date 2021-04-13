@@ -287,10 +287,10 @@
 	var/dat = list()
 	if (stored_scan)
 		dat = stored_scan
-		dat += "<br><HR><A href='?src=\ref[src];print=1'>Print Scan</A>"
-		dat += "<br><HR><A href='?src=\ref[src];erase=1'>Erase Scan</A>"
+		dat += "<br><HR><A href='?src=[REF(src)];print=1'>Print Scan</A>"
+		dat += "<br><HR><A href='?src=[REF(src)];erase=1'>Erase Scan</A>"
 		if(ishuman(connected.occupant))
-			dat += "<br><HR><A href='?src=\ref[src];scan=1'>Rescan Occupant</A>"
+			dat += "<br><HR><A href='?src=[REF(src)];scan=1'>Rescan Occupant</A>"
 	else
 		dat = "<b>Scan Menu</b>"
 		if (!connected.occupant)
@@ -298,9 +298,9 @@
 		else if(!ishuman(connected.occupant))
 			dat += "<br><HR><span class='warning'>This device can only scan compatible lifeforms.</span>"
 		else
-			dat += "<br><HR><A href='?src=\ref[src];scan=1'>Scan Occupant</A>"
+			dat += "<br><HR><A href='?src=[REF(src)];scan=1'>Scan Occupant</A>"
 
-	dat += "<BR><HR><A href='?src=\ref[src];scan_refresh=1'>Refresh</A>"
+	dat += "<BR><HR><A href='?src=[REF(src)];scan_refresh=1'>Refresh</A>"
 	dat += "<BR><HR><A href='?src=\ref[];mach_close=scanconsole'>Close</A>"
 	show_browser(user, jointext(dat, null), "window=scanconsole;size=430x600")
 

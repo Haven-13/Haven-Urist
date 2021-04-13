@@ -34,7 +34,7 @@
 		msg += "<b>Subject:</b> [received_message.title]\n<b>Message:</b>\n[pencode2html(received_message.stored_data)]\n"
 		if(received_message.attachment)
 			msg += "<b>Attachment:</b> [received_message.attachment.filename].[received_message.attachment.filetype] ([received_message.attachment.size]GQ)\n"
-		msg += "<a href='?src=\ref[src];open;reply=[received_message.uid]'>Reply</a>\n"
+		msg += "<a href='?src=[REF(src)];open;reply=[received_message.uid]'>Reply</a>\n"
 		msg += "*--*"
 		to_chat(L, jointext(msg, null))
 

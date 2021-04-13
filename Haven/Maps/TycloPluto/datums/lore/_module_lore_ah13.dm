@@ -18,9 +18,9 @@
 	2. Use the macros inside /decl/culture_info declarations and definitions
 	3. Put them inside species datums' available_cultural_info list of associated
 		lists with corresponding tags;
-		- Cultures								-> TAG_CULTURE
-		- Factions | nations			-> TAG_FACTION
-		- Locations | homeworlds	-> TAG_HOMEWORLD
+		- Cultures                   -> TAG_CULTURE
+		- Factions | nations         -> TAG_FACTION
+		- Locations | homeworlds     -> TAG_HOMEWORLD
 	4. The game looks up those strings inserted from the macros and return it
 
 	And you're done. Enjoy your technical debt!

@@ -48,11 +48,11 @@
 	var/text = "<HTML><head><title>[src]</title></head><BODY>"
 	text += "<p>According to the blueprints, you are now in <b>[A.name]</b>.</p>"
 	if(!istype(A, /area/turbolift))
-		text += "<br>" + (CheckArea(A) ? "<a href='?src=\ref[src];action=create_area'>Create Area</a>" : "Create Area - An area already exists here")
-		text += "<br>" + (CheckArea(A) ? "Modify Area - You can't edit this area!" : "<a href='?src=\ref[src];action=edit_area'>Modify Area</a>")
-		text += "<br>" + (CheckArea(A) ? "Merge Areas - You can't combine this area!" : A.apc ? "Merge Areas - The APC must be removed first" : getAdjacentAreas() ? "<a href='?src=\ref[src];action=merge_area'>Merge Areas</a>" : "Merge Areas - There are no valid areas to merge with")
-		text += "<br>" + (CheckArea(A) ? "Add to Area - You can't add to this area!" : A.apc ? "Add to Area - The APC must be removed first" : getAdjacentAreas(1) ? "<a href='?src=\ref[src];action=add_to_area'>Add to Area</a>" : "Add to Area - There are no valid areas to add tiles from")
-		text += "<br>" + (CheckArea(A) ? "Remove Area - You can't remove this area!" : A.apc ? "Remove Area - The APC must be removed first" : "<a href='?src=\ref[src];action=remove_area'>Remove Area</a>")
+		text += "<br>" + (CheckArea(A) ? "<a href='?src=[REF(src)];action=create_area'>Create Area</a>" : "Create Area - An area already exists here")
+		text += "<br>" + (CheckArea(A) ? "Modify Area - You can't edit this area!" : "<a href='?src=[REF(src)];action=edit_area'>Modify Area</a>")
+		text += "<br>" + (CheckArea(A) ? "Merge Areas - You can't combine this area!" : A.apc ? "Merge Areas - The APC must be removed first" : getAdjacentAreas() ? "<a href='?src=[REF(src)];action=merge_area'>Merge Areas</a>" : "Merge Areas - There are no valid areas to merge with")
+		text += "<br>" + (CheckArea(A) ? "Add to Area - You can't add to this area!" : A.apc ? "Add to Area - The APC must be removed first" : getAdjacentAreas(1) ? "<a href='?src=[REF(src)];action=add_to_area'>Add to Area</a>" : "Add to Area - There are no valid areas to add tiles from")
+		text += "<br>" + (CheckArea(A) ? "Remove Area - You can't remove this area!" : A.apc ? "Remove Area - The APC must be removed first" : "<a href='?src=[REF(src)];action=remove_area'>Remove Area</a>")
 	else
 		text += "You may not touch turbolifts"
 		text += "</BODY></HTML>"

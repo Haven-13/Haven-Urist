@@ -25,7 +25,7 @@
 
 /obj/structure/sign/ecplaque/examine()
 	..()
-	to_chat(usr, "The founding principles of EC are written there: <A href='?src=\ref[src];show_info=1'>Expeditionary Directives</A>")
+	to_chat(usr, "The founding principles of EC are written there: <A href='?src=[REF(src)];show_info=1'>Expeditionary Directives</A>")
 
 /obj/structure/sign/ecplaque/CanUseTopic()
 	return UI_INTERACTIVE

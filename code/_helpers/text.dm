@@ -354,7 +354,7 @@ proc/TextPreview(var/string,var/len=40)
 /proc/create_text_tag(var/tagname, var/tagdesc = tagname, var/client/C = null)
 	if(!(C && C.get_preference_value(/datum/client_preference/chat_tags) == GLOB.PREF_SHOW))
 		return tagdesc
-	return "<IMG src='\ref[text_tag_icons]' class='text_tag' iconstate='[tagname]'" + (tagdesc ? " alt='[tagdesc]'" : "") + ">"
+	return "<IMG src='[REF(text_tag_icons)]' class='text_tag' iconstate='[tagname]'" + (tagdesc ? " alt='[tagdesc]'" : "") + ">"
 
 /proc/contains_az09(var/input)
 	for(var/i=1, i<=length(input), i++)
@@ -392,7 +392,7 @@ proc/TextPreview(var/string,var/len=40)
 	var/list/urls = list()
 	var/i = 1
 	while (url_find_lazy.Find(message))
-		urls["\ref[urls]-[i]"] = url_find_lazy.match
+		urls["[REF(urls)]-[i]"] = url_find_lazy.match
 		i++
 
 	for (var/ref in urls)

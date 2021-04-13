@@ -127,7 +127,7 @@ obj/item/device/suit_sensor_jammer/ui_interact(mob/user, datum/tgui/ui)
 obj/item/device/suit_sensor_jammer/ui_data()
 	var/list/methods = new
 	for(var/suit_sensor_jammer_method/ssjm in suit_sensor_jammer_methods)
-		methods[++methods.len] = list("name" = ssjm.name, "cost" = ssjm.energy_cost, "ref" = "\ref[ssjm]")
+		methods[++methods.len] = list("name" = ssjm.name, "cost" = ssjm.energy_cost, "ref" = "[REF(ssjm)]")
 
 	var/list/data = list(
 		"active" = active,
@@ -136,7 +136,7 @@ obj/item/device/suit_sensor_jammer/ui_data()
 		"range" = range,
 		"max_range" = JAMMER_MAX_RANGE,
 		"methods" = methods,
-		"current_method" = "\ref[jammer_method]",
+		"current_method" = "[REF(jammer_method)]",
 		"current_cost" = jammer_method.energy_cost,
 		"total_cost" = "[ceil(JAMMER_POWER_CONSUMPTION(10))]"
 	)

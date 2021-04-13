@@ -622,7 +622,7 @@ var/list/global/slot_flags_enumeration = list(
 
 /obj/item/proc/showoff(mob/user)
 	for (var/mob/M in view(user))
-		M.show_message("[user] holds up [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>",1)
+		M.show_message("[user] holds up [src]. <a HREF=?src=[REF(M)];lookitem=[REF(src)]>Take a closer look.</a>",1)
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"
@@ -781,7 +781,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		. = "\icon[src] \a [src]"
 	var/ID = GetIdCard()
 	if(ID)
-		. += "  <a href='?src=\ref[ID];look_at_id=1'>\[Look at ID\]</a>"
+		. += "  <a href='?src=[REF(ID)];look_at_id=1'>\[Look at ID\]</a>"
 
 /obj/item/is_burnable()
 	return simulated

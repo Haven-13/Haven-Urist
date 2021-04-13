@@ -36,7 +36,7 @@ Single Use Emergency Pouches
 
 /obj/item/weapon/storage/med_pouch/examine()
 	. = ..()
-	to_chat(usr, "<A href='?src=\ref[src];show_info=1'>Please read instructions before use.</A>")
+	to_chat(usr, "<A href='?src=[REF(src)];show_info=1'>Please read instructions before use.</A>")
 
 /obj/item/weapon/storage/med_pouch/CanUseTopic()
 	return UI_INTERACTIVE

@@ -155,11 +155,11 @@ var/global/datum/matchmaker/matchmaker = new()
 	for(var/datum/relation/R in relations)
 		dat += "<b>[R.other.finalized ? "\[F\] " : ""][R.other.holder]</b>, [R.other.holder.role_alt_title || R.other.holder.assigned_role]."
 		if (!R.finalized)
-			dat += " <a href='?src=\ref[src];del_relation=\ref[R]'>Remove</a>"
+			dat += " <a href='?src=[REF(src)];del_relation=[REF(R)]'>Remove</a>"
 			editable = 1
 		dat += "<br>[R.desc]"
 		dat += "<br>"
-		dat += "<b>Things they know about you:</b>[!R.finalized ?"<a href='?src=\ref[src];info_relation=\ref[R]'>Edit</a>" : ""]<br>[R.info ? "[R.info]" : " Nothing specific."]"
+		dat += "<b>Things they know about you:</b>[!R.finalized ?"<a href='?src=[REF(src)];info_relation=[REF(R)]'>Edit</a>" : ""]<br>[R.info ? "[R.info]" : " Nothing specific."]"
 		if(R.other.info)
 			dat += "<br><b>Things you know about them:</b><br>[R.other.info]<br>[R.other.holder.gen_relations_info]"
 		dat += "<hr>"
@@ -171,7 +171,7 @@ var/global/datum/matchmaker/matchmaker = new()
 
 	var/datum/browser/popup = new(usr, "relations", "Relationship Info")
 	if(editable)
-		dat.Insert(1,"<a href='?src=\ref[src];relations_close=1;'>Finalize edits and close</a><br>")
+		dat.Insert(1,"<a href='?src=[REF(src)];relations_close=1;'>Finalize edits and close</a><br>")
 		popup.set_window_options("focus=0;can_close=0;can_minimize=1;can_maximize=0;can_resize=1;titlebar=1;")
 	popup.set_content(jointext(dat,null))
 	popup.open()

@@ -208,7 +208,7 @@
 		var/sanitized_text = sanitize(text)
 		A.audible_message("\The [A] states, \"[sanitized_text]\"")
 		if (assembly)
-			log_say("[assembly] \ref[assembly] : [sanitized_text]")
+			log_say("[assembly] [REF(assembly)] : [sanitized_text]")
 		else
 			log_say("[name] ([type]) : [sanitized_text]")
 

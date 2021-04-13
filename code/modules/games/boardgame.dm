@@ -91,13 +91,13 @@ obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 		else
 			dat+= ">"
 		if(!isobserver(user))
-			dat += "<a href='?src=\ref[src];select=[i];person=\ref[user]'></a>"
+			dat += "<a href='?src=[REF(src)];select=[i];person=[REF(user)]'></a>"
 		dat += "</td>"
 
 	dat += "</table>"
 
 	if(selected >= 0 && !isobserver(user))
-		dat += "<br><A href='?src=\ref[src];remove=0'>Remove Selected Piece</A>"
+		dat += "<br><A href='?src=[REF(src)];remove=0'>Remove Selected Piece</A>"
 	show_browser(user, jointext(dat, null),"window=boardgame;size=430x500") // 50px * 8 squares + 30 margin
 	onclose(usr, "boardgame")
 

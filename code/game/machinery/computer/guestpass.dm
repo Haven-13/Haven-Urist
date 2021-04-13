@@ -85,23 +85,23 @@
 		dat += "<h3>Activity log</h3><br>"
 		for (var/entry in internal_log)
 			dat += "[entry]<br><hr>"
-		dat += "<a href='?src=\ref[src];action=print'>Print</a><br>"
-		dat += "<a href='?src=\ref[src];mode=0'>Back</a><br>"
+		dat += "<a href='?src=[REF(src)];action=print'>Print</a><br>"
+		dat += "<a href='?src=[REF(src)];mode=0'>Back</a><br>"
 	else
 		dat += "<h3>Guest pass terminal #[uid]</h3><br>"
-		dat += "<a href='?src=\ref[src];mode=1'>View activity log</a><br><br>"
-		dat += "Issuing ID: <a href='?src=\ref[src];action=id'>[giver]</a><br>"
-		dat += "Issued to: <a href='?src=\ref[src];choice=giv_name'>[giv_name]</a><br>"
-		dat += "Reason:  <a href='?src=\ref[src];choice=reason'>[reason]</a><br>"
-		dat += "Duration (minutes):  <a href='?src=\ref[src];choice=duration'>[duration] m</a><br>"
+		dat += "<a href='?src=[REF(src)];mode=1'>View activity log</a><br><br>"
+		dat += "Issuing ID: <a href='?src=[REF(src)];action=id'>[giver]</a><br>"
+		dat += "Issued to: <a href='?src=[REF(src)];choice=giv_name'>[giv_name]</a><br>"
+		dat += "Reason:  <a href='?src=[REF(src)];choice=reason'>[reason]</a><br>"
+		dat += "Duration (minutes):  <a href='?src=[REF(src)];choice=duration'>[duration] m</a><br>"
 		dat += "Access to areas:<br>"
 		if (giver && giver.access)
 			for (var/A in giver.access)
 				var/area = get_access_desc(A)
 				if (A in accesses)
 					area = "<b>[area]</b>"
-				dat += "<a href='?src=\ref[src];choice=access;access=[A]'>[area]</a><br>"
-		dat += "<br><a href='?src=\ref[src];action=issue'>Issue pass</a><br>"
+				dat += "<a href='?src=[REF(src)];choice=access;access=[A]'>[area]</a><br>"
+		dat += "<br><a href='?src=[REF(src)];action=issue'>Issue pass</a><br>"
 
 	show_browser(user, dat, "window=guestpass;size=400x520")
 	onclose(user, "guestpass")

@@ -143,10 +143,10 @@
 	if(sheets)
 
 		var/t = "<B>Wood Processor</B><br><br>Stored Sheets: [sheets]<br>"
-		t += "<A href='?src=\ref[src];on1=Cardboard'>Cardboard</A><br>"
-		t += "<A href='?src=\ref[src];on2=PackageWrap'>Package Wrap</A><br>"
-		t += "<A href='?src=\ref[src];on3=Paper'>Paper</A><br>"
-		t += "<A href='?src=\ref[src];on4=RollingPapers'>Rolling Papers</A><br>"
+		t += "<A href='?src=[REF(src)];on1=Cardboard'>Cardboard</A><br>"
+		t += "<A href='?src=[REF(src)];on2=PackageWrap'>Package Wrap</A><br>"
+		t += "<A href='?src=[REF(src)];on3=Paper'>Paper</A><br>"
+		t += "<A href='?src=[REF(src)];on4=RollingPapers'>Rolling Papers</A><br>"
 
 		show_browser(user, t, "window=woodprocessor;size=300x300")
 

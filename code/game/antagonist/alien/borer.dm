@@ -18,7 +18,7 @@ GLOBAL_DATUM_INIT(borers, /datum/antagonist/xenos/borer, new)
 	initial_spawn_target = 5
 
 /datum/antagonist/xenos/borer/get_extra_panel_options(var/datum/mind/player)
-	return "<a href='?src=\ref[src];move_to_spawn=\ref[player.current]'>\[put in host\]</a>"
+	return "<a href='?src=[REF(src)];move_to_spawn=\ref[player.current]'>\[put in host\]</a>"
 
 /datum/antagonist/xenos/borer/create_objectives(var/datum/mind/player)
 	if(!..())

@@ -263,7 +263,7 @@
 				dat += "LUM "
 			dat += "</td>"
 			dat += "<td>[S.amount]</td>"
-			dat += "<td><a href='byond://?src=\ref[src];task=vend;id=[S.ID]'>Vend</a> <a href='byond://?src=\ref[src];task=purge;id=[S.ID]'>Purge</a></td>"
+			dat += "<td><a href='byond://?src=[REF(src)];task=vend;id=[S.ID]'>Vend</a> <a href='byond://?src=[REF(src)];task=purge;id=[S.ID]'>Purge</a></td>"
 			dat += "</tr>"
 		dat += "</table>"
 

@@ -147,7 +147,7 @@
 			P.stored_plasma += weeds_plasma_rate
 			P.stored_plasma = min(max(P.stored_plasma,0),P.max_plasma)
 	else
-		started_healing["\ref[H]"] = null
+		started_healing["[REF(H)]"] = null
 	..()
 
 /datum/species/xenos/proc/regenerate(var/mob/living/carbon/human/H)
@@ -158,9 +158,9 @@
 		heal_rate = weeds_heal_rate / 3
 		mend_prob = 1
 
-	if(!H.resting || !started_healing["\ref[H]"])
-		started_healing["\ref[H]"] = world.time
-	if(world.time - started_healing["\ref[H]"] > accelerated_healing_threshold)
+	if(!H.resting || !started_healing["[REF(H)]"])
+		started_healing["[REF(H)]"] = world.time
+	if(world.time - started_healing["[REF(H)]"] > accelerated_healing_threshold)
 		heal_rate *= 1.5
 		mend_prob *= 5
 

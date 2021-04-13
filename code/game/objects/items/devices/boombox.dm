@@ -45,12 +45,12 @@
 /obj/item/device/boombox/interact(var/mob/user)
 	if(!CanPhysicallyInteract(user))
 		return
-	var/dat = "<A href='?src=\ref[src];tracknum=1;'>NEXT</a>"
-	dat += "<A href='?src=\ref[src];tracknum=-1;'>PREV</a>"
-	dat += "<A href='?src=\ref[src];start=1;'>PLAY</a>"
-	dat += "<A href='?src=\ref[src];stop=1;'>STOP</a>"
-	dat += "<A href='?src=\ref[src];voldown=1;'>VOL -</a>"
-	dat += "<A href='?src=\ref[src];volup=1;'>VOL +</a>"
+	var/dat = "<A href='?src=[REF(src)];tracknum=1;'>NEXT</a>"
+	dat += "<A href='?src=[REF(src)];tracknum=-1;'>PREV</a>"
+	dat += "<A href='?src=[REF(src)];start=1;'>PLAY</a>"
+	dat += "<A href='?src=[REF(src)];stop=1;'>STOP</a>"
+	dat += "<A href='?src=[REF(src)];voldown=1;'>VOL -</a>"
+	dat += "<A href='?src=[REF(src)];volup=1;'>VOL +</a>"
 	var/datum/browser/popup = new(user, "boombox", "BOOMTASTIC 3000", 290, 110)
 	popup.set_content(dat)
 	popup.open()

@@ -85,7 +85,7 @@ proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living
 
 	test_result["result"] = SUCCESS
 	test_result["msg"] = "Mob created"
-	test_result["mobref"] = "\ref[H]"
+	test_result["mobref"] = "[REF(H)]"
 
 	return test_result
 

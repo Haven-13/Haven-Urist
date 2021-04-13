@@ -83,23 +83,23 @@
 
 			if(0)
 				dat += "<br>[temp]<br>"
-				dat += "<br>Current Network: <a href='?src=\ref[src];network=1'>[network]</a><br>"
+				dat += "<br>Current Network: <a href='?src=[REF(src)];network=1'>[network]</a><br>"
 				if(servers.len)
 					dat += "<br>Detected Telecommunication Servers:<ul>"
 					for(var/obj/machinery/telecomms/T in servers)
-						dat += "<li><a href='?src=\ref[src];viewserver=[T.id]'>\ref[T] [T.name]</a> ([T.id])</li>"
+						dat += "<li><a href='?src=[REF(src)];viewserver=[T.id]'>[REF(T)] [T.name]</a> ([T.id])</li>"
 					dat += "</ul>"
-					dat += "<br><a href='?src=\ref[src];operation=release'>\[Flush Buffer\]</a>"
+					dat += "<br><a href='?src=[REF(src)];operation=release'>\[Flush Buffer\]</a>"
 
 				else
-					dat += "<br>No servers detected. Scan for servers: <a href='?src=\ref[src];operation=scan'>\[Scan\]</a>"
+					dat += "<br>No servers detected. Scan for servers: <a href='?src=[REF(src)];operation=scan'>\[Scan\]</a>"
 
 
 		  // --- Viewing Server ---
 
 			if(1)
 				dat += "<br>[temp]<br>"
-				dat += "<center><a href='?src=\ref[src];operation=mainmenu'>\[Main Menu\]</a>     <a href='?src=\ref[src];operation=refresh'>\[Refresh\]</a></center>"
+				dat += "<center><a href='?src=[REF(src)];operation=mainmenu'>\[Main Menu\]</a>     <a href='?src=[REF(src)];operation=refresh'>\[Refresh\]</a></center>"
 				dat += "<br>Current Network: [network]"
 				dat += "<br>Selected Server: [SelectedServer.id]<br><br>"
 

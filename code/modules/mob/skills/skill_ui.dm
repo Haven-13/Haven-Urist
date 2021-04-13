@@ -94,7 +94,7 @@ The generic antag version.
 		level_data["selected"] = list()
 		for(var/skill_type in selected)
 			var/decl/hierarchy/skill/S = skill_type // False type.
-			level_data["selected"] += list(list("name" = initial(S.name), "ref" = "\ref[skill_type]"))
+			level_data["selected"] += list(list("name" = initial(S.name), "ref" = "[REF(skill_type)]"))
 		level_data["remaining"] = choices - length(selected)
 		selection_data += list(level_data)
 	.["selection_data"] = selection_data

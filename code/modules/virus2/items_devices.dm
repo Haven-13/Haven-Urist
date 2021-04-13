@@ -70,11 +70,11 @@
 /obj/item/weapon/virusdish/examine(mob/user)
 	. = ..()
 	if(basic_info)
-		to_chat(user, "[basic_info] : <a href='?src=\ref[src];info=1'>More Information</a>")
+		to_chat(user, "[basic_info] : <a href='?src=[REF(src)];info=1'>More Information</a>")
 
 /obj/item/weapon/virusdish/OnTopic(user, href_list)
 	if(href_list["info"])
-		show_browser(user, info, "window=info_\ref[src]")
+		show_browser(user, info, "window=info_[REF(src)]")
 		return FALSE
 
 /obj/item/weapon/ruinedvirusdish

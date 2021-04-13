@@ -18,7 +18,7 @@
 	writeglobal(varname, value)
 
 /decl/global_vars/make_view_variables_variable_entry(varname, value)
-	return "(<a href='?_src_=vars;datumedit=\ref[src];varnameedit=[varname]'>E</a>) "
+	return "(<a href='?_src_=vars;datumedit=[REF(src)];varnameedit=[varname]'>E</a>) "
 
 /decl/global_vars/VV_locked()
 	return vars

@@ -398,7 +398,7 @@
 	var/vampirize_safe = 0
 
 	if(!C)
-		to_world_log("something bad happened on vampirizing a mob src is [src] [src.key] \ref[src]")
+		to_world_log("something bad happened on vampirizing a mob src is [src] [src.key] [REF(src)]")
 		return 0
 	if(!C.mind)
 		src << "<span class='warning'> [C.name]'s mind is not there for you to vampirize.</span>"

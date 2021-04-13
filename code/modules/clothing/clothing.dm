@@ -149,7 +149,7 @@
 	if(ties.len)
 		.+= " with [english_list(ties)] attached"
 	if(accessories.len > ties.len)
-		.+= ". <a href='?src=\ref[src];list_ungabunga=1'>\[See accessories\]</a>"
+		.+= ". <a href='?src=[REF(src)];list_ungabunga=1'>\[See accessories\]</a>"
 
 /obj/item/clothing/CanUseTopic(var/user)
 	if(user in view(get_turf(src)))

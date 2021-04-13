@@ -158,7 +158,7 @@ GLOBAL_DATUM_INIT(cult, /datum/antagonist/cultist, new)
 	if(!iscultist(M) || !M.mind)
 		return
 
-	to_chat(M, "<span class='cult'>Do you want to abandon the cult of Nar'Sie? <a href='?src=\ref[src];confirmleave=1'>ACCEPT</a></span>")
+	to_chat(M, "<span class='cult'>Do you want to abandon the cult of Nar'Sie? <a href='?src=[REF(src)];confirmleave=1'>ACCEPT</a></span>")
 
 /datum/antagonist/cultist/Topic(href, href_list)
 	if(href_list["confirmleave"])

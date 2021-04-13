@@ -42,7 +42,7 @@
 		rdata["locationName"] = E.get_area_name()
 		rdata["thrustLimit"] = E.get_thrust_limit()
 		rdata["status"] = E.get_status()
-		rdata["reference"] = "\ref[E]"
+		rdata["reference"] = "[REF(E)]"
 		total_thrust += E.get_thrust()
 		enginfo.Add(list(rdata))
 

@@ -179,7 +179,7 @@ SUBSYSTEM_DEF(garbage)
 				var/type = D.type
 				var/datum/qdel_item/I = items[type]
 				if(!I.failures)
-					crash_with("GC: -- \ref[D] | [type] was unable to be GC'd --")
+					crash_with("GC: -- [REF(D)] | [type] was unable to be GC'd --")
 				I.failures++
 			if (GC_QUEUE_HARDDELETE)
 				HardDelete(D)
@@ -209,7 +209,7 @@ SUBSYSTEM_DEF(garbage)
 		HardDelete(D)
 		return
 	var/gctime = world.time
-	var/refid = "\ref[D]"
+	var/refid = "[REF(D)]"
 
 	D.gc_destroyed = gctime
 	var/list/queue = queues[level]
@@ -226,7 +226,7 @@ SUBSYSTEM_DEF(garbage)
 	++delslasttick
 	++totaldels
 	var/type = D.type
-	var/refID = "\ref[D]"
+	var/refID = "[REF(D)]"
 
 	del(D)
 
@@ -277,7 +277,7 @@ SUBSYSTEM_DEF(garbage)
 
 #ifdef TESTING
 /proc/qdel_and_find_ref_if_fail(datum/D, force = FALSE)
-	SSgarbage.reference_find_on_fail["\ref[D]"] = TRUE
+	SSgarbage.reference_find_on_fail["[REF(D)]"] = TRUE
 	qdel(D, force)
 #endif
 
@@ -342,7 +342,7 @@ SUBSYSTEM_DEF(garbage)
 			if (QDEL_HINT_IFFAIL_FINDREFERENCE)
 				SSgarbage.PreQueue(D)
 				#ifdef TESTING
-				SSgarbage.reference_find_on_fail["\ref[D]"] = TRUE
+				SSgarbage.reference_find_on_fail["[REF(D)]"] = TRUE
 				#endif
 			else
 				#ifdef TESTING
@@ -429,7 +429,7 @@ SUBSYSTEM_DEF(garbage)
 #define TYPEID_NORMAL_LIST "f"
 //helper macros
 #define GET_TYPEID(ref) ( ( (lentext(ref) <= 10) ? "TYPEID_NULL" : copytext(ref, 4, lentext(ref)-6) ) )
-#define IS_NORMAL_LIST(L) (GET_TYPEID("\ref[L]") == TYPEID_NORMAL_LIST)
+#define IS_NORMAL_LIST(L) (GET_TYPEID("[REF(L)]") == TYPEID_NORMAL_LIST)
 
 /datum/proc/DoSearchVar(X, Xname, recursive_limit = 64)
 	if(usr && usr.client && !usr.client.running_find_references)
@@ -451,7 +451,7 @@ SUBSYSTEM_DEF(garbage)
 			var/variable = L[varname]
 
 			if(variable == src)
-				testing("Found [src.type] \ref[src] in [D.type]'s [varname] var. [Xname]")
+				testing("Found [src.type] [REF(src)] in [D.type]'s [varname] var. [Xname]")
 
 			else if(islist(variable))
 				DoSearchVar(variable, "[Xname] -> list", recursive_limit-1)
@@ -460,10 +460,10 @@ SUBSYSTEM_DEF(garbage)
 		var/normal = IS_NORMAL_LIST(X)
 		for(var/I in X)
 			if (I == src)
-				testing("Found [src.type] \ref[src] in list [Xname].")
+				testing("Found [src.type] [REF(src)] in list [Xname].")
 
 			else if (I && !isnum(I) && normal && X[I] == src)
-				testing("Found [src.type] \ref[src] in list [Xname]\[[I]\]")
+				testing("Found [src.type] [REF(src)] in list [Xname]\[[I]\]")
 
 			else if (islist(I))
 				DoSearchVar(I, "[Xname] -> list", recursive_limit-1)

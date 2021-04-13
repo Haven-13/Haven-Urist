@@ -634,7 +634,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 
 	if(!A || !src) return
 
-	var/list/turfs_src = get_area_turfs("\ref[src]")
+	var/list/turfs_src = get_area_turfs("[REF(src)]")
 
 	if(!turfs_src.len) return
 
@@ -1033,7 +1033,7 @@ var/list/WALLITEMS = list(
 /proc/topic_link(var/datum/D, var/arglist, var/content)
 	if(istype(arglist,/list))
 		arglist = list2params(arglist)
-	return "<a href='?src=\ref[D];[arglist]'>[content]</a>"
+	return "<a href='?src=[REF(D)];[arglist]'>[content]</a>"
 
 /proc/get_random_colour(var/simple = FALSE, var/lower = 0, var/upper = 255)
 	var/colour
@@ -1112,3 +1112,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 /atom/proc/coordinates(jump_link = 0)
 	var/turf/T = src.loc
 	return T ? "([T.x],[T.y],[T.z])[jump_link ? admin_jump_link(T) : ""]" : "nullspace"
+
+// get memory reference
+/proc/REF(input)
+	return "\ref[input]"

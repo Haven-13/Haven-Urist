@@ -532,7 +532,7 @@
 	var/range = round(Clamp(sqrt(target_x_rel*target_x_rel+target_y_rel*target_y_rel),0,8),1)
 
 	assembly.visible_message("<span class='danger'>[assembly] has thrown [A]!</span>")
-	log_attack("[assembly] \ref[assembly] has thrown [A].")
+	log_attack("[assembly] [REF(assembly)] has thrown [A].")
 	A.forceMove(get_turf(src))
 	A.throw_at(locate(x_abs, y_abs, T.z), range, 3)
 

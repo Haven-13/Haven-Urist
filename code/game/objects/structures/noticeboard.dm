@@ -39,9 +39,9 @@
 	if(user.Adjacent(src))
 		var/dat = "<B>Noticeboard</B><BR>"
 		for(var/obj/item/weapon/paper/P in src)
-			dat += "<A href='?src=\ref[src];read=\ref[P]'>[P.name]</A> <A href='?src=\ref[src];write=\ref[P]'>Write</A> <A href='?src=\ref[src];remove=\ref[P]'>Remove</A><BR>"
+			dat += "<A href='?src=[REF(src)];read=[REF(P)]'>[P.name]</A> <A href='?src=[REF(src)];write=[REF(P)]'>Write</A> <A href='?src=[REF(src)];remove=[REF(P)]'>Remove</A><BR>"
 		for(var/obj/item/weapon/photo/P in src)
-			dat += "<A href='?src=\ref[src];look=\ref[P]'>[P.name]</A> <A href='?src=\ref[src];remove=\ref[P]'>Remove</A><BR>"
+			dat += "<A href='?src=[REF(src)];look=[REF(P)]'>[P.name]</A> <A href='?src=[REF(src)];remove=[REF(P)]'>Remove</A><BR>"
 		show_browser(user, "<HEAD><TITLE>Notices</TITLE></HEAD>[dat]","window=noticeboard")
 		onclose(user, "noticeboard")
 	else

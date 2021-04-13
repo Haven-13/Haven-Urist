@@ -164,7 +164,7 @@
 		src_object = window.locked_by.src_object
 	// Insert src_object info
 	if(src_object)
-		entry += "\nUsing: [src_object.type] \ref[src_object]"
+		entry += "\nUsing: [src_object.type] [REF(src_object)]"
 	// Insert message
 	if(message)
 		entry += "\n[message]"
@@ -222,7 +222,7 @@
 
 	if(key)
 		if(include_link && C)
-			. += "<a href='?priv_msg=\ref[C];ticket=\ref[ticket]'>"
+			. += "<a href='?priv_msg=[REF(C)];ticket=[REF(ticket)]'>"
 
 		. += key
 

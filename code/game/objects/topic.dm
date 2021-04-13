@@ -1,10 +1,10 @@
 /obj/proc/DefaultTopicState()
-	return GLOB.tgui_default_state
+	return ui_default_state()
 
 /obj/Topic(var/href, var/href_list = list(), var/datum/ui_state/state)
 	if((. = ..()))
 		return
-	state = state || DefaultTopicState() || GLOB.tgui_default_state
+	state = state || DefaultTopicState() || ui_default_state()
 	if(CanUseTopic(usr, state, href_list) == UI_INTERACTIVE)
 		CouldUseTopic(usr)
 		return OnTopic(usr, href_list, state)

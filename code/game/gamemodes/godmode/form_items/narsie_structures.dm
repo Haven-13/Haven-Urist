@@ -25,7 +25,7 @@
 	for(var/type in recipes)
 		var/atom/a = type
 		var/cost = recipes[type]
-		dat += "<A href='?src=\ref[src];make_recipe=\ref[type];'>[initial(a.name)]</a> - [cost]<br><i>[initial(a.desc)]</i><br><br>"
+		dat += "<A href='?src=[REF(src)];make_recipe=[REF(type)];'>[initial(a.name)]</a> - [cost]<br><i>[initial(a.desc)]</i><br><br>"
 	show_browser(user, dat, "window=forge")
 
 /obj/structure/deity/blood_forge/CanUseTopic(var/user)

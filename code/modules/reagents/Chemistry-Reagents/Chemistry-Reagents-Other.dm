@@ -190,7 +190,7 @@
 				M.adjustHalLoss(5)
 				M.adjustBruteLoss(1)
 				if(prob(10)) //Only annoy them a /bit/
-					to_chat(M,"<span class='danger'>You feel your insides curdle and burn!</span> \[<a href='?src=\ref[src];deconvert=\ref[M]'>Give Into Purity</a>\]")
+					to_chat(M,"<span class='danger'>You feel your insides curdle and burn!</span> \[<a href='?src=[REF(src)];deconvert=[REF(M)]'>Give Into Purity</a>\]")
 
 /datum/reagent/water/holywater/Topic(href, href_list)
 	. = ..()

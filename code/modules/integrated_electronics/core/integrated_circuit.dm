@@ -135,13 +135,13 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	HTML += "<table border='1' style='undefined;table-layout: fixed; width: 80%'>"
 
 	if(assembly)
-		HTML += "<a href='?src=\ref[src];return=1'>\[Return to Assembly\]</a><br>"
+		HTML += "<a href='?src=[REF(src)];return=1'>\[Return to Assembly\]</a><br>"
 
-	HTML += "<a href='?src=\ref[src];refresh=1'>\[Refresh\]</a>  |  "
-	HTML += "<a href='?src=\ref[src];rename=1'>\[Rename\]</a>  |  "
-	HTML += "<a href='?src=\ref[src];scan=1'>\[Copy Ref\]</a>"
+	HTML += "<a href='?src=[REF(src)];refresh=1'>\[Refresh\]</a>  |  "
+	HTML += "<a href='?src=[REF(src)];rename=1'>\[Rename\]</a>  |  "
+	HTML += "<a href='?src=[REF(src)];scan=1'>\[Copy Ref\]</a>"
 	if(assembly && removable)
-		HTML += "  |  <a href='?src=\ref[assembly];component=\ref[src];remove=1'>\[Remove\]</a>"
+		HTML += "  |  <a href='?src=[REF(assembly)];component=[REF(src)];remove=1'>\[Remove\]</a>"
 	HTML += "<br>"
 
 	HTML += "<colgroup>"
@@ -163,12 +163,12 @@ a creative player the means to solve many problems.  Circuits are held inside an
 				if(1)
 					io = get_pin_ref(IC_INPUT, i)
 					if(io)
-						words += "<b><a href='?src=\ref[src];act=wire;pin=\ref[io]'>[io.display_pin_type()] [io.name]</a> \
-						<a href='?src=\ref[src];act=data;pin=\ref[io]'>[io.display_data(io.data)]</a></b><br>"
+						words += "<b><a href='?src=[REF(src)];act=wire;pin=[REF(io)]'>[io.display_pin_type()] [io.name]</a> \
+						<a href='?src=[REF(src)];act=data;pin=[REF(io)]'>[io.display_data(io.data)]</a></b><br>"
 						if(io.linked.len)
 							for(var/k in 1 to io.linked.len)
 								var/datum/integrated_io/linked = io.linked[k]
-								words += "<a href='?src=\ref[src];act=unwire;pin=\ref[io];link=\ref[linked]'>[linked]</a> \
+								words += "<a href='?src=[REF(src)];act=unwire;pin=[REF(io)];link=[REF(linked)]'>[linked]</a> \
 								@ <a href='?src=\ref[linked.holder]'>[linked.holder.displayed_name]</a><br>"
 
 						if(LAZYLEN(outputs) > LAZYLEN(inputs))
@@ -182,12 +182,12 @@ a creative player the means to solve many problems.  Circuits are held inside an
 				if(3)
 					io = get_pin_ref(IC_OUTPUT, i)
 					if(io)
-						words += "<b><a href='?src=\ref[src];act=wire;pin=\ref[io]'>[io.display_pin_type()] [io.name]</a> \
-						<a href='?src=\ref[src];act=data;pin=\ref[io]'>[io.display_data(io.data)]</a></b><br>"
+						words += "<b><a href='?src=[REF(src)];act=wire;pin=[REF(io)]'>[io.display_pin_type()] [io.name]</a> \
+						<a href='?src=[REF(src)];act=data;pin=[REF(io)]'>[io.display_data(io.data)]</a></b><br>"
 						if(io.linked.len)
 							for(var/k in 1 to io.linked.len)
 								var/datum/integrated_io/linked = io.linked[k]
-								words += "<a href='?src=\ref[src];act=unwire;pin=\ref[io];link=\ref[linked]'>[linked]</a> \
+								words += "<a href='?src=[REF(src)];act=unwire;pin=[REF(io)];link=[REF(linked)]'>[linked]</a> \
 								@ <a href='?src=\ref[linked.holder]'>[linked.holder.displayed_name]</a><br>"
 
 						if(LAZYLEN(inputs) > LAZYLEN(outputs))
@@ -199,12 +199,12 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		var/datum/integrated_io/io = activators[i]
 		var/words = list()
 
-		words += "<b><a href='?src=\ref[src];act=wire;pin=\ref[io]'><font color='FF0000'>[io]</font></a> "
-		words += "<a href='?src=\ref[src];act=data;pin=\ref[io]'><font color='FF0000'>[io.data?"\<PULSE OUT\>":"\<PULSE IN\>"]</font></a></b><br>"
+		words += "<b><a href='?src=[REF(src)];act=wire;pin=[REF(io)]'><font color='FF0000'>[io]</font></a> "
+		words += "<a href='?src=[REF(src)];act=data;pin=[REF(io)]'><font color='FF0000'>[io.data?"\<PULSE OUT\>":"\<PULSE IN\>"]</font></a></b><br>"
 		if(io.linked.len)
 			for(var/k in 1 to io.linked.len)
 				var/datum/integrated_io/linked = io.linked[k]
-				words += "<a href='?src=\ref[src];act=unwire;pin=\ref[io];link=\ref[linked]'><font color='FF0000'>[linked]</font></a> \
+				words += "<a href='?src=[REF(src)];act=unwire;pin=[REF(io)];link=[REF(linked)]'><font color='FF0000'>[linked]</font></a> \
 				@ <a href='?src=\ref[linked.holder]'><font color='FF0000'>[linked.holder.displayed_name]</font></a><br>"
 
 		HTML += "<tr>"
@@ -227,9 +227,9 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	HTML += "</body></html>"
 	var/HTML_merged = jointext(HTML, null)
 	if(assembly)
-		show_browser(user, HTML_merged, "window=assembly-\ref[assembly];size=[window_width]x[window_height];border=1;can_resize=1;can_close=1;can_minimize=1")
+		show_browser(user, HTML_merged, "window=assembly-[REF(assembly)];size=[window_width]x[window_height];border=1;can_resize=1;can_close=1;can_minimize=1")
 	else
-		show_browser(user, HTML_merged, "window=circuit-\ref[src];size=[window_width]x[window_height];border=1;can_resize=1;can_close=1;can_minimize=1")
+		show_browser(user, HTML_merged, "window=circuit-[REF(src)];size=[window_width]x[window_height];border=1;can_resize=1;can_close=1;can_minimize=1")
 
 	onclose(user, "assembly-\ref[src.assembly]")
 

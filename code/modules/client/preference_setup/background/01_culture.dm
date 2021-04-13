@@ -54,8 +54,8 @@
 	for(var/token in tokens)
 		var/decl/cultural_info/culture = SSculture.get_culture(pref.cultural_info[token])
 		if (!culture) continue;
-		var/title = "<b>[tokens[token]]<a href='?src=\ref[src];set_[token]=1'><small>?</small></a>:</b> <a href='?src=\ref[src];set_[token]=2'>[pref.cultural_info[token]]</a>"
-		var/append_text = "<a href='?src=\ref[src];toggle_verbose_[token]=1'>[hidden[token] ? "Expand" : "Collapse"]</a>"
+		var/title = "<b>[tokens[token]]<a href='?src=[REF(src)];set_[token]=1'><small>?</small></a>:</b> <a href='?src=[REF(src)];set_[token]=2'>[pref.cultural_info[token]]</a>"
+		var/append_text = "<a href='?src=[REF(src)];toggle_verbose_[token]=1'>[hidden[token] ? "Expand" : "Collapse"]</a>"
 		. += culture.get_description(title, append_text, verbose = !hidden[token])
 	. = jointext(.,null)
 

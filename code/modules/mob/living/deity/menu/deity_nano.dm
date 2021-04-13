@@ -41,7 +41,7 @@
 	var/list/item_data = list()
 	for(var/item in cat_items)
 		var/datum/deity_item/di = item
-		item_data[++item_data.len] = list("name" = di.name, "desc" = di.desc, "requirements" = di.print_requirements(), "level" = di.print_level(), "cost" = di.get_cost(), "ref" = "\ref[di]")
+		item_data[++item_data.len] = list("name" = di.name, "desc" = di.desc, "requirements" = di.print_requirements(), "level" = di.print_level(), "cost" = di.get_cost(), "ref" = "[REF(di)]")
 	nano_data["item_data"] = item_data
 
 /mob/living/deity/proc/update_followers()

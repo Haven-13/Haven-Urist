@@ -77,7 +77,7 @@
 		"isStorage" = istype(M.r_hand, /obj/item/weapon/storage)
 	) : null
 
-	data["user"] = "\ref[user]"
+	data["user"] = "[REF(user)]"
 
 	return data
 

@@ -207,7 +207,7 @@
 
 	if(dat)
 		last_data = dat
-		dat += "<br><br>\[<a href='?src=\ref[src];print=1'>print report</a>\]"
+		dat += "<br><br>\[<a href='?src=[REF(src)];print=1'>print report</a>\]"
 		show_browser(user, dat,"window=plant_analyzer")
 
 	return

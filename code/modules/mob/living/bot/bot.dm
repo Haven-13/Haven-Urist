@@ -181,7 +181,7 @@
 	return
 
 /mob/living/bot/proc/GetInteractStatus()
-	. = "Status: <A href='?src=\ref[src];command=toggle'>[on ? "On" : "Off"]</A>"
+	. = "Status: <A href='?src=[REF(src)];command=toggle'>[on ? "On" : "Off"]</A>"
 	. += "<BR>Behaviour controls are [locked ? "locked" : "unlocked"]"
 	. += "<BR>Maintenance panel is [open ? "opened" : "closed"]"
 
