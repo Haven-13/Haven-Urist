@@ -2,7 +2,10 @@
 
 #include "external.dm"
 #include "states.dm"
+#include "status_composers.dm"
 #include "tgui.dm"
+#include "tgui_alert.dm"
+#include "tgui_input_list.dm"
 #include "tgui_window.dm"
 
 #include "states/admin.dm"
@@ -14,6 +17,8 @@
 #include "states/hands.dm"
 #include "states/human_adjacent.dm"
 #include "states/inventory.dm"
+#include "states/never.dm"
+#include "states/new_player.dm"
 //#include "states/language_menu.dm"
 #include "states/not_contained.dm"
 #include "states/not_incapacitated.dm"

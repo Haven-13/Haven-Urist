@@ -1,4 +1,4 @@
-/**
+/*!
  * External tgui definitions, such as src_object APIs.
  *
  * Copyright (c) 2020 Aleksej Komarov
@@ -71,12 +71,13 @@
  * required action string The action/button that has been invoked by the user.
  * required params list A list of parameters attached to the button.
  *
- * return bool If the UI should be updated or not.
+ * return bool If the user's input has been handled and the UI should update.
  */
 /datum/proc/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	SHOULD_CALL_PARENT(TRUE)
 	// If UI is not interactive or usr calling Topic is not the UI user, bail.
 	if(!ui || ui.status != UI_INTERACTIVE)
-		return 1
+		return TRUE
 
 /**
  * public
@@ -106,7 +107,7 @@
  * This is a proc over a var for memory reasons
  */
 /datum/proc/ui_state(mob/user)
-	return GLOB.tgui_default_state
+	return GLOB.default_state
 
 /**
  * global
@@ -157,7 +158,7 @@
 	// Name the verb, and hide it from the user panel.
 	set name = "uiclose"
 	set hidden = TRUE
-	var/mob/user = src && src.mob
+	var/mob/user = src?.mob
 	if(!user)
 		return
 	// Close all tgui datums based on window_id.
@@ -182,8 +183,7 @@
 			context = context)
 	// Reload all tgui windows
 	if(type == "cacheReloaded")
-		if(!check_rights(R_ADMIN) && usr.client.tgui_cache_reloaded)
-			testing("Skipped cacheReloaded because of lack of R_ADMIN ([!check_rights(R_ADMIN)]) and [usr.client.tgui_cache_reloaded]")
+		if(!check_rights(R_ADMIN) || usr.client.tgui_cache_reloaded)
 			return TRUE
 		// Mark as reloaded
 		usr.client.tgui_cache_reloaded = TRUE
@@ -192,10 +192,7 @@
 		for(var/window_id in windows)
 			var/datum/tgui_window/window = windows[window_id]
 			if (window.status == TGUI_WINDOW_READY)
-				testing("Attempting to reload cache for [window_id]")
 				window.on_message(type, null, href_list)
-			else
-				testing("Skipping cacheReloaded on [window_id] because it was not ready")
 		return TRUE
 	// Locate window
 	var/window_id = href_list["window_id"]
