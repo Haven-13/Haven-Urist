@@ -25,14 +25,14 @@
 			interacting_mob = user
 			ui_interact(user)
 
-/mob/living/simple_animal/hostile/npc/ui_status(mob/user, datum/ui_state/state)
-	if(!can_use(user))
-		return UI_CLOSE
+
+/mob/living/simple_animal/hostile/npc/ui_state(mob/user)
+	return ui_default_state()
 
 /mob/living/simple_animal/hostile/npc/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "NpcInteraction")
+		ui = new(user, src, "npcs/NpcInteraction", name)
 		ui.open()
 
 /mob/living/simple_animal/hostile/npc/ui_data(mob/user)
@@ -101,6 +101,42 @@
 
 	return data
 
+/mob/living/simple_animal/hostile/npc/ui_act(action, list/params)
+	switch(action)
+		if("sell_item_l")
+			var/mob/living/carbon/M = locate(params["user"])
+			if(M && istype(M))
+				var/obj/O = M.l_hand
+				var/worth = text2num(params["worth"])
+				player_sell(O, M, worth)
+
+		if("ask_question")
+			var/mob/living/carbon/M = locate(params["user"])
+			if(say_next)
+				to_chat(M,"<span class='warning'>[src] is already responding to something...</span>")
+
+			else
+				handle_question(M)
+
+		if("sell_item_r")
+			var/mob/living/carbon/M = locate(params["user"])
+			if(M && istype(M))
+				var/obj/O = M.r_hand
+				var/worth = text2num(params["worth"])
+				player_sell(O, M, worth)
+
+		if("buy_item")
+			var/mob/living/carbon/M = locate(params["user"])
+			if(M && istype(M))
+				var/item_name = params["buy_item"]
+				player_buy(item_name, M)
+
+		if("switch_screen")
+			interact_screen = text2num(params["switch_screen"])
+
+		if("close")
+			close_ui()
+
 
 /mob/living/simple_animal/hostile/npc/proc/close_ui(var/datum/tgui/ui = null)
 	if(ui)
@@ -108,41 +144,6 @@
 	interacting_mob = null
 	say(pick(goodbyes))
 	speak_chance = initial(speak_chance)
-
-/mob/living/simple_animal/hostile/npc/Topic(href, href_list)
-	if(href_list["sell_item_l"])
-		var/mob/living/carbon/M = locate(href_list["user"])
-		if(M && istype(M))
-			var/obj/O = M.l_hand
-			var/worth = text2num(href_list["worth"])
-			player_sell(O, M, worth)
-
-	if(href_list["ask_question"])
-		var/mob/living/carbon/M = locate(href_list["user"])
-		if(say_next)
-			to_chat(M,"<span class='warning'>[src] is already responding to something...</span>")
-
-		else
-			handle_question(M)
-
-	if(href_list["sell_item_r"])
-		var/mob/living/carbon/M = locate(href_list["user"])
-		if(M && istype(M))
-			var/obj/O = M.r_hand
-			var/worth = text2num(href_list["worth"])
-			player_sell(O, M, worth)
-
-	if(href_list["buy_item"])
-		var/mob/living/carbon/M = locate(href_list["user"])
-		if(M && istype(M))
-			var/item_name = href_list["buy_item"]
-			player_buy(item_name, M)
-
-	if(href_list["switch_screen"])
-		interact_screen = text2num(href_list["switch_screen"])
-
-	if(href_list["close"])
-		close_ui()
 
 /mob/living/simple_animal/hostile/npc/proc/handle_question(var/mob/living/carbon/user)
 	for(var/trigger in src.speech_triggers)
