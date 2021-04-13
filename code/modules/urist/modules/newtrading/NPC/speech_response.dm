@@ -1,3 +1,8 @@
+GLOBAL_LIST_EMPTY(npc_speech_topics)
+
+/hook/startup/proc/populate_npc_speech_topics()
+	init_subtypes_assoc(/datum/npc_speech_trigger, GLOB.npc_speech_topics)
+
 /datum/npc_speech_trigger
 	var/name
 	var/trigger_phrase
@@ -8,11 +13,14 @@
 	var/list/responses
 	var/list/angryresponses
 
+/datum/npc_speech_trigger/proc/is_valid_topic()
+	return (length(responses) > 0 || length(angryresponses) > 0)
+
 /datum/npc_speech_trigger/proc/get_response_phrase()
-	return response_phrase
+	return pick(responses)
 
 /datum/npc_speech_trigger/proc/get_angryresponse_phrase()
-	return angryresponse_phrase
+	return pick(angryresponses)
 
 ///datum/npc_speech_trigger/smuggler_response
 //	trigger_word  = list("guns")
@@ -21,12 +29,6 @@
 /datum/npc_speech_trigger/colonist
 	response_phrase = 1
 	angryresponse_phrase = 1
-
-/datum/npc_speech_trigger/colonist/get_response_phrase()
-	return pick(responses)
-
-/datum/npc_speech_trigger/colonist/get_angryresponse_phrase()
-	return pick(angryresponses)
 
 /datum/npc_speech_trigger/colonist/colonist_nt
 	name = "NanoTrasen"
