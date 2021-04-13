@@ -4,13 +4,6 @@
  * @license MIT
  */
 
-/**
- * Haven Changelog
- *   DD/MM/YYYY
- *
- * - 12/09/2020: Gave the module an export id - martinlyra
- */
-
 // Themes
 import './styles/main.scss';
 import './styles/themes/abductor.scss';
@@ -22,6 +15,7 @@ import './styles/themes/ntos.scss';
 import './styles/themes/paper.scss';
 import './styles/themes/retro.scss';
 import './styles/themes/syndicate.scss';
+import './styles/themes/wizard.scss';
 
 import { perf } from 'common/perf';
 import { setupHotReloading } from 'tgui-dev-server/link/client';
@@ -33,8 +27,6 @@ import { setupGlobalEvents } from './events';
 
 perf.mark('inception', window.performance?.timing?.navigationStart);
 perf.mark('init');
-
-exports.id = "tgui";
 
 const store = configureStore();
 
@@ -79,6 +71,7 @@ const setupApp = () => {
     setupHotReloading();
     module.hot.accept([
       './components',
+      './debug',
       './layouts',
       './routes',
     ], () => {

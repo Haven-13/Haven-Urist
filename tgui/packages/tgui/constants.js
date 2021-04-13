@@ -10,17 +10,6 @@ export const UI_UPDATE = 1;
 export const UI_DISABLED = 0;
 export const UI_CLOSE = -1;
 
-export const DIRECTIONS = {
-  north: 1,
-  south: 2,
-  east: 4,
-  west: 8,
-  northeast: 1 + 4,
-  northwest: 1 + 8,
-  southeast: 2 + 4,
-  southwest: 2 + 8,
-};
-
 // All game related colors are stored here
 export const COLORS = {
   // Department colors
@@ -40,6 +29,11 @@ export const COLORS = {
     toxin: '#2ecc71',
     burn: '#e67e22',
     brute: '#e74c3c',
+  },
+  // reagent / chemistry related colours
+  reagent: {
+    acidicbuffer: "#fbc314",
+    basicbuffer: "#3853a4",
   },
 };
 
@@ -80,6 +74,16 @@ export const RADIO_CHANNELS = [
     name: 'Blue Team',
     freq: 1217,
     color: '#3434fd',
+  },
+  {
+    name: 'Green Team',
+    freq: 1219,
+    color: '#34fd34',
+  },
+  {
+    name: 'Yellow Team',
+    freq: 1221,
+    color: '#d1ba22',
   },
   {
     name: 'CentCom',
@@ -130,16 +134,6 @@ export const RADIO_CHANNELS = [
     name: 'Common',
     freq: 1459,
     color: '#1ecc43',
-  },
-  {
-    name: 'Entertainment',
-    freq: 1461,
-    color: '#6eaa2c',
-  },
-  {
-    name: 'AI Private',
-    freq: 1343,
-    color: '#f777e4',
   },
 ];
 

@@ -5,9 +5,10 @@
  */
 
 /**
- * Haven Changelog
+ * Haven changelog
  *   DD/MM/YYYY
  *
+ * - 13/04/2021: Migrate modifications to tgui 4.3
  * - 12/09/2020: Support interfaces in subdirs - martinlyra
  */
 
@@ -15,11 +16,11 @@ import { selectBackend } from './backend';
 import { selectDebug } from './debug/selectors';
 import { Window } from './layouts';
 
-const requireInterface = require.context('./interfaces', true, /\.js$/);
+const requireInterface = require.context('./interfaces');
 
 const routingError = (type, name) => () => {
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         {type === 'notFound' && (
           <div>Interface <b>{name}</b> was not found.</div>
@@ -34,7 +35,7 @@ const routingError = (type, name) => () => {
 
 const SuspendedWindow = () => {
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable />
     </Window>
   );
@@ -54,17 +55,29 @@ export const getRoutedComponent = store => {
     }
   }
   const name = config?.interface;
+  const interfacePathBuilders = [
+    name => `./${name}.tsx`,
+    name => `./${name}.js`,
+    name => `./${name}/index.tsx`,
+    name => `./${name}/index.js`,
+  ];
   let esModule;
-  try {
-    esModule = requireInterface(`./${name}.js`);
-  }
-  catch (err) {
-    if (err.code === 'MODULE_NOT_FOUND') {
-      return routingError('notFound', name);
+  while (!esModule && interfacePathBuilders.length > 0) {
+    const interfacePathBuilder = interfacePathBuilders.shift();
+    const interfacePath = interfacePathBuilder(name);
+    try {
+      esModule = requireInterface(interfacePath);
     }
-    throw err;
+    catch (err) {
+      if (err.code !== 'MODULE_NOT_FOUND') {
+        throw err;
+      }
+    }
   }
-  // Haven modification to support interface .js in subdirs
+  if (!esModule) {
+    return routingError('notFound', name);
+  }
+  // Haven modification to support interfaces in subdirs
   const Component = esModule[name.split('/').slice(-1)[0]];
   if (!Component) {
     return routingError('missingExport', name);
