@@ -44,7 +44,6 @@
 		"dockingStatus" = docking_program.get_docking_status(),
 		"airlockDisabled" = !(docking_program.undocked() || docking_program.override_enabled),
 		"overrideEnabled" = docking_program.override_enabled,
-		"dockingCodes" = docking_program.docking_codes,
 		"name" = docking_program.get_name()
 	)
 

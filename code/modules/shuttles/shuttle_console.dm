@@ -27,31 +27,35 @@
 		if(SHUTTLE_WARMUP) shuttle_state = "warmup"
 		if(SHUTTLE_INTRANSIT) shuttle_state = "in_transit"
 
+
 	var/shuttle_status
 	switch (shuttle.process_state)
 		if(IDLE_STATE)
 			if (shuttle.in_use)
 				shuttle_status = "Busy."
 			else
-				shuttle_status = "Standing-by at \the [shuttle.get_location_name()]."
+				shuttle_status = "Standing by."
 
 		if(WAIT_LAUNCH, FORCE_LAUNCH)
-			shuttle_status = "Shuttle has recieved command and will depart shortly."
+			shuttle_status = "Launching..."
 		if(WAIT_ARRIVE)
-			shuttle_status = "Proceeding to \the [shuttle.get_destination_name()]."
+			shuttle_status = "Proceeding to destination."
 		if(WAIT_FINISH)
-			shuttle_status = "Arriving at destination now."
+			shuttle_status = "Arriving..."
 
 	return list(
-		"shuttle_status" = shuttle_status,
-		"shuttle_state" = shuttle_state,
-		"has_docking" = shuttle.shuttle_docking_controller? 1 : 0,
-		"docking_status" = shuttle.shuttle_docking_controller? shuttle.shuttle_docking_controller.get_docking_status() : null,
-		"docking_override" = shuttle.shuttle_docking_controller? shuttle.shuttle_docking_controller.override_enabled : null,
-		"can_launch" = shuttle.can_launch(),
-		"can_cancel" = shuttle.can_cancel(),
-		"can_force" = shuttle.can_force(),
-		"docking_codes" = shuttle.docking_codes
+		"hasTimeLeft" = shuttle.has_arrive_time(),
+		"timeLeft" = shuttle.has_arrive_time() ? shuttle.time_left() : null,
+		"currentLocation" = shuttle.current_location.name,
+		"shuttleStatus" = shuttle_status,
+		"shuttleState" = shuttle_state,
+		"hasDocking" = shuttle.shuttle_docking_controller? 1 : 0,
+		"dockingStatus" = shuttle.shuttle_docking_controller? shuttle.shuttle_docking_controller.get_docking_status() : null,
+		"dockingOverride" = shuttle.shuttle_docking_controller? shuttle.shuttle_docking_controller.override_enabled : null,
+		"canLaunch" = shuttle.can_launch(),
+		"canCancel" = shuttle.can_cancel(),
+		"canForce" = shuttle.can_force(),
+		"dockingCodes" = shuttle.docking_codes
 	)
 
 /obj/machinery/computer/shuttle_control/ui_data(mob/user)
@@ -63,40 +67,37 @@
 
 	return get_shuttle_ui_data(shuttle)
 
-/obj/machinery/computer/shuttle_control/proc/handle_topic_href(var/datum/shuttle/autodock/shuttle, var/list/href_list, var/user)
+/obj/machinery/computer/shuttle_control/proc/handle_ui_act(var/datum/shuttle/autodock/shuttle, var/action, var/list/params, var/user)
 	if(!istype(shuttle))
 		return FALSE
 
-	if(href_list["move"])
-		if(!shuttle.next_location.is_valid(shuttle))
-			to_chat(user, "<span class='warning'>Destination zone is invalid or obstructed.</span>")
-			return FALSE
-		shuttle.launch(src)
-		return TRUE
-
-	if(href_list["force"])
-		shuttle.force_launch(src)
-		return TRUE
-
-	if(href_list["cancel"])
-		shuttle.cancel_launch(src)
-		return TRUE
-
-	if(href_list["set_codes"])
-		var/newcode = input("Input new docking codes", "Docking codes", shuttle.docking_codes) as text|null
-		if (newcode && CanInteract(usr, ui_default_state()))
+	switch(action)
+		if("move")
+			if(!shuttle.next_location.is_valid(shuttle))
+				to_chat(user, "<span class='warning'>Destination zone is invalid or obstructed.</span>")
+				. = FALSE
+			else
+				shuttle.launch(src)
+				. = TRUE
+		if("force")
+			shuttle.force_launch(src)
+			. = TRUE
+		if("abort")
+			shuttle.cancel_launch(src)
+			. = TRUE
+		if("set_codes")
+			var/newcode = params["code"]
 			shuttle.set_docking_codes(uppertext(newcode))
-		return TRUE
+			. = TRUE
 
 /obj/machinery/computer/shuttle_control/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, ui_template)
+		ui = new(user, src, ui_template, name)
 		ui.open()
 
-
-/obj/machinery/computer/shuttle_control/OnTopic(user, href_list)
-	return handle_topic_href(SSshuttle.shuttles[shuttle_tag], href_list, user)
+/obj/machinery/computer/shuttle_control/ui_act(action, list/params)
+	return handle_ui_act(SSshuttle.shuttles[shuttle_tag], action, params, usr)
 
 /obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user)
 	if (!hacked)

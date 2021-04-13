@@ -45,15 +45,30 @@
 /datum/shuttle/autodock/overmap/proc/set_destination(var/obj/effect/shuttle_landmark/A)
 	if(A != current_location)
 		next_location = A
-		move_time = initial(move_time) * (1 + get_dist(waypoint_sector(current_location),waypoint_sector(next_location)))
+		if (istype(A))
+			move_time = initial(move_time) * (1 + get_dist(waypoint_sector(current_location),waypoint_sector(next_location)))
+		else
+			move_time = initial(move_time)
 
 /datum/shuttle/autodock/overmap/proc/get_possible_destinations()
-	var/list/res = list()
+	. = list()
 	for (var/obj/effect/overmap/S in range(waypoint_sector(current_location), range))
 		for(var/obj/effect/shuttle_landmark/LZ in S.get_waypoints(src.name))
 			if(LZ.is_valid(src))
-				res["[S.name] - [LZ.name]"] = LZ
-	return res
+				. += list(get_destination_info(LZ))
+
+/datum/shuttle/autodock/overmap/proc/get_destination_info(var/obj/effect/shuttle_landmark/LM = src.next_location)
+	if (!istype(LM))
+		return list()
+	var/obj/effect/overmap/S = waypoint_sector(LM)
+	return list(
+		"fullName" = "[S.name] - [LM.name]",
+		"name" = LM.name,
+		"areaName" = S.name,
+		"x" = LM.x,
+		"y" = LM.y,
+		"ref" = LM.landmark_tag
+	)
 
 /datum/shuttle/autodock/overmap/get_location_name()
 	if(moving_status == SHUTTLE_INTRANSIT)

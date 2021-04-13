@@ -18,7 +18,7 @@ var/list/z_levels = list()// Each bit re... haha just kidding this is a list of 
 		if (previous)
 			previous.register_link_above(current)
 		previous = current
-		
+
 /obj/effect/landmark/map_data/Initialize()
 	..()
 	return INITIALIZE_HINT_QDEL
@@ -26,17 +26,17 @@ var/list/z_levels = list()// Each bit re... haha just kidding this is a list of 
 
 /proc/HasAbove(var/z)
 	if(z >= world.maxz || z < 1 || z > z_levels.len)
-		return 0
+		return FALSE
 	if (HasSubmapData(z))
 		return GetSubmapData(z).has_above()
-	return z_levels[z]
+	return FALSE
 
 /proc/HasBelow(var/z)
 	if(z > world.maxz || z < 2 || (z-1) > z_levels.len)
-		return 0
+		return FALSE
 	if (HasSubmapData(z))
 		return GetSubmapData(z).has_below()
-	return z_levels[z-1]
+	return FALSE
 
 // Thankfully, no bitwise magic is needed here.
 /proc/GetAbove(var/atom/atom)

@@ -9,15 +9,16 @@
 			"can_pick" = shuttle.moving_status == SHUTTLE_IDLE,
 		)
 
-/obj/machinery/computer/shuttle_control/multi/handle_topic_href(var/datum/shuttle/autodock/multi/shuttle, var/list/href_list)
-	if((. = ..()) != null)
+/obj/machinery/computer/shuttle_control/multi/handle_ui_act(var/datum/shuttle/autodock/multi/shuttle, var/action, var/list/params)
+	if((. = ..()) || !istype(shuttle))
 		return
 
-	if(href_list["pick"])
-		var/dest_key = input("Choose shuttle destination", "Shuttle Destination") as null|anything in shuttle.get_destinations()
-		if(dest_key && CanInteract(usr, ui_default_state()))
-			shuttle.set_destination(dest_key, usr)
-		return TRUE
+	switch(action)
+		if("set_destination")
+			var/dest_key = input("Choose shuttle destination", "Shuttle Destination") as null|anything in shuttle.get_destinations()
+			if(dest_key && CanInteract(usr, ui_default_state()))
+				shuttle.set_destination(dest_key, usr)
+			return TRUE
 
 
 /obj/machinery/computer/shuttle_control/multi/antag
@@ -30,10 +31,11 @@
 			"cloaked" = shuttle.cloaked,
 		)
 
-/obj/machinery/computer/shuttle_control/multi/antag/handle_topic_href(var/datum/shuttle/autodock/multi/antag/shuttle, var/list/href_list)
-	if((. = ..()) != null)
+/obj/machinery/computer/shuttle_control/multi/antag/handle_ui_act(var/datum/shuttle/autodock/multi/antag/shuttle, var/action, var/list/params)
+	if((. = ..()) || !istype(shuttle))
 		return
 
-	if(href_list["toggle_cloaked"])
-		shuttle.cloaked = !shuttle.cloaked
-		return TRUE
+	switch(action)
+		if("toggle_cloak")
+			shuttle.cloaked = !shuttle.cloaked
+			return TRUE

@@ -91,7 +91,7 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 		"s_x" = linked.x,
 		"s_y" = linked.y,
 		"speed" = linked.get_speed(),
-		"accel" = linked.get_acceleration(),
+		"acceleration" = linked.get_acceleration(),
 		"heading" = linked.get_heading() ? dir2angle(linked.get_heading()) : 0,
 		"viewing" = viewing,
 		"canburn" = linked.can_burn(),
