@@ -1,9 +1,8 @@
 import { useBackend } from 'tgui/backend';
 import { Window } from 'tgui/layouts';
 import { DIRECTIONS } from 'tgui/constants';
-import { round } from 'common/math';
-import { AnimatedNumber, Icon, Button, LabeledList, Flex, Section, NumberInput, Slider, Table } from 'tgui/components';
-import { ShipNavigationInfo } from './ShipComputerCommon';
+import { Icon, Button, Flex, Section, Table } from 'tgui/components';
+import { ShipOvermapSectorInfo, ShipOvermapNavigationInfo } from './ShipComputerCommon';
 
 export const ShipHelm = (props, context) => {
   const { act, data } = useBackend(context);
@@ -19,7 +18,7 @@ export const ShipHelm = (props, context) => {
           justify="space-evenly"
           mb={1}>
           <Flex.Item>
-            <ShipNavigationInfo />
+            <ShipOvermapNavigationInfo />
           </Flex.Item>
           <Flex.Item>
             <Section

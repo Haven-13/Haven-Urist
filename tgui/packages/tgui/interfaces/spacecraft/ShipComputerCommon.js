@@ -1,6 +1,5 @@
 import { useBackend } from "tgui/backend";
-import { Fragment } from 'inferno';
-import { Box, Section, LabeledList, Button, AnimatedNumber } from "tgui/components";
+import { Section, LabeledList } from "tgui/components";
 
 export const ShipOvermapNavigationInfo = (props, context) => {
   const { act, data } = useBackend(context);
@@ -24,7 +23,7 @@ export const ShipOvermapNavigationInfo = (props, context) => {
         </LabeledList.Item>
         <LabeledList.Item
           label="delta-V">
-          {data.accel}
+          {data.acceleration}
         </LabeledList.Item>
         <LabeledList.Item
           label="Heading">

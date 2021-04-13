@@ -1,7 +1,6 @@
 import { useBackend } from 'tgui/backend';
 import { Window } from 'tgui/layouts';
-import { round } from 'common/math';
-import { Button, Flex, LabeledList, Section, LabeledControls, NumberInput, ProgressBar } from 'tgui/components';
+import { Button, Flex, Section } from 'tgui/components';
 import { ShipOvermapNavigationInfo, ShipOvermapSectorInfo } from './ShipComputerCommon';
 
 export const ShipNavigation = (props, context) => {

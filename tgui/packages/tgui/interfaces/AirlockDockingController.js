@@ -51,15 +51,13 @@ export const AirlockDockingController = (props, context) => {
               selected={data.overrideEnabled}
               content={"Toggle"}
               onClick={() => act("command", {
-                command: 'toggle_override'
+                command: 'toggle_override',
               })}
             />
           }
           fitted>
           <Section fill>
-            {!!!data.overrideEnabled && (<Dimmer>
-
-            </Dimmer>)}
+            {!data.overrideEnabled && (<Dimmer />)}
             <LabeledControls>
               <LabeledControls.Item
                 label="Emergency">
