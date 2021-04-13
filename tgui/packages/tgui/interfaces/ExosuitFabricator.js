@@ -328,41 +328,43 @@ const MaterialAmount = (props, context) => {
     style,
   } = props;
 
-  return list ? (<Box height="15px">
-    <Box textAlign="center" style={{ position: "relative", "z-index": 1, "line-height": 2 }}>{(formatsi && formatSiUnit(amount, 0)) || (formatmoney && formatMoney(amount)) || (amount)}</Box>
-    <Box
-      className={classes([
-        'sheetmaterials32x32',
-        MATERIAL_KEYS[reference ? reference : name],
-      ])}
-      style={style}
-    />
-  </Box>) : (
-                   <Flex
+  return list ? (
+    <Box height="15px">
+      <Box textAlign="center" style={{ position: "relative", "z-index": 1, "line-height": 2 }}>{(formatsi && formatSiUnit(amount, 0)) || (formatmoney && formatMoney(amount)) || (amount)}</Box>
+      <Box
+        className={classes([
+          'sheetmaterials32x32',
+          MATERIAL_KEYS[reference ? reference : name],
+        ])}
+        style={style}
+      />
+    </Box>
+  ) : (
+    <Flex
       direction="column"
       align="center">
       <Flex.Item>
-                       <Box
+        <Box
           className={classes([
             'sheetmaterials32x32',
             MATERIAL_KEYS[reference ? reference : name],
           ])}
           style={style} />
-                     </Flex.Item>
+      </Flex.Item>
       {!small && (
-                     <Flex.Item>
+        <Flex.Item>
           {name}
         </Flex.Item>
       )}
       <Flex.Item>
-                       <Box
+        <Box
           textColor={color}
           style={{ "text-align": "center" }}>
           {(formatsi && formatSiUnit(amount, 0))
           || (formatmoney && formatMoney(amount))
           || (amount)}
         </Box>
-                     </Flex.Item>
+      </Flex.Item>
     </Flex>
   );
 };
@@ -676,30 +678,27 @@ const Queue = (props, context) => {
                 icon="minus-circle"
                 content="Clear"
                 onClick={() => act("clear_queue")}
-                tooltip={
-                  "Clear the queue"
-                }
-                tooltipPosition="left" />
+                tooltip={"Clear the queue"}
+                tooltipPosition="left"
+              />
               {(!!isProcessingQueue && (
                 <Button
                   disabled={!queue.length}
                   content="Stop"
                   icon="stop"
                   onClick={() => act("stop_queue")}
-                  tooltip={
-                    "Stop building the queue"
-                  }
-                  tooltipPosition="left" />
+                  tooltip={"Stop building the queue"}
+                  tooltipPosition="left"
+                />
               )) || (
                 <Button
                   disabled={!queue.length}
                   content="Start"
                   icon="play"
                   onClick={() => act("build_queue")}
-                  tooltip={
-                    "Start building the queue"
-                  }
-                  tooltipPosition="left" />
+                  tooltip={"Start building the queue"}
+                  tooltipPosition="left"
+                />
               )}
             </Fragment>
           }>

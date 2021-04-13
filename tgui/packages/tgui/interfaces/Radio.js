@@ -93,12 +93,21 @@ export const Radio = (props, context) => {
                   <Box key={channel.name}>
                     <ColorBox
                       mr={1}
-                      color={RADIO_CHANNELS.find(c => c.name === channel.name)?.color}
+                      color={
+                        RADIO_CHANNELS.find(
+                          c => c.name === channel.name
+                        )?.color
+                      }
                     />
                     <Button
                       width={15}
-                      icon={channel.status || channel.frequency == frequency ? 'check-square-o' : 'square-o'}
-                      selected={channel.status || channel.frequency == frequency}
+                      icon={
+                        channel.status || channel.frequency === frequency
+                          ? 'check-square-o' : 'square-o'
+                      }
+                      selected={
+                        channel.status || channel.frequency === frequency
+                      }
                       content={channel.name}
                       onClick={() => subspace ? act('channel', {
                         channel: channel.name,

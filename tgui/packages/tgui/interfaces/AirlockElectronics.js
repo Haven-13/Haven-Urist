@@ -18,7 +18,13 @@ export const AirlockElectronics = (props, context) => {
       {!!data.locked && (
         <Dimmer align="center">
           <Icon name="lock" />
-          <Box bold mb={1} pl={6} pr={6}>To unlock, swipe a card containing following accesses</Box>
+          <Box
+            bold
+            mb={1}
+            pl={6}
+            pr={6}>
+            To unlock, swipe a card containing following accesses
+          </Box>
           <Box>{lockRequiredAccesses.join(', ')}</Box>
         </Dimmer>
       )}

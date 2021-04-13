@@ -1,8 +1,5 @@
-import { Fragment } from 'inferno';
 import { useBackend, useLocalState } from 'tgui/backend';
-import { Button, Box, Flex, LabeledControls, LabeledList, NoticeBox, NumberInput, ProgressBar, Section, Table, Tabs, Tooltip } from 'tgui/components';
-import { round } from 'common/math';
-import { formatSiUnit } from 'tgui/format';
+import { Button, Box, Flex, Section, Table, Tabs } from 'tgui/components';
 import { capitalize } from 'common/string';
 import { Window } from 'tgui/layouts';
 
@@ -25,15 +22,15 @@ export const NpcDialogueInteraction = (props, context) => {
         <Button
           key={topic.id}
           onClick={() => act("ask_question", {
-            topic: topic.key
+            topic: topic.key,
           })}
-          >
+        >
           {capitalize(topic.name)}
         </Button>
       ))}
     </Section>
-  )
-}
+  );
+};
 
 export const NpcTradingInteraction = (props, context) => {
   const { data, act } = useBackend(context);
@@ -44,8 +41,8 @@ export const NpcTradingInteraction = (props, context) => {
 
   const ACTIONS = {
     buying: 0,
-    selling: 1
-  }
+    selling: 1,
+  };
 
   const inventory = props.inventory || [];
 
@@ -79,7 +76,7 @@ export const NpcTradingInteraction = (props, context) => {
               bold
               lineHeight={2}
               color="yellow"
-              >
+            >
               <Table.Cell width={20}>
                 Item
               </Table.Cell>
@@ -89,9 +86,7 @@ export const NpcTradingInteraction = (props, context) => {
               <Table.Cell>
                 Price
               </Table.Cell>
-              <Table.Cell>
-
-              </Table.Cell>
+              <Table.Cell />
             </Table.Row>
           </Table>
         </Flex.Item>
@@ -102,7 +97,7 @@ export const NpcTradingInteraction = (props, context) => {
         >
           <Table>
             {inventory.map((item) => (
-              <Table.Row>
+              <Table.Row key={item.name}>
                 <Table.Cell width={21}>
                   {capitalize(item.name)}
                 </Table.Cell>
@@ -110,11 +105,15 @@ export const NpcTradingInteraction = (props, context) => {
                   {item.quantity}
                 </Table.Cell>
                 <Table.Cell textAlign="right">
-                  {item.value > 0 ? (<Box>
-                    {item.value} Cr
-                  </Box>) : (<Box italic>
-                    Free
-                  </Box>)}
+                  {item.value > 0 ? (
+                    <Box>
+                      {item.value} Cr
+                    </Box>
+                  ) : (
+                    <Box italic>
+                      Free
+                    </Box>
+                  )}
                 </Table.Cell>
                 <Table.Cell>
                   <Button
@@ -127,8 +126,8 @@ export const NpcTradingInteraction = (props, context) => {
         </Flex.Item>
       </Flex>
     </Section>
-  )
-}
+  );
+};
 
 export const NpcInteraction = (props, context) => {
   const { data, act } = useBackend(context);
@@ -136,16 +135,18 @@ export const NpcInteraction = (props, context) => {
   const INTERACTIONS = {
     dialogue: 0,
     trading: 1,
-  }
+  };
 
   const INTERACTION_SCREENS = [
     (<NpcDialogueInteraction
+      key={INTERACTIONS.dialogue}
       topics={data.speechTopics}
     />),
     (<NpcTradingInteraction
+      key={INTERACTIONS.trading}
       inventory={data.interactInventory}
-    />)
-  ]
+    />),
+  ];
 
   const [
     currentInteraction,
@@ -161,7 +162,7 @@ export const NpcInteraction = (props, context) => {
         <Section
           title={data.name}>
           <Box italic textAlign="right">
-            "{data.greeting}"
+            &#34;{data.greeting}&#34;
           </Box>
         </Section>
         <Section>
@@ -171,22 +172,26 @@ export const NpcInteraction = (props, context) => {
           >
             <Tabs.Tab
               selected={currentInteraction === INTERACTIONS.dialogue}
-              onClick={() => setCurrentInteraction(INTERACTIONS.dialogue)}
+              onClick={
+                () => setCurrentInteraction(INTERACTIONS.dialogue)
+              }
             >
               Dialogue
             </Tabs.Tab>
             <Tabs.Tab
               selected={currentInteraction === INTERACTIONS.trading}
-              onClick={() => setCurrentInteraction(INTERACTIONS.trading)}
+              onClick={
+                () => setCurrentInteraction(INTERACTIONS.trading)
+              }
             >
               Trading
             </Tabs.Tab>
           </Tabs>
         </Section>
-        <Section fitted height="60%">
+        <Section fill fitted>
           {INTERACTION_SCREENS[currentInteraction]}
         </Section>
       </Window.Content>
     </Window>
-  )
-}
+  );
+};

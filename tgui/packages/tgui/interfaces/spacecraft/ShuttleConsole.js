@@ -23,17 +23,18 @@ export const DestinationMenu = (props, context) => {
         <LabeledList>
           <LabeledList.Item label="Selected">
             {(selected.name) ? (
-              <Fragment>
+              <Box as="div">
                 <Box>
                   {selected.name}
                 </Box>
                 <Box>
                   {selected.areaName}
                 </Box>
-              </Fragment>
-            ) : (<Box italic>
-              None
-            </Box>)}
+              </Box>
+            ) : (
+              <Box italic>
+                None
+              </Box>)}
           </LabeledList.Item>
         </LabeledList>
       </Box>
@@ -44,7 +45,11 @@ export const DestinationMenu = (props, context) => {
             key={entry.ref}
             disabled={!data.canPick}
             checked={entry.ref === selected.ref}
-            onClick={() => change(entry.ref === selected.ref ? null : entry.ref)}>
+            onClick={
+              () => change(
+                entry.ref === selected.ref
+                  ? null : entry.ref)
+            }>
             <Box inline verticalAlign="middle">
               <Box>
                 {entry.name}
@@ -110,23 +115,26 @@ export const ShuttleConsole = (props, context) => {
                         {data.currentLocation}
                       </Box>
                     </LabeledList.Item>
-                    {!!data.fuelConsumption && (<LabeledList.Item label="Fuel">
-                      <ProgressBar
-                        color={data.fuelPressureStatus}
-                        value={data.fuelPressure}
-                        minValue={0}
-                        maxValue={data.fuelMaxPressure}
-                      />
-                    </LabeledList.Item>)}
+                    {!!data.fuelConsumption && (
+                      <LabeledList.Item label="Fuel">
+                        <ProgressBar
+                          color={data.fuelPressureStatus}
+                          value={data.fuelPressure}
+                          minValue={0}
+                          maxValue={data.fuelMaxPressure}
+                        />
+                      </LabeledList.Item>
+                    )}
                     <LabeledList.Item label="Code">
-                      {data.hasDocking ? (<Input
-                        fluid
-                        value={data.dockingCodes}
-                        placeholder={"None set"}
-                        onChange={(e, v) => act("set_codes", {
-                          code: v,
-                        })}
-                      />) : (
+                      {data.hasDocking ? (
+                        <Input
+                          fluid
+                          value={data.dockingCodes}
+                          placeholder={"None set"}
+                          onChange={(e, v) => act("set_codes", {
+                            code: v,
+                          })} />
+                      ) : (
                         <Box italic>
                           This vessel has no docking protocols
                         </Box>

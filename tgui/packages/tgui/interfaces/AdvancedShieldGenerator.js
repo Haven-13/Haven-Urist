@@ -1,6 +1,8 @@
 import { Fragment } from 'inferno';
 import { useBackend } from 'tgui/backend';
-import { Button, Flex, LabeledControls, LabeledList, NoticeBox, NumberInput, ProgressBar, Section, Table, Tooltip } from 'tgui/components';
+import {
+  Button, Flex, LabeledControls, LabeledList,
+  NumberInput, ProgressBar, Section, Table, Tooltip } from 'tgui/components';
 import { round } from 'common/math';
 import { formatSiUnit } from 'tgui/format';
 import { Window } from 'tgui/layouts';
@@ -161,31 +163,33 @@ export const AdvancedShieldGenerator = (props, context) => {
                     Status
                   </Table.Cell>
                 </Table.Row>
-                {modes.filter(mode => mode.hacked ? data.hacked : 1).map(mode => (
-                  <Table.Row key={mode.flag}>
-                    <Table.Cell position="relative">
-                      {mode.name}
-                      <Tooltip
-                        position="bottom"
-                        content={mode.desc}
-                      />
-                    </Table.Cell>
-                    <Table.Cell>
-                      x{mode.multiplier}
-                    </Table.Cell>
-                    <Table.Cell>
-                      <Button
-                        width={5.5}
-                        textAlign="center"
-                        selected={mode.status > 0}
-                        content={mode.status > 0 ? "Enabled" : "Disabled"}
-                        onClick={() => act("toggle_mode", {
-                          toggle_mode: mode.flag,
-                        })}
-                      />
-                    </Table.Cell>
-                  </Table.Row>
-                ))}
+                {modes
+                  .filter(mode => mode.hacked ? data.hacked : 1)
+                  .map(mode => (
+                    <Table.Row key={mode.flag}>
+                      <Table.Cell position="relative">
+                        {mode.name}
+                        <Tooltip
+                          position="bottom"
+                          content={mode.desc}
+                        />
+                      </Table.Cell>
+                      <Table.Cell>
+                        x{mode.multiplier}
+                      </Table.Cell>
+                      <Table.Cell>
+                        <Button
+                          width={5.5}
+                          textAlign="center"
+                          selected={mode.status > 0}
+                          content={mode.status > 0 ? "Enabled" : "Disabled"}
+                          onClick={() => act("toggle_mode", {
+                            toggle_mode: mode.flag,
+                          })}
+                        />
+                      </Table.Cell>
+                    </Table.Row>
+                  ))}
               </Table>
             </Section>
           </Flex.Item>

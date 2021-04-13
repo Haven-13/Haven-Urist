@@ -36,8 +36,12 @@ export const PathogenicCentrifuge = (props, context) => {
             <Fragment>
               <Button
                 content="Isolate"
-                disabled={!data.sampleInserted || data.isAntibodySample || !isolateTarget}
-                onClick={() => isolateTarget == "antibodies"
+                disabled={
+                  !data.sampleInserted
+                  || data.isAntibodySample
+                  || !isolateTarget
+                }
+                onClick={() => isolateTarget === "antibodies"
                   ? act("antibody") : act("isolate", {
                     isolate: isolateTarget,
                   })}
@@ -83,22 +87,21 @@ export const PathogenicCentrifuge = (props, context) => {
               <Table.Row key={idx}>
                 <Table.Cell>
                   {idx < antibodies.length ? (
-                    <Fragment>
-                      {!data.isAntibodySample ? (
-                        <Button
-                          width={2}
-                          selected={isolateTarget == "antibodies"}
-                          textAlign="center"
-                          content={antibodies[idx]}
-                          onClick={() => setIsolateTarget("antibodies")}
-                        />) : (
-                        <Box
-                            width={2}
-                            textAlign="center">
-                            {antibodies[idx]}
-                          </Box>
-                      )}
-                    </Fragment>
+                    !data.isAntibodySample ? (
+                      <Button
+                        width={2}
+                        selected={isolateTarget === "antibodies"}
+                        textAlign="center"
+                        content={antibodies[idx]}
+                        onClick={() => setIsolateTarget("antibodies")}
+                      />
+                    ) : (
+                      <Box
+                        width={2}
+                        textAlign="center">
+                        {antibodies[idx]}
+                      </Box>
+                    )
                   ) : antibodies.length || idx ? null : (
                     <Box color="grey">
                       None detected
@@ -109,7 +112,7 @@ export const PathogenicCentrifuge = (props, context) => {
                   {idx < pathogens.length ? (
                     <Button
                       width="100%"
-                      selected={pathogens[idx].reference == isolateTarget}
+                      selected={pathogens[idx].reference === isolateTarget}
                       content={
                         <Box>
                           {pathogens[idx].name} ({pathogens[idx].spreadType})
