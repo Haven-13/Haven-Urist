@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from 'tgui/backend';
-import { Button, Box, Flex, Section, Stack, Table, Tabs } from 'tgui/components';
+import { Button, Box, Flex, LabeledList, Section, Stack, Table, Tabs } from 'tgui/components';
 import { capitalize } from 'common/string';
 import { Window } from 'tgui/layouts';
 
@@ -32,6 +32,7 @@ const NpcDialogueInteraction = (props, context) => {
 
 const TradingBuyingList = (props, context) => {
   const inventory = props.inventory;
+  const onBuy = props.onBuy;
   return(
     <Stack vertical>
       <Stack.Item>
@@ -79,6 +80,9 @@ const TradingBuyingList = (props, context) => {
                 <Table.Cell>
                   <Button
                     icon="shopping-cart"
+                    onClick={
+                      () => onBuy(item.name)
+                    }
                   />
                 </Table.Cell>
               </Table.Row>
@@ -90,11 +94,101 @@ const TradingBuyingList = (props, context) => {
   )
 }
 
-const TradingSellingScreen = (props, context) => {
-  return(
-    <Stack>
 
-    </Stack>
+const HandItemPrompt = (props, context) => {
+  const isEmpty = props.hand === null;
+  const name = props.hand?.name;
+  const icon = props.hand?.icon;
+  const worth = props.hand?.worth;
+  const sellable = props.hand?.sellable;
+  const isStorage = props.hand?.isStorage;
+
+  const onSell = props.onSell;
+
+  return (
+    <Flex direction="column" justify="space-even">
+      <Flex.Item>
+        {
+          !!!isEmpty && (
+            <Box>
+              {capitalize(name)}
+            </Box>
+          ) || (
+            <Box italic color="grey">
+              This hand is empty
+            </Box>
+          )
+        }
+      </Flex.Item>
+      <Flex.Item>
+        {
+          !!!isEmpty && (
+            <Flex direction="row" justify="space-between">
+              <Flex.Item>
+                <Box
+                  inline
+                  verticalAlign="middle"
+                  color={sellable ? 'good' : 'bad'}
+                >
+                  {
+                    !sellable
+                    ? (
+                      "This trader is not interested"
+                    ) : (
+                      <Box color='good'>
+                        This trader will give you {
+                        <Box as="span" color="yellow">
+                          {worth}
+                        </Box>
+                        } Cr
+                      </Box>
+                    )
+                  }
+                </Box>
+              </Flex.Item>
+              <Flex.Item>
+                <Button
+                  disabled={!sellable}
+                  content="Sell"
+                  onClick={() => onSell(worth)}
+                />
+              </Flex.Item>
+            </Flex>
+          )
+        }
+      </Flex.Item>
+    </Flex>
+  )
+}
+
+const TradingSellingScreen = (props, context) => {
+  const {data, act} = useBackend(context);
+  const onSell = props.onSell;
+  return (
+    <LabeledList>
+      <LabeledList.Item
+        verticalAlign="top"
+        label="Left hand"
+      >
+        <HandItemPrompt
+          hand={data.leftHand}
+          onSell={
+            (value) => onSell("sell_item_l", value)
+          }
+        />
+      </LabeledList.Item>
+      <LabeledList.Item
+        verticalAlign="top"
+        label="Right hand"
+      >
+        <HandItemPrompt
+          hand={data.rightHand}
+          onSell={
+            (value) => onSell("sell_item_r", value)
+          }
+        />
+      </LabeledList.Item>
+    </LabeledList>
   )
 }
 
@@ -116,10 +210,22 @@ const NpcTradingInteraction = (props, context) => {
     (<TradingBuyingList
       key={ACTIONS.buying}
       inventory={inventory}
+      onBuy={
+        (item) => act("buy_item", {
+          user: data.user,
+          buy_item: item
+        })
+      }
     />),
     (<TradingSellingScreen
       key={ACTIONS.selling}
-    />),
+      onSell={
+        (ref, value) => act(ref, {
+          user: data.user,
+          worth: value
+        })
+      }
+    />)
   ];
 
   const [
@@ -185,7 +291,18 @@ export const NpcInteraction = (props, context) => {
         <Stack vertical fill>
           <Stack.Item>
             <Section
-              title={data.name}>
+              title={data.name}
+              buttons={
+                <Button
+                  icon="running"
+                  tooltip={
+                    "Good bye!"
+                  }
+                  onClick={
+                    () => act("close")
+                  }
+                />
+              }>
               <Box italic textAlign="right">
                 &#34;{data.greeting}&#34;
               </Box>

@@ -172,7 +172,7 @@
 	if(!user || !user.client) return
 	var/param = "null"
 	if(ref)
-		param = "[REF(ref)]"
+		param = REF(ref)
 
 	spawn(2)
 		if(!user.client) return

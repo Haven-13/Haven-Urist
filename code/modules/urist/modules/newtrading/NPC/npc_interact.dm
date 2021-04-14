@@ -77,11 +77,11 @@
 		"isStorage" = istype(M.r_hand, /obj/item/weapon/storage)
 	) : null
 
-	data["user"] = "[REF(user)]"
+	data["user"] = REF(user)
 
 	return data
 
-/mob/living/simple_animal/hostile/npc/ui_act(action, list/params)
+/mob/living/simple_animal/hostile/npc/ui_act(action, list/params, datum/tgui/ui)
 	switch(action)
 		if("sell_item_l")
 			var/mob/living/carbon/M = locate(params["user"])
@@ -89,7 +89,7 @@
 				var/obj/O = M.l_hand
 				var/worth = text2num(params["worth"])
 				player_sell(O, M, worth)
-
+			. = TRUE
 		if("ask_question")
 			var/mob/living/carbon/M = locate(params["user"])
 			if(say_next)
@@ -97,26 +97,22 @@
 			else
 				var/choice = text2num(params["topic"])
 				handle_question(M, choice)
-
+			. = TRUE
 		if("sell_item_r")
 			var/mob/living/carbon/M = locate(params["user"])
 			if(M && istype(M))
 				var/obj/O = M.r_hand
 				var/worth = text2num(params["worth"])
 				player_sell(O, M, worth)
-
+			. = TRUE
 		if("buy_item")
 			var/mob/living/carbon/M = locate(params["user"])
 			if(M && istype(M))
 				var/item_name = params["buy_item"]
 				player_buy(item_name, M)
-
-		if("switch_screen")
-			interact_screen = text2num(params["switch_screen"])
-
+			. = TRUE
 		if("close")
-			close_ui()
-
+			close_ui(ui)
 
 /mob/living/simple_animal/hostile/npc/proc/close_ui(var/datum/tgui/ui = null)
 	if(ui)

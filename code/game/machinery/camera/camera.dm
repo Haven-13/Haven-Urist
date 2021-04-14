@@ -459,7 +459,7 @@
 	var/cam[0]
 	cam["name"] = sanitize(c_tag)
 	cam["deact"] = !can_use()
-	cam["camera"] = "[REF(src)]"
+	cam["camera"] = REF(src)
 	cam["x"] = x
 	cam["y"] = y
 	cam["z"] = z

@@ -204,7 +204,7 @@
 				category.Add(list(list(
 					"name" = spc.name,
 					"cost" = spc.cost,
-					"ref" = "[REF(spc)]"
+					"ref" = REF(spc)
 				)))
 			category_contents[sp.name] = category
 

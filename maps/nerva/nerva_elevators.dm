@@ -269,7 +269,7 @@
 		for(var/thing in floor_turfs)
 			new area_path(thing)
 		var/area/A = locate(area_path)
-		cfloor.set_area_ref("[REF(A)]")
+		cfloor.set_area_ref(REF(A))
 		az++
 
 	// Place lift panel.

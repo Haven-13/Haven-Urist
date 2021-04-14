@@ -60,7 +60,7 @@ Data storage vars:
 	New(list/arguments=null,autostart=1)
 		delay = delay>0?(delay):1
 		if(forbid_garbage) //prevents garbage collection with tag != null
-			tag = "[REF(src)]"
+			tag = REF(src)
 		set_process_args(arguments)
 		if(autostart)
 			start()

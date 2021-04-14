@@ -53,7 +53,7 @@
 			"strengthShield" = S.shielddamage,
 			"shieldPass" = S.passshield,
 			"location" = S.loc.loc.name,
-			"ref" = "[REF(S)]"
+			"ref" = REF(S)
 			)))
 			//maybe change passshield data to ammo?
 			.["weapons"] = weapons
@@ -72,7 +72,7 @@
 			"name" = C.name,
 			"status" = status,
 			"targeted" = C.targeted,
-			"ref" = "[REF(C)]"
+			"ref" = REF(C)
 			)))
 		.["target"] = list(
 			"name" = OM.name,

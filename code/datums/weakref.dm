@@ -25,7 +25,7 @@
 	var/tmp/ref_type
 
 /weakref/New(datum/D)
-	ref = "[REF(D)]"
+	ref = REF(D)
 	ref_name = "[D]"
 	ref_type = D.type
 

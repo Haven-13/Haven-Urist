@@ -136,11 +136,11 @@ var/datum/species/shapeshifter/promethean/prometheans
 
 /datum/species/shapeshifter/promethean/get_additional_examine_text(var/mob/living/carbon/human/H)
 
-	if(!stored_shock_by_ref["[REF(H)]"])
+	if(!stored_shock_by_ref[REF(H)])
 		return
 	var/datum/gender/G = gender_datums[H.gender]
 
-	switch(stored_shock_by_ref["[REF(H)]"])
+	switch(stored_shock_by_ref[REF(H)])
 		if(1 to 10)
 			return "[G.He] [G.is] flickering gently with a little electrical activity."
 		if(11 to 20)

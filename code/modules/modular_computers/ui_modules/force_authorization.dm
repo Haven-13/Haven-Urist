@@ -25,7 +25,7 @@
 			var/datum/firemode/firemode = G.firemodes[i]
 			modes += list(list("index" = i, "mode_name" = firemode.name, "authorized" = G.authorized_modes[i]))
 
-		data["guns"] += list(list("name" = "[G]", "ref" = "[REF(G)]", "owner" = G.registered_owner, "modes" = modes, "loc" = list("x" = T.x, "y" = T.y, "z" = T.z)))
+		data["guns"] += list(list("name" = "[G]", "ref" = REF(G), "owner" = G.registered_owner, "modes" = modes, "loc" = list("x" = T.x, "y" = T.y, "z" = T.z)))
 	var/list/guns = data["guns"]
 	if(!guns.len)
 		data["message"] = "No weapons registered"
@@ -40,7 +40,7 @@
 				var/datum/firemode/firemode = G.firemodes[i]
 				modes += list(list("index" = i, "mode_name" = firemode.name, "authorized" = G.authorized_modes[i]))
 
-			data["cyborg_guns"] += list(list("name" = "[G]", "ref" = "[REF(G)]", "owner" = G.registered_owner, "modes" = modes))
+			data["cyborg_guns"] += list(list("name" = "[G]", "ref" = REF(G), "owner" = G.registered_owner, "modes" = modes))
 
 	return data
 

@@ -190,7 +190,7 @@ GLOBAL_DATUM(error_cache, /datum/error_viewer/error_cache)
 			info += "\n  " + line
 
 	if (usr)
-		usr_ref = "[REF(usr)]"
+		usr_ref = REF(usr)
 		usr_loc = get_turf(usr)
 
 /datum/error_viewer/error_entry/show_to(user, datum/error_viewer/back_to, linear)

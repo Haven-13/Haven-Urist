@@ -20,56 +20,56 @@ var/list/wrapped_species_by_ref = list()
 
 /datum/species/shapeshifter/get_icobase(var/mob/living/carbon/human/H, var/get_deform)
 	if(!H) return ..(null, get_deform)
-	var/datum/species/S = all_species[wrapped_species_by_ref["[REF(H)]"]]
+	var/datum/species/S = all_species[wrapped_species_by_ref[REF(H)]]
 	return S.get_icobase(H, get_deform)
 
 /datum/species/shapeshifter/get_race_key(var/mob/living/carbon/human/H)
-	return "[..()]-[wrapped_species_by_ref["[REF(H)]"]]"
+	return "[..()]-[wrapped_species_by_ref[REF(H)]]"
 
 /datum/species/shapeshifter/get_bodytype(var/mob/living/carbon/human/H)
 	if(!H) return ..()
-	var/datum/species/S = all_species[wrapped_species_by_ref["[REF(H)]"]]
+	var/datum/species/S = all_species[wrapped_species_by_ref[REF(H)]]
 	return S.get_bodytype(H)
 
 /datum/species/shapeshifter/get_blood_mask(var/mob/living/carbon/human/H)
 	if(!H) return ..()
-	var/datum/species/S = all_species[wrapped_species_by_ref["[REF(H)]"]]
+	var/datum/species/S = all_species[wrapped_species_by_ref[REF(H)]]
 	return S.get_blood_mask(H)
 
 /datum/species/shapeshifter/get_damage_mask(var/mob/living/carbon/human/H)
 	if(!H) return ..()
-	var/datum/species/S = all_species[wrapped_species_by_ref["[REF(H)]"]]
+	var/datum/species/S = all_species[wrapped_species_by_ref[REF(H)]]
 	return S.get_damage_mask(H)
 
 /datum/species/shapeshifter/get_damage_overlays(var/mob/living/carbon/human/H)
 	if(!H) return ..()
-	var/datum/species/S = all_species[wrapped_species_by_ref["[REF(H)]"]]
+	var/datum/species/S = all_species[wrapped_species_by_ref[REF(H)]]
 	return S.get_damage_overlays(H)
 
 /datum/species/shapeshifter/get_tail(var/mob/living/carbon/human/H)
 	if(!H) return ..()
-	var/datum/species/S = all_species[wrapped_species_by_ref["[REF(H)]"]]
+	var/datum/species/S = all_species[wrapped_species_by_ref[REF(H)]]
 	return S.get_tail(H)
 
 /datum/species/shapeshifter/get_tail_animation(var/mob/living/carbon/human/H)
 	if(!H) return ..()
-	var/datum/species/S = all_species[wrapped_species_by_ref["[REF(H)]"]]
+	var/datum/species/S = all_species[wrapped_species_by_ref[REF(H)]]
 	return S.get_tail_animation(H)
 
 /datum/species/shapeshifter/get_tail_hair(var/mob/living/carbon/human/H)
 	if(!H) return ..()
-	var/datum/species/S = all_species[wrapped_species_by_ref["[REF(H)]"]]
+	var/datum/species/S = all_species[wrapped_species_by_ref[REF(H)]]
 	return S.get_tail_hair(H)
 
 /datum/species/shapeshifter/get_husk_icon(var/mob/living/carbon/human/H)
 	if(H)
-		var/datum/species/S = all_species[wrapped_species_by_ref["[REF(H)]"]]
+		var/datum/species/S = all_species[wrapped_species_by_ref[REF(H)]]
 		if(S) return S.get_husk_icon(H)
 	 return ..()
 
 /datum/species/shapeshifter/handle_pre_spawn(var/mob/living/carbon/human/H)
 	..()
-	wrapped_species_by_ref["[REF(H)]"] = default_form
+	wrapped_species_by_ref[REF(H)] = default_form
 
 /datum/species/shapeshifter/handle_post_spawn(var/mob/living/carbon/human/H)
 	if(monochromatic)
@@ -97,7 +97,7 @@ var/list/wrapped_species_by_ref = list()
 
 	last_special = world.time + 10
 
-	var/datum/species/S = all_species[wrapped_species_by_ref["[REF(src)]"]]
+	var/datum/species/S = all_species[wrapped_species_by_ref[REF(src)]]
 
 	visible_message("<span class='notice'>\The [src]'s form contorts subtly.</span>")
 	if(S.get_hair_styles())
@@ -135,10 +135,10 @@ var/list/wrapped_species_by_ref = list()
 	last_special = world.time + 50
 
 	var/new_species = input("Please select a species to emulate.", "Shapeshifter Body") as null|anything in species.get_valid_shapeshifter_forms(src)
-	if(!new_species || !all_species[new_species] || wrapped_species_by_ref["[REF(src)]"] == new_species)
+	if(!new_species || !all_species[new_species] || wrapped_species_by_ref[REF(src)] == new_species)
 		return
 
-	wrapped_species_by_ref["[REF(src)]"] = new_species
+	wrapped_species_by_ref[REF(src)] = new_species
 	visible_message("<span class='notice'>\The [src] shifts and contorts, taking the form of \a ["\improper [new_species]"]!</span>")
 	regenerate_icons()
 

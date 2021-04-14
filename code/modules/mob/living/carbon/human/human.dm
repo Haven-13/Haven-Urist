@@ -323,10 +323,10 @@
 	if(status_flags & GODMODE)	return 0	//godmode
 
 	if(species.siemens_coefficient == -1)
-		if(stored_shock_by_ref["[REF(src)]"])
-			stored_shock_by_ref["[REF(src)]"] += shock_damage
+		if(stored_shock_by_ref[REF(src)])
+			stored_shock_by_ref[REF(src)] += shock_damage
 		else
-			stored_shock_by_ref["[REF(src)]"] = shock_damage
+			stored_shock_by_ref[REF(src)] = shock_damage
 		return
 
 	if (!def_zone)

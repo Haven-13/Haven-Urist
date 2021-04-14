@@ -560,8 +560,8 @@
 		return
 	var/obj/item/organ/external/O = pick(meatchunks)
 	to_chat(H, "<span class='danger'>Your [O.name]'s flesh mutates rapidly!</span>")
-	if(!wrapped_species_by_ref["[REF(H)]"])
-		wrapped_species_by_ref["[REF(H)]"] = H.species.name
+	if(!wrapped_species_by_ref[REF(H)])
+		wrapped_species_by_ref[REF(H)] = H.species.name
 	meatchunks = list(O) | O.children
 	for(var/obj/item/organ/external/E in meatchunks)
 		E.species = all_species[SPECIES_PROMETHEAN]

@@ -634,7 +634,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 
 	if(!A || !src) return
 
-	var/list/turfs_src = get_area_turfs("[REF(src)]")
+	var/list/turfs_src = get_area_turfs(REF(src))
 
 	if(!turfs_src.len) return
 

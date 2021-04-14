@@ -103,7 +103,7 @@ SUBSYSTEM_DEF(tgui)
 		user.client.tgui_windows = list()
 		for(var/i in 1 to TGUI_WINDOW_HARD_LIMIT)
 			var/window_id = TGUI_WINDOW_ID(i)
-			user << browse(null, "window=[window_id]")
+			close_browser(user, "window=[window_id]")
 
 /**
  * public
@@ -122,7 +122,7 @@ SUBSYSTEM_DEF(tgui)
 	// Unset machine just to be sure.
 	user.unset_machine()
 	// Close window directly just to be sure.
-	user << browse(null, "window=[window_id]")
+	close_browser(user, "window=[window_id]")
 
 /**
  * public
@@ -167,7 +167,7 @@ SUBSYSTEM_DEF(tgui)
  * return datum/tgui The found UI.
  */
 /datum/controller/subsystem/tgui/proc/get_open_ui(mob/user, datum/src_object)
-	var/key = "[REF(src_object)]"
+	var/key = REF(src_object)
 	// No UIs opened for this src_object
 	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
 		return null
@@ -188,7 +188,7 @@ SUBSYSTEM_DEF(tgui)
  */
 /datum/controller/subsystem/tgui/proc/update_uis(datum/src_object)
 	var/count = 0
-	var/key = "[REF(src_object)]"
+	var/key = REF(src_object)
 	// No UIs opened for this src_object
 	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
 		return count
@@ -210,7 +210,7 @@ SUBSYSTEM_DEF(tgui)
  */
 /datum/controller/subsystem/tgui/proc/close_uis(datum/src_object)
 	var/count = 0
-	var/key = "[REF(src_object)]"
+	var/key = REF(src_object)
 	// No UIs opened for this src_object
 	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
 		return count
@@ -286,7 +286,7 @@ SUBSYSTEM_DEF(tgui)
  * required ui datum/tgui The UI to be added.
  */
 /datum/controller/subsystem/tgui/proc/on_open(datum/tgui/ui)
-	var/key = "[REF(ui.src_object)]"
+	var/key = REF(ui.src_object)
 	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
 		open_uis_by_src[key] = list()
 	ui.user.tgui_open_uis |= ui
@@ -304,7 +304,7 @@ SUBSYSTEM_DEF(tgui)
  * return bool If the UI was removed or not.
  */
 /datum/controller/subsystem/tgui/proc/on_close(datum/tgui/ui)
-	var/key = "[REF(ui.src_object)]"
+	var/key = REF(ui.src_object)
 	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
 		return FALSE
 	// Remove it from the list of processing UIs.

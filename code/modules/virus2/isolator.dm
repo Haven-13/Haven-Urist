@@ -80,9 +80,9 @@
 					"name" = "[D ? D.get_species() : "Unidentified"] [B.name]",
 					"dna" = B.data["blood_DNA"],
 					"unique_id" = V.uniqueID,
-					"reference" = "[REF(V)]",
+					"reference" = REF(V),
 					"is_in_database" = !!R,
-					"record" = "[REF(R)]"
+					"record" = REF(R)
 					)))
 
 		if (pathogen_pool.len > 0)
@@ -94,7 +94,7 @@
 		db.Add(list(list(
 			"name" = r.fields["name"],
 			"description" = replacetext(r.fields["description"], "\n", ""),
-			"record" = "[REF(r)]"
+			"record" = REF(r)
 			)))
 
 	if (db.len > 0)

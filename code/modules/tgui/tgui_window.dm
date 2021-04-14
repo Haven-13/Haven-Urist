@@ -89,7 +89,7 @@
 	// Inject custom HTML
 	html = replacetextEx(html, "<!-- tgui:html -->\n", inline_html)
 	// Open the window
-	client << browse(html, "window=[id];[options]")
+	show_browser(client, html, "window=[id];[options]")
 	// Detect whether the control is a browser
 	is_browser = winexists(client, id) == "BROWSER"
 	// Instruct the client to signal UI when the window is closed.
@@ -195,7 +195,7 @@
 	// Do not close the window to give user some time
 	// to read the error message.
 	if(!fatally_errored)
-		client << browse(null, "window=[id]")
+		close_browser(client, "window=[id]")
 
 /**
  * public
@@ -216,7 +216,7 @@
 			message_queue = list()
 		message_queue += list(message)
 		return
-	client << output(message, is_browser \
+	send_output(client, message, is_browser \
 		? "[id]:update" \
 		: "[id].browser:update")
 
@@ -237,7 +237,7 @@
 			message_queue = list()
 		message_queue += list(message)
 		return
-	client << output(message, is_browser \
+	send_output(client, message, is_browser \
 		? "[id]:update" \
 		: "[id].browser:update")
 
@@ -269,7 +269,7 @@
 	if(!client || !message_queue)
 		return
 	for(var/message in message_queue)
-		client << output(message, is_browser \
+		send_output(client, message, is_browser \
 			? "[id]:update" \
 			: "[id].browser:update")
 	message_queue = null
@@ -314,7 +314,7 @@
 		if("close")
 			close(can_be_suspended = FALSE)
 		if("openLink")
-			client << link(href_list["url"])
+			open_link(client, href_list["url"])
 		if("cacheReloaded")
 			// Reinitialize
 			initialize(inline_assets = inline_assets, fancy = fancy)

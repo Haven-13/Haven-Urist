@@ -93,7 +93,7 @@ var/global/list/protected_objects = list(/obj/machinery,
 		maxHealth = health
 		if(creator)
 			src.creator = weakref(creator)
-			faction = "[REF(creator)]" // very unique
+			faction = REF(creator) // very unique
 		return 1
 	return
 
