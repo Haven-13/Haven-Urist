@@ -1,4 +1,4 @@
-FROM tgstation/byond:513.1536
+FROM tgstation/byond:513.1542
 
 ENV PATH=/root/cargo/bin:/root/rustup/bin:$PATH\
 	CARGO_HOME=/root/cargo\
@@ -18,7 +18,7 @@ RUN mkdir to_copy;\
 	cargo build --release --target i686-unknown-linux-gnu;\
 	mv -t to_copy target/i686-unknown-linux-gnu/release/libbyhttp.so || true
 
-FROM tgstation/byond:513.1528
+FROM tgstation/byond:513.1542
 
 ARG BUILD_ARGS
 ARG RUN_USER=root
