@@ -33,7 +33,7 @@ const NpcDialogueInteraction = (props, context) => {
 const TradingBuyingList = (props, context) => {
   const inventory = props.inventory;
   const onBuy = props.onBuy;
-  return(
+  return (
     <Stack vertical>
       <Stack.Item>
         <Table ml={1} mr={1}>
@@ -91,8 +91,8 @@ const TradingBuyingList = (props, context) => {
         </Box>
       </Stack.Item>
     </Stack>
-  )
-}
+  );
+};
 
 
 const HandItemPrompt = (props, context) => {
@@ -109,7 +109,7 @@ const HandItemPrompt = (props, context) => {
     <Flex direction="column" justify="space-even">
       <Flex.Item>
         {
-          !!!isEmpty && (
+          !isEmpty && (
             <Box>
               {capitalize(name)}
             </Box>
@@ -122,7 +122,7 @@ const HandItemPrompt = (props, context) => {
       </Flex.Item>
       <Flex.Item>
         {
-          !!!isEmpty && (
+          !isEmpty && (
             <Flex direction="row" justify="space-between">
               <Flex.Item>
                 <Box
@@ -132,17 +132,17 @@ const HandItemPrompt = (props, context) => {
                 >
                   {
                     !sellable
-                    ? (
-                      "This trader is not interested"
-                    ) : (
-                      <Box color='good'>
-                        This trader will give you {
-                        <Box as="span" color="yellow">
-                          {worth}
+                      ? (
+                        "This trader is not interested"
+                      ) : (
+                        <Box color="good">
+                          This trader will give you {
+                            <Box as="span" color="yellow">
+                              {worth}
+                            </Box>
+                          } Cr
                         </Box>
-                        } Cr
-                      </Box>
-                    )
+                      )
                   }
                 </Box>
               </Flex.Item>
@@ -158,11 +158,11 @@ const HandItemPrompt = (props, context) => {
         }
       </Flex.Item>
     </Flex>
-  )
-}
+  );
+};
 
 const TradingSellingScreen = (props, context) => {
-  const {data, act} = useBackend(context);
+  const { data, act } = useBackend(context);
   const onSell = props.onSell;
   return (
     <LabeledList>
@@ -189,8 +189,8 @@ const TradingSellingScreen = (props, context) => {
         />
       </LabeledList.Item>
     </LabeledList>
-  )
-}
+  );
+};
 
 const NpcTradingInteraction = (props, context) => {
   const { data, act } = useBackend(context);
@@ -213,7 +213,7 @@ const NpcTradingInteraction = (props, context) => {
       onBuy={
         (item) => act("buy_item", {
           user: data.user,
-          buy_item: item
+          buy_item: item,
         })
       }
     />),
@@ -222,10 +222,10 @@ const NpcTradingInteraction = (props, context) => {
       onSell={
         (ref, value) => act(ref, {
           user: data.user,
-          worth: value
+          worth: value,
         })
       }
-    />)
+    />),
   ];
 
   const [
@@ -295,9 +295,7 @@ export const NpcInteraction = (props, context) => {
               buttons={
                 <Button
                   icon="running"
-                  tooltip={
-                    "Good bye!"
-                  }
+                  tooltip="Good bye!"
                   onClick={
                     () => act("close")
                   }
