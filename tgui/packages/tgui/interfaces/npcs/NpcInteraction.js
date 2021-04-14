@@ -1,9 +1,9 @@
 import { useBackend, useLocalState } from 'tgui/backend';
-import { Button, Box, Flex, Section, Table, Tabs } from 'tgui/components';
+import { Button, Box, Flex, Section, Stack, Table, Tabs } from 'tgui/components';
 import { capitalize } from 'common/string';
 import { Window } from 'tgui/layouts';
 
-export const NpcDialogueInteraction = (props, context) => {
+const NpcDialogueInteraction = (props, context) => {
   const { data, act } = useBackend(context);
 
   const {
@@ -14,10 +14,8 @@ export const NpcDialogueInteraction = (props, context) => {
 
   return (
     <Section
+      title={"Let's talk about..."}
       fill>
-      <Box fluid>
-        Tell me about...
-      </Box>
       {topics.map((topic) => (
         <Button
           key={topic.id}
@@ -32,69 +30,32 @@ export const NpcDialogueInteraction = (props, context) => {
   );
 };
 
-export const NpcTradingInteraction = (props, context) => {
-  const { data, act } = useBackend(context);
-
-  const {
-    ...rest
-  } = props;
-
-  const ACTIONS = {
-    buying: 0,
-    selling: 1,
-  };
-
-  const inventory = props.inventory || [];
-
-  const [
-    currentAction,
-    setCurrentAction,
-  ] = useLocalState(context, 'currentAction', ACTIONS.buying);
-
-  return (
-    <Section fill>
-      <Flex direction="column" justify="space-between">
-        <Flex.Item>
-          <Tabs fluid textAlign="center">
-            <Tabs.Tab
-              selected={currentAction === ACTIONS.buying}
-              onClick={() => setCurrentAction(ACTIONS.buying)}
-            >
-              Buying
-            </Tabs.Tab>
-            <Tabs.Tab
-              selected={currentAction === ACTIONS.selling}
-              onClick={() => setCurrentAction(ACTIONS.selling)}
-            >
-              Selling
-            </Tabs.Tab>
-          </Tabs>
-        </Flex.Item>
-        <Flex.Item>
-          <Table>
-            <Table.Row
-              bold
-              lineHeight={2}
-              color="yellow"
-            >
-              <Table.Cell width={20}>
-                Item
-              </Table.Cell>
-              <Table.Cell>
-                Stock
-              </Table.Cell>
-              <Table.Cell>
-                Price
-              </Table.Cell>
-              <Table.Cell />
-            </Table.Row>
-          </Table>
-        </Flex.Item>
-        <Flex.Item
-          height="100%"
-          shrink={1}
-          overflowY="auto"
-        >
+const TradingBuyingList = (props, context) => {
+  const inventory = props.inventory;
+  return(
+    <Stack vertical>
+      <Stack.Item>
+        <Table ml={1} mr={1}>
+          <Table.Row
+            bold
+            lineHeight={2}
+            color="yellow"
+          >
+            <Table.Cell width={20}>
+              Item
+            </Table.Cell>
+            <Table.Cell>
+              Stock
+            </Table.Cell>
+            <Table.Cell>
+              Price
+            </Table.Cell>
+            <Table.Cell />
+          </Table.Row>
+        </Table>
+      </Stack.Item>
+      <Stack.Item>
+        <Box fitted ml={1} height={22} overflowY="auto">
           <Table>
             {inventory.map((item) => (
               <Table.Row key={item.name}>
@@ -123,9 +84,71 @@ export const NpcTradingInteraction = (props, context) => {
               </Table.Row>
             ))}
           </Table>
-        </Flex.Item>
-      </Flex>
-    </Section>
+        </Box>
+      </Stack.Item>
+    </Stack>
+  )
+}
+
+const TradingSellingScreen = (props, context) => {
+  return(
+    <Stack>
+
+    </Stack>
+  )
+}
+
+const NpcTradingInteraction = (props, context) => {
+  const { data, act } = useBackend(context);
+
+  const {
+    ...rest
+  } = props;
+
+  const inventory = props.inventory || [];
+
+  const ACTIONS = {
+    buying: 0,
+    selling: 1,
+  };
+
+  const ACTION_SCREENS = [
+    (<TradingBuyingList
+      key={ACTIONS.buying}
+      inventory={inventory}
+    />),
+    (<TradingSellingScreen
+      key={ACTIONS.selling}
+    />),
+  ];
+
+  const [
+    currentAction,
+    setCurrentAction,
+  ] = useLocalState(context, 'currentAction', ACTIONS.buying);
+
+  return (
+    <Stack vertical>
+      <Stack.Item>
+        <Tabs fluid textAlign="center">
+          <Tabs.Tab
+            selected={currentAction === ACTIONS.buying}
+            onClick={() => setCurrentAction(ACTIONS.buying)}
+          >
+            Buying
+          </Tabs.Tab>
+          <Tabs.Tab
+            selected={currentAction === ACTIONS.selling}
+            onClick={() => setCurrentAction(ACTIONS.selling)}
+          >
+            Selling
+          </Tabs.Tab>
+        </Tabs>
+      </Stack.Item>
+      <Stack.Item>
+        {ACTION_SCREENS[currentAction]}
+      </Stack.Item>
+    </Stack>
   );
 };
 
@@ -158,39 +181,47 @@ export const NpcInteraction = (props, context) => {
       width={400}
       height={500}
     >
-      <Window.Content width="100%" height="100%">
-        <Section
-          title={data.name}>
-          <Box italic textAlign="right">
-            &#34;{data.greeting}&#34;
-          </Box>
-        </Section>
-        <Section>
-          <Tabs
-            fluid
-            textAlign="center"
-          >
-            <Tabs.Tab
-              selected={currentInteraction === INTERACTIONS.dialogue}
-              onClick={
-                () => setCurrentInteraction(INTERACTIONS.dialogue)
-              }
-            >
-              Dialogue
-            </Tabs.Tab>
-            <Tabs.Tab
-              selected={currentInteraction === INTERACTIONS.trading}
-              onClick={
-                () => setCurrentInteraction(INTERACTIONS.trading)
-              }
-            >
-              Trading
-            </Tabs.Tab>
-          </Tabs>
-        </Section>
-        <Section fill fitted>
-          {INTERACTION_SCREENS[currentInteraction]}
-        </Section>
+      <Window.Content>
+        <Stack vertical fill>
+          <Stack.Item>
+            <Section
+              title={data.name}>
+              <Box italic textAlign="right">
+                &#34;{data.greeting}&#34;
+              </Box>
+            </Section>
+          </Stack.Item>
+          <Stack.Item>
+            <Section>
+              <Tabs
+                fluid
+                textAlign="center"
+              >
+                <Tabs.Tab
+                  selected={currentInteraction === INTERACTIONS.dialogue}
+                  onClick={
+                    () => setCurrentInteraction(INTERACTIONS.dialogue)
+                  }
+                >
+                  Dialogue
+                </Tabs.Tab>
+                <Tabs.Tab
+                  selected={currentInteraction === INTERACTIONS.trading}
+                  onClick={
+                    () => setCurrentInteraction(INTERACTIONS.trading)
+                  }
+                >
+                  Trading
+                </Tabs.Tab>
+              </Tabs>
+            </Section>
+          </Stack.Item>
+          <Stack.Item grow>
+            <Section fill>
+              {INTERACTION_SCREENS[currentInteraction]}
+            </Section>
+          </Stack.Item>
+        </Stack>
       </Window.Content>
     </Window>
   );

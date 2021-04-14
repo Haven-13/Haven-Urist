@@ -73,8 +73,9 @@
 
 /mob/living/shared_ui_interaction(src_object)
 	. = ..()
-	if(. == UI_INTERACTIVE)
-		return UI_UPDATE
+	// tg-only code commented out for legacy
+	// if(!(mobility_flags & MOBILITY_UI) && . == UI_INTERACTIVE)
+	//	return UI_UPDATE
 
 /mob/living/silicon/ai/shared_ui_interaction(src_object)
 	// Disable UIs if the AI is unpowered.
