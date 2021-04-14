@@ -216,9 +216,11 @@
 			message_queue = list()
 		message_queue += list(message)
 		return
-	send_output(client, message, is_browser \
-		? "[id]:update" \
-		: "[id].browser:update")
+	send_output(
+		client,
+		message,
+		is_browser ? "[id]:update" : "[id].browser:update"
+	)
 
 /**
  * public
