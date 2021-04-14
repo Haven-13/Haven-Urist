@@ -2,6 +2,7 @@ GLOBAL_LIST_EMPTY(npc_speech_topics)
 
 /hook/startup/proc/populate_npc_speech_topics()
 	init_subtypes_assoc(/datum/npc_speech_trigger, GLOB.npc_speech_topics)
+	return 1
 
 /datum/npc_speech_trigger
 	var/name
