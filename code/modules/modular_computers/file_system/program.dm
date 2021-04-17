@@ -223,10 +223,10 @@
 	src.program = program
 
 /datum/ui_module/program/ui_host()
-	return program.ui_host()
+	return program ? program.ui_host() : ..()
 
 /datum/ui_module/program/ui_status(mob/user, datum/ui_state/state)
-	return program.ui_status(user, state)
+	return program ? program.ui_status(user, state) : ..()
 
 /datum/ui_module/program/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

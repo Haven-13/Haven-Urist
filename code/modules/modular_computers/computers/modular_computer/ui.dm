@@ -56,15 +56,10 @@
 		if("PC_exit")
 			kill_program()
 			. = TRUE
-		if("PC_enable_component")
-			var/obj/item/weapon/computer_hardware/H = find_hardware_by_name(params["PC_enable_component"])
-			if(H && istype(H) && !H.enabled)
-				H.enabled = TRUE
-			. = TRUE
-		if("PC_disable_component")
-			var/obj/item/weapon/computer_hardware/H = find_hardware_by_name(params["PC_disable_component"])
-			if(H && istype(H) && H.enabled)
-				H.enabled = FALSE
+		if("PC_toggle_component")
+			var/obj/item/weapon/computer_hardware/H = find_hardware_by_name(params["name"])
+			if(H && istype(H))
+				H.enabled = !H.enabled
 			. = TRUE
 		if("PC_eject_item")
 			switch(params["name"])
