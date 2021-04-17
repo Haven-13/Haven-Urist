@@ -23,64 +23,60 @@ const PROGRAM_ICONS = {
 export const ModularComputerMain = (props, context) => {
   const { act, data } = useBackend(context);
   const {
-    device_theme,
+    deviceTheme,
     programs = [],
-    has_light,
-    light_on,
-    comp_light_color,
-    removable_media = [],
-    login = [],
+    hasLight,
+    lightOn,
+    removableMedia = [],
   } = data;
+  const canShowCard = data.PC_hascardslot && data.PC_boardcastcard;
+  const login = data.PC_card || [];
   return (
     <NtosWindow
-      title={device_theme === 'syndicate'
+      title={deviceTheme === 'syndicate'
         && 'Syndix Main Menu'
         || 'NtOS Main Menu'}
-      theme={device_theme}
+      theme={deviceTheme}
       width={400}
       height={500}
       resizable>
       <NtosWindow.Content scrollable>
-        {!!has_light && (
+        {!!hasLight && (
           <Section>
             <Button
               width="144px"
               icon="lightbulb"
-              selected={light_on}
+              selected={lightOn}
               onClick={() => act('PC_toggle_light')}>
-              Flashlight: {light_on ? 'ON' : 'OFF'}
-            </Button>
-            <Button
-              ml={1}
-              onClick={() => act('PC_light_color')}>
-              Color:
-              <ColorBox ml={1} color={comp_light_color} />
+              Flashlight: {lightOn ? 'ON' : 'OFF'}
             </Button>
           </Section>
         )}
-        <Section
-          title="User Login"
-          buttons={(
-            <Button
-              icon="eject"
-              content="Eject ID"
-              disabled={!login.IDName}
-              onClick={() => act('PC_Eject_Disk', { name: "ID" })}
-            />
-          )}>
-          <Table>
-            <Table.Row>
-              ID Name: {login.IDName}
-            </Table.Row>
-            <Table.Row>
-              Assignment: {login.IDJob}
-            </Table.Row>
-          </Table>
-        </Section>
-        {!!removable_media.length && (
+        {!!canShowCard && (
+          <Section
+            title="User Login"
+            buttons={(
+              <Button
+                icon="eject"
+                content="Eject ID"
+                disabled={!login.IDName}
+                onClick={() => act('PC_eject_item', { name: "id_card" })}
+              />
+            )}>
+            <Table>
+              <Table.Row>
+                ID Name: {login.IDName}
+              </Table.Row>
+              <Table.Row>
+                Assignment: {login.IDJob}
+              </Table.Row>
+            </Table>
+          </Section>
+        )}
+        {!!removableMedia.length && (
           <Section title="Media Eject">
             <Table>
-              {removable_media.map(device => (
+              {removableMedia.map(device => (
                 <Table.Row key={device}>
                   <Table.Cell>
                     <Button
@@ -108,7 +104,7 @@ export const ModularComputerMain = (props, context) => {
                       || 'window-maximize-o'}
                     content={program.desc}
                     onClick={() => act('PC_runprogram', {
-                      name: program.name,
+                      PC_runprogram: program.name,
                     })} />
                 </Table.Cell>
                 <Table.Cell collapsing width="18px">

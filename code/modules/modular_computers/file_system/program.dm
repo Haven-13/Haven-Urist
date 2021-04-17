@@ -35,7 +35,7 @@
 	. = ..()
 
 /datum/computer_file/program/ui_host()
-	return computer.ui_host()
+	return computer
 
 /datum/computer_file/program/clone()
 	var/datum/computer_file/program/temp = ..()
@@ -151,7 +151,7 @@
 /datum/computer_file/program/proc/run_program(var/mob/living/user)
 	if(can_run(user, 1) || !requires_access_to_run)
 		if(ui_module_path)
-			NM = new ui_module_path(src, new /datum/topic_manager/program(src), src)
+			NM = new ui_module_path(src, src)
 			if(user)
 				NM.using_access = user.GetAccess()
 		if(requires_ntnet && network_destination)
@@ -182,17 +182,23 @@
 		return 0
 	return 1
 
+/datum/computer_file/program/ui_status(mob/user, datum/ui_state/state)
+	if (program_state != PROGRAM_STATE_ACTIVE)
+		return UI_CLOSE
+	return ..()
 
 // CONVENTIONS, READ THIS WHEN CREATING NEW PROGRAM AND OVERRIDING THIS PROC:
 // Topic calls are automagically forwarded from NanoModule this program contains.
 // Calls beginning with "PRG_" are reserved for programs handling.
 // Calls beginning with "PC_" are reserved for computer handling (by whatever runs the program)
 // ALWAYS INCLUDE PARENT CALL ..() OR DIE IN FIRE.
-/datum/computer_file/program/Topic(href, href_list)
-	if(..())
-		return 1
+/datum/computer_file/program/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
+	if (.)
+		return
 	if(computer)
-		return computer.Topic(href, href_list)
+		return computer.ui_act(action, params, ui, state)
 
 // Relays the call to nano module, if we have one
 /datum/computer_file/program/proc/check_eye(var/mob/user)
@@ -212,9 +218,15 @@
 	var/ui_interface_name = "programs/NotDefined"
 	var/datum/computer_file/program/program = null	// Program-Based computer program that runs this nano module. Defaults to null.
 
-/datum/ui_module/program/New(var/host, var/topic_manager, var/program)
+/datum/ui_module/program/New(var/host, var/program)
 	..()
 	src.program = program
+
+/datum/ui_module/program/ui_host()
+	return program.ui_host()
+
+/datum/ui_module/program/ui_status(mob/user, datum/ui_state/state)
+	return program.ui_status(user, state)
 
 /datum/ui_module/program/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -222,17 +234,8 @@
 		ui = new(user, src, ui_interface_name, name)
 		ui.open()
 
-/datum/topic_manager/program
-	var/datum/program
-
-/datum/topic_manager/program/New(var/datum/program)
-	..()
-	src.program = program
-
-// Calls forwarded to PROGRAM itself should begin with "PRG_"
-// Calls forwarded to COMPUTER running the program should begin with "PC_"
-/datum/topic_manager/program/Topic(href, href_list)
-	return program && program.Topic(href, href_list)
+/datum/ui_module/program/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	return program && program.ui_act(action, params, ui, state)
 
 /datum/computer_file/program/apply_visual(mob/M)
 	if(NM)

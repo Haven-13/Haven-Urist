@@ -185,7 +185,7 @@
 
 	idle_threads.Add(active_program)
 	active_program.program_state = PROGRAM_STATE_BACKGROUND // Should close any existing UIs
-	SStgui.close_uis(active_program.NM || active_program)
+	SStgui.close_uis(active_program)
 	active_program = null
 	update_icon()
 	if(istype(user))
@@ -231,8 +231,6 @@
 /obj/item/modular_computer/proc/update_uis()
 	if(active_program) //Should we update program ui or computer ui?
 		SStgui.update_uis(active_program)
-		if(active_program.NM)
-			SStgui.update_uis(active_program.NM)
 	else
 		SStgui.update_uis(src)
 

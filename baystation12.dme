@@ -2071,6 +2071,7 @@
 #include "code\modules\mob\skills\skill_verbs.dm"
 #include "code\modules\mob\skills\skillset.dm"
 #include "code\modules\mob\skills\skillset_silicon.dm"
+#include "code\modules\modular_computers\communication.dm"
 #include "code\modules\modular_computers\laptop_vendor.dm"
 #include "code\modules\modular_computers\computers\modular_computer\core.dm"
 #include "code\modules\modular_computers\computers\modular_computer\damage.dm"

@@ -1,3 +1,6 @@
+/obj/item/modular_computer/ui_state(mob/user)
+	return ui_physical_state()
+
 /obj/item/modular_computer/ui_status(mob/user, datum/ui_state/state)
 	if(!screen_on || !enabled || bsod)
 		return UI_CLOSE
@@ -44,56 +47,56 @@
 	data["programs"] = programs
 	return data
 
-// Handles user's GUI input
-/obj/item/modular_computer/Topic(href, href_list)
-	if(..())
-		return 1
-	if( href_list["PC_exit"] )
-		kill_program()
-		return 1
-	if( href_list["PC_enable_component"] )
-		var/obj/item/weapon/computer_hardware/H = find_hardware_by_name(href_list["PC_enable_component"])
-		if(H && istype(H) && !H.enabled)
-			H.enabled = 1
-		. = 1
-	if( href_list["PC_disable_component"] )
-		var/obj/item/weapon/computer_hardware/H = find_hardware_by_name(href_list["PC_disable_component"])
-		if(H && istype(H) && H.enabled)
-			H.enabled = 0
-		. = 1
-	if( href_list["PC_shutdown"] )
-		shutdown_computer()
-		return 1
-	if( href_list["PC_minimize"] )
-		var/mob/user = usr
-		minimize_program(user)
-
-	if( href_list["PC_killprogram"] )
-		var/prog = href_list["PC_killprogram"]
-		var/datum/computer_file/program/P = null
-		var/mob/user = usr
-		if(hard_drive)
-			P = hard_drive.find_file_by_name(prog)
-
-		if(!istype(P) || P.program_state == PROGRAM_STATE_KILLED)
-			return
-
-		P.kill_program(1)
-		update_uis()
-		to_chat(user, "<span class='notice'>Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed.</span>")
-
-	if( href_list["PC_runprogram"] )
-		return run_program(href_list["PC_runprogram"])
-
-	if( href_list["PC_setautorun"] )
-		if(!hard_drive)
-			return
-		set_autorun(href_list["PC_setautorun"])
-
+/obj/item/modular_computer/ui_act(action, list/params)
+	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
 	if(.)
-		update_uis()
+		return .
+	switch(action)
+		if("PC_exit")
+			kill_program()
+			. = TRUE
+		if("PC_enable_component")
+			var/obj/item/weapon/computer_hardware/H = find_hardware_by_name(params["PC_enable_component"])
+			if(H && istype(H) && !H.enabled)
+				H.enabled = TRUE
+			. = TRUE
+		if("PC_disable_component")
+			var/obj/item/weapon/computer_hardware/H = find_hardware_by_name(params["PC_disable_component"])
+			if(H && istype(H) && H.enabled)
+				H.enabled = FALSE
+			. = TRUE
+		if("PC_eject_item")
+			switch(params["name"])
+				if("id_card")
+					proc_eject_id(usr)
+				if("ai_card")
+					proc_eject_ai(usr)
+				if("storage")
+					proc_eject_usb(usr)
+			. = TRUE
+		if("PC_shutdown")
+			shutdown_computer()
+			. = TRUE
+		if("PC_minimize")
+			minimize_program(usr)
+			. = TRUE
+		if("PC_killprogram")
+			var/prog = params["PC_killprogram"]
+			if(hard_drive)
+				var/datum/computer_file/program/P = hard_drive.find_file_by_name(prog)
+				if(istype(P) && P.program_state != PROGRAM_STATE_KILLED)
+					P.kill_program(1)
+					to_chat(usr, "<span class='notice'>Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed.</span>")
+			. = TRUE
+		if("PC_runprogram")
+			. = run_program(params["PC_runprogram"])
+		if("PC_setautorun")
+			if(hard_drive)
+				set_autorun(params["PC_setautorun"])
+			. = TRUE
 
-// Function used by NanoUI's to obtain data for header. All relevant entries begin with "PC_"
+// Function used by tgUI to obtain data for header. All relevant entries begin with "PC_"
 /obj/item/modular_computer/proc/get_header_data()
 	var/list/data = list()
 
@@ -117,6 +120,16 @@
 		data["PC_batteryicon"] = "batt_5.gif"
 		data["PC_batterypercent"] = "N/C"
 		data["PC_showbatteryicon"] = battery_module ? 1 : 0
+
+	if(card_slot)
+		data["PC_hascardslot"] = 1
+		data["PC_boardcastcard"] = card_slot.can_broadcast
+		data["PC_card"] = istype(card_slot.stored_card) ? list(
+			"IDName" = card_slot.stored_card.registered_name,
+			"IDJob" = card_slot.stored_card.assignment
+		) : null
+	else
+		data["PC_hascardslot"] = 0
 
 	if(tesla_link && tesla_link.enabled && apc_powered)
 		data["PC_apclinkicon"] = "charging.gif"

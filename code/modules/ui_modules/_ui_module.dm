@@ -2,17 +2,14 @@
 	var/name
 	var/datum/host
 	var/available_to_ai = TRUE
-	var/datum/topic_manager/topic_manager
 	var/list/using_access = list()
 
-/datum/ui_module/New(var/datum/host, var/topic_manager)
+/datum/ui_module/New(var/datum/host)
 	..()
 	src.host = host.ui_host()
-	src.topic_manager = topic_manager
 
 /datum/ui_module/Destroy()
 	host = null
-	QDEL_NULL(topic_manager)
 	. = ..()
 
 /datum/ui_module/ui_host()
@@ -42,8 +39,6 @@
 	return has_access(access, list(), get_access(user)) //Also checks the mob's ID.
 
 /datum/ui_module/Topic(href, href_list)
-	if(topic_manager && topic_manager.Topic(href, href_list))
-		return TRUE
 	. = ..()
 
 /datum/ui_module/proc/get_host_z()
