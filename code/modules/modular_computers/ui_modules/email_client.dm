@@ -1,7 +1,7 @@
 
 /datum/ui_module/program/email_client/
 	name = "Email Client"
-	ui_interface_name = "programs/EmailClientProgram"
+	ui_interface_name = "programs/NtosEmailClient"
 
 	var/stored_login = ""
 	var/stored_password = ""

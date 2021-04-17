@@ -282,8 +282,8 @@
 	if(!istype(autorun))
 		autorun = new/datum/computer_file/data()
 		autorun.filename = "autorun"
-		autorun.stored_data = "[program]"
-		hard_drive.store_file(autorun)
+	autorun.stored_data = "[program]"
+	hard_drive.store_file(autorun)
 
 /obj/item/modular_computer/GetIdCard()
 	if(card_slot && card_slot.can_broadcast && istype(card_slot.stored_card))

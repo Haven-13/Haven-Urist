@@ -1,6 +1,6 @@
 /datum/ui_module/program/computer_ntnetmonitor
 	name = "NTNet Diagnostics and Monitoring"
-	ui_interface_name = "programs/NtnetMonitorProgram"
+	ui_interface_name = "programs/NtosNetMonitor"
 	available_to_ai = TRUE
 
 /datum/ui_module/program/computer_ntnetmonitor/ui_data(mob/user)

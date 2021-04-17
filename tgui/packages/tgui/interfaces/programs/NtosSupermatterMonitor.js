@@ -8,7 +8,7 @@ import { NtosWindow } from "tgui/layouts";
 
 const logScale = value => Math.log2(16 + Math.max(0, value)) - 4;
 
-export const SupermatterMonitorProgram = (props, context) => {
+export const NtosSupermatterMonitor = (props, context) => {
   return (
     <NtosWindow
       width={600}

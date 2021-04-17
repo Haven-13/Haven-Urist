@@ -1,7 +1,7 @@
 
 /datum/ui_module/program/card_mod
 	name = "ID card modification program"
-	ui_interface_name = "programs/IdentificationComputer"
+	ui_interface_name = "programs/NtosCard"
 	var/mod_mode = 1
 	var/is_centcom = 0
 	var/show_assignments = 0

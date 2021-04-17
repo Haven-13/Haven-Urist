@@ -1,6 +1,6 @@
 /datum/ui_module/program/crew_monitor
 	name = "Crew monitor"
-	ui_interface_name = "programs/CrewMonitorProgram"
+	ui_interface_name = "programs/NtosCrewMonitor"
 
 /datum/ui_module/program/crew_monitor/proc/has_alerts()
 	for(var/z_level in GLOB.using_map.map_levels)

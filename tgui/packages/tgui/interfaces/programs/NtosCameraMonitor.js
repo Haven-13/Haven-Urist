@@ -41,7 +41,7 @@ const selectCameras = (cameras, searchText = '') => {
   ])(cameras);
 };
 
-export const CameraConsole = (props, context) => {
+export const NtosCameraMonitor = (props, context) => {
   const { act, data, config } = useBackend(context);
   const { mapRef, activeCamera } = data;
   const cameras = selectCameras(data.cameras);

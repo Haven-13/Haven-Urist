@@ -20,7 +20,7 @@ const PROGRAM_ICONS = {
   shipping: 'tags',
 };
 
-export const ModularComputerMain = (props, context) => {
+export const NtosBase = (props, context) => {
   const { act, data } = useBackend(context);
   const {
     deviceTheme,
@@ -104,7 +104,7 @@ export const ModularComputerMain = (props, context) => {
                       || 'window-maximize-o'}
                     content={program.desc}
                     onClick={() => act('PC_runprogram', {
-                      PC_runprogram: program.name,
+                      name: program.name,
                     })} />
                 </Table.Cell>
                 <Table.Cell collapsing width="18px">
@@ -118,6 +118,17 @@ export const ModularComputerMain = (props, context) => {
                         name: program.name,
                       })} />
                   )}
+                </Table.Cell>
+                <Table.Cell>
+                  <Button.Checkbox
+                    color="transparent"
+                    checked={program.autorun}
+                    tooltip="Set start-up auto-run"
+                    tooltipPosition="left"
+                    onClick={() => act('PC_setautorun', {
+                      name: program.autorun ? null : program.name,
+                    })}
+                  />
                 </Table.Cell>
               </Table.Row>
             ))}

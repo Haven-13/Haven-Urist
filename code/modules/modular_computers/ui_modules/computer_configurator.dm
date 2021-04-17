@@ -1,6 +1,6 @@
 /datum/ui_module/program/computer_configurator
 	name = "NTOS Computer Configuration Tool"
-	ui_interface_name = "programs/ComputerConfigProgram"
+	ui_interface_name = "programs/NtosConfigurator"
 	var/obj/item/modular_computer/movable = null
 
 /datum/ui_module/program/computer_configurator/ui_data(mob/user)

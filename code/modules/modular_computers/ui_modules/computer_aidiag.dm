@@ -1,6 +1,6 @@
 /datum/ui_module/program/computer_aidiag
 	name = "AI Maintenance Utility"
-	ui_interface_name = "programs/AiFixerProgram"
+	ui_interface_name = "programs/NtosAiRestorer"
 
 /datum/ui_module/program/computer_aidiag/ui_data(mob/user)
 	var/list/data = host.initial_data()

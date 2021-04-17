@@ -1,6 +1,6 @@
 /datum/ui_module/program/computer_chatclient
 	name = "NTNet Relay Chat Client"
-	ui_interface_name = "programs/NtChatClientProgram"
+	ui_interface_name = "programs/NtosNetChat"
 
 /datum/ui_module/program/computer_chatclient/ui_data(mob/user)
 	var/list/data = list()

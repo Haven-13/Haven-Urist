@@ -1,6 +1,6 @@
 /datum/ui_module/program/computer_ntnetdownload
 	name = "Network Downloader"
-	ui_interface_name = "programs/NtnetDownloaderProgram"
+	ui_interface_name = "programs/NtosNetDownloader"
 	var/obj/item/modular_computer/my_computer = null
 
 /datum/ui_module/program/computer_ntnetdownload/ui_data(mob/user)

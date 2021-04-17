@@ -25,7 +25,7 @@
 /obj/item/modular_computer/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "programs/ModularComputerMain")
+		ui = new(user, src, "programs/NtosBase")
 		ui.open()
 
 /obj/item/modular_computer/ui_data(mob/user)
@@ -40,8 +40,7 @@
 		program["desc"] = P.filedesc
 		program["icon"] = P.program_menu_icon
 		program["autorun"] = (istype(autorun) && (autorun.stored_data == P.filename)) ? 1 : 0
-		if(P in idle_threads)
-			program["running"] = 1
+		program["running"] = (P in idle_threads) ? 1 : 0
 		programs.Add(list(program))
 
 	data["programs"] = programs
@@ -77,7 +76,7 @@
 			minimize_program(usr)
 			. = TRUE
 		if("PC_killprogram")
-			var/prog = params["PC_killprogram"]
+			var/prog = params["name"]
 			if(hard_drive)
 				var/datum/computer_file/program/P = hard_drive.find_file_by_name(prog)
 				if(istype(P) && P.program_state != PROGRAM_STATE_KILLED)
@@ -85,10 +84,10 @@
 					to_chat(usr, "<span class='notice'>Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed.</span>")
 			. = TRUE
 		if("PC_runprogram")
-			. = run_program(params["PC_runprogram"])
+			. = run_program(params["name"])
 		if("PC_setautorun")
 			if(hard_drive)
-				set_autorun(params["PC_setautorun"])
+				set_autorun(params["name"])
 			. = TRUE
 
 // Function used by tgUI to obtain data for header. All relevant entries begin with "PC_"

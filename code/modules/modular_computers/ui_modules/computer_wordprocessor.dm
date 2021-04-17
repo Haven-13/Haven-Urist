@@ -1,6 +1,6 @@
 /datum/ui_module/program/computer_wordprocessor
 	name = "Word Processor"
-	ui_interface_name = "programs/WordProcessorProgram"
+	ui_interface_name = "programs/NtosWord"
 
 /datum/ui_module/program/computer_wordprocessor/ui_data(mob/user)
 	var/list/data = host.initial_data()

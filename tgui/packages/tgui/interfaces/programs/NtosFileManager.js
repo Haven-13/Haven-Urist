@@ -3,7 +3,7 @@ import { useBackend } from "tgui/backend";
 import { Button, Section, Table } from "tgui/components";
 import { NtosWindow } from "tgui/layouts";
 
-export const FileManagerProgram = (props, context) => {
+export const NtosFileManager = (props, context) => {
   const { act, data } = useBackend(context);
   const {
     PC_device_theme,

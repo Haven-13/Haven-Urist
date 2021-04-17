@@ -1,6 +1,6 @@
 /datum/ui_module/program/digitalwarrant
 	name = "Warrant Assistant"
-	ui_interface_name = "programs/DigitalWarrantProgram"
+	ui_interface_name = "programs/DigitalWarrant"
 	var/datum/computer_file/data/warrant/activewarrant
 
 /datum/ui_module/program/digitalwarrant/ui_data(mob/user)

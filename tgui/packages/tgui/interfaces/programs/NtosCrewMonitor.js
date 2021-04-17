@@ -4,7 +4,7 @@ import { Box, Section, Table } from "tgui/components";
 import { round } from "common/math";
 import { Window } from "tgui/layouts";
 
-export const CrewMonitorProgram = () => {
+export const NtosCrewMonitor = () => {
   return (
     <Window
       title="Crew Monitor"

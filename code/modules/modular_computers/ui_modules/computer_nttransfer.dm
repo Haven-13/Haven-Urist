@@ -1,6 +1,6 @@
 /datum/ui_module/program/computer_nttransfer
 	name = "NTNet P2P Transfer Client"
-	ui_interface_name = "programs/NtnetTransferProgram"
+	ui_interface_name = "programs/NtosNetTransferProgram"
 
 /datum/ui_module/program/computer_nttransfer/ui_data(mob/user)
 	if(!program)

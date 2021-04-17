@@ -1,7 +1,7 @@
 
 /datum/ui_module/program/computer_filemanager
 	name = "NTOS File Manager"
-	ui_interface_name = "programs/FileManagerProgram"
+	ui_interface_name = "programs/NtosFileManager"
 
 /datum/ui_module/program/computer_filemanager/ui_data(mob/user)
 	var/list/data = host.initial_data()

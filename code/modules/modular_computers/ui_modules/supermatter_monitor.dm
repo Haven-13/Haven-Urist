@@ -1,6 +1,6 @@
 /datum/ui_module/program/supermatter_monitor
 	name = "Supermatter monitor"
-	ui_interface_name = "programs/SupermatterMonitorProgram"
+	ui_interface_name = "programs/NtosSupermatterMonitor"
 
 	var/list/supermatters
 	var/obj/machinery/power/supermatter/active = null		// Currently selected supermatter crystal.

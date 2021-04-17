@@ -181,9 +181,13 @@
 /obj/structure/lattice,
 /turf/space,
 /area/space)
-"N" = (
+"H" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/ntnet_relay,
+/turf/simulated/floor/tiled,
+/area/maintenance/fsmaint2)
+"Q" = (
 /obj/effect/shuttle_landmark/upper_level,
-/obj/structure/catwalk,
 /turf/space,
 /area/space)
 "R" = (
@@ -200,10 +204,6 @@
 /obj/effect/landmark/map_data{
 	height = 3
 	},
-/turf/space,
-/area/space)
-"Y" = (
-/obj/structure/catwalk,
 /turf/space,
 /area/space)
 
@@ -910,7 +910,7 @@ d
 d
 d
 d
-d
+H
 c
 a
 F
@@ -1373,8 +1373,8 @@ a
 a
 F
 a
-a
-a
+F
+F
 F
 c
 n
@@ -1408,11 +1408,11 @@ a
 F
 F
 F
-F
-F
-R
-R
-R
+a
+a
+a
+a
+a
 F
 F
 F
@@ -1441,13 +1441,13 @@ a
 a
 a
 a
+F
 a
 a
+Q
 a
-N
-Y
-Y
 a
+F
 a
 a
 a
@@ -1475,13 +1475,13 @@ a
 a
 a
 a
+F
 a
 a
 a
 a
 a
-a
-a
+F
 a
 a
 a
@@ -1509,13 +1509,13 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
+F
+F
+F
+F
+F
+F
+F
 a
 a
 a

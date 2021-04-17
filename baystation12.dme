@@ -2174,6 +2174,7 @@
 #include "code\modules\modular_computers\ui_modules\computer_ntnetmonitor.dm"
 #include "code\modules\modular_computers\ui_modules\computer_nttransfer.dm"
 #include "code\modules\modular_computers\ui_modules\computer_wordprocessor.dm"
+#include "code\modules\modular_computers\ui_modules\crew_manifest.dm"
 #include "code\modules\modular_computers\ui_modules\crew_monitor.dm"
 #include "code\modules\modular_computers\ui_modules\digital_warrant.dm"
 #include "code\modules\modular_computers\ui_modules\docking.dm"

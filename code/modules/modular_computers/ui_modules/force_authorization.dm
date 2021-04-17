@@ -1,6 +1,6 @@
 /datum/ui_module/program/forceauthorization/
 	name = "Use of Force Authorization Manager"
-	ui_interface_name = "programs/ForceAuthorizationProgram"
+	ui_interface_name = "programs/ForceAuthorization"
 
 /datum/ui_module/program/forceauthorization/ui_data(mob/user)
 	var/list/data = host.initial_data()
