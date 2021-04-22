@@ -38,7 +38,7 @@ var/next_station_date_change = 1 DAY
 #define station_time_in_ticks (roundstart_hour HOURS + round_duration_in_ticks)
 
 /proc/stationtime2text()
-	return time2text(station_time_in_ticks, "hh:mm")
+	return time2text(station_time_in_ticks, "hh:mm:ss")
 
 /proc/stationdate2text()
 	var/update_time = FALSE
