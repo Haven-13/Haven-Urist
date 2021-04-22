@@ -1,4 +1,3 @@
-import { map } from 'common/collections';
 import { useBackend } from "tgui/backend";
 import { Button, Section, Table } from "tgui/components";
 import { NtosWindow } from "tgui/layouts";
@@ -6,12 +5,12 @@ import { NtosWindow } from "tgui/layouts";
 export const NtosCrewManifest = (props, context) => {
   const { act, data } = useBackend(context);
   const {
-    have_printer,
-    manifest = {},
+    has_printer,
+    manifest = data.manifest || {},
   } = data;
   return (
     <NtosWindow
-      width={400}
+      width={420}
       height={480}
       resizable>
       <NtosWindow.Content scrollable>
@@ -21,30 +20,28 @@ export const NtosCrewManifest = (props, context) => {
             <Button
               icon="print"
               content="Print"
-              disabled={!have_printer}
+              disabled={!has_printer}
               onClick={() => act('PRG_print')} />
           )}>
-          {map((entries, department) => (
-            <Section
-              key={department}
-              level={2}
-              title={department}>
-              <Table>
-                {entries.map(entry => (
-                  <Table.Row
-                    key={entry.name}
-                    className="candystripe">
-                    <Table.Cell bold>
-                      {entry.name}
-                    </Table.Cell>
-                    <Table.Cell>
-                      ({entry.rank})
-                    </Table.Cell>
-                  </Table.Row>
-                ))}
-              </Table>
-            </Section>
-          ))(manifest)}
+          {Object.entries(manifest).map(([key, value]) => (
+          <Section
+            key={key}
+            title={value.name}
+          >
+            <Table>
+              {value.members.map((member, index) => (
+                <Table.Row key={index} className="candystripe">
+                  <Table.Cell bold>
+                    {member.name}
+                  </Table.Cell>
+                  <Table.Cell>
+                    {member.job}
+                  </Table.Cell>
+                </Table.Row>
+              ))}
+            </Table>
+          </Section>
+          ))}
         </Section>
       </NtosWindow.Content>
     </NtosWindow>
