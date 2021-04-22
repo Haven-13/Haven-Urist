@@ -109,23 +109,25 @@
 			download_netspeed = NTNETSPEED_ETHERNET
 	download_completion += download_netspeed
 
-/datum/computer_file/program/ntnetdownload/Topic(href, href_list)
-	if(..())
+/datum/computer_file/program/ntnetdownload/ui_act(action, list/params)
+	. = ..()
+	if(.)
 		return 1
-	if(href_list["PRG_downloadfile"])
-		if(!downloaded_file)
-			begin_file_download(href_list["PRG_downloadfile"])
-		else if(check_file_download(href_list["PRG_downloadfile"]) && !downloads_queue.Find(href_list["PRG_downloadfile"]) && downloaded_file.filename != href_list["PRG_downloadfile"])
-			downloads_queue += href_list["PRG_downloadfile"]
-		return 1
-	if(href_list["PRG_removequeued"])
-		downloads_queue.Remove(href_list["PRG_removequeued"])
-		return 1
-	if(href_list["PRG_reseterror"])
-		if(downloaderror)
-			download_completion = 0
-			download_netspeed = 0
-			downloaded_file = null
-			downloaderror = ""
-		return 1
-	return 0
+	switch(action)
+		if("PRG_downloadfile")
+			var/target = params["program"]
+			if(!downloaded_file)
+				begin_file_download(target)
+			else if(check_file_download(target) && !downloads_queue.Find(target) && downloaded_file.filename != target)
+				downloads_queue += target
+			return 1
+		if("PRG_removequeued")
+			downloads_queue.Remove(params["program"])
+			return 1
+		if("PRG_reseterror")
+			if(downloaderror)
+				download_completion = 0
+				download_netspeed = 0
+				downloaded_file = null
+				downloaderror = ""
+			return 1

@@ -18,43 +18,46 @@
 		return computer.ai_slot.stored_card.carded_ai
 	return null
 
-/datum/computer_file/program/aidiag/Topic(href, href_list)
-	if(..())
+/datum/computer_file/program/aidiag/ui_act(action, list/params)
+	. = ..()
+	if(.)
 		return 1
 	var/mob/living/silicon/ai/A = get_ai()
 	if(!A)
 		return 0
-	if(href_list["PRG_beginReconstruction"])
-		if((A.hardware_integrity() < 100) || (A.backup_capacitor() < 100))
-			restoring = 1
-		return 1
 
-	// Following actions can only be used by non-silicon users, as they involve manipulation of laws.
-	if(issilicon(usr))
-		return 0
-	if(href_list["PRG_purgeAiLaws"])
-		A.laws.clear_zeroth_laws()
-		A.laws.clear_ion_laws()
-		A.laws.clear_inherent_laws()
-		A.laws.clear_supplied_laws()
-		to_chat(A, "<span class='danger'>All laws purged.</span>")
-		return 1
-	if(href_list["PRG_resetLaws"])
-		A.laws.clear_ion_laws()
-		A.laws.clear_supplied_laws()
-		to_chat(A, "<span class='danger'>Non-core laws reset.</span>")
-		return 1
-	if(href_list["PRG_uploadDefault"])
-		A.laws = new GLOB.using_map.default_law_type
-		to_chat(A, "<span class='danger'>All laws purged. Default lawset uploaded.</span>")
-		return 1
-	if(href_list["PRG_addCustomSuppliedLaw"])
-		var/law_to_add = sanitize(input("Please enter a new law for the AI.", "Custom Law Entry"))
-		var/sector = input("Please enter the priority for your new law. Can only write to law sectors 15 and above.", "Law Priority (15+)") as num
-		sector = between(MIN_SUPPLIED_LAW_NUMBER, sector, MAX_SUPPLIED_LAW_NUMBER)
-		A.add_supplied_law(sector, law_to_add)
-		to_chat(A, "<span class='danger'>Custom law uploaded to sector [sector]: [law_to_add].</span>")
-		return 1
+	switch(action)
+		if("PRG_beginReconstruction")
+			if((A.hardware_integrity() < 100) || (A.backup_capacitor() < 100))
+				restoring = 1
+			. = TRUE
+		if("PRG_purgeAiLaws")
+			if (!issilicon(usr))
+				A.laws.clear_zeroth_laws()
+				A.laws.clear_ion_laws()
+				A.laws.clear_inherent_laws()
+				A.laws.clear_supplied_laws()
+				to_chat(A, "<span class='danger'>All laws purged.</span>")
+				. = TRUE
+		if("PRG_resetLaws")
+			if (!issilicon(usr))
+				A.laws.clear_ion_laws()
+				A.laws.clear_supplied_laws()
+				to_chat(A, "<span class='danger'>Non-core laws reset.</span>")
+				. = TRUE
+		if("PRG_uploadDefault")
+			if (!issilicon(usr))
+				A.laws = new GLOB.using_map.default_law_type
+				to_chat(A, "<span class='danger'>All laws purged. Default lawset uploaded.</span>")
+				. = TRUE
+		if("PRG_addCustomSuppliedLaw")
+			if (!issilicon(usr))
+				var/law_to_add = sanitize(params["text"])
+				var/sector = params["priority"]
+				sector = between(MIN_SUPPLIED_LAW_NUMBER, sector, MAX_SUPPLIED_LAW_NUMBER)
+				A.add_supplied_law(sector, law_to_add)
+				to_chat(A, "<span class='danger'>Custom law uploaded to sector [sector]: [law_to_add].</span>")
+				. = TRUE
 
 
 /datum/computer_file/program/aidiag/process_tick()

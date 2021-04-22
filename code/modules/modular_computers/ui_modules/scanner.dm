@@ -1,6 +1,6 @@
 /datum/ui_module/program/scanner
 	name = "Scanner"
-	ui_interface_name = "programs/ScannerProgram"
+	ui_interface_name = "programs/PaperScannerProgram"
 
 /datum/ui_module/program/scanner/ui_data(mob/user)
 	var/list/data = host.initial_data()

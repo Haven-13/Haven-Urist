@@ -50,28 +50,24 @@
 		return 0
 	return 1
 
-/datum/computer_file/program/scanner/Topic(href, href_list)
-	if(..())
+/datum/computer_file/program/scanner/ui_act(action, list/params)
+	. = ..()
+	if (.)
 		return 1
-
-	if(href_list["connect_scanner"])
-		if(text2num(href_list["connect_scanner"]))
-			if(!connect_scanner())
-				to_chat(usr, "Scanner installation failed.")
-		else
-			disconnect_scanner()
-		return 1
-
-	if(href_list["scan"])
-		if(check_scanning())
-			computer.scanner.run_scan(usr, src)
-		return 1
-
-	if(href_list["save"])
-		var/name = sanitize(input(usr, "Enter file name:", "Save As") as text|null)
-		if(!save_scan(name))
-			to_chat(usr, "Scan save failed.")
-
-	if(.)
-		SStgui.update_uis(NM)
-
+	switch(action)
+		if("PRG_connect_canner")
+			if(text2num(params["mode"]))
+				if(!connect_scanner())
+					to_chat(usr, "Scanner installation failed.")
+			else
+				disconnect_scanner()
+			. = TRUE
+		if("PRG_scan")
+			if(check_scanning())
+				computer.scanner.run_scan(usr, src)
+			. = TRUE
+		if("PRG_save")
+			var/filename = params["name"]
+			if(!save_scan(filename))
+				to_chat(usr, "Scan save failed.")
+			. = TRUE

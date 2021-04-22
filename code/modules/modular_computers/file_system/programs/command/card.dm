@@ -10,9 +10,10 @@
 	requires_ntnet = 0
 	size = 8
 
-/datum/computer_file/program/card_mod/Topic(href, href_list)
-	if(..())
-		return 1
+/datum/computer_file/program/card_mod/ui_act(action, list/params)
+	. = ..()
+	if(.)
+		return TRUE
 
 	var/mob/user = usr
 	var/obj/item/weapon/card/id/user_id_card = user.GetIdCard()
@@ -21,18 +22,9 @@
 		id_card = computer.card_slot.stored_card
 
 	var/datum/ui_module/program/card_mod/module = NM
-	switch(href_list["action"])
-		if("switchm")
-			if(href_list["target"] == "mod")
-				module.mod_mode = 1
-			else if (href_list["target"] == "manifest")
-				module.mod_mode = 0
-		if("togglea")
-			if(module.show_assignments)
-				module.show_assignments = 0
-			else
-				module.show_assignments = 1
-		if("print")
+
+	switch(action)
+		if("PRG_print")
 			if(computer && computer.nano_printer) //This option should never be called if there is no printer
 				if(module.mod_mode)
 					if(can_run(user, 1))
@@ -68,39 +60,43 @@
 						return
 					else
 						computer.visible_message("<span class='notice'>\The [computer] prints out paper.</span>")
-		if("eject")
+			. = TRUE
+		if("PRG_eject")
 			if(computer)
 				if(computer.card_slot && computer.card_slot.stored_card)
 					computer.proc_eject_id(user)
 				else
 					computer.attackby(user.get_active_hand(), user)
-		if("terminate")
+			. = TRUE
+		if("PRG_terminate")
 			if(computer && can_run(user, 1))
 				id_card.assignment = "Terminated"
 				remove_nt_access(id_card)
 				callHook("terminate_employee", list(id_card))
-		if("edit")
+			. = TRUE
+		if("PRG_edit")
 			if(computer && can_run(user, 1))
-				if(href_list["name"])
-					var/temp_name = sanitizeName(input("Enter name.", "Name", id_card.registered_name),allow_numbers=TRUE)
+				if(params["name"])
+					var/temp_name = sanitizeName(params["name"],allow_numbers=TRUE)
 					if(temp_name)
 						id_card.registered_name = temp_name
 					else
 						computer.visible_message("<span class='notice'>[computer] buzzes rudely.</span>")
-				else if(href_list["account"])
-					var/account_num = text2num(input("Enter account number.", "Account", id_card.associated_account_number))
+				else if(params["account"])
+					var/account_num = text2num(params["account"])
 					id_card.associated_account_number = account_num
-				else if(href_list["elogin"])
-					var/email_login = input("Enter email login.", "Email login", id_card.associated_email_login["login"])
+				else if(params["login"])
+					var/email_login = params["login"]
 					id_card.associated_email_login["login"] = email_login
-				else if(href_list["epswd"])
-					var/email_password = input("Enter email password.", "Email password")
+				else if(params["pass"])
+					var/email_password = params["pass"]
 					id_card.associated_email_login["password"] = email_password
-		if("assign")
+			. = TRUE
+		if("PRG_assign")
 			if(computer && can_run(user, 1) && id_card)
-				var/t1 = href_list["assign_target"]
+				var/t1 = params["assign_target"]
 				if(t1 == "Custom")
-					var/temp_t = sanitize(input("Enter a custom job assignment.","Assignment", id_card.assignment), 45)
+					var/temp_t = sanitize(params["name"], 45)
 					//let custom jobs function as an impromptu alt title, mainly for sechuds
 					if(temp_t)
 						id_card.assignment = temp_t
@@ -127,19 +123,18 @@
 					id_card.rank = t1
 
 				callHook("reassign_employee", list(id_card))
-		if("access")
-			if(href_list["allowed"] && computer && can_run(user, 1))
-				var/access_type = text2num(href_list["access_target"])
-				var/access_allowed = text2num(href_list["allowed"])
+			. = TRUE
+		if("PRG_access")
+			if(params["allowed"] && computer && can_run(user, 1))
+				var/access_type = text2num(params["access_target"])
+				var/access_allowed = text2num(params["allowed"])
 				if(access_type in get_access_ids(ACCESS_TYPE_STATION|ACCESS_TYPE_CENTCOM))
 					id_card.access -= access_type
 					if(!access_allowed)
 						id_card.access += access_type
+			. = TRUE
 	if(id_card)
 		id_card.SetName(text("[id_card.registered_name]'s ID Card ([id_card.assignment])"))
-
-	SStgui.update_uis(NM)
-	return 1
 
 /datum/computer_file/program/card_mod/proc/remove_nt_access(var/obj/item/weapon/card/id/id_card)
 	id_card.access -= get_access_ids(ACCESS_TYPE_STATION|ACCESS_TYPE_CENTCOM)
