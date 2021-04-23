@@ -79,6 +79,12 @@ const Program = (props, context) => {
     downloadsize,
   } = data;
   const disk_free = disk_size - disk_used;
+  const canDownload = (program) => {
+    return !downloading
+    && program.compatible
+    && !program.already_exists
+    && program.size <= disk_free;
+  }
   return (
     <Box mb={3}>
       <Flex align="baseline">
@@ -100,17 +106,23 @@ const Program = (props, context) => {
               fluid
               icon="download"
               content="Download"
-              disabled={downloading || program.size > disk_free}
+              disabled={!canDownload(program)}
               onClick={() => act('PRG_downloadfile', {
-                filename: program.filename,
+                program: program.filename,
               })} />
           )}
         </Flex.Item>
       </Flex>
-      {program.compatibility !== 'Compatible' && (
+      {!!!program.compatible && (
         <Box mt={1} italic fontSize="12px" position="relative">
           <Icon mx={1} color="red" name="times" />
           Incompatible!
+        </Box>
+      )}
+      {!!program.already_exists && (
+        <Box mt={1} italic fontSize="12px" position="relative">
+          <Icon mx={1} color="red" name="times" />
+          File already exists!
         </Box>
       )}
       {program.size > disk_free && (
