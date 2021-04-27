@@ -21,6 +21,20 @@
 	..()
 	crew_announcement.newscast = 1
 
+/datum/ui_module/program/comm/ui_static_data(mob/user)
+	. = ..()
+
+	var/list/all_levels = list()
+	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+	for(var/decl/security_level/security_level in security_state.all_security_levels)
+		var/list/security_setup = list()
+		security_setup["index"] = all_levels.len
+		security_setup["title"] = security_level.name
+		security_setup["colour"] = security_level.light_color_status_display
+		security_setup["ref"] = any2ref(security_level)
+		all_levels[++all_levels.len] = security_setup
+	.["all_security_levels"] = all_levels
+
 /datum/ui_module/program/comm/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
@@ -55,7 +69,7 @@
 	var/list/security_levels = list()
 	for(var/decl/security_level/security_level in security_state.comm_console_security_levels)
 		var/list/security_setup = list()
-		security_setup["title"] = security_level.name
+		security_setup["index"] = security_levels.len
 		security_setup["ref"] = any2ref(security_level)
 		security_levels[++security_levels.len] = security_setup
 	data["security_levels"] = security_levels
