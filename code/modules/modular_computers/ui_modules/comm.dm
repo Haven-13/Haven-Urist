@@ -44,6 +44,7 @@
 	data["isAI"] = issilicon(usr)
 	data["authenticated"] = is_autenthicated(user)
 	data["boss_short"] = GLOB.using_map.boss_short
+	data["boss_name"] = GLOB.using_map.boss_name
 
 	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 	data["current_security_level_ref"] = any2ref(security_state.current_security_level)
@@ -92,17 +93,14 @@
 		return P.message_core
 	return GLOB.global_message_listener
 
-/datum/ui_module/program/comm/Topic(href, href_list)
+/datum/ui_module/program/comm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
-		return 1
+		return TRUE
 	var/mob/user = usr
 	var/ntn_comm = program ? !!program.get_signal(NTNET_COMMUNICATION) : 1
 	var/ntn_cont = program ? !!program.get_signal(NTNET_SYSTEMCONTROL) : 1
 	var/datum/comm_message_listener/l = obtain_message_listener()
-	switch(href_list["action"])
-		if("sw_menu")
-			. = 1
-			current_status = text2num(href_list["target"])
+	switch(action)
 		if("announce")
 			. = 1
 			if(is_autenthicated(user) && !issilicon(usr) && ntn_comm)
@@ -114,8 +112,8 @@
 				if(announcment_cooldown)
 					to_chat(usr, "Please allow at least one minute to pass between announcements")
 					return TRUE
-				var/input = input(usr, "Please write a message to announce to the [station_name()].", "Priority Announcement") as null|text
-				if(!input || !can_still_topic())
+				var/input = params["message"]
+				if(!input)
 					return 1
 				crew_announcement.Announce(input)
 				announcment_cooldown = 1
@@ -123,15 +121,14 @@
 					announcment_cooldown = 0
 		if("message")
 			. = 1
-			if(href_list["target"] == "emagged")
+			if(params["target"] == "emagged")
 				if(program)
 					if(is_autenthicated(user) && program.computer_emagged && !issilicon(usr) && ntn_comm)
 						if(centcomm_message_cooldown)
 							to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
-							SStgui.update_uis(src)
-							return
-						var/input = sanitize(input(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination. Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
-						if(!input || !can_still_topic())
+							return 1
+						var/input = sanitize(params["message"])
+						if(!input)
 							return 1
 						Syndicate_announce(input, usr)
 						to_chat(usr, "<span class='notice'>Message transmitted.</span>")
@@ -139,17 +136,16 @@
 						centcomm_message_cooldown = 1
 						spawn(300)//30 second cooldown
 							centcomm_message_cooldown = 0
-			else if(href_list["target"] == "regular")
+			else if(params["target"] == "regular")
 				if(is_autenthicated(user) && !issilicon(usr) && ntn_comm)
 					if(centcomm_message_cooldown)
 						to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
-						SStgui.update_uis(src)
-						return
+						return 1
 					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
 						to_chat(usr, "<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>")
 						return 1
-					var/input = sanitize(input("Please choose a message to transmit to [GLOB.using_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
-					if(!input || !can_still_topic())
+					var/input = sanitize(params["message"])
+					if(!input)
 						return 1
 					Centcomm_announce(input, usr)
 					to_chat(usr, "<span class='notice'>Message transmitted.</span>")
@@ -160,44 +156,38 @@
 		if("evac")
 			. = 1
 			if(is_autenthicated(user))
-				var/datum/evacuation_option/selected_evac_option = evacuation_controller.evacuation_options[href_list["target"]]
+				var/datum/evacuation_option/selected_evac_option = evacuation_controller.evacuation_options[params["target"]]
 				if (isnull(selected_evac_option) || !istype(selected_evac_option))
 					return
 				if (!selected_evac_option.silicon_allowed && issilicon(user))
 					return
 				if (selected_evac_option.needs_syscontrol && !ntn_cont)
 					return
-				var/confirm = alert("Are you sure you want to [selected_evac_option.option_desc]?", name, "No", "Yes")
-				if (confirm == "Yes" && can_still_topic())
-					evacuation_controller.handle_evac_option(selected_evac_option.option_target, user)
+				evacuation_controller.handle_evac_option(selected_evac_option.option_target, user)
 		if("setstatus")
 			. = 1
 			if(is_autenthicated(user) && ntn_cont)
-				switch(href_list["target"])
+				switch(params["target"])
 					if("line1")
-						var/linput = reject_bad_text(sanitize(input("Line 1", "Enter Message Text", msg_line1) as text|null, 40), 40)
-						if(can_still_topic())
-							msg_line1 = linput
+						var/linput = reject_bad_text(sanitize(params["message"], 40), 40)
+						msg_line1 = linput
 					if("line2")
-						var/linput = reject_bad_text(sanitize(input("Line 2", "Enter Message Text", msg_line2) as text|null, 40), 40)
-						if(can_still_topic())
-							msg_line2 = linput
+						var/linput = reject_bad_text(sanitize(params["message"], 40), 40)
+						msg_line2 = linput
 					if("message")
 						post_status("message", msg_line1, msg_line2)
 					if("image")
-						post_status("image", href_list["image"])
+						post_status("image", params["target"])
 					else
-						post_status(href_list["target"])
+						post_status(params["target"])
 		if("setalert")
 			. = 1
 			if(is_autenthicated(user) && !issilicon(usr) && ntn_cont && ntn_comm)
 				var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
-				var/decl/security_level/target_level = locate(href_list["target"]) in security_state.comm_console_security_levels
+				var/decl/security_level/target_level = locate(params["target"]) in security_state.comm_console_security_levels
 				if(target_level && security_state.can_switch_to(target_level))
-					var/confirm = alert("Are you sure you want to change the alert level to [target_level.name]?", name, "No", "Yes")
-					if(confirm == "Yes" && can_still_topic())
-						if(security_state.set_security_level(target_level))
-							feedback_inc(target_level.type,1)
+					if(security_state.set_security_level(target_level))
+						feedback_inc(target_level.type,1)
 			else
 				to_chat(usr, "You press the button, but a red light flashes and nothing happens.") //This should never happen
 
@@ -205,7 +195,7 @@
 		if("viewmessage")
 			. = 1
 			if(is_autenthicated(user) && ntn_comm)
-				current_viewing_message_id = text2num(href_list["target"])
+				current_viewing_message_id = text2num(params["target"])
 				for(var/list/m in l.messages)
 					if(m["id"] == current_viewing_message_id)
 						current_viewing_message = m
