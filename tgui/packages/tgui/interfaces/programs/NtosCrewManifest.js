@@ -24,23 +24,23 @@ export const NtosCrewManifest = (props, context) => {
               onClick={() => act('PRG_print')} />
           )}>
           {Object.entries(manifest).map(([key, value]) => (
-          <Section
-            key={key}
-            title={value.name}
-          >
-            <Table>
-              {value.members.map((member, index) => (
-                <Table.Row key={index} className="candystripe">
-                  <Table.Cell bold>
-                    {member.name}
-                  </Table.Cell>
-                  <Table.Cell>
-                    {member.job}
-                  </Table.Cell>
-                </Table.Row>
-              ))}
-            </Table>
-          </Section>
+            <Section
+              key={key}
+              title={value.name}
+            >
+              <Table>
+                {value.members.map((member, index) => (
+                  <Table.Row key={index} className="candystripe">
+                    <Table.Cell bold>
+                      {member.name}
+                    </Table.Cell>
+                    <Table.Cell>
+                      {member.job}
+                    </Table.Cell>
+                  </Table.Row>
+                ))}
+              </Table>
+            </Section>
           ))}
         </Section>
       </NtosWindow.Content>

@@ -1,11 +1,9 @@
-import { NtosWindow } from "tgui/layouts"
+import { NtosWindow } from "tgui/layouts";
 
 export const NtosCrewRecords = (props, context) => {
   return (
     <NtosWindow>
-      <NtosWindow.Content>
-
-      </NtosWindow.Content>
+      <NtosWindow.Content />
     </NtosWindow>
-  )
-}
+  );
+};

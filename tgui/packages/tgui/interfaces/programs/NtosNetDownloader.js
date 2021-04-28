@@ -84,7 +84,7 @@ const Program = (props, context) => {
     && program.compatible
     && !program.already_exists
     && program.size <= disk_free;
-  }
+  };
   return (
     <Box mb={3}>
       <Flex align="baseline">
@@ -113,7 +113,7 @@ const Program = (props, context) => {
           )}
         </Flex.Item>
       </Flex>
-      {!!!program.compatible && (
+      {!program.compatible && (
         <Box mt={1} italic fontSize="12px" position="relative">
           <Icon mx={1} color="red" name="times" />
           Incompatible!

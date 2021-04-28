@@ -1,29 +1,29 @@
 import { NtosWindow } from "tgui/layouts";
 import { Box, Button, Input, LabeledList, Modal, Section, Stack } from "tgui/components";
 import { useBackend, useLocalState } from "tgui/backend";
-import { sanitizeText } from "tgui/sanitize.js"
+import { sanitizeText } from "tgui/sanitize.js";
 
 export const ScannerProgram = (props, context) => {
-  const {act, data} = useBackend(context);
+  const { act, data } = useBackend(context);
   const [
     isWritingToFile,
-    setIsWritingToFile
+    setIsWritingToFile,
   ] = useLocalState(context, 'isWritingToFile', false);
   const [
     fileName,
-    setFileName
+    setFileName,
   ] = useLocalState(context, 'fileName', '');
 
   const submitSave = () => {
     act('PRG_save', {
-      name: fileName
+      name: fileName,
     });
     closeSavePrompt();
-  }
+  };
   const closeSavePrompt = () => {
     setIsWritingToFile(0);
     setFileName('');
-  }
+  };
   return (
     <NtosWindow
       height={460}
@@ -39,18 +39,18 @@ export const ScannerProgram = (props, context) => {
                   mb={1}
                   placeholder={"File name"}
                   value={fileName}
-                  onInput={(e,v) => setFileName(v)}
-                  onEnter={(e,v) => submitSave()}
+                  onInput={(e, v) => setFileName(v)}
+                  onEnter={(e, v) => submitSave()}
                 />
               </Stack.Item>
               <Stack.Item align="right">
                 <Button
-                  icon='save'
+                  icon="save"
                   content="Save"
                   onClick={() => submitSave()}
                 />
                 <Button
-                  icon='times'
+                  icon="times"
                   content="Cancel"
                   onClick={() => closeSavePrompt()}
                 />
@@ -108,7 +108,7 @@ export const ScannerProgram = (props, context) => {
               backgroundColor={null}
               buttons={
                 <Button
-                  icon='save'
+                  icon="save"
                   content="Save"
                   disabled={!data.can_save_scan}
                   onClick={() => setIsWritingToFile(true)}
@@ -116,13 +116,20 @@ export const ScannerProgram = (props, context) => {
               }
             >
               {data.data_buffer && (
-                // This is absolutely horrific and I don't understand why we still use paperwork in
-                // this fucking game. Specially with the current state of the bloody game.
-                // You may shoot me for making this illadvised design choice. But, please, do me a favor
-                // and shoot the people who wrote the paperwork code too.
+                // This is absolutely horrific and I don't understand
+                // why we still use paperwork in this fucking game.
+                // Specially with the current state of the bloody game.
+                // You may shoot me for making this illadvised design
+                // choice. But, please, do me a favor  and shoot the
+                // people who wrote the paperwork code too.
                 //
-                // If you have XSS issues and comes from this file. Nuke this line of code first, please.
-                <Box dangerouslySetInnerHTML={{__html: sanitizeText(data.data_buffer)}} />
+                // If you have XSS issues and comes from this file.
+                // Nuke this Box element first, please.
+                <Box
+                  dangerouslySetInnerHTML={
+                    { __html: sanitizeText(data.data_buffer) }
+                  }
+                />
               ) || (
                 <Box italic textAlign="center">
                   The buffer is empty
