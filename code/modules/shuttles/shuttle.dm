@@ -224,10 +224,5 @@
 		return "None"
 	return next_location.name
 
-/datum/shuttle/proc/time_left(divisor)
-	if (divisor <= 0)
-		divisor = 10
-
-	var/ds_remaining = max(0, arrive_time - world.time)
-
-	return round(ds_remaining / divisor, 1)
+/datum/shuttle/proc/time_left()
+	return time_left(arrive_time)
