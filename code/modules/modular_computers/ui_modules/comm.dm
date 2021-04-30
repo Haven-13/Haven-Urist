@@ -41,6 +41,7 @@
 			processed_evac_options[++processed_evac_options.len] = option
 	.["evac_options"] = processed_evac_options
 
+
 /datum/ui_module/program/comm/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
@@ -61,6 +62,7 @@
 
 	data["cooldown_announcement"] = time_left(announcment_cooldown)
 	data["cooldown_emergency"] = time_left(centcomm_message_cooldown)
+	data["cooldown_evacuation"] = evacuation_controller.is_on_cooldown()
 
 	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 	data["current_security_level_ref"] = any2ref(security_state.current_security_level)
@@ -77,6 +79,18 @@
 
 	var/datum/comm_message_listener/l = obtain_message_listener()
 	data["messages"] = l.messages
+
+	data["evac_is_active"] = evacuation_controller.is_evacuating()
+	var/list/processed_evac_options = list()
+	if(!isnull(evacuation_controller))
+		for (var/datum/evacuation_option/EO in evacuation_controller.available_evac_options())
+			var/list/option = list()
+			option["option_text"] = EO.option_text
+			option["option_target"] = EO.option_target
+			option["needs_syscontrol"] = EO.needs_syscontrol
+			option["silicon_allowed"] = EO.silicon_allowed
+			processed_evac_options[++processed_evac_options.len] = option
+	data["evac_options_available"] = processed_evac_options
 
 	return data
 
@@ -119,38 +133,24 @@
 					announcment_cooldown = 0
 		if("message")
 			. = 1
-			if(params["target"] == "emagged")
-				if(program)
-					if(is_autenthicated(user) && program.computer_emagged && !issilicon(usr) && ntn_comm)
+			switch(params["target"])
+				if("regular")
+					if(is_autenthicated(user) && !issilicon(usr) && ntn_comm)
 						if(centcomm_message_cooldown)
 							to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
+							return 1
+						if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
+							to_chat(usr, "<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>")
 							return 1
 						var/input = sanitize(params["message"])
 						if(!input)
 							return 1
-						Syndicate_announce(input, usr)
+						Centcomm_announce(input, usr)
 						to_chat(usr, "<span class='notice'>Message transmitted.</span>")
-						log_say("[key_name(usr)] has made an illegal announcement: [input]")
+						log_say("[key_name(usr)] has made an IA [GLOB.using_map.boss_short] announcement: [input]")
 						centcomm_message_cooldown = time_point(EMERGENCY_COOLDOWN)
-						spawn(EMERGENCY_COOLDOWN)//30 second cooldown
+						spawn(EMERGENCY_COOLDOWN) //30 second cooldown
 							centcomm_message_cooldown = 0
-			else if(params["target"] == "regular")
-				if(is_autenthicated(user) && !issilicon(usr) && ntn_comm)
-					if(centcomm_message_cooldown)
-						to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
-						return 1
-					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
-						to_chat(usr, "<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>")
-						return 1
-					var/input = sanitize(params["message"])
-					if(!input)
-						return 1
-					Centcomm_announce(input, usr)
-					to_chat(usr, "<span class='notice'>Message transmitted.</span>")
-					log_say("[key_name(usr)] has made an IA [GLOB.using_map.boss_short] announcement: [input]")
-					centcomm_message_cooldown = 1
-					spawn(300) //30 second cooldown
-						centcomm_message_cooldown = 0
 		if("evac")
 			. = 1
 			if(is_autenthicated(user))

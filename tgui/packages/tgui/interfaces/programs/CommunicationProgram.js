@@ -4,8 +4,7 @@ import { useBackend, useSharedState } from "tgui/backend";
 import { toTitleCase } from "common/string";
 import { sanitizeText } from "tgui/sanitize";
 
-const AnnouncementPrompt = (props, context) => {
-  const { act, data } = useBackend(context);
+const MessageBoxPrompt = (props, context) => {
   const {
     value,
     lengthRequired,
@@ -14,6 +13,8 @@ const AnnouncementPrompt = (props, context) => {
     onClose=() => {},
     onInput=(value) => {},
     onSend=(message) => {},
+    sendText="Send",
+    children,
     ...rest
   } = props;
 
@@ -21,19 +22,19 @@ const AnnouncementPrompt = (props, context) => {
     return !cooldownIsActive()
       && !messageIsEmpty()
       && !messageIsTooShort();
-  }
+  };
 
   const cooldownIsActive = () => {
     return !!cooldown && cooldown > 0;
-  }
+  };
   const messageIsEmpty = () => {
-    return !!!value || value?.length == 0;
-  }
+    return !value || value?.length === 0;
+  };
   const messageIsTooShort = () => {
     if (lengthRequired === undefined)
-      return false;
+    { return false; }
     return lengthRequired > (value?.length || 0);
-  }
+  };
   return (
     <Section
       buttons={
@@ -44,13 +45,7 @@ const AnnouncementPrompt = (props, context) => {
       }
       {...rest}
     >
-      <LabeledList>
-        <LabeledList.Item
-          label="Announcing as"
-        >
-          {data.user.name}{!!data.user.job && `, ${data.user.job}`}
-        </LabeledList.Item>
-      </LabeledList>
+      {children}
       <TextArea
         value={value}
         height={15}
@@ -66,28 +61,28 @@ const AnnouncementPrompt = (props, context) => {
         <Flex.Item>
           {cooldownIsActive() && (
             <Box>
-              <Icon name="times" color="bad"/>
+              <Icon name="times" color="bad" />
               <Box ml={1} inline>
                 Cooldown active: <TimeDisplay
                   value={cooldown}
                   auto="down"
-                  format={(h,m,s) => `${m}:${s}`}
+                  format={(h, m, s) => `${m}:${s}`}
                 />
               </Box>
             </Box>
           ) || (
             messageIsEmpty() && (
               <Box>
-                <Icon name="times" color="bad"/>
+                <Icon name="times" color="bad" />
                 <Box ml={1} inline>
                   Empty
                 </Box>
               </Box>
             )
-            ) || (
+          ) || (
             messageIsTooShort() && (
               <Box>
-                <Icon name="times" color="bad"/>
+                <Icon name="times" color="bad" />
                 <Box ml={1} inline>
                   Too short
                 </Box>
@@ -97,7 +92,7 @@ const AnnouncementPrompt = (props, context) => {
         </Flex.Item>
         <Flex.Item>
           <Button
-            content="Announce"
+            content={sendText}
             disabled={!canSendMessage()}
             onClick={() => onSend(value)}
           />
@@ -107,14 +102,9 @@ const AnnouncementPrompt = (props, context) => {
   );
 };
 
-const AlertLevelPrompt = (props, context) => {
+const SelectionPrompt = (props, context) => {
   const {
-    current = {
-      index: -1,
-      ref: null,
-      title: "Undefined",
-      colour: 'white',
-    },
+    current = {},
     available = [],
     selected = {},
 
@@ -122,6 +112,11 @@ const AlertLevelPrompt = (props, context) => {
     onSelect = (obj) => {},
     onApply = (obj) => {},
 
+    comparator = (a,b) => { return a === b },
+
+    showCurrent = (obj) => {},
+    showOption = (obj) => {},
+    showNext = (obj) => {},
     ...rest
   } = props;
 
@@ -144,9 +139,7 @@ const AlertLevelPrompt = (props, context) => {
             <LabeledList.Item
               label="Current"
             >
-              <Box color={current.colour}>
-                {toTitleCase(current.title)}
-              </Box>
+              {showCurrent(current)}
             </LabeledList.Item>
           </LabeledList>
         </Stack.Item>
@@ -156,20 +149,18 @@ const AlertLevelPrompt = (props, context) => {
             height={12}
             scrollable
           >
-            {available.map(level => (
+            {available.map((option, index) => (
               <Button.Checkbox
+                key={index}
                 fluid
-                disabled={level.ref === current.ref}
-                checked={level.ref === selected?.ref || level.ref === current.ref}
-                onClick={() => onSelect(level)}
+                disabled={option === current}
+                checked={
+                  comparator(option, selected)
+                  || comparator(option, current)
+                }
+                onClick={() => onSelect(option, index)}
               >
-                <ColorBox
-                  color={level.colour}
-                  mr={1}
-                />
-                <Box inline>
-                  {toTitleCase(level.title)}
-                </Box>
+                {showOption(option)}
               </Button.Checkbox>
             ))}
           </Section>
@@ -181,15 +172,16 @@ const AlertLevelPrompt = (props, context) => {
               buttons={
                 <Button
                   content="Apply"
-                  disabled={!selected || selected?.ref === current.ref}
+                  disabled={
+                    !selected ||
+                    comparator(current, selected)
+                  }
                   onClick={() => onApply(selected)}
                 />
               }
             >
-              {(!!selected && selected?.ref !== current.ref) && (
-                <Box inline color={selected.colour}>
-                  {toTitleCase(selected.title)}
-                </Box>
+              {(!!selected && !comparator(current, selected)) && (
+                showNext(selected)
               ) || (
                 <Box inline italic color="grey">
                   None
@@ -205,6 +197,10 @@ const AlertLevelPrompt = (props, context) => {
 
 const MessageListView = (props, context) => {
   const {
+    canDelete,
+    onClose=()=>{},
+    onClickMessage=(obj)=>{},
+    onDeleteMessage=(obj)=>{},
     ...rest
   } = props;
   const messages = props.messageList;
@@ -215,21 +211,33 @@ const MessageListView = (props, context) => {
       buttons={
         <Button
           icon="times"
-          onClick={() => props.onClose()}
+          onClick={() => onClose()}
         />
       }
     >
       <Stack vertical>
         {messages.map(message => (
           <Stack.Item key={message.id}>
-            <Button
-              content={message.title}
-              onClick={() => props.onClickMessage(message.id)}
-            />
-            <Button.Confirm
-              icon="trash"
-              onClick={() => props.onDeleteMessage(message.id)}
-            />
+            <Flex
+              direction="row"
+              justify="space-between"
+            >
+              <Flex.Item grow>
+                <Button
+                  fluid
+                  content={message.title}
+                  onClick={() => onClickMessage(message.id)}
+                />
+              </Flex.Item>
+              {canDelete && (
+                <Flex.Item>
+                  <Button.Confirm
+                    icon="trash"
+                    onClick={() => onDeleteMessage(message.id)}
+                  />
+                </Flex.Item>
+              )}
+            </Flex>
           </Stack.Item>
         ))}
       </Stack>
@@ -302,6 +310,8 @@ export const CommunicationProgram = (props, context) => {
     boss_name,
 
     cooldown_announcement,
+    cooldown_emergency,
+    cooldown_evacuation,
 
     cannot_change_security_level,
     is_high_security_level,
@@ -310,7 +320,10 @@ export const CommunicationProgram = (props, context) => {
     messages = [],
     message_deletion_allowed,
     has_central_command,
+
+    evac_is_active,
     evac_options,
+    evac_options_available,
   } = data;
 
   const currentAlertLevel = all_security_levels.find(level => {
@@ -327,18 +340,23 @@ export const CommunicationProgram = (props, context) => {
 
   const [
     announcement,
-    setAnnouncement
-  ] = useSharedState(context, 'announcement', null)
+    setAnnouncement,
+  ] = useSharedState(context, 'announcement', null);
 
   const [
     selectedAlertLevel,
-    setSelectedAlertLevel
-  ] = useSharedState(context, 'selectedAlertLevel', null)
+    setSelectedAlertLevel,
+  ] = useSharedState(context, 'selectedAlertLevel', null);
 
   const [
     selectedMessage,
     setSelectedMessage,
   ] = useSharedState(context, 'selectedMessage', 0);
+
+  const [
+    selectedEvacuation,
+    setSelectedEvacuation,
+  ] = useSharedState(context, 'selectedEvacuation', null);
 
   const MODES = {
     announcement: 0,
@@ -350,48 +368,85 @@ export const CommunicationProgram = (props, context) => {
   };
 
   const VIEW_MODES = [
-    (<AnnouncementPrompt
-      key={MODES.announcement}
-      fill
-      title="Make an announcement"
-      value={announcement}
-      cooldown={cooldown_announcement*10}
-      onClose={() => {
-        setCurrentMode(-1);
-        setAnnouncement(null);
-      }}
-      onInput={(v) => setAnnouncement(v)}
-      onSend={(v) => {
-        act('announce', {
-          message: v,
-        });
-        setAnnouncement(null);
-      }}
-    />),
-    (<AlertLevelPrompt
+    (
+      <MessageBoxPrompt
+        key={MODES.announcement}
+        fill
+        title="Make an announcement"
+        sendTest="Announce"
+        value={announcement}
+        cooldown={cooldown_announcement*10}
+        onClose={() => {
+          setCurrentMode(-1);
+          setAnnouncement(null);
+        }}
+        onInput={(v) => setAnnouncement(v)}
+        onSend={(v) => {
+          act('announce', {
+            message: v,
+          });
+          setAnnouncement(null);
+        }}
+      >
+        <LabeledList>
+          <LabeledList.Item
+            label="Announcing as"
+          >
+            {data.user.name}{!!data.user.job && `, ${data.user.job}`}
+          </LabeledList.Item>
+        </LabeledList>
+      </MessageBoxPrompt>
+    ),
+
+    (<SelectionPrompt
       key={MODES.alert_level}
       fill
       title="Change Readiness"
       current={currentAlertLevel}
       selected={selectedAlertLevel}
       available={availableAlertLevels}
+      comparator={(a, b) => {
+        return a?.ref === b?.ref
+      }}
       onClose={() => {
-        setCurrentMode(-1)
+        setCurrentMode(-1);
         setSelectedAlertLevel(null);
       }}
-      onSelect={(level) => {
+      onSelect={(level, index) => {
         if (level.ref === selectedAlertLevel?.ref) {
           setSelectedAlertLevel(null);
         }
         else {
-          setSelectedAlertLevel(level)
+          setSelectedAlertLevel(availableAlertLevels[index]);
         }
       }}
       onApply={(selection) =>
         act('setalert', {
           target: selection.ref,
         })}
+      showCurrent={(item) => (
+        <Box color={item.colour}>
+          {toTitleCase(item.title)}
+        </Box>
+      )}
+      showOption={(item) => (
+        <Box inline>
+          <ColorBox
+            color={item.colour}
+            mr={1}
+          />
+          <Box inline>
+            {toTitleCase(item.title)}
+          </Box>
+        </Box>
+      )}
+      showNext={(item) => (
+        <Box inline color={item.colour}>
+          {toTitleCase(item.title)}
+        </Box>
+      )}
     />),
+
     (<MessageListView
       fill
       width={30}
@@ -399,6 +454,7 @@ export const CommunicationProgram = (props, context) => {
       scrollable
       key={MODES.view_messages_list}
       messageList={messages}
+      canDelete={message_deletion_allowed}
       onClose={() => setCurrentMode(-1)}
       onClickMessage={(id) => {
         setSelectedMessage(id);
@@ -409,6 +465,7 @@ export const CommunicationProgram = (props, context) => {
           target: id,
         })}
     />),
+
     (<MessageContentView
       fill
       width={30}
@@ -426,8 +483,96 @@ export const CommunicationProgram = (props, context) => {
         target: id,
       })}
     />),
-    (<Box key={MODES.emergency_message} />),
-    (<Box key={MODES.evacuation} />),
+
+    (
+      <MessageBoxPrompt
+        key={MODES.emergency_message}
+        fill
+        title="Emergency Message"
+        value={announcement}
+        cooldown={cooldown_emergency*10}
+        onClose={() => {
+          setCurrentMode(-1);
+          setAnnouncement(null);
+        }}
+        onInput={(v) => setAnnouncement(v)}
+        onSend={(v) => {
+          act('message', {
+            target: 'regular',
+            message: v,
+          });
+          setAnnouncement(null);
+        }}
+      >
+        <LabeledList>
+          <LabeledList.Item
+            label="Recipient"
+          >
+            {boss_name}
+          </LabeledList.Item>
+          <LabeledList.Item
+            label="Sending as"
+          >
+            {data.user?.name || "Unknwon"}{!!data.user.job && `, ${data.user.job}`}
+          </LabeledList.Item>
+        </LabeledList>
+      </MessageBoxPrompt>
+    ),
+
+    (<SelectionPrompt
+      key={MODES.evacuation}
+      fill
+      title="Evacuation Plans"
+      selected={selectedEvacuation}
+      available={evac_options_available}
+      onClose={() => {
+        setCurrentMode(-1);
+        setSelectedEvacuation(null);
+      }}
+      onSelect={(level) => {
+        if (level.option_target === selectedEvacuation?.option_target) {
+          setSelectedEvacuation(null);
+        }
+        else {
+          setSelectedEvacuation(level);
+        }
+      }}
+      onApply={(selection) =>
+        act('evac', {
+          target: selection.option_target,
+        })}
+      showCurrent={(item) => (
+        <Box
+          color={
+            evac_is_active
+              ? 'bad'
+              : cooldown_evacuation
+                ? 'yellow'
+                : 'good'
+          }
+        >
+          {
+            evac_is_active
+              ? "Evacuation in effect"
+              : (
+                cooldown_evacuation
+                  ? "Cooldown active"
+                  : "All clear"
+              )
+          }
+        </Box>
+      )}
+      showOption={(item) => (
+        <Box inline>
+          {item.option_text}
+        </Box>
+      )}
+      showNext={(item) => (
+        <Box inline>
+          {item.option_text}
+        </Box>
+      )}
+    />),
   ];
 
   const shouldShowModal = (state) => {
@@ -492,6 +637,13 @@ export const CommunicationProgram = (props, context) => {
                 }
                 fluid
                 onClick={() => setCurrentMode(MODES.alert_level)}
+              />
+              <Button
+                content="Evacuation Protocols"
+                color={!!evac_is_active && 'bad'}
+                disabled={!authenticated}
+                fluid
+                onClick={() => setCurrentMode(MODES.evacuation)}
               />
             </Section>
           </Stack.Item>
