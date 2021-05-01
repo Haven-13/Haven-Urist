@@ -112,7 +112,7 @@ const SelectionPrompt = (props, context) => {
     onSelect = (obj) => {},
     onApply = (obj) => {},
 
-    comparator = (a,b) => { return a === b },
+    comparator = (a, b) => { return a === b; },
 
     showCurrent = (obj) => {},
     showOption = (obj) => {},
@@ -173,8 +173,8 @@ const SelectionPrompt = (props, context) => {
                 <Button
                   content="Apply"
                   disabled={
-                    !selected ||
-                    comparator(current, selected)
+                    !selected
+                    || comparator(current, selected)
                   }
                   onClick={() => onApply(selected)}
                 />
@@ -198,9 +198,9 @@ const SelectionPrompt = (props, context) => {
 const MessageListView = (props, context) => {
   const {
     canDelete,
-    onClose=()=>{},
-    onClickMessage=(obj)=>{},
-    onDeleteMessage=(obj)=>{},
+    onClose=() => {},
+    onClickMessage=(obj) => {},
+    onDeleteMessage=(obj) => {},
     ...rest
   } = props;
   const messages = props.messageList;
@@ -406,7 +406,7 @@ export const CommunicationProgram = (props, context) => {
       selected={selectedAlertLevel}
       available={availableAlertLevels}
       comparator={(a, b) => {
-        return a?.ref === b?.ref
+        return a?.ref === b?.ref;
       }}
       onClose={() => {
         setCurrentMode(-1);
