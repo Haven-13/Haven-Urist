@@ -43,7 +43,8 @@ SUBSYSTEM_DEF(open_space)
 /datum/controller/subsystem/open_space/proc/update_turf(var/turf/T)
 	for(var/atom/movable/A in T)
 		A.fall()
-	T.update_icon()
+	// update_icons are called by Exited & Entered
+	// falling calls forceMove, which in turn calls those two upon success
 
 /datum/controller/subsystem/open_space/proc/add_turf(var/turf/T, var/recursive = 0)
 	ASSERT(isturf(T))
@@ -55,15 +56,7 @@ SUBSYSTEM_DEF(open_space)
 		//take it out and readd
 		turfs_to_process -= T
 	turfs_to_process += T
-	if(recursive > 0)
+	if(recursive)
 		var/turf/above = GetAbove(T)
 		if(above && isopenspace(above))
 			add_turf(above, recursive)
-
-// Can't trust the Open-Space subsystem to do its work properly, that piece of shit
-/hook/roundstart/proc/initialize_space_transparency()
-	var/list/turf/turfs = SSopen_space.turfs_to_process.Copy()
-	for(var/turf/T in turfs)
-		if (T && T.is_transparent)
-			T.update_icon()
-	return 1

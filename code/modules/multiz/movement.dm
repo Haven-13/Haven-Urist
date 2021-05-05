@@ -129,6 +129,7 @@
 
 //Holds fall checks that should not be overriden by children
 /atom/movable/proc/fall()
+	SHOULD_NOT_OVERRIDE(TRUE)
 	if(!isturf(loc))
 		return
 

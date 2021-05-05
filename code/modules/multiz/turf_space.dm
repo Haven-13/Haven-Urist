@@ -1,3 +1,10 @@
+var/image/white_background = _create_white_background()
+
+/proc/_create_white_background()
+	var/image/I = image('icons/primitives.dmi', icon_state = "white")
+	I.plane = SPACE_PLANE
+	return I
+
 /turf/space/update_plane()
 	return
 
@@ -12,6 +19,4 @@
 /turf/space/Initialize()
 	. = ..()
 	if (. == INITIALIZE_HINT_NORMAL)
-		if (HasBelow(z) || HasAbove(z))
-			SSopen_space.add_turf(src, 1)
-			update_icon()
+		update_icon()

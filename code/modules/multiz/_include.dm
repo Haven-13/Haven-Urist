@@ -13,4 +13,4 @@
 #include "structures/structure_ladder.dm"
 #include "structures/structure_stairs.dm"
 
-#include "extensions/object_extensions.dm"
+// #include "extensions/object_extensions.dm"
