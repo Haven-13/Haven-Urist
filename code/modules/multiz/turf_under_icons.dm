@@ -1,3 +1,10 @@
+var/image/white_background = _create_white_background()
+
+/proc/_create_white_background()
+	var/image/I = image('icons/primitives.dmi', icon_state = "white")
+	I.plane = SPACE_PLANE
+	return I
+
 /turf
 	var/is_transparent = FALSE
 
