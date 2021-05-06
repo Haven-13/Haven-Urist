@@ -19,10 +19,6 @@
 	icon_state = "blank"
 	update()
 
-/turf/simulated/open/LateInitialize()
-	. = ..()
-	to_world("Attempted to run late-init on open-space")
-
 /turf/simulated/open/proc/update()
 	below = GetBelow(src)
 	GLOB.turf_changed_event.register(below, src,/turf/simulated/open/proc/turf_change)
