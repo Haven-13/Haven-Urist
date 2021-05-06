@@ -5,6 +5,7 @@
 	name = "\proper space"
 	icon_state = "default"
 	dynamic_lighting = 0
+	luminosity = 1
 	temperature = T20C
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
 	var/static/list/dust_cache
@@ -60,17 +61,10 @@
 	return locate(/obj/structure/lattice, src) //counts as solid structure if it has a lattice
 
 /turf/space/proc/update_starlight()
-	if(!config.starlight)
-		return
-	else if (config.starlight == 2)
-		src.dynamic_lighting = TRUE
+	return
 
-	if(locate(/turf/simulated) in orange(src,1)) //Let's make sure not to break everything if people use a crazy setting.
-		set_light(min(0.1*config.starlight, 1), 1, 3, l_color = SSskybox.BGcolor)
-	else if (config.starlight == 2)
-		set_light(min(0.1*config.starlight, 1), 1, 1, 0, l_color = SSskybox.BGcolor)
-	else
-		set_light(0)
+/turf/space/set_luminosity(value)
+	return
 
 /turf/space/attackby(obj/item/C as obj, mob/user as mob)
 

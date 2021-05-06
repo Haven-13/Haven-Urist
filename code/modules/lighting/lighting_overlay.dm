@@ -10,7 +10,7 @@
 	invisibility = INVISIBILITY_LIGHTING
 	color = null
 	icon_state = "light1"
-	blend_mode = BLEND_OVERLAY
+	blend_mode = BLEND_ADD
 
 	appearance_flags = 0
 
@@ -36,7 +36,7 @@
 		total_lighting_overlays++
 
 		T.lighting_overlay = src
-		T.luminosity = 0
+		T.set_luminosity(0)
 		if(no_update)
 			return
 		update_overlay()
