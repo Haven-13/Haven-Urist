@@ -26,7 +26,7 @@
 
 /turf/simulated/floor/is_plating()
 	return !flooring
-	
+
 /turf/simulated/floor/protects_atom(var/atom/A)
 	return (A.level <= 1 && !is_plating()) || ..()
 
@@ -45,7 +45,6 @@
 	update_icon()
 
 /turf/simulated/floor/proc/set_flooring(var/decl/flooring/newflooring, var/defer_icon_update = 0)
-	make_plating(defer_icon_update = 1) // always defer an icon update
 	flooring = newflooring
 	if (defer_icon_update)
 		update_icon(1)

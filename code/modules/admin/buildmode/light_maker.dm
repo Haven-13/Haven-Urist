@@ -3,7 +3,7 @@
 	icon_state = "buildmode8"
 
 	var/light_outer_range = 3
-	var/light_max_bright = 3
+	var/light_max_bright = 1
 	var/light_color = COLOR_WHITE
 
 /datum/build_mode/light_maker/Help()
@@ -23,7 +23,7 @@
 		if("Power")
 			var/input = input("New light power.", name, light_max_bright) as null|num
 			if(input)
-				light_max_bright = input
+				light_max_bright = between(0, input, 1)
 		if("Color")
 			var/input = input("New light color.", name, light_color) as null|color
 			if(input)
