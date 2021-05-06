@@ -40,114 +40,15 @@
 
 		-->
 		<div class="commit sansserif">
-			<h2 class="date">03 November 2020</h2>
+			<h2 class="date">06 May 2021</h2>
 			<h3 class="author">martinlyra updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="server">The server description (in Byond hub) is now configurable through the SERVERTAGLINE option in config.txt</li>
-				<li class="tweak">Changed the changelog template, now properly crediting both Astro-Haven 13 and Urist McStation developers and contributors.</li>
-				<li class="tweak">Changed the hub status message to supposedly less misleading and more concise.</li>
-			</ul>
-
-			<h2 class="date">02 November 2020</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Added sensors to the airlocks that had them missing on Pluto</li>
-				<li class="bugfix">Airlock sensors no longer trigger airlock cycles</li>
-				<li class="refactor">Changed ternary operators (a ? a : c) to ORs (a || b). It's syntactically better.</li>
-			</ul>
-
-			<h2 class="date">24 October 2020</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="server">Changed host-end settings to fix long-term issues.</li>
-				<li class="rscadd">Clone lab has been renovated, replacing an unused room opposite the AI chamber access. The clone lab now features a body scanner and a double cryo-tube set.</li>
-				<li class="tweak">The glass bridge above engineering foyer now use one-side-windows instead of full-tiles.</li>
-				<li class="tweak">Changed one of the kitchen supply fridges to a proper one featuring then missing kitchen supplies.</li>
-				<li class="rscadd">Added some space cleaners around the ship, mostly at the deck two.</li>
-				<li class="rscadd">Fleshed out the oxygen supply room, port-side of the Bridge.</li>
-				<li class="bugfix">Fixed ship weapons not having a ship-id set</li>
-				<li class="bugfix">Fixed command offices' atmospherics being not connected to main.</li>
-			</ul>
-
-			<h2 class="date">05 October 2020</h2>
-			<h3 class="author">Greenjoe12345 updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Adds a bunch of Teshari stuff</li>
-				<li class="tweak">edited the Teshari head sprites to make them have two ears.</li>
-				<li class="bugfix">fixed some sprite errors on Teshari clothing</li>
-				<li class="imageadd">adds a lot of new sprites for Teshari clothing</li>
-				<li class="code_imp">Edits the xeno locker slightly to add a new bit of Tesh clothing, adds some stuff to the xenowear loadout.</li>
-			</ul>
-
-			<h2 class="date">03 October 2020</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Items can now be clicked on and picked up via their container blocks from storage, pixel-hunting is no longer necessary.</li>
-				<li class="bugfix">Fixed items rendering behind storage blocks in variable width storages (backpacks, etc.)</li>
-				<li class="bugfix">Turrets no longer target crewmen that are smaller than human (specially Teshari)</li>
-			</ul>
-
-			<h2 class="date">02 October 2020</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="bugfix">Fix toilets appearing under floors</li>
-				<li class="bugfix">Fix mobs appearing under floors when lying down above the first z-level</li>
-				<li class="bugfix">Fix floors not being updated properly in elevators</li>
-				<li class="bugfix">Fix floors not being updated properly in holodeck environments</li>
-				<li class="bugfix">Fix floor decals not being transferred correctly in holodeck environments</li>
-				<li class="bugfix">Telecomms' monitoring room should be a bit more fancy</li>
-				<li class="bugfix">Changed the APC in engine room to a hyper-cell one</li>
-				<li class="bugfix">Changed the core airlocks in AI to high-security, they start bolted</li>
-				<li class="bugfix">Changed the tech storage airlocks to engineering-styled ones</li>
-				<li class="bugfix">Quartermaster's office's has been refurnished to improve accessibility</li>
-			</ul>
-
-			<h2 class="date">08 September 2020</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="bugfix">Fixed multi-z transition not working for non-ghosts</li>
-				<li class="bugfix">Fixed the space background showing up everywhere</li>
-			</ul>
-
-			<h2 class="date">07 September 2020</h2>
-			<h3 class="author">MarkSuckerberg updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">compatibility with TGS4 (https://github.com/tgstation/tgstation-server) through the included DMAPI</li>
-				<li class="rscadd">config option (rounds_until_hard_restart) which, after set amount of rounds, makes TGS force DD to hard restart.</li>
-				<li class="rscadd">if bay's IRC relay bot isn't set up, send2irc calls are redirected to TGS and it's discord bots</li>
-				<li class="server">see DMAPI Integration PR for control panel for and setup of TGS</li>
-			</ul>
-
-			<h2 class="date">05 September 2020</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscdel">Removed Xenoarcheology and all features related to it.</li>
-				<li class="rscadd">Added bugs to fill in the void left by Xenoarcheology</li>
-				<li class="code_imp">Updated gen_globals.py to work on newer versions of Python</li>
-			</ul>
-
-			<h2 class="date">04 September 2020</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Added FastDMM2 integration</li>
-				<li class="rscadd">Added shrubs from Goonstation</li>
-				<li class="rscadd">Added jungle plants from CEV-Eris</li>
-				<li class="rscadd">Added rocks from CEV-Eris</li>
-				<li class="bugfix">Fixed the grass having ugly-ass sprites</li>
-				<li class="imageadd">Grass sprites from CEV-Eris replace the old one</li>
-				<li class="imageadd">Added potted plants from Goonstation, to be yet used</li>
-			</ul>
-
-			<h2 class="date">03 September 2020</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Improved the multi-Z rendering by using CEV-Eris' plane system</li>
-				<li class="rscadd">Space tiles are now candidates for rendering multi-Z objects underneath them</li>
-				<li class="refactor">Moved lot of the pre-existing planes to plane-master objects for better control of effects</li>
-				<li class="refactor">Ported CEV-Eris' plane system, there may be problems with objects showing up over or underneath other objects when they should not.</li>
-				<li class="bugfix">Removed a duplicate object in Nevestapol</li>
-				<li class="bugfix">Fixed Loadout not registering user choices for gear to use</li>
-				<li class="bugfix">Disabled access checking on Pluto's two public hallway turrets</li>
+				<li class="rscdel">The old Baystation Open-Space has been fully deleted. Good bye. You won't be missed.</li>
+				<li class="bugfix">Fix a large initialization overhead caused by floors turning into plating then back to their given flooring type</li>
+				<li class="bugfix">Fix runtimes related to lighting brightness</li>
+				<li class="bugfix">Fix problems related to grid floors</li>
+				<li class="bugfix">Fix layering issue with above-light-effects on light-switches and robots</li>
+				<li class="refactor">Most of the old multi-z updating code has been minimized to decrease overhead</li>
 			</ul>
 		</div>
 
