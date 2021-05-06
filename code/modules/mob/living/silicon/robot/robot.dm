@@ -768,25 +768,25 @@
 		if(eye_icon_state in icon_states(icon))
 			if(!eye_overlays)
 				eye_overlays = list()
-			var/image/eye_overlay = eye_overlays[eye_icon_state]
+			var/cache_key = "[eye_icon_state]-[plane]"
+			var/image/eye_overlay = eye_overlays[cache_key]
 			if(!eye_overlay)
 				eye_overlay = image(icon, eye_icon_state)
-				eye_overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+				eye_overlay.plane = get_float_plane(EFFECTS_ABOVE_LIGHTING_PLANE)
 				eye_overlay.layer = EYE_GLOW_LAYER
-				eye_overlays[eye_icon_state] = eye_overlay
+				eye_overlays[cache_key] = eye_overlay
 			overlays += eye_overlay
 
 	if(opened)
 		var/panelprefix = custom_sprite ? src.ckey : "ov"
-		if(wiresexposed)
-			overlays += "[panelprefix]-openpanel +w"
-		else if(cell)
-			overlays += "[panelprefix]-openpanel +c"
-		else
-			overlays += "[panelprefix]-openpanel -c"
+		var/is = "[panelprefix]-openpanel [(wiresexposed && "+w") || (cell && "+c") || "-c"]"
+		overlays += is
 
 	if(module_active && istype(module_active,/obj/item/borg/combat/shield))
-		overlays += "droid-combat-shield"
+		var/image/shield_overlay = image(icon, "droid-combat-shield")
+		shield_overlay.plane = get_float_plane(EFFECTS_ABOVE_LIGHTING_PLANE)
+		shield_overlay.layer = BEAM_PROJECTILE_LAYER
+		overlays += shield_overlay
 
 	if(modtype == "Combat")
 		if(module_active && istype(module_active,/obj/item/borg/combat/mobility))
