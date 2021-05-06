@@ -127,8 +127,6 @@
 /atom/movable/proc/throw_at(atom/target, range, speed, thrower)
 	if(!target || !src)
 		return 0
-	if(target.z != src.z)
-		return 0
 	//use a modified version of Bresenham's algorithm to get from the atom's current position to that of the target
 	src.throwing = 1
 	src.thrower = thrower
@@ -138,12 +136,14 @@
 		if(HULK in usr.mutations)
 			src.throwing = 2 // really strong throw!
 
+	var/distance = get_dist(src, target)
 	var/dist_travelled = 0
 	var/dist_since_sleep = 0
 	var/area/a = get_area(src.loc)
 
 	var/dist_x = abs(target.x - src.x)
 	var/dist_y = abs(target.y - src.y)
+	var/dist_z = abs(target.z - src.z)
 
 	var/dx
 	if (target.x > src.x)
@@ -156,6 +156,14 @@
 		dy = NORTH
 	else
 		dy = SOUTH
+
+	// This is not a realistic throwing algothrim
+	// TODO: make a curve function for this
+	var/dz
+	if (target.z > src.z)
+		dz = UP
+	else
+		dz = DOWN
 
 	var/error
 	var/major_dir
@@ -175,10 +183,42 @@
 		minor_dir = dx
 		minor_dist = dist_x
 
+	var/section = 0
+	var/section_dist
+	var/max_jumps
+	if (dist_z)
+		// how much distance to travel before attempting to go up/down?
+		section_dist = distance / (dist_z + 1)
+		if (dz == UP)
+			section_dist = Floor(section_dist)
+		else
+			section_dist = Ceiling(section_dist)
+		max_jumps = dist_z
+
 	while(src && target && src.throwing && istype(src.loc, /turf) \
-		  && ((abs(target.x - src.x)+abs(target.y - src.y) > 0 && dist_travelled < range) \
-		  	   || (a && a.has_gravity == 0) \
-			   || istype(src.loc, /turf/space)))
+			&& ((abs(target.x - src.x)+abs(target.y - src.y) > 0 && dist_travelled < range) \
+				|| (a && a.has_gravity == 0) \
+				|| istype(src.loc, /turf/space)))
+		// begin while loop
+		if(dist_z)
+			if(dist_travelled >= (section_dist * (section + 1)) && \
+				section < max_jumps
+			)
+				var/turf/T = null
+				var/turf/O = get_turf(src)
+				var/can_pass_z = O.CanZPass(src, dz)
+				if (dz == UP)
+					T = GetAbove(src)
+					can_pass_z = can_pass_z && (T && T.CanZPass(src, dz))
+				else
+					T = GetBelow(src)
+				if(can_pass_z && T)
+					src.forceMove(T)
+					hit_check(speed)
+					section++
+				else
+					break // we hit something
+
 		// only stop when we've gone the whole distance (or max throw range) and are on a non-space tile, or hit something, or hit the end of the map, or someone picks it up
 		var/atom/step
 		if(error >= 0)
@@ -189,6 +229,7 @@
 			error += major_dist
 		if(!step) // going off the edge of the map makes get_step return null, don't let things go off the edge
 			break
+
 		src.Move(step)
 		hit_check(speed)
 		dist_travelled++
@@ -200,6 +241,7 @@
 		// and yet it moves
 		if(src.does_spin)
 			src.SpinAnimation(speed = 4, loops = 1)
+		// end of while loop
 
 	//done throwing, either because it hit something or it finished moving
 	if(isobj(src)) src.throw_impact(get_turf(src),speed)

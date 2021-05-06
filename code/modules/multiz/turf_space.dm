@@ -12,6 +12,4 @@
 /turf/space/Initialize()
 	. = ..()
 	if (. == INITIALIZE_HINT_NORMAL)
-		if (HasBelow(z) || HasAbove(z))
-			SSopen_space.add_turf(src, 1)
-			update_icon()
+		update_icon()

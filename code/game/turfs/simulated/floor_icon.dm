@@ -61,8 +61,6 @@ var/list/flooring_cache = list()
 		for(var/turf/simulated/floor/F in orange(src, 1))
 			F.update_icon()
 
-	update_openspace()
-
 /turf/simulated/floor/proc/get_flooring_overlay(var/cache_key, var/icon_base, var/icon_dir = 0)
 	if(!flooring_cache[cache_key])
 		var/image/I = image(icon = flooring.icon, icon_state = icon_base, dir = icon_dir)
