@@ -118,3 +118,14 @@
   - tweak: Changed the changelog template, now properly crediting both Astro-Haven
       13 and Urist McStation developers and contributors.
   - tweak: Changed the hub status message to supposedly less misleading and more concise.
+2021-05-06:
+  martinlyra:
+  - rscdel: The old Baystation Open-Space has been fully deleted. Good bye. You won't
+      be missed.
+  - bugfix: Fix a large initialization overhead caused by floors turning into plating
+      then back to their given flooring type
+  - bugfix: Fix runtimes related to lighting brightness
+  - bugfix: Fix problems related to grid floors
+  - bugfix: Fix layering issue with above-light-effects on light-switches and robots
+  - refactor: Most of the old multi-z updating code has been minimized to decrease
+      overhead
