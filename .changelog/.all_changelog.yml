@@ -136,3 +136,4 @@
   - rscadd: Lighting effect now uses alpha to improve its rendering effect
   - tweak: Lighting calculations switched from subtractive to additive
   - code_imp: Moved starlight function to its own file in lighting module
+  - code_imp: Added preliminary integration with auxtools
