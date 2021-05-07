@@ -2,14 +2,14 @@
 /atom/movable/lighting_overlay
 	name = ""
 	mouse_opacity = 0
-	simulated = 0
-	anchored = 1
+	simulated = FALSE
+	anchored = TRUE
 	icon = LIGHTING_ICON
 	plane = LIGHTING_PLANE
 	layer = LIGHTING_LAYER
 	invisibility = INVISIBILITY_LIGHTING
-	color = LIGHTING_BASE_MATRIX
-	icon_state = "light1"
+	color = null
+	icon_state = "transparent"
 	blend_mode = BLEND_OVERLAY
 
 	appearance_flags = 0
@@ -23,6 +23,7 @@
 /atom/movable/lighting_overlay/Initialize()
 	SHOULD_CALL_PARENT(FALSE)
 	// doesn't need special init
+	color = LIGHTING_BASE_MATRIX
 	update_plane() // This is needed for maps loaded by the runtime map loader
 	atom_flags |= ATOM_FLAG_INITIALIZED
 	return INITIALIZE_HINT_NORMAL
@@ -35,7 +36,7 @@
 		total_lighting_overlays++
 
 		T.lighting_overlay = src
-		T.luminosity = 0
+		T.set_luminosity(0)
 		if(no_update)
 			return
 		update_overlay()
@@ -108,11 +109,11 @@
 	else
 		icon_state = null
 		color = list(
-			-rr, -rg, -rb, 00,
-			-gr, -gg, -gb, 00,
-			-br, -bg, -bb, 00,
-			-ar, -ag, -ab, 00,
-			01, 01, 01, 01
+			rr, rg, rb, 00,
+			gr, gg, gb, 00,
+			br, bg, bb, 00,
+			ar, ag, ab, 00,
+			00, 00, 00, 01
 		)
 
 	luminosity = set_luminosity

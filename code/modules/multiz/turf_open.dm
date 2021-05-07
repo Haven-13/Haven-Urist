@@ -4,6 +4,7 @@
 	icon_state = "black_open"
 	plane = OPENSPACE_PLANE
 	blend_mode = BLEND_OVERLAY
+	luminosity = 1
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 
@@ -89,6 +90,9 @@
 		var/obj/item/stack/cable_coil/coil = C
 		coil.turf_place(src, user)
 		return
+	return
+
+/turf/simulated/open/set_luminosity(value)
 	return
 
 //Most things use is_plating to test if there is a cover tile on top (like regular floors)

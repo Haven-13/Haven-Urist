@@ -77,6 +77,9 @@
 		update_openspace()
 	. = ..()
 
+/atom/proc/set_luminosity(value)
+	luminosity = value
+
 /atom/proc/reveal_blood()
 	return
 
