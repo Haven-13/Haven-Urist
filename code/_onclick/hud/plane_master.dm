@@ -12,6 +12,10 @@
 	var/hide_alpha = 0
 
 /obj/screen/plane_master/proc/update_screen_plane(var/z_level)
+	if(initial(src.render_target))
+		src.render_target = "[initial(src.render_target)]-[z_level]"
+	else
+		src.render_target = "[src.plane]-[z_level]"
 	src.plane = calculate_plane(z_level, src.plane)
 
 /obj/screen/plane_master/proc/Show(override)
@@ -33,6 +37,9 @@
    For a list of what planes are included, take a look in
    __defines/_planes+layers.dm
  */
+
+#define VISIBLE_GAME_WORLD_RENDER "*visible_game_world_render"
+
 /obj/screen/plane_master/space_master
 	plane = SPACE_PLANE
 
@@ -93,6 +100,23 @@
 /obj/screen/plane_master/observer_master
 	plane = OBSERVER_PLANE
 
+/obj/screen/plane_master/visible_game_world_plane_master
+	plane = VISIBLE_GAME_WORLD_PLANE
+	render_target = VISIBLE_GAME_WORLD_RENDER
+	mouse_opacity = 0    // nothing on this plane is mouse-visible
+
+/obj/screen/plane_master/visible_game_world_plane_master/update_screen_plane(var/z_level)
+	..()
+	update_composite(z_level)
+
+/obj/screen/plane_master/visible_game_world_plane_master/proc/update_composite(z)
+	for (var/plane in BELOW_TURF_PLANE to OBSERVER_PLANE)
+		filters += filter(
+			type="layer",
+			render_source="[plane]-[z]",
+			blend_mode=BLEND_ADD
+		)
+
 /obj/screen/plane_master/lighting_plane
 	name = "lighting plane master"
 	plane = LIGHTING_PLANE
@@ -100,18 +124,20 @@
 	blend_mode = BLEND_MULTIPLY
 	mouse_opacity = 0    // nothing on this plane is mouse-visible
 
+/obj/screen/plane_master/lighting_plane/update_screen_plane(var/z_level)
+	..()
+	update_masks(z_level)
 
-	// use 20% ambient lighting; be sure to add full alpha
-	color = list(
-			-1, 00, 00, 00,
-			00, -1, 00, 00,
-			00, 00, -1, 00,
-			00, 00, 00, 00,
-			01, 01, 01, 01
-		)
+/obj/screen/plane_master/lighting_plane/proc/update_masks(z)
+	filters += filter(
+		type="alpha",
+		render_source="[VISIBLE_GAME_WORLD_RENDER]-[z]"
+	)
 
 /obj/screen/plane_master/effects_above_lighting_master
 	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 
 /obj/screen/plane_master/obscurity_master
 	plane = OBSCURITY_PLANE
+
+#undef VISIBLE_GAME_WORLD_RENDER
