@@ -9,8 +9,8 @@
 	layer = LIGHTING_LAYER
 	invisibility = INVISIBILITY_LIGHTING
 	color = null
-	icon_state = "light1"
-	blend_mode = BLEND_ADD
+	icon_state = "transparent"
+	blend_mode = BLEND_OVERLAY
 
 	appearance_flags = 0
 
