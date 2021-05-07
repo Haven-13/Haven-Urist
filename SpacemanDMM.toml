@@ -83,3 +83,7 @@ disallow_relative_type_definitions = true
 [dmdoc]
 # Use the full typepath instead of the last part (name)?
 use_typepath_names = true
+
+[debugger]
+# development server for reviewing stacks & variables and so on
+engine = "auxtools"
