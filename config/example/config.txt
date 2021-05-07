@@ -351,8 +351,12 @@ EVENT_CUSTOM_START_MAJOR 80;100
 ## Respawn delay in minutes before one may respawn as a crew member.
 #RESPAWN_DELAY 30
 
-## Strength of ambient star light. Set to 0 or less to turn off. A value of 1 is unlikely to have a noticeable effect in most lighting systems.
-STARLIGHT 0
+## Mode of ambient star light.
+## Available values, (hard-coded default: 0) :
+## 	0 - off, complete hard-lighting on space, most efficient option
+##  1 - illuminate space-simulated edges only
+##  2 - applies dynamic lighting to all space tiles (no ambient lighting, however)
+STARLIGHT 2
 
 ## Defines which races are allowed to join as ERT, in singular form. If unset, defaults to only human. Casing matters, separate using ;
 ## Example races include: Human, Tajara, Skrell, Unathi

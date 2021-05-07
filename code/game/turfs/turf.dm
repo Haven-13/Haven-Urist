@@ -43,9 +43,9 @@
 			return
 
 	if(dynamic_lighting)
-		luminosity = 0
+		set_luminosity(0)
 	else
-		luminosity = 1
+		set_luminosity(1)
 
 /turf/update_icon()
 	update_flood_overlay()
