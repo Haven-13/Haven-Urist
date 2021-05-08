@@ -1051,7 +1051,7 @@
 			return global.z_levels;
 		if("zone_blocked")
 			return global.zone_blocked;
-
+		
 /proc/writeglobal(which, newval)
 	switch(which)
 		if("ALL_ANTIGENS")
@@ -2104,7 +2104,7 @@
 			global.z_levels=newval;
 		if("zone_blocked")
 			global.zone_blocked=newval;
-
+		
 /var/list/_all_globals=list(
 	"ALL_ANTIGENS",
 	"ANTAG_FREQS",
@@ -2183,10 +2183,6 @@
 	"SSwebhooks",
 	"SSwireless",
 	"SWEDEBLOCK",
-	"Tier1Runes",
-	"Tier2Runes",
-	"Tier3Runes",
-	"Tier4Runes",
 	"WALLITEMS",
 	"_all_globals",
 	"_client_preferences",
@@ -2241,7 +2237,6 @@
 	"antag_add_finished",
 	"appearance_manager",
 	"area_repository",
-	"artefact_feedback",
 	"ascii_esc",
 	"ascii_green",
 	"ascii_red",
@@ -2299,7 +2294,6 @@
 	"crew_repository",
 	"csrfz_check",
 	"custom_event_msg",
-	"custom_items",
 	"damage_icon_parts",
 	"dbcon",
 	"dbcon_old",
@@ -2377,7 +2371,6 @@
 	"gzn_check",
 	"hadevent",
 	"hazard_overlays",
-	"hivemind_bank",
 	"holder_mob_icon_cache",
 	"host",
 	"href_logfile",
@@ -2453,9 +2446,6 @@
 	"motion_alarm",
 	"moving_levels",
 	"multi_point_spawns",
-	"narsie_behaviour",
-	"narsie_cometh",
-	"narsie_list",
 	"navbeacons",
 	"news_network",
 	"newscaster_standard_feeds",
@@ -2489,10 +2479,7 @@
 	"plant_seed_sprites",
 	"playable_species",
 	"pooledvariables",
-	"possible_changeling_IDs",
 	"power_alarm",
-	"powerinstances",
-	"powers",
 	"preferences_datums",
 	"priority_air_alarms",
 	"priority_announcement",
@@ -2524,7 +2511,6 @@
 	"respawntime",
 	"restricted_camera_networks",
 	"revdata",
-	"robot_custom_icons",
 	"robot_hud_colours",
 	"robot_inventory",
 	"robot_modules",
@@ -2557,7 +2543,6 @@
 	"space_ruins_templates",
 	"spacevines_spawned",
 	"sparring_attack_cache",
-	"spells",
 	"splatter_cache",
 	"sploded",
 	"sqladdress",
@@ -2620,7 +2605,6 @@
 	"turret_icons",
 	"underground_templates",
 	"uniqueness_repository",
-	"universe_has_ended",
 	"uplink",
 	"uplink_purchase_repository",
 	"uplink_random_selections_",
