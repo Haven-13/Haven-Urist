@@ -1102,7 +1102,7 @@ About the new airlock wires panel:
 			..()
 			return
 
-	// Check if we're using a crowbar or armblade, and if the airlock's unpowered for whatever reason (off, broken, etc).
+	// Check if we're using a crowbar and if the airlock's unpowered for whatever reason (off, broken, etc).
 	else if( istype(C, /obj/item/weapon/material/twohanded/fireaxe) && !arePowerSystemsOn())
 		if(locked)
 			user << "<span class='notice'>The airlock's bolts prevent it from being forced.</span>"
@@ -1112,7 +1112,7 @@ About the new airlock wires panel:
 				if(!F.wielded)
 					user << "<span class='warning'>You need to be wielding \the [F] to do that.</span>"
 					return
-			// At this point, it's an armblade or a fireaxe that passed the wielded test, let's try to open it.
+			// At this point, it's a fireaxe that passed the wielded test, let's try to open it.
 			if(density)
 				spawn(0)
 					open(1)
