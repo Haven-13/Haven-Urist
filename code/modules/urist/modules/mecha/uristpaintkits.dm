@@ -12,7 +12,7 @@
 
 	new_name = "APLU \"Clown-ply\""
 	new_desc = "This ordinary mining Ripley has been customized to look like a Clown."
-	new_icon_file = 'icons/urist/structures&machinery/Mecha.dmi'
+	new_icon_file = 'icons/urist/objects/Mecha.dmi'
 	new_icon = "clowny"
 	allowed_types = list("ripley","firefighter")
 
@@ -26,7 +26,7 @@
 
 	new_name = "APLU \"Dreadnought\""
 	new_desc = "This ordinary mining Ripley has been converted to a Dreadnought class Ripley. Cool."
-	new_icon_file = 'icons/urist/structures&machinery/Mecha.dmi'
+	new_icon_file = 'icons/urist/objects/Mecha.dmi'
 	new_icon = "dreadnought"
 	allowed_types = list("ripley")
 

@@ -86,18 +86,6 @@
 #define TEMPLATE_FLAG_NO_RUINS         8 // if it should forbid ruins from spawning on top of it
 #define TEMPLATE_FLAG_NO_RADS          16// Removes all radiation from the template after spawning.
 
-// Convoluted setup so defines can be supplied by Bay12 main server compile script.
-// Should still work fine for people jamming the icons into their repo.
-#ifndef CUSTOM_ITEM_OBJ
-#define CUSTOM_ITEM_OBJ 'icons/obj/custom_items_obj.dmi'
-#endif
-#ifndef CUSTOM_ITEM_MOB
-#define CUSTOM_ITEM_MOB 'icons/mob/custom_items_mob.dmi'
-#endif
-#ifndef CUSTOM_ITEM_SYNTH
-#define CUSTOM_ITEM_SYNTH 'icons/mob/custom_synthetic.dmi'
-#endif
-
 #define WALL_CAN_OPEN 1
 #define WALL_OPENING 2
 

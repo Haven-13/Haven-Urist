@@ -3,7 +3,7 @@
 /obj/structure/maze/maze_falsewall
 	name = "wall"
 	anchored = 1
-	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon = 'icons/urist/objects/structures.dmi'
 	icon_state = "riveted"
 	opacity = 1
 	density = 1
@@ -90,7 +90,7 @@
 	name = "The Director"
 	desc = "It's the madman who runs this deathtrap!"
 	icon_state = "director"
-	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon = 'icons/urist/objects/structures.dmi'
 	anchored = 1
 	density = 1
 
