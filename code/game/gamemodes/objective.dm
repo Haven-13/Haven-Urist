@@ -520,42 +520,6 @@ datum/objective/capture
 			return 0
 		return 1
 
-datum/objective/blood
-	proc/gen_amount_goal(low = 150, high = 400)
-		target_amount = rand(low,high)
-		target_amount = round(round(target_amount/5)*5)
-		explanation_text = "Accumulate atleast [target_amount] units of blood in total."
-		return target_amount
-
-	check_completion()
-		if(owner && owner.vampire && owner.vampire.bloodtotal && owner.vampire.bloodtotal >= target_amount)
-			return 1
-		else
-			return 0
-
-/datum/objective/absorb
-	proc/gen_amount_goal(var/lowbound = 4, var/highbound = 6)
-		target_amount = rand (lowbound,highbound)
-		var/n_p = 1 //autowin
-		if (GAME_STATE == RUNLEVEL_SETUP)
-			for(var/mob/new_player/P in GLOB.player_list)
-				if(P.client && P.ready && P.mind!=owner)
-					n_p ++
-		else if (GAME_STATE == RUNLEVEL_GAME)
-			for(var/mob/living/carbon/human/P in GLOB.player_list)
-				if(P.client && !(P.mind.changeling) && P.mind!=owner)
-					n_p ++
-		target_amount = min(target_amount, n_p)
-
-		explanation_text = "Absorb [target_amount] compatible genomes."
-		return target_amount
-
-	check_completion()
-		if(owner && owner.changeling && owner.changeling.absorbed_dna && (owner.changeling.absorbedcount >= target_amount))
-			return 1
-		else
-			return 0
-
 // Heist objectives.
 datum/objective/heist
 	proc/choose_target()
@@ -725,25 +689,6 @@ datum/objective/heist/salvage
 		if(GLOB.raiders && GLOB.raiders.is_raider_crew_safe()) return 1
 		return 0
 
-//Borer objective(s).
-/datum/objective/borer_survive
-	explanation_text = "Survive in a host until the end of the round."
-
-/datum/objective/borer_survive/check_completion()
-	if(owner)
-		var/mob/living/simple_animal/borer/B = owner
-		if(istype(B) && B.stat < 2 && B.host && B.host.stat < 2) return 1
-	return 0
-
-/datum/objective/borer_reproduce
-	explanation_text = "Reproduce at least once."
-
-/datum/objective/borer_reproduce/check_completion()
-	if(owner && owner.current)
-		var/mob/living/simple_animal/borer/B = owner.current
-		if(istype(B) && B.has_reproduced) return 1
-	return 0
-
 /datum/objective/ninja_highlander
    explanation_text = "You aspire to be a Grand Master of the Spider Clan. Kill all of your fellow acolytes."
 
@@ -754,50 +699,6 @@ datum/objective/heist/salvage
 				if(ninja.current.stat < 2) return 0
 		return 1
 	return 0
-
-/datum/objective/cult/survive
-	explanation_text = "Our knowledge must live on."
-	target_amount = 5
-
-/datum/objective/cult/survive/New()
-	..()
-	explanation_text = "Our knowledge must live on. Make sure at least [target_amount] acolytes survive to spread their work on an another station."
-
-/datum/objective/cult/survive/check_completion()
-	var/acolytes_survived = 0
-	if(!GLOB.cult)
-		return 0
-	for(var/datum/mind/cult_mind in GLOB.cult.current_antagonists)
-		if (cult_mind.current && cult_mind.current.stat!=2)
-			var/area/A = get_area(cult_mind.current )
-			if ( is_type_in_list(A, GLOB.using_map.post_round_safe_areas))
-				acolytes_survived++
-	if(acolytes_survived >= target_amount)
-		return 0
-	else
-		return 1
-
-/datum/objective/cult/eldergod
-	explanation_text = "Summon Nar-Sie via the use of the appropriate rune (Hell join self). It will only work if nine cultists stand on and around it. The convert rune is join blood self."
-
-/datum/objective/cult/eldergod/check_completion()
-	return (locate(/obj/singularity/narsie/large) in SSmachines.machinery)
-
-/datum/objective/cult/sacrifice
-	explanation_text = "Conduct a ritual sacrifice for the glory of Nar-Sie."
-
-/datum/objective/cult/sacrifice/find_target()
-	var/list/possible_targets = list()
-	if(!possible_targets.len)
-		for(var/mob/living/carbon/human/player in GLOB.player_list)
-			if(player.mind && !(player.mind in GLOB.cult.current_antagonists))
-				possible_targets += player.mind
-	if(possible_targets.len > 0)
-		target = pick(possible_targets)
-	if(target) explanation_text = "Sacrifice [target.name], the [target.assigned_role]. You will need the sacrifice rune (Hell blood join) and three acolytes to do so."
-
-/datum/objective/cult/sacrifice/check_completion()
-	return (target && GLOB.cult && !GLOB.cult.sacrificed.Find(target))
 
 /datum/objective/rev/find_target()
 	..()

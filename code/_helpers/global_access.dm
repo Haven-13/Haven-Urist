@@ -155,14 +155,6 @@
 			return global.SSwireless;
 		if("SWEDEBLOCK")
 			return global.SWEDEBLOCK;
-		if("Tier1Runes")
-			return global.Tier1Runes;
-		if("Tier2Runes")
-			return global.Tier2Runes;
-		if("Tier3Runes")
-			return global.Tier3Runes;
-		if("Tier4Runes")
-			return global.Tier4Runes;
 		if("WALLITEMS")
 			return global.WALLITEMS;
 		if("_all_globals")
@@ -271,8 +263,6 @@
 			return global.appearance_manager;
 		if("area_repository")
 			return global.area_repository;
-		if("artefact_feedback")
-			return global.artefact_feedback;
 		if("ascii_esc")
 			return global.ascii_esc;
 		if("ascii_green")
@@ -541,8 +531,6 @@
 			return global.hadevent;
 		if("hazard_overlays")
 			return global.hazard_overlays;
-		if("hivemind_bank")
-			return global.hivemind_bank;
 		if("holder_mob_icon_cache")
 			return global.holder_mob_icon_cache;
 		if("host")
@@ -693,12 +681,6 @@
 			return global.moving_levels;
 		if("multi_point_spawns")
 			return global.multi_point_spawns;
-		if("narsie_behaviour")
-			return global.narsie_behaviour;
-		if("narsie_cometh")
-			return global.narsie_cometh;
-		if("narsie_list")
-			return global.narsie_list;
 		if("navbeacons")
 			return global.navbeacons;
 		if("news_network")
@@ -765,14 +747,8 @@
 			return global.playable_species;
 		if("pooledvariables")
 			return global.pooledvariables;
-		if("possible_changeling_IDs")
-			return global.possible_changeling_IDs;
 		if("power_alarm")
 			return global.power_alarm;
-		if("powerinstances")
-			return global.powerinstances;
-		if("powers")
-			return global.powers;
 		if("preferences_datums")
 			return global.preferences_datums;
 		if("priority_air_alarms")
@@ -899,8 +875,6 @@
 			return global.spacevines_spawned;
 		if("sparring_attack_cache")
 			return global.sparring_attack_cache;
-		if("spells")
-			return global.spells;
 		if("splatter_cache")
 			return global.splatter_cache;
 		if("sploded")
@@ -1025,8 +999,6 @@
 			return global.underground_templates;
 		if("uniqueness_repository")
 			return global.uniqueness_repository;
-		if("universe_has_ended")
-			return global.universe_has_ended;
 		if("uplink")
 			return global.uplink;
 		if("uplink_purchase_repository")
@@ -1236,14 +1208,6 @@
 			global.SSwireless=newval;
 		if("SWEDEBLOCK")
 			global.SWEDEBLOCK=newval;
-		if("Tier1Runes")
-			global.Tier1Runes=newval;
-		if("Tier2Runes")
-			global.Tier2Runes=newval;
-		if("Tier3Runes")
-			global.Tier3Runes=newval;
-		if("Tier4Runes")
-			global.Tier4Runes=newval;
 		if("WALLITEMS")
 			global.WALLITEMS=newval;
 		if("_all_globals")
@@ -1352,8 +1316,6 @@
 			global.appearance_manager=newval;
 		if("area_repository")
 			global.area_repository=newval;
-		if("artefact_feedback")
-			global.artefact_feedback=newval;
 		if("ascii_esc")
 			global.ascii_esc=newval;
 		if("ascii_green")
@@ -1622,8 +1584,6 @@
 			global.hadevent=newval;
 		if("hazard_overlays")
 			global.hazard_overlays=newval;
-		if("hivemind_bank")
-			global.hivemind_bank=newval;
 		if("holder_mob_icon_cache")
 			global.holder_mob_icon_cache=newval;
 		if("host")
@@ -1774,12 +1734,6 @@
 			global.moving_levels=newval;
 		if("multi_point_spawns")
 			global.multi_point_spawns=newval;
-		if("narsie_behaviour")
-			global.narsie_behaviour=newval;
-		if("narsie_cometh")
-			global.narsie_cometh=newval;
-		if("narsie_list")
-			global.narsie_list=newval;
 		if("navbeacons")
 			global.navbeacons=newval;
 		if("news_network")
@@ -1846,14 +1800,8 @@
 			global.playable_species=newval;
 		if("pooledvariables")
 			global.pooledvariables=newval;
-		if("possible_changeling_IDs")
-			global.possible_changeling_IDs=newval;
 		if("power_alarm")
 			global.power_alarm=newval;
-		if("powerinstances")
-			global.powerinstances=newval;
-		if("powers")
-			global.powers=newval;
 		if("preferences_datums")
 			global.preferences_datums=newval;
 		if("priority_air_alarms")
@@ -1980,8 +1928,6 @@
 			global.spacevines_spawned=newval;
 		if("sparring_attack_cache")
 			global.sparring_attack_cache=newval;
-		if("spells")
-			global.spells=newval;
 		if("splatter_cache")
 			global.splatter_cache=newval;
 		if("sploded")
@@ -2106,8 +2052,6 @@
 			global.underground_templates=newval;
 		if("uniqueness_repository")
 			global.uniqueness_repository=newval;
-		if("universe_has_ended")
-			global.universe_has_ended=newval;
 		if("uplink")
 			global.uplink=newval;
 		if("uplink_purchase_repository")

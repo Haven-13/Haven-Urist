@@ -70,10 +70,6 @@
 				winset(client, "input", "text=[null]")
 
 /mob/living/carbon/human/say_understands(var/mob/other,var/datum/language/speaking = null)
-
-	if(has_brain_worms()) //Brain worms translate everything. Even mice and alien speak.
-		return 1
-
 	if(species.can_understand(other))
 		return 1
 
@@ -98,7 +94,6 @@
 	return ..()
 
 /mob/living/carbon/human/GetVoice()
-
 	var/voice_sub
 	if(istype(back,/obj/item/weapon/rig))
 		var/obj/item/weapon/rig/rig = back
@@ -114,8 +109,6 @@
 				voice_sub = changer.voice
 	if(voice_sub)
 		return voice_sub
-	if(mind && mind.changeling && mind.changeling.mimicing)
-		return mind.changeling.mimicing
 	return real_name
 
 /mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null)
