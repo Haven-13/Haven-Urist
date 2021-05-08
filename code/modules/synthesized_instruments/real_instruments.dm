@@ -1,7 +1,7 @@
 //This is the combination of logic pertaining music
 //An atom should use the logic and call it as it wants
 /datum/real_instrument
-	var/datum/instrument/instruments
+	var/list/datum/instrument/instruments
 	var/datum/sound_player/player
 	var/datum/nano_module/song_editor/song_editor
 	var/datum/nano_module/usage_info/usage_info
@@ -200,7 +200,7 @@
 	var/datum/real_instrument/real_instrument
 	icon = 'icons/obj/musician.dmi'
 	//Initialization data
-	var/datum/instrument/instruments = list()
+	var/list/datum/instrument/instruments = list()
 	var/path = /datum/instrument
 	var/sound_player = /datum/sound_player
 
