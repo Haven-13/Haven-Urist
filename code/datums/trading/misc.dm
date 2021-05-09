@@ -30,7 +30,6 @@
 		/mob/living/simple_animal/crab        = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/lizard      = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/mouse       = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/mushroom    = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/parrot      = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/tindalos    = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/tomato      = TRADER_THIS_TYPE,
@@ -52,7 +51,6 @@
 		/mob/living/simple_animal/crab        = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/lizard      = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/mouse       = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/mushroom    = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/parrot      = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/tindalos    = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/tomato      = TRADER_THIS_TYPE,
@@ -72,29 +70,36 @@
 
 /datum/trader/ship/prank_shop
 	name = "Prank Shop Owner"
-	name_language = LANGUAGE_ROOTLOCAL
+	name_language = LANGUAGE_GALCOM
 	origin = "Prank Shop"
 	compliment_increase = 0
 	insult_drop = 0
-	possible_origins = list("Yacks and Yucks Shop", "The Shop From Which I Sell Humorous Items", "The Prank Gestalt", "The Clown's Armory", "Uncle Knuckle's Chuckle Bunker", "A Place from Which to do Humorous Business")
-	speech = list("hail_generic" = "We welcome you to our shop of humorous items. We invite you to partake in the divine experience of being pranked, and pranking someone else.",
-				"hail_Diona"     = "Welcome, other gestalt. We invite you to learn of our experiences, and teach us of your own.",
-				"hail_deny"      = "We cannot do business with you. We are sorry.",
+	possible_origins = list(
+		"Yacks and Yucks Shop",
+		"The Shop From Which I Sell Humorous Items",
+		"The Prank Gestalt",
+		"The Clown's Armory",
+		"Uncle Knuckle's Chuckle Bunker",
+		"A Place from Which to do Humorous Business"
+	)
+	speech = list(
+		"hail_generic" = "We welcome you to our shop of humorous items. We invite you to partake in the divine experience of being pranked, and pranking someone else.",
+		"hail_deny"      = "We cannot do business with you. We are sorry.",
 
-				"trade_complete" = "We thank you for purchasing something. We enjoyed the experience of you doing so and we hope to learn from it.",
-				"trade_blacklist"= "We are not allowed to do such. We are sorry.",
-				"trade_not_enough"="We have sufficiently experienced giving away goods for free. We wish to experience getting money in return.",
-				"how_much"       = "We believe that is worth VALUE thalers.",
-				"what_want"      = "We wish only for the experiences you give us, in all else we want",
+		"trade_complete" = "We thank you for purchasing something. We enjoyed the experience of you doing so and we hope to learn from it.",
+		"trade_blacklist"= "We are not allowed to do such. We are sorry.",
+		"trade_not_enough"="We have sufficiently experienced giving away goods for free. We wish to experience getting money in return.",
+		"how_much"       = "We believe that is worth VALUE thalers.",
+		"what_want"      = "We wish only for the experiences you give us, in all else we want",
 
-				"compliment_deny"= "You are attempting to compliment us.",
-				"compliment_accept"="You are attempting to compliment us.",
-				"insult_good"    = "You are attempting to insult us, correct?",
-				"insult_bad"     = "We do not understand.",
+		"compliment_deny"= "You are attempting to compliment us.",
+		"compliment_accept"="You are attempting to compliment us.",
+		"insult_good"    = "You are attempting to insult us, correct?",
+		"insult_bad"     = "We do not understand.",
 
-				"bribe_refusal"  = "We are sorry, but we cannot accept.",
-				"bribe_accept"   = "We are happy to say that we accept this bribe.",
-				)
+		"bribe_refusal"  = "We are sorry, but we cannot accept.",
+		"bribe_accept"   = "We are happy to say that we accept this bribe.",
+	)
 	possible_trading_items = list(
 		/obj/item/clothing/mask/gas/clown_hat = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/gas/mime        = TRADER_THIS_TYPE,

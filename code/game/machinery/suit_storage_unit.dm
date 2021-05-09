@@ -408,16 +408,15 @@
 		sleep(50)
 		if(occupant)
 			occupant.apply_effect(50, IRRADIATE, blocked = occupant.getarmor(null, "rad"))
-			var/obj/item/organ/internal/diona/nutrients/rad_organ = locate() in occupant.internal_organs
-			if (!rad_organ)
-				if (occupant.can_feel_pain())
-					occupant.emote("scream")
-				if(issuperUV)
-					var/burndamage = rand(40,60)
-					occupant.take_organ_damage(0,burndamage)
-				else
-					var/burndamage = rand(10,15)
-					occupant.take_organ_damage(0,burndamage)
+
+			if (occupant.can_feel_pain())
+				occupant.emote("scream")
+			if(issuperUV)
+				var/burndamage = rand(40,60)
+				occupant.take_organ_damage(0,burndamage)
+			else
+				var/burndamage = rand(10,15)
+				occupant.take_organ_damage(0,burndamage)
 		if(i==3) //End of the cycle
 			if(!issuperUV)
 				if(helmet )

@@ -28,9 +28,6 @@
 /obj/item/weapon/paper/contract/nanotrasen/cargo/kitchen/aesirsalad
 	contract_type = /datum/contract/cargo/kitchen/aesirsalad
 
-/obj/item/weapon/paper/contract/nanotrasen/cargo/kitchen/dionaroast
-	contract_type = /datum/contract/cargo/kitchen/dionaroast
-
 /obj/item/weapon/paper/contract/nanotrasen/cargo/kitchen/cubancarp
 	contract_type = /datum/contract/cargo/kitchen/cubancarp
 

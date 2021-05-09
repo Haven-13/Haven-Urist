@@ -218,10 +218,6 @@
 /obj/effect/spawner/carbon/human/teshari
 	species = SPECIES_RESOMI
 
-//Diona
-
-/obj/effect/spawner/carbon/human/diona
-	species = SPECIES_DIONA
 
 //IPCs/Synths
 

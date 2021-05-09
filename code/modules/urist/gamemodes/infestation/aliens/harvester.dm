@@ -170,7 +170,7 @@
 	if(iscloaking)
 		var/light_amount = 0
 		if(isturf(src.loc))
-			light_amount = get_light_amt(src.loc)
+			light_amount = get_light_amount(src.loc)
 
 		//	if(!istype(T))
 		//		return 0

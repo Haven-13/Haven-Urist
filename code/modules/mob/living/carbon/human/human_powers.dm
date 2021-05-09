@@ -198,19 +198,6 @@
 		to_chat(src, "<span class='alium'>You channel a message: \"[msg]\" to [M]</span>")
 	return
 
-/***********
- diona verbs
-***********/
-/mob/living/carbon/human/proc/diona_heal_toggle()
-	set name = "Toggle Heal"
-	set desc = "Turn your inate healing on or off."
-	set category = "Abilities"
-	innate_heal = !innate_heal
-	if (innate_heal)
-		to_chat(src, "<span class='alium'>You are now using nutrients to regenerate.</span>")
-	else
-		to_chat(src, "<span class='alium'>You are no longer using nutrients to regenerate.</span>")
-
 /mob/living/carbon/human/proc/change_colour()
 	set category = "Abilities"
 	set name = "Change Colour"

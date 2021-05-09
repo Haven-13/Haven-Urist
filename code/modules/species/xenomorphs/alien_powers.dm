@@ -213,7 +213,7 @@ mob/living/carbon/human/proc/xeno_infest(mob/living/carbon/human/M as mob in ovi
 		to_chat(src, "<span class='warning'>This mindless flesh adds nothing to the hive.</span>")
 		return
 
-	if(M.species.get_bodytype(M) == "Xenophage" || !isnull(M.internal_organs_by_name["hive node"]))
+	if(M.species.get_bodytype(M) == SPECIES_XENO || !isnull(M.internal_organs_by_name["hive node"]))
 		to_chat(src, "<span class='warning'>They are already part of the hive.</span>")
 		return
 
@@ -231,7 +231,7 @@ mob/living/carbon/human/proc/xeno_infest(mob/living/carbon/human/M as mob in ovi
 		to_chat(src, "<span class='warning'>They are too far away.</span>")
 		return
 
-	if(M.species.get_bodytype(M) == "Xenophage" || !isnull(M.internal_organs_by_name["hive node"]) || !affecting || BP_IS_ROBOTIC(affecting))
+	if(M.species.get_bodytype(M) == SPECIES_XENO || !isnull(M.internal_organs_by_name["hive node"]) || !affecting || BP_IS_ROBOTIC(affecting))
 		return
 
 	if(!check_alien_ability(500,1,"egg sac"))

@@ -204,20 +204,6 @@
 			set_light(0.3, 0.1, max(1,min(20,radiation/20)), 2, species.get_flesh_colour(src))
 		// END DOGSHIT SNOWFLAKE
 
-		var/obj/item/organ/internal/diona/nutrients/rad_organ = locate() in internal_organs
-		if (rad_organ && !rad_organ.is_broken())
-			var/rads = radiation/25
-
-			radiation -= rads
-			nutrition += rads
-
-			if (radiation < 2)
-				radiation = 0
-
-			nutrition = Clamp(nutrition, 0, 550)
-
-			return
-
 		var/damage = 0
 		radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 		if(prob(25))
