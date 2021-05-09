@@ -150,3 +150,5 @@
   - rscdel: Removed Wizard gamemode
   - rscdel: Supermatter cascade is no longer possible
   - rscdel: Removed the Baycode custom items feature
+  - rscdel: Removed synthesizing instruments
+  - sounddel: Removed unused sound files
