@@ -137,3 +137,16 @@
   - tweak: Lighting calculations switched from subtractive to additive
   - code_imp: Moved starlight function to its own file in lighting module
   - code_imp: Added preliminary integration with auxtools
+2021-05-09:
+  martinlyra:
+  - tweak: Added a special null turf to better handle unused turf space
+  - tweak: Malfunctioning AI is no longer votable
+  - rscdel: Removed Borer gamemode
+  - rscdel: Removed Changeling gamemode
+  - rscdel: Removed Cult gamemode
+  - rscdel: Removed Deity gamemode
+  - rscdel: Removed Ninja gamemode
+  - rscdel: Removed Vampire gamemode
+  - rscdel: Removed Wizard gamemode
+  - rscdel: Supermatter cascade is no longer possible
+  - rscdel: Removed the Baycode custom items feature
