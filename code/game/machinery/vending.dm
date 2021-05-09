@@ -16,7 +16,6 @@
 
 	var/icon_vend //Icon_state when vending
 	var/icon_deny //Icon_state when denying access
-	var/diona_spawn_chance = 0.1
 
 	// Power
 	use_power = 1
@@ -475,17 +474,12 @@
 	if (src.icon_vend) //Show the vending animation if needed
 		flick(src.icon_vend,src)
 	spawn(src.vend_delay) //Time to vend
-		if(prob(diona_spawn_chance)) //Hehehe
-			var/turf/T = get_turf(src)
-			var/mob/living/carbon/alien/diona/S = new(T)
-			src.visible_message("<span class='notice'>\The [src] makes an odd grinding noise before coming to a halt as \a [S.name] slurmps out from the receptacle.</span>")
-		else //Just a normal vend, then
-			R.get_product(get_turf(src))
-			src.visible_message("\The [src] whirs as it vends \the [R.item_name].")
-			if(prob(1)) //The vending gods look favorably upon you
-				sleep(3)
-				if(R.get_product(get_turf(src)))
-					src.visible_message("<span class='notice'>\The [src] clunks as it vends an additional [R.item_name].</span>")
+		R.get_product(get_turf(src))
+		src.visible_message("\The [src] whirs as it vends \the [R.item_name].")
+		if(prob(1)) //The vending gods look favorably upon you
+			sleep(3)
+			if(R.get_product(get_turf(src)))
+				src.visible_message("<span class='notice'>\The [src] clunks as it vends an additional [R.item_name].</span>")
 
 		src.status_message = ""
 		src.status_error = 0
@@ -974,12 +968,41 @@
 	icon_state = "seeds"
 	icon_vend = "seeds-vend"
 	vend_delay = 13
-	products = list(/obj/item/seeds/bananaseed = 3,/obj/item/seeds/berryseed = 3,/obj/item/seeds/carrotseed = 3,/obj/item/seeds/chantermycelium = 3,/obj/item/seeds/chiliseed = 3,
-					/obj/item/seeds/cornseed = 3, /obj/item/seeds/eggplantseed = 3, /obj/item/seeds/potatoseed = 3, /obj/item/seeds/replicapod = 3,/obj/item/seeds/soyaseed = 3,
-					/obj/item/seeds/sunflowerseed = 3,/obj/item/seeds/tomatoseed = 3,/obj/item/seeds/towermycelium = 3,/obj/item/seeds/wheatseed = 3,/obj/item/seeds/appleseed = 3,
-					/obj/item/seeds/poppyseed = 3,/obj/item/seeds/sugarcaneseed = 3,/obj/item/seeds/ambrosiavulgarisseed = 3,/obj/item/seeds/peanutseed = 3,/obj/item/seeds/whitebeetseed = 3,/obj/item/seeds/watermelonseed = 3,/obj/item/seeds/limeseed = 3,
-					/obj/item/seeds/lemonseed = 3,/obj/item/seeds/orangeseed = 3,/obj/item/seeds/grassseed = 3,/obj/item/seeds/cocoapodseed = 3,/obj/item/seeds/plumpmycelium = 2,
-					/obj/item/seeds/cabbageseed = 3,/obj/item/seeds/grapeseed = 3,/obj/item/seeds/pumpkinseed = 3,/obj/item/seeds/cherryseed = 3,/obj/item/seeds/plastiseed = 3,/obj/item/seeds/riceseed = 3,/obj/item/seeds/lavenderseed = 3)
+	products = list(
+		/obj/item/seeds/bananaseed = 3,
+		/obj/item/seeds/berryseed = 3,
+		/obj/item/seeds/carrotseed = 3,
+		/obj/item/seeds/chantermycelium = 3,
+		/obj/item/seeds/chiliseed = 3,
+		/obj/item/seeds/cornseed = 3,
+		/obj/item/seeds/eggplantseed = 3,
+		/obj/item/seeds/potatoseed = 3,
+		/obj/item/seeds/soyaseed = 3,
+		/obj/item/seeds/sunflowerseed = 3,
+		/obj/item/seeds/tomatoseed = 3,
+		/obj/item/seeds/towermycelium = 3,
+		/obj/item/seeds/wheatseed = 3,
+		/obj/item/seeds/appleseed = 3,
+		/obj/item/seeds/poppyseed = 3,
+		/obj/item/seeds/sugarcaneseed = 3,
+		/obj/item/seeds/ambrosiavulgarisseed = 3,
+		/obj/item/seeds/peanutseed = 3,
+		/obj/item/seeds/whitebeetseed = 3,
+		/obj/item/seeds/watermelonseed = 3,
+		/obj/item/seeds/limeseed = 3,
+		/obj/item/seeds/lemonseed = 3,
+		/obj/item/seeds/orangeseed = 3,
+		/obj/item/seeds/grassseed = 3,
+		/obj/item/seeds/cocoapodseed = 3,
+		/obj/item/seeds/plumpmycelium = 2,
+		/obj/item/seeds/cabbageseed = 3,
+		/obj/item/seeds/grapeseed = 3,
+		/obj/item/seeds/pumpkinseed = 3,
+		/obj/item/seeds/cherryseed = 3,
+		/obj/item/seeds/plastiseed = 3,
+		/obj/item/seeds/riceseed = 3,
+		/obj/item/seeds/lavenderseed = 3
+	)
 	contraband = list(/obj/item/seeds/amanitamycelium = 2,/obj/item/seeds/glowshroom = 2,/obj/item/seeds/libertymycelium = 2,/obj/item/seeds/mtearseed = 2,
 					  /obj/item/seeds/nettleseed = 2,/obj/item/seeds/reishimycelium = 2,/obj/item/seeds/reishimycelium = 2,/obj/item/seeds/shandseed = 2,)
 	premium = list(/obj/item/weapon/reagent_containers/spray/waterflower = 1)
@@ -1010,16 +1033,6 @@
 
 			src.product_records.Add(product)
 
-/obj/machinery/vending/magivend
-	name = "MagiVend"
-	desc = "A magic vending machine."
-	icon_state = "MagiVend"
-	product_slogans = "Sling spells the proper way with MagiVend!;Be your own Houdini! Use MagiVend!"
-	vend_delay = 15
-	vend_reply = "Have an enchanted evening!"
-	product_ads = "FJKLFJSD;AJKFLBJAKL;1234 LOONIES LOL!;>MFW;Kill them fuckers!;GET DAT FUKKEN DISK;HONK!;EI NATH;Down with Central!;Admin conspiracies since forever!;Space-time bending hardware!"
-	products = list(/obj/item/clothing/head/wizard = 1,/obj/item/clothing/suit/wizrobe = 1,/obj/item/clothing/head/wizard/red = 1,/obj/item/clothing/suit/wizrobe/red = 1,/obj/item/clothing/shoes/sandal = 1,/obj/item/weapon/staff = 2)
-
 /obj/machinery/vending/dinnerware
 	name = "Dinnerware"
 	desc = "A kitchen and restaurant equipment vendor."
@@ -1027,26 +1040,26 @@
 	icon_state = "dinnerware"
 	icon_vend = "dinnerware-vend"
 	products = list(
-	/obj/item/weapon/reagent_containers/glass/beaker/bowl =2,
-	/obj/item/weapon/tray = 8,
-	/obj/item/weapon/material/kitchen/utensil/fork = 6,
-	/obj/item/weapon/material/kitchen/utensil/knife = 6,
-	/obj/item/weapon/material/kitchen/utensil/spoon = 6,
-	/obj/item/weapon/material/knife = 3,
-	/obj/item/weapon/material/kitchen/rollingpin = 2,
-	/obj/item/weapon/reagent_containers/food/drinks/pitcher = 2,
-	/obj/item/weapon/reagent_containers/food/drinks/coffeecup = 8,
-	/obj/item/weapon/reagent_containers/food/drinks/glass2/carafe = 2,
-	/obj/item/weapon/reagent_containers/food/drinks/glass2/square = 8,
-	/obj/item/clothing/suit/chef/classic = 2,
-	/obj/item/weapon/storage/lunchbox = 3,
-	/obj/item/weapon/storage/lunchbox/heart = 3,
-	/obj/item/weapon/storage/lunchbox/cat = 3,
-	/obj/item/weapon/storage/lunchbox/nt = 3,
-	/obj/item/weapon/storage/lunchbox/mars = 3,
-	/obj/item/weapon/storage/lunchbox/cti = 3,
-	/obj/item/weapon/storage/lunchbox/nymph = 3,
-	/obj/item/weapon/storage/lunchbox/syndicate = 3)
+		/obj/item/weapon/reagent_containers/glass/beaker/bowl =2,
+		/obj/item/weapon/tray = 8,
+		/obj/item/weapon/material/kitchen/utensil/fork = 6,
+		/obj/item/weapon/material/kitchen/utensil/knife = 6,
+		/obj/item/weapon/material/kitchen/utensil/spoon = 6,
+		/obj/item/weapon/material/knife = 3,
+		/obj/item/weapon/material/kitchen/rollingpin = 2,
+		/obj/item/weapon/reagent_containers/food/drinks/pitcher = 2,
+		/obj/item/weapon/reagent_containers/food/drinks/coffeecup = 8,
+		/obj/item/weapon/reagent_containers/food/drinks/glass2/carafe = 2,
+		/obj/item/weapon/reagent_containers/food/drinks/glass2/square = 8,
+		/obj/item/clothing/suit/chef/classic = 2,
+		/obj/item/weapon/storage/lunchbox = 3,
+		/obj/item/weapon/storage/lunchbox/heart = 3,
+		/obj/item/weapon/storage/lunchbox/cat = 3,
+		/obj/item/weapon/storage/lunchbox/nt = 3,
+		/obj/item/weapon/storage/lunchbox/mars = 3,
+		/obj/item/weapon/storage/lunchbox/cti = 3,
+		/obj/item/weapon/storage/lunchbox/syndicate = 3
+	)
 
 
 	contraband = list(/obj/item/weapon/material/knife/butch = 2)

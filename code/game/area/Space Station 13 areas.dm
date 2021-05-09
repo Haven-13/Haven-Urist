@@ -72,6 +72,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	has_gravity = 0
 	area_flags = AREA_FLAG_EXTERNAL
 	ambience = list('sound/ambience/ambispace.ogg','sound/music/title2.ogg','sound/music/space.ogg','sound/music/main.ogg','sound/music/traitor.ogg')
+	base_turf = /turf/space
 
 /area/space/update_icon()
 	return

@@ -1,7 +1,7 @@
 //beams
 
 /obj/machinery/shipweapons/beam
-	icon = 'icons/urist/structures&machinery/64x64machinery.dmi'
+	icon = 'icons/urist/objects/64x64machinery.dmi'
 
 /obj/machinery/shipweapons/beam/lightlaser
 	name = "light laser cannon"

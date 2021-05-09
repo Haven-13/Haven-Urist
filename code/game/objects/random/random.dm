@@ -376,10 +376,11 @@
 	icon_state = "nymphplushie"
 
 /obj/random/plushie/spawn_choices()
-	return list(/obj/item/toy/plushie/nymph,
-				/obj/item/toy/plushie/mouse,
-				/obj/item/toy/plushie/kitten,
-				/obj/item/toy/plushie/lizard)
+	return list(
+		/obj/item/toy/plushie/mouse,
+		/obj/item/toy/plushie/kitten,
+		/obj/item/toy/plushie/lizard
+	)
 
 /obj/random/plushie/large
 	name = "random large plushie"

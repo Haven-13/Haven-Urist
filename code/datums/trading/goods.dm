@@ -40,7 +40,6 @@
 								/obj/item/weapon/deck                 = TRADER_SUBTYPES_ONLY,
 								/obj/item/weapon/pack                 = TRADER_SUBTYPES_ONLY,
 								/obj/item/weapon/dice                 = TRADER_ALL,
-								/obj/item/weapon/dice/d20/cursed      = TRADER_BLACKLIST,
 								/obj/item/weapon/gun/launcher/money   = TRADER_THIS_TYPE)
 
 /datum/trader/ship/electronics
@@ -174,7 +173,6 @@
 								/obj/item/clothing/head/centhat           = TRADER_BLACKLIST,
 								/obj/item/clothing/head/chameleon         = TRADER_BLACKLIST,
 								/obj/item/clothing/head/collectable       = TRADER_BLACKLIST,
-								/obj/item/clothing/head/culthood          = TRADER_BLACKLIST_ALL,
 								/obj/item/clothing/head/helmet            = TRADER_BLACKLIST_ALL,
 								/obj/item/clothing/head/lightrig          = TRADER_BLACKLIST_ALL,
 								/obj/item/clothing/head/radiation         = TRADER_BLACKLIST,

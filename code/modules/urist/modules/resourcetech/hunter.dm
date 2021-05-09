@@ -3,13 +3,13 @@
 /*/obj/structure/tanningrack
 	name = "tanning rack"
 	desc = "It's a tanning rack. Nothing too special, place hides or gut on it and leave them to dry."
-	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon = 'icons/urist/objects/structures.dmi'
 	icon_state = "drying-rack"*/
 
 /obj/machinery/smartfridge/tanningrack
 	name = "\improper Tanning Rack"
 	desc = "A machine for tanning hides."
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
+	icon = 'icons/urist/objects/machinery.dmi'
 	icon_state = "drying_rack"
 	icon_on = "drying_rack_on"
 	icon_off = "drying_rack"

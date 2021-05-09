@@ -73,9 +73,7 @@
 		/obj/aura/regenerating/human/unathi
 		)
 
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/diona_heal_toggle
-		)
+	inherent_verbs = list()
 
 	prone_overlay_offset = list(-4, -4)
 

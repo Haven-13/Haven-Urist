@@ -124,23 +124,6 @@
 			if(!istype(H))
 				attack_generic(H,rand(1,3),"punched")
 				return
-			//Vampire code //hope I didn't fuck up the copypasta - scr
-			if(M.zone_sel && M.zone_sel.selecting == "head" && src != M)
-				if(M.mind && M.mind.vampire && !M.mind.vampire.draining)
-					if((head && (check_head_coverage()) || (check_mouth_coverage())))
-						M << "<span class='warning'> Remove their mask!</span>"
-						return 0
-					if((H.head && (H.check_head_coverage()) || (H.check_mouth_coverage())))
-						M << "<span class='warning'> Remove your mask!</span>"
-						return 0
-					if(mind && mind.vampire)
-						M << "<span class='warning'> Your fangs fail to pierce [src.name]'s cold flesh</span>"
-						return 0
-					//we're good to suck the blood, blaah
-					M.handle_bloodsucking(src)
-					return
-			//end vampire codes
-
 
 			var/rand_damage = rand(1, 5)
 			var/block = 0

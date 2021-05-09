@@ -201,7 +201,6 @@ GLOBAL_LIST_EMPTY(adminfaxes)	//cache for faxes that have been sent to admins
 
 	var/mob/intercepted = check_for_interception()
 
-
 	//message badmins that a fax has arrived
 	if (destination == GLOB.using_map.boss_name)
 		message_admins(sender, "[uppertext(destination)] FAX[intercepted ? "(Intercepted by [intercepted])" : null]", rcvdcopy, destination, "#006100")

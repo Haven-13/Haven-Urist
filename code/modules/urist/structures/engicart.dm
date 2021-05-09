@@ -1,7 +1,7 @@
 /obj/structure/engineeringcart //icons http://puu.sh/cHtzk/dc132f1aa6.dmi
 	name = "engineering cart"
 	desc = "A cart for storing engineering items."
-	icon = 'icons/urist/structures&machinery/engicart.dmi'
+	icon = 'icons/urist/objects/engicart.dmi'
 	icon_state = "cart"
 	anchored = 0
 	density = 1

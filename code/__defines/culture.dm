@@ -86,16 +86,6 @@
 
 #define HOME_SYSTEM_QERRBALAK  "Qerrbalak"
 
-// Adherent cultures.
-#define CULTURE_ADHERENT             "The Vigil"
-
-#define HOME_SYSTEM_ADHERENT         "Canon"
-#define HOME_SYSTEM_ADHERENT_MOURNER "Monument World"
-
-#define FACTION_ADHERENT_PRESERVERS  "Preservers"
-#define FACTION_ADHERENT_LOYALISTS   "Loyalists"
-#define FACTION_ADHERENT_SEPARATISTS "Seperatists"
-
 // Vox cultures.
 #define CULTURE_VOX_ARKSHIP    "Arkship Crew"
 #define CULTURE_VOX_SALVAGER   "Salvager Crew"
@@ -117,11 +107,6 @@
 #define HOME_SYSTEM_ROOT       "Root"
 
 #define FACTION_POSITRONICS    "Positronic Union"
-
-// Diona cultures.
-#define CULTURE_DIONA          "Diona Chorus"
-
-#define HOME_SYSTEM_DIONAEA    "Epsilon Ursae Minoris"
 
 // Serpentid cultures.
 #define CULTURE_SERPENTID      "Serpentid Labourer"

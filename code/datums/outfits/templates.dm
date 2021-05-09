@@ -12,23 +12,6 @@
 	shoes = /obj/item/clothing/shoes/magboots
 	id = /obj/item/weapon/card/id/fake/cargo
 
-/decl/hierarchy/outfit/veymed
-	name = "Vey-Med Doctor"
-	uniform = /obj/item/clothing/under/rank/medical/scrubs/green
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/corp/veymed
-	shoes = /obj/item/clothing/shoes/white
-	suit_store = /obj/item/device/healthanalyzer
-	back = /obj/item/weapon/storage/backpack/satchel_med
-	gloves = /obj/item/clothing/gloves/latex
-	id = /obj/item/weapon/card/id/fake/veymed
-	id_pda_assignment = "Physician"
-
-/decl/hierarchy/outfit/veymed/head
-	name = "Vey-Med CMO"
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/corp/veymed/head
-	id = /obj/item/weapon/card/id/fake/veymed/head
-	id_pda_assignment = "Project Manager"
-
 /decl/hierarchy/outfit/pcrc
 	name = "PCRC Merc"
 	uniform = /obj/item/clothing/under/pcrc

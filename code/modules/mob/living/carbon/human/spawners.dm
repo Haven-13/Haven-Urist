@@ -201,12 +201,6 @@
 /obj/effect/spawner/carbon/human/skrell/malish
 	caste_colors = list(1 = list(0, 153, 255), 2 = list(51, 153, 102), 3 = list(128, 128, 0))
 
-/obj/effect/spawner/carbon/human/skrell/malish/veymed
-	clothing = /decl/hierarchy/outfit/veymed
-
-/obj/effect/spawner/carbon/human/skrell/malish/veymed/head
-	clothing = /decl/hierarchy/outfit/veymed/head
-
 /obj/effect/spawner/carbon/human/skrell/kanin
 	caste_colors = list(1 = list(153, 102, 0), 2 = list(153, 0, 0), 3 = list(128, 128, 0), 4 = list(0, 0, 0))
 
@@ -224,10 +218,6 @@
 /obj/effect/spawner/carbon/human/teshari
 	species = SPECIES_RESOMI
 
-//Diona
-
-/obj/effect/spawner/carbon/human/diona
-	species = SPECIES_DIONA
 
 //IPCs/Synths
 
