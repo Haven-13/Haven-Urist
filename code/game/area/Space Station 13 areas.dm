@@ -71,7 +71,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	power_environ = 0
 	has_gravity = 0
 	area_flags = AREA_FLAG_EXTERNAL
-	ambience = list('sound/ambience/ambispace.ogg','sound/music/title2.ogg','sound/music/space.ogg','sound/music/main.ogg','sound/music/traitor.ogg')
+	ambience = list(
+		'sound/music/title2.ogg',
+		'sound/music/main.ogg',
+	)
 	base_turf = /turf/space
 
 /area/space/update_icon()
@@ -184,67 +187,3 @@ area/space/atmosalert()
 	sound_env = SMALL_ENCLOSED
 	base_turf = /turf/space
 	icon_state = "shuttle"
-
-/*
-* Special Areas
-*/
-/area/wizard_station
-	name = "\improper Wizard's Den"
-	icon_state = "yellow"
-	requires_power = 0
-	dynamic_lighting = 0
-
-/area/beach
-	name = "Keelin's private beach"
-	icon_state = "null"
-	luminosity = 1
-	dynamic_lighting = 0
-	requires_power = 0
-	var/sound/mysound = null
-
-/area/beach/New()
-	..()
-	var/sound/S = new/sound()
-	mysound = S
-	S.file = 'sound/ambience/shore.ogg'
-	S.repeat = 1
-	S.wait = 0
-	S.channel = GLOB.sound_channels.RequestChannel(/area/beach)
-	S.volume = 100
-	S.priority = 255
-	S.status = SOUND_UPDATE
-	process()
-
-/area/beach/Entered(atom/movable/Obj,atom/OldLoc)
-	if(ismob(Obj))
-		var/mob/M = Obj
-		if(M.client)
-			mysound.status = SOUND_UPDATE
-			sound_to(M, mysound)
-
-/area/beach/Exited(atom/movable/Obj)
-	. = ..()
-	if(ismob(Obj))
-		var/mob/M = Obj
-		if(M.client)
-			mysound.status = SOUND_PAUSED | SOUND_UPDATE
-			sound_to(M, mysound)
-
-/area/beach/proc/process()
-	set background = 1
-
-	var/sound/S = null
-	var/sound_delay = 0
-	if(prob(25))
-		S = sound(file=pick('sound/ambience/seag1.ogg','sound/ambience/seag2.ogg','sound/ambience/seag3.ogg'), volume=100)
-		sound_delay = rand(0, 50)
-
-	for(var/mob/living/carbon/human/H in src)
-		if(H.client)
-			mysound.status = SOUND_UPDATE
-			to_chat(H, mysound)
-			if(S)
-				spawn(sound_delay)
-					sound_to(H, S)
-
-	spawn(60) .()

@@ -24,7 +24,6 @@
 
 	// These areas are used specifically by code and need to be broken out somehow
 	var/list/area_usage_test_exempted_areas = list(
-		/area/beach,
 		/area/centcom,
 		/area/centcom/holding,
 		/area/centcom/specops,
@@ -60,7 +59,6 @@
 		/area/supply,
 		/area/syndicate_mothership,
 		/area/syndicate_mothership/elite_squad,
-		/area/wizard_station,
 		/area/template_noop,
 	)
 
