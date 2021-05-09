@@ -4,6 +4,7 @@
 
 	plane = TURF_PLANE
 	layer = BASE_TURF_LAYER
+	vis_flags = VIS_INHERIT_ID
 
 	var/turf_flags
 

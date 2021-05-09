@@ -61,6 +61,5 @@
 	uniform = /obj/item/clothing/under/shorts/jeans/grey
 	suit = /obj/item/clothing/suit/armor/vest/jacket
 	shoes = /obj/item/clothing/shoes/workboots
-	head = /obj/item/clothing/head/beret/solgov/customs
 	mask = /obj/item/clothing/mask/smokable/cigarette/cigar
 	r_pocket = /obj/item/weapon/flame/lighter/zippo

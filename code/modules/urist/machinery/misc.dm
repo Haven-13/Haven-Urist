@@ -9,12 +9,6 @@
 		sleep(25) //so the sm can land
 		drive()
 
-/obj/machinery/door/airlock/multi_tile/ror
-	name = "Rusted Airlock"
-	icon = 'maps/wyrm/icons/awaymission.dmi'
-	layer = ABOVE_HUMAN_LAYER
-	plane = ABOVE_HUMAN_PLANE
-	width = 2
 
 /obj/structure/curtain/var/id = null
 

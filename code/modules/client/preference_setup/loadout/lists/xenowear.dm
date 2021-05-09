@@ -73,12 +73,6 @@
 	flags = GEAR_HAS_COLOR_SELECTION
 
 
-/datum/gear/suit/lab_veymed_skrell
-	display_name = "Vey-Med labcoat"
-	path = /obj/item/clothing/suit/storage/toggle/labcoat/corp/veymed
-	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_SKRELL)
-
 // IPC clothing
 /datum/gear/mask/ipc_monitor
 	display_name = "display monitor (IPC)"

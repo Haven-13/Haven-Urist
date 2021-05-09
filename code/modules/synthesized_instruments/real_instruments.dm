@@ -252,7 +252,7 @@
 /obj/item/device/synthesized_instrument
 	var/datum/real_instrument/real_instrument
 	icon = 'icons/obj/musician.dmi'
-	var/datum/instrument/instruments = list()
+	var/list/datum/instrument/instruments = list()
 	var/path = /datum/instrument
 	var/sound_player = /datum/sound_player
 

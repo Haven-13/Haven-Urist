@@ -22,7 +22,7 @@
 	initial_generic_waypoints = list(
 		"nav_glloyd_jungle_1",
 		"nav_glloyd_jungle_2"
-		)
+	)
 
 /obj/effect/overmap/sector/glloyd_jungle/New(nloc, max_x, max_y)
 	name = "[generate_planet_name()], \a [name]"
