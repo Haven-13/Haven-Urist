@@ -268,7 +268,6 @@
 	name = "exploration command HCM"
 	suit_type = "exploration command hardsuit"
 	desc = "A specialized hardsuit rig control module issued to the quartermaster of the ICS Nerva."
-//	icon = 'maps/torch/icons/obj/uniques.dmi'
 	icon_state = "command_exp_rig"
 	armor = list(melee = 35, bullet = 25, laser = 20, energy = 35, bomb = 40, bio = 100, rad = 100)
 
@@ -286,23 +285,23 @@
 
 /obj/item/clothing/head/helmet/space/rig/command/exploration
 	light_overlay = "helmet_light_dual"
-	icon = 'maps/torch/icons/obj/solgov-head.dmi'
-	item_icons = list(slot_head_str = 'maps/torch/icons/mob/solgov-head.dmi')
+	icon = 'icons/obj/solgov-head.dmi'
+	item_icons = list(slot_head_str = 'icons/mob/solgov-head.dmi')
 	species_restricted = list(SPECIES_HUMAN) //no available icons for aliens
 
 /obj/item/clothing/suit/space/rig/command/exploration
-	icon = 'maps/torch/icons/obj/solgov-suit.dmi'
-	item_icons = list(slot_wear_suit_str = 'maps/torch/icons/mob/solgov-suit.dmi')
+	icon = 'icons/obj/solgov-suit.dmi'
+	item_icons = list(slot_wear_suit_str = 'icons/mob/solgov-suit.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
 /obj/item/clothing/shoes/magboots/rig/command/exploration
-	icon = 'maps/torch/icons/obj/solgov-feet.dmi'
-	item_icons = list(slot_shoes_str = 'maps/torch/icons/mob/solgov-feet.dmi')
+	icon = 'icons/obj/solgov-feet.dmi'
+	item_icons = list(slot_shoes_str = 'icons/mob/solgov-feet.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
 /obj/item/clothing/gloves/rig/command/exploration
-	icon = 'maps/torch/icons/obj/solgov-hands.dmi'
-	item_icons = list(slot_gloves_str = 'maps/torch/icons/mob/solgov-hands.dmi')
+	icon = 'icons/obj/solgov-hands.dmi'
+	item_icons = list(slot_gloves_str = 'icons/mob/solgov-hands.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
 /obj/item/weapon/rig/command/exploration/equipped
@@ -320,7 +319,7 @@
 	name = "Captain's command HCM"
 	suit_type = "captain's command hardsuit"
 	desc = "A high-tech powered suit adorned with ceremonial frills of crimson and gold. Cost more to produce and manufacture than the ship you're on right now."
-//	icon = 'maps/torch/icons/obj/uniques.dmi'
+//	icon = 'icons/obj/uniques.dmi'
 	icon_state = "command_exp_rig"
 	armor = list(melee = 65, bullet = 50, laser = 50, energy = 25, bomb = 50, bio = 100, rad = 100) //same as cappy's regular armour
 

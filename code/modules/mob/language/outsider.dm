@@ -32,47 +32,6 @@
 
 	return 0
 
-/datum/language/ling
-	name = "Changeling"
-	desc = "Although they are normally wary and suspicious of each other, changelings can commune over a distance."
-	speech_verb = "says"
-	colour = "changeling"
-	key = "g"
-	flags = RESTRICTED | HIVEMIND
-	shorthand = "N/A"
-
-/datum/language/ling/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
-
-	if(speaker.mind && speaker.mind.changeling)
-		..(speaker,message,speaker.mind.changeling.changelingID)
-	else
-		..(speaker,message)
-
-/datum/language/corticalborer
-	name = "Cortical Link"
-	desc = "Cortical borers possess a strange link between their tiny minds."
-	speech_verb = "sings"
-	ask_verb = "sings"
-	exclaim_verb = "sings"
-	colour = "alien"
-	key = "x"
-	flags = RESTRICTED | HIVEMIND
-	shorthand = "N/A"
-
-/datum/language/corticalborer/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
-
-	var/mob/living/simple_animal/borer/B
-
-	if(istype(speaker,/mob/living/carbon))
-		var/mob/living/carbon/M = speaker
-		B = M.has_brain_worms()
-	else if(istype(speaker,/mob/living/simple_animal/borer))
-		B = speaker
-
-	if(B)
-		speaker_mask = B.truename
-	..(speaker,message,speaker_mask)
-
 /datum/language/vox
 	name = LANGUAGE_VOX
 	desc = "The common tongue of the various Vox ships making up the Shoal. It sounds like chaotic shrieking to everyone else."

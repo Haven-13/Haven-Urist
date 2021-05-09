@@ -1,6 +1,6 @@
 /obj/machinery/door/airlock/multi_tile/marine
 	name = "Airlock"
-	icon = 'icons/urist/structures&machinery/doors/Door2x1marine.dmi'
+	icon = 'icons/urist/objects/doors/Door2x1marine.dmi'
 	assembly_type = /obj/structure/door_assembly/multi_tile
 	bound_height = 64
 	bound_width = 64 //changed in New(), meant to stop geometry from breaking
@@ -10,7 +10,7 @@
 /obj/machinery/scom/scomscience //i'll come back to clean up this later, promise
 	name = "\improper S.C.I.E.N.C.E"
 	desc = "Science!"
-	icon = 'icons/urist/structures&machinery/scomscience.dmi'
+	icon = 'icons/urist/objects/scomscience.dmi'
 	icon_state = "science"
 	density = 1
 	anchored = 1
@@ -194,7 +194,7 @@
 	show_category = "Squad Leader"
 	restricted_category = "Squad Leader"
 	science_capable = 0
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
+	icon = 'icons/urist/objects/machinery.dmi'
 	icon_state = "lead"
 	animation_state = "lead_o"
 	bound_width = 32
@@ -208,7 +208,7 @@
 /obj/machinery/scom/scomscience/squad
 	name = "squad fabricator"
 	bound_width = 32
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
+	icon = 'icons/urist/objects/machinery.dmi'
 	animation_state = "science_o"
 	novehicles = 1
 	science_capable = 0
@@ -216,7 +216,7 @@
 /obj/machinery/scom/classchanger
 	name = "Class-O-Matic 9000"
 	desc = "This allows you to choose your class as an S-COM operative"
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
+	icon = 'icons/urist/objects/machinery.dmi'
 	icon_state = "squad"
 	anchored = 1
 	density = 1

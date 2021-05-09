@@ -112,24 +112,22 @@
 						else
 							H.uZombify(1, 1, transformation_msgs)
 		else
-			// almost straight copy of plain reagent/toxin/affect_blood()
-			if(alien != IS_DIONA)
-				M.add_chemical_effect(CE_TOXIN, 5)
-				var/dam = 0.05 * rand(1, 20)
-				if(target_organ)
-					var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
-					if(I)
-						var/can_damage = I.max_damage - I.damage
-						if(can_damage > 0)
-							if(dam > can_damage)
-								I.take_internal_damage(can_damage, silent=TRUE)
-								dam -= can_damage
-							else
-								I.take_internal_damage(dam, silent=TRUE)
-								dam = 0
-				if(dam)
-					// nerfed damage w/ target_organ here -scr
-					M.adjustToxLoss(target_organ ? (dam * 0.25) : dam)
+			M.add_chemical_effect(CE_TOXIN, 5)
+			var/dam = 0.05 * rand(1, 20)
+			if(target_organ)
+				var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
+				if(I)
+					var/can_damage = I.max_damage - I.damage
+					if(can_damage > 0)
+						if(dam > can_damage)
+							I.take_internal_damage(can_damage, silent=TRUE)
+							dam -= can_damage
+						else
+							I.take_internal_damage(dam, silent=TRUE)
+							dam = 0
+			if(dam)
+				// nerfed damage w/ target_organ here -scr
+				M.adjustToxLoss(target_organ ? (dam * 0.25) : dam)
 			// endcopy
 
 		// custom sadism

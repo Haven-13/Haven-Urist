@@ -32,7 +32,6 @@
 #define ANTAG_RANDOM_EXCEPTED   0x800 // If a game mode randomly selects antag types, antag types with this flag should be excluded.
 
 // Mode/antag template macros.
-#define MODE_BORER "borer"
 #define MODE_XENOMORPH "xeno"
 #define MODE_LOYALIST "loyalist"
 #define MODE_COMMANDO "commando"
@@ -40,62 +39,16 @@
 #define MODE_ERT "ert"
 #define MODE_ACTOR "actor"
 #define MODE_MERCENARY "mercenary"
-#define MODE_NINJA "ninja"
 #define MODE_RAIDER "raider"
-#define MODE_WIZARD "wizard"
-#define MODE_CHANGELING "changeling"
-#define MODE_CULTIST "cultist"
 #define MODE_MONKEY "monkey"
 #define MODE_RENEGADE "renegade"
 #define MODE_REVOLUTIONARY "revolutionary"
 #define MODE_MALFUNCTION "malf"
 #define MODE_TRAITOR "traitor"
-#define MODE_DEITY "deity"
-#define MODE_GODCULTIST "god cultist"
 #define MODE_SCOM_GD "scom operative"
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 130
 #define IMPLANT_TELECRYSTAL_AMOUNT(x) (round(x * 0.49)) // If this cost is ever greater than half of DEFAULT_TELECRYSTAL_AMOUNT then it is possible to buy more TC than you spend
-
-/////////////////
-////WIZARD //////
-/////////////////
-
-/*		WIZARD SPELL FLAGS		*/
-#define GHOSTCAST		0x1		//can a ghost cast it?
-#define NEEDSCLOTHES	0x2		//does it need the wizard garb to cast? Nonwizard spells should not have this
-#define NEEDSHUMAN		0x4		//does it require the caster to be human?
-#define Z2NOCAST		0x8		//if this is added, the spell can't be cast at centcomm
-#define NO_SOMATIC		0x10	//spell will go off if the person is incapacitated or stunned
-#define IGNOREPREV		0x20	//if set, each new target does not overlap with the previous one
-//The following flags only affect different types of spell, and therefore overlap
-//Targeted spells
-#define INCLUDEUSER		0x40	//does the spell include the caster in its target selection?
-#define SELECTABLE		0x80	//can you select each target for the spell?
-#define NOFACTION		0x1000  //Don't do the same as our faction
-#define NONONFACTION	0x2000  //Don't do people other than our faction
-//AOE spells
-#define IGNOREDENSE		0x40	//are dense turfs ignored in selection?
-#define IGNORESPACE		0x80	//are space turfs ignored in selection?
-//End split flags
-#define CONSTRUCT_CHECK	0x100	//used by construct spells - checks for nullrods
-#define NO_BUTTON		0x200	//spell won't show up in the HUD with this
-
-//invocation
-#define SpI_SHOUT	"shout"
-#define SpI_WHISPER	"whisper"
-#define SpI_EMOTE	"emote"
-#define SpI_NONE	"none"
-
-//upgrading
-#define Sp_SPEED	"speed"
-#define Sp_POWER	"power"
-#define Sp_TOTAL	"total"
-
-//casting costs
-#define Sp_RECHARGE	"recharge"
-#define Sp_CHARGES	"charges"
-#define Sp_HOLDVAR	"holdervar"
 
 //Voting-related
 #define VOTE_PROCESS_ABORT    1

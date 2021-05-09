@@ -123,7 +123,7 @@ SUBSYSTEM_DEF(ticker)
 		if(END_GAME_READY_TO_END)
 			end_game_state = END_GAME_ENDING
 			callHook("roundend")
-			if (universe_has_ended)
+			if (GLOB.universe_has_ended)
 				if(mode.station_was_nuked)
 					feedback_set_details("end_proper","nuke")
 				else
@@ -137,7 +137,7 @@ SUBSYSTEM_DEF(ticker)
 					to_world("<span class='notice'><b>Restarting in [restart_timeout/10] seconds</b></span>")
 
 			if(blackbox)
-				blackbox.save_all_data_to_sql()	
+				blackbox.save_all_data_to_sql()
 			handle_tickets()
 		if(END_GAME_ENDING)
 			restart_timeout -= (world.time - last_fire)
@@ -286,7 +286,6 @@ Helpers
 				captainless=0
 			if(!player_is_antag(player.mind, only_offstation_roles = 1))
 				job_master.EquipRank(player, player.mind.assigned_role, 0)
-				equip_custom_items(player)
 	if(captainless)
 		for(var/mob/M in GLOB.player_list)
 			if(!istype(M,/mob/new_player))
@@ -341,7 +340,7 @@ Helpers
 	if(config.continous_rounds)
 		return evacuation_controller.round_over() || mode.station_was_nuked
 	else
-		return mode.check_finished() || (evacuation_controller.round_over() && evacuation_controller.emergency_evacuation) || universe_has_ended
+		return mode.check_finished() || (evacuation_controller.round_over() && evacuation_controller.emergency_evacuation) || GLOB.universe_has_ended
 
 /datum/controller/subsystem/ticker/proc/mode_finished()
 	if(config.continous_rounds)

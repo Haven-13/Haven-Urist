@@ -125,39 +125,6 @@ var/list/ghost_traps
 		target.real_name = newname
 		target.SetName(target.real_name)
 
-/***********************************
-* Diona pods and walking mushrooms *
-***********************************/
-/datum/ghosttrap/plant
-	object = "living plant"
-	ban_checks = list("Dionaea")
-	pref_check = BE_PLANT
-	ghost_trap_message = "They are occupying a living plant now."
-	ghost_trap_role = "Plant"
-
-/datum/ghosttrap/plant/welcome_candidate(var/mob/target)
-	to_chat(target, "<span class='alium'><B>You awaken slowly, stirring into sluggish motion as the air caresses you.</B></span>")
-	// This is a hack, replace with some kind of species blurb proc.
-	if(istype(target,/mob/living/carbon/alien/diona))
-		to_chat(target, "<B>You are \a [target], one of a race of drifting interstellar plantlike creatures that sometimes share their seeds with human traders.</B>")
-		to_chat(target, "<B>Too much darkness will send you into shock and starve you, but light will help you heal.</B>")
-/*****************
-* Cortical Borer *
-*****************/
-/datum/ghosttrap/borer
-	object = "cortical borer"
-	ban_checks = list(MODE_BORER)
-	pref_check = MODE_BORER
-	ghost_trap_message = "They are occupying a borer now."
-	ghost_trap_role = "Cortical Borer"
-	can_set_own_name = FALSE
-	list_as_special_role = FALSE
-
-/datum/ghosttrap/borer/welcome_candidate(var/mob/target)
-	to_chat(target, "<span class='notice'>You are a cortical borer!</span> You are a brain slug that worms its way \
-	into the head of its victim. Use stealth, persuasion and your powers of mind control to keep you, \
-	your host and your eventual spawn safe and warm.")
-	to_chat(target, "You can speak to your victim with <b>say</b>, to other borers with <b>say [target.get_language_prefix()]x</b>, and use your Abilities tab to access powers.")
 /********************
 * Maintenance Drone *
 *********************/
@@ -197,39 +164,3 @@ datum/ghosttrap/pai/assess_candidate(var/mob/observer/ghost/candidate, var/mob/t
 
 datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silicon/robot/drone/drone)
 	return 0
-
-/******************
-* Wizard Familiar *
-******************/
-/datum/ghosttrap/familiar
-	object = "wizard familiar"
-	pref_check = MODE_WIZARD
-	ghost_trap_message = "They are occupying a familiar now."
-	ghost_trap_role = "Wizard Familiar"
-	ban_checks = list(MODE_WIZARD)
-
-/datum/ghosttrap/familiar/welcome_candidate(var/mob/target)
-	return 0
-
-/datum/ghosttrap/cult
-	object = "cultist"
-	ban_checks = list("cultist")
-	pref_check = MODE_CULTIST
-	can_set_own_name = FALSE
-	ghost_trap_message = "They are occupying a cultist's body now."
-	ghost_trap_role = "Cultist"
-
-/datum/ghosttrap/cult/welcome_candidate(var/mob/target)
-	var/obj/item/device/soulstone/S = target.loc
-	if(istype(S))
-		if(S.is_evil)
-			GLOB.cult.add_antagonist(target.mind)
-			to_chat(target, "<b>Remember, you serve the one who summoned you first, and the cult second.</b>")
-		else
-			to_chat(target, "<b>This soultone has been purified. You do not belong to the cult.</b>")
-			to_chat(target, "<b>Remember, you only serve the one who summoned you.</b>")
-
-/datum/ghosttrap/cult/shade
-	object = "soul stone"
-	ghost_trap_message = "They are occupying a soul stone now."
-	ghost_trap_role = "Shade"

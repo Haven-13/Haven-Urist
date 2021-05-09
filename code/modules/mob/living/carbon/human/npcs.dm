@@ -29,12 +29,22 @@
 		C.has_sensor  = SUIT_LOCKED_SENSORS
 		C.sensor_mode = SUIT_SENSOR_OFF
 
+/mob/living/carbon/human/blank
+	var/list/possible_ids = list(
+		"Alpha",
+		"Beta",
+		"Omega",
+		"Xhi",
+		"Phi",
+		"Zeta"
+	)
+
 /mob/living/carbon/human/blank/New(var/new_loc)
 	..(new_loc, "Vat-Grown Human")
 
 /mob/living/carbon/human/blank/Initialize()
 	. = ..()
-	var/number = "[pick(possible_changeling_IDs)]-[rand(1,30)]"
+	var/number = "[pick(possible_ids)]-[rand(1,30)]"
 	fully_replace_character_name("Subject [number]")
 	var/decl/hierarchy/outfit/outfit = outfit_by_type(/decl/hierarchy/outfit/blank_subject)
 	outfit.equip(src)
