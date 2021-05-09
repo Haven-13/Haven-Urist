@@ -1,7 +1,7 @@
 /obj/structure/bed/chair/couch
 	name = "couch"
 	desc = "A couch. Looks pretty comfortable."
-	icon = 'icons/urist/structures&machinery/Nienplants&Couch.dmi'
+	icon = 'icons/urist/objects/NienplantsCouch.dmi'
 	icon_state = "chair"
 	color = rgb(255,255,255)
 	var/image/armrest = null
@@ -14,11 +14,11 @@
 //	..(newloc,"steel","black")
 
 	if(couchpart == 1)
-		armrest = image("icons/urist/structures&machinery/Nienplants&Couch.dmi", "armrest_left")
+		armrest = image("icons/urist/objects/NienplantsCouch.dmi", "armrest_left")
 		armrest.plane = ABOVE_HUMAN_PLANE
 		armrest.layer = ABOVE_HUMAN_LAYER
 	else if(couchpart == 2)
-		armrest = image("icons/urist/structures&machinery/Nienplants&Couch.dmi", "armrest_right")
+		armrest = image("icons/urist/objects/NienplantsCouch.dmi", "armrest_right")
 		armrest.plane = ABOVE_HUMAN_PLANE
 		armrest.layer = ABOVE_HUMAN_LAYER
 
@@ -101,7 +101,7 @@
 
 /obj/structure/flora/pottedplant/Nienplants
 	name = "Pot"
-	icon = 'icons/urist/structures&machinery/Nienplants&Couch.dmi'
+	icon = 'icons/urist/objects/NienplantsCouch.dmi'
 	icon_state = "pot"
 	anchored = 1
 
@@ -140,7 +140,7 @@
 //tree
 /obj/structure/flora/pottedplant/Nienplants/Glloydtree //what is this path
 	name = "tree"
-	icon = 'icons/urist/structures&machinery/Glloydtrees.dmi'
+	icon = 'icons/urist/objects/Glloydtrees.dmi'
 	icon_state = "tree"
 	anchored = 1
 	layer = 9

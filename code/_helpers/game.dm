@@ -567,5 +567,5 @@ datum/projectile_data
 /proc/SecondsToTicks(var/seconds)
 	return seconds * 10
 
-/proc/round_is_spooky(var/spookiness_threshold = config.cult_ghostwriter_req_cultists)
-	return ((GLOB.cult.current_antagonists.len > spookiness_threshold) || (GLOB.vamps.current_antagonists.len > 1))
+/proc/round_is_spooky(var/spookiness_threshold = 0)
+	return 0 // TODO: do something about this

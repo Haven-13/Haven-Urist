@@ -107,7 +107,7 @@
 	)
 
 /datum/species/xenos/get_bodytype(var/mob/living/carbon/H)
-	return "Xenophage"
+	return SPECIES_XENO
 
 /datum/species/xenos/can_understand(var/mob/other)
 

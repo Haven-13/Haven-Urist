@@ -18,7 +18,7 @@
 /mob/living/carbon/alien/larva/New()
 	..()
 	time_of_birth = world.time
-	add_language("Xenophage") //Bonus language.
+	add_language(LANGUAGE_XENOPHAGE) //Bonus language.
 	internal_organs |= new /obj/item/organ/internal/xeno/hivenode(src)
 	create_reagents(100)
 

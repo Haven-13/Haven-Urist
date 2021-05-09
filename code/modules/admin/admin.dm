@@ -166,7 +166,6 @@ var/global/floorIsLava = 0
 				<A href='?src=\ref[src];simplemake=human;species=Skrell;mob=\ref[M]'>Skrell</A>
 				<A href='?src=\ref[src];simplemake=human;species=Vox;mob=\ref[M]'>Vox</A> \] | \[
 				<A href='?src=\ref[src];simplemake=nymph;mob=\ref[M]'>Nymph</A>
-				<A href='?src=\ref[src];simplemake=human;species='Diona';mob=\ref[M]'>Diona</A> \] |
 				\[ slime: <A href='?src=\ref[src];simplemake=slime;mob=\ref[M]'>Baby</A>,
 				<A href='?src=\ref[src];simplemake=adultslime;mob=\ref[M]'>Adult</A> \]
 				<A href='?src=\ref[src];simplemake=monkey;mob=\ref[M]'>Monkey</A> |
@@ -176,11 +175,7 @@ var/global/floorIsLava = 0
 				<A href='?src=\ref[src];simplemake=corgi;mob=\ref[M]'>Corgi</A> |
 				<A href='?src=\ref[src];simplemake=ian;mob=\ref[M]'>Ian</A> |
 				<A href='?src=\ref[src];simplemake=crab;mob=\ref[M]'>Crab</A> |
-				<A href='?src=\ref[src];simplemake=coffee;mob=\ref[M]'>Coffee</A> |
-				\[ Construct: <A href='?src=\ref[src];simplemake=constructarmoured;mob=\ref[M]'>Armoured</A> ,
-				<A href='?src=\ref[src];simplemake=constructbuilder;mob=\ref[M]'>Builder</A> ,
-				<A href='?src=\ref[src];simplemake=constructwraith;mob=\ref[M]'>Wraith</A> \]
-				<A href='?src=\ref[src];simplemake=shade;mob=\ref[M]'>Shade</A>
+				<A href='?src=\ref[src];simplemake=coffee;mob=\ref[M]'>Coffee</A>
 				<br>
 			"}
 	body += {"<br><br>
@@ -1008,46 +1003,6 @@ var/global/floorIsLava = 0
 	var/datum/seed/S = plant_controller.seeds[seedtype]
 	S.harvest(usr,0,0,1)
 	log_admin("[key_name(usr)] spawned [seedtype] fruit at ([usr.x],[usr.y],[usr.z])")
-
-/datum/admins/proc/spawn_custom_item()
-	set category = "Debug"
-	set desc = "Spawn a custom item."
-	set name = "Spawn Custom Item"
-
-	if(!check_rights(R_SPAWN))	return
-
-	var/owner = input("Select a ckey.", "Spawn Custom Item") as null|anything in custom_items
-	if(!owner|| !custom_items[owner])
-		return
-
-	var/list/possible_items = custom_items[owner]
-	var/datum/custom_item/item_to_spawn = input("Select an item to spawn.", "Spawn Custom Item") as null|anything in possible_items
-	if(!item_to_spawn || !item_to_spawn.is_valid(usr))
-		return
-
-	item_to_spawn.spawn_item(get_turf(usr))
-
-/datum/admins/proc/check_custom_items()
-
-	set category = "Debug"
-	set desc = "Check the custom item list."
-	set name = "Check Custom Items"
-
-	if(!check_rights(R_SPAWN))	return
-
-	if(!custom_items)
-		to_chat(usr, "Custom item list is null.")
-		return
-
-	if(!custom_items.len)
-		to_chat(usr, "Custom item list not populated.")
-		return
-
-	for(var/assoc_key in custom_items)
-		to_chat(usr, "[assoc_key] has:")
-		var/list/current_items = custom_items[assoc_key]
-		for(var/datum/custom_item/item in current_items)
-			to_chat(usr, "- name: [item.name] icon: [item.item_icon] path: [item.item_path] desc: [item.item_desc]")
 
 /datum/admins/proc/spawn_plant(seedtype in plant_controller.seeds)
 	set category = "Debug"

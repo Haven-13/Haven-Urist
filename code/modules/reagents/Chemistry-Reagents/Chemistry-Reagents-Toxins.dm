@@ -13,7 +13,7 @@
 	var/strength = 4 // How much damage it deals per unit
 
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(strength && alien != IS_DIONA)
+	if(strength)
 		M.add_chemical_effect(CE_TOXIN, strength)
 		var/dam = (strength * removed)
 		if(target_organ && ishuman(M))
@@ -176,8 +176,6 @@
 
 /datum/reagent/toxin/zombiepowder/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.status_flags |= FAKEDEATH
 	M.adjustOxyLoss(3 * removed)
 	M.Weaken(10)
@@ -232,13 +230,11 @@
 
 /datum/reagent/toxin/plantbgone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		M.adjustToxLoss(50 * removed)
+	M.adjustToxLoss(20 * removed)
 
 /datum/reagent/toxin/plantbgone/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		M.adjustToxLoss(50 * removed)
+	M.adjustToxLoss(20 * removed)
 
 /datum/reagent/acid/polyacid
 	name = "Polytrinic acid"
@@ -258,8 +254,6 @@
 	overdose = REAGENTS_OVERDOSE
 
 /datum/reagent/lexorin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	if(alien == IS_SKRELL)
 		M.take_organ_damage(2.4 * removed, 0)
 		if(M.losebreath < 22.5)
@@ -314,8 +308,6 @@
 	color = "#801e28"
 
 /datum/reagent/slimejelly/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	if(prob(10))
 		to_chat(M, "<span class='danger'>Your insides are burning!</span>")
 		M.adjustToxLoss(rand(100, 300) * removed)
@@ -332,9 +324,6 @@
 	overdose = REAGENTS_OVERDOSE
 
 /datum/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
-
 	var/threshold = 1
 	if(alien == IS_SKRELL)
 		threshold = 1.2
@@ -363,9 +352,6 @@
 	overdose = REAGENTS_OVERDOSE * 0.5
 
 /datum/reagent/chloralhydrate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
-
 	var/threshold = 1
 	if(alien == IS_SKRELL)
 		threshold = 1.2
@@ -404,9 +390,6 @@
 	overdose = REAGENTS_OVERDOSE
 
 /datum/reagent/space_drugs/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
-
 	var/drug_strength = 15
 	if(alien == IS_SKRELL)
 		drug_strength = drug_strength * 0.8
@@ -428,8 +411,6 @@
 	overdose = REAGENTS_OVERDOSE
 
 /datum/reagent/serotrotium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	if(prob(7))
 		M.emote(pick("twitch", "drool", "moan", "gasp"))
 	return
@@ -444,8 +425,6 @@
 	overdose = REAGENTS_OVERDOSE
 
 /datum/reagent/cryptobiolin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	var/drug_strength = 4
 	if(alien == IS_SKRELL)
 		drug_strength = drug_strength * 0.8
@@ -461,8 +440,6 @@
 	overdose = REAGENTS_OVERDOSE
 
 /datum/reagent/impedrezene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	M.jitteriness = max(M.jitteriness - 5, 0)
 	if(prob(80))
 		M.adjustBrainLoss(5.25 * removed)
@@ -481,8 +458,6 @@
 	overdose = REAGENTS_OVERDOSE
 
 /datum/reagent/mindbreaker/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	M.add_chemical_effect(CE_MIND, -2)
 	if(alien == IS_SKRELL)
 		M.hallucination(25, 30)
@@ -498,9 +473,6 @@
 	metabolism = REM * 0.5
 
 /datum/reagent/psilocybin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
-
 	var/threshold = 1
 	if(alien == IS_SKRELL)
 		threshold = 1.2
@@ -529,85 +501,6 @@
 			M.emote(pick("twitch", "giggle"))
 
 /* Transformations */
-
-/datum/reagent/slimetoxin
-	name = "Mutation Toxin"
-	description = "A corruptive toxin produced by slimes."
-	taste_description = "sludge"
-	reagent_state = LIQUID
-	color = "#13bc5e"
-	metabolism = REM * 0.2
-
-/datum/reagent/slimetoxin/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
-	if(!istype(H))
-		return
-	if(H.species.name == SPECIES_PROMETHEAN)
-		return
-	H.adjustToxLoss(40 * removed)
-	if(H.chem_doses[type] < 1 || prob(30))
-		return
-	H.chem_doses[type] = 0
-	var/list/meatchunks = list()
-	for(var/limb_tag in list(BP_R_ARM, BP_L_ARM, BP_R_LEG,BP_L_LEG))
-		var/obj/item/organ/external/E = H.get_organ(limb_tag)
-		if(!E.is_stump() && !BP_IS_ROBOTIC(E) && E.species.name != SPECIES_PROMETHEAN)
-			meatchunks += E
-	if(!meatchunks.len)
-		if(prob(10))
-			to_chat(H, "<span class='danger'>Your flesh rapidly mutates!</span>")
-			H.set_species(SPECIES_PROMETHEAN)
-			H.shapeshifter_set_colour("#05ff9b")
-		return
-	var/obj/item/organ/external/O = pick(meatchunks)
-	to_chat(H, "<span class='danger'>Your [O.name]'s flesh mutates rapidly!</span>")
-	if(!wrapped_species_by_ref["\ref[H]"])
-		wrapped_species_by_ref["\ref[H]"] = H.species.name
-	meatchunks = list(O) | O.children
-	for(var/obj/item/organ/external/E in meatchunks)
-		E.species = all_species[SPECIES_PROMETHEAN]
-		E.s_tone = null
-		E.s_col = ReadRGB("#05ff9b")
-		E.s_col_blend = ICON_ADD
-		E.status &= ~ORGAN_BROKEN
-		E.status |= ORGAN_MUTATED
-		E.limb_flags &= ~ORGAN_FLAG_CAN_BREAK
-		E.dislocated = -1
-		E.max_damage = 5
-		E.update_icon(1)
-	O.max_damage = 15
-	if(prob(10))
-		to_chat(H, "<span class='danger'>Your slimy [O.name] plops off!</span>")
-		O.droplimb()
-	H.update_body()
-
-/datum/reagent/aslimetoxin
-	name = "Advanced Mutation Toxin"
-	description = "An advanced corruptive toxin produced by slimes."
-	taste_description = "sludge"
-	reagent_state = LIQUID
-	color = "#13bc5e"
-
-/datum/reagent/aslimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) // TODO: check if there's similar code anywhere else
-	if(HAS_TRANSFORMATION_MOVEMENT_HANDLER(M))
-		return
-	to_chat(M, "<span class='danger'>Your flesh rapidly mutates!</span>")
-	ADD_TRANSFORMATION_MOVEMENT_HANDLER(M)
-	M.icon = null
-	M.overlays.Cut()
-	M.set_invisibility(101)
-	for(var/obj/item/W in M)
-		if(istype(W, /obj/item/weapon/implant)) //TODO: Carn. give implants a dropped() or something
-			qdel(W)
-			continue
-		M.drop_from_inventory(W)
-	var/mob/living/carbon/slime/new_mob = new /mob/living/carbon/slime(M.loc)
-	new_mob.a_intent = "hurt"
-	new_mob.universal_speak = 1
-	if(M.mind)
-		M.mind.transfer_to(new_mob)
-	else
-		new_mob.key = M.key
-	qdel(M)
 
 /datum/reagent/nanites
 	name = "Nanomachines"

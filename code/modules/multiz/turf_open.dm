@@ -1,3 +1,6 @@
+/area
+	base_turf = /turf/simulated/open
+
 /turf/simulated/open
 	name = "open space"
 	icon = 'icons/turf/open_space.dmi'

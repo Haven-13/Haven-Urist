@@ -15,7 +15,7 @@
 /obj/structure/emplacement
 	name = "machine gun"
 	desc = "A stationary machine gun."
-	icon = 'icons/urist/structures&machinery/emplacements.dmi'
+	icon = 'icons/urist/objects/emplacements.dmi'
 	icon_state = "mgun+barrier"
 	var/fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	var/empty_sound = 'sound/weapons/empty.ogg'
@@ -36,7 +36,7 @@
 /obj/structure/emplacement/AT
 	name = "anti-tank gun"
 	desc = "A stationary anti-tank gun."
-	icon = 'icons/urist/structures&machinery/64x64machinery.dmi'
+	icon = 'icons/urist/objects/64x64machinery.dmi'
 	icon_state = "ryclies_AT"
 	bound_width = 64
 	ammo = 25
@@ -50,7 +50,7 @@
 	name = "laser turret"
 	desc = "A stationary laser turret."
 	icon_state = "laser"
-	icon = 'icons/urist/structures&machinery/emplacements.dmi'
+	icon = 'icons/urist/objects/emplacements.dmi'
 	ammo = 500
 	ammomax = 500
 	FIRETIME = 10
@@ -222,7 +222,7 @@
 		return ..()
 
 /obj/structure/emplacement/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) 
+	if(air_group || (height==0))
 		return 1
 	if(istype(mover,/obj/item/projectile))
 		return (check_cover(mover,target))
@@ -265,7 +265,7 @@
 	return 1
 
 /obj/item/machinegunammo
-	icon = 'icons/urist/structures&machinery/emplacements.dmi'
+	icon = 'icons/urist/objects/emplacements.dmi'
 	icon_state = "mgun_crate"
 	name = "machinegun ammo"
 	desc = "Machine gun ammo. It has 500 rounds remaining"

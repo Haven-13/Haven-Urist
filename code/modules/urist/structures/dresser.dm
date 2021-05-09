@@ -6,7 +6,7 @@
 /obj/structure/dresser/
 	name = "Dresser"
 	desc = "A wooden closet full of undergarments."
-	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon = 'icons/urist/objects/structures.dmi'
 	icon_state = "dresser"
 	density = 1
 	anchored = 1

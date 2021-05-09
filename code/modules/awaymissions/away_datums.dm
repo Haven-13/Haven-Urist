@@ -25,11 +25,6 @@
 	value = 20
 	random_start = TRUE
 
-/datum/away_mission/dionaland
-	map_path = "maps/wyrm/templates/dionaland.dmm"
-	value = 25
-	random_start = TRUE
-
 /datum/away_mission/refueling
 	map_path = "maps/wyrm/templates/refuelingstation.dmm"
 	value = 10

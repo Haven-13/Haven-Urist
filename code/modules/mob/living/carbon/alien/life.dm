@@ -16,8 +16,9 @@
 
 /mob/living/carbon/alien/handle_mutations_and_radiation()
 
-	// Currently both Dionaea and larvae like to eat radiation, so I'm defining the
-	// rad absorbtion here. This will need to be changed if other baby aliens are added.
+	// Currently larvae like to eat radiation, so I'm defining the
+	// rad absorbtion here. This will need to be changed if other
+	// baby aliens are added.
 
 	if(!radiation)
 		return

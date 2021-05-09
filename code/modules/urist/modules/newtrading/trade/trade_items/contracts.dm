@@ -64,11 +64,6 @@
 	item_type = /obj/item/weapon/paper/contract/nanotrasen/cargo/kitchen/aesirsalad
 	category = "ntkitchencontract"
 
-/datum/trade_item/contract/ntkitchen/dionaroast
-	name = "Diona Roast Delivery Contract"
-	item_type = /obj/item/weapon/paper/contract/nanotrasen/cargo/kitchen/dionaroast
-	category = "ntkitchencontract"
-
 /datum/trade_item/contract/ntkitchen/cubancarp
 	name = "Cuban Carp Delivery Contract"
 	item_type = /obj/item/weapon/paper/contract/nanotrasen/cargo/kitchen/cubancarp
