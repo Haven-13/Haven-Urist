@@ -88,21 +88,9 @@ obj/effect/overmap/proc/add_landmark(obj/effect/shuttle_landmark/landmark, shutt
 		return 1
 
 	testing("Building overmap...")
-	world.maxz++
-	GLOB.using_map.overmap_z = world.maxz
-	var/list/turfs = list()
-	for (var/square in block(locate(1,1,GLOB.using_map.overmap_z), locate(GLOB.using_map.overmap_size,GLOB.using_map.overmap_size,GLOB.using_map.overmap_z)))
-		var/turf/T = square
-		if(T.x == GLOB.using_map.overmap_size || T.y == GLOB.using_map.overmap_size)
-			T = T.ChangeTurf(/turf/unsimulated/map/edge)
-		else
-			T = T.ChangeTurf(/turf/unsimulated/map/)
-		turfs += T
 
-	var/area/overmap/A = new
-	A.contents.Add(turfs)
-
-	GLOB.using_map.sealed_levels |= GLOB.using_map.overmap_z
+	var/datum/overmap_generator/generator = new /datum/overmap_generator/system()
+	generator.build_overmap()
 
 	testing("Overmap build complete.")
 	return 1
