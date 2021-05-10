@@ -55,3 +55,12 @@
 	for(var/turf/T in fitting_turfs)
 		if(T in candidate_turfs)
 			return T
+
+/datum/overmap_generator/system/place_overmap_item(obj/O)
+	if(empty_map_tiles.len)
+		var/turf/T = pick(empty_map_tiles)
+		. = place_overmap_item_at_turf(O, T)
+		testing("Putting [O.name] ([O.type]) in random empty location: [T.x], [T.y]")
+		return .
+
+	CRASH("Unable to add [O.name] ([O.type])! No empty tiles left to fill!")

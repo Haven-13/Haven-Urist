@@ -1,4 +1,5 @@
 #include "_defines.dm"
+#include "initialization.dm"
 
 // Basics
 #include "overmap_shuttle.dm"

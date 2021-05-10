@@ -6,6 +6,8 @@
 #define Floor(x)	(round(x))
 #define Ceiling(x)	(-round(-(x)))
 
+#define EULER 2.7182818285
+
 // min is inclusive, max is exclusive
 /proc/Wrap(val, min, max)
 	var/d = max - min

@@ -26,8 +26,8 @@
 	if(!GLOB.using_map.use_overmap)
 		return INITIALIZE_HINT_QDEL
 
-	if(!GLOB.using_map.overmap_z)
-		build_overmap()
+	if(!IS_OVERMAP_INITIALIZED)
+		overmap_initialize()
 
 	map_z = GetConnectedZlevels(z)
 	for(var/zlevel in map_z)
@@ -35,11 +35,11 @@
 
 	docking_codes = "[ascii2text(rand(65,90))][ascii2text(rand(65,90))][ascii2text(rand(65,90))][ascii2text(rand(65,90))]"
 
-	start_x = start_x || rand(OVERMAP_EDGE, GLOB.using_map.overmap_size - OVERMAP_EDGE)
-	start_y = start_y || rand(OVERMAP_EDGE, GLOB.using_map.overmap_size - OVERMAP_EDGE)
-
-	forceMove(locate(start_x, start_y, GLOB.using_map.overmap_z))
-	testing("Located sector \"[name]\" at [start_x],[start_y], containing Z [english_list(map_z)]")
+	if (start_x && start_y)
+		GLOB.overmap_generator.place_overmap_item_at(src, start_x, start_y)
+	else
+		GLOB.overmap_generator.place_overmap_item(src)
+	testing("Located sector \"[name]\" at [src.x],[src.y], containing Z [english_list(map_z)]")
 
 	GLOB.using_map.player_levels |= map_z
 
@@ -82,15 +82,3 @@ obj/effect/overmap/proc/add_landmark(obj/effect/shuttle_landmark/landmark, shutt
 		plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		for(var/obj/machinery/computer/helm/H in SSmachines.machinery)
 			H.get_known_sectors()
-
-/proc/build_overmap()
-	if(!GLOB.using_map.use_overmap)
-		return 1
-
-	testing("Building overmap...")
-
-	var/datum/overmap_generator/generator = new /datum/overmap_generator/system()
-	generator.build_overmap()
-
-	testing("Overmap build complete.")
-	return 1

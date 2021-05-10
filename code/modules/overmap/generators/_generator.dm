@@ -11,6 +11,7 @@
 	all_map_tiles = list()
 	event_whitelist = list()
 
+
 /datum/overmap_generator/proc/build_overmap()
 	SHOULD_NOT_OVERRIDE(TRUE)
 	world.maxz++
@@ -39,15 +40,31 @@
 	// instead of any other arbitrary value like a normal human being
 	spawn_events(GLOB.using_map.overmap_z)
 
-/datum/overmap_generator/proc/place_overmap_item_at(obj/item, x, y)
+#define PLACE_OVERMAP_ITEM(O, T)    \
+	if((istype(T) && istype(O)))    \
+	{                               \
+		O.forceMove(T);             \
+		empty_map_tiles -= T;       \
+		. = TRUE;                   \
+	}
+
+// Place overmap item according to strategy overriding this function
+/datum/overmap_generator/proc/place_overmap_item(obj/O)
+	CRASH("[src.type]: place_overmap_item is unimplemented")
+
+// Place overmap item at fixated coordinates
+/datum/overmap_generator/proc/place_overmap_item_at(obj/O, x, y)
 	var/turf/T = locate(x, y, GLOB.using_map.overmap_z)
-	if(istype(T))
-		item.forceMove(T)
-		empty_map_tiles -= T
-		. = TRUE
+	PLACE_OVERMAP_ITEM(O, T)
+
+// Place overmap item at fixated turf
+/datum/overmap_generator/proc/place_overmap_item_at_turf(obj/O, turf/T)
+	PLACE_OVERMAP_ITEM(O, T)
+
+#undef PLACE_OVERMAP_ITEM
 
 /datum/overmap_generator/proc/spawn_effects()
 	return
 
 /datum/overmap_generator/proc/spawn_events(number_of_events)
-	return
+	CRASH("[src.type]: spawn_events is unimplemented")
