@@ -1,3 +1,25 @@
+#define DISTRIBUTION_SINUSOIDAL 1
+#define DISTRIBUTION_NORMAL     2
+
+// Poisson distribution random
+#define POISSON_PDF(l, k, f) ((l ** k) * (EULER ** (-(l))) / (f))
+
+/proc/POISSON_RAND(lambda, max=10)
+	var/k = 0
+	var/f = 1
+	var/p = POISSON_PDF(lambda, k, f)
+	var/cdf = p
+	var/ran = rand(0, 100) / 100
+	while(k < max && (ran > cdf))
+		k += 1
+		f *= k
+		p = POISSON_PDF(lambda, k, f)
+		cdf += p
+	return k
+
+#undef POISSON_PDF
+// End Poisson
+
 /datum/overmap_generator/system
 	var/turf/center_turf
 	var/list/unoccupied_orbits
@@ -9,9 +31,13 @@
 
 	var/ring_exclusion_zone_radius = 2
 
-	var/probability_clamp_min = 0.05
+	var/probability_clamp_max = 0.95
+	var/probability_clamp_min = 0.25
 
-	var/mean_rings = 1.4
+	var/mean_rings = 1.5        // lambda for the poisson distribution for amount of rings
+	var/peaks_per_ring = 3      // (Sinusoidal only) how many high-probability peaks should the rings have?
+
+	var/distribution_method = DISTRIBUTION_SINUSOIDAL
 
 /datum/overmap_generator/system/New()
 	. = ..()
@@ -43,24 +69,9 @@
 
 /datum/overmap_generator/system/spawn_events(number_of_events)
 	number_of_events = Floor(min(overmap_size/9, number_of_events)) || 1
-	var/max_event_rings = 0
+	var/max_event_rings = POISSON_RAND(mean_rings, max=number_of_events)
 
-	// Poisson distribution random
-	var/k = 0
-	var/f = 1
-	var/e = EULER ** (-mean_rings)
-	var/p = (mean_rings ** k) * e / (f)
-	var/cdf = p
-	var/ran = rand(0, 100) / 100
-	while(k < number_of_events && (ran > cdf))
-		k += 1
-		f *= k
-		p = (mean_rings ** k) * e / (f)
-		cdf += p
-	// End Poisson
-	max_event_rings = k
-
-	testing("Placing [max_event_rings] (p=[p*100] %) rings of events")
+	testing("Placing [max_event_rings] rings in system")
 
 	var/list/candidate_rings = unoccupied_orbits.Copy()
 
@@ -73,13 +84,14 @@
 		var/radius = pick(candidate_rings)
 		testing("\tPlacing [E.name] event at orbit: [radius]")
 		var/list/Ts = acquire_turfs_in_ring(center_turf, radius)
-		testing("\tFound [Ts.len] turfs to populate...")
 
-		distribute_normal(
-			Ts.len / (E.count * sqrt(radius)),
-			E,
-			Ts
-		)
+		switch(distribution_method)
+			if(DISTRIBUTION_SINUSOIDAL)
+				distribute_sinusoidal(E, Ts)
+			if(DISTRIBUTION_NORMAL)
+				distribute_normal(E, Ts)
+			else
+				CRASH("No distribution method is defined for [E.name]!")
 
 		// Put in some spacing so shit won't be so terrifyingly packed
 		for (var/r = (radius - ring_exclusion_zone_radius) to (radius + ring_exclusion_zone_radius))
@@ -94,7 +106,7 @@
 		T = pick(acquire_turfs_in_ring(center_turf, orbit, check_empty=TRUE))
 		if (place_overmap_item_at_turf(O, T))
 			unoccupied_orbits -= orbit
-			testing("Put \"[O.name]\" in an orbit: r=[orbit]")
+			testing("Put \"[O.name]\" in the orbit: r=[orbit]")
 			return TRUE
 
 	if(empty_map_tiles.len)
@@ -105,27 +117,42 @@
 
 	CRASH("Unable to add \"[O.name]\"! No empty tiles left to fill!")
 
+// Distribute the events using a sinusoidal function fit to have N=peaks_per_ring "peaks"
+// The peaks are where the probability p is the highest, so most of the event effects are
+// placed at those peaks. Mimicking distribution of real-life asteroids close to planets.
+/datum/overmap_generator/system/proc/distribute_sinusoidal(datum/overmap_event/E, list/turf/Ts)
+	var/step = 360 / Ts.len
+	var/angle = rand(0, 359) // start
+
+	var/clamp = probability_clamp_max - probability_clamp_min
+	for(var/turf/T in Ts)
+		var/p = (sin(angle * peaks_per_ring) + 1)/2 * clamp + probability_clamp_min
+		if(prob(p * 100))
+			overmap_event_handler.bind_event_to(E, T)
+			empty_map_tiles -= T
+		angle += step
+
+// Just a fair warning, the distribution here is a hot mess and is not even a real normal distribution
+// but for the purpose of a common-ground between gameplay and aesthetic, it works fine
 #define NORM_RAND(x, f, p) (f * (EULER ** (p*((x) ** 2.0))))
 
 // Spawn event turfs distributed by a normal distribution based on count spots skipped
-// For the sigma, see the call to this proc in spawn_events() in this file
-// This is built around using radius = 4
-/datum/overmap_generator/system/proc/distribute_normal(sigma, datum/overmap_event/E, list/turf/Ts)
-	if (sigma < 0) // sigma must always be positive in normal dist (s^2 > 0)
-		sigma = -sigma
-
+// For the sigma, we use 2*pi*r, which we already get from the Ts list because it is the rind
+/datum/overmap_generator/system/proc/distribute_normal(datum/overmap_event/E, list/turf/Ts)
 	var/count = 0
-	var/step = 1/(E.radius)
+	var/sigma = Ts.len
 	// 1 / (sigma * sqrt(2*pi))
 	var/normal_factor = 1/(sigma * 2.51)
 	// the -1/2 * (1/sigma)**2 part of the exp in normal dist
 	var/power_factor = -1/(2 * (sigma ** 2))
+	// clamp the model to a desired probability range
+	var/normalize = 1/(NORM_RAND(0, normal_factor, power_factor)) * (probability_clamp_max - probability_clamp_min)
 	for(var/turf/T in Ts)
-		if(!prob((NORM_RAND(count, normal_factor, power_factor) + probability_clamp_min) * 100))
+		if(!prob(((NORM_RAND(count, normal_factor, power_factor) * normalize) + probability_clamp_min) * 100))
 			overmap_event_handler.bind_event_to(E, T)
 			empty_map_tiles -= T
 		else
-			count += step
+			count += 1
 
 #undef NORM_RAND
 
