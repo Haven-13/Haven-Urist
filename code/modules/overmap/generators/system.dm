@@ -3,13 +3,24 @@
 	var/list/unoccupied_orbits
 
 	var/list/circle_angles
-	var/sigma_coefficient = 1.5 // the bigger, the higher the p on normal distribution
+
+	var/minimum_radius = 4
+	var/maximum_radius = 30
+
+	var/ring_exclusion_zone_radius = 2
+
+	var/probability_clamp_min = 0.05
+
+	var/mean_rings = 1.4
 
 /datum/overmap_generator/system/New()
 	. = ..()
 	unoccupied_orbits = list()
-	for (var/o = 4 to (overmap_size/2 - 3))
+	minimum_radius = max(4, minimum_radius)
+	maximum_radius = min((overmap_size/2 - OVERMAP_EDGE), maximum_radius)
+	for (var/o = minimum_radius to maximum_radius)
 		unoccupied_orbits += o
+
 	event_whitelist += /datum/overmap_event/meteor
 	event_whitelist += /datum/overmap_event/dust
 
@@ -32,36 +43,55 @@
 
 /datum/overmap_generator/system/spawn_events(number_of_events)
 	number_of_events = Floor(min(overmap_size/9, number_of_events)) || 1
-	var/max_event_rings = rand(1, number_of_events)
+	var/max_event_rings = 0
 
-	testing("Placing [max_event_rings] rings of events, rand max: [number_of_events]")
+	// Poisson distribution random
+	var/k = 0
+	var/f = 1
+	var/e = EULER ** (-mean_rings)
+	var/p = (mean_rings ** k) * e / (f)
+	var/cdf = p
+	var/ran = rand(0, 100) / 100
+	while(k < number_of_events && (ran > cdf))
+		k += 1
+		f *= k
+		p = (mean_rings ** k) * e / (f)
+		cdf += p
+	// End Poisson
+	max_event_rings = k
+
+	testing("Placing [max_event_rings] (p=[p*100] %) rings of events")
+
+	var/list/candidate_rings = unoccupied_orbits.Copy()
+
 	for(var/i = 1 to max_event_rings)
-		if(!unoccupied_orbits.len)
+		if(!candidate_rings.len)
 			break
 		var/overmap_event_type = pick(event_whitelist)
 		var/datum/overmap_event/E = new overmap_event_type
 
-		var/radius = pick(unoccupied_orbits)
+		var/radius = pick(candidate_rings)
 		testing("\tPlacing [E.name] event at orbit: [radius]")
 		var/list/Ts = acquire_turfs_in_ring(center_turf, radius)
 		testing("\tFound [Ts.len] turfs to populate...")
 
 		distribute_normal(
-			(Ts.len) / ((E.radius*radius) - (E.count*sqrt(radius))),
+			Ts.len / (E.count * sqrt(radius)),
 			E,
 			Ts
 		)
 
 		// Put in some spacing so shit won't be so terrifyingly packed
-		unoccupied_orbits -= radius + 1
+		for (var/r = (radius - ring_exclusion_zone_radius) to (radius + ring_exclusion_zone_radius))
+			candidate_rings -= r
+
 		unoccupied_orbits -= radius
-		unoccupied_orbits -= radius - 1
 
 /datum/overmap_generator/system/place_overmap_item(obj/O)
 	var/turf/T
 	if(unoccupied_orbits.len)
 		var/orbit = pick(unoccupied_orbits)
-		T = pick(acquire_turfs_in_ring(center_turf, orbit))
+		T = pick(acquire_turfs_in_ring(center_turf, orbit, check_empty=TRUE))
 		if (place_overmap_item_at_turf(O, T))
 			unoccupied_orbits -= orbit
 			testing("Put \"[O.name]\" in an orbit: r=[orbit]")
@@ -77,23 +107,25 @@
 
 #define NORM_RAND(x, f, p) (f * (EULER ** (p*((x) ** 2.0))))
 
-// Spawn event turfs distributed by a normal distribution based on count spots skipped and events' count and radius, both for sigma
+// Spawn event turfs distributed by a normal distribution based on count spots skipped
+// For the sigma, see the call to this proc in spawn_events() in this file
+// This is built around using radius = 4
 /datum/overmap_generator/system/proc/distribute_normal(sigma, datum/overmap_event/E, list/turf/Ts)
 	if (sigma < 0) // sigma must always be positive in normal dist (s^2 > 0)
 		sigma = -sigma
-	sigma *= sigma_coefficient
 
 	var/count = 0
+	var/step = 1/(E.radius)
 	// 1 / (sigma * sqrt(2*pi))
 	var/normal_factor = 1/(sigma * 2.51)
 	// the -1/2 * (1/sigma)**2 part of the exp in normal dist
 	var/power_factor = -1/(2 * (sigma ** 2))
-	for(var/event_turf in Ts)
-		if(prob(NORM_RAND(count, normal_factor, power_factor) * 100))
-			count += 1
+	for(var/turf/T in Ts)
+		if(!prob((NORM_RAND(count, normal_factor, power_factor) + probability_clamp_min) * 100))
+			overmap_event_handler.bind_event_to(E, T)
+			empty_map_tiles -= T
 		else
-			overmap_event_handler.bind_event_to(E, event_turf)
-			empty_map_tiles -= event_turf
+			count += step
 
 #undef NORM_RAND
 
@@ -108,7 +140,7 @@
 	)
 
 // TODO: Turn this into an independent "orind" or "rind" function that returns all the turfs in said rind
-/datum/overmap_generator/system/proc/acquire_turfs_in_ring(turf/origio, radius)
+/datum/overmap_generator/system/proc/acquire_turfs_in_ring(turf/origio, radius, check_empty=FALSE)
 	var/list/turfs = list()
 	for(var/d in circle_angles)
 		var/turf/T = rind_locate(
@@ -119,5 +151,7 @@
 			d
 		)
 		if (istype(T) && !(T in turfs))
+			if (check_empty && !(T in empty_map_tiles))
+				continue
 			turfs += T
 	return turfs
