@@ -11,8 +11,12 @@ GLOBAL_DATUM(overmap_generator, /datum/overmap_generator)
 
 	testing("Building overmap...")
 
+	var/start = REALTIMEOFDAY
+
 	GLOB.overmap_generator = new GLOB.overmap_generator_type()
 	GLOB.overmap_generator.build_overmap()
 
-	testing("Overmap build complete.")
+	var/time = (REALTIMEOFDAY - start) / 10
+
+	testing("Overmap build completed within [time] seconds.")
 	return 1
