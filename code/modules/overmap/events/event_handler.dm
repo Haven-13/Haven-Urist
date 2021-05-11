@@ -2,20 +2,19 @@
 
 /decl/overmap_event_handler
 	var/list/event_turfs_by_z_level
+	var/list/connected_effects
 
 /decl/overmap_event_handler/New()
 	..()
 	event_turfs_by_z_level = list()
+	connected_effects = list()
 
 /decl/overmap_event_handler/proc/bind_event_to(datum/overmap_event/E, turf/target)
 	GLOB.entered_event.register(target, src, /decl/overmap_event_handler/proc/on_turf_entered)
 	GLOB.exited_event.register(target, src, /decl/overmap_event_handler/proc/on_turf_exited)
 
-	var/obj/effect/overmap_event/event = new(target)
-	event.SetName(E.name)
-	event.icon_state = pick(E.event_icon_states)
-	event.opacity =  E.opacity
-	event.color = E.icon_color
+	var/obj/effect/overmap_event/event = new(target, E)
+	connected_effects += event
 
 /decl/overmap_event_handler/proc/get_event_turfs_by_z_level(var/z_level)
 	var/z_level_text = num2text(z_level)

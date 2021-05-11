@@ -6,6 +6,18 @@
 	icon_state = "event"
 	opacity = 1
 
+/obj/effect/overmap_event/New(turf/T, datum/overmap_event/E)
+	src.loc = T
+	SetName(E.name)
+	icon_state = pick(E.event_icon_states)
+	opacity =  E.opacity
+	color = E.icon_color
+
+/obj/effect/overmap_event/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
+	atom_flags |= ATOM_FLAG_INITIALIZED
+	return INITIALIZE_HINT_NORMAL
+
 /datum/overmap_event
 	var/name = "map event"
 	var/radius = 2
