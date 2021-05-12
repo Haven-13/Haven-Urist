@@ -26,7 +26,7 @@ var/list/star_prefixes = list(
 )
 
 var/list/star_classes = list(
-		"0" = "#94d4ff",
+		"O" = "#94d4ff",
 		"B" = "#bee5ff",
 		"A" = "#eaf7ff",
 		"F" = "#ffffff",
@@ -34,7 +34,10 @@ var/list/star_classes = list(
 		"K" = "#ffec7e",
 		"M" = "#ff8b48",
 		"L" = "#ff4b33",
-		"T" = "#ff0000"
+		"T" = "#ff0000",
+
+		"D" = "#ffffff", // white dwarves
+		"W" = "#94d4ff"  // wolf-rayet stars
 	)
 
 /obj/effect/overmap_static
@@ -56,9 +59,10 @@ var/list/star_classes = list(
 /obj/effect/overmap_static/star/New()
 	. = ..()
 	var/class = pick(star_classes)
+	var/heat = rand(0,9)
 	color = star_classes[class]
-	name = "&laquo;[pick(star_prefixes)]-[rand(10, 99)]-[class]-[rand(100,999)]&raquo;"
-	desc = "A [class]-class star."
+	name = "&laquo;[pick(star_prefixes)]-[rand(10, 99)]-[class][heat]-[rand(100,999)]&raquo;"
+	desc = "A star of the spectral type [class][heat]."
 	transform = transform.Scale(2)
 	pixel_x = 1
 	pixel_y = -1

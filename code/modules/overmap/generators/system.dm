@@ -69,11 +69,18 @@
 
 /datum/overmap_generator/system/spawn_events(number_of_events)
 	number_of_events = Floor(min(overmap_size/9, number_of_events)) || 1
-	var/max_event_rings = POISSON_RAND(mean_rings, max=number_of_events)
-
+	var/max_event_rings = 0
+	var/list/candidate_rings
+#ifdef UNIT_TEST
+	max_event_rings = 1
+	candidate_rings = list(minimum_radius)
+	testing("Unit-test enabled, will guarantee [max_event_rings] ring[max_event_rings != 1 && "s" || ""]" + \
+	" at the orbit[candidate_rings.len != 1 && "s" || ""]: [english_list(candidate_rings)]")
+#else
+	max_event_rings = POISSON_RAND(mean_rings, max=number_of_events)
+	candidate_rings = unoccupied_orbits.Copy()
 	testing("Placing [max_event_rings] rings in system")
-
-	var/list/candidate_rings = unoccupied_orbits.Copy()
+#endif
 
 	for(var/i = 1 to max_event_rings)
 		if(!candidate_rings.len)
