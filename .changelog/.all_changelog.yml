@@ -158,3 +158,4 @@
   - rscadd: Added new natural planetary system generation for overmap
   - rscdel: Removed obsolete unused exoplanet features
   - refactor: Changed `ceil` to `Ceiling`
+  - code_imp: Added Visual Studio Code settings files
