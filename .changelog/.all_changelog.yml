@@ -152,3 +152,9 @@
   - rscdel: Removed the Baycode custom items feature
   - rscdel: Removed synthesizing instruments
   - sounddel: Removed unused sound files
+2021-05-16:
+  martinlyra:
+  - rscadd: Added static overmap objects, currently it is just stars for now
+  - rscadd: Added new natural planetary system generation for overmap
+  - rscdel: Removed obsolete unused exoplanet features
+  - refactor: Changed `ceil` to `Ceiling`
