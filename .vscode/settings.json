@@ -1,0 +1,21 @@
+{
+	// Lets you preview .dmi files in the editor
+	"workbench.editorAssociations": [
+		{
+				"filenamePattern": "*.dmi",
+				"viewType": "imagePreview.previewEditor"
+		}
+    ],
+
+    "files.eol": "\n",
+    "editor.autoIndent": "keep",
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": false,
+    "editor.renderIndentGuides": true,
+	"editor.wrappingIndent": "indent",
+	"editor.tabSize": 4,
+
+	"[dm]": {
+		"editor.rulers": [100]
+	}
+}
