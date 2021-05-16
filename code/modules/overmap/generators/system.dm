@@ -24,8 +24,6 @@
 	var/turf/center_turf
 	var/list/unoccupied_orbits
 
-	var/list/circle_angles
-
 	var/minimum_radius = 4
 	var/maximum_radius = 30
 
@@ -49,12 +47,6 @@
 
 	event_whitelist += /datum/overmap_event/meteor
 	event_whitelist += /datum/overmap_event/dust
-
-	circle_angles = list()
-	var/c = 0
-	while (c < 360)
-		c += 0.3 // step, this will give you 360/step = 360 * ~3 points
-		circle_angles += c
 
 /datum/overmap_generator/system/spawn_effects()
 	var/center = overmap_size/2 + 1
@@ -174,16 +166,20 @@
 	)
 
 // TODO: Turn this into an independent "orind" or "rind" function that returns all the turfs in said rind
-/datum/overmap_generator/system/proc/acquire_turfs_in_ring(turf/origio, radius, check_empty=FALSE)
+/datum/overmap_generator/system/proc/acquire_turfs_in_ring(turf/origio, radius, radius_offset = 0.5, check_empty=FALSE)
 	var/list/turfs = list()
-	for(var/d in circle_angles)
+	var/angle = 0
+	var/step = arctan(radius + radius_offset, 1) // Equivalent to arctan (1 / (radius + 0.5))
+	while(angle < 360)
 		var/turf/T = rind_locate(
 			origio.x,
 			origio.y,
 			GLOB.using_map.overmap_z,
 			radius,
-			d
+			angle,
+			radius_offset
 		)
+		angle += step
 		if (istype(T) && !(T in turfs))
 			if (check_empty && !(T in empty_map_tiles))
 				continue
