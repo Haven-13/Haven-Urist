@@ -320,7 +320,7 @@
 		if(!stood_still)
 			acc_mod -= 1
 		if(!held_twohanded)
-			acc_mod += -ceil(one_hand_penalty/2)
+			acc_mod += -Ceiling(one_hand_penalty/2)
 			disp_mod += one_hand_penalty*0.5 //dispersion per point of two-handedness
 
 	//Accuracy modifiers
