@@ -21,7 +21,7 @@
 				qdel(O)
 	else
 		GLOB.using_map.use_overmap = TRUE
-		build_overmap()
+		overmap_initialize()
 	world << "Overmap prepared"
 
 	GLOB.latejoin = list()
