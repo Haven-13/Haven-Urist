@@ -162,3 +162,5 @@
 2021-05-25:
   martinlyra:
   - rscdel: Removed integrated circuits completely
+  - bugfix: Fixed stability issue related to first-time players and preferences
+  - bugfix: The lobby screen menu now updates when the round has started
