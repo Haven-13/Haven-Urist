@@ -2782,7 +2782,6 @@
 /area/noctis/bridge)
 "fW" = (
 /obj/structure/table/steel,
-/obj/prefab/bluespace_radio,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/recharger,
 /turf/simulated/floor/tiled/dark,

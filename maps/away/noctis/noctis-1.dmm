@@ -1284,7 +1284,6 @@
 /area/noctis/raptor)
 "cG" = (
 /obj/structure/table/steel_reinforced,
-/obj/prefab/bluespace_radio,
 /obj/item/device/flashlight/upgraded,
 /obj/random/smokes,
 /turf/simulated/floor/carpet/purple,
