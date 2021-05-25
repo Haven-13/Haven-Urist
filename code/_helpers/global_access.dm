@@ -81,8 +81,6 @@
 			return global.SSantags;
 		if("SSatoms")
 			return global.SSatoms;
-		if("SScircuit")
-			return global.SScircuit;
 		if("SSculture")
 			return global.SSculture;
 		if("SSevac")
@@ -1049,7 +1047,7 @@
 			return global.z_levels;
 		if("zone_blocked")
 			return global.zone_blocked;
-		
+
 /proc/writeglobal(which, newval)
 	switch(which)
 		if("ALL_ANTIGENS")
@@ -1132,8 +1130,6 @@
 			global.SSantags=newval;
 		if("SSatoms")
 			global.SSatoms=newval;
-		if("SScircuit")
-			global.SScircuit=newval;
 		if("SSculture")
 			global.SSculture=newval;
 		if("SSevac")
@@ -2100,7 +2096,7 @@
 			global.z_levels=newval;
 		if("zone_blocked")
 			global.zone_blocked=newval;
-		
+
 /var/list/_all_globals=list(
 	"ALL_ANTIGENS",
 	"ANTAG_FREQS",
