@@ -159,3 +159,6 @@
   - rscdel: Removed obsolete unused exoplanet features
   - refactor: Changed `ceil` to `Ceiling`
   - code_imp: Added Visual Studio Code settings files
+2021-05-25:
+  martinlyra:
+  - rscdel: Removed integrated circuits completely
