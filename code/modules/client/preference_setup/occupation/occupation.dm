@@ -31,28 +31,17 @@
 	from_file(S["job_medium"],			pref.job_medium)
 	from_file(S["job_low"],				pref.job_low)
 	from_file(S["player_alt_titles"],	pref.player_alt_titles)
-	from_file(S["char_branch"],			pref.char_branch)
-	from_file(S["char_rank"],			pref.char_rank)
-	from_file(S["skills_saved"],		pref.skills_saved)
-
-	load_skills()
 
 /datum/category_item/player_setup_item/occupation/save_character(var/savefile/S)
-	save_skills()
-
 	to_file(S["alternate_option"],		pref.alternate_option)
 	to_file(S["job_high"],				pref.job_high)
 	to_file(S["job_medium"],			pref.job_medium)
 	to_file(S["job_low"],				pref.job_low)
 	to_file(S["player_alt_titles"],		pref.player_alt_titles)
-	to_file(S["char_branch"],			pref.char_branch)
-	to_file(S["char_rank"],				pref.char_rank)
-	to_file(S["skills_saved"],			pref.skills_saved)
 
 /datum/category_item/player_setup_item/occupation/sanitize_character()
 	if(!istype(pref.job_medium)) 		pref.job_medium = list()
 	if(!istype(pref.job_low))    		pref.job_low = list()
-	if(!istype(pref.skills_saved))		pref.skills_saved = list()
 
 	pref.alternate_option	= sanitize_integer(pref.alternate_option, 0, 2, initial(pref.alternate_option))
 	pref.job_high	        = sanitize(pref.job_high, null)
@@ -67,8 +56,6 @@
 	// We could have something like Captain set to high while on a non-rank map,
 	// so we prune here to make sure we don't spawn as a PFC captain
 	prune_occupation_prefs()
-
-	pref.skills_allocated = pref.sanitize_skills(pref.skills_allocated)		//this proc also automatically computes and updates points_by_job
 
 	var/jobs_by_type = decls_repository.get_decls(GLOB.using_map.allowed_jobs)
 	for(var/job_type in jobs_by_type)
@@ -230,64 +217,6 @@
 
 	else if(href_list["set_job"] && href_list["set_level"])
 		if(SetJob(user, href_list["set_job"], text2num(href_list["set_level"]))) return (pref.equip_preview_mob ? TOPIC_REFRESH_UPDATE_PREVIEW : TOPIC_REFRESH)
-
-	else if(href_list["char_branch"])
-		var/choice = input(user, "Choose your branch of service.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.char_branch) as null|anything in mil_branches.spawn_branches(preference_species())
-		if(choice && CanUseTopic(user) && mil_branches.is_spawn_branch(choice, preference_species()))
-			pref.char_branch = choice
-			pref.char_rank = "None"
-			prune_job_prefs()
-			pref.skills_allocated = pref.sanitize_skills(pref.skills_allocated)		// Check our skillset is still valid
-			return TOPIC_REFRESH
-
-	else if(href_list["char_rank"])
-		var/choice = null
-		var/datum/mil_branch/current_branch = mil_branches.get_branch(pref.char_branch)
-
-		if(current_branch)
-			choice = input(user, "Choose your rank.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.char_rank) as null|anything in mil_branches.spawn_ranks(pref.char_branch, preference_species())
-
-		if(choice && CanUseTopic(user) && mil_branches.is_spawn_rank(pref.char_branch, choice, preference_species()))
-			pref.char_rank = choice
-			prune_job_prefs()
-			return TOPIC_REFRESH
-	else if(href_list["show_branches"])
-		var/rank = href_list["show_branches"]
-		var/datum/job/job = job_master.GetJob(rank)
-		to_chat(user, "<span clas='notice'>Valid branches for [rank]: [job.get_branches()]</span>")
-	else if(href_list["show_ranks"])
-		var/rank = href_list["show_ranks"]
-		var/datum/job/job = job_master.GetJob(rank)
-		to_chat(user, "<span clas='notice'>Valid ranks for [rank] ([pref.char_branch]): [job.get_ranks(pref.char_branch)]</span>")
-	else if(href_list["set_skills"])
-		var/rank = href_list["set_skills"]
-		var/datum/job/job = job_master.GetJob(rank)
-		open_skill_setup(user, job)
-
-	//From the skills popup
-
-	else if(href_list["hit_skill_button"])
-		var/decl/hierarchy/skill/S = locate(href_list["hit_skill_button"])
-		var/datum/job/J = locate(href_list["at_job"])
-		if(!istype(S) || !istype(J))
-			return
-		var/value = text2num(href_list["newvalue"])
-		update_skill_value(J, S, value)
-		panel.set_content(generate_skill_content(J))
-		panel.open()
-
-	else if(href_list["skillinfo"])
-		var/decl/hierarchy/skill/S = locate(href_list["skillinfo"])
-		if(!istype(S))
-			return
-		var/HTML = list()
-		HTML += "<h2>[S.name]</h2>"
-		HTML += "[S.desc]<br>"
-		var/i
-		for(i=SKILL_MIN, i <= SKILL_MAX, i++)
-			var/level_name = S.levels[i]
-			HTML +=	"<br><b>[level_name]</b>: [S.levels[level_name]]<br>"
-		show_browser(user, jointext(HTML, null), "window=\ref[user]skillinfo")
 
 	else if(href_list["job_info"])
 		var/rank = href_list["job_info"]

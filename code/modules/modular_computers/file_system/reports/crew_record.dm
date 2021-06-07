@@ -153,7 +153,6 @@ FIELD_SHORT("Fingerprint", fingerprint, access_security)
 FIELD_LONG("Employment Record", emplRecord, access_bridge)
 FIELD_SHORT("Home System", homeSystem, access_bridge)
 FIELD_SHORT("Faction", faction, access_bridge)
-FIELD_LONG("Qualifications", skillset, access_bridge)
 
 // ANTAG RECORDS
 FIELD_LONG("Exploitable Information", antagRecord, access_syndicate)

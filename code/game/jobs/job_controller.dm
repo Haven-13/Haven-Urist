@@ -59,11 +59,6 @@ var/global/datum/controller/occupations/job_master
 			if(job.department_flag & MSC)
 				GLOB.nonhuman_positions |= job.title
 
-		if(!GLOB.skills.len)
-			decls_repository.get_decl(/decl/hierarchy/skill)
-		if(!GLOB.skills.len)
-			log_error("<span class='warning'>Error setting up job skill requirements, no skill datums found!</span>")
-			return 0
 		return 1
 
 
@@ -467,10 +462,6 @@ var/global/datum/controller/occupations/job_master
 		var/list/spawn_in_storage
 
 		if(job)
-
-			// Transfers the skill settings for the job to the mob
-			H.skillset.obtain_from_client(job, H.client)
-
 			//Equip job items.
 			job.setup_account(H)
 

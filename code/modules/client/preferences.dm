@@ -29,8 +29,6 @@ datum/preferences
 	var/datum/browser/panel
 
 /datum/preferences/New(client/C)
-	if(!length(GLOB.skills))
-		decls_repository.get_decl(/decl/hierarchy/skill)
 	player_setup = new(src)
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender,species)
