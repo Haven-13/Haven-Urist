@@ -627,8 +627,6 @@
 			return global.markup_underline;
 		if("masterdatumPool")
 			return global.masterdatumPool;
-		if("matchmaker")
-			return global.matchmaker;
 		if("maze_cell_count")
 			return global.maze_cell_count;
 		if("mechas_list")
@@ -1676,8 +1674,6 @@
 			global.markup_underline=newval;
 		if("masterdatumPool")
 			global.masterdatumPool=newval;
-		if("matchmaker")
-			global.matchmaker=newval;
 		if("maze_cell_count")
 			global.maze_cell_count=newval;
 		if("mechas_list")
@@ -2412,7 +2408,6 @@
 	"markup_tags",
 	"markup_underline",
 	"masterdatumPool",
-	"matchmaker",
 	"maze_cell_count",
 	"mechas_list",
 	"merged",

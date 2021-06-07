@@ -74,16 +74,7 @@
 
 	. = list()
 	. += "<tt><center>"
-	. += "<b>Choose occupation chances. Click on the occupation to select skills.</b><br>Unavailable occupations are crossed out.<br>"
-	if(GLOB.using_map.flags & MAP_HAS_BRANCH)
-
-		player_branch = mil_branches.get_branch(pref.char_branch)
-
-		. += "Branch of Service: <a href='?src=\ref[src];char_branch=1'>[pref.char_branch]</a>	"
-	if(GLOB.using_map.flags & MAP_HAS_RANK)
-		player_rank = mil_branches.get_rank(pref.char_branch, pref.char_rank)
-
-		. += "Rank: <a href='?src=\ref[src];char_rank=1'>[pref.char_rank]</a>	"
+	. += "<b>Choose occupation chances.</b><br>Unavailable occupations are crossed out.<br>"
 	. += "<br>"
 	. += "<table width='100%' cellpadding='1' cellspacing='0'><tr><td width='20%'>" // Table within a table for alignment, also allows you to easily add more columns.
 	. += "<table width='100%' cellpadding='1' cellspacing='0'>"
@@ -109,7 +100,6 @@
 		var/rank = job.title
 		lastJob = job
 		. += "<a href='?src=\ref[src];job_info=[rank]'>\[?\]</a>"
-		. += "<a href='?src=\ref[src];set_skills=[rank]'>"
 		if(job.total_positions == 0 && job.spawn_positions == 0)
 			. += "<del>[rank]</del></a></td><td><b> \[UNAVAILABLE]</b></td></tr>"
 			continue
