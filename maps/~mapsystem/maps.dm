@@ -1,9 +1,6 @@
 GLOBAL_DATUM_INIT(using_map, /datum/map, new USING_MAP_DATUM)
 GLOBAL_LIST_EMPTY(all_maps)
 
-var/const/MAP_HAS_BRANCH = 1	//Branch system for occupations, togglable
-var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
-
 /hook/startup/proc/initialise_map_list()
 	for(var/type in typesof(/datum/map) - /datum/map)
 		var/datum/map/M
