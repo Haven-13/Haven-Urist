@@ -889,6 +889,10 @@
 			return global.sqlpass;
 		if("sqlport")
 			return global.sqlport;
+		if("star_classes")
+			return global.star_classes;
+		if("star_prefixes")
+			return global.star_prefixes;
 		if("station_account")
 			return global.station_account;
 		if("station_date")
@@ -1043,7 +1047,7 @@
 			return global.z_levels;
 		if("zone_blocked")
 			return global.zone_blocked;
-
+		
 /proc/writeglobal(which, newval)
 	switch(which)
 		if("ALL_ANTIGENS")
@@ -1934,6 +1938,10 @@
 			global.sqlpass=newval;
 		if("sqlport")
 			global.sqlport=newval;
+		if("star_classes")
+			global.star_classes=newval;
+		if("star_prefixes")
+			global.star_prefixes=newval;
 		if("station_account")
 			global.station_account=newval;
 		if("station_date")
@@ -2088,7 +2096,7 @@
 			global.z_levels=newval;
 		if("zone_blocked")
 			global.zone_blocked=newval;
-
+		
 /var/list/_all_globals=list(
 	"ALL_ANTIGENS",
 	"ANTAG_FREQS",
@@ -2130,7 +2138,6 @@
 	"SSalarm",
 	"SSantags",
 	"SSatoms",
-	"SScircuit",
 	"SSculture",
 	"SSevac",
 	"SSevent",
@@ -2418,7 +2425,6 @@
 	"meteors_moderate",
 	"meteors_normal",
 	"meteors_threatening",
-	"mil_branches",
 	"mining_floors",
 	"mining_walls",
 	"minor_air_alarms",
@@ -2536,6 +2542,8 @@
 	"sqllogin",
 	"sqlpass",
 	"sqlport",
+	"star_classes",
+	"star_prefixes",
 	"station_account",
 	"station_date",
 	"stool_cache",
