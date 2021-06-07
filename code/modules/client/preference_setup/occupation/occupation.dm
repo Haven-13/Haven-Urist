@@ -69,8 +69,6 @@
 		return
 
 	var/datum/species/S = preference_species()
-	var/datum/mil_branch/player_branch = null
-	var/datum/mil_rank/player_rank = null
 
 	. = list()
 	. += "<tt><center>"
@@ -117,23 +115,6 @@
 		if(!job.is_species_allowed(S))
 			. += "<del>[rank]</del></a></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
 			continue
-
-		if(job.allowed_branches)
-			if(!player_branch)
-				. += "<del>[rank]</del></a></td><td><a href='?src=\ref[src];show_branches=[rank]'><b> \[BRANCH RESTRICTED]</b></a></td></tr>"
-				continue
-			if(!is_type_in_list(player_branch, job.allowed_branches))
-				. += "<del>[rank]</del></a></td><td><a href='?src=\ref[src];show_branches=[rank]'><b> \[NOT FOR [player_branch.name_short]]</b></a></td></tr>"
-				continue
-
-		if(job.allowed_ranks)
-			if(!player_rank)
-				. += "<del>[rank]</del></a></td><td><a href='?src=\ref[src];show_ranks=[rank]'><b> \[RANK RESTRICTED]</b></a></td></tr>"
-				continue
-
-			if(!is_type_in_list(player_rank, job.allowed_ranks))
-				. += "<del>[rank]</del></a></td><td><a href='?src=\ref[src];show_ranks=[rank]'><b> \[NOT FOR [player_rank.name_short || player_rank.name]]</b></a></td></tr>"
-				continue
 
 		if(("Assistant" in pref.job_low) && (rank != "Assistant"))
 			. += "<font color=grey>[rank]</font></a></td><td></td></tr>"
@@ -225,11 +206,6 @@
 
 		dat += "You answer to <b>[job.supervisors]</b> normally."
 
-		if(job.allowed_branches)
-			dat += "You can be of following ranks:"
-			for(var/T in job.allowed_branches)
-				var/datum/mil_branch/B = mil_branches.get_branch_by_type(T)
-				dat += "<li>[B.name]: [job.get_ranks(B.name)]"
 		dat += "<hr style='clear:left;'>"
 		if(config.wikiurl)
 			dat += "<a href='?src=\ref[src];job_wiki=[rank]'>Open wiki page in browser</a>"
@@ -347,15 +323,6 @@
 			pref.job_low -= job_title
 
 datum/category_item/player_setup_item/proc/prune_occupation_prefs()
-	var/datum/species/S = preference_species()
-	if((GLOB.using_map.flags & MAP_HAS_BRANCH)\
-	   && (!pref.char_branch || !mil_branches.is_spawn_branch(pref.char_branch, S)))
-		pref.char_branch = "None"
-
-	if((GLOB.using_map.flags & MAP_HAS_RANK)\
-	   && (!pref.char_rank || !mil_branches.is_spawn_rank(pref.char_branch, pref.char_rank, S)))
-		pref.char_rank = "None"
-
 	prune_job_prefs()
 
 /datum/category_item/player_setup_item/occupation/proc/ResetJobs()

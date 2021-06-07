@@ -162,8 +162,6 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/weapon/card/id/proc/get_display_name()
 	. = registered_name
-	if(military_rank && military_rank.name_short)
-		. = military_rank.name_short + " " + .
 	if(assignment)
 		. += ", [assignment]"
 
@@ -186,22 +184,11 @@ var/const/NO_EMAG_ACT = -50
 	..()
 	id_card.age = age
 
-	if(GLOB.using_map.flags & MAP_HAS_BRANCH)
-		id_card.military_branch = char_branch
-
-	if(GLOB.using_map.flags & MAP_HAS_RANK)
-		id_card.military_rank = char_rank
-
 /obj/item/weapon/card/id/proc/dat()
 	var/list/dat = list("<table><tr><td>")
 	dat += text("Name: []</A><BR>", registered_name)
 	dat += text("Sex: []</A><BR>\n", sex)
 	dat += text("Age: []</A><BR>\n", age)
-
-	if(GLOB.using_map.flags & MAP_HAS_BRANCH)
-		dat += text("Branch: []</A><BR>\n", military_branch ? military_branch.name : "\[UNSET\]")
-	if(GLOB.using_map.flags & MAP_HAS_RANK)
-		dat += text("Rank: []</A><BR>\n", military_rank ? military_rank.name : "\[UNSET\]")
 
 	dat += text("Assignment: []</A><BR>\n", assignment)
 	dat += text("Fingerprint: []</A><BR>\n", fingerprint_hash)
