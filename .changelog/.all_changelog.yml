@@ -164,3 +164,8 @@
   - rscdel: Removed integrated circuits completely
   - bugfix: Fixed stability issue related to first-time players and preferences
   - bugfix: The lobby screen menu now updates when the round has started
+2021-06-08:
+  martinlyra:
+  - rscdel: Removed Skillsets
+  - rscdel: Removed Matchmaking
+  - rscdel: Removed Military Branches & Ranks
