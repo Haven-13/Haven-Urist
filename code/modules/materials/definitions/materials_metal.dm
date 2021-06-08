@@ -12,7 +12,6 @@
 	chem_products = list(
 				/datum/reagent/uranium = 20
 				)
-	construction_difficulty = 2
 	sale_price = 2
 
 /material/gold
@@ -28,7 +27,6 @@
 	chem_products = list(
 				/datum/reagent/gold = 20
 				)
-	construction_difficulty = 1
 	ore_smelts_to = "gold"
 	ore_result_amount = 5
 	ore_name = "native gold"
@@ -46,7 +44,6 @@
 /material/gold/bronze //placeholder for ashtrays
 	name = "bronze"
 	icon_colour = "#edd12f"
-	construction_difficulty = 1
 	ore_smelts_to = null
 	ore_compresses_to = null
 	sale_price = null
@@ -63,7 +60,6 @@
 		/datum/reagent/copper = 12,
 		/datum/reagent/silver = 8
 		)
-	construction_difficulty = 1
 	ore_smelts_to = "copper"
 	ore_result_amount = 5
 	ore_spread_chance = 10
@@ -84,7 +80,6 @@
 	chem_products = list(
 				/datum/reagent/silver = 20
 				)
-	construction_difficulty = 1
 	ore_smelts_to = "silver"
 	ore_result_amount = 5
 	ore_spread_chance = 10
@@ -136,7 +131,6 @@
 	weight = 23
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	hitsound = 'sound/weapons/smash.ogg'
-	construction_difficulty = 1
 	alloy_materials = list("steel" = 2500, "platinum" = 1250)
 	alloy_product = TRUE
 	sale_price = 2
@@ -154,7 +148,6 @@
 	door_icon_base = "metal"
 	icon_colour = "#d1e6e3"
 	icon_reinf = "reinf_metal"
-	construction_difficulty = 1
 	alloy_materials = null
 	alloy_product = FALSE
 
@@ -171,7 +164,6 @@
 	weight = 27
 	stack_origin_tech = list(TECH_MATERIAL = 3)
 	alloy_materials = list("plasteel" = 7500, "osmium" = 3750)
-	construction_difficulty = 2
 	alloy_product = TRUE
 	sale_price = 3
 
@@ -182,7 +174,6 @@
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
-	construction_difficulty = 1
 	sale_price = 3
 	ore_smelts_to = "osmium"
 
@@ -194,7 +185,6 @@
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	is_fusion_fuel = 1
-	construction_difficulty = 2
 
 /material/deuterium
 	name = "deuterium"
@@ -204,7 +194,6 @@
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	is_fusion_fuel = 1
-	construction_difficulty = 2
 
 /material/mhydrogen
 	name = "mhydrogen"
@@ -216,7 +205,6 @@
 	chem_products = list(
 				/datum/reagent/hydrazine = 20
 				)
-	construction_difficulty = 2
 	ore_smelts_to = "tritium"
 	ore_compresses_to = "mhydrogen"
 	ore_name = "raw hydrogen"
@@ -232,7 +220,6 @@
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
-	construction_difficulty = 1
 	ore_smelts_to = "platinum"
 	ore_compresses_to = "osmium"
 	ore_result_amount = 5
@@ -266,14 +253,12 @@
 	explosion_resistance = 200 // Hull plating.
 	hardness = 500
 	weight = 500
-	construction_difficulty = 1
 
 // Likewise.
 /material/voxalloy/elevatorium
 	name = "elevatorium"
 	display_name = "elevator panelling"
 	icon_colour = "#666666"
-	construction_difficulty = 2
 
 
 /material/aliumium
@@ -287,7 +272,6 @@
 	sheet_singular_name = "chunk"
 	sheet_plural_name = "chunks"
 	stack_type = /obj/item/stack/material/aliumium
-	construction_difficulty = 2
 
 /material/aliumium/New()
 	icon_base = "metal"

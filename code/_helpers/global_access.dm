@@ -627,8 +627,6 @@
 			return global.markup_underline;
 		if("masterdatumPool")
 			return global.masterdatumPool;
-		if("matchmaker")
-			return global.matchmaker;
 		if("maze_cell_count")
 			return global.maze_cell_count;
 		if("mechas_list")
@@ -657,8 +655,6 @@
 			return global.meteors_normal;
 		if("meteors_threatening")
 			return global.meteors_threatening;
-		if("mil_branches")
-			return global.mil_branches;
 		if("mining_floors")
 			return global.mining_floors;
 		if("mining_walls")
@@ -893,6 +889,10 @@
 			return global.sqlpass;
 		if("sqlport")
 			return global.sqlport;
+		if("star_classes")
+			return global.star_classes;
+		if("star_prefixes")
+			return global.star_prefixes;
 		if("station_account")
 			return global.station_account;
 		if("station_date")
@@ -1047,7 +1047,7 @@
 			return global.z_levels;
 		if("zone_blocked")
 			return global.zone_blocked;
-
+		
 /proc/writeglobal(which, newval)
 	switch(which)
 		if("ALL_ANTIGENS")
@@ -1676,8 +1676,6 @@
 			global.markup_underline=newval;
 		if("masterdatumPool")
 			global.masterdatumPool=newval;
-		if("matchmaker")
-			global.matchmaker=newval;
 		if("maze_cell_count")
 			global.maze_cell_count=newval;
 		if("mechas_list")
@@ -1706,8 +1704,6 @@
 			global.meteors_normal=newval;
 		if("meteors_threatening")
 			global.meteors_threatening=newval;
-		if("mil_branches")
-			global.mil_branches=newval;
 		if("mining_floors")
 			global.mining_floors=newval;
 		if("mining_walls")
@@ -1942,6 +1938,10 @@
 			global.sqlpass=newval;
 		if("sqlport")
 			global.sqlport=newval;
+		if("star_classes")
+			global.star_classes=newval;
+		if("star_prefixes")
+			global.star_prefixes=newval;
 		if("station_account")
 			global.station_account=newval;
 		if("station_date")
@@ -2096,7 +2096,7 @@
 			global.z_levels=newval;
 		if("zone_blocked")
 			global.zone_blocked=newval;
-
+		
 /var/list/_all_globals=list(
 	"ALL_ANTIGENS",
 	"ANTAG_FREQS",
@@ -2138,7 +2138,6 @@
 	"SSalarm",
 	"SSantags",
 	"SSatoms",
-	"SScircuit",
 	"SSculture",
 	"SSevac",
 	"SSevent",
@@ -2412,7 +2411,6 @@
 	"markup_tags",
 	"markup_underline",
 	"masterdatumPool",
-	"matchmaker",
 	"maze_cell_count",
 	"mechas_list",
 	"merged",
@@ -2427,7 +2425,6 @@
 	"meteors_moderate",
 	"meteors_normal",
 	"meteors_threatening",
-	"mil_branches",
 	"mining_floors",
 	"mining_walls",
 	"minor_air_alarms",
@@ -2545,6 +2542,8 @@
 	"sqllogin",
 	"sqlpass",
 	"sqlport",
+	"star_classes",
+	"star_prefixes",
 	"station_account",
 	"station_date",
 	"stool_cache",

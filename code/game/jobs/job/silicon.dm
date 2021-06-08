@@ -13,8 +13,6 @@
 	outfit_type = /decl/hierarchy/outfit/job/silicon/ai
 	loadout_allowed = FALSE
 	hud_icon = "hudblank"
-	skill_points = 0
-	no_skill_buffs = TRUE
 
 /datum/job/ai/equip(var/mob/living/carbon/human/H)
 	if(!H)	return 0
@@ -38,8 +36,6 @@
 	loadout_allowed = FALSE
 	outfit_type = /decl/hierarchy/outfit/job/silicon/cyborg
 	hud_icon = "hudblank"
-	skill_points = 0
-	no_skill_buffs = TRUE
 
 /datum/job/cyborg/equip(var/mob/living/carbon/human/H)
 	if(!H)	return 0

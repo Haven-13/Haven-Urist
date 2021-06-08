@@ -12,7 +12,6 @@
 	burn_armor = 50		// Diamond walls are immune to fire, therefore it makes sense for them to be almost undamageable by burn damage type.
 	stack_origin_tech = list(TECH_MATERIAL = 6)
 	conductive = 0
-	construction_difficulty = 2
 	ore_compresses_to = "diamond"
 	ore_result_amount = 5
 	ore_spread_chance = 10
@@ -43,7 +42,6 @@
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
 	conductive = 0
-	construction_difficulty = 1
 	chem_products = list(
 		/datum/reagent/silicon = 20
 		)
