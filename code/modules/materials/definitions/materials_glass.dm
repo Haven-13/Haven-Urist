@@ -117,7 +117,6 @@
 	created_window = /obj/structure/window/reinforced
 	wire_product = null
 	rod_product = null
-	construction_difficulty = 1
 
 /material/glass/phoron
 	name = "phglass"
@@ -133,7 +132,6 @@
 	created_window = /obj/structure/window/phoronbasic
 	wire_product = null
 	rod_product = /obj/item/stack/material/glass/phoronrglass
-	construction_difficulty = 2
 	alloy_product = TRUE
 	alloy_materials = list("sand" = 2500, "platinum" = 1250)
 	sale_price = 2

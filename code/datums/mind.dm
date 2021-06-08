@@ -88,8 +88,6 @@
 	if(new_character.mind)		//remove any mind currently in our new body's mind variable
 		new_character.mind.current = null
 
-	new_character.skillset.obtain_from_mob(current)	//handles moving skills over.
-
 	current = new_character		//link ourself to our new body
 	new_character.mind = src	//and link our new body to ourself
 
@@ -186,8 +184,6 @@
 		if(job)
 			assigned_role = job.title
 			role_alt_title = new_role
-			if(current)
-				current.skillset.obtain_from_client(job, current.client)
 
 	else if (href_list["memory_edit"])
 		var/new_memo = sanitize(input("Write new memory", "Memory", memory) as null|message)
