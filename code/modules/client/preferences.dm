@@ -29,8 +29,6 @@ datum/preferences
 	var/datum/browser/panel
 
 /datum/preferences/New(client/C)
-	if(!length(GLOB.skills))
-		decls_repository.get_decl(/decl/hierarchy/skill)
 	player_setup = new(src)
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender,species)
@@ -257,9 +255,6 @@ datum/preferences
 	character.update_underwear(0)
 	character.update_hair(0)
 	character.update_icons()
-
-	character.char_branch = mil_branches.get_branch(char_branch)
-	character.char_rank = mil_branches.get_rank(char_branch, char_rank)
 
 	if(is_preview_copy)
 		return

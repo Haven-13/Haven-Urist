@@ -2,7 +2,6 @@
 /datum/stack_recipe/furniture
 	one_per_turf = 1
 	on_floor = 1
-	difficulty = 2
 	send_material_data = 1
 	time = 5
 

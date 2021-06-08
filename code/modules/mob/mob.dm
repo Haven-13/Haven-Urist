@@ -4,8 +4,6 @@
 	GLOB.living_mob_list_ -= src
 	unset_machine()
 	QDEL_NULL(hud_used)
-	if(istype(skillset))
-		QDEL_NULL(skillset)
 	for(var/obj/item/grab/G in grabbed_by)
 		qdel(G)
 	clear_fullscreen()
@@ -44,7 +42,6 @@
 
 /mob/Initialize()
 	. = ..()
-	skillset = new skillset(src)
 	move_intent = decls_repository.get_decl(move_intent)
 	START_PROCESSING(SSmobs, src)
 

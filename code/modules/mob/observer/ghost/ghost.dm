@@ -352,7 +352,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set desc = "Analyse whatever you are following."
 
 	if(ishuman(following))
-		to_chat(src, medical_scan_results(following, 1, SKILL_MAX))
+		to_chat(src, medical_scan_results(following, 1))
 
 	else to_chat(src, "<span class='notice'>Not a scannable target.</span>")
 
