@@ -83,7 +83,7 @@
 		to_world_log("## DEBUG: transfer_to(): Some idiot has tried to transfer_to() a non mob/living mob. Please inform Carn")
 	if(current)					//remove ourself from our old body's mind variable
 		current.mind = null
-		SSnano.user_transferred(current, new_character) // transfer active NanoUI instances to new user
+		SStgui.on_transfer(current, new_character) // transfer active NanoUI instances to new user
 
 	if(new_character.mind)		//remove any mind currently in our new body's mind variable
 		new_character.mind.current = null

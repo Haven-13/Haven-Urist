@@ -132,7 +132,6 @@ proc/medical_scan_json(mob/living/carbon/human/H)
 	.["brain"] = list(
 		"shouldHave" = H.should_have_organ(BP_BRAIN),
 		"hasOrgan" = brain != null,
-		"hasWorms" = H.has_brain_worms(),
 		"damage" = brain ? brain.get_current_damage_threshold() : -1
 	)
 

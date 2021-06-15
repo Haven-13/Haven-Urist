@@ -97,7 +97,7 @@
 		. += "<tr bgcolor='[job.selection_color]'><td width='40%' align='right'>"
 		var/rank = job.title
 		lastJob = job
-		. += "<a href='?src=\ref[src];job_info=[rank]'>\[?\]</a>"
+		. += "<a href='?src=[REF(src)];job_info=[rank]'>\[?\]</a>"
 		if(job.total_positions == 0 && job.spawn_positions == 0)
 			. += "<del>[rank]</del></a></td><td><b> \[UNAVAILABLE]</b></td></tr>"
 			continue
