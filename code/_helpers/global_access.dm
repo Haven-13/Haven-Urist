@@ -155,6 +155,8 @@
 			return global.SWEDEBLOCK;
 		if("WALLITEMS")
 			return global.WALLITEMS;
+		if("__rust_g")
+			return global.__rust_g;
 		if("_all_globals")
 			return global._all_globals;
 		if("_client_preferences")
@@ -1003,7 +1005,7 @@
 			return global.z_levels;
 		if("zone_blocked")
 			return global.zone_blocked;
-
+		
 /proc/writeglobal(which, newval)
 	switch(which)
 		if("ALL_ANTIGENS")
@@ -1160,6 +1162,8 @@
 			global.SWEDEBLOCK=newval;
 		if("WALLITEMS")
 			global.WALLITEMS=newval;
+		if("__rust_g")
+			global.__rust_g=newval;
 		if("_all_globals")
 			global._all_globals=newval;
 		if("_client_preferences")
@@ -2008,7 +2012,7 @@
 			global.z_levels=newval;
 		if("zone_blocked")
 			global.zone_blocked=newval;
-
+		
 /var/list/_all_globals=list(
 	"ALL_ANTIGENS",
 	"ANTAG_FREQS",
@@ -2087,6 +2091,7 @@
 	"SSwireless",
 	"SWEDEBLOCK",
 	"WALLITEMS",
+	"__rust_g",
 	"_all_globals",
 	"_client_preferences",
 	"_client_preferences_by_key",
@@ -2431,7 +2436,6 @@
 	"slot_flags_enumeration",
 	"solar_gen_rate",
 	"solars_list",
-	"sortInstance",
 	"sounds_cache",
 	"space_ruins_templates",
 	"spacevines_spawned",
