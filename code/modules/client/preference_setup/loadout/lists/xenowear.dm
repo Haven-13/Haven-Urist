@@ -73,12 +73,6 @@
 	flags = GEAR_HAS_COLOR_SELECTION
 
 
-/datum/gear/suit/lab_veymed_skrell
-	display_name = "Vey-Med labcoat"
-	path = /obj/item/clothing/suit/storage/toggle/labcoat/corp/veymed
-	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_SKRELL)
-
 // IPC clothing
 /datum/gear/mask/ipc_monitor
 	display_name = "display monitor (IPC)"
@@ -96,11 +90,11 @@
 
 // Misc clothing
 /datum/gear/uniform/harness
-	display_name = "gear harness (Full Body Prosthetic, Diona)"
+	display_name = "gear harness (Full Body Prosthetic)"
 	path = /obj/item/clothing/under/harness
 	slot = slot_w_uniform
 	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_IPC, SPECIES_DIONA)
+	whitelisted = list(SPECIES_IPC)
 
 /datum/gear/shoes/toeless
 	display_name = "toeless jackboots"

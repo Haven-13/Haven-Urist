@@ -93,16 +93,6 @@
 	desc = "An important dignitary is visiting our station soon, and all our chefs died of radiation poisoning after last week's supermatter explosion. We desperately need the [GLOB.using_map.station_name] to deliver us [amount] Aesir Salads, so we can impress him with our fine cuisine."
 	..()
 
-/datum/contract/cargo/kitchen/dionaroast
-	name = "Diona Roast Delivery Contract"
-	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/dionaroast)
-	money = 260
-
-/datum/contract/cargo/kitchen/dionaroast/New()
-	amount = rand(4,8)
-	desc = "An important dignitary is visiting our station soon, and he has some... interesting tastes. We need the [GLOB.using_map.station_name] to deliver us [amount] Diona Roasts, so we can satiate his exotic tastes."
-	..()
-
 /datum/contract/cargo/kitchen/cubancarp
 	name = "Cuban Carp Delivery Contract"
 	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/cubancarp)

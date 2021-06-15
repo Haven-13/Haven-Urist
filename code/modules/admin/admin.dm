@@ -95,9 +95,8 @@ var/global/floorIsLava = 0
 		<A href='?src=[REF(src)];sendmob=[REF(M)]'>Send To</A>
 		<br><br>
 		[check_rights(R_ADMIN|R_MOD,0) ? "<A href='?src=[REF(src)];traitor=[REF(M)]'>Traitor panel</A> | " : "" ]
-		[check_rights(R_INVESTIGATE,0) ? "<A href='?src=[REF(src)];skillpanel=[REF(M)]'>Skill panel</A> | " : "" ]
-		<A href='?src=[REF(src)];narrateto=[REF(M)]'>Narrate to</A> |
-		<A href='?src=[REF(src)];subtlemessage=[REF(M)]'>Subtle message</A>
+		<A href='?src=\ref[src];narrateto=\ref[M]'>Narrate to</A> |
+		<A href='?src=\ref[src];subtlemessage=\ref[M]'>Subtle message</A>
 	"}
 
 	if (M.client)
@@ -155,32 +154,27 @@ var/global/floorIsLava = 0
 
 			body += {"<br><br>
 				<b>Rudimentary transformation:</b><font size=2><br>These transformations only create a new mob type and copy stuff over. They do not take into account MMIs and similar mob-specific things. The buttons in 'Transformations' are preferred, when possible.</font><br>
-				<A href='?src=[REF(src)];simplemake=observer;mob=[REF(M)]'>Observer</A> |
-				\[ Xenos: <A href='?src=[REF(src)];simplemake=larva;mob=[REF(M)]'>Larva</A>
-				<A href='?src=[REF(src)];simplemake=human;species=Xenophage Drone;mob=[REF(M)]'>Drone</A>
-				<A href='?src=[REF(src)];simplemake=human;species=Xenophage Hunter;mob=[REF(M)]'>Hunter</A>
-				<A href='?src=[REF(src)];simplemake=human;species=Xenophage Sentinel;mob=[REF(M)]'>Sentinel</A>
-				<A href='?src=[REF(src)];simplemake=human;species=Xenophage Queen;mob=[REF(M)]'>Queen</A> \] |
-				\[ Crew: <A href='?src=[REF(src)];simplemake=human;mob=[REF(M)]'>Human</A>
-				<A href='?src=[REF(src)];simplemake=human;species=Unathi;mob=[REF(M)]'>Unathi</A>
-				<A href='?src=[REF(src)];simplemake=human;species=Skrell;mob=[REF(M)]'>Skrell</A>
-				<A href='?src=[REF(src)];simplemake=human;species=Vox;mob=[REF(M)]'>Vox</A> \] | \[
-				<A href='?src=[REF(src)];simplemake=nymph;mob=[REF(M)]'>Nymph</A>
-				<A href='?src=[REF(src)];simplemake=human;species='Diona';mob=[REF(M)]'>Diona</A> \] |
-				\[ slime: <A href='?src=[REF(src)];simplemake=slime;mob=[REF(M)]'>Baby</A>,
-				<A href='?src=[REF(src)];simplemake=adultslime;mob=[REF(M)]'>Adult</A> \]
-				<A href='?src=[REF(src)];simplemake=monkey;mob=[REF(M)]'>Monkey</A> |
-				<A href='?src=[REF(src)];simplemake=robot;mob=[REF(M)]'>Cyborg</A> |
-				<A href='?src=[REF(src)];simplemake=cat;mob=[REF(M)]'>Cat</A> |
-				<A href='?src=[REF(src)];simplemake=runtime;mob=[REF(M)]'>Runtime</A> |
-				<A href='?src=[REF(src)];simplemake=corgi;mob=[REF(M)]'>Corgi</A> |
-				<A href='?src=[REF(src)];simplemake=ian;mob=[REF(M)]'>Ian</A> |
-				<A href='?src=[REF(src)];simplemake=crab;mob=[REF(M)]'>Crab</A> |
-				<A href='?src=[REF(src)];simplemake=coffee;mob=[REF(M)]'>Coffee</A> |
-				\[ Construct: <A href='?src=[REF(src)];simplemake=constructarmoured;mob=[REF(M)]'>Armoured</A> ,
-				<A href='?src=[REF(src)];simplemake=constructbuilder;mob=[REF(M)]'>Builder</A> ,
-				<A href='?src=[REF(src)];simplemake=constructwraith;mob=[REF(M)]'>Wraith</A> \]
-				<A href='?src=[REF(src)];simplemake=shade;mob=[REF(M)]'>Shade</A>
+				<A href='?src=\ref[src];simplemake=observer;mob=\ref[M]'>Observer</A> |
+				\[ Xenos: <A href='?src=\ref[src];simplemake=larva;mob=\ref[M]'>Larva</A>
+				<A href='?src=\ref[src];simplemake=human;species=Xenophage Drone;mob=\ref[M]'>Drone</A>
+				<A href='?src=\ref[src];simplemake=human;species=Xenophage Hunter;mob=\ref[M]'>Hunter</A>
+				<A href='?src=\ref[src];simplemake=human;species=Xenophage Sentinel;mob=\ref[M]'>Sentinel</A>
+				<A href='?src=\ref[src];simplemake=human;species=Xenophage Queen;mob=\ref[M]'>Queen</A> \] |
+				\[ Crew: <A href='?src=\ref[src];simplemake=human;mob=\ref[M]'>Human</A>
+				<A href='?src=\ref[src];simplemake=human;species=Unathi;mob=\ref[M]'>Unathi</A>
+				<A href='?src=\ref[src];simplemake=human;species=Skrell;mob=\ref[M]'>Skrell</A>
+				<A href='?src=\ref[src];simplemake=human;species=Vox;mob=\ref[M]'>Vox</A> \] | \[
+				<A href='?src=\ref[src];simplemake=nymph;mob=\ref[M]'>Nymph</A>
+				\[ slime: <A href='?src=\ref[src];simplemake=slime;mob=\ref[M]'>Baby</A>,
+				<A href='?src=\ref[src];simplemake=adultslime;mob=\ref[M]'>Adult</A> \]
+				<A href='?src=\ref[src];simplemake=monkey;mob=\ref[M]'>Monkey</A> |
+				<A href='?src=\ref[src];simplemake=robot;mob=\ref[M]'>Cyborg</A> |
+				<A href='?src=\ref[src];simplemake=cat;mob=\ref[M]'>Cat</A> |
+				<A href='?src=\ref[src];simplemake=runtime;mob=\ref[M]'>Runtime</A> |
+				<A href='?src=\ref[src];simplemake=corgi;mob=\ref[M]'>Corgi</A> |
+				<A href='?src=\ref[src];simplemake=ian;mob=\ref[M]'>Ian</A> |
+				<A href='?src=\ref[src];simplemake=crab;mob=\ref[M]'>Crab</A> |
+				<A href='?src=\ref[src];simplemake=coffee;mob=\ref[M]'>Coffee</A>
 				<br>
 			"}
 	body += {"<br><br>
@@ -1008,46 +1002,6 @@ var/global/floorIsLava = 0
 	var/datum/seed/S = plant_controller.seeds[seedtype]
 	S.harvest(usr,0,0,1)
 	log_admin("[key_name(usr)] spawned [seedtype] fruit at ([usr.x],[usr.y],[usr.z])")
-
-/datum/admins/proc/spawn_custom_item()
-	set category = "Debug"
-	set desc = "Spawn a custom item."
-	set name = "Spawn Custom Item"
-
-	if(!check_rights(R_SPAWN))	return
-
-	var/owner = input("Select a ckey.", "Spawn Custom Item") as null|anything in custom_items
-	if(!owner|| !custom_items[owner])
-		return
-
-	var/list/possible_items = custom_items[owner]
-	var/datum/custom_item/item_to_spawn = input("Select an item to spawn.", "Spawn Custom Item") as null|anything in possible_items
-	if(!item_to_spawn || !item_to_spawn.is_valid(usr))
-		return
-
-	item_to_spawn.spawn_item(get_turf(usr))
-
-/datum/admins/proc/check_custom_items()
-
-	set category = "Debug"
-	set desc = "Check the custom item list."
-	set name = "Check Custom Items"
-
-	if(!check_rights(R_SPAWN))	return
-
-	if(!custom_items)
-		to_chat(usr, "Custom item list is null.")
-		return
-
-	if(!custom_items.len)
-		to_chat(usr, "Custom item list not populated.")
-		return
-
-	for(var/assoc_key in custom_items)
-		to_chat(usr, "[assoc_key] has:")
-		var/list/current_items = custom_items[assoc_key]
-		for(var/datum/custom_item/item in current_items)
-			to_chat(usr, "- name: [item.name] icon: [item.item_icon] path: [item.item_path] desc: [item.item_desc]")
 
 /datum/admins/proc/spawn_plant(seedtype in plant_controller.seeds)
 	set category = "Debug"

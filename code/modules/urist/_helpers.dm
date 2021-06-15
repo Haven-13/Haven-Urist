@@ -359,8 +359,7 @@ B --><-- A
 	M.Translate(1,-6)
 	src.transform = M
 
-/proc/get_light_amt(var/turf/T, var/ignore_red = 0)
-	// Stolen from diona/life.dm since it was needed in various places. Ignore_red parameter for extra spoopy.
+/proc/get_light_amount(var/turf/T, var/ignore_red = 0)
 	var/light_amount = 0
 	var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
 
@@ -376,7 +375,7 @@ B --><-- A
 
 /proc/shadow_check(var/turf/T, var/max_light = 2, var/or_equal = 0)
 	//True if light below max_light threshold, false otherwise
-	var/light_amt = get_light_amt(T)
+	var/light_amt = get_light_amount(T)
 	if(or_equal)
 		if(light_amt <= max_light)
 			return 1

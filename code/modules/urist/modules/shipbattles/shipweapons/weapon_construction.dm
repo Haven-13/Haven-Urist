@@ -4,7 +4,7 @@
 /obj/structure/shipweapons/hardpoint
 	name = "weapon hardpoint"
 	desc = "A mounting for a powerful ship-to-ship weapon."
-	icon = 'icons/urist/structures&machinery/64x64machinery.dmi'
+	icon = 'icons/urist/objects/64x64machinery.dmi'
 	icon_state = "hardpoint"
 	anchored = 1
 	density = 0
@@ -16,7 +16,7 @@
 /obj/structure/shipweapons/incomplete_weapon
 	name = "incomplete weapon"
 	desc = "It's a ship-to-ship weapon assembly. Wrench it into a hardpoint to make it functional, or just chuck it out an airlock at an enemy vessel and see how far that gets you."
-	icon = 'icons/urist/structures&machinery/64x64machinery.dmi'
+	icon = 'icons/urist/objects/64x64machinery.dmi'
 	icon_state = "cannon_con"
 	anchored = 0
 	density = 1

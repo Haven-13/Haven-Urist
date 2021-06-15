@@ -96,14 +96,6 @@
 			if(suit.cell) cell_status = "[suit.cell.charge]/[suit.cell.maxcharge]"
 			stat(null, "Suit charge: [cell_status]")
 
-		if(mind)
-			if(mind.changeling)
-				stat("Chemical Storage", mind.changeling.chem_charges)
-				stat("Genetic Damage Time", mind.changeling.geneticdamage)
-		if(mind)
-			if(mind.vampire)
-				stat("Total Blood", mind.vampire.bloodtotal)
-				stat("Usable Blood", mind.vampire.bloodusable)
 		if(SSticker.master_mode == "assault")
 			stat("Remaining Lactera", remaininglactera)
 			stat("Remaining Shieldgens", remaininggens)

@@ -12,7 +12,6 @@
 #include "food_tests.dm"
 #include "foundation_tests.dm"
 #include "icon_tests.dm"
-#include "integrated_circuits.dm"
 #include "job_tests.dm"
 #include "loadout_tests.dm"
 #include "map_tests.dm"

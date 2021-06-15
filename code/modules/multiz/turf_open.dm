@@ -1,9 +1,13 @@
+/area
+	base_turf = /turf/simulated/open
+
 /turf/simulated/open
 	name = "open space"
 	icon = 'icons/turf/open_space.dmi'
 	icon_state = "black_open"
 	plane = OPENSPACE_PLANE
 	blend_mode = BLEND_OVERLAY
+	luminosity = 1
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 
@@ -19,40 +23,37 @@
 	icon_state = "blank"
 	update()
 
-/turf/simulated/open/LateInitialize()
-	. = ..()
-	SSopen_space.add_turf(src, 1)
-
-
 /turf/simulated/open/proc/update()
 	below = GetBelow(src)
 	GLOB.turf_changed_event.register(below, src,/turf/simulated/open/proc/turf_change)
 	GLOB.exited_event.register(below, src, /turf/simulated/open/proc/handle_move)
 	GLOB.entered_event.register(below, src, /turf/simulated/open/proc/handle_move)
 	levelupdate()
-	for(var/atom/movable/A in src)
-		A.fall()
-	SSopen_space.add_turf(src, 1)
+	fall_check()
 	update_icon()
 
 /turf/simulated/open/update_dirt()
 	return 0
 
-/turf/simulated/open/Entered(var/atom/movable/mover)
-	..()
-	mover.fall()
+/turf/simulated/open/Entered(atom/movable/AM, atom/OL)
+	. = ..()
+	if(AM)
+		AM.fall()
+
+/turf/simulated/open/Exited(atom/O)
+	. = ..()
+	if(!O || QDELETED(O) || QDELING(O))
+		fall_check()
 
 // Called when thrown object lands on this turf.
 /turf/simulated/open/hitby(var/atom/movable/AM, var/speed)
 	. = ..()
 	AM.fall()
 
-
 // override to make sure nothing is hidden
 /turf/simulated/open/levelupdate()
 	for(var/obj/O in src)
 		O.hide(0)
-
 
 /turf/simulated/open/examine(mob/user, distance, infix, suffix)
 	if(..(user, 2))
@@ -60,7 +61,6 @@
 		for(var/T = GetBelow(src); isopenspace(T); T = GetBelow(T))
 			depth += 1
 		to_chat(user, "It is about [depth] level\s deep.")
-
 
 /turf/simulated/open/attackby(obj/item/C as obj, mob/user as mob)
 	if (istype(C, /obj/item/stack/rods))
@@ -72,8 +72,6 @@
 			to_chat(user, "<span class='notice'>You lay down the support lattice.</span>")
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/lattice(locate(src.x, src.y, src.z))
-			//Update turfs
-			SSopen_space.add_turf(src, 1)
 		return
 
 	if (istype(C, /obj/item/stack/tile))
@@ -97,21 +95,27 @@
 		return
 	return
 
+/turf/simulated/open/set_luminosity(value)
+	return
+
 //Most things use is_plating to test if there is a cover tile on top (like regular floors)
 /turf/simulated/open/is_plating()
 	return 1
 
+/turf/simulated/open/proc/fall_check()
+	var/area/A = get_area(src)
+	if(HasBelow(z) && A.has_gravity()) // O(n) can get expensive, so it'd be nice to check the gravity first
+		for(var/atom/movable/AM in src)
+			AM.fall()
+
 /turf/simulated/open/proc/handle_move(var/atom/current_loc, var/atom/movable/am, var/atom/changed_loc)
-	//First handle objs and such
-	if(GLOB.open_space_initialised && !am.invisibility && isobj(am))
-	//Update icons
-		SSopen_space.add_turf(src, 1)
 	//Check for mobs and create/destroy their shadows
 	if(isliving(am))
 		var/mob/living/M = am
 		M.check_shadow()
 
 /turf/simulated/open/proc/clean_up()
+	vis_contents.Cut()
 	//Unregister
 	GLOB.turf_changed_event.unregister(below, src,/turf/simulated/open/proc/turf_change)
 	GLOB.exited_event.unregister(below, src, /turf/simulated/open/proc/handle_move)
@@ -122,10 +126,7 @@
 
 //When turf changes, a bunch of things can take place
 /turf/simulated/open/proc/turf_change(var/turf/affected)
-	if(GLOB.open_space_initialised)
-		if(!isopenspace(affected))//If affected is openspace it will add itself
-			SSopen_space.add_turf(src, 1)
-
+	update_icon()
 
 //The two situations which require unregistering
 

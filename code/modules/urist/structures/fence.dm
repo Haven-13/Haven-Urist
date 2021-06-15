@@ -16,7 +16,7 @@
 	density = TRUE
 	anchored = TRUE
 	atom_flags = ATOM_FLAG_CLIMBABLE
-	icon = 'icons/urist/structures&machinery/fence.dmi'
+	icon = 'icons/urist/objects/fence.dmi'
 	icon_state = "straight"
 
 	var/cuttable = TRUE

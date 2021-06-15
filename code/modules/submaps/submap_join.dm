@@ -61,18 +61,12 @@
 		var/mob/living/carbon/human/user_human
 		if(ishuman(character))
 			user_human = character
-			if(job.branch && mil_branches)
-				user_human.char_branch = mil_branches.get_branch(job.branch)
-				user_human.char_rank =   mil_branches.get_rank(job.branch, job.rank)
-
-			character.skillset.obtain_from_client(job, character.client)
 			job.equip(character, "")
 			job.apply_fingerprints(character)
 			var/list/spawn_in_storage = job_master.EquipCustomLoadout(character, job)
 			if(spawn_in_storage)
 				for(var/datum/gear/G in spawn_in_storage)
 					G.spawn_in_storage_or_drop(user_human, user_human.client.prefs.Gear()[G.display_name])
-			equip_custom_items(user_human)
 
 		character.job = job.title
 		if(character.mind) character.mind.assigned_role = character.job

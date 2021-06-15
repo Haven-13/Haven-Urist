@@ -8,7 +8,8 @@
 	anchored = 1
 	unacidable = 1
 	density = 0
-	opacity = 0					// Don't trigger lighting recalcs gah! TODO - consider multi-z lighting.
+	opacity = 0					// Don't trigger lighting recalcs gah!
+	vis_flags = VIS_HIDE
 	layer = OPENSPACE_LAYER_MOBS
 	plane = OPENSPACE_PLANE
 	//auto_init = FALSE 			// We do not need to be initialize()d
@@ -23,10 +24,8 @@
 		return
 	..() // I'm cautious about this, but its the right thing to do.
 	owner = L
-	sync_icon(L)
 	GLOB.dir_set_event.register(L, src, /mob/zshadow/proc/update_dir)
 	GLOB.invisibility_set_event.register(L, src, /mob/zshadow/proc/update_invisibility)
-
 
 /mob/Destroy()
 	if(shadow)
@@ -50,14 +49,6 @@
 		verb += " from above"
 	return owner.hear_say(message, verb, language, alt_name, italics, speaker, speech_sound, sound_vol)
 
-/mob/zshadow/proc/sync_icon(var/mob/M)
-	appearance = M
-	layer = OPENSPACE_LAYER_MOBS
-	plane = OPENSPACE_PLANE
-	dir = M.dir
-	if(shadow)
-		shadow.sync_icon(src)
-
 /mob/living/proc/check_shadow()
 	var/mob/M = src
 	if(isturf(M.loc))
@@ -75,22 +66,6 @@
 			src.reset_view(0)
 		qdel(M.shadow)
 		M.shadow = null
-
-//
-// Handle cases where the owner mob might have changed its icon or overlays.
-//
-
-/mob/living/update_icons()
-	. = ..()
-	if(shadow)
-		shadow.sync_icon(src)
-
-// WARNING - the true carbon/human/update_icons does not call ..(), therefore we must sideways override this.
-// But be careful, we don't want to screw with that proc.  So lets be cautious about what we do here.
-/mob/living/carbon/human/update_icons()
-	. = ..()
-	if(shadow)
-		shadow.sync_icon(src)
 
 //Copy direction
 /mob/zshadow/proc/update_dir()

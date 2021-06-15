@@ -226,7 +226,6 @@
 	var/sexybits_location	//organ tag where they are located if they can be kicked for increased pain
 
 	var/list/prone_overlay_offset = list(0, 0) // amount to shift overlays when lying
-	var/job_skill_buffs = list()				// A list containing jobs (/datum/job), with values the extra points that job recieves.
 
 	var/list/descriptors = list(
 		/datum/mob_descriptor/height = 0,
@@ -423,13 +422,13 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 /datum/species/proc/handle_pre_spawn(var/mob/living/carbon/human/H)
 	return
 
-/datum/species/proc/handle_death(var/mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
+/datum/species/proc/handle_death(var/mob/living/carbon/human/H) //Handles any species-specific death events.
 	return
 
 /datum/species/proc/handle_new_grab(var/mob/living/carbon/human/H, var/obj/item/grab/G)
 	return
 
-// Only used for alien plasma weeds atm, but could be used for Dionaea later.
+// Only used for alien plasma weeds atm.
 /datum/species/proc/handle_environment_special(var/mob/living/carbon/human/H)
 	return
 
@@ -448,7 +447,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 /datum/species/proc/build_hud(var/mob/living/carbon/human/H)
 	return
 
-//Used by xenos understanding larvae and dionaea understanding nymphs.
+//Used by xenos understanding larvae.
 /datum/species/proc/can_understand(var/mob/other)
 	return
 
@@ -743,13 +742,6 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 	set src = usr
 
 	show_browser(src, species.get_description(), "window=species;size=700x400")
-
-/datum/species/proc/skills_from_age(age)	//Converts an age into a skill point allocation modifier. Can be used to give skill point bonuses/penalities not depending on job.
-	switch(age)
-		if(0 to 22) 	. = -4
-		if(23 to 30) 	. = 0
-		if(31 to 45)	. = 4
-		else			. = 8
 
 /datum/species/proc/post_organ_rejuvenate(var/obj/item/organ/org, var/mob/living/carbon/human/H)
 	return

@@ -40,6 +40,12 @@ var/list/flooring_types
 	var/can_paint
 	var/can_engrave = TRUE
 
+	var/is_a_light_source = FALSE
+	var/light_requires_power
+	var/light_max_bright = 1
+	var/light_outer_range
+	var/light_color
+
 /decl/flooring/proc/on_remove()
 	return
 
@@ -237,27 +243,20 @@ var/list/flooring_types
 	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK | TURF_REMOVE_WRENCH
 	can_paint = 1
 	can_engrave = FALSE
+	is_a_light_source = TRUE
+	light_requires_power = TRUE
+	light_outer_range = 2
+	light_color = COLOR_BLUE
 
 /decl/flooring/reinforced/circuit/green
 	icon_base = "gcircuit"
+	light_color = COLOR_GREEN
 
 /decl/flooring/reinforced/circuit/red
 	icon_base = "rcircuit"
 	flags = TURF_ACID_IMMUNE
 	can_paint = 0
-
-/decl/flooring/reinforced/cult
-	name = "engraved floor"
-	desc = "Unsettling whispers waver from the surface..."
-	icon = 'icons/turf/flooring/cult.dmi'
-	icon_base = "cult"
-	build_type = null
-	has_damage_range = 6
-	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK | TURF_REMOVE_WRENCH
-	can_paint = null
-
-/decl/flooring/reinforced/cult/on_remove()
-	GLOB.cult.remove_cultiness(CULTINESS_PER_TURF)
+	light_color = COLOR_RED
 
 /decl/flooring/reinforced/shuttle
 	name = "floor"

@@ -14,7 +14,7 @@
 	base_color = "#001144"
 	tail = "resomitail"
 	tail_hair = "feathers"
-	reagent_tag = IS_RESOMI
+	reagent_tag = IS_TESHARI
 
 
 	icobase = 'icons/mob/human_races/species/teshari/body.dmi'

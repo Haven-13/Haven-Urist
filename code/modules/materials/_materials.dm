@@ -98,8 +98,6 @@
 	var/stack_type = /obj/item/stack/material/generic
 	// Wallrot crumble message.
 	var/rotting_touch_message = "crumbles under your touch"
-	// Modifies skill checks when constructing with this material.
-	var/construction_difficulty = 0
 
 	// Mining behavior.
 	var/alloy_product

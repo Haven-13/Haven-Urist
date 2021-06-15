@@ -291,7 +291,7 @@
 /obj/structure/scom/shieldgen
 	name = "shield generator"
 	desc = "The shield generator for the alien mothership"
-	icon = 'icons/urist/structures&machinery/scomscience.dmi'
+	icon = 'icons/urist/objects/scomscience.dmi'
 	icon_state = "norm2"
 
 /obj/structure/scom/shieldgen/ex_act(severity)
@@ -353,7 +353,7 @@
 /obj/structure/scom/tanktrap
 	name = "tank trap"
 	desc = "A twisted X of steel designed to stop a tank in its tracks."
-	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon = 'icons/urist/objects/structures.dmi'
 	icon_state = "tanktrap"
 	density = 1
 	anchored = 1

@@ -5,7 +5,7 @@
 	idle_power_usage = 10
 	anchored = 1
 	density = 1
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
+	icon = 'icons/urist/objects/machinery.dmi'
 
 /obj/machinery/carpentry/planer
 	name = "wood processor"

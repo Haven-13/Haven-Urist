@@ -59,11 +59,6 @@ var/global/datum/controller/occupations/job_master
 			if(job.department_flag & MSC)
 				GLOB.nonhuman_positions |= job.title
 
-		if(!GLOB.skills.len)
-			decls_repository.get_decl(/decl/hierarchy/skill)
-		if(!GLOB.skills.len)
-			log_error("<span class='warning'>Error setting up job skill requirements, no skill datums found!</span>")
-			return 0
 		return 1
 
 
@@ -390,11 +385,7 @@ var/global/datum/controller/occupations/job_master
 		for(var/mob/new_player/player in unassigned)
 			if(player.client.prefs.alternate_option == BE_ASSISTANT)
 				Debug("AC2 Assistant located, Player: [player]")
-				if(GLOB.using_map.flags & MAP_HAS_BRANCH)
-					var/datum/mil_branch/branch = mil_branches.get_branch(player.get_branch_pref())
-					AssignRole(player, branch.assistant_job)
-				else
-					AssignRole(player, "Assistant")
+				AssignRole(player, "Assistant")
 
 		//For ones returning to lobby
 		for(var/mob/new_player/player in unassigned)
@@ -417,20 +408,14 @@ var/global/datum/controller/occupations/job_master
 				var/datum/gear/G = gear_datums[thing]
 				if(G)
 					var/permitted = 0
-					if(G.allowed_branches)
-						if(H.char_branch && H.char_branch.type in G.allowed_branches)
+
+					if(G.allowed_roles)
+						if(job.type in G.allowed_roles)
 							permitted = 1
+						else
+							permitted = 0
 					else
 						permitted = 1
-
-					if(permitted)
-						if(G.allowed_roles)
-							if(job.type in G.allowed_roles)
-								permitted = 1
-							else
-								permitted = 0
-						else
-							permitted = 1
 
 					if(G.whitelisted && (!(H.species.name in G.whitelisted)))
 						permitted = 0
@@ -443,21 +428,6 @@ var/global/datum/controller/occupations/job_master
 						spawn_in_storage.Add(G)
 					else
 						loadout_taken_slots.Add(G.slot)
-
-		// do accessories last so they don't attach to a suit that will be replaced
-		if(H.char_rank && H.char_rank.accessory)
-			for(var/accessory_path in H.char_rank.accessory)
-				var/list/accessory_data = H.char_rank.accessory[accessory_path]
-				if(islist(accessory_data))
-					var/amt = accessory_data[1]
-					var/list/accessory_args = accessory_data.Copy()
-					accessory_args[1] = src
-					for(var/i in 1 to amt)
-						H.equip_to_slot_or_del(new accessory_path(arglist(accessory_args)), slot_tie)
-				else
-					for(var/i in 1 to (isnull(accessory_data)? 1 : accessory_data))
-						H.equip_to_slot_or_del(new accessory_path(src), slot_tie)
-
 		return spawn_in_storage
 
 	proc/EquipRank(var/mob/living/carbon/human/H, var/rank, var/joined_late = 0)
@@ -467,10 +437,6 @@ var/global/datum/controller/occupations/job_master
 		var/list/spawn_in_storage
 
 		if(job)
-
-			// Transfers the skill settings for the job to the mob
-			H.skillset.obtain_from_client(job, H.client)
-
 			//Equip job items.
 			job.setup_account(H)
 
@@ -478,15 +444,12 @@ var/global/datum/controller/occupations/job_master
 			if(rank != "Robot" && rank != "AI")		//These guys get their emails later.
 				var/domain
 				var/desired_name
-				if(H.char_branch && H.char_branch.email_domain)
-					domain = H.char_branch.email_domain
-				else
-					domain = "freemail.nt"
+				domain = "freemail.nt"
 				desired_name = H.real_name
 				ntnet_global.create_email(H, desired_name, domain)
 			// END EMAIL GENERATION
 
-			job.equip(H, H.mind ? H.mind.role_alt_title : "", H.char_branch, H.char_rank)
+			job.equip(H, H.mind ? H.mind.role_alt_title : "")
 			job.apply_fingerprints(H)
 			spawn_in_storage = EquipCustomLoadout(H, job)
 		else

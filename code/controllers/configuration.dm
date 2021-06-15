@@ -3,6 +3,7 @@ var/list/gamemode_cache = list()
 /datum/configuration
 	var/server_name = null				// server name (for world name / status)
 	var/server_suffix = 0				// generate numeric suffix based on server port
+	var/server_tag_line = null
 
 	var/log_ooc = 0						// log OOC channel
 	var/log_access = 0					// log login/logout
@@ -433,6 +434,9 @@ var/list/gamemode_cache = list()
 
 				if ("serversuffix")
 					config.server_suffix = 1
+
+				if ("servertagline")
+					config.server_tag_line = value
 
 				if ("hostedby")
 					config.hostedby = value

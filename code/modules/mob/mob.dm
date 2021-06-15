@@ -4,8 +4,6 @@
 	GLOB.living_mob_list_ -= src
 	unset_machine()
 	QDEL_NULL(hud_used)
-	if(istype(skillset))
-		QDEL_NULL(skillset)
 	for(var/obj/item/grab/G in grabbed_by)
 		qdel(G)
 	clear_fullscreen()
@@ -16,8 +14,6 @@
 			if(!istype(screenobj) || !screenobj.globalscreen)
 				qdel(screenobj)
 		client.screen = list()
-	if(mind && mind.current == src)
-		spellremove(src)
 	ghostize()
 	..()
 	return QDEL_HINT_HARDDEL
@@ -46,7 +42,6 @@
 
 /mob/Initialize()
 	. = ..()
-	skillset = new skillset(src)
 	move_intent = decls_repository.get_decl(move_intent)
 	START_PROCESSING(SSmobs, src)
 
@@ -990,15 +985,6 @@
 		if(!pinned.len)
 			anchored = 0
 	return 1
-
-//Check for brain worms in head.
-/mob/proc/has_brain_worms()
-
-	for(var/I in contents)
-		if(istype(I,/mob/living/simple_animal/borer))
-			return I
-
-	return 0
 
 // A mob should either use update_icon(), overriding this definition, or use update_icons(), not touching update_icon().
 // It should not use both.

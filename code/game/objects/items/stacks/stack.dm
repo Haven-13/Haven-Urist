@@ -294,7 +294,7 @@
 /obj/item/stack/get_storage_cost()	//Scales storage cost to stack size
 	. = ..()
 	if (amount < max_amount)
-		. = ceil(. * amount / max_amount)
+		. = Ceiling(. * amount / max_amount)
 
 /obj/item/stack/attack_hand(mob/user as mob)
 	if (user.get_inactive_hand() == src)
@@ -340,13 +340,11 @@
 	var/one_per_turf = 0
 	var/on_floor = 0
 	var/use_material
-	var/difficulty = 1 // higher difficulty requires higher skill level to make.
 	var/send_material_data = 0 //Whether the recipe will send the material name as an argument when creating product.
 
 /datum/stack_recipe/New(material/material)
 	if(material)
 		use_material = material.name
-		difficulty += material.construction_difficulty
 
 /datum/stack_recipe/proc/display_name()
 	if(!use_material)

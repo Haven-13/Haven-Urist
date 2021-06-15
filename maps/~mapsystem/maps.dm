@@ -1,9 +1,6 @@
 GLOBAL_DATUM_INIT(using_map, /datum/map, new USING_MAP_DATUM)
 GLOBAL_LIST_EMPTY(all_maps)
 
-var/const/MAP_HAS_BRANCH = 1	//Branch system for occupations, togglable
-var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
-
 /hook/startup/proc/initialise_map_list()
 	for(var/type in typesof(/datum/map) - /datum/map)
 		var/datum/map/M
@@ -291,10 +288,18 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 /datum/map/proc/get_empty_zlevel()
 	if(empty_levels == null)
-		world.maxz++
+		create_new_empty_zlevel()
 		empty_levels = list(world.maxz)
 	return pick(empty_levels)
 
+/datum/map/proc/create_new_empty_zlevel()
+	world.maxz++
+	for(var/turf/T in block(
+		locate(1,1,world.maxz),
+		locate(world.maxx, world.maxy, world.maxz))
+	)
+		T.ChangeTurf(/turf/space)
+	testing("Created new empty space z-level at Z=[world.maxz]")
 
 /datum/map/proc/setup_economy()
 	news_network.CreateFeedChannel("Nyx Daily", "SolGov Minister of Information", 1, 1)

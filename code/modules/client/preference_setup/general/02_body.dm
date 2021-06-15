@@ -386,7 +386,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.body_markings.Cut() // Basically same as above.
 
 			prune_occupation_prefs()
-			pref.skills_allocated = pref.sanitize_skills(pref.skills_allocated)
 
 			pref.cultural_info = mob_species.default_cultural_info.Copy()
 

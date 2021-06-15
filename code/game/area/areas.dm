@@ -19,11 +19,6 @@
 		power_equip = 0
 		power_environ = 0
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
-
 	..()
 
 /area/Initialize()

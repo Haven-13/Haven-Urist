@@ -356,9 +356,6 @@
 	if (H.virus2.len)
 		dat += "<font color='red'>Viral pathogen detected in blood stream.</font>"
 
-	if(H.has_brain_worms())
-		dat += "Large growth detected in frontal lobe, possibly cancerous. Surgical removal is recommended."
-
 	if(H.reagents.total_volume)
 		var/reagentdata[0]
 		for(var/A in H.reagents.reagent_list)

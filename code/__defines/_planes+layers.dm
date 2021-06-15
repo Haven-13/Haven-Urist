@@ -166,22 +166,24 @@ What is the naming convention for planes or layers?
 
 #define OBSERVER_PLANE                18 // For observers and ghosts
 
-#define LIGHTING_PLANE 			      19 // For Lighting. - The highest plane (ignoring all other even higher planes)
+#define VISIBLE_GAME_WORLD_PLANE      19
+
+#define LIGHTING_PLANE 			      20 // For Lighting. - The highest plane (ignoring all other even higher planes)
 	#define LIGHTBULB_LAYER        0
 	#define LIGHTING_LAYER         1
 	#define ABOVE_LIGHTING_LAYER   2
 	#define SUPER_PORTAL_LAYER     3
 	#define NARSIE_GLOW            4
 
-#define EFFECTS_ABOVE_LIGHTING_PLANE  20 // For glowy eyes, laser beams, etc. that shouldn't be affected by darkness
+#define EFFECTS_ABOVE_LIGHTING_PLANE  21 // For glowy eyes, laser beams, etc. that shouldn't be affected by darkness
 	#define EYE_GLOW_LAYER         1
 	#define BEAM_PROJECTILE_LAYER  2
 	#define SUPERMATTER_WALL_LAYER 3
 
-#define OBSCURITY_PLANE 		      21 // For visualnets, such as the AI's static.
+#define OBSCURITY_PLANE 		      22 // For visualnets, such as the AI's static.
 
 //This is difference between highest and lowest visible game planes
-#define PLANE_DIFFERENCE              22
+#define PLANE_DIFFERENCE              23
 
 #define BASE_PLANE 				      0 // Not for anything, but this is the default.
 	#define BASE_AREA_LAYER 999
@@ -232,6 +234,7 @@ What is the naming convention for planes or layers?
 			BLOB_PLANE,
 			EFFECTS_BELOW_LIGHTING_PLANE,
 			OBSERVER_PLANE,
+			VISIBLE_GAME_WORLD_PLANE,
 			EFFECTS_ABOVE_LIGHTING_PLANE,
 			OBSCURITY_PLANE
 		)

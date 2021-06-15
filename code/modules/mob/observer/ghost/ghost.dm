@@ -66,9 +66,6 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 	real_name = name
 
-	if(GLOB.cult)
-		GLOB.cult.add_ghost_magic(src)
-
 	ghost_multitool = new(src)
 
 	GLOB.ghost_mob_list += src
@@ -356,7 +353,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set desc = "Analyse whatever you are following."
 
 	if(ishuman(following))
-		to_chat(src, medical_scan_results(following, 1, SKILL_MAX))
+		to_chat(src, medical_scan_results(following, 1))
 
 	else to_chat(src, "<span class='notice'>Not a scannable target.</span>")
 

@@ -3,7 +3,7 @@
 /obj/structure/undies_wardrobe
 	name = "underwear wardrobe"
 	desc = "Holds item of clothing you shouldn't be showing off in the hallways."
-	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon = 'icons/urist/objects/structures.dmi'
 	icon_state = "dresser"
 	density = 1
 

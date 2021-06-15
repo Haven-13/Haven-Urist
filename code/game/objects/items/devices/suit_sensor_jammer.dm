@@ -138,7 +138,7 @@ obj/item/device/suit_sensor_jammer/ui_data()
 		"methods" = methods,
 		"current_method" = REF(jammer_method),
 		"current_cost" = jammer_method.energy_cost,
-		"total_cost" = "[ceil(JAMMER_POWER_CONSUMPTION(10))]"
+		"total_cost" = "[Ceiling(JAMMER_POWER_CONSUMPTION(10))]"
 	)
 
 	return data

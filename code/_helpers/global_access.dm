@@ -83,8 +83,6 @@
 			return global.SSassets;
 		if("SSatoms")
 			return global.SSatoms;
-		if("SScircuit")
-			return global.SScircuit;
 		if("SSculture")
 			return global.SSculture;
 		if("SSevac")
@@ -117,8 +115,6 @@
 			return global.SSmobs;
 		if("SSobj")
 			return global.SSobj;
-		if("SSopen_space")
-			return global.SSopen_space;
 		if("SSpersistence")
 			return global.SSpersistence;
 		if("SSprocessing")
@@ -157,14 +153,6 @@
 			return global.SSwireless;
 		if("SWEDEBLOCK")
 			return global.SWEDEBLOCK;
-		if("Tier1Runes")
-			return global.Tier1Runes;
-		if("Tier2Runes")
-			return global.Tier2Runes;
-		if("Tier3Runes")
-			return global.Tier3Runes;
-		if("Tier4Runes")
-			return global.Tier4Runes;
 		if("WALLITEMS")
 			return global.WALLITEMS;
 		if("_all_globals")
@@ -271,8 +259,6 @@
 			return global.appearance_manager;
 		if("area_repository")
 			return global.area_repository;
-		if("artefact_feedback")
-			return global.artefact_feedback;
 		if("ascii_esc")
 			return global.ascii_esc;
 		if("ascii_green")
@@ -381,8 +367,6 @@
 			return global.csrfz_check;
 		if("custom_event_msg")
 			return global.custom_event_msg;
-		if("custom_items")
-			return global.custom_items;
 		if("damage_icon_parts")
 			return global.damage_icon_parts;
 		if("dbcon")
@@ -535,8 +519,6 @@
 			return global.hadevent;
 		if("hazard_overlays")
 			return global.hazard_overlays;
-		if("hivemind_bank")
-			return global.hivemind_bank;
 		if("holder_mob_icon_cache")
 			return global.holder_mob_icon_cache;
 		if("host")
@@ -633,8 +615,6 @@
 			return global.markup_underline;
 		if("masterdatumPool")
 			return global.masterdatumPool;
-		if("matchmaker")
-			return global.matchmaker;
 		if("maze_cell_count")
 			return global.maze_cell_count;
 		if("mechas_list")
@@ -663,8 +643,6 @@
 			return global.meteors_normal;
 		if("meteors_threatening")
 			return global.meteors_threatening;
-		if("mil_branches")
-			return global.mil_branches;
 		if("mining_floors")
 			return global.mining_floors;
 		if("mining_walls")
@@ -685,12 +663,6 @@
 			return global.moving_levels;
 		if("multi_point_spawns")
 			return global.multi_point_spawns;
-		if("narsie_behaviour")
-			return global.narsie_behaviour;
-		if("narsie_cometh")
-			return global.narsie_cometh;
-		if("narsie_list")
-			return global.narsie_list;
 		if("navbeacons")
 			return global.navbeacons;
 		if("news_network")
@@ -755,14 +727,8 @@
 			return global.playable_species;
 		if("pooledvariables")
 			return global.pooledvariables;
-		if("possible_changeling_IDs")
-			return global.possible_changeling_IDs;
 		if("power_alarm")
 			return global.power_alarm;
-		if("powerinstances")
-			return global.powerinstances;
-		if("powers")
-			return global.powers;
 		if("preferences_datums")
 			return global.preferences_datums;
 		if("priority_air_alarms")
@@ -785,8 +751,6 @@
 			return global.priv_station_access;
 		if("priv_syndicate_access")
 			return global.priv_syndicate_access;
-		if("prometheans")
-			return global.prometheans;
 		if("protected_objects")
 			return global.protected_objects;
 		if("rad_collectors")
@@ -825,8 +789,6 @@
 			return global.restricted_camera_networks;
 		if("revdata")
 			return global.revdata;
-		if("robot_custom_icons")
-			return global.robot_custom_icons;
 		if("robot_hud_colours")
 			return global.robot_hud_colours;
 		if("robot_inventory")
@@ -889,8 +851,6 @@
 			return global.spacevines_spawned;
 		if("sparring_attack_cache")
 			return global.sparring_attack_cache;
-		if("spells")
-			return global.spells;
 		if("splatter_cache")
 			return global.splatter_cache;
 		if("sploded")
@@ -913,6 +873,10 @@
 			return global.sqlpass;
 		if("sqlport")
 			return global.sqlport;
+		if("star_classes")
+			return global.star_classes;
+		if("star_prefixes")
+			return global.star_prefixes;
 		if("station_account")
 			return global.station_account;
 		if("station_date")
@@ -987,8 +951,6 @@
 			return global.underground_templates;
 		if("uniqueness_repository")
 			return global.uniqueness_repository;
-		if("universe_has_ended")
-			return global.universe_has_ended;
 		if("uplink")
 			return global.uplink;
 		if("uplink_purchase_repository")
@@ -1126,8 +1088,6 @@
 			global.SSassets=newval;
 		if("SSatoms")
 			global.SSatoms=newval;
-		if("SScircuit")
-			global.SScircuit=newval;
 		if("SSculture")
 			global.SSculture=newval;
 		if("SSevac")
@@ -1160,8 +1120,6 @@
 			global.SSmobs=newval;
 		if("SSobj")
 			global.SSobj=newval;
-		if("SSopen_space")
-			global.SSopen_space=newval;
 		if("SSpersistence")
 			global.SSpersistence=newval;
 		if("SSprocessing")
@@ -1200,14 +1158,6 @@
 			global.SSwireless=newval;
 		if("SWEDEBLOCK")
 			global.SWEDEBLOCK=newval;
-		if("Tier1Runes")
-			global.Tier1Runes=newval;
-		if("Tier2Runes")
-			global.Tier2Runes=newval;
-		if("Tier3Runes")
-			global.Tier3Runes=newval;
-		if("Tier4Runes")
-			global.Tier4Runes=newval;
 		if("WALLITEMS")
 			global.WALLITEMS=newval;
 		if("_all_globals")
@@ -1314,8 +1264,6 @@
 			global.appearance_manager=newval;
 		if("area_repository")
 			global.area_repository=newval;
-		if("artefact_feedback")
-			global.artefact_feedback=newval;
 		if("ascii_esc")
 			global.ascii_esc=newval;
 		if("ascii_green")
@@ -1424,8 +1372,6 @@
 			global.csrfz_check=newval;
 		if("custom_event_msg")
 			global.custom_event_msg=newval;
-		if("custom_items")
-			global.custom_items=newval;
 		if("damage_icon_parts")
 			global.damage_icon_parts=newval;
 		if("dbcon")
@@ -1578,8 +1524,6 @@
 			global.hadevent=newval;
 		if("hazard_overlays")
 			global.hazard_overlays=newval;
-		if("hivemind_bank")
-			global.hivemind_bank=newval;
 		if("holder_mob_icon_cache")
 			global.holder_mob_icon_cache=newval;
 		if("host")
@@ -1676,8 +1620,6 @@
 			global.markup_underline=newval;
 		if("masterdatumPool")
 			global.masterdatumPool=newval;
-		if("matchmaker")
-			global.matchmaker=newval;
 		if("maze_cell_count")
 			global.maze_cell_count=newval;
 		if("mechas_list")
@@ -1706,8 +1648,6 @@
 			global.meteors_normal=newval;
 		if("meteors_threatening")
 			global.meteors_threatening=newval;
-		if("mil_branches")
-			global.mil_branches=newval;
 		if("mining_floors")
 			global.mining_floors=newval;
 		if("mining_walls")
@@ -1728,12 +1668,6 @@
 			global.moving_levels=newval;
 		if("multi_point_spawns")
 			global.multi_point_spawns=newval;
-		if("narsie_behaviour")
-			global.narsie_behaviour=newval;
-		if("narsie_cometh")
-			global.narsie_cometh=newval;
-		if("narsie_list")
-			global.narsie_list=newval;
 		if("navbeacons")
 			global.navbeacons=newval;
 		if("news_network")
@@ -1798,14 +1732,8 @@
 			global.playable_species=newval;
 		if("pooledvariables")
 			global.pooledvariables=newval;
-		if("possible_changeling_IDs")
-			global.possible_changeling_IDs=newval;
 		if("power_alarm")
 			global.power_alarm=newval;
-		if("powerinstances")
-			global.powerinstances=newval;
-		if("powers")
-			global.powers=newval;
 		if("preferences_datums")
 			global.preferences_datums=newval;
 		if("priority_air_alarms")
@@ -1828,8 +1756,6 @@
 			global.priv_station_access=newval;
 		if("priv_syndicate_access")
 			global.priv_syndicate_access=newval;
-		if("prometheans")
-			global.prometheans=newval;
 		if("protected_objects")
 			global.protected_objects=newval;
 		if("rad_collectors")
@@ -1868,8 +1794,6 @@
 			global.restricted_camera_networks=newval;
 		if("revdata")
 			global.revdata=newval;
-		if("robot_custom_icons")
-			global.robot_custom_icons=newval;
 		if("robot_hud_colours")
 			global.robot_hud_colours=newval;
 		if("robot_inventory")
@@ -1932,8 +1856,6 @@
 			global.spacevines_spawned=newval;
 		if("sparring_attack_cache")
 			global.sparring_attack_cache=newval;
-		if("spells")
-			global.spells=newval;
 		if("splatter_cache")
 			global.splatter_cache=newval;
 		if("sploded")
@@ -1956,6 +1878,10 @@
 			global.sqlpass=newval;
 		if("sqlport")
 			global.sqlport=newval;
+		if("star_classes")
+			global.star_classes=newval;
+		if("star_prefixes")
+			global.star_prefixes=newval;
 		if("station_account")
 			global.station_account=newval;
 		if("station_date")
@@ -2030,8 +1956,6 @@
 			global.underground_templates=newval;
 		if("uniqueness_repository")
 			global.uniqueness_repository=newval;
-		if("universe_has_ended")
-			global.universe_has_ended=newval;
 		if("uplink")
 			global.uplink=newval;
 		if("uplink_purchase_repository")
@@ -2127,7 +2051,6 @@
 	"SSantags",
 	"SSassets",
 	"SSatoms",
-	"SScircuit",
 	"SSculture",
 	"SSevac",
 	"SSevent",
@@ -2144,7 +2067,6 @@
 	"SSmisc_late",
 	"SSmobs",
 	"SSobj",
-	"SSopen_space",
 	"SSpersistence",
 	"SSprocessing",
 	"SSradiation",
@@ -2164,10 +2086,6 @@
 	"SSwebhooks",
 	"SSwireless",
 	"SWEDEBLOCK",
-	"Tier1Runes",
-	"Tier2Runes",
-	"Tier3Runes",
-	"Tier4Runes",
 	"WALLITEMS",
 	"_all_globals",
 	"_client_preferences",
@@ -2221,7 +2139,6 @@
 	"antag_add_finished",
 	"appearance_manager",
 	"area_repository",
-	"artefact_feedback",
 	"ascii_esc",
 	"ascii_green",
 	"ascii_red",
@@ -2276,7 +2193,6 @@
 	"crew_repository",
 	"csrfz_check",
 	"custom_event_msg",
-	"custom_items",
 	"damage_icon_parts",
 	"dbcon",
 	"dbcon_old",
@@ -2353,7 +2269,6 @@
 	"gzn_check",
 	"hadevent",
 	"hazard_overlays",
-	"hivemind_bank",
 	"holder_mob_icon_cache",
 	"host",
 	"href_logfile",
@@ -2402,7 +2317,6 @@
 	"markup_tags",
 	"markup_underline",
 	"masterdatumPool",
-	"matchmaker",
 	"maze_cell_count",
 	"mechas_list",
 	"merged",
@@ -2417,7 +2331,6 @@
 	"meteors_moderate",
 	"meteors_normal",
 	"meteors_threatening",
-	"mil_branches",
 	"mining_floors",
 	"mining_walls",
 	"minor_air_alarms",
@@ -2428,9 +2341,6 @@
 	"motion_alarm",
 	"moving_levels",
 	"multi_point_spawns",
-	"narsie_behaviour",
-	"narsie_cometh",
-	"narsie_list",
 	"navbeacons",
 	"news_network",
 	"newscaster_standard_feeds",
@@ -2463,10 +2373,7 @@
 	"plant_seed_sprites",
 	"playable_species",
 	"pooledvariables",
-	"possible_changeling_IDs",
 	"power_alarm",
-	"powerinstances",
-	"powers",
 	"preferences_datums",
 	"priority_air_alarms",
 	"priority_announcement",
@@ -2478,7 +2385,6 @@
 	"priv_region_access",
 	"priv_station_access",
 	"priv_syndicate_access",
-	"prometheans",
 	"protected_objects",
 	"rad_collectors",
 	"radio_controller",
@@ -2498,7 +2404,6 @@
 	"respawntime",
 	"restricted_camera_networks",
 	"revdata",
-	"robot_custom_icons",
 	"robot_hud_colours",
 	"robot_inventory",
 	"robot_modules",
@@ -2531,7 +2436,6 @@
 	"space_ruins_templates",
 	"spacevines_spawned",
 	"sparring_attack_cache",
-	"spells",
 	"splatter_cache",
 	"sploded",
 	"sqladdress",
@@ -2543,6 +2447,8 @@
 	"sqllogin",
 	"sqlpass",
 	"sqlport",
+	"star_classes",
+	"star_prefixes",
 	"station_account",
 	"station_date",
 	"stool_cache",
@@ -2580,7 +2486,6 @@
 	"turret_icons",
 	"underground_templates",
 	"uniqueness_repository",
-	"universe_has_ended",
 	"uplink",
 	"uplink_purchase_repository",
 	"uplink_random_selections_",

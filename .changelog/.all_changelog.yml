@@ -111,3 +111,61 @@
   - bugfix: Airlock sensors no longer trigger airlock cycles
   - refactor: 'Changed ternary operators (a ? a : c) to ORs (a || b). It''s syntactically
       better.'
+2020-11-03:
+  martinlyra:
+  - server: The server description (in Byond hub) is now configurable through the
+      SERVERTAGLINE option in config.txt
+  - tweak: Changed the changelog template, now properly crediting both Astro-Haven
+      13 and Urist McStation developers and contributors.
+  - tweak: Changed the hub status message to supposedly less misleading and more concise.
+2021-05-06:
+  martinlyra:
+  - rscdel: The old Baystation Open-Space has been fully deleted. Good bye. You won't
+      be missed.
+  - bugfix: Fix a large initialization overhead caused by floors turning into plating
+      then back to their given flooring type
+  - bugfix: Fix runtimes related to lighting brightness
+  - bugfix: Fix problems related to grid floors
+  - bugfix: Fix layering issue with above-light-effects on light-switches and robots
+  - refactor: Most of the old multi-z updating code has been minimized to decrease
+      overhead
+2021-05-07:
+  martinlyra:
+  - rscadd: Added a second mode to the starlight config, allowing dynamic lighting
+      to be enabled for all space turfs.
+  - rscadd: Lighting effect now uses alpha to improve its rendering effect
+  - tweak: Lighting calculations switched from subtractive to additive
+  - code_imp: Moved starlight function to its own file in lighting module
+  - code_imp: Added preliminary integration with auxtools
+2021-05-09:
+  martinlyra:
+  - tweak: Added a special null turf to better handle unused turf space
+  - tweak: Malfunctioning AI is no longer votable
+  - rscdel: Removed Borer gamemode
+  - rscdel: Removed Changeling gamemode
+  - rscdel: Removed Cult gamemode
+  - rscdel: Removed Deity gamemode
+  - rscdel: Removed Ninja gamemode
+  - rscdel: Removed Vampire gamemode
+  - rscdel: Removed Wizard gamemode
+  - rscdel: Supermatter cascade is no longer possible
+  - rscdel: Removed the Baycode custom items feature
+  - rscdel: Removed synthesizing instruments
+  - sounddel: Removed unused sound files
+2021-05-16:
+  martinlyra:
+  - rscadd: Added static overmap objects, currently it is just stars for now
+  - rscadd: Added new natural planetary system generation for overmap
+  - rscdel: Removed obsolete unused exoplanet features
+  - refactor: Changed `ceil` to `Ceiling`
+  - code_imp: Added Visual Studio Code settings files
+2021-05-25:
+  martinlyra:
+  - rscdel: Removed integrated circuits completely
+  - bugfix: Fixed stability issue related to first-time players and preferences
+  - bugfix: The lobby screen menu now updates when the round has started
+2021-06-08:
+  martinlyra:
+  - rscdel: Removed Skillsets
+  - rscdel: Removed Matchmaking
+  - rscdel: Removed Military Branches & Ranks

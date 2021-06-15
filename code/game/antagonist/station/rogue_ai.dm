@@ -9,14 +9,13 @@ GLOBAL_DATUM_INIT(malf, /datum/antagonist/rogue_ai, new)
 	welcome_text = "You are malfunctioning! You do not have to follow any laws."
 	victory_text = "The AI has taken control of all systems."
 	loss_text = "The AI has been shut down!"
-	flags = ANTAG_VOTABLE | ANTAG_OVERRIDE_MOB | ANTAG_OVERRIDE_JOB | ANTAG_CHOOSE_NAME
+	flags = ANTAG_OVERRIDE_MOB | ANTAG_OVERRIDE_JOB | ANTAG_CHOOSE_NAME
 	hard_cap = 1
 	hard_cap_round = 1
 	initial_spawn_req = 1
 	initial_spawn_target = 1
 	antaghud_indicator = "hudmalai"
 	min_player_age = 18
-	skill_setter = /datum/antag_skill_setter/ai
 
 /datum/antagonist/rogue_ai/can_become_antag(var/datum/mind/player, var/ignore_role)
 	. = ..(player, ignore_role)

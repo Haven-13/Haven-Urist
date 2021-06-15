@@ -50,15 +50,6 @@
 	containertype = /obj/structure/closet
 	containername = "\improper Lasertag Closet"
 
-/decl/hierarchy/supply_pack/nonessent/instruments
-	name = "Rec - Instrument shipment"
-	contains = list(/obj/item/device/synthesized_instrument/synthesizer,
-					/obj/item/device/synthesized_instrument/guitar/multi,
-					/obj/item/device/synthesized_instrument/trumpet)
-	cost = 40
-	containername = "\improper Musical instrument crate"
-
-
 /decl/hierarchy/supply_pack/nonessent/llamps
 	num_contained = 3
 	contains = list(/obj/item/device/flashlight/lamp/lava,
@@ -75,15 +66,6 @@
 	containername = "\improper Lava lamp crate"
 	supply_method = /decl/supply_method/randomized
 
-
-/decl/hierarchy/supply_pack/nonessent/wizard
-	name = "Costume - Wizard costume"
-	contains = list(/obj/item/weapon/staff,
-					/obj/item/clothing/suit/wizrobe/fake,
-					/obj/item/clothing/shoes/sandal,
-					/obj/item/clothing/head/wizard/fake)
-	cost = 20
-	containername = "\improper Wizard costume crate"
 
 /decl/hierarchy/supply_pack/nonessent/costume
 	num_contained = 2
@@ -170,15 +152,6 @@
 	containername = "\improper Collectable hats crate! Brought to you by Bass.inc!"
 	supply_method = /decl/supply_method/randomized
 
-/decl/hierarchy/supply_pack/nonessent/witch
-	name = "Costume - Witch costume"
-	contains = list(/obj/item/clothing/suit/wizrobe/marisa/fake,
-					/obj/item/clothing/shoes/sandal,
-					/obj/item/clothing/head/wizard/marisa/fake,
-					/obj/item/weapon/staff/broom)
-	cost = 20
-	containername = "\improper Witch costume"
-	containertype = /obj/structure/closet
 
 /decl/hierarchy/supply_pack/nonessent/costume_hats
 	name = "Costume - Costume hats"
@@ -202,6 +175,7 @@
 	containertype = /obj/structure/closet
 	num_contained = 2
 	supply_method = /decl/supply_method/randomized
+
 
 /decl/hierarchy/supply_pack/nonessent/dresses
 	name = "Costume - Womens formal dress locker"
