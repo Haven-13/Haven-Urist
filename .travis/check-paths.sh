@@ -31,9 +31,9 @@ exactly 19 "/obj text paths" '"/obj'
 exactly 8 "/turf text paths" '"/turf'
 exactly 0 "world<< uses" 'world<<|world[[:space:]]<<'
 exactly 0 "world.log<< uses" 'world.log<<|world.log[[:space:]]<<'
-exactly 804 "<< uses" '(?<!<)<<(?!<)' -P
-exactly 332 "incorrect indentations" '^( {4,})' -P
-exactly 29 "text2path uses" 'text2path'
+exactly 678 "<< uses" '(?<!<)<<(?!<)' -P
+exactly 319 "incorrect indentations" '^( {4,})' -P
+exactly 28 "text2path uses" 'text2path'
 # With the potential exception of << if you increase any of these numbers you're probably doing it wrong
 
 num=`find . -perm /111 -name "*.dm*" | wc -l`
