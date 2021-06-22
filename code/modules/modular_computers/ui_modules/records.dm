@@ -1,6 +1,6 @@
 /datum/ui_module/program/records
 	name = "Crew Records"
-	ui_interface_name = "programs/CrewRecordsProgram"
+	ui_interface_name = "programs/NtosCrewRecords"
 
 	var/datum/computer_file/report/crew_record/active_record
 	var/message = null
