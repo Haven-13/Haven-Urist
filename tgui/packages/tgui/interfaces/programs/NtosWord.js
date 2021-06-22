@@ -205,8 +205,8 @@ export const NtosWord = (props, context) => {
 
   return (
     <NtosWindow
-      width={30}
-      height={25}
+      width={400}
+      height={450}
     >
       <NtosWindow.Content>
         {!!error && (
