@@ -174,7 +174,7 @@ export const NtosWord = (props, context) => {
 
   const [
     isWarningPromptOpen,
-    setIsWarningPromptOpen
+    setIsWarningPromptOpen,
   ] = useSharedState(context, "isWarningPromptOpen", false);
 
   const [
@@ -189,8 +189,8 @@ export const NtosWord = (props, context) => {
 
   const [
     nextAction,
-    setNextAction
-  ] = useSharedState(context, "nextAction", () => {})
+    setNextAction,
+  ] = useSharedState(context, "nextAction", () => {});
 
   const openWarningPrompt = () => setIsWarningPromptOpen(true);
   const closeWarningPrompt = () => setIsWarningPromptOpen(false);
@@ -201,7 +201,7 @@ export const NtosWord = (props, context) => {
   const openFileNamePrompt = () => setIsFileNamePromptOpen(true);
   const closeFileNamePrompt = () => setIsFileNamePromptOpen(false);
 
-  const saveAsFile = () => act("save_as_file", {file_name: currentFileName});
+  const saveAsFile = () => act("save_as_file", { file_name: currentFileName });
 
   return (
     <NtosWindow
@@ -236,13 +236,13 @@ export const NtosWord = (props, context) => {
             onAccept={(file) => {
               closeFileBrowser();
 
-              if(is_edited) {
+              if (is_edited) {
                 openWarningPrompt();
-                setNextAction(() => act("open_file", {target: file}))
+                setNextAction(() => act("open_file", { target: file }));
               } else {
                 act("open_file", {
-                  target: file
-                })
+                  target: file,
+                });
               }
             }}
             onCancel={() => closeFileBrowser()}
@@ -278,7 +278,7 @@ export const NtosWord = (props, context) => {
                   )}
                 </Flex.Item>
                 <Flex.Item>
-                  {!!!fileexists && (
+                  {!fileexists && (
                     <Box italic color="bad">
                       &#91; NOT SAVED &#93;
                     </Box>
@@ -297,9 +297,9 @@ export const NtosWord = (props, context) => {
                       openFileNamePrompt();
                       setNextAction(() => {
                         act("create_file", {
-                          file_name: currentFileName
+                          file_name: currentFileName,
                         });
-                      })
+                      });
                     }}
                   />
                 </Flex.Item>
@@ -317,7 +317,7 @@ export const NtosWord = (props, context) => {
                         openFileNamePrompt();
                         saveAsFile();
                       } else {
-                        act("save_file")
+                        act("save_file");
                       }
                     }}
                   />
@@ -327,9 +327,8 @@ export const NtosWord = (props, context) => {
                     content="Save As"
                     onClick={() => {
                       openFileNamePrompt();
-                      setNextAction(() =>saveAsFile());
-                    }
-                    }
+                      setNextAction(() => saveAsFile());
+                    }}
                   />
                 </Flex.Item>
                 <Flex.Item />
@@ -361,9 +360,8 @@ export const NtosWord = (props, context) => {
                 value={filedata}
                 onInput={(e, v) =>
                   act("edit_file", {
-                    text: v
-                  })
-                }
+                    text: v,
+                  })}
               />
             </Stack.Item>
           </Stack>
