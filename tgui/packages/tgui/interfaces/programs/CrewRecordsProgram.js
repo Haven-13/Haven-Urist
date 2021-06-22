@@ -1,7 +1,7 @@
-import { createSearch } from "common/string"
-import { useBackend, useSharedState } from "tgui/backend"
-import { Box, Button, Flex, Input, LabeledList, Section, Stack } from "tgui/components"
-import { NtosWindow } from "tgui/layouts"
+import { createSearch } from "common/string";
+import { useBackend, useSharedState } from "tgui/backend";
+import { Box, Button, Flex, Input, LabeledList, Section, Stack } from "tgui/components";
+import { NtosWindow } from "tgui/layouts";
 
 const RecordContentView = (props, context) => {
   const {
@@ -16,17 +16,17 @@ const RecordContentView = (props, context) => {
 
   const {
     fields = [],
-  } = active
+  } = active;
 
   const fieldsMappedByName = Object.assign(
     {},
     ...fields.map((x) =>
-      ({[x.name.toLowerCase()]: x})
+      ({ [x.name.toLowerCase()]: x })
     )
   );
 
-  const createPhotoBox = (side)  => {
-    let target = side.toLowerCase()
+  const createPhotoBox = (side) => {
+    let target = side.toLowerCase();
     return (
       <Stack vertical>
         <Stack.Item>
@@ -51,7 +51,7 @@ const RecordContentView = (props, context) => {
         )}
       </Stack>
     );
-  }
+  };
 
   return (
     <Section
@@ -107,15 +107,13 @@ const RecordContentView = (props, context) => {
                             pt={2}
                             pb={2}
                             title={x.name}
-                            buttons={
-                              !!x.access_edit && (
-                                <Button
-                                  m={0}
-                                  icon="pen"
-                                  onClick={() => onClickEditField(x.ID)}
-                                />
-                              )
-                            }
+                            buttons={!!x.access_edit && (
+                              <Button
+                                m={0}
+                                icon="pen"
+                                onClick={() => onClickEditField(x.ID)}
+                              />
+                            )}
                           >
                             <Box>
                               {x.value}
@@ -148,7 +146,7 @@ const RecordContentView = (props, context) => {
                           </Flex>
                         )}
                       </Stack.Item>
-                  )))
+                    )))
                 }
               </Stack>
             </Section>
@@ -156,13 +154,13 @@ const RecordContentView = (props, context) => {
         </Stack>
       </Section>
     </Section>
-  )
-}
+  );
+};
 
 const RecordsListViewEntry = (props, context) => {
   const {
     entry,
-    extras = []
+    extras = [],
   } = props;
 
   return (
@@ -180,14 +178,14 @@ const RecordsListViewEntry = (props, context) => {
       >
         {entry.job}
       </Flex.Item>
-      {extras.map((extra) => (
-        <Flex.Item>
+      {extras.map((extra, index) => (
+        <Flex.Item key={index}>
           {extra}
         </Flex.Item>
       ))}
     </Flex>
-  )
-}
+  );
+};
 
 const recordsSearchFilter = (search, records) => {
   let searchResults = [];
@@ -202,10 +200,10 @@ const recordsSearchFilter = (search, records) => {
     })
   ).forEach(entry =>
     searchResults.push(entry)
-  )
+  );
 
   return searchResults;
-}
+};
 
 const RecordsListView = (props, context) => {
   const {
@@ -213,7 +211,7 @@ const RecordsListView = (props, context) => {
     access = {
       creation: false,
       dna: false,
-      finger: false
+      finger: false,
     },
     onClickCreate = () => {},
     onClickPrint = (value) => {},
@@ -223,14 +221,14 @@ const RecordsListView = (props, context) => {
 
   const [
     searchText,
-    setSearchText
+    setSearchText,
   ] = useSharedState(context, "searchText", "");
 
   const filteredRecords = recordsSearchFilter(searchText, records);
 
   const shouldShowCreateButton = () => {
     return access.creation && searchText.length < 1;
-  }
+  };
 
   return (
     <Section
@@ -257,10 +255,10 @@ const RecordsListView = (props, context) => {
           <RecordsListViewEntry
             entry={{
               name: "Name",
-              job: "Job"
+              job: "Job",
             }}
             extras={[
-              (<Box width={6}>Actions</Box>)
+              (<Box key={0} width={6}>Actions</Box>),
             ]}
           />
         </Stack.Item>
@@ -268,12 +266,12 @@ const RecordsListView = (props, context) => {
           <Section fill scrollable>
             {!!filteredRecords.length && filteredRecords.map((entry) => (
               <Flex
+                key={entry.id}
                 direction="row"
                 justify="space-between"
               >
                 <Flex.Item>
                   <Button
-                    key={entry.id}
                     fluid
                     onClick={() => onClickRecord(entry.id)}
                   >
@@ -310,8 +308,8 @@ const RecordsListView = (props, context) => {
         </Stack.Item>
       </Stack>
     </Section>
-  )
-}
+  );
+};
 
 export const CrewRecordsProgram = (props, context) => {
   const { act, data } = useBackend(context);
@@ -323,7 +321,7 @@ export const CrewRecordsProgram = (props, context) => {
     dnaSearch,
     fingerSearch,
     active = null,
-    all_records = []
+    all_records = [],
   } = data;
 
   return (
@@ -335,23 +333,19 @@ export const CrewRecordsProgram = (props, context) => {
             active={active}
             canUpdatePhotos={pic_edit}
             onClickClose={() =>
-              act("close_record")
-            }
+              act("close_record")}
             onClickPrint={(uid) =>
               act("print_record", {
-                record: uid
-              })
-            }
+                record: uid,
+              })}
             onClickEditField={(field_id) =>
               act("update_record_field", {
-                field: field_id
-              })
-            }
+                field: field_id,
+              })}
             onClickUpdatePhoto={(target) =>
               act("update_record_photo", {
-                target: target
-              })
-            }
+                target: target,
+              })}
           />
         ) || (
           <RecordsListView
@@ -364,20 +358,17 @@ export const CrewRecordsProgram = (props, context) => {
             }}
             onClickRecord={(id) =>
               act("open_record", {
-                record: id
-              })
-            }
+                record: id,
+              })}
             onClickPrint={(uid) =>
               act("print_record", {
-                record: uid
-              })
-            }
+                record: uid,
+              })}
             onClickCreate={() =>
-              act("create_record")
-            }
+              act("create_record")}
           />
         )}
       </NtosWindow.Content>
     </NtosWindow>
-  )
-}
+  );
+};
