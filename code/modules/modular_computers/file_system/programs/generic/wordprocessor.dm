@@ -76,7 +76,7 @@
 
 	switch(action)
 		if("text_preview")
-			show_browser(usr,"<HTML><HEAD><TITLE>[open_file]</TITLE></HEAD>[pencode2html(loaded_data)]</BODY></HTML>", "window=[open_file]")
+			show_browser(usr, "<HTML><HEAD><TITLE>[open_file]</TITLE></HEAD>[pencode2html(loaded_data)]</BODY></HTML>", "window=[open_file]")
 			return TRUE
 		if("tag_help")
 			print_help_to_chat()
@@ -84,15 +84,10 @@
 		if("clear_error")
 			error = null
 			return TRUE
-		if("browse_files")
-			browsing = TRUE
-			return TRUE
 		if("open_file")
-			browsing = 0
 			var/target = params["target"]
 			if(!open_file(target))
 				error = "I/O error: Unable to open file '[target]'."
-
 		if("create_file")
 			var/newname = sanitize(params["file_name"])
 			if(!newname)
@@ -104,7 +99,6 @@
 				return TRUE
 			else
 				error = "I/O error: Unable to create file '[newname]'."
-
 		if("save_as_file")
 			var/newname = sanitize(params["file_name"])
 			if(!newname)
@@ -115,7 +109,6 @@
 			else
 				error = "I/O error: Unable to create file '[newname]'."
 			return TRUE
-
 		if("save_file")
 			if(!open_file)
 				open_file = sanitize(input(usr, "Enter file name:", "Save As") as text|null)
@@ -124,7 +117,6 @@
 			if(!save_file(open_file))
 				error = "I/O error: Unable to save file '[open_file]'."
 			return TRUE
-
 		if("edit_file")
 			var/oldtext = html_decode(loaded_data)
 			oldtext = replacetext(oldtext, "\[br\]", "\n")
@@ -135,7 +127,6 @@
 			loaded_data = newtext
 			is_edited = 1
 			return TRUE
-
 		if("print_file")
 			if(!computer.nano_printer)
 				error = "Missing Hardware: Your computer does not have the required hardware to complete this operation."
