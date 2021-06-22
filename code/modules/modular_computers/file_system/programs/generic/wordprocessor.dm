@@ -76,7 +76,8 @@
 
 	switch(action)
 		if("text_preview")
-			show_browser(usr, "<HTML><HEAD><TITLE>[open_file]</TITLE></HEAD>[pencode2html(loaded_data)]</BODY></HTML>", "window=[open_file]")
+			var/target = open_file || "Unnamed File"
+			show_browser(usr, "<HTML><HEAD><TITLE>Preview: [target]</TITLE></HEAD>[pencode2html(loaded_data)]</BODY></HTML>", "window=[target]")
 			return TRUE
 		if("tag_help")
 			print_help_to_chat()

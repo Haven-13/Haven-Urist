@@ -44,5 +44,7 @@
 	else
 		data["filedata"] = pencode2html(PRG.loaded_data)
 		data["filename"] = "UNNAMED"
+	data["fileexists"] = PRG.open_file != null
+	data["is_edited"] = PRG.is_edited
 
 	return data
