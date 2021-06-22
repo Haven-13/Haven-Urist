@@ -77,15 +77,15 @@ const WeaponEntry = (props, context) => {
               opacity={0.3}
             />
             {modes[key] && (
-              !!!modes[key].always_authorized &&
-              makeModeButton(modes[key])
+              !modes[key].always_authorized
+              && makeModeButton(modes[key])
               || (
                 <Button
                   compact
                   fluid
                   p={0}
                   backgroundColor={'transparent'}
-                  icon='stop'
+                  icon="stop"
                   tooltip={`${mode.name} always enabled`}
                 />
               )
@@ -95,7 +95,7 @@ const WeaponEntry = (props, context) => {
                 fluid
                 p={0}
                 backgroundColor={'transparent'}
-                icon='times'
+                icon="times"
                 tooltip={`${mode.name} unavailable`}
               />
             )}
