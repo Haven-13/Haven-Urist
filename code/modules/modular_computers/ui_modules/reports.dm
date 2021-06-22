@@ -16,7 +16,7 @@
 	switch(prog_state)
 		if(REPORTS_VIEW)
 			if(selected_report)
-				data["report_data"] = selected_report.generate_nano_data(get_access(user))
+				data["report_data"] = selected_report.generate_ui_json_data(get_access(user))
 			data["view_only"] = can_view_only
 			data["printer"] = program.computer.nano_printer
 		if(REPORTS_DOWNLOAD)

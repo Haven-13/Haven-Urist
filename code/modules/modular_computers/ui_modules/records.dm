@@ -10,18 +10,21 @@
 	var/list/user_access = get_record_access(user)
 
 	data["message"] = message
+	data["active"] = null
 	if(active_record)
 		send_rsc(user, active_record.photo_front, "front_[active_record.uid].png")
 		send_rsc(user, active_record.photo_side, "side_[active_record.uid].png")
 		data["pic_edit"] = check_access(user, access_bridge) || check_access(user, access_security)
-		data += active_record.generate_nano_data(user_access)
+		data["active"] = active_record.generate_ui_json_data(user_access)
 	else
 		var/list/all_records = list()
 
 		for(var/datum/computer_file/report/crew_record/R in GLOB.all_crew_records)
 			all_records.Add(list(list(
 				"name" = R.get_name(),
-				"rank" = R.get_job(),
+				"job" = R.get_job(),
+				"dna" = R.get_dna(),
+				"fingerprint" = R.get_fingerprint(),
 				"id" = R.uid
 			)))
 		data["all_records"] = all_records
@@ -41,7 +44,7 @@
 
 	return user_access
 
-/datum/ui_module/program/records/proc/edit_field(var/mob/user, var/field_ID)
+/datum/ui_module/program/records/proc/edit_field(var/mob/user, var/field_ID, var/field_value)
 	var/datum/computer_file/report/crew_record/R = active_record
 	if(!R)
 		return
@@ -53,64 +56,6 @@
 		return
 	F.ask_value(user)
 
-/datum/ui_module/program/records/Topic(href, href_list)
-	if(..())
-		return 1
-	if(href_list["clear_active"])
-		active_record = null
-		return 1
-	if(href_list["clear_message"])
-		message = null
-		return 1
-	if(href_list["set_active"])
-		var/ID = text2num(href_list["set_active"])
-		for(var/datum/computer_file/report/crew_record/R in GLOB.all_crew_records)
-			if(R.uid == ID)
-				active_record = R
-				break
-		return 1
-	if(href_list["new_record"])
-		if(!check_access(usr, access_bridge))
-			to_chat(usr, "Access Denied.")
-			return
-		active_record = new/datum/computer_file/report/crew_record()
-		GLOB.all_crew_records.Add(active_record)
-		return 1
-	if(href_list["print_active"])
-		if(!active_record)
-			return
-		print_text(record_to_html(active_record, get_record_access(usr)), usr)
-		return 1
-	if(href_list["search"])
-		var/field_name = href_list["search"]
-		var/search = sanitize(input("Enter the value for search for.") as null|text)
-		if(!search)
-			return
-		for(var/datum/computer_file/report/crew_record/R in GLOB.all_crew_records)
-			var/datum/report_field/field = R.field_from_name(field_name)
-			if(lowertext(field.get_value()) == lowertext(search))
-				active_record = R
-				return 1
-		message = "Unable to find record containing '[search]'"
-		return 1
-
-	var/datum/computer_file/report/crew_record/R = active_record
-	if(!istype(R))
-		return 1
-	if(href_list["edit_photo_front"])
-		var/photo = get_photo(usr)
-		if(photo && active_record)
-			active_record.photo_front = photo
-		return 1
-	if(href_list["edit_photo_side"])
-		var/photo = get_photo(usr)
-		if(photo && active_record)
-			active_record.photo_side = photo
-		return 1
-	if(href_list["edit_field"])
-		edit_field(usr, text2num(href_list["edit_field"]))
-		return 1
-
 /datum/ui_module/program/records/proc/get_photo(var/mob/user)
 	if(istype(user.get_active_hand(), /obj/item/weapon/photo))
 		var/obj/item/weapon/photo/photo = user.get_active_hand()
@@ -120,3 +65,52 @@
 		var/obj/item/weapon/photo/selection = tempAI.GetPicture()
 		if (selection)
 			return selection.img
+
+/datum/ui_module/program/records/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if (.)
+		return
+
+	switch(action)
+		if("open_record")
+			var/id = text2num(params["record"])
+			for(var/datum/computer_file/report/crew_record/R in GLOB.all_crew_records)
+				if(R.uid == id)
+					active_record = R
+					break
+			return TRUE
+		if("close_record")
+			active_record = null
+
+			return TRUE
+		if("create_record")
+			if(!check_access(usr, access_bridge))
+				to_chat(usr, "Access Denied.")
+				return FALSE
+
+			active_record = new/datum/computer_file/report/crew_record()
+			GLOB.all_crew_records.Add(active_record)
+			return TRUE
+		if("print_record")
+			var/id = text2num(params["record"])
+			var/record = null
+			for(var/datum/computer_file/report/crew_record/R in GLOB.all_crew_records)
+				if(R.uid == id)
+					record = R
+					break
+			print_text(record_to_html(record, get_record_access(usr)), usr)
+			return TRUE
+		if("update_record_photo")
+			var/target = params["target"]
+			var/photo = get_photo(usr)
+			if(photo && active_record)
+				switch(target)
+					if("front")
+						active_record.photo_front = photo
+					if("side")
+						active_record.photo_side = photo
+				return TRUE
+		if("update_record_field")
+			edit_field(usr, text2num(params["field"]), params["value"])
+			return TRUE
+

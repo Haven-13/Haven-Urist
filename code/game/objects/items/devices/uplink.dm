@@ -192,7 +192,7 @@
 
 		for(var/datum/computer_file/report/crew_record/L in GLOB.all_crew_records)
 			if(L.uid == exploit_id)
-				nanoui_data["exploit"] = L.generate_nano_data()
+				nanoui_data["exploit"] = L.generate_ui_json_data()
 				nanoui_data["exploit_exists"] = 1
 				break
 

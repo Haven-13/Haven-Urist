@@ -97,7 +97,7 @@
 			data["shuttle_name"] = selected_shuttle.name
 			data["mission_data"] = generate_mission_data(selected_mission)
 			if(selected_mission.flight_plan)
-				data["flight_plan"] = selected_mission.flight_plan.generate_nano_data()
+				data["flight_plan"] = selected_mission.flight_plan.generate_ui_json_data()
 				data["crew"] = selected_mission.flight_plan.manifest.get_value()
 			if(!(selected_mission.stage in list(SHUTTLE_MISSION_PLANNED, SHUTTLE_MISSION_QUEUED)))
 				var/other_reports = list()
@@ -117,7 +117,7 @@
 			if(!istype(selected_report))
 				prog_state = DECK_MISSION_DETAILS
 				return
-			data["report_data"] = selected_report.generate_nano_data(get_access(user))
+			data["report_data"] = selected_report.generate_ui_json_data(get_access(user))
 			data["shuttle_name"] = selected_shuttle.name
 			data["mission_data"] = generate_mission_data(selected_mission)
 			data["view_only"] = can_view_only
