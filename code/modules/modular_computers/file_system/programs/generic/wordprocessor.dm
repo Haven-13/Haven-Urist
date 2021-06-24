@@ -20,6 +20,7 @@
 	if(F)
 		open_file = F.filename
 		loaded_data = F.stored_data
+		is_edited = 0
 		return 1
 
 /datum/computer_file/program/wordprocessor/proc/save_file(var/filename)
@@ -86,7 +87,7 @@
 			error = null
 			return TRUE
 		if("open_file")
-			var/target = params["target"]
+			var/target = params["file_name"]
 			if(!open_file(target))
 				error = "I/O error: Unable to open file '[target]'."
 		if("create_file")

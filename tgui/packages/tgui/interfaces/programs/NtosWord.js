@@ -1,15 +1,18 @@
 import { useBackend, useSharedState } from "tgui/backend";
-import { Box, Button, Flex, Icon, Input, Modal, Section, Stack, TextArea } from "tgui/components";
+import { Box, Button, Flex, Icon, Input, LabeledList, Modal, Section, Stack, Tabs, TextArea } from "tgui/components";
 import { NtosWindow } from "tgui/layouts";
 
 const ErrorMessageModal = (props, context) => {
   const {
     message,
     onClick = () => {},
+    ...rest
   } = props;
 
   return (
-    <Modal>
+    <Modal
+      {...rest}
+    >
       <Section
         fitted
         title="Error"
@@ -43,22 +46,129 @@ const ErrorMessageModal = (props, context) => {
 
 const FileBrowserView = (props, context) => {
   const {
-    onAccept=() => {},
+    files={
+      local: [],
+      usb: null,
+    },
+    onAccept=(file) => {},
     onCancel=() => {},
+    ...rest
   } = props;
+
+  const DEVICES = {
+    LOCAL: "local",
+    USB: "usb",
+  };
 
   const [
     selectedDevice,
     setSelectedDevice,
-  ] = useSharedState(context, "selectedDevice", "local");
+  ] = useSharedState(context, "selectedDevice", DEVICES.LOCAL);
 
   const [
     selectedFile,
     setSelectedFile,
   ] = useSharedState(context, "selectedFile", null);
 
+  const changeTab = (selected) => {
+    setSelectedFile(null);
+    setSelectedDevice(selected);
+  };
+
+  const filesToDisplay = () => {
+    switch (selectedDevice) {
+      default:
+      case DEVICES.LOCAL:
+        return files.local;
+      case DEVICES.USB:
+        return files.usb;
+    }
+  };
+
   return (
-    <Modal />
+    <Modal
+      p={0}
+      {...rest}
+    >
+      <Section
+        title="Open document file"
+        buttons={
+          <Button
+            icon="times"
+            onClick={() => onCancel()}
+          />
+        }
+      >
+        <Stack vertical>
+          <Stack.Item>
+            <Tabs>
+              <Tabs.Tab
+                selected={selectedDevice === DEVICES.LOCAL}
+                onClick={() => changeTab(DEVICES.LOCAL)}
+              >
+                Local
+              </Tabs.Tab>
+              {!!files.usb && (
+                <Tabs.Tab
+                  selected={selectedDevice === DEVICES.USB}
+                  onClick={() => changeTab(DEVICES.USB)}
+                >
+                  USB device
+                </Tabs.Tab>
+              )}
+            </Tabs>
+          </Stack.Item>
+          <Stack.Item>
+            <Stack vertical>
+              {filesToDisplay().map((entry, index) => (
+                <Stack.Item key={index}>
+                  <Button.Checkbox
+                    fluid
+                    checked={selectedFile === entry.name}
+                    onClick={() => setSelectedFile(entry.name)}
+                  >
+                    <Flex
+                      direction="row"
+                      justify="space-between"
+                    >
+                      <Flex.Item>
+                        {entry.name}
+                      </Flex.Item>
+                      <Flex.Item>
+                        {entry.size}
+                      </Flex.Item>
+                    </Flex>
+                  </Button.Checkbox>
+                </Stack.Item>
+              ))}
+            </Stack>
+          </Stack.Item>
+          <Stack.Item>
+            <Flex
+              direction="row"
+              justify="space-between"
+            >
+              <Flex.Item grow>
+                <LabeledList>
+                  <LabeledList.Item
+                    label="Selected"
+                  >
+                    {!!selectedFile && selectedFile}
+                  </LabeledList.Item>
+                </LabeledList>
+              </Flex.Item>
+              <Flex.Item>
+                <Button
+                  content="Open"
+                  disabled={!selectedFile}
+                  onClick={() => onAccept(selectedFile)}
+                />
+              </Flex.Item>
+            </Flex>
+          </Stack.Item>
+        </Stack>
+      </Section>
+    </Modal>
   );
 };
 
@@ -67,10 +177,14 @@ const UnsavedWarningModal = (props, context) => {
     onYes = () => {},
     onNo = () => {},
     onCancel = () => {},
+    ...rest
   } = props;
 
   return (
-    <Modal>
+    <Modal
+      p={0}
+      {...rest}
+    >
       <Section
         title="Warning"
       >
@@ -112,6 +226,7 @@ const FileNamePromptModal = (props, context) => {
     value,
     onCancel,
     onAccept,
+    ...rest
   } = props;
 
   const [
@@ -120,9 +235,12 @@ const FileNamePromptModal = (props, context) => {
   ] = useSharedState(context, "currentInput", value);
 
   return (
-    <Modal>
+    <Modal
+      p={0}
+      {...rest}
+    >
       <Section
-        title={title}
+        title={currentInput}
       >
         <Stack vertical>
           <Stack.Item>
@@ -136,7 +254,7 @@ const FileNamePromptModal = (props, context) => {
               <Flex.Item>
                 <Button
                   content="Proceed"
-                  onClick={() => onAccept()}
+                  onClick={() => onAccept(currentInput)}
                 />
               </Flex.Item>
               <Flex.Item>
@@ -173,6 +291,11 @@ export const NtosWord = (props, context) => {
   ] = useSharedState(context, "currentFileName", filename);
 
   const [
+    nextOpenFileName,
+    setNextOpenFileName,
+  ] = useSharedState(context, "nextOPenFileName", null);
+
+  const [
     isWarningPromptOpen,
     setIsWarningPromptOpen,
   ] = useSharedState(context, "isWarningPromptOpen", false);
@@ -187,11 +310,6 @@ export const NtosWord = (props, context) => {
     setIsFileBrowserOpen,
   ] = useSharedState(context, "isFileBrowserOpen", false);
 
-  const [
-    nextAction,
-    setNextAction,
-  ] = useSharedState(context, "nextAction", () => {});
-
   const openWarningPrompt = () => setIsWarningPromptOpen(true);
   const closeWarningPrompt = () => setIsWarningPromptOpen(false);
 
@@ -201,12 +319,69 @@ export const NtosWord = (props, context) => {
   const openFileNamePrompt = () => setIsFileNamePromptOpen(true);
   const closeFileNamePrompt = () => setIsFileNamePromptOpen(false);
 
-  const saveAsFile = () => act("save_as_file", { file_name: currentFileName });
+  /*
+  * Messy? Yes.
+  * Insecure? Probably.
+  * Is it necessary? Very yes.
+  * Why? Because fuck you. And you, Bay, for thinking having a fucking
+  * Word Processor ingame, like holy shit why.
+  *
+  * And fuck you JSON and Javascript for not supporting function signatures,
+  * so anonymous or functions cannot be stored then executed.
+  * It is more secure this way, but still. Holy shit.
+  */
+  const NEXT_ACTION = {
+    noOperation: {
+      function: () => {}
+    },
+    createNewFile: {
+      function: (newFileName) => {
+        act("create_file", {file_name: newFileName});
+      }
+    },
+    saveAsFile: {
+      function: (newFileName) => {
+        act("save_as_file", {file_name: newFileName});
+      }
+    },
+    openFileAfterWarning: {
+      function: (nextOpenFileName) => {
+        act("open_file", {file_name: nextOpenFileName});
+        setNextOpenFileName(null);
+      }
+    }
+  }
+
+  function doNext(next) {
+    let nextActionKey = Object.keys(NEXT_ACTION).filter((k) => {
+      return NEXT_ACTION[k] === next;
+    })[0];
+    setNextActionKey(nextActionKey);
+  };
+
+  function callNextAction(...params) {
+    NEXT_ACTION[nextActionKey].function(...params);
+    doNext(NEXT_ACTION.noOperation);
+  };
+
+  const [
+    nextActionKey,
+    setNextActionKey,
+  ] = useSharedState(context, "nextActionKey", NEXT_ACTION.noOperation);
+
+  function saveFile() {
+    if (!fileexists) {
+      openFileNamePrompt();
+      doNext(NEXT_ACTION.saveAsFile)
+    } else {
+      act("save_file");
+    }
+  }
 
   return (
     <NtosWindow
-      width={400}
-      height={450}
+      width={550}
+      height={650}
     >
       <NtosWindow.Content>
         {!!error && (
@@ -218,12 +393,12 @@ export const NtosWord = (props, context) => {
         {!!isWarningPromptOpen && (
           <UnsavedWarningModal
             onYes={() => {
-              saveAsFile();
-              nextAction();
+              saveFile();
+              callNextAction(nextOpenFileName);
               closeWarningPrompt();
             }}
             onNo={() => {
-              nextAction();
+              callNextAction(nextOpenFileName);
               closeWarningPrompt();
             }}
             onCancel={() => {
@@ -233,16 +408,21 @@ export const NtosWord = (props, context) => {
         )}
         {!!isFileBrowserOpen && (
           <FileBrowserView
+            width={40}
+
+            files={{
+              local: files,
+              usb: usbconnected && usbfiles || null,
+            }}
             onAccept={(file) => {
               closeFileBrowser();
+              setNextOpenFileName(file);
 
               if (is_edited) {
                 openWarningPrompt();
-                setNextAction(() => act("open_file", { target: file }));
+                doNext(NEXT_ACTION.openFileAfterWarning);
               } else {
-                act("open_file", {
-                  target: file,
-                });
+                NEXT_ACTION.openFileAfterWarning.function();
               }
             }}
             onCancel={() => closeFileBrowser()}
@@ -254,7 +434,7 @@ export const NtosWord = (props, context) => {
             onAccept={(value) => {
               setCurrentFileName(value);
               closeFileNamePrompt();
-              nextAction();
+              callNextAction(value);
             }}
             onCancel={() => {
               closeFileNamePrompt();
@@ -295,11 +475,7 @@ export const NtosWord = (props, context) => {
                     content="New"
                     onClick={() => {
                       openFileNamePrompt();
-                      setNextAction(() => {
-                        act("create_file", {
-                          file_name: currentFileName,
-                        });
-                      });
+                      doNext(NEXT_ACTION.createNewFile);
                     }}
                   />
                 </Flex.Item>
@@ -312,14 +488,7 @@ export const NtosWord = (props, context) => {
                 <Flex.Item>
                   <Button
                     content="Save"
-                    onClick={() => {
-                      if (!fileexists) {
-                        openFileNamePrompt();
-                        saveAsFile();
-                      } else {
-                        act("save_file");
-                      }
-                    }}
+                    onClick={() => saveFile()}
                   />
                 </Flex.Item>
                 <Flex.Item>
@@ -327,7 +496,7 @@ export const NtosWord = (props, context) => {
                     content="Save As"
                     onClick={() => {
                       openFileNamePrompt();
-                      setNextAction(() => saveAsFile());
+                      doNext(NEXT_ACTION.saveAsFile)
                     }}
                   />
                 </Flex.Item>

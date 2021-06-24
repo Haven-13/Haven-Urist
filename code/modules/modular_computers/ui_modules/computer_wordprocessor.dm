@@ -12,7 +12,6 @@
 
 	data["error"] = PRG.error
 
-	data["browsing"] = PRG.browsing
 	if(!PRG.computer || !PRG.computer.hard_drive)
 		data["error"] = "I/O ERROR: Unable to access hard drive."
 	else
@@ -27,8 +26,9 @@
 		data["files"] = files
 
 		RHDD = PRG.computer.portable_drive
+		data["usbconnected"] = !!RHDD
+		data["usbfiles"] = list()
 		if(RHDD)
-			data["usbconnected"] = 1
 			var/list/usbfiles[0]
 			for(var/datum/computer_file/F in RHDD.stored_files)
 				if(F.filetype == "TXT")
@@ -40,11 +40,12 @@
 
 	if(PRG.open_file)
 		data["filedata"] = pencode2html(PRG.loaded_data)
-		data["filename"] = PRG.is_edited ? "[PRG.open_file]*" : PRG.open_file
+		data["filename"] = PRG.open_file
 	else
 		data["filedata"] = pencode2html(PRG.loaded_data)
 		data["filename"] = "UNNAMED"
-	data["fileexists"] = PRG.open_file != null
+
+	data["fileexists"] = !!PRG.open_file
 	data["is_edited"] = PRG.is_edited
 
 	return data
