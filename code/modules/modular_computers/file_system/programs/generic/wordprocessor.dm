@@ -120,10 +120,7 @@
 				error = "I/O error: Unable to save file '[open_file]'."
 			return TRUE
 		if("edit_file")
-			var/oldtext = html_decode(loaded_data)
-			oldtext = replacetext(oldtext, "\[br\]", "\n")
-
-			var/newtext = sanitize(replacetext(params["text"], "\n", "\[br\]", MAX_TEXTFILE_LENGTH))
+			var/newtext = sanitize(replacetext(params["text"], "\n", "\[br\]"), MAX_TEXTFILE_LENGTH)
 			if(!newtext)
 				return FALSE
 			loaded_data = newtext

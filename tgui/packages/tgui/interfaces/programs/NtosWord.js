@@ -46,6 +46,7 @@ const ErrorMessageModal = (props, context) => {
 
 const FileBrowserView = (props, context) => {
   const {
+    currentFileName,
     files={
       local: [],
       usb: null,
@@ -91,6 +92,7 @@ const FileBrowserView = (props, context) => {
       {...rest}
     >
       <Section
+        fill
         title="Open document file"
         buttons={
           <Button
@@ -99,9 +101,13 @@ const FileBrowserView = (props, context) => {
           />
         }
       >
-        <Stack vertical>
+        <Stack
+          vertical
+          fill
+          justify="space-between"
+        >
           <Stack.Item>
-            <Tabs>
+            <Tabs fluid>
               <Tabs.Tab
                 selected={selectedDevice === DEVICES.LOCAL}
                 onClick={() => changeTab(DEVICES.LOCAL)}
@@ -118,30 +124,36 @@ const FileBrowserView = (props, context) => {
               )}
             </Tabs>
           </Stack.Item>
-          <Stack.Item>
-            <Stack vertical>
-              {filesToDisplay().map((entry, index) => (
-                <Stack.Item key={index}>
-                  <Button.Checkbox
-                    fluid
-                    checked={selectedFile === entry.name}
-                    onClick={() => setSelectedFile(entry.name)}
-                  >
-                    <Flex
-                      direction="row"
-                      justify="space-between"
+          <Stack.Item grow>
+            <Section fill scrollable>
+              <Stack vertical>
+                {filesToDisplay().map((entry, index) => (
+                  <Stack.Item key={index} mt={0}>
+                    <Button.Checkbox
+                      fluid
+                      lineHeight={2}
+                      disabled={entry.name === currentFileName}
+                      checked={selectedFile === entry.name}
+                      onClick={() => setSelectedFile(entry.name)}
                     >
-                      <Flex.Item>
-                        {entry.name}
-                      </Flex.Item>
-                      <Flex.Item>
-                        {entry.size}
-                      </Flex.Item>
-                    </Flex>
-                  </Button.Checkbox>
-                </Stack.Item>
-              ))}
-            </Stack>
+                      <Flex
+                        inline
+                        width="95%"
+                        direction="row"
+                        justify="space-between"
+                      >
+                        <Flex.Item>
+                          {entry.name}
+                        </Flex.Item>
+                        <Flex.Item>
+                          {entry.size}
+                        </Flex.Item>
+                      </Flex>
+                    </Button.Checkbox>
+                  </Stack.Item>
+                ))}
+              </Stack>
+            </Section>
           </Stack.Item>
           <Stack.Item>
             <Flex
@@ -193,21 +205,28 @@ const UnsavedWarningModal = (props, context) => {
             You have unsaved progress on your file. Do you want to save?
           </Stack.Item>
           <Stack.Item>
-            <Flex>
+            <Flex
+              fluid
+              direction="row"
+              justify="space-between"
+            >
               <Flex.Item>
                 <Button
+                  width={8}
                   content="Yes"
                   onClick={() => onYes()}
                 />
               </Flex.Item>
               <Flex.Item>
                 <Button
+                  width={8}
                   content="No"
                   onClick={() => onNo()}
                 />
               </Flex.Item>
               <Flex.Item>
                 <Button
+                  width={8}
                   content="Cancel"
                   onClick={() => onCancel()}
                 />
@@ -240,18 +259,22 @@ const FileNamePromptModal = (props, context) => {
       {...rest}
     >
       <Section
-        title={currentInput}
+        title={title}
       >
         <Stack vertical>
           <Stack.Item>
             <Input
+              fluid
               value={currentInput}
               onInput={(e, v) => setCurrentInput(v)}
             />
           </Stack.Item>
           <Stack.Item>
-            <Flex>
-              <Flex.Item>
+            <Flex
+              direction="row"
+              justify="flex-end"
+            >
+              <Flex.Item mr={2}>
                 <Button
                   content="Proceed"
                   onClick={() => onAccept(currentInput)}
@@ -392,6 +415,7 @@ export const NtosWord = (props, context) => {
         )}
         {!!isWarningPromptOpen && (
           <UnsavedWarningModal
+            width={30}
             onYes={() => {
               saveFile();
               callNextAction(nextOpenFileName);
@@ -409,7 +433,7 @@ export const NtosWord = (props, context) => {
         {!!isFileBrowserOpen && (
           <FileBrowserView
             width={40}
-
+            height={35}
             files={{
               local: files,
               usb: usbconnected && usbfiles || null,
@@ -422,7 +446,7 @@ export const NtosWord = (props, context) => {
                 openWarningPrompt();
                 doNext(NEXT_ACTION.openFileAfterWarning);
               } else {
-                NEXT_ACTION.openFileAfterWarning.function();
+                NEXT_ACTION.openFileAfterWarning.function(file);
               }
             }}
             onCancel={() => closeFileBrowser()}
@@ -430,6 +454,7 @@ export const NtosWord = (props, context) => {
         )}
         {!!isFilenamePromptOpen && (
           <FileNamePromptModal
+            width={30}
             value={currentFileName}
             onAccept={(value) => {
               setCurrentFileName(value);
@@ -444,10 +469,10 @@ export const NtosWord = (props, context) => {
         <Section fill>
           <Stack vertical fill>
             <Stack.Item>
-              <Flex>
-                <Flex.Item>
+              <Flex pl={2} pr={2}>
+                <Flex.Item grow>
                   <Box bold>
-                    {filename}
+                    {filename}{!!is_edited && "*"}
                   </Box>
                 </Flex.Item>
                 <Flex.Item>
@@ -469,6 +494,7 @@ export const NtosWord = (props, context) => {
             <Stack.Item>
               <Flex
                 direction="row"
+                justify="space-between"
               >
                 <Flex.Item>
                   <Button
@@ -500,7 +526,7 @@ export const NtosWord = (props, context) => {
                     }}
                   />
                 </Flex.Item>
-                <Flex.Item />
+                <Flex.Item width={10} />
                 <Flex.Item>
                   <Button
                     content="Preview"

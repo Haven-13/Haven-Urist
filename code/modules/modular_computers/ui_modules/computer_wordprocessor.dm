@@ -39,10 +39,10 @@
 			data["usbfiles"] = usbfiles
 
 	if(PRG.open_file)
-		data["filedata"] = pencode2html(PRG.loaded_data)
+		data["filedata"] = replacetext(PRG.loaded_data, "\[br\]", "\n")
 		data["filename"] = PRG.open_file
 	else
-		data["filedata"] = pencode2html(PRG.loaded_data)
+		data["filedata"] = replacetext(PRG.loaded_data, "\[br\]", "\n")
 		data["filename"] = "UNNAMED"
 
 	data["fileexists"] = !!PRG.open_file
