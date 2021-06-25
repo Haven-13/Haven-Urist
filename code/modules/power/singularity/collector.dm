@@ -146,11 +146,11 @@ var/global/list/rad_collectors = list()
 /obj/machinery/power/rad_collector/proc/update_icons()
 	overlays.Cut()
 	if(P)
-		overlays += image('icons/obj/singularity.dmi', "ptank")
+		overlays += mutable_appearance(icon, "ptank")
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(active)
-		overlays += image('icons/obj/singularity.dmi', "on")
+		overlays += mutable_appearance(icon, "on")
 
 
 /obj/machinery/power/rad_collector/proc/toggle_power()
@@ -242,12 +242,8 @@ var/global/list/rad_collectors = list()
 /obj/machinery/power/rad_collector/pipenet/update_icons()
 	overlays.Cut()
 	if(pipe)
-		overlays += image('icons/obj/singularity.dmi', "ptank")
+		overlays += mutable_appearance(icon, "ptank")
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(active)
-		overlays += image('icons/obj/singularity.dmi', "on")
-
-
-
-
+		overlays += mutable_appearance(icon, "on")

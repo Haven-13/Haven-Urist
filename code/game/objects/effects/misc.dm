@@ -63,9 +63,11 @@
 	if(istype(W))
 		W.stripe_color = color
 		W.update_icon()
-	var/obj/structure/wall_frame/WF = locate() in loc
-	if(WF)
-		WF.stripe_color = color
+	else
+		var/obj/structure/wall_frame/WF = locate() in loc
+		if(WF)
+			WF.stripe_color = color
+			WF.update_icon()
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/paint_stripe/green
