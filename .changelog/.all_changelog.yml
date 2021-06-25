@@ -169,3 +169,11 @@
   - rscdel: Removed Skillsets
   - rscdel: Removed Matchmaking
   - rscdel: Removed Military Branches & Ranks
+2021-06-25:
+  martinlyra:
+  - bugfix: Fixed wall-frame stripes
+  - bugfix: Fixed the white floor decals, in the operating theatres, being of wrong
+      colour
+  - imageadd: Changed the old IV-drip to a new one, with bigger status display and
+      additional states for when no beaker is attached.
+  - code_imp: Added support for mutable_appearance
