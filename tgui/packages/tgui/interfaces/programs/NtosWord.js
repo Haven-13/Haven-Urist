@@ -355,34 +355,34 @@ export const NtosWord = (props, context) => {
   */
   const NEXT_ACTION = {
     noOperation: {
-      function: () => {}
+      function: () => {},
     },
     createNewFile: {
       function: (newFileName) => {
-        act("create_file", {file_name: newFileName});
-      }
+        act("create_file", { file_name: newFileName });
+      },
     },
     saveAsFile: {
       function: (newFileName) => {
-        act("save_as_file", {file_name: newFileName});
-      }
+        act("save_as_file", { file_name: newFileName });
+      },
     },
     openFileAfterWarning: {
       function: (nextOpenFileName) => {
-        act("open_file", {file_name: nextOpenFileName});
+        act("open_file", { file_name: nextOpenFileName });
         setNextOpenFileName(null);
-      }
-    }
-  }
+      },
+    },
+  };
 
-  function doNext(next) {
+  const doNext = (next) => {
     let nextActionKey = Object.keys(NEXT_ACTION).filter((k) => {
       return NEXT_ACTION[k] === next;
     })[0];
     setNextActionKey(nextActionKey);
   };
 
-  function callNextAction(...params) {
+  const callNextAction = (...params) => {
     NEXT_ACTION[nextActionKey].function(...params);
     doNext(NEXT_ACTION.noOperation);
   };
@@ -392,14 +392,14 @@ export const NtosWord = (props, context) => {
     setNextActionKey,
   ] = useSharedState(context, "nextActionKey", NEXT_ACTION.noOperation);
 
-  function saveFile() {
+  const saveFile = () => {
     if (!fileexists) {
       openFileNamePrompt();
-      doNext(NEXT_ACTION.saveAsFile)
+      doNext(NEXT_ACTION.saveAsFile);
     } else {
       act("save_file");
     }
-  }
+  };
 
   return (
     <NtosWindow
@@ -522,7 +522,7 @@ export const NtosWord = (props, context) => {
                     content="Save As"
                     onClick={() => {
                       openFileNamePrompt();
-                      doNext(NEXT_ACTION.saveAsFile)
+                      doNext(NEXT_ACTION.saveAsFile);
                     }}
                   />
                 </Flex.Item>
