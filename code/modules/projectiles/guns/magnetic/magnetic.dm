@@ -53,17 +53,17 @@
 	var/list/overlays_to_add = list()
 	if(removable_components)
 		if(cell)
-			overlays_to_add += image(icon, "[icon_state]_cell")
+			overlays_to_add += mutable_appearance(icon, "[icon_state]_cell")
 		if(capacitor)
-			overlays_to_add += image(icon, "[icon_state]_capacitor")
+			overlays_to_add += mutable_appearance(icon, "[icon_state]_capacitor")
 	if(!cell || !capacitor)
-		overlays_to_add += image(icon, "[icon_state]_red")
+		overlays_to_add += mutable_appearance(icon, "[icon_state]_red")
 	else if(capacitor.charge < power_cost)
-		overlays_to_add += image(icon, "[icon_state]_amber")
+		overlays_to_add += mutable_appearance(icon, "[icon_state]_amber")
 	else
-		overlays_to_add += image(icon, "[icon_state]_green")
+		overlays_to_add += mutable_appearance(icon, "[icon_state]_green")
 	if(loaded)
-		overlays_to_add += image(icon, "[icon_state]_loaded")
+		overlays_to_add += mutable_appearance(icon, "[icon_state]_loaded")
 
 	overlays = overlays_to_add
 	..()
