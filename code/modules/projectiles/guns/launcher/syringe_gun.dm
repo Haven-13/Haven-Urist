@@ -15,7 +15,7 @@
 /obj/item/weapon/syringe_cartridge/update_icon()
 	underlays.Cut()
 	if(syringe)
-		underlays += image(syringe.icon, src, syringe.icon_state)
+		underlays += mutable_appearance(syringe.icon, syringe.icon_state)
 		underlays += syringe.filling
 
 /obj/item/weapon/syringe_cartridge/attackby(obj/item/I, mob/user)

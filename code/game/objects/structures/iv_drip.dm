@@ -9,6 +9,10 @@
 	var/list/transfer_amounts = list(REM, 1, 2)
 	var/transfer_amount = 1
 
+/obj/structure/iv_drip/Initialize()
+	. = ..()
+	queue_icon_update()
+
 /obj/structure/iv_drip/verb/set_APTFT()
 	set name = "Set IV transfer amount"
 	set category = "Object"
@@ -18,32 +22,44 @@
 		transfer_amount = N
 
 /obj/structure/iv_drip/queue_icon_update()
-	if(attached)
-		icon_state = "hooked"
-	else
-		icon_state = ""
-
 	overlays.Cut()
+
+	var/mutable_appearance/base = mutable_appearance(icon, "nothing")
+	base.icon_state = "[!!beaker && "beaker" || "nothing"][!!attached && "_hooked" || ""]"
+	overlays += base
 
 	if(beaker)
 		var/datum/reagents/reagents = beaker.reagents
 		var/percent = round((reagents.total_volume / beaker.volume) * 100)
 		if(reagents.total_volume)
-			var/image/filling = image('icons/obj/iv_drip.dmi', src, "reagent")
-
+			var/mutable_appearance/filling = mutable_appearance(icon, "reagent")
 			switch(percent)
-				if(0 to 9)		filling.icon_state = "reagent0"
-				if(10 to 24) 	filling.icon_state = "reagent10"
-				if(25 to 49)	filling.icon_state = "reagent25"
-				if(50 to 74)	filling.icon_state = "reagent50"
-				if(75 to 79)	filling.icon_state = "reagent75"
-				if(80 to 90)	filling.icon_state = "reagent80"
-				if(91 to INFINITY)	filling.icon_state = "reagent100"
-			filling.icon += reagents.get_color()
+				if(0)
+					filling.icon_state = "reagentempty"
+				if(1 to 9)
+					filling.icon_state = "reagent0"
+				if(10 to 24)
+					filling.icon_state = "reagent10"
+				if(25 to 49)
+					filling.icon_state = "reagent25"
+				if(50 to 74)
+					filling.icon_state = "reagent50"
+				if(75 to 79)
+					filling.icon_state = "reagent75"
+				if(80 to 90)
+					filling.icon_state = "reagent80"
+				if(91 to INFINITY)
+					filling.icon_state = "reagent100"
+			filling.color = reagents.get_color()
 			overlays += filling
 
+		// I know this is bad, but fuck it
+		if(istype(beaker, /obj/item/weapon/reagent_containers/ivbag))
+			var/mutable_appearance/ivbaglabel = mutable_appearance(icon, "ivbag_label")
+			overlays += ivbaglabel
+
 		if(attached)
-			var/image/light = image('icons/obj/iv_drip.dmi', "light_full")
+			var/mutable_appearance/light = mutable_appearance(icon, "light_full")
 			if(percent < 15)
 				light.icon_state = "light_low"
 			else if(percent < 60)
@@ -192,4 +208,5 @@
 /obj/structure/iv_drip/proc/hook_up(mob/living/carbon/human/target, mob/user)
 	visible_message("\The [usr] hooks \the [target] up to \the [src].")
 	attached = target
+	queue_icon_update()
 	START_PROCESSING(SSobj,src)

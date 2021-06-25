@@ -39,9 +39,8 @@
 		desc = "A fuel rod for a fusion reactor. This one is made from [fuel_type]."
 
 	icon_state = "blank"
-	var/image/I = image(icon, "fuel_assembly")
-	I.color = fuel_colour
-	overlays += list(I, image(icon, "fuel_assembly_bracket"))
+	overlays += mutable_appearance(icon, "fuel_assembly", fuel_colour)
+	overlays += mutable_appearance(icon, "fuelassembly_bracket")
 	rod_quantities[fuel_type] = initial_amount
 
 /obj/item/weapon/fuel_assembly/Process()
