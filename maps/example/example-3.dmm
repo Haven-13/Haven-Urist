@@ -186,6 +186,13 @@
 /obj/machinery/ntnet_relay,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
+"L" = (
+/obj/structure/lattice,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/space,
+/area/space)
 "Q" = (
 /obj/effect/shuttle_landmark/upper_level,
 /turf/space,
@@ -200,6 +207,17 @@
 /obj/structure/ladder,
 /turf/space,
 /area/space)
+"V" = (
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
+/turf/space,
+/area/space)
+"W" = (
+/obj/structure/lattice,
+/obj/machinery/camera/autoname,
+/turf/simulated/open,
+/area/maintenance/fsmaint2)
 "X" = (
 /obj/effect/landmark/map_data{
 	height = 3
@@ -770,7 +788,7 @@ F
 a
 a
 a
-F
+L
 a
 a
 a
@@ -1034,7 +1052,7 @@ a
 F
 F
 c
-f
+W
 f
 g
 g
@@ -1314,7 +1332,7 @@ c
 F
 a
 a
-a
+V
 a
 a
 a

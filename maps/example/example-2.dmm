@@ -159,11 +159,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
-"az" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/structure/closet/secure_closet/freezer/meat,
-/turf/simulated/floor/tiled/white,
-/area/medical/surgery)
 "aA" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/mecha_part_fabricator,
@@ -348,9 +343,24 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/medical/surgery)
+"hN" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
 "uS" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/ntnet_relay,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
+"EG" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "Ij" = (
@@ -988,7 +998,7 @@ ad
 al
 ao
 at
-az
+EG
 aF
 aJ
 ai
@@ -1400,7 +1410,7 @@ ai
 aI
 ai
 aM
-ai
+hN
 aQ
 ai
 ai
