@@ -36,7 +36,7 @@
 		. = max(., S.get_status())
 
 /datum/ui_module/program/supermatter_monitor/ui_data(mob/user)
-	var/list/data = host.initial_data()
+	. = host.initial_data()
 
 	if(istype(active))
 		var/turf/T = get_turf(active)
@@ -48,30 +48,24 @@
 			active = null
 			return
 
-		data["active"] = 1
-		data["SM_integrity"] = active.get_integrity()
-		data["SM_power"] = active.power
-		data["SM_ambienttemp"] = air.temperature
-		data["SM_ambientpressure"] = air.return_pressure()
-		data["SM_EPR"] = active.get_epr()
-		data["SM_PHO"] = round(active.phoron_release_modifier / 15, 0.1)
-		data["SM_RAD"] = active.radiation_release_modifier
-		if(air.total_moles)
-			data["SM_gas_O2"] = round(100*air.gas["oxygen"]/air.total_moles,0.01)
-			data["SM_gas_CO2"] = round(100*air.gas["carbon_dioxide"]/air.total_moles,0.01)
-			data["SM_gas_N2"] = round(100*air.gas["nitrogen"]/air.total_moles,0.01)
-			data["SM_gas_PH"] = round(100*air.gas["phoron"]/air.total_moles,0.01)
-			data["SM_gas_N2O"] = round(100*air.gas["sleeping_agent"]/air.total_moles,0.01)
-			data["SM_gas_H2"] = round(100*air.gas["hydrogen"]/air.total_moles,0.01)
-			data["SM_gas_CH3BR"] = round(100*air.gas["methyl_bromide"]/air.total_moles,0.01)
-		else
-			data["SM_gas_O2"] = 0
-			data["SM_gas_CO2"] = 0
-			data["SM_gas_N2"] = 0
-			data["SM_gas_PH"] = 0
-			data["SM_gas_N2O"] = 0
-			data["SM_gas_H2"] = 0
-			data["SM_gas_CH3BR"] = 0
+		.["active"] = 1
+		.["SM_integrity"] = active.get_integrity()
+		.["SM_power"] = active.power
+		.["SM_ambienttemp"] = air.temperature
+		.["SM_ambientpressure"] = air.return_pressure()
+		.["SM_EPR"] = active.get_epr()
+		.["SM_PHO"] = round(active.phoron_release_modifier / 15, 0.1)
+		.["SM_RAD"] = active.radiation_release_modifier
+		.["SM_atmosphere"] = list(
+			"total_moles" = air.total_moles,
+			"composition" = list()
+		)
+		for (var/gas in air.gas)
+			.["SM_atmosphere"]["composition"] += list(list(
+				"id" = gas,
+				"moles" = !!air.total_moles && air.gas[gas] || 0
+			))
+
 	else
 		var/list/SMS = list()
 		for(var/obj/machinery/power/supermatter/S in supermatters)
@@ -80,28 +74,28 @@
 				continue
 
 			SMS.Add(list(list(
-			"area_name" = A.name,
-			"integrity" = S.get_integrity(),
-			"uid" = S.uid
+				"area_name" = A.name,
+				"integrity" = S.get_integrity(),
+				"uid" = S.uid
 			)))
 
-		data["active"] = 0
-		data["supermatters"] = SMS
+		.["active"] = 0
+		.["supermatters"] = SMS
 
-	return data
-
-/datum/ui_module/program/supermatter_monitor/Topic(href, href_list)
+/datum/ui_module/program/supermatter_monitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
-		return 1
-	if( href_list["clear"] )
-		active = null
-		return 1
-	if( href_list["refresh"] )
-		refresh()
-		return 1
-	if( href_list["set"] )
-		var/newuid = text2num(href_list["set"])
-		for(var/obj/machinery/power/supermatter/S in supermatters)
-			if(S.uid == newuid)
-				active = S
-		return 1
+		return TRUE
+
+	switch(action)
+		if("clear_active")
+			active = null
+			return TRUE
+		if("refresh")
+			refresh()
+			return TRUE
+		if("set_active")
+			var/newuid = text2num(params["value"])
+			for(var/obj/machinery/power/supermatter/S in supermatters)
+				if(S.uid == newuid)
+					active = S
+			return TRUE

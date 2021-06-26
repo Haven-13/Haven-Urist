@@ -157,10 +157,10 @@ const GASES = [
     'color': 'grey',
   },
   {
-    'id': 'plasma',
-    'name': 'Plasma',
-    'label': 'Plasma',
-    'color': 'pink',
+    'id': 'phoron',
+    'name': 'Phoron',
+    'label': 'Phoron',
+    'color': 'orange',
   },
   {
     'id': 'water_vapor',

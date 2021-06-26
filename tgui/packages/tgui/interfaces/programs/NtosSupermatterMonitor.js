@@ -1,4 +1,5 @@
 import { sortBy } from 'common/collections';
+import { round } from 'common/math';
 import { flow } from 'common/fp';
 import { toFixed } from 'common/math';
 import { useBackend } from "tgui/backend";
@@ -29,6 +30,10 @@ export const NtosSupermatterMonitorContent = (props, context) => {
     SM_power,
     SM_ambienttemp,
     SM_ambientpressure,
+    SM_atmosphere = {
+      total_moles: 0,
+      composition: [],
+    },
   } = data;
   if (!active) {
     return (
@@ -36,10 +41,15 @@ export const NtosSupermatterMonitorContent = (props, context) => {
     );
   }
   const gases = flow([
-    gases => gases.filter(gas => gas.amount >= 0.01),
-    sortBy(gas => -gas.amount),
-  ])(data.gases || []);
-  const gasMaxAmount = Math.max(1, ...gases.map(gas => gas.amount));
+    gases => gases.filter(gas => gas.amount >= 0.005),
+    sortBy(gas => -gas.moles),
+  ])(SM_atmosphere.composition?.map((gas) => {
+    return {
+      name: gas.id,
+      moles: gas.moles,
+      amount: round(gas.moles / SM_atmosphere.total_moles * 100, 2)
+    };
+  }) || []);
   return (
     <Flex spacing={1}>
       <Flex.Item width="270px">
@@ -104,7 +114,7 @@ export const NtosSupermatterMonitorContent = (props, context) => {
             <Button
               icon="arrow-left"
               content="Back"
-              onClick={() => act('PRG_clear')} />
+              onClick={() => act('clear_active')} />
           )}>
           <LabeledList>
             {gases.map(gas => (
@@ -115,7 +125,7 @@ export const NtosSupermatterMonitorContent = (props, context) => {
                   color={getGasColor(gas.name)}
                   value={gas.amount}
                   minValue={0}
-                  maxValue={gasMaxAmount}>
+                  maxValue={SM_atmosphere.total_moles}>
                   {toFixed(gas.amount, 2) + '%'}
                 </ProgressBar>
               </LabeledList.Item>
@@ -137,7 +147,7 @@ const SupermatterList = (props, context) => {
         <Button
           icon="sync"
           content="Refresh"
-          onClick={() => act('PRG_refresh')} />
+          onClick={() => act('refresh')} />
       )}>
       <Table>
         {supermatters.map(sm => (
@@ -160,8 +170,8 @@ const SupermatterList = (props, context) => {
             <Table.Cell collapsing>
               <Button
                 content="Details"
-                onClick={() => act('PRG_set', {
-                  target: sm.uid,
+                onClick={() => act('set_active', {
+                  value: sm.uid,
                 })} />
             </Table.Cell>
           </Table.Row>
