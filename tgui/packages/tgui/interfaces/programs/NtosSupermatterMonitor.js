@@ -3,9 +3,10 @@ import { round } from 'common/math';
 import { flow } from 'common/fp';
 import { toFixed } from 'common/math';
 import { useBackend } from "tgui/backend";
-import { Button, Flex, LabeledList, ProgressBar, Section, Table } from "tgui/components";
+import { AnimatedNumber, Box, Button, Flex, LabeledList, ProgressBar, Section, Table } from "tgui/components";
 import { getGasColor, getGasLabel } from "tgui/constants";
 import { NtosWindow } from "tgui/layouts";
+import { Tooltip } from '../../components/Tooltip';
 
 const logScale = value => Math.log2(16 + Math.max(0, value)) - 4;
 
@@ -30,6 +31,9 @@ export const NtosSupermatterMonitorContent = (props, context) => {
     SM_power,
     SM_ambienttemp,
     SM_ambientpressure,
+    SM_EPR,
+    SM_RAD,
+    SM_PHO,
     SM_atmosphere = {
       total_moles: 0,
       composition: [],
@@ -103,6 +107,43 @@ export const NtosSupermatterMonitorContent = (props, context) => {
                 }}>
                 {toFixed(SM_ambientpressure) + ' kPa'}
               </ProgressBar>
+            </LabeledList.Item>
+            <LabeledList.Item label="EPR">
+              <Box
+                fluid
+                mt={2.5}
+                align="right"
+              >
+                <AnimatedNumber
+                  align="right"
+                  value={SM_EPR}
+                  precision={2}
+                />
+              </Box>
+            </LabeledList.Item>
+            <LabeledList.Item label="RRM">
+              <Box
+                fluid
+                align="right"
+              >
+                <AnimatedNumber
+                  align="right"
+                  value={SM_RAD}
+                  precision={2}
+                />
+              </Box>
+            </LabeledList.Item>
+            <LabeledList.Item label="PSM">
+              <Box
+                fluid
+                align="right"
+              >
+                <AnimatedNumber
+                  align="right"
+                  value={SM_PHO}
+                  precision={2}
+                />
+              </Box>
             </LabeledList.Item>
           </LabeledList>
         </Section>

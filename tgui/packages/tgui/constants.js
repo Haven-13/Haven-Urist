@@ -222,12 +222,23 @@ const GASES = [
     'label': 'H₂',
     'color': 'white',
   },
-];
+  {
+    'id': 'ch3br',
+    'name': 'Methyl Bromide',
+    'label': 'CH₃Br',
+    'color': 'green',
+  }
+].map((gas) => {
+  gas.name_search = gas.name.toLowerCase();
+  gas.name_qualified_search = gas.name_search.replace(" ", "_");
+  return gas;
+});
 
 export const getGasLabel = (gasId, fallbackValue) => {
   const gasSearchString = String(gasId).toLowerCase();
   const gas = GASES.find(gas => gas.id === gasSearchString
-    || gas.name.toLowerCase() === gasSearchString);
+    || gas.name_search === gasSearchString
+    || gas.name_qualified_search === gasSearchString);
   return gas && gas.label
     || fallbackValue
     || gasId;
