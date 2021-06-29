@@ -2,7 +2,7 @@ import { Fragment } from 'inferno';
 import { useBackend } from 'tgui/backend';
 import { AnimatedNumber, Box, Button, LabeledList, Section } from 'tgui/components';
 import { Window } from 'tgui/layouts';
-import { CargoCatalog } from './SupplyProgram';
+import { CargoCatalog } from './programs/SupplyProgram';
 import { InterfaceLockNoticeBox } from './common/InterfaceLockNoticeBox';
 
 export const CargoExpress = (props, context) => {
