@@ -1,9 +1,10 @@
 import { toArray } from 'common/collections';
 import { Fragment } from 'inferno';
+import { capitalize } from 'common/string';
 import { useBackend, useSharedState } from 'tgui/backend';
 import { AnimatedNumber, Box, Button, Flex, LabeledList, Section, Table, Tabs } from 'tgui/components';
 import { formatMoney } from 'tgui/format';
-import { Window } from 'tgui/layouts';
+import { NtosWindow, Window } from 'tgui/layouts';
 
 export const SupplyProgram = (props, context) => {
   const { act, data } = useBackend(context);
@@ -14,11 +15,11 @@ export const SupplyProgram = (props, context) => {
   const cart = data.cart || [];
   const requests = data.requests || [];
   return (
-    <Window
+    <NtosWindow
       width={780}
       height={750}
       resizable>
-      <Window.Content scrollable>
+      <NtosWindow.Content scrollable>
         <CargoStatus />
         <Section fitted>
           <Tabs>
@@ -59,59 +60,52 @@ export const SupplyProgram = (props, context) => {
         {tab === 'cart' && (
           <CargoCart />
         )}
-      </Window.Content>
-    </Window>
+      </NtosWindow.Content>
+    </NtosWindow>
   );
 };
 
 const CargoStatus = (props, context) => {
   const { act, data } = useBackend(context);
   const {
-    away,
-    docked,
-    loan,
-    loan_dispatched,
-    location,
-    message,
-    points,
+    shuttle,
+    credits,
+    currency,
+    currency_short,
+    current_security_level,
     requestonly,
   } = data;
+
+  const {
+    name,
+    status,
+    location,
+    can_control,
+  } = shuttle;
   return (
     <Section
       title="Cargo"
       buttons={(
         <Box inline bold>
           <AnimatedNumber
-            value={points}
+            value={credits}
             format={value => formatMoney(value)} />
-          {' credits'}
+          <Box inline bold ml={2}>
+            {currency} ({currency_short})
+          </Box>
         </Box>
       )}>
       <LabeledList>
         <LabeledList.Item label="Shuttle">
-          {docked && !requestonly && (
+          {can_control && !requestonly && (
             <Button
               content={location}
               onClick={() => act('send')} />
           ) || location}
         </LabeledList.Item>
-        <LabeledList.Item label="CentCom Message">
-          {message}
+        <LabeledList.Item label="Clearance">
+          {capitalize(current_security_level)}
         </LabeledList.Item>
-        {!!loan && !requestonly && (
-          <LabeledList.Item label="Loan">
-            {!loan_dispatched && (
-              <Button
-                content="Loan Shuttle"
-                disabled={!(away && docked)}
-                onClick={() => act('loan')} />
-            ) || (
-              <Box color="bad">
-                Loaned to Centcom
-              </Box>
-            )}
-          </LabeledList.Item>
-        )}
       </LabeledList>
     </Section>
   );
@@ -122,8 +116,11 @@ export const CargoCatalog = (props, context) => {
   const { act, data } = useBackend(context);
   const {
     self_paid,
+    currency_short,
   } = data;
   const supplies = toArray(data.supplies);
+  const items = data.items || {};
+  const categories = data.categories || [];
   const [
     activeSupplyName,
     setActiveSupplyName,
@@ -135,31 +132,24 @@ export const CargoCatalog = (props, context) => {
     <Section
       title="Catalog"
       buttons={!express && (
-        <Fragment>
-          <CargoCartButtons />
-          <Button.Checkbox
-            ml={2}
-            content="Buy Privately"
-            checked={self_paid}
-            onClick={() => act('toggleprivate')} />
-        </Fragment>
+        <CargoCartButtons />
       )}>
       <Flex>
         <Flex.Item ml={-1} mr={1}>
           <Tabs vertical>
-            {supplies.map(supply => (
+            {categories.map((category, index) => (
               <Tabs.Tab
-                key={supply.name}
-                selected={supply.name === activeSupplyName}
-                onClick={() => setActiveSupplyName(supply.name)}>
-                {supply.name} ({supply.packs.length})
+                key={index}
+                selected={category === activeSupplyName}
+                onClick={() => setActiveSupplyName(category)}>
+                {category} ({items[category].length})
               </Tabs.Tab>
             ))}
           </Tabs>
         </Flex.Item>
         <Flex.Item grow={1} basis={0}>
           <Table>
-            {activeSupply?.packs.map(pack => {
+            {items[activeSupplyName]?.map(pack => {
               const tags = [];
               if (pack.small_item) {
                 tags.push('Small');
@@ -193,7 +183,7 @@ export const CargoCatalog = (props, context) => {
                       {formatMoney(self_paid && !pack.goody
                         ? Math.round(pack.cost * 1.1)
                         : pack.cost)}
-                      {' cr'}
+                      {` ${currency_short}`}
                     </Button>
                   </Table.Cell>
                 </Table.Row>
