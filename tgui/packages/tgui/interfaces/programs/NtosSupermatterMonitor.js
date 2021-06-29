@@ -51,7 +51,7 @@ export const NtosSupermatterMonitorContent = (props, context) => {
     return {
       name: gas.id,
       moles: gas.moles,
-      amount: round(gas.moles / SM_atmosphere.total_moles * 100, 2)
+      amount: round(gas.moles / SM_atmosphere.total_moles * 100, 2),
     };
   }) || []);
   return (

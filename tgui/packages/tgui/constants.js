@@ -227,7 +227,7 @@ const GASES = [
     'name': 'Methyl Bromide',
     'label': 'CH₃Br',
     'color': 'green',
-  }
+  },
 ].map((gas) => {
   gas.name_search = gas.name.toLowerCase();
   gas.name_qualified_search = gas.name_search.replace(" ", "_");
