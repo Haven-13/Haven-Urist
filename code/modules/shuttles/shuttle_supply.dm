@@ -14,6 +14,7 @@
 
 	//it would be cool to play a sound here
 	moving_status = SHUTTLE_WARMUP
+	arrive_time = world.time + warmup_time*10
 	spawn(warmup_time*10)
 		if (moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
@@ -55,7 +56,7 @@
 /datum/shuttle/autodock/ferry/supply/proc/forbidden_atoms_check()
 	if (!at_station())
 		return 0	//if badmins want to send forbidden atoms on the supply shuttle from centcom we don't care
-	
+
 	for(var/area/A in shuttle_area)
 		if(SSsupply.forbidden_atoms_check(A))
 			return 1

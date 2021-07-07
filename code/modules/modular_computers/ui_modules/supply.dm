@@ -24,7 +24,8 @@
 	if(current_security_level != security_state.current_security_level)
 		current_security_level = security_state.current_security_level
 
-	data["current_security_level"] = current_security_level
+	data["current_security_level"] = (security_state.index_of(current_security_level) - 1)
+	data["current_security_level_name"] = current_security_level
 	data["is_admin"] = is_admin
 	data["credits"] = SSsupply.points
 	data["currency"] = GLOB.using_map.supply_currency_name
@@ -67,14 +68,10 @@
 			if(!istype(P) || P.is_category())
 				return TRUE
 
-			if(P.hidden && !emagged)
+			if((P.hidden || P.contraband) && !emagged)
 				return TRUE
 
 			if(!P.sec_available())
-				return TRUE
-
-			var/reason = sanitize(params["reason"],0)
-			if(!reason)
 				return TRUE
 
 			var/idname = "*None Provided*"
@@ -92,7 +89,6 @@
 			O.ordernum = SSsupply.ordernum
 			O.object = P
 			O.orderedby = idname
-			O.reason = reason
 			O.orderedjob = idjob
 			O.comment = "#[O.ordernum]"
 			SSsupply.requestlist += O
@@ -188,7 +184,7 @@
 					"cost" = spc.cost,
 					"hidden" = spc.hidden,
 					"illegal" = spc.contraband,
-					"security_level" = spc.security_level,
+					"security_level" = spc.security_level || 0,
 					"ref" = REF(spc)
 				)))
 			category_contents[sp.name] = category
@@ -202,6 +198,8 @@
 				(shuttle.has_arrive_time() && "In transit") || \
 				(shuttle.can_launch() && "Docked") \
 			) || "No connection",
+		"time_left" = \
+			(istype(shuttle) && (shuttle.has_arrive_time() && shuttle.time_left())) || null,
 		"location" = \
 			istype(shuttle) && ( \
 				shuttle.at_station() && GLOB.using_map.name || "Remote location" \
@@ -216,8 +214,7 @@
 		"orderer" = SO.orderedby,
 		"orderer_job" = SO.orderedjob,
 		"cost" = SO.object.cost,
-		"reason" = SO.reason
-		))
+	))
 
 /datum/ui_module/program/supply/proc/can_print()
 	var/obj/item/modular_computer/MC = ui_host()
@@ -234,7 +231,6 @@
 	t += "INDEX: #[O.ordernum]<br>"
 	t += "REQUESTED BY: [O.orderedby]<br>"
 	t += "ASSIGNMENT: [O.orderedjob]<br>"
-	t += "REASON: [O.reason]<br>"
 	t += "SUPPLY CRATE TYPE: [O.object.name]<br>"
 	t += "ACCESS RESTRICTION: [get_access_desc(O.object.access)]<br>"
 	t += "CONTENTS:<br>"
