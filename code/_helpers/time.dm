@@ -60,7 +60,7 @@ var/next_station_date_change = 1 DAY
 /proc/time_delta_now(stamp)
 	return stamp - world.time
 
-/proc/time_left(stamp, divisor=10)
+/proc/time_remaining(stamp, divisor=10)
 	if (divisor <= 0)
 		divisor = 10
 

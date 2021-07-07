@@ -76,6 +76,8 @@
 	moving_status = SHUTTLE_WARMUP
 	if(sound_takeoff)
 		playsound(current_location, sound_takeoff, 100, 20, 0.2)
+
+	arrive_time = world.time + warmup_time*10
 	spawn(warmup_time*10)
 		if (moving_status == SHUTTLE_IDLE)
 			return FALSE	//someone cancelled the launch
@@ -225,4 +227,4 @@
 	return next_location.name
 
 /datum/shuttle/proc/time_left()
-	return time_left(arrive_time)
+	return time_remaining(arrive_time)
