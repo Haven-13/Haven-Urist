@@ -60,8 +60,8 @@
 		"job" = user ? user.GetIdCard()?.assignment : null
 	)
 
-	data["cooldown_announcement"] = time_left(announcment_cooldown)
-	data["cooldown_emergency"] = time_left(centcomm_message_cooldown)
+	data["cooldown_announcement"] = time_remaining(announcment_cooldown)
+	data["cooldown_emergency"] = time_remaining(centcomm_message_cooldown)
 	data["cooldown_evacuation"] = evacuation_controller.is_on_cooldown()
 
 	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
