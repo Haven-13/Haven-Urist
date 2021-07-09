@@ -130,15 +130,17 @@
 			log_out()
 			error = "This account has been suspended. Please contact the system administrator for assistance."
 
-	if(error)
-		data["error"] = error
-	else if(downloading)
-		data["downloading"] = 1
+	data["error"] = error
+	data["current_account"] = null
+	data["addressbook"] = addressbook
+	data["new_message"] = new_message
+	data["view_message"] = !!current_message
+	data["downloading"] = !!downloading
+	if(downloading)
 		data["down_filename"] = "[downloading.filename].[downloading.filetype]"
 		data["down_progress"] = download_progress
 		data["down_size"] = downloading.size
 		data["down_speed"] = download_speed
-
 	else if(istype(current_account))
 		data["current_account"] = current_account.login
 		if(addressbook)
@@ -149,12 +151,11 @@
 				all_accounts.Add(list(list(
 					"login" = account.login
 				)))
-			data["addressbook"] = 1
 			data["accounts"] = all_accounts
 		else if(new_message)
-			data["new_message"] = 1
 			data["msg_title"] = msg_title
-			data["msg_body"] = pencode2html(msg_body)
+			data["msg_preview"] = pencode2html(msg_body)
+			data["msg_body"] = replacetext(msg_body, "\[br\]", "\n") // Why? Because I am done sucking Bay cock!
 			data["msg_recipient"] = msg_recipient
 			if(msg_attachment)
 				data["msg_hasattachment"] = 1
@@ -296,10 +297,7 @@
 
 		// This uses similar editing mechanism as the FileManager program, therefore it supports various paper tags and remembers formatting.
 		if ("edit_body")
-			var/oldtext = html_decode(msg_body)
-			oldtext = replacetext(oldtext, "\[br\]", "\n")
-
-			var/newtext = sanitize(replacetext(input(usr, "Enter your message. You may use most tags from paper formatting", "Message Editor", oldtext) as message|null, "\n", "\[br\]"), 20000)
+			var/newtext = sanitize(replacetext(params["text"], "\n", "\[br\]"), 20000)
 			if(newtext)
 				msg_body = newtext
 			return TRUE
