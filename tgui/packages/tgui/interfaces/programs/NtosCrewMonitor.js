@@ -2,21 +2,21 @@ import { useBackend } from "tgui/backend";
 import { Fragment } from 'inferno';
 import { Box, Section, Table } from "tgui/components";
 import { round } from "common/math";
-import { Window } from "tgui/layouts";
+import { NtosWindow } from "tgui/layouts";
 
 export const NtosCrewMonitor = () => {
   return (
-    <Window
+    <NtosWindow
       title="Crew Monitor"
       width={800}
       height={600}
       resizable>
-      <Window.Content scrollable>
+      <NtosWindow.Content scrollable>
         <Section minHeight="540px">
           <CrewTable />
         </Section>
-      </Window.Content>
-    </Window>
+      </NtosWindow.Content>
+    </NtosWindow>
   );
 };
 
