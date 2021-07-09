@@ -18,6 +18,19 @@ const PROGRAM_ICONS = {
   robocontrol: 'robot',
   atmosscan: 'thermometer-half',
   shipping: 'tags',
+  emailc: 'envelope',
+  cameramonitor: 'camera',
+  wordprocessor: 'file-word',
+  scndvr: 'barcode',
+  supply: 'dolly-flatbed',
+  sensormonitor: 'heartbeat',
+  atmoscontrol: 'cloud',
+  rconconsole: 'network-wired',
+  shieldsmonitor: 'shield-alt',
+  comm: 'star',
+  docking: 'anchor',
+  crewrecords: 'address-book',
+  forceauthorization: 'crosshairs',
 };
 
 export const NtosBase = (props, context) => {
