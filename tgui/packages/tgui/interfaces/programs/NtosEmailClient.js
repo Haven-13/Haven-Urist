@@ -7,22 +7,22 @@ import { ErrorMessageModal, FileNamePromptModal } from './components';
 
 const PasswordChangeModal = (props, context) => {
   const {
-    onApply = (a,b,c) => {},
+    onApply = (a, b, c) => {},
     onCancel = () => {},
     ...rest
   } = props;
 
   const [
     originalPassword,
-    setOriginalPassword
+    setOriginalPassword,
   ] = useLocalState(context, "originalPassword", "");
   const [
     firstNewPassword,
-    setFirstNewPassword
+    setFirstNewPassword,
   ] = useLocalState(context, "firstNewPassword", "");
   const [
     secondNewPassword,
-    setSecondNewPassword
+    setSecondNewPassword,
   ] = useLocalState(context, "secondNewPassword", "");
 
   return (
@@ -38,21 +38,21 @@ const PasswordChangeModal = (props, context) => {
                 <Input
                   fluid
                   value={originalPassword}
-                  onInput={(e,v) => setOriginalPassword(v)}
+                  onInput={(e, v) => setOriginalPassword(v)}
                 />
               </LabeledList.Item>
               <LabeledList.Item label="New">
                 <Input
                   fluid
                   value={firstNewPassword}
-                  onInput={(e,v) => setFirstNewPassword(v)}
+                  onInput={(e, v) => setFirstNewPassword(v)}
                 />
               </LabeledList.Item>
               <LabeledList.Item label="Repeat New">
                 <Input
                   fluid
                   value={secondNewPassword}
-                  onInput={(e,v) => setSecondNewPassword(v)}
+                  onInput={(e, v) => setSecondNewPassword(v)}
                 />
               </LabeledList.Item>
             </LabeledList>
@@ -63,12 +63,18 @@ const PasswordChangeModal = (props, context) => {
                 <Button
                   icon="key"
                   disabled={
-                    (originalPassword.length < 3) ||
-                    (firstNewPassword.length < 3) ||
-                    (secondNewPassword.length < 3)
+                    (originalPassword.length < 3)
+                    || (firstNewPassword.length < 3)
+                    || (secondNewPassword.length < 3)
                   }
                   content="Apply"
-                  onClick={() => onApply(originalPassword, firstNewPassword, secondNewPassword)}
+                  onClick={() => {
+                    onApply(
+                      originalPassword,
+                      firstNewPassword,
+                      secondNewPassword
+                    );
+                  }}
                 />
               </Flex.Item>
               <Flex.Item>
@@ -83,8 +89,8 @@ const PasswordChangeModal = (props, context) => {
         </Stack>
       </Section>
     </Modal>
-  )
-}
+  );
+};
 
 
 const NewMessageView = (props, context) => {
@@ -94,6 +100,11 @@ const NewMessageView = (props, context) => {
     isEditing,
     setIsEditing,
   ] = useSharedState(context, "isEditing", true);
+
+  const {
+    msg_attachment_filename,
+    msg_attachment_size,
+  } = data;
 
   return (
     <Fragment>
@@ -118,7 +129,7 @@ const NewMessageView = (props, context) => {
                     fluid
                     content={account.login}
                     onClick={() => act("set_recipient", {
-                      value: account.login
+                      value: account.login,
                     })}
                   />
                 </Stack.Item>
@@ -190,7 +201,7 @@ const NewMessageView = (props, context) => {
                 <LabeledList.Item label="Attachment">
                   <Flex justify="space-between" fill>
                     <Flex.Item align="center" grow>
-                      {data.msg_attachment_filename} ({data.msg_attachment_size} GQ)
+                      {msg_attachment_filename} ({msg_attachment_size} GQ)
                     </Flex.Item>
                     <Flex.Item align="center">
                       <Button
@@ -244,8 +255,13 @@ const ViewMessageView = (props, context) => {
 
   const [
     isSavingFile,
-    setSavingFile
+    setSavingFile,
   ] = useSharedState(context, "isSavingFile", false);
+
+  const {
+    cur_attachment_filename,
+    cur_attachment_size,
+  } = data;
 
   return (
     <Fragment>
@@ -255,7 +271,7 @@ const ViewMessageView = (props, context) => {
             setSavingFile(false);
             act("save", {
               name: name,
-              save: data.cur_uid
+              save: data.cur_uid,
             });
           }}
           onCancel={() => setSavingFile(false)}
@@ -272,7 +288,7 @@ const ViewMessageView = (props, context) => {
                     icon="reply"
                     content="Reply"
                     onClick={() => act("reply", {
-                      reply: data.cur_uid
+                      reply: data.cur_uid,
                     })}
                   />
                 </Flex.Item>
@@ -305,7 +321,7 @@ const ViewMessageView = (props, context) => {
                   <Button
                     onClick={() => act("downloadattachment")}
                   >
-                    {data.cur_attachment_filename} ({data.cur_attachment_size} GQ)
+                    {cur_attachment_filename} ({cur_attachment_size} GQ)
                   </Button>
                 </LabeledList.Item>
               )}
@@ -361,18 +377,18 @@ const MessagesListView = (props, context) => {
   return (
     <Fragment>
       {isChangingPassword && (
-          <PasswordChangeModal
-            width={40}
-            onApply={(a,b,c) => {
-              setChangingPassowrd(false);
-              act("changepassword", {
-                old: a,
-                new: b,
-                new_verify: c,
-              })
-            }}
-            onCancel={() => setChangingPassowrd(false)}
-          />
+        <PasswordChangeModal
+          width={40}
+          onApply={(a, b, c) => {
+            setChangingPassowrd(false);
+            act("changepassword", {
+              old: a,
+              new: b,
+              new_verify: c,
+            });
+          }}
+          onCancel={() => setChangingPassowrd(false)}
+        />
       )}
       <Stack vertical fill>
         <Stack.Item>
@@ -384,8 +400,7 @@ const MessagesListView = (props, context) => {
                   icon="key"
                   content="Change Pass"
                   onClick={() =>
-                    setChangingPassowrd(true)
-                  }
+                    setChangingPassowrd(true)}
                 />
                 <Button
                   content="Log Out"
@@ -463,7 +478,7 @@ const MessagesListView = (props, context) => {
                               <Button.Confirm
                                 icon="trash"
                                 onClick={() => act("delete", {
-                                  delete: message.uid
+                                  delete: message.uid,
                                 })}
                               />
                             </Flex.Item>
