@@ -110,7 +110,7 @@ const CargoStatus = (props, context) => {
                 <TimeDisplay
                   value={time_left*10}
                   auto="down"
-                  format={(h,m,s) => `${m}:${s}`}
+                  format={(h, m, s) => `${m}:${s}`}
                 />
               )}
             </LabeledControls.Item>
@@ -118,7 +118,7 @@ const CargoStatus = (props, context) => {
               {!requestonly && (
                 <Button
                   content="Send"
-                  disabled={!!!can_control}
+                  disabled={!can_control}
                   onClick={() => act('launch_shuttle')} />
               )}
             </LabeledControls.Item>
@@ -151,8 +151,8 @@ export const CargoCatalog = (props, context) => {
 
   const shouldDisplayPackage = (pack) => {
     if (
-      ((pack.hidden || pack.illegal) && !!!emagged) ||
-      (pack.security_level > current_security_level)
+      ((pack.hidden || pack.illegal) && !emagged)
+      || (pack.security_level > current_security_level)
     ) {
       return false;
     }
@@ -160,9 +160,9 @@ export const CargoCatalog = (props, context) => {
   };
 
   const filteredItems = Object.assign({}, ...categories.map((c) =>
-    ({[c]: items[c].filter(
+    ({ [c]: items[c].filter(
       pack => shouldDisplayPackage(pack)
-    )})
+    ) })
   ));
 
   return (
@@ -193,13 +193,13 @@ export const CargoCatalog = (props, context) => {
                 tags.push('Restricted');
               }
               if (pack.hidden) {
-                tags.push('Hidden')
+                tags.push('Hidden');
               }
               if (pack.illegal) {
-                tags.push('Contraband')
+                tags.push('Contraband');
               }
-              if (!!pack.security_level) {
-                tags.push('Emergency')
+              if (pack.security_level) {
+                tags.push('Emergency');
               }
               return (
                 <Table.Row
