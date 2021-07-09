@@ -14,5 +14,9 @@
 
 	"[dm]": {
 		"editor.rulers": [100]
+	},
+
+	"[javascript]": {
+		"editor.rulers": [80]
 	}
 }
