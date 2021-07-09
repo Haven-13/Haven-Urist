@@ -1,5 +1,5 @@
 /datum/computer_file/program/supermatter_monitor
-	filename = "supmon"
+	filename = "smmonitor"
 	filedesc = "Supermatter Monitoring"
 	ui_module_path = /datum/ui_module/program/supermatter_monitor/
 	program_icon_state = "smmon_0"

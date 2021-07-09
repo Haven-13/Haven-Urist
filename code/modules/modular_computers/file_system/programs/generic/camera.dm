@@ -1,5 +1,5 @@
 /datum/computer_file/program/camera_monitor
-	filename = "cammon"
+	filename = "cameramonitor"
 	filedesc = "Camera Monitoring"
 	ui_module_path = /datum/ui_module/program/camera_monitor
 	program_icon_state = "cameras"
@@ -12,7 +12,7 @@
 
 // ERT Variant of the program
 /datum/computer_file/program/camera_monitor/ert
-	filename = "ntcammon"
+	filename = "ertcameramonitor"
 	filedesc = "Advanced Camera Monitoring"
 	extended_desc = "This program allows remote access to the camera system. Some camera networks may have additional access requirements. This version has an integrated database with additional encrypted keys."
 	size = 14
