@@ -136,12 +136,14 @@
 	data["new_message"] = new_message
 	data["view_message"] = !!current_message
 	data["downloading"] = !!downloading
+
 	if(downloading)
 		data["down_filename"] = "[downloading.filename].[downloading.filetype]"
 		data["down_progress"] = download_progress
 		data["down_size"] = downloading.size
 		data["down_speed"] = download_speed
-	else if(istype(current_account))
+
+	if(istype(current_account))
 		data["current_account"] = current_account.login
 		if(addressbook)
 			var/list/all_accounts = list()
@@ -157,8 +159,8 @@
 			data["msg_preview"] = pencode2html(msg_body)
 			data["msg_body"] = replacetext(msg_body, "\[br\]", "\n") // Why? Because I am done sucking Bay cock!
 			data["msg_recipient"] = msg_recipient
+			data["msg_hasattachment"] = !!msg_attachment
 			if(msg_attachment)
-				data["msg_hasattachment"] = 1
 				data["msg_attachment_filename"] = "[msg_attachment.filename].[msg_attachment.filetype]"
 				data["msg_attachment_size"] = msg_attachment.size
 		else if (current_message)
@@ -167,8 +169,8 @@
 			data["cur_timestamp"] = current_message.timestamp
 			data["cur_source"] = current_message.source
 			data["cur_uid"] = current_message.uid
+			data["cur_hasattachment"] = istype(current_message.attachment)
 			if(istype(current_message.attachment))
-				data["cur_hasattachment"] = 1
 				data["cur_attachment_filename"] = "[current_message.attachment.filename].[current_message.attachment.filetype]"
 				data["cur_attachment_size"] = current_message.attachment.size
 		else
@@ -197,6 +199,7 @@
 						"body" = pencode2html(message.stored_data),
 						"source" = message.source,
 						"timestamp" = message.timestamp,
+						"attachment" = istype(message.attachment),
 						"uid" = message.uid
 					)))
 				data["messages"] = all_messages
@@ -426,7 +429,7 @@
 				error = "Error exporting file. Are you using a functional and NTOS-compliant device?"
 				return TRUE
 
-			var/filename = sanitize(input(user,"Please specify file name:", "Message export"), 100)
+			var/filename = sanitize(params["name"], 100)
 			if(!filename)
 				return TRUE
 
