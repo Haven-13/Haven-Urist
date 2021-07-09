@@ -106,7 +106,6 @@
 		/obj/item/clothing/accessory/storage/holster/waist,
 		/obj/item/weapon/melee/telebaton,
 		/obj/item/clothing/head/beret/sec/corporate/hos,
-		/obj/item/device/holowarrant
 	)
 
 /obj/structure/closet/secure_closet/warden
@@ -139,7 +138,6 @@
 		/obj/item/weapon/gun/energy/gun,
 		/obj/item/weapon/storage/box/holobadge,
 		/obj/item/clothing/head/beret/sec/corporate/warden,
-		/obj/item/device/holowarrant,
 		/obj/item/device/flashlight/maglight
 	)
 
@@ -171,7 +169,6 @@
 		/obj/item/clothing/head/soft/sec/corp,
 		/obj/item/clothing/under/rank/security/corp,
 		/obj/item/weapon/gun/energy/taser,
-		/obj/item/device/holowarrant,
 		/obj/item/device/flashlight/maglight
 	)
 
@@ -228,7 +225,6 @@
 		/obj/item/clothing/accessory/storage/holster/armpit,
 		/obj/item/weapon/reagent_containers/food/drinks/flask/detflask,
 		/obj/item/weapon/storage/briefcase/crimekit,
-		/obj/item/device/holowarrant
 	)
 
 /obj/structure/closet/secure_closet/injection

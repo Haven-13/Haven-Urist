@@ -431,7 +431,7 @@ var/global/list/robot_modules = list(
 	name = "security robot module"
 	channels = list("Security" = 1)
 	networks = list(NETWORK_SECURITY)
-	subsystems = list(/datum/ui_module/program/crew_monitor, /datum/ui_module/program/digitalwarrant)
+	subsystems = list(/datum/ui_module/program/crew_monitor)
 	can_be_pushed = 0
 	supported_upgrades = list(/obj/item/borg/upgrade/weaponcooler)
 
@@ -459,7 +459,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gun/energy/gun/secure/mounted(src)
 	src.modules += new /obj/item/taperoll/police(src)
 	src.modules += new /obj/item/device/megaphone(src)
-	src.modules += new /obj/item/device/holowarrant(src)
 	src.emag = new /obj/item/weapon/gun/energy/laser/mounted(src)
 	..()
 
