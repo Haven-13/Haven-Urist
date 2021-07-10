@@ -35,6 +35,16 @@
 	maptext_height = 480
 	maptext_width = 480
 
+/**
+ * A generic background object.
+ * It is also implicitly used to allocate a rectangle on the map, which will
+ * be used for auto-scaling the map.
+ */
+/obj/screen/background
+	name = "background"
+	icon_state = "blank"
+	layer = MAP_VIEW_LAYER
+	plane = MAP_VIEW_PLANE
 
 /obj/screen/inventory
 	var/slot_id	//The indentifier for the slot. It has nothing to do with ID cards.

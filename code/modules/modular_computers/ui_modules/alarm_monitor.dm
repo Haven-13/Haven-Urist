@@ -86,7 +86,7 @@
 
 			if(isAI(user))
 				for(var/obj/machinery/camera/C in A.cameras())
-					cameras[++cameras.len] = C.nano_structure()
+					cameras[++cameras.len] = C.ui_json_structure()
 			for(var/datum/alarm_source/AS in A.sources)
 				if(!AS.source)
 					lost_sources[++lost_sources.len] = AS.source_name

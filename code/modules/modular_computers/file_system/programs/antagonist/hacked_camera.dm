@@ -17,8 +17,10 @@
 
 	var/datum/ui_module/program/camera_monitor/hacked/HNM = NM
 
-	// The program is active and connected to one of the station's networks. Has a very small chance to trigger IDS alarm every tick.
-	if(HNM && HNM.current_network && (HNM.current_network in GLOB.using_map.station_networks) && prob(0.1))
-		if(ntnet_global.intrusion_detection_enabled)
-			ntnet_global.add_log("IDS WARNING - Unauthorised access detected to camera network [HNM.current_network] by device with NID [computer.network_card.get_network_tag()]")
-			ntnet_global.intrusion_detection_alarm = 1
+	if(HNM && prob(0.1))
+		for(var/network in HNM.selected_networks)
+			// The program is active and connected to one of the station's networks. Has a very small chance to trigger IDS alarm every tick.
+			if(network && (network in GLOB.using_map.station_networks) && prob(50))
+				if(ntnet_global.intrusion_detection_enabled)
+					ntnet_global.add_log("IDS WARNING - Unauthorised access detected to camera network [network] by device with NID [computer.network_card.get_network_tag()]")
+					ntnet_global.intrusion_detection_alarm = 1

@@ -7,14 +7,14 @@ $background-color: rgba(0, 0, 0, 0.33) !default;
   top: 0;
   bottom: 0;
   left: 0;
-  width: base.em(220px);
+  width: base.em(330px);
 }
 
 .CameraConsole__right {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: base.em(220px);
+  left: base.em(330px);
   right: 0;
   background-color: $background-color;
 }
@@ -36,6 +36,13 @@ $background-color: rgba(0, 0, 0, 0.33) !default;
   height: 2em;
   line-height: 2em;
   margin: 0.33em 0.5em 0;
+}
+
+.CameraConsole__viewcontainer {
+  position: relative;
+  top: 80px;
+  height: 800px;
+
 }
 
 .CameraConsole__map {

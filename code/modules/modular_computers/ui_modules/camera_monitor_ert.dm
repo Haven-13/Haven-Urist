@@ -9,6 +9,7 @@
 	networks.Add(list(list("tag" = NETWORK_CRESCENT, "has_access" = 1)))
 	return networks
 
+/*
 /datum/ui_module/program/camera_monitor/apply_visual(mob/M)
 	if(current_camera)
 		current_camera.apply_visual(M)
@@ -18,3 +19,4 @@
 /datum/ui_module/program/camera_monitor/remove_visual(mob/M)
 	if(current_camera)
 		current_camera.remove_visual(M)
+*/

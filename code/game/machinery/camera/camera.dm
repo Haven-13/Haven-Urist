@@ -455,7 +455,7 @@
 		network.Cut()
 		update_coverage(1)
 
-/obj/machinery/camera/proc/nano_structure()
+/obj/machinery/camera/proc/ui_json_structure()
 	var/cam[0]
 	cam["name"] = sanitize(c_tag)
 	cam["deact"] = !can_use()
