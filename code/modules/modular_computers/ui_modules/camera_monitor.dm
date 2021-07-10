@@ -28,6 +28,22 @@
 	var/obj/machinery/camera/current_camera = null
 	var/current_network = null
 
+	var/max_active_cameras = 4
+	var/list/atom/movable/map_view/camera_map_views = list()
+
+/datum/ui_module/program/camera_monitor/New(host, program)
+	. = ..()
+	for(var/index in 1 to max_active_cameras)
+		var/atom/movable/map_view/cam = new()
+		var/key = "camera_monitor_[REF(src)]_I[index]_map_view"
+		cam.assigned_map = key
+		cam.update_map_view(1)
+		camera_map_views[key] = cam
+
+/datum/ui_module/program/camera_monitor/Destroy()
+	QDEL_NULL_ASSOC_LIST(camera_map_views)
+	. = ..()
+
 /datum/ui_module/program/camera_monitor/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
