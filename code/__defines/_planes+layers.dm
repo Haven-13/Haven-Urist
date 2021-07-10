@@ -215,6 +215,7 @@ What is the naming convention for planes or layers?
 // handling of rendering multi-z
 //
 // Planes that are not included are:
+// - 
 // - OPENSPACE_PLANE; not needed
 // - LIGHTING_PLANE; blending cause the lighting overlay to be
 //       almost invisible in multi-z. Undesired effect
