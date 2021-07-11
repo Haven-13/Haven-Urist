@@ -59,15 +59,8 @@
 		return 0
 
 	var/z = T.z
-	var/obj/effect/landmark/submap_data/SMD = GetSubmapData(z)
 
-	var/bottom_z
-	if (SMD)
-		bottom_z = SMD.get_bottommost_z()
-	else
-		bottom_z = z
-
-	var/z_depth = (z - bottom_z + 1)
+	var/z_depth = GetZDepth(z)
 
 	if (z_depth == previous_z_depth)
 		return 0

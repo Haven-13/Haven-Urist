@@ -8,23 +8,6 @@ import { Button, ByondUi, Flex, Input, Section, Stack } from "tgui/components";
 import { NtosWindow, Window } from "tgui/layouts";
 
 /**
- * Returns previous and next camera names relative to the currently
- * active camera.
- */
-const prevNextCamera = (cameras, activeCamera) => {
-  if (!activeCamera) {
-    return [];
-  }
-  const index = cameras.findIndex(camera => (
-    camera.name === activeCamera.name
-  ));
-  return [
-    cameras[index - 1]?.name,
-    cameras[index + 1]?.name,
-  ];
-};
-
-/**
  * Camera selector.
  *
  * Filters cameras, applies search terms and sorts the alphabetically.
@@ -46,6 +29,7 @@ export const NtosCameraMonitor = (props, context) => {
   const {
     camera_view_refs = [],
     active_view_data = [],
+    selected_network,
     networks = [],
   } = data;
   const networkList = networks.map((network) => {
@@ -62,9 +46,9 @@ export const NtosCameraMonitor = (props, context) => {
 
   return (
     <NtosWindow
-      width={970}
-      height={708}
-      resizable>
+      width={1440}
+      height={850}
+    >
       <NtosWindow.Content>
         <div className="CameraConsole__left">
           <Section fill scrollable>
@@ -72,19 +56,26 @@ export const NtosCameraMonitor = (props, context) => {
               <Flex.Item width="50%">
                 <CameraConsoleContent
                   content={networkList}
-                  selected={active_view_data[selectedView]?.network}
+                  selected={(entry) =>
+                    entry.name === selected_network
+                  }
                   emptySearchText={"Search for Network"}
                   format={(entry) => entry.name}
                   onClick={(entry) => act("switch_network", {
-                    index: selectedView + 1,
                     network: entry.name,
                   })}
                 />
               </Flex.Item>
               <Flex.Item width="50%">
                 <CameraConsoleContent
-                  content={camerasByNetwork[active_view_data[selectedView]?.network] || []}
-                  selected={active_view_data[selectedView]?.camera}
+                  content={
+                    camerasByNetwork[selected_network]
+                    || []
+                  }
+                  selected={(entry) =>
+                    entry.name ===
+                    active_view_data[selectedView]?.camera?.name
+                  }
                   emptySearchText={"Search for Camera"}
                   format={(entry) => entry.name}
                   onClick={(entry) => act("switch_camera", {
@@ -109,63 +100,88 @@ export const NtosCameraMonitor = (props, context) => {
                 </Button.Checkbox>
               ))}
             </div>
-            <table width="100%">
-              <tr>
-                <td width="50%">
-                  <b> Camera: </b> {
-                    active_view_data[selectedView]?.camera?.name
-                    || "None"
-                  }
-                </td>
-                <td>
-                  <b> Network: </b> {
-                    active_view_data[selectedView]?.network
-                    || "None"
-                  }
-                </td>
-              </tr>
-            </table>
           </div>
           <div className="CameraConsole__viewcontainer">
             <table width="100%" height="100%">
               <tr height="50%">
-                <td width="50%">
+                <td
+                  width="50%"
+                  className={
+                    selectedView === 0 && "CameraConsole__view--selected"
+                  }
+                >
                   <ByondUi
-                    height="100%"
+                    className="CameraConsole__viewmap"
                     params={{
                       id: camera_view_refs[0],
                       type: 'map',
                     }}
                   />
+                  <div>
+                    1: {
+                      active_view_data[0]?.camera?.name
+                      || "-"
+                    }
+                  </div>
                 </td>
-                <td>
+                <td
+                  className={
+                    selectedView === 1 && "CameraConsole__view--selected"
+                  }
+                >
                   <ByondUi
-                    height="100%"
+                    className="CameraConsole__viewmap"
                     params={{
                       id: camera_view_refs[1],
                       type: 'map',
                     }}
                   />
+                  <div>
+                    2: {
+                      active_view_data[1]?.camera?.name
+                      || "-"
+                    }
+                  </div>
                 </td>
               </tr>
               <tr>
-                <td width="50%">
+                <td
+                  className={
+                    selectedView === 2 && "CameraConsole__view--selected"
+                  }
+                >
                   <ByondUi
-                    height="100%"
+                    className="CameraConsole__viewmap"
                     params={{
                       id: camera_view_refs[2],
                       type: 'map',
                     }}
                   />
+                  <div>
+                    3: {
+                      active_view_data[2]?.camera?.name
+                      || "-"
+                    }
+                  </div>
                 </td>
-                <td>
+                <td
+                  className={
+                    selectedView === 3 && "CameraConsole__view--selected"
+                  }
+                >
                   <ByondUi
-                    height="100%"
+                    className="CameraConsole__viewmap"
                     params={{
                       id: camera_view_refs[3],
                       type: 'map',
                     }}
                   />
+                  <div>
+                    4: {
+                      active_view_data[3]?.camera?.name
+                      || "-"
+                    }
+                  </div>
                 </td>
               </tr>
             </table>
@@ -180,6 +196,7 @@ export const CameraConsoleContent = (props, context) => {
   const { act, data } = useBackend(context);
   const {
     content = [],
+    selected = (v) => false,
     emptySearchText = "Placeholder",
     emptyListText = "This list is empty",
     format = (v) => {},
@@ -210,11 +227,14 @@ export const CameraConsoleContent = (props, context) => {
               'Button--fluid',
               'Button--color--transparent',
               'Button--ellipsis',
+              selected(entry) && 'Button--selected',
             ])}
             onClick={() => onClick(entry)}>
             {format(entry)}
           </div>
-        ))}
+        )) || (
+          <b>{emptyListText}</b>
+        )}
       </Stack.Item>
     </Stack>
   );

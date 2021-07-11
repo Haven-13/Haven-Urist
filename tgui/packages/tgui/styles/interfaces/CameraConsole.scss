@@ -1,6 +1,8 @@
 @use '../base.scss';
+@use '../colors.scss';
 
 $background-color: rgba(0, 0, 0, 0.33) !default;
+$color-selected: colors.bg(colors.$green) !default;
 
 .CameraConsole__left {
   position: absolute;
@@ -40,9 +42,32 @@ $background-color: rgba(0, 0, 0, 0.33) !default;
 
 .CameraConsole__viewcontainer {
   position: relative;
-  top: 80px;
-  height: 800px;
+  top: base.em(35px);
+  height: calc(100% - 60px);
 
+  td > .CameraConsole__viewmap {
+    position: relative;
+    height: calc(100% - 15px);
+  }
+
+  td {
+    border: 2px solid transparent;
+  }
+
+  td > div {
+    background-color: $background-color;
+    position: relative;
+    bottom: 0;
+    height: base.em(15px)
+  }
+}
+
+td.CameraConsole__view--selected {
+  border-color: $color-selected;
+
+  div {
+    background-color: $color-selected;
+  }
 }
 
 .CameraConsole__map {

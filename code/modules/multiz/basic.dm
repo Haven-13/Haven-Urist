@@ -23,6 +23,16 @@ var/list/z_levels = list()// Each bit re... haha just kidding this is a list of 
 	..()
 	return INITIALIZE_HINT_QDEL
 
+/proc/GetZDepth(var/z)
+	var/obj/effect/landmark/submap_data/SMD = GetSubmapData(z)
+
+	var/bottom_z
+	if (SMD)
+		bottom_z = SMD.get_bottommost_z()
+	else
+		bottom_z = z
+
+	return (z - bottom_z) + 1
 
 /proc/HasAbove(var/z)
 	if(z >= world.maxz || z < 1 || z > z_levels.len)

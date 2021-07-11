@@ -29,8 +29,8 @@
 	name = "Camera Monitoring program"
 	ui_interface_name = "programs/NtosCameraMonitor"
 
+	var/selected_network
 	var/list/selected_cameras = list()
-	var/list/selected_networks = list()
 	var/list/last_camera_turf = list()
 
 	var/list/atom/movable/map_view/camera_map_views = list()
@@ -43,7 +43,6 @@
 	for(var/index in 1 to MAX_ACTIVE_CAMERAS)
 		// Construct data structure for active_views
 		selected_cameras += null
-		selected_networks += null
 		last_camera_turf += null
 
 		// Add map_view object for corresponding camera
@@ -58,15 +57,29 @@
 		// Create the bounding-box canvas & effect overlay for the view
 		var/obj/screen/background/foreground = new
 		foreground.screen_loc = "[key]:1,1 to [DEFAULT_VIEW_SIZE],[DEFAULT_VIEW_SIZE]"
+		foreground.icon = 'icons/primitives.dmi'
+		foreground.icon_state = "white"
 		foreground.plane = FULLSCREEN_PLANE
 		foreground.layer = FULLSCREEN_LAYER
+
+		var/mutable_appearance/scanlines = mutable_appearance('icons/effects/static.dmi', "scanlines")
+		scanlines.plane = FULLSCREEN_PLANE
+		scanlines.layer = FULLSCREEN_LAYER
+		scanlines.alpha = 125
+
+		var/mutable_appearance/noise = mutable_appearance('icons/effects/static.dmi', "1 moderate")
+		noise.plane = FULLSCREEN_PLANE
+		noise.layer = FULLSCREEN_LAYER
+
+		foreground.overlays += scanlines
+		foreground.overlays += noise
+
 		camera_foregrounds += foreground
 
 # undef MAX_ACTIVE_CAMERAS
 
 /datum/ui_module/program/camera_monitor/Destroy()
 	selected_cameras = null
-	selected_networks = null
 	last_camera_turf = null
 	QDEL_NULL_ASSOC_LIST(camera_map_views)
 	QDEL_NULL_LIST(camera_foregrounds)
@@ -106,22 +119,23 @@
 
 	data["active_view_data"] = list()
 
+	// This list used to have two elements per entry, but I am
+	// leaving it like this for the convenience for new features
+	//  that might come later.
+	//
 	// The data should be constructed like this:
 	//
 	// active_view_data
 	//	├─ 1: first view
-	//  │   ├─ camera
-	//  │   └─ network
+	//  │   └─ camera
 	// 	...
 	//	└─ n: last view
-	//      ├─ camera
-	//      └─ network
+	//      └─ camera
 
 	for (var/i in 1 to camera_map_views.len)
 		var/obj/machinery/camera/CC = selected_cameras[i]
 		data["active_view_data"] += list(list(
 			"camera" = (!!CC && CC.ui_json_structure()) || null,
-			"network" = selected_networks[i],
 		))
 
 	var/list/all_networks[0]
@@ -134,6 +148,7 @@
 
 	all_networks = modify_networks_list(all_networks)
 
+	data["selected_network"] = selected_network
 	data["networks"] = all_networks
 
 	data["user_is_AI"] = isAI(user)
@@ -164,7 +179,7 @@
 			var/obj/machinery/camera/C = locate(params["camera"]) in cameranet.cameras
 			if(!C)
 				return FALSE
-			if(!(selected_networks[view_index] in C.network))
+			if(!(selected_network in C.network))
 				return FALSE
 
 			switch_to_camera(usr, view_index, C)
@@ -172,13 +187,9 @@
 
 		if("switch_network")
 			// Either security access, or access to the specific camera network's department is required in order to access the network.
-			var/view_index = text2num(params["index"])
-			if(between(1, view_index, camera_map_views.len) != view_index)
-				return FALSE
-
 			var/network = params["network"]
 			if(can_access_network(usr, get_camera_access(network)))
-				selected_networks[view_index] = network
+				selected_network = network
 			else
 				to_chat(usr, "\The [ui_host()] shows an \"Network Access Denied\" error message.")
 			return TRUE
@@ -204,7 +215,7 @@
 
 	var/cam_location = (isliving(C.loc) && C.loc) || C
 
-	var/newturf = get_turf(cam_location)
+	var/turf/newturf = get_turf(cam_location)
 	if(last_camera_turf[index] == newturf)
 		return FALSE
 	last_camera_turf[index] = newturf
@@ -219,12 +230,17 @@
 	var/atom/movable/map_view/MV = camera_map_views[key]
 	MV.vis_contents = visible_turfs
 
+	MV.clear_all(user)
+	MV.update_map_view(GetZDepth(newturf.z))
+	MV.add_all_active(user)
+
 	// Compute ByondUI map canvas size
 	var/list/bbox = get_bound_box_of_atoms(visible_turfs)
 	var/size_x = bbox[3] - bbox[1] + 1
 	var/size_y = bbox[4] - bbox[2] + 1
 
 	var/obj/screen/background/foreground = camera_foregrounds[index]
+	foreground.icon_state = "blank"
 	foreground.screen_loc = "[key]:1,1 to [size_x],[size_y]"
 
 	// And done
@@ -236,6 +252,7 @@
 	MV.vis_contents.Cut()
 
 	var/obj/screen/background/foreground = camera_foregrounds[index]
+	foreground.icon_state = "white"
 	foreground.screen_loc = "[key]:1,1 to [DEFAULT_VIEW_SIZE],[DEFAULT_VIEW_SIZE]"
 	return TRUE
 

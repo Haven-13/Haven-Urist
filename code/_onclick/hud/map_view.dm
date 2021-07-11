@@ -13,8 +13,10 @@
 	. = ..()
 	QDEL_NULL_ASSOC_LIST(plane_master_cache)
 	QDEL_NULL_ASSOC_LIST(openspace_overlay_cache)
-	QDEL_NULL_ASSOC_LIST(active_planes)
-	QDEL_NULL_ASSOC_LIST(active_overlays)
+	// Just null those lists, they are subsets of the caches above
+	// Or do you want to get a spam of "could not GC X"?
+	active_planes = null
+	active_overlays = null
 
 /atom/movable/map_view/proc/update_map_view(var/z_depth)
 	active_planes.Cut()
@@ -59,8 +61,6 @@
 		var/obj/screen/openspace_overlay/OO = active_overlays[key]
 		mymob.client.screen += OO
 
-	to_world("successfully added screen objects")
-
 /atom/movable/map_view/proc/clear_all(var/mob/mymob)
 	if(!mymob.client)
 		return
@@ -72,8 +72,6 @@
 	for(var/key in active_overlays)
 		var/obj/screen/openspace_overlay/OO = active_overlays[key]
 		mymob.client.screen -= OO
-
-	to_world("successfully removed screen objects")
 
 /atom/movable/map_view/proc/get_active_planes()
 	return active_planes
