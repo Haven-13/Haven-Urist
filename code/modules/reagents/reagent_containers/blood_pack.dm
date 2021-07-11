@@ -35,12 +35,12 @@
 	overlays.Cut()
 	var/percent = round(reagents.total_volume / volume * 100)
 	if(reagents.total_volume)
-		var/image/filling = image('icons/obj/bloodpack.dmi', "[round(percent,25)]")
+		var/mutable_appearance/filling = mutable_appearance(icon, "[round(percent,25)]")
 		filling.color = reagents.get_color()
 		overlays += filling
-	overlays += image('icons/obj/bloodpack.dmi', "top")
+	overlays += mutable_appearance(icon, "top")
 	if(attached)
-		overlays += image('icons/obj/bloodpack.dmi', "dongle")
+		overlays += mutable_appearance(icon, "dongle")
 
 /obj/item/weapon/reagent_containers/ivbag/MouseDrop(over_object, src_location, over_location)
 	if(!CanMouseDrop(over_object))

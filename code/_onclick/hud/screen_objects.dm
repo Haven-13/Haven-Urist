@@ -172,7 +172,7 @@
 
 /obj/screen/zone_sel/update_icon()
 	overlays.Cut()
-	overlays += image('icons/mob/zone_sel.dmi', "[selecting]")
+	overlays += mutable_appearance('icons/mob/zone_sel.dmi', "[selecting]")
 
 /obj/screen/intent
 	name = "intent"
