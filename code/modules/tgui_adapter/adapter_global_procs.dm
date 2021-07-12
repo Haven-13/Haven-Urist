@@ -1,3 +1,6 @@
+/proc/ui_always_state()
+	return GLOB.always_state
+
 /proc/ui_default_state()
 	return GLOB.default_state
 

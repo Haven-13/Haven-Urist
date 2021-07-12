@@ -630,10 +630,10 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 	return 220
 
 /datum/species/proc/get_hair_styles()
-	var/list/L = LAZYACCESS(hair_styles, type)
+	var/list/L = hair_styles
 	if(!L)
 		L = list()
-		LAZYSET(hair_styles, type, L)
+		hair_styles = L
 		for(var/hairstyle in GLOB.hair_styles_list)
 			var/datum/sprite_accessory/S = GLOB.hair_styles_list[hairstyle]
 			if(!(get_bodytype() in S.species_allowed))
@@ -643,16 +643,10 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 	return L
 
 /datum/species/proc/get_facial_hair_styles(var/gender)
-	var/list/facial_hair_styles_by_species = LAZYACCESS(facial_hair_styles, type)
-	if(!facial_hair_styles_by_species)
-		facial_hair_styles_by_species = list()
-		LAZYSET(facial_hair_styles, type, facial_hair_styles_by_species)
-
-	var/list/facial_hair_style_by_gender = facial_hair_styles_by_species[gender]
-	if(!facial_hair_style_by_gender)
-		facial_hair_style_by_gender = list()
-		LAZYSET(facial_hair_styles_by_species, gender, facial_hair_style_by_gender)
-
+	var/list/L = LAZYACCESS(facial_hair_styles, gender)
+	if(!L)
+		L = list()
+		LAZYSET(facial_hair_styles, gender, L)
 		for(var/facialhairstyle in GLOB.facial_hair_styles_list)
 			var/datum/sprite_accessory/S = GLOB.facial_hair_styles_list[facialhairstyle]
 			if(gender == MALE && S.gender == FEMALE)
@@ -661,10 +655,9 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 				continue
 			if(!(get_bodytype() in S.species_allowed))
 				continue
-			ADD_SORTED(facial_hair_style_by_gender, facialhairstyle, /proc/cmp_text_asc)
-			facial_hair_style_by_gender[facialhairstyle] = S
-
-	return facial_hair_style_by_gender
+			ADD_SORTED(L, facialhairstyle, /proc/cmp_text_asc)
+			L[facialhairstyle] = S
+	return L
 
 /datum/species/proc/get_description(var/header, var/append, var/verbose = TRUE, var/skip_detail, var/skip_photo)
 	var/list/damage_types = list(
