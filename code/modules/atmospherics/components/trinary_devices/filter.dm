@@ -174,23 +174,23 @@
 			current_filter_type = "ERROR - Report this bug to the admin, please!"
 
 	dat += {"
-			<b>Power: </b><a href='?src=\ref[src];power=1'>[use_power?"On":"Off"]</a><br>
+			<b>Power: </b><a href='?src=[REF(src)];power=1'>[use_power?"On":"Off"]</a><br>
 			<b>Filtering: </b>[current_filter_type]<br><HR>
 			<h4>Set Filter Type:</h4>
-			<A href='?src=\ref[src];filterset=0'>Phoron</A><BR>
-			<A href='?src=\ref[src];filterset=1'>Oxygen</A><BR>
-			<A href='?src=\ref[src];filterset=2'>Nitrogen</A><BR>
-			<A href='?src=\ref[src];filterset=3'>Carbon Dioxide</A><BR>
-			<A href='?src=\ref[src];filterset=4'>Nitrous Oxide</A><BR>
-			<A href='?src=\ref[src];filterset=5'>Hydrogen</A><BR>
-			<A href='?src=\ref[src];filterset=-1'>Nothing</A><BR>
+			<A href='?src=[REF(src)];filterset=0'>Phoron</A><BR>
+			<A href='?src=[REF(src)];filterset=1'>Oxygen</A><BR>
+			<A href='?src=[REF(src)];filterset=2'>Nitrogen</A><BR>
+			<A href='?src=[REF(src)];filterset=3'>Carbon Dioxide</A><BR>
+			<A href='?src=[REF(src)];filterset=4'>Nitrous Oxide</A><BR>
+			<A href='?src=[REF(src)];filterset=5'>Hydrogen</A><BR>
+			<A href='?src=[REF(src)];filterset=-1'>Nothing</A><BR>
 			<HR>
 			<B>Set Flow Rate Limit:</B>
-			[src.set_flow_rate]L/s | <a href='?src=\ref[src];set_flow_rate=1'>Change</a><BR>
+			[src.set_flow_rate]L/s | <a href='?src=[REF(src)];set_flow_rate=1'>Change</a><BR>
 			<B>Flow rate: </B>[round(last_flow_rate, 0.1)]L/s
 			"}
 
-	user << browse("<HEAD><TITLE>[src.name] control</TITLE></HEAD><TT>[dat]</TT>", "window=atmo_filter")
+	show_browser(user, "<HEAD><TITLE>[src.name] control</TITLE></HEAD><TT>[dat]</TT>", "window=atmo_filter")
 	onclose(user, "atmo_filter")
 	return
 

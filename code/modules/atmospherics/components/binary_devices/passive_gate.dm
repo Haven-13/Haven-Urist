@@ -176,69 +176,67 @@
 	ui_interact(user)
 	return
 
-/obj/machinery/atmospherics/binary/passive_gate/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/atmospherics/binary/passive_gate/ui_status(mob/user, datum/ui_state/state)
 	if(stat & (BROKEN|NOPOWER))
-		return
+		return UI_CLOSE
+	return ..()
 
-	// this is the data which will be sent to the ui
-	var/data[0]
+/obj/machinery/atmospherics/binary/passive_gate/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "atmospherics/PassiveGate", name)
+		ui.open()					// open the new ui window
 
-	data = list(
-		"on" = unlocked,
-		"pressure_set" = round(target_pressure*100),	//Nano UI can't handle rounded non-integers, apparently.
-		"max_pressure" = max_pressure_setting,
-		"input_pressure" = round(air1.return_pressure()*100),
-		"output_pressure" = round(air2.return_pressure()*100),
-		"regulate_mode" = regulate_mode,
-		"set_flow_rate" = round(set_flow_rate*10),
-		"last_flow_rate" = round(last_flow_rate*10),
+/obj/machinery/atmospherics/binary/passive_gate/ui_static_data(mob/user)
+	. = list(
+		"minPressure" = 0,
+		"maxPressure" = max_pressure_setting,
+		"minFlowRate" = 0,
+		"maxFlowRate" = air1.volume
 	)
 
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "pressure_regulator.tmpl", name, 470, 370)
-		ui.set_initial_data(data)	// when the ui is first opened this is the data it will use
-		ui.open()					// open the new ui window
-		ui.set_auto_update(1)		// auto update every Master Controller tick
+/obj/machinery/atmospherics/binary/passive_gate/ui_data(mob/user)
+	. = list(
+		"on" = unlocked,
+		"pressureSet" = target_pressure,
+		"inputPressure" = air1.return_pressure(),
+		"outputPressure" = air2.return_pressure(),
+		"regulateMode" = regulate_mode,
+		"setFlowRate" = set_flow_rate,
+		"lastFlowRate" = last_flow_rate,
+	)
 
-
-/obj/machinery/atmospherics/binary/passive_gate/Topic(href,href_list)
-	if(..()) return 1
-
-	if(href_list["toggle_valve"])
-		unlocked = !unlocked
-
-	if(href_list["regulate_mode"])
-		switch(href_list["regulate_mode"])
-			if ("off") regulate_mode = REGULATE_NONE
-			if ("input") regulate_mode = REGULATE_INPUT
-			if ("output") regulate_mode = REGULATE_OUTPUT
-
-	switch(href_list["set_press"])
-		if ("min")
-			target_pressure = 0
-		if ("max")
-			target_pressure = max_pressure_setting
-		if ("set")
-			var/new_pressure = input(usr,"Enter new output pressure (0-[max_pressure_setting]kPa)","Pressure Control",src.target_pressure) as num
-			src.target_pressure = between(0, new_pressure, max_pressure_setting)
-
-	switch(href_list["set_flow_rate"])
-		if ("min")
-			set_flow_rate = 0
-		if ("max")
-			set_flow_rate = air1.volume
-		if ("set")
-			var/new_flow_rate = input(usr,"Enter new flow rate limit (0-[air1.volume]kPa)","Flow Rate Control",src.set_flow_rate) as num
-			src.set_flow_rate = between(0, new_flow_rate, air1.volume)
-
-	usr.set_machine(src)	//Is this even needed with NanoUI?
-	src.update_icon()
-	src.add_fingerprint(usr)
-	return
+/obj/machinery/atmospherics/binary/passive_gate/ui_act(action, list/params)
+	switch(action)
+		if("toggle_valve")
+			unlocked = !unlocked
+			. = TRUE
+		if("regulate_mode")
+			switch(params["regulate_mode"])
+				if("off") regulate_mode = REGULATE_NONE
+				if("input") regulate_mode = REGULATE_INPUT
+				if("output") regulate_mode = REGULATE_OUTPUT
+			. = TRUE
+		if("set_pressure")
+			switch(params["set_pressure"])
+				if("min")
+					target_pressure = 0
+				if("max")
+					target_pressure = max_pressure_setting
+				else
+					target_pressure = between(0, params["set_pressure"], max_pressure_setting)
+			. = TRUE
+		if("set_flow_rate")
+			switch(params["set_flow_rate"])
+				if("min")
+					set_flow_rate = 0
+				if("max")
+					set_flow_rate = air1.volume
+				else
+					set_flow_rate = between(0, params["set_flow_rate"], air1.volume)
+			. = TRUE
+	if(.)
+		src.update_icon()
 
 /obj/machinery/atmospherics/binary/passive_gate/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if(!isWrench(W))

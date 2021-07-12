@@ -84,7 +84,7 @@ var/datum/antagonist/agent/agents
 	M.mind.store_memory("You remember that <B>[conspiracy.leader] leads the [conspiracy.faction_descriptor]</B>", 0, 0)
 
 /datum/antagonist/agent/get_extra_panel_options(var/datum/mind/player)
-	return "<a href='?src=\ref[player];common=crystals'>\[set crystals\]</a><a href='?src=\ref[src];spawn_uplink=\ref[player.current]'>\[spawn uplink\]</a>"
+	return "<a href='?src=[REF(player)];common=crystals'>\[set crystals\]</a><a href='?src=[REF(src)];spawn_uplink=\ref[player.current]'>\[spawn uplink\]</a>"
 
 /datum/antagonist/agent/Topic(href, href_list)
 	if (..())

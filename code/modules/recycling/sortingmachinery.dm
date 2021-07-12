@@ -349,14 +349,14 @@
 
 	dat += "<table style='width:100%; padding:4px;'><tr>"
 	for(var/i = 1, i <= GLOB.tagger_locations.len, i++)
-		dat += "<td><a href='?src=\ref[src];nextTag=[GLOB.tagger_locations[i]]'>[GLOB.tagger_locations[i]]</a></td>"
+		dat += "<td><a href='?src=[REF(src)];nextTag=[GLOB.tagger_locations[i]]'>[GLOB.tagger_locations[i]]</a></td>"
 
 		if (i%4==0)
 			dat += "</tr><tr>"
 
 	dat += "</tr></table><br>Current Selection: [currTag || "None"]</tt>"
-	dat += "<br><a href='?src=\ref[src];nextTag=CUSTOM'>Enter custom location.</a>"
-	user << browse(dat, "window=destTagScreen;size=450x375")
+	dat += "<br><a href='?src=[REF(src)];nextTag=CUSTOM'>Enter custom location.</a>"
+	show_browser(user, dat, "window=destTagScreen;size=450x375")
 	onclose(user, "destTagScreen")
 
 /obj/item/device/destTagger/attack_self(mob/user as mob)
@@ -367,7 +367,7 @@
 		src.currTag = href_list["nextTag"]
 		to_chat(user, "<span class='notice'>You set [src] to <b>[src.currTag]</b>.</span>")
 		playsound(src.loc, 'sound/machines/chime.ogg', 50, 1)
-		. = TOPIC_REFRESH
+		. = TRUE
 	if(href_list["nextTag"] == "CUSTOM")
 		var/dest = input(user, "Please enter custom location.", "Location", src.currTag ? src.currTag : "None")
 		if(CanUseTopic(user, state))
@@ -379,11 +379,11 @@
 				src.currTag = 0
 				to_chat(user, "<span class='notice'>You clear [src]'s custom location.</span>")
 				playsound(src.loc, 'sound/machines/chime.ogg', 50, 1)
-			. = TOPIC_REFRESH
+			. = TRUE
 		else
-			. = TOPIC_HANDLED
+			. = FALSE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		openwindow(user)
 
 /obj/machinery/disposal/deliveryChute

@@ -480,19 +480,19 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /////////// //Ported Straight from TG. I am not sorry. - BloodyMan
 //ROLLING//
 ///////////
-/obj/item/paper/cig
+/obj/item/weapon/paper/cig
 	name = "rolling paper"
 	desc = "A thin piece of paper used to make smokeables."
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "cig_paper"
 	w_class = ITEM_SIZE_TINY
 
-/obj/item/paper/cig/fancy
+/obj/item/weapon/paper/cig/fancy
 	name = "\improper Trident rolling paper"
 	desc = "A thin piece of trident branded paper used to make fine smokeables."
 	icon_state = "cig_paperf"
 
-/obj/item/paper/cig/filter
+/obj/item/weapon/paper/cig/filter
 	name = "cigarette filter"
 	desc = "A small nub like filter for cigarettes."
 	icon_state = "cig_filter"
@@ -523,7 +523,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	filling = list(/datum/reagent/tobacco/fine = 5)
 
 //cig paper interaction ported straight from TG with some adjustments for our derelict code
-/obj/item/paper/cig/afterattack(atom/target, mob/user, proximity)
+/obj/item/weapon/paper/cig/afterattack(atom/target, mob/user, proximity)
 	if(!proximity)
 		return
 	if(istype(target, /obj/item/weapon/reagent_containers/food/snacks/grown))
@@ -583,7 +583,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		..()
 
 //Repeating this for tobacco-wad objects
-/obj/item/paper/cig/afterattack(atom/target, mob/user, proximity)
+/obj/item/weapon/paper/cig/afterattack(atom/target, mob/user, proximity)
 	if(!proximity)
 		return
 	if(istype(target, /obj/item/weapon/reagent_containers/terrbacco))
@@ -641,7 +641,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		..()
 
 //crafting a filter into the existing rollie
-/obj/item/paper/cig/filter/afterattack(atom/target, mob/user, proximity)
+/obj/item/weapon/paper/cig/filter/afterattack(atom/target, mob/user, proximity)
 	if(!proximity)
 		return
 	if(istype(target, /obj/item/clothing/mask/smokable/cigarette/rolled))

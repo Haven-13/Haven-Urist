@@ -195,10 +195,10 @@ Class Procs:
 
 /obj/machinery/CanUseTopic(var/mob/user)
 	if(stat & BROKEN)
-		return STATUS_CLOSE
+		return UI_CLOSE
 
 	if(!interact_offline && (stat & NOPOWER))
-		return STATUS_CLOSE
+		return UI_CLOSE
 
 	return ..()
 
@@ -208,6 +208,27 @@ Class Procs:
 
 /obj/machinery/CouldNotUseTopic(var/mob/user)
 	user.unset_machine()
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+//Return a non FALSE value to interrupt attack_hand propagation to subtypes.
+/obj/machinery/interact(mob/user, special_state)
+	//if(interaction_flags_machine & INTERACT_MACHINE_SET_MACHINE)
+	user.set_machine(src)
+	. = ..()
+
+/obj/machinery/ui_act(action, list/params)
+	add_fingerprint(usr)
+	return ..()
+
+/obj/machinery/Topic(href, href_list)
+	..()
+	if(!CanInteract(usr))
+		return TRUE
+	if(!usr.CanUseTopic(src))
+		return TRUE
+	add_fingerprint(usr)
+	return FALSE
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -208,7 +208,7 @@
 		overlays.Cut()
 		if(panel_open)
 			overlays += image(icon, icon_panel)
-		SSnano.update_uis(src)
+		SStgui.update_uis(src)
 		return
 
 	if(isMultitool(O) || isWirecutter(O))
@@ -262,7 +262,7 @@
 
 /obj/machinery/smartfridge/proc/stock(var/datum/stored_items/I, var/obj/item/O)
 	I.add_product(O)
-	SSnano.update_uis(src)
+	SStgui.update_uis(src)
 
 /obj/machinery/smartfridge/attack_ai(mob/user as mob)
 	attack_hand(user)
@@ -277,9 +277,13 @@
 *   SmartFridge Menu
 ********************/
 
-/obj/machinery/smartfridge/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	user.set_machine(src)
+/obj/machinery/smartfridge/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "SmartFridge", name)
+		ui.open()
 
+/obj/machinery/smartfridge/ui_data(mob/user)
 	var/data[0]
 	data["contents"] = null
 	data["electrified"] = seconds_electrified > 0
@@ -297,38 +301,24 @@
 	if(items.len > 0)
 		data["contents"] = items
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "smartfridge.tmpl", src.name, 400, 500)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
-/obj/machinery/smartfridge/Topic(href, href_list)
-	if(..()) return 0
+/obj/machinery/smartfridge/ui_act(action, list/params)
+	switch(action)
+		if("vend")
+			var/index = params["vend"]
+			var/amount = params["amount"]
+			var/datum/stored_items/I = item_records[index]
+			var/count = I.get_amount()
 
-	var/mob/user = usr
-	var/datum/nanoui/ui = SSnano.get_open_ui(user, src, "main")
+			// Sanity check, there are probably ways to press the button when it shouldn't be possible.
+			if(count > 0)
+				if((count - amount) < 0)
+					amount = count
+				for(var/i = 1 to amount)
+					I.get_product(get_turf(src))
 
-	if(href_list["close"])
-		user.unset_machine()
-		ui.close()
-		return 0
-
-	if(href_list["vend"])
-		var/index = text2num(href_list["vend"])
-		var/amount = text2num(href_list["amount"])
-		var/datum/stored_items/I = item_records[index]
-		var/count = I.get_amount()
-
-		// Sanity check, there are probably ways to press the button when it shouldn't be possible.
-		if(count > 0)
-			if((count - amount) < 0)
-				amount = count
-			for(var/i = 1 to amount)
-				I.get_product(get_turf(src))
-
-		return 1
-	return 0
+			return TRUE
 
 /obj/machinery/smartfridge/proc/throw_item()
 	var/obj/throw_item = null

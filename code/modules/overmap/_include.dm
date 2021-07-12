@@ -29,6 +29,7 @@
 #include "ships/ship.dm"
 #include "ships/computers/engine_control.dm"
 #include "ships/computers/helm.dm"
+#include "ships/computers/navigation.dm"
 #include "ships/computers/sensors.dm"
 #include "ships/computers/shuttle.dm"
 #include "ships/engines/engine.dm"

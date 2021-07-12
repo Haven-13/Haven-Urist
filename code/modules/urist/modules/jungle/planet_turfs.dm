@@ -283,7 +283,7 @@
 	if(probability <= 0)
 		return
 
-	//world << "<span class='notice'> Spread([probability])</span>"
+	//to_world("<span class='notice'> Spread([probability])</span>")
 	for(var/turf/simulated/floor/planet/jungle/J in orange(1, src))
 		if(!J.bushspawnchance)
 			continue

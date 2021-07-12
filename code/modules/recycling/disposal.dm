@@ -256,18 +256,18 @@
 
 	if(!ai)  // AI can't pull flush handle
 		if(flush)
-			dat += "Disposal handle: <A href='?src=\ref[src];handle=0'>Disengage</A> <B>Engaged</B>"
+			dat += "Disposal handle: <A href='?src=[REF(src)];handle=0'>Disengage</A> <B>Engaged</B>"
 		else
-			dat += "Disposal handle: <B>Disengaged</B> <A href='?src=\ref[src];handle=1'>Engage</A>"
+			dat += "Disposal handle: <B>Disengaged</B> <A href='?src=[REF(src)];handle=1'>Engage</A>"
 
-		dat += "<BR><HR><A href='?src=\ref[src];eject=1'>Eject contents</A><HR>"
+		dat += "<BR><HR><A href='?src=[REF(src)];eject=1'>Eject contents</A><HR>"
 
 	if(mode <= 0)
-		dat += "Pump: <B>Off</B> <A href='?src=\ref[src];pump=1'>On</A><BR>"
+		dat += "Pump: <B>Off</B> <A href='?src=[REF(src)];pump=1'>On</A><BR>"
 	else if(mode == 1)
-		dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
+		dat += "Pump: <A href='?src=[REF(src)];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
 	else
-		dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (idle)<BR>"
+		dat += "Pump: <A href='?src=[REF(src)];pump=0'>Off</A> <B>On</B> (idle)<BR>"
 
 	var/per = 100* air_contents.return_pressure() / (SEND_PRESSURE)
 
@@ -275,7 +275,7 @@
 
 
 	user.set_machine(src)
-	user << browse(dat, "window=disposal;size=360x170")
+	show_browser(user, dat, "window=disposal;size=360x170")
 	onclose(user, "disposal")
 
 // handle machine interaction
@@ -283,20 +283,20 @@
 /obj/machinery/disposal/CanUseTopic(user, state, href_list)
 	if(usr.loc == src)
 		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
-		return STATUS_CLOSE
+		return UI_CLOSE
 	if(isAI(user) && (href_list["handle"] || href_list["eject"]))
-		return min(STATUS_UPDATE, ..())
+		return min(UI_UPDATE, ..())
 	if(mode==-1 && !href_list["eject"]) // only allow ejecting if mode is -1
 		to_chat(user, "<span class='warning'>The disposal units power is disabled.</span>")
-		return min(STATUS_UPDATE, ..())
+		return min(UI_UPDATE, ..())
 	if(flushing)
-		return min(STATUS_UPDATE, ..())
+		return min(UI_UPDATE, ..())
 	return ..()
 
 /obj/machinery/disposal/OnTopic(user, href_list)
 	if(href_list["close"])
 		close_browser(user, "window=disposal")
-		return TOPIC_HANDLED
+		return FALSE
 
 	if(href_list["pump"])
 		if(text2num(href_list["pump"]))
@@ -304,18 +304,18 @@
 		else
 			mode = 0
 		update_icon()
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["handle"])
 		flush = text2num(href_list["handle"])
 		update_icon()
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["eject"])
 		eject()
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		interact(user)
 
 // eject the contents of the disposal unit

@@ -108,15 +108,15 @@
 /obj/item/device/bot_controller/interact(var/mob/user)
 	user.set_machine(src)
 	if(!(src in user) || !bot)
-		user << browse(null, "window=bot_controller")
+		close_browser(user, "window=bot_controller")
 		return
 	var/dat = "<center><TT><b>Remote Control: [bot.name]</b></TT><br>"
 	dat += "Currently Holding: [bot.holding ? bot.holding.name : "Nothing"]<br><br>"
 	var/is_looking = (user.client.eye == bot)
-	dat += "<a href='byond://?src=\ref[src];look=[is_looking];'>[is_looking ? "Stop" : "Start"] Looking</a><br>"
-	dat += "<a href='byond://?src=\ref[src];drop=1;'>Drop Item</a><br></center>"
+	dat += "<a href='byond://?src=[REF(src)];look=[is_looking];'>[is_looking ? "Stop" : "Start"] Looking</a><br>"
+	dat += "<a href='byond://?src=[REF(src)];drop=1;'>Drop Item</a><br></center>"
 
-	user << browse(dat, "window=bot_controller")
+	show_browser(user, dat, "window=bot_controller")
 	onclose(user, "botcontroller")
 
 /obj/item/device/bot_controller/check_eye()

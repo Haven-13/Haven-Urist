@@ -20,12 +20,12 @@
 
 	if(stat & (BROKEN|NOPOWER))
 		user.unset_machine()
-		user << browse(null, "window=fuel_control")
+		close_browser(user, "window=fuel_control")
 		return
 
 	if (!istype(user, /mob/living/silicon) && get_dist(src, user) > 1)
 		user.unset_machine()
-		user << browse(null, "window=fuel_control")
+		close_browser(user, "window=fuel_control")
 		return
 
 	if(!id_tag)
@@ -55,7 +55,7 @@
 		else
 			dat += "<td>[I.cur_assembly ? I.cur_assembly.fuel_type : "NONE"]</td>"
 			if(I.cur_assembly)
-				dat += "<td><a href='?src=\ref[src];toggle_injecting=\ref[I]'>\[[I.injecting ? "Halt injecting" : "Begin injecting"]\]</a></td>"
+				dat += "<td><a href='?src=[REF(src)];toggle_injecting=[REF(I)]'>\[[I.injecting ? "Halt injecting" : "Begin injecting"]\]</a></td>"
 			else
 				dat += "<td>None</td>"
 			if(I.cur_assembly)
@@ -66,33 +66,33 @@
 		dat += "</tr>"
 
 	dat += {"</table><hr>
-		<A href='?src=\ref[src];refresh=1'>Refresh</A>
-		<A href='?src=\ref[src];close=1'>Close</A><BR>"}
+		<A href='?src=[REF(src)];refresh=1'>Refresh</A>
+		<A href='?src=[REF(src)];close=1'>Close</A><BR>"}
 
 	var/datum/browser/popup = new(user, "fuel_control", "Fusion Fuel Control Console", 800, 400, src)
 	popup.set_content(dat)
 	popup.open()
 	user.set_machine(src)
 
-/obj/machinery/computer/fusion_fuel_control/OnTopic(var/mob/user, var/href_list, var/datum/topic_state/state)
+/obj/machinery/computer/fusion_fuel_control/OnTopic(var/mob/user, var/href_list, var/datum/ui_state/state)
 	if(href_list["toggle_injecting"])
 		var/obj/machinery/fusion_fuel_injector/I = locate(href_list["toggle_injecting"])
 		if(I.id_tag != id_tag || get_dist(src, I) > scan_range)
-			return TOPIC_NOACTION
+			return FALSE
 
 		if(istype(I))
 			if(I.injecting)
 				I.StopInjecting()
-				return TOPIC_REFRESH
+				return TRUE
 			else
 				I.BeginInjecting()
-				return TOPIC_REFRESH
+				return TRUE
 
 	if( href_list["close"] )
-		user << browse(null, "window=fuel_control")
+		close_browser(user, "window=fuel_control")
 		user.unset_machine()
 
-	return TOPIC_REFRESH
+	return TRUE
 
 
 /obj/machinery/computer/fusion_fuel_control/attackby(var/obj/item/W, var/mob/user)

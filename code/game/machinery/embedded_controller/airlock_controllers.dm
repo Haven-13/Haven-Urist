@@ -27,7 +27,7 @@
 
 /obj/machinery/embedded_controller/radio/airlock/CanUseTopic(var/mob/user)
 	if(!allowed(user))
-		return min(STATUS_UPDATE, ..())
+		return min(UI_UPDATE, ..())
 	else
 		return ..()
 
@@ -35,7 +35,13 @@
 /obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller
 	name = "Advanced Airlock Controller"
 
-/obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "AdvancedAirlockController")
+		ui.open()
+
+/obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_data(mob/user)
 	var/data[0]
 
 	data = list(
@@ -47,16 +53,7 @@
 		"secure" = program.memory["secure"]
 	)
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-
-	if (!ui)
-		ui = new(user, src, ui_key, "advanced_airlock_console.tmpl", name, 470, 290, state = state)
-
-		ui.set_initial_data(data)
-
-		ui.open()
-
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/Topic(href, href_list)
 	if(..())
@@ -92,49 +89,31 @@
 	name = "Airlock Controller"
 	tag_secure = 1
 
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
-	var/data[0]
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "AirlockController", name)
+		ui.open()
 
-	data = list(
-		"chamber_pressure" = round(program.memory["chamber_sensor_pressure"]),
-		"exterior_status" = program.memory["exterior_status"],
-		"interior_status" = program.memory["interior_status"],
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_data(mob/user)
+	. = list(
+		"chamberPressure" = program.memory["chamber_sensor_pressure"],
+		"exteriorStatus" = program.memory["exterior_status"],
+		"interiorStatus" = program.memory["interior_status"],
+		"targetState" = program.memory["target_state"],
 		"processing" = program.memory["processing"],
 	)
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-
-	if (!ui)
-		ui = new(user, src, ui_key, "simple_airlock_console.tmpl", name, 470, 290, state = state)
-
-		ui.set_initial_data(data)
-
-		ui.open()
-
-		ui.set_auto_update(1)
-
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller/Topic(href, href_list)
-	if(..())
-		return
-
-	usr.set_machine(src)
-
-	var/clean = 0
-	switch(href_list["command"])	//anti-HTML-hacking checks
-		if("cycle_ext")
-			clean = 1
-		if("cycle_int")
-			clean = 1
-		if("force_ext")
-			clean = 1
-		if("force_int")
-			clean = 1
-		if("abort")
-			clean = 1
-
-	if(clean)
-		program.receive_user_command(href_list["command"])
-
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_act(action, list/params)
+	switch(action)
+		if("command")
+			if(params["command"] in list(
+				"cycle_ext",
+				"cycle_int",
+				"force_int",
+				"force_ext",
+				"abort"))
+				program.receive_user_command(params["command"])
 	return 1
 
 
@@ -156,7 +135,13 @@
 	else
 		icon_state = "access_control_off"
 
-/obj/machinery/embedded_controller/radio/airlock/access_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/embedded_controller/radio/airlock/access_controller/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "AirlockAccessController")
+		ui.open()
+
+/obj/machinery/embedded_controller/radio/airlock/access_controller/ui_data(mob/user)
 	var/data[0]
 
 	data = list(
@@ -165,16 +150,7 @@
 		"processing" = program.memory["processing"]
 	)
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-
-	if (!ui)
-		ui = new(user, src, ui_key, "door_access_console.tmpl", name, 330, 220, state = state)
-
-		ui.set_initial_data(data)
-
-		ui.open()
-
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/embedded_controller/radio/airlock/access_controller/Topic(href, href_list)
 	if(..())

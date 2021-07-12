@@ -130,32 +130,19 @@
 
 	return 1
 
-/obj/machinery/atmospherics/omni/mixer/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	usr.set_machine(src)
-
-	var/list/data = new()
-
-	data = build_uidata()
-
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-
+/obj/machinery/atmospherics/omni/mixer/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, ui_key, "omni_mixer.tmpl", "Omni Mixer Control", 360, 330)
-		ui.set_initial_data(data)
-
+		ui = new(user, src, "atmospherics/OmniMixer", name)
 		ui.open()
 
-/obj/machinery/atmospherics/omni/mixer/proc/build_uidata()
+/obj/machinery/atmospherics/omni/mixer/ui_data(mob/user)
 	var/list/data = new()
 
 	data["power"] = use_power
-	data["config"] = configuring
 
 	var/portData[0]
 	for(var/datum/omni_port/P in ports)
-		if(!configuring && P.mode == 0)
-			continue
-
 		var/input = 0
 		var/output = 0
 		switch(P.mode)
@@ -168,46 +155,44 @@
 										"concentration" = P.concentration, \
 										"input" = input, \
 										"output" = output, \
-										"con_lock" = P.con_lock)
+										"lock" = P.con_lock)
 
 	if(portData.len)
 		data["ports"] = portData
 	if(output)
-		data["set_flow_rate"] = round(set_flow_rate*10)		//because nanoui can't handle rounded decimals.
-		data["last_flow_rate"] = round(last_flow_rate*10)
+		data["setFlowRate"] = set_flow_rate
+		data["maxFlowRate"] = max_flow_rate
 
 	return data
 
-/obj/machinery/atmospherics/omni/mixer/Topic(href, href_list)
-	if(..()) return 1
+/obj/machinery/atmospherics/omni/mixer/ui_act(action, list/params)
+	. = ..()
+	if (.) return
 
-	switch(href_list["command"])
+	switch(action)
 		if("power")
-			if(!configuring)
-				use_power = !use_power
-			else
-				use_power = 0
-		if("configure")
-			configuring = !configuring
-			if(configuring)
-				use_power = 0
+			use_power = !use_power
+			. = 1
 
-	//only allows config changes when in configuring mode ~otherwise you'll get weird pressure stuff going on
-	if(configuring && !use_power)
-		switch(href_list["command"])
-			if("set_flow_rate")
-				var/new_flow_rate = input(usr,"Enter new flow rate limit (0-[max_flow_rate]L/s)","Flow Rate Control",set_flow_rate) as num
-				set_flow_rate = between(0, new_flow_rate, max_flow_rate)
-			if("switch_mode")
-				switch_mode(dir_flag(href_list["dir"]), href_list["mode"])
-			if("switch_con")
-				change_concentration(dir_flag(href_list["dir"]))
-			if("switch_conlock")
-				con_lock(dir_flag(href_list["dir"]))
+		if("set_flow_rate")
+			var/new_flow_rate = params["set_flow_rate"]
+			set_flow_rate = between(0, new_flow_rate, max_flow_rate)
+			. = 1
 
-	update_icon()
-	SSnano.update_uis(src)
-	return
+		if("switch_mode")
+			switch_mode(dir_flag(params["dir"]), params["mode"])
+			. = 1
+
+		if("switch_con")
+			change_concentration(dir_flag(params["dir"]), params["switch_con"])
+			. = 1
+
+		if("switch_conlock")
+			con_lock(dir_flag(params["dir"]))
+			. = 1
+
+	if (.)
+		update_icon()
 
 /obj/machinery/atmospherics/omni/mixer/proc/switch_mode(var/port = NORTH, var/mode = ATM_NONE)
 	if(mode != ATM_INPUT && mode != ATM_OUTPUT)
@@ -249,29 +234,27 @@
 	update_ports()
 	rebuild_mixing_inputs()
 
-/obj/machinery/atmospherics/omni/mixer/proc/change_concentration(var/port = NORTH)
+/obj/machinery/atmospherics/omni/mixer/proc/change_concentration(var/port = NORTH, var/value)
 	tag_north_con = null
 	tag_south_con = null
 	tag_east_con = null
 	tag_west_con = null
 
-	var/old_con = 0
 	var/non_locked = 0
 	var/remain_con = 1
 
 	for(var/datum/omni_port/P in inputs)
-		if(P.dir == port)
-			old_con = P.concentration
-		else if(!P.con_lock)
-			non_locked++
-		else
-			remain_con -= P.concentration
+		if(P.dir != port)
+			if(!P.con_lock)
+				non_locked++
+			else
+				remain_con -= P.concentration
 
 	//return if no adjustable ports
 	if(non_locked < 1)
 		return
 
-	var/new_con = (input(usr,"Enter a new concentration (0-[round(remain_con * 100, 0.5)])%","Concentration control", min(remain_con, old_con)*100) as num) / 100
+	var/new_con = value
 
 	//cap it between 0 and the max remaining concentration
 	new_con = between(0, new_con, remain_con)

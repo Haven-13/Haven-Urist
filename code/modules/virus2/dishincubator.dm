@@ -29,7 +29,7 @@
 		beaker = O
 
 		user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
-		SSnano.update_uis(src)
+		SStgui.update_uis(src)
 
 		src.attack_hand(user)
 		return
@@ -44,7 +44,7 @@
 		dish = O
 
 		user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
-		SSnano.update_uis(src)
+		SStgui.update_uis(src)
 
 		src.attack_hand(user)
 
@@ -52,46 +52,74 @@
 		. = ..()
 
 /obj/machinery/disease2/incubator/attack_hand(mob/user as mob)
-	if(stat & (NOPOWER|BROKEN)) return
-	ui_interact(user)
+	if(stat & (NOPOWER|BROKEN))
+		return
+	return ..()
 
-/obj/machinery/disease2/incubator/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	user.set_machine(src)
-
-	var/data[0]
-	data["chemicals_inserted"] = !!beaker
-	data["dish_inserted"] = !!dish
-	data["food_supply"] = foodsupply
-	data["radiation"] = radiation
-	data["toxins"] = min(toxins, 100)
-	data["on"] = on
-	data["system_in_use"] = foodsupply > 0 || radiation > 0 || toxins > 0
-	data["chemical_volume"] = beaker ? beaker.reagents.total_volume : 0
-	data["max_chemical_volume"] = beaker ? beaker.volume : 1
-	data["virus"] = dish ? dish.virus2 : null
-	data["growth"] = dish ? min(dish.growth, 100) : 0
-	data["infection_rate"] = dish && dish.virus2 ? dish.virus2.infectionchance * 10 : 0
-	data["analysed"] = dish && dish.analysed ? 1 : 0
-	data["can_breed_virus"] = null
-	data["blood_already_infected"] = null
-
-	if (beaker)
-		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in beaker.reagents.reagent_list
-		data["can_breed_virus"] = dish && dish.virus2 && B
-
-		if (B)
-			if (!B.data["virus2"])
-				B.data["virus2"] = list()
-
-			var/list/virus = B.data["virus2"]
-			for (var/ID in virus)
-				data["blood_already_infected"] = virus[ID]
-
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+/obj/machinery/disease2/incubator/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, ui_key, "dish_incubator.tmpl", src.name, 400, 600)
-		ui.set_initial_data(data)
+		ui = new(user, src, "virology/PathogenicIncubator", name)
 		ui.open()
+
+/obj/machinery/disease2/incubator/ui_static_data(mob/user)
+	. = list(
+		"minFood" = 0,
+		"maxFood" = 100,
+		"minRadiation" = 0,
+		"maxRadiation" = 100,
+		"minToxins" = 0,
+		"maxToxins" = 100,
+		"minGrowth" = 0,
+		"maxGrowth" = 100
+	)
+
+/obj/machinery/disease2/incubator/ui_data(mob/user)
+	. = list(
+		"chemicalsInserted" = !!beaker,
+		"dishInserted" = !!dish,
+		"foodSupply" = foodsupply,
+		"radiation" = radiation,
+		"toxins" = min(toxins, 100),
+		"on" = on,
+		"systemInUse" = foodsupply > 0 || radiation > 0 || toxins > 0,
+		"chemicalVolume" = beaker ? beaker.reagents.total_volume : 0,
+		"maxChemicalVolume" = beaker ? beaker.volume : 1,
+		"virus" = dish ? dish.virus2.name() : null,
+		"growth" = dish ? min(dish.growth, 100) : 0,
+		"infectionRate" = dish && dish.virus2 ? dish.virus2.infectionchance : 0,
+		"analysed" = dish && dish.analysed ? 1 : 0
+	)
+
+/obj/machinery/disease2/incubator/ui_act(action, list/params)
+	switch(action)
+		if ("eject_chem")
+			if(beaker)
+				beaker.dropInto(loc)
+				beaker = null
+			return TRUE
+
+		if ("power")
+			if (dish)
+				on = !on
+				icon_state = on ? "incubator_on" : "incubator"
+			return TRUE
+
+		if ("eject_dish")
+			if(dish)
+				dish.dropInto(loc)
+				dish = null
+			return TRUE
+
+		if ("rad")
+			radiation = min(100, radiation + 10)
+			return TRUE
+
+		if ("flush")
+			radiation = 0
+			toxins = 0
+			foodsupply = 0
+			return TRUE
 
 /obj/machinery/disease2/incubator/Process()
 	if(dish && on && dish.virus2)
@@ -106,7 +134,7 @@
 
 			foodsupply -= 1
 			dish.growth += 3
-			SSnano.update_uis(src)
+			SStgui.update_uis(src)
 
 		if(radiation)
 			if(radiation > 50 & prob(5))
@@ -119,18 +147,18 @@
 			else if(prob(5))
 				dish.virus2.minormutate()
 			radiation -= 1
-			SSnano.update_uis(src)
+			SStgui.update_uis(src)
 		if(toxins && prob(5))
 			dish.virus2.infectionchance -= 1
-			SSnano.update_uis(src)
+			SStgui.update_uis(src)
 		if(toxins > 50)
 			dish.growth = 0
 			dish.virus2 = null
-			SSnano.update_uis(src)
+			SStgui.update_uis(src)
 	else if(!dish)
 		on = 0
 		icon_state = "incubator"
-		SSnano.update_uis(src)
+		SStgui.update_uis(src)
 
 	if(beaker)
 		if (foodsupply < 100 && beaker.reagents.has_reagent(/datum/reagent/nutriment/virus_food))
@@ -139,7 +167,7 @@
 
 			beaker.reagents.remove_reagent(/datum/reagent/nutriment/virus_food, food_taken)
 			foodsupply = min(100, foodsupply+(food_taken * 2))
-			SSnano.update_uis(src)
+			SStgui.update_uis(src)
 
 		if (locate(/datum/reagent/toxin) in beaker.reagents.reagent_list && toxins < 100)
 			for(var/datum/reagent/toxin/T in beaker.reagents.reagent_list)
@@ -148,54 +176,4 @@
 				if(toxins > 100)
 					toxins = 100
 					break
-			SSnano.update_uis(src)
-
-/obj/machinery/disease2/incubator/OnTopic(user, href_list)
-	if (href_list["close"])
-		SSnano.close_user_uis(user, src, "main")
-		return TOPIC_HANDLED
-
-	if (href_list["ejectchem"])
-		if(beaker)
-			beaker.dropInto(loc)
-			beaker = null
-		return TOPIC_REFRESH
-
-	if (href_list["power"])
-		if (dish)
-			on = !on
-			icon_state = on ? "incubator_on" : "incubator"
-		return TOPIC_REFRESH
-
-	if (href_list["ejectdish"])
-		if(dish)
-			dish.dropInto(loc)
-			dish = null
-		return TOPIC_REFRESH
-
-	if (href_list["rad"])
-		radiation = min(100, radiation + 10)
-		return TOPIC_REFRESH
-
-	if (href_list["flush"])
-		radiation = 0
-		toxins = 0
-		foodsupply = 0
-		return TOPIC_REFRESH
-
-	if(href_list["virus"])
-		if (!dish)
-			return TOPIC_HANDLED
-
-		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in beaker.reagents.reagent_list
-		if (!B)
-			return TOPIC_HANDLED
-
-		if (!B.data["virus2"])
-			B.data["virus2"] = list()
-
-		var/list/virus = list("[dish.virus2.uniqueID]" = dish.virus2.getcopy())
-		B.data["virus2"] += virus
-
-		ping("\The [src] pings, \"Injection complete.\"")
-		return TOPIC_REFRESH
+			SStgui.update_uis(src)

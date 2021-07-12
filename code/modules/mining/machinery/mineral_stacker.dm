@@ -43,11 +43,11 @@
 /obj/machinery/mineral/stacking_machine/get_console_data()
 	. = ..()
 	. += "<h1>Sheet Stacking</h1>"
-	. += "Stacking: [stack_amt] <a href='?srcsay =\ref[src];change_stack=1'>\[change\]</a>"
+	. += "Stacking: [stack_amt] <a href='?srcsay =[REF(src)];change_stack=1'>\[change\]</a>"
 	var/line = ""
 	for(var/stacktype in stacks)
 		if(stacks[stacktype] > 0)
-			line += "<tr><td>[capitalize(stacktype)]</td><td>[stacks[stacktype]]</td><td><A href='?src=\ref[src];release_stack=[stacktype]'>Release.</a></td></tr>"
+			line += "<tr><td>[capitalize(stacktype)]</td><td>[stacks[stacktype]]</td><td><A href='?src=[REF(src)];release_stack=[stacktype]'>Release.</a></td></tr>"
 	. += "<table>[line]</table>"
 
 /obj/machinery/mineral/stacking_machine/Topic(href, href_list)

@@ -16,7 +16,7 @@
 	var/repeat = 0
 
 /obj/item/device/guitar/proc/playnote(var/note as text)
-	//world << "Note: [note]"
+	//to_world("Note: [note]")
 	var/soundfile
 	/*BYOND loads resource files at compile time if they are ''. This means you can't really manipulate them dynamically.
 	Tried doing it dynamically at first but its more trouble than its worth. Would have saved many lines tho.*/
@@ -120,18 +120,18 @@
 			cur_acc[i] = "n"
 
 		for(var/line in song.lines)
-			//world << line
+			//to_world(line)
 			for(var/beat in splittext(lowertext(line), ","))
-				//world << "beat: [beat]"
+				//to_world("beat: [beat]")
 				var/list/notes = splittext(beat, "/")
 				for(var/note in splittext(notes[1], "-"))
-					//world << "note: [note]"
+					//to_world("note: [note]")
 					if(!playing || !isliving(loc))//If the guitar is playing, or isn't held by a person
 						playing = 0
 						return
 					if(lentext(note) == 0)
 						continue
-					//world << "Parse: [copytext(note,1,2)]"
+					//to_world("Parse: [copytext(note,1,2)]")
 					var/cur_note = text2ascii(note) - 96
 					if(cur_note < 1 || cur_note > 7)
 						continue
@@ -162,27 +162,27 @@
 
 	if(song)
 		if(song.lines.len > 0 && !(playing))
-			dat += "<A href='?src=\ref[src];play=1'>Play Song</A><BR><BR>"
-			dat += "<A href='?src=\ref[src];repeat=1'>Repeat Song: [repeat] times.</A><BR><BR>"
+			dat += "<A href='?src=[REF(src)];play=1'>Play Song</A><BR><BR>"
+			dat += "<A href='?src=[REF(src)];repeat=1'>Repeat Song: [repeat] times.</A><BR><BR>"
 		if(playing)
-			dat += "<A href='?src=\ref[src];stop=1'>Stop Playing</A><BR>"
+			dat += "<A href='?src=[REF(src)];stop=1'>Stop Playing</A><BR>"
 			dat += "Repeats left: [repeat].<BR><BR>"
 	if(!edit)
-		dat += "<A href='?src=\ref[src];edit=2'>Show Editor</A><BR><BR>"
+		dat += "<A href='?src=[REF(src)];edit=2'>Show Editor</A><BR><BR>"
 	else
-		dat += "<A href='?src=\ref[src];edit=1'>Hide Editor</A><BR>"
-		dat += "<A href='?src=\ref[src];newsong=1'>Start a New Song</A><BR>"
-		dat += "<A href='?src=\ref[src];import=1'>Import a Song</A><BR><BR>"
+		dat += "<A href='?src=[REF(src)];edit=1'>Hide Editor</A><BR>"
+		dat += "<A href='?src=[REF(src)];newsong=1'>Start a New Song</A><BR>"
+		dat += "<A href='?src=[REF(src)];import=1'>Import a Song</A><BR><BR>"
 		if(song)
 			var/calctempo = (10/song.tempo)*60
-			dat += "Tempo : <A href='?src=\ref[src];tempo=10'>-</A><A href='?src=\ref[src];tempo=1'>-</A> [calctempo] BPM <A href='?src=\ref[src];tempo=-1'>+</A><A href='?src=\ref[src];tempo=-10'>+</A><BR><BR>"
+			dat += "Tempo : <A href='?src=[REF(src)];tempo=10'>-</A><A href='?src=[REF(src)];tempo=1'>-</A> [calctempo] BPM <A href='?src=[REF(src)];tempo=-1'>+</A><A href='?src=[REF(src)];tempo=-10'>+</A><BR><BR>"
 			var/linecount = 0
 			for(var/line in song.lines)
 				linecount += 1
-				dat += "Line [linecount]: [line] <A href='?src=\ref[src];deleteline=[linecount]'>Delete Line</A> <A href='?src=\ref[src];modifyline=[linecount]'>Modify Line</A><BR>"
-			dat += "<A href='?src=\ref[src];newline=1'>Add Line</A><BR><BR>"
+				dat += "Line [linecount]: [line] <A href='?src=[REF(src)];deleteline=[linecount]'>Delete Line</A> <A href='?src=[REF(src)];modifyline=[linecount]'>Modify Line</A><BR>"
+			dat += "<A href='?src=[REF(src)];newline=1'>Add Line</A><BR><BR>"
 		if(help)
-			dat += "<A href='?src=\ref[src];help=1'>Hide Help</A><BR>"
+			dat += "<A href='?src=[REF(src)];help=1'>Hide Help</A><BR>"
 			dat += {"
 					Lines are a series of chords, separated by commas (,), each with notes seperated by hyphens (-).<br>
 					Every note in a chord will play together, with chord timed by the tempo.<br>
@@ -201,15 +201,15 @@
 					A song may only contain up to 50 lines.<br>
 					"}
 		else
-			dat += "<A href='?src=\ref[src];help=2'>Show Help</A><BR>"
+			dat += "<A href='?src=[REF(src)];help=2'>Show Help</A><BR>"
 	dat += "</BODY></HTML>"
-	user << browse(dat, "window=guitar;size=700x300")
+	show_browser(user, dat, "window=guitar;size=700x300")
 	onclose(user, "guitar")
 
 /obj/item/device/guitar/Topic(href, href_list)
 
 	if(!in_range(src, usr) || issilicon(usr) || !isliving(usr) || usr.incapacitated())
-		usr << browse(null, "window=guitar;size=700x300")
+		close_browser(usr, "window=guitar;size=700x300")
 		onclose(usr, "guitar")
 		return
 

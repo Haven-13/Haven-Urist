@@ -41,11 +41,11 @@
 		. += "<b>Shackle: </b>"
 		if(!pref.is_shackled)
 			. += "<span class='linkOn'>Off</span>"
-			. += "<a href='?src=\ref[src];toggle_shackle=[pref.is_shackled]'>On</a>"
+			. += "<a href='?src=[REF(src)];toggle_shackle=[pref.is_shackled]'>On</a>"
 			. += "<br>Only shackled positronics have laws in an integrated positronic chassis."
 			. += "<hr>"
 		else
-			. += "<a href='?src=\ref[src];toggle_shackle=[pref.is_shackled]'>Off</a>"
+			. += "<a href='?src=[REF(src)];toggle_shackle=[pref.is_shackled]'>Off</a>"
 			. += "<span class='linkOn'>On</span>"
 			. += "<br>You are shackled and have laws that restrict your behaviour."
 			. += "<hr>"
@@ -58,14 +58,14 @@
 				for(var/i in 1 to pref.laws.len)
 					. += "[i]) [pref.laws[i]]<br>"
 
-			. += "Law sets: <a href='?src=\ref[src];lawsets=1'>Load Set</a><br>"
+			. += "Law sets: <a href='?src=[REF(src)];lawsets=1'>Load Set</a><br>"
 
 	. = jointext(.,null)
 
 /datum/category_item/player_setup_item/law_pref/OnTopic(href, href_list, user)
 	if(href_list["toggle_shackle"])
 		pref.is_shackled = !pref.is_shackled
-		return TOPIC_REFRESH
+		return TRUE
 
 	else if(href_list["lawsets"])
 		var/list/valid_lawsets = list()
@@ -87,5 +87,5 @@
 			pref.laws.Cut()
 			for(var/datum/ai_law/law in laws)
 				pref.laws += sanitize_text("[law.law]", default="")
-		return TOPIC_REFRESH
+		return TRUE
 	return ..()

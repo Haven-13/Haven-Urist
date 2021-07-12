@@ -120,31 +120,53 @@ Thus, the two variables affect pump operation are set in New():
 
 	return 1
 
-/obj/machinery/atmospherics/binary/pump/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/atmospherics/binary/pump/ui_status(mob/user, datum/ui_state/state)
 	if(stat & (BROKEN|NOPOWER))
-		return
+		return UI_CLOSE
+	return ..()
 
-	// this is the data which will be sent to the ui
+/obj/machinery/atmospherics/binary/pump/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "atmospherics/Pump", name)
+		ui.open()
+
+/obj/machinery/atmospherics/binary/pump/ui_data(mob/user)
 	var/data[0]
 
 	data = list(
 		"on" = use_power,
-		"pressure_set" = round(target_pressure*100),	//Nano UI can't handle rounded non-integers, apparently.
-		"max_pressure" = max_pressure_setting,
-		"last_flow_rate" = round(last_flow_rate*10),
-		"last_power_draw" = round(last_power_draw),
-		"max_power_draw" = power_rating,
+		"setPressure" = target_pressure,
+		"minPressure" = 0,
+		"maxPressure" = max_pressure_setting,
+		"flowRate" = round(last_flow_rate*10),
+		"lastPowerDraw" = round(last_power_draw),
+		"maxPowerDraw" = power_rating,
 	)
 
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "gas_pump.tmpl", name, 470, 290)
-		ui.set_initial_data(data)	// when the ui is first opened this is the data it will use
-		ui.open()					// open the new ui window
-		ui.set_auto_update(1)		// auto update every Master Controller tick
+	return data
+
+/obj/machinery/atmospherics/binary/pump/ui_act(action, list/params)
+	switch(action)
+		if("power")
+			use_power = !use_power
+			. = TRUE
+
+		if("pressure")
+			switch(params["pressure"])
+				if ("min")
+					target_pressure = 0
+					. = TRUE
+				if ("max")
+					target_pressure = max_pressure_setting
+					. = TRUE
+				else
+					var/new_pressure = params["pressure"]
+					src.target_pressure = between(0, new_pressure, max_pressure_setting)
+					. = TRUE
+
+	if(.)
+		src.update_icon()
 
 /obj/machinery/atmospherics/binary/pump/Initialize()
 	. = ..()
@@ -191,28 +213,6 @@ Thus, the two variables affect pump operation are set in New():
 	usr.set_machine(src)
 	ui_interact(user)
 	return
-
-/obj/machinery/atmospherics/binary/pump/Topic(href,href_list)
-	if((. = ..())) return
-
-	if(href_list["power"])
-		use_power = !use_power
-		. = 1
-
-	switch(href_list["set_press"])
-		if ("min")
-			target_pressure = 0
-			. = 1
-		if ("max")
-			target_pressure = max_pressure_setting
-			. = 1
-		if ("set")
-			var/new_pressure = input(usr,"Enter new output pressure (0-[max_pressure_setting]kPa)","Pressure control",src.target_pressure) as num
-			src.target_pressure = between(0, new_pressure, max_pressure_setting)
-			. = 1
-
-	if(.)
-		src.update_icon()
 
 /obj/machinery/atmospherics/binary/pump/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if(!isWrench(W))

@@ -8,7 +8,7 @@
 	requires_ntnet = 0
 	available_on_ntnet = 1
 	usage_flags = PROGRAM_ALL
-	nanomodule_path = /datum/nano_module/program/scanner
+	ui_module_path = /datum/ui_module/program/scanner
 
 	var/using_scanner = 0	//Whether or not the program is synched with the scanner module.
 	var/data_buffer = ""	//Buffers scan output for saving/viewing.
@@ -50,51 +50,24 @@
 		return 0
 	return 1
 
-/datum/computer_file/program/scanner/Topic(href, href_list)
-	if(..())
+/datum/computer_file/program/scanner/ui_act(action, list/params)
+	. = ..()
+	if (.)
 		return 1
-
-	if(href_list["connect_scanner"])
-		if(text2num(href_list["connect_scanner"]))
-			if(!connect_scanner())
-				to_chat(usr, "Scanner installation failed.")
-		else
-			disconnect_scanner()
-		return 1
-
-	if(href_list["scan"])
-		if(check_scanning())
-			computer.scanner.run_scan(usr, src)
-		return 1
-
-	if(href_list["save"])
-		var/name = sanitize(input(usr, "Enter file name:", "Save As") as text|null)
-		if(!save_scan(name))
-			to_chat(usr, "Scan save failed.")
-
-	if(.)
-		SSnano.update_uis(NM)
-
-/datum/nano_module/program/scanner
-	name = "Scanner"
-
-/datum/nano_module/program/scanner/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
-	var/list/data = host.initial_data()
-	var/datum/computer_file/program/scanner/prog = program
-	if(!prog.computer)
-		return
-	if(prog.computer.scanner)
-		data["scanner_name"] = prog.computer.scanner.name
-		data["scanner_enabled"] = prog.computer.scanner.enabled
-		data["can_view_scan"] = prog.computer.scanner.can_view_scan
-		data["can_save_scan"] = (prog.computer.scanner.can_save_scan && prog.data_buffer)
-	data["using_scanner"] = prog.using_scanner
-	data["check_scanning"] = prog.check_scanning()
-	data["data_buffer"] = pencode2html(prog.data_buffer)
-
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "scanner.tmpl", name, 575, 700, state = state)
-		ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
+	switch(action)
+		if("PRG_connect_canner")
+			if(text2num(params["mode"]))
+				if(!connect_scanner())
+					to_chat(usr, "Scanner installation failed.")
+			else
+				disconnect_scanner()
+			. = TRUE
+		if("PRG_scan")
+			if(check_scanning())
+				computer.scanner.run_scan(usr, src)
+			. = TRUE
+		if("PRG_save")
+			var/filename = params["name"]
+			if(!save_scan(filename))
+				to_chat(usr, "Scan save failed.")
+			. = TRUE

@@ -117,13 +117,13 @@ var/list/gear_datums = list()
 		fcolor = "#e67300"
 	. += "<table align = 'center' width = 100%>"
 	. += "<tr><td colspan=3><center>"
-	. += "<a href='?src=\ref[src];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='?src=\ref[src];next_slot=1'>\>\></a>"
+	. += "<a href='?src=[REF(src)];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='?src=[REF(src)];next_slot=1'>\>\></a>"
 
 	if(config.max_gear_cost < INFINITY)
 		. += "<b><font color = '[fcolor]'>[total_cost]/[config.max_gear_cost]</font> loadout points spent.</b>"
 
-	. += "<a href='?src=\ref[src];clear_loadout=1'>Clear Loadout</a>"
-	. += "<a href='?src=\ref[src];toggle_hiding=1'>[hide_unavailable_gear ? "Show all" : "Hide unavailable"]</a></center></td></tr>"
+	. += "<a href='?src=[REF(src)];clear_loadout=1'>Clear Loadout</a>"
+	. += "<a href='?src=[REF(src)];toggle_hiding=1'>[hide_unavailable_gear ? "Show all" : "Hide unavailable"]</a></center></td></tr>"
 
 	. += "<tr><td colspan=3><center><b>"
 	var/firstcat = 1
@@ -145,9 +145,9 @@ var/list/gear_datums = list()
 			. += " <span class='linkOn'>[category] - [category_cost]</span> "
 		else
 			if(category_cost)
-				. += " <a href='?src=\ref[src];select_category=[category]'><font color = '#e67300'>[category] - [category_cost]</font></a> "
+				. += " <a href='?src=[REF(src)];select_category=[category]'><font color = '#e67300'>[category] - [category_cost]</font></a> "
 			else
-				. += " <a href='?src=\ref[src];select_category=[category]'>[category] - 0</a> "
+				. += " <a href='?src=[REF(src)];select_category=[category]'>[category] - 0</a> "
 
 	. += "</b></center></td></tr>"
 
@@ -167,7 +167,7 @@ var/list/gear_datums = list()
 		var/list/entry = list()
 		var/datum/gear/G = LC.gear[gear_name]
 		var/ticked = (G.display_name in pref.gear_list[pref.gear_slot])
-		entry += "<tr style='vertical-align:top;'><td width=25%><a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?src=\ref[src];toggle_gear=[html_encode(G.display_name)]'>[G.display_name]</a></td>"
+		entry += "<tr style='vertical-align:top;'><td width=25%><a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?src=[REF(src)];toggle_gear=[html_encode(G.display_name)]'>[G.display_name]</a></td>"
 		entry += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
 		entry += "<td><font size=2>[G.get_description(get_gear_metadata(G,1))]</font>"
 		var/allowed = 1
@@ -192,7 +192,7 @@ var/list/gear_datums = list()
 		if(ticked)
 			entry += "<tr><td colspan=3>"
 			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
-				entry += " <a href='?src=\ref[src];gear=\ref[G];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
+				entry += " <a href='?src=[REF(src)];gear=[REF(G)];tweak=[REF(tweak)]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
 			entry += "</td></tr>"
 		if(!hide_unavailable_gear || allowed || ticked)
 			. += entry
@@ -222,7 +222,7 @@ var/list/gear_datums = list()
 	if(href_list["toggle_gear"])
 		var/datum/gear/TG = gear_datums[href_list["toggle_gear"]]
 		if(!istype(TG) || gear_datums[TG.display_name] != TG)
-			return TOPIC_REFRESH
+			return TRUE
 		if(TG.display_name in pref.gear_list[pref.gear_slot])
 			pref.gear_list[pref.gear_slot] -= TG.display_name
 		else
@@ -232,37 +232,37 @@ var/list/gear_datums = list()
 				if(istype(G)) total_cost += G.cost
 			if((total_cost+TG.cost) <= config.max_gear_cost)
 				pref.gear_list[pref.gear_slot] += TG.display_name
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 	if(href_list["gear"] && href_list["tweak"])
 		var/datum/gear/gear = locate(href_list["gear"])
 		var/datum/gear_tweak/tweak = locate(href_list["tweak"])
 		if(!tweak || !istype(gear) || !(tweak in gear.gear_tweaks) || gear_datums[gear.display_name] != gear)
-			return TOPIC_NOACTION
+			return FALSE
 		var/metadata = tweak.get_metadata(user, get_tweak_metadata(gear, tweak))
 		if(!metadata || !CanUseTopic(user))
-			return TOPIC_NOACTION
+			return FALSE
 		set_tweak_metadata(gear, tweak, metadata)
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 	if(href_list["next_slot"])
 		pref.gear_slot = pref.gear_slot+1
 		if(pref.gear_slot > config.loadout_slots)
 			pref.gear_slot = 1
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 	if(href_list["prev_slot"])
 		pref.gear_slot = pref.gear_slot-1
 		if(pref.gear_slot < 1)
 			pref.gear_slot = config.loadout_slots
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 	if(href_list["select_category"])
 		current_tab = href_list["select_category"]
-		return TOPIC_REFRESH
+		return TRUE
 	if(href_list["clear_loadout"])
 		var/list/gear = pref.gear_list[pref.gear_slot]
 		gear.Cut()
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 	if(href_list["toggle_hiding"])
 		hide_unavailable_gear = !hide_unavailable_gear
-		return TOPIC_REFRESH
+		return TRUE
 	return ..()
 
 /datum/category_item/player_setup_item/loadout/update_setup(var/savefile/preferences, var/savefile/character)

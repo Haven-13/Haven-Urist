@@ -34,7 +34,7 @@
 "aH" = (/obj/machinery/atmospherics/pipe/simple/visible/green,/turf/simulated/wall/r_wall,/area/boarding_ship)
 "aI" = (/obj/structure/table/rack,/obj/random/toolbox,/obj/random/material,/obj/random/tool,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
 "aJ" = (/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"aK" = (/obj/structure/engineeringcart,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"aK" = (/obj/structure/tool_cart/engineering,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
 "aL" = (/obj/machinery/light/coldtint{icon_state = "tube_map"; dir = 8},/turf/simulated/floor/tiled/white,/area/boarding_ship)
 "aM" = (/turf/simulated/floor/tiled/white,/area/boarding_ship)
 "aN" = (/obj/effect/urist/triggers/defender_landmark/pirate,/turf/simulated/floor/tiled/white,/area/boarding_ship)

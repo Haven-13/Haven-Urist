@@ -163,13 +163,13 @@
 /obj/machinery/computer/rdservercontrol/CanUseTopic(user)
 	if(!allowed(user) && !emagged)
 		to_chat(user, "<span class='warning'>You do not have the required access level</span>")
-		return STATUS_CLOSE
+		return UI_CLOSE
 	return ..()
 
 /obj/machinery/computer/rdservercontrol/OnTopic(user, href_list, state)
 	if(href_list["main"])
 		screen = 0
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["access"] || href_list["data"] || href_list["transfer"])
 		temp_server = null
@@ -192,7 +192,7 @@
 				if(S == src)
 					continue
 				servers += S
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["upload_toggle"])
 		var/num = text2num(href_list["upload_toggle"])
@@ -200,7 +200,7 @@
 			temp_server.id_with_upload -= num
 		else
 			temp_server.id_with_upload += num
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["download_toggle"])
 		var/num = text2num(href_list["download_toggle"])
@@ -208,7 +208,7 @@
 			temp_server.id_with_download -= num
 		else
 			temp_server.id_with_download += num
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["reset_tech"])
 		var/choice = alert(user, "Technology Data Rest", "Are you sure you want to reset this technology to its default data? Data lost cannot be recovered.", "Continue", "Cancel")
@@ -218,7 +218,7 @@
 					T.level = 1
 					break
 		temp_server.files.RefreshResearch()
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(href_list["reset_design"])
 		var/choice = alert(user, "Design Data Deletion", "Are you sure you want to delete this design? If you still have the prerequisites for the design, it'll reset to its base reliability. Data lost cannot be recovered.", "Continue", "Cancel")
@@ -228,9 +228,9 @@
 					temp_server.files.known_designs -= D
 					break
 		temp_server.files.RefreshResearch()
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		attack_hand(user)
 
 /obj/machinery/computer/rdservercontrol/attack_hand(mob/user as mob)
@@ -247,9 +247,9 @@
 				if(istype(S, /obj/machinery/r_n_d/server/centcom) && !badmin)
 					continue
 				dat += "[S.name] || "
-				dat += "<A href='?src=\ref[src];access=[S.server_id]'> Access Rights</A> | "
-				dat += "<A href='?src=\ref[src];data=[S.server_id]'>Data Management</A>"
-				if(badmin) dat += " | <A href='?src=\ref[src];transfer=[S.server_id]'>Server-to-Server Transfer</A>"
+				dat += "<A href='?src=[REF(src)];access=[S.server_id]'> Access Rights</A> | "
+				dat += "<A href='?src=[REF(src)];data=[S.server_id]'>Data Management</A>"
+				if(badmin) dat += " | <A href='?src=[REF(src)];transfer=[S.server_id]'>Server-to-Server Transfer</A>"
 				dat += "<BR>"
 
 		if(1) //Access rights menu
@@ -257,7 +257,7 @@
 			dat += "Consoles with Upload Access<BR>"
 			for(var/obj/machinery/computer/rdconsole/C in consoles)
 				var/turf/console_turf = get_turf(C)
-				dat += "* <A href='?src=\ref[src];upload_toggle=[C.id]'>[console_turf.loc]" //FYI, these are all numeric ids, eventually.
+				dat += "* <A href='?src=[REF(src)];upload_toggle=[C.id]'>[console_turf.loc]" //FYI, these are all numeric ids, eventually.
 				if(C.id in temp_server.id_with_upload)
 					dat += " (Remove)</A><BR>"
 				else
@@ -265,32 +265,32 @@
 			dat += "Consoles with Download Access<BR>"
 			for(var/obj/machinery/computer/rdconsole/C in consoles)
 				var/turf/console_turf = get_turf(C)
-				dat += "* <A href='?src=\ref[src];download_toggle=[C.id]'>[console_turf.loc]"
+				dat += "* <A href='?src=[REF(src)];download_toggle=[C.id]'>[console_turf.loc]"
 				if(C.id in temp_server.id_with_download)
 					dat += " (Remove)</A><BR>"
 				else
 					dat += " (Add)</A><BR>"
-			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
+			dat += "<HR><A href='?src=[REF(src)];main=1'>Main Menu</A>"
 
 		if(2) //Data Management menu
 			dat += "[temp_server.name] Data ManagementP<BR><BR>"
 			dat += "Known Technologies<BR>"
 			for(var/datum/tech/T in temp_server.files.known_tech)
 				dat += "* [T.name] "
-				dat += "<A href='?src=\ref[src];reset_tech=[T.id]'>(Reset)</A><BR>" //FYI, these are all strings.
+				dat += "<A href='?src=[REF(src)];reset_tech=[T.id]'>(Reset)</A><BR>" //FYI, these are all strings.
 			dat += "Known Designs<BR>"
 			for(var/datum/design/D in temp_server.files.known_designs)
 				dat += "* [D.name] "
-				dat += "<A href='?src=\ref[src];reset_design=[D.id]'>(Delete)</A><BR>"
-			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
+				dat += "<A href='?src=[REF(src)];reset_design=[D.id]'>(Delete)</A><BR>"
+			dat += "<HR><A href='?src=[REF(src)];main=1'>Main Menu</A>"
 
 		if(3) //Server Data Transfer
 			dat += "[temp_server.name] Server to Server Transfer<BR><BR>"
 			dat += "Send Data to what server?<BR>"
 			for(var/obj/machinery/r_n_d/server/S in servers)
-				dat += "[S.name] <A href='?src=\ref[src];send_to=[S.server_id]'> (Transfer)</A><BR>"
-			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
-	user << browse("<TITLE>R&D Server Control</TITLE><HR>[dat]", "window=server_control;size=575x400")
+				dat += "[S.name] <A href='?src=[REF(src)];send_to=[S.server_id]'> (Transfer)</A><BR>"
+			dat += "<HR><A href='?src=[REF(src)];main=1'>Main Menu</A>"
+	show_browser(user, "<TITLE>R&D Server Control</TITLE><HR>[dat]", "window=server_control;size=575x400")
 	onclose(user, "server_control")
 	return
 

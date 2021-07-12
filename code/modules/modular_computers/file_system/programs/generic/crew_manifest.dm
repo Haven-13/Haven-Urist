@@ -7,20 +7,21 @@
 	size = 4
 	requires_ntnet = 1
 	available_on_ntnet = 1
-	nanomodule_path = /datum/nano_module/crew_manifest
+	ui_module_path = /datum/ui_module/program/crew_manifest
 	usage_flags = PROGRAM_ALL
 
-/datum/nano_module/crew_manifest
-	name = "Crew Manifest"
+/datum/computer_file/program/crew_manifest/ui_act(action, list/params)
+	. = ..()
+	if (.)
+		return TRUE
 
-/datum/nano_module/crew_manifest/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
-	var/list/data = host.initial_data()
+	switch(action)
+		if("PRG_print")
+			if(computer && computer.nano_printer) //This option should never be called if there is no printer
+				var/contents = html_crew_manifest(FALSE)
+				if(!computer.nano_printer.print_text(contents,text("crew manifest ([])", stationtime2text())))
+					to_chat(usr, "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
+					return
+				else
+					computer.visible_message("<span class='notice'>\The [computer] prints out a paper.</span>")
 
-	data["crew_manifest"] = html_crew_manifest(TRUE)
-
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "crew_manifest.tmpl", name, 450, 600, state = state)
-		ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()

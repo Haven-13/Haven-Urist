@@ -44,7 +44,7 @@
 
 	dat += "<table width = '100%'>"
 	dat += "Money - $[scommoney]</tr> Tech Level - [scomtechlvl]</tr></table><hr>"
-	dat += "<h2>Printable Designs</h2><h3>Showing: <a href='?src=\ref[src];change_category=1'>[show_category]</a>.</h3></center><table width = '100%'>"
+	dat += "<h2>Printable Designs</h2><h3>Showing: <a href='?src=[REF(src)];change_category=1'>[show_category]</a>.</h3></center><table width = '100%'>"
 
 	var/index = 0
 	for(var/datum/scomscience/recipe/R in machine_recipes)
@@ -66,11 +66,11 @@
 			if(R.scomtechlvl <= scomtechlvl)
 				R.hidden = 0
 
-		dat += "<tr><td width = 180><b>[can_make ? "<a href='?src=\ref[src];make=[index];multiplier=1'>" : ""][R.name][can_make ? "</a>" : ""]</b></td><td align = right>[material_string]</tr>"
+		dat += "<tr><td width = 180><b>[can_make ? "<a href='?src=[REF(src)];make=[index];multiplier=1'>" : ""][R.name][can_make ? "</a>" : ""]</b></td><td align = right>[material_string]</tr>"
 
 	dat += "</table><hr>"
 
-	user << browse(dat, "window=autolathe")
+	show_browser(user, dat, "window=autolathe")
 	onclose(user, "autolathe")
 
 /obj/machinery/scom/scomscience/attackby(var/obj/item/O as obj, var/mob/user as mob)

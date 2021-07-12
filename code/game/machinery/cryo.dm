@@ -97,10 +97,16 @@
   *
   * @return nothing
   */
-/obj/machinery/atmospherics/unary/cryo_cell/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/atmospherics/unary/cryo_cell/ui_interact(mob/user, var/datum/tgui/ui)
 	if(user == occupant || user.stat)
 		return
 
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "CryoCell")
+		ui.open()
+
+/obj/machinery/atmospherics/unary/cryo_cell/ui_data(mob/user)
 	// this is the data which will be sent to the ui
 	var/data[0]
 	data["isOperating"] = on
@@ -140,46 +146,35 @@
 		data["beakerLabel"] = beaker.name
 		data["beakerVolume"] = beaker.reagents.total_volume
 
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "cryo.tmpl", "Cryo Cell Control System", 520, 410)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
-		// open the new ui window
-		ui.open()
-		// auto update every Master Controller tick
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/atmospherics/unary/cryo_cell/OnTopic(user, href_list)
 	if(user == occupant)
-		return STATUS_CLOSE
+		return UI_CLOSE
 	. = ..()
 
 /obj/machinery/atmospherics/unary/cryo_cell/OnTopic(user, href_list)
 	if(href_list["switchOn"])
 		on = 1
 		update_icon()
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["switchOff"])
 		on = 0
 		update_icon()
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["ejectBeaker"])
 		if(beaker)
 			beaker.forceMove(get_step(loc, SOUTH))
 			beaker = null
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["ejectOccupant"])
 		if(!occupant || isslime(user) || ispAI(user))
-			return TOPIC_HANDLED // don't update UIs attached to this object
+			return FALSE // don't update UIs attached to this object
 		go_out()
-		return TOPIC_REFRESH
+		return TRUE
 
 
 /obj/machinery/atmospherics/unary/cryo_cell/attackby(var/obj/G, var/mob/user as mob)

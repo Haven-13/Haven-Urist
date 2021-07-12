@@ -14,10 +14,10 @@
 	var/head_content = ""
 	var/content = ""
 	var/title_buttons = ""
+	var/static/datum/asset/simple/namespaced/common/common_asset = get_asset_datum(/datum/asset/simple/namespaced/common)
 
 
 /datum/browser/New(nuser, nwindow_id, ntitle = 0, nwidth = 0, nheight = 0, var/atom/nref = null)
-
 	user = nuser
 	window_id = nwindow_id
 	if (ntitle)
@@ -28,31 +28,33 @@
 		height = nheight
 	if (nref)
 		ref = nref
-	// If a client exists, but they have disabled fancy windowing, disable it!
-	if(user && user.client && user.client.get_preference_value(/datum/client_preference/browser_style) == GLOB.PREF_PLAIN)
-		return
-	add_stylesheet("common", 'html/browser/common.css') // this CSS sheet is common to all UIs
 
 /datum/browser/proc/set_title(ntitle)
 	title = format_text(ntitle)
 
-/datum/browser/proc/add_head_content(nhead_content)
-	head_content = nhead_content
-
 /datum/browser/proc/set_title_buttons(ntitle_buttons)
 	title_buttons = ntitle_buttons
+
+/datum/browser/proc/set_title_image(ntitle_image)
+	title_image = ntitle_image
+
+/datum/browser/proc/add_head_content(nhead_content)
+	head_content = nhead_content
 
 /datum/browser/proc/set_window_options(nwindow_options)
 	window_options = nwindow_options
 
-/datum/browser/proc/set_title_image(ntitle_image)
-	//title_image = ntitle_image
-
 /datum/browser/proc/add_stylesheet(name, file)
-	stylesheets[name] = file
+	var/asset_name = "[name].css"
+
+	stylesheets[asset_name] = file
+
+	if (!SSassets.cache[asset_name])
+		SSassets.transport.register_asset(asset_name, file)
 
 /datum/browser/proc/add_script(name, file)
-	scripts[name] = file
+	scripts["[ckey(name)].js"] = file
+	SSassets.transport.register_asset("[ckey(name)].js", file)
 
 /datum/browser/proc/set_content(ncontent)
 	content = ncontent
@@ -61,35 +63,27 @@
 	content += ncontent
 
 /datum/browser/proc/get_header()
-	var/key
-	var/filename
-	for (key in stylesheets)
-		filename = "[ckey(key)].css"
-		user << browse_rsc(stylesheets[key], filename)
-		head_content += "<link rel='stylesheet' type='text/css' href='[filename]'>"
+	var/file
+	head_content += "<link rel='stylesheet' type='text/css' href='[common_asset.get_url_mappings()["common.css"]]'>"
+	for (file in stylesheets)
+		head_content += "<link rel='stylesheet' type='text/css' href='[SSassets.transport.get_asset_url(file)]'>"
 
-	for (key in scripts)
-		filename = "[ckey(key)].js"
-		user << browse_rsc(scripts[key], filename)
-		head_content += "<script type='text/javascript' src='[filename]'></script>"
+	for (file in scripts)
+		head_content += "<script type='text/javascript' src='[SSassets.transport.get_asset_url(file)]'></script>"
 
-	var/title_attributes = "class='uiTitle'"
-	if (title_image)
-		title_attributes = "class='uiTitle icon' style='background-image: url([title_image]);'"
-
-	return {"<!DOCTYPE html>
+	return {"<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<meta charset=ISO-8859-1">
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 		[head_content]
 	</head>
 	<body scroll=auto>
 		<div class='uiWrapper'>
-			[title ? "<div class='uiTitleWrapper'><div [title_attributes]><tt>[title]</tt></div><div class='uiTitleButtons'>[title_buttons]</div></div>" : ""]
+			[title ? "<div class='uiTitleWrapper'><div class='uiTitle'><tt>[title]</tt></div></div>" : ""]
 			<div class='uiContent'>
 	"}
-
+//" This is here because else the rest of the file looks like a string in notepad++.
 /datum/browser/proc/get_footer()
 	return {"
 			</div>
@@ -104,13 +98,24 @@
 	[get_footer()]
 	"}
 
-/datum/browser/proc/open(var/use_onclose = 1)
+/datum/browser/proc/open(use_onclose = TRUE)
+	if(isnull(window_id))	//null check because this can potentially nuke goonchat
+		WARNING("Browser [title] tried to open with a null ID")
+		to_chat(user, "<span class='userdanger'>The [title] browser you tried to open failed a sanity check! Please report this on github!</span>")
+		return
 	var/window_size = ""
 	if (width && height)
 		window_size = "size=[width]x[height];"
-	user << browse(get_content(), "window=[window_id];[window_size][window_options]")
+	common_asset.send(user)
+	if (stylesheets.len)
+		testing("Sending stylesheets")
+		SSassets.transport.send_assets(user, stylesheets)
+	if (scripts.len)
+		testing("Sending scripts")
+		SSassets.transport.send_assets(user, scripts)
+	show_browser(user, get_content(), "window=[window_id];[window_size][window_options]")
 	if (use_onclose)
-		onclose(user, window_id, ref)
+		setup_onclose()
 
 /datum/browser/proc/update(var/force_open = 0, var/use_onclose = 1)
 	if(force_open)
@@ -118,8 +123,18 @@
 	else
 		send_output(user, get_content(), "[window_id].browser")
 
+/datum/browser/proc/setup_onclose()
+	set waitfor = 0 //winexists sleeps, so we don't need to.
+	for (var/i in 1 to 10)
+		if (user && winexists(user, window_id))
+			onclose(user, window_id, ref)
+			break
+
 /datum/browser/proc/close()
-	user << browse(null, "window=[window_id]")
+	if(!isnull(window_id))//null check because this can potentially nuke goonchat
+		close_browser(user, "window=[window_id]")
+	else
+		WARNING("Browser [title] tried to close with a null ID")
 
 // This will allow you to show an icon in the browse window
 // This is added to mob so that it can be used without a reference to the browser object
@@ -134,7 +149,7 @@
 		dir = "default"
 
 	var/filename = "[ckey("[icon]_[icon_state]_[dir]")].png"
-	src << browse_rsc(I, filename)
+	send_rsc(src, (I, filename)
 	return filename
 	*/
 
@@ -146,7 +161,7 @@
 // e.g. canisters, timers, etc.
 //
 // windowid should be the specified window name
-// e.g. code is	: user << browse(text, "window=fred")
+// e.g. code is	: show_browser(user, text, "window=fred")
 // then use 	: onclose(user, "fred")
 //
 // Optionally, specify the "ref" parameter as the controlled atom (usually src)
@@ -157,7 +172,7 @@
 	if(!user || !user.client) return
 	var/param = "null"
 	if(ref)
-		param = "\ref[ref]"
+		param = REF(ref)
 
 	spawn(2)
 		if(!user.client) return

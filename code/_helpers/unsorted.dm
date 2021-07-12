@@ -7,43 +7,11 @@
 //Checks if all high bits in req_mask are set in bitfield
 #define BIT_TEST_ALL(bitfield, req_mask) ((~(bitfield) & (req_mask)) == 0)
 
-//Inverts the colour of an HTML string
-/proc/invertHTML(HTMLstring)
-
-	if (!( istext(HTMLstring) ))
-		crash_with("Given non-text argument!")
-		return
-	else
-		if (length(HTMLstring) != 7)
-			crash_with("Given non-HTML argument!")
-			return
-	var/textr = copytext(HTMLstring, 2, 4)
-	var/textg = copytext(HTMLstring, 4, 6)
-	var/textb = copytext(HTMLstring, 6, 8)
-	var/r = hex2num(textr)
-	var/g = hex2num(textg)
-	var/b = hex2num(textb)
-	textr = num2hex(255 - r)
-	textg = num2hex(255 - g)
-	textb = num2hex(255 - b)
-	if (length(textr) < 2)
-		textr = text("0[]", textr)
-	if (length(textg) < 2)
-		textr = text("0[]", textg)
-	if (length(textb) < 2)
-		textr = text("0[]", textb)
-	return text("#[][][]", textr, textg, textb)
-
-//Returns the middle-most value
-/proc/dd_range(var/low, var/high, var/num)
-	return max(low,min(high,num))
-
 //Returns whether or not A is the middle most value
 /proc/InRange(var/A, var/lower, var/upper)
 	if(A < lower) return 0
 	if(A > upper) return 0
 	return 1
-
 
 /proc/Get_Angle(atom/movable/start,atom/movable/end)//For beams.
 	if(!start || !end) return 0
@@ -446,13 +414,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 //		mob_list.Add(M)
 	return moblist
 
-//Forces a variable to be posative
-/proc/modulus(var/M)
-	if(M >= 0)
-		return M
-	if(M < 0)
-		return -M
-
 // returns the turf located at the map edge in the specified direction relative to A
 // used for mass driver
 /proc/get_edge_target_turf(var/atom/A, var/direction)
@@ -632,7 +593,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 
 	if(!A || !src) return
 
-	var/list/turfs_src = get_area_turfs("\ref[src]")
+	var/list/turfs_src = get_area_turfs(REF(src))
 
 	if(!turfs_src.len) return
 
@@ -662,8 +623,6 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 				if(!(V in list("type","loc","locs","vars", "parent", "parent_type","verbs","ckey","key")))
 					O.vars[V] = original.vars[V]
 	return O
-
-
 
 /datum/coords //Simple datum for storing coordinates.
 	var/x_pos = null
@@ -797,16 +756,10 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 
 	return copiedobjs
 
-
-
 proc/get_cardinal_dir(atom/A, atom/B)
 	var/dx = abs(B.x - A.x)
 	var/dy = abs(B.y - A.y)
 	return get_dir(A, B) & (rand() * (dx+dy) < dy ? 3 : 12)
-
-//chances are 1:value. anyprob(1) will always return true
-proc/anyprob(value)
-	return (rand(1,value)==value)
 
 proc/view_or_range(distance = world.view , center = usr , type)
 	switch(type)
@@ -1031,7 +984,7 @@ var/list/WALLITEMS = list(
 /proc/topic_link(var/datum/D, var/arglist, var/content)
 	if(istype(arglist,/list))
 		arglist = list2params(arglist)
-	return "<a href='?src=\ref[D];[arglist]'>[content]</a>"
+	return "<a href='?src=[REF(D)];[arglist]'>[content]</a>"
 
 /proc/get_random_colour(var/simple = FALSE, var/lower = 0, var/upper = 255)
 	var/colour
@@ -1101,3 +1054,16 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 		M.start_pulling(t)
 	else
 		step(user.pulling, get_dir(user.pulling.loc, A))
+
+// get coordinates to an atom
+
+/proc/coordinates(atom/src, jump_link = 0)
+	return src ? src.coordinates(jump_link) : "nullspace"
+
+/atom/proc/coordinates(jump_link = 0)
+	var/turf/T = src.loc
+	return T ? "([T.x],[T.y],[T.z])[jump_link ? admin_jump_link(T) : ""]" : "nullspace"
+
+// get memory reference
+/proc/REF(input)
+	return "\ref[input]"

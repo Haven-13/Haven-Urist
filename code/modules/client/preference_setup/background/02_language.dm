@@ -36,7 +36,7 @@
 	if(href_list["remove_language"])
 		var/index = text2num(href_list["remove_language"])
 		pref.alternate_languages.Cut(index, index+1)
-		return TOPIC_REFRESH
+		return TRUE
 
 	else if(href_list["add_language"])
 
@@ -52,7 +52,7 @@
 			var/new_lang = input(user, "Select an additional language", "Character Generation", null) as null|anything in available_languages
 			if(new_lang)
 				pref.alternate_languages |= new_lang
-				return TOPIC_REFRESH
+				return TRUE
 	. = ..()
 
 /datum/category_item/player_setup_item/background/languages/proc/rebuild_language_cache(var/mob/user)
@@ -113,9 +113,9 @@
 			if(free_languages[lang])
 				LAZYADD(., "- [lang] (required).<br>")
 			else
-				LAZYADD(., "- [lang] <a href='?src=\ref[src];remove_language=[i]'>Remove.</a><br>")
+				LAZYADD(., "- [lang] <a href='?src=[REF(src)];remove_language=[i]'>Remove.</a><br>")
 	if(pref.alternate_languages.len < MAX_LANGUAGES)
 		var/remaining_langs = MAX_LANGUAGES - pref.alternate_languages.len
-		LAZYADD(., "- <a href='?src=\ref[src];add_language=1'>add</a> ([remaining_langs] remaining)<br>")
+		LAZYADD(., "- <a href='?src=[REF(src)];add_language=1'>add</a> ([remaining_langs] remaining)<br>")
 
 #undef MAX_LANGUAGES

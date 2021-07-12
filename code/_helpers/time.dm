@@ -38,7 +38,7 @@ var/next_station_date_change = 1 DAY
 #define station_time_in_ticks (roundstart_hour HOURS + round_duration_in_ticks)
 
 /proc/stationtime2text()
-	return time2text(station_time_in_ticks, "hh:mm")
+	return time2text(station_time_in_ticks, "hh:mm:ss")
 
 /proc/stationdate2text()
 	var/update_time = FALSE
@@ -53,6 +53,20 @@ var/next_station_date_change = 1 DAY
 
 /proc/time_stamp()
 	return time2text(station_time_in_ticks, "hh:mm:ss")
+
+/proc/time_point(offset)
+	return world.time + offset
+
+/proc/time_delta_now(stamp)
+	return stamp - world.time
+
+/proc/time_remaining(stamp, divisor=10)
+	if (divisor <= 0)
+		divisor = 10
+
+	var/ds_remaining = max(0, time_delta_now(stamp))
+
+	return round(ds_remaining / divisor, 1)
 
 /* Returns 1 if it is the selected month and day */
 proc/isDay(var/month, var/day)

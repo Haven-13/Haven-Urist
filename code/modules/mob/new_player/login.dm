@@ -1,4 +1,6 @@
 /mob/new_player/Login()
+	apply_global_theme(src.client)
+
 	update_Login_details()	//handles setting lastKnownIP and computer_id for use by the ban systems as well as checking for multikeying
 	if(join_motd)
 		to_chat(src, "<div class=\"motd\">[join_motd]</div>")
@@ -10,7 +12,7 @@
 		mind.current = src
 
 	loc = null
-	GLOB.using_map.show_titlescreen(client)
+	GLOB.using_map.show_titlescreen(src.client)
 	my_client = client
 	set_sight(sight|SEE_TURFS)
 	GLOB.player_list |= src

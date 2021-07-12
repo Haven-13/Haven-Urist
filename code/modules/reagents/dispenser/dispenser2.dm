@@ -63,12 +63,12 @@
 	C.forceMove(src)
 	cartridges[C.label] = C
 	cartridges = sortAssoc(cartridges)
-	SSnano.update_uis(src)
+	SStgui.update_uis(src)
 
 /obj/machinery/chemical_dispenser/proc/remove_cartridge(label)
 	. = cartridges[label]
 	cartridges -= label
-	SSnano.update_uis(src)
+	SStgui.update_uis(src)
 
 /obj/machinery/chemical_dispenser/attackby(obj/item/weapon/W, mob/user)
 	if(istype(W, /obj/item/weapon/reagent_containers/chem_disp_cartridge))
@@ -102,14 +102,19 @@
 		RC.loc = src
 		update_icon()
 		to_chat(user, "<span class='notice'>You set \the [RC] on \the [src].</span>")
-		SSnano.update_uis(src) // update all UIs attached to src
+		SStgui.update_uis(src) // update all UIs attached to src
 
 	else
 		..()
 	return
 
-/obj/machinery/chemical_dispenser/ui_interact(mob/user, ui_key = "main",var/datum/nanoui/ui = null, var/force_open = 1)
-	// this is the data which will be sent to the ui
+/obj/machinery/chemical_dispenser/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "ChemistryDispenser")
+		ui.open()
+
+/obj/machinery/chemical_dispenser/ui_data(mob/user)
 	var/data[0]
 	data["amount"] = amount
 	data["isBeakerLoaded"] = container ? 1 : 0
@@ -133,35 +138,29 @@
 		chemicals[++chemicals.len] = list("label" = label, "amount" = C.reagents.total_volume)
 	data["chemicals"] = chemicals
 
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "chem_disp.tmpl", ui_title, 390, 680)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
-/obj/machinery/chemical_dispenser/OnTopic(user, href_list)
-	if(href_list["amount"])
-		amount = round(text2num(href_list["amount"]), 1) // round to nearest 1
-		amount = max(0, min(120, amount)) // Since the user can actually type the commands himself, some sanity checking
-		return TOPIC_REFRESH
+/obj/machinery/chemical_dispenser/ui_act(action, list/params)
+	switch(action)
+		if("amount")
+			amount = round(text2num(params["amount"]), 1) // round to nearest 1
+			amount = max(0, min(120, amount)) // Since the user can actually type the commands himself, some sanity checking
+			return TRUE
 
-	if(href_list["dispense"])
-		var/label = href_list["dispense"]
-		if(cartridges[label] && container && container.is_open_container())
-			var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = cartridges[label]
-			C.reagents.trans_to(container, amount)
-			return TOPIC_REFRESH
-		return TOPIC_HANDLED
+		if("dispense")
+			var/label = params["dispense"]
+			if(cartridges[label] && container && container.is_open_container())
+				var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = cartridges[label]
+				C.reagents.trans_to(container, amount)
+				return TRUE
 
-	else if(href_list["ejectBeaker"])
-		if(container)
-			var/obj/item/weapon/reagent_containers/B = container
-			B.dropInto(loc)
-			container = null
-			update_icon()
-			return TOPIC_REFRESH
-		return TOPIC_HANDLED
+		if("eject_beaker")
+			if(container)
+				var/obj/item/weapon/reagent_containers/B = container
+				B.dropInto(loc)
+				container = null
+				update_icon()
+				return TRUE
 
 /obj/machinery/chemical_dispenser/attack_ai(mob/user as mob)
 	ui_interact(user)

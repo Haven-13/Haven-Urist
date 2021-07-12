@@ -16,13 +16,15 @@
 	var/res_max_amount = 200000
 
 	var/datum/research/files
+	var/datum/design/current
 	var/list/datum/design/queue = list()
+	var/process_queue = 0
 	var/progress = 0
 	var/busy = 0
 
+	var/brand
+	var/list/brands = list()
 	var/list/categories = list()
-	var/category = null
-	var/manufacturer = null
 	var/sync_message = ""
 
 /obj/machinery/mecha_part_fabricator/New()
@@ -41,7 +43,6 @@
 	return
 
 /obj/machinery/mecha_part_fabricator/Initialize()
-	manufacturer = basic_robolimb.company
 	update_categories()
 	. = ..()
 
@@ -90,65 +91,61 @@
 		return
 	ui_interact(user)
 
-/obj/machinery/mecha_part_fabricator/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/data[0]
+/obj/machinery/mecha_part_fabricator/ui_assets(mob/user)
+	return list(
+		get_asset_datum(/datum/asset/spritesheet/sheetmaterials)
+	)
 
-	var/datum/design/current = queue.len ? queue[1] : null
-	if(current)
-		data["current"] = current.name
-	data["queue"] = get_queue_names()
-	data["buildable"] = get_build_options()
-	data["category"] = category
-	data["categories"] = categories
-	if(all_robolimbs)
-		var/list/T = list()
-		for(var/A in all_robolimbs)
-			var/datum/robolimb/R = all_robolimbs[A]
-			if(R.unavailable_at_fab || R.applies_to_part.len)
-				continue
-			T += list(list("id" = A, "company" = R.company))
-		data["manufacturers"] = T
-		data["manufacturer"] = manufacturer
-	data["materials"] = get_materials()
-	data["maxres"] = res_max_amount
-	data["sync"] = sync_message
-	if(current)
-		data["builtperc"] = round((progress / current.time) * 100)
-
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+/obj/machinery/mecha_part_fabricator/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, ui_key, "mechfab.tmpl", "Exosuit Fabricator UI", 800, 600)
-		ui.set_initial_data(data)
+		ui = new(user, src, "ExosuitFabricator", name)
 		ui.open()
-		ui.set_auto_update(1)
 
-/obj/machinery/mecha_part_fabricator/Topic(href, href_list)
-	if(..())
-		return
+/obj/machinery/mecha_part_fabricator/ui_static_data(mob/user)
+	. = list(
+		"buildable" = get_build_options(),
+		"categories" = categories,
+		"brands" = brands
+	)
 
-	if(href_list["build"])
-		add_to_queue(text2num(href_list["build"]))
+/obj/machinery/mecha_part_fabricator/ui_data(mob/user)
+	. = list(
+		"brand" = brand,
+		"current" = current ? list(
+			"name" = current.name,
+			"duration" = current.time - progress,
+			"time" = current.time
+		) : null,
+		"queue" = get_queue(),
+		"isProcessingQueue" = process_queue,
+		"materials" = get_materials(),
+		"maxres" = res_max_amount,
+		"sync" = sync_message
+	)
 
-	if(href_list["remove"])
-		remove_from_queue(text2num(href_list["remove"]))
-
-	if(href_list["category"])
-		if(href_list["category"] in categories)
-			category = href_list["category"]
-
-	if(href_list["manufacturer"])
-		if(href_list["manufacturer"] in all_robolimbs)
-			manufacturer = href_list["manufacturer"]
-
-	if(href_list["eject"])
-		eject_materials(href_list["eject"], text2num(href_list["amount"]))
-
-	if(href_list["sync"])
-		sync()
-	else
-		sync_message = ""
-
-	return 1
+/obj/machinery/mecha_part_fabricator/ui_act(action, list/params)
+	switch(action)
+		if ("add_queue_part")
+			add_to_queue(params["id"])
+		if ("add_queue_set")
+			add_to_queue_set(params["category"])
+		if("remove_queue_part")
+			remove_from_queue(params["id"])
+		if("build_queue")
+			process_queue = 1
+			update_busy()
+		if("stop_queue")
+			process_queue = 0
+		if("clear_queue")
+			queue.Cut()
+		if("eject_material")
+			eject_materials(params["eject_material"], params["amount"])
+		if("set_brand")
+			brand = params["set_brand"] ? params["set_brand"] : brand
+		if("sync_rnd")
+			sync()
+	return TRUE
 
 /obj/machinery/mecha_part_fabricator/attackby(var/obj/item/I, var/mob/user)
 	if(busy)
@@ -214,7 +211,12 @@
 			visible_message("\icon[src] <b>[src]</b> beeps: \"No records in User DB\"")
 
 /obj/machinery/mecha_part_fabricator/proc/update_busy()
-	if(queue.len)
+	if(current)
+		if(can_build(current))
+			busy = 1
+		else
+			busy = 0
+	else if(queue.len && process_queue)
 		if(can_build(queue[1]))
 			busy = 1
 		else
@@ -226,6 +228,12 @@
 	var/datum/design/D = files.known_designs[index]
 	queue += D
 	update_busy()
+
+/obj/machinery/mecha_part_fabricator/proc/add_to_queue_set(var/list/category)
+	if (!istype(category) || !category.len)
+		return
+	for (var/i = 1 to category.len)
+		add_to_queue(category[i])
 
 /obj/machinery/mecha_part_fabricator/proc/remove_from_queue(var/index)
 	if(index == 1)
@@ -240,45 +248,65 @@
 	return 1
 
 /obj/machinery/mecha_part_fabricator/proc/check_build()
-	if(!queue.len)
-		progress = 0
+	if(!current)
+		if(!queue.len || !process_queue)
+			progress = 0
+			return
+		var/datum/design/D = queue[1]
+		if(!can_build(D))
+			progress = 0
+			return
+		// Make sure that these two lines below are in this order, or the object will freeze.
+		current = D
+		remove_from_queue(1)
+	if(current.time > progress)
 		return
-	var/datum/design/D = queue[1]
-	if(!can_build(D))
-		progress = 0
-		return
-	if(D.time > progress)
-		return
-	for(var/M in D.materials)
-		materials[M] = max(0, materials[M] - D.materials[M] * mat_efficiency)
-	if(D.build_path)
-		var/obj/new_item = D.Fabricate(loc, src)
-		visible_message("\The [src] pings, indicating that \the [D] is complete.", "You hear a ping.")
+	for(var/M in current.materials)
+		materials[M] = max(0, materials[M] - current.materials[M] * mat_efficiency)
+	if(current.build_path)
+		var/obj/new_item = current.Fabricate(loc, src)
+		visible_message("\The [src] pings, indicating that \the [current] is complete.", "You hear a ping.")
 		if(mat_efficiency != 1)
 			if(new_item.matter && new_item.matter.len > 0)
 				for(var/i in new_item.matter)
 					new_item.matter[i] = new_item.matter[i] * mat_efficiency
-	remove_from_queue(1)
+	current = null
+	progress = 0
+	update_busy()
 
-/obj/machinery/mecha_part_fabricator/proc/get_queue_names()
+/obj/machinery/mecha_part_fabricator/proc/get_queue()
+	if(!istype(queue) || !length(queue))
+		return list()
+
 	. = list()
-	for(var/i = 2 to queue.len)
-		var/datum/design/D = queue[i]
-		. += D.name
+	for (var/i = 1 to queue.len)
+		. += list(get_design_info(queue[i], i))
 
 /obj/machinery/mecha_part_fabricator/proc/get_build_options()
 	. = list()
+
+	for (var/category in categories)
+		.[category] = list()
+
 	for(var/i = 1 to files.known_designs.len)
 		var/datum/design/D = files.known_designs[i]
 		if(!D.build_path || !(D.build_type & MECHFAB))
 			continue
-		. += list(list("name" = D.name, "id" = i, "category" = D.category, "resourses" = get_design_resourses(D), "time" = get_design_time(D)))
+		.[D.category] += list(get_design_info(D, i))
 
-/obj/machinery/mecha_part_fabricator/proc/get_design_resourses(var/datum/design/D)
-	var/list/F = list()
+/obj/machinery/mecha_part_fabricator/proc/get_design_info(var/datum/design/D, idx=0)
+	. = list(
+		"name" = D.name,
+		"desc" = D.desc,
+		"id" = idx || D.id,
+		"cost" = get_design_cost(D),
+		"time" = get_design_time(D)
+	)
+
+/obj/machinery/mecha_part_fabricator/proc/get_design_cost(var/datum/design/D)
+	. = list()
 	for(var/T in D.materials)
-		F += "[capitalize(T)]: [D.materials[T] * mat_efficiency]"
-	return english_list(F, and_text = ", ")
+		.[T] = D.materials[T] * mat_efficiency
 
 /obj/machinery/mecha_part_fabricator/proc/get_design_time(var/datum/design/D)
 	return time2text(round(10 * D.time / speed), "mm:ss")
@@ -289,17 +317,38 @@
 		if(!D.build_path || !(D.build_type & MECHFAB))
 			continue
 		categories |= D.category
-	if(!category || !(category in categories))
-		category = categories[1]
+
+	brands = list()
+	for(var/A in all_robolimbs)
+		var/datum/robolimb/R = all_robolimbs[A]
+		if(R.unavailable_at_fab || R.applies_to_part.len)
+			continue
+		brands |= R.company
+		brand = R.company
 
 /obj/machinery/mecha_part_fabricator/proc/get_materials()
 	. = list()
 	for(var/T in materials)
-		. += list(list("mat" = capitalize(T), "amt" = materials[T]))
+		. += list(list(
+			"name" = capitalize(T),
+			"amount" = materials[T],
+			// This sucks donkey balls because whoever chickendipshit wrote the materials system didn't make a
+			// database controller. So we could check them against it instead of going through the
+			// highly-galaxy-brain-cultivated method as seen in the proc/eject_materials method below.
+			//
+			// Why? Because apparently the stack/material objects have a non-constant var/perunit variable
+			// which dictate how much one unit in the stack represent. A database controller COULD have
+			// made this trivial. Like... SSmaterials.get_material("steel").sheet_per_unit, something like that.
+			//
+			// Fuck you, Bay.
+			// I ain't cleaning up your mess after you.
+			"sheets" = Ceiling(materials[T]/SHEET_MATERIAL_AMOUNT),
+			"removable" = materials[T] >= SHEET_MATERIAL_AMOUNT,
+			"ref" = T
+		))
 
 /obj/machinery/mecha_part_fabricator/proc/eject_materials(var/material, var/amount) // 0 amount = 0 means ejecting a full stack; -1 means eject everything
 	var/recursive = amount == -1 ? 1 : 0
-	material = lowertext(material)
 	var/mattype
 	switch(material)
 		if(DEFAULT_WALL_MATERIAL)

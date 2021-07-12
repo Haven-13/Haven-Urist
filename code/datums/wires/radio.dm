@@ -16,7 +16,7 @@ var/const/WIRE_TRANSMIT = 4
 	var/obj/item/device/radio/R = holder
 	. += ..()
 	if(R.cell)
-		. += "<BR><A href='?src=\ref[R];remove_cell=1'>Remove cell</A><BR>"
+		. += "<BR><A href='?src=[REF(R)];remove_cell=1'>Remove cell</A><BR>"
 
 /datum/wires/radio/UpdatePulsed(var/index)
 	var/obj/item/device/radio/R = holder
@@ -30,7 +30,7 @@ var/const/WIRE_TRANSMIT = 4
 
 		if(WIRE_TRANSMIT)
 			R.broadcasting = !R.broadcasting && !IsIndexCut(WIRE_SIGNAL)
-	SSnano.update_uis(holder)
+	SStgui.update_uis(holder)
 
 /datum/wires/radio/UpdateCut(var/index, var/mended)
 	var/obj/item/device/radio/R = holder
@@ -44,4 +44,4 @@ var/const/WIRE_TRANSMIT = 4
 
 		if(WIRE_TRANSMIT)
 			R.broadcasting = mended && !IsIndexCut(WIRE_SIGNAL)
-	SSnano.update_uis(holder)
+	SStgui.update_uis(holder)

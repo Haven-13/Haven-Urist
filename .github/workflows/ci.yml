@@ -1,0 +1,97 @@
+name: CI
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+jobs:
+  run_linters:
+    name: Run Linters
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup cache
+        uses: actions/cache@v2
+        with:
+          path: $HOME/SpacemanDMM
+          key: ${{ runner.os }}-spacemandmm
+      - name: Install Tools
+        run: |
+          bash tools/ci/install_node.sh
+          bash tools/ci/install_spaceman_dmm.sh dreamchecker
+      - name: Run Linters
+        run: |
+          tgui/bin/tgui --lint
+          ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
+      - name: Annotate Lints
+        uses: yogstation13/DreamAnnotate@v1
+        if: always()
+        with:
+          outputFile: output-annotations.txt
+
+  code_check:
+    name: Baycode Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Cache
+        uses: actions/cache@v2
+        with:
+          path: $HOME/CODE
+          key: ${{ runner.os }}-code
+      - name: Install Dependencies
+        run: sudo apt-get install -y uchardet
+      - name: Run Tests
+        env:
+          TEST: CODE_QUALITY
+          TARGET_PROJECT_NAME: baystation12
+        run: bash tools/ci/run-test.sh
+
+  test_compile:
+    name: Test Compile
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup cache
+        uses: actions/cache@v2
+        with:
+          path: $HOME/BYOND
+          key: ${{ runner.os }}-byond
+      - name: Compile Run
+        run: |
+          bash tools/ci/install_byond.sh
+          source $HOME/BYOND/byond/bin/byondsetup
+          tgui/bin/tgui --build
+          bash tools/ci/dm.sh baystation12.dme
+
+  maps:
+    name: Unit-test
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        maps: [example, tyclo-pluto]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup cache
+        uses: actions/cache@v2
+        with:
+          path: $HOME/BYOND
+          key: ${{ runner.os }}-byond
+      - name: Install RUST_G Dependencies
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt update || true
+          sudo apt install zlib1g-dev:i386 libssl-dev:i386 pkg-config:i386
+          ldd librust_g.so
+      - name: Run Tests
+        env:
+          TEST: MAP
+          MAP_PATH: ${{matrix.maps}}
+          TARGET_PROJECT_NAME: baystation12
+        run: |
+          bash tools/ci/install_byond.sh
+          source $HOME/BYOND/byond/bin/byondsetup
+          tgui/bin/tgui --build
+          bash tools/ci/run-test.sh

@@ -3,7 +3,7 @@
 	var/window_y = 470
 
 /datum/extension/interactive/multitool/proc/interact(var/obj/item/device/multitool/M, var/mob/user)
-	if(extension_status(user) != STATUS_INTERACTIVE)
+	if(extension_status(user) != UI_INTERACTIVE)
 		return
 
 	var/html = get_interact_window(M, user)
@@ -19,19 +19,19 @@
 	return
 
 /datum/extension/interactive/multitool/proc/close_window(var/mob/user)
-	user << browse(null, "window=multitool")
+	close_browser(user, "window=multitool")
 
 /datum/extension/interactive/multitool/proc/buffer(var/obj/item/device/multitool/multitool)
 	. += "<b>Buffer Memory:</b><br>"
 	var/buffer_name = multitool.get_buffer_name()
 	if(buffer_name)
-		. += "[buffer_name] <a href='?src=\ref[src];send=\ref[multitool.buffer_object]'>Send</a> <a href='?src=\ref[src];purge=1'>Purge</a><br>"
+		. += "[buffer_name] <a href='?src=[REF(src)];send=\ref[multitool.buffer_object]'>Send</a> <a href='?src=[REF(src)];purge=1'>Purge</a><br>"
 	else
 		. += "No connection stored in the buffer."
 
 /datum/extension/interactive/multitool/extension_status(var/mob/user)
 	if(!user.get_multitool())
-		return STATUS_CLOSE
+		return UI_CLOSE
 	. = ..()
 
 /datum/extension/interactive/multitool/extension_act(href, href_list, var/mob/user)
