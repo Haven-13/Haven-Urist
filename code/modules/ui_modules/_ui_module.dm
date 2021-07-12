@@ -9,6 +9,7 @@
 	src.host = host.ui_host()
 
 /datum/ui_module/Destroy()
+	SStgui.close_uis(src)
 	host = null
 	. = ..()
 

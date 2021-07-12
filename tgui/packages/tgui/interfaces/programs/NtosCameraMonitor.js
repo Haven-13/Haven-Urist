@@ -4,7 +4,7 @@ import { classes } from 'common/react';
 import { createSearch } from 'common/string';
 import { Fragment } from 'inferno';
 import { useBackend, useLocalState, useSharedState } from "tgui/backend";
-import { Button, ByondUi, Flex, Input, Section, Stack } from "tgui/components";
+import { Button, ByondUi, Dropdown, Flex, Input, Section, Stack } from "tgui/components";
 import { NtosWindow, Window } from "tgui/layouts";
 
 /**
@@ -32,9 +32,9 @@ export const NtosCameraMonitor = (props, context) => {
     selected_network,
     networks = [],
   } = data;
-  const networkList = networks.map((network) => {
-    return {name: network.tag}
-  });
+  const networkList = networks
+    .filter((network) => !!network.has_access)
+    .map((network) => network.tag);
   const camerasByNetwork = Object.assign({}, ...networks.map((network) => {
     return {[network.tag]: network.cameras}
   }));
@@ -46,45 +46,28 @@ export const NtosCameraMonitor = (props, context) => {
 
   return (
     <NtosWindow
-      width={1440}
-      height={850}
+      width={1020}
+      height={750}
+      resizable
     >
       <NtosWindow.Content>
         <div className="CameraConsole__left">
           <Section fill scrollable>
-            <Flex>
-              <Flex.Item width="50%">
-                <CameraConsoleContent
-                  content={networkList}
-                  selected={(entry) =>
-                    entry.name === selected_network
-                  }
-                  emptySearchText={"Search for Network"}
-                  format={(entry) => entry.name}
-                  onClick={(entry) => act("switch_network", {
-                    network: entry.name,
-                  })}
-                />
-              </Flex.Item>
-              <Flex.Item width="50%">
-                <CameraConsoleContent
-                  content={
-                    camerasByNetwork[selected_network]
-                    || []
-                  }
-                  selected={(entry) =>
-                    entry.name ===
-                    active_view_data[selectedView]?.camera?.name
-                  }
-                  emptySearchText={"Search for Camera"}
-                  format={(entry) => entry.name}
-                  onClick={(entry) => act("switch_camera", {
-                    index: selectedView + 1,
-                    camera: entry.camera
-                  })}
-                />
-              </Flex.Item>
-            </Flex>
+            <CameraConsoleContent
+              networks={networkList}
+              cameras={
+                camerasByNetwork[selected_network]
+                || []
+              }
+              selected={(entry) =>
+                entry.name ===
+                active_view_data[selectedView]?.camera?.name
+              }
+              onClick={(entry) => act("switch_camera", {
+                index: selectedView + 1,
+                camera: entry.camera
+              })}
+            />
           </Section>
         </div>
         <div className="CameraConsole__right">
@@ -195,29 +178,40 @@ export const NtosCameraMonitor = (props, context) => {
 export const CameraConsoleContent = (props, context) => {
   const { act, data } = useBackend(context);
   const {
-    content = [],
+    networks = [],
+    cameras = [],
+    disabled = (v) => false,
     selected = (v) => false,
-    emptySearchText = "Placeholder",
-    emptyListText = "This list is empty",
-    format = (v) => {},
     onClick = () => {},
   } = props;
   const [
     searchText,
     setSearchText,
   ] = useLocalState(context, 'searchText', '');
+  const displayCameras = selectCameras(cameras, searchText);
   return (
     <Stack vertical>
+      <Stack.Item>
+        <Dropdown
+          mb={0.5}
+          options={networks}
+          selected={data.selected_network}
+          width="100%"
+          onSelected={(v) => act("switch_network", {
+            network: v
+          })}
+        />
+      </Stack.Item>
       <Stack.Item>
         <Input
           autoFocus
           fluid
-          mb={1}
-          placeholder={emptySearchText}
+          mb={0.5}
+          placeholder="Search for Camera"
           onInput={(e, value) => setSearchText(value)} />
       </Stack.Item>
       <Stack.Item grow>
-        {!!content.length && content.map((entry, index) => (
+        {!!displayCameras.length && displayCameras.map((entry, index) => (
           // We're not using the component here because performance
           // would be absolutely abysmal (50+ ms for each re-render).
           <div
@@ -230,10 +224,12 @@ export const CameraConsoleContent = (props, context) => {
               selected(entry) && 'Button--selected',
             ])}
             onClick={() => onClick(entry)}>
-            {format(entry)}
+            {entry.name}
           </div>
         )) || (
-          <b>{emptyListText}</b>
+          <b>There are no cameras {
+            !!searchText.length && "matching your search"
+          }</b>
         )}
       </Stack.Item>
     </Stack>

@@ -9,20 +9,22 @@ $color-selected: colors.bg(colors.$green) !default;
   top: 0;
   bottom: 0;
   left: 0;
-  width: base.em(330px);
+  width: base.em(220px);
+  background-color: $background-color;
 }
 
 .CameraConsole__right {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: base.em(330px);
+  left: base.em(220px);
   right: 0;
   background-color: $background-color;
 }
 
 .CameraConsole__toolbar {
   position: absolute;
+  background-color: $background-color;
   top: 0;
   left: 0;
   right: 0;

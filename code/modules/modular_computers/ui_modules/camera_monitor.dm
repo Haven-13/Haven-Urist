@@ -56,7 +56,7 @@
 
 		// Create the bounding-box canvas & effect overlay for the view
 		var/obj/screen/background/foreground = new
-		foreground.screen_loc = "[key]:1,1 to [DEFAULT_VIEW_SIZE],[DEFAULT_VIEW_SIZE]"
+		foreground.screen_loc = "[key]:1,1 to [8],[6]"
 		foreground.icon = 'icons/primitives.dmi'
 		foreground.icon_state = "white"
 		foreground.plane = FULLSCREEN_PLANE
@@ -79,11 +79,11 @@
 # undef MAX_ACTIVE_CAMERAS
 
 /datum/ui_module/program/camera_monitor/Destroy()
+	. = ..()
 	selected_cameras = null
 	last_camera_turf = null
 	QDEL_NULL_ASSOC_LIST(camera_map_views)
 	QDEL_NULL_LIST(camera_foregrounds)
-	. = ..()
 
 // ADD THE SCREEN OBJECTS
 /datum/ui_module/program/camera_monitor/ui_interact(mob/user, datum/tgui/ui)
@@ -209,7 +209,7 @@
 /datum/ui_module/program/camera_monitor/proc/switch_to_camera(mob/user, index, obj/machinery/camera/C)
 	set_current(index, C)
 
-	if(!C?.can_use())
+	if(!C || !C?.can_use())
 		show_camera_static(index)
 		return TRUE
 
@@ -253,7 +253,7 @@
 
 	var/obj/screen/background/foreground = camera_foregrounds[index]
 	foreground.icon_state = "white"
-	foreground.screen_loc = "[key]:1,1 to [DEFAULT_VIEW_SIZE],[DEFAULT_VIEW_SIZE]"
+	foreground.screen_loc = "[key]:1,1 to [8],[6]"
 	return TRUE
 
 /datum/ui_module/program/camera_monitor/proc/set_current(index, obj/machinery/camera/C)
