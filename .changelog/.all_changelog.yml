@@ -181,3 +181,22 @@
   martinlyra:
   - bugfix: Fixed an incorrect typepath affecting how the overmap generators place
       events
+  - rscadd: Ported tgUI 4.3 from /tg/-station
+  - rscadd: The engineering & janitorial tool carts UIs will tell you what you can
+      fit in them
+  - rscadd: The biogenerator now show its current buffer in the UI
+  - rscadd: Added feature to order batch processing jobs at biogenerators
+  - rscdel: Deleted old nanoUI
+  - rscdel: Deleted UI from fire alarms. Now you have to do now is to click on them
+      to (de)activate the area alarm.
+  - rscdel: Deleted superfluous beaker from biogenerators
+  - rscdel: Deleted superfluous waypoints & bookmarks from helm computers
+  - bugfix: Fixed ship helm computers offering a quick way to commit Jonestown-style
+      mass-suicide - (Deleted Auto-pilot)
+  - refactor: Entirety of the interface is now dark-themed with Dwarf Fortress and
+      Cataclysm Dark Days Ahead-inspired colouring schemes for text messages.
+  - refactor: Most of the new code now use the tgUI instead of nanoUI. Meaning that
+      lot of UI will be missing.
+  - refactor: Janitorial & Engineering carts rewritten from scratch
+  - refactor: Sleeper UI redesigned from scratch
+  - refactor: Ship Helm UI redesigned from scratch
