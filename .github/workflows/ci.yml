@@ -48,6 +48,7 @@ jobs:
       - name: Run Tests
         env:
           TEST: CODE
+          TARGET_PROJECT_NAME: baystation12
         run: bash tools/ci/run-test.sh
 
   test_compile:
@@ -84,4 +85,5 @@ jobs:
         env:
           TEST: MAP
           MAP_PATH: ${{matrix.maps}}
+          TARGET_PROJECT_NAME: baystation12
         run: bash tools/ci/run-test.sh
