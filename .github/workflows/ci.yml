@@ -79,6 +79,12 @@ jobs:
         with:
           path: $HOME/BYOND
           key: ${{ runner.os }}-byond
+      - name: Install RUST_G Dependencies
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt update || true
+          sudo apt install zlib1g-dev:i386 libssl-dev:i386 pkg-config:i386
+          ldd librust_g.so
       - name: Run Tests
         env:
           TEST: MAP
