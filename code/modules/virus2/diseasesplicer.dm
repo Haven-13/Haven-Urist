@@ -40,9 +40,13 @@
 	if(..()) return
 	ui_interact(user)
 
-/obj/machinery/computer/diseasesplicer/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	user.set_machine(src)
+/obj/machinery/computer/diseasesplicer/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "DiseaseSplicer")
+		ui.open()
 
+/obj/machinery/computer/diseasesplicer/ui_data(mob/user)
 	var/data[0]
 	data["dish_inserted"] = !!dish
 	data["growth"] = 0
@@ -69,7 +73,7 @@
 			if (dish.growth >= 50)
 				var/list/effects[0]
 				for (var/datum/disease2/effect/e in dish.virus2.effects)
-					effects.Add(list(list("name" = (dish.analysed ? e.name : "Unknown"), "stage" = (e.stage), "reference" = "\ref[e]")))
+					effects.Add(list(list("name" = (dish.analysed ? e.name : "Unknown"), "stage" = (e.stage), "reference" = REF(e))))
 				data["effects"] = effects
 			else
 				data["info"] = "Insufficient cell growth for gene splicing."
@@ -78,11 +82,7 @@
 	else
 		data["info"] = "No dish loaded."
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "disease_splicer.tmpl", src.name, 400, 600)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /obj/machinery/computer/diseasesplicer/Process()
 	if(stat & (NOPOWER|BROKEN))
@@ -92,12 +92,12 @@
 		scanning -= 1
 		if(!scanning)
 			ping("\The [src] pings, \"Analysis complete.\"")
-			SSnano.update_uis(src)
+			SStgui.update_uis(src)
 	if(splicing)
 		splicing -= 1
 		if(!splicing)
 			ping("\The [src] pings, \"Splicing operation complete.\"")
-			SSnano.update_uis(src)
+			SStgui.update_uis(src)
 	if(burning)
 		burning -= 1
 		if(!burning)
@@ -119,12 +119,12 @@
 					d.species = species_buffer
 
 			ping("\The [src] pings, \"Backup disk saved.\"")
-			SSnano.update_uis(src)
+			SStgui.update_uis(src)
 
 /obj/machinery/computer/diseasesplicer/OnTopic(user, href_list)
 	if (href_list["close"])
-		SSnano.close_user_uis(user, src, "main")
-		return TOPIC_HANDLED
+		SStgui.close_user_uis(user, src, "main")
+		return FALSE
 
 	if (href_list["grab"])
 		if (dish)
@@ -133,7 +133,7 @@
 			analysed = dish.analysed
 			dish = null
 			scanning = 10
-		return TOPIC_REFRESH
+		return TRUE
 
 	if (href_list["affected_species"])
 		if (dish)
@@ -142,13 +142,13 @@
 			analysed = dish.analysed
 			dish = null
 			scanning = 10
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["eject"])
 		if (dish)
 			dish.dropInto(loc)
 			dish = null
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["splice"])
 		if(dish)
@@ -175,12 +175,12 @@
 				dish.virus2.affected_species = species_buffer
 
 			else
-				return TOPIC_HANDLED
+				return FALSE
 
 			splicing = 10
 			dish.virus2.uniqueID = rand(0,10000)
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["disk"])
 		burning = 10
-		return TOPIC_REFRESH
+		return TRUE

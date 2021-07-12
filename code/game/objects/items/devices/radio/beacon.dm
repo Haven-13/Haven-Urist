@@ -5,6 +5,7 @@
 	item_state = "signaler"
 	var/code = "electronic"
 	origin_tech = list(TECH_BLUESPACE = 1)
+	can_use_channels = FALSE
 
 /obj/item/device/radio/beacon/hear_talk()
 	return

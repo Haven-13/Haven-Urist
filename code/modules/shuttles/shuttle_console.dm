@@ -8,7 +8,7 @@
 	var/shuttle_tag  // Used to coordinate data in shuttle controller.
 	var/hacked = 0   // Has been emagged, no access restrictions.
 
-	var/ui_template = "shuttle_control_console.tmpl"
+	var/ui_template = "spacecraft/ShuttleConsole"
 
 
 /obj/machinery/computer/shuttle_control/attack_hand(user as mob)
@@ -20,12 +20,13 @@
 
 	ui_interact(user)
 
-/obj/machinery/computer/shuttle_control/proc/get_ui_data(var/datum/shuttle/autodock/shuttle)
+/obj/machinery/computer/shuttle_control/proc/get_shuttle_ui_data(var/datum/shuttle/autodock/shuttle)
 	var/shuttle_state
 	switch(shuttle.moving_status)
 		if(SHUTTLE_IDLE) shuttle_state = "idle"
 		if(SHUTTLE_WARMUP) shuttle_state = "warmup"
 		if(SHUTTLE_INTRANSIT) shuttle_state = "in_transit"
+
 
 	var/shuttle_status
 	switch (shuttle.process_state)
@@ -33,69 +34,70 @@
 			if (shuttle.in_use)
 				shuttle_status = "Busy."
 			else
-				shuttle_status = "Standing-by at \the [shuttle.get_location_name()]."
+				shuttle_status = "Standing by."
 
 		if(WAIT_LAUNCH, FORCE_LAUNCH)
-			shuttle_status = "Shuttle has recieved command and will depart shortly."
+			shuttle_status = "Launching..."
 		if(WAIT_ARRIVE)
-			shuttle_status = "Proceeding to \the [shuttle.get_destination_name()]."
+			shuttle_status = "Proceeding to destination."
 		if(WAIT_FINISH)
-			shuttle_status = "Arriving at destination now."
+			shuttle_status = "Arriving..."
 
 	return list(
-		"shuttle_status" = shuttle_status,
-		"shuttle_state" = shuttle_state,
-		"has_docking" = shuttle.shuttle_docking_controller? 1 : 0,
-		"docking_status" = shuttle.shuttle_docking_controller? shuttle.shuttle_docking_controller.get_docking_status() : null,
-		"docking_override" = shuttle.shuttle_docking_controller? shuttle.shuttle_docking_controller.override_enabled : null,
-		"can_launch" = shuttle.can_launch(),
-		"can_cancel" = shuttle.can_cancel(),
-		"can_force" = shuttle.can_force(),
-		"docking_codes" = shuttle.docking_codes
+		"hasTimeLeft" = shuttle.has_arrive_time(),
+		"timeLeft" = shuttle.has_arrive_time() ? shuttle.time_left() : null,
+		"currentLocation" = shuttle.current_location.name,
+		"shuttleStatus" = shuttle_status,
+		"shuttleState" = shuttle_state,
+		"hasDocking" = shuttle.shuttle_docking_controller? 1 : 0,
+		"dockingStatus" = shuttle.shuttle_docking_controller? shuttle.shuttle_docking_controller.get_docking_status() : null,
+		"dockingOverride" = shuttle.shuttle_docking_controller? shuttle.shuttle_docking_controller.override_enabled : null,
+		"canLaunch" = shuttle.can_launch(),
+		"canCancel" = shuttle.can_cancel(),
+		"canForce" = shuttle.can_force(),
+		"dockingCodes" = shuttle.docking_codes
 	)
 
-/obj/machinery/computer/shuttle_control/proc/handle_topic_href(var/datum/shuttle/autodock/shuttle, var/list/href_list, var/user)
-	if(!istype(shuttle))
-		return TOPIC_NOACTION
-
-	if(href_list["move"])
-		if(!shuttle.next_location.is_valid(shuttle))
-			to_chat(user, "<span class='warning'>Destination zone is invalid or obstructed.</span>")
-			return TOPIC_HANDLED
-		shuttle.launch(src)
-		return TOPIC_REFRESH
-
-	if(href_list["force"])
-		shuttle.force_launch(src)
-		return TOPIC_REFRESH
-
-	if(href_list["cancel"])
-		shuttle.cancel_launch(src)
-		return TOPIC_REFRESH
-
-	if(href_list["set_codes"])
-		var/newcode = input("Input new docking codes", "Docking codes", shuttle.docking_codes) as text|null
-		if (newcode && CanInteract(usr, GLOB.default_state))
-			shuttle.set_docking_codes(uppertext(newcode))
-		return TOPIC_REFRESH
-
-/obj/machinery/computer/shuttle_control/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/computer/shuttle_control/ui_data(mob/user)
 	var/datum/shuttle/autodock/shuttle = SSshuttle.shuttles[shuttle_tag]
+
 	if (!istype(shuttle))
 		to_chat(user,"<span class='warning'>Unable to establish link with the shuttle.</span>")
-		return
+		return list()
 
-	var/list/data = get_ui_data(shuttle)
+	return get_shuttle_ui_data(shuttle)
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+/obj/machinery/computer/shuttle_control/proc/handle_ui_act(var/datum/shuttle/autodock/shuttle, var/action, var/list/params, var/user)
+	if(!istype(shuttle))
+		return FALSE
+
+	switch(action)
+		if("move")
+			if(!shuttle.next_location.is_valid(shuttle))
+				to_chat(user, "<span class='warning'>Destination zone is invalid or obstructed.</span>")
+				. = FALSE
+			else
+				shuttle.launch(src)
+				. = TRUE
+		if("force")
+			shuttle.force_launch(src)
+			. = TRUE
+		if("abort")
+			shuttle.cancel_launch(src)
+			. = TRUE
+		if("set_codes")
+			var/newcode = params["code"]
+			shuttle.set_docking_codes(uppertext(newcode))
+			. = TRUE
+
+/obj/machinery/computer/shuttle_control/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, ui_key, ui_template, "[shuttle_tag] Shuttle Control", 470, 450)
-		ui.set_initial_data(data)
+		ui = new(user, src, ui_template, name)
 		ui.open()
-		ui.set_auto_update(1)
 
-/obj/machinery/computer/shuttle_control/OnTopic(user, href_list)
-	return handle_topic_href(SSshuttle.shuttles[shuttle_tag], href_list, user)
+/obj/machinery/computer/shuttle_control/ui_act(action, list/params)
+	return handle_ui_act(SSshuttle.shuttles[shuttle_tag], action, params, usr)
 
 /obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user)
 	if (!hacked)

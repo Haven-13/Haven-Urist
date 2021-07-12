@@ -154,15 +154,15 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	. = list()
 	if(!pref.preview_icon)
 		pref.update_preview_icon()
-	user << browse_rsc(pref.preview_icon, "previewicon.png")
+	send_rsc(user, pref.preview_icon, "previewicon.png")
 
 	var/datum/species/mob_species = all_species[pref.species]
-	var/title = "<b>Species<a href='?src=\ref[src];show_species=1'><small>?</small></a>:</b> <a href='?src=\ref[src];set_species=1'>[mob_species.name]</a>"
-	var/append_text = "<a href='?src=\ref[src];toggle_species_verbose=1'>[hide_species ? "Expand" : "Collapse"]</a>"
+	var/title = "<b>Species<a href='?src=[REF(src)];show_species=1'><small>?</small></a>:</b> <a href='?src=[REF(src)];set_species=1'>[mob_species.name]</a>"
+	var/append_text = "<a href='?src=[REF(src)];toggle_species_verbose=1'>[hide_species ? "Expand" : "Collapse"]</a>"
 	. += "<hr>"
 	. += mob_species.get_description(title, append_text, verbose = !hide_species, skip_detail = TRUE, skip_photo = TRUE)
 	. += "<table><tr style='vertical-align:top'><td><b>Body</b> "
-	. += "(<a href='?src=\ref[src];random=1'>&reg;</A>)"
+	. += "(<a href='?src=[REF(src)];random=1'>&reg;</A>)"
 	. += "<br>"
 
 	if(config.use_cortical_stacks)
@@ -171,19 +171,19 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			. += "incompatible."
 		else
 			. += pref.has_cortical_stack ? "present." : "<b>not present.</b>"
-			. += " \[<a href='byond://?src=\ref[src];toggle_stack=1'>toggle</a>\]"
+			. += " \[<a href='byond://?src=[REF(src)];toggle_stack=1'>toggle</a>\]"
 		. += "<br>"
-	. += "Blood Type: <a href='?src=\ref[src];blood_type=1'>[pref.b_type]</a><br>"
+	. += "Blood Type: <a href='?src=[REF(src)];blood_type=1'>[pref.b_type]</a><br>"
 
 	if(has_flag(mob_species, HAS_BASE_SKIN_COLOURS))
-		. += "Base Colour: <a href='?src=\ref[src];base_skin=1'>[pref.s_base]</a><br>"
+		. += "Base Colour: <a href='?src=[REF(src)];base_skin=1'>[pref.s_base]</a><br>"
 
 	if(has_flag(mob_species, HAS_A_SKIN_TONE))
-		. += "Skin Tone: <a href='?src=\ref[src];skin_tone=1'>[-pref.s_tone + 35]/[mob_species.max_skin_tone()]</a><br>"
+		. += "Skin Tone: <a href='?src=[REF(src)];skin_tone=1'>[-pref.s_tone + 35]/[mob_species.max_skin_tone()]</a><br>"
 
-	. += "Needs Glasses: <a href='?src=\ref[src];disabilities=[NEARSIGHTED]'><b>[pref.disabilities & NEARSIGHTED ? "Yes" : "No"]</b></a><br>"
-	. += "Limbs: <a href='?src=\ref[src];limbs=1'>Adjust</a> <a href='?src=\ref[src];reset_limbs=1'>Reset</a><br>"
-	. += "Internal Organs: <a href='?src=\ref[src];organs=1'>Adjust</a><br>"
+	. += "Needs Glasses: <a href='?src=[REF(src)];disabilities=[NEARSIGHTED]'><b>[pref.disabilities & NEARSIGHTED ? "Yes" : "No"]</b></a><br>"
+	. += "Limbs: <a href='?src=[REF(src)];limbs=1'>Adjust</a> <a href='?src=[REF(src)];reset_limbs=1'>Reset</a><br>"
+	. += "Internal Organs: <a href='?src=[REF(src)];organs=1'>Adjust</a><br>"
 
 	//display limbs below
 	var/ind = 0
@@ -273,37 +273,37 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		. += "<table>"
 		for(var/entry in pref.body_descriptors)
 			var/datum/mob_descriptor/descriptor = mob_species.descriptors[entry]
-			. += "<tr><td><b>[capitalize(descriptor.chargen_label)]:</b></td><td>[descriptor.get_standalone_value_descriptor(pref.body_descriptors[entry])]</td><td><a href='?src=\ref[src];change_descriptor=[entry]'>Change</a><br/></td></tr>"
+			. += "<tr><td><b>[capitalize(descriptor.chargen_label)]:</b></td><td>[descriptor.get_standalone_value_descriptor(pref.body_descriptors[entry])]</td><td><a href='?src=[REF(src)];change_descriptor=[entry]'>Change</a><br/></td></tr>"
 		. += "</table><br>"
 
 	. += "</td><td><b>Preview</b><br>"
 	. += "<div class='statusDisplay'><center><img src=previewicon.png width=[pref.preview_icon.Width()] height=[pref.preview_icon.Height()]></center></div>"
-	. += "<br><a href='?src=\ref[src];cycle_bg=1'>Cycle background</a>"
-	. += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
-	. += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
+	. += "<br><a href='?src=[REF(src)];cycle_bg=1'>Cycle background</a>"
+	. += "<br><a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
+	. += "<br><a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
 	. += "</td></tr></table>"
 
 	. += "<b>Hair</b><br>"
 	if(has_flag(mob_species, HAS_HAIR_COLOR))
-		. += "<a href='?src=\ref[src];hair_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_hair, 2)][num2hex(pref.g_hair, 2)][num2hex(pref.b_hair, 2)]'><table style='display:inline;' bgcolor='#[num2hex(pref.r_hair, 2)][num2hex(pref.g_hair, 2)][num2hex(pref.b_hair)]'><tr><td>__</td></tr></table></font> "
-	. += " Style: <a href='?src=\ref[src];hair_style=1'>[pref.h_style]</a><br>"
+		. += "<a href='?src=[REF(src)];hair_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_hair, 2)][num2hex(pref.g_hair, 2)][num2hex(pref.b_hair, 2)]'><table style='display:inline;' bgcolor='#[num2hex(pref.r_hair, 2)][num2hex(pref.g_hair, 2)][num2hex(pref.b_hair)]'><tr><td>__</td></tr></table></font> "
+	. += " Style: <a href='?src=[REF(src)];hair_style=1'>[pref.h_style]</a><br>"
 
 	. += "<br><b>Facial</b><br>"
 	if(has_flag(mob_species, HAS_HAIR_COLOR))
-		. += "<a href='?src=\ref[src];facial_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_facial, 2)][num2hex(pref.g_facial, 2)][num2hex(pref.b_facial, 2)]'><table  style='display:inline;' bgcolor='#[num2hex(pref.r_facial, 2)][num2hex(pref.g_facial, 2)][num2hex(pref.b_facial)]'><tr><td>__</td></tr></table></font> "
-	. += " Style: <a href='?src=\ref[src];facial_style=1'>[pref.f_style]</a><br>"
+		. += "<a href='?src=[REF(src)];facial_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_facial, 2)][num2hex(pref.g_facial, 2)][num2hex(pref.b_facial, 2)]'><table  style='display:inline;' bgcolor='#[num2hex(pref.r_facial, 2)][num2hex(pref.g_facial, 2)][num2hex(pref.b_facial)]'><tr><td>__</td></tr></table></font> "
+	. += " Style: <a href='?src=[REF(src)];facial_style=1'>[pref.f_style]</a><br>"
 
 	if(has_flag(mob_species, HAS_EYE_COLOR))
 		. += "<br><b>Eyes</b><br>"
-		. += "<a href='?src=\ref[src];eye_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_eyes, 2)][num2hex(pref.g_eyes, 2)][num2hex(pref.b_eyes, 2)]'><table  style='display:inline;' bgcolor='#[num2hex(pref.r_eyes, 2)][num2hex(pref.g_eyes, 2)][num2hex(pref.b_eyes)]'><tr><td>__</td></tr></table></font><br>"
+		. += "<a href='?src=[REF(src)];eye_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_eyes, 2)][num2hex(pref.g_eyes, 2)][num2hex(pref.b_eyes, 2)]'><table  style='display:inline;' bgcolor='#[num2hex(pref.r_eyes, 2)][num2hex(pref.g_eyes, 2)][num2hex(pref.b_eyes)]'><tr><td>__</td></tr></table></font><br>"
 
 	if(has_flag(mob_species, HAS_SKIN_COLOR))
 		. += "<br><b>Body Color</b><br>"
-		. += "<a href='?src=\ref[src];skin_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_skin, 2)][num2hex(pref.g_skin, 2)][num2hex(pref.b_skin, 2)]'><table style='display:inline;' bgcolor='#[num2hex(pref.r_skin, 2)][num2hex(pref.g_skin, 2)][num2hex(pref.b_skin)]'><tr><td>__</td></tr></table></font><br>"
+		. += "<a href='?src=[REF(src)];skin_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_skin, 2)][num2hex(pref.g_skin, 2)][num2hex(pref.b_skin, 2)]'><table style='display:inline;' bgcolor='#[num2hex(pref.r_skin, 2)][num2hex(pref.g_skin, 2)][num2hex(pref.b_skin)]'><tr><td>__</td></tr></table></font><br>"
 
-	. += "<br><a href='?src=\ref[src];marking_style=1'>Body Markings +</a><br>"
+	. += "<br><a href='?src=[REF(src)];marking_style=1'>Body Markings +</a><br>"
 	for(var/M in pref.body_markings)
-		. += "[M] <a href='?src=\ref[src];marking_remove=[M]'>-</a> <a href='?src=\ref[src];marking_color=[M]'>Color</a>"
+		. += "[M] <a href='?src=[REF(src)];marking_remove=[M]'>-</a> <a href='?src=[REF(src)];marking_color=[M]'>Color</a>"
 		. += "<font face='fixedsys' size='3' color='[pref.body_markings[M]]'><table style='display:inline;' bgcolor='[pref.body_markings[M]]'><tr><td>__</td></tr></table></font>"
 		. += "<br>"
 
@@ -317,11 +317,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	var/datum/species/mob_species = all_species[pref.species]
 	if(href_list["toggle_species_verbose"])
 		hide_species = !hide_species
-		return TOPIC_REFRESH
+		return TRUE
 
 	else if(href_list["random"])
 		pref.randomize_appearance_and_body_for()
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 
 	else if(href_list["change_descriptor"])
 		if(mob_species.descriptors)
@@ -331,24 +331,24 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				var/choice = input("Please select a descriptor.", "Descriptor") as null|anything in descriptor.chargen_value_descriptors
 				if(choice && mob_species.descriptors[desc_id]) // Check in case they sneakily changed species.
 					pref.body_descriptors[desc_id] = descriptor.chargen_value_descriptors[choice]
-					return TOPIC_REFRESH
+					return TRUE
 
 	else if(href_list["toggle_stack"])
 		pref.has_cortical_stack = !pref.has_cortical_stack
-		return TOPIC_REFRESH
+		return TRUE
 
 	else if(href_list["blood_type"])
 		var/new_b_type = input(user, "Choose your character's blood-type:", CHARACTER_PREFERENCE_INPUT_TITLE) as null|anything in valid_bloodtypes
 		if(new_b_type && CanUseTopic(user))
 			pref.b_type = new_b_type
-			return TOPIC_REFRESH
+			return TRUE
 
 	else if(href_list["show_species"])
 		var/choice = input("Which species would you like to look at?") as null|anything in playable_species
 		if(choice)
 			var/datum/species/current_species = all_species[choice]
-			user << browse(current_species.get_description(), "window=species;size=700x400")
-			return TOPIC_HANDLED
+			show_browser(user, current_species.get_description(), "window=species;size=700x400")
+			return FALSE
 
 	else if(href_list["set_species"])
 
@@ -395,17 +395,17 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			var/datum/category_item/player_setup_item/background/languages/endless_accesses = pref_background.items_by_name["Languages"]
 			endless_accesses.sanitize_alt_languages()
 
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			return UPDATE_PREVIEW
 
 	else if(href_list["hair_color"])
 		if(!has_flag(mob_species, HAS_HAIR_COLOR))
-			return TOPIC_NOACTION
+			return FALSE
 		var/new_hair = input(user, "Choose your character's hair colour:", CHARACTER_PREFERENCE_INPUT_TITLE, rgb(pref.r_hair, pref.g_hair, pref.b_hair)) as color|null
 		if(new_hair && has_flag(all_species[pref.species], HAS_HAIR_COLOR) && CanUseTopic(user))
 			pref.r_hair = hex2num(copytext(new_hair, 2, 4))
 			pref.g_hair = hex2num(copytext(new_hair, 4, 6))
 			pref.b_hair = hex2num(copytext(new_hair, 6, 8))
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			return UPDATE_PREVIEW
 
 	else if(href_list["hair_style"])
 		var/list/valid_hairstyles = mob_species.get_hair_styles()
@@ -414,54 +414,54 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		mob_species = all_species[pref.species]
 		if(new_h_style && CanUseTopic(user) && (new_h_style in mob_species.get_hair_styles()))
 			pref.h_style = new_h_style
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			return UPDATE_PREVIEW
 
 	else if(href_list["facial_color"])
 		if(!has_flag(mob_species, HAS_HAIR_COLOR))
-			return TOPIC_NOACTION
+			return FALSE
 		var/new_facial = input(user, "Choose your character's facial-hair colour:", CHARACTER_PREFERENCE_INPUT_TITLE, rgb(pref.r_facial, pref.g_facial, pref.b_facial)) as color|null
 		if(new_facial && has_flag(all_species[pref.species], HAS_HAIR_COLOR) && CanUseTopic(user))
 			pref.r_facial = hex2num(copytext(new_facial, 2, 4))
 			pref.g_facial = hex2num(copytext(new_facial, 4, 6))
 			pref.b_facial = hex2num(copytext(new_facial, 6, 8))
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			return UPDATE_PREVIEW
 
 	else if(href_list["eye_color"])
 		if(!has_flag(mob_species, HAS_EYE_COLOR))
-			return TOPIC_NOACTION
+			return FALSE
 		var/new_eyes = input(user, "Choose your character's eye colour:", CHARACTER_PREFERENCE_INPUT_TITLE, rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes)) as color|null
 		if(new_eyes && has_flag(all_species[pref.species], HAS_EYE_COLOR) && CanUseTopic(user))
 			pref.r_eyes = hex2num(copytext(new_eyes, 2, 4))
 			pref.g_eyes = hex2num(copytext(new_eyes, 4, 6))
 			pref.b_eyes = hex2num(copytext(new_eyes, 6, 8))
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			return UPDATE_PREVIEW
 
 	else if(href_list["base_skin"])
 		if(!has_flag(mob_species, HAS_BASE_SKIN_COLOURS))
-			return TOPIC_NOACTION
+			return FALSE
 		var/new_s_base = input(user, "Choose your character's base colour:", CHARACTER_PREFERENCE_INPUT_TITLE) as null|anything in mob_species.base_skin_colours
 		if(new_s_base && CanUseTopic(user))
 			pref.s_base = new_s_base
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			return UPDATE_PREVIEW
 
 	else if(href_list["skin_tone"])
 		if(!has_flag(mob_species, HAS_A_SKIN_TONE))
-			return TOPIC_NOACTION
+			return FALSE
 		var/new_s_tone = input(user, "Choose your character's skin-tone. Lower numbers are lighter, higher are darker. Range: 1 to [mob_species.max_skin_tone()]", CHARACTER_PREFERENCE_INPUT_TITLE, (-pref.s_tone) + 35) as num|null
 		mob_species = all_species[pref.species]
 		if(new_s_tone && has_flag(mob_species, HAS_A_SKIN_TONE) && CanUseTopic(user))
 			pref.s_tone = 35 - max(min(round(new_s_tone), mob_species.max_skin_tone()), 1)
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 
 	else if(href_list["skin_color"])
 		if(!has_flag(mob_species, HAS_SKIN_COLOR))
-			return TOPIC_NOACTION
+			return FALSE
 		var/new_skin = input(user, "Choose your character's skin colour: ", CHARACTER_PREFERENCE_INPUT_TITLE, rgb(pref.r_skin, pref.g_skin, pref.b_skin)) as color|null
 		if(new_skin && has_flag(all_species[pref.species], HAS_SKIN_COLOR) && CanUseTopic(user))
 			pref.r_skin = hex2num(copytext(new_skin, 2, 4))
 			pref.g_skin = hex2num(copytext(new_skin, 4, 6))
 			pref.b_skin = hex2num(copytext(new_skin, 6, 8))
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			return UPDATE_PREVIEW
 
 	else if(href_list["facial_style"])
 		var/list/valid_facialhairstyles = mob_species.get_facial_hair_styles(pref.gender)
@@ -471,7 +471,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		mob_species = all_species[pref.species]
 		if(new_f_style && CanUseTopic(user) && mob_species.get_facial_hair_styles(pref.gender))
 			pref.f_style = new_f_style
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			return UPDATE_PREVIEW
 
 	else if(href_list["marking_style"])
 		var/list/usable_markings = pref.body_markings.Copy() ^ GLOB.body_marking_styles_list.Copy()
@@ -485,23 +485,23 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/new_marking = input(user, "Choose a body marking:", CHARACTER_PREFERENCE_INPUT_TITLE)  as null|anything in usable_markings
 		if(new_marking && CanUseTopic(user))
 			pref.body_markings[new_marking] = "#000000" //New markings start black
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			return UPDATE_PREVIEW
 
 	else if(href_list["marking_remove"])
 		var/M = href_list["marking_remove"]
 		pref.body_markings -= M
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 
 	else if(href_list["marking_color"])
 		var/M = href_list["marking_color"]
 		var/mark_color = input(user, "Choose the [M] color: ", CHARACTER_PREFERENCE_INPUT_TITLE, pref.body_markings[M]) as color|null
 		if(mark_color && CanUseTopic(user))
 			pref.body_markings[M] = "[mark_color]"
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			return UPDATE_PREVIEW
 
 	else if(href_list["reset_limbs"])
 		reset_limbs()
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 
 	else if(href_list["limbs"])
 
@@ -516,7 +516,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 		var/organ_tag = input(user, "Which limb do you want to change?") as null|anything in limb_selection_list
 
-		if(!organ_tag || !CanUseTopic(user)) return TOPIC_NOACTION
+		if(!organ_tag || !CanUseTopic(user)) return FALSE
 
 		var/limb = null
 		var/second_limb = null // if you try to change the arm, the hand should also change
@@ -563,7 +563,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				choice_options = list("Normal","Prosthesis")
 
 		var/new_state = input(user, "What state do you wish the limb to be in?") as null|anything in choice_options
-		if(!new_state || !CanUseTopic(user)) return TOPIC_NOACTION
+		if(!new_state || !CanUseTopic(user)) return FALSE
 
 		switch(new_state)
 			if("Normal")
@@ -621,7 +621,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					for(var/internal_organ in list(BP_HEART,BP_EYES,BP_LUNGS,BP_LIVER,BP_KIDNEYS))
 						pref.organ_data[internal_organ] = "mechanical"
 
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 
 	else if(href_list["organs"])
 		var/organ_name = input(user, "Which internal function do you want to change?") as null|anything in list("Heart", "Eyes", "Lungs", "Liver", "Kidneys")
@@ -655,20 +655,20 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				pref.organ_data[organ] = "assisted"
 			if("Synthetic")
 				pref.organ_data[organ] = "mechanical"
-		return TOPIC_REFRESH
+		return TRUE
 
 	else if(href_list["disabilities"])
 		var/disability_flag = text2num(href_list["disabilities"])
 		pref.disabilities ^= disability_flag
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 
 	else if(href_list["toggle_preview_value"])
 		pref.equip_preview_mob ^= text2num(href_list["toggle_preview_value"])
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 
 	else if(href_list["cycle_bg"])
 		pref.bgstate = next_in_list(pref.bgstate, pref.bgstate_options)
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 
 	return ..()
 

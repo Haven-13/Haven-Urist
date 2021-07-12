@@ -14,6 +14,9 @@ var/global/datum/global_init/init = new ()
 */
 /datum/global_init/New()
 	load_configuration()
+	if (Master)
+		Master.OnConfigLoad()
+
 	callHook("global_init")
 
 	// kept out of a hook to preserve call order

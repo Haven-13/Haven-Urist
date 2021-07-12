@@ -33,7 +33,7 @@
 	if(uses_charge)
 		return 1
 	if (src && usr && usr.machine == src)
-		usr << browse(null, "window=stack")
+		close_browser(usr, "window=stack")
 	return ..()
 
 /obj/item/stack/examine(mob/user)
@@ -50,7 +50,7 @@
 	if (!recipes)
 		return
 	if (!src || get_amount() <= 0)
-		user << browse(null, "window=stack")
+		close_browser(user, "window=stack")
 	user.set_machine(src) //for correct work of onclose
 	var/list/recipe_list = recipes
 	if (recipes_sublist && recipe_list[recipes_sublist] && istype(recipe_list[recipes_sublist], /datum/stack_recipe_list))
@@ -66,7 +66,7 @@
 		if (istype(E, /datum/stack_recipe_list))
 			t1+="<br>"
 			var/datum/stack_recipe_list/srl = E
-			t1 += "<a href='?src=\ref[src];sublist=[i]'>[srl.title]</a>"
+			t1 += "<a href='?src=[REF(src)];sublist=[i]'>[srl.title]</a>"
 
 		if (istype(E, /datum/stack_recipe))
 			var/datum/stack_recipe/R = E
@@ -81,7 +81,7 @@
 				title+= "[R.display_name()]"
 			title+= " ([R.req_amount] [src.singular_name]\s)"
 			if (can_build)
-				t1 += text("<A href='?src=\ref[src];sublist=[recipes_sublist];make=[i];multiplier=1'>[title]</A>  ")
+				t1 += text("<A href='?src=[REF(src)];sublist=[recipes_sublist];make=[i];multiplier=1'>[title]</A>  ")
 			else
 				t1 += text("[]", title)
 				continue
@@ -91,12 +91,12 @@
 				var/list/multipliers = list(5,10,25)
 				for (var/n in multipliers)
 					if (max_multiplier>=n)
-						t1 += " <A href='?src=\ref[src];make=[i];multiplier=[n]'>[n*R.res_amount]x</A>"
+						t1 += " <A href='?src=[REF(src)];make=[i];multiplier=[n]'>[n*R.res_amount]x</A>"
 				if (!(max_multiplier in multipliers))
-					t1 += " <A href='?src=\ref[src];make=[i];multiplier=[max_multiplier]'>[max_multiplier*R.res_amount]x</A>"
+					t1 += " <A href='?src=[REF(src)];make=[i];multiplier=[max_multiplier]'>[max_multiplier*R.res_amount]x</A>"
 
 	t1 += "</TT></body></HTML>"
-	user << browse(JOINTEXT(t1), "window=stack")
+	show_browser(user, JOINTEXT(t1), "window=stack")
 	onclose(user, "stack")
 
 /obj/item/stack/proc/produce_recipe(datum/stack_recipe/recipe, var/quantity, mob/user)

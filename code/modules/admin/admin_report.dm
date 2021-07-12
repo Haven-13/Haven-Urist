@@ -106,15 +106,15 @@ client/proc/display_admin_reports()
 			output += "<b>Offense:</b>[N.body]<br>"
 			output += "<small>Occured at [time2text(N.date,"MM/DD hh:mm:ss")]</small><br>"
 			output += "<small>authored by <i>[N.author]</i></small><br>"
-			output += " <a href='?src=\ref[report_topic_handler];client=\ref[src];action=remove;ID=[N.ID]'>Flag as Handled</a>"
+			output += " <a href='?src=[REF(report_topic_handler)];client=[REF(src)];action=remove;ID=[N.ID]'>Flag as Handled</a>"
 			if(src.key == N.author)
-				output += " <a href='?src=\ref[report_topic_handler];client=\ref[src];action=edit;ID=[N.ID]'>Edit</a>"
+				output += " <a href='?src=[REF(report_topic_handler)];client=[REF(src)];action=edit;ID=[N.ID]'>Edit</a>"
 			output += "<br>"
 			output += "<br>"
 	else
 		output += "Whoops, no reports!"
 
-	usr << browse(output, "window=news;size=600x400")
+	show_browser(usr, output, "window=news;size=600x400")
 
 
 client/proc/Report(mob/M as mob in mob_list)

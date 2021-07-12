@@ -45,18 +45,18 @@
 /obj/item/device/boombox/interact(var/mob/user)
 	if(!CanPhysicallyInteract(user))
 		return
-	var/dat = "<A href='?src=\ref[src];tracknum=1;'>NEXT</a>"
-	dat += "<A href='?src=\ref[src];tracknum=-1;'>PREV</a>"
-	dat += "<A href='?src=\ref[src];start=1;'>PLAY</a>"
-	dat += "<A href='?src=\ref[src];stop=1;'>STOP</a>"
-	dat += "<A href='?src=\ref[src];voldown=1;'>VOL -</a>"
-	dat += "<A href='?src=\ref[src];volup=1;'>VOL +</a>"
+	var/dat = "<A href='?src=[REF(src)];tracknum=1;'>NEXT</a>"
+	dat += "<A href='?src=[REF(src)];tracknum=-1;'>PREV</a>"
+	dat += "<A href='?src=[REF(src)];start=1;'>PLAY</a>"
+	dat += "<A href='?src=[REF(src)];stop=1;'>STOP</a>"
+	dat += "<A href='?src=[REF(src)];voldown=1;'>VOL -</a>"
+	dat += "<A href='?src=[REF(src)];volup=1;'>VOL +</a>"
 	var/datum/browser/popup = new(user, "boombox", "BOOMTASTIC 3000", 290, 110)
 	popup.set_content(dat)
 	popup.open()
 
 /obj/item/device/boombox/DefaultTopicState()
-	return GLOB.physical_state
+	return ui_physical_state()
 
 /obj/item/device/boombox/CouldUseTopic(var/mob/user)
 	..()
@@ -72,19 +72,19 @@
 			track_num = tracks.len
 		if(playing)
 			start()
-		return TOPIC_REFRESH
+		return TRUE
 	if(href_list["stop"])
 		stop()
-		return TOPIC_HANDLED
+		return FALSE
 	if(href_list["start"] && !broken)
 		start()
-		return TOPIC_HANDLED
+		return FALSE
 	if(href_list["volup"])
 		change_volume(volume + 10)
-		return TOPIC_HANDLED
+		return FALSE
 	if(href_list["voldown"])
 		change_volume(volume - 10)
-		return TOPIC_HANDLED
+		return FALSE
 
 /obj/item/device/boombox/attackby(var/obj/item/W, var/mob/user)
 	if(isScrewdriver(W))

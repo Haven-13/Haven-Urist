@@ -330,9 +330,17 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 		var/x
 		for(x=0; x<duration, x++)
 			if(aiEyeFlag)
-				M.client.eye = locate(dd_range(1,oldeye.loc.x+rand(-strength,strength),world.maxx),dd_range(1,oldeye.loc.y+rand(-strength,strength),world.maxy),oldeye.loc.z)
+				M.client.eye = locate(
+					between(1,oldeye.loc.x+rand(-strength,strength),world.maxx),
+					between(1,oldeye.loc.y+rand(-strength,strength),world.maxy),
+					oldeye.loc.z
+					)
 			else
-				M.client.eye = locate(dd_range(1,M.loc.x+rand(-strength,strength),world.maxx),dd_range(1,M.loc.y+rand(-strength,strength),world.maxy),M.loc.z)
+				M.client.eye = locate(
+					between(1,M.loc.x+rand(-strength,strength),world.maxx),
+					between(1,M.loc.y+rand(-strength,strength),world.maxy),
+					M.loc.z
+					)
 			sleep(1)
 		M.client.eye=oldeye
 		M.shakecamera = 0
@@ -569,10 +577,8 @@ proc/is_blind(A)
 /mob/living/silicon/ai/get_multitool()
 	return ..(aiMulti)
 
-/proc/get_both_hands(mob/living/carbon/M)
-	if(!istype(M))
-		return
-	var/list/hands = list(M.l_hand, M.r_hand)
+/mob/proc/get_all_hands()
+	var/list/hands = list(src.l_hand, src.r_hand)
 	return hands
 
 /mob/proc/refresh_client_images()
@@ -677,7 +683,7 @@ proc/is_blind(A)
 
 //This gets an input while also checking a mob for whether it is incapacitated or not.
 /mob/proc/get_input(var/message, var/title, var/default, var/choice_type, var/obj/required_item)
-	if(src.incapacitated() || (required_item && !GLOB.hands_state.can_use_topic(required_item,src)))
+	if(src.incapacitated() || (required_item && !ui_hands_state().can_use_topic(required_item,src)))
 		return null
 	var/choice
 	if(islist(choice_type))
@@ -690,6 +696,6 @@ proc/is_blind(A)
 				choice = input(src, message, title, default) as null|num
 			if(MOB_INPUT_MESSAGE)
 				choice = input(src, message, title, default) as null|message
-	if(isnull(choice) || src.incapacitated() || (required_item && !GLOB.hands_state.can_use_topic(required_item,src)))
+	if(isnull(choice) || src.incapacitated() || (required_item && !ui_hands_state().can_use_topic(required_item,src)))
 		return null
 	return choice

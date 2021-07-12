@@ -71,19 +71,19 @@
 	. += "<b>Automatic Security Unit</b>"
 
 /mob/living/bot/secbot/GetInteractPanel()
-	. = "Check for weapon authorization: <a href='?src=\ref[src];command=idcheck'>[idcheck ? "Yes" : "No"]</a>"
-	. += "<br>Check security records: <a href='?src=\ref[src];command=ignorerec'>[check_records ? "Yes" : "No"]</a>"
-	. += "<br>Check arrest status: <a href='?src=\ref[src];command=ignorearr'>[check_arrest ? "Yes" : "No"]</a>"
-	. += "<br>Report arrests: <a href='?src=\ref[src];command=declarearrests'>[declare_arrests ? "Yes" : "No"]</a>"
-	. += "<br>Auto patrol: <a href='?src=\ref[src];command=patrol'>[will_patrol ? "On" : "Off"]</a>"
+	. = "Check for weapon authorization: <a href='?src=[REF(src)];command=idcheck'>[idcheck ? "Yes" : "No"]</a>"
+	. += "<br>Check security records: <a href='?src=[REF(src)];command=ignorerec'>[check_records ? "Yes" : "No"]</a>"
+	. += "<br>Check arrest status: <a href='?src=[REF(src)];command=ignorearr'>[check_arrest ? "Yes" : "No"]</a>"
+	. += "<br>Report arrests: <a href='?src=[REF(src)];command=declarearrests'>[declare_arrests ? "Yes" : "No"]</a>"
+	. += "<br>Auto patrol: <a href='?src=[REF(src)];command=patrol'>[will_patrol ? "On" : "Off"]</a>"
 
 /mob/living/bot/secbot/GetInteractMaintenance()
 	. = "Threat identifier status: "
 	switch(emagged)
 		if(0)
-			. += "<a href='?src=\ref[src];command=emag'>Normal</a>"
+			. += "<a href='?src=[REF(src)];command=emag'>Normal</a>"
 		if(1)
-			. += "<a href='?src=\ref[src];command=emag'>Scrambled (DANGER)</a>"
+			. += "<a href='?src=[REF(src)];command=emag'>Scrambled (DANGER)</a>"
 		if(2)
 			. += "ERROROROROROR-----"
 

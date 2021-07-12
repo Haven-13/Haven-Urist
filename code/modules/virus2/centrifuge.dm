@@ -26,7 +26,7 @@
 		sample = O
 
 		user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
-		SSnano.update_uis(src)
+		SStgui.update_uis(src)
 
 	src.attack_hand(user)
 
@@ -35,50 +35,49 @@
 	if(! (stat & (BROKEN|NOPOWER)))
 		icon_state = (isolating || curing) ? "centrifuge_moving" : "centrifuge"
 
-/obj/machinery/disease2/centrifuge/attack_hand(var/mob/user as mob)
-	if(..()) return
-	ui_interact(user)
+/obj/machinery/disease2/centrifuge/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "virology/PathogenicCentrifuge", name)
+		ui.open()
 
-/obj/machinery/disease2/centrifuge/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	user.set_machine(src)
-
-	var/data[0]
-	data["antibodies"] = null
-	data["pathogens"] = null
-	data["is_antibody_sample"] = null
+/obj/machinery/disease2/centrifuge/ui_data(mob/user)
+	. = list(
+		"antibodies" = null,
+		"pathogens" = null,
+		"isAntibodySample" = FALSE,
+		"busy" = null,
+		"timeLeft" = 0
+	)
 
 	if (curing)
-		data["busy"] = "Isolating antibodies..."
+		.["busy"] = "Isolating antibodies..."
+		.["timeLeft"] = curing
 	else if (isolating)
-		data["busy"] = "Isolating pathogens..."
-	else
-		data["sample_inserted"] = !!sample
+		.["busy"] = "Isolating pathogens..."
+		.["timeLeft"] = isolating
 
-		if (sample)
-			var/datum/reagent/blood/B = locate(/datum/reagent/blood) in sample.reagents.reagent_list
-			if (B)
-				data["antibodies"] = antigens2string(B.data["antibodies"], none=null)
+	.["sampleInserted"] = !!sample
 
-				var/list/pathogens[0]
-				var/list/virus = B.data["virus2"]
-				for (var/ID in virus)
-					var/datum/disease2/disease/V = virus[ID]
-					pathogens.Add(list(list("name" = V.name(), "spread_type" = V.spreadtype, "reference" = "\ref[V]")))
+	if (sample)
+		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in sample.reagents.reagent_list
+		if (B)
+			.["antibodies"] = antigens2string(B.data["antibodies"], none=list())
 
-				if (pathogens.len > 0)
-					data["pathogens"] = pathogens
+			var/list/pathogens[0]
+			var/list/virus = B.data["virus2"]
+			for (var/ID in virus)
+				var/datum/disease2/disease/V = virus[ID]
+				pathogens.Add(list(list("name" = V.name(), "spreadType" = V.spreadtype, "reference" = REF(V))))
 
-			else
-				var/datum/reagent/antibodies/A = locate(/datum/reagent/antibodies) in sample.reagents.reagent_list
-				if(A)
-					data["antibodies"] = antigens2string(A.data["antibodies"], none=null)
-				data["is_antibody_sample"] = 1
+			if (pathogens.len > 0)
+				.["pathogens"] = pathogens
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "isolation_centrifuge.tmpl", src.name, 400, 500)
-		ui.set_initial_data(data)
-		ui.open()
+		else
+			var/datum/reagent/antibodies/A = locate(/datum/reagent/antibodies) in sample.reagents.reagent_list
+			if(A)
+				.["antibodies"] = antigens2string(A.data["antibodies"], none=list())
+			.["isAntibodySample"] = TRUE
 
 /obj/machinery/disease2/centrifuge/Process()
 	..()
@@ -94,51 +93,50 @@
 		if(isolating == 0)
 			isolate()
 
-/obj/machinery/disease2/centrifuge/OnTopic(user, href_list)
-	if (href_list["close"])
-		SSnano.close_user_uis(user, src, "main")
-		return TOPIC_HANDLED
-
-	if (href_list["print"])
-		print(user)
-		return TOPIC_HANDLED
-
-	if(href_list["isolate"])
-		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in sample.reagents.reagent_list
-		if (B)
-			var/datum/disease2/disease/virus = locate(href_list["isolate"])
-			virus2 = virus.getcopy()
-			isolating = 40
-			update_icon()
-		return TOPIC_REFRESH
-
-	switch(href_list["action"])
-		if ("antibody")
-			var/delay = 20
-			var/datum/reagent/blood/B = locate(/datum/reagent/blood) in sample.reagents.reagent_list
-			if (!B)
-				state("\The [src] buzzes, \"No antibody carrier detected.\"", "blue")
-				return TOPIC_HANDLED
-
-			var/has_toxins = locate(/datum/reagent/toxin) in sample.reagents.reagent_list
-			var/has_radium = sample.reagents.has_reagent(/datum/reagent/radium)
-			if (has_toxins || has_radium)
-				state("\The [src] beeps, \"Pathogen purging speed above nominal.\"", "blue")
-				if (has_toxins)
-					delay = delay/2
-				if (has_radium)
-					delay = delay/2
-
-			curing = round(delay)
-			playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
-			update_icon()
-			return TOPIC_REFRESH
-
-		if("sample")
+/obj/machinery/disease2/centrifuge/ui_act(action, list/params)
+	switch(action)
+		if("print")
+			print(usr)
+			. = FALSE
+		if("isolate")
+			isolate_pathogen(params["isolate"])
+			. = TRUE
+		if("antibody")
+			isolate_antigens()
+			. = TRUE
+		if("eject")
 			if(sample)
 				sample.dropInto(loc)
 				sample = null
-			return TOPIC_REFRESH
+			. = TRUE
+	if(.)
+		update_icon()
+
+/obj/machinery/disease2/centrifuge/proc/isolate_pathogen(target)
+	var/datum/reagent/blood/B = locate(/datum/reagent/blood) in sample.reagents.reagent_list
+	if (B)
+		var/datum/disease2/disease/virus = locate(target)
+		virus2 = virus.getcopy()
+		isolating = 40
+
+/obj/machinery/disease2/centrifuge/proc/isolate_antigens()
+	var/delay = 20
+	var/datum/reagent/blood/B = locate(/datum/reagent/blood) in sample.reagents.reagent_list
+	if (!B)
+		state("\The [src] buzzes, \"No antibody carrier detected.\"", "blue")
+		return FALSE
+
+	var/has_toxins = locate(/datum/reagent/toxin) in sample.reagents.reagent_list
+	var/has_radium = sample.reagents.has_reagent(/datum/reagent/radium)
+	if (has_toxins || has_radium)
+		state("\The [src] beeps, \"Pathogen purging speed above nominal.\"", "blue")
+		if (has_toxins)
+			delay = delay/2
+		if (has_radium)
+			delay = delay/2
+
+	curing = round(delay)
+	playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
 
 /obj/machinery/disease2/centrifuge/proc/cure()
 	if (!sample) return
@@ -150,7 +148,7 @@
 	sample.reagents.remove_reagent(/datum/reagent/blood, amt)
 	sample.reagents.add_reagent(/datum/reagent/antibodies, amt, data)
 
-	SSnano.update_uis(src)
+	SStgui.update_uis(src)
 	update_icon()
 	ping("\The [src] pings, \"Antibody isolated.\"")
 
@@ -160,7 +158,7 @@
 	dish.virus2 = virus2
 	virus2 = null
 
-	SSnano.update_uis(src)
+	SStgui.update_uis(src)
 	update_icon()
 	ping("\The [src] pings, \"Pathogen isolated.\"")
 

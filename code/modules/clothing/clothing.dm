@@ -149,20 +149,20 @@
 	if(ties.len)
 		.+= " with [english_list(ties)] attached"
 	if(accessories.len > ties.len)
-		.+= ". <a href='?src=\ref[src];list_ungabunga=1'>\[See accessories\]</a>"
+		.+= ". <a href='?src=[REF(src)];list_ungabunga=1'>\[See accessories\]</a>"
 
 /obj/item/clothing/CanUseTopic(var/user)
 	if(user in view(get_turf(src)))
-		return STATUS_INTERACTIVE
+		return UI_INTERACTIVE
 
-/obj/item/clothing/OnTopic(var/user, var/list/href_list, var/datum/topic_state/state)
+/obj/item/clothing/OnTopic(var/user, var/list/href_list, var/datum/ui_state/state)
 	if(href_list["list_ungabunga"])
 		if(accessories.len)
 			var/list/ties = list()
 			for(var/accessory in accessories)
 				ties += "\icon[accessory] \a [accessory]"
 			to_chat(user, "Attached to \the [src] are [english_list(ties)].")
-		return TOPIC_HANDLED
+		return FALSE
 
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects

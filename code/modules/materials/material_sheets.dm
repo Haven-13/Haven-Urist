@@ -9,9 +9,13 @@
 	center_of_mass = null
 	randpixel = 3
 
+	icon = 'icons/obj/stack_objects.dmi'
+
 	var/default_type = DEFAULT_WALL_MATERIAL
 	var/material/material
-	var/perunit = SHEET_MATERIAL_AMOUNT
+	// Changed from var to var/const as part of tgUI-4 port, because fuck the noise of mutable variables.
+	// See 'proc/get_materials()' mech_fabricator.dm for explanation
+	var/const/perunit = SHEET_MATERIAL_AMOUNT
 	var/apply_colour //temp pending icon rewrite
 
 /obj/item/stack/material/New(var/loc, var/amount, var/_material)

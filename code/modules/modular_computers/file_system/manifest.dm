@@ -133,3 +133,74 @@
 	. = list()
 	. += filtered_nano_crew_manifest(null, TRUE)
 	. += silicon_nano_crew_manifest(GLOB.nonhuman_positions)
+
+/proc/filtered_ui_crew_manifest(var/name, var/flag, var/list/filter, var/blacklist = FALSE)
+	. = list(
+		"name" = name,
+		"flag" = flag,
+		"members" = list()
+	)
+	for(var/datum/computer_file/report/crew_record/CR in department_crew_manifest(filter, blacklist))
+		.["members"] += list(list(
+			"name" = CR.get_name(),
+			"job" = CR.get_job(),
+			"status" = CR.get_status()
+		))
+
+/proc/silicon_ui_crew_manifest(var/list/filter)
+	. = list(
+		"name" = "Silicon",
+		"flag" = 0,
+		"members" = list()
+	)
+	for(var/mob/living/silicon/ai/ai in SSmobs.mob_list)
+		.["members"] += list(list(
+			"name" = ai.name,
+			"job" = "Artificial Intelligence",
+			"status" = ""
+		))
+	for(var/mob/living/silicon/robot/robot in SSmobs.mob_list)
+		if(robot.module && robot.module.hide_on_manifest)
+			continue
+		.["members"] += list(list(
+			"name" = robot.name,
+			"job" = "[robot.modtype] [robot.braintype]",
+			"status" = ""
+		))
+
+/proc/ui_crew_manifest_data()
+	return list(
+		"heads" = filtered_ui_crew_manifest(
+			"Command",
+			COM,
+			GLOB.command_positions),
+		"sci" = filtered_ui_crew_manifest(
+			"Science",
+			SCI,
+			GLOB.science_positions),
+		"sec" = filtered_ui_crew_manifest(
+			"Security",
+			SEC,
+			GLOB.security_positions),
+		"eng" = filtered_ui_crew_manifest(
+			"Engineering",
+			ENG,
+			GLOB.engineering_positions),
+		"med" = filtered_ui_crew_manifest(
+			"Medical",
+			MED,
+			GLOB.medical_positions),
+		"sup" = filtered_ui_crew_manifest(
+			"Supply",
+			SUP,
+			GLOB.supply_positions),
+		"srv" = filtered_ui_crew_manifest(
+			"Service",
+			SRV,
+			GLOB.service_positions),
+		"misc" = filtered_ui_crew_manifest(
+			"Other",
+			MSC,
+			GLOB.unsorted_positions),
+		"bot" = silicon_ui_crew_manifest(GLOB.nonhuman_positions),
+	)

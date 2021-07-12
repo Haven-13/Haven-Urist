@@ -39,11 +39,11 @@ They should also be used for when you want to effect the ENTIRE mob, like having
 	var/returning = 0
 
 /obj/aura/debug/attackby(var/obj/item/I, var/mob/user)
-	log_debug("Attackby for \ref[src]: [I], [user]")
+	log_debug("Attackby for [REF(src)]: [I], [user]")
 	return returning
 
 /obj/aura/debug/bullet_act(var/obj/item/projectile/P, var/def_zone)
-	log_debug("Bullet Act for \ref[src]: [P], [def_zone]")
+	log_debug("Bullet Act for [REF(src)]: [P], [def_zone]")
 	return returning
 
 /obj/aura/debug/life_tick()
@@ -51,5 +51,5 @@ They should also be used for when you want to effect the ENTIRE mob, like having
 	return returning
 
 /obj/aura/debug/hitby(var/atom/movable/M, var/speed)
-	log_debug("Hit By for \ref[src]: [M], [speed]")
+	log_debug("Hit By for [REF(src)]: [M], [speed]")
 	return returning

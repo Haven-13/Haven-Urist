@@ -92,57 +92,43 @@
 
 	return 1
 
-/obj/machinery/atmospherics/omni/filter/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	usr.set_machine(src)
-
-	var/list/data = new()
-
-	data = build_uidata()
-
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-
+/obj/machinery/atmospherics/omni/filter/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, ui_key, "omni_filter.tmpl", "Omni Filter Control", 330, 330)
-		ui.set_initial_data(data)
-
+		ui = new(user, src, "atmospherics/OmniFilter", name)
 		ui.open()
 
-/obj/machinery/atmospherics/omni/filter/proc/build_uidata()
+/obj/machinery/atmospherics/omni/filter/ui_data(mob/user)
 	var/list/data = new()
 
 	data["power"] = use_power
-	data["config"] = configuring
 
 	var/portData[0]
 	for(var/datum/omni_port/P in ports)
-		if(!configuring && P.mode == 0)
-			continue
-
 		var/input = 0
 		var/output = 0
-		var/is_filter = 1
+		var/is_filter = 0
 		var/f_type = null
 		switch(P.mode)
 			if(ATM_INPUT)
 				input = 1
-				is_filter = 0
 			if(ATM_OUTPUT)
 				output = 1
-				is_filter = 0
 			if(ATM_O2 to ATM_H2)
+				is_filter = 1
 				f_type = mode_send_switch(P.mode)
 
 		portData[++portData.len] = list("dir" = dir_name(P.dir, capitalize = 1), \
 										"input" = input, \
 										"output" = output, \
-										"filter" = is_filter, \
-										"f_type" = f_type)
+										"isFilter" = is_filter, \
+										"fType" = f_type)
 
 	if(portData.len)
 		data["ports"] = portData
 	if(output)
-		data["set_flow_rate"] = round(set_flow_rate*10)		//because nanoui can't handle rounded decimals.
-		data["last_flow_rate"] = round(last_flow_rate*10)
+		data["setFlowRate"] = set_flow_rate
+		data["maxFlowRate"] = max_flow_rate
 
 	return data
 
@@ -163,34 +149,31 @@
 		else
 			return null
 
-/obj/machinery/atmospherics/omni/filter/Topic(href, href_list)
-	if(..()) return 1
-	switch(href_list["command"])
+/obj/machinery/atmospherics/omni/filter/ui_act(action, list/params)
+	. = ..()
+	if(.) return
+
+	switch(action)
 		if("power")
-			if(!configuring)
-				use_power = !use_power
-			else
-				use_power = 0
-		if("configure")
-			configuring = !configuring
-			if(configuring)
-				use_power = 0
+			use_power = !use_power
+			. = 1
 
-	//only allows config changes when in configuring mode ~otherwise you'll get weird pressure stuff going on
-	if(configuring && !use_power)
-		switch(href_list["command"])
-			if("set_flow_rate")
-				var/new_flow_rate = input(usr,"Enter new flow rate limit (0-[max_flow_rate]L/s)","Flow Rate Control",set_flow_rate) as num
-				set_flow_rate = between(0, new_flow_rate, max_flow_rate)
-			if("switch_mode")
-				switch_mode(dir_flag(href_list["dir"]), mode_return_switch(href_list["mode"]))
-			if("switch_filter")
-				var/new_filter = input(usr,"Select filter mode:","Change filter",href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide", "Hydrogen")
-				switch_filter(dir_flag(href_list["dir"]), mode_return_switch(new_filter))
+		if("set_flow_rate")
+			var/new_flow_rate = params["set_flow_rate"]
+			set_flow_rate = between(0, new_flow_rate, max_flow_rate)
+			. = 1
 
-	update_icon()
-	SSnano.update_uis(src)
-	return
+		if("switch_mode")
+			switch_mode(dir_flag(params["dir"]), mode_return_switch(params["mode"]))
+			. = 1
+
+		if("switch_filter")
+			var/new_filter = input(usr,"Select filter mode:","Change filter",params["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide", "Hydrogen")
+			switch_filter(dir_flag(params["dir"]), mode_return_switch(new_filter))
+			. = 1
+
+	if (.)
+		update_icon()
 
 /obj/machinery/atmospherics/omni/filter/proc/mode_return_switch(var/mode)
 	switch(mode)
@@ -247,6 +230,9 @@
 			return
 	else
 		return
+
+	if(use_power)
+		use_power = 0
 
 	for(var/datum/omni_port/P in other_ports)
 		if(P.mode == mode)

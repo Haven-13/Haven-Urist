@@ -185,7 +185,7 @@
 
 	idle_threads.Add(active_program)
 	active_program.program_state = PROGRAM_STATE_BACKGROUND // Should close any existing UIs
-	SSnano.close_uis(active_program.NM || active_program)
+	SStgui.close_uis(active_program)
 	active_program = null
 	update_icon()
 	if(istype(user))
@@ -230,11 +230,9 @@
 
 /obj/item/modular_computer/proc/update_uis()
 	if(active_program) //Should we update program ui or computer ui?
-		SSnano.update_uis(active_program)
-		if(active_program.NM)
-			SSnano.update_uis(active_program.NM)
+		SStgui.update_uis(active_program)
 	else
-		SSnano.update_uis(src)
+		SStgui.update_uis(src)
 
 /obj/item/modular_computer/proc/check_update_ui_need()
 	var/ui_update_needed = 0
@@ -284,8 +282,8 @@
 	if(!istype(autorun))
 		autorun = new/datum/computer_file/data()
 		autorun.filename = "autorun"
-		autorun.stored_data = "[program]"
-		hard_drive.store_file(autorun)
+	autorun.stored_data = "[program]"
+	hard_drive.store_file(autorun)
 
 /obj/item/modular_computer/GetIdCard()
 	if(card_slot && card_slot.can_broadcast && istype(card_slot.stored_card))

@@ -12,6 +12,9 @@
 	stores_pen = TRUE
 	stored_pen = /obj/item/weapon/pen
 
+/obj/item/modular_computer/pda/ui_state(mob/user)
+	return ui_hands_state()
+
 /obj/item/modular_computer/pda/Initialize()
 	. = ..()
 	enable_computer()

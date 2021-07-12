@@ -231,12 +231,18 @@
 /obj/machinery/lapvend/attack_hand(var/mob/user)
 	ui_interact(user)
 
-/obj/machinery/lapvend/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/lapvend/ui_interact(mob/user, datum/tgui/ui)
 	if(stat & (BROKEN | NOPOWER | MAINT))
 		if(ui)
 			ui.close()
 		return 0
 
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "ComputerFabricator")
+		ui.open()
+
+/obj/machinery/lapvend/ui_data(mob/user)
 	var/list/data[0]
 	data["state"] = state
 	if(state == 1)
@@ -252,13 +258,7 @@
 	if(state == 1 || state == 2)
 		data["totalprice"] = total_price
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "computer_fabricator.tmpl", "Personal Computer Vendor", 500, 400)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
-
+	return data
 
 obj/machinery/lapvend/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	var/obj/item/weapon/card/id/I = W.GetIdCard()

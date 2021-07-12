@@ -31,13 +31,13 @@
 /obj/machinery/party/turntable/attack_hand(mob/user as mob)
 
 	var/t = "<B>Turntable Interface</B><br><br>"
-	//t += "<A href='?src=\ref[src];on=1'>On</A><br>"
-	t += "<A href='?src=\ref[src];off=1'>Off</A><br><br>"
-	t += "<A href='?src=\ref[src];on1=Testloop1'>One</A><br>"
-	t += "<A href='?src=\ref[src];on2=Testloop2'>TestLoop2</A><br>"
-	t += "<A href='?src=\ref[src];on3=Testloop3'>TestLoop3</A><br>"
+	//t += "<A href='?src=[REF(src)];on=1'>On</A><br>"
+	t += "<A href='?src=[REF(src)];off=1'>Off</A><br><br>"
+	t += "<A href='?src=[REF(src)];on1=Testloop1'>One</A><br>"
+	t += "<A href='?src=[REF(src)];on2=Testloop2'>TestLoop2</A><br>"
+	t += "<A href='?src=[REF(src)];on3=Testloop3'>TestLoop3</A><br>"
 
-	user << browse(t, "window=turntable;size=420x700")
+	show_browser(user, t, "window=turntable;size=420x700")
 
 
 /obj/machinery/party/turntable/Topic(href, href_list)
@@ -81,7 +81,7 @@
 	S.environment = 0
 	//for(var/mob/M in world)
 	//	if(M.loc.loc == src.loc.loc && M.music == 0)
-	//		world << "Found the song..."
+	//		to_world("Found the song...")
 	//		M << S
 	//		M.music = 1
 	var/area/A = src.loc.loc

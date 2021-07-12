@@ -26,30 +26,38 @@
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
-	#if defined(TOPIC_DEBUGGING)
-	log_debug("[src]'s Topic: [href] destined for [hsrc].")
-
-	if(href_list["nano_err"]) //nano throwing errors
-		log_debug("## NanoUI, Subject [src]: " + html_decode(href_list["nano_err"]))//NANO DEBUG HOOK
-
-
-	#endif
+	// Log all hrefs
+	log_href("[src] (usr:[usr]\[[coordinates(usr)]\]) : [hsrc ? "[hsrc] " : ""][href]")
 
 	// asset_cache
+	var/asset_cache_job
 	if(href_list["asset_cache_confirm_arrival"])
-//		to_chat(src, "ASSET JOB [href_list["asset_cache_confirm_arrival"]] ARRIVED.")
-		var/job = text2num(href_list["asset_cache_confirm_arrival"])
-		completed_asset_jobs += job
+		asset_cache_job = asset_cache_confirm_arrival(href_list["asset_cache_confirm_arrival"])
+		if (!asset_cache_job)
+			return
+
+	//byond bug ID:2256651
+	if (asset_cache_job && (asset_cache_job in completed_asset_jobs))
+		to_chat(src, "<span class='danger'>An error has been detected in how your client is receiving resources. Attempting to correct.... (If you keep seeing these messages you might want to close byond and reconnect)</span>")
+		show_browser(src, "...", "window=asset_cache_browser")
+		return
+	if (href_list["asset_cache_preload_data"])
+		asset_cache_preload_data(href_list["asset_cache_preload_data"])
 		return
 
 	//search the href for script injection
 	if( findtext(href,"<script",1,0) )
-		world.log << "Attempted use of scripts within a topic call, by [src]"
+		to_world_log("Attempted use of scripts within a topic call, by [src]")
 		message_admins("Attempted use of scripts within a topic call, by [src]")
 		//qdel(usr)
 		return
 
-	//Admin PM
+	// Tgui Topic middleware
+	if(tgui_Topic(href_list))
+		return
+
+
+	// Admin PM
 	if(href_list["priv_msg"])
 		var/client/C = locate(href_list["priv_msg"])
 		var/datum/ticket/ticket = locate(href_list["ticket"])
@@ -89,6 +97,15 @@
 		if("usr")		hsrc = mob
 		if("prefs")		return prefs.process_link(usr,href_list)
 		if("vars")		return view_var_Topic(href,href_list,hsrc)
+
+	switch(href_list["action"])
+		if("openLink")
+			open_link(src, href_list["link"])
+
+	if (hsrc)
+		var/datum/real_src = hsrc
+		if(QDELETED(real_src))
+			return
 
 	..()	//redirect to hsrc.Topic()
 
@@ -168,6 +185,9 @@
 		to_chat(src, "<span class='alert'>[custom_event_msg]</span>")
 		to_chat(src, "<br>")
 
+	connection_time = world.time
+	connection_realtime = world.realtime
+	connection_timeofday = world.timeofday
 
 	if(holder)
 		add_admin_verbs()
@@ -338,24 +358,17 @@
 	. = ..()
 	sleep(1)
 
-//send resources to the client. It's here in its own proc so we can move it around easiliy if need be
+/// Send resources to the client.
+/// Sends both game resources and browser assets.
 /client/proc/send_resources()
-
-	getFiles(
-		'html/search.js',
-		'html/panels.css',
-		'html/spacemag.css',
-		'html/images/loading.gif',
-		'html/images/ntlogo.png',
-		'html/images/bluentlogo.png',
-		'html/images/sollogo.png',
-		'html/images/terralogo.png',
-		'html/images/talisman.png'
-		)
-
 	spawn (10) //removing this spawn causes all clients to not get verbs.
+
+		//load info on what assets the client has
+		show_browser(src, 'code/modules/asset_cache/validate_assets.html', "window=asset_cache_browser")
+
 		//Precache the client with all other assets slowly, so as to not block other browse() calls
-		getFilesSlow(src, asset_cache.cache, register_asset = FALSE)
+		if (config.asset_simple_preload)
+			addtimer(CALLBACK(SSassets.transport, /datum/asset_transport.proc/send_assets_slow, src, SSassets.transport.preload), 5 SECONDS)
 
 mob/proc/MayRespawn()
 	return 0

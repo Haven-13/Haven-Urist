@@ -18,10 +18,18 @@
 		to_chat(user, "<b>ERROR ERROR ERROR</b>")
 
 /obj/item/weapon/aicard/attack_self(mob/user)
-
 	ui_interact(user)
 
-/obj/item/weapon/aicard/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.inventory_state)
+/obj/item/weapon/aicard/ui_state(mob/user)
+	return ui_inventory_state()
+
+/obj/item/weapon/aicard/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, "AiCard")
+		ui.open()
+
+/obj/item/weapon/aicard/ui_data(mob/user)
 	var/data[0]
 	data["has_ai"] = carded_ai != null
 	if(carded_ai)
@@ -39,12 +47,7 @@
 		data["laws"] = laws
 		data["has_laws"] = laws.len
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "aicard.tmpl", "[name]", 600, 400, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/item/weapon/aicard/Topic(href, href_list, state)
 	if(..())
@@ -56,7 +59,7 @@
 	var/user = usr
 	if (href_list["wipe"])
 		var/confirm = alert("Are you sure you want to wipe this card's memory? This cannot be undone once started.", "Confirm Wipe", "Yes", "No")
-		if(confirm == "Yes" && (CanUseTopic(user, state) == STATUS_INTERACTIVE))
+		if(confirm == "Yes" && (CanUseTopic(user, state) == UI_INTERACTIVE))
 			admin_attack_log(user, carded_ai, "Wiped using \the [src.name]", "Was wiped with \the [src.name]", "used \the [src.name] to wipe")
 			flush = 1
 			to_chat(carded_ai, "Your core files are being wiped!")
@@ -88,6 +91,14 @@
 	else
 		icon_state = "aicard"
 
+/obj/item/aicard/ui_state(mob/user)
+	return ui_hands_state()
+
+/obj/item/aicard/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Intellicard", name)
+		ui.open()
 /obj/item/weapon/aicard/proc/grab_ai(var/mob/living/silicon/ai/ai, var/mob/living/user)
 	if(!ai.client)
 		to_chat(user, "<span class='danger'>ERROR:</span> AI [ai.name] is offline. Unable to download.")

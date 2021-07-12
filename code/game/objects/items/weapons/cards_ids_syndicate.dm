@@ -41,7 +41,13 @@
 	else
 		..()
 
-/obj/item/weapon/card/id/syndicate/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/item/weapon/card/id/syndicate/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "AgentId")
+		ui.open()
+
+/obj/item/weapon/card/id/syndicate/ui_data(mob/user)
 	var/data[0]
 	var/entries[0]
 	entries[++entries.len] = list("name" = "Age", 				"value" = age)
@@ -57,11 +63,7 @@
 	data["electronic_warfare"] = electronic_warfare
 	data["entries"] = entries
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "agent_id_card.tmpl", "Agent id", 600, 400)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /obj/item/weapon/card/id/syndicate/proc/register_user(var/mob/user)
 	if(!istype(user) || user == registered_user)
@@ -80,10 +82,10 @@
 
 /obj/item/weapon/card/id/syndicate/CanUseTopic(mob/user)
 	if(user != registered_user)
-		return STATUS_CLOSE
+		return UI_CLOSE
 	return ..()
 
-/obj/item/weapon/card/id/syndicate/Topic(href, href_list, var/datum/topic_state/state)
+/obj/item/weapon/card/id/syndicate/Topic(href, href_list, var/datum/ui_state/state)
 	if(..())
 		return 1
 
@@ -182,7 +184,7 @@
 					. = 1
 
 	// Always update the UI, or buttons will spin indefinitely
-	SSnano.update_uis(src)
+	SStgui.update_uis(src)
 
 /var/global/list/id_card_states
 /proc/id_card_states()

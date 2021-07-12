@@ -46,20 +46,20 @@
 		. += "error: not found"
 
 /mob/living/bot/farmbot/GetInteractPanel()
-	. = "Water plants : <a href='?src=\ref[src];command=water'>[waters_trays ? "Yes" : "No"]</a>"
-	. += "<br>Refill watertank : <a href='?src=\ref[src];command=refill'>[refills_water ? "Yes" : "No"]</a>"
-	. += "<br>Weed plants: <a href='?src=\ref[src];command=weed'>[uproots_weeds ? "Yes" : "No"]</a>"
-	. += "<br>Replace fertilizer: <a href='?src=\ref[src];command=replacenutri'>[replaces_nutriment ? "Yes" : "No"]</a>"
-	. += "<br>Collect produce: <a href='?src=\ref[src];command=collect'>[collects_produce ? "Yes" : "No"]</a>"
-	. += "<br>Remove dead plants: <a href='?src=\ref[src];command=removedead'>[removes_dead ? "Yes" : "No"]</a>"
+	. = "Water plants : <a href='?src=[REF(src)];command=water'>[waters_trays ? "Yes" : "No"]</a>"
+	. += "<br>Refill watertank : <a href='?src=[REF(src)];command=refill'>[refills_water ? "Yes" : "No"]</a>"
+	. += "<br>Weed plants: <a href='?src=[REF(src)];command=weed'>[uproots_weeds ? "Yes" : "No"]</a>"
+	. += "<br>Replace fertilizer: <a href='?src=[REF(src)];command=replacenutri'>[replaces_nutriment ? "Yes" : "No"]</a>"
+	. += "<br>Collect produce: <a href='?src=[REF(src)];command=collect'>[collects_produce ? "Yes" : "No"]</a>"
+	. += "<br>Remove dead plants: <a href='?src=[REF(src)];command=removedead'>[removes_dead ? "Yes" : "No"]</a>"
 
 /mob/living/bot/farmbot/GetInteractMaintenance()
 	. = "Plant identifier status: "
 	switch(emagged)
 		if(0)
-			. += "<a href='?src=\ref[src];command=emag'>Normal</a>"
+			. += "<a href='?src=[REF(src)];command=emag'>Normal</a>"
 		if(1)
-			. += "<a href='?src=\ref[src];command=emag'>Scrambled (DANGER)</a>"
+			. += "<a href='?src=[REF(src)];command=emag'>Scrambled (DANGER)</a>"
 		if(2)
 			. += "ERROROROROROR-----"
 

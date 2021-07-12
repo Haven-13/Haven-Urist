@@ -53,14 +53,14 @@
 		if(B)
 			dat = "Blood sample inserted."
 			dat += "<BR>Antibodies: [antigens2string(B.data["antibodies"])]"
-			dat += "<BR><A href='?src=\ref[src];antibody=1'>Begin antibody production</a>"
+			dat += "<BR><A href='?src=[REF(src)];antibody=1'>Begin antibody production</a>"
 		else
 			dat += "<BR>Please check container contents."
-		dat += "<BR><A href='?src=\ref[src];eject=1'>Eject container</a>"
+		dat += "<BR><A href='?src=[REF(src)];eject=1'>Eject container</a>"
 	else
 		dat = "Please insert a container."
 
-	user << browse(dat, "window=computer;size=400x500")
+	show_browser(user, dat, "window=computer;size=400x500")
 	onclose(user, "computer")
 	return
 
@@ -81,13 +81,13 @@
 /obj/machinery/computer/curer/OnTopic(user, href_list)
 	if (href_list["antibody"])
 		curing = 10
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if(href_list["eject"])
 		container.dropInto(loc)
 		container = null
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		attack_hand(user)
 
 /obj/machinery/computer/curer/proc/createcure(var/obj/item/weapon/reagent_containers/container)

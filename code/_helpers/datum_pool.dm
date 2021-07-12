@@ -145,7 +145,7 @@
 			L += "<br>[key] = [pooledvariables[type][key]]"
 		else
 			L += "<br>[key] = null"
-	usr << browse(jointext(L,""),"window=poolingvariablelogs")
+	show_browser(usr, jointext(L,""),"window=poolingvariablelogs")
 
 // Shim - this method doesn't natively exist in this implementation.
 /proc/IsPooled(var/datum/D)

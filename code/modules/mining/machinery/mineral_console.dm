@@ -8,7 +8,7 @@
 
 /obj/machinery/computer/mining/attack_hand(var/mob/user)
 	if(!connected)
-		to_chat(user, "<span class='warning'>\The [src] is not connected to a processing machine. <a href='?src=\ref[src];scan_for_machine=1'>Scan</a></span>")
+		to_chat(user, "<span class='warning'>\The [src] is not connected to a processing machine. <a href='?src=[REF(src)];scan_for_machine=1'>Scan</a></span>")
 		return
 	var/datum/browser/popup = new(user, "mining-[name]", "[src] Control Panel")
 	popup.set_content(jointext(connected.get_console_data(), "<br>"))

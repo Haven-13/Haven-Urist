@@ -130,13 +130,13 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/weapon/card/id/CanUseTopic(var/user)
 	if(user in view(get_turf(src)))
-		return STATUS_INTERACTIVE
+		return UI_INTERACTIVE
 
 /obj/item/weapon/card/id/OnTopic(var/mob/user, var/list/href_list)
 	if(href_list["look_at_id"])
 		if(istype(user))
 			user.examinate(src)
-			return TOPIC_HANDLED
+			return FALSE
 
 /obj/item/weapon/card/id/examine(mob/user)
 	..()
@@ -149,8 +149,8 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/weapon/card/id/proc/show(mob/user as mob)
 	if(front && side)
-		user << browse_rsc(front, "front.png")
-		user << browse_rsc(side, "side.png")
+		send_rsc(user, front, "front.png")
+		send_rsc(user, side, "side.png")
 	var/datum/browser/popup = new(user, "idcard", name, 600, 250)
 	popup.set_content(dat())
 	popup.set_title_image(usr.browse_rsc_icon(src.icon, src.icon_state))

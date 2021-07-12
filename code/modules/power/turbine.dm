@@ -153,7 +153,7 @@
 
 	if ( (get_dist(src, user) > 1 ) || (stat & (NOPOWER|BROKEN)) && (!istype(user, /mob/living/silicon/ai)) )
 		user.machine = null
-		user << browse(null, "window=turbine")
+		close_browser(user, "window=turbine")
 		return
 
 	user.machine = src
@@ -164,12 +164,12 @@
 
 	t += "Turbine: [round(compressor.rpm)] RPM<BR>"
 
-	t += "Starter: [ compressor.starter ? "<A href='?src=\ref[src];str=1'>Off</A> <B>On</B>" : "<B>Off</B> <A href='?src=\ref[src];str=1'>On</A>"]"
+	t += "Starter: [ compressor.starter ? "<A href='?src=[REF(src)];str=1'>Off</A> <B>On</B>" : "<B>Off</B> <A href='?src=[REF(src)];str=1'>On</A>"]"
 
-	t += "</PRE><HR><A href='?src=\ref[src];close=1'>Close</A>"
+	t += "</PRE><HR><A href='?src=[REF(src)];close=1'>Close</A>"
 
 	t += "</TT>"
-	user << browse(t, "window=turbine")
+	show_browser(user, t, "window=turbine")
 	onclose(user, "turbine")
 
 	return
@@ -177,19 +177,19 @@
 /obj/machinery/power/turbine/CanUseTopic(var/mob/user, href_list)
 	if(!user.IsAdvancedToolUser())
 		to_chat(user, FEEDBACK_YOU_LACK_DEXTERITY)
-		return min(..(), STATUS_UPDATE)
+		return min(..(), UI_UPDATE)
 	return ..()
 
 /obj/machinery/power/turbine/OnTopic(user, href_list)
 	if(href_list["close"])
-		usr << browse(null, "window=turbine")
-		return TOPIC_HANDLED
+		close_browser(usr, "window=turbine")
+		return FALSE
 
 	if(href_list["str"])
 		compressor.starter = !compressor.starter
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		interact(user)
 
 
@@ -248,20 +248,20 @@
 	var/dat
 	if(src.compressor)
 		dat += {"<BR><B>Gas turbine remote control system</B><HR>
-		\nTurbine status: [ src.compressor.starter ? "<A href='?src=\ref[src];str=1'>Off</A> <B>On</B>" : "<B>Off</B> <A href='?src=\ref[src];str=1'>On</A>"]
+		\nTurbine status: [ src.compressor.starter ? "<A href='?src=[REF(src)];str=1'>Off</A> <B>On</B>" : "<B>Off</B> <A href='?src=[REF(src)];str=1'>On</A>"]
 		\n<BR>
 		\nTurbine speed: [src.compressor.rpm]rpm<BR>
 		\nPower currently being generated: [src.compressor.turbine.lastgen]W<BR>
 		\nInternal gas temperature: [src.compressor.gas_contained.temperature]K<BR>
-		\nVent doors: [ src.door_status ? "<A href='?src=\ref[src];doors=1'>Closed</A> <B>Open</B>" : "<B>Closed</B> <A href='?src=\ref[src];doors=1'>Open</A>"]
-		\n</PRE><HR><A href='?src=\ref[src];view=1'>View</A>
-		\n</PRE><HR><A href='?src=\ref[src];close=1'>Close</A>
+		\nVent doors: [ src.door_status ? "<A href='?src=[REF(src)];doors=1'>Closed</A> <B>Open</B>" : "<B>Closed</B> <A href='?src=[REF(src)];doors=1'>Open</A>"]
+		\n</PRE><HR><A href='?src=[REF(src)];view=1'>View</A>
+		\n</PRE><HR><A href='?src=[REF(src)];close=1'>Close</A>
 		\n<BR>
 		\n"}
 	else
 		dat += "<span class='danger'>No compatible attached compressor found.</span>"
 
-	user << browse(dat, "window=computer;size=400x500")
+	show_browser(user, dat, "window=computer;size=400x500")
 	onclose(user, "computer")
 	return
 
@@ -270,10 +270,10 @@
 /obj/machinery/computer/turbine_computer/OnTopic(user, href_list)
 	if( href_list["view"] )
 		usr.client.eye = src.compressor
-		. = TOPIC_HANDLED
+		. = FALSE
 	else if( href_list["str"] )
 		src.compressor.starter = !src.compressor.starter
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if (href_list["doors"])
 		for(var/obj/machinery/door/blast/D in src.doors)
 			if (door_status == 0)
@@ -284,12 +284,12 @@
 				spawn( 0 )
 					D.close()
 					door_status = 0
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if( href_list["close"] )
-		user << browse(null, "window=computer")
-		return TOPIC_HANDLED
+		close_browser(user, "window=computer")
+		return FALSE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		interact(user)
 
 /obj/machinery/computer/turbine_computer/Process()

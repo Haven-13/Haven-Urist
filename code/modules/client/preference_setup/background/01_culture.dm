@@ -54,8 +54,8 @@
 	for(var/token in tokens)
 		var/decl/cultural_info/culture = SSculture.get_culture(pref.cultural_info[token])
 		if (!culture) continue;
-		var/title = "<b>[tokens[token]]<a href='?src=\ref[src];set_[token]=1'><small>?</small></a>:</b> <a href='?src=\ref[src];set_[token]=2'>[pref.cultural_info[token]]</a>"
-		var/append_text = "<a href='?src=\ref[src];toggle_verbose_[token]=1'>[hidden[token] ? "Expand" : "Collapse"]</a>"
+		var/title = "<b>[tokens[token]]<a href='?src=[REF(src)];set_[token]=1'><small>?</small></a>:</b> <a href='?src=[REF(src)];set_[token]=2'>[pref.cultural_info[token]]</a>"
+		var/append_text = "<a href='?src=[REF(src)];toggle_verbose_[token]=1'>[hidden[token] ? "Expand" : "Collapse"]</a>"
 		. += culture.get_description(title, append_text, verbose = !hidden[token])
 	. = jointext(.,null)
 
@@ -65,7 +65,7 @@
 
 		if(href_list["toggle_verbose_[token]"])
 			hidden[token] = !hidden[token]
-			return TOPIC_REFRESH
+			return TRUE
 
 		var/check_href = text2num(href_list["set_[token]"])
 		if(check_href > 0)
@@ -89,10 +89,10 @@
 			if(valid_values[choice])
 				var/decl/cultural_info/culture = SSculture.get_culture(choice)
 				if(check_href == 1)
-					user << browse(culture.get_description(), "window=[token];size=700x400")
+					show_browser(user, culture.get_description(), "window=[token];size=700x400")
 				else
 					pref.cultural_info[token] = choice
-				return TOPIC_REFRESH
+				return TRUE
 	. = ..()
 
 #undef GET_ALLOWED_VALUES

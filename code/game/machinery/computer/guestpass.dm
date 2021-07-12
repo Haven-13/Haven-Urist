@@ -85,32 +85,32 @@
 		dat += "<h3>Activity log</h3><br>"
 		for (var/entry in internal_log)
 			dat += "[entry]<br><hr>"
-		dat += "<a href='?src=\ref[src];action=print'>Print</a><br>"
-		dat += "<a href='?src=\ref[src];mode=0'>Back</a><br>"
+		dat += "<a href='?src=[REF(src)];action=print'>Print</a><br>"
+		dat += "<a href='?src=[REF(src)];mode=0'>Back</a><br>"
 	else
 		dat += "<h3>Guest pass terminal #[uid]</h3><br>"
-		dat += "<a href='?src=\ref[src];mode=1'>View activity log</a><br><br>"
-		dat += "Issuing ID: <a href='?src=\ref[src];action=id'>[giver]</a><br>"
-		dat += "Issued to: <a href='?src=\ref[src];choice=giv_name'>[giv_name]</a><br>"
-		dat += "Reason:  <a href='?src=\ref[src];choice=reason'>[reason]</a><br>"
-		dat += "Duration (minutes):  <a href='?src=\ref[src];choice=duration'>[duration] m</a><br>"
+		dat += "<a href='?src=[REF(src)];mode=1'>View activity log</a><br><br>"
+		dat += "Issuing ID: <a href='?src=[REF(src)];action=id'>[giver]</a><br>"
+		dat += "Issued to: <a href='?src=[REF(src)];choice=giv_name'>[giv_name]</a><br>"
+		dat += "Reason:  <a href='?src=[REF(src)];choice=reason'>[reason]</a><br>"
+		dat += "Duration (minutes):  <a href='?src=[REF(src)];choice=duration'>[duration] m</a><br>"
 		dat += "Access to areas:<br>"
 		if (giver && giver.access)
 			for (var/A in giver.access)
 				var/area = get_access_desc(A)
 				if (A in accesses)
 					area = "<b>[area]</b>"
-				dat += "<a href='?src=\ref[src];choice=access;access=[A]'>[area]</a><br>"
-		dat += "<br><a href='?src=\ref[src];action=issue'>Issue pass</a><br>"
+				dat += "<a href='?src=[REF(src)];choice=access;access=[A]'>[area]</a><br>"
+		dat += "<br><a href='?src=[REF(src)];action=issue'>Issue pass</a><br>"
 
-	user << browse(dat, "window=guestpass;size=400x520")
+	show_browser(user, dat, "window=guestpass;size=400x520")
 	onclose(user, "guestpass")
 
 
 /obj/machinery/computer/guestpass/OnTopic(var/mob/user, href_list, state)
 	if (href_list["mode"])
 		mode = text2num(href_list["mode"])
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if (href_list["choice"])
 		switch(href_list["choice"])
@@ -135,7 +135,7 @@
 					accesses.Remove(A)
 				else if(giver && (A in giver.access))
 					accesses.Add(A)
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if (href_list["action"])
 		switch(href_list["action"])
 			if ("id")
@@ -150,7 +150,7 @@
 					if (istype(I, /obj/item/weapon/card/id) && user.unEquip(I))
 						I.forceMove(src)
 						giver = I
-				. = TOPIC_REFRESH
+				. = TRUE
 			if ("print")
 				var/dat = "<h3>Activity log of guest pass terminal #[uid]</h3><br>"
 				for (var/entry in internal_log)
@@ -160,7 +160,7 @@
 				var/obj/item/weapon/paper/P = new/obj/item/weapon/paper( loc )
 				P.SetName("activity log")
 				P.info = dat
-				. = TOPIC_REFRESH
+				. = TRUE
 
 			if ("issue")
 				if (giver && accesses.len)
@@ -182,7 +182,7 @@
 					pass.SetName("guest pass #[number]")
 					pass.assignment = "Guest"
 					playsound(src.loc, 'sound/machines/ping.ogg', 25, 0)
-					. = TOPIC_REFRESH
+					. = TRUE
 				else if(!giver)
 					to_chat(user, "<span class='warning'>Cannot issue pass without issuing ID.</span>")
 				else if(!accesses.len)

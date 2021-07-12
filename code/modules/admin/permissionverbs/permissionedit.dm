@@ -18,7 +18,7 @@
 <body onload='selectTextField();updateSearch();'>
 <div id='main'><table id='searchable' cellspacing='0'>
 <tr class='title'>
-<th style='width:125px;text-align:right;'>CKEY <a class='small' href='?src=\ref[src];editrights=add'>\[+\]</a></th>
+<th style='width:125px;text-align:right;'>CKEY <a class='small' href='?src=[REF(src)];editrights=add'>\[+\]</a></th>
 <th style='width:125px;'>RANK</th><th style='width:100%;'>PERMISSIONS</th>
 </tr>
 "}
@@ -31,9 +31,9 @@
 		if(!rights)	rights = "*none*"
 
 		output += "<tr>"
-		output += "<td style='text-align:right;'>[adm_ckey] <a class='small' href='?src=\ref[src];editrights=remove;ckey=[adm_ckey]'>\[-\]</a></td>"
-		output += "<td><a href='?src=\ref[src];editrights=rank;ckey=[adm_ckey]'>[rank]</a></td>"
-		output += "<td><a class='small' href='?src=\ref[src];editrights=permissions;ckey=[adm_ckey]'>[rights]</a></td>"
+		output += "<td style='text-align:right;'>[adm_ckey] <a class='small' href='?src=[REF(src)];editrights=remove;ckey=[adm_ckey]'>\[-\]</a></td>"
+		output += "<td><a href='?src=[REF(src)];editrights=rank;ckey=[adm_ckey]'>[rank]</a></td>"
+		output += "<td><a class='small' href='?src=[REF(src)];editrights=permissions;ckey=[adm_ckey]'>[rights]</a></td>"
 		output += "</tr>"
 
 	output += {"
@@ -42,7 +42,7 @@
 </body>
 </html>"}
 
-	usr << browse(output,"window=editrights;size=600x500")
+	show_browser(usr, output,"window=editrights;size=600x500")
 
 /datum/admins/proc/log_admin_rank_modification(var/adm_ckey, var/new_rank)
 	if(config.admin_legacy_system)	return

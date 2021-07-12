@@ -21,17 +21,17 @@
 
 /obj/item/clothing/accessory/badge/CanUseTopic(var/user)
 	if(user in view(get_turf(src)))
-		return STATUS_INTERACTIVE
+		return UI_INTERACTIVE
 
 /obj/item/clothing/accessory/badge/OnTopic(var/mob/user, var/list/href_list)
 	if(href_list["look_at_me"])
 		if(istype(user))
 			user.examinate(src)
-			return TOPIC_HANDLED
+			return FALSE
 
 /obj/item/clothing/accessory/badge/get_examine_line()
 	. = ..()
-	. += "  <a href='?src=\ref[src];look_at_me=1'>\[View\]</a>"
+	. += "  <a href='?src=[REF(src)];look_at_me=1'>\[View\]</a>"
 
 /obj/item/clothing/accessory/badge/examine(user)
 	..()

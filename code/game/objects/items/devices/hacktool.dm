@@ -5,7 +5,7 @@
 	var/in_hack_mode = 0
 	var/list/known_targets
 	var/list/supported_types
-	var/datum/topic_state/default/must_hack/hack_state
+	var/datum/ui_state/default/must_hack/hack_state
 
 /obj/item/device/multitool/hacktool/New()
 	..()
@@ -36,7 +36,7 @@
 	if(!in_hack_mode || !attempt_hack(user, A)) //will still show the unable to hack message, oh well
 		return ..()
 
-	A.ui_interact(user, state = hack_state)
+	A.ui_interact(user)
 	return 1
 
 /obj/item/device/multitool/hacktool/proc/attempt_hack(var/mob/user, var/atom/target)
@@ -77,18 +77,18 @@
 /obj/item/device/multitool/hacktool/proc/on_target_destroy(var/target)
 	known_targets -= target
 
-/datum/topic_state/default/must_hack
+/datum/ui_state/default/must_hack
 	var/obj/item/device/multitool/hacktool/hacktool
 
-/datum/topic_state/default/must_hack/New(var/hacktool)
+/datum/ui_state/default/must_hack/New(var/hacktool)
 	src.hacktool = hacktool
 	..()
 
-/datum/topic_state/default/must_hack/Destroy()
+/datum/ui_state/default/must_hack/Destroy()
 	hacktool = null
 	return ..()
 
-/datum/topic_state/default/must_hack/can_use_topic(var/src_object, var/mob/user)
+/datum/ui_state/default/must_hack/can_use_topic(var/src_object, var/mob/user)
 	if(!hacktool || !hacktool.in_hack_mode || !(src_object in hacktool.known_targets))
-		return STATUS_CLOSE
+		return UI_CLOSE
 	return ..()

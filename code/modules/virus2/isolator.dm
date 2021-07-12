@@ -10,7 +10,6 @@
 	icon = 'icons/obj/virology.dmi'
 	icon_state = "isolator"
 	var/isolating = 0
-	var/state = HOME
 	var/datum/disease2/disease/virus2 = null
 	var/datum/computer_file/data/virus_record/entry = null
 	var/obj/item/weapon/reagent_containers/syringe/sample = null
@@ -41,72 +40,65 @@
 	sample = O
 
 	user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
-	SSnano.update_uis(src)
+	SStgui.update_uis(src)
 	update_icon()
 
 	src.attack_hand(user)
 
 /obj/machinery/disease2/isolator/attack_hand(mob/user as mob)
-	if(stat & (NOPOWER|BROKEN)) return
-	ui_interact(user)
+	if(stat & (NOPOWER|BROKEN))
+		return
+	return ..()
 
-/obj/machinery/disease2/isolator/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	user.set_machine(src)
-
-	var/data[0]
-	data["syringe_inserted"] = !!sample
-	data["isolating"] = isolating
-	data["pathogen_pool"] = null
-	data["state"] = state
-	data["entry"] = entry
-	data["can_print"] = (state != HOME || sample) && !isolating
-
-	switch (state)
-		if (HOME)
-			if (sample)
-				var/list/pathogen_pool[0]
-				for(var/datum/reagent/blood/B in sample.reagents.reagent_list)
-					var/list/virus = B.data["virus2"]
-					for (var/ID in virus)
-						var/datum/disease2/disease/V = virus[ID]
-						var/datum/computer_file/data/virus_record/R = null
-						if (ID in virusDB)
-							R = virusDB[ID]
-
-						var/weakref/W = B.data["donor"]
-						var/mob/living/carbon/human/D = W.resolve()
-						pathogen_pool.Add(list(list(\
-							"name" = "[D ? D.get_species() : "Unidentified"] [B.name]", \
-							"dna" = B.data["blood_DNA"], \
-							"unique_id" = V.uniqueID, \
-							"reference" = "\ref[V]", \
-							"is_in_database" = !!R, \
-							"record" = "\ref[R]")))
-
-				if (pathogen_pool.len > 0)
-					data["pathogen_pool"] = pathogen_pool
-
-		if (LIST)
-			var/list/db[0]
-			for (var/ID in virusDB)
-				var/datum/computer_file/data/virus_record/r = virusDB[ID]
-				db.Add(list(list("name" = r.fields["name"], "record" = "\ref[r]")))
-
-			if (db.len > 0)
-				data["database"] = db
-
-		if (ENTRY)
-			if (entry)
-				var/desc = entry.fields["description"]
-				data["entry"] = list(\
-					"name" = entry.fields["name"], \
-					"description" = replacetext(desc, "\n", ""))
-
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+/obj/machinery/disease2/isolator/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, ui_key, "pathogenic_isolator.tmpl", src.name, 400, 500)
-		ui.set_initial_data(data)
+		ui = new(user, src, "virology/PathogenicIsolator")
 		ui.open()
+
+/obj/machinery/disease2/isolator/ui_data(mob/user)
+	. = list(
+		"syringe_inserted" = !!sample,
+		"isolating" = isolating,
+		"pathogen_pool" = null,
+		"entry" = entry
+	)
+
+	if (sample)
+		var/list/pathogen_pool[0]
+		for(var/datum/reagent/blood/B in sample.reagents.reagent_list)
+			var/list/virus = B.data["virus2"]
+			for (var/ID in virus)
+				var/datum/disease2/disease/V = virus[ID]
+				var/datum/computer_file/data/virus_record/R = null
+				if (ID in virusDB)
+					R = virusDB[ID]
+
+				var/weakref/W = B.data["donor"]
+				var/mob/living/carbon/human/D = W.resolve()
+				pathogen_pool.Add(list(list(
+					"name" = "[D ? D.get_species() : "Unidentified"] [B.name]",
+					"dna" = B.data["blood_DNA"],
+					"unique_id" = V.uniqueID,
+					"reference" = REF(V),
+					"is_in_database" = !!R,
+					"record" = REF(R)
+					)))
+
+		if (pathogen_pool.len > 0)
+			.["pathogen_pool"] = pathogen_pool
+
+	var/list/db[0]
+	for (var/ID in virusDB)
+		var/datum/computer_file/data/virus_record/r = virusDB[ID]
+		db.Add(list(list(
+			"name" = r.fields["name"],
+			"description" = replacetext(r.fields["description"], "\n", ""),
+			"record" = REF(r)
+			)))
+
+	if (db.len > 0)
+		.["database"] = db
 
 /obj/machinery/disease2/isolator/Process()
 	if (isolating > 0)
@@ -117,51 +109,27 @@
 				d.virus2 = virus2.getcopy()
 				virus2 = null
 				ping("\The [src] pings, \"Viral strain isolated.\"")
-
-			SSnano.update_uis(src)
 			update_icon()
 
-/obj/machinery/disease2/isolator/OnTopic(user, href_list)
-	if (href_list["close"])
-		SSnano.close_user_uis(user, src, "main")
-		return TOPIC_HANDLED
-
-	if (href_list[HOME])
-		state = HOME
-		return TOPIC_REFRESH
-
-	if (href_list[LIST])
-		state = LIST
-		return TOPIC_REFRESH
-
-	if (href_list[ENTRY])
-		if (istype(locate(href_list["view"]), /datum/computer_file/data/virus_record))
-			entry = locate(href_list["view"])
-
-		state = ENTRY
-		return TOPIC_REFRESH
-
-	if (href_list["print"])
-		print(user)
-		return TOPIC_REFRESH
-
-	if(!sample) return TOPIC_HANDLED
-
-	if (href_list["isolate"])
-		var/datum/disease2/disease/V = locate(href_list["isolate"])
-		if (V)
-			virus2 = V
-			isolating = 20
-			update_icon()
-		return TOPIC_REFRESH
-
-	if (href_list["eject"])
-		sample.dropInto(loc)
-		sample = null
+/obj/machinery/disease2/isolator/ui_act(action, list/params)
+	switch(action)
+		if ("print")
+			print(usr, params["print"])
+			. = TRUE
+		if ("isolate")
+			var/datum/disease2/disease/V = locate(params["isolate"])
+			if (V)
+				virus2 = V
+				isolating = 20
+			. = TRUE
+		if ("eject")
+			sample.dropInto(loc)
+			sample = null
+			. = TRUE
+	if (.)
 		update_icon()
-		return TOPIC_REFRESH
 
-/obj/machinery/disease2/isolator/proc/print(var/mob/user)
+/obj/machinery/disease2/isolator/proc/print(mob/user, state)
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(loc)
 
 	switch (state)

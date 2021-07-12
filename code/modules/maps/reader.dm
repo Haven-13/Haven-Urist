@@ -528,7 +528,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 			for (var/V in what.vars)
 				if (deep_string_equals(V, attribute))
 					what.vars[V] = value
-					log_debug("Successfully performed manual var detection for var [V] \ref[V] on provided attribute [attribute] \ref[attribute] for atom [what]")
+					log_debug("Successfully performed manual var detection for var [V] [REF(V)] on provided attribute [attribute] [REF(attribute)] for atom [what]")
 					found = TRUE
 					break
 			if (!found)

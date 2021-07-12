@@ -29,10 +29,21 @@
 			sensors = S
 			break
 
-/obj/machinery/computer/sensors/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	if(!linked)
-		return
+/obj/machinery/computer/sensors/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "spacecraft/ShipSensors", name)
+		ui.open()
 
+/obj/machinery/computer/sensors/ui_static_data(mob/user)
+	. = list(
+		"minRange" = 1,
+		"maxRange" = world.view,
+		"maxHealth" = sensors.max_health,
+		"criticalHeat" = sensors.critical_heat
+	)
+
+/obj/machinery/computer/sensors/ui_data(mob/user)
 	var/data[0]
 
 	data["viewing"] = viewing
@@ -40,9 +51,7 @@
 		data["on"] = sensors.use_power
 		data["range"] = sensors.range
 		data["health"] = sensors.health
-		data["max_health"] = sensors.max_health
 		data["heat"] = sensors.heat
-		data["critical_heat"] = sensors.critical_heat
 		if(sensors.health == 0)
 			data["status"] = "DESTROYED"
 		else if(!sensors.powered())
@@ -56,12 +65,26 @@
 		data["range"] = "N/A"
 		data["on"] = 0
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "shipsensors.tmpl", "[linked.name] Sensors Control", 420, 530)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
+
+/obj/machinery/computer/sensors/ui_act(action, list/params)
+	switch(action)
+		if("view")
+			viewing = !viewing
+			if(usr && !isAI(usr))
+				viewing ? look(usr) : unlook(usr)
+			. = TRUE
+		if("link")
+			find_sensors()
+			. = TRUE
+
+	if(sensors)
+		switch(action)
+			if("range")
+				sensors.set_range(between(1, params["range"], world.view))
+			if("toggle")
+				sensors.toggle()
+				. = TRUE
 
 /obj/machinery/computer/sensors/check_eye(var/mob/user as mob)
 	if (!get_dist(user, src) > 1 || user.blinded || !linked )
@@ -100,35 +123,6 @@
 	GLOB.moved_event.unregister(user, src, /obj/machinery/computer/sensors/proc/unlook)
 	GLOB.stat_set_event.unregister(user, src, /obj/machinery/computer/sensors/proc/unlook)
 	LAZYREMOVE(viewers, weakref(user))
-
-/obj/machinery/computer/sensors/Topic(href, href_list, state)
-	if(..())
-		return 1
-
-	if (!linked)
-		return
-
-	if (href_list["viewing"])
-		viewing = !viewing
-		if(usr && !isAI(usr))
-			viewing ? look(usr) : unlook(usr)
-		return 1
-
-	if (href_list["link"])
-		find_sensors()
-		return 1
-
-	if(sensors)
-		if (href_list["range"])
-			var/nrange = input("Set new sensors range", "Sensor range", sensors.range) as num|null
-			if(!CanInteract(usr,state))
-				return
-			if (nrange)
-				sensors.set_range(Clamp(nrange, 1, world.view))
-			return 1
-		if (href_list["toggle"])
-			sensors.toggle()
-			return 1
 
 /obj/machinery/computer/sensors/Process()
 	..()

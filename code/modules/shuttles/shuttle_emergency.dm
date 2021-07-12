@@ -176,7 +176,13 @@
 	read_authorization(W)
 	..()
 
-/obj/machinery/computer/shuttle_control/emergency/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/computer/shuttle_control/emergency/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "EscapeShuttleControlConsole")
+		ui.open()
+
+/obj/machinery/computer/shuttle_control/emergency/ui_data(mob/user)
 	var/data[0]
 	var/datum/shuttle/autodock/ferry/emergency/shuttle = SSshuttle.shuttles[shuttle_tag]
 	if (!istype(shuttle))
@@ -234,19 +240,13 @@
 		"user" = debug? user : null,
 	)
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-
-	if (!ui)
-		ui = new(user, src, ui_key, "escape_shuttle_control_console.tmpl", "Shuttle Control", 470, 420)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/computer/shuttle_control/emergency/OnTopic(user, href_list)
 	if(href_list["removeid"])
 		var/dna_hash = href_list["removeid"]
 		authorized -= dna_hash
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	else if(!emagged && href_list["scanid"])
 		//They selected an empty entry. Try to scan their id.
@@ -254,4 +254,4 @@
 		if (istype(H))
 			if (!read_authorization(H.get_active_hand()))	//try to read what's in their hand first
 				read_authorization(H.wear_id)
-				. = TOPIC_REFRESH
+				. = TRUE

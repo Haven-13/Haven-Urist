@@ -226,7 +226,6 @@
 		/obj/item/device/megaphone,
 		/obj/item/weapon/melee,
 		/obj/item/taperoll,
-		/obj/item/device/holowarrant,
 		/obj/item/weapon/magnetic_ammo,
 		/obj/item/device/binoculars,
 		/obj/item/clothing/gloves
@@ -251,7 +250,6 @@
 		/obj/item/device/radio/headset,
 		/obj/item/device/megaphone,
 		/obj/item/taperoll,
-		/obj/item/device/holowarrant,
 		/obj/item/device/radio,
 		/obj/item/device/tape,
 		/obj/item/weapon/pen,
@@ -290,7 +288,6 @@
 		/obj/item/device/radio/headset,
 		/obj/item/device/megaphone,
 		/obj/item/taperoll,
-		/obj/item/device/holowarrant,
 		/obj/item/device/radio,
 		/obj/item/device/tape,
 		/obj/item/weapon/pen,

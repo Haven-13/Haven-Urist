@@ -28,17 +28,17 @@
 		dat += "<FONT color=#005500>Data stored in memory.</FONT><BR>"
 	else
 		dat += "No data stored in memory.<BR>"
-	dat += "<A href='?src=\ref[src];scan=1'>\[Scan\]</A>"
+	dat += "<A href='?src=[REF(src)];scan=1'>\[Scan\]</A>"
 	if(cache)
-		dat += "       <A href='?src=\ref[src];clear=1'>\[Clear Memory\]</A><BR><BR><A href='?src=\ref[src];eject=1'>\[Remove Book\]</A>"
+		dat += "       <A href='?src=[REF(src)];clear=1'>\[Clear Memory\]</A><BR><BR><A href='?src=[REF(src)];eject=1'>\[Remove Book\]</A>"
 	else
 		dat += "<BR>"
-	user << browse(dat, "window=scanner")
+	show_browser(user, dat, "window=scanner")
 	onclose(user, "scanner")
 
 /obj/machinery/libraryscanner/Topic(href, href_list)
 	if(..())
-		usr << browse(null, "window=scanner")
+		close_browser(usr, "window=scanner")
 		onclose(usr, "scanner")
 		return
 

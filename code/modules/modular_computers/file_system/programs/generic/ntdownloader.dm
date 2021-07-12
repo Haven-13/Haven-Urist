@@ -11,7 +11,7 @@
 	requires_ntnet = 1
 	requires_ntnet_feature = NTNET_SOFTWAREDOWNLOAD
 	available_on_ntnet = 0
-	nanomodule_path = /datum/nano_module/program/computer_ntnetdownload/
+	ui_module_path = /datum/ui_module/program/computer_ntnetdownload/
 	ui_header = "downloader_finished.gif"
 	var/datum/computer_file/program/downloaded_file = null
 	var/hacked_download = 0
@@ -109,95 +109,25 @@
 			download_netspeed = NTNETSPEED_ETHERNET
 	download_completion += download_netspeed
 
-/datum/computer_file/program/ntnetdownload/Topic(href, href_list)
-	if(..())
+/datum/computer_file/program/ntnetdownload/ui_act(action, list/params)
+	. = ..()
+	if(.)
 		return 1
-	if(href_list["PRG_downloadfile"])
-		if(!downloaded_file)
-			begin_file_download(href_list["PRG_downloadfile"])
-		else if(check_file_download(href_list["PRG_downloadfile"]) && !downloads_queue.Find(href_list["PRG_downloadfile"]) && downloaded_file.filename != href_list["PRG_downloadfile"])
-			downloads_queue += href_list["PRG_downloadfile"]
-		return 1
-	if(href_list["PRG_removequeued"])
-		downloads_queue.Remove(href_list["PRG_removequeued"])
-		return 1
-	if(href_list["PRG_reseterror"])
-		if(downloaderror)
-			download_completion = 0
-			download_netspeed = 0
-			downloaded_file = null
-			downloaderror = ""
-		return 1
-	return 0
-
-/datum/nano_module/program/computer_ntnetdownload
-	name = "Network Downloader"
-	var/obj/item/modular_computer/my_computer = null
-
-/datum/nano_module/program/computer_ntnetdownload/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
-	if(program)
-		my_computer = program.computer
-
-	if(!istype(my_computer))
-		return
-
-	var/list/data = list()
-	var/datum/computer_file/program/ntnetdownload/prog = program
-	// For now limited to execution by the downloader program
-	if(!prog || !istype(prog))
-		return
-	if(program)
-		data = program.get_header_data()
-
-	// This IF cuts on data transferred to client, so i guess it's worth it.
-	if(prog.downloaderror) // Download errored. Wait until user resets the program.
-		data["error"] = prog.downloaderror
-	if(prog.downloaded_file) // Download running. Wait please..
-		data["downloadname"] = prog.downloaded_file.filename
-		data["downloaddesc"] = prog.downloaded_file.filedesc
-		data["downloadsize"] = prog.downloaded_file.size
-		data["downloadspeed"] = prog.download_netspeed
-		data["downloadcompletion"] = round(prog.download_completion, 0.1)
-
-	data["disk_size"] = my_computer.hard_drive.max_capacity
-	data["disk_used"] = my_computer.hard_drive.used_capacity
-	var/list/all_entries[0]
-	for(var/datum/computer_file/program/P in ntnet_global.available_station_software)
-		// Only those programs our user can run will show in the list
-		if(!P.can_run(user) && P.requires_access_to_download)
-			continue
-		if(!P.is_supported_by_hardware(my_computer.hardware_flag, 1, user))
-			continue
-		all_entries.Add(list(list(
-		"filename" = P.filename,
-		"filedesc" = P.filedesc,
-		"fileinfo" = P.extended_desc,
-		"size" = P.size,
-		"icon" = P.program_menu_icon
-		)))
-	data["hackedavailable"] = 0
-	if(prog.computer_emagged) // If we are running on emagged computer we have access to some "bonus" software
-		var/list/hacked_programs[0]
-		for(var/datum/computer_file/program/P in ntnet_global.available_antag_software)
-			data["hackedavailable"] = 1
-			hacked_programs.Add(list(list(
-			"filename" = P.filename,
-			"filedesc" = P.filedesc,
-			"fileinfo" = P.extended_desc,
-			"size" = P.size,
-			"icon" = P.program_menu_icon
-			)))
-		data["hacked_programs"] = hacked_programs
-
-	data["downloadable_programs"] = all_entries
-
-	if(prog.downloads_queue.len > 0)
-		data["downloads_queue"] = prog.downloads_queue
-
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "ntnet_downloader.tmpl", "NTNet Download Program", 575, 700, state = state)
-		ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	switch(action)
+		if("PRG_downloadfile")
+			var/target = params["program"]
+			if(!downloaded_file)
+				begin_file_download(target)
+			else if(check_file_download(target) && !downloads_queue.Find(target) && downloaded_file.filename != target)
+				downloads_queue += target
+			return 1
+		if("PRG_removequeued")
+			downloads_queue.Remove(params["program"])
+			return 1
+		if("PRG_reseterror")
+			if(downloaderror)
+				download_completion = 0
+				download_netspeed = 0
+				downloaded_file = null
+				downloaderror = ""
+			return 1

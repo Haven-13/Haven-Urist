@@ -120,24 +120,24 @@
 	if(connected)
 		var/d2
 		if(timing)	//door controls do not need timers.
-			d2 = "<A href='?src=\ref[src];time=0'>Stop Time Launch</A>"
+			d2 = "<A href='?src=[REF(src)];time=0'>Stop Time Launch</A>"
 		else
-			d2 = "<A href='?src=\ref[src];time=1'>Initiate Time Launch</A>"
+			d2 = "<A href='?src=[REF(src)];time=1'>Initiate Time Launch</A>"
 		var/second = time % 60
 		var/minute = (time - second) / 60
-		dat += "<HR>\nTimer System: [d2]\nTime Left: [minute ? "[minute]:" : null][second] <A href='?src=\ref[src];tp=-30'>-</A> <A href='?src=\ref[src];tp=-1'>-</A> <A href='?src=\ref[src];tp=1'>+</A> <A href='?src=\ref[src];tp=30'>+</A>"
+		dat += "<HR>\nTimer System: [d2]\nTime Left: [minute ? "[minute]:" : null][second] <A href='?src=[REF(src)];tp=-30'>-</A> <A href='?src=[REF(src)];tp=-1'>-</A> <A href='?src=[REF(src)];tp=1'>+</A> <A href='?src=[REF(src)];tp=30'>+</A>"
 		var/temp = ""
 		var/list/L = list( 0.25, 0.5, 1, 2, 4, 8, 16 )
 		for(var/t in L)
 			if(t == connected.power)
 				temp += "[t] "
 			else
-				temp += "<A href = '?src=\ref[src];power=[t]'>[t]</A> "
-		dat += "<HR>\nPower Level: [temp]<BR>\n<A href = '?src=\ref[src];alarm=1'>Firing Sequence</A><BR>\n<A href = '?src=\ref[src];drive=1'>Test Fire Driver</A><BR>\n<A href = '?src=\ref[src];door=1'>Toggle Outer Door</A><BR>"
+				temp += "<A href = '?src=[REF(src)];power=[t]'>[t]</A> "
+		dat += "<HR>\nPower Level: [temp]<BR>\n<A href = '?src=[REF(src)];alarm=1'>Firing Sequence</A><BR>\n<A href = '?src=[REF(src)];drive=1'>Test Fire Driver</A><BR>\n<A href = '?src=[REF(src)];door=1'>Toggle Outer Door</A><BR>"
 	else
-		dat += "<BR>\n<A href = '?src=\ref[src];door=1'>Toggle Outer Door</A><BR>"
-	dat += "<BR><BR><A href='?src=\ref[user];mach_close=computer'>Close</A></TT></BODY></HTML>"
-	user << browse(dat, "window=computer;size=400x500")
+		dat += "<BR>\n<A href = '?src=[REF(src)];door=1'>Toggle Outer Door</A><BR>"
+	dat += "<BR><BR><A href='?src=[REF(user)];mach_close=computer'>Close</A></TT></BODY></HTML>"
+	show_browser(user, dat, "window=computer;size=400x500")
 	onclose(user, "computer")
 	return
 
@@ -162,24 +162,24 @@
 		t = min(max(0.25, t), 16)
 		if(connected)
 			connected.power = t
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if(href_list["alarm"])
 		alarm()
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if(href_list["drive"])
 		for(var/obj/machinery/mass_driver/M in SSmachines.machinery)
 			if(M.id == id)
 				M.power = connected.power
 				M.drive()
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if(href_list["time"])
 		timing = text2num(href_list["time"])
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if(href_list["tp"])
 		var/tp = text2num(href_list["tp"])
 		time += tp
 		time = min(max(round(time), 0), 120)
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if(href_list["door"])
 		for(var/obj/machinery/door/blast/M in world)
 			if(M.id == id)
@@ -187,9 +187,9 @@
 					M.open()
 				else
 					M.close()
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		attack_hand(user)
 
 /obj/machinery/computer/pod/old

@@ -114,7 +114,7 @@
 	if(..())
 		return
 	user.set_machine(src)
-	var/dat = "<a href='byond://?src=\ref[src];close=1'>Close</a>"
+	var/dat = "<a href='byond://?src=[REF(src)];close=1'>Close</a>"
 	dat += "<center><h4>[src.enemy_name]</h4></center>"
 
 	dat += "<br><center><h3>[src.temp]</h3></center>"
@@ -122,21 +122,21 @@
 
 	dat += "<center><b>"
 	if (src.gameover)
-		dat += "<a href='byond://?src=\ref[src];newgame=1'>New Game</a>"
+		dat += "<a href='byond://?src=[REF(src)];newgame=1'>New Game</a>"
 	else
-		dat += "<a href='byond://?src=\ref[src];attack=1'>Attack</a> | "
-		dat += "<a href='byond://?src=\ref[src];heal=1'>Heal</a> | "
-		dat += "<a href='byond://?src=\ref[src];charge=1'>Recharge Power</a>"
+		dat += "<a href='byond://?src=[REF(src)];attack=1'>Attack</a> | "
+		dat += "<a href='byond://?src=[REF(src)];heal=1'>Heal</a> | "
+		dat += "<a href='byond://?src=[REF(src)];charge=1'>Recharge Power</a>"
 
 	dat += "</b></center>"
 
-	user << browse(dat, "window=arcade")
+	show_browser(user, dat, "window=arcade")
 	onclose(user, "arcade")
 	return
 
-/obj/machinery/computer/arcade/battle/CanUseTopic(var/mob/user, var/datum/topic_state/state, var/href_list)
+/obj/machinery/computer/arcade/battle/CanUseTopic(var/mob/user, var/datum/ui_state/state, var/href_list)
 	if((blocked || gameover) && (href_list["attack"] || href_list["heal"] || href_list["charge"]))
-		return min(..(), STATUS_UPDATE)
+		return min(..(), UI_UPDATE)
 	return ..()
 
 /obj/machinery/computer/arcade/battle/OnTopic(user, href_list)
@@ -144,7 +144,7 @@
 
 	if (href_list["close"])
 		close_browser(user, "window=arcade")
-		return TOPIC_HANDLED
+		return FALSE
 
 	if (href_list["attack"])
 		src.blocked = 1
@@ -154,7 +154,7 @@
 			turtle--
 		src.enemy_hp -= attackamt
 
-		. = TOPIC_REFRESH
+		. = TRUE
 		sleep(10)
 		src.arcade_action(user)
 
@@ -169,7 +169,7 @@
 		src.player_hp += healamt
 		src.blocked = 1
 
-		. = TOPIC_REFRESH
+		. = TRUE
 		sleep(10)
 		src.arcade_action(user)
 
@@ -181,7 +181,7 @@
 		if(turtle > 0)
 			turtle--
 
-		. = TOPIC_REFRESH
+		. = TRUE
 		sleep(10)
 		src.arcade_action(user)
 
@@ -196,9 +196,9 @@
 		if(emagged)
 			emagged = 0
 			SetupGame()
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		attack_hand(user)
 
 /obj/machinery/computer/arcade/battle/proc/arcade_action(var/user)

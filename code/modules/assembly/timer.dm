@@ -68,23 +68,16 @@
 	return
 
 
-/obj/item/device/assembly/timer/interact(mob/user as mob)//TODO: Have this use the wires
-	if(!secured)
-		user.show_message("<span class='warning'>\The [name] is unsecured!</span>")
-		return 0
-	var/second = time % 60
-	var/minute = (time - second) / 60
-	var/dat = text("<TT><B>Timing Unit</B>\n[] []:[]\n<A href='?src=\ref[];tp=-30'>-</A> <A href='?src=\ref[];tp=-1'>-</A> <A href='?src=\ref[];tp=1'>+</A> <A href='?src=\ref[];tp=30'>+</A>\n</TT>", (timing ? text("<A href='?src=\ref[];time=0'>Timing</A>", src) : text("<A href='?src=\ref[];time=1'>Not Timing</A>", src)), minute, second, src, src, src, src)
-	dat += "<BR><BR><A href='?src=\ref[src];refresh=1'>Refresh</A>"
-	dat += "<BR><BR><A href='?src=\ref[src];close=1'>Close</A>"
-	user << browse(dat, "window=timer")
-	onclose(user, "timer")
-	return
+/obj/item/assembly/timer/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Timer", name)
+		ui.open()
 
 
-/obj/item/device/assembly/timer/Topic(href, href_list, state = GLOB.physical_state)
+/obj/item/device/assembly/timer/Topic(href, href_list, state = ui_physical_state())
 	if((. = ..()))
-		usr << browse(null, "window=timer")
+		close_browser(usr, "window=timer")
 		onclose(usr, "timer")
 		return
 
@@ -98,7 +91,7 @@
 		time = min(max(round(time), 0), 600)
 
 	if(href_list["close"])
-		usr << browse(null, "window=timer")
+		close_browser(usr, "window=timer")
 		return
 
 	if(usr)

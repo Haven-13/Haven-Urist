@@ -154,21 +154,21 @@
 				for(var/datum/reagent/R in B.reagents.reagent_list)
 					dat += "<br>    [R.volume] units of [R.name], "
 				if(B in mixing)
-					dat += "<A href='?src=\ref[src];stop_mix=[i]'><font color='green'>Mixing</font></A> "
+					dat += "<A href='?src=[REF(src)];stop_mix=[i]'><font color='green'>Mixing</font></A> "
 				else
-					dat += "<A href='?src=\ref[src];mix=[i]'><font color='red'>Not mixing</font></A> "
+					dat += "<A href='?src=[REF(src)];mix=[i]'><font color='red'>Not mixing</font></A> "
 			else
 				dat += "nothing."
-			dat += " \[<A href='?src=\ref[src];eject=[i]'>Eject</A>\]<br>"
+			dat += " \[<A href='?src=[REF(src)];eject=[i]'>Eject</A>\]<br>"
 
 	if(ammo_magazine)
 		if(ammo_magazine.stored_ammo && ammo_magazine.stored_ammo.len)
 			dat += "The dart cartridge has [ammo_magazine.stored_ammo.len] shots remaining."
 		else
 			dat += "<font color='red'>The dart cartridge is empty!</font>"
-		dat += " \[<A href='?src=\ref[src];eject_cart=1'>Eject</A>\]<br>"
+		dat += " \[<A href='?src=[REF(src)];eject_cart=1'>Eject</A>\]<br>"
 
-	dat += "<br>\[<A href='?src=\ref[src];refresh=1'>Refresh</A>\]"
+	dat += "<br>\[<A href='?src=[REF(src)];refresh=1'>Refresh</A>\]"
 
 	var/datum/browser/popup = new(user, "dartgun", "[src] mixing control")
 	popup.set_content(jointext(dat,null))
@@ -178,19 +178,19 @@
 	if(href_list["stop_mix"])
 		var/index = text2num(href_list["stop_mix"])
 		mixing -= beakers[index]
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if (href_list["mix"])
 		var/index = text2num(href_list["mix"])
 		mixing |= beakers[index]
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if (href_list["eject"])
 		var/index = text2num(href_list["eject"])
 		if(beakers[index])
 			remove_beaker(beakers[index], usr)
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if (href_list["eject_cart"])
 		unload_ammo(usr)
-		. = TOPIC_REFRESH
+		. = TRUE
 
 	Interact(usr)
 

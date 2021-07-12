@@ -92,7 +92,7 @@ SUBSYSTEM_DEF(weather)
 					var/obj/weathertype/WT = j
 					WO.active_weathers.Add(WT)
 				else if(ispath(j))
-					world.log << "Weathertype ([j]) received from [WA.name] by [WO.name] in [WO.loc] is path instead of instance!"
+					to_world_log("Weathertype ([j]) received from [WA.name] by [WO.name] in [WO.loc] is path instead of instance!")
 			WO.update_weather_icon()
 		else if(istype(weather_handler, /turf))
 			var/turf/WTu = weather_handler
@@ -121,7 +121,7 @@ SUBSYSTEM_DEF(weather)
 					var/obj/weathertype/WT = j
 					WTu.active_weathers.Add(WT)
 				else if(ispath(j))
-					world.log << "Weathertype ([j]) received from [WA.name] by [WTu.name] in [WTu.loc] is path instead of instance!"
+					to_world_log("Weathertype ([j]) received from [WA.name] by [WTu.name] in [WTu.loc] is path instead of instance!")
 			WTu.update_weather_icon()
 		CHECK_TICK
 

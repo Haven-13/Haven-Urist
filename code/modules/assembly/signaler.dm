@@ -43,35 +43,43 @@
 //		if ((src.b_stat && !( flag1 )))
 //			t1 = text("-------<BR>\nGreen Wire: []<BR>\nRed Wire:   []<BR>\nBlue Wire:  []<BR>\n", (src.wires & 4 ? text("<A href='?src=\ref[];wires=4'>Cut Wire</A>", src) : text("<A href='?src=\ref[];wires=4'>Mend Wire</A>", src)), (src.wires & 2 ? text("<A href='?src=\ref[];wires=2'>Cut Wire</A>", src) : text("<A href='?src=\ref[];wires=2'>Mend Wire</A>", src)), (src.wires & 1 ? text("<A href='?src=\ref[];wires=1'>Cut Wire</A>", src) : text("<A href='?src=\ref[];wires=1'>Mend Wire</A>", src)))
 //		else
-//			t1 = "-------"	Speaker: [src.listening ? "<A href='byond://?src=\ref[src];listen=0'>Engaged</A>" : "<A href='byond://?src=\ref[src];listen=1'>Disengaged</A>"]<BR>
+//			t1 = "-------"	Speaker: [src.listening ? "<A href='byond://?src=[REF(src)];listen=0'>Engaged</A>" : "<A href='byond://?src=[REF(src)];listen=1'>Disengaged</A>"]<BR>
 	var/dat = {"
 		<TT>
 
-		<A href='byond://?src=\ref[src];send=1'>Send Signal</A><BR>
+		<A href='byond://?src=[REF(src)];send=1'>Send Signal</A><BR>
 		<B>Frequency/Code</B> for signaler:<BR>
 		Frequency:
-		<A href='byond://?src=\ref[src];freq=-10'>-</A>
-		<A href='byond://?src=\ref[src];freq=-2'>-</A>
+		<A href='byond://?src=[REF(src)];freq=-10'>-</A>
+		<A href='byond://?src=[REF(src)];freq=-2'>-</A>
 		[format_frequency(src.frequency)]
-		<A href='byond://?src=\ref[src];freq=2'>+</A>
-		<A href='byond://?src=\ref[src];freq=10'>+</A><BR>
+		<A href='byond://?src=[REF(src)];freq=2'>+</A>
+		<A href='byond://?src=[REF(src)];freq=10'>+</A><BR>
 
 		Code:
-		<A href='byond://?src=\ref[src];code=-5'>-</A>
-		<A href='byond://?src=\ref[src];code=-1'>-</A>
+		<A href='byond://?src=[REF(src)];code=-5'>-</A>
+		<A href='byond://?src=[REF(src)];code=-1'>-</A>
 		[src.code]
-		<A href='byond://?src=\ref[src];code=1'>+</A>
-		<A href='byond://?src=\ref[src];code=5'>+</A><BR>
+		<A href='byond://?src=[REF(src)];code=1'>+</A>
+		<A href='byond://?src=[REF(src)];code=5'>+</A><BR>
 		[t1]
 		</TT>"}
-	user << browse(dat, "window=radio")
+	show_browser(user, dat, "window=radio")
 	onclose(user, "radio")
 	return
 
+/obj/item/assembly/signaler/ui_state(mob/user)
+	return ui_physical_state()
 
-/obj/item/device/assembly/signaler/Topic(href, href_list, state = GLOB.physical_state)
+/obj/item/assembly/signaler/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Signaler", name)
+		ui.open()
+
+/obj/item/device/assembly/signaler/Topic(href, href_list, state = ui_physical_state())
 	if((. = ..()))
-		usr << browse(null, "window=radio")
+		close_browser(usr, "window=radio")
 		onclose(usr, "radio")
 		return
 

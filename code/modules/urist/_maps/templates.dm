@@ -65,15 +65,15 @@ var/list/datum/map_template/ship/ship_templates = list()
 		var/datum/map_template/T = potentialRuins[A]
 		if(!T.loaded)
 			possible_ruins += T
-//	world << "<span class='boldannounce'>Loading ruins...</span>"
+//	to_world("<span class='boldannounce'>Loading ruins...</span>")
 	if(!template && possible_ruins.len)
 		template = safepick(possible_ruins)
 	if(!template)
-//		world << "<span class='boldannounce'>No ruins found.</span>"
+//		to_world("<span class='boldannounce'>No ruins found.</span>")
 		return
 	template.load(get_turf(src),centered = TRUE)
 	template.loaded++
-//	world << "<span class='boldannounce'>Ruins loaded.</span>"
+//	to_world("<span class='boldannounce'>Ruins loaded.</span>")
 	QDEL_IN(src,0)
 
 /obj/effect/template_loader/underground/Load(list/potentialRuins = underground_templates, datum/map_template/template = null)
@@ -99,10 +99,10 @@ var/list/datum/map_template/ship/ship_templates = list()
 
 	for(var/A in potentialRuins)
 		var/datum/map_template/T = potentialRuins[A]
-//		world << "<span class='boldannounce'>T = [T.name]</span>"
+//		to_world("<span class='boldannounce'>T = [T.name]</span>")
 		if(T.name == src.mapfile)
 			template = T
-//	world << "<span class='boldannounce'>Template = [template] Mapfile = [mapfile]</span>"
+//	to_world("<span class='boldannounce'>Template = [template] Mapfile = [mapfile]</span>")
 	template.load(get_turf(src), centered = TRUE)
 //	template.loaded++
 
@@ -120,10 +120,10 @@ var/list/datum/map_template/ship/ship_templates = list()
 
 	for(var/A in potentialRuins)
 		var/datum/map_template/ship/T = potentialRuins[A]
-//		world << "<span class='boldannounce'>T = [T.name]</span>"
+//		to_world("<span class='boldannounce'>T = [T.name]</span>")
 		if(T.name == src.mapfile)
 			template = T
-//	world << "<span class='boldannounce'>Template = [template] Mapfile = [mapfile]</span>"
+//	to_world("<span class='boldannounce'>Template = [template] Mapfile = [mapfile]</span>")
 
 	template.load(get_turf(src), centered = TRUE)
 //	template.loaded++

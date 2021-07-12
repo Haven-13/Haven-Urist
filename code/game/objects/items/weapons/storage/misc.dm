@@ -62,7 +62,7 @@
 	throwforce = 2
 	slot_flags = SLOT_BELT
 
-	startswith = list(/obj/item/paper/cig = 10)
+	startswith = list(/obj/item/weapon/paper/cig = 10)
 
 /obj/item/weapon/storage/cigpaper/fancy
 	name = "\improper Trident cigarette paper"
@@ -70,7 +70,7 @@
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "fancycigpaperbook"
 
-	startswith = list(/obj/item/paper/cig/fancy = 10)
+	startswith = list(/obj/item/weapon/paper/cig/fancy = 10)
 
 
 /obj/item/weapon/storage/cigpaper/filters
@@ -79,7 +79,7 @@
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "filterbin"
 
-	startswith = list(/obj/item/paper/cig/filter = 10)
+	startswith = list(/obj/item/weapon/paper/cig/filter = 10)
 
 /obj/item/weapon/storage/chewables
 	name = "box of chewing wads master"

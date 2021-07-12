@@ -248,29 +248,29 @@
 	if (href_list["print"])
 		if (!stored_scan)
 			to_chat(user, "\icon[src]<span class='warning'>Error: No scan stored.</span>")
-			return TOPIC_REFRESH
+			return TRUE
 		new/obj/item/weapon/paper/(loc, "<tt>[stored_scan]</tt>", "Body scan report - [stored_scan_subject]")
-		return TOPIC_REFRESH
+		return TRUE
 	if(href_list["scan"])
 		if (!connected.occupant)
 			to_chat(user, "\icon[src]<span class='warning'>The body scanner is empty.</span>")
-			return TOPIC_REFRESH
+			return TRUE
 		if (!istype(connected.occupant))
 			to_chat(user, "\icon[src]<span class='warning'>The body scanner cannot scan that lifeform.</span>")
-			return TOPIC_REFRESH
+			return TRUE
 		stored_scan = connected.occupant.get_medical_data()
 		stored_scan_subject = connected.occupant
 		user.visible_message("<span class='notice'>\The [user] performs a scan of \the [connected.occupant] using \the [connected].</span>")
 		generate_window(user)
-		return TOPIC_REFRESH
+		return TRUE
 	if(href_list["erase"])
 		stored_scan = null
 		stored_scan_subject = null
 		generate_window(user)
-		return TOPIC_REFRESH
+		return TRUE
 	if(href_list["scan_refresh"])
 		generate_window(user)
-		return TOPIC_REFRESH
+		return TRUE
 
 /proc/get_severity(amount)
 	if(!amount)
@@ -287,10 +287,10 @@
 	var/dat = list()
 	if (stored_scan)
 		dat = stored_scan
-		dat += "<br><HR><A href='?src=\ref[src];print=1'>Print Scan</A>"
-		dat += "<br><HR><A href='?src=\ref[src];erase=1'>Erase Scan</A>"
+		dat += "<br><HR><A href='?src=[REF(src)];print=1'>Print Scan</A>"
+		dat += "<br><HR><A href='?src=[REF(src)];erase=1'>Erase Scan</A>"
 		if(ishuman(connected.occupant))
-			dat += "<br><HR><A href='?src=\ref[src];scan=1'>Rescan Occupant</A>"
+			dat += "<br><HR><A href='?src=[REF(src)];scan=1'>Rescan Occupant</A>"
 	else
 		dat = "<b>Scan Menu</b>"
 		if (!connected.occupant)
@@ -298,9 +298,9 @@
 		else if(!ishuman(connected.occupant))
 			dat += "<br><HR><span class='warning'>This device can only scan compatible lifeforms.</span>"
 		else
-			dat += "<br><HR><A href='?src=\ref[src];scan=1'>Scan Occupant</A>"
+			dat += "<br><HR><A href='?src=[REF(src)];scan=1'>Scan Occupant</A>"
 
-	dat += "<BR><HR><A href='?src=\ref[src];scan_refresh=1'>Refresh</A>"
+	dat += "<BR><HR><A href='?src=[REF(src)];scan_refresh=1'>Refresh</A>"
 	dat += "<BR><HR><A href='?src=\ref[];mach_close=scanconsole'>Close</A>"
 	show_browser(user, jointext(dat, null), "window=scanconsole;size=430x600")
 

@@ -17,7 +17,11 @@ datum/preferences
 	//game-preferences
 	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change
 
-		//Mob preview
+	//tgui preferences
+	var/tgui_fancy = TRUE
+	var/tgui_lock = FALSE
+
+	//Mob preview
 	var/icon/preview_icon = null
 
 	var/client/client = null
@@ -60,10 +64,10 @@ datum/preferences
 
 	if(path)
 		dat += "Slot - "
-		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
-		dat += "<a href='?src=\ref[src];save=1'>Save slot</a> - "
-		dat += "<a href='?src=\ref[src];resetslot=1'>Reset slot</a> - "
-		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a>"
+		dat += "<a href='?src=[REF(src)];load=1'>Load slot</a> - "
+		dat += "<a href='?src=[REF(src)];save=1'>Save slot</a> - "
+		dat += "<a href='?src=[REF(src)];resetslot=1'>Reset slot</a> - "
+		dat += "<a href='?src=[REF(src)];reload=1'>Reload slot</a>"
 
 	else
 		dat += "Please create an account to save your preferences."
@@ -85,7 +89,7 @@ datum/preferences
 
 	if(href_list["preference"] == "open_whitelist_forum")
 		if(config.forumurl)
-			user << link(config.forumurl)
+			open_link(user, config.forumurl)
 		else
 			to_chat(user, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
 			return
@@ -303,7 +307,7 @@ datum/preferences
 			if(!name)	name = "Character[i]"
 			if(i==default_slot)
 				name = "<b>[name]</b>"
-			dat += "<a href='?src=\ref[src];changeslot=[i]'>[name]</a><br>"
+			dat += "<a href='?src=[REF(src)];changeslot=[i]'>[name]</a><br>"
 
 	dat += "<hr>"
 	dat += "</center></tt>"
@@ -315,4 +319,4 @@ datum/preferences
 	if(panel)
 		panel.close()
 		panel = null
-	user << browse(null, "window=saves")
+	close_browser(user, "window=saves")

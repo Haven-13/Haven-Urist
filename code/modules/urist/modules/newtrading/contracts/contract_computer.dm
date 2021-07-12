@@ -7,16 +7,22 @@
 	size = 3
 	requires_ntnet = 0
 	available_on_ntnet = 0
-	nanomodule_path = /datum/nano_module/contract_database
+	ui_module_path = /datum/ui_module/contract_database
 //	usage_flags = PROGRAM_ALL
 
-/datum/nano_module/contract_database
+/datum/ui_module/contract_database
 	name = "Contract Database"
 //	var/selected_category
 //	var/list/category_names
 //	var/list/category_contents
 
-/datum/nano_module/contract_database/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
+/datum/ui_module/contract_database/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "ContractDatabase")
+		ui.open()
+
+/datum/ui_module/contract_database/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
 //	category_contents = list()
@@ -43,14 +49,10 @@
 //	data["category"] = selected_category
 //	data["existing_contracts"] = category_contents
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "contract_database.tmpl", name, 1050, 800, state = state)
-		ui.set_auto_update(1)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
+
 /*
-/datum/nano_module/contract_database/Topic(href, href_list)
+/datum/ui_module/contract_database/Topic(href, href_list)
 //	var/mob/user = usr
 	if(..())
 		return 1
@@ -65,13 +67,13 @@
 		print_summary(user)
 */
 /*
-/datum/nano_module/contract_database/proc/can_print()
-	var/obj/item/modular_computer/MC = nano_host()
+/datum/ui_module/contract_database/proc/can_print()
+	var/obj/item/modular_computer/MC = ui_host()
 	if(!istype(MC) || !istype(MC.nano_printer))
 		return 0
 	return 1
 
-/datum/nano_module/contract_database/proc/print_summary(var/mob/user)
+/datum/ui_module/contract_database/proc/print_summary(var/mob/user)
 	var/t = ""
 	t += "<center><BR><b><large>[GLOB.using_map.station_name]</large></b><BR><i>[station_date]</i><BR><i>Contract overview<field></i></center><hr>"
 	print_text(t, user)

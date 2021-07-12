@@ -471,7 +471,7 @@
 			I.plane = ABOVE_TURF_PLANE
 			I.alpha = 127
 			I.color = netcolor
-			I.maptext = "\ref[PN]"
+			I.maptext = REF(PN)
 			powernet_markers += I
 	images += powernet_markers
 

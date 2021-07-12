@@ -87,17 +87,17 @@
 	. += "<b>Equipment:</b><br>"
 	for(var/datum/category_group/underwear/UWC in GLOB.underwear.categories)
 		var/item_name = (pref.all_underwear && pref.all_underwear[UWC.name]) ? pref.all_underwear[UWC.name] : "None"
-		. += "[UWC.name]: <a href='?src=\ref[src];change_underwear=[UWC.name]'><b>[item_name]</b></a>"
+		. += "[UWC.name]: <a href='?src=[REF(src)];change_underwear=[UWC.name]'><b>[item_name]</b></a>"
 
 		var/datum/category_item/underwear/UWI = UWC.items_by_name[item_name]
 		if(UWI)
 			for(var/datum/gear_tweak/gt in UWI.tweaks)
-				. += " <a href='?src=\ref[src];underwear=[UWC.name];tweak=\ref[gt]'>[gt.get_contents(get_underwear_metadata(UWC.name, gt))]</a>"
+				. += " <a href='?src=[REF(src)];underwear=[UWC.name];tweak=[REF(gt)]'>[gt.get_contents(get_underwear_metadata(UWC.name, gt))]</a>"
 
 		. += "<br>"
-	. += "Backpack Type: <a href='?src=\ref[src];change_backpack=1'><b>[pref.backpack.name]</b></a>"
+	. += "Backpack Type: <a href='?src=[REF(src)];change_backpack=1'><b>[pref.backpack.name]</b></a>"
 	for(var/datum/backpack_tweak/bt in pref.backpack.tweaks)
-		. += " <a href='?src=\ref[src];backpack=[pref.backpack.name];tweak=\ref[bt]'>[bt.get_ui_content(get_backpack_metadata(pref.backpack, bt))]</a>"
+		. += " <a href='?src=[REF(src)];backpack=[pref.backpack.name];tweak=[REF(bt)]'>[bt.get_ui_content(get_backpack_metadata(pref.backpack, bt))]</a>"
 	. += "<br>"
 	return jointext(.,null)
 
@@ -137,39 +137,39 @@
 	if(href_list["change_underwear"])
 		var/datum/category_group/underwear/UWC = GLOB.underwear.categories_by_name[href_list["change_underwear"]]
 		if(!UWC)
-			return TOPIC_NOACTION
+			return FALSE
 		var/datum/category_item/underwear/selected_underwear = input(user, "Choose underwear:", CHARACTER_PREFERENCE_INPUT_TITLE, pref.all_underwear[UWC.name]) as null|anything in UWC.items
 		if(selected_underwear && CanUseTopic(user))
 			pref.all_underwear[UWC.name] = selected_underwear.name
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 	else if(href_list["underwear"] && href_list["tweak"])
 		var/underwear = href_list["underwear"]
 		if(!(underwear in pref.all_underwear))
-			return TOPIC_NOACTION
+			return FALSE
 		var/datum/gear_tweak/gt = locate(href_list["tweak"])
 		if(!gt)
-			return TOPIC_NOACTION
+			return FALSE
 		var/new_metadata = gt.get_metadata(user, get_underwear_metadata(underwear, gt))
 		if(new_metadata)
 			set_underwear_metadata(underwear, gt, new_metadata)
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			return UPDATE_PREVIEW
 	else if(href_list["change_backpack"])
 		var/new_backpack = input(user, "Choose backpack style:", CHARACTER_PREFERENCE_INPUT_TITLE, pref.backpack) as null|anything in backpacks_by_name
 		if(!isnull(new_backpack) && CanUseTopic(user))
 			pref.backpack = backpacks_by_name[new_backpack]
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			return UPDATE_PREVIEW
 	else if(href_list["backpack"] && href_list["tweak"])
 		var/backpack_name = href_list["backpack"]
 		if(!(backpack_name in backpacks_by_name))
-			return TOPIC_NOACTION
+			return FALSE
 		var/decl/backpack_outfit/bo = backpacks_by_name[backpack_name]
 		var/datum/backpack_tweak/bt = locate(href_list["tweak"]) in bo.tweaks
 		if(!bt)
-			return TOPIC_NOACTION
+			return FALSE
 		var/new_metadata = bt.get_metadata(user, get_backpack_metadata(bo, bt))
 		if(new_metadata)
 			set_backpack_metadata(bo, bt, new_metadata)
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			return UPDATE_PREVIEW
 
 	return ..()
 

@@ -21,10 +21,10 @@
 	circuitry. As a result neurotoxins can cause massive damage.<HR>"}
 	if(!malfunction)
 		.+= {"ID (1-100):<BR>
-		<A href='byond://?src=\ref[src];tracking_id=-10'>-</A>
-		<A href='byond://?src=\ref[src];tracking_id=-1'>-</A> [id]
-		<A href='byond://?src=\ref[src];tracking_id=1'>+</A>
-		<A href='byond://?src=\ref[src];tracking_id=10'>+</A><BR>"}
+		<A href='byond://?src=[REF(src)];tracking_id=-10'>-</A>
+		<A href='byond://?src=[REF(src)];tracking_id=-1'>-</A> [id]
+		<A href='byond://?src=[REF(src)];tracking_id=1'>+</A>
+		<A href='byond://?src=[REF(src)];tracking_id=10'>+</A><BR>"}
 
 /obj/item/weapon/implant/tracking/Topic(href, href_list)
 	..()

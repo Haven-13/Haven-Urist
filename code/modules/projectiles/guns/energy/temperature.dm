@@ -37,13 +37,13 @@
 
 	var/dat = {"<B>Freeze Gun Configuration: </B><BR>
 	Current output temperature: [temp_text]<BR>
-	Target output temperature: <A href='?src=\ref[src];temp=-100'>-</A> <A href='?src=\ref[src];temp=-10'>-</A> <A href='?src=\ref[src];temp=-1'>-</A> [current_temperature] <A href='?src=\ref[src];temp=1'>+</A> <A href='?src=\ref[src];temp=10'>+</A> <A href='?src=\ref[src];temp=100'>+</A><BR>
+	Target output temperature: <A href='?src=[REF(src)];temp=-100'>-</A> <A href='?src=[REF(src)];temp=-10'>-</A> <A href='?src=[REF(src)];temp=-1'>-</A> [current_temperature] <A href='?src=[REF(src)];temp=1'>+</A> <A href='?src=[REF(src)];temp=10'>+</A> <A href='?src=[REF(src)];temp=100'>+</A><BR>
 	"}
 
-	user << browse(dat, "window=freezegun;size=450x300;can_resize=1;can_close=1;can_minimize=1")
+	show_browser(user, dat, "window=freezegun;size=450x300;can_resize=1;can_close=1;can_minimize=1")
 	onclose(user, "window=freezegun", src)
 
-/obj/item/weapon/gun/energy/temperature/Topic(user, href_list, state = GLOB.inventory_state)
+/obj/item/weapon/gun/energy/temperature/Topic(user, href_list, state = ui_inventory_state())
 	..()
 
 /obj/item/weapon/gun/energy/temperature/OnTopic(user, href_list)
@@ -53,7 +53,7 @@
 			src.current_temperature = min(500, src.current_temperature+amount)
 		else
 			src.current_temperature = max(0, src.current_temperature+amount)
-		. = TOPIC_REFRESH
+		. = TRUE
 
 		attack_self(user)
 

@@ -37,13 +37,13 @@ datum/hSB
 			var/hsbpanel = "<center><b>h_Sandbox Panel</b></center><hr>"
 			if(admin)
 				hsbpanel += "<b>Administration Tools:</b><br>"
-				hsbpanel += "- <a href=\"?\ref[src];hsb=hsbtobj\">Toggle Object Spawning</a><br><br>"
+				hsbpanel += "- <a href=\"?[REF(src)];hsb=hsbtobj\">Toggle Object Spawning</a><br><br>"
 			hsbpanel += "<b>Regular Tools:</b><br>"
 			for(var/T in hrefs)
-				hsbpanel += "- <a href=\"?\ref[src];hsb=[T]\">[hrefs[T]]</a><br>"
+				hsbpanel += "- <a href=\"?[REF(src)];hsb=[T]\">[hrefs[T]]</a><br>"
 			if(hsboxspawn)
-				hsbpanel += "- <a href=\"?\ref[src];hsb=hsbobj\">Spawn Object</a><br><br>"
-			usr << browse(hsbpanel, "window=hsbpanel")
+				hsbpanel += "- <a href=\"?[REF(src)];hsb=hsbobj\">Spawn Object</a><br><br>"
+			show_browser(usr, hsbpanel, "window=hsbpanel")
 	Topic(href, href_list)
 		if(!(src.owner == usr.ckey)) return
 		if(!usr) return //I guess this is possible if they log out or die with the panel open? It happened.

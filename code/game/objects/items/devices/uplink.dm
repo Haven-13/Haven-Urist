@@ -3,7 +3,7 @@
 
  1. All obj/item 's have a hidden_uplink var. By default it's null. Give the item one with "new(src)", it must be in it's contents. Feel free to add "uses".
 
- 2. Code in the triggers. Use check_trigger for this, I recommend closing the item's menu with "usr << browse(null, "window=windowname") if it returns true.
+ 2. Code in the triggers. Use check_trigger for this, I recommend closing the item's menu with "close_browser(usr, "window=windowname") if it returns true.
  The var/value is the value that will be compared with the var/target. If they are equal it will activate the menu.
 
  3. If you want the menu to stay until the users locks his uplink, add an active_uplink_check(mob/user as mob) in your interact/attack_hand proc.
@@ -32,7 +32,7 @@
 	var/datum/uplink_item/discount_item	//The item to be discounted
 	var/discount_amount					//The amount as a percent the item will be discounted by
 
-/obj/item/device/uplink/nano_host()
+/obj/item/device/uplink/ui_host()
 	return loc
 
 /obj/item/device/uplink/New(var/atom/location, var/datum/mind/owner, var/telecrystals = DEFAULT_TELECRYSTAL_AMOUNT)
@@ -70,7 +70,7 @@
 
 		discount_item = new_discount_item
 		update_nano_data()
-		SSnano.update_uis(src)
+		SStgui.update_uis(src)
 
 /obj/item/device/uplink/proc/is_improper_item(var/datum/uplink_item/new_discount_item, discount_amount)
 	if(!new_discount_item)
@@ -113,8 +113,13 @@
 /*
 	NANO UI FOR UPLINK WOOP WOOP
 */
-/obj/item/device/uplink/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/uistate = GLOB.inventory_state)
-	var/title = "Remote Uplink"
+/obj/item/device/uplink/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)	// No auto-refresh
+		ui = new(user, src, "Uplink")
+		ui.open()
+
+/obj/item/device/uplink/ui_data(mob/user)
 	var/data[0]
 
 	data["welcome"] = welcome
@@ -127,13 +132,7 @@
 
 	data += nanoui_data
 
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)	// No auto-refresh
-		ui = new(user, src, ui_key, "uplink.tmpl", title, 450, 600, state = uistate)
-		ui.set_initial_data(data)
-		ui.open()
-
+	return data
 
 // Interaction code. Gathers a list of items purchasable from the paren't uplink and displays it. It also adds a lock button.
 /obj/item/device/uplink/interact(mob/user)
@@ -141,7 +140,7 @@
 
 /obj/item/device/uplink/CanUseTopic()
 	if(!active)
-		return STATUS_CLOSE
+		return UI_CLOSE
 	return ..()
 
 // The purchasing code.
@@ -149,23 +148,23 @@
 	if(href_list["buy_item"])
 		var/datum/uplink_item/UI = (locate(href_list["buy_item"]) in uplink.items)
 		UI.buy(src, usr)
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if(href_list["lock"])
 		toggle()
-		SSnano.close_user_uis(user, src, "main")
-		. = TOPIC_HANDLED
+		SStgui.close_user_uis(user, src, "main")
+		. = FALSE
 	else if(href_list["return"])
 		nanoui_menu = round(nanoui_menu/10)
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if(href_list["menu"])
 		nanoui_menu = text2num(href_list["menu"])
 		if(href_list["id"])
 			exploit_id = text2num(href_list["id"])
 		if(href_list["category"])
 			category = locate(href_list["category"]) in uplink.categories
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		update_nano_data()
 
 /obj/item/device/uplink/proc/update_nano_data()
@@ -173,7 +172,7 @@
 		var/categories[0]
 		for(var/datum/uplink_category/category in uplink.categories)
 			if(category.can_view(src))
-				categories[++categories.len] = list("name" = category.name, "ref" = "\ref[category]")
+				categories[++categories.len] = list("name" = category.name, "ref" = REF(category))
 		nanoui_data["categories"] = categories
 	else if(nanoui_menu == 1)
 		var/items[0]
@@ -181,7 +180,7 @@
 			if(item.can_view(src))
 				var/cost = item.cost(uses, src)
 				if(!cost) cost = "???"
-				items[++items.len] = list("name" = item.name(), "description" = replacetext(item.description(), "\n", "<br>"), "can_buy" = item.can_buy(src), "cost" = cost, "ref" = "\ref[item]")
+				items[++items.len] = list("name" = item.name(), "description" = replacetext(item.description(), "\n", "<br>"), "can_buy" = item.can_buy(src), "cost" = cost, "ref" = REF(item))
 		nanoui_data["items"] = items
 	else if(nanoui_menu == 2)
 		var/permanentData[0]
@@ -193,14 +192,14 @@
 
 		for(var/datum/computer_file/report/crew_record/L in GLOB.all_crew_records)
 			if(L.uid == exploit_id)
-				nanoui_data["exploit"] = L.generate_nano_data()
+				nanoui_data["exploit"] = L.generate_ui_json_data()
 				nanoui_data["exploit_exists"] = 1
 				break
 
 // I placed this here because of how relevant it is.
 // You place this in your uplinkable item to check if an uplink is active or not.
 // If it is, it will display the uplink menu and return 1, else it'll return false.
-// If it returns true, I recommend closing the item's normal menu with "user << browse(null, "window=name")"
+// If it returns true, I recommend closing the item's normal menu with "close_browser(user, "window=name")"
 /obj/item/proc/active_uplink_check(mob/user as mob)
 	// Activates the uplink if it's active
 	if(src.hidden_uplink)
@@ -239,5 +238,5 @@
 	..()
 	hidden_uplink = new(src)
 
-/obj/item/device/uplink/contained/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/uistate = GLOB.contained_state)
+/obj/item/device/uplink/contained/ui_interact(mob/user, datum/tgui/ui)
 	return ..()

@@ -18,10 +18,10 @@
 					is_multikeying = 1
 				if(matches)
 					if(M.client)
-						message_admins("<font color='red'><B>Notice: </B></font><font color='blue'><A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as <A href='?src=\ref[usr];priv_msg=\ref[M]'>[key_name_admin(M)]</A>.</font>", 1)
+						message_admins("<font color='red'><B>Notice: </B></font><font color='blue'><A href='?src=[REF(usr)];priv_msg=[REF(src)]'>[key_name_admin(src)]</A> has the same [matches] as <A href='?src=[REF(usr)];priv_msg=[REF(M)]'>[key_name_admin(M)]</A>.</font>", 1)
 						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)].")
 					else
-						message_admins("<font color='red'><B>Notice: </B></font><font color='blue'><A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as [key_name_admin(M)] (no longer logged in). </font>", 1)
+						message_admins("<font color='red'><B>Notice: </B></font><font color='blue'><A href='?src=[REF(usr)];priv_msg=[REF(src)]'>[key_name_admin(src)]</A> has the same [matches] as [key_name_admin(M)] (no longer logged in). </font>", 1)
 						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)] (no longer logged in).")
 		if(is_multikeying && !client.warned_about_multikeying)
 			client.warned_about_multikeying = 1
@@ -56,6 +56,7 @@
 	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
 
 /mob/Login()
+	apply_global_theme(src.client)
 
 	GLOB.player_list |= src
 	update_Login_details()
@@ -90,4 +91,4 @@
 	update_action_buttons()
 
 	//set macro to normal incase it was overriden (like cyborg currently does)
-	winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#d3b5b5")
+	winset(src.client, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#d3b5b5")

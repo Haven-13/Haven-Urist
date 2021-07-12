@@ -76,6 +76,8 @@
 	moving_status = SHUTTLE_WARMUP
 	if(sound_takeoff)
 		playsound(current_location, sound_takeoff, 100, 20, 0.2)
+
+	arrive_time = world.time + warmup_time*10
 	spawn(warmup_time*10)
 		if (moving_status == SHUTTLE_IDLE)
 			return FALSE	//someone cancelled the launch
@@ -98,6 +100,8 @@
 	moving_status = SHUTTLE_WARMUP
 	if(sound_takeoff)
 		playsound(current_location, sound_takeoff, 100, 20, 0.2)
+
+	arrive_time = world.time + warmup_time*10
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
@@ -177,7 +181,7 @@
 						else
 							to_chat(M, "<span class='warning'>The floor lurches beneath you!</span>")
 							shake_camera(M, 10, 1)
-							M.visible_message("<span class='warning'>[M.name] is tossed around by the sudden acceleration!</span>")	
+							M.visible_message("<span class='warning'>[M.name] is tossed around by the sudden acceleration!</span>")
 							M.throw_at_random(FALSE, 4, 1)
 
 		for(var/obj/structure/cable/C in A)
@@ -210,7 +214,7 @@
 
 //returns 1 if the shuttle has a valid arrive time
 /datum/shuttle/proc/has_arrive_time()
-	return (moving_status == SHUTTLE_INTRANSIT)
+	return (moving_status == SHUTTLE_WARMUP || moving_status == SHUTTLE_INTRANSIT)
 
 /datum/shuttle/autodock/proc/get_location_name()
 	if(moving_status == SHUTTLE_INTRANSIT)
@@ -221,3 +225,6 @@
 	if(!next_location)
 		return "None"
 	return next_location.name
+
+/datum/shuttle/proc/time_left()
+	return time_remaining(arrive_time)

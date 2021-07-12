@@ -91,18 +91,18 @@
 		var/list/dat = list()
 		dat += "Power cell: "
 		if(cell)
-			dat += "<A href='byond://?src=\ref[src];op=cellremove'>Installed</A><BR>"
+			dat += "<A href='byond://?src=[REF(src)];op=cellremove'>Installed</A><BR>"
 		else
-			dat += "<A href='byond://?src=\ref[src];op=cellinstall'>Removed</A><BR>"
+			dat += "<A href='byond://?src=[REF(src)];op=cellinstall'>Removed</A><BR>"
 
 		dat += "Power Level: [cell ? round(cell.percent(),1) : 0]%<BR><BR>"
 
 		dat += "Set Temperature: "
 
-		dat += "<A href='?src=\ref[src];op=temp;val=-5'>-</A>"
+		dat += "<A href='?src=[REF(src)];op=temp;val=-5'>-</A>"
 
 		dat += " [set_temperature]K ([set_temperature-T0C]&deg;C)"
-		dat += "<A href='?src=\ref[src];op=temp;val=5'>+</A><BR>"
+		dat += "<A href='?src=[REF(src)];op=temp;val=5'>+</A><BR>"
 
 		var/datum/browser/popup = new(usr, "spaceheater", "Space Heater Control Panel")
 		popup.set_content(jointext(dat, null))
@@ -115,7 +115,7 @@
 	return
 
 
-/obj/machinery/space_heater/Topic(href, href_list, state = GLOB.physical_state)
+/obj/machinery/space_heater/Topic(href, href_list, state = ui_physical_state())
 	if (..())
 		show_browser(usr, null, "window=spaceheater")
 		usr.unset_machine()
@@ -127,7 +127,7 @@
 			var/value = text2num(href_list["val"])
 
 			// limit to 0-90 degC
-			set_temperature = dd_range(T0C, T0C + 90, set_temperature + value)
+			set_temperature = between(T0C, set_temperature + value, T0C + 90)
 
 		if("cellremove")
 			if(panel_open && cell && !usr.get_active_hand())
@@ -150,6 +150,11 @@
 					usr.visible_message("<span class='notice'>[usr] inserts \the [C] into \the [src].</span>", "<span class='notice'>You insert \the [C] into \the [src].</span>")
 
 	updateDialog()
+/obj/machinery/space_heater/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "SpaceHeater", name)
+		ui.open()
 
 /obj/machinery/space_heater/Process()
 	if(on)

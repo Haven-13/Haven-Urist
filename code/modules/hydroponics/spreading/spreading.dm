@@ -145,7 +145,7 @@
 
 	growth = max(1,max_growth)
 
-	var/ikey = "\ref[seed]-plant-[growth]"
+	var/ikey = "[REF(seed)]-plant-[growth]"
 	if(!plant_controller.plant_icon_cache[ikey])
 		plant_controller.plant_icon_cache[ikey] = seed.get_icon(growth)
 	overlays += plant_controller.plant_icon_cache[ikey]

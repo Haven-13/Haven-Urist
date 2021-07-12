@@ -311,10 +311,18 @@
 /obj/machinery/power/port_gen/pacman/attack_ai(mob/user as mob)
 	ui_interact(user)
 
-/obj/machinery/power/port_gen/pacman/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/power/port_gen/pacman/ui_status(mob/user, datum/ui_state/state)
 	if(IsBroken())
-		return
+		return UI_CLOSE
+	return ..()
 
+/obj/machinery/power/port_gen/pacman/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "PacmanGenerator")
+		ui.open()
+
+/obj/machinery/power/port_gen/pacman/ui_data(mob/user)
 	var/data[0]
 	data["active"] = active
 	if(istype(user, /mob/living/silicon/ai))
@@ -339,41 +347,33 @@
 	data["fuel_usage"] = active ? round((power_output / time_per_sheet) * 1000) : 0
 	data["fuel_type"] = sheet_name
 
-
-
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "pacman.tmpl", src.name, 500, 560)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
-
+	return data
 
 /*
 /obj/machinery/power/port_gen/pacman/interact(mob/user)
 	if (get_dist(src, user) > 1 )
 		if (!istype(user, /mob/living/silicon/ai))
 			user.unset_machine()
-			user << browse(null, "window=port_gen")
+			close_browser(user, "window=port_gen")
 			return
 
 	user.set_machine(src)
 
 	var/dat = text("<b>[name]</b><br>")
 	if (active)
-		dat += text("Generator: <A href='?src=\ref[src];action=disable'>On</A><br>")
+		dat += text("Generator: <A href='?src=[REF(src)];action=disable'>On</A><br>")
 	else
-		dat += text("Generator: <A href='?src=\ref[src];action=enable'>Off</A><br>")
-	dat += text("[capitalize(sheet_name)]: [sheets] - <A href='?src=\ref[src];action=eject'>Eject</A><br>")
+		dat += text("Generator: <A href='?src=[REF(src)];action=enable'>Off</A><br>")
+	dat += text("[capitalize(sheet_name)]: [sheets] - <A href='?src=[REF(src)];action=eject'>Eject</A><br>")
 	var/stack_percent = round(sheet_left * 100, 1)
 	dat += text("Current stack: [stack_percent]% <br>")
-	dat += text("Power output: <A href='?src=\ref[src];action=lower_power'>-</A> [power_gen * power_output] Watts<A href='?src=\ref[src];action=higher_power'>+</A><br>")
+	dat += text("Power output: <A href='?src=[REF(src)];action=lower_power'>-</A> [power_gen * power_output] Watts<A href='?src=[REF(src)];action=higher_power'>+</A><br>")
 	dat += text("Power current: [(powernet == null ? "Unconnected" : "[avail()]")]<br>")
 
 	var/tempstr = "Temperature: [temperature]&deg;C<br>"
 	dat += (overheating)? "<span class='danger'>[tempstr]</span>" : tempstr
-	dat += "<br><A href='?src=\ref[src];action=close'>Close</A>"
-	user << browse("[dat]", "window=port_gen")
+	dat += "<br><A href='?src=[REF(src)];action=close'>Close</A>"
+	show_browser(user, "[dat]", "window=port_gen")
 	onclose(user, "port_gen")
 */
 

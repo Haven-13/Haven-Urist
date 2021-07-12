@@ -114,6 +114,11 @@
 	..()
 	sense()
 	return
+/obj/item/assembly/prox_sensor/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "ProximitySensor", name)
+		ui.open()
 
 
 /obj/item/device/assembly/prox_sensor/interact(mob/user as mob)//TODO: Change this to the wires thingy
@@ -124,17 +129,17 @@
 	var/minute = (time - second) / 60
 	var/dat = text("<TT><B>Proximity Sensor</B>\n[] []:[]\n<A href='?src=\ref[];tp=-30'>-</A> <A href='?src=\ref[];tp=-1'>-</A> <A href='?src=\ref[];tp=1'>+</A> <A href='?src=\ref[];tp=30'>+</A>\n</TT>", (timing ? text("<A href='?src=\ref[];time=0'>Arming</A>", src) : text("<A href='?src=\ref[];time=1'>Not Arming</A>", src)), minute, second, src, src, src, src)
 	dat += text("<BR>Range: <A href='?src=\ref[];range=-1'>-</A> [] <A href='?src=\ref[];range=1'>+</A>", src, range, src)
-	dat += "<BR><A href='?src=\ref[src];scanning=1'>[scanning?"Armed":"Unarmed"]</A> (Movement sensor active when armed!)"
-	dat += "<BR><BR><A href='?src=\ref[src];refresh=1'>Refresh</A>"
-	dat += "<BR><BR><A href='?src=\ref[src];close=1'>Close</A>"
-	user << browse(dat, "window=prox")
+	dat += "<BR><A href='?src=[REF(src)];scanning=1'>[scanning?"Armed":"Unarmed"]</A> (Movement sensor active when armed!)"
+	dat += "<BR><BR><A href='?src=[REF(src)];refresh=1'>Refresh</A>"
+	dat += "<BR><BR><A href='?src=[REF(src)];close=1'>Close</A>"
+	show_browser(user, dat, "window=prox")
 	onclose(user, "prox")
 	return
 
 
-/obj/item/device/assembly/prox_sensor/Topic(href, href_list, state = GLOB.physical_state)
+/obj/item/device/assembly/prox_sensor/Topic(href, href_list, state = ui_physical_state())
 	if((. = ..()))
-		usr << browse(null, "window=prox")
+		close_browser(usr, "window=prox")
 		onclose(usr, "prox")
 		return
 
@@ -156,7 +161,7 @@
 		range = min(max(range, 1), 5)
 
 	if(href_list["close"])
-		usr << browse(null, "window=prox")
+		close_browser(usr, "window=prox")
 		return
 
 	if(usr)
