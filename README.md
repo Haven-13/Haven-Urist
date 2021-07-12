@@ -1,6 +1,6 @@
-# Astro Haven 13 ![CI](https://github.com/Haven-13/Haven-Urist/actions/workflows/ci.yml/badge.svg?branch=master)
+# Haven 13 ![CI](https://github.com/Haven-13/Haven-Urist/actions/workflows/ci.yml/badge.svg?branch=master)
 
-AH13's Urist McStation's BS12 branch.
+H13's Urist McStation's BS12 branch.
 
 [Website](http://haven-13.github.io/) - [Github](https://github.com/Haven-13/Haven-Urist) -  [Original Code](http://github.com/UristMcStation/UristMcStation/)
 
