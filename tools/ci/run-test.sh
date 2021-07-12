@@ -203,12 +203,10 @@ function run_code_quality_tests {
     pip install --user PyYaml -q
     pip install --user beautifulsoup4 -q
     shopt -s globstar
-#    run_test "check travis contains all maps" "scripts/validateTravisContainsAllMaps.sh"
     run_test_fail "maps contain no step_[xy]" "grep 'step_[xy]' maps/**/*.dmm"
-    run_test_fail "ensure nanoui templates unique" "find nano/templates/ -type f -exec md5sum {} + | sort | uniq -D -w 32 | grep nano"
     run_test_fail "no invalid spans" "grep -En \"<\s*span\s+class\s*=\s*('[^'>]+|[^'>]+')\s*>\" **/*.dm"
-    run_test "code quality checks" "./.travis/check-paths.sh"
-    run_test "indentation check" "awk -f ./.travis/indentation.awk **/*.dm"
+    run_test "code quality checks" "./tools/ci/check-paths.sh"
+    run_test "indentation check" "awk -f ./tools/ci/indentation.awk **/*.dm"
     run_test "check tags" "python3 ./tools/TagMatcher/tag-matcher.py ."
     run_test "check color hex" "python3 ./tools/ColorHexChecker/color-hex-checker.py ."
     run_test "check punctuation" "python3 ./tools/PunctuationChecker/punctuation-checker.py ."
@@ -245,7 +243,7 @@ function run_byond_tests {
 
     run_test_ci "check globals build" "python3 ./tools/GenerateGlobalVarAccess/gen_globals.py $TARGET_PROJECT_NAME.dme code/_helpers/global_access.dm"
 #    run_test "check globals unchanged" "md5sum -c - <<< '5eaa581969e84a62c292a7015fee8960 *code/_helpers/global_access.dm'"
-    run_test "build map unit tests" "./.travis/dm.sh -DUNIT_TEST -M$MAP_PATH $TARGET_PROJECT_NAME.dme"
+    run_test "build map unit tests" "./tools/ci/dm.sh -DUNIT_TEST -M$MAP_PATH $TARGET_PROJECT_NAME.dme"
     run_test "check no warnings in build" "grep ', 0 warnings' build_log.txt"
     run_test "run unit tests" "DreamDaemon $TARGET_PROJECT_NAME.dmb -invisible -trusted -core 2>&1 | tee log.txt"
     run_test "check tests passed" "grep 'All Unit Tests Passed' log.txt"

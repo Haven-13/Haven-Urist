@@ -25,7 +25,6 @@ jobs:
           tools/bootstrap/python -c ''
       - name: Run Linters
         run: |
-          bash tools/ci/check_paths.sh
           tgui/bin/tgui --lint
           ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
       - name: Annotate Lints
@@ -33,6 +32,23 @@ jobs:
         if: always()
         with:
           outputFile: output-annotations.txt
+
+  code_check:
+    name: Baycode Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkoutv2
+      - name: Setup Cache
+        uses: actions/cache@v2
+        with:
+          path: $HOME/CODE
+          key: ${{ runner.os }}-code
+      - name: Install Dependencies
+        run: sudo apt-get install -y uchardet
+      - name: Run Tests
+        env:
+          TEST: CODE
+        run: bash tools/ci/run-test.sh
 
   test_compile:
     name: Test Compile
@@ -52,7 +68,7 @@ jobs:
           bash tools/ci/dm.sh baystation12.dme
 
   maps:
-    name: Map Unit-tests
+    name: Unit-test
     runs-on: ubuntu-20.04
     strategy:
       matrix:
