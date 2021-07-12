@@ -1,19 +1,19 @@
 name: Changelog Automaker
 
 on:
-  push: 
+  push:
     branches: [master]
 
 env:
   GIT_EMAIL: "action@github.com"
-  GIT_NAME: "Changelog Automaker" 
+  GIT_NAME: "Changelog Automaker"
   CL_AUTOMAKER_DIR: "./tools/ChangelogAutomaker"
 
 jobs:
   MakeCL:
     runs-on: ubuntu-latest
     # discriminator to exclude forks
-    if: github.repository == 'AstroHaven-13/Haven-Urist'
+    if: github.repository == 'Haven-13/Haven-Urist'
     steps:
       - name: Checkout
         uses: actions/checkout@v1
