@@ -177,3 +177,7 @@
   - imageadd: Changed the old IV-drip to a new one, with bigger status display and
       additional states for when no beaker is attached.
   - code_imp: Added support for mutable_appearance
+2021-07-12:
+  martinlyra:
+  - bugfix: Fixed an incorrect typepath affecting how the overmap generators place
+      events
