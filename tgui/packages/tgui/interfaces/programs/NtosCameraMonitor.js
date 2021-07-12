@@ -36,7 +36,7 @@ export const NtosCameraMonitor = (props, context) => {
     .filter((network) => !!network.has_access)
     .map((network) => network.tag);
   const camerasByNetwork = Object.assign({}, ...networks.map((network) => {
-    return {[network.tag]: network.cameras}
+    return { [network.tag]: network.cameras };
   }));
 
   const [
@@ -60,12 +60,11 @@ export const NtosCameraMonitor = (props, context) => {
                 || []
               }
               selected={(entry) =>
-                entry.name ===
-                active_view_data[selectedView]?.camera?.name
-              }
+                entry.name
+                === active_view_data[selectedView]?.camera?.name}
               onClick={(entry) => act("switch_camera", {
                 index: selectedView + 1,
-                camera: entry.camera
+                camera: entry.camera,
               })}
             />
           </Section>
@@ -73,7 +72,8 @@ export const NtosCameraMonitor = (props, context) => {
         <div className="CameraConsole__right">
           <div className="CameraConsole__toolbar">
             <div className="CameraConsole__viewselect">
-              {active_view_data.length > 1 && active_view_data.map((view, index) => (
+              {active_view_data.length > 1
+              && active_view_data.map((view, index) => (
                 <Button.Checkbox
                   key={index}
                   checked={selectedView === (index)}
@@ -198,7 +198,7 @@ export const CameraConsoleContent = (props, context) => {
           selected={data.selected_network}
           width="100%"
           onSelected={(v) => act("switch_network", {
-            network: v
+            network: v,
           })}
         />
       </Stack.Item>
@@ -229,7 +229,8 @@ export const CameraConsoleContent = (props, context) => {
         )) || (
           <b>There are no cameras {
             !!searchText.length && "matching your search"
-          }</b>
+          }
+          </b>
         )}
       </Stack.Item>
     </Stack>
