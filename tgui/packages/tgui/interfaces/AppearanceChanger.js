@@ -1,4 +1,4 @@
-import { useBackend } from "tgui/backend"
+import { useBackend } from "tgui/backend";
 import { Button, Flex, Section, Stack } from "tgui/components";
 import { Window } from "tgui/layouts";
 
@@ -30,11 +30,11 @@ const AppearanceContent = (props, context) => {
         </Section>
       </Stack.Item>
     </Stack>
-  )
-}
+  );
+};
 
 export const AppearanceChanger = (props, context) => {
-  const {act, data} = useBackend(context);
+  const { act, data } = useBackend(context);
   const {
     specimen,
     species,
@@ -93,11 +93,10 @@ export const AppearanceChanger = (props, context) => {
                   title={"Species"}
                   content={species}
                   checked={(entry) =>
-                    entry.specimen === specimen
-                  }
+                    entry.specimen === specimen}
                   format={(entry) => entry.specimen}
                   onSelect={(entry) => act("race", {
-                    race: entry.specimen
+                    race: entry.specimen,
                   })}
                 />
               </Stack.Item>
@@ -106,11 +105,10 @@ export const AppearanceChanger = (props, context) => {
                   title={"Gender"}
                   content={genders}
                   checked={(entry) =>
-                    entry.gender_key === gender
-                  }
+                    entry.gender_key === gender}
                   format={(entry) => entry.gender_name}
                   onSelect={(entry) => act("gender", {
-                    gender: entry.gender_key
+                    gender: entry.gender_key,
                   })}
                 />
               </Stack.Item>
@@ -119,11 +117,10 @@ export const AppearanceChanger = (props, context) => {
                   title={"Hair"}
                   content={hair_styles}
                   checked={(entry) =>
-                    entry.hairstyle === hair_style
-                  }
+                    entry.hairstyle === hair_style}
                   format={(entry) => entry.hairstyle}
                   onSelect={(entry) => act("hair", {
-                    hair: entry.hairstyle
+                    hair: entry.hairstyle,
                   })}
                 />
               </Stack.Item>
@@ -132,11 +129,10 @@ export const AppearanceChanger = (props, context) => {
                   title={"Facial Hair"}
                   content={facial_hair_styles}
                   checked={(entry) =>
-                    entry.facialhairstyle === facial_hair_style
-                  }
+                    entry.facialhairstyle === facial_hair_style}
                   format={(entry) => entry.facialhairstyle}
                   onSelect={(entry) => act("facial_hair", {
-                    facial_hair: entry.facialhairstyle
+                    facial_hair: entry.facialhairstyle,
                   })}
                 />
               </Stack.Item>
@@ -145,5 +141,5 @@ export const AppearanceChanger = (props, context) => {
         </Stack>
       </Window.Content>
     </Window>
-  )
-}
+  );
+};
