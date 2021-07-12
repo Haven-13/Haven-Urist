@@ -1,13 +1,13 @@
 ### GETTING THE CODE
 
 In a terminal, run this to start cloning this entire codebase with its history.
-    
-    git clone https://github.com/AstroHaven-13/Haven-Urist.git
-    
+
+    git clone https://github.com/Haven-13/Haven-Urist.git
+
 Or if you want to shorten your download time. By fetching the lastest revision and only the master branch, otherwise add `--branch` and then the name of the branch you wish to clone.
-    
-    git clone --depth 1 https://github.com/AstroHaven-13/Haven-Urist.git
-    
+
+    git clone --depth 1 https://github.com/Haven-13/Haven-Urist.git
+
 The caveat is tools used to trace back in git's revision history can not be used. The history has to be fetched first using `git fetch --unshallow`.
 
 ---
@@ -19,7 +19,7 @@ First-time installation should be fairly straightforward.  First, you'll need BY
 This is a sourcecode-only release, so the next step is to compile the server files.  Open baystation12.dme by double-clicking it, open the Build menu, and click compile.  This'll take a little while, and if everything's done right you'll get a message like this:
 
     saving baystation12.dmb (DEBUG mode)
-    
+
     baystation12.dmb - 0 errors, 0 warnings
 
 Once that's done, open up the config folder.  You'll want to edit config.txt to set the probabilities for different gamemodes in Secret and to set your server location so that all your players don't get disconnected at the end of each round.  It's recommended you don't turn on the gamemodes with probability 0, as they have various issues and aren't currently being tested, so they may have unknown and bizarre bugs.
