@@ -21,6 +21,51 @@ jobs:
         run: |
           pip3 install setuptools
           bash tools/ci/install_node.sh
+          bash tools/ci/install_spaceman_dmm.sh dreamchecker
+          tools/bootstrap/python -c ''
       - name: Run Linters
         run: |
+          bash tools/ci/check_paths.sh
           tgui/bin/tgui --lint
+          ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
+      - name: Annotate Lints
+        uses: yogstation13/DreamAnnotate@v1
+        if: always()
+        with:
+          outputFile: output-annotations.txt
+
+  test_compile:
+    name: Test Compile
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup cache
+        uses: actions/cache@v2
+        with:
+          path: $HOME/BYOND
+          key: ${{ runner.os }}-byond
+      - name: Compile Run
+        run: |
+          bash tools/ci/install_byond.sh
+          source $HOME/BYOND/byond/bin/byondsetup
+          tgui/bin/tgui --build
+          bash tools/ci/dm.sh baystation12.dme
+
+  maps:
+    name: Map Unit-tests
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        maps: [example, tyclo-pluto]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup cache
+        uses: actions/cache@v2
+        with:
+          path: $HOME/BYOND
+          key: ${{ runner.os }}-byond
+      - name: Run Tests
+        env:
+          TEST: MAP
+          MAP_PATH: ${{matrix.maps}}
+        run: bash tools/ci/run-test.sh
