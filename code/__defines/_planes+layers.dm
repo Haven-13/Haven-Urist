@@ -70,6 +70,9 @@ What is the naming convention for planes or layers?
 	#define BASE_SKYBOX_LAYER 1
 	#define DUST_LAYER 2
 
+#define MAP_VIEW_PLANE				 0
+	#define MAP_VIEW_LAYER 0
+
 // Visible game planes
 #define OPENSPACE_PLANE              1
 	#define OPENSPACE_LAYER_OBJS 2 // unused
@@ -212,32 +215,33 @@ What is the naming convention for planes or layers?
 // handling of rendering multi-z
 //
 // Planes that are not included are:
+// - 
 // - OPENSPACE_PLANE; not needed
 // - LIGHTING_PLANE; blending cause the lighting overlay to be
 //       almost invisible in multi-z. Undesired effect
 /proc/multiz_rendering_planes()
 	return list(
-			BELOW_TURF_PLANE,
-			PLATING_PLANE,
-			ABOVE_PLATING_PLANE,
-			TURF_PLANE,
-			ABOVE_TURF_PLANE,
-			UNDER_OBJ_PLANE,
-			HIDING_MOB_PLANE,
-			OBJ_PLANE,
-			LYING_MOB_PLANE,
-			LYING_HUMAN_PLANE,
-			ABOVE_OBJ_PLANE,
-			HUMAN_PLANE,
-			MOB_PLANE,
-			ABOVE_HUMAN_PLANE,
-			BLOB_PLANE,
-			EFFECTS_BELOW_LIGHTING_PLANE,
-			OBSERVER_PLANE,
-			VISIBLE_GAME_WORLD_PLANE,
-			EFFECTS_ABOVE_LIGHTING_PLANE,
-			OBSCURITY_PLANE
-		)
+		BELOW_TURF_PLANE,
+		PLATING_PLANE,
+		ABOVE_PLATING_PLANE,
+		TURF_PLANE,
+		ABOVE_TURF_PLANE,
+		UNDER_OBJ_PLANE,
+		HIDING_MOB_PLANE,
+		OBJ_PLANE,
+		LYING_MOB_PLANE,
+		LYING_HUMAN_PLANE,
+		ABOVE_OBJ_PLANE,
+		HUMAN_PLANE,
+		MOB_PLANE,
+		ABOVE_HUMAN_PLANE,
+		BLOB_PLANE,
+		EFFECTS_BELOW_LIGHTING_PLANE,
+		OBSERVER_PLANE,
+		VISIBLE_GAME_WORLD_PLANE,
+		EFFECTS_ABOVE_LIGHTING_PLANE,
+		OBSCURITY_PLANE
+	)
 
 /image/proc/plating_decal_layerise(atom/target)
 	plane = target.get_float_plane(ABOVE_PLATING_PLANE)

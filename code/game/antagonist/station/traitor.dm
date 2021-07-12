@@ -7,7 +7,7 @@ GLOBAL_DATUM_INIT(traitors, /datum/antagonist/traitor, new)
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 
 /datum/antagonist/traitor/get_extra_panel_options(var/datum/mind/player)
-	return "<a href='?src=\ref[player];common=crystals'>\[set crystals\]</a><a href='?src=\ref[src];spawn_uplink=\ref[player.current]'>\[spawn uplink\]</a>"
+	return "<a href='?src=[REF(player)];common=crystals'>\[set crystals\]</a><a href='?src=[REF(src)];spawn_uplink=\ref[player.current]'>\[spawn uplink\]</a>"
 
 /datum/antagonist/traitor/Topic(href, href_list)
 	if (..())

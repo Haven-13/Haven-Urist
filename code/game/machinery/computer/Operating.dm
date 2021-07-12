@@ -23,25 +23,17 @@
 		return
 	interact(user)
 
-
-/obj/machinery/computer/operating/attack_hand(mob/user)
-	..()
-	if(stat & (BROKEN|NOPOWER))
-		return
-	interact(user)
-
-
 /obj/machinery/computer/operating/interact(mob/user)
 	victim = null
 	if(!Adjacent(user) || (stat & (BROKEN|NOPOWER)))
 		if(!istype(user, /mob/living/silicon))
 			user.unset_machine()
-			user << browse(null, "window=op")
+			close_browser(user, "window=op")
 			return
 
 	user.set_machine(src)
 	var/dat = "<HEAD><TITLE>Operating Computer</TITLE><META HTTP-EQUIV='Refresh' CONTENT='10'></HEAD><BODY>\n"
-	dat += "<A HREF='?src=\ref[user];mach_close=op'>Close</A><br><br>" //| <A HREF='?src=\ref[user];update=1'>Update</A>"
+	dat += "<A HREF='?src=[REF(user)];mach_close=op'>Close</A><br><br>" //| <A HREF='?src=[REF(user)];update=1'>Update</A>"
 	if(istype(watching, /obj/machinery/optable))
 		var/obj/machinery/optable/OT = watching
 		if(OT.victim)
@@ -60,7 +52,7 @@
 <BR>
 <B>No Patient Detected</B>
 "}
-	user << browse(dat, "window=op")
+	show_browser(user, dat, "window=op")
 	onclose(user, "op")
 
 /obj/machinery/computer/operating/Process()

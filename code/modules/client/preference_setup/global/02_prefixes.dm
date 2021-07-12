@@ -57,14 +57,14 @@
 			. += "<span class='linkOff'>Change</span>"
 		else
 
-			. += "<a href='?src=\ref[src];change_prefix=\ref[prefix_instance]'>Change</a>"
+			. += "<a href='?src=[REF(src)];change_prefix=[REF(prefix_instance)]'>Change</a>"
 
 		. += "</td><td>"
 
 		if(prefix_instance.is_locked || current_prefix == prefix_instance.default_key)
 			. += "<span class='linkOff'>Reset</span>"
 		else
-			. += "<a href='?src=\ref[src];reset_prefix=\ref[prefix_instance]'>Reset</a>"
+			. += "<a href='?src=[REF(src)];reset_prefix=[REF(prefix_instance)]'>Reset</a>"
 		. += "</td></tr>"
 	. += "</table>"
 
@@ -72,7 +72,7 @@
 	if(href_list["change_prefix"])
 		var/decl/prefix/prefix_instance = locate(href_list["change_prefix"])
 		if(!istype(prefix_instance) || prefix_instance.is_locked)
-			return TOPIC_NOACTION
+			return FALSE
 
 		do
 			var/keys_in_use = list()
@@ -83,7 +83,7 @@
 
 			var/new_key = input(user, "Enter a single special character. The following characters are already in use as prefixes: [jointext(keys_in_use, " ")]", CHARACTER_PREFERENCE_INPUT_TITLE, pref.prefix_keys_by_type[prefix_instance.type]) as null|text
 			if(!new_key || new_key == pref.prefix_keys_by_type[prefix_instance.type] || !CanUseTopic(user))
-				return TOPIC_NOACTION
+				return FALSE
 
 			if(length(new_key) != 1)
 				alert(user, "Only single characters are allowed.", "Error", "Ok")
@@ -109,16 +109,16 @@
 				if(pref.prefix_keys_by_type[prefix_instance.type] != new_key)
 					alert(user, "The selected key is already the default key for another prefix.", "Error", "Ok")
 				else
-					return TOPIC_REFRESH
+					return TRUE
 		while(TRUE)
 
 	else if(href_list["reset_prefix"])
 		var/decl/prefix/prefix_instance = locate(href_list["reset_prefix"])
 		if(!istype(prefix_instance))
-			return TOPIC_NOACTION
+			return FALSE
 		pref.prefix_keys_by_type[prefix_instance.type] = prefix_instance.default_key
 		reset_duplicate_keys()
-		return TOPIC_REFRESH
+		return TRUE
 
 	else
 		return ..()

@@ -45,3 +45,14 @@
 
 	preload_rsc = 0 // This is 0 so we can set it to an URL once the player logs in and have them download the resources from a different server.
 	var/static/obj/screen/click_catcher/void
+
+	///Last ping of the client
+	var/lastping = 0
+	///Average ping of the client
+	var/avgping = 0
+ 	///world.time they connected
+	var/connection_time
+ 	///world.realtime they connected
+	var/connection_realtime
+ 	///world.timeofday they connected
+	var/connection_timeofday

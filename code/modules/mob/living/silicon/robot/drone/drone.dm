@@ -413,4 +413,4 @@ var/list/mob_hat_cache = list()
 
 	if(!controlling_ai)
 		return ..()
-	controlling_ai.open_subsystem(/datum/nano_module/law_manager)
+	controlling_ai.open_subsystem(/datum/ui_module/law_manager)

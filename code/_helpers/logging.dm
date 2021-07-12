@@ -1,6 +1,12 @@
 //wrapper macros for easier grepping
 #define DIRECT_OUTPUT(A, B) A << B
+#define SEND_IMAGE(target, image) DIRECT_OUTPUT(target, image)
+#define SEND_SOUND(target, sound) DIRECT_OUTPUT(target, sound)
+#define SEND_TEXT(target, text) DIRECT_OUTPUT(target, text)
 #define WRITE_FILE(file, text) DIRECT_OUTPUT(file, text)
+//This is an external call, "true" and "false" are how rust parses out booleans
+#define WRITE_LOG(log, text) rustg_log_write(log, text, "true")
+#define WRITE_LOG_NO_FORMAT(log, text) rustg_log_write(log, text, "false")
 
 
 // On Linux/Unix systems the line endings are LF, on windows it's CRLF, admins that don't use notepad++
@@ -24,14 +30,22 @@
 /proc/log_ss_init(text)
 	game_log("SS", "[text]")
 
-#define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 //print a warning message to world.log
+#define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [UNLINT(src)] usr: [usr].")
 /proc/warning(msg)
-	to_world_log("## WARNING: [msg][log_end]")
+	msg = "## WARNING: [msg]"
+	log_world(msg)
+
+//not an error or a warning, but worth to mention on the world log, just in case.
+#define NOTICE(MSG) notice(MSG)
+/proc/notice(msg)
+	msg = "## NOTICE: [msg]"
+	log_world(msg)
 
 //print a testing-mode debug message to world.log
 /proc/testing(msg)
 	to_world_log("## TESTING: [msg][log_end]")
+	game_log("TESTING", msg)
 
 /proc/game_log(category, text)
 	diary << "\[[time_stamp()]] [game_id] [category]: [text][log_end]"
@@ -66,6 +80,9 @@
 /proc/log_vote(text)
 	if (config.log_vote)
 		game_log("VOTE", text)
+
+/proc/log_asset(text)
+	game_log("ASSET", text)
 
 /proc/log_access(text)
 	if (config.log_access)
@@ -115,8 +132,44 @@
 	to_world_log("## UNIT_TEST ##: [text]")
 	log_debug(text)
 
+/proc/log_href(text)
+	WRITE_FILE(GLOB.world_href_log, "HREF: [text]")
+
 /proc/log_qdel(text)
 	WRITE_FILE(GLOB.world_qdel_log, "\[[time_stamp()]]QDEL: [text]")
+
+/**
+ * Appends a tgui-related log entry. All arguments are optional.
+ */
+/proc/log_tgui(user, message, context,
+		datum/tgui_window/window,
+		datum/src_object)
+	var/entry = ""
+	// Insert user info
+	if(!user)
+		entry += "<nobody>"
+	else if(istype(user, /mob))
+		var/mob/mob = user
+		entry += "[mob.ckey] (as [mob] at [mob.x],[mob.y],[mob.z])"
+	else if(istype(user, /client))
+		var/client/client = user
+		entry += "[client.ckey]"
+	// Insert context
+	if(context)
+		entry += " in [context]"
+	else if(window)
+		entry += " in [window.id]"
+	// Resolve src_object
+	if(!src_object && window && window.locked_by)
+		src_object = window.locked_by.src_object
+	// Insert src_object info
+	if(src_object)
+		entry += "\nUsing: [src_object.type] [REF(src_object)]"
+	// Insert message
+	if(message)
+		entry += "\n[message]"
+	WRITE_FILE(GLOB.world_tgui_log, entry)
+
 
 //This replaces world.log so it displays both in DD and the file
 /proc/log_world(text)
@@ -169,7 +222,7 @@
 
 	if(key)
 		if(include_link && C)
-			. += "<a href='?priv_msg=\ref[C];ticket=\ref[ticket]'>"
+			. += "<a href='?priv_msg=[REF(C)];ticket=[REF(ticket)]'>"
 
 		. += key
 

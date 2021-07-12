@@ -61,7 +61,7 @@ var/list/ghost_traps
 		if(pref_check && !O.client.wishes_to_be_role(pref_check))
 			continue
 		if(O.client)
-			to_chat(O, "[request_string] <a href='?src=\ref[src];candidate=\ref[O];target=\ref[target]'>(Occupy)</a> ([ghost_follow_link(target, O)])")
+			to_chat(O, "[request_string] <a href='?src=[REF(src)];candidate=[REF(O)];target=[REF(target)]'>(Occupy)</a> ([ghost_follow_link(target, O)])")
 
 /datum/ghosttrap/proc/unregister_target(var/target)
 	request_timeouts -= target

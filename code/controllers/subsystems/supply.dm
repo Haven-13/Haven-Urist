@@ -19,7 +19,7 @@ SUBSYSTEM_DEF(supply)
 	var/list/donelist = list()
 	var/list/master_supply_list = list()
 	//shuttle movement
-	var/movetime = 1200
+	var/movetime = 30 SECONDS
 	var/datum/shuttle/autodock/ferry/supply/shuttle
 	var/list/point_source_descriptions = list(
 		"time" = "Base station supply",
@@ -237,8 +237,7 @@ SUBSYSTEM_DEF(supply)
 	var/decl/hierarchy/supply_pack/object = null
 	var/orderedby = null
 	var/comment = null
-	var/reason = null
-	var/orderedrank = null //used for supply console printing
+	var/orderedjob = null //used for supply console printing
 
 /datum/controller/subsystem/supply/proc/find_item_value(var/obj/object) //here we get the value of the items being traded
 	if(!object)

@@ -1,7 +1,7 @@
 // Variables not to expand the lists of. Vars is pointless to expand, and overlays/underlays cannot be expanded.
 /var/list/view_variables_dont_expand = list("overlays", "underlays", "vars")
 // Variables that runtime if you try to test associativity of the lists they contain by indexing
-/var/list/view_variables_no_assoc = list("verbs", "contents","screen","images")
+/var/list/view_variables_no_assoc = list("verbs", "contents", "screen", "images", "vis_contents")
 
 // Acceptable 'in world', as VV would be incredibly hampered otherwise
 /client/proc/debug_variables(datum/D in world)
@@ -20,7 +20,7 @@
 		A = D
 		if(A.icon && A.icon_state)
 			sprite = icon(A.icon, A.icon_state)
-			usr << browse_rsc(sprite, "view_vars_sprite.png")
+			send_rsc(usr, sprite, "view_vars_sprite.png")
 
 	send_rsc(usr,'code/js/view_variables.js', "view_variables.js")
 
@@ -28,7 +28,7 @@
 		<html>
 		<head>
 			<script src='view_variables.js'></script>
-			<title>[D] (\ref[D] - [D.type])</title>
+			<title>[D] ([REF(D)] - [D.type])</title>
 			<style>
 				body { font-family: Verdana, sans-serif; font-size: 9pt; }
 				.value { font-family: "Courier New", monospace; font-size: 8pt; }
@@ -49,7 +49,7 @@
 					</td>
 					<td width='50%'>
 						<div align='center'>
-							<a href='?_src_=vars;datumrefresh=\ref[D]'>Refresh</a>
+							<a href='?_src_=vars;datumrefresh=[REF(D)]'>Refresh</a>
 							[A ? "<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>Jump To</a>":""]
 							<form>
 								<select name='file'
@@ -60,8 +60,8 @@
 								        style='background-color:#ffffff'>
 									<option>Select option</option>
 									<option />
-									<option value='?_src_=vars;mark_object=\ref[D]'>Mark Object</option>
-									<option value='?_src_=vars;call_proc=\ref[D]'>Call Proc</option>
+									<option value='?_src_=vars;mark_object=[REF(D)]'>Mark Object</option>
+									<option value='?_src_=vars;call_proc=[REF(D)]'>Call Proc</option>
 									[D.get_view_variables_options()]
 								</select>
 							</form>
@@ -98,7 +98,7 @@
 		</html>
 		"}
 
-	usr << browse(html, "window=variables\ref[D];size=475x650")
+	show_browser(usr, html, "window=variables[REF(D)];size=475x650")
 
 /client
 	var/list/watched_variables = list()
@@ -124,7 +124,7 @@
 		dat += "<h1>[make_view_variables_value(D)]</h1>"
 		for(var/v in user.client.watched_variables[D])
 			dat += "<div class='var'>"
-			dat += "(<a href='?_src_=vars;datumunwatch=\ref[D];varnameunwatch=[v]'>X</a>) "
+			dat += "(<a href='?_src_=vars;datumunwatch=[REF(D)];varnameunwatch=[v]'>X</a>) "
 			dat += "[D.make_view_variables_variable_entry(v, D.get_variable_value(v), 1)] [v] = [make_view_variables_value(D.get_variable_value(v), v)]"
 			dat += "</div>"
 
@@ -164,12 +164,12 @@
 	else if(istype(value, /datum))
 		var/datum/DA = value
 		if("[DA]" == "[DA.type]" || !"[DA]")
-			vtext = "<a href='?_src_=vars;Vars=\ref[DA]'>\ref[DA]</a> - [DA.type]"
+			vtext = "<a href='?_src_=vars;Vars=[REF(DA)]'>[REF(DA)]</a> - [DA.type]"
 		else
-			vtext = "<a href='?_src_=vars;Vars=\ref[DA]'>\ref[DA]</a> - [DA] ([DA.type])"
+			vtext = "<a href='?_src_=vars;Vars=[REF(DA)]'>[REF(DA)]</a> - [DA] ([DA.type])"
 	else if(istype(value, /client))
 		var/client/C = value
-		vtext = "<a href='?_src_=vars;Vars=\ref[C]'>\ref[C]</a> - [C] ([C.type])"
+		vtext = "<a href='?_src_=vars;Vars=[REF(C)]'>[REF(C)]</a> - [C] ([C.type])"
 	else if(islist(value))
 		var/list/L = value
 		vtext = "/list ([L.len])"

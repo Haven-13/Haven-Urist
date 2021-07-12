@@ -91,7 +91,7 @@
 		if(mode == i)
 			t += "<b>[reagent_names[i]]</b>"
 		else
-			t += "<a href='?src=\ref[src];reagent_index=[i]'>[reagent_names[i]]</a>"
+			t += "<a href='?src=[REF(src)];reagent_index=[i]'>[reagent_names[i]]</a>"
 	t = "Available reagents: [t]."
 	to_chat(user, t)
 
@@ -105,7 +105,7 @@
 			mode = index
 			var/datum/reagent/R = reagent_ids[mode]
 			to_chat(usr, "<span class='notice'>Synthesizer is now producing '[initial(R.name)]'.</span>")
-		return TOPIC_REFRESH
+		return TRUE
 
 /obj/item/weapon/reagent_containers/borghypo/examine(mob/user)
 	if(!..(user, 2))

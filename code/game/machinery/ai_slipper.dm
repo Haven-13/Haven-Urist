@@ -42,7 +42,7 @@
 			if (locked)
 				if (user.machine==src)
 					user.unset_machine()
-					user << browse(null, "window=ai_slipper")
+					close_browser(user, "window=ai_slipper")
 			else
 				if (user.machine==src)
 					src.attack_hand(usr)
@@ -61,7 +61,7 @@
 		if (!istype(user, /mob/living/silicon))
 			to_chat(user, text("Too far away."))
 			user.unset_machine()
-			user << browse(null, "window=ai_slipper")
+			close_browser(user, "window=ai_slipper")
 			return
 
 	user.set_machine(src)
@@ -78,23 +78,23 @@
 		t += "<I>(Swipe ID card to unlock control panel.)</I><BR>"
 	else
 		t += text("Dispenser [] - <A href='?src=\ref[];toggleOn=1'>[]?</a><br>\n", src.disabled?"deactivated":"activated", src, src.disabled?"Enable":"Disable")
-		t += text("Uses Left: [uses]. <A href='?src=\ref[src];toggleUse=1'>Activate the dispenser?</A><br>\n")
+		t += text("Uses Left: [uses]. <A href='?src=[REF(src)];toggleUse=1'>Activate the dispenser?</A><br>\n")
 
-	user << browse(t, "window=computer;size=575x450")
+	show_browser(user, t, "window=computer;size=575x450")
 	onclose(user, "computer")
 	return
 
 /obj/machinery/ai_slipper/CanUseTopic(user)
 	if(locked && !issilicon(user))
 		to_chat(user, "<span class='warning'>The control panel is locked!</span>")
-		return min(..(), STATUS_UPDATE)
+		return min(..(), UI_UPDATE)
 	return ..()
 
 /obj/machinery/ai_slipper/OnTopic(user, href_list)
 	if (href_list["toggleOn"])
 		src.disabled = !src.disabled
 		update_icon()
-		. = TOPIC_REFRESH
+		. = TRUE
 	if (href_list["toggleUse"])
 		if(!(cooldown_on || disabled))
 			new /obj/effect/effect/foam(src.loc)
@@ -102,9 +102,9 @@
 			cooldown_on = 1
 			cooldown_time = world.timeofday + 100
 			slip_process()
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		attack_hand(user)
 
 /obj/machinery/ai_slipper/proc/slip_process()

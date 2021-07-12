@@ -11,6 +11,9 @@
 	w_class = ITEM_SIZE_SMALL
 	light_strength = 5 // same as PDAs
 
+/obj/item/modular_computer/tablet/ui_state(mob/user)
+	return ui_hands_state()
+
 /obj/item/modular_computer/tablet/lease
 	desc = "A small, portable microcomputer. This one has a gold and blue stripe, and a serial number stamped into the case."
 	icon_state = "tabletsol"

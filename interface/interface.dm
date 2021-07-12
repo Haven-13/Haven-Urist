@@ -6,7 +6,7 @@
 	if( config.wikiurl )
 		if(alert("This will open the wiki in your browser. Are you sure?",,"Yes","No")=="No")
 			return
-		src << link(config.wikiurl)
+		open_link(src, config.wikiurl)
 	else
 		to_chat(src, "<span class='warning'>The wiki URL is not set in the server configuration.</span>")
 	return
@@ -18,7 +18,7 @@
 	if( config.forumurl )
 		if(alert("This will open the Discord server in your browser. Are you sure?",,"Yes","No")=="No")
 			return
-		src << link(config.forumurl)
+		open_link(src, config.forumurl)
 	else
 		to_chat(src, "<span class='warning'>The forum URL is not set in the server configuration.</span>")
 	return
@@ -31,9 +31,8 @@
 
 	if(alert("This will open the rules link in your browser. Are you sure?",,"Yes","No")=="No")
 		return
-	src << browse(file(RULES_FILE), "window=rules;size=480x320")
+	show_browser(src, file(RULES_FILE), "window=rules;size=480x320")
 
-//	src << link(RULES_FILE)
 	return
 
 #undef RULES_FILE

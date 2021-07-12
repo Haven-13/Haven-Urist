@@ -49,7 +49,7 @@
 				I.instances.Remove(S)
 				qdel(S)
 				stock_item(L)
-				SSnano.update_uis(src)
+				SStgui.update_uis(src)
 				return
 
 			else

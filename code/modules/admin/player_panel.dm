@@ -75,15 +75,15 @@
 
 					body += "</td><td align='center'>";
 
-					body += "<a href='?src=\ref[src];adminplayeropts="+ref+"'>PP</a> - "
-					body += "<a href='?src=\ref[src];notes=show;mob="+ref+"'>N</a> - "
+					body += "<a href='?src=[REF(src)];adminplayeropts="+ref+"'>PP</a> - "
+					body += "<a href='?src=[REF(src)];notes=show;mob="+ref+"'>N</a> - "
 					body += "<a href='?_src_=vars;Vars="+ref+"'>VV</a> - "
-					body += "<a href='?src=\ref[src];traitor="+ref+"'>TP</a> - "
-					body += "<a href='?src=\ref[usr];priv_msg=\ref"+ref+"'>PM</a> - "
-					body += "<a href='?src=\ref[src];subtlemessage="+ref+"'>SM</a> - "
-					body += "<a href='?src=\ref[src];adminplayerobservejump="+ref+"'>JMP</a><br>"
+					body += "<a href='?src=[REF(src)];traitor="+ref+"'>TP</a> - "
+					body += "<a href='?src=[REF(usr)];priv_msg=\ref"+ref+"'>PM</a> - "
+					body += "<a href='?src=[REF(src)];subtlemessage="+ref+"'>SM</a> - "
+					body += "<a href='?src=[REF(src)];adminplayerobservejump="+ref+"'>JMP</a><br>"
 					if(antagonist > 0)
-						body += "<font size='2'><a href='?src=\ref[src];check_antagonist=1'><font color='red'><b>Antagonist</b></font></a></font>";
+						body += "<font size='2'><a href='?src=[REF(src)];check_antagonist=1'><font color='red'><b>Antagonist</b></font></a></font>";
 
 					body += "</td></tr></table>";
 
@@ -194,7 +194,7 @@
 			<tr id='title_tr'>
 				<td align='center'>
 					<font size='5'><b>Player panel</b></font><br>
-					Hover over a line to see more information - <a href='?src=\ref[src];check_antagonist=1'>Check antagonists</a>
+					Hover over a line to see more information - <a href='?src=[REF(src)];check_antagonist=1'>Check antagonists</a>
 					<p>
 				</td>
 			</tr>
@@ -294,7 +294,7 @@
 					<td align='center' bgcolor='[color]'>
 						<span id='notice_span[i]'></span>
 						<a id='link[i]'
-						onmouseover='expand("item[i]","[M_job]","[M_name]","[M_rname]","--unused--","[M_key]","[M.lastKnownIP]",[is_antagonist],"\ref[M]")'
+						onmouseover='expand("item[i]","[M_job]","[M_name]","[M_rname]","--unused--","[M_key]","[M.lastKnownIP]",[is_antagonist],REF(M))'
 						>
 						<span id='search[i]'><b>[M_name] - [M_rname] - [M_key] ([M_job])</b></span>
 						</a>
@@ -319,7 +319,7 @@
 	</body></html>
 	"}
 
-	usr << browse(dat, "window=players;size=600x480")
+	show_browser(usr, dat, "window=players;size=600x480")
 
 //The old one
 /datum/admins/proc/player_panel_old()
@@ -365,8 +365,8 @@
 
 
 		dat += {"<td>[M.key ? (M.client ? M.key : "[M.key] (DC)") : "No key"]</td>
-		<td align=center><A HREF='?src=\ref[src];adminplayeropts=\ref[M]'>X</A></td>
-		<td align=center><A href='?src=\ref[usr];priv_msg=\ref[M]'>PM</A></td>
+		<td align=center><A HREF='?src=[REF(src)];adminplayeropts=[REF(M)]'>X</A></td>
+		<td align=center><A href='?src=[REF(usr)];priv_msg=[REF(M)]'>PM</A></td>
 		"}
 
 
@@ -378,11 +378,11 @@
 			else
 				switch(is_special_character(M))
 					if(0)
-						dat += {"<td align=center><A HREF='?src=\ref[src];traitor=\ref[M]'>Traitor?</A></td>"}
+						dat += {"<td align=center><A HREF='?src=[REF(src)];traitor=[REF(M)]'>Traitor?</A></td>"}
 					if(1)
-						dat += {"<td align=center><A HREF='?src=\ref[src];traitor=\ref[M]'><font color=red>Traitor?</font></A></td>"}
+						dat += {"<td align=center><A HREF='?src=[REF(src)];traitor=[REF(M)]'><font color=red>Traitor?</font></A></td>"}
 					if(2)
-						dat += {"<td align=center><A HREF='?src=\ref[src];traitor=\ref[M]'><font color=red><b>Traitor?</b></font></A></td>"}
+						dat += {"<td align=center><A HREF='?src=[REF(src)];traitor=[REF(M)]'><font color=red><b>Traitor?</b></font></A></td>"}
 		else
 			dat += {"<td align=center> N/A </td>"}
 
@@ -390,7 +390,7 @@
 
 	dat += "</table></body></html>"
 
-	usr << browse(dat, "window=players;size=640x480")
+	show_browser(usr, dat, "window=players;size=640x480")
 
 
 
@@ -402,20 +402,20 @@
 		dat += "Round Duration: <B>[roundduration2text()]</B><BR>"
 		dat += "<B>Evacuation</B><BR>"
 		if (evacuation_controller.is_idle())
-			dat += "<a href='?src=\ref[src];call_shuttle=1'>Call Evacuation</a><br>"
+			dat += "<a href='?src=[REF(src)];call_shuttle=1'>Call Evacuation</a><br>"
 		else
 			var/timeleft = evacuation_controller.get_eta()
 			if (evacuation_controller.waiting_to_leave())
 				dat += "ETA: [(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]<BR>"
-				dat += "<a href='?src=\ref[src];call_shuttle=2'>Send Back</a><br>"
+				dat += "<a href='?src=[REF(src)];call_shuttle=2'>Send Back</a><br>"
 
-		dat += "<a href='?src=\ref[src];delay_round_end=1'>[SSticker.delay_end ? "End Round Normally" : "Delay Round End"]</a><br>"
+		dat += "<a href='?src=[REF(src)];delay_round_end=1'>[SSticker.delay_end ? "End Round Normally" : "Delay Round End"]</a><br>"
 		dat += "<hr>"
 		var/list/all_antag_types = GLOB.all_antag_types_
 		for(var/antag_type in all_antag_types)
 			var/datum/antagonist/A = all_antag_types[antag_type]
 			dat += A.get_check_antag_output(src)
 		dat += "</body></html>"
-		usr << browse(jointext(dat,null), "window=roundstatus;size=400x500")
+		show_browser(usr, jointext(dat,null), "window=roundstatus;size=400x500")
 	else
 		alert("The game hasn't started yet!")

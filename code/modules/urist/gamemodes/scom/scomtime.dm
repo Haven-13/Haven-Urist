@@ -3,7 +3,7 @@
 /datum/game_mode/scom/proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dressing and shuttles for differentiating between pop
 	for(var/mob/living/carbon/human/M in GLOB.player_list)//yeah, using other code is nice. if urist doesn't die, i'll condense them all into one proc probably.
 		HandleScomJoinFor(M)
-		world << ("<span class='danger'> Your first task is to secure a Nanotrasen transit station in the Nyx system. The fate of humanity rests in your hands. Good luck!</span>")
+		to_world(("<span class='danger'> Your first task is to secure a Nanotrasen transit station in the Nyx system. The fate of humanity rests in your hands. Good luck!</span>"))
 
 
 /datum/game_mode/scom/proc/ScomRobotTime() //have to break up the proc because BYOND
@@ -113,22 +113,22 @@
 /datum/game_mode/scom/proc/LoadScom()
 
 	if(!scommapsloaded)
-		world << "\red \b Loading S-COM Maps..."
+		to_world("\red \b Loading S-COM Maps...")
 
 		var/file = file("maps/GamemodeMaps/missions2.dmm")
 		if(isfile(file))
 			maploader.load_map(file)
 
-			world << "<span class='warning'> Initializing S-COM map objects...</span>"
+			to_world("<span class='warning'> Initializing S-COM map objects...</span>")
 
 			for(var/area/scom/mission/scom_area in world)
 				for(var/atom/movable/object in scom_area)
 					if(!QDELETED(object) && !(object.atom_flags & ATOM_FLAG_INITIALIZED))
 						object.Initialize()
 
-			world.log << "S-COM Maps loaded."
+			to_world_log("S-COM Maps loaded.")
 
-		world << "\red \b S-COM Maps loaded."
+		to_world("\red \b S-COM Maps loaded.")
 
 		scommapsloaded = 1
 	else

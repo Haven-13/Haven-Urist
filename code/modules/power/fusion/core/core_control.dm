@@ -44,22 +44,22 @@
 
 	if(cur_viewed_device)
 		dat += {"
-			<a href='?src=\ref[src];goto_scanlist=1'>Back to overview</a><hr>
+			<a href='?src=[REF(src)];goto_scanlist=1'>Back to overview</a><hr>
 			Device ident '[cur_viewed_device.id_tag]' <span style='color: [cur_viewed_device.owned_field ? "green" : "red"]'>[cur_viewed_device.owned_field ? "active" : "inactive"].</span><br>
 			<b>Power status:</b> [cur_viewed_device.avail()]/[cur_viewed_device.active_power_usage] W<br>
 			<hr>
-			<a href='?src=\ref[src];toggle_active=1'>Bring field [cur_viewed_device.owned_field ? "offline" : "online"].</a><br>
+			<a href='?src=[REF(src)];toggle_active=1'>Bring field [cur_viewed_device.owned_field ? "offline" : "online"].</a><br>
 			<hr>
 			<b>Field power density (W.m<sup>-3</sup>):</b><br>
-			<a href='?src=\ref[src];str=-1000'>----</a>
-			<a href='?src=\ref[src];str=-100'>--- </a>
-			<a href='?src=\ref[src];str=-10'>--  </a>
-			<a href='?src=\ref[src];str=-1'>-   </a>
-			<a href='?src=\ref[src];str=0'>[cur_viewed_device.field_strength]</a>
-			<a href='?src=\ref[src];str=1'>+   </a>
-			<a href='?src=\ref[src];str=10'>++  </a>
-			<a href='?src=\ref[src];str=100'>+++ </a>
-			<a href='?src=\ref[src];str=1000'>++++</a><hr>
+			<a href='?src=[REF(src)];str=-1000'>----</a>
+			<a href='?src=[REF(src)];str=-100'>--- </a>
+			<a href='?src=[REF(src)];str=-10'>--  </a>
+			<a href='?src=[REF(src)];str=-1'>-   </a>
+			<a href='?src=[REF(src)];str=0'>[cur_viewed_device.field_strength]</a>
+			<a href='?src=[REF(src)];str=1'>+   </a>
+			<a href='?src=[REF(src)];str=10'>++  </a>
+			<a href='?src=[REF(src)];str=100'>+++ </a>
+			<a href='?src=[REF(src)];str=1000'>++++</a><hr>
 		"}
 
 		if(cur_viewed_device.owned_field)
@@ -118,7 +118,7 @@
 					"}
 				else
 					dat += {"
-						<td><a href=?src=\ref[src];access_device=[connected_devices.Find(C)]'>ACCESS</a></td>
+						<td><a href=?src=[REF(src)];access_device=[connected_devices.Find(C)]'>ACCESS</a></td>
 					"}
 				dat += {"
 					</tr>
@@ -132,27 +132,27 @@
 	popup.open()
 	user.set_machine(src)
 
-/obj/machinery/computer/fusion_core_control/OnTopic(var/mob/user, var/href_list, var/datum/topic_state/state)
+/obj/machinery/computer/fusion_core_control/OnTopic(var/mob/user, var/href_list, var/datum/ui_state/state)
 	if(href_list["access_device"])
 		var/idx = Clamp(text2num(href_list["toggle_active"]), 1, connected_devices.len)
 		cur_viewed_device = connected_devices[idx]
 		updateUsrDialog()
-		return TOPIC_REFRESH
+		return TRUE
 
 	//All HREFs from this point on require a device anyways.
 	if(!cur_viewed_device || !check_core_status(cur_viewed_device) || cur_viewed_device.id_tag != id_tag || get_dist(src, cur_viewed_device) > scan_range)
-		return TOPIC_NOACTION
+		return FALSE
 
 	if(href_list["goto_scanlist"])
 		cur_viewed_device = null
 		updateUsrDialog()
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["toggle_active"])
 		if(!cur_viewed_device.Startup()) //Startup() whilst the device is active will return null.
 			cur_viewed_device.Shutdown()
 		updateUsrDialog()
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["str"])
 		var/val = text2num(href_list["str"])
@@ -161,7 +161,7 @@
 		else
 			cur_viewed_device.set_strength(cur_viewed_device.field_strength + val)
 		updateUsrDialog()
-		return TOPIC_REFRESH
+		return TRUE
 
 //Returns 1 if the machine can be interacted with via this console.
 /obj/machinery/computer/fusion_core_control/proc/check_core_status(var/obj/machinery/power/fusion_core/C)

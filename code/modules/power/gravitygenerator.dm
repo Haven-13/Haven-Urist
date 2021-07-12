@@ -57,7 +57,7 @@
 	updatemodules()
 
 	var/dat = "<h3>Generator Control System</h3>"
-	//dat += "<font size=-1><a href='byond://?src=\ref[src];refresh=1'>Refresh</a></font>"
+	//dat += "<font size=-1><a href='byond://?src=[REF(src)];refresh=1'>Refresh</a></font>"
 	if(gravity_generator)
 		if(gravity_generator.on)
 			dat += "<font color=green><br><tt>Gravity Status: ON</tt></font><br>"
@@ -78,21 +78,21 @@
 
 		dat += "<br><tt>Maintainence Functions:</tt><br>"
 		if(gravity_generator.on)
-			dat += "<a href='byond://?src=\ref[src];gentoggle=1'><font color=red> TURN GRAVITY GENERATOR OFF. </font></a>"
+			dat += "<a href='byond://?src=[REF(src)];gentoggle=1'><font color=red> TURN GRAVITY GENERATOR OFF. </font></a>"
 		else
-			dat += "<a href='byond://?src=\ref[src];gentoggle=1'><font color=green> TURN GRAVITY GENERATOR ON. </font></a>"
+			dat += "<a href='byond://?src=[REF(src)];gentoggle=1'><font color=green> TURN GRAVITY GENERATOR ON. </font></a>"
 
 	else
 		dat += "No local gravity generator detected!"
 
-	user << browse(dat, "window=gravgen")
+	show_browser(user, dat, "window=gravgen")
 	onclose(user, "gravgen")
 
 
 /obj/machinery/computer/gravity_control_computer/Topic(href, href_list)
 	set background = 1
 	if((. = ..()))
-		usr << browse(null, "window=air_alarm")
+		close_browser(usr, "window=air_alarm")
 		return
 
 	if(href_list["gentoggle"])

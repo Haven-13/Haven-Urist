@@ -11,6 +11,9 @@
 	var/release_pressure = ONE_ATMOSPHERE
 	var/release_flow_rate = ATMOS_DEFAULT_VOLUME_PUMP //in L/s
 
+	var/min_release_pressure = ONE_ATMOSPHERE/10
+	var/max_release_pressure = 10 * ONE_ATMOSPHERE
+
 	var/canister_color = "yellow"
 	var/can_label = 1
 	start_pressure = 45 * ONE_ATMOSPHERE
@@ -282,7 +285,7 @@ update_flag
 
 	..()
 
-	SSnano.update_uis(src) // Update all NanoUIs attached to src
+	SStgui.update_uis(src) // Update all NanoUIs attached to src
 
 /obj/machinery/portable_atmospherics/canister/attack_ai(var/mob/user as mob)
 	return //No.
@@ -290,90 +293,106 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/attack_hand(var/mob/user as mob)
 	ui_interact(user)
 
-/obj/machinery/portable_atmospherics/canister/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/portable_atmospherics/canister/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "atmospherics/Canister", name)
+		ui.open()
+
+/obj/machinery/portable_atmospherics/canister/ui_data(mob/user)
 	// this is the data which will be sent to the ui
 	var/data[0]
 	data["name"] = name
 	data["canLabel"] = can_label ? 1 : 0
 	data["portConnected"] = connected_port ? 1 : 0
-	data["tankPressure"] = round(air_contents.return_pressure() ? air_contents.return_pressure() : 0)
+	data["tankPressure"] = round(air_contents.return_pressure() || 0)
 	data["releasePressure"] = round(release_pressure || 0)
 	data["minReleasePressure"] = round(ONE_ATMOSPHERE/10)
 	data["maxReleasePressure"] = round(10*ONE_ATMOSPHERE)
 	data["valveOpen"] = valve_open ? 1 : 0
 
-	data["hasHoldingTank"] = holding ? 1 : 0
 	if (holding)
-		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure()))
+		data["holdingTank"] = list("name" = holding.name, "pressure" = round(holding.air_contents.return_pressure()))
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "canister.tmpl", "Canister", 480, 400)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
-/obj/machinery/portable_atmospherics/canister/OnTopic(var/mob/user, href_list, state)
-	if(href_list["toggle"])
-		if (valve_open)
-			if (holding)
-				release_log += "Valve was <b>closed</b> by [user] ([user.ckey]), stopping the transfer into the [holding]<br>"
+/obj/machinery/portable_atmospherics/canister/ui_act(action, list/params)
+	switch(action)
+		if("valve")
+			if (valve_open)
+				if (holding)
+					release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the [holding]<br>"
+				else
+					release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the <font color='red'><b>air</b></font><br>"
 			else
-				release_log += "Valve was <b>closed</b> by [user] ([user.ckey]), stopping the transfer into the <font color='red'><b>air</b></font><br>"
-		else
-			if (holding)
-				release_log += "Valve was <b>opened</b> by [user] ([user.ckey]), starting the transfer into the [holding]<br>"
-			else
-				release_log += "Valve was <b>opened</b> by [user] ([user.ckey]), starting the transfer into the <font color='red'><b>air</b></font><br>"
-				log_open()
-		valve_open = !valve_open
-		. = TOPIC_REFRESH
+				if (holding)
+					release_log += "Valve was <b>opened</b> by [usr] ([usr.ckey]), starting the transfer into the [holding]<br>"
+				else
+					release_log += "Valve was <b>opened</b> by [usr] ([usr.ckey]), starting the transfer into the <font color='red'><b>air</b></font><br>"
+					log_open()
+			valve_open = !valve_open
+			return TRUE
 
-	else if (href_list["remove_tank"])
-		if(!holding)
-			return TOPIC_HANDLED
-		if (valve_open)
-			valve_open = 0
-			release_log += "Valve was <b>closed</b> by [user] ([user.ckey]), stopping the transfer into the [holding]<br>"
-		if(istype(holding, /obj/item/weapon/tank))
-			holding.manipulated_by = user.real_name
-		holding.dropInto(loc)
-		holding = null
-		update_icon()
-		. = TOPIC_REFRESH
+		if ("eject")
+			if(!holding)
+				return FALSE
+			if (valve_open)
+				valve_open = 0
+				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the [holding]<br>"
+			if(istype(holding, /obj/item/weapon/tank))
+				holding.manipulated_by = usr.real_name
+			holding.dropInto(loc)
+			holding = null
+			update_icon()
+			return TRUE
 
-	else if (href_list["pressure_adj"])
-		var/diff = text2num(href_list["pressure_adj"])
-		if(diff > 0)
-			release_pressure = min(10*ONE_ATMOSPHERE, release_pressure+diff)
-		else
-			release_pressure = max(ONE_ATMOSPHERE/10, release_pressure+diff)
-		. = TOPIC_REFRESH
+		if ("pressure")
+			var/pressure = params["pressure"]
+			if(pressure == "reset")
+				pressure = initial(release_pressure)
+				. = TRUE
+			else if(pressure == "min")
+				pressure = min_release_pressure
+				. = TRUE
+			else if(pressure == "max")
+				pressure = max_release_pressure
+				. = TRUE
+			else if(pressure == "input")
+				pressure = input("New release pressure ([min_release_pressure]-[max_release_pressure] kPa):", name, release_pressure) as num|null
+				if(!isnull(pressure) && !..())
+					. = TRUE
+			else if(text2num(pressure) != null)
+				pressure = text2num(pressure)
+				. = TRUE
+			if(.)
+				release_pressure = clamp(round(pressure), min_release_pressure, max_release_pressure)
+				//investigate_log("was set to [release_pressure] kPa by [key_name(usr)].", INVESTIGATE_ATMOS)
+			return
 
-	else if (href_list["relabel"])
-		if (!can_label)
-			return 0
-		var/list/colors = list(\
-			"\[N2O\]" = "redws", \
-			"\[N2\]" = "red", \
-			"\[O2\]" = "blue", \
-			"\[Phoron\]" = "orange", \
-			"\[CO2\]" = "black", \
-			"\[H2\]" = "purple", \
-			"\[Air\]" = "grey", \
-			"\[CAUTION\]" = "yellow", \
-		)
-		var/label = input(user, "Choose canister label", "Gas canister") as null|anything in colors
-		if (label && CanUseTopic(user, state))
-			canister_color = colors[label]
-			icon_state = colors[label]
-			SetName("\improper Canister: [label]")
-		update_icon()
-		. = TOPIC_REFRESH
+		if ("relabel")
+			if (!can_label)
+				return 0
+			var/list/colors = list(\
+				"\[N2O\]" = "redws", \
+				"\[N2\]" = "red", \
+				"\[O2\]" = "blue", \
+				"\[Phoron\]" = "orange", \
+				"\[CO2\]" = "black", \
+				"\[H2\]" = "purple", \
+				"\[Air\]" = "grey", \
+				"\[CAUTION\]" = "yellow", \
+			)
+			var/label = input(usr, "Choose canister label", "Gas canister") as null|anything in colors
+			if (label)
+				canister_color = colors[label]
+				icon_state = colors[label]
+				SetName("\improper Canister: [label]")
+			update_icon()
+			return TRUE
 
 /obj/machinery/portable_atmospherics/canister/CanUseTopic()
 	if(destroyed)
-		return STATUS_CLOSE
+		return UI_CLOSE
 	return ..()
 
 /obj/machinery/portable_atmospherics/canister/phoron/New()

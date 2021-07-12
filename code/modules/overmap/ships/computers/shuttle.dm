@@ -1,9 +1,9 @@
 //Shuttle controller computer for shuttles going between sectors
 /obj/machinery/computer/shuttle_control/explore
 	name = "general shuttle control console"
-	ui_template = "shuttle_control_console_exploration.tmpl"
+	ui_template = "spacecraft/ShuttleConsole"
 
-/obj/machinery/computer/shuttle_control/explore/get_ui_data(var/datum/shuttle/autodock/overmap/shuttle)
+/obj/machinery/computer/shuttle_control/explore/get_shuttle_ui_data(var/datum/shuttle/autodock/overmap/shuttle)
 	. = ..()
 	if(istype(shuttle))
 		var/fuel_pressure = 0
@@ -17,26 +17,26 @@
 		if(fuel_max_pressure == 0) fuel_max_pressure = 1
 
 		. += list(
-			"destination_name" = shuttle.get_destination_name(),
-			"can_pick" = shuttle.moving_status == SHUTTLE_IDLE,
-			"fuel_port_present" = shuttle.fuel_consumption? 1 : 0,
-			"fuel_pressure" = fuel_pressure,
-			"fuel_max_pressure" = fuel_max_pressure,
-			"fuel_pressure_status" = (fuel_pressure/fuel_max_pressure > 0.2)? "good" : "bad"
+			"possibleDestinations" = shuttle.get_possible_destinations(),
+			"selectedDestination" = shuttle.get_destination_info(),
+			"canPick" = shuttle.moving_status == SHUTTLE_IDLE,
+			"dockingCode" = shuttle.docking_codes,
+			"fuelConsumption" = shuttle.fuel_consumption? 1 : 0,
+			"fuelPressure" = fuel_pressure,
+			"fuelMaxPressure" = fuel_max_pressure,
+			"fuelPressureStatus" = (fuel_pressure/fuel_max_pressure > 0.2)? "good" : "bad"
 		)
 
-/obj/machinery/computer/shuttle_control/explore/handle_topic_href(var/datum/shuttle/autodock/overmap/shuttle, var/list/href_list)
-	if((. = ..()) != null)
-		return
+/obj/machinery/computer/shuttle_control/explore/handle_ui_act(var/datum/shuttle/autodock/overmap/shuttle, var/action, var/list/params)
+	if((. = ..()) || !istype(shuttle))
+		return .
 
-	if(href_list["pick"])
-		var/list/possible_d = shuttle.get_possible_destinations()
-		var/D
-		if(possible_d.len)
-			D = input("Choose shuttle destination", "Shuttle Destination") as null|anything in possible_d
-		else
-			to_chat(usr,"<span class='warning'>No valid landing sites in range.</span>")
-		possible_d = shuttle.get_possible_destinations()
-		if(CanInteract(usr, GLOB.default_state) && (D in possible_d))
-			shuttle.set_destination(possible_d[D])
-		return TOPIC_REFRESH
+	switch(action)
+		if ("set_destination")
+			var/destination = params["destination"]
+			var/obj/effect/shuttle_landmark/LM = SSshuttle.get_landmark(destination)
+			if (istype(LM) && LM.is_valid(shuttle))
+				shuttle.set_destination(LM)
+			else
+				shuttle.set_destination(null)
+			. = TRUE

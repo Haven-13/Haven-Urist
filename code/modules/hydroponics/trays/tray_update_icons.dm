@@ -28,7 +28,7 @@
 				return
 			var/overlay_stage = get_overlay_stage()
 
-			var/ikey = "\ref[seed]-plant-[overlay_stage]"
+			var/ikey = "[REF(seed)]-plant-[overlay_stage]"
 			if(!plant_controller.plant_icon_cache[ikey])
 				plant_controller.plant_icon_cache[ikey] = seed.get_icon(overlay_stage)
 			new_overlays |= plant_controller.plant_icon_cache[ikey]

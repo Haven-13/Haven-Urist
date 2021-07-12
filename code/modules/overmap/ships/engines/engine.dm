@@ -20,6 +20,9 @@ var/list/ship_engines = list()
 /datum/ship_engine/proc/burn()
 	return 0
 
+/datum/ship_engine/proc/get_area_name()
+	return "[get_area(holder)]"
+
 //Returns status string for this engine
 /datum/ship_engine/proc/get_status()
 	return "All systems nominal"

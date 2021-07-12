@@ -46,7 +46,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 			if(pai.mind) update_antag_icons(pai.mind)
 
 			pai_candidates -= candidate
-			usr << browse(null, "window=findPai")
+			close_browser(usr, "window=findPai")
 
 	if(href_list["new"])
 		var/datum/paiCandidate/candidate = locate(href_list["candidate"])
@@ -90,7 +90,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 					for(var/obj/item/device/paicard/p in world)
 						if(p.looking_for_personality == 1)
 							p.alertUpdate()
-				usr << browse(null, "window=paiRecruit")
+				close_browser(usr, "window=paiRecruit")
 				return
 
 		recruitWindow(usr, href_list["allow_submit"] != "0")
@@ -173,28 +173,28 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 
 		<table>
 			<tr class="d0">
-				<th rowspan="2"><a href='byond://?src=\ref[src];option=name;new=1;allow_submit=[allowSubmit];candidate=\ref[candidate]'>Name</a>:</th>
+				<th rowspan="2"><a href='byond://?src=[REF(src)];option=name;new=1;allow_submit=[allowSubmit];candidate=[REF(candidate)]'>Name</a>:</th>
 				<td class="desc">[candidate.name]&nbsp;</td>
 			</tr>
 			<tr class="d1">
 				<td>What you plan to call yourself. Suggestions: Any character name that would be suitable for a living character OR an AI.</td>
 			</tr>
 			<tr class="d0">
-				<th rowspan="2"><a href='byond://?src=\ref[src];option=desc;new=1;allow_submit=[allowSubmit];candidate=\ref[candidate]'>Description</a>:</th>
+				<th rowspan="2"><a href='byond://?src=[REF(src)];option=desc;new=1;allow_submit=[allowSubmit];candidate=[REF(candidate)]'>Description</a>:</th>
 				<td class="desc">[candidate.description]&nbsp;</td>
 			</tr>
 			<tr class="d1">
 				<td>What sort of pAI you typically play; your mannerisms, your quirks, etc. This can be as sparse or as detailed as you like.</td>
 			</tr>
 			<tr class="d0">
-				<th rowspan="2"><a href='byond://?src=\ref[src];option=role;new=1;allow_submit=[allowSubmit];candidate=\ref[candidate]'>Preferred Role</a>:</th>
+				<th rowspan="2"><a href='byond://?src=[REF(src)];option=role;new=1;allow_submit=[allowSubmit];candidate=[REF(candidate)]'>Preferred Role</a>:</th>
 				<td class="desc">[candidate.role]&nbsp;</td>
 			</tr>
 			<tr class="d1">
 				<td>Do you like to partner with sneaky social ninjas? Like to help security hunt down thugs? Enjoy watching an engineer's back while he saves the day yet again? This doesn't have to be limited to just actually-existing-in-game jobs. Pretty much any general descriptor for what you'd like to be doing works here.</td>
 			</tr>
 			<tr class="d0">
-				<th rowspan="2"><a href='byond://?src=\ref[src];option=ooc;new=1;allow_submit=[allowSubmit];candidate=\ref[candidate]'>OOC Comments</a>:</th>
+				<th rowspan="2"><a href='byond://?src=[REF(src)];option=ooc;new=1;allow_submit=[allowSubmit];candidate=[REF(candidate)]'>OOC Comments</a>:</th>
 				<td class="desc">[candidate.comments]&nbsp;</td>
 			</tr>
 			<tr class="d1">
@@ -205,12 +205,12 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 		<table>
 			<tr>
 				<td class="button">
-					<a href='byond://?src=\ref[src];option=save;new=1;allow_submit=[allowSubmit];candidate=\ref[candidate]' class="button">Save Personality</a>
+					<a href='byond://?src=[REF(src)];option=save;new=1;allow_submit=[allowSubmit];candidate=[REF(candidate)]' class="button">Save Personality</a>
 				</td>
 			</tr>
 			<tr>
 				<td class="button">
-					<a href='byond://?src=\ref[src];option=load;new=1;allow_submit=[allowSubmit];candidate=\ref[candidate]' class="button">Load Personality</a>
+					<a href='byond://?src=[REF(src)];option=load;new=1;allow_submit=[allowSubmit];candidate=[REF(candidate)]' class="button">Load Personality</a>
 				</td>
 			</tr>
 		</table><br>
@@ -218,14 +218,14 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 	if(allowSubmit)
 		dat += {"
 			<table>
-				<td class="button"><a href='byond://?src=\ref[src];option=submit;new=1;candidate=\ref[candidate]' class="button"><b><font size="4px">Submit Personality</font></b></a></td>
+				<td class="button"><a href='byond://?src=[REF(src)];option=submit;new=1;candidate=[REF(candidate)]' class="button"><b><font size="4px">Submit Personality</font></b></a></td>
 			</table><br>
 			"}
 	dat += {"
 	<body>
 	"}
 
-	M << browse(dat, "window=paiRecruit;size=580x580;")
+	show_browser(M, dat, "window=paiRecruit;size=580x580;")
 
 /datum/paiController/proc/findPAI(var/obj/item/device/paicard/p, var/mob/user)
 	requestRecruits(user)
@@ -330,7 +330,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 					</tr>
 				</table>
 				<table class="download">
-					<td class="download"><a href='byond://?src=\ref[src];download=1;candidate=\ref[c];device=\ref[p]' class="button"><b>Download [c.name]</b></a>
+					<td class="download"><a href='byond://?src=[REF(src)];download=1;candidate=[REF(c)];device=[REF(p)]' class="button"><b>Download [c.name]</b></a>
 					</td>
 				</table>
 				<br>
@@ -341,7 +341,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 		</html>
 	"}
 
-	user << browse(dat, "window=findPai")
+	show_browser(user, dat, "window=findPai")
 
 
 /datum/paiController/proc/requestRecruits(var/mob/user)

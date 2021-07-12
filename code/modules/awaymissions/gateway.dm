@@ -194,6 +194,11 @@ obj/machinery/gateway/centerstation/Process()
 	active = 1
 	update_icon()
 
+/obj/machinery/computer/gateway_control/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Gateway", name)
+		ui.open()
 
 /obj/machinery/gateway/centeraway/proc/toggleoff()
 	for(var/obj/machinery/gateway/G in linked)

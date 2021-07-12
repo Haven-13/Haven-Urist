@@ -22,7 +22,14 @@
 			child_names[tags[i]] = names[i]
 
 
-/obj/machinery/embedded_controller/radio/docking_port_multi/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/embedded_controller/radio/docking_port_multi/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "AirlockDockingMultiController")
+		ui.open()
+
+
+/obj/machinery/embedded_controller/radio/docking_port_multi/ui_data(mob/user)
 	var/data[0]
 
 	var/list/airlocks[child_names.len]
@@ -35,13 +42,7 @@
 		"airlocks" = airlocks,
 	)
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-
-	if (!ui)
-		ui = new(user, src, ui_key, "multi_docking_console.tmpl", name, 470, 290, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/embedded_controller/radio/docking_port_multi/Topic(href, href_list)
 	return
@@ -60,55 +61,36 @@
 	airlock_program = new/datum/computer/file/embedded_program/airlock/multi_docking(src)
 	program = airlock_program
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
-	var/data[0]
+/obj/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "AirlockDockingController")
+		ui.open()
 
-	data = list(
-		"chamber_pressure" = round(airlock_program.memory["chamber_sensor_pressure"]),
-		"exterior_status" = airlock_program.memory["exterior_status"],
-		"interior_status" = airlock_program.memory["interior_status"],
+/obj/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_data(mob/user)
+	. = list(
+		"chamberPressure" = round(airlock_program.memory["chamber_sensor_pressure"]),
+		"exteriorStatus" = airlock_program.memory["exterior_status"],
+		"interiorStatus" = airlock_program.memory["interior_status"],
 		"processing" = airlock_program.memory["processing"],
-		"docking_status" = airlock_program.master_status,
-		"airlock_disabled" = (airlock_program.docking_enabled && !airlock_program.override_enabled),
-		"override_enabled" = airlock_program.override_enabled,
+		"dockingStatus" = airlock_program.master_status,
+		"airlockDisabled" = (airlock_program.docking_enabled && !airlock_program.override_enabled),
+		"overrideEnabled" = airlock_program.override_enabled,
 	)
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-
-	if (!ui)
-		ui = new(user, src, ui_key, "docking_airlock_console.tmpl", name, 470, 290, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
-
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi/Topic(href, href_list)
-	if(..())
-		return
-
-	usr.set_machine(src)
-
-	var/clean = 0
-	switch(href_list["command"])	//anti-HTML-hacking checks
-		if("cycle_ext")
-			clean = 1
-		if("cycle_int")
-			clean = 1
-		if("force_ext")
-			clean = 1
-		if("force_int")
-			clean = 1
-		if("abort")
-			clean = 1
-		if("toggle_override")
-			clean = 1
-
-	if(clean)
-		program.receive_user_command(href_list["command"])
-
-	return 1
-
-
-
+/obj/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_act(action, list/params)
+	switch(action)
+		if("command")
+			if(params["command"] in list(
+					"cycle_ext",
+					"cycle_int",
+					"force_int",
+					"force_ext",
+					"abort",
+					"toggle_override",
+					"dock"))
+				program.receive_user_command(params["command"])
+			. = TRUE
 /*** DEBUG VERBS ***
 
 /datum/computer/file/embedded_program/docking/multi/proc/print_state()

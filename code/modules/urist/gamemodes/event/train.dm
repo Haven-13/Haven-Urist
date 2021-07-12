@@ -281,7 +281,7 @@ proc/snowtraintime()
 					if(!M.buckled)
 						M.Weaken(3)
 
-			world << "<span class='danger'> The train has come to a stop. The lower cars have won this fight, and have brought an end to the tyranny of the upper cars. Was it the right decision? Only time will tell, as the survivors will have to work hard to survive in this cruel new world.</span>"
+			to_world("<span class='danger'> The train has come to a stop. The lower cars have won this fight, and have brought an end to the tyranny of the upper cars. Was it the right decision? Only time will tell, as the survivors will have to work hard to survive in this cruel new world.</span>")
 
 /turf/unsimulated/floor/uristturf/train/snow
 	name = "snow"

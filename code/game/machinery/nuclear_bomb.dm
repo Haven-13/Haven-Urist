@@ -43,7 +43,7 @@ var/bomb_set
 		playsound(loc, 'sound/items/timer.ogg', 50)
 		if(timeleft <= 0)
 			addtimer(CALLBACK(src, .proc/explode), 0)
-		SSnano.update_uis(src)
+		SStgui.update_uis(src)
 
 /obj/machinery/nuclearbomb/attackby(obj/item/weapon/O as obj, mob/user as mob, params)
 	if(isScrewdriver(O))
@@ -166,7 +166,13 @@ var/bomb_set
 			update_icon()
 	return
 
-/obj/machinery/nuclearbomb/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/nuclearbomb/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "NuclearBomb")
+		ui.open()
+
+/obj/machinery/nuclearbomb/ui_data(mob/user)
 	var/data[0]
 	data["hacking"] = 0
 	data["auth"] = is_auth(user)
@@ -193,12 +199,7 @@ var/bomb_set
 		if(yes_code)
 			data["message"] = "*****"
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "nuclear_bomb.tmpl", "Nuke Control Panel", 300, 510)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/nuclearbomb/verb/toggle_deployable()
 	set category = "Object"
@@ -282,7 +283,7 @@ var/bomb_set
 					return 1
 				if(!timing && !safety)
 					start_bomb()
-				else 
+				else
 					check_cutoff()
 			if(href_list["safety"])
 				if (wires.IsIndexCut(NUCLEARBOMB_WIRE_SAFETY))

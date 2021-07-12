@@ -203,7 +203,13 @@
 		celldiff = min(min(celldiff, most.charge), least.maxcharge - least.charge)
 		least.give(most.use(celldiff))
 
-/obj/machinery/power/smes/batteryrack/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/power/smes/batteryrack/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "PowerBatteryRack")
+		ui.open()
+
+/obj/machinery/power/smes/batteryrack/ui_data(mob/user)
 	var/data[0]
 
 	data["mode"] = mode
@@ -232,12 +238,7 @@
 		cells += list(cell)
 	data["cells_list"] = cells
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "psu.tmpl", "Cell Rack PSU", 500, 430)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/power/smes/batteryrack/dismantle()
 	for(var/obj/item/weapon/cell/C in internal_cells)

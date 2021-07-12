@@ -48,7 +48,7 @@ var/host = null //only here until check @ code\modules\ghosttrap\trap.dm:112 is 
 var/list/jobMax        = list()
 var/list/bombers       = list()
 var/list/admin_log     = list()
-var/list/lastsignalers = list() // Keeps last 100 signals here in format: "[src] used \ref[src] @ location [src.loc]: [freq]/[code]"
+var/list/lastsignalers = list() // Keeps last 100 signals here in format: "[src] used [REF(src)] @ location [src.loc]: [freq]/[code]"
 var/list/lawchanges    = list() // Stores who uploaded laws to which silicon-based lifeform, and what the law was.
 var/list/reg_dna       = list()
 
@@ -100,7 +100,6 @@ var/gravity_is_on = 1
 
 var/join_motd = null
 
-var/datum/nanomanager/nanomanager		= new() // NanoManager, the manager for Nano UIs.
 var/datum/event_manager/event_manager	= new() // Event Manager, the manager for events.
 
 var/list/awaydestinations = list() // Away missions. A list of landmarks that the warpgate can take you to.

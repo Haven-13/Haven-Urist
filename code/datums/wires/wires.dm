@@ -79,7 +79,7 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 	else
 		user.unset_machine()
 		// No content means no window.
-		user << browse(null, "window=wires")
+		close_browser(user, "window=wires")
 		return
 
 	var/datum/browser/popup = new(user, "wires", holder.name, window_x, window_y)
@@ -96,9 +96,9 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 		html += "<tr>"
 		html += "<td[row_options1]><font color='[colour]'>&#9724;</font>[capitalize(colour)]</td>"
 		html += "<td[row_options2]>"
-		html += "<A href='?src=\ref[src];action=1;cut=[colour]'>[IsColourCut(colour) ? "Mend" :  "Cut"]</A>"
-		html += " <A href='?src=\ref[src];action=1;pulse=[colour]'>Pulse</A>"
-		html += " <A href='?src=\ref[src];action=1;attach=[colour]'>[IsAttached(colour) ? "Detach" : "Attach"] Signaller</A></td></tr>"
+		html += "<A href='?src=[REF(src)];action=1;cut=[colour]'>[IsColourCut(colour) ? "Mend" :  "Cut"]</A>"
+		html += " <A href='?src=[REF(src)];action=1;pulse=[colour]'>Pulse</A>"
+		html += " <A href='?src=[REF(src)];action=1;attach=[colour]'>[IsAttached(colour) ? "Detach" : "Attach"] Signaller</A></td></tr>"
 	html += "</table>"
 	html += "</div>"
 
@@ -149,7 +149,7 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 			Interact(usr)
 
 	if(href_list["close"])
-		usr << browse(null, "window=wires")
+		close_browser(usr, "window=wires")
 		usr.unset_machine(holder)
 
 //

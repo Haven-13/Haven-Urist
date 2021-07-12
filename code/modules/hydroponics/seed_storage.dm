@@ -261,11 +261,11 @@
 				dat += "LUM "
 			dat += "</td>"
 			dat += "<td>[S.amount]</td>"
-			dat += "<td><a href='byond://?src=\ref[src];task=vend;id=[S.ID]'>Vend</a> <a href='byond://?src=\ref[src];task=purge;id=[S.ID]'>Purge</a></td>"
+			dat += "<td><a href='byond://?src=[REF(src)];task=vend;id=[S.ID]'>Vend</a> <a href='byond://?src=[REF(src)];task=purge;id=[S.ID]'>Purge</a></td>"
 			dat += "</tr>"
 		dat += "</table>"
 
-	user << browse(dat, "window=seedstorage;size=800x500")
+	show_browser(user, dat, "window=seedstorage;size=800x500")
 	onclose(user, "seedstorage")
 
 /obj/machinery/seed_storage/Topic(var/href, var/list/href_list)

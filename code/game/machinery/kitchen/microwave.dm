@@ -218,7 +218,7 @@
 			dat += "<B>The microwave is empty</B>"
 		else
 			dat += "<b>Ingredients:</b><br>[dat]"
-		dat += "<HR><BR><A href='?src=\ref[src];action=cook'>Turn on!<BR><A href='?src=\ref[src];action=dispose'>Eject ingredients!"
+		dat += "<HR><BR><A href='?src=[REF(src)];action=cook'>Turn on!<BR><A href='?src=[REF(src)];action=dispose'>Eject ingredients!"
 
 	show_browser(user, "<HEAD><TITLE>Microwave Controls</TITLE></HEAD><TT>[jointext(dat,"<br>")]</TT>", "window=microwave")
 	onclose(user, "microwave")

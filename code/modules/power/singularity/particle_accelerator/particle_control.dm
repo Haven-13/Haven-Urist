@@ -84,11 +84,11 @@
 	//Ignore input if we are broken, !silicon guy cant touch us, or nonai controlling from super far away
 	if(stat & (BROKEN|NOPOWER) || (get_dist(src, usr) > 1 && !istype(usr, /mob/living/silicon)) || (get_dist(src, usr) > 8 && !istype(usr, /mob/living/silicon/ai)))
 		usr.unset_machine()
-		usr << browse(null, "window=pacontrol")
+		close_browser(usr, "window=pacontrol")
 		return
 
 	if( href_list["close"] )
-		usr << browse(null, "window=pacontrol")
+		close_browser(usr, "window=pacontrol")
 		usr.unset_machine()
 		return
 
@@ -121,7 +121,7 @@
 		if(strength > strength_upper_limit)
 			strength = strength_upper_limit
 		else
-			message_admins("PA Control Computer increased to [strength] by [key_name(usr, usr.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[usr]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+			message_admins("PA Control Computer increased to [strength] by [key_name(usr, usr.client)](<A HREF='?_src_=holder;adminmoreinfo=[REF(usr)]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 			log_game("PA Control Computer increased to [strength] by [usr.ckey]([usr]) in ([x],[y],[z])")
 			investigate_log("increased to <font color='red'>[strength]</font> by [usr.key]","singulo")
 		strength_change()
@@ -132,7 +132,7 @@
 		if(strength < 0)
 			strength = 0
 		else
-			message_admins("PA Control Computer decreased to [strength] by [key_name(usr, usr.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[usr]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+			message_admins("PA Control Computer decreased to [strength] by [key_name(usr, usr.client)](<A HREF='?_src_=holder;adminmoreinfo=[REF(usr)]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 			log_game("PA Control Computer decreased to [strength] by [usr.ckey]([usr]) in ([x],[y],[z])")
 			investigate_log("decreased to <font color='green'>[strength]</font> by [usr.key]","singulo")
 		strength_change()
@@ -213,7 +213,7 @@
 /obj/machinery/particle_accelerator/control_box/proc/toggle_power()
 	src.active = !src.active
 	investigate_log("turned [active?"<font color='red'>ON</font>":"<font color='green'>OFF</font>"] by [usr ? usr.key : "outside forces"]","singulo")
-	message_admins("PA Control Computer turned [active ?"ON":"OFF"] by [key_name(usr, usr.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[usr]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+	message_admins("PA Control Computer turned [active ?"ON":"OFF"] by [key_name(usr, usr.client)](<A HREF='?_src_=holder;adminmoreinfo=[REF(usr)]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 	log_game("PA Control Computer turned [active ?"ON":"OFF"] by [usr.ckey]([usr]) in ([x],[y],[z])")
 	if(src.active)
 		update_use_power(2)
@@ -234,17 +234,17 @@
 	if((get_dist(src, user) > 1) || (stat & (BROKEN|NOPOWER)))
 		if(!istype(user, /mob/living/silicon))
 			user.unset_machine()
-			user << browse(null, "window=pacontrol")
+			close_browser(user, "window=pacontrol")
 			return
 	user.set_machine(src)
 
 	var/dat = ""
 	dat += "Particle Accelerator Control Panel<BR>"
-	dat += "<A href='?src=\ref[src];close=1'>Close</A><BR><BR>"
+	dat += "<A href='?src=[REF(src)];close=1'>Close</A><BR><BR>"
 	dat += "Status:<BR>"
 	if(!assembled)
 		dat += "Unable to detect all parts!<BR>"
-		dat += "<A href='?src=\ref[src];scan=1'>Run Scan</A><BR><BR>"
+		dat += "<A href='?src=[REF(src)];scan=1'>Run Scan</A><BR><BR>"
 	else
 		dat += "All parts in place.<BR><BR>"
 		dat += "Power:"
@@ -252,10 +252,10 @@
 			dat += "On<BR>"
 		else
 			dat += "Off <BR>"
-		dat += "<A href='?src=\ref[src];togglep=1'>Toggle Power</A><BR><BR>"
+		dat += "<A href='?src=[REF(src)];togglep=1'>Toggle Power</A><BR><BR>"
 		dat += "Particle Strength: [src.strength] "
-		dat += "<A href='?src=\ref[src];strengthdown=1'>--</A>|<A href='?src=\ref[src];strengthup=1'>++</A><BR><BR>"
+		dat += "<A href='?src=[REF(src)];strengthdown=1'>--</A>|<A href='?src=[REF(src)];strengthup=1'>++</A><BR><BR>"
 
-	user << browse(dat, "window=pacontrol;size=420x500")
+	show_browser(user, dat, "window=pacontrol;size=420x500")
 	onclose(user, "pacontrol")
 	return

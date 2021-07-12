@@ -71,7 +71,7 @@ SUBSYSTEM_DEF(vote)
 		var/next_allowed_time = (last_started_time + config.vote_delay)
 		if(next_allowed_time > world.time)
 			return FALSE
-	
+
 	var/datum/vote/new_vote = new vote_type
 	if(!new_vote.setup(creator, automatic))
 		return FALSE
@@ -91,12 +91,12 @@ SUBSYSTEM_DEF(vote)
 	if(active_vote)
 		. += active_vote.interface(C.mob)
 		if(admin)
-			. += "(<a href='?src=\ref[src];cancel=1'>Cancel Vote</a>) "
+			. += "(<a href='?src=[REF(src)];cancel=1'>Cancel Vote</a>) "
 	else
 		. += "<h2>Start a vote:</h2><hr><ul>"
 		for(var/vote_type in vote_prototypes)
 			var/datum/vote/vote_datum = vote_prototypes[vote_type]
-			. += "<li><a href='?src=\ref[src];vote=\ref[vote_datum.type]'>"
+			. += "<li><a href='?src=[REF(src)];vote=\ref[vote_datum.type]'>"
 			if(vote_datum.can_run(C.mob))
 				. += "[capitalize(vote_datum.name)]"
 			else
@@ -104,11 +104,11 @@ SUBSYSTEM_DEF(vote)
 			. += "</a>"
 			var/toggle = vote_datum.check_toggle()
 			if(admin && toggle)
-				. += "\t(<a href='?src=\ref[src];toggle=1;vote=\ref[vote_datum.type]'>toggle; currently [toggle]</a>)"
+				. += "\t(<a href='?src=[REF(src)];toggle=1;vote=\ref[vote_datum.type]'>toggle; currently [toggle]</a>)"
 			. += "</li>"
 		. += "</ul><hr>"
 
-	. += "<a href='?src=\ref[src];close=1' style='position:absolute;right:50px'>Close</a></body></html>"
+	. += "<a href='?src=[REF(src)];close=1' style='position:absolute;right:50px'>Close</a></body></html>"
 	return JOINTEXT(.)
 
 /datum/controller/subsystem/vote/proc/show_panel(mob/user)

@@ -5,7 +5,6 @@
 	icon_keyboard = "tech_key"
 	icon_screen = "engines"
 	circuit = /obj/item/weapon/circuitboard/engine
-	var/state = "status"
 	var/obj/effect/overmap/ship/linked
 
 /obj/machinery/computer/engines/Initialize()
@@ -22,84 +21,53 @@
 
 	ui_interact(user)
 
-/obj/machinery/computer/engines/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	if(!linked)
-		to_chat(user, "<span class='warning'>Unable to connect to ship control systems.</span>")
-		return
+/obj/machinery/computer/engines/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "spacecraft/ShipEnginesControl", name)
+		ui.open()
 
+/obj/machinery/computer/engines/ui_data(mob/user)
 	var/data[0]
-	data["state"] = state
-	data["global_state"] = linked.engines_state
-	data["global_limit"] = round(linked.thrust_limit*100)
+	data["globalState"] = linked.engines_state
+	data["globalThrustLimit"] = linked.thrust_limit
 	var/total_thrust = 0
 
 	var/list/enginfo[0]
 	for(var/datum/ship_engine/E in linked.engines)
 		var/list/rdata[0]
-		rdata["eng_type"] = E.name
-		rdata["eng_on"] = E.is_on()
-		rdata["eng_thrust"] = E.get_thrust()
-		rdata["eng_thrust_limiter"] = round(E.get_thrust_limit()*100)
-		rdata["eng_status"] = E.get_status()
-		rdata["eng_reference"] = "\ref[E]"
+		rdata["type"] = E.name
+		rdata["on"] = E.is_on()
+		rdata["thrust"] = E.get_thrust()
+		rdata["locationName"] = E.get_area_name()
+		rdata["thrustLimit"] = E.get_thrust_limit()
+		rdata["status"] = E.get_status()
+		rdata["reference"] = REF(E)
 		total_thrust += E.get_thrust()
 		enginfo.Add(list(rdata))
 
-	data["engines_info"] = enginfo
-	data["total_thrust"] = total_thrust
+	data["enginesInfo"] = enginfo
+	data["totalThrust"] = total_thrust
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "engines_control.tmpl", "[linked.name] Engines Control", 380, 530)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
-/obj/machinery/computer/engines/Topic(href, href_list, ui_state)
-	if(..())
-		return 1
-
-	if(href_list["state"])
-		state = href_list["state"]
-
-	if(href_list["global_toggle"])
-		linked.engines_state = !linked.engines_state
-		for(var/datum/ship_engine/E in linked.engines)
-			if(linked.engines_state != E.is_on())
-				E.toggle()
-
-	if(href_list["set_global_limit"])
-		var/newlim = input("Input new thrust limit (0..100%)", "Thrust limit", linked.thrust_limit*100) as num
-		if(!CanInteract(usr,ui_state))
-			return
-		linked.thrust_limit = Clamp(newlim/100, 0, 1)
-		for(var/datum/ship_engine/E in linked.engines)
-			E.set_thrust_limit(linked.thrust_limit)
-
-	if(href_list["global_limit"])
-		linked.thrust_limit = Clamp(linked.thrust_limit + text2num(href_list["global_limit"]), 0, 1)
-		for(var/datum/ship_engine/E in linked.engines)
-			E.set_thrust_limit(linked.thrust_limit)
-
-	if(href_list["engine"])
-		if(href_list["set_limit"])
-			var/datum/ship_engine/E = locate(href_list["engine"])
-			var/newlim = input("Input new thrust limit (0..100)", "Thrust limit", E.get_thrust_limit()) as num
-			if(!CanInteract(usr,ui_state))
-				return
-			var/limit = Clamp(newlim/100, 0, 1)
-			if(istype(E))
-				E.set_thrust_limit(limit)
-
-		if(href_list["limit"])
-			var/datum/ship_engine/E = locate(href_list["engine"])
-			var/limit = Clamp(E.get_thrust_limit() + text2num(href_list["limit"]), 0, 1)
-			if(istype(E))
-				E.set_thrust_limit(limit)
-
-		if(href_list["toggle"])
-			var/datum/ship_engine/E = locate(href_list["engine"])
-			if(istype(E))
-				E.toggle()
-
-	updateUsrDialog()
+/obj/machinery/computer/engines/ui_act(action, list/params)
+	switch(action)
+		if("global_set_state")
+			linked.engines_state = params["state"]
+			for(var/datum/ship_engine/E in linked.engines)
+				if(linked.engines_state != E.is_on())
+					E.toggle()
+		if("set_global_limit")
+			linked.thrust_limit = Clamp(params["set_global_limit"], 0, 1)
+			for(var/datum/ship_engine/E in linked.engines)
+				E.set_thrust_limit(linked.thrust_limit)
+		if("engine")
+			var/datum/ship_engine/E = locate(params["engine"])
+			if (istype(E))
+				switch(params["action"])
+					if("set_limit")
+						E.set_thrust_limit(Clamp(params["value"], 0, 1))
+					if("toggle")
+						E.toggle()
+	. = TRUE

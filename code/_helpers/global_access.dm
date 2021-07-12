@@ -79,6 +79,8 @@
 			return global.SSalarm;
 		if("SSantags")
 			return global.SSantags;
+		if("SSassets")
+			return global.SSassets;
 		if("SSatoms")
 			return global.SSatoms;
 		if("SSculture")
@@ -111,8 +113,6 @@
 			return global.SSmisc_late;
 		if("SSmobs")
 			return global.SSmobs;
-		if("SSnano")
-			return global.SSnano;
 		if("SSobj")
 			return global.SSobj;
 		if("SSpersistence")
@@ -155,6 +155,8 @@
 			return global.SWEDEBLOCK;
 		if("WALLITEMS")
 			return global.WALLITEMS;
+		if("__rust_g")
+			return global.__rust_g;
 		if("_all_globals")
 			return global._all_globals;
 		if("_client_preferences")
@@ -219,8 +221,6 @@
 			return global.ai_status_emotions;
 		if("ai_verbs_default")
 			return global.ai_verbs_default;
-		if("air_alarm_topic")
-			return global.air_alarm_topic;
 		if("air_blocked")
 			return global.air_blocked;
 		if("airlock_overlays")
@@ -271,10 +271,6 @@
 			return global.ascii_reset;
 		if("ascii_yellow")
 			return global.ascii_yellow;
-		if("asset_cache")
-			return global.asset_cache;
-		if("asset_datums")
-			return global.asset_datums;
 		if("assigned")
 			return global.assigned;
 		if("assigned_blocks")
@@ -349,8 +345,6 @@
 			return global.client_repository;
 		if("combatlog")
 			return global.combatlog;
-		if("comm_message_listeners")
-			return global.comm_message_listeners;
 		if("command_announcement")
 			return global.command_announcement;
 		if("command_name")
@@ -513,8 +507,6 @@
 			return global.ghost_sightless_images;
 		if("ghost_traps")
 			return global.ghost_traps;
-		if("global_message_listener")
-			return global.global_message_listener;
 		if("global_vars_")
 			return global.global_vars_;
 		if("good_blocks")
@@ -571,8 +563,6 @@
 			return global.language_keys;
 		if("last_chew")
 			return global.last_chew;
-		if("last_message_id")
-			return global.last_message_id;
 		if("last_round_duration")
 			return global.last_round_duration;
 		if("light_overlay_cache")
@@ -689,8 +679,6 @@
 			return global.next_station_date_change;
 		if("ninjastart")
 			return global.ninjastart;
-		if("not_incapacitated_turf_state")
-			return global.not_incapacitated_turf_state;
 		if("ntnet_card_uid")
 			return global.ntnet_card_uid;
 		if("ntnet_global")
@@ -857,8 +845,6 @@
 			return global.solar_gen_rate;
 		if("solars_list")
 			return global.solars_list;
-		if("sortInstance")
-			return global.sortInstance;
 		if("sounds_cache")
 			return global.sounds_cache;
 		if("space_ruins_templates")
@@ -945,34 +931,6 @@
 			return global.telecomms_list;
 		if("text_tag_icons")
 			return global.text_tag_icons;
-		if("tg_admin_state")
-			return global.tg_admin_state;
-		if("tg_always_state")
-			return global.tg_always_state;
-		if("tg_conscious_state")
-			return global.tg_conscious_state;
-		if("tg_contained_state")
-			return global.tg_contained_state;
-		if("tg_deep_inventory_state")
-			return global.tg_deep_inventory_state;
-		if("tg_default_state")
-			return global.tg_default_state;
-		if("tg_hands_state")
-			return global.tg_hands_state;
-		if("tg_human_adjacent_state")
-			return global.tg_human_adjacent_state;
-		if("tg_inventory_state")
-			return global.tg_inventory_state;
-		if("tg_not_contained_state")
-			return global.tg_not_contained_state;
-		if("tg_not_incapacitated_state")
-			return global.tg_not_incapacitated_state;
-		if("tg_physical_state")
-			return global.tg_physical_state;
-		if("tg_self_state")
-			return global.tg_self_state;
-		if("tg_z_state")
-			return global.tg_z_state;
 		if("ticket_panels")
 			return global.ticket_panels;
 		if("tickets")
@@ -1128,6 +1086,8 @@
 			global.SSalarm=newval;
 		if("SSantags")
 			global.SSantags=newval;
+		if("SSassets")
+			global.SSassets=newval;
 		if("SSatoms")
 			global.SSatoms=newval;
 		if("SSculture")
@@ -1160,8 +1120,6 @@
 			global.SSmisc_late=newval;
 		if("SSmobs")
 			global.SSmobs=newval;
-		if("SSnano")
-			global.SSnano=newval;
 		if("SSobj")
 			global.SSobj=newval;
 		if("SSpersistence")
@@ -1204,6 +1162,8 @@
 			global.SWEDEBLOCK=newval;
 		if("WALLITEMS")
 			global.WALLITEMS=newval;
+		if("__rust_g")
+			global.__rust_g=newval;
 		if("_all_globals")
 			global._all_globals=newval;
 		if("_client_preferences")
@@ -1268,8 +1228,6 @@
 			global.ai_status_emotions=newval;
 		if("ai_verbs_default")
 			global.ai_verbs_default=newval;
-		if("air_alarm_topic")
-			global.air_alarm_topic=newval;
 		if("air_blocked")
 			global.air_blocked=newval;
 		if("airlock_overlays")
@@ -1320,10 +1278,6 @@
 			global.ascii_reset=newval;
 		if("ascii_yellow")
 			global.ascii_yellow=newval;
-		if("asset_cache")
-			global.asset_cache=newval;
-		if("asset_datums")
-			global.asset_datums=newval;
 		if("assigned")
 			global.assigned=newval;
 		if("assigned_blocks")
@@ -1398,8 +1352,6 @@
 			global.client_repository=newval;
 		if("combatlog")
 			global.combatlog=newval;
-		if("comm_message_listeners")
-			global.comm_message_listeners=newval;
 		if("command_announcement")
 			global.command_announcement=newval;
 		if("command_name")
@@ -1562,8 +1514,6 @@
 			global.ghost_sightless_images=newval;
 		if("ghost_traps")
 			global.ghost_traps=newval;
-		if("global_message_listener")
-			global.global_message_listener=newval;
 		if("global_vars_")
 			global.global_vars_=newval;
 		if("good_blocks")
@@ -1620,8 +1570,6 @@
 			global.language_keys=newval;
 		if("last_chew")
 			global.last_chew=newval;
-		if("last_message_id")
-			global.last_message_id=newval;
 		if("last_round_duration")
 			global.last_round_duration=newval;
 		if("light_overlay_cache")
@@ -1738,8 +1686,6 @@
 			global.next_station_date_change=newval;
 		if("ninjastart")
 			global.ninjastart=newval;
-		if("not_incapacitated_turf_state")
-			global.not_incapacitated_turf_state=newval;
 		if("ntnet_card_uid")
 			global.ntnet_card_uid=newval;
 		if("ntnet_global")
@@ -1906,8 +1852,6 @@
 			global.solar_gen_rate=newval;
 		if("solars_list")
 			global.solars_list=newval;
-		if("sortInstance")
-			global.sortInstance=newval;
 		if("sounds_cache")
 			global.sounds_cache=newval;
 		if("space_ruins_templates")
@@ -1994,34 +1938,6 @@
 			global.telecomms_list=newval;
 		if("text_tag_icons")
 			global.text_tag_icons=newval;
-		if("tg_admin_state")
-			global.tg_admin_state=newval;
-		if("tg_always_state")
-			global.tg_always_state=newval;
-		if("tg_conscious_state")
-			global.tg_conscious_state=newval;
-		if("tg_contained_state")
-			global.tg_contained_state=newval;
-		if("tg_deep_inventory_state")
-			global.tg_deep_inventory_state=newval;
-		if("tg_default_state")
-			global.tg_default_state=newval;
-		if("tg_hands_state")
-			global.tg_hands_state=newval;
-		if("tg_human_adjacent_state")
-			global.tg_human_adjacent_state=newval;
-		if("tg_inventory_state")
-			global.tg_inventory_state=newval;
-		if("tg_not_contained_state")
-			global.tg_not_contained_state=newval;
-		if("tg_not_incapacitated_state")
-			global.tg_not_incapacitated_state=newval;
-		if("tg_physical_state")
-			global.tg_physical_state=newval;
-		if("tg_self_state")
-			global.tg_self_state=newval;
-		if("tg_z_state")
-			global.tg_z_state=newval;
 		if("ticket_panels")
 			global.ticket_panels=newval;
 		if("tickets")
@@ -2137,6 +2053,7 @@
 	"SSairflow",
 	"SSalarm",
 	"SSantags",
+	"SSassets",
 	"SSatoms",
 	"SSculture",
 	"SSevac",
@@ -2153,7 +2070,6 @@
 	"SSmisc",
 	"SSmisc_late",
 	"SSmobs",
-	"SSnano",
 	"SSobj",
 	"SSpersistence",
 	"SSprocessing",
@@ -2175,6 +2091,7 @@
 	"SSwireless",
 	"SWEDEBLOCK",
 	"WALLITEMS",
+	"__rust_g",
 	"_all_globals",
 	"_client_preferences",
 	"_client_preferences_by_key",
@@ -2207,7 +2124,6 @@
 	"ai_list",
 	"ai_status_emotions",
 	"ai_verbs_default",
-	"air_alarm_topic",
 	"air_blocked",
 	"airlock_overlays",
 	"alien_whitelist",
@@ -2233,8 +2149,6 @@
 	"ascii_red",
 	"ascii_reset",
 	"ascii_yellow",
-	"asset_cache",
-	"asset_datums",
 	"assigned",
 	"assigned_blocks",
 	"atmosphere_alarm",
@@ -2272,7 +2186,6 @@
 	"client_preference_stats_",
 	"client_repository",
 	"combatlog",
-	"comm_message_listeners",
 	"command_announcement",
 	"command_name",
 	"common_tools",
@@ -2354,7 +2267,6 @@
 	"ghost_darkness_images",
 	"ghost_sightless_images",
 	"ghost_traps",
-	"global_message_listener",
 	"global_vars_",
 	"good_blocks",
 	"gravity_is_on",
@@ -2383,7 +2295,6 @@
 	"landmarks_list",
 	"language_keys",
 	"last_chew",
-	"last_message_id",
 	"last_round_duration",
 	"light_overlay_cache",
 	"lighting_overlays_initialised",
@@ -2442,7 +2353,6 @@
 	"next_duration_update",
 	"next_station_date_change",
 	"ninjastart",
-	"not_incapacitated_turf_state",
 	"ntnet_card_uid",
 	"ntnet_global",
 	"ntnrc_uid",
@@ -2526,7 +2436,6 @@
 	"slot_flags_enumeration",
 	"solar_gen_rate",
 	"solars_list",
-	"sortInstance",
 	"sounds_cache",
 	"space_ruins_templates",
 	"spacevines_spawned",
@@ -2570,20 +2479,6 @@
 	"tape_roll_applications",
 	"telecomms_list",
 	"text_tag_icons",
-	"tg_admin_state",
-	"tg_always_state",
-	"tg_conscious_state",
-	"tg_contained_state",
-	"tg_deep_inventory_state",
-	"tg_default_state",
-	"tg_hands_state",
-	"tg_human_adjacent_state",
-	"tg_inventory_state",
-	"tg_not_contained_state",
-	"tg_not_incapacitated_state",
-	"tg_physical_state",
-	"tg_self_state",
-	"tg_z_state",
 	"ticket_panels",
 	"tickets",
 	"total_lighting_corners",

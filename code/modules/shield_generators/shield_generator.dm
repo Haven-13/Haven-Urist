@@ -205,35 +205,95 @@
 			S.fail(1)
 
 
-/obj/machinery/power/shield_generator/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/data[0]
-
-	data["running"] = running
-	data["modes"] = get_flag_descriptions()
-	data["overloaded"] = overloaded
-	data["mitigation_max"] = mitigation_max
-	data["mitigation_physical"] = round(mitigation_physical, 0.1)
-	data["mitigation_em"] = round(mitigation_em, 0.1)
-	data["mitigation_heat"] = round(mitigation_heat, 0.1)
-	data["field_integrity"] = field_integrity()
-	data["max_energy"] = round(max_energy / 1000000, 0.1)
-	data["current_energy"] = round(current_energy / 1000000, 0.1)
-	data["total_segments"] = field_segments ? field_segments.len : 0
-	data["functional_segments"] = damaged_segments ? data["total_segments"] - damaged_segments.len : data["total_segments"]
-	data["field_radius"] = field_radius
-	data["input_cap_kw"] = round(input_cap / 1000)
-	data["upkeep_power_usage"] = round(upkeep_power_usage / 1000, 0.1)
-	data["power_usage"] = round(power_usage / 1000)
-	data["hacked"] = hacked
-	data["offline_for"] = offline_for * 2
-
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+/obj/machinery/power/shield_generator/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, ui_key, "shieldgen.tmpl", src.name, 500, 800)
-		ui.set_initial_data(data)
+		ui = new(user, src, "AdvancedShieldGenerator", name)
 		ui.open()
-		ui.set_auto_update(1)
 
+
+/obj/machinery/power/shield_generator/ui_data(mob/user)
+	var/total_segments = field_segments ? field_segments.len : 0
+	. = list(
+		"running" = running,
+		"modes" = get_flag_descriptions(),
+		"overloaded" = overloaded,
+		"mitigationMax" = mitigation_max,
+		"mitigationPhysical" = round(mitigation_physical, 0.1),
+		"mitigationEm" = round(mitigation_em, 0.1),
+		"mitigationHeat" = round(mitigation_heat, 0.1),
+		"fieldIntegrity" = field_integrity(),
+		"maxEnergy" = max_energy,
+		"currentEnergy" = current_energy,
+		"totalSegments" = total_segments,
+		"functionalSegments" = damaged_segments ? total_segments - damaged_segments.len : total_segments,
+		"fieldRadius" = field_radius,
+		"inputCap" = input_cap,
+		"upkeepPowerUsage" = upkeep_power_usage,
+		"powerUsage" = power_usage,
+		"hacked" = hacked,
+		"offlineFor" = offline_for * 2
+	)
+
+/obj/machinery/power/shield_generator/ui_act(action, list/params)
+	switch(action)
+		if("begin_shutdown")
+			if(running != SHIELD_RUNNING)
+				return FALSE
+			running = SHIELD_DISCHARGING
+			return TRUE
+
+		if("start_generator")
+			if(offline_for)
+				return FALSE
+			running = SHIELD_RUNNING
+			regenerate_field()
+			return TRUE
+
+		if("emergency_shutdown")
+			if(!running)
+				return FALSE
+
+			// If the shield would take 5 minutes to disperse and shut down using regular methods, it will take x1.5 (7 minutes and 30 seconds) of this time to cool down after emergency shutdown
+			offline_for = round(current_energy / (SHIELD_SHUTDOWN_DISPERSION_RATE / 1.5))
+			var/old_energy = current_energy
+			shutdown_field()
+			log_and_message_admins("has triggered \the [src]'s emergency shutdown!", usr)
+			spawn()
+				empulse(src, old_energy / 60000000, old_energy / 32000000, 1) // If shields are charged at 450 MJ, the EMP will be 7.5, 14.0625. 90 MJ, 1.5, 2.8125
+			old_energy = 0
+
+			return TRUE
+
+		if("set_range")
+			if(mode_changes_locked)
+				return TRUE
+			var/new_range = params["set_range"]
+			if(!new_range)
+				return FALSE
+			field_radius = between(1, new_range, world.maxx)
+			regenerate_field()
+			return TRUE
+
+		if("set_input_cap")
+			if(mode_changes_locked)
+				return TRUE
+			var/new_cap = params["set_input_cap"]
+			if(!new_cap)
+				input_cap = 0
+				return FALSE
+			input_cap = max(0, new_cap)
+			return TRUE
+
+		if("toggle_mode")
+			if(mode_changes_locked)
+				return TRUE
+			// Toggling hacked-only modes requires the hacked var to be set to 1
+			if((params["toggle_mode"] & (MODEFLAG_BYPASS | MODEFLAG_OVERCHARGE)) && !hacked)
+				return FALSE
+
+			toggle_flag(params["toggle_mode"])
+			return TRUE
 
 /obj/machinery/power/shield_generator/attack_hand(var/mob/user)
 	ui_interact(user)
@@ -243,69 +303,8 @@
 
 /obj/machinery/power/shield_generator/CanUseTopic(var/mob/user)
 	if(issilicon(user) && !Adjacent(user) && ai_control_disabled)
-		return STATUS_UPDATE
+		return UI_UPDATE
 	return ..()
-
-/obj/machinery/power/shield_generator/OnTopic(user, href_list)
-	if(href_list["begin_shutdown"])
-		if(running != SHIELD_RUNNING)
-			return
-		running = SHIELD_DISCHARGING
-		return TOPIC_REFRESH
-
-	if(href_list["start_generator"])
-		if(offline_for)
-			return
-		running = SHIELD_RUNNING
-		regenerate_field()
-		return TOPIC_REFRESH
-
-	// Instantly drops the shield, but causes a cooldown before it may be started again. Also carries a risk of EMP at high charge.
-	if(href_list["emergency_shutdown"])
-		if(!running)
-			return TOPIC_HANDLED
-
-		var/choice = input(user, "Are you sure that you want to initiate an emergency shield shutdown? This will instantly drop the shield, and may result in unstable release of stored electromagnetic energy. Proceed at your own risk.") in list("Yes", "No")
-		if((choice != "Yes") || !running)
-			return TOPIC_HANDLED
-
-		// If the shield would take 5 minutes to disperse and shut down using regular methods, it will take x1.5 (7 minutes and 30 seconds) of this time to cool down after emergency shutdown
-		offline_for = round(current_energy / (SHIELD_SHUTDOWN_DISPERSION_RATE / 1.5))
-		var/old_energy = current_energy
-		shutdown_field()
-		log_and_message_admins("has triggered \the [src]'s emergency shutdown!", user)
-		spawn()	
-			empulse(src, old_energy / 60000000, old_energy / 32000000, 1) // If shields are charged at 450 MJ, the EMP will be 7.5, 14.0625. 90 MJ, 1.5, 2.8125
-		old_energy = 0
-
-		return TOPIC_REFRESH
-
-	if(mode_changes_locked)
-		return TOPIC_REFRESH
-
-	if(href_list["set_range"])
-		var/new_range = input(user, "Enter new field range (1-[world.maxx]). Leave blank to cancel.", "Field Radius Control", field_radius) as num
-		if(!new_range)
-			return TOPIC_HANDLED
-		field_radius = between(1, new_range, world.maxx)
-		regenerate_field()
-		return TOPIC_REFRESH
-
-	if(href_list["set_input_cap"])
-		var/new_cap = round(input(user, "Enter new input cap (in kW). Enter 0 or nothing to disable input cap.", "Generator Power Control", round(input_cap / 1000)) as num)
-		if(!new_cap)
-			input_cap = 0
-			return
-		input_cap = max(0, new_cap) * 1000
-		return TOPIC_REFRESH
-
-	if(href_list["toggle_mode"])
-		// Toggling hacked-only modes requires the hacked var to be set to 1
-		if((text2num(href_list["toggle_mode"]) & (MODEFLAG_BYPASS | MODEFLAG_OVERCHARGE)) && !hacked)
-			return TOPIC_HANDLED
-
-		toggle_flag(text2num(href_list["toggle_mode"]))
-		return TOPIC_REFRESH
 
 
 /obj/machinery/power/shield_generator/proc/field_integrity()

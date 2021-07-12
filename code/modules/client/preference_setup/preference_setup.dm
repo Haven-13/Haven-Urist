@@ -1,5 +1,5 @@
-#define TOPIC_UPDATE_PREVIEW 4
-#define TOPIC_REFRESH_UPDATE_PREVIEW (TOPIC_REFRESH|TOPIC_UPDATE_PREVIEW)
+#define TOPIC_UPDATE_PREVIEW 2
+#define UPDATE_PREVIEW (TRUE|TOPIC_UPDATE_PREVIEW)
 
 var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 
@@ -92,7 +92,7 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 		if(PS == selected_category)
 			dat += "[PS.name] "	// TODO: Check how to properly mark a href/button selected in a classic browser window
 		else
-			dat += "<a href='?src=\ref[src];category=\ref[PS]'>[PS.name]</a> "
+			dat += "<a href='?src=[REF(src)];category=[REF(PS)]'>[PS.name]</a> "
 	return dat
 
 /datum/category_collection/player_setup_collection/proc/content(var/mob/user)
@@ -244,14 +244,14 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 
 	if(. & TOPIC_UPDATE_PREVIEW)
 		pref_mob.client.prefs.preview_icon = null
-	if(. & TOPIC_REFRESH)
+	if(. & TRUE)
 		pref_mob.client.prefs.ShowChoices(usr)
 
 /datum/category_item/player_setup_item/CanUseTopic(var/mob/user)
 	return 1
 
 /datum/category_item/player_setup_item/proc/OnTopic(var/href,var/list/href_list, var/mob/user)
-	return TOPIC_NOACTION
+	return FALSE
 
 /datum/category_item/player_setup_item/proc/preference_mob()
 	if(!pref.client)

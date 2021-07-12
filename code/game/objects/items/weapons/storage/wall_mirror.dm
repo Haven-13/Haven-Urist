@@ -35,7 +35,7 @@
 		return
 
 	if(ishuman(user))
-		var/datum/nano_module/appearance_changer/AC = ui_users[user]
+		var/datum/ui_module/appearance_changer/AC = ui_users[user]
 		if(!AC)
 			AC = new(src, user)
 			AC.name = "SalonPro Nano-Mirror&trade;"
@@ -82,7 +82,7 @@
 
 /obj/item/weapon/storage/mirror/Destroy()
 	for(var/user in ui_users)
-		var/datum/nano_module/appearance_changer/AC = ui_users[user]
+		var/datum/ui_module/appearance_changer/AC = ui_users[user]
 		qdel(AC)
 	ui_users.Cut()
 	..()
@@ -123,7 +123,7 @@
 
 /obj/item/weapon/mirror/attack_self(mob/user as mob)
 	if(ishuman(user))
-		var/datum/nano_module/appearance_changer/AC = ui_users[user]
+		var/datum/ui_module/appearance_changer/AC = ui_users[user]
 		if(!AC)
 			AC = new(src, user)
 			AC.name = "SalonPro Nano-Mirror&trade;"
@@ -133,7 +133,7 @@
 
 /obj/item/weapon/mirror/Destroy()
 	for(var/user in ui_users)
-		var/datum/nano_module/appearance_changer/AC = ui_users[user]
+		var/datum/ui_module/appearance_changer/AC = ui_users[user]
 		qdel(AC)
 	ui_users.Cut()
 	..()

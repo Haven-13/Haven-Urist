@@ -72,43 +72,43 @@
 			dat += "<li>Cannot modify the alert level at this time: [security_state.severe_security_level.name] engaged.</li>"
 		else
 			if(security_state.current_security_level == security_state.high_security_level)
-				dat += "<li><A href='?src=\ref[src];triggerevent=Revert alert'>Disengage [security_state.high_security_level.name]</A></li>"
+				dat += "<li><A href='?src=[REF(src)];triggerevent=Revert alert'>Disengage [security_state.high_security_level.name]</A></li>"
 			else
-				dat += "<li><A href='?src=\ref[src];triggerevent=Red alert'>Engage [security_state.high_security_level.name]</A></li>"
+				dat += "<li><A href='?src=[REF(src)];triggerevent=Red alert'>Engage [security_state.high_security_level.name]</A></li>"
 
 		if(!config.ert_admin_call_only)
-			dat += "<li><A href='?src=\ref[src];triggerevent=Emergency Response Team'>Emergency Response Team</A></li>"
+			dat += "<li><A href='?src=[REF(src)];triggerevent=Emergency Response Team'>Emergency Response Team</A></li>"
 
-		dat += "<li><A href='?src=\ref[src];triggerevent=Grant Emergency Maintenance Access'>Grant Emergency Maintenance Access</A></li>"
-		dat += "<li><A href='?src=\ref[src];triggerevent=Revoke Emergency Maintenance Access'>Revoke Emergency Maintenance Access</A></li>"
-		dat += "<li><A href='?src=\ref[src];triggerevent=Grant Nuclear Authorization Code'>Grant Nuclear Authorization Code</A></li>"
+		dat += "<li><A href='?src=[REF(src)];triggerevent=Grant Emergency Maintenance Access'>Grant Emergency Maintenance Access</A></li>"
+		dat += "<li><A href='?src=[REF(src)];triggerevent=Revoke Emergency Maintenance Access'>Revoke Emergency Maintenance Access</A></li>"
+		dat += "<li><A href='?src=[REF(src)];triggerevent=Grant Nuclear Authorization Code'>Grant Nuclear Authorization Code</A></li>"
 		dat += "</ul>"
-		user << browse(dat, "window=keycard_auth;size=500x250")
+		show_browser(user, dat, "window=keycard_auth;size=500x250")
 	if(screen == 2)
 		dat += "Please swipe your card to authorize the following event: <b>[event]</b>"
-		dat += "<p><A href='?src=\ref[src];reset=1'>Back</A>"
-		user << browse(dat, "window=keycard_auth;size=500x250")
+		dat += "<p><A href='?src=[REF(src)];reset=1'>Back</A>"
+		show_browser(user, dat, "window=keycard_auth;size=500x250")
 	return
 
 /obj/machinery/keycard_auth/CanUseTopic(var/mob/user, href_list)
 	if(busy)
 		to_chat(user, "This device is busy.")
-		return STATUS_CLOSE
+		return UI_CLOSE
 	if(!user.IsAdvancedToolUser())
 		to_chat(user, FEEDBACK_YOU_LACK_DEXTERITY)
-		return min(..(), STATUS_UPDATE)
+		return min(..(), UI_UPDATE)
 	return ..()
 
 /obj/machinery/keycard_auth/OnTopic(user, href_list)
 	if(href_list["triggerevent"])
 		event = href_list["triggerevent"]
 		screen = 2
-		. = TOPIC_REFRESH
+		. = TRUE
 	if(href_list["reset"])
 		reset()
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		attack_hand(user)
 
 /obj/machinery/keycard_auth/proc/reset()

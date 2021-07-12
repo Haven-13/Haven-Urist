@@ -1,23 +1,23 @@
 /mob/living/silicon
 	var/list/silicon_subsystems_by_name = list()
 	var/list/silicon_subsystems = list(
-		/datum/nano_module/alarm_monitor/all,
-		/datum/nano_module/law_manager,
-		/datum/nano_module/email_client
+		/datum/ui_module/program/alarm_monitor/all,
+		/datum/ui_module/law_manager,
+		/datum/ui_module/program/email_client
 	)
 
 /mob/living/silicon/ai/New()
 	silicon_subsystems.Cut()
-	for(var/subtype in subtypesof(/datum/nano_module))
-		var/datum/nano_module/NM = subtype
+	for(var/subtype in subtypesof(/datum/ui_module))
+		var/datum/ui_module/NM = subtype
 		if(initial(NM.available_to_ai))
 			silicon_subsystems += NM
 	..()
 
 /mob/living/silicon/robot/syndicate
 	silicon_subsystems = list(
-		/datum/nano_module/law_manager,
-		/datum/nano_module/email_client
+		/datum/ui_module/law_manager,
+		/datum/ui_module/program/email_client
 	)
 
 /mob/living/silicon/Destroy()
@@ -30,7 +30,7 @@
 	for(var/subsystem_type in silicon_subsystems)
 		init_subsystem(subsystem_type)
 
-	if(/datum/nano_module/alarm_monitor/all in silicon_subsystems)
+	if(/datum/ui_module/program/alarm_monitor/all in silicon_subsystems)
 		for(var/datum/alarm_handler/AH in SSalarm.all_handlers)
 			AH.register_alarm(src, /mob/living/silicon/proc/receive_alarm)
 			queued_alarms[AH] = list()	// Makes sure alarms remain listed in consistent order
@@ -40,7 +40,7 @@
 	if(existing_entry && !ispath(existing_entry))
 		return FALSE
 
-	var/ui_state = subsystem_type == /datum/nano_module/law_manager ? GLOB.conscious_state : GLOB.self_state
+	var/ui_state = subsystem_type == /datum/ui_module/law_manager ? ui_conscious_state() : ui_self_state()
 	var/stat_silicon_subsystem/SSS = new(src, subsystem_type, ui_state)
 	silicon_subsystems[subsystem_type] = SSS
 	silicon_subsystems_by_name[SSS.name] = SSS
@@ -96,7 +96,7 @@
 	parent_type = /atom/movable
 	simulated = 0
 	var/ui_state
-	var/datum/nano_module/subsystem
+	var/datum/ui_module/subsystem
 
 /stat_silicon_subsystem/New(var/mob/living/silicon/loc, var/subsystem_type, var/ui_state)
 	if(!istype(loc))
@@ -113,6 +113,6 @@
 
 /stat_silicon_subsystem/Click(var/mob/given = usr)
 	if (istype(given))
-		subsystem.ui_interact(given, state = ui_state)
+		subsystem.ui_interact(given)
 	else
-		subsystem.ui_interact(usr, state = ui_state)
+		subsystem.ui_interact(usr)

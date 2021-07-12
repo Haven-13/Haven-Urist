@@ -19,8 +19,8 @@
 	Any amount of Nanotrasen brand "Mind-Breaker"(TM) present in bloodstream will trigger this side-effect.<BR>"}
 	. += "<HR><B>Instructions:</B><BR>"
 	for(var/i = 1 to instructions.len)
-		. += "- [instructions[i]] <A href='byond://?src=\ref[src];edit=[i]'>Edit</A> <A href='byond://?src=\ref[src];del=[i]'>Remove</A><br>"
-	. += "<A href='byond://?src=\ref[src];add=1'>Add</A>"
+		. += "- [instructions[i]] <A href='byond://?src=[REF(src)];edit=[i]'>Edit</A> <A href='byond://?src=[REF(src)];del=[i]'>Remove</A><br>"
+	. += "<A href='byond://?src=[REF(src)];add=1'>Add</A>"
 
 /obj/item/weapon/implant/imprinting/Topic(href, href_list)
 	..()

@@ -96,8 +96,8 @@
 #define random_id(key,min_id,max_id) uniqueness_repository.Generate(/datum/uniqueness_generator/id_random, key, min_id, max_id)
 
 #define to_chat(target, message)                            target << message
-#define to_world(message)                                   world << message
-#define to_world_log(message)                               world.log << message
+#define to_world(message)                                   to_chat(world, message)
+#define to_world_log(message)                               to_chat(world.log, message)
 #define sound_to(target, sound)                             target << sound
 #define to_file(file_entry, source_var)                     file_entry << source_var
 #define from_file(file_entry, target_var)                   file_entry >> target_var
@@ -105,27 +105,21 @@
 #define close_browser(target, browser_name)                 target << browse(null, browser_name)
 #define show_image(target, image)                           target << image
 #define send_rsc(target, rsc_content, rsc_name)             target << browse_rsc(rsc_content, rsc_name)
-#define open_link(target, url)             target << link(url)
+#define open_link(target, url)                              target << link(url)
 
-#define MAP_IMAGE_PATH "nano/images/[GLOB.using_map.path]/"
+#define MAP_IMAGE_PATH "html/images/[GLOB.using_map.path]/"
 
 #define map_image_file_name(z_level) "[GLOB.using_map.path]-[z_level].png"
 
 #define RANDOM_BLOOD_TYPE pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
 
-#define any2ref(x) "\ref[x]"
+#define any2ref(x) REF(x)
 
-#define CanInteract(user, state) (CanUseTopic(user, state) == STATUS_INTERACTIVE)
-
-#define CanInteractWith(user, target, state) (target.CanUseTopic(user, state) == STATUS_INTERACTIVE)
-
-#define CanPhysicallyInteract(user) CanInteract(user, GLOB.physical_state)
-
-#define CanPhysicallyInteractWith(user, target) CanInteractWith(user, target, GLOB.physical_state)
+#define QDEL_NULL(x) if(x) { qdel(x) ; x = null }
 
 #define QDEL_NULL_LIST(x) if(x) { for(var/y in x) { qdel(y) } ; x = null }
 
-#define QDEL_NULL(x) if(x) { qdel(x) ; x = null }
+#define QDEL_NULL_ASSOC_LIST(x) if(x) { for(var/y in x) { qdel(x[y]); x[y] = null } ; x = null }
 
 #define QDEL_IN(item, time) addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, item), time, TIMER_STOPPABLE)
 
@@ -165,8 +159,11 @@
 #define ADD_SORTED(list, A, cmp_proc) if(!list.len) {list.Add(A)} else {list.Insert(FindElementIndex(A, list, cmp_proc), A)}
 
 //Currently used in SDQL2 stuff
-#define send_output(target, msg, control) target << output(msg, control)
-#define send_link(target, url) target << link(url)
+/proc/send_output(target, msg, control)
+	target << output(msg, control)
+
+/proc/send_link(target, url)
+	open_link(target, url)
 
 // Spawns multiple objects of the same type
 #define cast_new(type, num, args...) if((num) == 1) { new type(args) } else { for(var/i=0;i<(num),i++) { new type(args) } }

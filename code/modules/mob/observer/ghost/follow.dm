@@ -20,7 +20,7 @@
 		. += create_ghost_link(ghost, mind.current, short_links ? "B" : "Body", prefix, sufix)
 
 /proc/create_ghost_link(var/ghost, var/target, var/text, var/prefix, var/sufix)
-	return "<a href='byond://?src=\ref[ghost];track=\ref[target]'>[prefix][text][sufix]</a>"
+	return "<a href='byond://?src=[REF(ghost)];track=[REF(target)]'>[prefix][text][sufix]</a>"
 
 /datum/proc/get_ghost_follow_link(var/atom/target, var/delimiter, var/prefix, var/sufix)
 	return

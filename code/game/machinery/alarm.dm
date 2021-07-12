@@ -137,6 +137,7 @@
 	// breathable air according to human/Life()
 	TLV["oxygen"] =			list(16, 19, 135, 140) // Partial pressure, kpa
 	TLV["carbon dioxide"] = list(-1.0, -1.0, 5, 10) // Partial pressure, kpa
+	TLV["phoron"] =         list(-1.0, -1.0, 0.1, 0.2) // Partial pressure, kpa
 	TLV["other"] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*0.90,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(T0C-26, T0C, T0C+40, T0C+66) // K
@@ -485,24 +486,34 @@
 /obj/machinery/alarm/attack_ai(mob/user)
 	ui_interact(user)
 
-/obj/machinery/alarm/attack_hand(mob/user)
-	. = ..()
-	if (.)
-		return
-	return interact(user)
-
 /obj/machinery/alarm/interact(mob/user)
-	ui_interact(user)
+	..()
 	wires.Interact(user)
 
-/obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/alarm/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "terminals/AirAlarm", name)
+		ui.open()
+
+/obj/machinery/alarm/ui_static_data(mob/user)
+	var/data = list()
+
+	var/modes[0]
+	modes[++modes.len] = list("name" = "Filtering - Scrubs out contaminants", 			"mode" = AALARM_MODE_SCRUBBING,		"selected" = mode == AALARM_MODE_SCRUBBING, 	"danger" = 0)
+	modes[++modes.len] = list("name" = "Replace Air - Siphons out air while replacing", "mode" = AALARM_MODE_REPLACEMENT,	"selected" = mode == AALARM_MODE_REPLACEMENT,	"danger" = 0)
+	modes[++modes.len] = list("name" = "Panic - Siphons air out of the room", 			"mode" = AALARM_MODE_PANIC,			"selected" = mode == AALARM_MODE_PANIC, 		"danger" = 1)
+	modes[++modes.len] = list("name" = "Cycle - Siphons air before replacing", 			"mode" = AALARM_MODE_CYCLE,			"selected" = mode == AALARM_MODE_CYCLE, 		"danger" = 1)
+	modes[++modes.len] = list("name" = "Fill - Shuts off scrubbers and opens vents", 	"mode" = AALARM_MODE_FILL,			"selected" = mode == AALARM_MODE_FILL, 			"danger" = 0)
+	modes[++modes.len] = list("name" = "Off - Shuts off vents and scrubbers", 			"mode" = AALARM_MODE_OFF,			"selected" = mode == AALARM_MODE_OFF, 			"danger" = 0)
+	data["modes"] = modes
+
+	return data
+
+/obj/machinery/alarm/ui_data(mob/user)
 	var/data[0]
 	var/remote_connection = 0
 	var/remote_access = 0
-	if(state)
-		var/list/href = state.href_list(user)
-		remote_connection = href["remote_connection"]	// Remote connection means we're non-adjacent/connecting from another computer
-		remote_access = href["remote_access"]			// Remote access means we also have the privilege to alter the air alarm.
 
 	data["locked"] = locked && !issilicon(user)
 	data["remote_connection"] = remote_connection
@@ -515,12 +526,7 @@
 	if(!(locked && !remote_connection) || remote_access || issilicon(user))
 		populate_controls(data)
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "air_alarm.tmpl", src.name, 325, 625, master_ui = master_ui, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/alarm/proc/populate_status(var/data)
 	var/turf/location = get_turf(src)
@@ -549,241 +555,232 @@
 	data["target_temperature"] = "[target_temperature - T0C]C"
 
 /obj/machinery/alarm/proc/populate_controls(var/list/data)
-	switch(screen)
-		if(AALARM_SCREEN_MAIN)
-			data["mode"] = mode
-		if(AALARM_SCREEN_VENT)
-			var/vents[0]
-			for(var/id_tag in alarm_area.air_vent_names)
-				var/long_name = alarm_area.air_vent_names[id_tag]
-				var/list/info = alarm_area.air_vent_info[id_tag]
-				if(!info)
-					continue
-				vents[++vents.len] = list(
-						"id_tag"	= id_tag,
-						"long_name" = sanitize(long_name),
-						"power"		= info["power"],
-						"checks"	= info["checks"],
-						"direction"	= info["direction"],
-						"external"	= info["external"]
-					)
-			data["vents"] = vents
-		if(AALARM_SCREEN_SCRUB)
-			var/scrubbers[0]
-			for(var/id_tag in alarm_area.air_scrub_names)
-				var/long_name = alarm_area.air_scrub_names[id_tag]
-				var/list/info = alarm_area.air_scrub_info[id_tag]
-				if(!info)
-					continue
-				scrubbers[++scrubbers.len] = list(
-						"id_tag"	= id_tag,
-						"long_name" = sanitize(long_name),
-						"power"		= info["power"],
-						"scrubbing"	= info["scrubbing"],
-						"panic"		= info["panic"],
-						"filters"	= list()
-					)
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Oxygen",			"command" = "o2_scrub",	"val" = info["filter_o2"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrogen",		"command" = "n2_scrub",	"val" = info["filter_n2"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Carbon Dioxide", "command" = "co2_scrub","val" = info["filter_co2"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Toxin"	, 		"command" = "tox_scrub","val" = info["filter_phoron"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrous Oxide",	"command" = "n2o_scrub","val" = info["filter_n2o"]))
-			data["scrubbers"] = scrubbers
-		if(AALARM_SCREEN_MODE)
-			var/modes[0]
-			modes[++modes.len] = list("name" = "Filtering - Scrubs out contaminants", 			"mode" = AALARM_MODE_SCRUBBING,		"selected" = mode == AALARM_MODE_SCRUBBING, 	"danger" = 0)
-			modes[++modes.len] = list("name" = "Replace Air - Siphons out air while replacing", "mode" = AALARM_MODE_REPLACEMENT,	"selected" = mode == AALARM_MODE_REPLACEMENT,	"danger" = 0)
-			modes[++modes.len] = list("name" = "Panic - Siphons air out of the room", 			"mode" = AALARM_MODE_PANIC,			"selected" = mode == AALARM_MODE_PANIC, 		"danger" = 1)
-			modes[++modes.len] = list("name" = "Cycle - Siphons air before replacing", 			"mode" = AALARM_MODE_CYCLE,			"selected" = mode == AALARM_MODE_CYCLE, 		"danger" = 1)
-			modes[++modes.len] = list("name" = "Fill - Shuts off scrubbers and opens vents", 	"mode" = AALARM_MODE_FILL,			"selected" = mode == AALARM_MODE_FILL, 			"danger" = 0)
-			modes[++modes.len] = list("name" = "Off - Shuts off vents and scrubbers", 			"mode" = AALARM_MODE_OFF,			"selected" = mode == AALARM_MODE_OFF, 			"danger" = 0)
-			data["modes"] = modes
-			data["mode"] = mode
-		if(AALARM_SCREEN_SENSORS)
-			var/list/selected
-			var/thresholds[0]
+	data["mode"] = mode
 
-			var/list/gas_names = list(
-				"oxygen"         = "O<sub>2</sub>",
-				"carbon dioxide" = "CO<sub>2</sub>",
-				"phoron"         = "Toxin",
-				"other"          = "Other")
-			for (var/g in gas_names)
-				thresholds[++thresholds.len] = list("name" = gas_names[g], "settings" = list())
-				selected = TLV[g]
-				for(var/i = 1, i <= 4, i++)
-					thresholds[thresholds.len]["settings"] += list(list("env" = g, "val" = i, "selected" = selected[i]))
+	// Vents
+	var/vents[0]
+	for(var/id_tag in alarm_area.air_vent_names)
+		var/long_name = alarm_area.air_vent_names[id_tag]
+		var/list/info = alarm_area.air_vent_info[id_tag]
+		if(!info)
+			continue
+		vents[++vents.len] = list(
+				"id_tag"	= id_tag,
+				"long_name" = sanitize(long_name),
+				"power"		= info["power"],
+				"checks"	= info["checks"],
+				"direction"	= info["direction"],
+				"external"	= info["external"]
+			)
+	data["vents"] = vents
 
-			selected = TLV["pressure"]
-			thresholds[++thresholds.len] = list("name" = "Pressure", "settings" = list())
-			for(var/i = 1, i <= 4, i++)
-				thresholds[thresholds.len]["settings"] += list(list("env" = "pressure", "val" = i, "selected" = selected[i]))
+	// Scrubbers
+	var/scrubbers[0]
+	for(var/id_tag in alarm_area.air_scrub_names)
+		var/long_name = alarm_area.air_scrub_names[id_tag]
+		var/list/info = alarm_area.air_scrub_info[id_tag]
+		if(!info)
+			continue
+		scrubbers[++scrubbers.len] = list(
+				"id_tag"	= id_tag,
+				"long_name" = sanitize(long_name),
+				"power"		= info["power"],
+				"scrubbing"	= info["scrubbing"],
+				"panic"		= info["panic"],
+				"filters"	= list()
+			)
+		scrubbers[scrubbers.len]["filters"] += list(list("name" = "Oxygen",			"command" = "o2_scrub",	"val" = info["filter_o2"]))
+		scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrogen",		"command" = "n2_scrub",	"val" = info["filter_n2"]))
+		scrubbers[scrubbers.len]["filters"] += list(list("name" = "Carbon Dioxide", "command" = "co2_scrub","val" = info["filter_co2"]))
+		scrubbers[scrubbers.len]["filters"] += list(list("name" = "Toxin"	, 		"command" = "tox_scrub","val" = info["filter_phoron"]))
+		scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrous Oxide",	"command" = "n2o_scrub","val" = info["filter_n2o"]))
+	data["scrubbers"] = scrubbers
 
-			selected = TLV["temperature"]
-			thresholds[++thresholds.len] = list("name" = "Temperature", "settings" = list())
-			for(var/i = 1, i <= 4, i++)
-				thresholds[thresholds.len]["settings"] += list(list("env" = "temperature", "val" = i, "selected" = selected[i]))
+	// Sensor settings
+	var/list/selected
+	var/thresholds[0]
+
+	var/list/gas_names = list(
+		"oxygen"         = "O<sub>2</sub>",
+		"carbon dioxide" = "CO<sub>2</sub>",
+		"phoron"         = "Toxin",
+		"other"          = "Other")
+	for (var/g in gas_names)
+		thresholds[++thresholds.len] = list("name" = gas_names[g], "settings" = list())
+		selected = TLV[g]
+		for(var/i = 1, i <= 4, i++)
+			thresholds[thresholds.len]["settings"] += list(list("env" = g, "val" = i, "selected" = selected[i]))
+
+	selected = TLV["pressure"]
+	thresholds[++thresholds.len] = list("name" = "Pressure", "settings" = list())
+	for(var/i = 1, i <= 4, i++)
+		thresholds[thresholds.len]["settings"] += list(list("env" = "pressure", "val" = i, "selected" = selected[i]))
+
+	selected = TLV["temperature"]
+	thresholds[++thresholds.len] = list("name" = "Temperature", "settings" = list())
+	for(var/i = 1, i <= 4, i++)
+		thresholds[thresholds.len]["settings"] += list(list("env" = "temperature", "val" = i, "selected" = selected[i]))
 
 
-			data["thresholds"] = thresholds
+	data["thresholds"] = thresholds
 
-/obj/machinery/alarm/CanUseTopic(var/mob/user, var/datum/topic_state/state, var/href_list = list())
+/obj/machinery/alarm/CanUseTopic(var/mob/user, var/datum/ui_state/state, var/href_list = list())
 	if(buildstage != 2)
-		return STATUS_CLOSE
+		return UI_CLOSE
 
 	if(aidisabled && isAI(user))
 		to_chat(user, "<span class='warning'>AI control for \the [src] interface has been disabled.</span>")
-		return STATUS_CLOSE
+		return UI_CLOSE
 
-	. = shorted ? STATUS_DISABLED : STATUS_INTERACTIVE
+	. = shorted ? UI_DISABLED : UI_INTERACTIVE
 
-	if(. == STATUS_INTERACTIVE)
-		var/extra_href = state.href_list(user)
+	if(. == UI_INTERACTIVE)
+		var/extra_href = list()
 		// Prevent remote users from altering RCON settings unless they already have access
 		if(href_list["rcon"] && extra_href["remote_connection"] && !extra_href["remote_access"])
-			. = STATUS_UPDATE
+			. = UI_UPDATE
 
 	return min(..(), .)
 
-/obj/machinery/alarm/OnTopic(user, href_list, var/datum/topic_state/state)
-	// hrefs that can always be called -walter0o
-	if(href_list["rcon"])
-		var/attempted_rcon_setting = text2num(href_list["rcon"])
+/obj/machinery/alarm/ui_act(action, list/params)
+	switch(action)
+		if("rcon")
+			var/attempted_rcon_setting = text2num(params["rcon"])
+			switch(attempted_rcon_setting)
+				if(RCON_NO)
+					rcon_setting = RCON_NO
+				if(RCON_AUTO)
+					rcon_setting = RCON_AUTO
+				if(RCON_YES)
+					rcon_setting = RCON_YES
+			return TRUE
 
-		switch(attempted_rcon_setting)
-			if(RCON_NO)
-				rcon_setting = RCON_NO
-			if(RCON_AUTO)
-				rcon_setting = RCON_AUTO
-			if(RCON_YES)
-				rcon_setting = RCON_YES
-		return TOPIC_REFRESH
-
-	if(href_list["temperature"])
-		var/list/selected = TLV["temperature"]
-		var/max_temperature = min(selected[3] - T0C, MAX_TEMPERATURE)
-		var/min_temperature = max(selected[2] - T0C, MIN_TEMPERATURE)
-		var/input_temperature = input(user, "What temperature would you like the system to mantain? (Capped between [min_temperature] and [max_temperature]C)", "Thermostat Controls", target_temperature - T0C) as num|null
-		if(isnum(input_temperature) && CanUseTopic(user, state))
-			if(input_temperature > max_temperature || input_temperature < min_temperature)
-				to_chat(user, "Temperature must be between [min_temperature]C and [max_temperature]C")
-			else
-				target_temperature = input_temperature + T0C
-		return TOPIC_REFRESH
+		if("temperature")
+			var/list/selected = TLV["temperature"]
+			var/max_temperature = min(selected[3] - T0C, MAX_TEMPERATURE)
+			var/min_temperature = max(selected[2] - T0C, MIN_TEMPERATURE)
+			var/input_temperature = input(usr, "What temperature would you like the system to mantain? (Capped between [min_temperature] and [max_temperature]C)", "Thermostat Controls", target_temperature - T0C) as num|null
+			if(isnum(input_temperature))
+				if(input_temperature > max_temperature || input_temperature < min_temperature)
+					to_chat(usr, "Temperature must be between [min_temperature]C and [max_temperature]C")
+				else
+					target_temperature = input_temperature + T0C
+			return TRUE
 
 	// hrefs that need the AA unlocked -walter0o
-	var/extra_href = state.href_list(user)
-	if(!(locked && !extra_href["remote_connection"]) || extra_href["remote_access"] || issilicon(user))
-		if(href_list["command"])
-			var/device_id = href_list["id_tag"]
-			switch(href_list["command"])
-				if("set_external_pressure")
-					var/input_pressure = input(user, "What pressure you like the system to mantain?", "Pressure Controls") as num|null
-					if(isnum(input_pressure) && CanUseTopic(user, state))
-						send_signal(device_id, list(href_list["command"] = input_pressure))
-					return TOPIC_REFRESH
+	var/extra_href = list()
+	if(!(locked && !extra_href["remote_connection"]) || extra_href["remote_access"] || issilicon(usr))
+		switch(action)
+			if("command")
+				var/device_id = params["id_tag"]
+				switch(params["command"])
+					if("set_external_pressure")
+						var/input_pressure = input(usr, "What pressure you like the system to mantain?", "Pressure Controls") as num|null
+						if(isnum(input_pressure))
+							send_signal(device_id, list(params["command"] = input_pressure))
+						return TRUE
 
-				if("reset_external_pressure")
-					send_signal(device_id, list(href_list["command"] = ONE_ATMOSPHERE))
-					return TOPIC_REFRESH
+					if("reset_external_pressure")
+						send_signal(device_id, list(params["command"] = ONE_ATMOSPHERE))
+						return TRUE
 
-				if( "power",
-					"direction",
-					"adjust_external_pressure",
-					"checks",
-					"o2_scrub",
-					"n2_scrub",
-					"co2_scrub",
-					"tox_scrub",
-					"n2o_scrub",
-					"panic_siphon")
+					if( "power",
+						"direction",
+						"adjust_external_pressure",
+						"checks",
+						"o2_scrub",
+						"n2_scrub",
+						"co2_scrub",
+						"tox_scrub",
+						"n2o_scrub",
+						"panic_siphon")
 
-					send_signal(device_id, list(href_list["command"] = text2num(href_list["val"]) ) )
-					return TOPIC_REFRESH
+						send_signal(device_id, list(params["command"] = text2num(params["val"]) ) )
+						return TRUE
 
-				if("scrubbing")
-					send_signal(device_id, list(href_list["command"] = href_list["scrub_mode"]) )
-					return TOPIC_REFRESH
+					if("scrubbing")
+						send_signal(device_id, list(params["command"] = params["scrub_mode"]) )
+						return TRUE
 
-				if("set_threshold")
-					var/env = href_list["env"]
-					var/threshold = text2num(href_list["var"])
-					var/list/selected = TLV[env]
-					var/list/thresholds = list("lower bound", "low warning", "high warning", "upper bound")
-					var/newval = input(user, "Enter [thresholds[threshold]] for [env]", "Alarm triggers", selected[threshold]) as null|num
-					if (isnull(newval) || !CanUseTopic(user, state))
-						return TOPIC_HANDLED
-					if (newval<0)
-						selected[threshold] = -1.0
-					else if (env=="temperature" && newval>5000)
-						selected[threshold] = 5000
-					else if (env=="pressure" && newval>50*ONE_ATMOSPHERE)
-						selected[threshold] = 50*ONE_ATMOSPHERE
-					else if (env!="temperature" && env!="pressure" && newval>200)
-						selected[threshold] = 200
-					else
-						newval = round(newval,0.01)
-						selected[threshold] = newval
-					if(threshold == 1)
-						if(selected[1] > selected[2])
-							selected[2] = selected[1]
-						if(selected[1] > selected[3])
-							selected[3] = selected[1]
-						if(selected[1] > selected[4])
-							selected[4] = selected[1]
-					if(threshold == 2)
-						if(selected[1] > selected[2])
-							selected[1] = selected[2]
-						if(selected[2] > selected[3])
-							selected[3] = selected[2]
-						if(selected[2] > selected[4])
-							selected[4] = selected[2]
-					if(threshold == 3)
-						if(selected[1] > selected[3])
-							selected[1] = selected[3]
-						if(selected[2] > selected[3])
-							selected[2] = selected[3]
-						if(selected[3] > selected[4])
-							selected[4] = selected[3]
-					if(threshold == 4)
-						if(selected[1] > selected[4])
-							selected[1] = selected[4]
-						if(selected[2] > selected[4])
-							selected[2] = selected[4]
-						if(selected[3] > selected[4])
-							selected[3] = selected[4]
+					if("set_threshold")
+						var/env = params["env"]
+						var/threshold = text2num(params["var"])
+						var/list/selected = TLV[env]
+						var/list/thresholds = list("lower bound", "low warning", "high warning", "upper bound")
+						var/newval = input(usr, "Enter [thresholds[threshold]] for [env]", "Alarm triggers", selected[threshold]) as null|num
+						if (isnull(newval))
+							return FALSE
+						if (newval<0)
+							selected[threshold] = -1.0
+						else if (env=="temperature" && newval>5000)
+							selected[threshold] = 5000
+						else if (env=="pressure" && newval>50*ONE_ATMOSPHERE)
+							selected[threshold] = 50*ONE_ATMOSPHERE
+						else if (env!="temperature" && env!="pressure" && newval>200)
+							selected[threshold] = 200
+						else
+							newval = round(newval,0.01)
+							selected[threshold] = newval
+						if(threshold == 1)
+							if(selected[1] > selected[2])
+								selected[2] = selected[1]
+							if(selected[1] > selected[3])
+								selected[3] = selected[1]
+							if(selected[1] > selected[4])
+								selected[4] = selected[1]
+						if(threshold == 2)
+							if(selected[1] > selected[2])
+								selected[1] = selected[2]
+							if(selected[2] > selected[3])
+								selected[3] = selected[2]
+							if(selected[2] > selected[4])
+								selected[4] = selected[2]
+						if(threshold == 3)
+							if(selected[1] > selected[3])
+								selected[1] = selected[3]
+							if(selected[2] > selected[3])
+								selected[2] = selected[3]
+							if(selected[3] > selected[4])
+								selected[4] = selected[3]
+						if(threshold == 4)
+							if(selected[1] > selected[4])
+								selected[1] = selected[4]
+							if(selected[2] > selected[4])
+								selected[2] = selected[4]
+							if(selected[3] > selected[4])
+								selected[3] = selected[4]
 
-					apply_mode()
-					return TOPIC_REFRESH
+						apply_mode()
+						return TRUE
 
-		if(href_list["screen"])
-			screen = text2num(href_list["screen"])
-			return TOPIC_REFRESH
+			if("screen")
+				screen = text2num(params["screen"])
+				return TRUE
 
-		if(href_list["atmos_unlock"])
-			switch(href_list["atmos_unlock"])
-				if("0")
-					alarm_area.air_doors_close()
-				if("1")
-					alarm_area.air_doors_open()
-			return TOPIC_REFRESH
+			if("atmos_unlock")
+				switch(params["atmos_unlock"])
+					if("0")
+						alarm_area.air_doors_close()
+					if("1")
+						alarm_area.air_doors_open()
+				return TRUE
 
-		if(href_list["atmos_alarm"])
-			if (alarm_area.atmosalert(2, src))
-				apply_danger_level(2)
-			update_icon()
-			return TOPIC_REFRESH
+			if("atmos_alarm")
+				if (alarm_area.atmosalert(2, src))
+					apply_danger_level(2)
+				update_icon()
+				return TRUE
 
-		if(href_list["atmos_reset"])
-			if (alarm_area.atmosalert(0, src))
-				apply_danger_level(0)
-			update_icon()
-			return TOPIC_REFRESH
+			if("atmos_reset")
+				if (alarm_area.atmosalert(0, src))
+					apply_danger_level(0)
+				update_icon()
+				return TRUE
 
-		if(href_list["mode"])
-			mode = text2num(href_list["mode"])
-			apply_mode()
-			return TOPIC_REFRESH
+			if("mode")
+				mode = text2num(params["mode"])
+				apply_mode()
+				return TRUE
 
 /obj/machinery/alarm/attackby(obj/item/W as obj, mob/user as mob)
 	switch(buildstage)
@@ -1026,17 +1023,6 @@ FIRE ALARM
 	if(stat & (NOPOWER|BROKEN))
 		return
 
-	if(src.timing)
-		if(src.time > 0)
-			src.time = src.time - ((world.timeofday - last_process)/10)
-		else
-			src.alarm()
-			src.time = 0
-			src.timing = 0
-			STOP_PROCESSING(SSmachines, src)
-		src.updateDialog()
-	last_process = world.timeofday
-
 	if(locate(/obj/fire) in loc)
 		alarm()
 
@@ -1047,73 +1033,15 @@ FIRE ALARM
 	if (buildstage != 2)
 		return
 
-	user.set_machine(src)
-	var/area/A = src.loc
-	var/d1
-	var/d2
+	add_fingerprint(user)
 
-	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
-	if (istype(user, /mob/living/carbon/human) || istype(user, /mob/living/silicon))
-		A = A.loc
-
-		if (A.fire)
-			d1 = text("<A href='?src=\ref[];reset=1'>Reset - Lockdown</A>", src)
-		else
-			d1 = text("<A href='?src=\ref[];alarm=1'>Alarm - Lockdown</A>", src)
-		if (src.timing)
-			d2 = text("<A href='?src=\ref[];time=0'>Stop Time Lock</A>", src)
-		else
-			d2 = text("<A href='?src=\ref[];time=1'>Initiate Time Lock</A>", src)
-		var/second = round(src.time) % 60
-		var/minute = (round(src.time) - second) / 60
-		var/dat = "<HTML><HEAD></HEAD><BODY><TT><B>Fire alarm</B> [d1]\n<HR>The current alert level is <b>[security_state.current_security_level.name]</b><br><br>\nTimer System: [d2]<BR>\nTime Left: [(minute ? "[minute]:" : null)][second] <A href='?src=\ref[src];tp=-30'>-</A> <A href='?src=\ref[src];tp=-1'>-</A> <A href='?src=\ref[src];tp=1'>+</A> <A href='?src=\ref[src];tp=30'>+</A>\n</TT></BODY></HTML>"
-		user << browse(dat, "window=firealarm")
-		onclose(user, "firealarm")
+	if(!fire_alarm.alarms_assoc[src.loc.get_alarm_origin()]) // fuck you bay
+		alarm()
 	else
-		A = A.loc
-		if (A.fire)
-			d1 = text("<A href='?src=\ref[];reset=1'>[]</A>", src, stars("Reset - Lockdown"))
-		else
-			d1 = text("<A href='?src=\ref[];alarm=1'>[]</A>", src, stars("Alarm - Lockdown"))
-		if (src.timing)
-			d2 = text("<A href='?src=\ref[];time=0'>[]</A>", src, stars("Stop Time Lock"))
-		else
-			d2 = text("<A href='?src=\ref[];time=1'>[]</A>", src, stars("Initiate Time Lock"))
-		var/second = round(src.time) % 60
-		var/minute = (round(src.time) - second) / 60
-		var/dat = "<HTML><HEAD></HEAD><BODY><TT><B>[stars("Fire alarm")]</B> [d1]\n<HR>The current security level is <b>[security_state.current_security_level.name]</b><br><br>\nTimer System: [d2]<BR>\nTime Left: [(minute ? text("[]:", minute) : null)][second] <A href='?src=\ref[src];tp=-30'>-</A> <A href='?src=\ref[src];tp=-1'>-</A> <A href='?src=\ref[src];tp=1'>+</A> <A href='?src=\ref[src];tp=30'>+</A>\n</TT></BODY></HTML>"
-		user << browse(dat, "window=firealarm")
-		onclose(user, "firealarm")
-	return
-
-/obj/machinery/firealarm/CanUseTopic(user)
-	if(buildstage != 2)
-		return STATUS_CLOSE
-	return ..()
-
-/obj/machinery/firealarm/OnTopic(user, href_list)
-	if (href_list["reset"])
-		src.reset()
-		. = TOPIC_REFRESH
-	else if (href_list["alarm"])
-		src.alarm()
-		. = TOPIC_REFRESH
-	else if (href_list["time"])
-		src.timing = text2num(href_list["time"])
-		last_process = world.timeofday
-		START_PROCESSING(SSmachines, src)
-		. = TOPIC_REFRESH
-	else if (href_list["tp"])
-		var/tp = text2num(href_list["tp"])
-		src.time += tp
-		src.time = min(max(round(src.time), 0), 120)
-		. = TOPIC_REFRESH
-
-	if(. == TOPIC_REFRESH)
-		attack_hand(user)
+		reset()
 
 /obj/machinery/firealarm/proc/reset()
-	if (!( src.working ))
+	if (!(src.working))
 		return
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
@@ -1122,7 +1050,7 @@ FIRE ALARM
 	return
 
 /obj/machinery/firealarm/proc/alarm(var/duration = 0)
-	if (!( src.working))
+	if (!(src.working))
 		return
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
@@ -1200,7 +1128,7 @@ Just a object used in constructing fire alarms
 		var/second = time % 60
 		var/minute = (time - second) / 60
 		var/dat = text("<HTML><HEAD></HEAD><BODY><TT><B>Party Button</B> []\n<HR>\nTimer System: []<BR>\nTime Left: [][] <A href='?src=\ref[];tp=-30'>-</A> <A href='?src=\ref[];tp=-1'>-</A> <A href='?src=\ref[];tp=1'>+</A> <A href='?src=\ref[];tp=30'>+</A>\n</TT></BODY></HTML>", d1, d2, (minute ? text("[]:", minute) : null), second, src, src, src, src)
-		user << browse(dat, "window=partyalarm")
+		show_browser(user, dat, "window=partyalarm")
 		onclose(user, "partyalarm")
 	else
 		if (A.fire)
@@ -1214,7 +1142,7 @@ Just a object used in constructing fire alarms
 		var/second = time % 60
 		var/minute = (time - second) / 60
 		var/dat = text("<HTML><HEAD></HEAD><BODY><TT><B>[]</B> []\n<HR>\nTimer System: []<BR>\nTime Left: [][] <A href='?src=\ref[];tp=-30'>-</A> <A href='?src=\ref[];tp=-1'>-</A> <A href='?src=\ref[];tp=1'>+</A> <A href='?src=\ref[];tp=30'>+</A>\n</TT></BODY></HTML>", stars("Party Button"), d1, d2, (minute ? text("[]:", minute) : null), second, src, src, src, src)
-		user << browse(dat, "window=partyalarm")
+		show_browser(user, dat, "window=partyalarm")
 		onclose(user, "partyalarm")
 	return
 
@@ -1237,18 +1165,18 @@ Just a object used in constructing fire alarms
 /obj/machinery/partyalarm/OnTopic(user, href_list)
 	if (href_list["reset"])
 		reset()
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if (href_list["alarm"])
 		alarm()
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if (href_list["time"])
 		timing = text2num(href_list["time"])
-		. = TOPIC_REFRESH
+		. = TRUE
 	else if (href_list["tp"])
 		var/tp = text2num(href_list["tp"])
 		time += tp
 		time = min(max(round(time), 0), 120)
-		. = TOPIC_REFRESH
+		. = TRUE
 
-	if(. == TOPIC_REFRESH)
+	if(. == TRUE)
 		attack_hand(user)

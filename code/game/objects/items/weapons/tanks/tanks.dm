@@ -214,7 +214,14 @@ var/list/global/tank_gauge_cache = list()
 		proxyassembly.assembly.attack_self(user)
 
 
-/obj/item/weapon/tank/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/item/weapon/tank/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "GasTank")
+		ui.open()
+
+
+/obj/item/weapon/tank/ui_data(mob/user)
 	var/mob/living/carbon/location = null
 
 	if(istype(loc, /obj/item/weapon/rig))		// check for tanks in rigs
@@ -230,7 +237,7 @@ var/list/global/tank_gauge_cache = list()
 
 	// this is the data which will be sent to the ui
 	var/data[0]
-	data["tankPressure"] = round(air_contents.return_pressure() ? air_contents.return_pressure() : 0)
+	data["tankPressure"] = round(air_contents.return_pressure() || 0)
 	data["releasePressure"] = round(distribute_pressure || 0)
 	data["defaultReleasePressure"] = round(TANK_DEFAULT_RELEASE_PRESSURE)
 	data["maxReleasePressure"] = round(TANK_MAX_RELEASE_PRESSURE)
@@ -257,20 +264,9 @@ var/list/global/tank_gauge_cache = list()
 				if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
 					data["maskConnected"] = 1
 
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "tanks.tmpl", "Tank", 500, 300)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
-		// open the new ui window
-		ui.open()
-		// auto update every Master Controller tick
-		ui.set_auto_update(1)
+	return data
 
-/obj/item/weapon/tank/Topic(user, href_list, state = GLOB.inventory_state)
+/obj/item/weapon/tank/Topic(user, href_list, state = ui_inventory_state())
 	..()
 
 /obj/item/weapon/tank/OnTopic(user, href_list)
@@ -283,11 +279,11 @@ var/list/global/tank_gauge_cache = list()
 			var/cp = text2num(href_list["dist_p"])
 			distribute_pressure += cp
 		distribute_pressure = min(max(round(distribute_pressure), 0), TANK_MAX_RELEASE_PRESSURE)
-		return TOPIC_REFRESH
+		return TRUE
 
 	if (href_list["stat"])
 		toggle_valve(usr)
-		return TOPIC_REFRESH
+		return TRUE
 
 /obj/item/weapon/tank/proc/toggle_valve(var/mob/user)
 	if(istype(loc,/mob/living/carbon))

@@ -33,7 +33,7 @@
 
    Welcome to the wonders of BYOND DM coding!
 
-   For multi_z rendering, take a look in _onclick/hud.dm
+   For multi_z rendering, take a look in _onclick/hud/hud.dm and _onclick/hud/map_view.dm
    For a list of what planes are included, take a look in
    __defines/_planes+layers.dm
  */

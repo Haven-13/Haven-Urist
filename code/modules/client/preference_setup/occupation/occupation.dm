@@ -97,7 +97,7 @@
 		. += "<tr bgcolor='[job.selection_color]'><td width='40%' align='right'>"
 		var/rank = job.title
 		lastJob = job
-		. += "<a href='?src=\ref[src];job_info=[rank]'>\[?\]</a>"
+		. += "<a href='?src=[REF(src)];job_info=[rank]'>\[?\]</a>"
 		if(job.total_positions == 0 && job.spawn_positions == 0)
 			. += "<del>[rank]</del></a></td><td><b> \[UNAVAILABLE]</b></td></tr>"
 			continue
@@ -127,10 +127,10 @@
 		. += "</a></td><td width='40%'>"
 
 		if(rank == "Assistant")//Assistant is special
-			. += "<a href='?src=\ref[src];set_job=[rank];set_level=[JOB_LEVEL_LOW]'>"
+			. += "<a href='?src=[REF(src)];set_job=[rank];set_level=[JOB_LEVEL_LOW]'>"
 			. += " [rank in pref.job_low ? "<font color=55cc55>" : ""]\[Yes][rank in pref.job_low ? "</font>" : ""]"
 			. += "</a>"
-			. += "<a href='?src=\ref[src];set_job=[rank];set_level=[JOB_LEVEL_NEVER]'>"
+			. += "<a href='?src=[REF(src)];set_job=[rank];set_level=[JOB_LEVEL_NEVER]'>"
 			. += " [!(rank in pref.job_low) ? "<font color=black>" : ""]\[No][!(rank in pref.job_low) ? "</font>" : ""]"
 			. += "</a>"
 		else
@@ -142,40 +142,40 @@
 			else if(job.title in pref.job_low)
 				current_level = JOB_LEVEL_LOW
 
-			. += " <a href='?src=\ref[src];set_job=[rank];set_level=[JOB_LEVEL_HIGH]'>[current_level == JOB_LEVEL_HIGH ? "<font color=55cc55>" : ""]\[High][current_level == JOB_LEVEL_HIGH ? "</font>" : ""]</a>"
-			. += " <a href='?src=\ref[src];set_job=[rank];set_level=[JOB_LEVEL_MEDIUM]'>[current_level == JOB_LEVEL_MEDIUM ? "<font color=eecc22>" : ""]\[Medium][current_level == JOB_LEVEL_MEDIUM ? "</font>" : ""]</a>"
-			. += " <a href='?src=\ref[src];set_job=[rank];set_level=[JOB_LEVEL_LOW]'>[current_level == JOB_LEVEL_LOW ? "<font color=cc5555>" : ""]\[Low][current_level == JOB_LEVEL_LOW ? "</font>" : ""]</a>"
-			. += " <a href='?src=\ref[src];set_job=[rank];set_level=[JOB_LEVEL_NEVER]'>[current_level == JOB_LEVEL_NEVER ? "<font color=black>" : ""]\[NEVER][current_level == JOB_LEVEL_NEVER ? "</font>" : ""]</a>"
+			. += " <a href='?src=[REF(src)];set_job=[rank];set_level=[JOB_LEVEL_HIGH]'>[current_level == JOB_LEVEL_HIGH ? "<font color=55cc55>" : ""]\[High][current_level == JOB_LEVEL_HIGH ? "</font>" : ""]</a>"
+			. += " <a href='?src=[REF(src)];set_job=[rank];set_level=[JOB_LEVEL_MEDIUM]'>[current_level == JOB_LEVEL_MEDIUM ? "<font color=eecc22>" : ""]\[Medium][current_level == JOB_LEVEL_MEDIUM ? "</font>" : ""]</a>"
+			. += " <a href='?src=[REF(src)];set_job=[rank];set_level=[JOB_LEVEL_LOW]'>[current_level == JOB_LEVEL_LOW ? "<font color=cc5555>" : ""]\[Low][current_level == JOB_LEVEL_LOW ? "</font>" : ""]</a>"
+			. += " <a href='?src=[REF(src)];set_job=[rank];set_level=[JOB_LEVEL_NEVER]'>[current_level == JOB_LEVEL_NEVER ? "<font color=black>" : ""]\[NEVER][current_level == JOB_LEVEL_NEVER ? "</font>" : ""]</a>"
 
 		if(job.alt_titles)
-			. += "</td></tr><tr bgcolor='[lastJob.selection_color]'><td width='40%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
+			. += "</td></tr><tr bgcolor='[lastJob.selection_color]'><td width='40%' align='center'>&nbsp</td><td><a href='?src=[REF(src)];select_alt_title=[REF(job)]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
 		. += "</td></tr>"
 	. += "</td'></tr></table>"
 	. += "</center></table><center>"
 
 	switch(pref.alternate_option)
 		if(GET_RANDOM_JOB)
-			. += "<u><a href='?src=\ref[src];job_alternative=1'>Get random job if preferences unavailable</a></u>"
+			. += "<u><a href='?src=[REF(src)];job_alternative=1'>Get random job if preferences unavailable</a></u>"
 		if(BE_ASSISTANT)
-			. += "<u><a href='?src=\ref[src];job_alternative=1'>Be assistant if preference unavailable</a></u>"
+			. += "<u><a href='?src=[REF(src)];job_alternative=1'>Be assistant if preference unavailable</a></u>"
 		if(RETURN_TO_LOBBY)
-			. += "<u><a href='?src=\ref[src];job_alternative=1'>Return to lobby if preference unavailable</a></u>"
+			. += "<u><a href='?src=[REF(src)];job_alternative=1'>Return to lobby if preference unavailable</a></u>"
 
-	. += "<a href='?src=\ref[src];reset_jobs=1'>\[Reset\]</a></center>"
+	. += "<a href='?src=[REF(src)];reset_jobs=1'>\[Reset\]</a></center>"
 	. += "</tt>"
 	. = jointext(.,null)
 
 /datum/category_item/player_setup_item/occupation/OnTopic(href, href_list, user)
 	if(href_list["reset_jobs"])
 		ResetJobs()
-		return TOPIC_REFRESH
+		return TRUE
 
 	else if(href_list["job_alternative"])
 		if(pref.alternate_option == GET_RANDOM_JOB || pref.alternate_option == BE_ASSISTANT)
 			pref.alternate_option += 1
 		else if(pref.alternate_option == RETURN_TO_LOBBY)
 			pref.alternate_option = 0
-		return TOPIC_REFRESH
+		return TRUE
 
 	else if(href_list["select_alt_title"])
 		var/datum/job/job = locate(href_list["select_alt_title"])
@@ -184,10 +184,10 @@
 			var/choice = input("Choose an title for [job.title].", "Choose Title", pref.GetPlayerAltTitle(job)) as anything in choices|null
 			if(choice && CanUseTopic(user))
 				SetPlayerAltTitle(job, choice)
-				return (pref.equip_preview_mob ? TOPIC_REFRESH_UPDATE_PREVIEW : TOPIC_REFRESH)
+				return (pref.equip_preview_mob ? UPDATE_PREVIEW : TRUE)
 
 	else if(href_list["set_job"] && href_list["set_level"])
-		if(SetJob(user, href_list["set_job"], text2num(href_list["set_level"]))) return (pref.equip_preview_mob ? TOPIC_REFRESH_UPDATE_PREVIEW : TOPIC_REFRESH)
+		if(SetJob(user, href_list["set_job"], text2num(href_list["set_level"]))) return (pref.equip_preview_mob ? UPDATE_PREVIEW : TRUE)
 
 	else if(href_list["job_info"])
 		var/rank = href_list["job_info"]
@@ -208,7 +208,7 @@
 
 		dat += "<hr style='clear:left;'>"
 		if(config.wikiurl)
-			dat += "<a href='?src=\ref[src];job_wiki=[rank]'>Open wiki page in browser</a>"
+			dat += "<a href='?src=[REF(src)];job_wiki=[rank]'>Open wiki page in browser</a>"
 		var/description = job.get_description_blurb()
 		if(description)
 			dat += html_encode(description)

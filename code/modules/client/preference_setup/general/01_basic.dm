@@ -45,15 +45,15 @@ datum/preferences
 /datum/category_item/player_setup_item/physical/basic/content()
 	. = list()
 	. += "<b>Name:</b> "
-	. += "<a href='?src=\ref[src];rename=1'><b>[pref.real_name]</b></a><br>"
-	. += "<a href='?src=\ref[src];random_name=1'>Randomize Name</A><br>"
-	. += "<a href='?src=\ref[src];always_random_name=1'>Always Random Name: [pref.be_random_name ? "Yes" : "No"]</a>"
+	. += "<a href='?src=[REF(src)];rename=1'><b>[pref.real_name]</b></a><br>"
+	. += "<a href='?src=[REF(src)];random_name=1'>Randomize Name</A><br>"
+	. += "<a href='?src=[REF(src)];always_random_name=1'>Always Random Name: [pref.be_random_name ? "Yes" : "No"]</a>"
 	. += "<hr>"
-	. += "<b>Gender:</b> <a href='?src=\ref[src];gender=1'><b>[gender2text(pref.gender)]</b></a><br>"
-	. += "<b>Age:</b> <a href='?src=\ref[src];age=1'>[pref.age]</a><br>"
-	. += "<b>Spawn Point</b>: <a href='?src=\ref[src];spawnpoint=1'>[pref.spawnpoint]</a>"
+	. += "<b>Gender:</b> <a href='?src=[REF(src)];gender=1'><b>[gender2text(pref.gender)]</b></a><br>"
+	. += "<b>Age:</b> <a href='?src=[REF(src)];age=1'>[pref.age]</a><br>"
+	. += "<b>Spawn Point</b>: <a href='?src=[REF(src)];spawnpoint=1'>[pref.spawnpoint]</a>"
 	if(config.allow_Metadata)
-		. += "<br><b>OOC Notes:</b> <a href='?src=\ref[src];metadata=1'> Edit </a>"
+		. += "<br><b>OOC Notes:</b> <a href='?src=[REF(src)];metadata=1'> Edit </a>"
 	. = jointext(.,null)
 
 /datum/category_item/player_setup_item/physical/basic/OnTopic(var/href,var/list/href_list, var/mob/user)
@@ -67,18 +67,18 @@ datum/preferences
 			var/new_name = check.sanitize_name(raw_name, pref.species)
 			if(new_name)
 				pref.real_name = new_name
-				return TOPIC_REFRESH
+				return TRUE
 			else
 				to_chat(user, "<span class='warning'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</span>")
-				return TOPIC_NOACTION
+				return FALSE
 
 	else if(href_list["random_name"])
 		pref.real_name = random_name(pref.gender, pref.species)
-		return TOPIC_REFRESH
+		return TRUE
 
 	else if(href_list["always_random_name"])
 		pref.be_random_name = !pref.be_random_name
-		return TOPIC_REFRESH
+		return TRUE
 
 	else if(href_list["gender"])
 		var/new_gender = input(user, "Choose your character's gender:", CHARACTER_PREFERENCE_INPUT_TITLE, pref.gender) as null|anything in S.genders
@@ -87,27 +87,27 @@ datum/preferences
 			pref.gender = new_gender
 			if(!(pref.f_style in S.get_facial_hair_styles(pref.gender)))
 				ResetFacialHair()
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return UPDATE_PREVIEW
 
 	else if(href_list["age"])
 		var/new_age = input(user, "Choose your character's age:\n([S.min_age]-[S.max_age])", CHARACTER_PREFERENCE_INPUT_TITLE, pref.age) as num|null
 		if(new_age && CanUseTopic(user))
 			pref.age = max(min(round(text2num(new_age)), S.max_age), S.min_age)
-			return TOPIC_REFRESH
+			return TRUE
 
 	else if(href_list["spawnpoint"])
 		var/list/spawnkeys = list()
 		for(var/spawntype in spawntypes())
 			spawnkeys += spawntype
 		var/choice = input(user, "Where would you like to spawn when late-joining?") as null|anything in spawnkeys
-		if(!choice || !spawntypes()[choice] || !CanUseTopic(user))	return TOPIC_NOACTION
+		if(!choice || !spawntypes()[choice] || !CanUseTopic(user))	return FALSE
 		pref.spawnpoint = choice
-		return TOPIC_REFRESH
+		return TRUE
 
 	else if(href_list["metadata"])
 		var/new_metadata = sanitize(input(user, "Enter any information you'd like others to see, such as Roleplay-preferences:", "Game Preference" , pref.metadata)) as message|null
 		if(new_metadata && CanUseTopic(user))
 			pref.metadata = new_metadata
-			return TOPIC_REFRESH
+			return TRUE
 
 	return ..()

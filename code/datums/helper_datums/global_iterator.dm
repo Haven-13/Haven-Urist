@@ -60,7 +60,7 @@ Data storage vars:
 	New(list/arguments=null,autostart=1)
 		delay = delay>0?(delay):1
 		if(forbid_garbage) //prevents garbage collection with tag != null
-			tag = "\ref[src]"
+			tag = REF(src)
 		set_process_args(arguments)
 		if(autostart)
 			start()
@@ -106,7 +106,7 @@ Data storage vars:
 		while(state)
 			sleep(1)
 			if(++lag>10)
-				CRASH("The global_iterator loop \ref[src] failed to terminate in designated timeframe. This may be caused by server lagging.")
+				CRASH("The global_iterator loop [REF(src)] failed to terminate in designated timeframe. This may be caused by server lagging.")
 		return 1
 
 	proc/process()
@@ -139,7 +139,7 @@ Data storage vars:
 			arg_list = arguments
 			return 1
 		else
-//			log_error("<span class='danger'>Invalid arguments supplied for [src.type], ref = \ref[src]</span>")
+//			log_error("<span class='danger'>Invalid arguments supplied for [src.type], ref = [REF(src)]</span>")
 
 			return 0
 

@@ -35,7 +35,7 @@
 	. += "<b>Special Role Availability:</b><br>"
 	. += "<table>"
 	. += "<tr><td>Set All: </td><td>"
-	. += "<a href='?src=\ref[src];set_all=high'>High</a> <a href='?src=\ref[src];set_all=low'>Low</a> <a href='?src=\ref[src];set_all=never'>Never</a></br></br>"
+	. += "<a href='?src=[REF(src)];set_all=high'>High</a> <a href='?src=[REF(src)];set_all=low'>Low</a> <a href='?src=[REF(src)];set_all=never'>Never</a></br></br>"
 	var/list/all_antag_types = GLOB.all_antag_types_
 	for(var/antag_type in all_antag_types)
 		var/datum/antagonist/antag = all_antag_types[antag_type]
@@ -43,11 +43,11 @@
 		if(jobban_isbanned(preference_mob(), antag.id) || (antag.id == MODE_MALFUNCTION && jobban_isbanned(preference_mob(), "AI")))
 			. += "<span class='danger'>\[BANNED\]</span><br>"
 		else if(antag.id in pref.be_special_role)
-			. += "<span class='linkOn'>High</span> <a href='?src=\ref[src];del_special=[antag.id]'>Low</a> <a href='?src=\ref[src];add_never=[antag.id]'>Never</a></br>"
+			. += "<span class='linkOn'>High</span> <a href='?src=[REF(src)];del_special=[antag.id]'>Low</a> <a href='?src=[REF(src)];add_never=[antag.id]'>Never</a></br>"
 		else if(antag.id in pref.never_be_special_role)
-			. += "<a href='?src=\ref[src];add_special=[antag.id]'>High</a> <a href='?src=\ref[src];del_special=[antag.id]'>Low</a> <span class='linkOn'>Never</span></br>"
+			. += "<a href='?src=[REF(src)];add_special=[antag.id]'>High</a> <a href='?src=[REF(src)];del_special=[antag.id]'>Low</a> <span class='linkOn'>Never</span></br>"
 		else
-			. += "<a href='?src=\ref[src];add_special=[antag.id]'>High</a> <span class='linkOn'>Low</span> <a href='?src=\ref[src];add_never=[antag.id]'>Never</a></br>"
+			. += "<a href='?src=[REF(src)];add_special=[antag.id]'>High</a> <span class='linkOn'>Low</span> <a href='?src=[REF(src)];add_never=[antag.id]'>Never</a></br>"
 		. += "</td></tr>"
 
 	var/list/ghost_traps = get_ghost_traps()
@@ -60,11 +60,11 @@
 		if(banned_from_ghost_role(preference_mob(), ghost_trap))
 			. += "<span class='danger'>\[BANNED\]</span><br>"
 		else if(ghost_trap.pref_check in pref.be_special_role)
-			. += "<span class='linkOn'>High</span> <a href='?src=\ref[src];del_special=[ghost_trap.pref_check]'>Low</a> <a href='?src=\ref[src];add_never=[ghost_trap.pref_check]'>Never</a></br>"
+			. += "<span class='linkOn'>High</span> <a href='?src=[REF(src)];del_special=[ghost_trap.pref_check]'>Low</a> <a href='?src=[REF(src)];add_never=[ghost_trap.pref_check]'>Never</a></br>"
 		else if(ghost_trap.pref_check in pref.never_be_special_role)
-			. += "<a href='?src=\ref[src];add_special=[ghost_trap.pref_check]'>High</a> <a href='?src=\ref[src];del_special=[ghost_trap.pref_check]'>Low</a> <span class='linkOn'>Never</span></br>"
+			. += "<a href='?src=[REF(src)];add_special=[ghost_trap.pref_check]'>High</a> <a href='?src=[REF(src)];del_special=[ghost_trap.pref_check]'>Low</a> <span class='linkOn'>Never</span></br>"
 		else
-			. += "<a href='?src=\ref[src];add_special=[ghost_trap.pref_check]'>High</a> <span class='linkOn'>Low</span> <a href='?src=\ref[src];add_never=[ghost_trap.pref_check]'>Never</a></br>"
+			. += "<a href='?src=[REF(src)];add_special=[ghost_trap.pref_check]'>High</a> <span class='linkOn'>Low</span> <a href='?src=[REF(src)];add_never=[ghost_trap.pref_check]'>Never</a></br>"
 		. += "</td></tr>"
 	. += "</table>"
 	. = jointext(.,null)
@@ -78,22 +78,22 @@
 /datum/category_item/player_setup_item/antagonism/candidacy/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["add_special"])
 		if(!(href_list["add_special"] in valid_special_roles()))
-			return TOPIC_HANDLED
+			return FALSE
 		pref.be_special_role |= href_list["add_special"]
 		pref.never_be_special_role -= href_list["add_special"]
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["del_special"])
 		if(!(href_list["del_special"] in valid_special_roles()))
-			return TOPIC_HANDLED
+			return FALSE
 		pref.be_special_role -= href_list["del_special"]
 		pref.never_be_special_role -= href_list["del_special"]
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["add_never"])
 		pref.be_special_role -= href_list["add_never"]
 		pref.never_be_special_role |= href_list["add_never"]
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(href_list["set_all"])
 		switch(href_list["set_all"])
@@ -109,7 +109,7 @@
 				for(var/role in valid_special_roles())
 					pref.be_special_role -= role
 					pref.never_be_special_role |= role
-		return TOPIC_REFRESH
+		return TRUE
 
 	return ..()
 

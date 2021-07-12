@@ -5,7 +5,7 @@
 	icon_state = "airlock_control_standby"
 	layer = ABOVE_OBJ_LAYER
 
-	var/datum/topic_state/remote/remote_state
+	var/datum/ui_state/remote/remote_state
 	var/obj/machinery/embedded_controller/radio/airlock/master_controller
 	var/id_tag
 
@@ -25,7 +25,7 @@
 	if(!master_controller)
 		qdel(src)
 	else
-		remote_state = new /datum/topic_state/remote(src, master_controller)
+		remote_state = new /datum/ui_state/remote(src, master_controller)
 
 /obj/machinery/dummy_airlock_controller/Destroy()
 	if(master_controller)
@@ -44,7 +44,7 @@
 /obj/machinery/dummy_airlock_controller/proc/open_remote_ui(var/mob/user)
 	if(master_controller)
 		appearance = master_controller
-		return master_controller.ui_interact(user, state = remote_state)
+		return master_controller.ui_interact(user, null)
 
 /obj/machinery/dummy_airlock_controller/powered(var/chan = -1, var/area/check_area = null)
 	if(master_controller)
