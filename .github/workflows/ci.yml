@@ -19,10 +19,8 @@ jobs:
           key: ${{ runner.os }}-spacemandmm
       - name: Install Tools
         run: |
-          pip3 install setuptools
           bash tools/ci/install_node.sh
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
-          tools/bootstrap/python -c ''
       - name: Run Linters
         run: |
           tgui/bin/tgui --lint
