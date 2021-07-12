@@ -47,7 +47,7 @@ jobs:
         run: sudo apt-get install -y uchardet
       - name: Run Tests
         env:
-          TEST: CODE
+          TEST: CODE_QUALITY
           TARGET_PROJECT_NAME: baystation12
         run: bash tools/ci/run-test.sh
 
