@@ -35,6 +35,7 @@
 
 	var/list/atom/movable/map_view/camera_map_views = list()
 	var/list/obj/screen/background/camera_foregrounds = list()
+	var/list/obj/screen/background/camera_skyboxes = list()
 
 # define MAX_ACTIVE_CAMERAS 4
 
@@ -76,6 +77,25 @@
 
 		camera_foregrounds += foreground
 
+		// Create the local skybox for the camera
+		// Because the obj/skybox type is a sealed nasty piece of shit, we'll use
+		// obj/screen/background for now.
+		var/obj/screen/background/skybox = new
+		skybox.name = "skybox"
+		skybox.mouse_opacity = 0
+		skybox.blend_mode = BLEND_MULTIPLY
+		skybox.plane = SKYBOX_PLANE
+		skybox.layer = BASE_SKYBOX_LAYER
+		skybox.screen_loc = "[key]:CENTER,CENTER"
+		skybox.color = SSskybox.BGcolor
+		skybox.appearance_flags |= TILE_BOUND
+
+		var/mutable_appearance/sky = mutable_appearance('icons/turf/skybox.dmi', "background_[SSskybox.BGstate]")
+		sky.appearance_flags = RESET_ALPHA
+		skybox.overlays += sky
+
+		camera_skyboxes += skybox
+
 # undef MAX_ACTIVE_CAMERAS
 
 /datum/ui_module/program/camera_monitor/Destroy()
@@ -84,14 +104,16 @@
 	last_camera_turf = null
 	QDEL_NULL_ASSOC_LIST(camera_map_views)
 	QDEL_NULL_LIST(camera_foregrounds)
+	QDEL_NULL_LIST(camera_skyboxes)
 
 // ADD THE SCREEN OBJECTS
 /datum/ui_module/program/camera_monitor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 
 	if(!ui)
-		for(var/obj/screen/background/fg in camera_foregrounds)
-			user.client.screen += fg
+		for(var/i in 1 to camera_foregrounds.len)
+			user.client.screen += camera_foregrounds[i]
+			user.client.screen += camera_skyboxes[i]
 		for(var/key in camera_map_views)
 			var/atom/movable/map_view/MV = camera_map_views[key]
 			MV.add_all_active(user)
@@ -101,8 +123,9 @@
 // REMOVE THE SCREEN OBJECTS
 /datum/ui_module/program/camera_monitor/ui_close(mob/user)
 	. = ..()
-	for(var/obj/screen/background/fg in camera_foregrounds)
-		user.client.screen -= fg
+	for(var/i in 1 to camera_foregrounds.len)
+		user.client.screen -= camera_foregrounds[i]
+		user.client.screen -= camera_skyboxes[i]
 	for(var/key in camera_map_views)
 		var/atom/movable/map_view/MV = camera_map_views[key]
 		MV.clear_all(user)
@@ -121,7 +144,7 @@
 
 	// This list used to have two elements per entry, but I am
 	// leaving it like this for the convenience for new features
-	//  that might come later.
+	// that might come later.
 	//
 	// The data should be constructed like this:
 	//
@@ -215,14 +238,15 @@
 
 	var/cam_location = (isliving(C.loc) && C.loc) || C
 
-	var/turf/newturf = get_turf(cam_location)
-	if(last_camera_turf[index] == newturf)
+	var/turf/T = get_turf(cam_location)
+	var/last_z = last_camera_turf[index]?.z || 0
+	if(last_camera_turf[index] == T)
 		return FALSE
-	last_camera_turf[index] = newturf
+	last_camera_turf[index] = T
 
 	// Collect turfs that can be seen from this camera
 	var/list/turf/visible_turfs = list()
-	var/list/visible_atoms = view(C.view_range, cam_location)
+	var/list/visible_atoms = view(C.view_range, T)
 	for(var/turf/visible_turf in visible_atoms)
 		visible_turfs += visible_turf
 
@@ -230,9 +254,10 @@
 	var/atom/movable/map_view/MV = camera_map_views[key]
 	MV.vis_contents = visible_turfs
 
-	MV.clear_all(user)
-	MV.update_map_view(GetZDepth(newturf.z))
-	MV.add_all_active(user)
+	if(last_z != T.z)
+		MV.clear_all(user)
+		MV.update_map_view(GetZDepth(T.z))
+		MV.add_all_active(user)
 
 	// Compute ByondUI map canvas size
 	var/list/bbox = get_bound_box_of_atoms(visible_turfs)
@@ -242,6 +267,13 @@
 	var/obj/screen/background/foreground = camera_foregrounds[index]
 	foreground.icon_state = "blank"
 	foreground.screen_loc = "[key]:1,1 to [size_x],[size_y]"
+
+	var/obj/screen/background/skybox = camera_skyboxes[index]
+	var/matrix/M = matrix()
+	// The skybox does not always cover the background, so upscale it a bit
+	M.Scale(between(1, 1 + max(size_x, size_y)/DEFAULT_VIEW_SIZE, 2))
+	skybox.transform = M
+	skybox.screen_loc = "[key]:CENTER:[(-224)-(T.x)],CENTER:[(-224)-(T.y)]"
 
 	// And done
 	return TRUE
