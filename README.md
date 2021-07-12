@@ -1,4 +1,4 @@
-# Astro Haven 13 [![Build Status](https://travis-ci.com/AstroHaven-13/Haven-Urist.svg?branch=master)](https://travis-ci.com/AstroHaven-13/Haven-Urist)
+# Astro Haven 13 ![CI](https://github.com/AstroHaven-13/Haven-Urist/actions/workflows/ci.yml/badge.svg?branch=master)
 
 AH13's Urist McStation's BS12 branch. 
 
