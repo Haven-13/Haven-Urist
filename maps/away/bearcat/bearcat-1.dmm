@@ -1147,12 +1147,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/closet/crate,
-/obj/item/weapon/fossil/skull,
-/obj/item/weapon/fossil/bone,
-/obj/item/weapon/fossil/bone,
-/obj/item/weapon/fossil/shell,
 /obj/item/xenos_claw,
-/obj/item/weapon/ore/strangerock,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
 "cn" = (
@@ -2362,7 +2357,6 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/item/device/integrated_circuit_printer,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/techstorage)
 "eB" = (
