@@ -810,7 +810,6 @@
 	},
 /area/constructionsite/hallway/fore)
 "cz" = (
-/obj/structure/bookcase/manuals/xenoarchaeology,
 /turf/simulated/floor/airless,
 /area/constructionsite/hallway/fore)
 "cA" = (
@@ -876,7 +875,6 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/constructionsite/hallway/fore)
 "cO" = (
-/obj/structure/bookcase/manuals/xenoarchaeology,
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
