@@ -24,19 +24,9 @@
 		/area/ship/scrap/shuttle/lift = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/ship/scrap/command/hallway = NO_SCRUBBER|NO_VENT,
 		/area/lost_supply_base/solar = NO_SCRUBBER,
-		/area/smugglers/base = NO_SCRUBBER,
-		/area/smugglers/dorms = NO_SCRUBBER|NO_VENT,
-		/area/smugglers/office = NO_SCRUBBER|NO_VENT,
-		/area/casino/casino_solar_control = NO_SCRUBBER,
-		/area/casino/casino_maintenance = NO_SCRUBBER,
-		/area/casino/casino_hangar = NO_SCRUBBER,
-		/area/casino/casino_cutter = NO_SCRUBBER|NO_VENT,
-		/area/bluespaceriver/underground = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/bluespaceriver/ground = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/slavers_base/hangar = NO_SCRUBBER,
 		/area/map_template/hydrobase = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/map_template/hydrobase/station = NO_SCRUBBER,
-		/area/mobius_rift = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/map_template/marooned = NO_SCRUBBER|NO_VENT|NO_APC
 //		/area/icarus/vessel = NO_APC,
 //		/area/icarus/open = NO_SCRUBBER|NO_VENT|NO_APC,
@@ -89,8 +79,6 @@
 		/area/supply,
 		/area/syndicate_mothership,
 		/area/syndicate_mothership/elite_squad,
-		/area/wizard_station,
-		/area/beach,
 		/area/turbolift,
 		/area/map_template/hydrobase
 	)
@@ -98,5 +86,4 @@
 	area_usage_test_exempted_root_areas = list(
 		/area/exoplanet,
 		/area/map_template,
-		/area/unishi
 	)
