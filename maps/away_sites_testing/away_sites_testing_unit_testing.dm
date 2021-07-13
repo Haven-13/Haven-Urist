@@ -22,6 +22,7 @@
 		/area/ship/scrap/escape_port = NO_SCRUBBER|NO_VENT,
 		/area/ship/scrap/escape_star = NO_SCRUBBER|NO_VENT,
 		/area/ship/scrap/shuttle/lift = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/ship/scrap/damselfly = NO_SCRUBBER|NO_VENT,
 		/area/ship/scrap/command/hallway = NO_SCRUBBER|NO_VENT,
 		/area/lost_supply_base/solar = NO_SCRUBBER,
 		/area/slavers_base/hangar = NO_SCRUBBER,
