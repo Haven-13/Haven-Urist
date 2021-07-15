@@ -123,7 +123,6 @@ var/global/floorIsLava = 0
 			else if(ishuman(M))
 				body += {"<A href='?src=[REF(src)];makeai=[REF(M)]'>Make AI</A> |
 					<A href='?src=[REF(src)];makerobot=[REF(M)]'>Make Robot</A> |
-					<A href='?src=[REF(src)];makealien=[REF(M)]'>Make Alien</A> |
 					<A href='?src=[REF(src)];makeslime=[REF(M)]'>Make slime</A>
 				"}
 

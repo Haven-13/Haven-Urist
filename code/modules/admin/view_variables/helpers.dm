@@ -76,7 +76,6 @@
 		<option value='?_src_=vars;makeai=[REF(src)]'>Make AI</option>
 		<option value='?_src_=vars;makerobot=[REF(src)]'>Make cyborg</option>
 		<option value='?_src_=vars;makemonkey=[REF(src)]'>Make monkey</option>
-		<option value='?_src_=vars;makealien=[REF(src)]'>Make alien</option>
 		<option value='?_src_=vars;makeslime=[REF(src)]'>Make slime</option>
 		"}
 
