@@ -525,19 +525,21 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Special Verbs"
 	set name = "Rejuvenate"
 	if(!holder)
-		to_chat(src, "Only administrators may use this command.")
-		return
-	if(!mob)
-		return
-	if(!istype(M))
-		alert("Cannot revive a ghost")
-		return
+		to_chat(usr, "Only administrators may use this command.")
+		return FALSE
+	if(!check_rights(R_REJUVINATE))
+		to_chat(usr, "+REJUVINATE right required to use this command.")
+		return FALSE
+	if(!istype(M, /mob/living))
+		to_chat(usr, "This can only be used on instances of type /mob/living")
+		return FALSE
 	if(config.allow_admin_rev)
 		M.revive()
-
 		log_and_message_admins("healed / revived [key_name_admin(M)]!")
+		. = TRUE
 	else
 		alert("Admin revive disabled")
+		. = FALSE
 	feedback_add_details("admin_verb","REJU") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_create_centcom_report()
