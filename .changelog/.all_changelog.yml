@@ -212,3 +212,7 @@
   - refactor: Added underscores to lazy-access macro names
   - rscdel: Removed Unathi's regeneration ability
   - rscdel: Removed the "Make pAI" verb, as there are simpler ways to do it
+  - rscdel: Removed kick mine
+  - tweak: Lowercased names of all mines so far
+  - tweak: Radiation mines now respect protection values against radiation
+  - tweak: All varieties of land mines can now be picked up, armed own, or disarmed.

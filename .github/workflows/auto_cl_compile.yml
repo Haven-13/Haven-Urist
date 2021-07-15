@@ -1,8 +1,9 @@
 name: Changelog Automaker
 
 on:
-  push:
-    branches: [master]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
 
 env:
   GIT_EMAIL: "action@github.com"
@@ -27,8 +28,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install ruamel.yaml PyGithub pyyaml bs4
-      - name: Generate CL
-        run: python $CL_AUTOMAKER_DIR/generate_cl.py
       - name: Compile CL
         run: python $CL_AUTOMAKER_DIR/compile_cl.py html/changelog.html .changelog
       - name: Commit
@@ -36,7 +35,7 @@ jobs:
           git config --local user.email $GIT_EMAIL
           git config --local user.name "$GIT_NAME"
           git pull origin master
-          git commit -m "Automatic changelog compile [ci skip]" -a || true
+          git commit -m "Auto-CL compile [ci skip]" -a || true
       - name: Push
         uses: ad-m/github-push-action@master
         with:
