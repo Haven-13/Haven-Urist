@@ -80,11 +80,14 @@
 			"<span class='danger'>You triggered the \the [src]!</span>",
 			"<span class='warning'>You feel an omnious click under your step!</span>"
 		)
+		trigger(M)
+		return TRUE
+
+/obj/item/weapon/mine/proc/trigger(atom/movable/M)
+	if(!triggered)
 		triggered = 1
 		on_trigger(M)
-		spawn(0)
-			qdel(src)
-		return TRUE
+		qdel(src)
 
 /obj/item/weapon/mine/proc/on_trigger(atom/movable/A)
 	explosion(loc, 0, 1, 2, 3)
@@ -136,15 +139,12 @@
 /obj/item/weapon/mine/frag
 	name = "frag mine"
 
-/obj/item/weapon/mine/frag/on_trigger(obj)
+/obj/item/weapon/mine/frag/on_trigger(atom/movable/A)
 	//vars stolen for fragification
 	var/fragment_type = /obj/item/projectile/bullet/pellet/fragment
 	var/num_fragments = 72  //total number of fragments produced by the grenade
 	//The radius of the circle used to launch projectiles. Lower values mean less projectiles are used but if set too low gaps may appear in the spread pattern
 	var/spread_range = 7 //leave as is, for some reason setting this higher makes the spread pattern have gaps close to the epicenter
-
-	//blatant copypaste from frags, but those are a whole different type so vOv
-	set waitfor = 0
 
 	var/turf/O = get_turf(src)
 	if(!O) return

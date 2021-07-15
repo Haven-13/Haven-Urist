@@ -64,12 +64,15 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 /obj/structure/closet/crate/secure/boobytrapped/proc/trigger_trap()
 	if(trapped && !(triggered))
 		triggered = 1
-		src.visible_message("<span class='warning'>[src] emits a quiet raising whine...</span>", "<span class='warning'>[src] emits a quiet raising whine...</span>", 5)
+		src.visible_message(
+			"<span class='warning'>[src] emits a quiet raising whine...</span>",
+			range = 5
+		)
 		sleep(10)
 		if(trap)
 			if(istype(trap, /obj/item/weapon/mine))
 				var/obj/item/weapon/mine/M = trap
-				M.on_trigger()
+				M.trigger()
 			else if(istype(trap, /obj/item/weapon/grenade))
 				var/obj/item/weapon/grenade/G = trap
 				G.detonate()
