@@ -94,7 +94,7 @@ GLOBAL_DATUM_INIT(traitors, /datum/antagonist/traitor, new)
 			if(culture && prob(culture.subversive_potential))
 				dudes += man
 		dudes -= traitor_mob
-	if(LAZYLEN(dudes))
+	if(LAZY_LENGTH(dudes))
 		var/mob/living/carbon/human/M = pick(dudes)
 		to_chat(traitor_mob, "We have received credible reports that [M.real_name] might be willing to help our cause. If you need assistance, consider contacting them.")
 		traitor_mob.mind.store_memory("<b>Potential Collaborator</b>: [M.real_name]")

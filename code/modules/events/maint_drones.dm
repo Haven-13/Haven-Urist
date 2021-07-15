@@ -4,7 +4,7 @@
 
 	var/list/spots = get_infestation_turfs()
 	for(var/i = 0 to groups)
-		if(!LAZYLEN(spots))
+		if(!LAZY_LENGTH(spots))
 			break
 		var/turf/T = pick(spots)
 		for(var/j = 0 to drons)

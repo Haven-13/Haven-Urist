@@ -60,7 +60,7 @@
 obj/effect/overmap/proc/add_landmark(obj/effect/shuttle_landmark/landmark, shuttle_name)
 	landmark.sector_set(src)
 	if(shuttle_name)
-		LAZYADD(restricted_waypoints[shuttle_name], landmark)
+		LAZY_ADD(restricted_waypoints[shuttle_name], landmark)
 	else
 		generic_waypoints += landmark
 

@@ -129,11 +129,11 @@
 	if(locate(/obj/structure/catwalk/) in src)
 		return
 	if(AM.is_burnable())
-		LAZYADD(victims, weakref(AM))
+		LAZY_ADD(victims, weakref(AM))
 		START_PROCESSING(SSobj, src)
 
 /turf/simulated/floor/exoplanet/lava/Exited(atom/movable/AM)
-	LAZYREMOVE(victims, weakref(AM))
+	LAZY_REMOVE(victims, weakref(AM))
 
 /turf/simulated/floor/exoplanet/lava/Process()
 	if(locate(/obj/structure/catwalk/) in src)
@@ -148,7 +148,7 @@
 		var/pressure = environment.return_pressure()
 		if(AM.lava_act(environment, 5000 + environment.temperature, pressure))
 			victims -= W
-	if(!LAZYLEN(victims))
+	if(!LAZY_LENGTH(victims))
 		return PROCESS_KILL
 
 /turf/simulated/floor/exoplanet/lava/get_footstep_sound()

@@ -14,7 +14,7 @@
 	var/list/footstep_sounds	//footstep sounds when stepped on
 
 /obj/structure/proc/get_footstep_sound()
-	if(LAZYLEN(footstep_sounds)) return pick(footstep_sounds)
+	if(LAZY_LENGTH(footstep_sounds)) return pick(footstep_sounds)
 
 /obj/structure/Destroy()
 	var/turf/T = get_turf(src)

@@ -26,7 +26,7 @@
 	if(minimum_character_age && (prefs.age < minimum_character_age))
 		to_chat(feedback, "<span class='boldannounce'>Not old enough. Minimum character age is [minimum_character_age].</span>")
 		return TRUE
-	if(LAZYLEN(whitelisted_species) && !(prefs.species in whitelisted_species))
+	if(LAZY_LENGTH(whitelisted_species) && !(prefs.species in whitelisted_species))
 		to_chat(feedback, "<span class='boldannounce'>Your current species, [prefs.species], is not permitted as crew on \a [owner.archetype.descriptor].</span>")
 		return TRUE
 	if(prefs.species in blacklisted_species)
