@@ -991,26 +991,12 @@
 		.(href, list("f_secret"=1))
 
 	else if(href_list["monkeyone"])
-		if(!check_rights(R_SPAWN))	return
-
 		var/mob/living/carbon/human/H = locate(href_list["monkeyone"])
-		if(!istype(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
-			return
-
-		log_and_message_admins("attempting to monkeyize [key_name_admin(H)]")
-		H.monkeyize()
+		usr.client.cmd_admin_monkeyize(H)
 
 	else if(href_list["corgione"])
-		if(!check_rights(R_SPAWN))	return
-
 		var/mob/living/carbon/human/H = locate(href_list["corgione"])
-		if(!istype(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
-			return
-
-		log_and_message_admins("attempting to corgize [key_name_admin(H)]")
-		H.corgize()
+		usr.client.cmd_admin_corgize(H)
 
 	else if(href_list["forcespeech"])
 		if(!check_rights(R_FUN))	return
@@ -1167,58 +1153,23 @@
 		message_admins("[key_name_admin(usr)] has sent [key_name_admin(M)] to the thunderdome. (Observer.)", 1)
 
 	else if(href_list["revive"])
-		if(!check_rights(R_REJUVINATE))	return
-
 		var/mob/living/L = locate(href_list["revive"])
-		if(!istype(L))
-			to_chat(usr, "This can only be used on instances of type /mob/living")
-			return
-
-		if(config.allow_admin_rev)
-			L.revive()
-			log_and_message_admins("healed / Rrvived [key_name(L)]")
-		else
-			to_chat(usr, "Admin Rejuvinates have been disabled")
+		usr.client.cmd_admin_rejuvenate(L)
 
 	else if(href_list["makeai"])
-		if(!check_rights(R_SPAWN))	return
-
 		var/mob/living/carbon/human/H = locate(href_list["makeai"])
-		if(!istype(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
-			return
-
-		log_and_message_admins("AIized [key_name_admin(H)]!")
-		H.AIize()
+		usr.client.cmd_admin_aiize(H)
 
 	else if(href_list["makeslime"])
-		if(!check_rights(R_SPAWN))	return
-
 		var/mob/living/carbon/human/H = locate(href_list["makeslime"])
-		if(!istype(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
-			return
-
 		usr.client.cmd_admin_slimeize(H)
 
 	else if(href_list["makerobot"])
-		if(!check_rights(R_SPAWN))	return
-
 		var/mob/living/carbon/human/H = locate(href_list["makerobot"])
-		if(!istype(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
-			return
-
 		usr.client.cmd_admin_robotize(H)
 
 	else if(href_list["makeanimal"])
-		if(!check_rights(R_SPAWN))	return
-
 		var/mob/M = locate(href_list["makeanimal"])
-		if(istype(M, /mob/new_player))
-			to_chat(usr, "This cannot be used on instances of type /mob/new_player")
-			return
-
 		usr.client.cmd_admin_animalize(M)
 
 	else if(href_list["togmutate"])
