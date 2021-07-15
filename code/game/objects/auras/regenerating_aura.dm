@@ -77,19 +77,3 @@
 					if(W.wound_damage() == 0 && prob(50))
 						E.wounds -= W
 	return 1
-
-/obj/aura/regenerating/human/unathi
-	brute_mult = 2
-	organ_mult = 5
-	regen_message = "<span class='warning'>You feel a soothing sensation as your ORGAN mends...</span>"
-	grow_chance = 2
-	grow_threshold = 150
-	ignore_tag = BP_HEAD
-
-/obj/aura/regenerating/human/unathi/external_regeneration_effect(var/obj/item/organ/external/O, var/mob/living/carbon/human/H)
-	to_chat(H, "<span class='danger'>With a shower of fresh blood, a new [O.name] forms.</span>")
-	H.visible_message("<span class='danger'>With a shower of fresh blood, a length of biomass shoots from [H]'s [O.amputation_point], forming a new [O.name]!</span>")
-	H.nutrition -= 50
-	var/datum/reagent/blood/B = locate(/datum/reagent/blood) in H.vessel.reagent_list
-	blood_splatter(H,B,1)
-	O.set_dna(H.dna)
