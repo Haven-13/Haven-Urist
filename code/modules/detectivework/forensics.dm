@@ -109,12 +109,12 @@ obj/item/clothing/var/gunshot_residue
 
 /atom/proc/transfer_fingerprints_to(var/atom/A)
 	if(fingerprints)
-		LAZYDISTINCTADD(A.fingerprints, fingerprints)
+		LAZY_ADD_UNIQUE(A.fingerprints, fingerprints)
 	if(fingerprintshidden)
-		LAZYDISTINCTADD(A.fingerprintshidden, fingerprintshidden)
+		LAZY_ADD_UNIQUE(A.fingerprintshidden, fingerprintshidden)
 		A.fingerprintslast = fingerprintslast
 	if(suit_fibers)
-		LAZYDISTINCTADD(A.suit_fibers, suit_fibers)
+		LAZY_ADD_UNIQUE(A.suit_fibers, suit_fibers)
 	if(blood_DNA)
 		A.blood_DNA |= blood_DNA
 
@@ -122,7 +122,7 @@ obj/item/clothing/var/gunshot_residue
 	..()
 	if(istype(A,/obj/item) && trace_DNA)
 		var/obj/item/I = A
-		LAZYDISTINCTADD(I.trace_DNA, trace_DNA)
+		LAZY_ADD_UNIQUE(I.trace_DNA, trace_DNA)
 
 /obj/item/clothing/transfer_fingerprints_to(var/atom/A)
 	..()
@@ -171,7 +171,7 @@ atom/proc/add_fibers(mob/living/carbon/human/M)
 	if(M.isSynthetic())
 		return
 	if(istype(M.dna))
-		LAZYDISTINCTADD(trace_DNA, M.dna.unique_enzymes)
+		LAZY_ADD_UNIQUE(trace_DNA, M.dna.unique_enzymes)
 
 /mob/proc/get_full_print()
 	return FALSE

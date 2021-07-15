@@ -11,7 +11,7 @@
 
 /datum/persistent/graffiti/label_tokens(var/list/tokens)
 	var/list/labelled_tokens = ..()
-	var/entries = LAZYLEN(labelled_tokens)
+	var/entries = LAZY_LENGTH(labelled_tokens)
 	labelled_tokens["author"] =  tokens[entries+1]
 	labelled_tokens["message"] = tokens[entries+2]
 	return labelled_tokens
@@ -66,5 +66,5 @@
 /datum/persistent/graffiti/compile_entry(var/atom/entry, var/write_file)
 	. = ..()
 	var/obj/effect/decal/writing/save_graffiti = entry
-	LAZYADD(., "[save_graffiti.author || "unknown"]")
-	LAZYADD(., "[save_graffiti.message]")
+	LAZY_ADD(., "[save_graffiti.author || "unknown"]")
+	LAZY_ADD(., "[save_graffiti.message]")

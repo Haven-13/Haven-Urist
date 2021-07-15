@@ -407,7 +407,7 @@
 		var/summary = job.get_join_link(client, "byond://?src=[REF(src)];SelectedJob=[job.title]", show_invalid_jobs)
 		if(summary && summary != "")
 			job_summaries += summary
-	if(LAZYLEN(job_summaries))
+	if(LAZY_LENGTH(job_summaries))
 		dat += job_summaries
 	else
 		dat += "No available positions."
@@ -424,7 +424,7 @@
 				var/summary = job.get_join_link(client, "byond://?src=[REF(submap)];joining=[REF(src)];join_as=[otherthing]", show_invalid_jobs)
 				if(summary && summary != "")
 					job_summaries += summary
-			if(LAZYLEN(job_summaries))
+			if(LAZY_LENGTH(job_summaries))
 				dat += job_summaries
 			else
 				dat += "No available positions."

@@ -442,7 +442,7 @@ This function completely restores a damaged organ to perfect condition.
 		owner.organs_by_name[organ_tag] = null
 		owner.organs_by_name -= organ_tag
 		while(null in owner.organs) owner.organs -= null
-	if(LAZYLEN(children))
+	if(LAZY_LENGTH(children))
 		for(var/obj/item/organ/external/E in children)
 			E.remove_rejuv()
 		children.Cut()
@@ -829,7 +829,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		disintegrate = DROPLIMB_BLUNT //splut
 
 	var/list/organ_msgs = get_droplimb_messages_for(disintegrate, clean)
-	if(LAZYLEN(organ_msgs) >= 3)
+	if(LAZY_LENGTH(organ_msgs) >= 3)
 		owner.visible_message("<span class='critical'>[organ_msgs[1]]</span>", \
 			"<span class='moderate'><b>[organ_msgs[2]]</b></span>", \
 			"<span class='danger'>[organ_msgs[3]]</span>")

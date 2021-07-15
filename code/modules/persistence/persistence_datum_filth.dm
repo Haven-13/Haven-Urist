@@ -8,7 +8,7 @@
 
 /datum/persistent/filth/label_tokens(var/list/tokens)
 	var/list/labelled_tokens = ..()
-	labelled_tokens["path"] = text2path(tokens[LAZYLEN(labelled_tokens)+1])
+	labelled_tokens["path"] = text2path(tokens[LAZY_LENGTH(labelled_tokens)+1])
 	return labelled_tokens
 
 /datum/persistent/filth/is_valid_entry(var/atom/entry)
@@ -35,4 +35,4 @@
 
 /datum/persistent/filth/compile_entry(var/atom/entry)
 	. = ..()
-	LAZYADD(., "[get_entry_path(entry)]")
+	LAZY_ADD(., "[get_entry_path(entry)]")

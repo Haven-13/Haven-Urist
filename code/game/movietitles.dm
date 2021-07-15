@@ -17,7 +17,7 @@ client
 	if(!GLOB.end_titles)
 		GLOB.end_titles = generate_titles()
 
-	LAZYINITLIST(credits)
+	LAZY_INIT(credits)
 
 	if(mob)
 		mob.overlay_fullscreen("fishbed",/obj/screen/fullscreen/fishbed)
@@ -87,7 +87,7 @@ client
 	var/client/P = parent
 	if(parent)
 		P.screen -= src
-	LAZYREMOVE(P.credits, src)
+	LAZY_REMOVE(P.credits, src)
 	parent = null
 	return ..()
 

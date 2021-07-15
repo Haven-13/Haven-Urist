@@ -245,10 +245,10 @@
 // Returns true if, and only if, the human has gone from uncloaked to cloaked
 /mob/living/carbon/human/proc/add_cloaking_source(var/datum/cloaking_source)
 	var/has_uncloaked = clean_cloaking_sources()
-	LAZYDISTINCTADD(cloaking_sources, weakref(cloaking_source))
+	LAZY_ADD_UNIQUE(cloaking_sources, weakref(cloaking_source))
 
 	// We don't present the cloaking message if the human was already cloaked just before cleanup.
-	if(!has_uncloaked && LAZYLEN(cloaking_sources) == 1)
+	if(!has_uncloaked && LAZY_LENGTH(cloaking_sources) == 1)
 		update_icons()
 		src.visible_message("<span class='warning'>\The [src] seems to disappear before your eyes!</span>", "<span class='notice'>You feel completely invisible.</span>")
 		return TRUE
@@ -259,11 +259,11 @@
 
 // Returns true if, and only if, the human has gone from cloaked to uncloaked
 /mob/living/carbon/human/proc/remove_cloaking_source(var/datum/cloaking_source)
-	var/was_cloaked = LAZYLEN(cloaking_sources)
+	var/was_cloaked = LAZY_LENGTH(cloaking_sources)
 	clean_cloaking_sources()
-	LAZYREMOVE(cloaking_sources, weakref(cloaking_source))
+	LAZY_REMOVE(cloaking_sources, weakref(cloaking_source))
 
-	if(was_cloaked && !LAZYLEN(cloaking_sources))
+	if(was_cloaked && !LAZY_LENGTH(cloaking_sources))
 		update_icons()
 		visible_message(CLOAK_APPEAR_OTHER, CLOAK_APPEAR_SELF)
 		return TRUE
@@ -274,14 +274,14 @@
 	if(clean_cloaking_sources())
 		update_icons()
 		visible_message(CLOAK_APPEAR_OTHER, CLOAK_APPEAR_SELF)
-	return LAZYLEN(cloaking_sources)
+	return LAZY_LENGTH(cloaking_sources)
 
 #undef CLOAK_APPEAR_OTHER
 #undef CLOAK_APPEAR_SELF
 
 // Returns true if the human is cloaked by the given source
 /mob/living/carbon/human/proc/is_cloaked_by(var/cloaking_source)
-	return LAZYISIN(cloaking_sources, weakref(cloaking_source))
+	return LAZY_IS_IN(cloaking_sources, weakref(cloaking_source))
 
 // Returns true if this operation caused the mob to go from cloaked to uncloaked
 /mob/living/carbon/human/proc/clean_cloaking_sources()
@@ -299,5 +299,5 @@
 		var/rogue_entries_as_string = jointext(map(rogue_entries, /proc/log_info_line), ", ")
 		crash_with("[log_info_line(src)] - Following cloaking entries were removed during cleanup: [rogue_entries_as_string]")
 
-	UNSETEMPTY(cloaking_sources)
+	UNSET_EMPTY(cloaking_sources)
 	return !cloaking_sources // If cloaking_sources wasn't initially null but is now, we've uncloaked

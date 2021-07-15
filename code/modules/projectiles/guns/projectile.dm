@@ -88,7 +88,7 @@
 	switch(handle_casings)
 		if(EJECT_CASINGS) //eject casing onto ground.
 			chambered.forceMove(get_turf(src))
-			if(LAZYLEN(chambered.fall_sounds))
+			if(LAZY_LENGTH(chambered.fall_sounds))
 				playsound(loc, pick(chambered.fall_sounds), 50, 1)
 		if(CYCLE_CASINGS) //cycle the casing back to the end.
 			if(ammo_magazine)

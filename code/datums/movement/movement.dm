@@ -5,7 +5,7 @@ var/const/MOVEMENT_PROCEED = 0x0004
 var/const/MOVEMENT_STOP    = 0x0008
 
 #define INIT_MOVEMENT_HANDLERS \
-if(LAZYLEN(movement_handlers) && ispath(movement_handlers[1])) { \
+if(LAZY_LENGTH(movement_handlers) && ispath(movement_handlers[1])) { \
 	var/new_handlers = list(); \
 	for(var/path in movement_handlers){ \
 		var/arguments = movement_handlers[path];   \
@@ -15,14 +15,14 @@ if(LAZYLEN(movement_handlers) && ispath(movement_handlers[1])) { \
 	movement_handlers= new_handlers; \
 }
 
-#define REMOVE_AND_QDEL(X) LAZYREMOVE(movement_handlers, X); qdel(X);
+#define REMOVE_AND_QDEL(X) LAZY_REMOVE(movement_handlers, X); qdel(X);
 
 /atom/movable
 	var/list/movement_handlers
 
 // We don't want to check for subtypes, hence why we don't call is_path_in_list(), etc.
 /atom/movable/proc/HasMovementHandler(var/handler_path)
-	if(!LAZYLEN(movement_handlers))
+	if(!LAZY_LENGTH(movement_handlers))
 		return FALSE
 	if(ispath(movement_handlers[1]))
 		return (handler_path in movement_handlers)
@@ -39,17 +39,17 @@ if(LAZYLEN(movement_handlers) && ispath(movement_handlers[1])) { \
 	. = new handler_path(src)
 
 	// If a handler_path_to_add_before was given, attempt to find it and insert our handler just before it
-	if(handler_path_to_add_before && LAZYLEN(movement_handlers))
+	if(handler_path_to_add_before && LAZY_LENGTH(movement_handlers))
 		var/index = 0
 		for(var/handler in movement_handlers)
 			index++
 			var/datum/H = handler
 			if(H.type == handler_path_to_add_before)
-				LAZYINSERT(movement_handlers, ., index)
+				LAZY_INSERT(movement_handlers, ., index)
 				return
 
 	// If no handler_path_to_add_after was given or found, add first
-	LAZYINSERT(movement_handlers, ., 1)
+	LAZY_INSERT(movement_handlers, ., 1)
 
 /atom/movable/proc/RemoveMovementHandler(var/handler_path)
 	INIT_MOVEMENT_HANDLERS
@@ -118,7 +118,7 @@ if(LAZYLEN(movement_handlers) && ispath(movement_handlers[1])) { \
 
 // Base
 /atom/movable/Destroy()
-	if(LAZYLEN(movement_handlers) && !ispath(movement_handlers[1]))
+	if(LAZY_LENGTH(movement_handlers) && !ispath(movement_handlers[1]))
 		QDEL_NULL_LIST(movement_handlers)
 	. = ..()
 

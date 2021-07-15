@@ -168,7 +168,7 @@
 		taking_matter = eating.matter
 
 	var/found_useful_mat
-	if(LAZYLEN(taking_matter))
+	if(LAZY_LENGTH(taking_matter))
 		for(var/material in taking_matter)
 			if(!isnull(stored_material[material]) && !isnull(storage_capacity[material]))
 				found_useful_mat = TRUE
