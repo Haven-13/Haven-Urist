@@ -886,7 +886,7 @@ var/list/admin_verbs_mentor = list(
 			if(!job.is_position_available())
 				jobs["[job.title] - [submap.name]"] = job
 
-	if(!LAZYLEN(jobs))
+	if(!LAZY_LENGTH(jobs))
 		to_chat(usr, "There are no fully staffed offsite jobs.")
 		return
 

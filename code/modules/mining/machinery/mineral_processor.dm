@@ -40,7 +40,7 @@
 		for(var/obj/item/weapon/ore/I in recursive_content_check(input_turf, sight_check = FALSE, include_mobs = FALSE))
 			if(QDELETED(I) || !I.simulated || I.anchored)
 				continue
-			if(LAZYLEN(I.matter))
+			if(LAZY_LENGTH(I.matter))
 				for(var/o_material in I.matter)
 					if(!isnull(ores_stored[o_material]))
 						ores_stored[o_material] += I.matter[o_material]
@@ -83,7 +83,7 @@
 				result++
 
 		// Try to make any available alloys.
-		if(LAZYLEN(attempt_to_alloy))
+		if(LAZY_LENGTH(attempt_to_alloy))
 
 			var/list/making_alloys = list()
 			for(var/thing in SSmaterials.alloy_products)

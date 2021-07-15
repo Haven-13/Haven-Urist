@@ -138,14 +138,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		last_descriptors = pref.body_descriptors.Copy()
 	pref.body_descriptors = list()
 
-	if(LAZYLEN(mob_species.descriptors))
+	if(LAZY_LENGTH(mob_species.descriptors))
 		for(var/entry in mob_species.descriptors)
 			var/datum/mob_descriptor/descriptor = mob_species.descriptors[entry]
 			if(istype(descriptor))
 				if(isnull(last_descriptors[entry]))
 					pref.body_descriptors[entry] = descriptor.default_value // Species datums have initial default value.
 				else
-					pref.body_descriptors[entry] = Clamp(last_descriptors[entry], 1, LAZYLEN(descriptor.standalone_value_descriptors))
+					pref.body_descriptors[entry] = Clamp(last_descriptors[entry], 1, LAZY_LENGTH(descriptor.standalone_value_descriptors))
 
 	if(!pref.bgstate || !(pref.bgstate in pref.bgstate_options))
 		pref.bgstate = "000"
@@ -269,7 +269,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else
 		. += "<br><br>"
 
-	if(LAZYLEN(pref.body_descriptors))
+	if(LAZY_LENGTH(pref.body_descriptors))
 		. += "<table>"
 		for(var/entry in pref.body_descriptors)
 			var/datum/mob_descriptor/descriptor = mob_species.descriptors[entry]

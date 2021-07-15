@@ -6,18 +6,18 @@
 /datum/movement_handler/mob/relayed_movement/MayMove(var/mob/mover, var/is_external)
 	if(is_external)
 		return MOVEMENT_PROCEED
-	if(mover == mob && !(prevent_host_move && LAZYLEN(allowed_movers) && !LAZYISIN(allowed_movers, mover)))
+	if(mover == mob && !(prevent_host_move && LAZY_LENGTH(allowed_movers) && !LAZY_IS_IN(allowed_movers, mover)))
 		return MOVEMENT_PROCEED
-	if(LAZYISIN(allowed_movers, mover))
+	if(LAZY_IS_IN(allowed_movers, mover))
 		return MOVEMENT_PROCEED
 
 	return MOVEMENT_STOP
 
 /datum/movement_handler/mob/relayed_movement/proc/AddAllowedMover(var/mover)
-	LAZYDISTINCTADD(allowed_movers, mover)
+	LAZY_ADD_UNIQUE(allowed_movers, mover)
 
 /datum/movement_handler/mob/relayed_movement/proc/RemoveAllowedMover(var/mover)
-	LAZYREMOVE(allowed_movers, mover)
+	LAZY_REMOVE(allowed_movers, mover)
 
 // Admin object possession
 /datum/movement_handler/mob/admin_possess/DoMove(var/direction)
@@ -187,7 +187,7 @@
 			to_chat(mob, "<span class='notice'>You're buckled to \the [mob.buckled]!</span>")
 		return MOVEMENT_STOP
 
-	if(LAZYLEN(mob.pinned))
+	if(LAZY_LENGTH(mob.pinned))
 		if(mover == mob)
 			to_chat(mob, "<span class='notice'>You're pinned down by \a [mob.pinned[1]]!</span>")
 		return MOVEMENT_STOP
@@ -256,7 +256,7 @@
 	. = 0
 	// TODO: Look into making grabs use movement events instead, this is a mess.
 	var/list/L = mob.ret_grab()
-	if(LAZYLEN(L))
+	if(LAZY_LENGTH(L))
 		var/turf/T = get_step(mob,reverse_direction(direction))
 		L -= mob
 		for(var/mob/M in L)

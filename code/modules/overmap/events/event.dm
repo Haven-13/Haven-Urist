@@ -34,7 +34,7 @@
 	if(victim in victims)
 		log_error("Multiple attempts to trigger the same event by [victim] detected.")
 		return
-	LAZYADD(victims, victim)
+	LAZY_ADD(victims, victim)
 	var/datum/event_meta/EM = new(difficulty, "Overmap event - [name]", event, add_to_queue = FALSE, is_one_shot = TRUE)
 	var/datum/event/E = new event(EM)
 	E.startWhen = 0
@@ -46,4 +46,4 @@
 	if(victims && victims[victim])
 		var/datum/event/E = victims[victim]
 		E.kill()
-		LAZYREMOVE(victims, victim)
+		LAZY_REMOVE(victims, victim)

@@ -15,7 +15,7 @@ GLOBAL_VAR_INIT(admin_sound_channel, GLOB.sound_channels.RequestChannel("ADMIN_F
 
 /repository/sound_channels/proc/RequestChannel(var/key)
 	. = RequestChannels(key, 1)
-	return LAZYLEN(.) && .[1]
+	return LAZY_LENGTH(.) && .[1]
 
 /repository/sound_channels/proc/RequestChannels(var/key, var/amount)
 	if(!key)
@@ -35,7 +35,7 @@ GLOBAL_VAR_INIT(admin_sound_channel, GLOB.sound_channels.RequestChannel("ADMIN_F
 		CRASH("Unable to supply the requested amount of channels: [key] - Expected [amount], was [length(.)]")
 
 	for(var/channel in .)
-		LAZYSET(keys_by_channel, "[channel]", key)
+		LAZY_SET(keys_by_channel, "[channel]", key)
 	return .
 
 /repository/sound_channels/proc/ReleaseChannel(var/channel)
@@ -43,5 +43,5 @@ GLOBAL_VAR_INIT(admin_sound_channel, GLOB.sound_channels.RequestChannel("ADMIN_F
 
 /repository/sound_channels/proc/ReleaseChannels(var/list/channels)
 	for(var/channel in channels)
-		LAZYREMOVE(keys_by_channel, "[channel]")
+		LAZY_REMOVE(keys_by_channel, "[channel]")
 		available_channels.Push(channel)

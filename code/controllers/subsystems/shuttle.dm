@@ -59,7 +59,7 @@ SUBSYSTEM_DEF(shuttle)
 	for(var/landmark_tag in given_sector.initial_generic_waypoints)
 		if(!try_add_landmark_tag(landmark_tag, given_sector))
 			landmarks_still_needed[landmark_tag] = given_sector
-	
+
 	for(var/shuttle_name in given_sector.initial_restricted_waypoints)
 		for(var/landmark_tag in given_sector.initial_restricted_waypoints[shuttle_name])
 			if(!try_add_landmark_tag(landmark_tag, given_sector))
@@ -95,7 +95,7 @@ SUBSYSTEM_DEF(shuttle)
 
 /datum/controller/subsystem/shuttle/proc/initialise_shuttle(var/shuttle_type, during_init = FALSE)
 	if(!initialized && !during_init)
-		LAZYADD(shuttles_to_initialize, shuttle_type)
+		LAZY_ADD(shuttles_to_initialize, shuttle_type)
 		return //We'll get back to it during init.
 	var/datum/shuttle/shuttle = shuttle_type
 	if(initial(shuttle.category) != shuttle_type)

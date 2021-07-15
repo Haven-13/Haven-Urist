@@ -250,7 +250,7 @@ SUBSYSTEM_DEF(timer)
 	name = "Timer: " + num2text(id, 8) + ", TTR: [timeToRun], Flags: [jointext(bitfield2list(flags, list("TIMER_UNIQUE", "TIMER_OVERRIDE", "TIMER_CLIENT_TIME", "TIMER_STOPPABLE", "TIMER_NO_HASH_WAIT")), ", ")], callBack: [REF(callBack)], callBack.object: [callBack.object]\ref[callBack.object]([getcallingtype()]), callBack.delegate:[callBack.delegate]([callBack.arguments ? callBack.arguments.Join(", ") : ""])"
 
 	if (callBack.object != GLOBAL_PROC)
-		LAZYADD(callBack.object.active_timers, src)
+		LAZY_ADD(callBack.object.active_timers, src)
 
 	if (flags & TIMER_CLIENT_TIME)
 		//sorted insert
@@ -303,7 +303,7 @@ SUBSYSTEM_DEF(timer)
 
 	if (callBack && callBack.object && callBack.object != GLOBAL_PROC && callBack.object.active_timers)
 		callBack.object.active_timers -= src
-		UNSETEMPTY(callBack.object.active_timers)
+		UNSET_EMPTY(callBack.object.active_timers)
 
 	callBack = null
 

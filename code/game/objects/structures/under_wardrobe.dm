@@ -25,9 +25,9 @@
 
 		audible_message(message, WARDROBE_BLIND_MESSAGE(user))
 
-		var/number_of_underwear = LAZYACCESS(amount_of_underwear_by_id_card, id) - 1
+		var/number_of_underwear = LAZY_ACCESS(amount_of_underwear_by_id_card, id) - 1
 		if(number_of_underwear)
-			LAZYSET(amount_of_underwear_by_id_card, id, number_of_underwear)
+			LAZY_SET(amount_of_underwear_by_id_card, id, number_of_underwear)
 			GLOB.destroyed_event.register(id, src, /obj/structure/undies_wardrobe/proc/remove_id_card)
 		else
 			remove_id_card(id)
@@ -36,7 +36,7 @@
 		..()
 
 /obj/structure/undies_wardrobe/proc/remove_id_card(var/id_card)
-	LAZYREMOVE(amount_of_underwear_by_id_card, id_card)
+	LAZY_REMOVE(amount_of_underwear_by_id_card, id_card)
 	GLOB.destroyed_event.unregister(id_card, src, /obj/structure/undies_wardrobe/proc/remove_id_card)
 
 /obj/structure/undies_wardrobe/attack_hand(var/mob/user)
@@ -50,7 +50,7 @@
 
 	var/dat = list()
 	dat += "<b>Underwear</b><br><hr>"
-	dat += "You may claim [id ? length(GLOB.underwear.categories) - LAZYACCESS(amount_of_underwear_by_id_card, id) : 0] more article\s this shift.<br><br>"
+	dat += "You may claim [id ? length(GLOB.underwear.categories) - LAZY_ACCESS(amount_of_underwear_by_id_card, id) : 0] more article\s this shift.<br><br>"
 	dat += "<b>Available Categories</b><br><hr>"
 	for(var/datum/category_group/underwear/UWC in GLOB.underwear.categories)
 		dat += "[UWC.name] <a href='?src=[REF(src)];select_underwear=[UWC.name]'>(Select)</a><br>"
@@ -97,11 +97,11 @@
 			audible_message("No ID card detected. Unable to acquire your underwear quota for this shift.", WARDROBE_BLIND_MESSAGE(H))
 			return
 
-		var/current_quota = LAZYACCESS(amount_of_underwear_by_id_card, id)
+		var/current_quota = LAZY_ACCESS(amount_of_underwear_by_id_card, id)
 		if(current_quota >= length(GLOB.underwear.categories))
 			audible_message("You have already used up your underwear quota for this shift. Please return previously acquired items to increase it.", WARDROBE_BLIND_MESSAGE(H))
 			return
-		LAZYSET(amount_of_underwear_by_id_card, id, ++current_quota)
+		LAZY_SET(amount_of_underwear_by_id_card, id, ++current_quota)
 
 		var/obj/UW = UWI.create_underwear(metadata_list)
 		UW.forceMove(loc)

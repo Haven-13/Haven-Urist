@@ -103,7 +103,6 @@ var/list/ai_verbs_default = list(
 	var/multitool_mode = 0
 
 	var/default_ai_icon = /datum/ai_icon/blue
-	var/static/list/custom_ai_icons_by_ckey_and_name
 
 /mob/living/silicon/ai/proc/add_ai_verbs()
 	src.verbs |= ai_verbs_default
@@ -264,9 +263,6 @@ var/list/ai_verbs_default = list(
 		var/datum/ai_icon/ai_icon = all_ai_icons[ai_icon_type]
 		if(ai_icon.may_used_by_ai(src))
 			dd_insertObjectList(., ai_icon)
-
-	// Placing custom icons first to have them be at the top
-	. = LAZYACCESS(custom_ai_icons_by_ckey_and_name, "[ckey][real_name]") | .
 
 // this verb lets the ai see the stations manifest
 /mob/living/silicon/ai/proc/ai_roster()

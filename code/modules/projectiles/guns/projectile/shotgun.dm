@@ -33,7 +33,7 @@
 
 	if(chambered)//We have a shell in the chamber
 		chambered.forceMove(get_turf(src))//Eject casing
-		if(LAZYLEN(chambered.fall_sounds))
+		if(LAZY_LENGTH(chambered.fall_sounds))
 			playsound(loc, pick(chambered.fall_sounds), 50, 1)
 		chambered = null
 

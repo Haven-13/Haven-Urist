@@ -16,7 +16,7 @@ var/list/stored_shock_by_ref = list()
 /datum/species/proc/get_offset_overlay_image(var/spritesheet, var/mob_icon, var/mob_state, var/color, var/slot)
 
 	// If we don't actually need to offset this, don't bother with any of the generation/caching.
-	if(!spritesheet && equip_adjust.len && equip_adjust[slot] && LAZYLEN(equip_adjust[slot]))
+	if(!spritesheet && equip_adjust.len && equip_adjust[slot] && LAZY_LENGTH(equip_adjust[slot]))
 
 		// Check the cache for previously made icons.
 		var/image_key = "[mob_icon]-[mob_state]-[color]"

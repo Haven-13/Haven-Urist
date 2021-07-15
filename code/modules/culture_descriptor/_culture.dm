@@ -21,19 +21,19 @@
 		name_language = default_language
 
 	// Remove any overlap for the sake of presentation.
-	if(LAZYLEN(additional_langs))
+	if(LAZY_LENGTH(additional_langs))
 		additional_langs -= language
 		additional_langs -= name_language
 		additional_langs -= default_language
-		UNSETEMPTY(additional_langs)
+		UNSET_EMPTY(additional_langs)
 
-	if(LAZYLEN(secondary_langs))
+	if(LAZY_LENGTH(secondary_langs))
 		secondary_langs -= language
 		secondary_langs -= name_language
 		secondary_langs -= default_language
-		if(LAZYLEN(additional_langs))
+		if(LAZY_LENGTH(additional_langs))
 			secondary_langs -= additional_langs
-		UNSETEMPTY(secondary_langs)
+		UNSET_EMPTY(secondary_langs)
 
 	..()
 
@@ -78,9 +78,9 @@
 /decl/cultural_info/proc/get_text_details()
 	. = list()
 	var/list/spoken_langs = get_spoken_languages()
-	if(LAZYLEN(spoken_langs))
+	if(LAZY_LENGTH(spoken_langs))
 		. += "<b>Language(s):</b> [english_list(spoken_langs)]."
-	if(LAZYLEN(secondary_langs))
+	if(LAZY_LENGTH(secondary_langs))
 		. += "<b>Optional language(s):</b> [english_list(secondary_langs)]."
 	if(!isnull(economic_power))
 		. += "<b>Economic power:</b> [round(100 * economic_power)]%"
@@ -90,4 +90,4 @@
 	if(language)                  . |= language
 	if(default_language)          . |= default_language
 	if(name_language)             . |= name_language
-	if(LAZYLEN(additional_langs)) . |= additional_langs
+	if(LAZY_LENGTH(additional_langs)) . |= additional_langs

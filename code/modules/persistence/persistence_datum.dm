@@ -76,7 +76,7 @@
 			if(!entry_line)
 				continue
 			var/list/tokens = splittext(entry_line, file_entry_split_character)
-			if(LAZYLEN(tokens) < tokens_per_line)
+			if(LAZY_LENGTH(tokens) < tokens_per_line)
 				continue
 			tokens = label_tokens(tokens)
 			if(!check_token_sanity(tokens))
@@ -90,5 +90,5 @@
 	for(var/thing in SSpersistence.tracking_values[type])
 		if(is_valid_entry(thing))
 			var/list/entry = compile_entry(thing)
-			if(LAZYLEN(entry) == tokens_per_line)
+			if(LAZY_LENGTH(entry) == tokens_per_line)
 				to_file(write_file, jointext(entry, file_entry_split_character))
