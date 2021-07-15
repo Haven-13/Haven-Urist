@@ -211,3 +211,4 @@
       from species lists when using the appearance changer
   - refactor: Added underscores to lazy-access macro names
   - rscdel: Removed Unathi's regeneration ability
+  - rscdel: Removed the "Make pAI" verb, as there are simpler ways to do it
