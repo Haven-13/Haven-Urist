@@ -8,7 +8,6 @@ on:
 env:
   GIT_EMAIL: "action@github.com"
   GIT_NAME: "Changelog Automaker"
-  CL_AUTOMAKER_DIR: "./tools/ChangelogAutomaker"
 
 jobs:
   MakeCL:
@@ -29,7 +28,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install ruamel.yaml PyGithub pyyaml bs4
       - name: Compile CL
-        run: python $CL_AUTOMAKER_DIR/compile_cl.py html/changelog.html .changelog
+        run: python .tools/changelog/compile_cl.py html/changelog.html .changelog
       - name: Commit
         run: |
           git config --local user.email $GIT_EMAIL
