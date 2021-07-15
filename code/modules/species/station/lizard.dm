@@ -69,10 +69,6 @@
 		)
 	breathing_sound = 'sound/voice/lizard.ogg'
 
-	base_auras = list(
-		/obj/aura/regenerating/human/unathi
-		)
-
 	inherent_verbs = list()
 
 	prone_overlay_offset = list(-4, -4)
