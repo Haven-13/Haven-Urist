@@ -38,7 +38,7 @@ SUBSYSTEM_DEF(vote)
 		if(VOTE_PROCESS_COMPLETE)
 			active_vote.tally_result()      // Does math to figure out who won. Data is stored on the vote datum.
 			active_vote.report_result()     // Announces the result; possibly alerts other entities of the result.
-			LAZYADD(old_votes, active_vote) // Store the datum for future reference.
+			LAZY_ADD(old_votes, active_vote) // Store the datum for future reference.
 			reset()
 			return
 		if(VOTE_PROCESS_ONGOING)

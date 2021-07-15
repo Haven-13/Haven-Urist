@@ -275,11 +275,11 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 				available_cultural_info[token] = list()
 			available_cultural_info[token] |= additional_available_cultural_info[token]
 
-		else if(!available_cultural_info || !LAZYLEN(available_cultural_info[token]))
+		else if(!available_cultural_info || !LAZY_LENGTH(available_cultural_info[token]))
 			var/list/map_systems = GLOB.using_map.available_cultural_info[token]
 			available_cultural_info[token] = map_systems.Copy()
 
-		if(LAZYLEN(available_cultural_info[token]) && !default_cultural_info[token])
+		if(LAZY_LENGTH(available_cultural_info[token]) && !default_cultural_info[token])
 			var/list/avail_systems = available_cultural_info[token]
 			default_cultural_info[token] = avail_systems[1]
 
@@ -291,7 +291,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 	else
 		hud = new()
 
-	if(LAZYLEN(descriptors))
+	if(LAZY_LENGTH(descriptors))
 		var/list/descriptor_datums = list()
 		for(var/desctype in descriptors)
 			var/datum/mob_descriptor/descriptor = new desctype
@@ -629,24 +629,30 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 		return 80
 	return 220
 
-/datum/species/proc/get_hair_styles()
-	var/list/L = hair_styles
+// Note: pass-by-reference
+/datum/species/proc/get_hair_styles(var/gender)
+	var/list/L = LAZY_ACCESS_ASSOC(hair_styles, gender)
 	if(!L)
 		L = list()
-		hair_styles = L
+		LAZY_SET(hair_styles, gender, L)
 		for(var/hairstyle in GLOB.hair_styles_list)
 			var/datum/sprite_accessory/S = GLOB.hair_styles_list[hairstyle]
+			if(gender == MALE && S.gender == FEMALE)
+				continue
+			if(gender == FEMALE && S.gender == MALE)
+				continue
 			if(!(get_bodytype() in S.species_allowed))
 				continue
 			ADD_SORTED(L, hairstyle, /proc/cmp_text_asc)
 			L[hairstyle] = S
 	return L
 
+// Note: pass-by-reference
 /datum/species/proc/get_facial_hair_styles(var/gender)
-	var/list/L = LAZYACCESS(facial_hair_styles, gender)
+	var/list/L = LAZY_ACCESS_ASSOC(facial_hair_styles, gender)
 	if(!L)
 		L = list()
-		LAZYSET(facial_hair_styles, gender, L)
+		LAZY_SET(facial_hair_styles, gender, L)
 		for(var/facialhairstyle in GLOB.facial_hair_styles_list)
 			var/datum/sprite_accessory/S = GLOB.facial_hair_styles_list[facialhairstyle]
 			if(gender == MALE && S.gender == FEMALE)
@@ -722,7 +728,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 					dat += "</br><b>Resistant to [kind].</b>"
 			dat += "</br><b>They breathe [gas_data.name[breath_type]].</b>"
 			dat += "</br><b>They exhale [gas_data.name[exhale_type]].</b>"
-			dat += "</br><b>[capitalize(english_list(poison_types))] [LAZYLEN(poison_types) == 1 ? "is" : "are"] poisonous to them.</b>"
+			dat += "</br><b>[capitalize(english_list(poison_types))] [LAZY_LENGTH(poison_types) == 1 ? "is" : "are"] poisonous to them.</b>"
 			dat += "</small>"
 		dat += "</td>"
 	dat += "</tr>"

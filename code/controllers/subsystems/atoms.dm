@@ -26,7 +26,7 @@ SUBSYSTEM_DEF(atoms)
 
 	initialized = INITIALIZATION_INNEW_MAPLOAD
 
-	LAZYINITLIST(late_loaders)
+	LAZY_INIT(late_loaders)
 
 	var/count
 	var/list/mapload_arg = list(TRUE)

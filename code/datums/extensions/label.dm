@@ -15,9 +15,9 @@
 	if(!CanAttachLabel(user, label))
 		return
 
-	if(!LAZYLEN(labels))
+	if(!LAZY_LENGTH(labels))
 		atom_holder.verbs += /atom/proc/RemoveLabel
-	LAZYADD(labels, label)
+	LAZY_ADD(labels, label)
 
 	user.visible_message("<span class='notice'>\The [user] attaches a label to \the [atom_holder].</span>", \
 						 "<span class='notice'>You attach a label, '[label]', to \the [atom_holder].</span>")
@@ -30,8 +30,8 @@
 	if(!(label in labels))
 		return
 
-	LAZYREMOVE(labels, label)
-	if(!LAZYLEN(labels))
+	LAZY_REMOVE(labels, label)
+	if(!LAZY_LENGTH(labels))
 		atom_holder.verbs -= /atom/proc/RemoveLabel
 
 	var/full_label = " ([label])"
@@ -51,7 +51,7 @@
 // in case something appends strings to something that's labelled rather than replace the name outright
 // Non-printable characters should be of help if this comes up
 /datum/extension/labels/proc/AppendLabelsToName(var/name)
-	if(!LAZYLEN(labels))
+	if(!LAZY_LENGTH(labels))
 		return name
 	. = list(name)
 	for(var/entry in labels)
@@ -67,7 +67,7 @@
 
 /datum/extension/labels/proc/ExcessLabelLength(var/label, var/user)
 	. = length(label) + 3 // Each label also adds a space and two brackets when applied to a name
-	if(LAZYLEN(labels))
+	if(LAZY_LENGTH(labels))
 		for(var/entry in labels)
 			. += length(entry) + 3
 	. = . > 64 ? TRUE : FALSE
@@ -77,7 +77,7 @@
 /proc/get_attached_labels(var/atom/source)
 	if(has_extension(source, /datum/extension/labels))
 		var/datum/extension/labels/L = get_extension(source, /datum/extension/labels)
-		if(LAZYLEN(L.labels))
+		if(LAZY_LENGTH(L.labels))
 			return L.labels.Copy()
 		return list()
 

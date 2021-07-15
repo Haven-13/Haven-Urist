@@ -765,12 +765,12 @@ default behaviour is:
 		overlays |= auras
 
 /mob/living/proc/add_aura(var/obj/aura/aura)
-	LAZYDISTINCTADD(auras,aura)
+	LAZY_ADD_UNIQUE(auras,aura)
 	update_icons()
 	return 1
 
 /mob/living/proc/remove_aura(var/obj/aura/aura)
-	LAZYREMOVE(auras,aura)
+	LAZY_REMOVE(auras,aura)
 	update_icons()
 	return 1
 

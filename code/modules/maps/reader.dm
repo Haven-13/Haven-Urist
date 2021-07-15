@@ -329,7 +329,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	if(members[index] != /area/template_noop)
 		is_not_noop = TRUE
 		var/list/attr = members_attributes[index]
-		if (LAZYLEN(attr))
+		if (LAZY_LENGTH(attr))
 			GLOB._preloader.setup(attr)//preloader for assigning  set variables on atom creation
 		var/atype = members[index]
 		var/atom/instance
@@ -396,7 +396,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 
 //Instance an atom at (x,y,z) and gives it the variables in attributes
 /dmm_suite/proc/instance_atom(path,list/attributes, turf/crds, no_changeturf)
-	if (LAZYLEN(attributes))
+	if (LAZY_LENGTH(attributes))
 		GLOB._preloader.setup(attributes, path)
 
 	if(crds)
@@ -511,7 +511,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	var/target_path
 
 /dmm_suite/preloader/proc/setup(list/the_attributes, path)
-	if(LAZYLEN(the_attributes))
+	if(LAZY_LENGTH(the_attributes))
 		GLOB.use_preloader = TRUE
 		attributes = the_attributes
 		target_path = path

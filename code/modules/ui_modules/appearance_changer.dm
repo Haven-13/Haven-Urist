@@ -26,12 +26,12 @@
 		if("race")
 			if(can_change(APPEARANCE_RACE) && (params["race"] in valid_species))
 				if(owner.change_species(params["race"]))
-					cut_and_generate_data()
+					cut_data()
 					return TRUE
 		if("gender")
 			if(can_change(APPEARANCE_GENDER) && (params["gender"] in owner.species.genders))
 				if(owner.change_gender(params["gender"]))
-					cut_and_generate_data()
+					cut_data()
 					return TRUE
 		if("skin_tone")
 			if(can_change_skin_tone())
@@ -106,7 +106,8 @@
 		ui.open()
 
 /datum/ui_module/appearance_changer/ui_data(mob/user)
-	generate_data(check_whitelist, whitelist, blacklist)
+	generate_data()
+
 	var/list/data = host.initial_data()
 
 	data["specimen"] = owner.species.name
@@ -161,18 +162,18 @@
 /datum/ui_module/appearance_changer/proc/can_change_skin_color()
 	return owner && (flags & APPEARANCE_SKIN) && owner.species.appearance_flags & HAS_SKIN_COLOR
 
-/datum/ui_module/appearance_changer/proc/cut_and_generate_data()
-	// Making the assumption that the available species remain constant
-	valid_facial_hairstyles.Cut()
-	valid_facial_hairstyles.Cut()
-	generate_data()
+/datum/ui_module/appearance_changer/proc/cut_data()
+	// These previously called Cut()... on lists that were passed by reference...
+	// Bay coders give me trust issues sometimes.
+	valid_hairstyles = null
+	valid_facial_hairstyles = null
 
 /datum/ui_module/appearance_changer/proc/generate_data()
 	if(!owner)
 		return
-	if(!valid_species.len)
+	if(!LAZY_LENGTH(valid_species))
 		valid_species = owner.generate_valid_species(check_whitelist, whitelist, blacklist)
-	if(!valid_hairstyles.len || !valid_facial_hairstyles.len)
+	if(!LAZY_LENGTH(valid_hairstyles))
 		valid_hairstyles = owner.generate_valid_hairstyles()
-	if(!valid_facial_hairstyles.len)
+	if(!LAZY_LENGTH(valid_facial_hairstyles))
 		valid_facial_hairstyles = owner.generate_valid_facial_hairstyles()

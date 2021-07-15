@@ -609,7 +609,7 @@
 	// Channels
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
 		var/list/channels = decls_repository.get_decls_of_subtype(/decl/communication_channel)
-		jobs += "<tr bgcolor='ccccff'><th colspan='[LAZYLEN(channels)]'>Channel Bans</th></tr><tr align='center'>"
+		jobs += "<tr bgcolor='ccccff'><th colspan='[LAZY_LENGTH(channels)]'>Channel Bans</th></tr><tr align='center'>"
 		for(var/channel_type in channels)
 			var/decl/communication_channel/channel = channels[channel_type]
 			if(jobban_isbanned(M, channel.name))

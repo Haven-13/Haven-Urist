@@ -284,7 +284,7 @@ datum/preferences
 	character.gen_record = gen_record
 	character.exploit_record = exploit_record
 
-	if(LAZYLEN(character.descriptors))
+	if(LAZY_LENGTH(character.descriptors))
 		for(var/entry in body_descriptors)
 			character.descriptors[entry] = body_descriptors[entry]
 

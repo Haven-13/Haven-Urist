@@ -16,7 +16,7 @@
 
 /obj/machinery/computer/sensors/Destroy()
 	sensors = null
-	if(LAZYLEN(viewers))
+	if(LAZY_LENGTH(viewers))
 		for(var/weakref/W in viewers)
 			var/M = W.resolve()
 			if(M)
@@ -114,7 +114,7 @@
 		user.client.view = world.view + 4
 	GLOB.moved_event.register(user, src, /obj/machinery/computer/sensors/proc/unlook)
 	GLOB.stat_set_event.register(user, src, /obj/machinery/computer/sensors/proc/unlook)
-	LAZYDISTINCTADD(viewers, weakref(user))
+	LAZY_ADD_UNIQUE(viewers, weakref(user))
 
 /obj/machinery/computer/sensors/proc/unlook(var/mob/user)
 	user.reset_view()
@@ -122,7 +122,7 @@
 		user.client.view = world.view
 	GLOB.moved_event.unregister(user, src, /obj/machinery/computer/sensors/proc/unlook)
 	GLOB.stat_set_event.unregister(user, src, /obj/machinery/computer/sensors/proc/unlook)
-	LAZYREMOVE(viewers, weakref(user))
+	LAZY_REMOVE(viewers, weakref(user))
 
 /obj/machinery/computer/sensors/Process()
 	..()
