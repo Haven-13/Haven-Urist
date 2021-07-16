@@ -24,13 +24,17 @@
 		"batt_60.gif" 				= 'html/images/program_icons/batt_60.gif',
 		"batt_80.gif" 				= 'html/images/program_icons/batt_80.gif',
 		"batt_100.gif" 				= 'html/images/program_icons/batt_100.gif',
+		"borg_mon.gif"				= 'html/images/program_icons/borg_mon.gif',
 		"charging.gif" 				= 'html/images/program_icons/charging.gif',
+		"crew_green.gif"			= 'html/images/program_icons/crew_green.gif',
+		"crew_red.gif"				= 'html/images/program_icons/crew_red.gif',
 		"downloader_finished.gif" 	= 'html/images/program_icons/downloader_finished.gif',
 		"downloader_running.gif" 	= 'html/images/program_icons/downloader_running.gif',
 		"ntnrc_idle.gif"			= 'html/images/program_icons/ntnrc_idle.gif',
 		"ntnrc_new.gif"				= 'html/images/program_icons/ntnrc_new.gif',
 		"power_norm.gif"			= 'html/images/program_icons/power_norm.gif',
 		"power_warn.gif"			= 'html/images/program_icons/power_warn.gif',
+		"shield.gif"				= 'html/images/program_icons/shield.gif',
 		"sig_high.gif" 				= 'html/images/program_icons/sig_high.gif',
 		"sig_low.gif" 				= 'html/images/program_icons/sig_low.gif',
 		"sig_lan.gif" 				= 'html/images/program_icons/sig_lan.gif',
@@ -42,7 +46,6 @@
 		"smmon_4.gif" 				= 'html/images/program_icons/smmon_4.gif',
 		"smmon_5.gif" 				= 'html/images/program_icons/smmon_5.gif',
 		"smmon_6.gif" 				= 'html/images/program_icons/smmon_6.gif',
-		"borg_mon.gif"				= 'html/images/program_icons/borg_mon.gif'
 	)
 
 /datum/asset/simple/pda
