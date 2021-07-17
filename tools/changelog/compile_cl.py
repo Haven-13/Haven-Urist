@@ -237,5 +237,5 @@ if len(del_after):
             os.remove(fileName)
 
 if errors:
-    print("At least one error has occured this run.", file=std.stderr)
+    print("At least one error has occured this run.", file=sys.stderr)
     sys.exit(1)
