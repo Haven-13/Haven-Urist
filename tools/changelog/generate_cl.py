@@ -27,7 +27,7 @@ import io
 import re
 import argparse
 from pathlib import Path
-from ruamel_yaml import yaml
+from ruamel.yaml import YAML
 from github import Github, InputGitAuthor
 
 opt = argparse.ArgumentParser()
@@ -90,7 +90,7 @@ for k, v in cl_list:
 
 if write_cl['changes']:
     with io.StringIO() as cl_contents:
-        yaml = yaml.YAML()
+        yaml = YAML()
         yaml.indent(sequence=4, offset=2)
         yaml.dump(write_cl, cl_contents)
         cl_contents.seek(0)
