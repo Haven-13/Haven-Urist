@@ -109,7 +109,9 @@ if write_cl['changes']:
         yaml.dump(write_cl, cl_contents)
         cl_contents.seek(0)
 
-        target_filename = f".changelog/AutoChangeLog-pr-{pr_number}.yml"
+        # In cases like these, the filename must start with a leading slash
+        # See https://stackoverflow.com/q/40610082
+        target_filename = f"/.changelog/AutoChangeLog-pr-{pr_number}.yml"
         message = f"Auto-CL generate PR #{pr_number} [ci skip]"
 
         if not args.dryRun:
