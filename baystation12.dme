@@ -1899,6 +1899,7 @@
 #include "code\modules\modular_computers\file_system\manifest.dm"
 #include "code\modules\modular_computers\file_system\program.dm"
 #include "code\modules\modular_computers\file_system\program_events.dm"
+#include "code\modules\modular_computers\file_system\program_ui_module.dm"
 #include "code\modules\modular_computers\file_system\programs\antagonist\access_decrypter.dm"
 #include "code\modules\modular_computers\file_system\programs\antagonist\dos.dm"
 #include "code\modules\modular_computers\file_system\programs\antagonist\hacked_camera.dm"

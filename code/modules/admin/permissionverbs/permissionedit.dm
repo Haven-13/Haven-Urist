@@ -42,6 +42,7 @@
 </body>
 </html>"}
 
+	get_asset_datum(/datum/asset/simple/permissions_panel).send(usr.client)
 	show_browser(usr, output,"window=editrights;size=600x500")
 
 /datum/admins/proc/log_admin_rank_modification(var/adm_ckey, var/new_rank)
