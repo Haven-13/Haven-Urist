@@ -3,6 +3,12 @@ name: Changelog Automaker (Generate PR CL)
 on:
   push:
     branches: [master]
+  workflow_dispatch:
+    inputs:
+      oref: 
+        description: 'Override REF'
+        required: False
+        default: ${{ github.ref }}
 
 env:
   GIT_EMAIL: "action@github.com"
@@ -30,4 +36,5 @@ jobs:
       - name: Make CL
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REF: ${{ github.event.inputs.oref }}
         run: python tools/changelog/generate_cl.py
