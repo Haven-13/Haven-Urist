@@ -23,6 +23,7 @@ jobs:
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
       - name: Run Linters
         run: |
+          bash tools/ci/check_changelogs.sh
           tgui/bin/tgui --lint
           ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
       - name: Annotate Lints
