@@ -116,9 +116,11 @@ if write_cl['changes']:
 
         if not args.dryRun:
             #Push the newly generated changelog to the master branch so that it can be compiled
+            print(f"Writing to {target_filename}")
+            print(f"Commit Message: {message}")
             repo.create_file(
-                target_filename,
-                message,
+                path=target_filename,
+                message=message,
                 content=f'{cl_contents.read()}',
                 branch=branch,
                 committer=InputGitAuthor(git_name, git_email)

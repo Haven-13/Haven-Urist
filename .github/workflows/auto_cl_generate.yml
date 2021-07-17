@@ -30,4 +30,4 @@ jobs:
       - name: Make CL
         env:
           GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python ./tools/changelog/generate_cl.py
+        run: python tools/changelog/generate_cl.py
