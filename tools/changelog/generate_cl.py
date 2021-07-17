@@ -57,8 +57,8 @@ pr_number = 0
 
 print(f"Provided ref: {ref}")
 ref_parts = ref.split('/')
-if len(ref_parts) >= 4 and ref_parts[2] == "pull":
-    pr_number = int(ref_parts[3])
+if len(ref_parts) >= 3 and ref_parts[1] == "pull":
+    pr_number = int(ref_parts[2])
 
 if not pr_number:
     pr_list = commit.get_pulls()
