@@ -7,8 +7,7 @@ on:
     inputs:
       oref: 
         description: 'Override REF'
-        required: False
-        default: ${{ github.ref }}
+        required: True
 
 env:
   GIT_EMAIL: "action@github.com"
@@ -36,5 +35,5 @@ jobs:
       - name: Make CL
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REF: ${{ github.event.inputs.oref }}
+          GITHUB_REF: ${{ github.event.inputs.oref || github.ref }}
         run: python tools/changelog/generate_cl.py
