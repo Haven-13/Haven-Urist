@@ -27,6 +27,7 @@ sql/test_db
 
 # changelog junk
 .dry_changelog.yml
+changelog.dry.html
 
 # swap
 [._]*.s[a-v][a-z]
