@@ -120,8 +120,8 @@ if write_cl['changes']:
             #Push the newly generated changelog to the targeted branch so that it can be compiled
             print(f"Committing to: {branch}")
             repo.create_file(
-                path=target_filename,
-                message=commit_message,
+                path=f"{target_filename}",
+                message=f"{commit_message}",
                 content=f'{cl_contents.read()}',
                 branch=branch,
                 committer=InputGitAuthor(git_name, git_email)
