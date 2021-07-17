@@ -29,5 +29,5 @@ jobs:
           pip install ruamel.yaml PyGithub
       - name: Make CL
         env:
-          GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUG_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/changelog/generate_cl.py
