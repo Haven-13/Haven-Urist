@@ -25,9 +25,14 @@ GITHUB_SHA: The SHA associated with the commit that triggered the action (Action
 import os
 import io
 import re
+import argparse
 from pathlib import Path
 from ruamel import yaml
 from github import Github, InputGitAuthor
+
+opt = argparse.ArgumentParser()
+opt.add_argument('-d', '--dry-run', dest='dryRun', default=False, action='store_true', help='Only try to parse the commit. Will output debug info. Useful for trying out and verifying the function of this script.')
+args = opt.parse_args()
 
 CL_BODY = re.compile(r"```changelog(.+)?\r\n((.|\n|\r)+?)\r\n```", re.MULTILINE)
 CL_SPLIT = re.compile(r"(^\w+):\s+(\w.+)", re.MULTILINE)
@@ -90,14 +95,22 @@ if write_cl['changes']:
         yaml.dump(write_cl, cl_contents)
         cl_contents.seek(0)
 
-        #Push the newly generated changelog to the master branch so that it can be compiled
-        repo.create_file(
-            f".changelog/AutoChangeLog-pr-{pr_number}.yml",
-            f"Auto-CL generate PR #{pr_number} [ci skip]",
-            content=f'{cl_contents.read()}',
-            branch=branch,
-            committer=InputGitAuthor(git_name, git_email)
-        )
+	target_filename = f".changelog/AutoChangeLog-pr-{pr_number}.yml"
+	message = f"Auto-CL generate PR #{pr_number} [ci skip]"
+        
+        if not args.dryRun
+		#Push the newly generated changelog to the master branch so that it can be compiled
+		repo.create_file(
+		    target_filename,
+		    message,
+		    content=f'{cl_contents.read()}',
+		    branch=branch,
+		    committer=InputGitAuthor(git_name, git_email)
+		)
+	else
+		# Or show debug info if it was a dry run
+		print(f"Would have created the file {target_filename} with the commit message \"{message}\" and the contents:")
+		print(f'{cl_contents.read()}')
     print("Done!")
 else:
     print("No CL changes detected!")
