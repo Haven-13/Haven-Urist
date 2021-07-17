@@ -25,6 +25,9 @@ sql/test_db
 .vscode/*
 .history
 
+# changelog junk
+.dry_changelog.yml
+
 # swap
 [._]*.s[a-v][a-z]
 [._]*.sw[a-p]
