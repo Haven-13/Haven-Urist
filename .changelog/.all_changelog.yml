@@ -216,3 +216,10 @@
   - tweak: Lowercased names of all mines so far
   - tweak: Radiation mines now respect protection values against radiation
   - tweak: All varieties of land mines can now be picked up, armed own, or disarmed.
+2021-07-17:
+  martinlyra:
+  - tweak: The changelog now uses the new asset delivery system
+  - bugfix: Fixed an asset delivery issue that prevented logos to show up proper on
+      paper
+  - bugfix: Fixed an asset delivery issue that did not supply the NtOS programs the
+      header icons they needed
