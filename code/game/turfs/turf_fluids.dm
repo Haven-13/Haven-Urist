@@ -74,8 +74,26 @@
 	// Wake up ourself!
 	if(flooded)
 		var/flooded_a_neighbor = 0
-		FLOOD_TURF_NEIGHBORS(src, TRUE)
-		if(flooded_a_neighbor)
+
+		// substituted from FLOOD_TURF_NEIGHBORS
+		UPDATE_FLUID_BLOCKED_DIRS(src)
+		for(var/spread_dir in GLOB.cardinal)
+			if(src.fluid_blocked_dirs & spread_dir)
+				continue
+			var/turf/next = get_step(src, spread_dir)
+			if(!istype(next) || next.flooded)
+				continue
+			UPDATE_FLUID_BLOCKED_DIRS(next)
+			if((next.fluid_blocked_dirs & GLOB.reverse_dir[spread_dir]) || !next.CanFluidPass(spread_dir))
+				continue
+			flooded_a_neighbor = TRUE
+			var/obj/effect/fluid/F = locate() in next
+			if(F)
+				if(F.fluid_amount >= FLUID_MAX_DEPTH)
+					continue
+		if(!flooded_a_neighbor)
+			REMOVE_ACTIVE_FLUID_SOURCE(src)
+		else
 			ADD_ACTIVE_FLUID_SOURCE(src)
 	else
 		REMOVE_ACTIVE_FLUID_SOURCE(src)

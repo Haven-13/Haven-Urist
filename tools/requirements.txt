@@ -4,4 +4,7 @@ Pillow==8.2.0
 
 # changelogs
 PyYaml==5.4
+ruamel_yaml==0.17.10
+PyGithub==1.55
 beautifulsoup4==4.9.3
+
