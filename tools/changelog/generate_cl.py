@@ -60,6 +60,7 @@ ref_parts = ref.split('/')
 if len(ref_parts) >= 3 and ref_parts[1] == "pull":
     pr_number = int(ref_parts[2])
 
+# If the GITHUB_REF was not PR ref
 if not pr_number:
     pr_list = commit.get_pulls()
 
@@ -68,6 +69,7 @@ if not pr_number:
         exit(0) # Change to '0' if you do not want the action to fail when a direct commit is detected
 
     pr = pr_list[0]
+# If is a PR ref, just get the PR already
 else:
     pr = repo.get_pull(pr_number)
 
@@ -109,25 +111,24 @@ if write_cl['changes']:
         yaml.dump(write_cl, cl_contents)
         cl_contents.seek(0)
 
-        # In cases like these, the filename must start with a leading slash
-        # See https://stackoverflow.com/q/40610082
-        target_filename = f"/.changelog/AutoChangeLog-pr-{pr_number}.yml"
-        message = f"Auto-CL generate PR #{pr_number} [ci skip]"
+        target_filename = f".changelog/AutoChangeLog-pr-{pr_number}.yml"
+        commit_message = f"Auto-CL generate PR #{pr_number} [ci skip]"
 
+        print(f"Filename: {target_filename}")
+        print(f"Commit Message: {commit_message}")
         if not args.dryRun:
-            #Push the newly generated changelog to the master branch so that it can be compiled
-            print(f"Writing to {target_filename}")
-            print(f"Commit Message: {message}")
+            #Push the newly generated changelog to the targeted branch so that it can be compiled
+            print(f"Committing to: {branch}")
             repo.create_file(
-                path=target_filename,
-                message=message,
+                path=f"{target_filename}",
+                message=f"{commit_message}",
                 content=f'{cl_contents.read()}',
                 branch=branch,
                 committer=InputGitAuthor(git_name, git_email)
             )
         else:
             # Or show debug info if it was a dry run
-            print(f"Would have created the file {target_filename} with the commit message \"{message}\" and the contents:")
+            print(f"File contents:")
             print(f'{cl_contents.read()}')
     print("Done!")
 else:
