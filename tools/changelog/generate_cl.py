@@ -28,7 +28,7 @@ import io
 import re
 import argparse
 from pathlib import Path
-from ruamel.yaml import YAML
+from ruamel import yaml
 from github import Github, InputGitAuthor
 
 opt = argparse.ArgumentParser()
@@ -92,7 +92,7 @@ else:
 write_cl['delete-after'] = True
 
 with open(Path.cwd().joinpath("tools/changelog/tags.yml")) as file:
-    tags = YAML.safe_load(file)
+    tags = yaml.safe_load(file)
 
 write_cl['changes'] = []
 
@@ -104,7 +104,7 @@ for k, v in cl_list:
 
 if write_cl['changes']:
     with io.StringIO() as cl_contents:
-        yaml = YAML()
+        yaml = yaml.YAML()
         yaml.indent(sequence=4, offset=2)
         yaml.dump(write_cl, cl_contents)
         cl_contents.seek(0)
