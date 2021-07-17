@@ -72,7 +72,7 @@ else:
 
 write_cl['delete-after'] = True
 
-with open(Path.cwd().joinpath("tools/ChangelogAutomaker/tags.yml")) as file:
+with open(Path.cwd().joinpath("tools/changelog/tags.yml")) as file:
     tags = yaml.safe_load(file)
 
 write_cl['changes'] = []
@@ -92,7 +92,7 @@ if write_cl['changes']:
 
         #Push the newly generated changelog to the master branch so that it can be compiled
         repo.create_file(
-            f"html/changelogs/AutoChangeLog-pr-{pr_number}.yml",
+            f".changelog/AutoChangeLog-pr-{pr_number}.yml",
             f"Auto-CL generate PR #{pr_number} [ci skip]",
             content=f'{cl_contents.read()}',
             branch=branch,
