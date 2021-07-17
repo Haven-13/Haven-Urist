@@ -1,6 +1,0 @@
-author: martinlyra
-delete-after: True
-changes:
-  - tweak: The changelog now uses the new asset delivery system
-  - bugfix: Fixed an asset delivery issue that prevented logos to show up proper on paper
-  - bugfix: Fixed an asset delivery issue that did not supply the NtOS programs the header icons they needed
