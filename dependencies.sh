@@ -18,5 +18,5 @@ export NODE_VERSION_PRECISE=12.20.0
 export SPACEMAN_DMM_VERSION=suite-1.7
 
 # Python version for mapmerge and other tools
-export PYTHON_VERSION=3.9.5
+export PYTHON_VERSION=3.8.3
 
