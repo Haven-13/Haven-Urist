@@ -27,7 +27,7 @@ import io
 import re
 import argparse
 from pathlib import Path
-from ruamel import yaml
+from ruamel.yaml import yaml
 from github import Github, InputGitAuthor
 
 opt = argparse.ArgumentParser()
