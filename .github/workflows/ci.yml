@@ -19,10 +19,13 @@ jobs:
           key: ${{ runner.os }}-spacemandmm
       - name: Install Tools
         run: |
+          pip3 install setuptools
           bash tools/ci/install_node.sh
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
+          tools/bootstrap/python -c ''
       - name: Run Linters
         run: |
+          bash tools/ci/check_changelogs.sh
           tgui/bin/tgui --lint
           ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
       - name: Annotate Lints
