@@ -223,3 +223,6 @@
       paper
   - bugfix: Fixed an asset delivery issue that did not supply the NtOS programs the
       header icons they needed
+2021-07-18:
+  martinlyra:
+  - bugfix: Fix errors in Auto-CL generation
