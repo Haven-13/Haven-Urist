@@ -57,7 +57,7 @@ commit = repo.get_commit(sha)
 
 pr_number = 0
 
-if oref is not None and not ref == oref:
+if oref is not None and len(oref) > 0 and not ref == oref:
     print(f"Provided override ref: {oref}, was {ref}")
     ref = oref
 else:
