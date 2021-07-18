@@ -1,4 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Fix errors in Auto-CL generation
