@@ -35,5 +35,5 @@ jobs:
       - name: Make CL
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REF: ${{ github.event.inputs.oref || github.ref }}
+          OVERRIDE_REF: ${{ github.event.inputs.oref }}
         run: python tools/changelog/generate_cl.py
