@@ -10,6 +10,8 @@
     "editor.detectIndentation": false,
     "editor.renderIndentGuides": true,
 	"editor.wrappingIndent": "indent",
+	"editor.renderWhitespace": "all",
+	"editor.trimAutoWhitespace": true,
 	"editor.tabSize": 4,
 
 	"[dm]": {
