@@ -30,3 +30,5 @@
 	map_admin_faxes = list(
 		"Bureau of the Interstellar Marshals"
 	)
+
+	evac_controller_type = /datum/evacuation_controller/starship

@@ -30,6 +30,8 @@
 	#include "shuttles/shuttle_styx_define.dm"
 	#include "shuttles/shuttle_styx_overmap.dm"
 
+	#include "shuttles/evacuation_pods_define.dm"
+
 	#include "Maps/tyclo-pluto_main.dmm"
 	#include "Maps/tyclo-pluto_remote.dmm"
 
