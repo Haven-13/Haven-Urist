@@ -4,11 +4,11 @@
 		"*.dmi": "imagePreview.previewEditor"
 	},
 
-    "files.eol": "\n",
-    "editor.autoIndent": "keep",
-    "editor.insertSpaces": false,
-    "editor.detectIndentation": false,
-    "editor.renderIndentGuides": true,
+	"files.eol": "\n",
+	"editor.autoIndent": "keep",
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"editor.renderIndentGuides": true,
 	"editor.wrappingIndent": "indent",
 	"editor.renderWhitespace": "all",
 	"editor.trimAutoWhitespace": true,
