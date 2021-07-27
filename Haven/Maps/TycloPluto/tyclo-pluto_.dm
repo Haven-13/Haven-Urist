@@ -3,6 +3,7 @@
 	#include "tyclo-pluto_announcements.dm"
 	#include "tyclo-pluto_areas.dm"
 	#include "tyclo-pluto_elevators.dm"
+	#include "tyclo-pluto_evacuation.dm"
 	#include "tyclo-pluto_holodecks.dm"
 	#include "tyclo-pluto_jobs.dm"
 	#include "tyclo-pluto_lobby.dm"
@@ -29,8 +30,6 @@
 	#include "shuttles/shuttle_eris_overmap.dm"
 	#include "shuttles/shuttle_styx_define.dm"
 	#include "shuttles/shuttle_styx_overmap.dm"
-
-	#include "shuttles/evacuation_pods_define.dm"
 
 	#include "Maps/tyclo-pluto_main.dmm"
 	#include "Maps/tyclo-pluto_remote.dmm"
