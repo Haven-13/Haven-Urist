@@ -22,4 +22,4 @@
 	to the stars."
 
 /decl/cultural_info/culture/common/other
-	name = CULTURE_OTHER
+	name = CULTURE_OTHER_AH13
