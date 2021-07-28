@@ -70,7 +70,7 @@ override_precedes_definition =  "unset"
 # Set to "warning"/"warnings" by default
 # The given severity level and above will be shown as errors and cause dreamchecker
 # to return with 1. The settings can affect how the Travis CI treats the codebase.
-error_level = "error"
+error_level = "warning"
 
 [langserver]
 dreamchecker = true
