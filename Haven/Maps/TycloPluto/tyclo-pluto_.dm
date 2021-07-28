@@ -3,6 +3,7 @@
 	#include "tyclo-pluto_announcements.dm"
 	#include "tyclo-pluto_areas.dm"
 	#include "tyclo-pluto_elevators.dm"
+	#include "tyclo-pluto_evacuation.dm"
 	#include "tyclo-pluto_holodecks.dm"
 	#include "tyclo-pluto_jobs.dm"
 	#include "tyclo-pluto_lobby.dm"

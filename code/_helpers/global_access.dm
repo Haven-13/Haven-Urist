@@ -417,10 +417,6 @@
 			return global.endgame_safespawns;
 		if("ert_base_chance")
 			return global.ert_base_chance;
-		if("escape_pods")
-			return global.escape_pods;
-		if("escape_pods_by_name")
-			return global.escape_pods_by_name;
 		if("evacuation_controller")
 			return global.evacuation_controller;
 		if("event_last_fired")
@@ -1424,10 +1420,6 @@
 			global.endgame_safespawns=newval;
 		if("ert_base_chance")
 			global.ert_base_chance=newval;
-		if("escape_pods")
-			global.escape_pods=newval;
-		if("escape_pods_by_name")
-			global.escape_pods_by_name=newval;
 		if("evacuation_controller")
 			global.evacuation_controller=newval;
 		if("event_last_fired")
@@ -2222,8 +2214,6 @@
 	"endgame_exits",
 	"endgame_safespawns",
 	"ert_base_chance",
-	"escape_pods",
-	"escape_pods_by_name",
 	"evacuation_controller",
 	"event_last_fired",
 	"eventchance",

@@ -31,6 +31,7 @@
 
 /datum/announcement/proc/Announce(var/message as text, var/new_title = "", var/new_sound = null, var/do_newscast = newscast, var/msg_sanitized = 0, var/zlevels = GLOB.using_map.contact_levels)
 	if(!message)
+		warning("Announce proc was called with empty or no message!")
 		return
 	var/message_title = new_title || title
 	var/message_sound = new_sound || sound
