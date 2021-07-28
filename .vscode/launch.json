@@ -7,6 +7,13 @@
 			"name": "Launch DreamSeeker",
 			"preLaunchTask": "Build All",
 			"dmb": "${workspaceFolder}/${command:CurrentDMB}"
+		},
+		{
+			"type": "byond",
+			"request": "launch",
+			"name": "Reparse DM",
+			"preLaunchTask": "dm: reparse",
+			"dmb": ""
 		}
 	]
 }
