@@ -17,6 +17,7 @@
 	return id ? id.GetAccess() : list()
 
 /atom/movable/proc/GetIdCard()
+	RETURN_TYPE(/obj/item/weapon/card/id)
 	return null
 
 /obj/proc/check_access(obj/item/I)

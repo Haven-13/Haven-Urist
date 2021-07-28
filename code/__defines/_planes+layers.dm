@@ -99,7 +99,6 @@ What is the naming convention for planes or layers?
 	#define TURF_DETAIL_LAYER 1
 
 #define ABOVE_TURF_PLANE              6 // For items which should appear above turfs but below other objects and hiding mobs, eg: wires & pipes
-	#define HOLOMAP_LAYER               1 // NOTE: ENSURE this is equal to the one at ABOVE_PLATING_PLANE!
 	#define DECAL_LAYER                 2
 	#define RUNE_LAYER                  3
 	#define ABOVE_TILE_LAYER            4
@@ -215,7 +214,7 @@ What is the naming convention for planes or layers?
 // handling of rendering multi-z
 //
 // Planes that are not included are:
-// - 
+// -
 // - OPENSPACE_PLANE; not needed
 // - LIGHTING_PLANE; blending cause the lighting overlay to be
 //       almost invisible in multi-z. Undesired effect
