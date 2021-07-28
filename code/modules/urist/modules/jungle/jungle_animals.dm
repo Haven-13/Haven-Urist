@@ -318,7 +318,7 @@
 	..()
 
 /mob/living/simple_animal/hostile/snake/randvenom/bite(var/mob/living/L)
-	if(L && venomsac && venomsac in src.contents)
+	if(L && venomsac && (venomsac in src.contents))
 		venomsac.reagents.trans_to_mob(L, bite_vol, CHEM_BLOOD, copy=1)
 
 /mob/living/simple_animal/hostile/snake/randvenom/green //so they blend into the plain's turf

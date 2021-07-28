@@ -937,7 +937,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		holder = owner
 	if(!holder)
 		return
-	if (holder.handcuffed && body_part in list(ARM_LEFT, ARM_RIGHT, HAND_LEFT, HAND_RIGHT))
+	if (holder.handcuffed && (body_part in list(ARM_LEFT, ARM_RIGHT, HAND_LEFT, HAND_RIGHT)))
 		holder.visible_message(\
 			"\The [holder.handcuffed.name] falls off of [holder.name].",\
 			"\The [holder.handcuffed.name] falls off you.")
@@ -1002,7 +1002,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if(W.clamped)
 			return 1
 
-obj/item/organ/external/proc/remove_clamps()
+/obj/item/organ/external/proc/remove_clamps()
 	var/rval = 0
 	for(var/datum/wound/W in wounds)
 		rval |= W.clamped
@@ -1512,7 +1512,7 @@ obj/item/organ/external/proc/remove_clamps()
 	return !BP_IS_ROBOTIC(src) && species && species.sexybits_location == organ_tag
 
 // Added to the mob's move delay tally if this organ is being used to move with.
-obj/item/organ/external/proc/movement_delay(max_delay)
+/obj/item/organ/external/proc/movement_delay(max_delay)
 	. = 0
 	if(is_stump())
 		. += max_delay

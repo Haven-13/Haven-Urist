@@ -2,7 +2,7 @@
 //in order to accomplish this. So, I've taken the awaymaps system, and appropriated it so that we can have a z-level smaller than 255x255, and the jungle won't load
 //6 copies of itself when I try to start the damn game.
 
-proc/createPlanetOutpost()
+/proc/createPlanetOutpost()
 //	if(awaydestinations.len)	//crude, but it saves another var!
 //		return
 

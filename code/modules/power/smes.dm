@@ -400,7 +400,7 @@
 			output_level = handle_power_channel_adjustment(output_level, 0, output_level_max, params)
 			return TRUE
 
-proc/handle_power_channel_adjustment(value, min, max, params)
+/proc/handle_power_channel_adjustment(value, min, max, params)
 	if("adjust" in params)
 		value += params["adjust"]
 	if("target" in params)
