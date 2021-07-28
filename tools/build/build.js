@@ -41,9 +41,9 @@ const taskTgui = new Task('tgui')
 
 const taskDm = new Task('dm')
   .depends('code/**')
-  .depends('goon/**')
   .depends('html/**')
-  .depends('interface/**')
+  .depends('maps/**')    // These two lines here are added only because
+  .depends('Haven/**')   // Baycode does not use tg's JSON system for maps
   .depends('tgui/public/tgui.html')
   .depends('tgui/public/*.bundle.*')
   .depends('tgui/public/*.chunk.*')

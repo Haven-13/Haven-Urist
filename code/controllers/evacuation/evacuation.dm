@@ -96,7 +96,17 @@ var/datum/evacuation_controller/evacuation_controller
 			GLOB.using_map.emergency_shuttle_called_announcement()
 	else
 		if(!skip_announce)
-			priority_announcement.Announce(replacetext(replacetext(GLOB.using_map.shuttle_called_message, "%dock_name%", "[GLOB.using_map.dock_name]"),  "%ETA%", "[round(get_eta()/60)] minute\s"))
+			priority_announcement.Announce(
+				replacetext(
+					replacetext(
+						GLOB.using_map.shuttle_called_message,
+						"%dock_name%",
+						"[GLOB.using_map.dock_name]"
+					),
+					"%ETA%",
+					"[round(get_eta()/60)] minute\s"
+				)
+			)
 
 	return 1
 
