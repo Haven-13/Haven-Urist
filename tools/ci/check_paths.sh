@@ -23,21 +23,22 @@ exactly() { # exactly N name search [mode]
 # With the potential exception of << if you increase any of these numbers you're probably doing it wrong
 exactly 0 "escapes" '\\\\(red|blue|green|black|b|i[^mc])'
 exactly 6 "Del()s" '\WDel\('
+
 exactly 2 "/atom text paths" '"/atom'
 exactly 2 "/area text paths" '"/area'
 exactly 2 "/datum text paths" '"/datum'
 exactly 2 "/mob text paths" '"/mob'
 exactly 19 "/obj text paths" '"/obj'
 exactly 8 "/turf text paths" '"/turf'
+exactly 28 "text2path uses" 'text2path'
 
 exactly 0 "world<< uses" 'world<<|world[[:space:]]<<'
 exactly 0 "world.log<< uses" 'world.log<<|world.log[[:space:]]<<'
-exactly 213 "to_world() uses" 'to_world\('
+exactly 208 "to_world() uses" 'to_world\('
 exactly 71 "to_world_log() uses" 'to_world_log\('
 
-exactly 678 "<< uses" '(?<!<)<<(?!<)' -P
+exactly 113 "<< uses" '(?<!<)<<(?!<)' -P
 exactly 0 "incorrect indentations" '^( {4,})' -P
-exactly 28 "text2path uses" 'text2path'
 # With the potential exception of << if you increase any of these numbers you're probably doing it wrong
 
 num=`find . -perm /111 -name "*.dm*" | wc -l`
