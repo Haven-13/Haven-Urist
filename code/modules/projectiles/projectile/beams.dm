@@ -4,7 +4,7 @@
 	fire_sound='sound/weapons/Laser.ogg'
 	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GLASS | PASS_FLAG_GRILLE
 	damage = 40
-	damage_type = BURN
+	damage_type = DAMAGE_TYPE_BURN
 	sharp = 1 //concentrated burns
 	check_armour = "laser"
 	eyeblur = 4
@@ -98,7 +98,7 @@
 	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GLASS | PASS_FLAG_GRILLE
 	damage = 0
 	no_attack_log = 1
-	damage_type = BURN
+	damage_type = DAMAGE_TYPE_BURN
 	check_armour = "laser"
 
 	muzzle_type = /obj/effect/projectile/laser/blue/muzzle
@@ -118,7 +118,7 @@
 	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GLASS | PASS_FLAG_GRILLE
 	damage = 0
 	no_attack_log = 1
-	damage_type = BURN
+	damage_type = DAMAGE_TYPE_BURN
 	check_armour = "laser"
 
 /obj/item/projectile/beam/lastertag/red/on_hit(var/atom/target, var/blocked = 0)
@@ -133,7 +133,7 @@
 	icon_state = "omnilaser"
 	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GLASS | PASS_FLAG_GRILLE
 	damage = 0
-	damage_type = BURN
+	damage_type = DAMAGE_TYPE_BURN
 	check_armour = "laser"
 
 	muzzle_type = /obj/effect/projectile/laser/omni/muzzle
@@ -168,7 +168,7 @@
 	check_armour = "energy"
 	sharp = 0 //not a laser
 	agony = 40
-	damage_type = STUN
+	damage_type = DAMAGE_TYPE_STUN
 
 	muzzle_type = /obj/effect/projectile/stun/muzzle
 	tracer_type = /obj/effect/projectile/stun/tracer
@@ -180,7 +180,7 @@
 
 /obj/item/projectile/beam/stun/shock
 	name = "shock beam"
-	damage_type = ELECTROCUTE
+	damage_type = DAMAGE_TYPE_SHOCK
 	damage = 10
 	agony  = 5
 	fire_sound='sound/weapons/pulse.ogg'
@@ -197,7 +197,7 @@
 	damage = 15
 	sharp = 1
 	edge = 1
-	damage_type = BURN
+	damage_type = DAMAGE_TYPE_BURN
 	check_armour = "laser"
 	kill_count = 5
 	pass_flags = PASS_FLAG_TABLE

@@ -111,16 +111,16 @@
 
 	if(!Proj.nodamage)
 		switch(Proj.damage_type)
-			if(BRUTE)
+			if(DAMAGE_TYPE_BRUTE)
 				adjustBruteLoss(Proj.damage)
-			if(BURN)
+			if(DAMAGE_TYPE_BURN)
 				adjustFireLoss(Proj.damage)
 
 	Proj.on_hit(src,100) //wow this is a terrible hack
 	updatehealth()
 	return 100
 
-/mob/living/silicon/apply_effect(var/effect = 0,var/effecttype = STUN, var/blocked = 0)
+/mob/living/silicon/apply_effect(var/effect = 0,var/effecttype = DAMAGE_TYPE_STUN, var/blocked = 0)
 	return 0//The only effect that can hit them atm is flashes and they still directly edit so this works for now
 
 /proc/islinked(var/mob/living/silicon/robot/bot, var/mob/living/silicon/ai/ai)

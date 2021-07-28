@@ -119,7 +119,7 @@
 		return
 
 	var/damage = P.damage
-	if(P.damtype == STUN)
+	if(P.damtype == DAMAGE_TYPE_STUN)
 		damage = (P.damage / 8)
 
 	adjustBruteLoss(damage)

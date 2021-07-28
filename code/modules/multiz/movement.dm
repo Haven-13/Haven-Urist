@@ -239,11 +239,11 @@
 
 	..()
 	var/damage = 10
-	apply_damage(rand(0, damage), BRUTE, BP_HEAD)
-	apply_damage(rand(0, damage), BRUTE, BP_CHEST)
-	apply_damage(rand(0, damage), BRUTE, BP_L_LEG)
-	apply_damage(rand(0, damage), BRUTE, BP_R_LEG)
-	apply_damage(rand(0, damage), BRUTE, BP_L_ARM)
-	apply_damage(rand(0, damage), BRUTE, BP_R_ARM)
+	apply_damage(rand(0, damage), DAMAGE_TYPE_BRUTE, BP_HEAD)
+	apply_damage(rand(0, damage), DAMAGE_TYPE_BRUTE, BP_CHEST)
+	apply_damage(rand(0, damage), DAMAGE_TYPE_BRUTE, BP_L_LEG)
+	apply_damage(rand(0, damage), DAMAGE_TYPE_BRUTE, BP_R_LEG)
+	apply_damage(rand(0, damage), DAMAGE_TYPE_BRUTE, BP_L_ARM)
+	apply_damage(rand(0, damage), DAMAGE_TYPE_BRUTE, BP_R_ARM)
 	weakened = max(weakened,2)
 	updatehealth()

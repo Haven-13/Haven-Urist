@@ -117,11 +117,11 @@
 /obj/proc/damage_flags()
 	. = 0
 	if(has_edge(src))
-		. |= DAM_EDGE
+		. |= DAMAGE_FLAGS_EDGE
 	if(is_sharp(src))
-		. |= DAM_SHARP
-		if(damtype == BURN)
-			. |= DAM_LASER
+		. |= DAMAGE_FLAGS_SHARP
+		if(damtype == DAMAGE_TYPE_BURN)
+			. |= DAMAGE_FLAGS_HOT
 
 /obj/attackby(obj/item/O as obj, mob/user as mob)
 	if(obj_flags & OBJ_FLAG_ANCHORABLE)

@@ -71,7 +71,7 @@
 			L.spell_list += new /obj/effect/proc_holder/spell/targeted/turf_teleport/blink(M)
 			L.spell_list += new /obj/effect/proc_holder/spell/aoe_turf/conjure/forcewall(M)
 			L.spell_list += new /obj/effect/proc_holder/spell/targeted/smoke(M)
-			L.mutations.Add(LASER) //TODO: FIX THIS SHIT
+			L.mutations.Add(MUTATION_LASER) //TODO: FIX THIS SHIT
 
 			for (var/obj/item/weapon/card/id/W in M)
 				W.name = "[L.real_name]'s ID Card"

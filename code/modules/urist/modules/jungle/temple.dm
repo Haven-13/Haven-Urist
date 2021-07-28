@@ -302,7 +302,7 @@
 	switch(trap_type)
 		if("sawburst")
 			to_chat(M, "<span class='danger'>A sawblade shoots out of the ground and strikes you!</span>")
-			M.apply_damage(rand(5,10), BRUTE, damage_flags = (DAM_SHARP | DAM_EDGE))
+			M.apply_damage(rand(5,10), DAMAGE_TYPE_BRUTE, damage_flags = (DAMAGE_FLAGS_SHARP | DAMAGE_FLAGS_EDGE))
 
 			var/atom/myloc = src.loc
 			var/image/flicker = image('icons/jungle.dmi',"sawblade")
@@ -313,7 +313,7 @@
 			//flick("sawblade",src)
 		if("poison_dart")
 			to_chat(M, "<span class='danger'>You feel something small and sharp strike you!</span>")
-			M.apply_damage(rand(5,10), TOX)
+			M.apply_damage(rand(5,10), DAMAGE_TYPE_TOXIN)
 
 			var/atom/myloc = src.loc
 			var/image/flicker = image('icons/jungle.dmi',"dart[rand(1,3)]")
@@ -324,7 +324,7 @@
 			//flick("dart[rand(1,3)]",src)
 		if("flame_burst")
 			to_chat(M, "<span class='danger'>A jet of fire comes out of nowhere!</span>")
-			M.apply_damage(rand(5,10), BURN)
+			M.apply_damage(rand(5,10), DAMAGE_TYPE_BURN)
 
 			var/atom/myloc = src.loc
 			var/image/flicker = image('icons/jungle.dmi',"flameburst")

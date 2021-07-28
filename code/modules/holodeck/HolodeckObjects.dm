@@ -163,7 +163,7 @@
 	else if(istype(W, /obj/item/weapon/wrench) && !anchored && (!state || !reinf))
 		to_chat(user, ("<span class='notice'>It's a holowindow, you can't dismantle it!</span>"))
 	else
-		if(W.damtype == BRUTE || W.damtype == BURN)
+		if(W.damtype == DAMAGE_TYPE_BRUTE || W.damtype == DAMAGE_TYPE_BURN)
 			hit(W.force)
 			if(health <= 7)
 				anchored = 0
@@ -196,7 +196,7 @@
 		var/aforce = I.force
 		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
 		visible_message("<span class='danger'>\The [src] was hit by \the [I].</span>")
-		if(I.damtype == BRUTE || I.damtype == BURN)
+		if(I.damtype == DAMAGE_TYPE_BRUTE || I.damtype == DAMAGE_TYPE_BURN)
 			take_damage(aforce)
 		return
 
@@ -231,7 +231,7 @@
 	return
 
 /obj/item/weapon/holo
-	damtype = PAIN
+	damtype = DAMAGE_TYPE_PAIN
 	no_attack_log = 1
 
 /obj/item/weapon/holo/esword

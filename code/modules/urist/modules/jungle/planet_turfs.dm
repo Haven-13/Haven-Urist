@@ -599,7 +599,7 @@
 			spawn(rand(25,50))
 				var/zone = pick(BP_R_LEG, BP_L_LEG)
 				to_chat(M, pick("<span class='warning'> Something sharp bites you!</span>","<span class='warning'> Sharp teeth grab hold of you!</span>","<span class='warning'> You feel something bite into your leg!</span>"))
-				M.apply_damage(rand(3,5), BRUTE, zone, 0, DAM_SHARP)
+				M.apply_damage(rand(3,5), DAMAGE_TYPE_BRUTE, zone, 0, DAMAGE_FLAGS_SHARP)
 
 
 /turf/simulated/floor/planet/jungle/water/deep

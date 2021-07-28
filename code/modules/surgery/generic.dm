@@ -56,7 +56,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='notice'>[user] has made a bloodless incision on [target]'s [affected.name] with \the [tool].</span>", \
 	"<span class='notice'>You have made a bloodless incision on [target]'s [affected.name] with \the [tool].</span>",)
-	affected.createwound(CUT, affected.min_broken_damage/2, 1)
+	affected.createwound(DAMAGE_TYPE_SLASH, affected.min_broken_damage/2, 1)
 	affected.clamp_bleeding()
 	spread_germs_to_organ(affected, user)
 
@@ -64,7 +64,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips as the blade sputters, searing a long gash in [target]'s [affected.name] with \the [tool]!</span>", \
 	"<span class='warning'>Your hand slips as the blade sputters, searing a long gash in [target]'s [affected.name] with \the [tool]!</span>")
-	affected.take_external_damage(15, 5, (DAM_SHARP|DAM_EDGE), used_weapon = tool)
+	affected.take_external_damage(15, 5, (DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE), used_weapon = tool)
 
 //////////////////////////////////////////////////////////////////
 //	laser scalpel surgery step
@@ -96,7 +96,7 @@
 	user.visible_message("<span class='notice'>[user] has constructed a prepared incision on and within [target]'s [affected.name] with \the [tool].</span>", \
 	"<span class='notice'>You have constructed a prepared incision on and within [target]'s [affected.name] with \the [tool].</span>",)
 
-	affected.createwound(CUT, affected.min_broken_damage/2, 1) // incision
+	affected.createwound(DAMAGE_TYPE_SLASH, affected.min_broken_damage/2, 1) // incision
 	affected.clamp_bleeding() // clamp
 	affected.open_incision() // retract
 
@@ -104,7 +104,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand jolts as the system sparks, ripping a gruesome hole in [target]'s [affected.name] with \the [tool]!</span>", \
 	"<span class='warning'>Your hand jolts as the system sparks, ripping a gruesome hole in [target]'s [affected.name] with \the [tool]!</span>")
-	affected.take_external_damage(20, 15, (DAM_SHARP|DAM_EDGE), used_weapon = tool)
+	affected.take_external_damage(20, 15, (DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE), used_weapon = tool)
 
 //////////////////////////////////////////////////////////////////
 //	 scalpel surgery step
@@ -143,14 +143,14 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='notice'>[user] has made an incision on [target]'s [affected.name] with \the [tool].</span>", \
 	"<span class='notice'>You have made an incision on [target]'s [affected.name] with \the [tool].</span>",)
-	affected.createwound(CUT, affected.min_broken_damage/2, 1)
+	affected.createwound(DAMAGE_TYPE_SLASH, affected.min_broken_damage/2, 1)
 	playsound(target.loc, 'sound/weapons/bladeslice.ogg', 15, 1)
 
 /datum/surgery_step/generic/cut_open/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing open [target]'s [affected.name] in the wrong place with \the [tool]!</span>", \
 	"<span class='warning'>Your hand slips, slicing open [target]'s [affected.name] in the wrong place with \the [tool]!</span>")
-	affected.take_external_damage(10, 0, (DAM_SHARP|DAM_EDGE), used_weapon = tool)
+	affected.take_external_damage(10, 0, (DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE), used_weapon = tool)
 
 //////////////////////////////////////////////////////////////////
 //	 bleeder clamping surgery step
@@ -189,7 +189,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, tearing blood vessals and causing massive bleeding in [target]'s [affected.name] with \the [tool]!</span>",	\
 	"<span class='warning'>Your hand slips, tearing blood vessels and causing massive bleeding in [target]'s [affected.name] with \the [tool]!</span>",)
-	affected.take_external_damage(10, 0, (DAM_SHARP|DAM_EDGE), used_weapon = tool)
+	affected.take_external_damage(10, 0, (DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE), used_weapon = tool)
 
 //////////////////////////////////////////////////////////////////
 //	 retractor surgery step
@@ -228,7 +228,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, tearing the edges of the incision on [target]'s [affected.name] with \the [tool]!</span>",	\
 	"<span class='warning'>Your hand slips, tearing the edges of the incision on [target]'s [affected.name] with \the [tool]!</span>")
-	affected.take_external_damage(12, 0, (DAM_SHARP|DAM_EDGE), used_weapon = tool)
+	affected.take_external_damage(12, 0, (DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE), used_weapon = tool)
 
 //////////////////////////////////////////////////////////////////
 //	 skin cauterization surgery step
@@ -332,5 +332,5 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, sawing through the bone in [target]'s [affected.name] with \the [tool]!</span>", \
 	"<span class='warning'>Your hand slips, sawwing through the bone in [target]'s [affected.name] with \the [tool]!</span>")
-	affected.take_external_damage(30, 0, (DAM_SHARP|DAM_EDGE), used_weapon = tool)
+	affected.take_external_damage(30, 0, (DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE), used_weapon = tool)
 	affected.fracture()

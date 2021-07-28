@@ -21,7 +21,7 @@
 
 	/*suicide_act(mob/user)
 		to_chat(viewers(user), "<span class='danger'>[user] is unloading the [src.name] into their head!</span>")
-		return(BRUTELOSS)*/
+		return(DAMAGE_TYPE_BRUTELOSS)*/
 
 //umbrella gun
 
@@ -104,14 +104,14 @@ the sprite and make my own projectile -Glloyd*/
 
 /*	suicide_act(mob/user)
 		to_chat(viewers(user), "<span class='danger'>[user] is unloading the [src.name] into their head! Their skin turns purple and starts to melt!</span>")
-		return(BRUTELOSS)*/
+		return(DAMAGE_TYPE_BRUTELOSS)*/
 
 /obj/item/projectile/energy/plasma2
 	name = "ionized phoron"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "plasma"
 	damage = 20
-	damage_type = TOX
+	damage_type = DAMAGE_TYPE_TOXIN
 	irradiate = 20
 
 //Knight .45 - suppressed PDW

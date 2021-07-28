@@ -352,8 +352,8 @@
 
 	var/damage_amount
 	switch(damage_type)
-		if(BRUTE) damage_amount = brute_dam
-		if(BURN)  damage_amount = burn_dam
+		if(DAMAGE_TYPE_BRUTE) damage_amount = brute_dam
+		if(DAMAGE_TYPE_BURN)  damage_amount = burn_dam
 		else return 0
 
 	if(!damage_amount)
@@ -382,8 +382,8 @@
 		return 0
 
 	switch(damage_type)
-		if(BRUTE) src.heal_damage(repair_amount, 0, 0, 1)
-		if(BURN)  src.heal_damage(0, repair_amount, 0, 1)
+		if(DAMAGE_TYPE_BRUTE) src.heal_damage(repair_amount, 0, 0, 1)
+		if(DAMAGE_TYPE_BURN)  src.heal_damage(0, repair_amount, 0, 1)
 	owner.regenerate_icons()
 	if(user == src.owner)
 		user.visible_message("<span class='notice'>\The [user] patches [damage_desc] on \his [src.name] with [tool].</span>")
@@ -450,19 +450,15 @@ This function completely restores a damaged organ to perfect condition.
 		I.remove_rejuv()
 	..()
 
-/obj/item/organ/external/proc/createwound(var/type = CUT, var/damage, var/surgical)
+/obj/item/organ/external/proc/createwound(var/type = DAMAGE_TYPE_SLASH, var/damage, var/surgical)
 
 	if(damage <= 0)
 		return
 
-	if(BP_IS_CRYSTAL(src))
-		type = SHATTER
-		playsound(loc, 'sound/effects/hit_on_shattered_glass.ogg', 40, 1) // Crash!
-
 	//moved these before the open_wound check so that having many small wounds for example doesn't somehow protect you from taking internal damage (because of the return)
 	//Brute damage can possibly trigger an internal wound, too.
 	var/local_damage = brute_dam + burn_dam + damage
-	if(!surgical && (type in list(CUT, PIERCE, BRUISE)) && damage > 15 && local_damage > 30)
+	if(!surgical && (type in list(DAMAGE_TYPE_SLASH, DAMAGE_TYPE_PIERCE, DAMAGE_TYPE_BLUDGEON)) && damage > 15 && local_damage > 30)
 
 		var/internal_damage
 		if(prob(damage) && sever_artery())
@@ -473,17 +469,14 @@ This function completely restores a damaged organ to perfect condition.
 			owner.custom_pain("You feel something rip in your [name]!", 50, affecting = src)
 
 	//Burn damage can cause fluid loss due to blistering and cook-off
-	if((type in list(BURN, LASER)) && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
-		var/fluid_loss_severity
-		switch(type)
-			if(BURN)  fluid_loss_severity = FLUIDLOSS_WIDE_BURN
-			if(LASER) fluid_loss_severity = FLUIDLOSS_CONC_BURN
+	if((type == DAMAGE_TYPE_BURN) && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
+		var/fluid_loss_severity = FLUIDLOSS_WIDE_BURN
 		var/fluid_loss = (damage/(owner.maxHealth - config.health_threshold_dead)) * SPECIES_BLOOD_DEFAULT * fluid_loss_severity
 		owner.remove_blood(fluid_loss)
 
 	// first check whether we can widen an existing wound
 	if(!surgical && wounds && wounds.len > 0 && prob(max(50+(number_wounds-1)*10,90)))
-		if((type == CUT || type == BRUISE) && damage >= 5)
+		if((type == DAMAGE_TYPE_SLASH || type == DAMAGE_TYPE_BLUDGEON) && damage >= 5)
 			//we need to make sure that the wound we are going to worsen is compatible with the type of damage...
 			var/list/compatible_wounds = list()
 			for (var/datum/wound/W in wounds)
@@ -701,9 +694,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 		heal_amt = heal_amt / (wounds.len + 1)
 		// making it look prettier on scanners
 		heal_amt = round(heal_amt,0.1)
-		var/dam_type = BRUTE
-		if(W.damage_type == BURN)
-			dam_type = BURN
+		var/dam_type = DAMAGE_TYPE_BRUTE
+		if(W.damage_type == DAMAGE_TYPE_BURN)
+			dam_type = DAMAGE_TYPE_BURN
 		if(owner.can_autoheal(dam_type))
 			W.heal_damage(heal_amt)
 
@@ -727,7 +720,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	//update damage counts
 	var/bleeds = (!BP_IS_ROBOTIC(src) && !BP_IS_CRYSTAL(src))
 	for(var/datum/wound/W in wounds)
-		if(W.damage_type == BURN)
+		if(W.damage_type == DAMAGE_TYPE_BURN)
 			burn_dam += W.damage
 		else
 			brute_dam += W.damage
@@ -1162,11 +1155,11 @@ obj/item/organ/external/proc/remove_clamps()
 
 	if(!supplied_wound)
 		for(var/datum/wound/wound in wounds)
-			if((wound.damage_type == CUT || wound.damage_type == PIERCE) && wound.damage >= W.w_class * 5)
+			if((wound.damage_type == DAMAGE_TYPE_SLASH || wound.damage_type == DAMAGE_TYPE_PIERCE) && wound.damage >= W.w_class * 5)
 				supplied_wound = wound
 				break
 	if(!supplied_wound)
-		supplied_wound = createwound(PIERCE, W.w_class * 5)
+		supplied_wound = createwound(DAMAGE_TYPE_PIERCE, W.w_class * 5)
 
 	if(!supplied_wound || (W in supplied_wound.embedded_objects)) // Just in case.
 		return
@@ -1354,7 +1347,7 @@ obj/item/organ/external/proc/remove_clamps()
 	var/list/wound_descriptors = list()
 	for(var/datum/wound/W in wounds)
 		var/this_wound_desc = W.desc
-		if(W.damage_type == BURN && W.salved)
+		if(W.damage_type == DAMAGE_TYPE_BURN && W.salved)
 			this_wound_desc = "salved [this_wound_desc]"
 
 		if(W.bleeding())

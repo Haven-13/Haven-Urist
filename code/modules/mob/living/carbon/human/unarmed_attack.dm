@@ -20,8 +20,8 @@ var/global/list/sparring_attack_cache = list()
 
 /datum/unarmed_attack/proc/get_damage_type()
 	if(deal_halloss)
-		return PAIN
-	return BRUTE
+		return DAMAGE_TYPE_PAIN
+	return DAMAGE_TYPE_BRUTE
 
 /datum/unarmed_attack/proc/get_sparring_variant()
 	if(sparring_variant_type)
@@ -59,7 +59,7 @@ var/global/list/sparring_attack_cache = list()
 			if(BP_HEAD, BP_EYES, BP_MOUTH)
 				// Induce blurriness
 				target.visible_message("<span class='danger'>[target] looks momentarily disoriented.</span>", "<span class='danger'>You see stars.</span>")
-				target.apply_effect(attack_damage*2, EYE_BLUR, armour)
+				target.apply_effect(attack_damage*2, DAMAGE_TYPE_EYE_BLUR, armour)
 			if(BP_L_ARM, BP_L_HAND)
 				if (target.l_hand)
 					// Disarm left hand
@@ -79,20 +79,20 @@ var/global/list/sparring_attack_cache = list()
 						target.visible_message("<span class='danger'>[pick("[target] was sent flying backward!", "[target] staggers back from the impact!")]</span>")
 					if(prob(50))
 						target.set_dir(GLOB.reverse_dir[target.dir])
-					target.apply_effect(attack_damage * 0.4, WEAKEN, armour)
+					target.apply_effect(attack_damage * 0.4, DAMAGE_TYPE_WEAKEN, armour)
 			if(BP_GROIN)
 				target.visible_message("<span class='warning'>[target] looks like \he is in pain!</span>", "<span class='warning'>[(target.gender=="female") ? "Oh god that hurt!" : "Oh no, not your[pick("testicles", "crown jewels", "clockweights", "family jewels", "marbles", "bean bags", "teabags", "sweetmeats", "goolies")]!"]</span>")
 				target.apply_effects(stutter = attack_damage * 2, agony = attack_damage* 3, blocked = armour)
 			if(BP_L_LEG, BP_L_FOOT, BP_R_LEG, BP_R_FOOT)
 				if(!target.lying)
 					target.visible_message("<span class='warning'>[target] gives way slightly.</span>")
-					target.apply_effect(attack_damage*3, PAIN, armour)
+					target.apply_effect(attack_damage*3, DAMAGE_TYPE_PAIN, armour)
 	else if(attack_damage >= 5 && !(target == user) && (stun_chance + attack_damage * 5 >= 100) && armour < 100) // Chance to get the usual throwdown as well (25% standard chance)
 		if(!target.lying)
 			target.visible_message("<span class='danger'>[target] [pick("slumps", "falls", "drops")] down to the ground!</span>")
 		else
 			target.visible_message("<span class='danger'>[target] has been weakened!</span>")
-		target.apply_effect(3, WEAKEN, armour)
+		target.apply_effect(3, DAMAGE_TYPE_WEAKEN, armour)
 
 	var/obj/item/clothing/C = target.get_covering_equipped_item(zone)
 	if(istype(C) && prob(10))
@@ -114,7 +114,7 @@ var/global/list/sparring_attack_cache = list()
 	user.visible_message("<span class='danger'>[user] attempts to press \his [eye_attack_text] into [target]'s eyes, but they don't have any!</span>")
 
 /datum/unarmed_attack/proc/damage_flags()
-	return (src.sharp? DAM_SHARP : 0)|(src.edge? DAM_EDGE : 0)
+	return (src.sharp? DAMAGE_FLAGS_SHARP : 0)|(src.edge? DAMAGE_FLAGS_EDGE : 0)
 
 /datum/unarmed_attack/bite
 	attack_verb = list("bit")

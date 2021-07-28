@@ -78,9 +78,9 @@
 	var/proj_damage = Proj.get_structure_damage()
 
 	if(reinf_material)
-		if(Proj.damage_type == BURN)
+		if(Proj.damage_type == DAMAGE_TYPE_BURN)
 			proj_damage /= reinf_material.burn_armor
-		else if(Proj.damage_type == BRUTE)
+		else if(Proj.damage_type == DAMAGE_TYPE_BRUTE)
 			proj_damage /= reinf_material.brute_armor
 
 	..() //jesus fuck bay, why isn't this here

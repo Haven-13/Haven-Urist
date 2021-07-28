@@ -172,17 +172,17 @@
 		damage += hat.force * 3
 		damage_flags = hat.damage_flags()
 
-	if(damage_flags & DAM_SHARP)
+	if(damage_flags & DAMAGE_FLAGS_SHARP)
 		attacker.visible_message("<span class='danger'>[attacker] gores [target][istype(hat)? " with \the [hat]" : ""]!</span>")
 	else
 		attacker.visible_message("<span class='danger'>[attacker] thrusts \his head into [target]'s skull!</span>")
 
 	var/armor = target.run_armor_check(BP_HEAD, "melee")
-	target.apply_damage(damage, BRUTE, BP_HEAD, armor, damage_flags)
-	attacker.apply_damage(10, BRUTE, BP_HEAD, attacker.run_armor_check(BP_HEAD, "melee"))
+	target.apply_damage(damage, DAMAGE_TYPE_BRUTE, BP_HEAD, armor, damage_flags)
+	attacker.apply_damage(10, DAMAGE_TYPE_BRUTE, BP_HEAD, attacker.run_armor_check(BP_HEAD, "melee"))
 
 	if(armor < 50 && target.headcheck(BP_HEAD) && prob(damage))
-		target.apply_effect(20, PARALYZE)
+		target.apply_effect(20, DAMAGE_TYPE_PARALYZE)
 		target.visible_message("<span class='danger'>[target] [target.species.get_knockout_message(target)]</span>")
 
 	playsound(attacker.loc, "swing_hit", 25, 1, -1)
@@ -239,7 +239,7 @@
 	if(user.a_intent != I_HURT)
 		return 0 // Not trying to hurt them.
 
-	if(!W.edge || !W.force || W.damtype != BRUTE)
+	if(!W.edge || !W.force || W.damtype != DAMAGE_TYPE_BRUTE)
 		return 0 //unsuitable weapon
 	user.visible_message("<span class='danger'>\The [user] begins to slit [affecting]'s throat with \the [W]!</span>")
 
@@ -281,7 +281,7 @@
 	if(user.a_intent != I_HURT)
 		return 0 // Not trying to hurt them.
 
-	if(!W.edge || !W.force || W.damtype != BRUTE)
+	if(!W.edge || !W.force || W.damtype != DAMAGE_TYPE_BRUTE)
 		return 0 //unsuitable weapon
 
 	var/obj/item/organ/external/O = G.get_targeted_organ()

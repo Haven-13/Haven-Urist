@@ -13,7 +13,7 @@
 
 /mob/living/singularity_pull(S, current_size)
 	step_towards(src, S)
-	apply_effect(current_size * 3, IRRADIATE, blocked = getarmor(null, "rad"))
+	apply_effect(current_size * 3, DAMAGE_TYPE_RADIATION, blocked = getarmor(null, "rad"))
 
 /mob/living/carbon/human/singularity_pull(S, current_size)
 	if(current_size >= STAGE_THREE)

@@ -283,7 +283,7 @@
 		bite(L)
 
 /mob/living/simple_animal/hostile/snake/proc/bite(var/mob/living/L)
-	L.apply_damage(rand(3,12), TOX)
+	L.apply_damage(rand(3,12), DAMAGE_TYPE_TOXIN)
 
 /mob/living/simple_animal/hostile/snake/AttackTarget()
 	..()

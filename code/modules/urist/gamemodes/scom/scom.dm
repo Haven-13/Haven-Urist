@@ -182,7 +182,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 					for(var/mob/living/M in SSmobs.mob_list)
 						if(M.z != 2 && !M.stat)
 							explosion(M.loc, 2, 4, 6, 6)
-		//				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL
+		//				M.apply_damage(rand(1000,2000), DAMAGE_TYPE_BRUTE) //KILL THEM ALL
 		//				to_chat(M, "<span class='warning'> The explosion tears you apart!</span>")
 		//				M.gib()
 		//			sleep(2000)

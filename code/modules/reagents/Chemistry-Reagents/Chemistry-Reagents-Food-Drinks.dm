@@ -339,7 +339,7 @@
 		if(prob(5) || M.chem_doses[type] == metabolism) //dose == metabolism is a very hacky way of forcing the message the first time this procs
 			to_chat(M, discomfort_message)
 	else
-		M.apply_effect(agony_amount, PAIN, 0)
+		M.apply_effect(agony_amount, DAMAGE_TYPE_PAIN, 0)
 		if(prob(5))
 			M.custom_emote(2, "[pick("dry heaves!","coughs!","splutters!")]")
 			to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
@@ -421,7 +421,7 @@
 	if(M.chem_doses[type] == metabolism)
 		to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 	else
-		M.apply_effect(4, PAIN, 0)
+		M.apply_effect(4, DAMAGE_TYPE_PAIN, 0)
 		if(prob(5))
 			M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
 	if(istype(M, /mob/living/carbon/slime))
@@ -1277,7 +1277,7 @@
 
 /datum/reagent/ethanol/vodka/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	M.apply_effect(max(M.radiation - 1 * removed, 0), IRRADIATE, blocked = 0)
+	M.apply_effect(max(M.radiation - 1 * removed, 0), DAMAGE_TYPE_RADIATION, blocked = 0)
 
 /datum/reagent/ethanol/vodka/premium
 	name = "Premium Vodka"

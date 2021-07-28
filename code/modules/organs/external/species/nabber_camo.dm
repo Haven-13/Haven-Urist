@@ -17,5 +17,5 @@
 			owner.remove_cloaking_source(species)
 		else
 			owner.add_cloaking_source(species)
-			owner.apply_effect(2, STUN, 0)
+			owner.apply_effect(2, DAMAGE_TYPE_STUN, 0)
 		refresh_action_button()

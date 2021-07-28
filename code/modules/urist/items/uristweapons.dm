@@ -23,7 +23,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 	/*suicide_act(mob/user)
 		to_chat(viewers(user), "<span class='danger'>[user] is slitting \his stomach open with the [src.name]! It looks like \he's trying to commit suicide.</span>")
-		return (BRUTELOSS)*/
+		return (DAMAGE_TYPE_BRUTELOSS)*/
 
 //dual saber proc
 

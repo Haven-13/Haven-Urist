@@ -80,9 +80,9 @@ var/hadevent    = 0
 		if(isNotStationLevel(T.z))
 			continue
 		if(istype(H,/mob/living/carbon/human))
-			H.apply_effect((rand(15,75)),IRRADIATE, blocked = H.getarmor(null, "rad"))
+			H.apply_effect((rand(15,75)),DAMAGE_TYPE_RADIATION, blocked = H.getarmor(null, "rad"))
 			if (prob(5))
-				H.apply_effect((rand(90,150)),IRRADIATE, blocked = H.getarmor(null, "rad"))
+				H.apply_effect((rand(90,150)),DAMAGE_TYPE_RADIATION, blocked = H.getarmor(null, "rad"))
 			if (prob(25))
 				if (prob(75))
 					randmutb(H)

@@ -437,7 +437,7 @@ var/global/list/damage_icon_parts = list()
 				add_image = 1
 	for(var/mut in mutations)
 		switch(mut)
-			if(LASER)
+			if(MUTATION_LASER)
 				standing.overlays	+= "lasereyes_s"
 				add_image = 1
 	if(add_image)

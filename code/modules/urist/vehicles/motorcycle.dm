@@ -286,7 +286,7 @@
 	if(istype(H))
 		var/list/parts = list(HEAD, UPPER_TORSO, LOWER_TORSO, ARMS, LEGS)
 		for(var/i = 0, i < rand(1,3), i++)
-			H.apply_damage((rand(1,5)), BRUTE, pick(parts))
+			H.apply_damage((rand(1,5)), DAMAGE_TYPE_BRUTE, pick(parts))
 
 
 /obj/vehicle/bike/motorcycle/Process()

@@ -102,7 +102,7 @@ Commenting this out pending rebalancing of radiation based on small objects.
 	if(!material.radioactivity)
 		return
 	for(var/mob/living/L in range(1,src))
-		L.apply_effect(round(material.radioactivity/30),IRRADIATE, blocked = L.getarmor(null, "rad"))
+		L.apply_effect(round(material.radioactivity/30),DAMAGE_TYPE_RADIATION, blocked = L.getarmor(null, "rad"))
 */
 
 /*
