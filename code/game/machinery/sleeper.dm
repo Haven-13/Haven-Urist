@@ -125,7 +125,7 @@
 					return TRUE
 		if("stasis")
 			var/nstasis = text2num(params["stasis"])
-			if(stasis != nstasis && nstasis in stasis_settings)
+			if(stasis != nstasis && (nstasis in stasis_settings))
 				stasis = text2num(params["stasis"])
 				return TRUE
 

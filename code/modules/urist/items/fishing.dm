@@ -34,7 +34,7 @@
 
 /obj/item/fish/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/material/kitchen/utensil/knife))
-		user << "<span class='notice'>You chop up the fish into wonderful fish fillet.</span>"
+		to_chat(user, "<span class='notice'>You chop up the fish into wonderful fish fillet.</span>")
 		new /obj/item/weapon/reagent_containers/food/snacks/fishmeat(user.loc)
 		qdel(src)
 

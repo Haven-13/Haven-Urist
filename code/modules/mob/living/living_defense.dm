@@ -74,11 +74,11 @@
 	var/flags = P.damage_flags()
 	var/absorb = run_armor_check(def_zone, P.check_armour, P.armor_penetration)
 	if (prob(absorb))
-		if(flags & DAM_LASER)
+		if(flags & DAMAGE_FLAGS_HOT)
 			//the armour causes the heat energy to spread out, which reduces the damage (and the blood loss)
 			//this is mostly so that armour doesn't cause people to lose MORE fluid from lasers than they would otherwise
 			damage *= FLUIDLOSS_CONC_BURN/FLUIDLOSS_WIDE_BURN
-		flags &= ~(DAM_SHARP|DAM_EDGE|DAM_LASER)
+		flags &= ~(DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE|DAMAGE_FLAGS_HOT)
 
 	if(!P.nodamage)
 		apply_damage(damage, P.damage_type, def_zone, absorb, flags, P)
@@ -116,13 +116,13 @@
 	if (stun_amount)
 		Stun(stun_amount)
 		Weaken(stun_amount)
-		apply_effect(STUTTER, stun_amount)
-		apply_effect(EYE_BLUR, stun_amount)
+		apply_effect(DAMAGE_TYPE_STUTTER, stun_amount)
+		apply_effect(DAMAGE_TYPE_EYE_BLUR, stun_amount)
 
 	if (agony_amount)
-		apply_damage(agony_amount, PAIN, def_zone, 0, used_weapon)
-		apply_effect(STUTTER, agony_amount/10)
-		apply_effect(EYE_BLUR, agony_amount/10)
+		apply_damage(agony_amount, DAMAGE_TYPE_PAIN, def_zone, 0, used_weapon)
+		apply_effect(DAMAGE_TYPE_STUTTER, agony_amount/10)
+		apply_effect(DAMAGE_TYPE_EYE_BLUR, agony_amount/10)
 
 /mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0)
 	  return 0 //only carbon liveforms have this proc
@@ -143,7 +143,7 @@
 	var/blocked = run_armor_check(hit_zone, "melee")
 	standard_weapon_hit_effects(I, user, effective_force, blocked, hit_zone)
 
-	if(I.damtype == BRUTE && prob(33)) // Added blood for whacking non-humans too
+	if(I.damtype == DAMAGE_TYPE_BRUTE && prob(33)) // Added blood for whacking non-humans too
 		var/turf/simulated/location = get_turf(src)
 		if(istype(location)) location.add_blood_floor(src)
 
@@ -161,7 +161,7 @@
 	//Apply weapon damage
 	var/damage_flags = I.damage_flags()
 	if(prob(blocked)) //armour provides a chance to turn sharp/edge weapon attacks into blunt ones
-		damage_flags &= ~(DAM_SHARP|DAM_EDGE)
+		damage_flags &= ~(DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE)
 
 	apply_damage(effective_force, I.damtype, hit_zone, blocked, damage_flags, used_weapon=I)
 
@@ -190,7 +190,7 @@
 		if(armor < 100)
 			var/damage_flags = O.damage_flags()
 			if(prob(armor))
-				damage_flags &= ~(DAM_SHARP|DAM_EDGE)
+				damage_flags &= ~(DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE)
 			apply_damage(throw_damage, dtype, null, armor, damage_flags, O)
 
 		O.throwing = 0		//it hit, so stop moving

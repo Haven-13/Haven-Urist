@@ -83,7 +83,7 @@
 							/obj/item/weapon/stock_parts/console_screen = 1,
 							/obj/item/weapon/stock_parts/manipulator = 2)
 
-obj/item/weapon/circuitboard/cryo_cell
+/obj/item/weapon/circuitboard/cryo_cell
 	name = T_BOARD("cryo cell")
 	build_path = /obj/machinery/atmospherics/unary/cryo_cell
 	board_type = "machine"

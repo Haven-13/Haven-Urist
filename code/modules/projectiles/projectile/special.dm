@@ -3,7 +3,7 @@
 	icon_state = "ion"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	damage = 0
-	damage_type = BURN
+	damage_type = DAMAGE_TYPE_BURN
 	nodamage = 1
 	check_armour = "energy"
 	var/heavy_effect_range = 1
@@ -35,7 +35,7 @@
 	icon_state = "ice_2"
 	fire_sound = 'sound/weapons/pulse3.ogg'
 	damage = 10
-	damage_type = BURN
+	damage_type = DAMAGE_TYPE_BURN
 	check_armour = "energy"
 	var/temperature = 300
 
@@ -59,7 +59,7 @@
 	icon = 'icons/obj/meteor.dmi'
 	icon_state = "smallf"
 	damage = 0
-	damage_type = BRUTE
+	damage_type = DAMAGE_TYPE_BRUTE
 	nodamage = 1
 	check_armour = "bullet"
 
@@ -89,7 +89,7 @@
 	icon_state = "energy"
 	fire_sound = 'sound/effects/stealthoff.ogg'
 	damage = 0
-	damage_type = TOX
+	damage_type = DAMAGE_TYPE_TOXIN
 	nodamage = 1
 	check_armour = "energy"
 
@@ -99,7 +99,7 @@
 			var/mob/living/carbon/human/H = M
 			if((H.species.species_flags & SPECIES_FLAG_IS_PLANT) && (H.nutrition < 500))
 				if(prob(15))
-					H.apply_effect((rand(30,80)),IRRADIATE,blocked = H.getarmor(null, "rad"))
+					H.apply_effect((rand(30,80)),DAMAGE_TYPE_RADIATION,blocked = H.getarmor(null, "rad"))
 					H.Weaken(5)
 					for (var/mob/V in viewers(src))
 						V.show_message("<span class='warning'>[M] writhes in pain as \his vacuoles boil.</span>", 3, "<span class='warning'>You hear the crunching of leaves.</span>", 2)
@@ -123,7 +123,7 @@
 	icon_state = "energy2"
 	fire_sound = 'sound/effects/stealthoff.ogg'
 	damage = 0
-	damage_type = TOX
+	damage_type = DAMAGE_TYPE_TOXIN
 	nodamage = 1
 	check_armour = "energy"
 	var/decl/plantgene/gene = null
@@ -133,7 +133,7 @@
 	icon_state = "energy2"
 	fire_sound = 'sound/effects/stealthoff.ogg'
 	damage = 0
-	damage_type = TOX
+	damage_type = DAMAGE_TYPE_TOXIN
 	nodamage = 1
 	check_armour = "energy"
 
@@ -162,6 +162,6 @@
 	damage = 1 // stop trying to murderbone with a fake gun dumbass!!!
 	embed = 0 // nope
 	nodamage = 1
-	damage_type = PAIN
+	damage_type = DAMAGE_TYPE_PAIN
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
 

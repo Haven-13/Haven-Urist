@@ -51,10 +51,10 @@
 	icon = 'icons/obj/clothing/glasses.dmi'
 	hud_type = HUD_MEDICAL
 
-	New()
-		..()
-		hud = new /obj/item/clothing/glasses/hud/health(src)
-		return
+/obj/item/borg/sight/hud/med/New()
+	..()
+	hud = new /obj/item/clothing/glasses/hud/health(src)
+	return
 
 
 /obj/item/borg/sight/hud/sec
@@ -63,7 +63,7 @@
 	icon = 'icons/obj/clothing/glasses.dmi'
 	hud_type = HUD_SECURITY
 
-	New()
-		..()
-		hud = new /obj/item/clothing/glasses/hud/security(src)
-		return
+/obj/item/borg/sight/hud/sec/New()
+	..()
+	hud = new /obj/item/clothing/glasses/hud/security(src)
+	return

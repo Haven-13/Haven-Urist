@@ -147,9 +147,9 @@
 		return
 
 	switch(Proj.damage_type)
-		if(BRUTE)
+		if(DAMAGE_TYPE_BRUTE)
 			take_damage(Proj.damage / brute_resist)
-		if(BURN)
+		if(DAMAGE_TYPE_BURN)
 			take_damage((Proj.damage / laser_resist) / fire_resist)
 	return 0
 

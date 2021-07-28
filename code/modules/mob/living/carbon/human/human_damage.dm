@@ -234,9 +234,9 @@
 /mob/living/carbon/human/proc/can_autoheal(var/dam_type)
 	if(!species || !dam_type) return FALSE
 
-	if(dam_type == BRUTE)
+	if(dam_type == DAMAGE_TYPE_BRUTE)
 		return(getBruteLoss() < species.total_health / 2)
-	else if(dam_type == BURN)
+	else if(dam_type == DAMAGE_TYPE_BURN)
 		return(getFireLoss() < species.total_health / 2)
 	return FALSE
 
@@ -284,7 +284,7 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 		return
 
 	var/obj/item/organ/external/picked = pick(parts)
-	var/damage_flags = (sharp? DAM_SHARP : 0)|(edge? DAM_EDGE : 0)
+	var/damage_flags = (sharp? DAMAGE_FLAGS_SHARP : 0)|(edge? DAMAGE_FLAGS_EDGE : 0)
 
 	if(picked.take_external_damage(brute, burn, damage_flags))
 		BITSET(hud_updateflag, HEALTH_HUD)
@@ -317,14 +317,14 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 	var/list/obj/item/organ/external/parts = get_damageable_organs()
 	if(!parts.len) return
 
-	var/dam_flags = (sharp? DAM_SHARP : 0)|(edge? DAM_EDGE : 0)
+	var/dam_flags = (sharp? DAMAGE_FLAGS_SHARP : 0)|(edge? DAMAGE_FLAGS_EDGE : 0)
 	var/brute_avg = brute / parts.len
 	var/burn_avg = burn / parts.len
 	for(var/obj/item/organ/external/E in parts)
 		if(brute_avg)
-			apply_damage(damage = brute_avg, damagetype = BRUTE, blocked = getarmor_organ(E, "melee"), damage_flags = dam_flags, used_weapon = used_weapon, given_organ = E)
+			apply_damage(damage = brute_avg, damagetype = DAMAGE_TYPE_BRUTE, blocked = getarmor_organ(E, "melee"), damage_flags = dam_flags, used_weapon = used_weapon, given_organ = E)
 		if(burn_avg)
-			apply_damage(damage = burn_avg, damagetype = BURN, damage_flags = dam_flags, used_weapon = used_weapon, given_organ = E)
+			apply_damage(damage = burn_avg, damagetype = DAMAGE_TYPE_BURN, damage_flags = dam_flags, used_weapon = used_weapon, given_organ = E)
 
 	updatehealth()
 	BITSET(hud_updateflag, HEALTH_HUD)
@@ -363,7 +363,7 @@ This function restores all organs.
 /mob/living/carbon/human/proc/get_organ(var/zone)
 	return organs_by_name[check_zone(zone)]
 
-/mob/living/carbon/human/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0, var/damage_flags = 0, var/obj/used_weapon = null, var/obj/item/organ/external/given_organ = null)
+/mob/living/carbon/human/apply_damage(var/damage = 0, var/damagetype = DAMAGE_TYPE_BRUTE, var/def_zone = null, var/blocked = 0, var/damage_flags = 0, var/obj/used_weapon = null, var/obj/item/organ/external/given_organ = null)
 
 	var/obj/item/organ/external/organ = given_organ
 	if(!organ)
@@ -374,7 +374,7 @@ This function restores all organs.
 			organ = get_organ(check_zone(def_zone))
 
 	//Handle other types of damage
-	if(!(damagetype in list(BRUTE, BURN, PAIN, CLONE)))
+	if(!(damagetype in list(DAMAGE_TYPE_BRUTE, DAMAGE_TYPE_BURN, DAMAGE_TYPE_PAIN, DAMAGE_TYPE_GENETIC)))
 		..(damage, damagetype, def_zone, blocked)
 		return 1
 
@@ -392,15 +392,15 @@ This function restores all organs.
 	var/datum/wound/created_wound
 	damageoverlaytemp = 20
 	switch(damagetype)
-		if(BRUTE)
+		if(DAMAGE_TYPE_BRUTE)
 			damage = damage*species.brute_mod
 			created_wound = organ.take_external_damage(damage, 0, damage_flags, used_weapon)
-		if(BURN)
+		if(DAMAGE_TYPE_BURN)
 			damage = damage*species.burn_mod
 			created_wound = organ.take_external_damage(0, damage, damage_flags, used_weapon)
-		if(PAIN)
+		if(DAMAGE_TYPE_PAIN)
 			organ.add_pain(damage)
-		if(CLONE)
+		if(DAMAGE_TYPE_GENETIC)
 			organ.add_genetic_damage(damage)
 
 	// Will set our damageoverlay icon to the next level, which will then be set back to the normal level the next mob.Life().
@@ -421,7 +421,7 @@ This function restores all organs.
 		traumatic_shock *= 0.6
 	return max(0,traumatic_shock)
 
-/mob/living/carbon/human/apply_effect(var/effect = 0,var/effecttype = STUN, var/blocked = 0)
-	if(effecttype == IRRADIATE && (effect * blocked_mult(blocked) <= RAD_LEVEL_LOW))
+/mob/living/carbon/human/apply_effect(var/effect = 0,var/effecttype = DAMAGE_TYPE_STUN, var/blocked = 0)
+	if(effecttype == DAMAGE_TYPE_RADIATION && (effect * blocked_mult(blocked) <= RAD_LEVEL_LOW))
 		return 0
 	return ..()

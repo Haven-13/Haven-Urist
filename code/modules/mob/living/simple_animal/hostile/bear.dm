@@ -56,7 +56,7 @@
 			stop_automated_movement = 1
 			stance_step++
 			if(stance_step >= 10) //rests for 10 ticks
-				if(target && target in ListTargets())
+				if(target && (target in ListTargets()))
 					stance = HOSTILE_STANCE_ATTACK //If the mob he was chasing is still nearby, resume the attack, otherwise go idle.
 				else
 					stance = HOSTILE_STANCE_IDLE
@@ -64,7 +64,7 @@
 		if(HOSTILE_STANCE_ALERT)
 			stop_automated_movement = 1
 			var/found_mob = 0
-			if(target && target in ListTargets())
+			if(target && (target in ListTargets()))
 				if(CanAttack(target))
 					stance_step = max(0, stance_step) //If we have not seen a mob in a while, the stance_step will be negative, we need to reset it to 0 as soon as we see a mob again.
 					stance_step++
@@ -125,7 +125,7 @@
 		var/mob/living/carbon/human/H = target
 		var/dam_zone = pick(BP_CHEST, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG)
 		var/obj/item/organ/external/affecting = H.get_organ(ran_zone(dam_zone))
-		H.apply_damage(damage, BRUTE, affecting, H.run_armor_check(affecting, "melee"), DAM_SHARP|DAM_EDGE) //TODO damage_flags var on simple_animals, maybe?
+		H.apply_damage(damage, DAMAGE_TYPE_BRUTE, affecting, H.run_armor_check(affecting, "melee"), DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE) //TODO damage_flags var on simple_animals, maybe?
 		return H
 	else if(isliving(target))
 		var/mob/living/L = target

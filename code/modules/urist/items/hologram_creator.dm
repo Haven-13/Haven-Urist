@@ -44,7 +44,7 @@
 		for(var/sign in L)
 			qdel(sign)
 			signs -= sign
-		user << "<span class='notice'>You clear all active holograms.</span>"
+		to_chat(user, "<span class='notice'>You clear all active holograms.</span>")
 
 
 /obj/structure/hologramsign

@@ -1106,12 +1106,12 @@ About the new airlock wires panel:
 	// Check if we're using a crowbar and if the airlock's unpowered for whatever reason (off, broken, etc).
 	else if( istype(C, /obj/item/weapon/material/twohanded/fireaxe) && !arePowerSystemsOn())
 		if(locked)
-			user << "<span class='notice'>The airlock's bolts prevent it from being forced.</span>"
+			to_chat(user, "<span class='notice'>The airlock's bolts prevent it from being forced.</span>")
 		else if( !welded && !operating )
 			if(istype(C, /obj/item/weapon/material/twohanded/fireaxe)) // If this is a fireaxe, make sure it's held in two hands.
 				var/obj/item/weapon/material/twohanded/fireaxe/F = C
 				if(!F.wielded)
-					user << "<span class='warning'>You need to be wielding \the [F] to do that.</span>"
+					to_chat(user, "<span class='warning'>You need to be wielding \the [F] to do that.</span>")
 					return
 			// At this point, it's a fireaxe that passed the wielded test, let's try to open it.
 			if(density)

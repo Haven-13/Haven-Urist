@@ -57,7 +57,7 @@
 			S.linked = src
 
 //If shuttle_name is false, will add to generic waypoints; otherwise will add to restricted. Does not do checks.
-obj/effect/overmap/proc/add_landmark(obj/effect/shuttle_landmark/landmark, shuttle_name)
+/obj/effect/overmap/proc/add_landmark(obj/effect/shuttle_landmark/landmark, shuttle_name)
 	landmark.sector_set(src)
 	if(shuttle_name)
 		LAZY_ADD(restricted_waypoints[shuttle_name], landmark)

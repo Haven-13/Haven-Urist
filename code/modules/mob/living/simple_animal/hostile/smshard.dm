@@ -9,7 +9,7 @@
 	maxHealth = 300
 	melee_damage_lower = 30
 	melee_damage_upper = 35
-	damage_type = BURN
+	damage_type = DAMAGE_TYPE_BURN
 	attacktext = "carbonized"
 	min_gas = null
 	max_gas = null

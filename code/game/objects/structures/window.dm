@@ -264,7 +264,7 @@
 			qdel(src)
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		if(W.damtype == BRUTE || W.damtype == BURN)
+		if(W.damtype == DAMAGE_TYPE_BRUTE || W.damtype == DAMAGE_TYPE_BURN)
 			user.do_attack_animation(src)
 			hit(W.force)
 			if(health <= 7)

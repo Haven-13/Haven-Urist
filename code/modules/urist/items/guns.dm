@@ -20,8 +20,8 @@
 		)
 
 	/*suicide_act(mob/user)
-		viewers(user) << "<span class='danger'>[user] is unloading the [src.name] into their head!</span>"
-		return(BRUTELOSS)*/
+		to_chat(viewers(user), "<span class='danger'>[user] is unloading the [src.name] into their head!</span>")
+		return(DAMAGE_TYPE_BRUTELOSS)*/
 
 //umbrella gun
 
@@ -103,15 +103,15 @@ the sprite and make my own projectile -Glloyd*/
 	cell_type = /obj/item/weapon/cell/crap
 
 /*	suicide_act(mob/user)
-		viewers(user) << "<span class='danger'>[user] is unloading the [src.name] into their head! Their skin turns purple and starts to melt!</span>"
-		return(BRUTELOSS)*/
+		to_chat(viewers(user), "<span class='danger'>[user] is unloading the [src.name] into their head! Their skin turns purple and starts to melt!</span>")
+		return(DAMAGE_TYPE_BRUTELOSS)*/
 
 /obj/item/projectile/energy/plasma2
 	name = "ionized phoron"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "plasma"
 	damage = 20
-	damage_type = TOX
+	damage_type = DAMAGE_TYPE_TOXIN
 	irradiate = 20
 
 //Knight .45 - suppressed PDW
@@ -316,9 +316,9 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/weapon/gun/projectile/automatic/m16/gl/examine(mob/user)
 	..()
 	if(launcher.chambered)
-		user << "\The [launcher] has \a [launcher.chambered] loaded."
+		to_chat(user, "\The [launcher] has \a [launcher.chambered] loaded.")
 	else
-		user << "\The [launcher] is empty."
+		to_chat(user, "\The [launcher] is empty.")
 
 /obj/item/ammo_magazine/a556/m16
 	name = "M16 magazine (5.56mm)"
@@ -454,21 +454,21 @@ the sprite and make my own projectile -Glloyd*/
 	bolt_open = !bolt_open
 	if(bolt_open)
 		if(chambered)
-			user << "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>"
+			to_chat(user, "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>")
 			chambered.loc = get_turf(src)
 			loaded -= chambered
 			chambered = null
 		else
-			user << "<span class='notice'>You work the bolt open.</span>"
+			to_chat(user, "<span class='notice'>You work the bolt open.</span>")
 	else
-		user << "<span class='notice'>You work the bolt closed.</span>"
+		to_chat(user, "<span class='notice'>You work the bolt closed.</span>")
 		bolt_open = 0
 	add_fingerprint(user)
 	update_icon()
 
 /obj/item/weapon/gun/projectile/manualcycle/special_check(mob/user)
 	if(bolt_open)
-		user << "<span class='warning'>You can't fire [src] while the bolt is open!</span>"
+		to_chat(user, "<span class='warning'>You can't fire [src] while the bolt is open!</span>")
 		return 0
 	return ..()
 
@@ -547,15 +547,15 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/weapon/imprifleframe/examine(mob/user)
 	..(user)
 	switch(buildstate)
-		if(1) user << "It has an unfinished pipe barrel in place on the wooden furniture."
-		if(2) user << "It has an unfinished pipe barrel wired in place."
-		if(3) user << "It has an unfinished reinforced pipe barrel wired in place."
-		if(4) user << "It has a reinforced pipe barrel secured on the wooden furniture."
-		if(5) user << "It has an unsecured reciever in place."
-		if(6) user << "It has a secured reciever in place."
-		if(7) user << "It has an unfinished pipe bolt in place."
-		if(8) user << "It has a finished unsecured pipe bolt in place."
-		if(9) user << "It has a finished secured bolt in place."
+		if(1) to_chat(user, "It has an unfinished pipe barrel in place on the wooden furniture.")
+		if(2) to_chat(user, "It has an unfinished pipe barrel wired in place.")
+		if(3) to_chat(user, "It has an unfinished reinforced pipe barrel wired in place.")
+		if(4) to_chat(user, "It has a reinforced pipe barrel secured on the wooden furniture.")
+		if(5) to_chat(user, "It has an unsecured reciever in place.")
+		if(6) to_chat(user, "It has a secured reciever in place.")
+		if(7) to_chat(user, "It has an unfinished pipe bolt in place.")
+		if(8) to_chat(user, "It has a finished unsecured pipe bolt in place.")
+		if(9) to_chat(user, "It has a finished secured bolt in place.")
 
 /obj/item/weapon/imprifleframe/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/gunsmith/barrel/long))
@@ -578,14 +578,14 @@ the sprite and make my own projectile -Glloyd*/
 		if(buildstate == 0)
 			user.drop_from_inventory(W)
 			qdel(W)
-			user << "<span class='notice'>You place the piping on the stock.</span>"
+			to_chat(user, "<span class='notice'>You place the piping on the stock.</span>")
 			buildstate++
 			update_icon()
 			return
 		if(buildstate == 7)
 			user.drop_from_inventory(W)
 			qdel(W)
-			user << "<span class='notice'>You install a bolt on the frame.</span>"
+			to_chat(user, "<span class='notice'>You install a bolt on the frame.</span>")
 			buildstate++
 			playsound(src.loc, 'sound/items/syringeproj.ogg', 100, 1)
 			update_icon()
@@ -594,20 +594,20 @@ the sprite and make my own projectile -Glloyd*/
 		var/obj/item/stack/cable_coil/C = W
 		if(buildstate == 1)
 			if(C.use(10))
-				user << "<span class='notice'>You secure the barrel to the wooden furniture with wire.</span>"
+				to_chat(user, "<span class='notice'>You secure the barrel to the wooden furniture with wire.</span>")
 				buildstate++
 				update_icon()
 			else
-				user << "<span class='notice'>You need at least ten segments of cable coil to complete this task.</span>"
+				to_chat(user, "<span class='notice'>You need at least ten segments of cable coil to complete this task.</span>")
 			return
 	else if(istype(W,/obj/item/weapon/screwdriver))
 		if(buildstate == 2)
-			user << "<span class='notice'>You further secure the barrel to the wooden furniture.</span>"
+			to_chat(user, "<span class='notice'>You further secure the barrel to the wooden furniture.</span>")
 			buildstate++
 			playsound(src.loc, 'sound/items/Screwdriver2.ogg', 100, 1)
 			return
 		if(buildstate == 6)
-			user << "<span class='notice'>You secure the metal reciever.</span>"
+			to_chat(user, "<span class='notice'>You secure the metal reciever.</span>")
 			buildstate++
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			return
@@ -615,15 +615,15 @@ the sprite and make my own projectile -Glloyd*/
 		if(buildstate == 3)
 			var/obj/item/stack/material/P = W
 			if(P.use(5))
-				user << "<span class='notice'>You reinforce the barrel with plasteel.</span>"
+				to_chat(user, "<span class='notice'>You reinforce the barrel with plasteel.</span>")
 				buildstate++
 				playsound(src.loc, 'sound/items/Deconstruct.ogg', 100, 1)
 			else
-				user << "<span class='notice'>You need at least five plasteel sheets to complete this task.</span>"
+				to_chat(user, "<span class='notice'>You need at least five plasteel sheets to complete this task.</span>")
 			return
 	else if(istype(W,/obj/item/weapon/wrench))
 		if(buildstate == 4)
-			user << "<span class='notice'>You secure the reinforced barrel.</span>"
+			to_chat(user, "<span class='notice'>You secure the reinforced barrel.</span>")
 			buildstate++
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 			return
@@ -631,22 +631,22 @@ the sprite and make my own projectile -Glloyd*/
 		if(buildstate == 5)
 			var/obj/item/stack/material/P = W
 			if(P.use(10))
-				user << "<span class='notice'>You assemble and install a metal reciever onto the frame</span>"
+				to_chat(user, "<span class='notice'>You assemble and install a metal reciever onto the frame</span>")
 				buildstate++
 				update_icon()
 				playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 			else
-				user << "<span class='notice'>You need at least ten steel sheets to complete this task.</span>"
+				to_chat(user, "<span class='notice'>You need at least ten steel sheets to complete this task.</span>")
 			return
 	else if(istype(W,/obj/item/stack/rods))
 		if(buildstate == 8)
 			var/obj/item/stack/rods/R = W
 			if(R.use(3))
-				user << "<span class='notice'>You attach the rods to the bolt.</span>"
+				to_chat(user, "<span class='notice'>You attach the rods to the bolt.</span>")
 				buildstate++
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			else
-				user << "<span class='notice'>You need at least 3 rods to complete this task.</span>"
+				to_chat(user, "<span class='notice'>You need at least 3 rods to complete this task.</span>")
 			return
 	else if(istype(W,/obj/item/weapon/weldingtool))
 		if(buildstate == 9)
@@ -654,14 +654,14 @@ the sprite and make my own projectile -Glloyd*/
 			if(T.remove_fuel(5,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
-			user << "<span class='notice'>You secure the improvised rifle's various parts.</span>"
+			to_chat(user, "<span class='notice'>You secure the improvised rifle's various parts.</span>")
 			var/obj/item/weapon/gun/projectile/manualcycle/imprifle/emptymag = new /obj/item/weapon/gun/projectile/manualcycle/imprifle(get_turf(src))
 			emptymag.loaded = list()
 			qdel(src)
 		return
 	else if(istype(W,/obj/item/weapon/circular_saw))
 		if(buildstate == 9)
-			user << "<span class='notice'>You saw the barrel on the unfinished improvised rifle down.</span>"
+			to_chat(user, "<span class='notice'>You saw the barrel on the unfinished improvised rifle down.</span>")
 			new /obj/item/weapon/imprifleframe/imprifleframesawn(get_turf(src))
 			playsound(src.loc, 'sound/weapons/circsawhit.ogg', 100, 1)
 			qdel(src)
@@ -674,7 +674,7 @@ the sprite and make my own projectile -Glloyd*/
 			if(T.remove_fuel(5,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
-			user << "<span class='notice'>You secure the improvised rifle's various parts.</span>"
+			to_chat(user, "<span class='notice'>You secure the improvised rifle's various parts.</span>")
 			var/obj/item/weapon/gun/projectile/manualcycle/imprifle/impriflesawn/emptymag = new /obj/item/weapon/gun/projectile/manualcycle/imprifle/impriflesawn(get_turf(src))
 			emptymag.loaded = list()
 			qdel(src)

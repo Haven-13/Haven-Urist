@@ -75,11 +75,11 @@
 
 /obj/machinery/scom/scomscience/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if (busy)
-		user << "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>"
+		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
 		return
 
 	if(!science_capable)
-		user << "<span class='notice'>\The [src] is not designed for deconstruction!.</span>"
+		to_chat(user, "<span class='notice'>\The [src] is not designed for deconstruction!.</span>")
 		return
 
 	if(O.scomtechlvl > scomtechlvl)
@@ -119,7 +119,7 @@
 	usr.set_machine(src)
 
 	if(busy)
-		usr << "<span class='notice'>The autolathe is busy. Please wait for completion of previous operation.</span>"
+		to_chat(usr, "<span class='notice'>The autolathe is busy. Please wait for completion of previous operation.</span>")
 		return
 
 	if(href_list["change_category"])
@@ -148,12 +148,12 @@
 
 
 		if(making.scomtechlvl > scomtechlvl)
-			usr << "<span class='notice'>You don't have the tech level for that!</span>"
+			to_chat(usr, "<span class='notice'>You don't have the tech level for that!</span>")
 			busy = 0
 			return
 
 		if(making.resources > scommoney)
-			usr << "<span class='notice'>You don't have the money for that!</span>"
+			to_chat(usr, "<span class='notice'>You don't have the money for that!</span>")
 			busy = 0
 			return
 

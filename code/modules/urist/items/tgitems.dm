@@ -297,12 +297,12 @@ Please only put items here that don't have a huge definition - Glloyd											
 			R.chem_volume = target.reagents.total_volume
 			target.reagents.trans_to_holder(R.reagents, R.chem_volume)
 			user.put_in_active_hand(R)
-			user << "<span class='notice'>You roll the [target.name] into a rolling paper.</span>"
+			to_chat(user, "<span class='notice'>You roll the [target.name] into a rolling paper.</span>")
 			R.desc = "Dried [target.name] rolled up in a thin piece of paper."
 			qdel(target)
 			qdel(src)
 		else
-			user << "<span class='warning'>You need to dry this first!</span>"
+			to_chat(user, "<span class='warning'>You need to dry this first!</span>")
 	else
 		..()
 

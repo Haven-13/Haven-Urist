@@ -33,7 +33,7 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/crowbar))
 			var/mob/living/simple_animal/cat/Cat1 = new(loc)
-			Cat1.apply_damage(250)//,TOX)
+			Cat1.apply_damage(250)//,DAMAGE_TYPE_TOXIN)
 			Cat1.name = "Schrodinger's Cat"
 			Cat1.desc = "It seems it's been dead for a while."
 

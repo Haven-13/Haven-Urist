@@ -67,7 +67,7 @@
 		var/obj/item/stack/rods/R = I
 		if (R.use(1))
 			finished = new /obj/item/weapon/material/twohanded/quarterstaff(get_turf(user))
-			user << "<span class='notice'>You fasten the two rods together tightly with the cable.</span>"
+			to_chat(user, "<span class='notice'>You fasten the two rods together tightly with the cable.</span>")
 	if(finished)
 		qdel(I)
 		qdel(src)

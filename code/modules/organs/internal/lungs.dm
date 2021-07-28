@@ -269,7 +269,7 @@
 					damage = COLD_GAS_DAMAGE_LEVEL_1
 
 			if(prob(20))
-				owner.apply_damage(damage, BURN, BP_HEAD, used_weapon = "Excessive Cold")
+				owner.apply_damage(damage, DAMAGE_TYPE_BURN, BP_HEAD, used_weapon = "Excessive Cold")
 			else
 				src.damage += damage
 			owner.fire_alert = 1
@@ -286,7 +286,7 @@
 					damage = HEAT_GAS_DAMAGE_LEVEL_3
 
 			if(prob(20))
-				owner.apply_damage(damage, BURN, BP_HEAD, used_weapon = "Excessive Heat")
+				owner.apply_damage(damage, DAMAGE_TYPE_BURN, BP_HEAD, used_weapon = "Excessive Heat")
 			else
 				src.damage += damage
 			owner.fire_alert = 2

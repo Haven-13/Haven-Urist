@@ -20,7 +20,7 @@
 	/*  These are defined by the wound type and should not be changed */
 	var/list/stages            // stages such as "cut", "deep cut", etc.
 	var/max_bleeding_stage = 0 // maximum stage at which bleeding should still happen. Beyond this stage bleeding is prevented.
-	var/damage_type = CUT      // one of CUT, PIERCE, BRUISE, BURN
+	var/damage_type = DAMAGE_TYPE_SLASH      // one of DAMAGE_TYPE_SLASH, DAMAGE_TYPE_PIERCE, DAMAGE_TYPE_BLUDGEON, DAMAGE_TYPE_BURN
 	var/autoheal_cutoff = 15   // the maximum amount of damage that this wound can have and still autoheal
 
 	// helper lists
@@ -68,9 +68,9 @@
 /datum/wound/proc/is_treated()
 	if(!embedded_objects.len)
 		switch(damage_type)
-			if(BRUISE, CUT, PIERCE)
+			if(DAMAGE_TYPE_BLUDGEON, DAMAGE_TYPE_SLASH, DAMAGE_TYPE_PIERCE)
 				return bandaged
-			if(BURN)
+			if(DAMAGE_TYPE_BURN)
 				return salved
 
 	// Checks whether other other can be merged into src.
@@ -105,16 +105,16 @@
 		germ_level = 0	//reset this, just in case
 		return 0
 
-	if (damage_type == BRUISE && !bleeding()) //bruises only infectable if bleeding
+	if (damage_type == DAMAGE_TYPE_BLUDGEON && !bleeding()) //bruises only infectable if bleeding
 		return 0
 
 	var/dam_coef = round(damage/10)
 	switch (damage_type)
-		if (BRUISE)
+		if (DAMAGE_TYPE_BLUDGEON)
 			return prob(dam_coef*5)
-		if (BURN)
+		if (DAMAGE_TYPE_BURN)
 			return prob(dam_coef*25)
-		if (CUT)
+		if (DAMAGE_TYPE_SLASH)
 			return prob(dam_coef*10)
 
 	return 0

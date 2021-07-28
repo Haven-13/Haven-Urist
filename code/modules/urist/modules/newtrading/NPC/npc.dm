@@ -1,4 +1,4 @@
-mob/living/simple_animal/hostile/var/hiddenfaction = null
+/mob/living/simple_animal/hostile/var/hiddenfaction = null
 
 /mob/living/simple_animal/hostile/npc
 	anchored = 1

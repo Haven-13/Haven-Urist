@@ -1,5 +1,5 @@
 //wrapper macros for easier grepping
-#define DIRECT_OUTPUT(A, B) A << B
+#define DIRECT_OUTPUT(A, B) to_file(A, B)
 #define SEND_IMAGE(target, image) DIRECT_OUTPUT(target, image)
 #define SEND_SOUND(target, sound) DIRECT_OUTPUT(target, sound)
 #define SEND_TEXT(target, text) DIRECT_OUTPUT(target, text)
@@ -48,7 +48,7 @@
 	game_log("TESTING", msg)
 
 /proc/game_log(category, text)
-	diary << "\[[time_stamp()]] [game_id] [category]: [text][log_end]"
+	to_file(diary, "\[[time_stamp()]] [game_id] [category]: [text][log_end]")
 
 /proc/log_admin(text)
 	GLOB.admin_log.Add(text)

@@ -49,7 +49,7 @@
 		pulse_mod++
 
 	var/oxy = owner.get_blood_oxygenation()
-	if(oxy < BLOOD_VOLUME_OKAY) //brain wants us to get MOAR OXY
+	if(oxy < BLOOD_VOLUME_OKAY) //brain wants us to get MOAR DAMAGE_TYPE_ASPHYXIA
 		pulse_mod++
 	if(oxy < BLOOD_VOLUME_BAD) //MOAR
 		pulse_mod++
@@ -116,7 +116,7 @@
 
 				for(var/datum/wound/W in temp.wounds)
 
-					if(!open_wound && (W.damage_type == CUT || W.damage_type == PIERCE) && W.damage && !W.is_treated())
+					if(!open_wound && (W.damage_type == DAMAGE_TYPE_SLASH || W.damage_type == DAMAGE_TYPE_PIERCE) && W.damage && !W.is_treated())
 						open_wound = TRUE
 
 					if(W.bleeding())

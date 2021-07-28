@@ -19,7 +19,7 @@ var/list/dreams = list(
 	"a surgery table", "a needle", "a blade", "an ocean", "right behind you", "standing above you", "someone near by", "a place forgotten", "the exodus",
 	)
 
-mob/living/carbon/proc/dream()
+/mob/living/carbon/proc/dream()
 	dreaming = 1
 
 	spawn(0)
@@ -27,13 +27,11 @@ mob/living/carbon/proc/dream()
 			to_chat(src, "<span class='notice'><i>... [pick(dreams)] ...</i></span>")
 			sleep(rand(40,70))
 			if(paralysis <= 0)
-				dreaming = 0
-				return 0
+				break
 		dreaming = 0
-		return 1
 
-mob/living/carbon/proc/handle_dreams()
+/mob/living/carbon/proc/handle_dreams()
 	if(client && !dreaming && prob(5))
 		dream()
 
-mob/living/carbon/var/dreaming = 0
+/mob/living/carbon/var/dreaming = 0

@@ -66,7 +66,7 @@
 	crush_damage *= protection
 
 	for(var/i in 1 to round(crush_damage/AIRLOCK_CRUSH_INCREMENT, 1))
-		apply_damage(AIRLOCK_CRUSH_INCREMENT, BRUTE, null, 0)
+		apply_damage(AIRLOCK_CRUSH_INCREMENT, DAMAGE_TYPE_BRUTE, null, 0)
 
 	SetStunned(round(crush_damage / 8, 1))
 	SetWeakened(round(crush_damage / 8, 1))

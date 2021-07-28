@@ -60,7 +60,7 @@
 			show_browser(user, t, "window=computer;size=420x700")
 
 	else
-		user << "<span class='warning'>Access denied.</span>"
+		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return
 
 /obj/machinery/computer/trigger/blast/Topic(href, href_list) //come back to this

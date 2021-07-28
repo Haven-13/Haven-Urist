@@ -261,7 +261,7 @@
 				M.throw_at(get_edge_target_turf(src,src.dir),rand(1,2), move_delay)
 				spawn(3)
 					if(!M.lying)
-						M << "<span class='notice'>You land on your feet!</span>"
+						to_chat(M, "<span class='notice'>You land on your feet!</span>")
 
 			src.ex_act(2)
 
@@ -286,7 +286,7 @@
 	if(istype(H))
 		var/list/parts = list(HEAD, UPPER_TORSO, LOWER_TORSO, ARMS, LEGS)
 		for(var/i = 0, i < rand(1,3), i++)
-			H.apply_damage((rand(1,5)), BRUTE, pick(parts))
+			H.apply_damage((rand(1,5)), DAMAGE_TYPE_BRUTE, pick(parts))
 
 
 /obj/vehicle/bike/motorcycle/Process()

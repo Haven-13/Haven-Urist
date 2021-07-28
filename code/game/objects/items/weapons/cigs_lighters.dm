@@ -829,7 +829,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/brand
 	var/list/filling = list()
 
-obj/item/clothing/mask/chewable/New()
+/obj/item/clothing/mask/chewable/New()
 	..()
 	atom_flags |= ATOM_FLAG_NO_REACT // so it doesn't react until you light it
 	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
@@ -844,7 +844,7 @@ obj/item/clothing/mask/chewable/New()
 	STOP_PROCESSING(SSobj, src)
 	..()
 
-obj/item/clothing/mask/chewable/Destroy()
+/obj/item/clothing/mask/chewable/Destroy()
 	. = ..()
 	STOP_PROCESSING(SSobj, src)
 
@@ -1050,9 +1050,9 @@ obj/item/clothing/mask/chewable/Destroy()
 	else
 		to_chat(user, "<span class='warning'>You burn yourself while lighting the lighter.</span>")
 		if (user.l_hand == src)
-			user.apply_damage(2,BURN,BP_L_HAND)
+			user.apply_damage(2,DAMAGE_TYPE_BURN,BP_L_HAND)
 		else
-			user.apply_damage(2,BURN,BP_R_HAND)
+			user.apply_damage(2,DAMAGE_TYPE_BURN,BP_R_HAND)
 		user.visible_message("<span class='notice'>After a few attempts, [user] manages to light the [src], they however burn their finger in the process.</span>")
 	playsound(src.loc, "light_bic", 100, 1, -4)
 

@@ -25,7 +25,7 @@ Changes from tg DAL:
 /*
 Relevant vars/procs:
 
-atom: (lighting_atom.dm)
+/atom: (lighting_atom.dm)
   - var/light_range; range in tiles of the light, used for calculating falloff
   - var/light_power; multiplier for the brightness of lights
   - var/light_color; hex string representing the RGB colour of the light
@@ -54,7 +54,7 @@ turf: (lighting_turf.dm)
 	  - Create lighting overlays for this turf
 
 
-atom/movable/lighting_overlay: (lighting_overlay.dm)
+/atom/movable/lighting_overlay: (lighting_overlay.dm)
   - var/lum_r, var/lum_g, var/lum_b; lumcounts of each colour
   - var/needs_update; set on update_lumcount, checked by lighting process
 

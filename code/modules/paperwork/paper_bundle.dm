@@ -129,7 +129,7 @@
 		var/obj/item/weapon/photo/P = W
 		dat += "<html><head><title>[P.name]</title></head>"
 		dat += "<body style='overflow:hidden'><div> <img src='tmp_photo.png' width = '180'"
-		dat += ("[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : ]")
+		dat += ("[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : null]")
 		dat += "</body></html>"
 		send_rsc(user, P.img, "tmp_photo.png")
 		show_browser(user, dat, "window=[name]")

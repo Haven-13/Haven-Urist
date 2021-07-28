@@ -2,70 +2,6 @@
 
 //begin /tg/ weapons
 
-/*/obj/item/weapon/wirerod
-	item_icons = DEF_URIST_INHANDS
-	name = "Wired rod"
-	desc = "A rod with some wire wrapped around the top. It'd be easy to attach something to the top bit."
-	icon = 'icons/urist/items/improvised.dmi'
-	icon_state = "wiredrod"
-	item_state = "rods"
-	flags = CONDUCT
-	force = 9
-	throwforce = 10
-	w_class = 3
-	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
-
-/obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user as mob)
-	..()
-	if(istype(I, /obj/item/weapon/shard))
-		var/obj/item/weapon/material/twohanded/spear/S = new /obj/item/weapon/material/twohanded/spear
-
-		user.remove_from_mob(I)
-		user.remove_from_mob(src)
-
-		user.put_in_hands(S)
-		user << "<span class='notice'>You fasten the glass shard to the top of the rod with the cable.</span>"
-		qdel(I)
-		qdel(src)
-
-	else if(istype(I, /obj/item/weapon/wirecutters))
-		var/obj/item/weapon/melee/baton/cattleprod/P = new /obj/item/weapon/melee/baton/cattleprod
-
-		user.remove_from_mob(I)
-		user.remove_from_mob(src)
-
-		user.put_in_hands(P)
-		user << "<span class='notice'>You fasten the wirecutters to the top of the rod with the cable, prongs outward.</span>"
-		qdel(I)
-		qdel(src)
-
-	else if(istype(I, /obj/item/stack/rods))
-
-		var/obj/item/stack/rods/R = I
-		var/obj/item/weapon/material/twohanded/quarterstaff/S = new /obj/item/weapon/material/twohanded/quarterstaff
-		R.use(1)
-
-		user.remove_from_mob(src)
-
-		user.put_in_hands(S)
-		user << "<span class='notice'>You fasten the two rods together tightly with the cable.</span>"
-
-		qdel(src)
-
-/obj/item/weapon/handcuffs/cable/attackby(var/obj/item/I, mob/user as mob)
-	..()
-	if(istype(I, /obj/item/stack/rods))
-		var/obj/item/stack/rods/R = I
-		var/obj/item/weapon/wirerod/W = new /obj/item/weapon/wirerod
-		R.use(1)
-
-		user.remove_from_mob(src)
-
-		user.put_in_hands(W)
-		user << "<span class='notice'>You wrap the cable restraint around the top of the rod.</span>"
-
-		qdel(src)*/
-
 //spears
 /obj/item/weapon/material/twohanded/spear
 	item_icons = DEF_URIST_INHANDS
@@ -132,11 +68,6 @@
 	item_state = "qstaff[wielded]"
 	return
 
-/*/obj/item/weapon/twohanded/quarterstaff/shitavalin //need to find a halfway decent way to do this.
-	name = "improvised javelin"
-	desc = "A haphazardly-constructed yet still deadly weapon... Looks to be little more than two metal rods tied together and sharpened on one end."
-	throwforce = 15	*/
-
 /obj/item/weapon/shiv
 	name = "shiv"
 	desc = "A small improvised blade made out of a glass shard. Looks like it could do some damage to a kidney or two..."
@@ -151,11 +82,6 @@
 	sharp = 1
 	edge = 1
 
-/*	suicide_act(mob/user)
-		viewers(user) << pick("<span class='danger'>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</span>", \
-							"<span class='danger'>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</span>")
-		return (BRUTELOSS)*/
-
 /obj/item/weapon/material/shard/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/weapon/bedsheet))
@@ -164,7 +90,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
-		user << "<span class='notice'>You carefully wrap the bedsheet around the shard to form a crude grip.</span>"
+		to_chat(user, "<span class='notice'>You carefully wrap the bedsheet around the shard to form a crude grip.</span>")
 		qdel(I)
 		qdel(src)
 
@@ -211,7 +137,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
-		user << "<span class='notice'>You jam the rods into the wooden bat.</span>"
+		to_chat(user, "<span class='notice'>You jam the rods into the wooden bat.</span>")
 
 		qdel(src)
 
@@ -234,11 +160,6 @@
 	item_icons = DEF_URIST_INHANDS
 	var/parentassembly = /obj/item/weapon/improvised/scissorsassembly
 
-	/*suicide_act(mob/user)
-		viewers(user) << pick("<span class='danger'>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</span>", \
-							"<span class='danger'>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</span>")
-		return (BRUTELOSS)*/
-
 /obj/item/weapon/improvised/scissorknife/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	if((istype(I, /obj/item/weapon/improvised/scissorknife) && istype(src, I))) //If they're both scissor knives
@@ -251,7 +172,7 @@
 
 
 		user.put_in_hands(N)
-		user << "<span class='notice'>You slide one knife into another, forming a loose pair of scissors</span>"
+		to_chat(user, "<span class='notice'>You slide one knife into another, forming a loose pair of scissors</span>")
 
 		qdel(I)
 		qdel(src)
@@ -302,7 +223,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
-		user << "<span class='notice'>You form the [src] around [W], creating a more lethal Millwall brick.</span>"
+		to_chat(user, "<span class='notice'>You form the [src] around [W], creating a more lethal Millwall brick.</span>")
 		W.loc = S
 
 		qdel(src)
@@ -325,7 +246,7 @@
 		w.loc = (get_turf(src))
 	var/obj/item/weapon/improvised/mbrick/S = new /obj/item/weapon/improvised/mbrick
 	user.put_in_hands(S)
-	user << "<span class='notice'>You take the sharp object out of the Millwall brick..</span>"
+	to_chat(user, "<span class='notice'>You take the sharp object out of the Millwall brick..</span>")
 	qdel(src)
 
 //wood shit

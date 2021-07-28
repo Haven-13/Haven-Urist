@@ -20,11 +20,11 @@
 		<br><a href='?_src_=vars;rotatedatum=[REF(src)];rotatedir=left'><<</a> <a href='?_src_=vars;datumedit=[REF(src)];varnameedit=dir'>[dir2text(dir)]</a> <a href='?_src_=vars;rotatedatum=[REF(src)];rotatedir=right'>>></a>
 		<br><a href='?_src_=vars;datumedit=[REF(src)];varnameedit=ckey'>[ckey || "No ckey"]</a> / <a href='?_src_=vars;datumedit=[REF(src)];varnameedit=real_name'>[real_name || "No real name"]</a>
 		<br>
-		BRUTE:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=brute'>[getBruteLoss()]</a>
+		DAMAGE_TYPE_BRUTE:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=brute'>[getBruteLoss()]</a>
 		FIRE:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=fire'>[getFireLoss()]</a>
 		TOXIN:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=toxin'>[getToxLoss()]</a>
-		OXY:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=oxygen'>[getOxyLoss()]</a>
-		CLONE:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=clone'>[getCloneLoss()]</a>
+		DAMAGE_TYPE_ASPHYXIA:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=oxygen'>[getOxyLoss()]</a>
+		DAMAGE_TYPE_GENETIC:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=clone'>[getCloneLoss()]</a>
 		BRAIN:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=brain'>[getBrainLoss()]</a>
 		</font>
 		"}

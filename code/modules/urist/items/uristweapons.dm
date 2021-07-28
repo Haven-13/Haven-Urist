@@ -22,8 +22,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	attack_verb = list("cleaved", "slashed", "sliced", "torn", "ripped", "diced", "cut")
 
 	/*suicide_act(mob/user)
-		viewers(user) << "<span class='danger'>[user] is slitting \his stomach open with the [src.name]! It looks like \he's trying to commit suicide.</span>"
-		return (BRUTELOSS)*/
+		to_chat(viewers(user), "<span class='danger'>[user] is slitting \his stomach open with the [src.name]! It looks like \he's trying to commit suicide.</span>")
+		return (DAMAGE_TYPE_BRUTELOSS)*/
 
 //dual saber proc
 
@@ -31,11 +31,11 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	..()
 	if(istype(W, /obj/item/weapon/melee/energy/sword))
 		if(W == src)
-			user << "<span class='notice'>You try to attach the end of the energy sword to... itself. You're not very smart, are you?</span>"
+			to_chat(user, "<span class='notice'>You try to attach the end of the energy sword to... itself. You're not very smart, are you?</span>")
 			if(ishuman(user))
 				user.adjustBrainLoss(10)
 		else
-			user << "<span class='notice'>You attach the ends of the two energy swords, making a single double-bladed weapon! You're cool.</span>"
+			to_chat(user, "<span class='notice'>You attach the ends of the two energy swords, making a single double-bladed weapon! You're cool.</span>")
 			new/obj/item/weapon/material/twohanded/dualsaber(user.loc)
 			user.remove_from_mob(W)
 			user.remove_from_mob(src)

@@ -184,12 +184,12 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 		switch(icon_state)
 			if("tweedjacket_open")
 				src.icon_state = "tweedjacket"
-				usr << "You button up the jacket."
+				to_chat(usr, "You button up the jacket.")
 			if("tweedjacket")
 				src.icon_state = "tweedjacket_open"
-				usr << "You unbutton the jacket."
+				to_chat(usr, "You unbutton the jacket.")
 			else
-				usr << "You attempt to button-up the velcro on your [src], before promptly realising how retarded you are."
+				to_chat(usr, "You attempt to button-up the velcro on your [src], before promptly realising how retarded you are.")
 				return
 		usr.update_inv_wear_suit()	//so our overlays update
 
@@ -1060,22 +1060,22 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "hamilton_uniform"
 
 /obj/item/clothing/suit/urist/civilwar/bluecoatjacket
-    name = "Blue Infantry Coat"
-    desc = "A blue coat worn by soldiers."
-    icon_state = "blue_coat_coat"
-    item_state = "blue_coat_coat"
+	name = "Blue Infantry Coat"
+	desc = "A blue coat worn by soldiers."
+	icon_state = "blue_coat_coat"
+	item_state = "blue_coat_coat"
 
 /obj/item/clothing/suit/urist/civilwar/redcoatjacket
-    name = "Red Infantry Coat"
-    desc = "A red coat worn by soldiers."
-    icon_state = "red_coat_coat"
-    item_state = "red_coat_coat"
+	name = "Red Infantry Coat"
+	desc = "A red coat worn by soldiers."
+	icon_state = "red_coat_coat"
+	item_state = "red_coat_coat"
 
 /obj/item/clothing/suit/urist/civilwar/hamiltoncoat
-    name = "Hamilton Coat"
-    desc = "A blue coat sporting gold buttons."
-    icon_state = "hamiltoncoat"
-    item_state = "hamiltoncoat"
+	name = "Hamilton Coat"
+	desc = "A blue coat sporting gold buttons."
+	icon_state = "hamiltoncoat"
+	item_state = "hamiltoncoat"
 
 //RS Armor Suits
 
