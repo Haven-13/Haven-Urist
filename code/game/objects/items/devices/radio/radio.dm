@@ -155,23 +155,23 @@
 		var/chan_stat = channels[ch_name]
 		var/listening = !!(chan_stat & FREQ_LISTENING) != 0
 
-		(.).Add(list(list(
+		. += list(list(
 			"channel" = ch_name,
 			"displayName" = ch_name,
 			"secure" = 1,
 			"listening" = listening,
 			"channelSpan" = frequency_span_class(radiochannels[ch_name])
-		)))
+		))
 
 /obj/item/device/radio/proc/list_internal_channels(var/mob/user)
 	. = list()
 	for(var/internal_chan in internal_channels)
 		if(has_channel_access(user, internal_chan))
-			(.).Add(list(list(
+			. += list(list(
 				"channel" = internal_chan,
 				"displayName" = get_frequency_default_name(text2num(internal_chan)),
 				"channelSpan" = frequency_span_class(text2num(internal_chan))
-			)))
+			))
 
 /obj/item/device/radio/proc/has_channel_access(var/mob/user, var/freq)
 	if(!user)
@@ -389,7 +389,7 @@
 			R.receive_signal(signal)
 
 		// Receiving code can be located in Telecommunications.dm
-		if(signal.data["done"] && position.z in signal.data["level"])
+		if(signal.data["done"] && (position.z in signal.data["level"]))
 			return TRUE //Huzzah, sent via subspace
 
 		else //Less huzzah, we have to fallback
@@ -448,7 +448,7 @@
 
 	sleep(rand(10,25)) // wait a little...
 
-	if(signal.data["done"] && position.z in signal.data["level"])
+	if(signal.data["done"] && (position.z in signal.data["level"]))
 		// we're done here.
 		return 1
 

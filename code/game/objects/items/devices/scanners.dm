@@ -79,7 +79,7 @@ REAGENT SCANNER
 	to_chat(user, medical_scan_results(scan_subject, verbose))
 	to_chat(user, "<hr>")
 
-proc/medical_scan_deep_primitive(mob/living/carbon/human/H)
+/proc/medical_scan_deep_primitive(mob/living/carbon/human/H)
 	var/found_broken
 	var/found_infection
 	var/found_bleed
@@ -107,7 +107,7 @@ proc/medical_scan_deep_primitive(mob/living/carbon/human/H)
 		"hasDislocation" = found_disloc
 	)
 
-proc/medical_scan_json(mob/living/carbon/human/H)
+/proc/medical_scan_json(mob/living/carbon/human/H)
 	. = list()
 
 	.["name"] = H.name
@@ -196,7 +196,7 @@ proc/medical_scan_json(mob/living/carbon/human/H)
 				))
 
 
-proc/medical_scan_results(var/mob/living/carbon/human/H, var/verbose)
+/proc/medical_scan_results(var/mob/living/carbon/human/H, var/verbose)
 	. = list()
 	. += "<span class='notice'><b>Scan results for \the [H]:</b></span>"
 
@@ -397,7 +397,7 @@ proc/medical_scan_results(var/mob/living/carbon/human/H, var/verbose)
 	. = jointext(.,"<br>")
 
 // Calculates severity based on the ratios defined external limbs.
-proc/get_wound_severity(var/damage_ratio, var/can_heal_overkill = 0)
+/proc/get_wound_severity(var/damage_ratio, var/can_heal_overkill = 0)
 	var/degree
 
 	switch(damage_ratio)

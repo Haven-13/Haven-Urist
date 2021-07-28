@@ -810,7 +810,6 @@ var/global/list/damage_icon_parts = list()
 #undef HEAD_LAYER
 #undef COLLAR_LAYER
 #undef HANDCUFF_LAYER
-#undef LEGCUFF_LAYER
 #undef L_HAND_LAYER
 #undef R_HAND_LAYER
 #undef TARGETED_LAYER

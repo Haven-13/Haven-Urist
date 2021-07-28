@@ -1,4 +1,4 @@
-obj/structure/closet/crate
+/obj/structure/closet/crate
 	name = "crate"
 	desc = "A rectangular steel crate."
 	icon = 'icons/obj/storage.dmi'
@@ -317,7 +317,7 @@ obj/structure/closet/crate
 	open_sound = 'sound/items/Deconstruct.ogg'
 	close_sound = 'sound/items/Deconstruct.ogg'
 	req_access = list(access_xenobiology)
-	
+
 	storage_capacity = 2 * MOB_LARGE
 	storage_types = CLOSET_STORAGE_ITEMS|CLOSET_STORAGE_MOBS|CLOSET_STORAGE_STRUCTURES
 

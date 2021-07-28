@@ -1,4 +1,4 @@
-obj/machinery/atmospherics/binary
+/obj/machinery/atmospherics/binary
 	dir = SOUTH
 	initialize_directions = SOUTH|NORTH
 	use_power = 1
@@ -117,8 +117,8 @@ obj/machinery/atmospherics/binary
 		update_underlays()
 
 		return null
-		
-obj/machinery/atmospherics/binary/Destroy()
+
+/obj/machinery/atmospherics/binary/Destroy()
 	loc = null
 
 	if(node1)

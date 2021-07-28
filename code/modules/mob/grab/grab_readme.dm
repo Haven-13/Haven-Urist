@@ -8,7 +8,7 @@ from, writing to, or calling the procs of the grab datum. This helps to keep
 everything neat and stops undesirable behaviours.
 
 Each type of grab needs a child of the grab datum and a child of the grab
-object. The child of each needs to be named with the name of the grab and
+/object. The child of each needs to be named with the name of the grab and
 the two need the same naming scheme. For example, the main type of grab
 used by human is called "normal" as it's the default vanilla grab. The normal
 grab has a child of the grab object called /obj/item/grab/normal and it has a child

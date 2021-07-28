@@ -1,4 +1,4 @@
-datum/preferences
+/datum/preferences
 	var/gender = MALE					//gender of character (well duh)
 	var/age = 30						//age of character
 	var/spawnpoint = "Default" 			//where this character will spawn (0-2).
@@ -105,7 +105,7 @@ datum/preferences
 		return TRUE
 
 	else if(href_list["metadata"])
-		var/new_metadata = sanitize(input(user, "Enter any information you'd like others to see, such as Roleplay-preferences:", "Game Preference" , pref.metadata)) as message|null
+		var/new_metadata = sanitize(input(user, "Enter any information you'd like others to see, such as Roleplay-preferences:", "Game Preference" , pref.metadata) as message|null)
 		if(new_metadata && CanUseTopic(user))
 			pref.metadata = new_metadata
 			return TRUE
