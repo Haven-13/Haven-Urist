@@ -5,10 +5,10 @@
 	by Lummox JR
  */
 
-mob/verb/Convert(filename as file)
+/mob/verb/Convert(filename as file)
 	dmp2swapmap(filename)
 
-proc/d2sm_prepmap(filename)
+/proc/d2sm_prepmap(filename)
 	var/txt = file2text(filename)
 	if(!txt) return
 	var/i,j
@@ -23,7 +23,7 @@ proc/d2sm_prepmap(filename)
 		i=findText(txt,"\\\n",i)
 	return txt
 
-proc/dmp2swapmap(filename)
+/proc/dmp2swapmap(filename)
 	//var/txt = file2text(filename)
 	//if(!txt) return
 	var/txt = d2sm_prepmap(filename)
@@ -150,16 +150,16 @@ proc/dmp2swapmap(filename)
 
 	fdel("map_[mapname].txt")
 	var/F = file("map_[mapname].txt")
-	F << ". = object(\".0\")\n.0\n\ttype = /swapmap\n\tid = \"[mapname]\"\n\tz = [Z]\n\ty = [Y]\n\tx = [X]"
+	to_file(F, ". = object(\".0\")\n.0\n\ttype = /swapmap\n\tid = \"[mapname]\"\n\tz = [Z]\n\ty = [Y]\n\tx = [X]")
 	if(areas)
 		txt=""
 		for(i=0,i<areas.len,++i)
 			txt+="[i?", ":""]object(\".[i]\")"
-		F << "\tareas = list([txt])"
+		to_file(F, "\tareas = list([txt])")
 		for(i=0,i<areas.len,++i)
-			F << "\t\t.[i]"
+			to_file(F, "\t\t.[i]")
 			txt=d2sm_ConvertType(areas[i+1],"\t\t\t")
-			F << copytext(txt,1,length(txt))
+			to_file(F, copytext(txt,1,length(txt)))
 
 	// 2nd pass
 	txt=d2sm_prepmap(filename)
@@ -182,26 +182,26 @@ proc/dmp2swapmap(filename)
 			_x=max(_x,(j-i-1)/codelen)
 			i=j
 		// print out this z-level now
-		F << "\t[coords[3]]"
+		to_file(F, "\t[coords[3]]")
 		i=1
 		for(var/y=_y,y>0,--y)	// map is top-down
 			++i
-			F << "\t\t[y]"
+			to_file(F, "\t\t[y]")
 			for(var/x in 1 to _x)
-				F << "\t\t\t[x]"
+				to_file(F, "\t\t\t[x]")
 				j=i+codelen
-				F << codes[copytext(mtxt,i,j)]
+				to_file(F, codes[copytext(mtxt,i,j)])
 				i=j
 		txt=copytext(txt,k+1)
 	/* for(z in 1 to Z)
-		F << "\t[z]"
+		to_file(F, "\t[z]")
 		for(var/y in 1 to Y)
-			F << "\t\t[y]"
+			to_file(F, "\t\t[y]")
 			for(var/x in 1 to X)
-				F << "\t\t\t[x]"
-				F << codes[pick(codes)] */
+				to_file(F, "\t\t\t[x]")
+				to_file(F, codes[pick(codes)] */)
 
-proc/d2sm_ParseCommaList(txt)
+/proc/d2sm_ParseCommaList(txt)
 	var/list/L=new
 	var/i,ch
 	for(i=1,i<=length(txt),++i)
@@ -219,7 +219,7 @@ proc/d2sm_ParseCommaList(txt)
 	if(i>1) L+=copytext(txt,1,i)
 	return L
 
-proc/d2sm_MatchBrace(txt, i, which)
+/proc/d2sm_MatchBrace(txt, i, which)
 	if(which==40) ++which
 	else which+=2
 	var/j,ch
@@ -230,7 +230,7 @@ proc/d2sm_MatchBrace(txt, i, which)
 			j=d2sm_MatchBrace(txt,j,ch)
 			if(!j) return 0
 
-proc/d2sm_ConvertType(tt,tabs="")
+/proc/d2sm_ConvertType(tt,tabs="")
 	var/i=findText(tt,"{")
 	if(!i) return "[tabs]type = [tt]\n"
 	.="[tabs]type = [copytext(tt,1,i)]\n"
@@ -239,7 +239,7 @@ proc/d2sm_ConvertType(tt,tabs="")
 	for(var/pair in L)
 		.="[.][tabs][pair]\n"
 
-proc/d2sm_Contents(list/conts,n,tabs="")
+/proc/d2sm_Contents(list/conts,n,tabs="")
 	.="[tabs]contents = list("
 	var/i
 	for(i=0,i<n,++i)

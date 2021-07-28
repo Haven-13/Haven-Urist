@@ -199,7 +199,7 @@
 	if(anchored)
 		return FALSE
 
-	if((locate(/obj/structure/disposalpipe/up) in below) || locate(/obj/machinery/atmospherics/pipe/zpipe/up in below))
+	if((locate(/obj/structure/disposalpipe/up) in below) || (locate(/obj/machinery/atmospherics/pipe/zpipe/up) in below))
 		return FALSE
 
 /mob/living/carbon/human/can_fall()
@@ -239,11 +239,11 @@
 
 	..()
 	var/damage = 10
-	apply_damage(rand(0, damage), BRUTE, BP_HEAD)
-	apply_damage(rand(0, damage), BRUTE, BP_CHEST)
-	apply_damage(rand(0, damage), BRUTE, BP_L_LEG)
-	apply_damage(rand(0, damage), BRUTE, BP_R_LEG)
-	apply_damage(rand(0, damage), BRUTE, BP_L_ARM)
-	apply_damage(rand(0, damage), BRUTE, BP_R_ARM)
+	apply_damage(rand(0, damage), DAMAGE_TYPE_BRUTE, BP_HEAD)
+	apply_damage(rand(0, damage), DAMAGE_TYPE_BRUTE, BP_CHEST)
+	apply_damage(rand(0, damage), DAMAGE_TYPE_BRUTE, BP_L_LEG)
+	apply_damage(rand(0, damage), DAMAGE_TYPE_BRUTE, BP_R_LEG)
+	apply_damage(rand(0, damage), DAMAGE_TYPE_BRUTE, BP_L_ARM)
+	apply_damage(rand(0, damage), DAMAGE_TYPE_BRUTE, BP_R_ARM)
 	weakened = max(weakened,2)
 	updatehealth()

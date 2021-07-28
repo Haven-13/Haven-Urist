@@ -26,7 +26,7 @@
 #define IS_TESHARI  7
 
 #define CE_STABLE        "stable"       // Inaprovaline
-#define CE_ANTIBIOTIC    "antibiotic"   // Spaceacilin
+#define CE_ANTIBIOTIC    "antibiotic"   // Fights wound-based infections.
 #define CE_BLOODRESTORE  "bloodrestore" // Iron/nutriment
 #define CE_PAINKILLER    "painkiller"
 #define CE_ALCOHOL       "alcohol"      // Liver filtering
@@ -45,7 +45,6 @@
 #define CE_CRYO 	     "cryogenic"    // Prevents damage from being frozen
 #define CE_BLOCKAGE	     "blockage"     // Gets in the way of blood circulation, higher the worse
 #define CE_SQUEAKY		 "squeaky"      // Helium voice. Squeak squeak.
-#define CE_ANTIBIOTIC    "antibiotic"   // Fights wound-based infections.
 
 //reagent flags
 #define IGNORE_MOB_SIZE 0x1

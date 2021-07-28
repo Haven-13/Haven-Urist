@@ -249,7 +249,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 						if(CHANNEL.is_admin_channel)
 							dat+="<B><FONT style='BACKGROUND-COLOR: LightGreen '><A href='?src=[REF(src)];show_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A></FONT></B><BR>"
 						else
-							dat+="<B><A href='?src=[REF(src)];show_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR></B>"
+							dat+="<B><A href='?src=[REF(src)];show_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : null]<BR></B>"
 				dat+="<BR><HR><A href='?src=[REF(src)];refresh=1'>Refresh</A>"
 				dat+="<BR><A href='?src=[REF(src)];setScreen=[0]'>Back</A>"
 			if(2)
@@ -348,7 +348,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					dat+="<I>No feed channels found active...</I><BR>"
 				else
 					for(var/datum/feed_channel/CHANNEL in news_network.network_channels)
-						dat+="<A href='?src=[REF(src)];pick_censor_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
+						dat+="<A href='?src=[REF(src)];pick_censor_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : null]<BR>"
 				dat+="<BR><A href='?src=[REF(src)];setScreen=[0]'>Cancel</A>"
 			if(11)
 				dat+="<B>[GLOB.using_map.company_name] D-Notice Handler</B><HR>"
@@ -359,7 +359,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					dat+="<I>No feed channels found active...</I><BR>"
 				else
 					for(var/datum/feed_channel/CHANNEL in news_network.network_channels)
-						dat+="<A href='?src=[REF(src)];pick_d_notice=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
+						dat+="<A href='?src=[REF(src)];pick_d_notice=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : null]<BR>"
 
 				dat+="<BR><A href='?src=[REF(src)];setScreen=[0]'>Back</A>"
 			if(12)
@@ -786,7 +786,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/scribble=""
 	var/scribble_page = null
 
-obj/item/weapon/newspaper/attack_self(mob/user as mob)
+/obj/item/weapon/newspaper/attack_self(mob/user as mob)
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
 		var/dat
@@ -867,7 +867,7 @@ obj/item/weapon/newspaper/attack_self(mob/user as mob)
 		to_chat(user, "The paper is full of intelligible symbols!")
 
 
-obj/item/weapon/newspaper/Topic(href, href_list)
+/obj/item/weapon/newspaper/Topic(href, href_list)
 	var/mob/living/U = usr
 	..()
 	if ((src in U.contents) || ( istype(loc, /turf) && in_range(src, U) ))
@@ -899,7 +899,7 @@ obj/item/weapon/newspaper/Topic(href, href_list)
 			src.attack_self(src.loc)
 
 
-obj/item/weapon/newspaper/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/newspaper/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/pen))
 		if(src.scribble_page == src.curr_page)
 			to_chat(user, "<FONT COLOR='blue'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</FONT>")
@@ -920,7 +920,7 @@ obj/item/weapon/newspaper/attackby(obj/item/weapon/W as obj, mob/user as mob)
 		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
-		user << "<span class='notice'>You roll and fold the two newspapers together to create an impromptu weapon.</span>"
+		to_chat(user, "<span class='notice'>You roll and fold the two newspapers together to create an impromptu weapon.</span>")
 		del(W)
 		del(src)
 		return

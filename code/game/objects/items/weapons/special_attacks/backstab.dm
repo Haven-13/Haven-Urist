@@ -4,13 +4,13 @@ Holds the proc for backstabbing.
 usage:
 
 /obj/item/weapon/attack(mob/living/target, mob/user, var/target_zone)
-	backstab(target, user, 60, BRUTE, DAM_SHARP, target_zone)
+	backstab(target, user, 60, DAMAGE_TYPE_BRUTE, DAMAGE_FLAGS_SHARP, target_zone)
 	..()
 May also be used as:
 
 /obj/item/weapon/attack(mob/living/target, mob/user, var/target_zone)
 	..()
-	if(backstab(target, user, 60, BRUTE, DAM_SHARP, target_zone))
+	if(backstab(target, user, 60, DAMAGE_TYPE_BRUTE, DAMAGE_FLAGS_SHARP, target_zone))
 		[insert code here]
 ---------------
 The proc itself:
@@ -28,10 +28,10 @@ location_check: bool. allows facestabs if set to false, skipping the check for b
 Proc returns a boolean if successful.
 */
 
-/obj/item/weapon/proc/backstab(var/mob/living/target, mob/user, var/damage = 30, var/damage_type = BRUTE, var/damage_flags, var/target_zone = BP_CHEST, var/location_check = TRUE)
+/obj/item/weapon/proc/backstab(var/mob/living/target, mob/user, var/damage = 30, var/damage_type = DAMAGE_TYPE_BRUTE, var/damage_flags, var/target_zone = BP_CHEST, var/location_check = TRUE)
 
 	//Runtime prevention.
-	if( !( damage_type in list( BRUTE, BURN, TOX, OXY, CLONE, PAIN ) ) ) //End the proc with a false return if we're not doing a valid damage type.
+	if( !( damage_type in list( DAMAGE_TYPE_BRUTE, DAMAGE_TYPE_BURN, DAMAGE_TYPE_TOXIN, DAMAGE_TYPE_ASPHYXIA, DAMAGE_TYPE_GENETIC, DAMAGE_TYPE_PAIN ) ) ) //End the proc with a false return if we're not doing a valid damage type.
 		return FALSE
 
 	if(!iscarbon(target)) //No. You cannot backstab the borg.
@@ -88,7 +88,7 @@ Proc returns a boolean if successful.
 				H.custom_pain("<span class = 'danger' font size='10'>You feel a stabbing pain in the back of your [stabbed_part]!</span>") //Only the stabber and stabbed should know how bad this is.
 
 		else
-			target.apply_damage(damage, damage_type, target_zone, target.run_armor_check(target_zone, "melee"), DAM_SHARP, src) //Backstabbing. Does extra damage to simple mobs only.
+			target.apply_damage(damage, damage_type, target_zone, target.run_armor_check(target_zone, "melee"), DAMAGE_FLAGS_SHARP, src) //Backstabbing. Does extra damage to simple mobs only.
 			to_chat(user, "<span class = 'danger'>You stab [target] in the back!</span>")
 
 	return TRUE //Returns a value in case you want to layer additional behavior on this.

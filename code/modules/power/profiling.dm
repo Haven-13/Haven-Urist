@@ -1,4 +1,4 @@
-datum
+/datum
 
 var/global/enable_power_update_profiling = 0
 

@@ -73,8 +73,6 @@
 
 #define attack_animation(A) if(istype(A)) A.do_attack_animation(src)
 
-#define isairlock(A) istype(A, /obj/machinery/door/airlock)
-
 #define isopenspace(A) istype(A, /turf/simulated/open)
 
 #define isWrench(A) istype(A, /obj/item/weapon/wrench)
@@ -105,6 +103,7 @@
 #define close_browser(target, browser_name)                 target << browse(null, browser_name)
 #define show_image(target, image)                           target << image
 #define send_rsc(target, rsc_content, rsc_name)             target << browse_rsc(rsc_content, rsc_name)
+#define send_file(target, file)                             target << run(file)
 #define open_link(target, url)                              target << link(url)
 
 #define MAP_IMAGE_PATH "html/images/[GLOB.using_map.path]/"

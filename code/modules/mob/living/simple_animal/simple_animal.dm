@@ -52,13 +52,13 @@
 	//LETTING SIMPLE ANIMALS ATTACK? WHAT COULD GO WRONG. Defaults to zero so Ian can still be cuddly
 	var/melee_damage_lower = 0
 	var/melee_damage_upper = 0
-	var/damage_type = BRUTE
+	var/damage_type = DAMAGE_TYPE_BRUTE
 	var/attacktext = "attacked"
 	var/attack_sound = null
 	var/friendly = "nuzzles"
 	var/environment_smash = 0
 	var/resistance		  = 0	// Damage reduction
-	var/damtype = BRUTE
+	var/damtype = DAMAGE_TYPE_BRUTE
 	var/defense = "melee" //what armor protects against its attacks
 
 	//Null rod stuff
@@ -205,7 +205,7 @@
 		return
 
 	var/damage = Proj.damage
-	if(Proj.damtype == STUN)
+	if(Proj.damtype == DAMAGE_TYPE_STUN)
 		damage = (Proj.damage / 8)
 
 	adjustBruteLoss(damage)
@@ -275,9 +275,9 @@
 		return 2
 
 	var/damage = O.force
-	if (O.damtype == PAIN)
+	if (O.damtype == DAMAGE_TYPE_PAIN)
 		damage = 0
-	if (O.damtype == STUN)
+	if (O.damtype == DAMAGE_TYPE_STUN)
 		damage = (O.force / 8)
 		if(supernatural && istype(O,/obj/item/weapon/nullrod))
 			damage *= 2

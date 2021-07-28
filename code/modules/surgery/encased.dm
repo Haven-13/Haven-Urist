@@ -70,5 +70,5 @@
 	user.visible_message("<span class='warning'>[user]'s hand slips, cracking [target]'s [affected.encased] with \the [tool]!</span>" , \
 	"<span class='warning'>Your hand slips, cracking [target]'s [affected.encased] with \the [tool]!</span>" )
 
-	affected.take_external_damage(15, 0, (DAM_SHARP|DAM_EDGE), used_weapon = tool)
+	affected.take_external_damage(15, 0, (DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE), used_weapon = tool)
 	affected.fracture()

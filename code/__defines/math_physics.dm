@@ -30,8 +30,7 @@
 #define TICKS_IN_DAY 		24*60*60*10
 #define TICKS_IN_SECOND 	10
 
-#define SIMPLE_SIGN(X) ((X) < 0 ? -1 : 1)
-#define SIGN(X)        ((X) ? SIMPLE_SIGN(X) : 0)
+#define SIGN(X) ((X) < 0 ? -1 : 1)
 
 // Determines the exchange ratio of reagents being converted to gas and vice versa.
 #define REAGENT_GAS_EXCHANGE_FACTOR 10

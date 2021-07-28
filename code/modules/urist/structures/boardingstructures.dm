@@ -36,7 +36,7 @@
 		var/tele_z = GLOB.using_map.overmap_ship.evac_z
 
 		do_teleport(M, locate(tele_x,tele_y,tele_z), 0)
-		M << "<span class='warning'>You teleport back to the ship!</span>"
+		to_chat(M, "<span class='warning'>You teleport back to the ship!</span>")
 
 /obj/effect/step_trigger/teleporter/urist/nerva
 	teleport_x = 89

@@ -121,27 +121,27 @@ var/datum/antagonist/agent/agents
 		R = locate(/obj/item/device/radio) in agent_mob.contents
 		if(!R)
 			R = locate(/obj/item/modular_computer/pda) in agent_mob.contents
-			agent_mob << "Could not locate a Radio, installing in PDA instead!"
+			to_chat(agent_mob, "Could not locate a Radio, installing in PDA instead!")
 		if (!R)
-			agent_mob << "Unfortunately, neither a radio or a PDA relay could be installed."
+			to_chat(agent_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
 	else if(priority_order[1] == "PDA")
 		R = locate(/obj/item/modular_computer/pda) in agent_mob.contents
 		if(!R)
 			R = locate(/obj/item/device/radio) in agent_mob.contents
-			agent_mob << "Could not locate a PDA, installing into a Radio instead!"
+			to_chat(agent_mob, "Could not locate a PDA, installing into a Radio instead!")
 		if(!R)
-			agent_mob << "Unfortunately, neither a radio or a PDA relay could be installed."
+			to_chat(agent_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
 	else if(priority_order[1] == "None")
-		agent_mob << "You have elected to not have an AntagCorp portable teleportation relay installed!"
+		to_chat(agent_mob, "You have elected to not have an AntagCorp portable teleportation relay installed!")
 		R = null
 	else
-		agent_mob << "You have not selected a location for your relay in the antagonist options! Defaulting to PDA!"
+		to_chat(agent_mob, "You have not selected a location for your relay in the antagonist options! Defaulting to PDA!")
 		R = locate(/obj/item/modular_computer/pda) in agent_mob.contents
 		if (!R)
 			R = locate(/obj/item/device/radio) in agent_mob.contents
-			agent_mob << "Could not locate a PDA, installing into a Radio instead!"
+			to_chat(agent_mob, "Could not locate a PDA, installing into a Radio instead!")
 		if (!R)
-			agent_mob << "Unfortunately, neither a radio or a PDA relay could be installed."
+			to_chat(agent_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
 
 	if(!R)
 		return
@@ -161,7 +161,7 @@ var/datum/antagonist/agent/agents
 		var/obj/item/device/uplink/T = new(R, agent_mob.mind)
 		target_radio.hidden_uplink = T
 		target_radio.traitor_frequency = freq
-		agent_mob << "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features."
+		to_chat(agent_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features.")
 		agent_mob.mind.store_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name] [loc]).")
 
 	else if (istype(R, /obj/item/modular_computer/pda))

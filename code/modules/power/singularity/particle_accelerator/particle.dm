@@ -70,7 +70,7 @@
 
 /obj/effect/accelerated_particle/proc/toxmob(var/mob/living/M)
 	var/radiation = (energy*2)
-	M.apply_effect((radiation*3),IRRADIATE,blocked = M.getarmor(null, "rad"))
+	M.apply_effect((radiation*3),DAMAGE_TYPE_RADIATION,blocked = M.getarmor(null, "rad"))
 	M.updatehealth()
 //	to_chat(M, "<span class='warning'>You feel odd.</span>")
 	return

@@ -12,16 +12,16 @@
 
 /obj/machinery/cerealmaker/attackby(obj/item/I, mob/user)
 	if(on)
-		user << "<span class='notice'>[src] is already processing, please wait.</span>"
+		to_chat(user, "<span class='notice'>[src] is already processing, please wait.</span>")
 		return
 	if(!istype(I, /obj/item/weapon/reagent_containers/food/snacks/))
-		user << "<span class='warning'>Budget cuts won't let you put that in there.</span>"
+		to_chat(user, "<span class='warning'>Budget cuts won't let you put that in there.</span>")
 		return
 	if(istype(I, /obj/item/weapon/reagent_containers/food/snacks/cereal/))
-		user << "<span class='warning'>That isn't going to fit.</span>"
+		to_chat(user, "<span class='warning'>That isn't going to fit.</span>")
 		return
 	else
-		user << "<span class='notice'>You put [I] into [src].</span>"
+		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
 		on = TRUE
 		user.drop_item()
 		I.loc = src

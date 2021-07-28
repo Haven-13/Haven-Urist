@@ -304,10 +304,10 @@
 		ban_unban_log_save("[key_name(usr)] edited [banned_key]'s ban. Reason: [reason] Duration: [duration]")
 		log_and_message_admins("edited [banned_key]'s ban. Reason: [reason] Duration: [duration]")
 		Banlist.cd = "/base/[banfolder]"
-		Banlist["reason"] << reason
-		Banlist["temp"] << temp
-		Banlist["minutes"] << minutes
-		Banlist["bannedby"] << usr.ckey
+		to_file(Banlist["reason"], reason)
+		to_file(Banlist["temp"], temp)
+		to_file(Banlist["minutes"], minutes)
+		to_file(Banlist["bannedby"], usr.ckey)
 		Banlist.cd = "/base"
 		feedback_inc("ban_edit",1)
 		unbanpanel()
@@ -1922,13 +1922,13 @@
 	else if(href_list["create_new_poll"])
 
 		if(!href_list["polltype"])
-			usr << "Couldn't read poll type!"
+			to_chat(usr, "Couldn't read poll type!")
 			return
 		if(!href_list["timelength"])
-			usr << "Couldn't read poll length!"
+			to_chat(usr, "Couldn't read poll length!")
 			return
 		if(!href_list["question"])
-			usr << "Couldn't read poll question!"
+			to_chat(usr, "Couldn't read poll question!")
 			return
 
 		var/polltype
@@ -1980,7 +1980,7 @@
 			if(href_list["descmed"])
 				descmed = sql_sanitize_text(href_list["descmed"])
 		else
-			usr << "Unrecognized polltype!"
+			to_chat(usr, "Unrecognized polltype!")
 			return
 
 		create_new_poll(polltype,timelength,question,polloptions,adminonly,multilimit,maxval,minval,descmax,descmin,descmed)
@@ -2024,13 +2024,13 @@
 				return
 
 
-mob/living/proc/can_centcom_reply()
+/mob/living/proc/can_centcom_reply()
 	return 0
 
-mob/living/carbon/human/can_centcom_reply()
+/mob/living/carbon/human/can_centcom_reply()
 	return istype(l_ear, /obj/item/device/radio/headset) || istype(r_ear, /obj/item/device/radio/headset)
 
-mob/living/silicon/ai/can_centcom_reply()
+/mob/living/silicon/ai/can_centcom_reply()
 	return silicon_radio != null && !check_unable(2)
 
 /datum/proc/extra_admin_link(var/prefix, var/sufix, var/short_links)

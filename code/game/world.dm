@@ -84,7 +84,7 @@ GLOBAL_VAR(restart_counter)
 	var/date_string = time2text(world.realtime, "YYYY/MM/DD")
 	href_logfile = file("data/logs/[date_string] hrefs.htm")
 	diary = file("data/logs/[date_string].log")
-	diary << "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [time2text(world.timeofday, "hh:mm.ss")][log_end]\n---------------------[log_end]"
+	to_file(diary, "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [time2text(world.timeofday, "hh:mm.ss")][log_end]\n---------------------[log_end]")
 	changelog_hash = md5('html/changelog/changelog.html')					//used for telling if the changelog has changed recently
 	if(fexists(RESTART_COUNTER_PATH))
 		GLOB.restart_counter = text2num(trim(file2text(RESTART_COUNTER_PATH)))
@@ -99,7 +99,7 @@ GLOBAL_VAR(restart_counter)
 
 	if(config && config.log_runtime)
 		var/runtime_log = file("data/logs/runtime/[date_string]_[time2text(world.timeofday, "hh:mm")]_[game_id].log")
-		runtime_log << "Game [game_id] starting up at [time2text(world.timeofday, "hh:mm.ss")]"
+		to_file(runtime_log, "Game [game_id] starting up at [time2text(world.timeofday, "hh:mm.ss")]")
 		log = runtime_log
 
 	callHook("startup")
@@ -121,7 +121,7 @@ var/world_topic_spam_protect_time = world.timeofday
 /world/Topic(T, addr, master, key)
 	TGS_TOPIC	//redirect to server tools if necessary
 
-	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key][log_end]"
+	to_file(diary, "TOPIC: \"[T]\", from:[addr], master:[master], key:[key][log_end]")
 
 	if (T == "ping")
 		var/x = 1
@@ -215,7 +215,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 				spawn(50)
 					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
+					return
 
 			world_topic_spam_protect_time = world.time
 			world_topic_spam_protect_ip = addr
@@ -265,7 +265,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 				spawn(50)
 					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
+					return
 
 			world_topic_spam_protect_time = world.time
 			world_topic_spam_protect_ip = addr
@@ -333,7 +333,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 				spawn(50)
 					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
+					return
 
 			world_topic_spam_protect_time = world.time
 			world_topic_spam_protect_ip = addr
@@ -383,7 +383,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 				spawn(50)
 					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
+					return
 
 			world_topic_spam_protect_time = world.time
 			world_topic_spam_protect_ip = addr
@@ -397,7 +397,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			if(world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
 				spawn(50)
 					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
+					return
 
 			world_topic_spam_protect_time = world.time
 			world_topic_spam_protect_ip = addr
@@ -420,7 +420,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			if(world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
 				spawn(50)
 					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
+					return
 
 			world_topic_spam_protect_time = world.time
 			world_topic_spam_protect_ip = addr
@@ -450,7 +450,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			if(world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
 				spawn(50)
 					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
+					return
 
 			world_topic_spam_protect_time = world.time
 			world_topic_spam_protect_ip = addr
@@ -524,7 +524,7 @@ var/world_topic_spam_protect_time = world.timeofday
 /world/proc/save_mode(var/the_mode)
 	var/F = file("data/mode.txt")
 	fdel(F)
-	F << the_mode
+	to_file(F, the_mode)
 
 /hook/startup/proc/loadMOTD()
 	world.load_motd()
@@ -594,7 +594,7 @@ var/failed_old_db_connections = 0
 		to_world_log("Feedback database connection established.")
 	return 1
 
-proc/setup_database_connection()
+/proc/setup_database_connection()
 
 	if(failed_db_connections > FAILED_DB_CONNECTION_CUTOFF)	//If it failed to establish a connection more than 5 times in a row, don't bother attempting to conenct anymore.
 		return 0
@@ -619,7 +619,7 @@ proc/setup_database_connection()
 	return .
 
 //This proc ensures that the connection to the feedback database (global variable dbcon) is established
-proc/establish_db_connection()
+/proc/establish_db_connection()
 	if(failed_db_connections > FAILED_DB_CONNECTION_CUTOFF)
 		return 0
 
@@ -637,7 +637,7 @@ proc/establish_db_connection()
 	return 1
 
 //These two procs are for the old database, while it's being phased out. See the tgstation.sql file in the SQL folder for more information.
-proc/setup_old_database_connection()
+/proc/setup_old_database_connection()
 
 	if(failed_old_db_connections > FAILED_DB_CONNECTION_CUTOFF)	//If it failed to establish a connection more than 5 times in a row, don't bother attempting to conenct anymore.
 		return 0
@@ -662,7 +662,7 @@ proc/setup_old_database_connection()
 	return .
 
 //This proc ensures that the connection to the feedback database (global variable dbcon) is established
-proc/establish_old_db_connection()
+/proc/establish_old_db_connection()
 	if(failed_old_db_connections > FAILED_DB_CONNECTION_CUTOFF)
 		return 0
 

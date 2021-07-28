@@ -331,7 +331,6 @@
 	query_accesslog.Execute()
 
 
-#undef TOPIC_SPAM_DELAY
 #undef UPLOAD_LIMIT
 #undef MIN_CLIENT_VERSION
 
@@ -370,7 +369,7 @@
 		if (config.asset_simple_preload)
 			addtimer(CALLBACK(SSassets.transport, /datum/asset_transport.proc/send_assets_slow, src, SSassets.transport.preload), 5 SECONDS)
 
-mob/proc/MayRespawn()
+/mob/proc/MayRespawn()
 	return 0
 
 client/proc/MayRespawn()

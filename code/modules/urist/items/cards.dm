@@ -66,7 +66,7 @@
 	examine()
 		..()
 		for(var/obj/item/toy/card/R in contents)
-			usr << R.name
+			to_chat(usr, R.name)
 		return
 
 	attack_self(mob/user as mob)
@@ -150,7 +150,7 @@
 			var/mob/M = usr
 			M.put_in_hands(I)
 		else
-			usr << "Deck is empty!"
+			to_chat(usr, "Deck is empty!")
 
 	attack_self(mob/user as mob)
 		pull_card()

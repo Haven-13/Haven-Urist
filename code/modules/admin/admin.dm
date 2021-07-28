@@ -298,7 +298,8 @@ var/global/floorIsLava = 0
 			if(I.author == usr.key || I.author == "Adminbot")
 				dat += "<A href='?src=[REF(src)];remove_player_info=[key];remove_index=[i]'>Remove</A>"
 			dat += "<hr></li>"
-		if(update_file) info << infos
+		if(update_file)
+			to_file(info, infos)
 
 	dat += "</ul><br><A href='?src=[REF(src)];add_player_info=[key]'>Add Comment</A><br>"
 
@@ -382,7 +383,7 @@ var/global/floorIsLava = 0
 					if(CHANNEL.is_admin_channel)
 						dat+="<B><FONT style='BACKGROUND-COLOR: LightGreen'><A href='?src=[REF(src)];ac_show_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A></FONT></B><BR>"
 					else
-						dat+="<B><A href='?src=[REF(src)];ac_show_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR></B>"
+						dat+="<B><A href='?src=[REF(src)];ac_show_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : null]<BR></B>"
 			dat+={"<BR><HR><A href='?src=[REF(src)];ac_refresh=1'>Refresh</A>
 				<BR><A href='?src=[REF(src)];ac_setScreen=[0]'>Back</A>
 			"}
@@ -466,7 +467,7 @@ var/global/floorIsLava = 0
 				dat+="<I>No feed channels found active...</I><BR>"
 			else
 				for(var/datum/feed_channel/CHANNEL in news_network.network_channels)
-					dat+="<A href='?src=[REF(src)];ac_pick_censor_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
+					dat+="<A href='?src=[REF(src)];ac_pick_censor_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : null]<BR>"
 			dat+="<BR><A href='?src=[REF(src)];ac_setScreen=[0]'>Cancel</A>"
 		if(11)
 			dat+={"
@@ -479,7 +480,7 @@ var/global/floorIsLava = 0
 				dat+="<I>No feed channels found active...</I><BR>"
 			else
 				for(var/datum/feed_channel/CHANNEL in news_network.network_channels)
-					dat+="<A href='?src=[REF(src)];ac_pick_d_notice=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
+					dat+="<A href='?src=[REF(src)];ac_pick_d_notice=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : null]<BR>"
 
 			dat+="<BR><A href='?src=[REF(src)];ac_setScreen=[0]'>Back</A>"
 		if(12)
@@ -1371,7 +1372,7 @@ var/global/floorIsLava = 0
 			P.adminbrowse()
 
 
-datum/admins/var/obj/item/weapon/paper/admin/faxreply // var to hold fax replies in
+/datum/admins/var/obj/item/weapon/paper/admin/faxreply // var to hold fax replies in
 
 /datum/admins/proc/faxCallback(var/obj/item/weapon/paper/admin/P, var/obj/machinery/photocopier/faxmachine/destination)
 	var/customname = input(src.owner, "Pick a title for the report", "Title") as text|null

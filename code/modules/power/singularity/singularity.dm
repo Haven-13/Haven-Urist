@@ -415,7 +415,7 @@
 		if(M.status_flags & GODMODE)
 			continue
 		toxdamage = (toxdamage - (toxdamage*M.getarmor(null, "rad")))
-		M.apply_effect(toxdamage, TOX)
+		M.apply_effect(toxdamage, DAMAGE_TYPE_TOXIN)
 	return
 
 
@@ -434,7 +434,7 @@
 				else
 					to_chat(H, "<span class=\"warning\">You look directly into The [src.name], but your eyewear does absolutely nothing to protect you from it!</span>")
 		to_chat(M, "<span class='danger'>You look directly into The [src.name] and feel [current_size == 11 ? "helpless" : "weak"].</span>")
-		M.apply_effect(3, STUN)
+		M.apply_effect(3, DAMAGE_TYPE_STUN)
 		for(var/mob/O in viewers(M, null))
 			O.show_message(text("<span class='danger'>[] stares blankly at The []!</span>", M, src), 1)
 

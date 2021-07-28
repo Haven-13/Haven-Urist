@@ -159,7 +159,7 @@
 	melee_damage_lower = 3
 	melee_damage_upper = 12
 	attacktext = "stung"
-	damage_type = BURN
+	damage_type = DAMAGE_TYPE_BURN
 	speak_chance = 1
 	emote_see = list("wobbles slightly","oozes something out of tentacles' ends")
 

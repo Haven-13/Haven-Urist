@@ -133,7 +133,7 @@ default behaviour is:
 					Weaken(2)
 					playsound(loc, "punch", 25, 1, -1)
 					visible_message("<span class='warning'>[src] [pick("ran", "slammed")] into \the [AM]!</span>")
-					src.apply_damage(5, BRUTE)
+					src.apply_damage(5, DAMAGE_TYPE_BRUTE)
 				return
 			if (!now_pushing)
 				now_pushing = 1
@@ -354,8 +354,8 @@ default behaviour is:
 	return 1
 
 /mob/living/proc/get_organ_target()
-	var/mob/shooter = src
-	var/t = shooter:zone_sel.selecting
+	var/mob/living/shooter = src
+	var/t = shooter.zone_sel.selecting
 	if ((t in list( BP_EYES, BP_MOUTH )))
 		t = BP_HEAD
 	var/obj/item/organ/external/def_zone = ran_zone(t)

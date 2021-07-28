@@ -6,7 +6,7 @@
 	//Continued damage to vital organs can kill you, and robot organs don't count towards total damage so no need to cap them.
 	return (BP_IS_ROBOTIC(src) || brute_dam + burn_dam + additional_damage < max_damage * 4)
 
-obj/item/organ/external/take_general_damage(var/amount, var/silent = FALSE)
+/obj/item/organ/external/take_general_damage(var/amount, var/silent = FALSE)
 	take_external_damage(amount)
 
 /obj/item/organ/external/proc/take_external_damage(brute, burn, damage_flags, used_weapon = null)
@@ -17,9 +17,9 @@ obj/item/organ/external/take_general_damage(var/amount, var/silent = FALSE)
 	if((brute <= 0) && (burn <= 0))
 		return 0
 
-	var/sharp = (damage_flags & DAM_SHARP)
-	var/edge  = (damage_flags & DAM_EDGE)
-	var/laser = (damage_flags & DAM_LASER)
+	var/sharp = (damage_flags & DAMAGE_FLAGS_SHARP)
+	var/edge  = (damage_flags & DAMAGE_FLAGS_EDGE)
+	var/laser = (damage_flags & DAMAGE_FLAGS_HOT)
 	var/blunt = brute && !sharp && !edge
 
 	// Handle some status-based damage multipliers.
@@ -103,22 +103,19 @@ obj/item/organ/external/take_general_damage(var/amount, var/silent = FALSE)
 	var/block_cut = !(brute > 15 || !(species.species_flags & SPECIES_FLAG_NO_MINOR_CUT))
 
 	if(brute)
-		var/to_create = BRUISE
+		var/to_create = DAMAGE_TYPE_BLUDGEON
 		if(can_cut)
 			if(!block_cut)
-				to_create = CUT
+				to_create = DAMAGE_TYPE_SLASH
 			//need to check sharp again here so that blunt damage that was strong enough to break skin doesn't give puncture wounds
 			if(sharp && !edge)
-				to_create = PIERCE
+				to_create = DAMAGE_TYPE_PIERCE
 		created_wound = createwound(to_create, brute)
 
 	if(burn)
-		if(laser)
-			createwound(LASER, burn)
-			if(prob(40))
-				owner.IgniteMob()
-		else
-			createwound(BURN, burn)
+		if(prob(40))
+			owner.IgniteMob()
+		createwound(DAMAGE_TYPE_BURN, burn)
 
 	//Initial pain spike
 	add_pain(0.6*burn + 0.4*brute)
@@ -158,7 +155,7 @@ obj/item/organ/external/take_general_damage(var/amount, var/silent = FALSE)
 			break
 
 		// heal brute damage
-		if(W.damage_type == BURN && (burn_ratio < 1 || vital))
+		if(W.damage_type == DAMAGE_TYPE_BURN && (burn_ratio < 1 || vital))
 			burn = W.heal_damage(burn)
 		else
 			brute = W.heal_damage(brute)

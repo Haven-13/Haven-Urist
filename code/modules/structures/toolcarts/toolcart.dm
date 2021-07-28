@@ -71,9 +71,9 @@
 	switch(action)
 		if("take")
 			var/target = params["take"]
-			if (items && target in items)
+			if (items && (target in items))
 				. = take_cart_item(target)
-			if (!(.) && stacks && target in stacks)
+			if (!(.) && stacks && (target in stacks))
 				. = take_cart_stack_item(target)
 	if(.)
 		update_icon()

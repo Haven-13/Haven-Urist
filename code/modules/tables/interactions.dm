@@ -46,7 +46,7 @@
 	if(!flipped)
 		return 0
 
-	if(!(P.damage_type == BRUTE || P.damage_type == BURN))
+	if(!(P.damage_type == DAMAGE_TYPE_BRUTE || P.damage_type == DAMAGE_TYPE_BURN))
 		return 0
 
 	if(take_damage(P.damage/2))

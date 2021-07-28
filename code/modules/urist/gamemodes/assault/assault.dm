@@ -86,7 +86,7 @@ var/global/remaininggens = 6
 				M.loc = H.loc
 //				qdel(H)
 
-			M << "<span class='warning'>You are an ANFOR (Allied Naval Forces) marine, part of a joint Nanotrasen/Terran Confederacy task force sent here to defend the station at all costs. It is your job to rally the remaining crewmembers and to stave off the impending attack. Good luck soldier.</span>"
+			to_chat(M, "<span class='warning'>You are an ANFOR (Allied Naval Forces) marine, part of a joint Nanotrasen/Terran Confederacy task force sent here to defend the station at all costs. It is your job to rally the remaining crewmembers and to stave off the impending attack. Good luck soldier.</span>")
 
 	//		else
 	//			return
@@ -205,7 +205,7 @@ var/global/remaininggens = 6
 				H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a3(H), slot_r_hand)
 				H.equip_to_slot_or_del(new /obj/item/clothing/glasses/night(H), slot_glasses)
 
-				H << "<B>You are a lactera officer. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must lead your fellow lactera to destroy the humans and their shield generator.</B>"
+				to_chat(H, "<B>You are a lactera officer. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must lead your fellow lactera to destroy the humans and their shield generator.</B>")
 
 			else
 				H.equip_to_slot_or_del(new /obj/item/clothing/under/lactera(H), slot_w_uniform)
@@ -217,7 +217,7 @@ var/global/remaininggens = 6
 				H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a2(H), slot_r_hand)
 				H.equip_to_slot_or_del(new /obj/item/clothing/glasses/night(H), slot_glasses)
 
-				H << "<B>You are a lactera soldier. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must work with your fellow lactera to destroy the humans and their shield generator.</B>"
+				to_chat(H, "<B>You are a lactera soldier. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must work with your fellow lactera to destroy the humans and their shield generator.</B>")
 
 			remaininglactera -= 1
 
