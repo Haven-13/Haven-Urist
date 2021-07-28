@@ -54,7 +54,7 @@
 
 /obj/item/weapon/material/twohanded/get_parry_chance(mob/user)
 	. = ..()
-	if(wielded) 
+	if(wielded)
 		. += wielded_parry_bonus
 
 /obj/item/weapon/material/twohanded/update_icon()
@@ -123,7 +123,7 @@
 /obj/item/weapon/material/twohanded/dualsaber/attack(target as mob, mob/living/user as mob)
 	..()
 	if((CLUMSY in user.mutations) && (wielded) &&prob(40))
-		user << "<span class='warning'> You twirl around a bit before losing your balance and impaling yourself on the [src].</span>"
+		to_chat(user, "<span class='warning'> You twirl around a bit before losing your balance and impaling yourself on the [src].</span>")
 		user.take_organ_damage(20,25)
 		return
 	if((wielded) && prob(50))

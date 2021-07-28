@@ -28,7 +28,7 @@
 
 	if(density)
 		opening = 1
-		user << "<span class='notice'>You slide the heavy wall open.</span>"
+		to_chat(user, "<span class='notice'>You slide the heavy wall open.</span>")
 		flick("templewall_opening", src)
 		sleep(5)
 		density = 0
@@ -301,7 +301,7 @@
 
 	switch(trap_type)
 		if("sawburst")
-			M << "<span class='danger'>A sawblade shoots out of the ground and strikes you!</span>"
+			to_chat(M, "<span class='danger'>A sawblade shoots out of the ground and strikes you!</span>")
 			M.apply_damage(rand(5,10), BRUTE, damage_flags = (DAM_SHARP | DAM_EDGE))
 
 			var/atom/myloc = src.loc
@@ -312,7 +312,7 @@
 				qdel(flicker)
 			//flick("sawblade",src)
 		if("poison_dart")
-			M << "<span class='danger'>You feel something small and sharp strike you!</span>"
+			to_chat(M, "<span class='danger'>You feel something small and sharp strike you!</span>")
 			M.apply_damage(rand(5,10), TOX)
 
 			var/atom/myloc = src.loc
@@ -323,7 +323,7 @@
 				qdel(flicker)
 			//flick("dart[rand(1,3)]",src)
 		if("flame_burst")
-			M << "<span class='danger'>A jet of fire comes out of nowhere!</span>"
+			to_chat(M, "<span class='danger'>A jet of fire comes out of nowhere!</span>")
 			M.apply_damage(rand(5,10), BURN)
 
 			var/atom/myloc = src.loc

@@ -12,16 +12,16 @@
 
 /obj/machinery/foodgrill/attackby(obj/item/I, mob/user)
 	if(on)
-		user << "<span class='notice'>[src] is already processing, please wait.</span>"
+		to_chat(user, "<span class='notice'>[src] is already processing, please wait.</span>")
 		return
 	if(istype(I, /obj/item/weapon/grab)||istype(I, /obj/item/tk_grab))
-		user << "<span class='warning'>That isn't going to fit.</span>"
+		to_chat(user, "<span class='warning'>That isn't going to fit.</span>")
 		return
 //	if(!user.unEquip(I))
-//		user << "<span class='warning'>You cannot grill [I].</span>"
+//		to_chat(user, "<span class='warning'>You cannot grill [I].</span>")
 //		return
 	else
-		user << "<span class='notice'>You put [I] onto [src].</span>"
+		to_chat(user, "<span class='notice'>You put [I] onto [src].</span>")
 		on = TRUE
 		user.drop_item()
 		I.loc = src

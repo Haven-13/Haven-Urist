@@ -39,7 +39,7 @@
 		var/obj/item/weapon/weldingtool/WT = W
 		if (WT.remove_fuel(0,user))
 			if(health >= maxhealth)
-				user << "<span class='warning'>The shield generator is fully repaired alredy!</span>"
+				to_chat(user, "<span class='warning'>The shield generator is fully repaired alredy!</span>")
 			else
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 				user.visible_message("[user.name] starts to patch some dents on the shield generator.", \
@@ -50,7 +50,7 @@
 					health += 10
 
 		else
-			user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
+			to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
 
 	else
 		switch(W.damtype)

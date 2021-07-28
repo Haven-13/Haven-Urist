@@ -300,10 +300,10 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/attackby(obj/item/W as obj, mob/user as mob)
 	if(src.contents.len > ingredient_limit)
-		user << "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>"
+		to_chat(user, "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>")
 		return
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
-		user << "<span class='notice'> You add [W] to [src].</span>"
+		to_chat(user, "<span class='notice'> You add [W] to [src].</span>")
 		var/obj/item/weapon/reagent_containers/F = W
 		F.reagents.trans_to(src, F.reagents.total_volume)
 		user.drop_item()
@@ -380,7 +380,7 @@
 	..()
 	var/whatsinside = pick(ingredients)
 
-	usr << "<span class='notice'> You think you can see [whatsinside] in there.</span>"
+	to_chat(usr, "<span class='notice'> You think you can see [whatsinside] in there.</span>")
 
 ////////////////////////////////ICE CREAM///////////////////////////////////
 /obj/item/weapon/reagent_containers/food/snacks/icecream
@@ -534,10 +534,10 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/attackby(obj/item/W as obj, mob/user as mob)
 	if(src.contents.len > ingredient_limit)
-		user << "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>"
+		to_chat(user, "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>")
 		return
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
-		user << "<span class='notice'> You add [W] to [src].</span>"
+		to_chat(user, "<span class='notice'> You add [W] to [src].</span>")
 		var/obj/item/weapon/reagent_containers/F = W
 		F.reagents.trans_to(src, F.reagents.total_volume)
 		user.drop_item()
@@ -604,7 +604,7 @@
 	..()
 	var/whatsinside = pick(ingredients)
 
-	usr << "<span class='notice'> You think you can see fermented chunks of \a [whatsinside] in there.</span>"
+	to_chat(usr, "<span class='notice'> You think you can see fermented chunks of \a [whatsinside] in there.</span>")
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/proc/ferment(var/boozetype)
 	if(!(boozetype))

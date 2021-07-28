@@ -14,11 +14,6 @@
 	attack_verb = list("slices", "cuts", "stabs", "jabs")
 	var/childpart = /obj/item/weapon/improvised/scissorknife //This is so any thing made is specified. It's helpful for things
 
-	/*suicide_act(mob/user)
-		viewers(user) << pick("<span class='danger'>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</span>", \
-							"<span class='danger'>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</span>")
-		return (BRUTELOSS)*/
-
 /obj/item/weapon/scissors/attackby(var/obj/item/I, mob/user as mob) //Seperation of the scissors
 	if(istype(I, /obj/item/weapon/screwdriver))
 
@@ -37,7 +32,7 @@
 
 		user.put_in_hands(left_part)
 		user.put_in_hands(right_part)
-		user << "<span class='notice'>You seperate the parts of the [src]</span>"
+		to_chat(user, "<span class='notice'>You seperate the parts of the [src]</span>")
 
 		qdel(src)
 	..()
@@ -79,7 +74,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(N)
-		user << "<span class='notice'>You tighten the screw on the screwdriver assembley</span>"
+		to_chat(user, "<span class='notice'>You tighten the screw on the screwdriver assembley</span>")
 
 		qdel(src)
 	..()
@@ -143,7 +138,7 @@
 
 // This used to be standard office scissors, but I moved those down to the root scissors/
 // Plastic Craft scissors, like those used by schoolchildren.
-/obj/item/weapon/scissors/craft 
+/obj/item/weapon/scissors/craft
 	name = "Craft Scissors"
 	desc = "A pair of scissors used for arts and crafts. It's probably safe to run with"
 	icon_state = "scissors_craft"

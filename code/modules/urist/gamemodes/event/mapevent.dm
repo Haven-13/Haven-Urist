@@ -4,7 +4,7 @@
 	set category = "Fun"
 	set desc = "Loads the map for the event."
 	if(!check_rights(R_SERVER))
-		src <<"<span class='danger'> You do not have the required admin rights.</span>"
+		to_chat(src, "<span class='danger'> You do not have the required admin rights.</span>")
 		return
 
 	var/list/potentialEventMap = list()
@@ -53,7 +53,7 @@
 			to_world("<span class='danger'> Event Map loaded.</span>")
 
 		else
-			src << "<span class='warning'> Event Map couldn't be loaded properly. Yell at the coders.</span>"
+			to_chat(src, "<span class='warning'> Event Map couldn't be loaded properly. Yell at the coders.</span>")
 
 	else
 		to_world("<span class='danger'> Event Map not found.</span>")

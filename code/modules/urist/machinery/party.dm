@@ -66,7 +66,7 @@
 			L.turnoff()
 		var/area/main_area = get_area(src)
 		for(var/mob/living/M in mobs_in_area(main_area))
-			M << sound(null, channel = 1)
+			sound_to(M, sound(null, channel = 1))
 
 			main_area.forced_ambience = null
 

@@ -476,7 +476,7 @@
 			src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
 			fishleft -= 1
 			fishing = 0
-			user << "<span class='notice'>You yank on your line, pulling up [F]!</span>"
+			to_chat(user, "<span class='notice'>You yank on your line, pulling up [F]!</span>")
 
 		else if(!fishleft && !bridge)
 			to_chat(user, "<span class='notice'>You've fished too much in this area, try fishing somewhere else.</span>")

@@ -155,7 +155,7 @@ var/last_chew = 0
 		if (R.use(1))
 			var/obj/item/weapon/material/woodwirerod/W = new(get_turf(user))
 			user.put_in_hands(W)
-			user << "<span class='notice'>You wrap the cable restraint around the top of the wood shaft.</span>"
+			to_chat(user, "<span class='notice'>You wrap the cable restraint around the top of the wood shaft.</span>")
 			qdel(src)
 			update_icon(user)
 

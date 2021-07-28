@@ -72,10 +72,10 @@
 				if("Yes")
 					if(charged) //just in case, we check again
 						if(!firing)
-							user << "<span class='warning'>You fire the [src.name].</span>"
+							to_chat(user, "<span class='warning'>You fire the [src.name].</span>")
 							Fire()
 					else
-						user << "<span class='warning'>The [src.name] needs to charge!</span>"
+						to_chat(user, "<span class='warning'>The [src.name] needs to charge!</span>")
 
 
 				if("Cancel")
@@ -83,13 +83,13 @@
 			return
 
 		else
-			user << "<span class='warning'>There is nothing to shoot at...</span>"
+			to_chat(user, "<span class='warning'>There is nothing to shoot at...</span>")
 
 	else if(!charged)
-		user << "<span class='warning'>The [src.name] needs to charge!</span>"
+		to_chat(user, "<span class='warning'>The [src.name] needs to charge!</span>")
 
 	else if(!target)
-		user << "<span class='warning'>There is nothing to shoot at...</span>"
+		to_chat(user, "<span class='warning'>There is nothing to shoot at...</span>")
 
 
 /obj/machinery/shipweapons/proc/Fire() //this proc is a mess

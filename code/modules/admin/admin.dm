@@ -298,7 +298,8 @@ var/global/floorIsLava = 0
 			if(I.author == usr.key || I.author == "Adminbot")
 				dat += "<A href='?src=[REF(src)];remove_player_info=[key];remove_index=[i]'>Remove</A>"
 			dat += "<hr></li>"
-		if(update_file) info << infos
+		if(update_file)
+			to_file(info, infos)
 
 	dat += "</ul><br><A href='?src=[REF(src)];add_player_info=[key]'>Add Comment</A><br>"
 

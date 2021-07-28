@@ -176,7 +176,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 				var/tele_z = GLOB.using_map.overmap_ship.evac_z
 
 				do_teleport(W, locate(tele_x,tele_y,tele_z), 0)
-				W << "<span class='warning'>You teleport back to the ship!</span>"
+				to_chat(W, "<span class='warning'>You teleport back to the ship!</span>")
 
 			else
 				qdel(W)
@@ -187,7 +187,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 			var/tele_z = GLOB.using_map.overmap_ship.evac_z
 
 			do_teleport(S, locate(tele_x,tele_y,tele_z), 0)
-			S << "<span class='warning'>You teleport back to the ship!</span>"
+			to_chat(S, "<span class='warning'>You teleport back to the ship!</span>")
 
 
 	var/list/atoms_to_initialise = list()
