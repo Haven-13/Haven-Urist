@@ -32,7 +32,7 @@
 	if(!material || !material.radioactivity)
 		return
 	for(var/mob/living/L in range(1,src))
-		L.apply_effect(round(material.radioactivity/20),IRRADIATE, blocked = L.getarmor(null, "rad"))
+		L.apply_effect(round(material.radioactivity/20),DAMAGE_TYPE_RADIATION, blocked = L.getarmor(null, "rad"))
 
 /obj/structure/railing/Initialize()
 	. = ..()
@@ -224,7 +224,7 @@
 					var/blocked = G.affecting.run_armor_check(BP_HEAD, "melee")
 					if (prob(30 * blocked_mult(blocked)))
 						G.affecting.Weaken(5)
-					G.affecting.apply_damage(8, BRUTE, BP_HEAD, blocked)
+					G.affecting.apply_damage(8, DAMAGE_TYPE_BRUTE, BP_HEAD, blocked)
 				else
 					if (get_turf(G.affecting) == get_turf(src))
 						G.affecting.forceMove(get_step(src, src.dir))

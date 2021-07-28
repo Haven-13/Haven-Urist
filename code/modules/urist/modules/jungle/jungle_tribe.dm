@@ -2,7 +2,7 @@
 
 /obj/item/projectile/jungle_spear
 	damage = 10
-	damage_type = TOX
+	damage_type = DAMAGE_TYPE_TOXIN
 	icon_state = "bullet"
 
 /obj/effect/jungle_tribe_spawn

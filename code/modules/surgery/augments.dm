@@ -96,7 +96,7 @@
 	user.visible_message("<span class = 'danger'>[user] misaligns \the [tool] causing its connectors to puncture into [target]!</span>", \
 	"<span class = 'danger'>You misalign \the [tool] causing its connectors to puncture into [target]!</span>")
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	affected.take_damage(15,0,DAM_SHARP)
+	affected.take_damage(15,0,DAMAGE_FLAGS_SHARP)
 	if(prob(5))
 		tool.visible_message("[tool] pings as it begins to start up, and <span class = 'danger'>embeds itself into [target]!</span>")
 		target.embed(tool,affected)

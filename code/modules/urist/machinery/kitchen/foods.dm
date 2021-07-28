@@ -300,10 +300,10 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/attackby(obj/item/W as obj, mob/user as mob)
 	if(src.contents.len > ingredient_limit)
-		user << "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>"
+		to_chat(user, "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>")
 		return
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
-		user << "<span class='notice'> You add [W] to [src].</span>"
+		to_chat(user, "<span class='notice'> You add [W] to [src].</span>")
 		var/obj/item/weapon/reagent_containers/F = W
 		F.reagents.trans_to(src, F.reagents.total_volume)
 		user.drop_item()
@@ -380,50 +380,53 @@
 	..()
 	var/whatsinside = pick(ingredients)
 
-	usr << "<span class='notice'> You think you can see [whatsinside] in there.</span>"
+	to_chat(usr, "<span class='notice'> You think you can see [whatsinside] in there.</span>")
 
 ////////////////////////////////ICE CREAM///////////////////////////////////
 /obj/item/weapon/reagent_containers/food/snacks/icecream
-        name = "ice cream"
-        desc = "Delicious ice cream."
-        icon = 'icons/urist/kitchen.dmi'
-        icon_state = "icecream_cone"
-        New()
-                ..()
-                reagents.add_reagent(/datum/reagent/nutriment, 1)
-                reagents.add_reagent(/datum/reagent/sugar,1)
-                bitesize = 1
-                update_icon()
+	name = "ice cream"
+	desc = "Delicious ice cream."
+	icon = 'icons/urist/kitchen.dmi'
+	icon_state = "icecream_cone"
 
-        update_icon()
-                overlays.Cut()
-                var/image/filling = image('icons/urist/kitchen.dmi', src, "icecream_color") //GLLEEEEEEERD!
-                filling.icon += reagents.get_color()
-                overlays += filling
+/obj/item/weapon/reagent_containers/food/snacks/icecream/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 1)
+	reagents.add_reagent(/datum/reagent/sugar,1)
+	bitesize = 1
+	update_icon()
+
+/obj/item/weapon/reagent_containers/food/snacks/icecream/update_icon()
+	overlays.Cut()
+	var/image/filling = image('icons/urist/kitchen.dmi', src, "icecream_color") //GLLEEEEEEERD!
+	filling.icon += reagents.get_color()
+	overlays += filling
 
 /obj/item/weapon/reagent_containers/food/snacks/icecream/icecreamcone
-        name = "ice cream cone"
-        desc = "Delicious ice cream."
-        icon_state = "icecream_cone"
-        volume = 500
-        New()
-                ..()
-                reagents.add_reagent(/datum/reagent/nutriment, 2)
-                reagents.add_reagent(/datum/reagent/sugar,6)
-                reagents.add_reagent(/datum/reagent/drink/ice,2)
-                bitesize = 3
+	name = "ice cream cone"
+	desc = "Delicious ice cream."
+	icon_state = "icecream_cone"
+	volume = 500
+
+/obj/item/weapon/reagent_containers/food/snacks/icecream/icecreamcone/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 2)
+	reagents.add_reagent(/datum/reagent/sugar,6)
+	reagents.add_reagent(/datum/reagent/drink/ice,2)
+	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/icecream/icecreamcup
-        name = "chocolate ice cream cone"
-        desc = "Delicious ice cream."
-        icon_state = "icecream_cup"
-        volume = 500
-        New()
-                ..()
-                reagents.add_reagent(/datum/reagent/nutriment, 4)
-                reagents.add_reagent(/datum/reagent/sugar,8)
-                reagents.add_reagent(/datum/reagent/drink/ice,2)
-                bitesize = 6
+	name = "chocolate ice cream cone"
+	desc = "Delicious ice cream."
+	icon_state = "icecream_cup"
+	volume = 500
+
+/obj/item/weapon/reagent_containers/food/snacks/icecream/icecreamcup/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 4)
+	reagents.add_reagent(/datum/reagent/sugar,8)
+	reagents.add_reagent(/datum/reagent/drink/ice,2)
+	bitesize = 6
 
 //cereals
 
@@ -433,9 +436,10 @@
 	icon = 'icons/urist/kitchen.dmi'
 	icon_state = "cereal_box"
 	bitesize = 2
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 30)
+
+/obj/item/weapon/reagent_containers/food/snacks/cereal/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 30)
 
 //deepfryer shit
 
@@ -446,9 +450,10 @@
 	icon_state = "deepfried_holder_icon"
 	bitesize = 2
 	deepfried = 1
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 30)
+
+/obj/item/weapon/reagent_containers/food/snacks/deepfryholder/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 30)
 
 //////////////
 //STILL SHIT//
@@ -471,10 +476,10 @@
 
 	var/list/ingredients = list()
 
-	New()
-		..()
-		src.reagents.add_reagent(boozetype, 20)
-		ferment(boozetype)
+/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/New()
+	..()
+	src.reagents.add_reagent(boozetype, 20)
+	ferment(boozetype)
 
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/wine
@@ -529,10 +534,10 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/attackby(obj/item/W as obj, mob/user as mob)
 	if(src.contents.len > ingredient_limit)
-		user << "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>"
+		to_chat(user, "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>")
 		return
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
-		user << "<span class='notice'> You add [W] to [src].</span>"
+		to_chat(user, "<span class='notice'> You add [W] to [src].</span>")
 		var/obj/item/weapon/reagent_containers/F = W
 		F.reagents.trans_to(src, F.reagents.total_volume)
 		user.drop_item()
@@ -599,7 +604,7 @@
 	..()
 	var/whatsinside = pick(ingredients)
 
-	usr << "<span class='notice'> You think you can see fermented chunks of \a [whatsinside] in there.</span>"
+	to_chat(usr, "<span class='notice'> You think you can see fermented chunks of \a [whatsinside] in there.</span>")
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/proc/ferment(var/boozetype)
 	if(!(boozetype))

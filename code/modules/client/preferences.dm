@@ -2,7 +2,7 @@
 
 var/list/preferences_datums = list()
 
-datum/preferences
+/datum/preferences
 	//doohickeys for savefiles
 	var/path
 	var/default_slot = 1				//Holder so it doesn't default to slot 1, rather the last one used
@@ -303,7 +303,7 @@ datum/preferences
 		var/name
 		for(var/i=1, i<= config.character_slots, i++)
 			S.cd = GLOB.using_map.character_load_path(S, i)
-			S["real_name"] >> name
+			from_file(S["real_name"], name)
 			if(!name)	name = "Character[i]"
 			if(i==default_slot)
 				name = "<b>[name]</b>"

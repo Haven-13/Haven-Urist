@@ -14,20 +14,20 @@
 /obj/machinery/deepfryer/examine()
 	..()
 	if(frying)
-		usr << "You can make out [frying] in the oil."
+		to_chat(usr, "You can make out [frying] in the oil.")
 
 /obj/machinery/deepfryer/attackby(obj/item/I, mob/user)
 	if(on)
-		user << "<span class='notice'>[src] is still active!</span>"
+		to_chat(user, "<span class='notice'>[src] is still active!</span>")
 		return
 	if(!istype(I, /obj/item/weapon/reagent_containers/food/snacks/))
-		user << "<span class='warning'>Budget cuts won't let you put that in there.</span>"
+		to_chat(user, "<span class='warning'>Budget cuts won't let you put that in there.</span>")
 		return
 	if(istype(I, /obj/item/weapon/reagent_containers/food/snacks/deepfryholder))
-		user << "<span class='userdanger'>You cannot doublefry.</span>"
+		to_chat(user, "<span class='userdanger'>You cannot doublefry.</span>")
 		return
 	else
-		user << "<span class='notice'>You put [I] into [src].</span>"
+		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
 		on = TRUE
 		user.drop_item()
 		frying = I
@@ -55,7 +55,7 @@
 
 /obj/machinery/deepfryer/attack_hand(mob/user)
 	if(on && frying)
-		user << "<span class='notice'>You pull [frying] from [src]! It looks like you were just in time!</span>"
+		to_chat(user, "<span class='notice'>You pull [frying] from [src]! It looks like you were just in time!</span>")
 		user.put_in_hands(frying)
 		frying = null
 		return

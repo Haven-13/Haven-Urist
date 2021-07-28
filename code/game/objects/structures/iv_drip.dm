@@ -98,7 +98,7 @@
 	if(attached)
 		if(!Adjacent(attached))
 			visible_message("The needle is ripped out of [src.attached], doesn't that hurt?")
-			attached.apply_damage(1, BRUTE, pick(BP_R_ARM, BP_L_ARM))
+			attached.apply_damage(1, DAMAGE_TYPE_BRUTE, pick(BP_R_ARM, BP_L_ARM))
 			attached = null
 			update_icon()
 			return PROCESS_KILL
@@ -202,7 +202,7 @@
 
 /obj/structure/iv_drip/proc/rip_out()
 	visible_message("The needle is ripped out of [src.attached], doesn't that hurt?")
-	attached.apply_damage(1, BRUTE, pick(BP_R_ARM, BP_L_ARM), damage_flags=DAM_SHARP)
+	attached.apply_damage(1, DAMAGE_TYPE_BRUTE, pick(BP_R_ARM, BP_L_ARM), damage_flags=DAMAGE_FLAGS_SHARP)
 	attached = null
 
 /obj/structure/iv_drip/proc/hook_up(mob/living/carbon/human/target, mob/user)

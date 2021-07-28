@@ -16,7 +16,7 @@
 		..()
 
 	else
-		user << "<span class='warning'>The [src.name] isn't loaded!</span>"
+		to_chat(user, "<span class='warning'>The [src.name] isn't loaded!</span>")
 		return
 
 
@@ -48,10 +48,10 @@
 
 			warhead = I
 
-			user << "<span class='notice'>You insert the torpedo warhead into the torpedo casing, arming the torpedo.</span>" //torpedo
+			to_chat(user, "<span class='notice'>You insert the torpedo warhead into the torpedo casing, arming the torpedo.</span>") //torpedo
 
 		else
-			user << "<span class='notice'>This torpedo already has a warhead in it!</span>" //torpedo
+			to_chat(user, "<span class='notice'>This torpedo already has a warhead in it!</span>") //torpedo
 
 	else if(isCrowbar(I))
 		if(warhead)

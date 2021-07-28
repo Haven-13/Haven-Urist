@@ -103,7 +103,7 @@ var/last_chew = 0
 	H.visible_message("<span class='warning'>\The [H] chews on \his [O.name]!</span>", "<span class='warning'>You chew on your [O.name]!</span>")
 	admin_attacker_log(H, "chewed on their [O.name]!")
 
-	O.take_external_damage(3,0, DAM_SHARP|DAM_EDGE ,"teeth marks")
+	O.take_external_damage(3,0, DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE ,"teeth marks")
 
 	last_chew = world.time
 
@@ -155,7 +155,7 @@ var/last_chew = 0
 		if (R.use(1))
 			var/obj/item/weapon/material/woodwirerod/W = new(get_turf(user))
 			user.put_in_hands(W)
-			user << "<span class='notice'>You wrap the cable restraint around the top of the wood shaft.</span>"
+			to_chat(user, "<span class='notice'>You wrap the cable restraint around the top of the wood shaft.</span>")
 			qdel(src)
 			update_icon(user)
 

@@ -363,7 +363,7 @@
 	openwindow(user)
 
 /obj/item/device/destTagger/OnTopic(user, href_list, state)
-	if(href_list["nextTag"] && href_list["nextTag"] in GLOB.tagger_locations)
+	if(href_list["nextTag"] && (href_list["nextTag"] in GLOB.tagger_locations))
 		src.currTag = href_list["nextTag"]
 		to_chat(user, "<span class='notice'>You set [src] to <b>[src.currTag]</b>.</span>")
 		playsound(src.loc, 'sound/machines/chime.ogg', 50, 1)
@@ -409,7 +409,6 @@
 
 /obj/machinery/disposal/deliveryChute/Bumped(var/atom/movable/AM) //Go straight into the chute
 	if(istype(AM, /obj/item/projectile) || istype(AM, /obj/effect))	return
-	if(istype(AM, /obj/mecha))	return
 	switch(dir)
 		if(NORTH)
 			if(AM.loc.y != src.loc.y+1) return

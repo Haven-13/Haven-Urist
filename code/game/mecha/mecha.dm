@@ -598,7 +598,7 @@
 	return
 
 /obj/mecha/bullet_act(var/obj/item/projectile/Proj)
-	if(Proj.damage_type == PAIN && !(src.r_deflect_coeff > 1))
+	if(Proj.damage_type == DAMAGE_TYPE_PAIN && !(src.r_deflect_coeff > 1))
 		use_power(Proj.agony * 5)
 
 	src.log_message("Hit by projectile. Type: [Proj.name]([Proj.check_armour]).",1)
@@ -1040,7 +1040,7 @@
 	return
 
 /obj/mecha/proc/moved_inside(var/mob/living/carbon/human/H as mob)
-	if(H && H.client && H in range(1))
+	if(H && H.client && (H in range(1)))
 		H.reset_view(src)
 		/*
 		H.client.perspective = EYE_PERSPECTIVE

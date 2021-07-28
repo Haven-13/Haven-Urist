@@ -3,7 +3,7 @@
 	icon_state = "bullet"
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	damage = 50
-	damage_type = BRUTE
+	damage_type = DAMAGE_TYPE_BRUTE
 	nodamage = 0
 	check_armour = "bullet"
 	embed = 1
@@ -216,12 +216,12 @@
 /obj/item/projectile/bullet/suffocationbullet//How does this even work?
 	name = "co bullet"
 	damage = 25
-	damage_type = OXY
+	damage_type = DAMAGE_TYPE_ASPHYXIA
 
 /obj/item/projectile/bullet/cyanideround
 	name = "poison bullet"
 	damage = 45
-	damage_type = TOX
+	damage_type = DAMAGE_TYPE_TOXIN
 
 /obj/item/projectile/bullet/burstbullet
 	name = "exploding bullet"
@@ -258,7 +258,7 @@
 	name = "cap"
 	invisibility = 101
 	fire_sound = null
-	damage_type = PAIN
+	damage_type = DAMAGE_TYPE_PAIN
 	damage = 0
 	nodamage = 1
 	embed = 0

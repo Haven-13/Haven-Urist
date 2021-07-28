@@ -106,22 +106,22 @@
 			visible_message("<span class='cult'>\The [src] disrupts nearby electrical equipment!</span>")
 			empulse(get_turf(src), 5, 2, 0)
 
-		else if(prob(5) && damtype == BRUTE && !special_attacks) //elemental attacks
+		else if(prob(5) && damtype == DAMAGE_TYPE_BRUTE && !special_attacks) //elemental attacks
 			spellscast++
 			if(prob(50))
 				visible_message("<span class='cult'>\The [src]' horns flicker with holy white flame!</span>")
-				damtype = BURN
+				damtype = DAMAGE_TYPE_BURN
 			else
 				visible_message("<span class='cult'>\The [src]' horns glimmer, electricity arcing between them!</span>")
-				damtype = ELECTROCUTE
+				damtype = DAMAGE_TYPE_SHOCK
 
 		else return
 
 /mob/living/simple_animal/hostile/retaliate/goat/king/phase2/Life()
 	..()
-	if(special_attacks >= 3 && damtype != BRUTE)
+	if(special_attacks >= 3 && damtype != DAMAGE_TYPE_BRUTE)
 		visible_message("<span class='cult'>The energy surrounding \the [src]'s horns dissipates.</span>")
-		damtype = BRUTE
+		damtype = DAMAGE_TYPE_BRUTE
 
 	if(health <= 150 && !phase3 && spellscast == 5) //begin phase 3, reset spell limit and heal
 		phase3 = TRUE
@@ -168,5 +168,5 @@
 
 /mob/living/simple_animal/hostile/retaliate/goat/king/phase2/UnarmedAttack(mob/living/L)
 	..()
-	if(damtype != BRUTE)
+	if(damtype != DAMAGE_TYPE_BRUTE)
 		special_attacks++

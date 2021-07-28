@@ -102,7 +102,7 @@
 	var/new_range = range + (rand(0,6) / severity) - (rand(0,3) / severity)
 	set_range(new_range)
 
-obj/item/device/suit_sensor_jammer/examine(var/user)
+/obj/item/device/suit_sensor_jammer/examine(var/user)
 	. = ..(user, 3)
 	if(.)
 		var/list/message = list()
@@ -113,18 +113,18 @@ obj/item/device/suit_sensor_jammer/examine(var/user)
 			message += "is lacking a cell."
 		to_chat(user, jointext(message,.))
 
-obj/item/device/suit_sensor_jammer/ui_status(mob/user, datum/ui_state/state)
+/obj/item/device/suit_sensor_jammer/ui_status(mob/user, datum/ui_state/state)
 	if(!bcell || bcell.charge <= 0)
 		return UI_CLOSE
 	return ..()
 
-obj/item/device/suit_sensor_jammer/ui_interact(mob/user, datum/tgui/ui)
+/obj/item/device/suit_sensor_jammer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "SuitSensorJammer")
 		ui.open()
 
-obj/item/device/suit_sensor_jammer/ui_data()
+/obj/item/device/suit_sensor_jammer/ui_data()
 	var/list/methods = new
 	for(var/suit_sensor_jammer_method/ssjm in suit_sensor_jammer_methods)
 		methods[++methods.len] = list("name" = ssjm.name, "cost" = ssjm.energy_cost, "ref" = REF(ssjm))
@@ -143,7 +143,7 @@ obj/item/device/suit_sensor_jammer/ui_data()
 
 	return data
 
-obj/item/device/suit_sensor_jammer/ui_act(action, params)
+/obj/item/device/suit_sensor_jammer/ui_act(action, params)
 	if(..())
 		return TRUE
 	switch(action)

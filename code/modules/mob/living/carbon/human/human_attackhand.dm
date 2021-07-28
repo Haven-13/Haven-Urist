@@ -47,10 +47,10 @@
 
 			visible_message("<span class='danger'>[H] has punched \the [src]!</span>")
 
-			apply_damage(damage, PAIN, affecting, armor_block)
+			apply_damage(damage, DAMAGE_TYPE_PAIN, affecting, armor_block)
 			if(damage >= 9)
 				visible_message("<span class='danger'>[H] has weakened \the [src]!</span>")
-				apply_effect(4, WEAKEN, armor_block)
+				apply_effect(4, DAMAGE_TYPE_WEAKEN, armor_block)
 
 			return
 
@@ -243,7 +243,7 @@
 /mob/living/carbon/human/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
 	return
 
-/mob/living/carbon/human/attack_generic(var/mob/user, var/damage, var/attack_message, var/environment_smash, var/damtype = BRUTE, var/armorcheck = "melee")
+/mob/living/carbon/human/attack_generic(var/mob/user, var/damage, var/attack_message, var/environment_smash, var/damtype = DAMAGE_TYPE_BRUTE, var/armorcheck = "melee")
 
 	if(!damage || !istype(user))
 		return

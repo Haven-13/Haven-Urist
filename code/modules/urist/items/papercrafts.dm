@@ -16,7 +16,7 @@
 /obj/item/weapon/papercrafts/proc/fold(var/obj/item/weapon/papercrafts/N, var/foldText, mob/user as mob) //So i don't have to write this over and over again
 	user.remove_from_mob(src)
 	user.put_in_hands(N)
-	user << foldText
+	to_chat(user, foldText)
 	qdel(src)
 	return
 
@@ -69,7 +69,7 @@
 	if(has_animate == 1) //If it has an animation
 		flick(animated_state, src)  // I JUST FOUND THIS PROC AND I AM HAPPY !!!!1!!!
 		playsound(src.loc, 'sound/effects/pageturn2.ogg', 50, 1) //Plays the paper shuffling sound
-		user << animated_message //Send the animated message
+		to_chat(user, animated_message) //Send the animated message
 	else
 		return
 
@@ -124,13 +124,13 @@
 				var/obj/item/weapon/papercrafts/square/S = new /obj/item/weapon/papercrafts/square
 				user.remove_from_mob(src)
 				user.put_in_hands(S)
-				user << "<span class='notice'>You trim the paper into a square</span>"
+				to_chat(user, "<span class='notice'>You trim the paper into a square</span>")
 				qdel(src)
 			if("Paper Hat")
 				var/obj/item/clothing/head/urist/papercrown/C = new /obj/item/clothing/head/urist/papercrown
 				user.remove_from_mob(src)
 				user.put_in_hands(C)
-				user << "<span class='notice'>You make a paper crown</span>"
+				to_chat(user, "<span class='notice'>You make a paper crown</span>")
 				qdel(src)
 			else
 				return

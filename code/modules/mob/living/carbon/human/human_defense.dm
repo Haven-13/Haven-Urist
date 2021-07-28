@@ -193,18 +193,18 @@ meteor_act
 
 	if(effective_force > 10 || effective_force >= 5 && prob(33))
 		forcesay(GLOB.hit_appends)	//forcesay checks stat already
-	if((I.damtype == BRUTE || I.damtype == PAIN) && prob(25 + (effective_force * 2)))
+	if((I.damtype == DAMAGE_TYPE_BRUTE || I.damtype == DAMAGE_TYPE_PAIN) && prob(25 + (effective_force * 2)))
 		if(!stat)
 			if(headcheck(hit_zone))
 				//Harder to score a stun but if you do it lasts a bit longer
 				if(prob(effective_force))
-					apply_effect(20, PARALYZE, blocked)
+					apply_effect(20, DAMAGE_TYPE_PARALYZE, blocked)
 					if(lying)
 						visible_message("<span class='danger'>[src] [species.knockout_message]</span>")
 			else
 				//Easier to score a stun but lasts less time
 				if(prob(effective_force + 10))
-					apply_effect(6, WEAKEN, blocked)
+					apply_effect(6, DAMAGE_TYPE_WEAKEN, blocked)
 					if(lying)
 						visible_message("<span class='danger'>[src] has been knocked down!</span>")
 
@@ -214,7 +214,7 @@ meteor_act
 	return 1
 
 /mob/living/carbon/human/proc/attack_bloody(obj/item/W, mob/living/attacker, var/effective_force, var/hit_zone)
-	if(W.damtype != BRUTE)
+	if(W.damtype != DAMAGE_TYPE_BRUTE)
 		return
 
 	//make non-sharp low-force weapons less likely to be bloodied
@@ -250,7 +250,7 @@ meteor_act
 				bloody_body(src)
 
 /mob/living/carbon/human/proc/projectile_hit_bloody(obj/item/projectile/P, var/effective_force, var/hit_zone)
-	if(P.damage_type != BRUTE || P.nodamage)
+	if(P.damage_type != DAMAGE_TYPE_BRUTE || P.nodamage)
 		return
 	if(!(P.sharp || prob(effective_force*4)))
 		return
@@ -276,7 +276,7 @@ meteor_act
 /mob/living/carbon/human/proc/attack_joint(var/obj/item/organ/external/organ, var/obj/item/W, var/effective_force, var/dislocate_mult, var/blocked)
 	if(!organ || (organ.dislocated == 2) || (organ.dislocated == -1) || blocked >= 100)
 		return 0
-	if(W.damtype != BRUTE)
+	if(W.damtype != DAMAGE_TYPE_BRUTE)
 		return 0
 
 	//want the dislocation chance to be such that the limb is expected to dislocate after dealing a fraction of the damage needed to break the limb
@@ -351,7 +351,7 @@ meteor_act
 		if(armor < 100)
 			var/damage_flags = O.damage_flags()
 			if(prob(armor))
-				damage_flags &= ~(DAM_SHARP|DAM_EDGE)
+				damage_flags &= ~(DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE)
 			created_wound = apply_damage(throw_damage, dtype, zone, armor, damage_flags, O)
 
 		if(ismob(O.thrower))
@@ -361,7 +361,7 @@ meteor_act
 				admin_attack_log(M, src, "Threw \an [O] at their victim.", "Had \an [O] thrown at them", "threw \an [O] at")
 
 		//thrown weapon embedded object code.
-		if(dtype == BRUTE && istype(O,/obj/item))
+		if(dtype == DAMAGE_TYPE_BRUTE && istype(O,/obj/item))
 			var/obj/item/I = O
 			if (!is_robot_module(I))
 				var/sharp = is_sharp(I)
@@ -432,7 +432,7 @@ meteor_act
 /mob/living/carbon/human/proc/handle_suit_punctures(var/damtype, var/damage, var/def_zone)
 
 	// Tox and oxy don't matter to suits.
-	if(damtype != BURN && damtype != BRUTE) return
+	if(damtype != DAMAGE_TYPE_BURN && damtype != DAMAGE_TYPE_BRUTE) return
 
 	// The rig might soak this hit, if we're wearing one.
 	if(back && istype(back,/obj/item/weapon/rig))

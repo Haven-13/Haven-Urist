@@ -1,8 +1,3 @@
-//used for pref.alternate_option
-#define GET_RANDOM_JOB 0
-#define BE_ASSISTANT 1
-#define RETURN_TO_LOBBY 2
-
 #define JOB_LEVEL_NEVER  4
 #define JOB_LEVEL_LOW    3
 #define JOB_LEVEL_MEDIUM 2
@@ -322,7 +317,7 @@
 		if(!(job_title in allowed_titles))
 			pref.job_low -= job_title
 
-datum/category_item/player_setup_item/proc/prune_occupation_prefs()
+/datum/category_item/player_setup_item/proc/prune_occupation_prefs()
 	prune_job_prefs()
 
 /datum/category_item/player_setup_item/occupation/proc/ResetJobs()
@@ -336,6 +331,6 @@ datum/category_item/player_setup_item/proc/prune_occupation_prefs()
 	return (job.title in player_alt_titles) ? player_alt_titles[job.title] : job.title
 
 #undef JOB_LEVEL_NEVER
-#undef SET_LEVE_LOW
+#undef JOB_LEVEL_LOW
 #undef JOB_LEVEL_MEDIUM
 #undef JOB_LEVEL_HIGH

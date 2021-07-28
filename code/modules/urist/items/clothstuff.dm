@@ -101,7 +101,7 @@
 					user.visible_message("<span class='notice'>\The [user] bandages \a [W.desc] on [M]'s [affecting.name].</span>", \
 										"<span class='notice'>You bandage \a [W.desc] on [M]'s [affecting.name].</span>" )
 					//H.add_side_effect("Itch")
-				else if (W.damage_type == BRUISE)
+				else if (W.damage_type == DAMAGE_TYPE_BLUDGEON)
 					user.visible_message("<span class='notice'>\The [user] places a rugged bandage over \a [W.desc] on [M]'s [affecting.name].</span>", \
 											"<span class='notice'>You place a rugged bandage over \a [W.desc] on [M]'s [affecting.name].</span>" )
 				else

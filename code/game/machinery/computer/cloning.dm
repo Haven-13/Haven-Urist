@@ -184,7 +184,7 @@
 					H=locate(src.active_record.implant)
 
 				if ((H) && (istype(H)))
-					dat += "<b>Health:</b> [H.sensehealth()] | OXY-BURN-TOX-BRUTE<br>"
+					dat += "<b>Health:</b> [H.sensehealth()] | DAMAGE_TYPE_ASPHYXIA-DAMAGE_TYPE_BURN-DAMAGE_TYPE_TOXIN-BRUTE<br>"
 				else
 					dat += "<font color=red>Unable to locate implant.</font><br>"
 

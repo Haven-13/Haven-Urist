@@ -143,7 +143,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 			damage *= H.reagent_permeability() //wear covering clothes
 			H.take_organ_damage(damage, 0, 1, 0) //check sharp vs edge
 		else
-			O.apply_damage(5, BRUTE)
+			O.apply_damage(5, DAMAGE_TYPE_BRUTE)
 		if(prob(25) && damage)
 			to_chat(O, "<span class='warning'>The sand tears at your body!</span>")
 

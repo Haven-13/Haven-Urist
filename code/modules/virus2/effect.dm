@@ -84,7 +84,7 @@
 	multiplier_max = 3
 	badness = VIRUS_COMMON
 	activate(var/mob/living/carbon/human/mob,var/multiplier)
-		mob.apply_effect(2*multiplier, IRRADIATE, blocked = 0)
+		mob.apply_effect(2*multiplier, DAMAGE_TYPE_RADIATION, blocked = 0)
 
 /datum/disease2/effect/deaf
 	name = "Dead Ear Syndrome"
@@ -114,7 +114,7 @@
 	activate(var/mob/living/carbon/human/mob,var/multiplier)
 		mob.bodytemperature = max(mob.bodytemperature, 350)
 		scramble(0,mob,10)
-		mob.apply_damage(10, CLONE)
+		mob.apply_damage(10, DAMAGE_TYPE_GENETIC)
 
 /datum/disease2/effect/organs
 	name = "Shutdown Syndrome"
@@ -229,7 +229,7 @@
 	stage = 3
 	badness = VIRUS_COMMON
 	activate(var/mob/living/carbon/human/mob,var/multiplier)
-		mob.apply_damage(2, CLONE)
+		mob.apply_damage(2, DAMAGE_TYPE_GENETIC)
 
 /datum/disease2/effect/chem_synthesis
 	name = "Chemical Synthesis"

@@ -5,7 +5,7 @@
 
 #define CULTURE_SPACER        "Spacer"
 #define CULTURE_RIMMER        "Rimmer"
-#define CULTURE_OTHER         "Other"
+#define CULTURE_OTHER_AH13    "Other"
 
 #define CULTURE_AURSIAN       "Aursian"
 #define CULTURE_OCTAVIAN      "Octavian"

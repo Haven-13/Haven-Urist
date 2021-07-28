@@ -83,11 +83,11 @@
 	G.affecting.visible_message("<span class='danger'>[G.assailant] crushes [G.affecting]'s [damaging.name]!</span>")
 
 	if(prob(30))
-		G.affecting.apply_damage(max(attack_damage + 10, 15), BRUTE, hit_zone, armor, DAM_SHARP, "organic punctures")
-		G.affecting.apply_effect(attack_damage, PAIN, armor)
+		G.affecting.apply_damage(max(attack_damage + 10, 15), DAMAGE_TYPE_BRUTE, hit_zone, armor, DAMAGE_FLAGS_SHARP, "organic punctures")
+		G.affecting.apply_effect(attack_damage, DAMAGE_TYPE_PAIN, armor)
 		G.affecting.visible_message("<span class='danger'>[G.assailant]'s spikes dig in painfully!</span>")
 	else
-		G.affecting.apply_damage(attack_damage, BRUTE, hit_zone, armor,, "crushing")
+		G.affecting.apply_damage(attack_damage, DAMAGE_TYPE_BRUTE, hit_zone, armor,, "crushing")
 	playsound(get_turf(G.assailant), 'sound/weapons/bite.ogg', 25, 1, -1)
 
 	admin_attack_log(G.assailant, G.affecting, "Crushed their victim.", "Was crushed.", "crushed")
@@ -99,7 +99,7 @@
 
 	var/armor = G.affecting.run_armor_check(hit_zone, "melee")
 
-	G.affecting.apply_damage(attack_damage, BRUTE, hit_zone, armor, DAM_SHARP|DAM_EDGE, "mandibles")
+	G.affecting.apply_damage(attack_damage, DAMAGE_TYPE_BRUTE, hit_zone, armor, DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE, "mandibles")
 	G.affecting.visible_message("<span class='danger'>[G.assailant] chews on [G.affecting]'s [damaging.name]!</span>")
 	playsound(get_turf(G.assailant), 'sound/weapons/bite.ogg', 25, 1, -1)
 

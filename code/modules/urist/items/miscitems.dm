@@ -117,14 +117,14 @@
 /obj/item/stack/woodrods/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if(W.edge)
-		user << "<span class='warning'>You use the edge of [W] to sharpen the tip of the shaft.</span>"
+		to_chat(user, "<span class='warning'>You use the edge of [W] to sharpen the tip of the shaft.</span>")
 		new /obj/item/weapon/sharpwoodrod(user.loc)
 		src.use(1)
 
 	if(istype(W, /obj/item/weapon/reagent_containers/glass/rag))
 //		var/obj/item/weapon/reagent_containers/glass/rag/R = W
 		var/obj/item/weapon/flame/torch/T = new /obj/item/weapon/flame/torch(get_turf(user))
-		user << "<span class='notice'>You wrap the rag around the shaft forming an improvised torch.</span>"
+		to_chat(user, "<span class='notice'>You wrap the rag around the shaft forming an improvised torch.</span>")
 		src.use(1)
 		user.drop_from_inventory(W)
 		qdel(W)
@@ -133,7 +133,7 @@
 
 	else if(istype(W, /obj/item/improv/axe_head))
 		var/obj/item/weapon/carpentry/axe/T = new /obj/item/weapon/carpentry/axe(get_turf(user))
-		user << "<span class='notice'>You fit the axe head onto the wooden rod..</span>"
+		to_chat(user, "<span class='notice'>You fit the axe head onto the wooden rod..</span>")
 		src.use(1)
 		user.drop_from_inventory(W)
 		qdel(W)
@@ -142,7 +142,7 @@
 
 	else if(istype(W, /obj/item/improv/pickaxe_head))
 		var/obj/item/weapon/pickaxe/old/T = new /obj/item/weapon/pickaxe/old(get_turf(user))
-		user << "<span class='notice'>You fit the pickaxe head onto the wooden rod..</span>"
+		to_chat(user, "<span class='notice'>You fit the pickaxe head onto the wooden rod..</span>")
 		src.use(1)
 		user.drop_from_inventory(W)
 		qdel(W)
@@ -167,15 +167,15 @@
 
 	else if(!in_use)
 		if(get_amount() < 2)
-			user << "<span class='warning'>You need at least two wood shafts to do this.</span>"
+			to_chat(user, "<span class='warning'>You need at least two wood shafts to do this.</span>")
 			return
-		user << "<span class='notice'>Assembling grille...</span>"
+		to_chat(user, "<span class='notice'>Assembling grille...</span>")
 		in_use = 1
 		if (!do_after(usr, 10))
 			in_use = 0
 			return
 		var/obj/structure/grille/wood/F = new /obj/structure/grille/wood/ ( usr.loc )
-		user << "<span class='notice'>You assemble a wooden grille</span>"
+		to_chat(user, "<span class='notice'>You assemble a wooden grille</span>")
 		in_use = 0
 		F.add_fingerprint(usr)
 		use(2)
@@ -231,32 +231,32 @@
 				return
 			if("Spear")
 				finished = new /obj/item/weapon/material/twohanded/woodspear(get_turf(user), tmp_shard.material.name)
-				user << "<span class='notice'>You fasten \the [I] to the top of the shaft with the cable.</span>"
+				to_chat(user, "<span class='notice'>You fasten \the [I] to the top of the shaft with the cable.</span>")
 			if("Makeshift Arrow")
 				finished = new /obj/item/weapon/arrow/improv (get_turf(user), tmp_shard.material.name)
-				user << "<span class='notice'>You fasten \the [I] to the top of the shaft with the cable.</span>"
+				to_chat(user, "<span class='notice'>You fasten \the [I] to the top of the shaft with the cable.</span>")
 
 	else if(istype(I, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/R = I
 		if (R.use(1))
 			finished = new /obj/item/weapon/fishingrod/improvised(get_turf(user))
-			user << "<span class='notice'>You tie in the length of cable, forming an improvised fishing rod.</span>"
+			to_chat(user, "<span class='notice'>You tie in the length of cable, forming an improvised fishing rod.</span>")
 
 	else if(istype(I, /obj/item/stack/woodrods))
 		var/obj/item/stack/woodrods/R = I
 		if (R.use(1))
 			finished = new /obj/item/weapon/material/twohanded/woodquarterstaff(get_turf(user))
-			user << "<span class='notice'>You fasten the two rods together tightly with the cable.</span>"
+			to_chat(user, "<span class='notice'>You fasten the two rods together tightly with the cable.</span>")
 
 	else if(istype(I, /obj/item/stack/material/steel))
 		var/obj/item/stack/material/steel/R = I
 		if (R.use(1))
 			finished = new /obj/item/weapon/shovel/improvised(get_turf(user))
-			user << "<span class='notice'>You fasten the metal sheet to the shaft, forming an improvised shovel.</span>"
+			to_chat(user, "<span class='notice'>You fasten the metal sheet to the shaft, forming an improvised shovel.</span>")
 
 	else if(istype(I, /obj/item/weapon/material/hatchet))
 		finished = new /obj/item/weapon/material/twohanded/imppoleaxe(get_turf(user))
-		user << "<span class='notice'>You fasten the hatchet to the shaft, forming an improvised poleaxe.</span>"
+		to_chat(user, "<span class='notice'>You fasten the hatchet to the shaft, forming an improvised poleaxe.</span>")
 
 	if(finished)
 		user.drop_from_inventory(src)
@@ -357,7 +357,7 @@
 
 /obj/item/weapon/shovel/improvised/afterattack(mob/user as mob)
 	if(prob(5))
-		user << "<span class='notice'>The shovel falls apart in your hands!</span>"
+		to_chat(user, "<span class='notice'>The shovel falls apart in your hands!</span>")
 		new /obj/item/weapon/material/woodwirerod(user.loc)
 		qdel(src)
 
@@ -418,7 +418,7 @@
 	if(istype(W, /obj/item/stack/woodrods))
 		var/obj/item/stack/woodrods/R = W
 		var/obj/item/weapon/carpentry/axe/T = new /obj/item/weapon/carpentry/axe(get_turf(user))
-		user << "<span class='notice'>You slam that axe head down onto the wood rod. You got yourself an axe son.</span>"
+		to_chat(user, "<span class='notice'>You slam that axe head down onto the wood rod. You got yourself an axe son.</span>")
 		R.use(1)
 
 		user.put_in_hands(T)
@@ -435,7 +435,7 @@
 	if(istype(W, /obj/item/stack/woodrods))
 		var/obj/item/stack/woodrods/R = W
 		var/obj/item/weapon/pickaxe/old/T = new /obj/item/weapon/pickaxe/old(get_turf(user))
-		user << "<span class='notice'>You slam that pickaxe head down onto the wood rod. You got yourself a pickaxe son.</span>"
+		to_chat(user, "<span class='notice'>You slam that pickaxe head down onto the wood rod. You got yourself a pickaxe son.</span>")
 		R.use(1)
 
 		user.put_in_hands(T)

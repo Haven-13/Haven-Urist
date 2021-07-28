@@ -8,7 +8,7 @@
 	src.title = title
 	src.track = track
 
-datum/track/proc/GetTrack()
+/datum/track/proc/GetTrack()
 	if(ispath(track, /music_track))
 		var/music_track/music_track = decls_repository.get_decl(track)
 		return music_track.song

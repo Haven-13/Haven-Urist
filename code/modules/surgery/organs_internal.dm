@@ -120,7 +120,7 @@
 	else
 		dam_amt = 5
 		target.adjustToxLoss(10)
-		affected.take_external_damage(dam_amt, 0, (DAM_SHARP|DAM_EDGE), used_weapon = tool)
+		affected.take_external_damage(dam_amt, 0, (DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE), used_weapon = tool)
 
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I) && (I.surface_accessible || affected.how_open() >= (affected.encased ? 3 : 2)))
@@ -188,7 +188,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!</span>", \
 	"<span class='warning'>Your hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!</span>")
-	affected.take_external_damage(rand(30,50), 0, (DAM_SHARP|DAM_EDGE), used_weapon = tool)
+	affected.take_external_damage(rand(30,50), 0, (DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE), used_weapon = tool)
 
 //////////////////////////////////////////////////////////////////
 //	 Organ removal surgery step

@@ -4,7 +4,7 @@
 	available_cultural_info = list(
 		TAG_CULTURE = list(
 			CULTURE_POSITRONICS,
-			CULTURE_OTHER
+			CULTURE_OTHER_AH13
 		),
 		TAG_HOMEWORLD = list(
 			LOCATION_MARS,

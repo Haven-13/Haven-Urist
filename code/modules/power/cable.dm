@@ -244,7 +244,7 @@ By design, d1 is the smallest direction and d2 is the highest
 				new/obj/item/stack/cable_coil(src.loc, src.d1 ? 2 : 1, color)
 				qdel(src)
 
-obj/structure/cable/proc/cableColor(var/colorC)
+/obj/structure/cable/proc/cableColor(var/colorC)
 	var/color_n = "#dd0000"
 	if(colorC)
 		color_n = colorC
@@ -535,7 +535,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 		var/use_amt = min(src.amount, Ceiling(S.burn_dam/3), 5)
 		if(can_use(use_amt))
-			if(S.robo_repair(3*use_amt, BURN, "some damaged wiring", src, user))
+			if(S.robo_repair(3*use_amt, DAMAGE_TYPE_BURN, "some damaged wiring", src, user))
 				src.use(use_amt)
 		return
 	return ..()

@@ -146,4 +146,4 @@
 	shredding = 1
 
 /datum/unarmed_attack/punc/starborn/get_damage_type()
-	return BURN
+	return DAMAGE_TYPE_BURN

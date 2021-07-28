@@ -15,7 +15,7 @@ var/list
 					"hsbtoolbox" = "Spawn Toolbox",
 					"hsbmedkit" = "Spawn Medical Kit")
 
-mob
+/mob
 	var/datum/hSB/sandbox = null
 	proc
 		CanBuild()
@@ -29,7 +29,7 @@ mob
 			if(sandbox)
 				sandbox.update()
 
-datum/hSB
+/datum/hSB
 	var/owner = null
 	var/admin = 0
 	proc

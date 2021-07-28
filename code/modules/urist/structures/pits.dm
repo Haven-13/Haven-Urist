@@ -255,7 +255,7 @@
 
 /obj/structure/gravemarker/examine()
 	..()
-	usr << message
+	to_chat(usr, message)
 
 /obj/structure/gravemarker/random/New()
 	generate()

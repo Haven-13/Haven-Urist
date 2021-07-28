@@ -31,7 +31,7 @@
 
 	var/selected_network
 	var/list/selected_cameras = list()
-	var/list/last_camera_turf = list()
+	var/list/turf/last_camera_turf = list()
 
 	var/list/atom/movable/map_view/camera_map_views = list()
 	var/list/obj/screen/background/camera_foregrounds = list()
