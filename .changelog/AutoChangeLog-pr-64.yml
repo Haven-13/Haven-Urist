@@ -1,0 +1,7 @@
+author: martinlyra
+delete-after: true
+changes:
+  - code_imp: Made the indentation in the DM code more consistent
+  - code_imp: Changed direct uses of << to corresponding macros depending on the context
+      and use, actual bitshifts are untouched
+  - code_imp: Changed direct uses of >> to `from_file`, actual bitshifts are untouched
