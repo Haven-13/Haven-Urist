@@ -1,9 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - rscadd: Added proper evacuation protocols to Pluto, it should be fully functional
-      now
-  - rscadd: Added the required docking controllers for the bottom deck lifepods
-  - tweak: Changed the lifepod airlocks to glass hatches on Pluto
-  - tweak: Changed most of the unused space tiles to null turfs in Pluto's "remote"
-      location to reduce the impact on performance
