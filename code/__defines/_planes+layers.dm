@@ -201,13 +201,17 @@ What is the naming convention for planes or layers?
 #define EMISSIVE_BLOCKER_PLANE        22
 	#define EMISSIVE_BLOCKER_LAYER 14
 
+#define EMISSIVE_UNBLOCKABLE_PLANE    23
+	#define EMISSIVE_UNBLOCKABLE_LAYER   15
+
 // For visualnets, such as the AI's static.
-#define OBSCURITY_PLANE               23
+#define OBSCURITY_PLANE               24
 
 //This is difference between highest and lowest visible game planes
-#define PLANE_DIFFERENCE              24
+#define PLANE_DIFFERENCE              25
 
-#define BASE_PLANE 				      100 // Not for anything, but this is the default.
+// Not for anything, but this is the default.
+#define BASE_PLANE                     0
 	#define BASE_AREA_LAYER 999
 
 #define FULLSCREEN_PLANE              9000 // for fullscreen overlays that do not cover the hud.
@@ -258,6 +262,8 @@ What is the naming convention for planes or layers?
 		EFFECTS_BELOW_LIGHTING_PLANE,
 		OBSERVER_PLANE,
 		VISIBLE_GAME_WORLD_PLANE,
+		EMISSIVE_PLANE,
+		EMISSIVE_BLOCKER_PLANE,
 		OBSCURITY_PLANE
 	)
 

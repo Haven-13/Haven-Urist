@@ -29,11 +29,27 @@
 				break
 	SSvis_overlays.add_vis_overlay(src, icon, icon_state, EMISSIVE_BLOCKER_LAYER, EMISSIVE_BLOCKER_PLANE, dir)
 
+/atom/movable/update_plane()
+	. = ..()
+	em_block?.update_plane()
+
+/*
+* If the overlay's plane is supposed to be overlayed (floating), use icon_plane
+* If the overlay's plane is supposed to be fixed and not a float plane, use force_plane.
+*
+* One thumbrule is, float planes do not require calculations to update their planes. But if you
+* want them fixated or use precalculated plane of yours, use force_plane.
+*/
 /atom/movable/proc/add_emissive_overlay(
-  var/icon = src.icon,
-  var/state = src.icon_state,
-  var/layer = src.layer,
-  var/icon_plane = src.plane,
-  var/dir = src.dir)
-  SSvis_overlays.add_vis_overlay(src, icon, state, layer, get_float_plane(icon_plane), dir)
-  SSvis_overlays.add_vis_overlay(src, icon, state, layer, calculate_plane(z, EMISSIVE_PLANE), dir)
+	var/icon = src.icon,
+	var/state = src.icon_state,
+	var/layer = src.layer,
+	var/icon_plane = src.original_plane,
+	var/force_plane = null,
+	var/dir = src.dir,
+	var/no_block = FALSE
+	)
+	var/_plane = (force_plane || get_float_plane(icon_plane))
+	var/_em_plane = get_float_plane((no_block && EMISSIVE_UNBLOCKABLE_PLANE) || EMISSIVE_PLANE)
+	SSvis_overlays.add_vis_overlay(src, icon, state, layer, _plane, dir)
+	SSvis_overlays.add_vis_overlay(src, icon, state, layer, _em_plane, dir)

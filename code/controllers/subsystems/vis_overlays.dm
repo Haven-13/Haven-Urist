@@ -60,6 +60,7 @@ SUBSYSTEM_DEF(vis_overlays)
 			add_appearance_flags
 		)
 		overlay.cache_expiration = -1
+		overlay.update_plane(thing.z)
 		var/cache_id = "\ref[overlay]@{[world.time]}"
 		unique_vis_overlays += overlay
 		vis_overlay_cache[cache_id] = overlay
@@ -81,7 +82,7 @@ SUBSYSTEM_DEF(vis_overlays)
 	overlay.icon = icon
 	overlay.icon_state = iconstate
 	overlay.layer = layer
-	overlay.plane = plane
+	overlay.set_plane(plane)
 	overlay.dir = dir
 	overlay.alpha = alpha
 	overlay.appearance_flags |= add_appearance_flags
@@ -105,13 +106,21 @@ SUBSYSTEM_DEF(vis_overlays)
 	var/list/overlays_to_remove = list()
 	for(var/i in thing.managed_vis_overlays - unique_vis_overlays)
 		var/obj/effect/overlay/vis/overlay = i
-		add_vis_overlay(thing, overlay.icon, overlay.icon_state, overlay.layer, overlay.plane, turn(overlay.dir, rotation), overlay.alpha, overlay.appearance_flags)
+		add_vis_overlay(
+			thing,
+			overlay.icon,
+			overlay.icon_state,
+			overlay.layer,
+			overlay.plane,
+			turn(overlay.dir, rotation),
+			overlay.alpha,
+			overlay.appearance_flags
+		)
 		overlays_to_remove += overlay
 	for(var/i in thing.managed_vis_overlays & unique_vis_overlays)
 		var/obj/effect/overlay/vis/overlay = i
 		overlay.dir = turn(overlay.dir, rotation)
 	remove_vis_overlay(thing, overlays_to_remove)
-
 
 /atom
   var/list/managed_vis_overlays
@@ -122,3 +131,11 @@ SUBSYSTEM_DEF(vis_overlays)
 	vis_flags = NONE
 	var/unused = 0 //When detected to be unused it gets set to world.time, after a while it gets removed
 	var/cache_expiration = 2 MINUTES // overlays which go unused for 2 minutes get cleaned up
+
+/obj/effect/overlay/vis/set_plane(new_plane)
+	original_plane = new_plane
+	plane = new_plane
+
+/obj/effect/overlay/vis/update_plane(z)
+	if (z > 0)
+		plane = calculate_plane(z, plane)
