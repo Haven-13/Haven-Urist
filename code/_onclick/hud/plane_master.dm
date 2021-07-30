@@ -13,9 +13,9 @@
 
 /obj/screen/plane_master/proc/update_screen_plane(var/z_level)
 	if(initial(src.render_target))
-		src.render_target = "[initial(src.render_target)]-[z_level]"
+		src.render_target = "[initial(src.render_target)]-[z_level]z"
 	else
-		src.render_target = "[src.plane]-[z_level]"
+		src.render_target = "[src.plane]-[z_level]z"
 	src.plane = calculate_plane(z_level, src.plane)
 
 /obj/screen/plane_master/proc/Show(override)
@@ -113,7 +113,7 @@
 	for (var/plane in BELOW_TURF_PLANE to OBSERVER_PLANE)
 		filters += filter(
 			type="layer",
-			render_source="[plane]-[z]",
+			render_source="[plane]-[z]z",
 			blend_mode=BLEND_ADD
 		)
 
@@ -131,11 +131,11 @@
 /obj/screen/plane_master/lighting_plane/proc/update_masks(z)
 	filters += filter(
 		type="alpha",
-		render_source="[VISIBLE_GAME_WORLD_RENDER]-[z]"
+		render_source="[VISIBLE_GAME_WORLD_RENDER]-[z]z"
 	)
 	filters += filter(
 		type="alpha",
-		render_source="[emissive_render_target]-[z]",
+		render_source="[emissive_render_target]-[z]z",
 		flags=MASK_INVERSE
 	)
 

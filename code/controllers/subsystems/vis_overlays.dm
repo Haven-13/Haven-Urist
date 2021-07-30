@@ -37,12 +37,28 @@ SUBSYSTEM_DEF(vis_overlays)
 		. = "[icon]|[iconstate]|[layer]|[plane]|[dir]|[alpha]|[add_appearance_flags]"
 		overlay = vis_overlay_cache[.]
 		if(!overlay)
-			overlay = _create_new_vis_overlay(icon, iconstate, layer, plane, dir, alpha, add_appearance_flags)
+			overlay = _create_new_vis_overlay(
+				icon,
+				iconstate,
+				layer,
+				plane,
+				dir,
+				alpha,
+				add_appearance_flags
+			)
 			vis_overlay_cache[.] = overlay
 		else
 			overlay.unused = 0
 	else
-		overlay = _create_new_vis_overlay(icon, iconstate, layer, plane, dir, alpha, add_appearance_flags)
+		overlay = _create_new_vis_overlay(
+			icon,
+			iconstate,
+			layer,
+			plane,
+			dir,
+			alpha,
+			add_appearance_flags
+		)
 		overlay.cache_expiration = -1
 		var/cache_id = "\ref[overlay]@{[world.time]}"
 		unique_vis_overlays += overlay

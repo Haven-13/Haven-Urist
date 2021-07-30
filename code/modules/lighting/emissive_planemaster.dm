@@ -11,7 +11,7 @@ var/const/emissive_blocker_render_target = "*emissive_blocker_render_target"
 	. = ..()
 	filters += filter(
 		type="alpha",
-		render_source="[emissive_blocker_render_target]-[z_level]",
+		render_source="[emissive_blocker_render_target]-[z_level]z",
 		flags=MASK_INVERSE
 	)
 

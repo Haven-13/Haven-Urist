@@ -20,8 +20,11 @@
 /atom/movable/emissive_blocker/Initialize(mapload, source)
 	. = ..()
 	verbs.Cut() //Cargo culting from lighting object, this maybe affects memory usage?
-
 	render_source = source
+
+/atom/movable/emissive_blocker/update_plane()
+	var/mob/holder = src.loc
+	plane = calculate_plane(holder.z, original_plane)
 
 /atom/movable/emissive_blocker/ex_act(severity)
 	return FALSE
