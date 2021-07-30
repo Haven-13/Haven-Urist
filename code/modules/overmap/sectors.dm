@@ -79,4 +79,4 @@
 	. = ..()
 	if(known)
 		layer = ABOVE_LIGHTING_LAYER
-		plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		plane = EMISSIVE_PLANE

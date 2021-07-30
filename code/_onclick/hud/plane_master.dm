@@ -133,9 +133,11 @@
 		type="alpha",
 		render_source="[VISIBLE_GAME_WORLD_RENDER]-[z]"
 	)
-
-/obj/screen/plane_master/effects_above_lighting_master
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	filters += filter(
+		type="alpha",
+		render_source="[emissive_render_target]-[z]",
+		flags=MASK_INVERSE
+	)
 
 /obj/screen/plane_master/obscurity_master
 	plane = OBSCURITY_PLANE

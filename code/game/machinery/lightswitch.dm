@@ -31,7 +31,7 @@
 /obj/machinery/light_switch/update_icon()
 	if(!overlay)
 		overlay = image(icon, "light1-overlay")
-		overlay.plane = get_float_plane(EFFECTS_ABOVE_LIGHTING_PLANE)
+		overlay.plane = get_float_plane(EMISSIVE_PLANE)
 		overlay.layer = ABOVE_LIGHTING_LAYER
 
 	overlays.Cut()
