@@ -35,5 +35,5 @@
   var/layer = src.layer,
   var/icon_plane = src.plane,
   var/dir = src.dir)
-  SSvis_overlays.add_vis_overlay(src, icon, state, layer, icon_plane, dir)
-  SSvis_overlays.add_vis_overlay(src, icon, state, layer, EMISSIVE_PLANE, dir)
+  SSvis_overlays.add_vis_overlay(src, icon, state, layer, get_float_plane(icon_plane), dir)
+  SSvis_overlays.add_vis_overlay(src, icon, state, layer, calculate_plane(z, EMISSIVE_PLANE), dir)
