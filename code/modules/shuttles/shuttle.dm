@@ -141,6 +141,7 @@
 		testing("Moving [A]")
 		translation += get_turf_translation(get_turf(current_location), get_turf(destination), A.contents)
 	shuttle_moved(destination, translation)
+	testing("[src] has arrived to [destination]")
 	return TRUE
 
 
