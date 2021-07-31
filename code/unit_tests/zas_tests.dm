@@ -112,6 +112,7 @@
 	async=1				// We're moving the shuttle using built in procs.
 
 	var/datum/shuttle/autodock/ferry/supply/shuttle = null
+	var/initial_location = null  // Account unconventional locations
 
 	var/testtime = 0	//Used as a timer.
 
@@ -129,8 +130,12 @@
 		return 1
 
 	// Initiate the Move.
-	SSsupply.movetime = 5 // Speed up the shuttle movement.
-	shuttle.short_jump(shuttle.get_location_waypoint(!shuttle.location)) //TODO
+	SSsupply.movetime = 0 // Speed up the shuttle movement.
+	shuttle.warmup_time = 0 // Skip the warmup
+
+	initial_location = shuttle.location // Save this for the check in check_result
+
+	shuttle.short_jump(shuttle.get_location_waypoint(!shuttle.location))
 
 	return 1
 
@@ -143,12 +148,10 @@
 		skip("This map is using the new cargo system, supply shuttle must be manually verified.")
 		return 1
 
-	if(shuttle.moving_status == SHUTTLE_IDLE && !shuttle.at_station())
+	// Has the shuttle actually moved? Or is in it process of moving?
+	if(shuttle.moving_status == SHUTTLE_IDLE && shuttle.location == initial_location)
 		fail("Shuttle Did not Move")
 		return 1
-
-	if(!shuttle.at_station())
-		return 0
 
 	if(!testtime)
 		testtime = world.time+40                // Wait another 2 ticks then proceed.
