@@ -39,8 +39,8 @@
 /datum/shuttle/autodock/ferry/shuttle_moved()
 	..()
 
-	if (next_location == waypoint_station) location = 0
-	if (next_location == waypoint_offsite) location = 1
+	if (current_location == waypoint_station) location = 0
+	if (current_location == waypoint_offsite) location = 1
 
 /datum/shuttle/autodock/ferry/process_arrived()
 	..()
