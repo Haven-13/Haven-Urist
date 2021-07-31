@@ -38,6 +38,8 @@
    __defines/_planes+layers.dm
  */
 
+#define EMISSIVE_RENDER_TARGET "*emissive_render_target"
+#define EMISSIVE_BLOCKER_RENDER_TARGET "*emissive_blocker_render_target"
 #define VISIBLE_GAME_WORLD_RENDER "*visible_game_world_render"
 
 /obj/screen/plane_master/space_master
@@ -135,11 +137,33 @@
 	)
 	filters += filter(
 		type="alpha",
-		render_source="[emissive_render_target]-[z]z",
+		render_source="[EMISSIVE_RENDER_TARGET]-[z]z",
 		flags=MASK_INVERSE
 	)
+
+/obj/screen/plane_master/emissive
+	name = "emissive plane master"
+	plane = EMISSIVE_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	render_target = EMISSIVE_RENDER_TARGET
+
+/obj/screen/plane_master/emissive/update_screen_plane(z_level)
+	. = ..()
+	filters += filter(
+		type="alpha",
+		render_source="[EMISSIVE_BLOCKER_RENDER_TARGET]-[z_level]z",
+		flags=MASK_INVERSE
+	)
+
+/obj/screen/plane_master/emissive_blocker
+	name = "emissive blocker plane master"
+	plane = EMISSIVE_BLOCKER_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	render_target = EMISSIVE_BLOCKER_RENDER_TARGET
 
 /obj/screen/plane_master/obscurity_master
 	plane = OBSCURITY_PLANE
 
 #undef VISIBLE_GAME_WORLD_RENDER
+#undef EMISSIVE_BLOCKER_RENDER_TARGET
+#undef EMISSIVE_RENDER_TARGET

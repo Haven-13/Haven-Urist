@@ -60,7 +60,6 @@ SUBSYSTEM_DEF(vis_overlays)
 			add_appearance_flags
 		)
 		overlay.cache_expiration = -1
-		overlay.update_plane(thing.z)
 		var/cache_id = "\ref[overlay]@{[world.time]}"
 		unique_vis_overlays += overlay
 		vis_overlay_cache[cache_id] = overlay

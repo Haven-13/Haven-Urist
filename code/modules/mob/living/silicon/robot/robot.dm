@@ -12,6 +12,8 @@
 	mob_swap_flags = ROBOT|MONKEY|SLIME|SIMPLE_ANIMAL
 	mob_push_flags = ~HEAVY //trundle trundle
 
+	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
+
 	var/lights_on = 0 // Is our integrated light on?
 	var/used_power_this_tick = 0
 	var/sight_mode = 0
