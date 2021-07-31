@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Fix a bug related to the ferry-type shuttles not giving the right values
+      on wherever its current location was.
