@@ -297,18 +297,20 @@
 * want them fixated or use precalculated plane of yours, use force_plane
 */
 /atom/movable/proc/add_emissive_overlay(
-	var/icon = src.icon,
-	var/state = src.icon_state,
-	var/layer = src.layer,
-	var/icon_plane = src.original_plane,
-	var/force_plane = null,
-	var/dir = src.dir,
-	var/no_block = FALSE
+		var/icon = src.icon,
+		var/state = src.icon_state,
+		var/layer = src.layer,
+		var/icon_plane = src.original_plane,
+		var/force_plane = null,
+		var/dir = src.dir,
+		var/alpha = src.alpha,
+		var/no_block = FALSE,
+		var/add_vis_flags = NONE
 	)
 	var/_plane = (force_plane || get_float_plane(icon_plane))
 	var/_em_plane = get_float_plane((no_block && EMISSIVE_UNBLOCKABLE_PLANE) || EMISSIVE_PLANE)
-	SSvis_overlays.add_vis_overlay(src, icon, state, layer, _plane, dir)
-	SSvis_overlays.add_vis_overlay(src, icon, state, layer, _em_plane, dir)
+	SSvis_overlays.add_vis_overlay(src, icon, state, layer, _plane, dir, alpha, add_vis_flags)
+	SSvis_overlays.add_vis_overlay(src, icon, state, layer, _em_plane, dir, alpha, add_vis_flags)
 
 
 //Overlays
