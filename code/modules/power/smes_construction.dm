@@ -321,8 +321,8 @@
 // Description: Allows us to use special icon overlay for critical SMESs
 /obj/machinery/power/smes/buildable/update_icon()
 	if (failing)
-		overlays.Cut()
-		overlays += image('icons/obj/power.dmi', "smes-crit")
+		SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
+		add_emissive_overlay(icon, "failing")
 	else
 		..()
 

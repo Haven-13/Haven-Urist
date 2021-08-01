@@ -7,6 +7,7 @@
 /obj/machinery/power/smes
 	name = "power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."
+	icon = 'icons/obj/machines/power/smes.dmi'
 	icon_state = "smes"
 	density = 1
 	anchored = 1
@@ -93,28 +94,31 @@
 	term.master = null
 
 /obj/machinery/power/smes/update_icon()
-	overlays.Cut()
+	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	if(stat & BROKEN)	return
 
-	overlays += image('icons/obj/power.dmi', "smes-op[outputting]")
-
-	if(inputting == 2)
-		overlays += image('icons/obj/power.dmi', "smes-oc2")
-	else if (inputting == 1)
-		overlays += image('icons/obj/power.dmi', "smes-oc1")
-	else if (input_attempt)
-		overlays += image('icons/obj/power.dmi', "smes-oc0")
+	add_emissive_overlay(icon, "screen")
 
 	var/clevel = chargedisplay()
 	if(clevel)
-		overlays += image('icons/obj/power.dmi', "smes-og[clevel]")
+		add_emissive_overlay(icon, "og[clevel]")
 
-	if(outputting == 2)
-		overlays += image('icons/obj/power.dmi', "smes-op2")
-	else if (outputting == 1)
-		overlays += image('icons/obj/power.dmi', "smes-op1")
+	if(failure_timer)
+		add_emissive_overlay(icon, "emp")
 	else
-		overlays += image('icons/obj/power.dmi', "smes-op0")
+		if(inputting == 2)
+			add_emissive_overlay(icon, "input2")
+		else if (inputting == 1)
+			add_emissive_overlay(icon, "input1")
+		else if (input_attempt)
+			add_emissive_overlay(icon, "input0")
+
+		if(outputting == 2)
+			add_emissive_overlay(icon, "output2")
+		else if (outputting == 1)
+			add_emissive_overlay(icon, "output1")
+		else
+			add_emissive_overlay(icon, "output0")
 
 /obj/machinery/power/smes/proc/chargedisplay()
 	return round(5.5*charge/(capacity || 5e6))
