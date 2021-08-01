@@ -238,3 +238,7 @@
   - code_imp: Changed direct uses of << to corresponding macros depending on the context
       and use, actual bitshifts are untouched
   - code_imp: Changed direct uses of >> to `from_file`, actual bitshifts are untouched
+2021-08-01:
+  martinlyra:
+  - bugfix: Fix a bug related to the ferry-type shuttles not giving the right values
+      on wherever its current location was.
