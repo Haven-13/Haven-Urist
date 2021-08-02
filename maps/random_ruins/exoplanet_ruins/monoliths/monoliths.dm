@@ -35,7 +35,7 @@
 		I.appearance_flags = RESET_COLOR
 		I.color = get_random_colour(0, 150, 255)
 		I.layer = ABOVE_LIGHTING_LAYER
-		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		I.plane = EMISSIVE_PLANE
 		overlays += I
 		set_light(0.3, 0.1, 2, l_color = I.color)
 

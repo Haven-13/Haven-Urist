@@ -12,6 +12,8 @@
 	mob_swap_flags = ROBOT|MONKEY|SLIME|SIMPLE_ANIMAL
 	mob_push_flags = ~HEAVY //trundle trundle
 
+	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
+
 	var/lights_on = 0 // Is our integrated light on?
 	var/used_power_this_tick = 0
 	var/sight_mode = 0
@@ -755,7 +757,7 @@
 			var/image/eye_overlay = eye_overlays[cache_key]
 			if(!eye_overlay)
 				eye_overlay = image(icon, eye_icon_state)
-				eye_overlay.plane = get_float_plane(EFFECTS_ABOVE_LIGHTING_PLANE)
+				eye_overlay.plane = get_float_plane(EMISSIVE_PLANE)
 				eye_overlay.layer = EYE_GLOW_LAYER
 				eye_overlays[cache_key] = eye_overlay
 			overlays += eye_overlay
@@ -766,7 +768,7 @@
 
 	if(module_active && istype(module_active,/obj/item/borg/combat/shield))
 		var/image/shield_overlay = image(icon, "droid-combat-shield")
-		shield_overlay.plane = get_float_plane(EFFECTS_ABOVE_LIGHTING_PLANE)
+		shield_overlay.plane = get_float_plane(EMISSIVE_PLANE)
 		shield_overlay.layer = BEAM_PROJECTILE_LAYER
 		overlays += shield_overlay
 

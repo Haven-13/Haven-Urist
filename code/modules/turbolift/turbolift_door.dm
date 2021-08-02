@@ -5,6 +5,7 @@
 	opacity = 0
 	autoclose = 0
 	glass = 1
+	airlock_type = "elevator"
 	icon = 'icons/obj/doors/elevator/door.dmi'
 	fill_file = 'icons/obj/doors/elevator/fill_steel.dmi'
 	glass_file = 'icons/obj/doors/elevator/fill_glass.dmi'
