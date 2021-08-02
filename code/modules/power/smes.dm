@@ -97,8 +97,6 @@
 	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	if(stat & BROKEN)	return
 
-	add_emissive_overlay(icon, "screen")
-
 	var/clevel = chargedisplay()
 	if(clevel)
 		add_emissive_overlay(icon, "og[clevel]")
@@ -107,11 +105,13 @@
 		add_emissive_overlay(icon, "emp")
 	else
 		if(inputting == 2)
-			add_emissive_overlay(icon, "input2")
+			add_emissive_overlay(icon, "input-2")
 		else if (inputting == 1)
-			add_emissive_overlay(icon, "input1")
+			add_emissive_overlay(icon, "input-1")
 		else if (input_attempt)
-			add_emissive_overlay(icon, "input0")
+			add_emissive_overlay(icon, "input-0")
+		else
+			add_emissive_overlay(icon, "input-off")
 
 		if(outputting == 2)
 			add_emissive_overlay(icon, "output2")
