@@ -472,7 +472,7 @@
 		var/image/eye = overlay_image(res.icon, "[icon_state]_eye", flags=RESET_COLOR)
 		eye.color = eye_color
 		eye.layer = ABOVE_LIGHTING_LAYER
-		eye.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		eye.plane = EMISSIVE_PLANE
 		res.overlays += eye
 	return res
 

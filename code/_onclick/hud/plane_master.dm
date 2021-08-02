@@ -13,9 +13,9 @@
 
 /obj/screen/plane_master/proc/update_screen_plane(var/z_level)
 	if(initial(src.render_target))
-		src.render_target = "[initial(src.render_target)]-[z_level]"
+		src.render_target = "[initial(src.render_target)]-[z_level]z"
 	else
-		src.render_target = "[src.plane]-[z_level]"
+		src.render_target = "[src.plane]-[z_level]z"
 	src.plane = calculate_plane(z_level, src.plane)
 
 /obj/screen/plane_master/proc/Show(override)
@@ -38,6 +38,8 @@
    __defines/_planes+layers.dm
  */
 
+#define EMISSIVE_RENDER_TARGET "*emissive_render_target"
+#define EMISSIVE_BLOCKER_RENDER_TARGET "*emissive_blocker_render_target"
 #define VISIBLE_GAME_WORLD_RENDER "*visible_game_world_render"
 
 /obj/screen/plane_master/space_master
@@ -113,7 +115,7 @@
 	for (var/plane in BELOW_TURF_PLANE to OBSERVER_PLANE)
 		filters += filter(
 			type="layer",
-			render_source="[plane]-[z]",
+			render_source="[plane]-[z]z",
 			blend_mode=BLEND_ADD
 		)
 
@@ -131,13 +133,37 @@
 /obj/screen/plane_master/lighting_plane/proc/update_masks(z)
 	filters += filter(
 		type="alpha",
-		render_source="[VISIBLE_GAME_WORLD_RENDER]-[z]"
+		render_source="[VISIBLE_GAME_WORLD_RENDER]-[z]z"
+	)
+	filters += filter(
+		type="alpha",
+		render_source="[EMISSIVE_RENDER_TARGET]-[z]z",
+		flags=MASK_INVERSE
 	)
 
-/obj/screen/plane_master/effects_above_lighting_master
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+/obj/screen/plane_master/emissive
+	name = "emissive plane master"
+	plane = EMISSIVE_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	render_target = EMISSIVE_RENDER_TARGET
+
+/obj/screen/plane_master/emissive/update_screen_plane(z_level)
+	. = ..()
+	filters += filter(
+		type="alpha",
+		render_source="[EMISSIVE_BLOCKER_RENDER_TARGET]-[z_level]z",
+		flags=MASK_INVERSE
+	)
+
+/obj/screen/plane_master/emissive_blocker
+	name = "emissive blocker plane master"
+	plane = EMISSIVE_BLOCKER_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	render_target = EMISSIVE_BLOCKER_RENDER_TARGET
 
 /obj/screen/plane_master/obscurity_master
 	plane = OBSCURITY_PLANE
 
 #undef VISIBLE_GAME_WORLD_RENDER
+#undef EMISSIVE_BLOCKER_RENDER_TARGET
+#undef EMISSIVE_RENDER_TARGET

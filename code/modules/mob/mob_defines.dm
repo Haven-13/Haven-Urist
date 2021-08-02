@@ -1,6 +1,7 @@
 /mob
 	density = 1
 	plane = MOB_PLANE
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 	appearance_flags = PIXEL_SCALE
 	animate_movement = 2

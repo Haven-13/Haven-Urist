@@ -70,21 +70,21 @@ What is the naming convention for planes or layers?
 	#define BASE_SKYBOX_LAYER 1
 	#define DUST_LAYER 2
 
-#define MAP_VIEW_PLANE				 0
+// Used for special cameras used by tgui and other special effects
+#define MAP_VIEW_PLANE                0
 	#define MAP_VIEW_LAYER 0
 
 // Visible game planes
-#define OPENSPACE_PLANE              1
-	#define OPENSPACE_LAYER_OBJS 2 // unused
+#define OPENSPACE_PLANE               1
 	#define OPENSPACE_LAYER_MOBS 3
 	#define OPENSPACE_DARKNESS_LAYER 15
 
-#define BELOW_TURF_PLANE             2 // objects that are below turfs. Useful for asteroid smoothing or other such magic.
-	// TURF_LAYER 2
+// objects that are below turfs. Useful for asteroid smoothing or other such magic.
+#define BELOW_TURF_PLANE              2
 
-#define PLATING_PLANE                3
+#define PLATING_PLANE                 3
 
-#define ABOVE_PLATING_PLANE          4
+#define ABOVE_PLATING_PLANE           4
 	#define HOLOMAP_LAYER        1 // NOTE: ENSURE this is equal to the one at ABOVE_TURF_PLANE!
 	#define DECAL_PLATING_LAYER  2
 	#define LATTICE_LAYER        3
@@ -94,11 +94,12 @@ What is the naming convention for planes or layers?
 	#define WIRE_TERMINAL_LAYER  7
 	#define ABOVE_WIRE_LAYER     8
 
-#define TURF_PLANE                    5
+#define TURF_PLANE                     5
 	#define BASE_TURF_LAYER -999
 	#define TURF_DETAIL_LAYER 1
 
-#define ABOVE_TURF_PLANE              6 // For items which should appear above turfs but below other objects and hiding mobs, eg: wires & pipes
+// For items which should appear above turfs but below other objects and hiding mobs, eg: wires & pipes
+#define ABOVE_TURF_PLANE               6
 	#define DECAL_LAYER                 2
 	#define RUNE_LAYER                  3
 	#define ABOVE_TILE_LAYER            4
@@ -109,14 +110,16 @@ What is the naming convention for planes or layers?
 	#define MOUSETRAP_LAYER             10
 	#define PLANT_LAYER                 11
 
-#define UNDER_OBJ_PLANE               7
+#define UNDER_OBJ_PLANE                7
 	#define CATWALK_LAYER               1
 
-#define HIDING_MOB_PLANE              8 // for hiding mobs like MoMMIs or spiders or whatever, under most objects but over pipes & such.
+// for hiding mobs like MoMMIs or spiders or whatever, under most objects but over pipes & such.
+#define HIDING_MOB_PLANE               8
 	#define HIDING_MOB_LAYER    0
 	#define SHALLOW_FLUID_LAYER 1
 
-#define OBJ_PLANE                     9 // For objects which appear below humans.
+// For objects which appear below humans.
+#define OBJ_PLANE                      9
 	#define BELOW_DOOR_LAYER        0.25
 	#define OPEN_DOOR_LAYER         0.5
 	#define BELOW_TABLE_LAYER       0.75
@@ -131,32 +134,40 @@ What is the naming convention for planes or layers?
 	#define FULL_WINDOW_LAYER       8
 	#define ABOVE_WINDOW_LAYER      9
 
-#define LYING_MOB_PLANE               10 // other mobs that are lying down.
+// other mobs that are lying down.
+#define LYING_MOB_PLANE               10
 	#define LYING_MOB_LAYER 0
 
-#define LYING_HUMAN_PLANE             11 // humans that are lying down
+// humans that are lying down
+#define LYING_HUMAN_PLANE             11
 	#define LYING_HUMAN_LAYER 0
 
-#define ABOVE_OBJ_PLANE               12 // for objects that are below humans when they are standing but above them when they are not. - eg, blankets.
+// for objects that are below humans when they are standing but above them when they are not. - eg, blankets.
+#define ABOVE_OBJ_PLANE               12
 	#define BASE_ABOVE_OBJ_LAYER 0
 
-#define HUMAN_PLANE                   13 // For Humans that are standing up.
+// For Humans that are standing up.
+#define HUMAN_PLANE                   13
 	// MOB_LAYER 4
 
-#define MOB_PLANE                     14 // For Mobs.
+// For Mobs.
+#define MOB_PLANE                     14
 	// MOB_LAYER 4
 
-#define ABOVE_HUMAN_PLANE             15 // For things that should appear above humans.
+// For things that should appear above humans.
+#define ABOVE_HUMAN_PLANE             15
 	#define ABOVE_HUMAN_LAYER  0
 	#define VEHICLE_LOAD_LAYER 1
 	#define CAMERA_LAYER       2
 
-#define BLOB_PLANE                    16 // For Blobs, which are above humans.
-	#define BLOB_SHIELD_LAYER		1
-	#define BLOB_NODE_LAYER			2
-	#define BLOB_CORE_LAYER			3
+// For Blobs, which are above humans.
+#define BLOB_PLANE                    16
+	#define BLOB_SHIELD_LAYER       1
+	#define BLOB_NODE_LAYER         2
+	#define BLOB_CORE_LAYER         3
 
-#define EFFECTS_BELOW_LIGHTING_PLANE  17 // For special effects.
+// For special effects.
+#define EFFECTS_BELOW_LIGHTING_PLANE  17
 	#define BELOW_PROJECTILE_LAYER  1
 	#define DEEP_FLUID_LAYER        2
 	#define FIRE_LAYER              3
@@ -166,28 +177,41 @@ What is the naming convention for planes or layers?
 	#define POINTER_LAYER           7
 	#define ALARM_LAYER             8
 
-#define OBSERVER_PLANE                18 // For observers and ghosts
+// For observers and ghosts
+#define OBSERVER_PLANE                18
 
+// Used for masking the Lighting plane
 #define VISIBLE_GAME_WORLD_PLANE      19
 
-#define LIGHTING_PLANE 			      20 // For Lighting. - The highest plane (ignoring all other even higher planes)
+// For Lighting. - The highest plane (ignoring all other even higher planes)
+#define LIGHTING_PLANE                20
 	#define LIGHTBULB_LAYER        0
 	#define LIGHTING_LAYER         1
 	#define ABOVE_LIGHTING_LAYER   2
 	#define SUPER_PORTAL_LAYER     3
 	#define NARSIE_GLOW            4
 
-#define EFFECTS_ABOVE_LIGHTING_PLANE  21 // For glowy eyes, laser beams, etc. that shouldn't be affected by darkness
+// For glowy eyes, laser beams, etc. that shouldn't be affected by darkness
+#define EMISSIVE_PLANE                21
 	#define EYE_GLOW_LAYER         1
 	#define BEAM_PROJECTILE_LAYER  2
 	#define SUPERMATTER_WALL_LAYER 3
+	#define EMISSIVE_LAYER 13
 
-#define OBSCURITY_PLANE 		      22 // For visualnets, such as the AI's static.
+#define EMISSIVE_BLOCKER_PLANE        22
+	#define EMISSIVE_BLOCKER_LAYER 14
+
+#define EMISSIVE_UNBLOCKABLE_PLANE    23
+	#define EMISSIVE_UNBLOCKABLE_LAYER   15
+
+// For visualnets, such as the AI's static.
+#define OBSCURITY_PLANE               24
 
 //This is difference between highest and lowest visible game planes
-#define PLANE_DIFFERENCE              23
+#define PLANE_DIFFERENCE              25
 
-#define BASE_PLANE 				      0 // Not for anything, but this is the default.
+// Not for anything, but this is the default.
+#define BASE_PLANE                     0
 	#define BASE_AREA_LAYER 999
 
 #define FULLSCREEN_PLANE              9000 // for fullscreen overlays that do not cover the hud.
@@ -238,7 +262,8 @@ What is the naming convention for planes or layers?
 		EFFECTS_BELOW_LIGHTING_PLANE,
 		OBSERVER_PLANE,
 		VISIBLE_GAME_WORLD_PLANE,
-		EFFECTS_ABOVE_LIGHTING_PLANE,
+		EMISSIVE_PLANE,
+		EMISSIVE_BLOCKER_PLANE,
 		OBSCURITY_PLANE
 	)
 

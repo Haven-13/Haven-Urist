@@ -278,7 +278,7 @@ var/list/solars_list = list()
 	name = "solar panel control"
 	desc = "A controller for solar panel arrays."
 	icon = 'icons/obj/computer.dmi'
-	icon_state = "solar"
+	icon_state = "computer"
 	anchored = 1
 	density = 1
 	use_power = 1
@@ -293,6 +293,11 @@ var/list/solars_list = list()
 	var/nexttime = 0		// time for a panel to rotate of 1° in manual tracking
 	var/obj/machinery/power/tracker/connected_tracker = null
 	var/list/connected_panels = list()
+
+	light_color = "#ffcc33"
+	var/light_max_bright_on = 0.2
+	var/light_inner_range_on = 0.1
+	var/light_outer_range_on = 2
 
 /obj/machinery/power/solar_control/drain_power()
 	return -1
@@ -309,10 +314,9 @@ var/list/solars_list = list()
 	solars_list.Remove(src)
 
 /obj/machinery/power/solar_control/connect_to_network()
-	var/to_return = ..()
+	. = ..()
 	if(powernet) //if connected and not already in solar_list...
 		solars_list |= src //... add it
-	return to_return
 
 //search for unconnected panels and trackers in the computer powernet and connect them
 /obj/machinery/power/solar_control/proc/search_for_connected()
@@ -358,22 +362,29 @@ var/list/solars_list = list()
 
 /obj/machinery/power/solar_control/Initialize()
 	. = ..()
+	update_icon() // because it does not need power, just put it first
 	if(!connect_to_network()) return
 	set_panels(cdir)
 
+// nabbed from /obj/machinery/computer/update_icon()
+// why the fuck is this object a special snowflake holy fucking shit
 /obj/machinery/power/solar_control/update_icon()
-	if(stat & BROKEN)
-		icon_state = "broken"
-		overlays.Cut()
-		return
-	if(stat & NOPOWER)
-		icon_state = "c_unpowered"
-		overlays.Cut()
-		return
-	icon_state = "solar"
 	overlays.Cut()
-	if(cdir > -1)
-		overlays += image('icons/obj/computer.dmi', "solcon-o", FLY_LAYER, angle2dir(cdir))
+
+	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
+	if(stat & NOPOWER)
+		set_light(0)
+		overlays += image(icon,"power_key_off", layer)
+		return
+	else
+		set_light(light_max_bright_on, light_inner_range_on, light_outer_range_on, 2, light_color)
+
+	if(stat & BROKEN)
+		overlays += image(icon,"computer_broken", layer)
+	else
+		add_emissive_overlay(icon, "solar_screen", layer)
+		add_emissive_overlay(icon, "power_key", layer)
+
 	return
 
 /obj/machinery/power/solar_control/attack_hand(mob/user)
