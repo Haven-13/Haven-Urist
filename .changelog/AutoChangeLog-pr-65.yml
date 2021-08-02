@@ -1,0 +1,9 @@
+author: martinlyra
+delete-after: true
+changes:
+  - rscadd: Added tgstation emissive overlays
+  - rscadd: Added tgstation visual overlays (overlays that use vis_contents)
+  - tweak: Solar control computer uses board-computer update_icon now
+  - bugfix: Fixed the power monitoring being a snowflake object, it should be more
+      uniform with other board computers
+  - imageadd: Both solar and power computers have been converted to screen overlays.
