@@ -35,6 +35,8 @@
 	var/obj/screen/action_intent
 	var/obj/screen/move_intent
 
+	var/list/obj/screen/plane_master/plane_masters = list()
+
 	var/list/adding
 	var/list/other
 	var/list/obj/screen/hotkeybuttons
@@ -92,6 +94,8 @@
 	map_views = null
 	world_map_view = null
 	mymob = null
+
+	QDEL_LIST_ASSOC_VAL(plane_masters)
 
 /datum/hud/proc/hidden_inventory_update()
 	if(!mymob) return

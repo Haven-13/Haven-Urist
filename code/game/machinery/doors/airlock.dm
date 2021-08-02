@@ -615,6 +615,9 @@ About the new airlock wires panel:
 	var/icon/sparks_overlay
 	var/icon/brace_overlay
 
+	var/image/lights_overlay_emissive
+	var/image/sparks_overlay_emissive
+
 	set_light(0)
 
 	if(door_color && !(door_color == "none"))
@@ -712,6 +715,22 @@ About the new airlock wires panel:
 			if(p_open)
 				panel_overlay = panel_file
 
+	if(lights_overlay)
+		var/ikey = "[airlock_type]-[state]-[locked]-lights"
+		if (!(ikey in airlock_icon_cache))
+			var/image/I = new(lights_overlay)
+			I.plane = get_float_plane(EMISSIVE_PLANE)
+			airlock_icon_cache[ikey] = I
+		lights_overlay_emissive = airlock_icon_cache[ikey]
+
+	if(sparks_overlay)
+		var/ikey = "[airlock_type]-[state]-sparks"
+		if (!(ikey in airlock_icon_cache))
+			var/image/I = new(sparks_overlay)
+			I.plane = get_float_plane(EMISSIVE_PLANE)
+			airlock_icon_cache[ikey] = I
+		sparks_overlay_emissive = airlock_icon_cache[ikey]
+
 	if(brace)
 		brace.update_icon()
 		brace_overlay += image(brace.icon, brace.icon_state)
@@ -728,6 +747,9 @@ About the new airlock wires panel:
 	overlays += lights_overlay
 	overlays += sparks_overlay
 	overlays += damage_overlay
+
+	overlays += lights_overlay_emissive
+	overlays += sparks_overlay_emissive
 
 /obj/machinery/door/airlock/do_animate(animation)
 	if(overlays)

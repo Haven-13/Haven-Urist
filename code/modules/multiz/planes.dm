@@ -18,9 +18,10 @@
 	var/bottom_most_z = HasSubmapData(z) ? GetSubmapData(z).get_bottommost_z() : z
 	return min(MAX_PLANE,((z - bottom_most_z)*PLANES_PER_Z_LEVEL) + original_plane)
 
-/atom/proc/update_plane()	//Updates plane using local z-coordinate
-	if(z > 0)
-		plane = calculate_plane(z,original_plane)
+/atom/proc/update_plane(override_z = 0)	//Updates plane using local z-coordinate
+	var/_z = (override_z || z)
+	if(_z > 0)
+		plane = calculate_plane(_z, original_plane)
 	else
 		plane = ABOVE_HUD_PLANE
 

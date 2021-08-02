@@ -1,6 +1,8 @@
 /mob/living/carbon/human
 	plane = HUMAN_PLANE
 
+	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
+
 	//Hair colour and style
 	var/r_hair = 0
 	var/g_hair = 0
