@@ -242,3 +242,11 @@
   martinlyra:
   - bugfix: Fix a bug related to the ferry-type shuttles not giving the right values
       on wherever its current location was.
+2021-08-03:
+  martinlyra:
+  - rscadd: Added tgstation emissive overlays
+  - rscadd: Added tgstation visual overlays (overlays that use vis_contents)
+  - tweak: Solar control computer uses board-computer update_icon now
+  - bugfix: Fixed the power monitoring being a snowflake object, it should be more
+      uniform with other board computers
+  - imageadd: Both solar and power computers have been converted to screen overlays.
