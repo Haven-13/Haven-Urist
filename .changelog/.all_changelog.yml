@@ -250,3 +250,7 @@
   - bugfix: Fixed the power monitoring being a snowflake object, it should be more
       uniform with other board computers
   - imageadd: Both solar and power computers have been converted to screen overlays.
+2021-08-05:
+  martinlyra:
+  - tweak: SMES units now have emissive overlays
+  - imageadd: Added new icons for the SMES units, based on the old one
