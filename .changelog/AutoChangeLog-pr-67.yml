@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - tweak: SMES units now have emissive overlays
-  - imageadd: Added new icons for the SMES units, based on the old one
