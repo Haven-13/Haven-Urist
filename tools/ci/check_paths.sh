@@ -10,8 +10,6 @@ exactly() { # exactly N name search [mode]
 	search="$3"
 	mode="${4:--E}"
 
-	echo "grep $mode $search"
-
 	num="$(grep "$mode" "$search" **/*.dm | wc -l)"
 
 	if [ $num -eq $count ]; then
