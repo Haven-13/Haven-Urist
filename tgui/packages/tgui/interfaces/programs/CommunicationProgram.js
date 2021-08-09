@@ -397,7 +397,6 @@ export const CommunicationProgram = (props, context) => {
         </LabeledList>
       </MessageBoxPrompt>
     ),
-
     (<SelectionPrompt
       key={MODES.alert_level}
       fill
@@ -529,6 +528,7 @@ export const CommunicationProgram = (props, context) => {
         setCurrentMode(-1);
         setSelectedEvacuation(null);
       }}
+      comparator={(a, b) => a?.option_target === b?.option_target}
       onSelect={(level) => {
         if (level.option_target === selectedEvacuation?.option_target) {
           setSelectedEvacuation(null);
