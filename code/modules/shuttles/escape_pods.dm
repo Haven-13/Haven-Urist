@@ -61,26 +61,40 @@ GLOBAL_LIST_EMPTY(escape_pods_by_name)
 	var/data[0]
 
 	data = list(
+		"evac_active" = !!evacuation_controller.emergency_evacuation,
+		"evac_eta" = time_remaining(evacuation_controller.evac_launch_time),
 		"docking_status" = docking_program.get_docking_status(),
 		"override_enabled" = docking_program.override_enabled,
 		"door_state" = 	docking_program.memory["door_status"]["state"],
 		"door_lock" = 	docking_program.memory["door_status"]["lock"],
 		"can_force" = pod.can_force() || (evacuation_controller.has_evacuated() && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
-		"is_armed" = pod.arming_controller.armed,
+		"armed" = pod.arming_controller.armed,
 	)
 
 	return data
 
-/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/OnTopic(user, href_list)
-	if(href_list["manual_arm"])
-		pod.arming_controller.arm()
-		return TRUE
+/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/ui_act(action, list/params)
+	/*
+	* Do me a favour. Never do this nested switching
+	* It exists only solely because Bay's embedded programs
+	* and legacy hrefs are fucking stupid.
+	*
+	* More importantly, it was out of scope of my PR.
+	*/
+	switch(action)
+		if("command")
+			switch(params["command"])
+				if("manual_arm")
+					pod.arming_controller.arm()
+					return TRUE
 
-	if(href_list["force_launch"])
-		if (pod.can_force())
-			pod.force_launch(src)
-		else if (evacuation_controller.has_evacuated() && pod.can_launch())	//allow players to manually launch ahead of time if the shuttle leaves
-			pod.launch(src)
+				if("force_launch")
+					if (pod.can_force())
+						pod.force_launch(src)
+					else if (evacuation_controller.has_evacuated() && pod.can_launch())	//allow players to manually launch ahead of time if the shuttle leaves
+						pod.launch(src)
+					return TRUE
+	if(..())
 		return TRUE
 
 //This controller is for the escape pod berth (station side)
@@ -91,7 +105,7 @@ GLOBAL_LIST_EMPTY(escape_pods_by_name)
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "EscapeBodBearthConsole")
+		ui = new(user, src, "EscapePodBerthConsole")
 		ui.open()
 
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/ui_data(mob/user)
@@ -103,6 +117,8 @@ GLOBAL_LIST_EMPTY(escape_pods_by_name)
 		armed = P.armed
 
 	data = list(
+		"evac_active" = !!evacuation_controller.emergency_evacuation,
+		"evac_eta" = time_remaining(evacuation_controller.evac_ready_time),
 		"docking_status" = docking_program.get_docking_status(),
 		"override_enabled" = docking_program.override_enabled,
 		"armed" = armed,
