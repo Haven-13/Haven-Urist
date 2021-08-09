@@ -28,24 +28,14 @@
 
 	return data
 
-/obj/machinery/embedded_controller/radio/simple_docking_controller/Topic(href, href_list)
+/obj/machinery/embedded_controller/radio/simple_docking_controller/ui_act(action, list/params)
 	if(..())
-		return 1
+		return TRUE
 
-	usr.set_machine(src)
-
-	var/clean = 0
-	switch(href_list["command"])	//anti-HTML-hacking checks
-		if("force_door")
-			clean = 1
-		if("toggle_override")
-			clean = 1
-
-	if(clean)
-		program.receive_user_command(href_list["command"])
-
-	return 0
-
+	switch(action)
+		if("command")
+			program.receive_user_command(params["command"])
+			return TRUE
 
 //A docking controller program for a simple door based docking port
 /datum/computer/file/embedded_program/docking/simple
