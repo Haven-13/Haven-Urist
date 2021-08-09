@@ -21,7 +21,7 @@ export const EscapePodBerthConsole = (props, context) => {
               <TimeDisplay
                 value={data.evac_eta*10}
                 auto={"down"}
-                format={(h,m,s) => `${m}:${s}`}
+                format={(h, m, s) => `${m}:${s}`}
               />
             </Box>
           )
@@ -32,10 +32,10 @@ export const EscapePodBerthConsole = (props, context) => {
               color="white"
               backgroundColor="bad"
               fontSize={5}
-              >
-              <Icon name="running"/>
-              <Icon name="sign-in-alt" ml={4} mr={4}/>
-              <Icon name="space-shuttle"/>
+            >
+              <Icon name="running" />
+              <Icon name="sign-in-alt" ml={4} mr={4} />
+              <Icon name="space-shuttle" />
             </Box>
           )
           || (data.docking_status === "docked" && (
@@ -74,14 +74,14 @@ export const EscapePodBerthConsole = (props, context) => {
             <Button.Checkbox
               fluid
               content="Enable Override"
-              disabled={!!!data.armed}
+              disabled={!data.armed}
               checked={!!data.override_enabled}
               onClick={() => act("command", {
                 command: "toggle_override",
               })}
             />
           }
-          >
+        >
           <LabeledControls>
             <LabeledControls.Item
               label="Emergency">
@@ -91,7 +91,8 @@ export const EscapePodBerthConsole = (props, context) => {
                 content="Force Hatch"
                 disabled={
                   data.docking_status === "docked"
-                  && (!!!data.armed || !!!data.override_enabled)}
+                  && (!data.armed || !data.override_enabled)
+                }
                 color={"red"}
                 onClick={() => act("command", {
                   command: "force_door",

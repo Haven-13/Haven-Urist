@@ -16,7 +16,7 @@ export const EscapePodConsole = (props, context) => {
           fontSize={2.5}
           textAlign="center"
         >
-          {(!!data.evac_active && !!!data.armed) && (
+          {(!!data.evac_active && !data.armed) && (
             <Box color="average">
               ARMING
             </Box>
@@ -28,11 +28,11 @@ export const EscapePodConsole = (props, context) => {
               color="white"
               backgroundColor="bad"
               fontSize={5}
-              >
+            >
               <TimeDisplay
                 value={data.evac_eta*10}
                 auto="down"
-                format={(h,m,s) => `${m}:${s}`}
+                format={(h, m, s) => `${m}:${s}`}
               />
             </Box>
           )
@@ -79,7 +79,7 @@ export const EscapePodConsole = (props, context) => {
               })}
             />
           }
-          >
+        >
           <LabeledControls>
             <LabeledControls.Item
               label="Hatch Control">
@@ -87,7 +87,7 @@ export const EscapePodConsole = (props, context) => {
                 fluid
                 icon="sign-in-alt"
                 content="Force Hatch"
-                disabled={!!!data.can_force}
+                disabled={!data.can_force}
                 color={"red"}
                 onClick={() => act("command", {
                   command: "force_door",
@@ -100,7 +100,7 @@ export const EscapePodConsole = (props, context) => {
                 fluid
                 icon="unlock"
                 content="Force Arm"
-                disabled={!!data.armed && !!!data.override_enabled}
+                disabled={!!data.armed && !data.override_enabled}
                 color={"red"}
                 onClick={() => act("command", {
                   command: "manual_arm",
@@ -113,7 +113,7 @@ export const EscapePodConsole = (props, context) => {
                 fluid
                 icon="sign-out-alt"
                 content="Manual Eject"
-                disabled={!!!data.can_force && data.evac_eta > 0}
+                disabled={!data.can_force && data.evac_eta > 0}
                 color={"red"}
                 onClick={() => act("command", {
                   command: "force_launch",
