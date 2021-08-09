@@ -3,7 +3,7 @@ import { Box, Icon, Section, Button, TimeDisplay } from 'tgui/components';
 import { Window } from 'tgui/layouts';
 import { LabeledControls } from 'tgui/components';
 
-export const EscapePodBearthConsole = (props, context) => {
+export const EscapePodBerthConsole = (props, context) => {
   const { act, data } = useBackend(context);
 
   return (
@@ -75,7 +75,7 @@ export const EscapePodBearthConsole = (props, context) => {
               fluid
               content="Enable Override"
               disabled={!!!data.armed}
-              selected={!!data.override_enabled}
+              checked={!!data.override_enabled}
               onClick={() => act("command", {
                 command: "toggle_override",
               })}
@@ -89,7 +89,9 @@ export const EscapePodBearthConsole = (props, context) => {
                 fluid
                 icon="sign-in-alt"
                 content="Force Hatch"
-                disabled={!!!data.armed || !!!data.override_enabled}
+                disabled={
+                  data.docking_status === "docked"
+                  && (!!!data.armed || !!!data.override_enabled)}
                 color={"red"}
                 onClick={() => act("command", {
                   command: "force_door",

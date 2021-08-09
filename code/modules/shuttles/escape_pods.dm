@@ -94,7 +94,7 @@ GLOBAL_LIST_EMPTY(escape_pods_by_name)
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "EscapePodBearthConsole")
+		ui = new(user, src, "EscapePodBerthConsole")
 		ui.open()
 
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/ui_data(mob/user)
