@@ -1,0 +1,7 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Added missing UI for escape pod control
+  - bugfix: Added missing UI for escape pod berth control
+  - bugfix: Fixed the evacuation selection not properly annotating which option was
+      selected in the Communications program
