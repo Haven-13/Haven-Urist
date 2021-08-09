@@ -10,6 +10,8 @@ exactly() { # exactly N name search [mode]
 	search="$3"
 	mode="${4:--E}"
 
+	echo "grep $mode $search"
+
 	num="$(grep "$mode" "$search" **/*.dm | wc -l)"
 
 	if [ $num -eq $count ]; then
@@ -39,6 +41,8 @@ exactly 71 "to_world_log() uses" 'to_world_log\('
 
 exactly 113 "<< uses" '(?<!<)<<(?!<)' -P
 exactly 0 "incorrect indentations" '^( {4,})' -P
+exactly 0 "whitespace-only lines" '^[ \t]+$'
+exactly 0 "superflous EOL whitespace" '[ \t]+$'
 # With the potential exception of << if you increase any of these numbers you're probably doing it wrong
 
 num=`find . -perm /111 -name "*.dm*" | wc -l`
