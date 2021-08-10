@@ -69,7 +69,7 @@ cases = [
     exactly(208, "to_world() uses", r'to_world\('),
     exactly(71, "to_world_log() uses", r'to_world_log\('),
 
-    exactly(115, "<< uses", r'(?<!<)<<(?!<)'),
+    exactly(113, "<< uses", r'(?<!<)<<(?!<)'),
     exactly(0, "incorrect indentations", r'^( {4,})'),
     exactly(0, "superflous whitespace", r'[ \t]+$'),
     exactly(74, "mixed indentation", r'^( +\t+|\t+ +)')
