@@ -63,7 +63,7 @@
 
 			var/material/M = SSmaterials.get_material_by_name(metal)
 			var/result = 0 // For reference: a positive result indicates sheets were produced,
-			               // and a negative result indicates slag was produced.
+							// and a negative result indicates slag was produced.
 			var/ore_mode = ores_processing[metal]
 			if(ore_mode == ORE_ALLOY)
 				if(SSmaterials.alloy_components[metal])

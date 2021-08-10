@@ -319,10 +319,11 @@ var/global/floorIsLava = 0
 				</td>
 				<td width='80%'>
 					<input type='text'
-					       id='filter'
-					       name='filter_text'
-					       value=''
-					       style='width:100%;' />
+						id='filter'
+						name='filter_text'
+						value=''
+						style='width:100%;'
+					/>
 				</td>
 			</tr></table>
 			<hr/>

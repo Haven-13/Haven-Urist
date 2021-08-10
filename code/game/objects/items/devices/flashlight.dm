@@ -67,8 +67,10 @@
 				to_chat(user, "<span class='warning'>\The [H] is missing \his [initial(vision.name)]!</span>")
 				return
 
-			user.visible_message("<span class='notice'>\The [user] directs [src] into [M]'s [vision.name].</span>", \
-								 "<span class='notice'>You direct [src] into [M]'s [vision.name].</span>")
+			user.visible_message(
+				"<span class='notice'>\The [user] directs [src] into [M]'s [vision.name].</span>",
+				"<span class='notice'>You direct [src] into [M]'s [vision.name].</span>"
+			)
 
 			inspect_vision(vision, user)
 

@@ -72,7 +72,7 @@ cases = [
     exactly(115, "<< uses", r'(?<!<)<<(?!<)'),
     exactly(0, "incorrect indentations", r'^( {4,})'),
     exactly(0, "superflous whitespace", r'[ \t]+$'),
-    exactly(0, "mixed indentation", r'^( +\t+|\t+ +)')
+    exactly(74, "mixed indentation", r'^( +\t+|\t+ +)')
 ]
 # With the potential exception of << if you increase any
 # of these numbers you're probably doing it wrong

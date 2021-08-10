@@ -50,9 +50,9 @@
 	var/lastping = 0
 	///Average ping of the client
 	var/avgping = 0
- 	///world.time they connected
+	///world.time they connected
 	var/connection_time
- 	///world.realtime they connected
+	///world.realtime they connected
 	var/connection_realtime
- 	///world.timeofday they connected
+	///world.timeofday they connected
 	var/connection_timeofday
