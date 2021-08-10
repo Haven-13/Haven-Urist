@@ -178,10 +178,10 @@
 			if (prob(5))
 				visible_emote(
 					pick(
-						"nuzzles [friend].",
-						"brushes against [friend].",
-						"rubs against [friend].",
-						"purrs."
+						"nuzzles [friend].",\
+						"brushes against [friend].",\
+						"rubs against [friend].",\
+						"purrs."\
 					)
 				)
 	else if (friend.health <= 50)
@@ -206,10 +206,10 @@
 		set_dir(get_dir(src, friend))
 		visible_emote(
 			pick(
-				"nuzzles [friend].",
-				"brushes against [friend].",
-				"rubs against [friend].",
-				"purrs."
+				"nuzzles [friend].",\
+				"brushes against [friend].",\
+				"rubs against [friend].",\
+				"purrs."\
 			)
 		)
 	else

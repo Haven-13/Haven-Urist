@@ -168,28 +168,28 @@
 			var/attack_message
 			if(!accurate)
 				/* ~Hubblenaut
-					This place is kind of convoluted and will need some explaining.
-					ran_zone() will pick out of 11 zones, thus the chance for hitting
-					our target where we want to hit them is circa 9.1%.
+				*	This place is kind of convoluted and will need some explaining.
+				*	ran_zone() will pick out of 11 zones, thus the chance for hitting
+				*	our target where we want to hit them is circa 9.1%.
 
-					Now since we want to statistically hit our target organ a bit more
-					often than other organs, we add a base chance of 20% for hitting it.
+				*	Now since we want to statistically hit our target organ a bit more
+				*	often than other organs, we add a base chance of 20% for hitting it.
 
-					This leaves us with the following chances:
+				*	This leaves us with the following chances:
 
-					If aiming for chest:
-						27.3% chance you hit your target organ
-						70.5% chance you hit a random other organ
-						 2.2% chance you miss
+				*	If aiming for chest:
+				*		27.3% chance you hit your target organ
+				*		70.5% chance you hit a random other organ
+				*		 2.2% chance you miss
 
-					If aiming for something else:
-						23.2% chance you hit your target organ
-						56.8% chance you hit a random other organ
-						15.0% chance you miss
+				*	If aiming for something else:
+				*		23.2% chance you hit your target organ
+				*		56.8% chance you hit a random other organ
+				*		15.0% chance you miss
 
-					Note: We don't use get_zone_with_miss_chance() here since the chances
-						  were made for projectiles.
-					TODO: proc for melee combat miss chances depending on organ?
+				*	Note: We don't use get_zone_with_miss_chance() here since the chances
+				*	     were made for projectiles.
+				*	TODO: proc for melee combat miss chances depending on organ?
 				*/
 				if(prob(80))
 					hit_zone = ran_zone(hit_zone)

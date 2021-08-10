@@ -1088,7 +1088,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	if(company)
 		var/datum/robolimb/R = all_robolimbs[company]
-		if(!R
+		if(!R \
 			|| (species && (species.name in R.species_cannot_use)) \
 			|| (R.restricted_to.len && !(species.name in R.restricted_to)) \
 			|| (R.applies_to_part.len && !(organ_tag in R.applies_to_part))
