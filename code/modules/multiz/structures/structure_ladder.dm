@@ -90,7 +90,7 @@
 	instant_climb(M)
 
 
-// This is horrible. If you plan on killing me over this code. Please go murder 
+// This is horrible. If you plan on killing me over this code. Please go murder
 // the guys who originally wrote this and Baystation12's code first.
 // Fullfilling that last wish would do me a great service. Thanks.
 /obj/structure/ladder/proc/check_open_turf(var/turf/T)

@@ -200,7 +200,7 @@
 			remove_from_storage(P)
 			P.attack(target,user)
 			return 1
-	
+
 /obj/item/weapon/storage/pill_bottle/Initialize()
 	. = ..()
 	update_icon()
