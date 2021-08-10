@@ -94,7 +94,7 @@ def collect_candidate_files(directory, extensions):
             if is_a_match(file):
                 full_path = os.path.join(path, file)
                 full_path = os.path.normpath(full_path)
-                candidates[len(candidates) + 1] = full_path.lower()
+                candidates[len(candidates) + 1] = full_path
     return candidates
 
 # A constant for the function below, so it won't be compiled
