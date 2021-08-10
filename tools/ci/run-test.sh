@@ -202,6 +202,7 @@ function run_code_quality_tests {
     find_code_deps
     pip install --user PyYaml -q
     pip install --user beautifulsoup4 -q
+	pip install --user colorama -q
     shopt -s globstar
     run_test_fail "maps contain no step_[xy]" "grep 'step_[xy]' maps/**/*.dmm"
     run_test_fail "no invalid spans" "grep -En \"<\s*span\s+class\s*=\s*('[^'>]+|[^'>]+')\s*>\" **/*.dm"
