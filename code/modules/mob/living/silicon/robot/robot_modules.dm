@@ -175,16 +175,17 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/standard
 	name = "standard robot module"
-	sprites = list(	"Basic" = "robot_old",
-					"Android" = "droid",
-					"Default" = "robot",
-					"Drone" = "drone-standard",
-					"Advanced-Drone" = "Advanced-Drone-Standard",
-					"Wiredroid" = "Wiredroid-Standard",
-					"Worm" = "Worm-Standard",
-					"Spider" = "Spider-Standard",
-					"Eyebot" = "Eyebot-standard"
-				  )
+	sprites = list(
+		"Basic" = "robot_old",
+		"Android" = "droid",
+		"Default" = "robot",
+		"Drone" = "drone-standard",
+		"Advanced-Drone" = "Advanced-Drone-Standard",
+		"Wiredroid" = "Wiredroid-Standard",
+		"Worm" = "Worm-Standard",
+		"Spider" = "Spider-Standard",
+		"Eyebot" = "Eyebot-standard"
+	)
 
 /obj/item/weapon/robot_module/standard/New()
 	src.modules += new /obj/item/device/flash(src)
@@ -206,18 +207,18 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/medical/surgeon
 	name = "surgeon robot module"
 	sprites = list(
-					"Basic" = "Medbot",
-					"Standard" = "surgeon",
-					"Advanced Droid" = "droid-medical",
-					"Needles" = "medicalrobot",
-					"Drone" = "drone-surgery",
-					"Ravensdale" = "ravensdale-Medical",
-					"Advanced-Drone" = "Advanced-Drone-Medical",
-					"Wiredroid" = "Wiredroid-Medical",
-					"Worm" = "Worm-Surgeon",
-					"Spider" = "Spider-Surgeon",
-					"Eyebot" = "Eyebot-surgeon"
-					)
+		"Basic" = "Medbot",
+		"Standard" = "surgeon",
+		"Advanced Droid" = "droid-medical",
+		"Needles" = "medicalrobot",
+		"Drone" = "drone-surgery",
+		"Ravensdale" = "ravensdale-Medical",
+		"Advanced-Drone" = "Advanced-Drone-Medical",
+		"Wiredroid" = "Wiredroid-Medical",
+		"Worm" = "Worm-Surgeon",
+		"Spider" = "Spider-Surgeon",
+		"Eyebot" = "Eyebot-surgeon"
+	)
 
 /obj/item/weapon/robot_module/medical/surgeon/New()
 	src.modules += new /obj/item/device/flash(src)
@@ -264,19 +265,19 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/medical/crisis
 	name = "crisis robot module"
 	sprites = list(
-					"Basic" = "Medbot",
-					"Standard" = "surgeon",
-					"Advanced Droid" = "droid-medical",
-					"Needles" = "medicalrobot",
-					"Drone - Medical" = "drone-medical",
-					"Drone - Chemistry" = "drone-chemistry",
-					"Ravensdale" = "ravensdale-Medical",
-					"Advanced-Drone" = "Advanced-Drone-Medical",
-					"Wiredroid" = "Wiredroid-Medical",
-					"Worm" = "Worm-Crisis",
-					"Spider" = "Spider-Crisis",
-					"Eyebot" = "Eyebot-crisis"
-					)
+		"Basic" = "Medbot",
+		"Standard" = "surgeon",
+		"Advanced Droid" = "droid-medical",
+		"Needles" = "medicalrobot",
+		"Drone - Medical" = "drone-medical",
+		"Drone - Chemistry" = "drone-chemistry",
+		"Ravensdale" = "ravensdale-Medical",
+		"Advanced-Drone" = "Advanced-Drone-Medical",
+		"Wiredroid" = "Wiredroid-Medical",
+		"Worm" = "Worm-Crisis",
+		"Spider" = "Spider-Crisis",
+		"Eyebot" = "Eyebot-crisis"
+	)
 
 /obj/item/weapon/robot_module/medical/crisis/New()
 	src.modules += new /obj/item/weapon/crowbar(src)
@@ -341,18 +342,18 @@ var/global/list/robot_modules = list(
 	subsystems = list(/datum/ui_module/program/power_monitor, /datum/ui_module/program/supermatter_monitor)
 	supported_upgrades = list(/obj/item/borg/upgrade/rcd)
 	sprites = list(
-					"Basic" = "Engineering",
-					"Antique" = "engineerrobot",
-					"Landmate" = "landmate",
-					"Landmate - Treaded" = "engiborg+tread",
-					"Drone" = "drone-engineer",
-					"Ravensdale" = "ravensdale-Engineering",
-					"Advanced-Drone" = "Advanced-Drone-Engineering",
-					"Wiredroid" = "Wiredroid-Engineering",
-					"Worm" = "Worm-Engineering",
-					"Spider" = "Spider-Engineering",
-					"Eyebot" = "Eyebot-engineering"
-					)
+		"Basic" = "Engineering",
+		"Antique" = "engineerrobot",
+		"Landmate" = "landmate",
+		"Landmate - Treaded" = "engiborg+tread",
+		"Drone" = "drone-engineer",
+		"Ravensdale" = "ravensdale-Engineering",
+		"Advanced-Drone" = "Advanced-Drone-Engineering",
+		"Wiredroid" = "Wiredroid-Engineering",
+		"Worm" = "Worm-Engineering",
+		"Spider" = "Spider-Engineering",
+		"Eyebot" = "Eyebot-engineering"
+	)
 	no_slip = 1
 
 /obj/item/weapon/robot_module/engineering/general/New()
@@ -437,19 +438,19 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/security/general
 	sprites = list(
-					"Basic" = "secborg",
-					"Red Knight" = "Security",
-					"Black Knight" = "securityrobot",
-					"Bloodhound" = "bloodhound",
-					"Bloodhound - Treaded" = "secborg+tread",
-					"Drone" = "drone-sec",
-					"Ravensdale" = "ravensdale-Security",
-					"Advanced-Drone" = "Advanced-Drone-Security",
-					"Wiredroid" = "Wiredroid-Security",
-					"Worm" = "Worm-Security",
-					"Spider" = "Spider-Security",
-					"Eyebot" = "Eyebot-security"
-				)
+		"Basic" = "secborg",
+		"Red Knight" = "Security",
+		"Black Knight" = "securityrobot",
+		"Bloodhound" = "bloodhound",
+		"Bloodhound - Treaded" = "secborg+tread",
+		"Drone" = "drone-sec",
+		"Ravensdale" = "ravensdale-Security",
+		"Advanced-Drone" = "Advanced-Drone-Security",
+		"Wiredroid" = "Wiredroid-Security",
+		"Worm" = "Worm-Security",
+		"Spider" = "Spider-Security",
+		"Eyebot" = "Eyebot-security"
+	)
 
 /obj/item/weapon/robot_module/security/general/New()
 	src.modules += new /obj/item/device/flash(src)
@@ -480,17 +481,17 @@ var/global/list/robot_modules = list(
 	name = "janitorial robot module"
 	channels = list("Service" = 1)
 	sprites = list(
-					"Basic" = "JanBot2",
-					"Mopbot"  = "janitorrobot",
-					"Mop Gear Rex" = "mopgearrex",
-					"Drone" = "drone-janitor",
-					"Ravensdale" = "ravensdale-Janitor",
-					"Advanced-Drone" = "Advanced-Drone-Janitor",
-					"Wiredroid" = "Wiredroid-Janitor",
-					"Worm" = "Worm-Janitor",
-					"Spider" = "Spider-Janitor",
-					"Eyebot" = "Eyebot-janitor"
-					)
+		"Basic" = "JanBot2",
+		"Mopbot"  = "janitorrobot",
+		"Mop Gear Rex" = "mopgearrex",
+		"Drone" = "drone-janitor",
+		"Ravensdale" = "ravensdale-Janitor",
+		"Advanced-Drone" = "Advanced-Drone-Janitor",
+		"Wiredroid" = "Wiredroid-Janitor",
+		"Worm" = "Worm-Janitor",
+		"Spider" = "Spider-Janitor",
+		"Eyebot" = "Eyebot-janitor"
+	)
 
 /obj/item/weapon/robot_module/janitor/New()
 	src.modules += new /obj/item/device/flash(src)
@@ -527,20 +528,21 @@ var/global/list/robot_modules = list(
 					)
 
 /obj/item/weapon/robot_module/clerical/butler
-	sprites = list(	"Waitress" = "Service",
-					"Kent" = "toiletbot",
-					"Bro" = "Brobot",
-					"Rich" = "maximillion",
-					"Default" = "Service2",
-					"Drone - Service" = "drone-service",
-					"Drone - Hydro" = "drone-hydro",
-					"Ravensdale" = "ravensdale-Service",
-					"Advanced-Drone" = "Advanced-Drone-Service",
-					"Wiredroid" = "Wiredroid-Service",
-					"Worm" = "Worm-Service",
-					"Spider" = "Spider-Clerical",
-					"Eyebot" = "Eyebot-service"
-				  	)
+	sprites = list(
+		"Waitress" = "Service",
+		"Kent" = "toiletbot",
+		"Bro" = "Brobot",
+		"Rich" = "maximillion",
+		"Default" = "Service2",
+		"Drone - Service" = "drone-service",
+		"Drone - Hydro" = "drone-hydro",
+		"Ravensdale" = "ravensdale-Service",
+		"Advanced-Drone" = "Advanced-Drone-Service",
+		"Wiredroid" = "Wiredroid-Service",
+		"Worm" = "Worm-Service",
+		"Spider" = "Spider-Clerical",
+		"Eyebot" = "Eyebot-service"
+	)
 
 /obj/item/weapon/robot_module/clerical/butler/New()
 	src.modules += new /obj/item/device/flash(src)
@@ -578,19 +580,19 @@ var/global/list/robot_modules = list(
 	channels = list("Service" = 1, "Supply" = 1)
 	networks = list(NETWORK_MINE)
 	sprites = list(
-					"Waitress" = "Service",
-					"Kent" = "toiletbot",
-					"Bro" = "Brobot",
-					"Rich" = "maximillion",
-					"Default" = "Service2",
-					"Drone" = "drone-service",
-					"Ravensdale" = "ravensdale-Service",
-					"Advanced-Drone" = "Advanced-Drone-Service",
-					"Wiredroid" = "Wiredroid-Service",
-					"Worm" = "Worm-Service",
-					"Spider" = "Spider-Clerical",
-					"Eyebot" = "Eyebot-service"
-					)
+		"Waitress" = "Service",
+		"Kent" = "toiletbot",
+		"Bro" = "Brobot",
+		"Rich" = "maximillion",
+		"Default" = "Service2",
+		"Drone" = "drone-service",
+		"Ravensdale" = "ravensdale-Service",
+		"Advanced-Drone" = "Advanced-Drone-Service",
+		"Wiredroid" = "Wiredroid-Service",
+		"Worm" = "Worm-Service",
+		"Spider" = "Spider-Clerical",
+		"Eyebot" = "Eyebot-service"
+	)
 
 /obj/item/weapon/robot_module/clerical/general/New()
 	src.modules += new /obj/item/device/flash(src)
@@ -626,17 +628,17 @@ var/global/list/robot_modules = list(
 	channels = list("Supply" = 1, "Science" = 1)
 	networks = list(NETWORK_MINE)
 	sprites = list(
-					"Basic" = "Miner_old",
-					"Advanced Droid" = "droid-miner",
-					"Treadhead" = "Miner",
-					"Drone" = "drone-miner",
-					"Ravensdale" = "ravensdale-Miner",
-					"Advanced-Drone" = "Advanced-Drone-Miner",
-					"Wiredroid" = "Wiredroid-Miner",
-					"Worm" = "Worm-Miner",
-					"Spider" = "Spider-Miner",
-					"Eyebot" = "Eyebot-miner"
-				)
+		"Basic" = "Miner_old",
+		"Advanced Droid" = "droid-miner",
+		"Treadhead" = "Miner",
+		"Drone" = "drone-miner",
+		"Ravensdale" = "ravensdale-Miner",
+		"Advanced-Drone" = "Advanced-Drone-Miner",
+		"Wiredroid" = "Wiredroid-Miner",
+		"Worm" = "Worm-Miner",
+		"Spider" = "Spider-Miner",
+		"Eyebot" = "Eyebot-miner"
+	)
 	supported_upgrades = list(/obj/item/borg/upgrade/jetpack)
 
 /obj/item/weapon/robot_module/miner/New()
@@ -658,13 +660,13 @@ var/global/list/robot_modules = list(
 	channels = list("Science" = 1)
 	networks = list(NETWORK_RESEARCH)
 	sprites = list(
-					"Droid" = "droid-science",
-					"Drone" = "drone-science",
-					"Advanced-Drone" = "Advanced-Drone-Research",
-					"Wiredroid" = "Wiredroid-Medical",
-					"Worm" = "Worm-Crisis",
-					"Spider" = "Spider-Surgeon"
-					)
+		"Droid" = "droid-science",
+		"Drone" = "drone-science",
+		"Advanced-Drone" = "Advanced-Drone-Research",
+		"Wiredroid" = "Wiredroid-Medical",
+		"Worm" = "Worm-Crisis",
+		"Spider" = "Spider-Surgeon"
+	)
 
 /obj/item/weapon/robot_module/research/New()
 	src.modules += new /obj/item/device/flash(src)
@@ -699,8 +701,8 @@ var/global/list/robot_modules = list(
 	name = "syndicate robot module"
 	hide_on_manifest = 1
 	sprites = list(
-					"Dread" = "securityrobot",
-				)
+		"Dread" = "securityrobot",
+	)
 	var/id
 
 /obj/item/weapon/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
@@ -725,10 +727,11 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/security/combat
 	name = "combat robot module"
 	hide_on_manifest = 1
-	sprites = list("Combat Android" = "droid-combat",
-					"Ravensdale" = "ravensdale-Combat",
-					"Spider" = "Spider-Combat"
-					)
+	sprites = list(
+		"Combat Android" = "droid-combat",
+		"Ravensdale" = "ravensdale-Combat",
+		"Spider" = "Spider-Combat"
+	)
 
 /obj/item/weapon/robot_module/security/combat/New()
 	src.modules += new /obj/item/device/flash(src)
@@ -858,8 +861,9 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/uncertified
 	name = "uncertified robot module"
-	sprites = list(	"Roller" = "omoikane"
-			  )
+	sprites = list(
+		"Roller" = "omoikane"
+	)
 
 /obj/item/weapon/robot_module/uncertified/party/Initialize()
 	name = "Madhouse Productions Official Party Module"

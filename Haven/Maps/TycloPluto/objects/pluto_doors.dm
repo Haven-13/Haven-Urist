@@ -15,57 +15,57 @@
 # define COLOR_MEDICAL_GREEN "#448044"
 
 /*
- Colour list:
- Command:
+Colour list:
+Command:
 	- COLOR_SPACE_CADET (#152050)
 	- COLOR_ROMAN_SILVER (#7e8495)
 
- Command (Gunnery):
+Command (Gunnery):
 	- COLOR_SPACE_CADET (#152050)
 	- COLOR_NT_RED
 
- Security:
+Security:
 	- COLOR_NT_RED
 	- COLOR_MAROON
 
- Medical:
+Medical:
 	- COLOR_GREEN
 	- COLOR_WHITE
 
- Medical (inverted):
+Medical (inverted):
 	- COLOR_WHITE
 	- COLOR_GREEN
 
- Engineering:
+Engineering:
 	- COLOR_AMBER
 	- COLOR_ORANGE
 
- Engineering (Engine/Inverted)
+Engineering (Engine/Inverted)
 	- COLOR_ORANGE
 	- COLOR_AMBER
 
- Engineering (Atmos)
+Engineering (Atmos)
 	- COLOR_AMBER
 	- COLOR_CYAN
 
- Cargo:
+Cargo:
 	- COLOR_PALE_ORANGE
 	- COLOR_BEASTY_BROWN
 
 	Maintenance:
-	 - COLOR_AMBER
-	 - COLOR_DARK_GREY
+		- COLOR_AMBER
+		- COLOR_DARK_GREY
 
 	Maintenance (Substation):
-	 - COLOR_DARK_GREY
-	 - COLOR_AMBER
+		- COLOR_DARK_GREY
+		- COLOR_AMBER
 
 	Maintenance (Firefighter closet):
-	 - COLOR_DARK_GREY
-	 - COLOR_NT_RED
+		- COLOR_DARK_GREY
+		- COLOR_NT_RED
 
 	Maintenance (Thruster)
-	 -
+		-
 
 */
 

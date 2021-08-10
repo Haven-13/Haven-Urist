@@ -10,17 +10,17 @@
 	icon_state = "beltRobo"
 	storage_slots = 7
 	can_hold = list(
- 	/obj/item/weapon/crowbar,
- 	/obj/item/weapon/screwdriver,
- 	/obj/item/weapon/weldingtool,
- 	/obj/item/weapon/wirecutters,
- 	/obj/item/weapon/wrench,
- 	/obj/item/device/multitool,
- 	/obj/item/device/flashlight,
- 	/obj/item/stack/cable_coil,
- 	/obj/item/device/analyzer,
- 	/obj/item/device/mmi,
- 	)
+		/obj/item/weapon/crowbar,
+		/obj/item/weapon/screwdriver,
+		/obj/item/weapon/weldingtool,
+		/obj/item/weapon/wirecutters,
+		/obj/item/weapon/wrench,
+		/obj/item/device/multitool,
+		/obj/item/device/flashlight,
+		/obj/item/stack/cable_coil,
+		/obj/item/device/analyzer,
+		/obj/item/device/mmi,
+	)
 
 /obj/item/weapon/storage/belt/robotics/full/New()
 	..()

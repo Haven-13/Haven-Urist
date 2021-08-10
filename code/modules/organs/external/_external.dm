@@ -519,7 +519,7 @@ This function completely restores a damaged organ to perfect condition.
 		return W
 
 /****************************************************
-			   PROCESSING & UPDATING
+			PROCESSING & UPDATING
 ****************************************************/
 
 //external organs handle brokenness a bit differently when it comes to damage.
@@ -775,7 +775,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return "[tbrute][tburn]"
 
 /****************************************************
-			   DISMEMBERMENT
+			DISMEMBERMENT
 ****************************************************/
 /obj/item/organ/external/proc/get_droplimb_messages_for(var/droptype, var/clean)
 
@@ -926,7 +926,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			qdel(src)
 
 /****************************************************
-			   HELPERS
+			HELPERS
 ****************************************************/
 
 /obj/item/organ/external/proc/is_stump()
@@ -1088,9 +1088,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	if(company)
 		var/datum/robolimb/R = all_robolimbs[company]
-		if(!R || (species && (species.name in R.species_cannot_use)) || \
-		 (R.restricted_to.len && !(species.name in R.restricted_to)) || \
-		 (R.applies_to_part.len && !(organ_tag in R.applies_to_part)))
+		if(!R
+			|| (species && (species.name in R.species_cannot_use)) \
+			|| (R.restricted_to.len && !(species.name in R.restricted_to)) \
+			|| (R.applies_to_part.len && !(organ_tag in R.applies_to_part))
+		)
 			R = basic_robolimb
 		else
 			model = company

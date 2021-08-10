@@ -249,13 +249,15 @@
 				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted.")
 				return
 			to_chat(user, "Hack succeeded. The AI is now under your exclusive control.")
-			to_chat(target, "SYSTEM LOG: System re¡3RT5§^#COMU@(#$)TED)@$")
+			to_chat(target, "SYSTEM LOG: System reï¿½3RT5ï¿½^#COMU@(#$)TED)@$")
 			for(var/i = 0, i < 5, i++)
-				var/temptxt = pick("1101000100101001010001001001",\
-							   	   "0101000100100100000100010010",\
-							       "0000010001001010100100111100",\
-							       "1010010011110000100101000100",\
-							       "0010010100010011010001001010")
+				var/temptxt = pick(
+					"1101000100101001010001001001",
+					"0101000100100100000100010010",
+					"0000010001001010100100111100",
+					"1010010011110000100101000100",
+					"0010010100010011010001001010"
+				)
 				to_chat(target, temptxt)
 				sleep(5)
 			to_chat(target, "OPERATING KEYCODES RESET. SYSTEM FAILURE. EMERGENCY SHUTDOWN FAILED. SYSTEM FAILURE.")

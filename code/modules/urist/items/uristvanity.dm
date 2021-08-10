@@ -139,8 +139,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	item_icons = DEF_URIST_INHANDS
 
 /obj/item/weapon/vanity/doll/unathi/attack_self(mob/user as mob)
-	user.visible_message("<span class='notice'>[user] hugs [src], [src] hisses! How cute! </span>",\
-						 "<span class='notice'>You hug [src], [src] hisses! Awww! </span>")
+	user.visible_message(
+		"<span class='notice'>[user] hugs [src], [src] hisses! How cute! </span>",\
+		"<span class='notice'>You hug [src], [src] hisses! Awww! </span>"
+	)
 
 /obj/item/weapon/vanity/doll/unathi/green
 	name = "unathi doll"
@@ -186,8 +188,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	item_state = "purpleunathi"
 
 /obj/item/weapon/vanity/doll/unathi/purple/attack_self(mob/user as mob)
-	user.visible_message("<span class='notice'>[user] hugs [src], [src] hisses, 'Lovingsss yousss, lovingsss messs?' How cute! </span>",\
-						 "<span class='notice'>You hug [src], [src] hisses, 'Lovingsss yousss, lovingsss messs?' Awww! </span>")
+	user.visible_message(
+		"<span class='notice'>[user] hugs [src], [src] hisses, 'Lovingsss yousss, lovingsss messs?' How cute! </span>",
+		"<span class='notice'>You hug [src], [src] hisses, 'Lovingsss yousss, lovingsss messs?' Awww! </span>"
+	)
 
 
 /obj/item/weapon/vanity/doll/unathi/orange
