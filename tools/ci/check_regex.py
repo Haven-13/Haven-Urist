@@ -38,14 +38,14 @@ import time
 import colorama
 from colorama import Fore, Back, Style
 
-class RegexTestCase:
+class TextExpression:
     def __init__(self, expected, message, pattern) -> None:
         self.expected = expected
         self.message = message
         self.pattern = pattern
 
-def exactly(num, message, pattern) -> RegexTestCase:
-    return RegexTestCase(num, message, pattern)
+def exactly(num, message, pattern) -> TextExpression:
+    return TextExpression(num, message, pattern)
 
 # These were lifted from the old check_paths.sh script
 # With the original comment:
@@ -71,8 +71,8 @@ cases = [
 
     exactly(115, "<< uses", r'(?<!<)<<(?!<)'),
     exactly(0, "incorrect indentations", r'^( {4,})'),
-    exactly(0, "whitespace-only lines", r'^[ \t]+$'),
-    exactly(0, "superflous EOL whitespace", r'[ \t]+$'),
+    exactly(0, "superflous whitespace", r'[ \t]+$'),
+    exactly(0, "mixed indentation", r'^( +\t+|\t+ +)')
 ]
 # With the potential exception of << if you increase any
 # of these numbers you're probably doing it wrong
