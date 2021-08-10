@@ -254,3 +254,9 @@
   martinlyra:
   - tweak: SMES units now have emissive overlays
   - imageadd: Added new icons for the SMES units, based on the old one
+2021-08-10:
+  martinlyra:
+  - bugfix: Added missing UI for escape pod control
+  - bugfix: Added missing UI for escape pod berth control
+  - bugfix: Fixed the evacuation selection not properly annotating which option was
+      selected in the Communications program
