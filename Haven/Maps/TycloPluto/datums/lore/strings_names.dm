@@ -1,7 +1,7 @@
 
-/*
-  Culture macros
-*/
+//
+//	Culture macros
+//
 
 #define CULTURE_SPACER        "Spacer"
 #define CULTURE_RIMMER        "Rimmer"
@@ -26,9 +26,9 @@
 #define CULTURE_VOX_COLONIST  "Colonist"
 #define CULTURE_VOX_NEOEDENER "Neoedener"
 
-/*
-  Factions macros
-*/
+//
+//	Factions macros
+//
 
 #define FACTION_IND   "Independent"
 
@@ -50,9 +50,9 @@
 #define FACTION_VCC   "Celeste Chorus"
 #define FACTION_VWC   "Wayfarer Corvus"
 
-/*
-  Location macros
-*/
+//
+//	Location macros
+//
 
 #define LOCATION_OTHER      "Other"
 
