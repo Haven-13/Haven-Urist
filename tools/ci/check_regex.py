@@ -120,12 +120,12 @@ def test_file(results, expressions, file, ignore_comments=False):
             matches = regex.findall(expression, line)
             if len(matches) > 0:
                 key = file
-                for _ in matches:
-                    if key not in results[it]:
-                        results[it][key] = 1
-                    else:
-                        results[it][key] += 1
-                    results[it]["SUM"] += 1
+                count = len(matches)
+                if key not in results[it]:
+                    results[it][key] = count
+                else:
+                    results[it][key] += count
+                results[it]["SUM"] += count
 
 
 if __name__ == "__main__":
