@@ -70,9 +70,11 @@ cases = [
     exactly(71, "to_world_log() uses", r'to_world_log\('),
 
     exactly(113, "<< uses", r'(?<!<)<<(?!<)'),
-    exactly(0, "incorrect indentations", r'^^(?:  +)(?!\*)'),
+    exactly(0, "incorrect indentations", r'^(?:  +)(?!\*)'),
     exactly(0, "superflous whitespace", r'[ \t]+$'),
-    exactly(8, "mixed indentation", r'^( +\t+|\t+ +)')
+    exactly(8, "mixed indentation", r'^( +\t+|\t+ +)'),
+
+	exactly(1444, "indentions inside #defines", r'^(\s*)#define (\w*)( {2,}| ?\t+)(?!(\/\/|\/\*))')
 ]
 # With the potential exception of << if you increase any
 # of these numbers you're probably doing it wrong
