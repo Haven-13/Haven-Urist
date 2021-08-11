@@ -38,14 +38,14 @@ import time
 import colorama
 from colorama import Fore, Back, Style
 
-class TextExpression:
+class TestExpression:
     def __init__(self, expected, message, pattern) -> None:
         self.expected = expected
         self.message = message
         self.pattern = pattern
 
-def exactly(num, message, pattern) -> TextExpression:
-    return TextExpression(num, message, pattern)
+def exactly(num, message, pattern) -> TestExpression:
+    return TestExpression(num, message, pattern)
 
 # These were lifted from the old check_paths.sh script
 # With the original comment:
