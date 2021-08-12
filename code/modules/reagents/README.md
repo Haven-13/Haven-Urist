@@ -1,302 +1,296 @@
-/*
-NOTE: IF YOU UPDATE THE REAGENT-SYSTEM, ALSO UPDATE THIS README.
+#NOTE: IF YOU UPDATE THE REAGENT-SYSTEM, ALSO UPDATE THIS README.
 
-Structure: ///////////////////          //////////////////////////
-		   // Mob or object // -------> // Reagents var (datum) // 	    Is a reference to the datum that holds the reagents.
-		   ///////////////////          //////////////////////////
-		   			|				    			 |
-	The object that holds everything.   			 V
-		   							      reagent_list var (list)   	A List of datums, each datum is a reagent.
+```
+Structure:  ///////////////////          //////////////////////////
+            // Mob or object // -------> // Reagents var (datum) //     Is a reference to the datum that holds the reagents.
+            ///////////////////          //////////////////////////
+                    |                                |
+    The object that holds everything.                V
+                                          reagent_list var (list)       A List of datums, each datum is a reagent.
+                                          |          |          |
+                                          V          V          V
+                                             reagents (datums)          Reagents. I.e. Water , antitoxins or mercury.
+```
 
-		   							      |          |          |
-		   							      V          V          V
+##Random important notes:
 
-		   							         reagents (datums)	    	Reagents. I.e. Water , antitoxins or mercury.
+An objects on_reagent_change will be called every time the objects reagents change.
+Useful if you want to update the objects icon etc.
 
+##About the Holder:
 
-Random important notes:
+The holder (reagents datum) is the datum that holds a list of all reagents
+currently in the object. It also has all the procs needed to manipulate reagents
 
-	An objects on_reagent_change will be called every time the objects reagents change.
-	Useful if you want to update the objects icon etc.
+###Vars:
+    list/datum/reagent/reagent_list
+        List of reagent datums.
 
-About the Holder:
+    total_volume
+        Total volume of all reagents.
 
-	The holder (reagents datum) is the datum that holds a list of all reagents
-	currently in the object.It also has all the procs needed to manipulate reagents
+    maximum_volume
+        Maximum volume.
 
-	Vars:
-		list/datum/reagent/reagent_list
-			List of reagent datums.
+    atom/my_atom
+        Reference to the object that contains this.
 
-		total_volume
-			Total volume of all reagents.
+###Procs:
 
-		maximum_volume
-			Maximum volume.
+    get_free_space()
+        Returns the remaining free volume in the holder.
 
-		atom/my_atom
-			Reference to the object that contains this.
+    get_master_reagent()
+        Returns the reference to the reagent with the largest volume
 
-	Procs:
+    get_master_reagent_name()
+        Ditto, but returns the name.
 
-		get_free_space()
-			Returns the remaining free volume in the holder.
+    get_master_reagent_id()
+        Ditto, but returns ID.
 
-		get_master_reagent()
-			Returns the reference to the reagent with the largest volume
+    update_total()
+        Updates total volume, called automatically.
 
-		get_master_reagent_name()
-			Ditto, but returns the name.
+    handle_reactions()
+        Checks reagents and triggers any reactions that happen. Usually called automatically.
 
-		get_master_reagent_id()
-			Ditto, but returns ID.
+    add_reagent(var/id, var/amount, var/data = null, var/safety = 0)
+        Adds [amount] units of [id] reagent. [data] will be passed to reagent's mix_data() or initialize_data(). If [safety] is 0, handle_reactions() will be called. Returns 1 if successful, 0 otherwise.
 
-		update_total()
-			Updates total volume, called automatically.
+    remove_reagent(var/id, var/amount, var/safety = 0)
+        Ditto, but removes reagent. Returns 1 if successful, 0 otherwise.
 
-		handle_reactions()
-			Checks reagents and triggers any reactions that happen. Usually called automatically.
+    del_reagent(var/id)
+        Removes all of the reagent.
 
-		add_reagent(var/id, var/amount, var/data = null, var/safety = 0)
-			Adds [amount] units of [id] reagent. [data] will be passed to reagent's mix_data() or initialize_data(). If [safety] is 0, handle_reactions() will be called. Returns 1 if successful, 0 otherwise.
+    has_reagent(var/id, var/amount = 0)
+        Checks if holder has at least [amount] of [id] reagent. Returns 1 if the reagent is found and volume is above [amount]. Returns 0 otherwise.
 
-		remove_reagent(var/id, var/amount, var/safety = 0)
-			Ditto, but removes reagent. Returns 1 if successful, 0 otherwise.
+    clear_reagents()
+        Removes all reagents.
 
-		del_reagent(var/id)
-			Removes all of the reagent.
+    get_reagent_amount(var/id)
+        Returns reagent volume. Returns 0 if reagent is not found.
 
-		has_reagent(var/id, var/amount = 0)
-			Checks if holder has at least [amount] of [id] reagent. Returns 1 if the reagent is found and volume is above [amount]. Returns 0 otherwise.
+    get_data(var/id)
+        Returns get_data() of the reagent.
 
-		clear_reagents()
-			Removes all reagents.
+    get_reagents()
+        Returns a string containing all reagent ids and volumes, e.g. "carbon(4),nittrogen(5)".
 
-		get_reagent_amount(var/id)
-			Returns reagent volume. Returns 0 if reagent is not found.
+    remove_any(var/amount = 1)
+        Removes up to [amount] of reagents from [src]. Returns actual amount removed.
 
-		get_data(var/id)
-			Returns get_data() of the reagent.
+    trans_to_holder(var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
+        Transfers [amount] reagents from [src] to [target], multiplying them by [multiplier]. Returns actual amount removed from [src] (not amount transferred to [target]). If [copy] is 1, copies reagents instead.
 
-		get_reagents()
-			Returns a string containing all reagent ids and volumes, e.g. "carbon(4),nittrogen(5)".
+    touch(var/atom/target)
+        When applying reagents to an atom externally, touch() is called to trigger any on-touch effects of the reagent.
+        This does not handle transferring reagents to things.
+        For example, splashing someone with water will get them wet and extinguish them if they are on fire,
+        even if they are wearing an impermeable suit that prevents the reagents from contacting the skin.
+        Basically just defers to touch_mob(target), touch_turf(target), or touch_obj(target), depending on target's type.
+        Not recommended to use this directly, since trans_to() calls it before attempting to transfer.
 
-		remove_any(var/amount = 1)
-			Removes up to [amount] of reagents from [src]. Returns actual amount removed.
+    touch_mob(var/mob/target)
+        Calls each reagent's touch_mob(target).
 
-		trans_to_holder(var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
-			Transfers [amount] reagents from [src] to [target], multiplying them by [multiplier]. Returns actual amount removed from [src] (not amount transferred to [target]). If [copy] is 1, copies reagents instead.
+    touch_turf(var/turf/target)
+        Calls each reagent's touch_turf(target).
 
-		touch(var/atom/target)
-			When applying reagents to an atom externally, touch() is called to trigger any on-touch effects of the reagent.
-			This does not handle transferring reagents to things.
-			For example, splashing someone with water will get them wet and extinguish them if they are on fire,
-			even if they are wearing an impermeable suit that prevents the reagents from contacting the skin.
-			Basically just defers to touch_mob(target), touch_turf(target), or touch_obj(target), depending on target's type.
-			Not recommended to use this directly, since trans_to() calls it before attempting to transfer.
+    touch_obj(var/obj/target)
+        Calls each reagent's touch_obj(target).
 
-		touch_mob(var/mob/target)
-			Calls each reagent's touch_mob(target).
+    trans_to(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
+        The general proc for applying reagents to things externally (as opposed to directly injected into the contents).
+        It first calls touch, then the appropriate trans_to_*() or splash_mob().
+        If for some reason you want touch effects to be bypassed (e.g. injecting stuff directly into a reagent container or person), call the appropriate trans_to_*() proc.
 
-		touch_turf(var/turf/target)
-			Calls each reagent's touch_turf(target).
+        Calls touch() before checking the type of [target], calling splash_mob(target, amount), trans_to_turf(target, amount, multiplier, copy), or trans_to_obj(target, amount, multiplier, copy).
 
-		touch_obj(var/obj/target)
-			Calls each reagent's touch_obj(target).
+    trans_id_to(var/atom/target, var/id, var/amount = 1)
+        Transfers [amount] of [id] to [target]. Returns amount transferred.
 
-		trans_to(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
-			The general proc for applying reagents to things externally (as opposed to directly injected into the contents).
-			It first calls touch, then the appropriate trans_to_*() or splash_mob().
-			If for some reason you want touch effects to be bypassed (e.g. injecting stuff directly into a reagent container or person), call the appropriate trans_to_*() proc.
+    splash_mob(var/mob/target, var/amount = 1, var/clothes = 1)
+        Checks mob's clothing if [clothes] is 1 and transfers [amount] reagents to mob's skin.
+        Don't call this directly. Call apply_to() instead.
 
-			Calls touch() before checking the type of [target], calling splash_mob(target, amount), trans_to_turf(target, amount, multiplier, copy), or trans_to_obj(target, amount, multiplier, copy).
+    trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_BLOOD, var/multiplier = 1, var/copy = 0)
+        Transfers [amount] reagents to the mob's appropriate holder, depending on [type]. Ignores protection.
 
-		trans_id_to(var/atom/target, var/id, var/amount = 1)
-			Transfers [amount] of [id] to [target]. Returns amount transferred.
+    trans_to_turf(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
+        Turfs don't currently have any reagents. Puts [amount] reagents into a temporary holder, calls touch_turf(target) from it, and deletes it.
 
-		splash_mob(var/mob/target, var/amount = 1, var/clothes = 1)
-			Checks mob's clothing if [clothes] is 1 and transfers [amount] reagents to mob's skin.
-			Don't call this directly. Call apply_to() instead.
+    trans_to_obj(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
+        If target has reagents, transfers [amount] to it. Otherwise, same as trans_to_turf().
 
-		trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_BLOOD, var/multiplier = 1, var/copy = 0)
-			Transfers [amount] reagents to the mob's appropriate holder, depending on [type]. Ignores protection.
+    atom/proc/create_reagents(var/max_vol)
+        Creates a new reagent datum.
 
-		trans_to_turf(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
-			Turfs don't currently have any reagents. Puts [amount] reagents into a temporary holder, calls touch_turf(target) from it, and deletes it.
+##About Reagents:
 
-		trans_to_obj(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
-			If target has reagents, transfers [amount] to it. Otherwise, same as trans_to_turf().
+Reagents are all the things you can mix and fille in bottles etc. This can be anything from rejuvs over water to... iron.
 
-		atom/proc/create_reagents(var/max_vol)
-			Creates a new reagent datum.
+###Vars:
 
-About Reagents:
+    name
+        Name that shows up in-game.
 
-	Reagents are all the things you can mix and fille in bottles etc. This can be anything from
-	rejuvs over water to... iron.
+    id
+        ID that is used for internal tracking. MUST BE UNIQUE.
 
-	Vars:
+    description
+        Description that shows up in-game.
 
-		name
-			Name that shows up in-game.
+    datum/reagents/holder
+        Reference to holder.
 
-		id
-			ID that is used for internal tracking. MUST BE UNIQUE.
+    reagent_state
+        Could be GAS, LIQUID, or SOLID. Affects nothing. Reserved for future use.
 
-		description
-			Description that shows up in-game.
+    list/data
+        Use varies by reagent. Custom variable. For example, blood stores blood group and viruses.
 
-		datum/reagents/holder
-			Reference to holder.
+    volume
+        Current volume.
 
-		reagent_state
-			Could be GAS, LIQUID, or SOLID. Affects nothing. Reserved for future use.
+    metabolism
+        How quickly reagent is processed in mob's bloodstream; by default aslo affects ingest and touch metabolism.
 
-		list/data
-			Use varies by reagent. Custom variable. For example, blood stores blood group and viruses.
+    ingest_met
+        How quickly reagent is processed when ingested; [metabolism] is used if zero.
 
-		volume
-			Current volume.
+    touch_met
+        Ditto when touching.
 
-		metabolism
-			How quickly reagent is processed in mob's bloodstream; by default aslo affects ingest and touch metabolism.
+    dose
+        How much of the reagent has been processed, limited by [max_dose]. Used for reagents with varying effects (e.g. ethanol or rezadone) and overdosing.
 
-		ingest_met
-			How quickly reagent is processed when ingested; [metabolism] is used if zero.
+    max_dose
+        Maximum amount of reagent that has ever been in a mob. Exists so dose won't grow infinitely when small amounts of reagent are added over time.
 
-		touch_met
-			Ditto when touching.
+    overdose
+        If [dose] is bigger than [overdose], overdose() proc is called every tick.
 
-		dose
-			How much of the reagent has been processed, limited by [max_dose]. Used for reagents with varying effects (e.g. ethanol or rezadone) and overdosing.
+    scannable
+        If set to 1, will show up on health analyzers by name.
 
-		max_dose
-			Maximum amount of reagent that has ever been in a mob. Exists so dose won't grow infinitely when small amounts of reagent are added over time.
+    glass_icon_state
+        Used by drinks. icon_state of the glass when this reagent is the master reagent.
 
-		overdose
-			If [dose] is bigger than [overdose], overdose() proc is called every tick.
+    glass_name
+        Ditto for glass name.
 
-		scannable
-			If set to 1, will show up on health analyzers by name.
+    glass_desc
+        Ditto for glass desciption.
 
-		glass_icon_state
-			Used by drinks. icon_state of the glass when this reagent is the master reagent.
+    glass_center_of_mass
+        Used for glass placement on tables.
 
-		glass_name
-			Ditto for glass name.
+    color
+        "#RRGGBB" or "#RRGGBBAA" where A is alpha channel.
 
-		glass_desc
-			Ditto for glass desciption.
+    color_weight
+        How much reagent affects color of holder. Used by paint.
 
-		glass_center_of_mass
-			Used for glass placement on tables.
+###Procs:
 
-		color
-			"#RRGGBB" or "#RRGGBBAA" where A is alpha channel.
+    remove_self(var/amount)
+        Removes [amount] of itself.
 
-		color_weight
-			How much reagent affects color of holder. Used by paint.
+    touch_mob(var/mob/M)
+        Called when reagent is in another holder and not splashing the mob. Can be used with noncarbons.
 
-	Procs:
+    touch_obj(var/obj/O)
+        How reagent reacts with objects.
 
-		remove_self(var/amount)
-			Removes [amount] of itself.
+    touch_turf(var/turf/T)
+        How reagent reacts with turfs.
 
-		touch_mob(var/mob/M)
-			Called when reagent is in another holder and not splashing the mob. Can be used with noncarbons.
+    on_mob_life(var/mob/living/carbon/M, var/alien, var/location)
+        Makes necessary checks and calls one of affect procs.
 
-		touch_obj(var/obj/O)
-			How reagent reacts with objects.
+    affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+        How reagent affects mob when injected. [removed] is the amount of reagent that has been removed this tick. [alien] is the mob's reagent flag.
 
-		touch_turf(var/turf/T)
-			How reagent reacts with turfs.
+    affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+        Ditto, ingested. Defaults to affect_blood with halved dose.
 
-		on_mob_life(var/mob/living/carbon/M, var/alien, var/location)
-			Makes necessary checks and calls one of affect procs.
+    affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+        Ditto, touching.
 
-		affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-			How reagent affects mob when injected. [removed] is the amount of reagent that has been removed this tick. [alien] is the mob's reagent flag.
+    overdose(var/mob/living/carbon/M, var/alien)
+        Called when dose is above overdose. Defaults to M.adjustToxLoss(REM).
 
-		affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-			Ditto, ingested. Defaults to affect_blood with halved dose.
+    initialize_data(var/newdata)
+        Called when reagent is created. Defaults to setting [data] to [newdata].
 
-		affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-			Ditto, touching.
+    mix_data(var/newdata, var/newamount)
+        Called when [newamount] of reagent with [newdata] data is added to the current reagent. Used by paint.
 
-		overdose(var/mob/living/carbon/M, var/alien)
-			Called when dose is above overdose. Defaults to M.adjustToxLoss(REM).
+    get_data()
+        Returns data. Can be overriden.
 
-		initialize_data(var/newdata)
-			Called when reagent is created. Defaults to setting [data] to [newdata].
+##About Recipes:
 
-		mix_data(var/newdata, var/newamount)
-			Called when [newamount] of reagent with [newdata] data is added to the current reagent. Used by paint.
+Recipes are simple datums that contain a list of required reagents and a result.
+They also have a proc that is called when the recipe is matched.
 
-		get_data()
-			Returns data. Can be overriden.
+###Vars:
 
-About Recipes:
+    name
+        Name of the reaction, currently unused.
 
-	Recipes are simple datums that contain a list of required reagents and a result.
-	They also have a proc that is called when the recipe is matched.
+    id
+        ID of the reaction, must be unique.
 
-	Vars:
+    result
+        ID of the resulting reagent. Can be null.
 
-		name
-			Name of the reaction, currently unused.
+    list/required_reagents
+        Reagents that are required for the reaction and are used up during it.
 
-		id
-			ID of the reaction, must be unique.
+    list/catalysts
+        Ditto, but not used up.
 
-		result
-			ID of the resulting reagent. Can be null.
+    list/inhibitors
+        Opposite, prevent the reaction from happening.
 
-		list/required_reagents
-			Reagents that are required for the reaction and are used up during it.
+    result_amount
+        Amount of resulting reagent.
 
-		list/catalysts
-			Ditto, but not used up.
+    mix_message
+        Message that is shown to mobs when reaction happens.
 
-		list/inhibitors
-			Opposite, prevent the reaction from happening.
+###Procs:
 
-		result_amount
-			Amount of resulting reagent.
+    can_happen(var/datum/reagents/holder)
+        Customizable. If it returns 0, reaction will not happen. Defaults to always returning 1. Used by slime core reactions.
 
-		mix_message
-			Message that is shown to mobs when reaction happens.
+    on_reaction(var/datum/reagents/holder, var/created_volume)
+        Called when reaction happens. Used by explosives.
 
-	Procs:
+    send_data(var/datum/reagents/T)
+        Sets resulting reagent's data. Used by blood paint.
 
-		can_happen(var/datum/reagents/holder)
-			Customizable. If it returns 0, reaction will not happen. Defaults to always returning 1. Used by slime core reactions.
+##About the Tools:
 
-		on_reaction(var/datum/reagents/holder, var/created_volume)
-			Called when reaction happens. Used by explosives.
+By default, all atom have a reagents var - but its empty. if you want to use an object for the chem system you'll need to add something like this in its new proc:
 
-		send_data(var/datum/reagents/T)
-			Sets resulting reagent's data. Used by blood paint.
+    atom/proc/create_reagents(var/max_volume)
 
-About the Tools:
+##Other important stuff:
 
-	By default, all atom have a reagents var - but its empty. if you want to use an object for the chem.
-	system you'll need to add something like this in its new proc:
+    amount_per_transfer_from_this var
+        This var is mostly used by beakers and bottles.
+        It simply tells us how much to transfer when
+        'pouring' our reagents into something else.
 
-		atom/proc/create_reagents(var/max_volume)
-
-	Other important stuff:
-
-		amount_per_transfer_from_this var
-			This var is mostly used by beakers and bottles.
-			It simply tells us how much to transfer when
-			'pouring' our reagents into something else.
-
-		atom/proc/is_open_container()
-			Checks atom/var/obj_flags & OBJ_FLAG_OPEN_CONTAINER.
-			If this returns 1 , you can use syringes, beakers etc
-			to manipulate the contents of this object.
-			If it's 0, you'll need to write your own custom reagent
-			transfer code since you will not be able to use the standard
-			tools to manipulate it.
-
-*/
+    atom/proc/is_open_container()
+        Checks atom/var/obj_flags & OBJ_FLAG_OPEN_CONTAINER.
+        If this returns 1 , you can use syringes, beakers etc
+        to manipulate the contents of this object.
+        If it's 0, you'll need to write your own custom reagent
+        transfer code since you will not be able to use the standard
+        tools to manipulate it.
