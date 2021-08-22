@@ -16,7 +16,8 @@
 		color = null,
 		layer = FLOAT_LAYER,
 		plane = FLOAT_PLANE,
-		flags = RESET_COLOR | RESET_ALPHA
+		alpha = 255,
+		flags = NONE
 	)
 	var/mutable_appearance/MA = new()
 	MA.icon = icon
@@ -24,5 +25,6 @@
 	MA.color = color
 	MA.layer = layer
 	MA.plane = plane
+	MA.alpha = alpha
 	MA.appearance_flags = flags
 	return MA

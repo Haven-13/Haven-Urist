@@ -10,6 +10,7 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
+#include "code\___compile_options.dm"
 #include "code\_macros.dm"
 #include "code\_uristdefines.dm"
 #include "code\client_macros.dm"
@@ -19,7 +20,6 @@
 #include "code\__datastructures\globals.dm"
 #include "code\__datastructures\priority_queue.dm"
 #include "code\__datastructures\stack.dm"
-#include "code\__defines\_compile_options.dm"
 #include "code\__defines\_planes+layers.dm"
 #include "code\__defines\_tick.dm"
 #include "code\__defines\admin.dm"
@@ -62,6 +62,7 @@
 #include "code\__defines\shields.dm"
 #include "code\__defines\spaceman_dmm.dm"
 #include "code\__defines\species.dm"
+#include "code\__defines\stat_tracking.dm"
 #include "code\__defines\subsystem-priority.dm"
 #include "code\__defines\subsystems.dm"
 #include "code\__defines\targeting.dm"
@@ -109,6 +110,7 @@
 #include "code\_helpers\qdel.dm"
 #include "code\_helpers\sanitize_values.dm"
 #include "code\_helpers\spawn_sync.dm"
+#include "code\_helpers\stat_tracking.dm"
 #include "code\_helpers\storage.dm"
 #include "code\_helpers\text.dm"
 #include "code\_helpers\time.dm"
@@ -182,6 +184,7 @@
 #include "code\controllers\subsystems\machines.dm"
 #include "code\controllers\subsystems\mapping.dm"
 #include "code\controllers\subsystems\misc_late.dm"
+#include "code\controllers\subsystems\overlays.dm"
 #include "code\controllers\subsystems\radiation.dm"
 #include "code\controllers\subsystems\shuttle.dm"
 #include "code\controllers\subsystems\skybox.dm"
@@ -192,7 +195,6 @@
 #include "code\controllers\subsystems\timer.dm"
 #include "code\controllers\subsystems\trade.dm"
 #include "code\controllers\subsystems\trade_controller.dm"
-#include "code\controllers\subsystems\vis_overlays.dm"
 #include "code\controllers\subsystems\vote.dm"
 #include "code\controllers\subsystems\weather_controller.dm"
 #include "code\controllers\subsystems\wireless.dm"

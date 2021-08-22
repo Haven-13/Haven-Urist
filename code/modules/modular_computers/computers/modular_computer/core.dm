@@ -91,11 +91,12 @@
 		return 1
 
 /obj/item/modular_computer/update_icon()
+	. += list()
 	icon_state = icon_state_unpowered
 
-	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
+	cut_overlays()
 	if(bsod)
-		add_emissive_overlay(state = "bsod")
+		. += get_emissive_overlay(state = "bsod")
 		set_light(0.2, 0.1, light_strength, l_color = "#4444ee")
 		return
 	if(!enabled)
@@ -103,11 +104,13 @@
 		return
 	set_light(0.2, 0.1, light_strength)
 	if(active_program)
-		add_emissive_overlay(state = (active_program.program_icon_state || icon_state_menu))
+		. += get_emissive_overlay(state = (active_program.program_icon_state || icon_state_menu))
 		if(active_program.program_key_state)
-			add_emissive_overlay(state = active_program.program_key_state)
+			. += get_emissive_overlay(state = active_program.program_key_state)
 	else
-		add_emissive_overlay(state = icon_state_menu)
+		. += get_emissive_overlay(state = icon_state_menu)
+
+	add_overlay(.)
 
 /obj/item/modular_computer/proc/turn_on(var/mob/user)
 	if(bsod)

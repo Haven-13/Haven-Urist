@@ -720,6 +720,7 @@ About the new airlock wires panel:
 		if (!(ikey in airlock_icon_cache))
 			var/image/I = new(lights_overlay)
 			I.plane = get_float_plane(EMISSIVE_PLANE)
+			I.color = GLOB.emissive_color
 			airlock_icon_cache[ikey] = I
 		lights_overlay_emissive = airlock_icon_cache[ikey]
 
@@ -728,6 +729,7 @@ About the new airlock wires panel:
 		if (!(ikey in airlock_icon_cache))
 			var/image/I = new(sparks_overlay)
 			I.plane = get_float_plane(EMISSIVE_PLANE)
+			I.color = GLOB.emissive_color
 			airlock_icon_cache[ikey] = I
 		sparks_overlay_emissive = airlock_icon_cache[ikey]
 

@@ -42,7 +42,7 @@
 			var/cache_key = "[last_eye_cache_key]-glow"
 			if(!human_icon_cache[cache_key])
 				var/image/eye_glow = image(I)
-				eye_glow.layer = EYE_GLOW_LAYER
+				eye_glow.layer = FLOAT_LAYER
 				eye_glow.plane = EMISSIVE_PLANE
 				human_icon_cache[cache_key] = eye_glow
 			return human_icon_cache[cache_key]

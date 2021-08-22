@@ -11,7 +11,7 @@
 	var/show_alpha = 255
 	var/hide_alpha = 0
 
-/obj/screen/plane_master/proc/update_screen_plane(var/z_level)
+/obj/screen/plane_master/proc/update_screen_plane(z_level)
 	if(initial(src.render_target))
 		src.render_target = "[initial(src.render_target)]-[z_level]z"
 	else
@@ -39,7 +39,6 @@
  */
 
 #define EMISSIVE_RENDER_TARGET "*emissive_render_target"
-#define EMISSIVE_BLOCKER_RENDER_TARGET "*emissive_blocker_render_target"
 #define VISIBLE_GAME_WORLD_RENDER "*visible_game_world_render"
 
 /obj/screen/plane_master/space_master
@@ -107,7 +106,7 @@
 	render_target = VISIBLE_GAME_WORLD_RENDER
 	mouse_opacity = 0    // nothing on this plane is mouse-visible
 
-/obj/screen/plane_master/visible_game_world_plane_master/update_screen_plane(var/z_level)
+/obj/screen/plane_master/visible_game_world_plane_master/update_screen_plane(z_level)
 	..()
 	update_composite(z_level)
 
@@ -126,7 +125,7 @@
 	blend_mode = BLEND_MULTIPLY
 	mouse_opacity = 0    // nothing on this plane is mouse-visible
 
-/obj/screen/plane_master/lighting_plane/update_screen_plane(var/z_level)
+/obj/screen/plane_master/lighting_plane/update_screen_plane(z_level)
 	..()
 	update_masks(z_level)
 
@@ -141,29 +140,23 @@
 		flags=MASK_INVERSE
 	)
 
+/*
 /obj/screen/plane_master/emissive
 	name = "emissive plane master"
 	plane = EMISSIVE_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_target = EMISSIVE_RENDER_TARGET
 
-/obj/screen/plane_master/emissive/update_screen_plane(z_level)
+/obj/screen/plane_master/emissive/Initialize()
 	. = ..()
 	filters += filter(
-		type="alpha",
-		render_source="[EMISSIVE_BLOCKER_RENDER_TARGET]-[z_level]z",
-		flags=MASK_INVERSE
+		type="color",
+		color=GLOB.em_mask_matrix
 	)
-
-/obj/screen/plane_master/emissive_blocker
-	name = "emissive blocker plane master"
-	plane = EMISSIVE_BLOCKER_PLANE
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	render_target = EMISSIVE_BLOCKER_RENDER_TARGET
+*/
 
 /obj/screen/plane_master/obscurity_master
 	plane = OBSCURITY_PLANE
 
 #undef VISIBLE_GAME_WORLD_RENDER
-#undef EMISSIVE_BLOCKER_RENDER_TARGET
 #undef EMISSIVE_RENDER_TARGET

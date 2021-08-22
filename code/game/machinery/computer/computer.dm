@@ -65,24 +65,26 @@
 	..()
 
 /obj/machinery/computer/update_icon()
-	overlays.Cut()
+	cut_overlays()
+	. = list()
 
-	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	if(stat & NOPOWER)
 		set_light(0)
 		if(icon_keyboard)
-			overlays += image(icon,"[icon_keyboard]_off", overlay_layer)
+			. += image(icon,"[icon_keyboard]_off", overlay_layer)
 		return
 	else
 		set_light(light_max_bright_on, light_inner_range_on, light_outer_range_on, 2, light_color)
 
 	if(stat & BROKEN)
-		overlays += image(icon,"[icon_state]_broken", overlay_layer)
+		. += image(icon,"[icon_state]_broken", overlay_layer)
 	else
-		add_emissive_overlay(icon, icon_screen, overlay_layer)
+		. += get_emissive_overlay(icon, icon_screen, overlay_layer)
 
 	if(icon_keyboard)
-		add_emissive_overlay(icon, icon_keyboard, overlay_layer)
+		. += get_emissive_overlay(icon, icon_keyboard, overlay_layer)
+
+	add_overlay(.)
 
 /obj/machinery/computer/proc/set_broken()
 	stat |= BROKEN
