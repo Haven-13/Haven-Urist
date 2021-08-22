@@ -1,6 +1,6 @@
-/*
-  PLANE MASTERS
-*/
+//
+//	PLANE MASTERS
+//
 
 /obj/screen/plane_master
 	screen_loc = "CENTER,CENTER"
@@ -29,13 +29,13 @@
 /obj/screen/plane_master/proc/backdrop(mob/mymob)
 
 /*
-   I hate myself, I hate Baycode, I hate Byond
-
-   Welcome to the wonders of BYOND DM coding!
-
-   For multi_z rendering, take a look in _onclick/hud/hud.dm and _onclick/hud/map_view.dm
-   For a list of what planes are included, take a look in
-   __defines/_planes+layers.dm
+ *  I hate myself, I hate Baycode, I hate Byond
+ *
+ *  Welcome to the wonders of BYOND DM coding!
+ *
+ *  For multi_z rendering, take a look in _onclick/hud/hud.dm and _onclick/hud/map_view.dm
+ *  For a list of what planes are included, take a look in
+ *  __defines/_planes+layers.dm
  */
 
 #define EMISSIVE_RENDER_TARGET "*emissive_render_target"

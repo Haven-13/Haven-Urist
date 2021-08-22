@@ -137,14 +137,18 @@
 /obj/item/weapon/storage/box/holobadge
 	name = "holobadge box"
 	desc = "A box containing security holobadges."
-	startswith = list(/obj/item/clothing/accessory/badge/holo = 4,
-					  /obj/item/clothing/accessory/badge/holo/cord = 2)
+	startswith = list(
+		/obj/item/clothing/accessory/badge/holo = 4,
+		/obj/item/clothing/accessory/badge/holo/cord = 2
+	)
 
 /obj/item/weapon/storage/box/holobadgeNT
 	name = "\improper NT holobadge box"
 	desc = "A box containing NanoTrasen security holobadges."
-	startswith = list(/obj/item/clothing/accessory/badge/holo/NT = 4,
-					  /obj/item/clothing/accessory/badge/holo/NT/cord = 2)
+	startswith = list(
+		/obj/item/clothing/accessory/badge/holo/NT = 4,
+		/obj/item/clothing/accessory/badge/holo/NT/cord = 2
+	)
 
 /obj/item/clothing/accessory/badge/old
 	name = "faded badge"

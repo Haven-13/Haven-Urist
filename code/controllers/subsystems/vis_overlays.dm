@@ -122,7 +122,7 @@ SUBSYSTEM_DEF(vis_overlays)
 	remove_vis_overlay(thing, overlays_to_remove)
 
 /atom
-  var/list/managed_vis_overlays
+	var/list/managed_vis_overlays
 
 /obj/effect/overlay/vis
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT

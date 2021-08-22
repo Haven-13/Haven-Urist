@@ -197,7 +197,7 @@
 
 	if(malfunction_check(usr))
 		return
-	
+
 	if(!check_power_cost(usr, 0, 0, 0, 0))
 		return
 

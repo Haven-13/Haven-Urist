@@ -3,7 +3,7 @@
 	* not me. All I did was just refactor the /obj/effect/mine crap to use the beautiful
 	* obj/item/weapon/mine instead
 	*
- 	*/
+	*/
 
 /obj/item/weapon/mine
 	name = "land mine"

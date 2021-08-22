@@ -58,8 +58,10 @@
 				if(!user.hand)
 					which_hand = BP_R_HAND
 				triggered(user, which_hand)
-				user.visible_message("<span class='warning'>[user] accidentally sets off [src], breaking their fingers.</span>", \
-									 "<span class='warning'>You accidentally trigger [src]!</span>")
+				user.visible_message(
+					"<span class='warning'>[user] accidentally sets off [src], breaking their fingers.</span>",
+					"<span class='warning'>You accidentally trigger [src]!</span>"
+				)
 				return
 			to_chat(user, "<span class='notice'>You disarm [src].</span>")
 		armed = !armed
@@ -74,8 +76,10 @@
 				if(!user.hand)
 					which_hand = BP_R_HAND
 				triggered(user, which_hand)
-				user.visible_message("<span class='warning'>[user] accidentally sets off [src], breaking their fingers.</span>", \
-									 "<span class='warning'>You accidentally trigger [src]!</span>")
+				user.visible_message(
+					"<span class='warning'>[user] accidentally sets off [src], breaking their fingers.</span>",
+					"<span class='warning'>You accidentally trigger [src]!</span>"
+				)
 				return
 		..()
 
@@ -86,8 +90,10 @@
 				var/mob/living/carbon/H = AM
 				if(!MOVING_DELIBERATELY(H))
 					triggered(H)
-					H.visible_message("<span class='warning'>[H] accidentally steps on [src].</span>", \
-									  "<span class='warning'>You accidentally step on [src]</span>")
+					H.visible_message(
+						"<span class='warning'>[H] accidentally steps on [src].</span>",
+						"<span class='warning'>You accidentally step on [src]</span>"
+					)
 			if(ismouse(AM))
 				triggered(AM)
 		..()
@@ -95,8 +101,10 @@
 
 	on_found(mob/finder as mob)
 		if(armed)
-			finder.visible_message("<span class='warning'>[finder] accidentally sets off [src], breaking their fingers.</span>", \
-								   "<span class='warning'>You accidentally trigger [src]!</span>")
+			finder.visible_message(
+				"<span class='warning'>[finder] accidentally sets off [src], breaking their fingers.</span>", \
+				"<span class='warning'>You accidentally trigger [src]!</span>"
+			)
 			triggered(finder, finder.hand ? BP_L_HAND : BP_R_HAND)
 			return 1	//end the search!
 		return 0

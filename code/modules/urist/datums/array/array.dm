@@ -29,7 +29,7 @@
 
 	/////////////////////////////////////////////
 	/* example instance for 3 cols, 3 rows
-	  (round brackets - indices of a single item):
+	(round brackets - indices of a single item):
 
 	[
 	[(1,1),(2,1),(3,1)],

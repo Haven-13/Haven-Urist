@@ -19,7 +19,7 @@
 	- Individual custom player houses
 	- Virtually unlimited terrain
 	- Sharing maps between servers running different instances of the same
-	  game
+		game
 	- Loading and saving pieces of maps for reusable room templates
  */
 
@@ -58,7 +58,7 @@
 	SwapMaps_CreateFromTemplate(id)
 		Create a new map by loading another map to use as a template.
 		This map has id==src and will not be saved. To make it savable,
-		  change id with swapmap.SetID(newid).
+			change id with swapmap.SetID(newid).
 	SwapMaps_LoadChunk(id,turf/locorner)
 		Load a swapmap as a "chunk", at a specific place. A new datum is
 		created but it's not added to the list of maps to save or unload.
@@ -80,15 +80,15 @@
 
 	swapmap.New(id,x,y,z)
 		Create a new map; specify id, width (x), height (y), and
-		 depth (z)
+		depth (z)
 		Default size is world.maxx,world.maxy,1
 	swapmap.New(id,turf1,turf2)
 		Create a new map; specify id and 2 corners
 		This becomes a /swapmap for one of the compiled-in maps, for
-		 easy saving.
+		easy saving.
 	swapmap.New()
 		Create a new map datum, but does not allocate space or assign an
-		 ID (used for loading).
+		ID (used for loading).
 	swapmap.Del()
 		Deletes a map but does not save
 	swapmap.Save()
@@ -101,29 +101,29 @@
 		Change the map's id and make changes to the lookup list
 	swapmap.AllTurfs(z)
 		Returns a block of turfs encompassing the entire map, or on just
-		 one z-level
+		one z-level
 		z is in world coordinates; it is optional
 	swapmap.Contains(turf/T)
 		Returns nonzero if T is inside the map's boundaries.
 		Also works for objs and mobs, but the proc is not area-safe.
 	swapmap.InUse()
 		Returns nonzero if a mob with a key is within the map's
-		 boundaries.
+		boundaries.
 	swapmap.LoCorner(z=z1)
 		Returns locate(x1,y1,z), where z=z1 if none is specified.
 	swapmap.HiCorner(z=z2)
 		Returns locate(x2,y2,z), where z=z2 if none is specified.
 	swapmap.BuildFilledRectangle(turf/corner1,turf/corner2,item)
 		Builds a filled rectangle of item from one corner turf to the
-		 other, on multiple z-levels if necessary. The corners may be
-		 specified in any order.
+		other, on multiple z-levels if necessary. The corners may be
+		specified in any order.
 		item is a type path like /turf/wall or /obj/barrel{full=1}.
 	swapmap.BuildRectangle(turf/corner1,turf/corner2,item)
 		Builds an unfilled rectangle of item from one corner turf to
-		 the other, on multiple z-levels if necessary.
+		the other, on multiple z-levels if necessary.
 	swapmap.BuildInTurfs(list/turfs,item)
 		Builds item on all of the turfs listed. The list need not
-		 contain only turfs, or even only atoms.
+		contain only turfs, or even only atoms.
  */
 
 swapmap
@@ -148,14 +148,15 @@ swapmap
 				this is useful for saving a compiled map in swapmap format.
 				Because this is a compiled-in map, its turfs are not deleted
 				when the datum is deleted.
-			 */
+			*/
 			x1=min(x:x,y:x);x2=max(x:x,y:x)
 			y1=min(x:y,y:y);y2=max(x:y,y:y)
 			z1=min(x:z,y:z);z2=max(x:z,y:z)
 			InitializeSwapMaps()
-			if(z2>swapmaps_compiled_maxz ||\
-			   y2>swapmaps_compiled_maxy ||\
-			   x2>swapmaps_compiled_maxx)
+			if(z2>swapmaps_compiled_maxz \
+				|| y2>swapmaps_compiled_maxy \
+				|| x2>swapmaps_compiled_maxx \
+			)
 				qdel(src)
 			return
 		x2=x?(x):world.maxx
@@ -169,9 +170,10 @@ swapmap
 		if(!ischunk)
 			swapmaps_loaded-=src
 			swapmaps_byname-=id
-			if(z2>swapmaps_compiled_maxz ||\
-			   y2>swapmaps_compiled_maxy ||\
-			   x2>swapmaps_compiled_maxx)
+			if(z2>swapmaps_compiled_maxz \
+				|| y2>swapmaps_compiled_maxy \
+				|| x2>swapmaps_compiled_maxx \
+			)
 				var/list/areas=new
 				for(var/atom/A in block(locate(x1,y1,z1),locate(x2,y2,z2)))
 					for(var/obj/O in A) qdel(O)
@@ -190,18 +192,18 @@ swapmap
 	/*
 		Savefile format:
 		map
-		  id
-		  x		// size, not coords
-		  y
-		  z
-		  areas	// list of areas, not including default
-		  [each z; 1 to depth]
-		    [each y; 1 to height]
-		      [each x; 1 to width]
-		        type	// of turf
-		        AREA    // if non-default; saved as a number (index into areas list)
-		        vars    // all other changed vars
-	 */
+			id
+			x		// size, not coords
+			y
+			z
+			areas	// list of areas, not including default
+			[each z; 1 to depth]
+				[each y; 1 to height]
+					[each x; 1 to width]
+						type  // of turf
+						AREA  // if non-default; saved as a number (index into areas list)
+						vars  // all other changed vars
+	*/
 	Write(savefile/S)
 		var/x
 		var/y
@@ -263,7 +265,7 @@ swapmap
 			var/dummy
 			from_file(S["id"], dummy)
 		from_file(S["z"], z2)		// these are depth,
-		from_file(S["y"], y2)		//   		 height,
+		from_file(S["y"], y2)		//	 		 height,
 		from_file(S["x"], x2)		//			 width
 		from_file(S["areas"], areas)
 		locked=1
@@ -307,7 +309,7 @@ swapmap
 
 		Ignore certain operations if loading a map as a chunk. Use the
 		x1,y1,z1 position for it, and *don't* count it as a loaded map.
-	 */
+	*/
 	proc/AllocateSwapMap()
 		InitializeSwapMaps()
 		world.maxx=max(x2,world.maxx)	// stretch x/y if necessary
@@ -335,9 +337,10 @@ swapmap
 			var/nextz=0
 			var/swapmap/M
 			for(M in swapmaps_loaded)
-				if(M.z2<Z1 || (Z2 && M.z1>Z2) || M.z1>=Z1+z2 ||\
-				   M.x1>X2 || M.x2<X1 || M.x1>=X1+x2 ||\
-				   M.y1>Y2 || M.y2<Y1 || M.y1>=Y1+y2) continue
+				if(M.z2<Z1 || (Z2 && M.z1>Z2) || M.z1>=Z1+z2 \
+					|| M.x1>X2 || M.x2<X1 || M.x1>=X1+x2 \
+					|| M.y1>Y2 || M.y2<Y1 || M.y1>=Y1+y2 \
+				) continue
 				// look for sub-regions with a defined ceiling
 				var/nz2=Z2?(Z2):Z1+z2-1+M.z2-M.z1
 				if(M.x1>=X1+x2)
@@ -355,7 +358,7 @@ swapmap
 				nextz=nextz?min(nextz,M.z2+1):(M.z2+1)
 			if(!M)
 				/* If nextz is not 0, then at some point there was an overlap that
-				   could not be resolved by using an area to the side */
+					could not be resolved by using an area to the side */
 				if(nextz) Z1=nextz
 				if(!nextz || (Z2 && Z2-Z1+1<z2))
 					return (!Z2 || Z2-Z1+1>=z2)?list(X1,Y1,Z1):null
@@ -403,8 +406,8 @@ swapmap
 	// probably not an area
 	proc/Contains(turf/T)
 		return (T && T.x>=x1 && T.x<=x2\
-		          && T.y>=y1 && T.y<=y2\
-		          && T.z>=z1 && T.z<=z2)
+							&& T.y>=y1 && T.y<=y2\
+							&& T.z>=z1 && T.z<=z2)
 
 	proc/InUse()
 		for(var/turf/T in AllTurfs())
@@ -447,7 +450,7 @@ swapmap
 	/*
 		Supplementary build proc: Takes a list of turfs, plus an item
 		type. Actually the list doesn't have to be just turfs.
-	 */
+	*/
 	proc/BuildInTurfs(list/turfs,item)
 		for(var/T in turfs) new item(T)
 
@@ -495,10 +498,10 @@ swapmap
 
 // set this up (at runtime) as follows:
 // list(
-//     'player.dmi'="player",
-//     'monster.dmi'="monster",
-//     ...
-//     'item.dmi'="item")
+//		 'player.dmi'="player",
+//		 'monster.dmi'="monster",
+//		 ...
+//		 'item.dmi'="item")
 var/list/swapmaps_iconcache
 
 // preferred mode; sav or text
@@ -599,7 +602,7 @@ var/swapmaps_byname
 		This hacky workaround is needed because from_file(S, M) will create a brand new
 		M to fill with data. There's no way to control the Read() process
 		properly otherwise. The //.0 path should always match the map, however.
-	 */
+	*/
 	S.cd="//.0"
 	M.Read(S,M)
 	M.mode=text
@@ -626,7 +629,7 @@ var/swapmaps_byname
 		This hacky workaround is needed because from_file(S, M) will create a brand new
 		M to fill with data. There's no way to control the Read() process
 		properly otherwise. The //.0 path should always match the map, however.
-	 */
+	*/
 	S.cd="//.0"
 	M.Read(S,M,locorner)
 	while(M.locked) sleep(1)
@@ -636,8 +639,8 @@ var/swapmaps_byname
 /proc/SwapMaps_SaveChunk(chunk_id,turf/corner1,turf/corner2)
 	if(!corner1 || !corner2)
 		to_world_log("SwapMaps error in SwapMaps_SaveChunk():")
-		if(!corner1) to_world_log("  corner1 turf is null")
-		if(!corner2) to_world_log("  corner2 turf is null")
+		if(!corner1) to_world_log("	corner1 turf is null")
+		if(!corner2) to_world_log("	corner2 turf is null")
 		return
 	var/swapmap/M=new
 	M.id=chunk_id
@@ -672,7 +675,7 @@ var/swapmaps_byname
 	/*
 		The //.0 path should always be the map. There's no other way to
 		read this data.
-	 */
+	*/
 	S.cd="//.0"
 	var/x
 	var/y

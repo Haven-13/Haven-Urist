@@ -117,8 +117,7 @@
 	var/warning_high_pressure = WARNING_HIGH_PRESSURE           // High pressure warning.
 	var/warning_low_pressure = WARNING_LOW_PRESSURE             // Low pressure warning.
 	var/hazard_low_pressure = HAZARD_LOW_PRESSURE               // Dangerously low pressure.
-	var/body_temperature = 310.15	                            // Species will try to stabilize at this temperature.
-	                                                            // (also affects temperature processing)
+	var/body_temperature = 310.15	                            // Species will try to stabilize at this temperature, also affects temperature processing.
 	var/heat_discomfort_level = 315                             // Aesthetic messages about feeling warm.
 	var/cold_discomfort_level = 285                             // Aesthetic messages about feeling chilly.
 	var/list/heat_discomfort_strings = list(
@@ -155,8 +154,10 @@
 	var/gluttonous                // Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING, GLUT_ITEM_TINY, GLUT_ITEM_NORMAL, GLUT_ITEM_ANYTHING, GLUT_PROJECTILE_VOMIT
 	var/stomach_capacity = 5      // How much stuff they can stick in their stomach
 	var/rarity_value = 1          // Relative rarity/collector value for this species.
-	                              // Determines the organs that the species spawns with and
-	var/list/has_organ = list(    // which required-organ checks are conducted.
+
+	// Determines the organs that the species spawns with and
+	// which required-organ checks are conducted.
+	var/list/has_organ = list(
 		BP_HEART =    /obj/item/organ/internal/heart,
 		BP_LUNGS =    /obj/item/organ/internal/lungs,
 		BP_LIVER =    /obj/item/organ/internal/liver,

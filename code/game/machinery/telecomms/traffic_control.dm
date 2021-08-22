@@ -77,10 +77,7 @@
 		var/dat = "<TITLE>Telecommunication Traffic Control</TITLE><center><b>Telecommunications Traffic Control</b></center>"
 
 		switch(screen)
-
-
-		  // --- Main Menu ---
-
+			// --- Main Menu ---
 			if(0)
 				dat += "<br>[temp]<br>"
 				dat += "<br>Current Network: <a href='?src=[REF(src)];network=1'>[network]</a><br>"
@@ -95,8 +92,7 @@
 					dat += "<br>No servers detected. Scan for servers: <a href='?src=[REF(src)];operation=scan'>\[Scan\]</a>"
 
 
-		  // --- Viewing Server ---
-
+			// --- Viewing Server ---
 			if(1)
 				dat += "<br>[temp]<br>"
 				dat += "<center><a href='?src=[REF(src)];operation=mainmenu'>\[Main Menu\]</a>     <a href='?src=[REF(src)];operation=refresh'>\[Refresh\]</a></center>"

@@ -1,6 +1,8 @@
-/*										*****New space to put all UristMcStation Papers and Books*****
-									    (So the psychologist papers, S-COM pamphlet and whatever else)
-Please keep it tidy, by which I mean put comments describing the item before the entry. Just use regular /tg/ icons -Glloyd */
+/*
+*****New space to put all UristMcStation Papers and Books*****
+(So the psychologist papers, S-COM pamphlet and whatever else)
+Please keep it tidy, by which I mean put comments describing the item before the entry. Just use regular /tg/ icons -Glloyd
+*/
 
 
 

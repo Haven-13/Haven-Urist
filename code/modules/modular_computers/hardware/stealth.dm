@@ -6,4 +6,4 @@
 	icon_state = "proxy"
 	hardware_size = 1
 	origin_tech = list(TECH_DATA = 3)
-  matrix_stat = MTRX_SLZ
+	matrix_stat = MTRX_SLZ

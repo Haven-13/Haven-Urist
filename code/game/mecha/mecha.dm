@@ -1207,9 +1207,9 @@
 						[js_byjax]
 						[js_dropdowns]
 						function ticker() {
-						    setInterval(function(){
-						        window.location='byond://?src=[REF(src)]&update_content=1';
-						    }, 1000);
+							setInterval(function(){
+								window.location='byond://?src=[REF(src)]&update_content=1';
+							}, 1000);
 						}
 
 						window.onload = function() {
@@ -1231,7 +1231,7 @@
 						</div>
 						</body>
 						</html>
-					 "}
+					"}
 	return output
 
 
@@ -1834,7 +1834,7 @@
 						<a href='?src=[REF(src)];debug=1;clear_i_dam=[MECHA_INT_SHORT_CIRCUIT]'>MECHA_INT_SHORT_CIRCUIT</a><br />
 						<a href='?src=[REF(src)];debug=1;clear_i_dam=[MECHA_INT_TANK_BREACH]'>MECHA_INT_TANK_BREACH</a><br />
 						<a href='?src=[REF(src)];debug=1;clear_i_dam=[MECHA_INT_CONTROL_LOST]'>MECHA_INT_CONTROL_LOST</a><br />
- 					   </body>
+						</body>
 						</html>"}
 
 	show_browser(occupant, output, "window=ex_debug")

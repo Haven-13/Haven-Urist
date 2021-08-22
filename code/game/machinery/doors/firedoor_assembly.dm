@@ -39,8 +39,10 @@
 	else if(istype(C, /obj/item/weapon/airalarm_electronics) && wired)
 		if(anchored)
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-			user.visible_message("<span class='warning'>[user] has inserted a circuit into \the [src]!</span>",
-								  "You have inserted the circuit into \the [src]!")
+			user.visible_message(
+				"<span class='warning'>[user] has inserted a circuit into \the [src]!</span>",
+				"You have inserted the circuit into \the [src]!"
+			)
 			new /obj/machinery/door/firedoor(src.loc)
 			qdel(C)
 			qdel(src)
@@ -49,8 +51,10 @@
 	else if(isWrench(C))
 		anchored = !anchored
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-		user.visible_message("<span class='warning'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
-							  "You have [anchored ? "" : "un" ]secured \the [src]!")
+		user.visible_message(
+			"<span class='warning'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
+			"You have [anchored ? "" : "un" ]secured \the [src]!"
+		)
 		update_icon()
 	else if(!anchored && isWelder(C))
 		var/obj/item/weapon/weldingtool/WT = C
