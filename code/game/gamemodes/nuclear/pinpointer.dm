@@ -49,7 +49,7 @@
 /obj/item/weapon/pinpointer/Process()
 	update_icon()
 	if(!target)
-		return 
+		return
 	if(!target.resolve())
 		target = null
 		return
@@ -134,7 +134,7 @@
 	if(locate_shuttle)
 		var/obj/machinery/computer/shuttle_control/multi/syndicate/home = locate()
 		return weakref(home)
-	else 
+	else
 		return ..()
 
 //Deathsquad locator

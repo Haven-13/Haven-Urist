@@ -38,12 +38,13 @@ GLOBAL_LIST_EMPTY(all_maps)
 	//This list contains the z-level numbers which can be accessed via space travel and the percentile chances to get there.
 	var/list/accessible_z_levels = list()
 
-	var/list/allowed_jobs	       //Job datums to use.
-	                               //Works a lot better so if we get to a point where three-ish maps are used
-	                               //We don't have to C&P ones that are only common between two of them
-	                               //That doesn't mean we have to include them with the rest of the jobs though, especially for map specific ones.
-	                               //Also including them lets us override already created jobs, letting us keep the datums to a minimum mostly.
-	                               //This is probably a lot longer explanation than it needs to be.
+	//Job datums to use.
+	//Works a lot better so if we get to a point where three-ish maps are used
+	//We don't have to C&P ones that are only common between two of them
+	//That doesn't mean we have to include them with the rest of the jobs though, especially for map specific ones.
+	//Also including them lets us override already created jobs, letting us keep the datums to a minimum mostly.
+	//This is probably a lot longer explanation than it needs to be.
+	var/list/allowed_jobs
 
 	var/station_name  = "BAD Station"
 	var/station_short = "Baddy"
@@ -69,10 +70,11 @@ GLOBAL_LIST_EMPTY(all_maps)
 	var/list/station_networks = list() 		// Camera networks that will show up on the console.
 
 	var/list/holodeck_programs = list() // map of string ids to /datum/holodeck_program instances
-	var/list/holodeck_supported_programs = list() // map of maps - first level maps from list-of-programs string id (e.g. "BarPrograms") to another map
-												  // this is in order to support multiple holodeck program listings for different holodecks
-	                                              // second level maps from program friendly display names ("Picnic Area") to program string ids ("picnicarea")
-	                                              // as defined in holodeck_programs
+	var/list/holodeck_supported_programs = list()
+	// map of maps - first level maps from list-of-programs string id (e.g. "BarPrograms") to another map
+	// this is in order to support multiple holodeck program listings for different holodecks
+	// second level maps from program friendly display names ("Picnic Area") to program string ids ("picnicarea")
+	// as defined in holodeck_programs
 	var/list/holodeck_restricted_programs = list() // as above... but EVIL!
 
 	var/allowed_spawns = list("Arrivals Shuttle","Gateway", "Cryogenic Storage", "Cyborg Storage")
@@ -89,7 +91,7 @@ GLOBAL_LIST_EMPTY(all_maps)
 	var/current_lobby_screen
 	var/music_track/lobby_track                              // The track that will play in the lobby screen.
 	var/list/lobby_tracks = list()                           // The list of lobby tracks to pick() from. If left unset will randomly select among all available /music_track subtypes.
-	var/welcome_sound = 'sound/AI/welcome.ogg'		           // Sound played on roundstart
+	var/welcome_sound = 'sound/AI/welcome.ogg'               // Sound played on roundstart
 
 	var/default_law_type = /datum/ai_laws/nanotrasen  // The default lawset use by synth units, if not overriden by their laws var.
 	var/security_state = /decl/security_state/default // The default security state system to use.

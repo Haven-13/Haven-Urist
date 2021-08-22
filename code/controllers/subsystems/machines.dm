@@ -55,7 +55,7 @@ SUBSYSTEM_DEF(machines)
 	var/list/current_run = list()
 
 /datum/controller/subsystem/machines/PreInit()
-	 processing = machinery
+	processing = machinery
 
 /datum/controller/subsystem/machines/Initialize(timeofday)
 	makepowernets()

@@ -354,7 +354,7 @@
 		if(buckled && buckled.buckle_require_restraints)
 			buckled.unbuckle_mob()
 	else
-	 ..()
+		..()
 
 	return
 

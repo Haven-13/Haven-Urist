@@ -2,9 +2,11 @@ pygit2==1.0.1
 bidict==0.13.1
 Pillow==8.2.0
 
+# check_regex
+colorama==0.4.4
+
 # changelogs
 PyYaml==5.4
 ruamel_yaml==0.17.10
 PyGithub==1.55
 beautifulsoup4==4.9.3
-

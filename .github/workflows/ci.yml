@@ -26,8 +26,13 @@ jobs:
       - name: Run Linters
         run: |
           bash tools/ci/check_changelogs.sh
+          tools/bootstrap/python -m ci.check_regex
           tgui/bin/tgui --lint
           ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
+      - name: Annotate Regex
+        if: always()
+        run: |
+          cat check_regex_output.txt
       - name: Annotate Lints
         uses: yogstation13/DreamAnnotate@v1
         if: always()
