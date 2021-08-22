@@ -202,12 +202,10 @@ function run_code_quality_tests {
     find_code_deps
     pip install --user PyYaml -q
     pip install --user beautifulsoup4 -q
-	pip install --user colorama -q
     shopt -s globstar
     run_test_fail "maps contain no step_[xy]" "grep 'step_[xy]' maps/**/*.dmm"
     run_test_fail "no invalid spans" "grep -En \"<\s*span\s+class\s*=\s*('[^'>]+|[^'>]+')\s*>\" **/*.dm"
     run_test "indentation check" "awk -f ./tools/ci/indentation.awk **/*.dm"
-    run_test "code quality checks" "python3 ./tools/ci/check_regex.py"
     run_test "check tags" "python3 ./tools/TagMatcher/tag-matcher.py ."
     run_test "check color hex" "python3 ./tools/ColorHexChecker/color-hex-checker.py ."
     run_test "check punctuation" "python3 ./tools/PunctuationChecker/punctuation-checker.py ."
