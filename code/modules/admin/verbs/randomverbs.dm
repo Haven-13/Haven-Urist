@@ -330,10 +330,10 @@ Ccomp's first proc.
 		var/response = alert(src, "Are you sure you wish to allow [selection] to respawn?","Allow respawn","No","Yes")
 		if(response == "No") return
 
-	G.timeofdeath=-19999						/* time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
-									   timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure
-									   there won't be an autopsy.
-									*/
+	G.timeofdeath=-19999	/* time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
+							timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure
+							there won't be an autopsy.
+							*/
 	G.has_enabled_antagHUD = 2
 	G.can_reenter_corpse = CORPSE_CAN_REENTER_AND_RESPAWN
 

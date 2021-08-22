@@ -54,7 +54,7 @@
 		var/obj/mecha/M = A
 		if(!M.occupant)
 			return FALSE
-	
+
 	return TRUE
 
 /mob/living/simple_animal/hostile/proc/Found(var/atom/A)

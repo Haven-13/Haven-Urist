@@ -388,8 +388,12 @@
 
 		//Release reaction gasses
 		var/heat_capacity = removed.heat_capacity()
-		removed.adjust_multi("phoron", max(device_energy / phoron_release_modifier, 0), \
-		                     "oxygen", max((device_energy + removed.temperature - T0C) / oxygen_release_modifier, 0))
+		removed.adjust_multi(
+			"phoron",
+			max(device_energy / phoron_release_modifier, 0),
+			"oxygen",
+			max((device_energy + removed.temperature - T0C) / oxygen_release_modifier, 0)
+		)
 
 
 		var/thermal_power = thermal_release_modifier * device_energy

@@ -176,10 +176,14 @@
 				audible_emote(pick("[verb] in distress.", "[verb] anxiously."))
 		else
 			if (prob(5))
-				visible_emote(pick("nuzzles [friend].",
-								   "brushes against [friend].",
-								   "rubs against [friend].",
-								   "purrs."))
+				visible_emote(
+					pick(
+						"nuzzles [friend].",\
+						"brushes against [friend].",\
+						"rubs against [friend].",\
+						"purrs."\
+					)
+				)
 	else if (friend.health <= 50)
 		if (prob(10))
 			var/verb = pick("meows", "mews", "mrowls")
@@ -200,10 +204,14 @@
 
 	if(.)
 		set_dir(get_dir(src, friend))
-		visible_emote(pick("nuzzles [friend].",
-						   "brushes against [friend].",
-						   "rubs against [friend].",
-						   "purrs."))
+		visible_emote(
+			pick(
+				"nuzzles [friend].",\
+				"brushes against [friend].",\
+				"rubs against [friend].",\
+				"purrs."\
+			)
+		)
 	else
 		to_chat(usr, "<span class='notice'>[src] ignores you.</span>")
 	return

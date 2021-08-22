@@ -9,12 +9,12 @@
 //******Overmap and shuttle stuff******
 
 /datum/map_template/ruin/away_site/wildwest
- 	name = "Wild West"
- 	spawn_weight = 0.5
- 	id = "awaysite_western"
- 	description = "Zombie-infested Wild West map!"
- 	suffixes = list("../RandomZLevels/wildwest/wildwest.dmm")
- 	cost = 2
+	name = "Wild West"
+	spawn_weight = 0.5
+	id = "awaysite_western"
+	description = "Zombie-infested Wild West map!"
+	suffixes = list("../RandomZLevels/wildwest/wildwest.dmm")
+	cost = 2
 
 /obj/effect/overmap/sector/wild_west
 	name = "desert planetoid"

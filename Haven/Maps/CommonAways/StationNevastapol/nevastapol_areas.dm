@@ -3,7 +3,7 @@
 
 /area/spacestations/nevastapol
 	name = "Deep Space Station Nevastapol"
-	
+
 	has_gravity = 1
 	power_environ = 1
 	power_equip = 1

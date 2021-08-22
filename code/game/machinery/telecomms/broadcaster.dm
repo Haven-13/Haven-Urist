@@ -51,44 +51,49 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		signal.data["level"] |= listening_levels
 
-	   /** #### - Normal Broadcast - #### **/
+		/** #### - Normal Broadcast - #### **/
 
 		if(signal.data["type"] == 0)
 
 			/* ###### Broadcast a message using signal.data ###### */
-			Broadcast_Message(signal.data["connection"], signal.data["mob"],
-							  signal.data["vmask"], signal.data["vmessage"],
-							  signal.data["radio"], signal.data["message"],
-							  signal.data["name"], signal.data["job"],
-							  signal.data["realname"], signal.data["vname"],,
-							  signal.data["compression"], signal.data["level"], signal.frequency,
-							  signal.data["verb"], signal.data["language"], signal.data["channel_tag"], signal.data["channel_color"])
+			Broadcast_Message(
+				signal.data["connection"], signal.data["mob"],
+				signal.data["vmask"], signal.data["vmessage"],
+				signal.data["radio"], signal.data["message"],
+				signal.data["name"], signal.data["job"],
+				signal.data["realname"], signal.data["vname"],,
+				signal.data["compression"], signal.data["level"], signal.frequency,
+				signal.data["verb"], signal.data["language"], signal.data["channel_tag"], signal.data["channel_color"]
+			)
 
 
-	   /** #### - Simple Broadcast - #### **/
+		/** #### - Simple Broadcast - #### **/
 
 		if(signal.data["type"] == 1)
 
 			/* ###### Broadcast a message using signal.data ###### */
-			Broadcast_SimpleMessage(signal.data["name"], signal.frequency,
-								  signal.data["message"],null, null,
-								  signal.data["compression"], listening_levels, signal.data["channel_tag"], signal.data["channel_color"])
+			Broadcast_SimpleMessage(
+				signal.data["name"], signal.frequency,
+				signal.data["message"],null, null,
+				signal.data["compression"], listening_levels, signal.data["channel_tag"], signal.data["channel_color"])
 
 
-	   /** #### - Artificial Broadcast - #### **/
-	   			// (Imitates a mob)
+		/** #### - Artificial Broadcast - #### **/
+		// (Imitates a mob)
 
 		if(signal.data["type"] == 2)
 
 			/* ###### Broadcast a message using signal.data ###### */
 				// Parameter "data" as 4: AI can't track this person/mob
 
-			Broadcast_Message(signal.data["connection"], signal.data["mob"],
-							  signal.data["vmask"], signal.data["vmessage"],
-							  signal.data["radio"], signal.data["message"],
-							  signal.data["name"], signal.data["job"],
-							  signal.data["realname"], signal.data["vname"], 4, signal.data["compression"], signal.data["level"], signal.frequency,
-							  signal.data["verb"], signal.data["language"], signal.data["channel_tag"], signal.data["channel_color"])
+			Broadcast_Message(
+				signal.data["connection"], signal.data["mob"],
+				signal.data["vmask"], signal.data["vmessage"],
+				signal.data["radio"], signal.data["message"],
+				signal.data["name"], signal.data["job"],
+				signal.data["realname"], signal.data["vname"], 4, signal.data["compression"], signal.data["level"], signal.frequency,
+				signal.data["verb"], signal.data["language"], signal.data["channel_tag"], signal.data["channel_color"]
+			)
 
 		if(!message_delay)
 			message_delay = 1
@@ -147,20 +152,23 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		var/datum/radio_frequency/connection = signal.data["connection"]
 
 		if(connection.frequency in ANTAG_FREQS) // if antag broadcast, just
-			Broadcast_Message(signal.data["connection"], signal.data["mob"],
-							  signal.data["vmask"], signal.data["vmessage"],
-							  signal.data["radio"], signal.data["message"],
-							  signal.data["name"], signal.data["job"],
-							  signal.data["realname"], signal.data["vname"],, signal.data["compression"], list(0), connection.frequency,
-							  signal.data["verb"], signal.data["language"], signal.data["channel_tag"], signal.data["channel_color"])
+			Broadcast_Message(
+				signal.data["connection"], signal.data["mob"],
+				signal.data["vmask"], signal.data["vmessage"],
+				signal.data["radio"], signal.data["message"],
+				signal.data["name"], signal.data["job"],
+				signal.data["realname"], signal.data["vname"],, signal.data["compression"], list(0), connection.frequency,
+				signal.data["verb"], signal.data["language"], signal.data["channel_tag"], signal.data["channel_color"])
 		else
 			if(intercept)
-				Broadcast_Message(signal.data["connection"], signal.data["mob"],
-							  signal.data["vmask"], signal.data["vmessage"],
-							  signal.data["radio"], signal.data["message"],
-							  signal.data["name"], signal.data["job"],
-							  signal.data["realname"], signal.data["vname"], 3, signal.data["compression"], list(0), connection.frequency,
-							  signal.data["verb"], signal.data["language"], signal.data["channel_tag"], signal.data["channel_color"])
+				Broadcast_Message(
+					signal.data["connection"], signal.data["mob"],
+					signal.data["vmask"], signal.data["vmessage"],
+					signal.data["radio"], signal.data["message"],
+					signal.data["name"], signal.data["job"],
+					signal.data["realname"], signal.data["vname"], 3, signal.data["compression"], list(0), connection.frequency,
+					signal.data["verb"], signal.data["language"], signal.data["channel_tag"], signal.data["channel_color"]
+				)
 
 
 
@@ -234,7 +242,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 						var/channel_tag, var/channel_color)
 
 
-  /* ###### Prepare the radio connection ###### */
+	/* ###### Prepare the radio connection ###### */
 
 	var/display_freq = freq
 
@@ -279,9 +287,9 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	// Get a list of mobs who can hear from the radios we collected.
 	var/list/receive = get_mobs_in_radio_ranges(radios)
 
-  /* ###### Organize the receivers into categories for displaying the message ###### */
+	/* ###### Organize the receivers into categories for displaying the message ###### */
 
-  	// Understood the message:
+	// Understood the message:
 	var/list/heard_masked 	= list() // masked name or no real name
 	var/list/heard_normal 	= list() // normal message
 
@@ -292,7 +300,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	for (var/mob/R in receive)
 
-	  /* --- Loop through the receivers and categorize them --- */
+		/* --- Loop through the receivers and categorize them --- */
 		if(istype(R, /mob/new_player)) // we don't want new players to hear messages. rare but generates runtimes.
 			continue
 
@@ -329,10 +337,10 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 				heard_garbled += R
 
 
-  /* ###### Begin formatting and sending the message ###### */
+	/* ###### Begin formatting and sending the message ###### */
 	if (length(heard_masked) || length(heard_normal) || length(heard_voice) || length(heard_garbled) || length(heard_gibberish))
 
-	  /* --- Some miscellaneous variables to format the string output --- */
+		/* --- Some miscellaneous variables to format the string output --- */
 		var/freq_text = format_frequency(display_freq)
 		if(channel_tag)
 			freq_text = channel_tag
@@ -397,10 +405,10 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		//End of research and feedback code.
 
-	 /* ###### Send the message ###### */
+		/* ###### Send the message ###### */
 
 
-	  	/* --- Process all the mobs that heard a masked voice (understood) --- */
+		/* --- Process all the mobs that heard a masked voice (understood) --- */
 
 		if (length(heard_masked))
 			for (var/mob/R in heard_masked)
@@ -436,7 +444,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 /proc/Broadcast_SimpleMessage(var/source, var/frequency, var/text, var/data, var/mob/M, var/compression, var/level, var/channel_tag, var/channel_color)
 
-  /* ###### Prepare the radio connection ###### */
+	/* ###### Prepare the radio connection ###### */
 
 	if(!M)
 		var/mob/living/carbon/human/H = new
@@ -490,7 +498,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 				receive |= R.send_hear(display_freq)
 
 
-  /* ###### Organize the receivers into categories for displaying the message ###### */
+	/* ###### Organize the receivers into categories for displaying the message ###### */
 
 	// Understood the message:
 	var/list/heard_normal 	= list() // normal message
@@ -501,7 +509,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	for (var/mob/R in receive)
 
-	  /* --- Loop through the receivers and categorize them --- */
+		/* --- Loop through the receivers and categorize them --- */
 		// --- Check for compression ---
 		if(compression > 0)
 
@@ -522,10 +530,10 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 			heard_garbled += R
 
 
-  /* ###### Begin formatting and sending the message ###### */
+	/* ###### Begin formatting and sending the message ###### */
 	if (length(heard_normal) || length(heard_garbled) || length(heard_gibberish))
 
-	  /* --- Some miscellaneous variables to format the string output --- */
+		/* --- Some miscellaneous variables to format the string output --- */
 		var/freq_text = format_frequency(display_freq)
 		if(channel_tag)
 			freq_text = channel_tag
@@ -582,7 +590,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		//End of research and feedback code.
 
-	 /* ###### Send the message ###### */
+		/* ###### Send the message ###### */
 
 		/* --- Process all the mobs that heard the voice normally (understood) --- */
 
@@ -639,7 +647,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	)
 	signal.frequency = PUB_FREQ// Common channel
 
-  //#### Sending the signal to all subspace receivers ####//
+	//#### Sending the signal to all subspace receivers ####//
 	for(var/obj/machinery/telecomms/receiver/R in telecomms_list)
 		R.receive_signal(signal)
 

@@ -94,8 +94,10 @@
 	id = "CentComm Hub"
 	network = "tcommsat"
 	produces_heat = 0
-	autolinkers = list("hub_cent", "c_relay", "s_relay", "m_relay", "r_relay", "s1_relay", "s2_relay",
-	 "centcomm", "receiverCent", "broadcasterCent")
+	autolinkers = list(
+		"hub_cent", "c_relay", "s_relay", "m_relay", "r_relay", "s1_relay", "s2_relay",
+		"centcomm", "receiverCent", "broadcasterCent"
+	)
 
 /obj/machinery/telecomms/hub/preset/wyrm
 	autolinkers = list("busWyrm", "serverWyrm", "receiverWyrm", "broadcasterWyrm", "prim_relay", "sub_relay")

@@ -109,8 +109,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "Mule"
 	desc = "The QuarterMaster's turtle. Look out for bites!"
 
-/*holds a random chem for animal venom
-  should be used WITH copy=1 on transfer */
+//	holds a random chem for animal venom
+//	should be used WITH copy=1 on transfer
 /obj/item/venom_sac
 	name = "venom sac"
 	desc = "A sac something evolved to store venom in."
