@@ -626,27 +626,42 @@ About the new airlock wires panel:
 			else
 				icon_state = "open"
 				state = AIRLOCK_OPEN
-		if(AIRLOCK_OPEN)
+		if(AIRLOCK_OPEN, AIRLOCK_OPENING)
 			icon_state = "open"
-		if(AIRLOCK_CLOSED)
+		if(AIRLOCK_CLOSED, AIRLOCK_CLOSING, AIRLOCK_EMAG, AIRLOCK_DENY)
 			icon_state = "closed"
-		if(AIRLOCK_OPENING, AIRLOCK_CLOSING, AIRLOCK_EMAG, AIRLOCK_DENY)
+		else
 			icon_state = ""
 
 	set_airlock_overlays(state)
 
 /obj/machinery/door/airlock/proc/set_airlock_overlays(state)
-	var/icon/panel_overlay
-	var/icon/weld_overlay
-	var/icon/damage_overlay
-	var/icon/lights_overlay
-	var/icon/sparks_overlay
-
 	set_light(0)
-	. = list()
+	switch(state)
+		if(AIRLOCK_CLOSED)
+			if(lights && src.arePowerSystemsOn())
+				if(locked)
+					set_light(0.25, 0.1, 1, 2, COLOR_RED_LIGHT)
 
+		if(AIRLOCK_DENY)
+			if(lights && src.arePowerSystemsOn())
+				set_light(0.25, 0.1, 1, 2, COLOR_RED_LIGHT)
+
+		if(AIRLOCK_CLOSING)
+			if(lights && src.arePowerSystemsOn())
+				set_light(0.25, 0.1, 1, 2, COLOR_LIME)
+
+		if(AIRLOCK_OPENING)
+			if(lights && src.arePowerSystemsOn())
+				set_light(0.25, 0.1, 1, 2, COLOR_LIME)
+
+		if(AIRLOCK_EMAG)
+			set_light(0.35, 0.1, 1, 2, COLOR_YELLOW)
+
+	. = list()
 	. += get_emissive_blocker()
 
+	// Main airlock body
 	if(door_color && !(door_color == "none"))
 		. += get_airlock_overlay(src, color_file, null, door_color)
 	if(glass)
@@ -661,82 +676,30 @@ About the new airlock wires panel:
 		if(!glass)
 			. += get_airlock_overlay(src, stripe_fill_file, null, stripe_color)
 
-	switch(state)
-		if(AIRLOCK_CLOSED)
-			if(p_open)
-				panel_overlay = panel_file
-			if(welded)
-				weld_overlay = welded_file
-			if(stat & BROKEN)
-				damage_overlay = sparks_broken_file
-			else if(health < maxhealth * 3/4)
-				damage_overlay = sparks_damaged_file
-			if(lights && src.arePowerSystemsOn())
-				if(locked)
-					lights_overlay = bolts_file
-					set_light(0.25, 0.1, 1, 2, COLOR_RED_LIGHT)
-
-		if(AIRLOCK_DENY)
-			if(!src.arePowerSystemsOn())
-				return
-			if(p_open)
-				panel_overlay = panel_file
-			if(stat & BROKEN)
-				damage_overlay = sparks_broken_file
-			else if(health < maxhealth * 3/4)
-				damage_overlay = sparks_damaged_file
-			if(welded)
-				weld_overlay = welded_file
-			if(lights && src.arePowerSystemsOn())
-				lights_overlay = deny_file
-				set_light(0.25, 0.1, 1, 2, COLOR_RED_LIGHT)
-
-		if(AIRLOCK_EMAG)
-			sparks_overlay = emag_file
-			if(p_open)
-				panel_overlay = panel_file
-			if(stat & BROKEN)
-				damage_overlay = sparks_broken_file
-			else if(health < maxhealth * 3/4)
-				damage_overlay = sparks_damaged_file
-			if(welded)
-				weld_overlay = welded_file
-
-		if(AIRLOCK_CLOSING)
-			if(lights && src.arePowerSystemsOn())
-				lights_overlay = lights_file
-				set_light(0.25, 0.1, 1, 2, COLOR_LIME)
-			if(p_open)
-				panel_overlay = panel_file
-
-		if(AIRLOCK_OPEN)
-			if(stat & BROKEN)
-				damage_overlay = sparks_broken_file
-			else if(health < maxhealth * 3/4)
-				damage_overlay = sparks_damaged_file
-
-		if(AIRLOCK_OPENING)
-			if(lights && src.arePowerSystemsOn())
-				lights_overlay = lights_file
-				set_light(0.25, 0.1, 1, 2, COLOR_LIME)
-			if(p_open)
-				panel_overlay = panel_file
-
-	if(panel_overlay)
+	// Other airlock features
+	if(p_open)
 		. += get_airlock_overlay(src, panel_file, null)
-	if(weld_overlay)
-		. += get_airlock_overlay(src, weld_overlay, null)
-
-	if(damage_overlay)
-		. += get_airlock_overlay(src, damage_overlay, FALSE)
-	if(lights_overlay)
-		. += get_airlock_overlay(src, lights_overlay, FALSE)
-	if(sparks_overlay)
-		. += get_airlock_overlay(src, sparks_overlay, FALSE)
-
-	if(brace)
+	if(welded)
+		. += get_airlock_overlay(src, welded_file, null)
+	if(brace) // FUCKING SNOWFLAKE SON OF A MUPPET SOCK
 		brace.update_icon()
 		. += image(brace.icon, brace.icon_state)
+
+	// Damage (emissives)
+	if(stat & BROKEN)
+		. += get_airlock_overlay(src, sparks_broken_file, FALSE)
+	else if(health < maxhealth * 3/4)
+		. += get_airlock_overlay(src, sparks_damaged_file, FALSE)
+
+	// Lights (emissives)
+	if(lights && src.arePowerSystemsOn())
+		if(locked)
+			. += get_airlock_overlay(src, bolts_file, FALSE)
+		if(state != AIRLOCK_EMAG)
+			. += get_airlock_overlay(src, deny_file, FALSE)
+		. += get_airlock_overlay(src, lights_file, FALSE)
+	if(state == AIRLOCK_EMAG)
+		. += get_airlock_overlay(src, emag_file, FALSE)
 
 	cut_overlays()
 	add_overlay(.)
