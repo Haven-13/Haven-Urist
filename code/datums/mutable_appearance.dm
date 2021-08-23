@@ -12,7 +12,7 @@
 // Helper similar to image()
 /proc/mutable_appearance(
 		icon,
-		icon_state = "",
+		icon_state = null,
 		color = null,
 		layer = FLOAT_LAYER,
 		plane = FLOAT_PLANE,

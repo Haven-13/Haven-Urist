@@ -140,7 +140,6 @@
 		flags=MASK_INVERSE
 	)
 
-/*
 /obj/screen/plane_master/emissive
 	name = "emissive plane master"
 	plane = EMISSIVE_PLANE
@@ -153,7 +152,6 @@
 		type="color",
 		color=GLOB.em_mask_matrix
 	)
-*/
 
 /obj/screen/plane_master/obscurity_master
 	plane = OBSCURITY_PLANE

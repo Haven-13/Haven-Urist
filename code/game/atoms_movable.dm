@@ -266,7 +266,6 @@
 		if(EMISSIVE_BLOCK_GENERIC)
 			var/mutable_appearance/gen_emissive_blocker = mutable_appearance(
 				icon,
-				icon_state,
 				plane = get_float_plane(EMISSIVE_PLANE),
 				alpha = src.alpha
 			)
@@ -280,10 +279,10 @@
 			return list(em_block)
 	return null
 
-// Do not use this if you intend your overlays to not block emissives
-// Use mutable_appearance() in similar fashion as the first two statements at start of proc
-// instead for plain/cheap overlays. It gets expensive otherwise to add an if clause and then use
-// it where, specially in performance-critical bits of code.
+/*
+ * Creates an pair of overlay images, one is the base colours and the other
+ * is the black-color mask of the base image, creating an obstruction of lights layered below.
+ */
 /atom/movable/proc/get_normal_overlay(
 		var/icon = src.icon,
 		var/state = src.icon_state,
@@ -311,6 +310,10 @@
 
 	return list(base, blocker)
 
+/*
+ * Creates an pair of overlay images, one is the base colours and the other
+ * is the white-color mask of the base image, creating an emissive light effect.
+ */
 /atom/movable/proc/get_emissive_overlay(
 		var/icon = src.icon,
 		var/state = src.icon_state,

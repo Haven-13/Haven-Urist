@@ -1,3 +1,36 @@
+/// Overlay cache.  Why isn't this just in /obj/machinery/door/airlock?  Because its used just a
+/// tiny bit in door_assembly.dm  Refactored so you don't have to make a null copy of airlock
+/// to get to the damn thing
+/// Someone, for the love of god, profile this.  Is there a reason to cache mutable_appearance
+/// if so, why are we JUST doing the airlocks when we can put this in mutable_appearance.dm for
+/// everything
+/proc/get_airlock_overlay(atom/source, icon_file, em_block, color = null)
+	var/static/list/airlock_overlays = list()
+
+	var/base_icon_key = "[icon_file]"
+	var/em_block_key = "[base_icon_key][em_block]"
+
+	base_icon_key = "[base_icon_key][color]"
+	if(!(. = airlock_overlays[base_icon_key]))
+		. = airlock_overlays[base_icon_key]\
+			= mutable_appearance(
+				icon_file,
+				color = color
+			)
+	if(isnull(em_block))
+		return
+
+	var/mutable_appearance/em_blocker = airlock_overlays[em_block_key]
+	if(!em_blocker)
+		em_blocker = airlock_overlays[em_block_key]\
+			= mutable_appearance(
+				icon_file,
+				plane = source.get_float_plane(EMISSIVE_PLANE)
+			)
+		em_blocker.color = (em_block && GLOB.em_block_color) || GLOB.emissive_color
+
+	return list(., em_blocker)
+
 #define BOLTS_FINE 0
 #define BOLTS_EXPOSED 1
 #define BOLTS_CUT 2
@@ -13,13 +46,12 @@
 #define AIRLOCK_STRIPABLE 2
 #define AIRLOCK_DETAILABLE 4
 
-var/list/airlock_overlays = list()
-
 /obj/machinery/door/airlock
 	name = "airlock"
 	icon = 'icons/obj/doors/station/door.dmi'
 	icon_state = "closed"
 	power_channel = ENVIRON
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 	explosion_resistance = 10
 	var/aiControlDisabled = 0 //If 1, AI control is disabled until the AI hacks back in and disables the lock. If 2, the AI has bypassed the lock. If -1, the control is enabled but the AI had bypassed it earlier, so if it is disabled again the AI would have no trouble getting back in.
@@ -604,55 +636,30 @@ About the new airlock wires panel:
 	set_airlock_overlays(state)
 
 /obj/machinery/door/airlock/proc/set_airlock_overlays(state)
-	var/icon/color_overlay
-	var/icon/filling_overlay
-	var/icon/stripe_overlay
-	var/icon/stripe_filling_overlay
-	var/icon/lights_overlay
 	var/icon/panel_overlay
 	var/icon/weld_overlay
 	var/icon/damage_overlay
+	var/icon/lights_overlay
 	var/icon/sparks_overlay
-	var/icon/brace_overlay
-
-	var/image/lights_overlay_emissive
-	var/image/sparks_overlay_emissive
 
 	set_light(0)
+	. = list()
+
+	. += get_emissive_blocker()
 
 	if(door_color && !(door_color == "none"))
-		var/ikey = "[airlock_type]-[door_color]-color"
-		color_overlay = airlock_icon_cache["[ikey]"]
-		if(!color_overlay)
-			color_overlay = new(color_file)
-			color_overlay.Blend(door_color, ICON_MULTIPLY)
-			airlock_icon_cache["[ikey]"] = color_overlay
+		. += get_airlock_overlay(src, color_file, null, door_color)
 	if(glass)
-		filling_overlay = glass_file
+		. += get_airlock_overlay(src, glass_file, TRUE)
 	else
 		if(door_color && !(door_color == "none"))
-			var/ikey = "[airlock_type]-[door_color]-fillcolor"
-			filling_overlay = airlock_icon_cache["[ikey]"]
-			if(!filling_overlay)
-				filling_overlay = new(color_fill_file)
-				filling_overlay.Blend(door_color, ICON_MULTIPLY)
-				airlock_icon_cache["[ikey]"] = filling_overlay
+			. += get_airlock_overlay(src, color_fill_file, TRUE, door_color)
 		else
-			filling_overlay = fill_file
+			. += get_airlock_overlay(src, fill_file, TRUE)
 	if(stripe_color && !(stripe_color == "none"))
-		var/ikey = "[airlock_type]-[stripe_color]-stripe"
-		stripe_overlay = airlock_icon_cache["[ikey]"]
-		if(!stripe_overlay)
-			stripe_overlay = new(stripe_file)
-			stripe_overlay.Blend(stripe_color, ICON_MULTIPLY)
-			airlock_icon_cache["[ikey]"] = stripe_overlay
+		. += get_airlock_overlay(src, stripe_file, null, stripe_color)
 		if(!glass)
-			var/ikey2 = "[airlock_type]-[stripe_color]-fillstripe"
-			stripe_filling_overlay = airlock_icon_cache["[ikey2]"]
-			if(!stripe_filling_overlay)
-				stripe_filling_overlay = new(stripe_fill_file)
-				stripe_filling_overlay.Blend(stripe_color, ICON_MULTIPLY)
-				airlock_icon_cache["[ikey2]"] = stripe_filling_overlay
+			. += get_airlock_overlay(src, stripe_fill_file, null, stripe_color)
 
 	switch(state)
 		if(AIRLOCK_CLOSED)
@@ -715,67 +722,43 @@ About the new airlock wires panel:
 			if(p_open)
 				panel_overlay = panel_file
 
-	if(lights_overlay)
-		var/ikey = "[airlock_type]-[state]-[locked]-lights"
-		if (!(ikey in airlock_icon_cache))
-			var/image/I = new(lights_overlay)
-			I.plane = get_float_plane(EMISSIVE_PLANE)
-			I.color = GLOB.emissive_color
-			airlock_icon_cache[ikey] = I
-		lights_overlay_emissive = airlock_icon_cache[ikey]
+	if(panel_overlay)
+		. += get_airlock_overlay(src, panel_file, null)
+	if(weld_overlay)
+		. += get_airlock_overlay(src, weld_overlay, null)
 
+	if(damage_overlay)
+		. += get_airlock_overlay(src, damage_overlay, FALSE)
+	if(lights_overlay)
+		. += get_airlock_overlay(src, lights_overlay, FALSE)
 	if(sparks_overlay)
-		var/ikey = "[airlock_type]-[state]-sparks"
-		if (!(ikey in airlock_icon_cache))
-			var/image/I = new(sparks_overlay)
-			I.plane = get_float_plane(EMISSIVE_PLANE)
-			I.color = GLOB.emissive_color
-			airlock_icon_cache[ikey] = I
-		sparks_overlay_emissive = airlock_icon_cache[ikey]
+		. += get_airlock_overlay(src, sparks_overlay, FALSE)
 
 	if(brace)
 		brace.update_icon()
-		brace_overlay += image(brace.icon, brace.icon_state)
+		. += image(brace.icon, brace.icon_state)
 
-	overlays.Cut()
-
-	overlays += color_overlay
-	overlays += filling_overlay
-	overlays += stripe_overlay
-	overlays += stripe_filling_overlay
-	overlays += panel_overlay
-	overlays += weld_overlay
-	overlays += brace_overlay
-	overlays += lights_overlay
-	overlays += sparks_overlay
-	overlays += damage_overlay
-
-	overlays += lights_overlay_emissive
-	overlays += sparks_overlay_emissive
+	cut_overlays()
+	add_overlay(.)
 
 /obj/machinery/door/airlock/do_animate(animation)
-	if(overlays)
-		overlays.Cut()
-
 	switch(animation)
 		if("opening")
-			set_airlock_overlays(AIRLOCK_OPENING)
-			flick("opening", src)//[stat ? "_stat":]
-			update_icon(AIRLOCK_OPEN)
+			update_icon(AIRLOCK_OPENING)
+			flick("opening", src)
 		if("closing")
-			set_airlock_overlays(AIRLOCK_CLOSING)
+			update_icon(AIRLOCK_CLOSING)
 			flick("closing", src)
-			update_icon(AIRLOCK_CLOSED)
 		if("deny")
 			if(density && src.arePowerSystemsOn())
-				set_airlock_overlays(AIRLOCK_DENY)
+				update_icon(AIRLOCK_DENY)
 				flick("deny", src)
 				if(secured_wires)
 					playsound(src.loc, open_failure_access_denied, 50, 0)
 				update_icon(AIRLOCK_CLOSED)
 		if("emag")
 			if(density && src.arePowerSystemsOn())
-				set_airlock_overlays(AIRLOCK_EMAG)
+				update_icon(AIRLOCK_EMAG)
 				flick("deny", src)
 		else
 			update_icon()

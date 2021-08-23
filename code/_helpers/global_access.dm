@@ -115,6 +115,8 @@
 			return global.SSmobs;
 		if("SSobj")
 			return global.SSobj;
+		if("SSoverlays")
+			return global.SSoverlays;
 		if("SSpersistence")
 			return global.SSpersistence;
 		if("SSprocessing")
@@ -223,8 +225,6 @@
 			return global.ai_verbs_default;
 		if("air_blocked")
 			return global.air_blocked;
-		if("airlock_overlays")
-			return global.airlock_overlays;
 		if("alien_whitelist")
 			return global.alien_whitelist;
 		if("aliuminatis")
@@ -253,6 +253,8 @@
 			return global.all_unit_tests_passed;
 		if("all_virtual_listeners")
 			return global.all_virtual_listeners;
+		if("already_completed")
+			return global.already_completed;
 		if("announced_news_types")
 			return global.announced_news_types;
 		if("antag_add_finished")
@@ -1001,7 +1003,7 @@
 			return global.z_levels;
 		if("zone_blocked")
 			return global.zone_blocked;
-
+		
 /proc/writeglobal(which, newval)
 	switch(which)
 		if("ALL_ANTIGENS")
@@ -1118,6 +1120,8 @@
 			global.SSmobs=newval;
 		if("SSobj")
 			global.SSobj=newval;
+		if("SSoverlays")
+			global.SSoverlays=newval;
 		if("SSpersistence")
 			global.SSpersistence=newval;
 		if("SSprocessing")
@@ -1226,8 +1230,6 @@
 			global.ai_verbs_default=newval;
 		if("air_blocked")
 			global.air_blocked=newval;
-		if("airlock_overlays")
-			global.airlock_overlays=newval;
 		if("alien_whitelist")
 			global.alien_whitelist=newval;
 		if("aliuminatis")
@@ -1256,6 +1258,8 @@
 			global.all_unit_tests_passed=newval;
 		if("all_virtual_listeners")
 			global.all_virtual_listeners=newval;
+		if("already_completed")
+			global.already_completed=newval;
 		if("announced_news_types")
 			global.announced_news_types=newval;
 		if("antag_add_finished")
@@ -2004,7 +2008,7 @@
 			global.z_levels=newval;
 		if("zone_blocked")
 			global.zone_blocked=newval;
-
+		
 /var/list/_all_globals=list(
 	"ALL_ANTIGENS",
 	"ANTAG_FREQS",
@@ -2063,6 +2067,7 @@
 	"SSmisc_late",
 	"SSmobs",
 	"SSobj",
+	"SSoverlays",
 	"SSpersistence",
 	"SSprocessing",
 	"SSradiation",
@@ -2117,7 +2122,6 @@
 	"ai_status_emotions",
 	"ai_verbs_default",
 	"air_blocked",
-	"airlock_overlays",
 	"alien_whitelist",
 	"aliuminatis",
 	"allCasters",
@@ -2132,6 +2136,7 @@
 	"all_ui_styles",
 	"all_unit_tests_passed",
 	"all_virtual_listeners",
+	"already_completed",
 	"announced_news_types",
 	"antag_add_finished",
 	"appearance_manager",
