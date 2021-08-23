@@ -80,14 +80,17 @@ export const DmTarget = new Juke.Target({
     if (map_override) {
       Juke.logger.info('Using override map:', map_override);
       defines.push("MAP_OVERRIDE");
-      includes.push(`maps/${map_override}/${map_override}.dm`)
     }
     if (defines.length > 0) {
       Juke.logger.info('Using defines:', defines.join(', '));
     }
+    if (includes.length > 0) {
+      Juke.logger.info('Using injected includes:', defines.join(', '));
+    }
     await DreamMaker(`${DME_NAME}.dme`, {
       defines: ['CBT', ...defines],
       includes: [...includes],
+      mapOverride: map_override,
     });
   },
 });

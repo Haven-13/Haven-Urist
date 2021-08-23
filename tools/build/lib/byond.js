@@ -86,9 +86,10 @@ export const DreamMaker = async (dmeFile, options = {}) => {
   testOutputFile(`${dmeBaseName}.dmb`);
   testOutputFile(`${dmeBaseName}.rsc`);
   // Compile
-  const { defines, includes } = options;
+  const { defines, includes, mapOverride } = options;
   if ((defines && defines.length > 0)
-    || (includes && includes.length > 0)
+    || (includes && includes.length > 0
+    || !!mapOverride)
   ) {
     let injectedContent =
       defines
@@ -96,6 +97,10 @@ export const DreamMaker = async (dmeFile, options = {}) => {
       includes
         ?.map(x => `#include "${x}"\n`).join('');
     fs.writeFileSync(`${dmeBaseName}.m.dme`, injectedContent);
+    if(mapOverride)
+      fs.writeFileSync(
+        "maps/_map_include.dm",
+        `#include "${mapOverride}/${mapOverride}.dm"\n`);
     const dmeContent = fs.readFileSync(`${dmeBaseName}.dme`);
     fs.appendFileSync(`${dmeBaseName}.m.dme`, dmeContent);
     await Juke.exec(dmPath, [`${dmeBaseName}.m.dme`]);
