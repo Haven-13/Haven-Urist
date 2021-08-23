@@ -62,11 +62,19 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - name: Setup cache
+      - name: Setup Byond cache
         uses: actions/cache@v2
         with:
           path: $HOME/BYOND
           key: ${{ runner.os }}-byond
+      - name: Setup Yarn cache
+        uses: actions/cache@v2
+        with:
+          path: tgui/.yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('tgui/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
       - name: Compile Run
         run: |
           bash tools/ci/install_byond.sh
@@ -81,11 +89,19 @@ jobs:
         maps: [example, tyclo-pluto, away_sites_testing]
     steps:
       - uses: actions/checkout@v2
-      - name: Setup cache
+      - name: Setup Byond cache
         uses: actions/cache@v2
         with:
           path: $HOME/BYOND
           key: ${{ runner.os }}-byond
+      - name: Setup Yarn cache
+        uses: actions/cache@v2
+        with:
+          path: tgui/.yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('tgui/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
       - name: Install RUST_G Dependencies
         run: |
           sudo dpkg --add-architecture i386
