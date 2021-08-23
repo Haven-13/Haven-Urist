@@ -91,7 +91,8 @@
 		return 1
 
 /obj/item/modular_computer/update_icon()
-	. += list()
+	. = list()
+	. += get_emissive_blocker()
 	icon_state = icon_state_unpowered
 
 	cut_overlays()
