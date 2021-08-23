@@ -48,7 +48,7 @@
 	game_log("TESTING", msg)
 
 /proc/game_log(category, text)
-	to_file(diary, "\[[time_stamp()]] [game_id] [category]: [text][log_end]")
+	WRITE_FILE(GLOB.world_diary_log, "\[[time_stamp()]] [game_id] [category]: [text][log_end]")
 
 /proc/log_admin(text)
 	GLOB.admin_log.Add(text)
