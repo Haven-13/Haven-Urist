@@ -101,12 +101,18 @@ export const DmTestTarget = new Juke.Target({
   ],
   executes: async ({ get }) => {
     const defines = get(DefineParameter);
+    const map_override = get(MapOverrideParameter);
+    if (map_override) {
+      Juke.logger.info('Using override map:', map_override);
+      defines.push("MAP_OVERRIDE");
+    }
     if (defines.length > 0) {
       Juke.logger.info('Using defines:', defines.join(', '));
     }
     fs.copyFileSync(`${DME_NAME}.dme`, `${DME_NAME}.test.dme`);
     await DreamMaker(`${DME_NAME}.test.dme`, {
-      defines: ['CBT', 'CIBUILDING', ...defines],
+      defines: ['CBT', 'CIBUILDING', 'UNIT_TEST', ...defines],
+      mapOverride: map_override,
     });
     Juke.rm('data/logs/ci', { recursive: true });
     await DreamDaemon(
