@@ -71,8 +71,7 @@ jobs:
         run: |
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
-          tgui/bin/tgui --build
-          bash tools/ci/dm.sh baystation12.dme
+          tools/build/build --ci -DCIBUILDING
 
   maps:
     name: Unit-test
@@ -95,11 +94,8 @@ jobs:
           ldd librust_g.so
       - name: Run Tests
         env:
-          TEST: MAP
           MAP_PATH: ${{matrix.maps}}
-          TARGET_PROJECT_NAME: baystation12
         run: |
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
-          tgui/bin/tgui --build
-          bash tools/ci/run-test.sh
+          tools/build/build --ci -DCIBUILDING --map-override=${MAP_PATH}
