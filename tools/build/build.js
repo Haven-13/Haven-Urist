@@ -14,26 +14,76 @@ const { regQuery } = require('./cbt/winreg');
 // Change working directory to project root
 process.chdir(resolvePath(__dirname, '../../'));
 
-const taskTgui = new Task('tgui')
-  .depends('tgui/.yarn/releases/*')
-  .depends('tgui/yarn.lock')
-  .depends('tgui/webpack.config.js')
-  .depends('tgui/**/package.json')
-  .depends('tgui/packages/**/*.js')
-  .depends('tgui/packages/**/*.jsx')
-  .provides('tgui/public/tgui.bundle.css')
-  .provides('tgui/public/tgui.bundle.js')
-  .provides('tgui/public/tgui-common.chunk.js')
-  .provides('tgui/public/tgui-panel.bundle.css')
-  .provides('tgui/public/tgui-panel.bundle.js')
-  .provides('code/modules/tgui/USE_BUILD_BAT_INSTEAD_OF_DREAM_MAKER.dm')
-  .build(async () => {
-    // Instead of calling `tgui/bin/tgui`, we reproduce the whole pipeline
-    // here for maximum compilation speed.
-    const yarnRelease = resolveGlob('./tgui/.yarn/releases/yarn-*.cjs')[0]
-      .replace('/tgui/', '/');
-    const yarn = args => exec('node', [yarnRelease, ...args], {
-      cwd: './tgui',
+const DME_NAME = 'baystation12';
+
+export const DefineParameter = new Juke.Parameter({
+  type: 'string[]',
+  alias: 'D',
+});
+
+export const MapOverrideParameter = new Juke.Parameter({
+  type: 'string',
+  alias: 'M',
+})
+
+export const PortParameter = new Juke.Parameter({
+  type: 'string',
+  alias: 'p',
+});
+
+export const CiParameter = new Juke.Parameter({
+  type: 'boolean',
+});
+
+export const DmMapsIncludeTarget = new Juke.Target({
+  executes: async () => {
+    const folders = [
+      ...Juke.glob('maps/away/**/*.dmm'),
+      ...Juke.glob('maps/random_ruins/**/*.dmm'),
+      ...Juke.glob('maps/RandomZLevels/**/*.dmm'),
+      ...Juke.glob('maps/shipmaps/**/*.dmm'),
+      ...Juke.glob('maps/templates/**/*.dmm'),
+    ];
+    const content = folders
+      .map((file) => file.replace('maps/', ''))
+      .map((file) => `#include "${file}"`)
+      .join('\n') + '\n';
+    fs.writeFileSync('maps/templates.dm', content);
+  },
+});
+
+export const DmTarget = new Juke.Target({
+  dependsOn: ({ get }) => [
+    get(DefineParameter).includes('ALL_MAPS') && DmMapsIncludeTarget,
+  ],
+  inputs: [
+    'Haven/**',
+    'maps/**',
+    'code/**',
+    'html/**',
+    'icons/**',
+    `${DME_NAME}.dme`,
+  ],
+  outputs: [
+    `${DME_NAME}.dmb`,
+    `${DME_NAME}.rsc`,
+  ],
+  parameters: [DefineParameter],
+  executes: async ({ get }) => {
+    const includes = [];
+    const defines = get(DefineParameter);
+    const map_override = get(MapOverrideParameter);
+    if (map_override) {
+      Juke.logger.info('Using override map:', map_override);
+      defines.push("MAP_OVERRIDE");
+      includes.push(`maps/${map_override}/${map_override}.dm`)
+    }
+    if (defines.length > 0) {
+      Juke.logger.info('Using defines:', defines.join(', '));
+    }
+    await DreamMaker(`${DME_NAME}.dme`, {
+      defines: ['CBT', ...defines],
+      includes: [...includes],
     });
     await yarn(['install']);
     await yarn(['run', 'webpack-cli', '--mode=production']);
