@@ -67,6 +67,7 @@
 /obj/machinery/computer/update_icon()
 	cut_overlays()
 	. = list()
+	. += get_emissive_blocker()
 
 	if(stat & NOPOWER)
 		set_light(0)
