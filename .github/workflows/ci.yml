@@ -102,12 +102,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: Install RUST_G Dependencies
+      - name: Install rust-g
         run: |
           sudo dpkg --add-architecture i386
           sudo apt update || true
-          sudo apt install zlib1g-dev:i386 libssl-dev:i386 pkg-config:i386
-          ldd librust_g.so
+          sudo apt install -o APT::Immediate-Configure=false libssl1.1:i386
+          bash tools/ci/install_rust_g.sh
       - name: Run Tests
         env:
           MAP_PATH: ${{matrix.maps}}
