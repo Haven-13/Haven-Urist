@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - code_imp: 'Developer QoL: Whitespaces in source code will now be CI-checked. This
-      will not affect the game directly.'
