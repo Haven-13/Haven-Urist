@@ -94,7 +94,7 @@ export const DreamMaker = async (dmeFile, options = {}) => {
       defines
         ?.map(x => `#define ${x}\n`).join('') +
       includes
-        ?.filter(x => !!x).map(x => `#include "${x}"\n`).join('');
+        ?.map(x => `#include "${x}"\n`).join('');
     fs.writeFileSync(`${dmeBaseName}.m.dme`, injectedContent);
     const dmeContent = fs.readFileSync(`${dmeBaseName}.dme`);
     fs.appendFileSync(`${dmeBaseName}.m.dme`, dmeContent);
