@@ -83,8 +83,7 @@ GLOBAL_VAR(restart_counter)
 	setup_logs()
 	var/date_string = time2text(world.realtime, "YYYY/MM/DD")
 	href_logfile = file("data/logs/[date_string] hrefs.htm")
-	diary = file("data/logs/[date_string].log")
-	to_file(diary, "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [time2text(world.timeofday, "hh:mm.ss")][log_end]\n---------------------[log_end]")
+
 	changelog_hash = md5('html/changelog/changelog.html')					//used for telling if the changelog has changed recently
 	if(fexists(RESTART_COUNTER_PATH))
 		GLOB.restart_counter = text2num(trim(file2text(RESTART_COUNTER_PATH)))
@@ -121,7 +120,7 @@ var/world_topic_spam_protect_time = world.timeofday
 /world/Topic(T, addr, master, key)
 	TGS_TOPIC	//redirect to server tools if necessary
 
-	to_file(diary, "TOPIC: \"[T]\", from:[addr], master:[master], key:[key][log_end]")
+	game_log("TOPIC", "\"[T]\", from:[addr], master:[master], key:[key][log_end]")
 
 	if (T == "ping")
 		var/x = 1
@@ -569,12 +568,17 @@ var/world_topic_spam_protect_time = world.timeofday
 #define WORLD_LOG_START(X) WRITE_FILE(GLOB.world_##X##_log, "\n\nStarting up round ID [game_id]. [time_stamp()]\n---------------------")
 #define WORLD_SETUP_LOG(X) GLOB.world_##X##_log = file("[GLOB.log_directory]/[#X].log") ; WORLD_LOG_START(X)
 /world/proc/setup_logs()
-	GLOB.log_directory = "data/logs/[time2text(world.realtime, "YYYY/MM/DD")]/round-"
-	if(game_id)
-		GLOB.log_directory += "[game_id]"
+	var/override_dir = params[OVERRIDE_LOG_DIRECTORY_PARAMETER]
+	if(!override_dir)
+		GLOB.log_directory = "data/logs/[time2text(world.realtime, "YYYY/MM/DD")]/round-"
+		if(game_id)
+			GLOB.log_directory += "[game_id]"
+		else
+			GLOB.log_directory += "[replacetext(time_stamp(), ":", ".")]"
 	else
-		GLOB.log_directory += "[replacetext(time_stamp(), ":", ".")]"
+		GLOB.log_directory = "data/logs/[override_dir]"
 
+	WORLD_SETUP_LOG(diary)
 	WORLD_SETUP_LOG(runtime)
 	WORLD_SETUP_LOG(href)
 	WORLD_SETUP_LOG(qdel)

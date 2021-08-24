@@ -38,3 +38,6 @@
 
 // Determines the exchange ratio of reagents being converted to gas and vice versa.
 #define REAGENT_GAS_EXCHANGE_FACTOR 10
+
+// Similar to clamp but the bottom rolls around to the top and vice versa. min is inclusive, max is exclusive
+#define WRAP(val, min, max) clamp(( min == max ? min : (val) - (round(((val) - (min))/((max) - (min))) * ((max) - (min))) ),min,max)

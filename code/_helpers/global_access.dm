@@ -145,6 +145,8 @@
 			return global.SSturf;
 		if("SSvines")
 			return global.SSvines;
+		if("SSvis_overlays")
+			return global.SSvis_overlays;
 		if("SSvote")
 			return global.SSvote;
 		if("SSweather")
@@ -399,8 +401,6 @@
 			return global.department_radio_keys;
 		if("description_icons")
 			return global.description_icons;
-		if("diary")
-			return global.diary;
 		if("dna_activity_bounds")
 			return global.dna_activity_bounds;
 		if("dna_genes")
@@ -1150,6 +1150,8 @@
 			global.SSturf=newval;
 		if("SSvines")
 			global.SSvines=newval;
+		if("SSvis_overlays")
+			global.SSvis_overlays=newval;
 		if("SSvote")
 			global.SSvote=newval;
 		if("SSweather")
@@ -1404,8 +1406,6 @@
 			global.department_radio_keys=newval;
 		if("description_icons")
 			global.description_icons=newval;
-		if("diary")
-			global.diary=newval;
 		if("dna_activity_bounds")
 			global.dna_activity_bounds=newval;
 		if("dna_genes")
@@ -2082,6 +2082,7 @@
 	"SStrade_controller",
 	"SSturf",
 	"SSvines",
+	"SSvis_overlays",
 	"SSvote",
 	"SSweather",
 	"SSwebhooks",
@@ -2209,7 +2210,6 @@
 	"department_accounts",
 	"department_radio_keys",
 	"description_icons",
-	"diary",
 	"dna_activity_bounds",
 	"dna_genes",
 	"doppler_arrays",
@@ -2510,4 +2510,5 @@
 	"worths",
 	"wrapped_species_by_ref",
 	"z_levels",
-	"zone_blocked")
+	"zone_blocked"
+)

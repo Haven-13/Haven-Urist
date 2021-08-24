@@ -70,10 +70,10 @@ cases = [
 
     exactly(0, "world<< uses", r'world[ \t]*<<'),
     exactly(0, "world.log<< uses", r'world.log[ \t]*<<'),
-    exactly(208, "to_world() uses", r'to_world\('),
+    exactly(207, "to_world() uses", r'to_world\('),
     exactly(71, "to_world_log() uses", r'to_world_log\('),
 
-    exactly(16, "non-bitshift << uses", r'(?<!\d)(?<!\d\s)(?<!<)<<(?!=|\s\d|\d|<|\/)'),
+    exactly(14, "non-bitwise << uses", r'(?<!\d)(?<!\d\s)(?<!<)<<(?!=|\s\d|\d|<|\/)'),
     exactly(0, "incorrect indentations", r'^(?:  +)(?!\*)'),
     exactly(0, "superflous whitespace", r'[ \t]+$'),
     exactly(8, "mixed indentation", r'^( +\t+|\t+ +)'),
