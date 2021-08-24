@@ -1,20 +1,14 @@
 #!/usr/bin/env bash
 
+# This is a stripped down version of Baystation12's old run-test.sh
+# Only CODE and ICON test cases remain with their required dependecies.
+#
+# Additionally. The comment block here is not the original version. It is also
+# stripped down to only the relevant bits about it.
+# - martin
+
 # This is the entrypoint to the testing system, written for Baystation12 and
 # inspired by Rust's configure system
-#
-# The tests are split up into groups by the `case` at the bottom, and the
-# group(s) to run are selected by the TEST environment variable. Right now,
-# there are 4 test groups:
-# - ALL: Run all tests
-# - CODE: Run code quality checks
-# - WEB: Run tgui tests
-# - MAP: Run map tests (notably, only this one compiles!)
-#
-# Additionally, the MAP group requires an additional environent variable,
-# MAP_PATH, to be set. This variable is passed to the compiler to indicate which
-# map to test. You will want to configure CI to run each of these passes, and
-# run MAP several times with MAP_PATH set to each map that should be tested.
 #
 # The general structure of the test execution is as follows:
 # - find_code:              Look for the project root directory and fail fast if
@@ -47,20 +41,6 @@
 #                           test and returns its resulti.
 # - check_fail:             Called at the end of the run, prints final report
 # and sets exit status appropriately.
-# !!!!!!!! Instructions for adding tests:
-# In general, if you want to add a test, it will probably belong to one of the
-# groups that already exists. Add it to the relevant run_xxx_tests function, and
-# if it introduces any new dependencies, add them to the check_xxx_deps
-# function. Some dependencies are guaranteed to be on CI platforms by outside
-# means (like .travis.yml), others will need to be installed by this script.
-# You'll see plenty of examples of checking for CI and gating tests on that,
-# installing instead of checking when running on CI.
-#
-# If you are *SURE* you need to add a new test group, you'll want to add it
-# first to the case at the end of the file, and then add the run_xxx_tests and
-# find_xxx_deps for it, adding things to them as appropriate. Importantly, make
-# sure to also call run_xxx_tests from run_all_tests. Make sure also to call
-# your find_xxx_deps from run_xxx_tests.
 #
 # Good luck!
 # - xales
@@ -162,7 +142,6 @@ function exec_test {
 
 function find_code_deps {
     need_cmd grep
-    need_cmd awk
     need_cmd md5sum
     need_cmd python3
     need_cmd pip
@@ -170,15 +149,6 @@ function find_code_deps {
 
 function find_icon_deps {
     need_cmd python3
-}
-
-function find_web_deps {
-    need_cmd npm
-    [[ "$CI" != "true" ]] && need_cmd gulp
-}
-
-function find_byond_deps {
-    [[ "$CI" != "true" ]] && need_cmd DreamDaemon
 }
 
 function find_code {
@@ -205,10 +175,12 @@ function run_code_quality_tests {
     shopt -s globstar
     run_test_fail "maps contain no step_[xy]" "grep 'step_[xy]' maps/**/*.dmm"
     run_test_fail "no invalid spans" "grep -En \"<\s*span\s+class\s*=\s*('[^'>]+|[^'>]+')\s*>\" **/*.dm"
-    run_test "indentation check" "awk -f ./tools/ci/indentation.awk **/*.dm"
     run_test "check tags" "python3 ./tools/TagMatcher/tag-matcher.py ."
     run_test "check color hex" "python3 ./tools/ColorHexChecker/color-hex-checker.py ."
     run_test "check punctuation" "python3 ./tools/PunctuationChecker/punctuation-checker.py ."
+
+    run_test_ci "check globals build" "python3 ./tools/GenerateGlobalVarAccess/gen_globals.py $TARGET_PROJECT_NAME.dme code/_helpers/global_access.dm"
+#   run_test "check globals unchanged" "md5sum -c - <<< '5eaa581969e84a62c292a7015fee8960 *code/_helpers/global_access.dm'"
 }
 
 function run_icon_validity_tests {
@@ -217,80 +189,11 @@ function run_icon_validity_tests {
     run_test "check icon state limit" "python3 ./tools/dmitool/check_icon_state_limit.py ."
 }
 
-function run_web_tests {
-    msg "*** Running Web Tests ***"
-    find_web_deps
-    msg "installing web tools"
-    if [[ "$CI" == "true" ]]; then
-        rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $NODE_VERSION
-        npm install --no-spin -g gulp-cli
-    fi
-
-    msg "installing node modules"
-    cd tgui && npm install --no-spin && cd ..
-    run_test "check tgui builds" "cd tgui && gulp; cd .."
-}
-
-function run_byond_tests {
-    msg "*** Running Map Tests ***"
-    find_byond_deps
-    if [[ -z "${MAP_PATH+x}" ]]
-    then exit 1
-    else msg "configured map is '$MAP_PATH'"
-    fi
-    cp config/example/* config/
-
-    run_test_ci "check globals build" "python3 ./tools/GenerateGlobalVarAccess/gen_globals.py $TARGET_PROJECT_NAME.dme code/_helpers/global_access.dm"
-#    run_test "check globals unchanged" "md5sum -c - <<< '5eaa581969e84a62c292a7015fee8960 *code/_helpers/global_access.dm'"
-    run_test "build map unit tests" "./tools/ci/dm.sh -DUNIT_TEST -M$MAP_PATH $TARGET_PROJECT_NAME.dme"
-    run_test "check no warnings in build" "grep ', 0 warnings' build_log.txt"
-    run_test "run unit tests" "DreamDaemon $TARGET_PROJECT_NAME.dmb -invisible -trusted -core 2>&1 | tee log.txt"
-    run_test "check tests passed" "grep 'All Unit Tests Passed' log.txt"
-    run_test "check no runtimes" "grep 'Caught 0 Runtimes' log.txt"
-    run_test_fail "check no runtimes 2" "grep 'runtime error:' log.txt"
-    run_test_fail "check no scheduler failures" "grep 'Process scheduler caught exception processing' log.txt"
-    run_test_fail "check no warnings" "grep 'WARNING:' log.txt"
-    run_test_fail "check no failures" "grep 'ERROR:' log.txt"
-}
-
 function run_all_tests {
     run_code_quality_tests
     run_icon_validity_tests
-    run_web_tests
-    run_byond_tests
-    run_changelog_tests
-}
-
-function run_configured_tests {
-    if [[ -z ${TEST+z} ]]; then
-        msg_bad "You must provide TEST in environment; valid options ALL,MAP,WEB,CODE_QUALITY,ICON_VALIDITY"
-        msg_meh "Note: map tests require MAP_PATH set"
-        exit 1
-    fi
-    msg "Running with TARGET_PROJECT_NAME = $TARGET_PROJECT_NAME"
-    msg "Runner will load $TARGET_PROJECT_NAME.dme and output $TARGET_PROJECT_NAME.dmb"
-    case $TEST in
-        "ALL")
-            run_all_tests
-            ;;
-        "MAP")
-            run_byond_tests
-            ;;
-        "WEB")
-            run_web_tests
-            ;;
-        "CODE_QUALITY")
-            run_code_quality_tests
-            ;;
-        "ICON_VALIDITY")
-            run_icon_validity_tests
-            ;;
-        *)
-            fail "invalid option for \$TEST: '$TEST'"
-            ;;
-    esac
 }
 
 find_code
-run_configured_tests
+run_all_tests
 check_fail

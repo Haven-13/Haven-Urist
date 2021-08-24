@@ -9,8 +9,6 @@ var/list/adminlog  = list()
 var/datum/configuration/config      = null
 var/list/jobMax        = list()
 
-var/diary               = null
-
 GLOBAL_VAR(log_directory)
 GLOBAL_PROTECT(log_directory)
 GLOBAL_VAR(world_diary_log)

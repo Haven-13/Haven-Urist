@@ -53,9 +53,8 @@ jobs:
         run: sudo apt-get install -y uchardet
       - name: Run Tests
         env:
-          TEST: CODE_QUALITY
           TARGET_PROJECT_NAME: baystation12
-        run: bash tools/ci/run-test.sh
+        run: bash tools/ci/check_code.sh
 
   test_compile:
     name: Test Compile
@@ -116,3 +115,6 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           tools/build/build --map-override=${MAP_PATH} test
+      - name: Post-test processing
+        run: |
+          bash tools/ci/check_log.sh data/ci/diary.log
