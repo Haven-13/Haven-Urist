@@ -1,0 +1,6 @@
+author: martinlyra
+delete-after: true
+changes:
+  - code_imp: Compiler options moved to code root folder from __defines folder.
+  - config: Compiling toolchain has been changed from simple node building to a juke-build
+      suite.
