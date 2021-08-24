@@ -194,6 +194,9 @@ function run_all_tests {
     run_icon_validity_tests
 }
 
-find_code
-run_all_tests
-check_fail
+if [ "${BASH_SOURCE[0]}" -ef "$0" ]
+then
+	find_code
+	run_all_tests
+	check_fail
+fi

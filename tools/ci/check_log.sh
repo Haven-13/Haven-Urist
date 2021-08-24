@@ -1,5 +1,4 @@
 #!/bin/bash
-set -euo pipefail
 
 source tools/ci/check_code.sh
 

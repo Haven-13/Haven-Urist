@@ -117,4 +117,4 @@ jobs:
           tools/build/build --map-override=${MAP_PATH} test
       - name: Post-test processing
         run: |
-          bash tools/ci/check_log.sh data/ci/diary.log
+          bash tools/ci/check_log.sh data/logs/ci/diary.log
