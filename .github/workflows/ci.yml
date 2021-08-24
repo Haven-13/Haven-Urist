@@ -23,7 +23,7 @@ jobs:
           bash tools/ci/install_node.sh
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
           tools/bootstrap/python -c ''
-      - name: Run Linters
+      - name: Run linters
         run: |
           bash tools/ci/check_changelogs.sh
           tools/bootstrap/python -m ci.check_regex
@@ -33,7 +33,7 @@ jobs:
         if: always()
         run: |
           cat check_regex_output.txt
-      - name: Annotate Lints
+      - name: Annotate lints
         uses: yogstation13/DreamAnnotate@v1
         if: always()
         with:
@@ -44,17 +44,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Cache
+      - name: Setup Byond cache
+        uses: actions/cache@v2
+        with:
+          path: $HOME/BYOND
+          key: ${{ runner.os }}-byond
+      - uses: actions/checkout@v2
+      - name: Setup code cache
         uses: actions/cache@v2
         with:
           path: $HOME/CODE
           key: ${{ runner.os }}-code
-      - name: Install Dependencies
+      - name: Install dependencies
         run: sudo apt-get install -y uchardet
-      - name: Run Tests
+      - name: Run tests
         env:
           TARGET_PROJECT_NAME: baystation12
-        run: bash tools/ci/check_code.sh
+        run: |
+          bash tools/ci/install_byond.sh
+          source $HOME/BYOND/byond/bin/byondsetup
+          bash tools/ci/check_code.sh
 
   test_compile:
     name: Test Compile
@@ -74,14 +83,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: Compile Run
+      - name: Run compile
         run: |
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           tools/build/build
 
   maps:
-    name: Unit-test
+    name: Unit-Test
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -108,13 +117,13 @@ jobs:
           sudo apt update || true
           sudo apt install -o APT::Immediate-Configure=false libssl1.1:i386
           bash tools/ci/install_rust_g.sh
-      - name: Run Tests
+      - name: Run tests
         env:
           MAP_PATH: ${{matrix.maps}}
         run: |
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           tools/build/build --map-override=${MAP_PATH} test
-      - name: Post-test processing
+      - name: Log post-processing
         run: |
           bash tools/ci/check_log.sh data/logs/ci/diary.log

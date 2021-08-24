@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 # This is a stripped down version of Baystation12's old run-test.sh
-# Only CODE and ICON test cases remain with their required dependecies.
+# Only the CODE test case remain with their required dependecies.
+#
+# TEST has been removed, the log checking moved to check_log.sh
+# Because it no longer uses Bay's old bash-scripted builder & runner
 #
 # Additionally. The comment block here is not the original version. It is also
 # stripped down to only the relevant bits about it.
@@ -147,10 +150,6 @@ function find_code_deps {
     need_cmd pip
 }
 
-function find_icon_deps {
-    need_cmd python3
-}
-
 function find_code {
     if [[ -z ${CODEPATH+x} ]]; then
         if [[ -d ./code ]]
@@ -183,20 +182,9 @@ function run_code_quality_tests {
 #   run_test "check globals unchanged" "md5sum -c - <<< '5eaa581969e84a62c292a7015fee8960 *code/_helpers/global_access.dm'"
 }
 
-function run_icon_validity_tests {
-    msg "*** Running Icon Validity Checks ***"
-    find_icon_deps
-    run_test "check icon state limit" "python3 ./tools/dmitool/check_icon_state_limit.py ."
-}
-
-function run_all_tests {
-    run_code_quality_tests
-    run_icon_validity_tests
-}
-
 if [ "${BASH_SOURCE[0]}" -ef "$0" ]
 then
 	find_code
-	run_all_tests
+	run_code_quality_tests
 	check_fail
 fi
