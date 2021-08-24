@@ -71,24 +71,18 @@
 			main_area.forced_ambience = null
 
 /obj/machinery/party/turntable/proc/playmusic()
-//	if(src.playing == 0)
-
 	var/sound/S = sound(track)
 	S.repeat = 1
 	S.channel = 10
 	S.falloff = 2
 	S.wait = 1
 	S.environment = 0
-	//for(var/mob/M in world)
-	//	if(M.loc.loc == src.loc.loc && M.music == 0)
-	//		to_world("Found the song...")
-	//		M << S
-	//		M.music = 1
+
 	var/area/A = src.loc.loc
 
 	for(var/obj/machinery/party/lasermachine/L in A)
 		L.turnon()
-//	playing = 1
+
 	var/area/main_area = get_area(src)
 	main_area.forced_ambience = list(track)
 	for(var/mob/living/M in mobs_in_area(main_area))

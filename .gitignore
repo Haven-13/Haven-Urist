@@ -49,3 +49,6 @@ dump.txt
 # build-generated files
 *.m.*
 *.test.*
+
+# tool-generated files
+check_regex_output.txt
