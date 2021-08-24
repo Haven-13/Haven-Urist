@@ -30,9 +30,8 @@ var/list/hit_appends = list("-OOF", "-ACK", "-UGH", "-HRNK", "-HURGH", "-GLORF")
 // The way blocks are handled badly needs a rewrite, this is horrible.
 // Too much of a project to handle at the moment, TODO for later.
 
-var/diary               = null
 var/href_logfile        = null
-var/game_version        = "Baystation12"
+var/game_version        = "Haven-Urist"
 var/changelog_hash      = ""
 var/game_year           = (text2num(time2text(world.realtime, "YYYY")) + 544)
 
