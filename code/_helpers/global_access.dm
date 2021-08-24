@@ -145,8 +145,6 @@
 			return global.SSturf;
 		if("SSvines")
 			return global.SSvines;
-		if("SSvis_overlays")
-			return global.SSvis_overlays;
 		if("SSvote")
 			return global.SSvote;
 		if("SSweather")
@@ -1150,8 +1148,6 @@
 			global.SSturf=newval;
 		if("SSvines")
 			global.SSvines=newval;
-		if("SSvis_overlays")
-			global.SSvis_overlays=newval;
 		if("SSvote")
 			global.SSvote=newval;
 		if("SSweather")
@@ -2082,7 +2078,6 @@
 	"SStrade_controller",
 	"SSturf",
 	"SSvines",
-	"SSvis_overlays",
 	"SSvote",
 	"SSweather",
 	"SSwebhooks",
