@@ -45,3 +45,6 @@ Session.vim
 # auto-generated tag files
 tags
 dump.txt
+
+# tool-generated files
+check_regex_output.txt
