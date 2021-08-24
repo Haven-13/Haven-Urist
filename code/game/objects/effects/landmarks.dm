@@ -307,7 +307,10 @@
 		min_y = max(src.y, min_y)
 		max_y = min(src.y + generation_height, max_y)
 
-	new /datum/random_map/automata/cave_system(seed, min_x, min_y, src.z, max_x, max_y)
-	new /datum/random_map/noise/ore(seed, min_x, min_y, src.z, max_x, max_y)
+	// cave_system contains a CHECK_TICK which WILL cause the Initialize to sleep...
+	// and to avoid that, we spawn this right here instead, god save us all
+	spawn(0)
+		new /datum/random_map/automata/cave_system(seed, min_x, min_y, src.z, max_x, max_y)
+		new /datum/random_map/noise/ore(seed, min_x, min_y, src.z, max_x, max_y)
 
-	GLOB.using_map.refresh_mining_turfs(src.z)
+		GLOB.using_map.refresh_mining_turfs(src.z)

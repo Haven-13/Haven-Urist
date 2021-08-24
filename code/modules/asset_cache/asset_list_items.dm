@@ -3,14 +3,14 @@
 /datum/asset/simple/tgui_common
 	keep_local_name = TRUE
 	assets = list(
-		"tgui-common.bundle.js" = 'tgui/public/tgui-common.bundle.js',
+		"tgui-common.bundle.js" = file("tgui/public/tgui-common.bundle.js"),
 	)
 
 /datum/asset/simple/tgui
 	keep_local_name = TRUE
 	assets = list(
-		"tgui.bundle.js" = 'tgui/public/tgui.bundle.js',
-		"tgui.bundle.css" = 'tgui/public/tgui.bundle.css',
+		"tgui.bundle.js" = file("tgui/public/tgui.bundle.js"),
+		"tgui.bundle.css" = file("tgui/public/tgui.bundle.css"),
 	)
 
 /datum/asset/simple/ntos_headers

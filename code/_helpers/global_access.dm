@@ -143,6 +143,8 @@
 			return global.SSturf;
 		if("SSvines")
 			return global.SSvines;
+		if("SSvis_overlays")
+			return global.SSvis_overlays;
 		if("SSvote")
 			return global.SSvote;
 		if("SSweather")
@@ -253,6 +255,8 @@
 			return global.all_unit_tests_passed;
 		if("all_virtual_listeners")
 			return global.all_virtual_listeners;
+		if("already_completed")
+			return global.already_completed;
 		if("announced_news_types")
 			return global.announced_news_types;
 		if("antag_add_finished")
@@ -397,8 +401,6 @@
 			return global.department_radio_keys;
 		if("description_icons")
 			return global.description_icons;
-		if("diary")
-			return global.diary;
 		if("dna_activity_bounds")
 			return global.dna_activity_bounds;
 		if("dna_genes")
@@ -1146,6 +1148,8 @@
 			global.SSturf=newval;
 		if("SSvines")
 			global.SSvines=newval;
+		if("SSvis_overlays")
+			global.SSvis_overlays=newval;
 		if("SSvote")
 			global.SSvote=newval;
 		if("SSweather")
@@ -1256,6 +1260,8 @@
 			global.all_unit_tests_passed=newval;
 		if("all_virtual_listeners")
 			global.all_virtual_listeners=newval;
+		if("already_completed")
+			global.already_completed=newval;
 		if("announced_news_types")
 			global.announced_news_types=newval;
 		if("antag_add_finished")
@@ -1400,8 +1406,6 @@
 			global.department_radio_keys=newval;
 		if("description_icons")
 			global.description_icons=newval;
-		if("diary")
-			global.diary=newval;
 		if("dna_activity_bounds")
 			global.dna_activity_bounds=newval;
 		if("dna_genes")
@@ -2077,6 +2081,7 @@
 	"SStrade_controller",
 	"SSturf",
 	"SSvines",
+	"SSvis_overlays",
 	"SSvote",
 	"SSweather",
 	"SSwebhooks",
@@ -2132,6 +2137,7 @@
 	"all_ui_styles",
 	"all_unit_tests_passed",
 	"all_virtual_listeners",
+	"already_completed",
 	"announced_news_types",
 	"antag_add_finished",
 	"appearance_manager",
@@ -2204,7 +2210,6 @@
 	"department_accounts",
 	"department_radio_keys",
 	"description_icons",
-	"diary",
 	"dna_activity_bounds",
 	"dna_genes",
 	"doppler_arrays",
@@ -2505,4 +2510,5 @@
 	"worths",
 	"wrapped_species_by_ref",
 	"z_levels",
-	"zone_blocked")
+	"zone_blocked"
+)
