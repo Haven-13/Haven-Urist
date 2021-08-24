@@ -26,6 +26,7 @@ jobs:
       - name: Run linters
         run: |
           bash tools/ci/check_changelogs.sh
+          tools/bootstrap/python -m dmi.test
           tools/bootstrap/python -m ci.check_regex
           tgui/bin/tgui --lint
           ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
