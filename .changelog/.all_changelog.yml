@@ -264,3 +264,8 @@
   martinlyra:
   - code_imp: 'Developer QoL: Whitespaces in source code will now be CI-checked. This
       will not affect the game directly.'
+2021-08-25:
+  martinlyra:
+  - code_imp: Compiler options moved to code root folder from __defines folder.
+  - config: Compiling toolchain has been changed from simple node building to a juke-build
+      suite.
