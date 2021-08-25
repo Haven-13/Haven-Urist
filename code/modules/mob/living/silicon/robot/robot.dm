@@ -758,7 +758,7 @@
 			if(!eye_overlay)
 				eye_overlay = image(icon, eye_icon_state)
 				eye_overlay.plane = get_float_plane(EMISSIVE_PLANE)
-				eye_overlay.layer = EYE_GLOW_LAYER
+				eye_overlay.layer = FLOAT_LAYER
 				eye_overlays[cache_key] = eye_overlay
 			overlays += eye_overlay
 
@@ -769,7 +769,7 @@
 	if(module_active && istype(module_active,/obj/item/borg/combat/shield))
 		var/image/shield_overlay = image(icon, "droid-combat-shield")
 		shield_overlay.plane = get_float_plane(EMISSIVE_PLANE)
-		shield_overlay.layer = BEAM_PROJECTILE_LAYER
+		shield_overlay.layer = EMISSIVE_UNBLOCKABLE_LAYER
 		overlays += shield_overlay
 
 	if(modtype == "Combat")

@@ -193,22 +193,14 @@ What is the naming convention for planes or layers?
 
 // For glowy eyes, laser beams, etc. that shouldn't be affected by darkness
 #define EMISSIVE_PLANE                21
-	#define EYE_GLOW_LAYER         1
-	#define BEAM_PROJECTILE_LAYER  2
-	#define SUPERMATTER_WALL_LAYER 3
-	#define EMISSIVE_LAYER 13
-
-#define EMISSIVE_BLOCKER_PLANE        22
-	#define EMISSIVE_BLOCKER_LAYER 14
-
-#define EMISSIVE_UNBLOCKABLE_PLANE    23
-	#define EMISSIVE_UNBLOCKABLE_LAYER   15
+	#define EMISSIVE_BASE_LAYER 0
+	#define EMISSIVE_UNBLOCKABLE_LAYER 1024
 
 // For visualnets, such as the AI's static.
-#define OBSCURITY_PLANE               24
+#define OBSCURITY_PLANE               22
 
 //This is difference between highest and lowest visible game planes
-#define PLANE_DIFFERENCE              25
+#define PLANE_DIFFERENCE              23
 
 // Not for anything, but this is the default.
 #define BASE_PLANE                     0
@@ -263,7 +255,6 @@ What is the naming convention for planes or layers?
 		OBSERVER_PLANE,
 		VISIBLE_GAME_WORLD_PLANE,
 		EMISSIVE_PLANE,
-		EMISSIVE_BLOCKER_PLANE,
 		OBSCURITY_PLANE
 	)
 

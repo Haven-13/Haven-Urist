@@ -54,3 +54,12 @@
 #define EMISSIVE_DEFS_DEFINED
 #define EMISSIVE_BLOCK_GENERIC 1
 #define EMISSIVE_BLOCK_UNIQUE 2
+
+#define EMISSIVE_COLOR list(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 1,1,1,0)
+GLOBAL_LIST_INIT(emissive_color, EMISSIVE_COLOR)
+
+#define EM_BLOCK_COLOR list(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
+GLOBAL_LIST_INIT(em_block_color, EM_BLOCK_COLOR)
+
+#define EM_MASK_MATRIX list(0,0,0,1/3, 0,0,0,1/3, 0,0,0,1/3, 0,0,0,0, 1,1,1,0)
+GLOBAL_LIST_INIT(em_mask_matrix, EM_MASK_MATRIX)

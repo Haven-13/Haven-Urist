@@ -41,7 +41,7 @@
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespacify"
 	plane = EMISSIVE_PLANE
-	layer = SUPERMATTER_WALL_LAYER
+	layer = EMISSIVE_UNBLOCKABLE_LAYER
 
 /obj/effect/overlay/wallrot
 	name = "wallrot"
