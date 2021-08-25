@@ -28,6 +28,7 @@
 #define SS_PRIORITY_OBJECTS       60	// processing_objects processing.
 #define SS_PRIORITY_PROCESSING    30	// Generic datum processor. Replaces objects processor.
 #define SS_PRIORITY_GARBAGE       25	// Garbage collection.
+#define SS_PRIORITY_OVERLAYS      25	// Overlay compiling
 #define SS_PRIORITY_VINES         25	// Spreading vine effects.
 #define SS_PRIORITY_TGUI          20    // Updates to tgui uis.
 #define SS_PRIORITY_TURF          20    // Radioactive walls/blob.

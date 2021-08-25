@@ -115,6 +115,8 @@
 			return global.SSmobs;
 		if("SSobj")
 			return global.SSobj;
+		if("SSoverlays")
+			return global.SSoverlays;
 		if("SSpersistence")
 			return global.SSpersistence;
 		if("SSprocessing")
@@ -143,8 +145,6 @@
 			return global.SSturf;
 		if("SSvines")
 			return global.SSvines;
-		if("SSvis_overlays")
-			return global.SSvis_overlays;
 		if("SSvote")
 			return global.SSvote;
 		if("SSweather")
@@ -225,8 +225,6 @@
 			return global.ai_verbs_default;
 		if("air_blocked")
 			return global.air_blocked;
-		if("airlock_overlays")
-			return global.airlock_overlays;
 		if("alien_whitelist")
 			return global.alien_whitelist;
 		if("aliuminatis")
@@ -1120,6 +1118,8 @@
 			global.SSmobs=newval;
 		if("SSobj")
 			global.SSobj=newval;
+		if("SSoverlays")
+			global.SSoverlays=newval;
 		if("SSpersistence")
 			global.SSpersistence=newval;
 		if("SSprocessing")
@@ -1148,8 +1148,6 @@
 			global.SSturf=newval;
 		if("SSvines")
 			global.SSvines=newval;
-		if("SSvis_overlays")
-			global.SSvis_overlays=newval;
 		if("SSvote")
 			global.SSvote=newval;
 		if("SSweather")
@@ -1230,8 +1228,6 @@
 			global.ai_verbs_default=newval;
 		if("air_blocked")
 			global.air_blocked=newval;
-		if("airlock_overlays")
-			global.airlock_overlays=newval;
 		if("alien_whitelist")
 			global.alien_whitelist=newval;
 		if("aliuminatis")
@@ -2067,6 +2063,7 @@
 	"SSmisc_late",
 	"SSmobs",
 	"SSobj",
+	"SSoverlays",
 	"SSpersistence",
 	"SSprocessing",
 	"SSradiation",
@@ -2081,7 +2078,6 @@
 	"SStrade_controller",
 	"SSturf",
 	"SSvines",
-	"SSvis_overlays",
 	"SSvote",
 	"SSweather",
 	"SSwebhooks",
@@ -2122,7 +2118,6 @@
 	"ai_status_emotions",
 	"ai_verbs_default",
 	"air_blocked",
-	"airlock_overlays",
 	"alien_whitelist",
 	"aliuminatis",
 	"allCasters",

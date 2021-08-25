@@ -14,19 +14,20 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 
 // Flags bitmasks.
 
-#define ATOM_FLAG_CHECKS_BORDER          0x0001 // If a dense atom (potentially) only blocks movements from a given direction, i.e. window panes
-#define ATOM_FLAG_CLIMBABLE              0x0002 // This object can be climbed on
-#define ATOM_FLAG_NO_BLOOD               0x0004 // Used for items if they don't want to get a blood overlay.
-#define ATOM_FLAG_NO_REACT               0x0008 // Reagents don't react inside this container.
-#define ATOM_FLAG_OPEN_CONTAINER         0x0010 // Is an open container for chemistry purposes.
-#define ATOM_FLAG_INITIALIZED            0x0020 // Has this atom been initialized
+#define ATOM_FLAG_CHECKS_BORDER          (1<<0) // If a dense atom (potentially) only blocks movements from a given direction, i.e. window panes
+#define ATOM_FLAG_CLIMBABLE              (1<<1) // This object can be climbed on
+#define ATOM_FLAG_NO_BLOOD               (1<<2) // Used for items if they don't want to get a blood overlay.
+#define ATOM_FLAG_NO_REACT               (1<<3) // Reagents don't react inside this container.
+#define ATOM_FLAG_OPEN_CONTAINER         (1<<4) // Is an open container for chemistry purposes.
+#define ATOM_FLAG_INITIALIZED            (1<<5) // Has this atom been initialized
+#define ATOM_FLAG_OVERLAY_QUEUED         (1<<6) // Is this atom queued in SSoverlays
 
-#define MOVABLE_FLAG_PROXMOVE            0x0001 // Does this object require proximity checking in Enter()?
+#define MOVABLE_FLAG_PROXMOVE            (1<<0) // Does this object require proximity checking in Enter()?
 
-#define OBJ_FLAG_ANCHORABLE              0x0001 // This object can be stuck in place with a tool
-#define OBJ_FLAG_CONDUCTIBLE             0x0002 // Conducts electricity. (metal etc.)
-#define OBJ_FLAG_SURGICAL                0x0004 // Allows surgery to be performed on it
-#define OBJ_FLAG_NO_EMBED                0x0008 // Disallows it to be embeded in a body
+#define OBJ_FLAG_ANCHORABLE              (1<<0) // This object can be stuck in place with a tool
+#define OBJ_FLAG_CONDUCTIBLE             (1<<1) // Conducts electricity. (metal etc.)
+#define OBJ_FLAG_SURGICAL                (1<<2) // Allows surgery to be performed on it
+#define OBJ_FLAG_NO_EMBED                (1<<3) // Disallows it to be embeded in a body
 
 #define MOB_FLAG_HOLY_BAD                0x001  // If this mob is allergic to holiness
 
