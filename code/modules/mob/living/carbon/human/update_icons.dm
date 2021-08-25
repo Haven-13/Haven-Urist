@@ -151,7 +151,7 @@ Please contact me on #coderbus IRC. ~Carn x
 /mob/living/carbon/human/update_icons()
 	lying_prev = lying	//so we don't update overlays for lying/standing unless our stance changes again
 	update_hud()		//TODO: remove the need for this
-	overlays.Cut()
+	cut_overlays()
 
 	var/list/overlays_to_apply = list()
 	if (icon_update)
@@ -164,7 +164,7 @@ Please contact me on #coderbus IRC. ~Carn x
 		else
 			icon = stand_icon
 			icon_state = null
-			visible_overlays = overlays_standing
+			visible_overlays = (overlays_standing + get_emissive_blocker())
 
 		var/matrix/M = matrix()
 		if(lying && (species.prone_overlay_offset[1] || species.prone_overlay_offset[2]))
@@ -177,6 +177,11 @@ Please contact me on #coderbus IRC. ~Carn x
 				if(i != HUMAN_OVERLAYS_DAMAGE_INDEX)
 					overlay.transform = M
 				overlays_to_apply += overlay
+			else if(istype(entry, /atom/movable/emissive_blocker))
+				var/atom/movable/emissive_blocker/blocker = entry
+				var/image/I = image(blocker)
+				I.plane = get_float_plane(EMISSIVE_PLANE)
+				overlays_to_apply += I
 			else if(istype(entry, /list))
 				for(var/image/overlay in entry)
 					if(i != HUMAN_OVERLAYS_DAMAGE_INDEX)
@@ -191,7 +196,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	if(auras)
 		overlays_to_apply += auras
 
-	overlays = overlays_to_apply
+	add_overlay(overlays_to_apply)
 
 	var/matrix/M = matrix()
 	if(lying)

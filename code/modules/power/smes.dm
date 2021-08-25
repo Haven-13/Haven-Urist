@@ -94,31 +94,34 @@
 	term.master = null
 
 /obj/machinery/power/smes/update_icon()
-	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
+	cut_overlays()
 	if(stat & BROKEN)	return
 
 	var/clevel = chargedisplay()
+	. = list()
 	if(clevel)
-		add_emissive_overlay(icon, "og[clevel]")
+		. += get_emissive_overlay(icon, "og[clevel]")
 
 	if(failure_timer)
-		add_emissive_overlay(icon, "emp")
+		. += get_emissive_overlay(icon, "emp")
 	else
 		if(inputting == 2)
-			add_emissive_overlay(icon, "input-2")
+			. += get_emissive_overlay(icon, "input-2")
 		else if (inputting == 1)
-			add_emissive_overlay(icon, "input-1")
+			. += get_emissive_overlay(icon, "input-1")
 		else if (input_attempt)
-			add_emissive_overlay(icon, "input-0")
+			. += get_emissive_overlay(icon, "input-0")
 		else
-			add_emissive_overlay(icon, "input-off")
+			. += get_emissive_overlay(icon, "input-off")
 
 		if(outputting == 2)
-			add_emissive_overlay(icon, "output2")
+			. += get_emissive_overlay(icon, "output2")
 		else if (outputting == 1)
-			add_emissive_overlay(icon, "output1")
+			. += get_emissive_overlay(icon, "output1")
 		else
-			add_emissive_overlay(icon, "output0")
+			. += get_emissive_overlay(icon, "output0")
+
+	add_overlay(.)
 
 /obj/machinery/power/smes/proc/chargedisplay()
 	return round(5.5*charge/(capacity || 5e6))

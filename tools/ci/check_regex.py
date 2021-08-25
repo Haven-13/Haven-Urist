@@ -78,7 +78,7 @@ cases = [
     exactly(0, "superflous whitespace", r'[ \t]+$'),
     exactly(8, "mixed indentation", r'^( +\t+|\t+ +)'),
 
-	exactly(1444, "indentions inside #defines", r'^(\s*)#define (\w*)( {2,}| ?\t+)(?!(\/\/|\/\*))')
+	exactly(1441, "indentions inside #defines", r'^(\s*)#define (\w*)( {2,}| ?\t+)(?!(\/\/|\/\*))')
 ]
 # With the potential exception of << if you increase any
 # of these numbers you're probably doing it wrong

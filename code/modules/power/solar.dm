@@ -369,23 +369,23 @@ var/list/solars_list = list()
 // nabbed from /obj/machinery/computer/update_icon()
 // why the fuck is this object a special snowflake holy fucking shit
 /obj/machinery/power/solar_control/update_icon()
-	overlays.Cut()
+	cut_overlays()
+	. = list()
 
-	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	if(stat & NOPOWER)
 		set_light(0)
-		overlays += image(icon,"power_key_off", layer)
+		. += image(icon,"power_key_off", layer)
 		return
 	else
 		set_light(light_max_bright_on, light_inner_range_on, light_outer_range_on, 2, light_color)
 
 	if(stat & BROKEN)
-		overlays += image(icon,"computer_broken", layer)
+		. += image(icon,"computer_broken", layer)
 	else
-		add_emissive_overlay(icon, "solar_screen", layer)
-		add_emissive_overlay(icon, "power_key", layer)
+		. += get_emissive_overlay(icon, "solar_screen", layer)
+		. += get_emissive_overlay(icon, "power_key", layer)
 
-	return
+	add_overlay(.)
 
 /obj/machinery/power/solar_control/attack_hand(mob/user)
 	if(!..())

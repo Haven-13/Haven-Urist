@@ -49,7 +49,7 @@
 	var/baseicon = "sandwich"
 	var/basename = "sandwich"
 	var/top = 1	//Do we have a top?
-	var/add_overlays = 1	//Do we stack?
+	var/layered = 1	//Do we stack?
 //	var/offsetstuff = 1 //Do we offset the overlays?
 	var/ingredient_limit = 10
 	var/fullycustom = 0
@@ -69,7 +69,7 @@
 	icon_state = "personal_pizza"
 	baseicon = "personal_pizza"
 	basename = "personal pizza"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/pasta
@@ -78,7 +78,7 @@
 	icon_state = "pasta_bot"
 	baseicon = "pasta_bot"
 	basename = "spagetti"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/cook/bread
@@ -87,7 +87,7 @@
 	icon_state = "breadcustom"
 	baseicon = "breadcustom"
 	basename = "bread"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/cook/pie
@@ -96,7 +96,7 @@
 	icon_state = "piecustom"
 	baseicon = "piecustom"
 	basename = "pie"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/cook/cake
@@ -105,7 +105,7 @@
 	icon_state = "cakecustom"
 	baseicon = "cakecustom"
 	basename = "cake"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/cook/jelly
@@ -114,7 +114,7 @@
 	icon_state = "jellycustom"
 	baseicon = "jellycustom"
 	basename = "jelly"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/cook/donkpocket
@@ -123,7 +123,7 @@
 	icon_state = "donkcustom"
 	baseicon = "donkcustom"
 	basename = "donk pocket"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/cook/kebab
@@ -132,7 +132,7 @@
 	icon_state = "kababcustom"
 	baseicon = "kababcustom"
 	basename = "kebab"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/cook/salad
@@ -141,7 +141,7 @@
 	icon_state = "saladcustom"
 	baseicon = "saladcustom"
 	basename = "salad"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/cook/waffles
@@ -150,7 +150,7 @@
 	icon_state = "wafflecustom"
 	baseicon = "wafflecustom"
 	basename = "waffles"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/cookie
@@ -159,7 +159,7 @@
 	icon_state = "cookiecustom"
 	baseicon = "cookiecustom"
 	basename = "cookie"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/cotton
@@ -168,7 +168,7 @@
 	icon_state = "cottoncandycustom"
 	baseicon = "cottoncandycustom"
 	basename = "flavored cotton candy"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/gummybear
@@ -177,7 +177,7 @@
 	icon_state = "gummybearcustom"
 	baseicon = "gummybearcustom"
 	basename = "flavored gummy bear"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/gummyworm
@@ -186,7 +186,7 @@
 	icon_state = "gummywormcustom"
 	baseicon = "gummywormcustom"
 	basename = "flavored giant gummy worm"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/jellybean
@@ -195,7 +195,7 @@
 	icon_state = "jellybeancustom"
 	baseicon = "jellybeancustom"
 	basename = "flavored jelly bean"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/jawbreaker
@@ -204,7 +204,7 @@
 	icon_state = "jawbreakercustom"
 	baseicon = "jawbreakercustom"
 	basename = "flavored jawbreaker"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/candycane
@@ -213,7 +213,7 @@
 	icon_state = "candycanecustom"
 	baseicon = "candycanecustom"
 	basename = "flavored candy cane"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/gum
@@ -222,7 +222,7 @@
 	icon_state = "gumcustom"
 	baseicon = "gumcustom"
 	basename = "flavored gum"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/donut
@@ -231,7 +231,7 @@
 	icon_state = "donutcustom"
 	baseicon = "donutcustom"
 	basename = "filled donut"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/bar
@@ -240,7 +240,7 @@
 	icon_state = "barcustom"
 	baseicon = "barcustom"
 	basename = "flavored chocolate bar"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/sucker
@@ -249,7 +249,7 @@
 	icon_state = "suckercustom"
 	baseicon = "suckercustom"
 	basename = "flavored sucker"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/cash
@@ -258,7 +258,7 @@
 	icon_state = "cashcustom"
 	baseicon = "cashcustom"
 	basename = "flavored cash"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/coin
@@ -267,7 +267,7 @@
 	icon_state = "coincustom"
 	baseicon = "coincustom"
 	basename = "flavored coin"
-	add_overlays = 0
+	layered = 0
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/fullycustom // In the event you fuckers find something I forgot to add a customizable food for.
@@ -276,7 +276,7 @@
 	icon_state = "fullycustom"
 	baseicon = "fullycustom"
 	basename = "on a plate"
-	add_overlays = 0
+	layered = 0
 	top = 0
 	ingredient_limit = 20
 	fullycustom = 1
@@ -287,7 +287,7 @@
 	icon_state = "soup"
 	baseicon = "soup"
 	basename = "soup"
-	add_overlays = 0
+	layered = 0
 	trash = /obj/item/trash/bowl
 	top = 0
 
@@ -331,7 +331,7 @@
 
 		if(!fullycustom)
 			var/image/I = new(src.icon, "[baseicon]_filling")
-			if(add_overlays)
+			if(layered)
 				I.color = O.filling_color
 				I.pixel_x = pick(list(-1,0,1))
 				I.pixel_y = (i*2)+1
@@ -467,7 +467,7 @@
 	var/baseicon = "vodkacustom"
 	var/basename = "hooch"
 	var/top = 0	//Do we have a top? //why was this ever set to one
-	var/add_overlays = 0	//Do we stack? //see above
+	var/layered = 0	//Do we stack? //see above
 	var/ingredient_limit = 1
 	var/fullycustom = 0
 	var/boozetype = /datum/reagent/ethanol/hooch
@@ -488,7 +488,7 @@
 	icon_state = "winecustom"
 	baseicon = "winecustom"
 	basename = "wine bottle"
-	add_overlays = 0
+	layered = 0
 	top = 0
 	boozetype = /datum/reagent/ethanol/wine
 
@@ -498,7 +498,7 @@
 	icon_state = "whiskeycustom"
 	baseicon = "whiskeycustom"
 	basename = "whiskey bottle"
-	add_overlays = 0
+	layered = 0
 	top = 0
 	boozetype = /datum/reagent/ethanol/whiskey
 
@@ -508,7 +508,7 @@
 	icon_state = "vermouthcustom"
 	baseicon = "vermouthcustom"
 	basename = "vermouth bottle"
-	add_overlays = 0
+	layered = 0
 	top = 0
 	boozetype = /datum/reagent/ethanol/vermouth
 
@@ -518,7 +518,7 @@
 	icon_state = "vodkacustom"
 	baseicon = "vodkacustom"
 	basename = "vodka"
-	add_overlays = 0
+	layered = 0
 	top = 0
 	boozetype = /datum/reagent/ethanol/vodka
 
@@ -528,7 +528,7 @@
 	icon_state = "alecustom"
 	baseicon = "alecustom"
 	basename = "ale"
-	add_overlays = 0
+	layered = 0
 	top = 0
 	boozetype = /datum/reagent/ethanol/ale
 
