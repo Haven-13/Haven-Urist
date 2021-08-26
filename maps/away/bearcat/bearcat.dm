@@ -103,9 +103,12 @@
 
 /obj/effect/landmark/deadcap
 	name = "Dead Captain"
-	delete_me = 1
 
-/obj/effect/landmark/deadcap/Initialize()
+/obj/effect/landmark/Initialize()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/landmark/deadcap/LateInitialize()
 	var/turf/T = get_turf(src)
 	var/mob/living/carbon/human/corpse = new(T)
 	scramble(1,corpse,100)
@@ -118,7 +121,7 @@
 	var/obj/structure/bed/chair/C = locate() in T
 	if(C)
 		C.buckle_mob(corpse)
-	. = ..()
+	qdel(src)
 
 /decl/hierarchy/outfit/deadcap
 	name = "Derelict Captain"

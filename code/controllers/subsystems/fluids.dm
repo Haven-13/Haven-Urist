@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/fluids/SSfluids
-
-/datum/controller/subsystem/fluids
+SUBSYSTEM_DEF(fluids)
 	name = "Fluids"
 	wait = 10
 	flags = SS_NO_INIT
