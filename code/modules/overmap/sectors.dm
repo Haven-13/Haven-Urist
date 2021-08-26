@@ -79,4 +79,8 @@
 	. = ..()
 	if(known)
 		layer = ABOVE_LIGHTING_LAYER
-		plane = EMISSIVE_PLANE
+		add_overlay(list(mutable_appearance(
+			icon,
+			icon_state,
+			plane = get_float_plane(EMISSIVE_PLANE)
+		)))

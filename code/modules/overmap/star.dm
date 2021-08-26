@@ -45,7 +45,7 @@ var/list/star_classes = list(
 	icon = 'icons/obj/overmap.dmi'
 	icon_state = "event"
 	opacity = 1
-	plane = EMISSIVE_PLANE
+	plane = EFFECTS_BELOW_LIGHTING_PLANE
 
 /obj/effect/overmap_static/star
 	name = "Star"
@@ -66,3 +66,9 @@ var/list/star_classes = list(
 	transform = transform.Scale(2)
 	pixel_x = 1
 	pixel_y = -1
+
+	add_overlay(list(mutable_appearance(
+		icon,
+		icon_state,
+		plane = get_float_plane(EMISSIVE_PLANE)
+	)))
