@@ -809,9 +809,6 @@
 	icon_state = "dmg2"
 	},
 /area/constructionsite/hallway/fore)
-"cz" = (
-/turf/simulated/floor/airless,
-/area/constructionsite/hallway/fore)
 "cA" = (
 /obj/structure/bookcase,
 /turf/simulated/floor/airless,
@@ -873,11 +870,6 @@
 /area/constructionsite/hallway/fore)
 "cN" = (
 /turf/simulated/floor/tiled/dark/airless,
-/area/constructionsite/hallway/fore)
-"cO" = (
-/turf/simulated/floor/airless{
-	icon_state = "dmg2"
-	},
 /area/constructionsite/hallway/fore)
 "cP" = (
 /obj/random/trash,
@@ -21722,8 +21714,8 @@ aa
 aW
 bu
 aW
-cz
-cO
+cw
+cy
 cx
 cA
 cw
@@ -22129,7 +22121,7 @@ bv
 cA
 cQ
 cA
-cz
+cw
 cw
 cw
 dz
