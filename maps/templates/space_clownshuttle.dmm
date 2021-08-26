@@ -1,43 +1,677 @@
-"a" = (/turf/space,/area/space)
-"b" = (/turf/simulated/mineral/random,/area/space)
-"c" = (/turf/simulated/floor/asteroid,/area/space)
-"d" = (/turf/simulated/wall/uranium,/area/space)
-"e" = (/obj/machinery/door/unpowered/shuttle,/turf/simulated/floor/airless,/area/space)
-"f" = (/turf/simulated/floor/asteroid,/turf/simulated/shuttle/wall{icon_state = "swall_f9"; dir = 2},/area/space)
-"g" = (/obj/effect/landmark/corpse/clown,/turf/simulated/floor/airless,/area/space)
-"h" = (/turf/simulated/floor/airless,/area/space)
-"i" = (/obj/structure/closet/crate,/turf/simulated/floor/airless,/area/space)
-"j" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/turf/simulated/floor/airless,/area/space)
-"k" = (/obj/structure/shuttle/engine/heater{icon_state = "heater"; dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating/airless,/area/space)
-"l" = (/obj/structure/shuttle/engine/propulsion{icon_state = "propulsion_l"; dir = 8},/obj/structure/shuttle/engine/propulsion{icon_state = "burst_r"; dir = 8},/turf/space,/area/space)
-"m" = (/obj/item/weapon/material/shard{icon_state = "small"},/turf/simulated/floor/asteroid,/area/space)
-"n" = (/obj/structure/shuttle/engine/propulsion{icon_state = "propulsion_l"; dir = 8},/turf/space,/area/space)
-"o" = (/obj/item/weapon/material/shard{icon_state = "medium"},/obj/structure/bed/chair{dir = 8},/turf/simulated/floor/asteroid,/area/space)
-"p" = (/obj/effect/landmark/corpse/clown{name = "Clown Pilot"},/turf/simulated/floor/airless,/area/space)
-"q" = (/obj/item/weapon/paper{info = "The call has gone out! Our ancestral home has been rediscovered! Not a small patch of land, but a true clown nation, a true Clown Planet! We're on our way home at last!"},/turf/simulated/floor/airless,/area/space)
-"r" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/plating/airless,/area/space)
-"s" = (/obj/item/weapon/material/shard,/obj/structure/bed/chair{dir = 8},/turf/simulated/floor/airless,/area/space)
-"t" = (/turf/space,/turf/simulated/shuttle/wall{icon_state = "swall_f5"; dir = 2},/area/space)
-"u" = (/turf/simulated/floor/airless,/turf/simulated/shuttle/wall{icon_state = "swall_f10"; dir = 2},/area/space)
-"v" = (/obj/item/weapon/pickaxe,/turf/simulated/floor/airless,/area/space)
-"w" = (/obj/structure/shuttle/engine/propulsion{icon_state = "propulsion_l"; dir = 8},/obj/structure/shuttle/engine/propulsion{icon_state = "propulsion_l"; dir = 8},/turf/space,/area/space)
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/space,
+/area/space)
+"b" = (
+/turf/simulated/mineral/random,
+/area/space)
+"c" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"d" = (
+/turf/simulated/wall/uranium,
+/area/space)
+"e" = (
+/obj/machinery/door/unpowered/shuttle,
+/turf/simulated/floor/airless,
+/area/space)
+"f" = (
+/turf/simulated/floor/asteroid,
+/turf/simulated/shuttle/wall{
+	icon_state = "swall_f9";
+	dir = 2
+	},
+/area/space)
+"g" = (
+/obj/effect/landmark/corpse/clown,
+/turf/simulated/floor/airless,
+/area/space)
+"h" = (
+/turf/simulated/floor/airless,
+/area/space)
+"i" = (
+/obj/structure/closet/crate,
+/turf/simulated/floor/airless,
+/area/space)
+"j" = (
+/obj/structure/closet/crate{
+	icon_state = "crateopen";
+	opened = 1
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"k" = (
+/obj/structure/shuttle/engine/heater{
+	icon_state = "heater";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating/airless,
+/area/space)
+"l" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l";
+	dir = 8
+	},
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "burst_r";
+	dir = 8
+	},
+/turf/space,
+/area/space)
+"m" = (
+/obj/item/weapon/material/shard{
+	icon_state = "small"
+	},
+/turf/simulated/floor/asteroid,
+/area/space)
+"n" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l";
+	dir = 8
+	},
+/turf/space,
+/area/space)
+"o" = (
+/obj/item/weapon/material/shard{
+	icon_state = "medium"
+	},
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/floor/asteroid,
+/area/space)
+"p" = (
+/obj/effect/landmark/corpse/clown{
+	name = "Clown Pilot"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"q" = (
+/obj/item/weapon/paper{
+	info = "The call has gone out! Our ancestral home has been rediscovered! Not a small patch of land, but a true clown nation, a true Clown Planet! We're on our way home at last!"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"r" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating/airless,
+/area/space)
+"s" = (
+/obj/item/weapon/material/shard,
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"t" = (
+/turf/space,
+/turf/simulated/shuttle/wall{
+	icon_state = "swall_f5";
+	dir = 2
+	},
+/area/space)
+"u" = (
+/turf/simulated/floor/airless,
+/turf/simulated/shuttle/wall{
+	icon_state = "swall_f10";
+	dir = 2
+	},
+/area/space)
+"v" = (
+/obj/item/weapon/pickaxe,
+/turf/simulated/floor/airless,
+/area/space)
+"w" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l";
+	dir = 8
+	},
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l";
+	dir = 8
+	},
+/turf/space,
+/area/space)
 
 (1,1,1) = {"
-abbaaaaccccccaaaaaaaaaaaaaaa
-bbbbaabbbbbccbbbaaaaaaaaaaaa
-bbbbbbbbbbbccbbaaaaaaaaaaaaa
-abbbbbbbbbbbbbbaaaaaaaaaaaaa
-abbbbbbbbbbbbccaadddeeddddda
-aabbbbbbbbbbbbcddfcghhiijhkl
-aaabbbbbbbbbbbbbbbmhhhhhhhkn
-aabbbbbbbbbbbbbbbophqhhhhhkn
-aabbbbbbbbbbbbbrhshhhghhhhkn
-aabbbbbbbbbbbbbtduhvhhiiihkw
-aabbbbbbbbbbbbbbbdddeeddddda
-abbbbbbbbbbbbbbbbbbbbbbbbaaa
-abbabbbbbccbbbbbbbbbbbaaaaaa
-aaaabbbbcccbbbbbbbbbaaaaaaaa
-aaaabbaaaaccbcbbcccaaaaaaaaa
-aaaabaaaaaacbbbbbbcaaaaaaaaa
-aaaaaaaaaaaaaabbbbcaaaaaaaaa
+a
+b
+b
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+b
+b
+b
+b
+b
+a
+a
+a
+a
+a
+a
+b
+b
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+b
+b
+b
+b
+b
+b
+a
+b
+b
+b
+b
+b
+b
+a
+a
+a
+a
+"}
+(4,1,1) = {"
+a
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+a
+a
+a
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+a
+"}
+(6,1,1) = {"
+a
+a
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+a
+a
+"}
+(7,1,1) = {"
+a
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+a
+a
+a
+"}
+(8,1,1) = {"
+c
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+a
+a
+a
+"}
+(9,1,1) = {"
+c
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+c
+a
+a
+a
+"}
+(10,1,1) = {"
+c
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+c
+c
+a
+a
+a
+"}
+(11,1,1) = {"
+c
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+c
+c
+c
+a
+a
+"}
+(12,1,1) = {"
+c
+c
+c
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+c
+c
+a
+"}
+(13,1,1) = {"
+c
+c
+c
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+a
+"}
+(14,1,1) = {"
+a
+b
+b
+b
+c
+b
+b
+b
+b
+b
+b
+b
+b
+b
+c
+b
+a
+"}
+(15,1,1) = {"
+a
+b
+b
+b
+c
+c
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+"}
+(16,1,1) = {"
+a
+b
+a
+a
+a
+d
+b
+b
+r
+t
+b
+b
+b
+b
+b
+b
+b
+"}
+(17,1,1) = {"
+a
+a
+a
+a
+a
+d
+b
+b
+h
+d
+b
+b
+b
+b
+c
+b
+b
+"}
+(18,1,1) = {"
+a
+a
+a
+a
+d
+f
+b
+o
+s
+u
+d
+b
+b
+b
+c
+b
+b
+"}
+(19,1,1) = {"
+a
+a
+a
+a
+d
+c
+m
+p
+h
+h
+d
+b
+b
+b
+c
+c
+c
+"}
+(20,1,1) = {"
+a
+a
+a
+a
+d
+g
+h
+h
+h
+v
+d
+b
+b
+b
+a
+a
+a
+"}
+(21,1,1) = {"
+a
+a
+a
+a
+e
+h
+h
+q
+h
+h
+e
+b
+b
+a
+a
+a
+a
+"}
+(22,1,1) = {"
+a
+a
+a
+a
+e
+h
+h
+h
+g
+h
+e
+b
+b
+a
+a
+a
+a
+"}
+(23,1,1) = {"
+a
+a
+a
+a
+d
+i
+h
+h
+h
+i
+d
+b
+a
+a
+a
+a
+a
+"}
+(24,1,1) = {"
+a
+a
+a
+a
+d
+i
+h
+h
+h
+i
+d
+b
+a
+a
+a
+a
+a
+"}
+(25,1,1) = {"
+a
+a
+a
+a
+d
+j
+h
+h
+h
+i
+d
+b
+a
+a
+a
+a
+a
+"}
+(26,1,1) = {"
+a
+a
+a
+a
+d
+h
+h
+h
+h
+h
+d
+a
+a
+a
+a
+a
+a
+"}
+(27,1,1) = {"
+a
+a
+a
+a
+d
+k
+k
+k
+k
+k
+d
+a
+a
+a
+a
+a
+a
+"}
+(28,1,1) = {"
+a
+a
+a
+a
+a
+l
+n
+n
+n
+w
+a
+a
+a
+a
+a
+a
+a
 "}

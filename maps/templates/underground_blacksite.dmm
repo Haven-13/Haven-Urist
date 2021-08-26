@@ -1,79 +1,778 @@
-"aa" = (/turf/simulated/mineral,/area/mine/unexplored)
-"ab" = (/obj/structure/sign/warning/secure_area,/turf/simulated/wall/r_wall,/area/mine/unexplored)
-"ac" = (/turf/simulated/wall/r_wall,/area/mine/unexplored)
-"ad" = (/turf/simulated/floor/asteroid,/area/mine/unexplored)
-"ae" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/obj/random/junk,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
-"af" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/mob/living/simple_animal/hostile/scom/civ/civvie,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
-"ag" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/obj/random/contraband,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
-"ah" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
-"ai" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/mob/living/simple_animal/hostile/syndicate,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
-"aj" = (/obj/structure/crematorium,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
-"ak" = (/obj/structure/pit/closed/grave/random,/turf/simulated/floor/asteroid,/area/mine/unexplored)
-"al" = (/obj/machinery/door/airlock/centcom{name = "Holding Cell"; opacity = 1; req_access = list(101)},/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
-"am" = (/obj/effect/decal/cleanable/ash,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
-"an" = (/obj/structure/table/rack,/turf/simulated/floor/asteroid,/area/mine/unexplored)
-"ao" = (/obj/structure/closet/secure_closet/brig,/obj/effect/floor_decal/corner/black{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled,/area/mine/unexplored)
-"ap" = (/obj/effect/floor_decal/corner/black{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled,/area/mine/unexplored)
-"aq" = (/obj/machinery/button/crematorium{pixel_y = 24},/obj/effect/floor_decal/corner/black{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled,/area/mine/unexplored)
-"ar" = (/obj/machinery/door/airlock/centcom{name = "Holding Facility"; opacity = 1; req_access = list(150)},/turf/simulated/floor/tiled,/area/mine/unexplored)
-"as" = (/obj/machinery/light{dir = 8; icon_state = "tube1"},/obj/structure/closet/secure_closet/brig,/turf/simulated/floor/tiled,/area/mine/unexplored)
-"at" = (/turf/simulated/floor/tiled,/area/mine/unexplored)
-"au" = (/obj/effect/wingrille_spawn/reinforced/polarized/full,/turf/simulated/floor/plating,/area/mine/unexplored)
-"av" = (/obj/effect/floor_decal/corner/blue{tag = "icon-corner_white (SOUTHEAST)"; icon_state = "corner_white"; dir = 6},/obj/machinery/teleport/hub,/turf/simulated/floor/tiled,/area/mine/unexplored)
-"aw" = (/turf/simulated/wall,/area/mine/unexplored)
-"ax" = (/obj/structure/table/steel_reinforced,/obj/item/weapon/storage/box/donut,/turf/simulated/floor/tiled,/area/mine/unexplored)
-"ay" = (/obj/structure/table/steel_reinforced,/turf/simulated/floor/tiled,/area/mine/unexplored)
-"az" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled,/area/mine/unexplored)
-"aA" = (/obj/machinery/light{dir = 8; icon_state = "tube1"},/obj/effect/floor_decal/corner/black{tag = "icon-corner_white (NORTHWEST)"; icon_state = "corner_white"; dir = 9},/turf/simulated/floor/tiled,/area/mine/unexplored)
-"aB" = (/obj/structure/closet/secure_closet/brig,/turf/simulated/floor/tiled,/area/mine/unexplored)
-"aC" = (/obj/structure/bed/chair/office/dark{dir = 4},/mob/living/simple_animal/hostile/urist/ntagent,/turf/simulated/floor/tiled,/area/mine/unexplored)
-"aD" = (/obj/effect/floor_decal/corner/black{tag = "icon-corner_white (NORTHWEST)"; icon_state = "corner_white"; dir = 9},/turf/simulated/floor/tiled,/area/mine/unexplored)
-"aE" = (/obj/structure/table/steel_reinforced,/obj/item/weapon/storage/box/bodybags,/turf/simulated/floor/tiled,/area/mine/unexplored)
-"aF" = (/obj/structure/closet/secure_closet/brig,/obj/effect/floor_decal/corner/black{dir = 10},/turf/simulated/floor/tiled,/area/mine/unexplored)
-"aG" = (/obj/effect/floor_decal/corner/black{dir = 10},/turf/simulated/floor/tiled,/area/mine/unexplored)
-"aH" = (/obj/machinery/door/airlock/centcom{name = "Holding Facility"; opacity = 1; req_access = list(150)},/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
-"aI" = (/obj/machinery/door/airlock/centcom{name = "Holding Facility"; opacity = 1; req_access = list(150)},/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
-"aJ" = (/obj/structure/filingcabinet/chestdrawer,/turf/simulated/floor/carpet,/area/mine/unexplored)
-"aK" = (/turf/simulated/floor/carpet,/area/mine/unexplored)
-"aL" = (/obj/structure/table/gamblingtable,/obj/item/weapon/storage/fancy/cigar,/turf/simulated/floor/carpet,/area/mine/unexplored)
-"aM" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
-"aN" = (/obj/structure/hygiene/sink{icon_state = "sink"; dir = 8; pixel_x = -12; pixel_y = 2},/obj/item/weapon/storage/mirror{dir = 4; pixel_x = -28; pixel_y = 0},/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
-"aO" = (/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
-"aP" = (/obj/structure/closet/secure_closet/injection,/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
-"aQ" = (/obj/structure/filingcabinet/chestdrawer,/obj/machinery/light/small{dir = 8; luminosity = 3},/turf/simulated/floor/carpet,/area/mine/unexplored)
-"aR" = (/obj/structure/bed/chair/comfy/red{tag = "icon-comfychair_preview (EAST)"; icon_state = "comfychair_preview"; dir = 4},/mob/living/simple_animal/hostile/urist/ntagent,/turf/simulated/floor/carpet,/area/mine/unexplored)
-"aS" = (/obj/structure/table/gamblingtable,/turf/simulated/floor/carpet,/area/mine/unexplored)
-"aT" = (/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/ntagent,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
-"aU" = (/obj/structure/table/steel_reinforced,/obj/item/clothing/glasses/sunglasses/blindfold,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
-"aV" = (/obj/structure/bed/chair{dir = 8},/obj/effect/gibspawner/human,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
-"aW" = (/obj/structure/table/glass,/obj/random/ammo,/obj/random/ammo,/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
-"aX" = (/mob/living/simple_animal/hostile/urist/ntagent,/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
-"aY" = (/obj/structure/table/glass,/obj/random/tool,/obj/random/tool,/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
-"aZ" = (/obj/item/weapon/storage/briefcase,/turf/simulated/floor/carpet,/area/mine/unexplored)
-"ba" = (/obj/structure/table/gamblingtable,/obj/machinery/button/windowtint,/turf/simulated/floor/carpet,/area/mine/unexplored)
-"bb" = (/obj/machinery/light,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
-"bc" = (/obj/structure/table/glass,/obj/random/firstaid,/obj/random/medical,/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
-"bd" = (/obj/structure/table/glass,/obj/random/loot,/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
-"be" = (/obj/structure/table/glass,/obj/random/handgun,/obj/random/handgun,/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
-"bf" = (/obj/machinery/door/airlock/centcom{name = "Holding Facility"; opacity = 1; req_access = list(150)},/turf/simulated/floor/asteroid,/area/mine/unexplored)
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ab" = (
+/obj/structure/sign/warning/secure_area,
+/turf/simulated/wall/r_wall,
+/area/mine/unexplored)
+"ac" = (
+/turf/simulated/wall/r_wall,
+/area/mine/unexplored)
+"ad" = (
+/turf/simulated/floor/asteroid,
+/area/mine/unexplored)
+"ae" = (
+/obj/structure/bed,
+/obj/machinery/flasher{
+	id = "";
+	pixel_x = -28
+	},
+/obj/random/junk,
+/turf/simulated/floor/reinforced/airmix,
+/area/mine/unexplored)
+"af" = (
+/obj/structure/bed,
+/obj/machinery/flasher{
+	id = "";
+	pixel_x = -28
+	},
+/mob/living/simple_animal/hostile/scom/civ/civvie,
+/turf/simulated/floor/reinforced/airmix,
+/area/mine/unexplored)
+"ag" = (
+/obj/structure/bed,
+/obj/machinery/flasher{
+	id = "";
+	pixel_x = -28
+	},
+/obj/random/contraband,
+/turf/simulated/floor/reinforced/airmix,
+/area/mine/unexplored)
+"ah" = (
+/obj/structure/bed,
+/obj/machinery/flasher{
+	id = "";
+	pixel_x = -28
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/mine/unexplored)
+"ai" = (
+/obj/structure/bed,
+/obj/machinery/flasher{
+	id = "";
+	pixel_x = -28
+	},
+/mob/living/simple_animal/hostile/syndicate,
+/turf/simulated/floor/reinforced/airmix,
+/area/mine/unexplored)
+"aj" = (
+/obj/structure/crematorium,
+/turf/simulated/floor/reinforced/airmix,
+/area/mine/unexplored)
+"ak" = (
+/obj/structure/pit/closed/grave/random,
+/turf/simulated/floor/asteroid,
+/area/mine/unexplored)
+"al" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Holding Cell";
+	opacity = 1;
+	req_access = list(101)
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/mine/unexplored)
+"am" = (
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/reinforced/airmix,
+/area/mine/unexplored)
+"an" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/asteroid,
+/area/mine/unexplored)
+"ao" = (
+/obj/structure/closet/secure_closet/brig,
+/obj/effect/floor_decal/corner/black{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"ap" = (
+/obj/effect/floor_decal/corner/black{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"aq" = (
+/obj/machinery/button/crematorium{
+	pixel_y = 24
+	},
+/obj/effect/floor_decal/corner/black{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"ar" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Holding Facility";
+	opacity = 1;
+	req_access = list(150)
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"as" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/obj/structure/closet/secure_closet/brig,
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"at" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"au" = (
+/obj/effect/wingrille_spawn/reinforced/polarized/full,
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
+"av" = (
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/teleport/hub,
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"aw" = (
+/turf/simulated/wall,
+/area/mine/unexplored)
+"ax" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/weapon/storage/box/donut,
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"ay" = (
+/obj/structure/table/steel_reinforced,
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"az" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"aA" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/obj/effect/floor_decal/corner/black{
+	tag = "icon-corner_white (NORTHWEST)";
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"aB" = (
+/obj/structure/closet/secure_closet/brig,
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"aC" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/urist/ntagent,
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"aD" = (
+/obj/effect/floor_decal/corner/black{
+	tag = "icon-corner_white (NORTHWEST)";
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"aE" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/weapon/storage/box/bodybags,
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"aF" = (
+/obj/structure/closet/secure_closet/brig,
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"aG" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"aH" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Holding Facility";
+	opacity = 1;
+	req_access = list(150)
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
+"aI" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Holding Facility";
+	opacity = 1;
+	req_access = list(150)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/mine/unexplored)
+"aJ" = (
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/carpet,
+/area/mine/unexplored)
+"aK" = (
+/turf/simulated/floor/carpet,
+/area/mine/unexplored)
+"aL" = (
+/obj/structure/table/gamblingtable,
+/obj/item/weapon/storage/fancy/cigar,
+/turf/simulated/floor/carpet,
+/area/mine/unexplored)
+"aM" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/mine/unexplored)
+"aN" = (
+/obj/structure/hygiene/sink{
+	icon_state = "sink";
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/obj/item/weapon/storage/mirror{
+	dir = 4;
+	pixel_x = -28;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
+"aO" = (
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
+"aP" = (
+/obj/structure/closet/secure_closet/injection,
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
+"aQ" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/light/small{
+	dir = 8;
+	luminosity = 3
+	},
+/turf/simulated/floor/carpet,
+/area/mine/unexplored)
+"aR" = (
+/obj/structure/bed/chair/comfy/red{
+	tag = "icon-comfychair_preview (EAST)";
+	icon_state = "comfychair_preview";
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/urist/ntagent,
+/turf/simulated/floor/carpet,
+/area/mine/unexplored)
+"aS" = (
+/obj/structure/table/gamblingtable,
+/turf/simulated/floor/carpet,
+/area/mine/unexplored)
+"aT" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/urist/ntagent,
+/turf/simulated/floor/tiled/dark,
+/area/mine/unexplored)
+"aU" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/clothing/glasses/sunglasses/blindfold,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/mine/unexplored)
+"aV" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/effect/gibspawner/human,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/mine/unexplored)
+"aW" = (
+/obj/structure/table/glass,
+/obj/random/ammo,
+/obj/random/ammo,
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
+"aX" = (
+/mob/living/simple_animal/hostile/urist/ntagent,
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
+"aY" = (
+/obj/structure/table/glass,
+/obj/random/tool,
+/obj/random/tool,
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
+"aZ" = (
+/obj/item/weapon/storage/briefcase,
+/turf/simulated/floor/carpet,
+/area/mine/unexplored)
+"ba" = (
+/obj/structure/table/gamblingtable,
+/obj/machinery/button/windowtint,
+/turf/simulated/floor/carpet,
+/area/mine/unexplored)
+"bb" = (
+/obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/mine/unexplored)
+"bc" = (
+/obj/structure/table/glass,
+/obj/random/firstaid,
+/obj/random/medical,
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
+"bd" = (
+/obj/structure/table/glass,
+/obj/random/loot,
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
+"be" = (
+/obj/structure/table/glass,
+/obj/random/handgun,
+/obj/random/handgun,
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
+"bf" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Holding Facility";
+	opacity = 1;
+	req_access = list(150)
+	},
+/turf/simulated/floor/asteroid,
+/area/mine/unexplored)
 
 (1,1,1) = {"
-aaabacacacacacacacacabacacacacacacacacabaa
-abacadadadadadadadadadadadadadadadadadacab
-acadadadacacacacacacacacacacacacacadadadac
-acadadadacaeacafacagacahacaiacajacadadadac
-acadakacacalacalacalacalacalacamacacanadac
-acadakacaoapapapapapapapapapapapaqacabarac
-acadakacasatauauauatatavawataxayazabaAatac
-abadakacaBataraCauatatavawataCayataraDatab
-acadakacasatauauauatatavawataEayazacaDatac
-acadacacaFaGaGaGaGaGaGaGaGaGaGaGaGacabarac
-acadacawawaHawawawawaIawawawawaHawacanadac
-acadacawaJaKaLauaMaMaMaMaMawaNaOaPacacadac
-acadacawaQaRaSauaMaTaUaVaMawaWaXaYacacadac
-acadacacaJaZbaauaMaMaMbbaMawbcbdbeacacadac
-acadadacacawawawawawawawawawawawacacadadac
-acadadadacacacacacacacacacacacacacadadadac
-abacadadadadadadadadadadadadadadadadadacab
-aaabacacacacacacacabbfabacacacacacacacabaa
+aa
+ab
+ac
+ac
+ac
+ac
+ac
+ab
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ab
+aa
+"}
+(2,1,1) = {"
+ab
+ac
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ac
+ab
+"}
+(3,1,1) = {"
+ac
+ad
+ad
+ad
+ak
+ak
+ak
+ak
+ak
+ac
+ac
+ac
+ac
+ac
+ad
+ad
+ad
+ac
+"}
+(4,1,1) = {"
+ac
+ad
+ad
+ad
+ac
+ac
+ac
+ac
+ac
+ac
+aw
+aw
+aw
+ac
+ac
+ad
+ad
+ac
+"}
+(5,1,1) = {"
+ac
+ad
+ac
+ac
+ac
+ao
+as
+aB
+as
+aF
+aw
+aJ
+aQ
+aJ
+ac
+ac
+ad
+ac
+"}
+(6,1,1) = {"
+ac
+ad
+ac
+ae
+al
+ap
+at
+at
+at
+aG
+aH
+aK
+aR
+aZ
+aw
+ac
+ad
+ac
+"}
+(7,1,1) = {"
+ac
+ad
+ac
+ac
+ac
+ap
+au
+ar
+au
+aG
+aw
+aL
+aS
+ba
+aw
+ac
+ad
+ac
+"}
+(8,1,1) = {"
+ac
+ad
+ac
+af
+al
+ap
+au
+aC
+au
+aG
+aw
+au
+au
+au
+aw
+ac
+ad
+ac
+"}
+(9,1,1) = {"
+ac
+ad
+ac
+ac
+ac
+ap
+au
+au
+au
+aG
+aw
+aM
+aM
+aM
+aw
+ac
+ad
+ac
+"}
+(10,1,1) = {"
+ac
+ad
+ac
+ag
+al
+ap
+at
+at
+at
+aG
+aw
+aM
+aT
+aM
+aw
+ac
+ad
+ab
+"}
+(11,1,1) = {"
+ab
+ad
+ac
+ac
+ac
+ap
+at
+at
+at
+aG
+aI
+aM
+aU
+aM
+aw
+ac
+ad
+bf
+"}
+(12,1,1) = {"
+ac
+ad
+ac
+ah
+al
+ap
+av
+av
+av
+aG
+aw
+aM
+aV
+bb
+aw
+ac
+ad
+ab
+"}
+(13,1,1) = {"
+ac
+ad
+ac
+ac
+ac
+ap
+aw
+aw
+aw
+aG
+aw
+aM
+aM
+aM
+aw
+ac
+ad
+ac
+"}
+(14,1,1) = {"
+ac
+ad
+ac
+ai
+al
+ap
+at
+at
+at
+aG
+aw
+aw
+aw
+aw
+aw
+ac
+ad
+ac
+"}
+(15,1,1) = {"
+ac
+ad
+ac
+ac
+ac
+ap
+ax
+aC
+aE
+aG
+aw
+aN
+aW
+bc
+aw
+ac
+ad
+ac
+"}
+(16,1,1) = {"
+ac
+ad
+ac
+aj
+am
+ap
+ay
+ay
+ay
+aG
+aH
+aO
+aX
+bd
+aw
+ac
+ad
+ac
+"}
+(17,1,1) = {"
+ac
+ad
+ac
+ac
+ac
+aq
+az
+at
+az
+aG
+aw
+aP
+aY
+be
+ac
+ac
+ad
+ac
+"}
+(18,1,1) = {"
+ac
+ad
+ad
+ad
+ac
+ac
+ab
+ar
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ad
+ad
+ac
+"}
+(19,1,1) = {"
+ac
+ad
+ad
+ad
+an
+ab
+aA
+aD
+aD
+ab
+an
+ac
+ac
+ac
+ad
+ad
+ad
+ac
+"}
+(20,1,1) = {"
+ab
+ac
+ad
+ad
+ad
+ar
+at
+at
+at
+ar
+ad
+ad
+ad
+ad
+ad
+ad
+ac
+ab
+"}
+(21,1,1) = {"
+aa
+ab
+ac
+ac
+ac
+ac
+ac
+ab
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ab
+aa
 "}
