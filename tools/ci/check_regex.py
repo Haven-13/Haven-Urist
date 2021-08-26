@@ -41,9 +41,11 @@ import yaml
 import colorama
 from colorama import Fore, Back, Style
 
+# Defaults
 config_file_default_name = "check_regex.yaml"
 annotation_file_output_name = "check_regex_output.txt"
 
+# Data struct for holding info about standardization rules
 class TestExpression:
     def __init__(
         self,
@@ -68,6 +70,9 @@ class TestExpression:
             self.pattern
         ))
 
+#
+# Test methods & result defines
+#
 RESULT_FAIL = 2
 RESULT_WARNING = 1
 RESULT_OK = 0
@@ -90,6 +95,11 @@ target_method_binding = {
     "no_more": no_more_cmp
 }
 
+#
+# Configuration
+#
+
+# Configuration loading
 def load_yaml_config(config_file: str) -> Dict:
     if not os.path.exists(config_file):
         print(f"Could not find {config_file}")
@@ -109,6 +119,7 @@ def load_yaml_config(config_file: str) -> Dict:
 
     return yaml_entries
 
+# Configuration parsing
 def parse_yaml_config(yaml_data: Dict) -> Tuple[List]:
     def get_tuple(entry):
         return list(entry.items())[0]
@@ -159,6 +170,11 @@ def parse_yaml_config(yaml_data: Dict) -> Tuple[List]:
         parse_standards()
     )
 
+#
+# Analysis
+#
+
+# Collection of data/code files to work on
 def construct_filename_regex(extensions):
     return regex.compile(rf'\.({str.join("|", extensions)})$')
 
@@ -178,6 +194,8 @@ def collect_candidate_files(directory, extensions):
                 full_path = os.path.normpath(full_path)
                 candidates[len(candidates) + 1] = full_path
     return candidates
+
+# Analysis functions
 
 # A constant for the function below, so it won't be compiled
 # every time the function is called
@@ -217,6 +235,10 @@ def test_file(results, expressions, file, ignore_comments=False):
                 results[it]["SUM"] += count
     return matched
 
+#
+# Logging & Output formatting
+#
+
 # For writing to both stdout and file at once
 output_file: FileIO = None
 
@@ -239,6 +261,9 @@ def create_title(title, char='='):
 def try_normalize_path(filepath):
     return os.path.normpath(filepath)
 
+#
+# Entry point & main behaviour
+#
 if __name__ == "__main__":
     colorama.init()
 
