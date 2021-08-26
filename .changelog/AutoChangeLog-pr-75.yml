@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Fixed overmap objects whose location are known not showing up
+  - bugfix: Fixed star not showing up.
