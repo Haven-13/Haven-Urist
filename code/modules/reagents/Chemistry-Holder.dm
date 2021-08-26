@@ -15,7 +15,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 
 /datum/reagents/Destroy()
 	. = ..()
-
+	DEQUEUE_REACTIONS(src)
 	QDEL_NULL_LIST(reagent_list)
 	my_atom = null
 
@@ -66,13 +66,13 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 
 /datum/reagents/proc/process_reactions()
 	if(!my_atom) // No reactions in temporary holders
-		return 0
+		return FALSE
 	if(!my_atom.loc) //No reactions inside GC'd containers
-		return 0
+		return FALSE
 	if(my_atom.atom_flags & ATOM_FLAG_NO_REACT) // No reactions here
-		return 0
+		return FALSE
 
-	var/reaction_occured = 0
+	var/reaction_occured = FALSE
 
 	var/list/datum/chemical_reaction/eligible_reactions = list()
 
@@ -84,13 +84,13 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 	for(var/datum/chemical_reaction/C in eligible_reactions)
 		if(C.can_happen(src))
 			active_reactions |= C
-			reaction_occured = 1
+			reaction_occured = TRUE
 
 	var/list/used_reagents = list()
 	for(var/datum/chemical_reaction/C in active_reactions)
 		var/list/adding = C.get_used_reagents()
 		for(var/R in adding)
-			used_reagents[R] += 1
+			used_reagents[R] += TRUE
 
 	var/max_split = 1
 	for(var/R in used_reagents)
@@ -106,16 +106,20 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 
 	update_total()
 
-	if(reaction_occured)
-		process_reactions() // Check again in case the new reagents can react again
-
 	return reaction_occured
 
 /* Holder-to-chemical */
 
+/datum/reagents/proc/handle_update(safety = FALSE)
+	update_total()
+	if(!safety)
+		QUEUE_REACTIONS(src)
+	if(my_atom)
+		my_atom.on_reagent_change()
+
 /datum/reagents/proc/add_reagent(var/reagent_type, var/amount, var/data = null, var/safety = 0)
 	if(!isnum(amount) || amount <= 0)
-		return 0
+		return FALSE
 
 	update_total()
 	amount = min(amount, get_free_space())
@@ -125,26 +129,19 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 			current.volume += amount
 			if(!isnull(data)) // For all we know, it could be zero or empty string and meaningful
 				current.mix_data(data, amount)
-			update_total()
-			if(!safety)
-				process_reactions()
-			if(my_atom)
-				my_atom.on_reagent_change()
-			return 1
-	if(ispath(reagent_type, /datum/reagent))
-		var/datum/reagent/R = new reagent_type(src)
-		reagent_list += R
-		R.volume = amount
-		R.initialize_data(data)
-		update_total()
-		if(!safety)
-			process_reactions()
-		if(my_atom)
-			my_atom.on_reagent_change()
-		return 1
-	else
-		warning("[log_info_line(my_atom)] attempted to add a reagent of type '[reagent_type]' which doesn't exist. ([usr])")
-	return 0
+			. = TRUE
+	if(!.)
+		if(ispath(reagent_type, /datum/reagent))
+			var/datum/reagent/R = new reagent_type(src)
+			reagent_list += R
+			R.volume = amount
+			R.initialize_data(data)
+			. = TRUE
+		else
+			warning("[log_info_line(my_atom)] attempted to add a reagent of type '[reagent_type]' which doesn't exist. ([usr])")
+
+	if(.)
+		handle_update(safety)
 
 /datum/reagents/proc/remove_reagent(var/reagent_type, var/amount, var/safety = 0)
 	if(!isnum(amount))
@@ -152,11 +149,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 	for(var/datum/reagent/current in reagent_list)
 		if(current.type == reagent_type)
 			current.volume -= amount // It can go negative, but it doesn't matter
-			update_total() // Because this proc will delete it then
-			if(!safety)
-				process_reactions()
-			if(my_atom)
-				my_atom.on_reagent_change()
+			handle_update(safety)
 			return 1
 	return 0
 
@@ -239,11 +232,10 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 		var/amount_to_remove = current.volume * part
 		remove_reagent(current.type, amount_to_remove, 1)
 
-	update_total()
-	process_reactions()
+	handle_update()
 	return amount
 
-/datum/reagents/proc/trans_to_holder(var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Transfers [amount] reagents from [src] to [target], multiplying them by [multiplier]. Returns actual amount removed from [src] (not amount transferred to [target]).
+/datum/reagents/proc/trans_to_holder(var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/safety = 0) // Transfers [amount] reagents from [src] to [target], multiplying them by [multiplier]. Returns actual amount removed from [src] (not amount transferred to [target]).
 	if(!target || !istype(target))
 		return
 
@@ -260,9 +252,10 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 		if(!copy)
 			remove_reagent(current.type, amount_to_transfer, 1)
 
+	target.handle_update(safety)
+	handle_update(safety)
 	if(!copy)
-		process_reactions()
-	target.process_reactions()
+		QUEUE_REACTIONS(src)
 	return amount
 
 /* Holder-to-atom and similar procs */

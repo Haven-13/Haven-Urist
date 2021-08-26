@@ -20,6 +20,7 @@
 	description = "An abandoned supply base."
 	suffixes = list("lost_supply_base/lost_supply_base.dmm")
 	cost = 1
+	generate_mining_by_z = 1
 
 /obj/effect/shuttle_landmark/nav_lost_supply_base/nav1
 	name = "Abandoned Supply Base Navpoint #1"

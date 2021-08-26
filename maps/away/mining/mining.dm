@@ -24,6 +24,7 @@
 	description = "A medium-sized asteroid full of minerals."
 	suffixes = list("mining/mining-asteroid.dmm")
 	cost = 1
+	generate_mining_by_z = 1
 	accessibility_weight = 10
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
@@ -79,6 +80,7 @@
 	description = "A mineral-rich, formerly-volcanic site on a planetoid."
 	suffixes = list("mining/mining-signal.dmm")
 	cost = 1
+	generate_mining_by_z = 1
 	base_turf_for_zs = /turf/simulated/floor/asteroid
 
 /obj/effect/shuttle_landmark/away
@@ -134,6 +136,7 @@
 	description = "A sort of circular asteroid with a bird."
 	suffixes = list("mining/mining-orb.dmm")
 	cost = 1
+	generate_mining_by_z = 1
 	accessibility_weight = 10
 	base_turf_for_zs = /turf/simulated/floor/asteroid
 

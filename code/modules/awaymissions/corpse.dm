@@ -36,6 +36,10 @@
 
 /obj/effect/landmark/corpse/Initialize()
 	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/landmark/corpse/LateInitialize()
+	..()
 
 	var/mob/living/carbon/human/M = new /mob/living/carbon/human(loc)
 
@@ -50,7 +54,7 @@
 	M.update_dna()
 	M.update_icon()
 
-	return INITIALIZE_HINT_QDEL
+	qdel(src)
 
 #define HEX_COLOR_TO_RGB_ARGS(X) arglist(GetHexColors(X))
 /obj/effect/landmark/corpse/proc/randomize_appearance(var/mob/living/carbon/human/M)

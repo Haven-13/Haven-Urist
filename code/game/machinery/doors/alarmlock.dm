@@ -19,11 +19,13 @@
 	..()
 
 /obj/machinery/door/airlock/alarmlock/Initialize()
-	. = ..()
+	..()
 	radio_controller.remove_object(src, air_frequency)
 	air_connection = radio_controller.add_object(src, air_frequency, RADIO_TO_AIRALARM)
-	open()
+	return INITIALIZE_HINT_LATELOAD
 
+/obj/machinery/door/airlock/alarmlock/LateInitialize()
+	open()
 
 /obj/machinery/door/airlock/alarmlock/receive_signal(datum/signal/signal)
 	..()
