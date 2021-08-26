@@ -41,6 +41,7 @@
 	set_content(text || info, title)
 
 /obj/item/weapon/paper/proc/set_content(text,title)
+	set waitfor = FALSE
 	if(title)
 		SetName(title)
 	info = html_encode(text)

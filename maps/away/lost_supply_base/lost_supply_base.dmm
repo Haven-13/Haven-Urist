@@ -2351,13 +2351,6 @@
 "gu" = (
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
-"hb" = (
-/obj/effect/landmark/random_gen/asteroid{
-	generation_height = 100;
-	generation_width = 100
-	},
-/turf/space,
-/area/space)
 "ib" = (
 /obj/structure/hygiene/sink{
 	icon_state = "sink";
@@ -2480,7 +2473,7 @@ aa
 aa
 aa
 aa
-hb
+aa
 "}
 (2,1,1) = {"
 aa

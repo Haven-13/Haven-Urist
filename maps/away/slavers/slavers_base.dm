@@ -23,6 +23,7 @@
 	description = "Asteroid with slavers base inside."
 	suffixes = list("slavers/slavers_base.dmm")
 	cost = 1
+	generate_mining_by_z = 1
 
 /obj/effect/shuttle_landmark/nav_slavers_base/nav1
 	name = "Slavers Base Navpoint #1"
