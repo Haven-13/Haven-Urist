@@ -1,50 +1,542 @@
-"a" = (/turf/simulated/floor/planet/jungle/templatethick,/area/planet/jungle)
-"b" = (/turf/simulated/wall/wood,/area/planet/jungle)
-"c" = (/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (NORTH)"; icon_state = "phoronrwindow"; dir = 1},/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (WEST)"; icon_state = "phoronrwindow"; dir = 8},/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (EAST)"; icon_state = "phoronrwindow"; dir = 4},/obj/structure/window/phoronreinforced,/obj/structure/grille/cult,/turf/simulated/floor/wood,/area/planet/jungle)
-"d" = (/obj/structure/bookcase{name = "bookcase (Religious)"},/turf/simulated/floor/wood{icon_state = "wood-broken6"},/area/planet/jungle)
-"e" = (/obj/structure/curtain/black{pixel_y = 32},/turf/simulated/floor/wood,/area/planet/jungle)
-"f" = (/obj/structure/noticeboard{pixel_y = 32},/obj/structure/coatrack,/turf/simulated/floor/wood,/area/planet/jungle)
-"g" = (/obj/structure/table/woodentable,/obj/item/weapon/storage/box{name = "donation box"},/obj/item/weapon/spacecash/bundle/c20,/obj/machinery/light/small/red{tag = "icon-firelight1 (EAST)"; icon_state = "firelight1"; dir = 4},/obj/item/weapon/flame/candle,/turf/simulated/floor/wood,/area/planet/jungle)
-"h" = (/obj/structure/curtain/black{pixel_y = 32},/obj/machinery/light/small/red{tag = "icon-firelight1 (WEST)"; icon_state = "firelight1"; dir = 8},/obj/structure/table/woodentable,/obj/item/weapon/flame/candle,/turf/simulated/floor/cult,/area/planet/jungle)
-"i" = (/obj/structure/bed/chair/wood{tag = "icon-wooden_chair (EAST)"; icon_state = "wooden_chair"; dir = 4},/turf/simulated/floor/cult,/area/planet/jungle)
-"j" = (/obj/structure/curtain/black{pixel_y = 32},/obj/structure/bed/chair/wood{tag = "icon-wooden_chair (EAST)"; icon_state = "wooden_chair"; dir = 4},/turf/simulated/floor/cult,/area/planet/jungle)
-"k" = (/obj/structure/curtain/black,/turf/simulated/floor/cult,/area/planet/jungle)
-"l" = (/obj/structure/table/woodentable,/obj/item/weapon/book/tome,/obj/item/weapon/veilrender{charged = 0},/obj/item/weapon/flame/candle,/turf/simulated/floor/cult,/area/planet/jungle)
-"m" = (/turf/simulated/wall/cult,/area/planet/jungle)
-"n" = (/obj/structure/hygiene/sink/puddle{desc = "A puddle of slightly reddish water."},/turf/simulated/floor/planet/jungle/path,/area/planet/jungle)
-"o" = (/obj/structure/reagent_dispensers/water_cooler,/turf/simulated/floor/wood,/area/planet/jungle)
-"p" = (/turf/simulated/floor/wood,/area/planet/jungle)
-"q" = (/obj/machinery/door/unpowered/simple/iron,/turf/simulated/floor/wood,/area/planet/jungle)
-"r" = (/turf/simulated/floor/cult,/area/planet/jungle)
-"s" = (/obj/structure/cult/talisman,/obj/effect/gibspawner/human,/obj/effect/landmark/corpse/russian/ranged,/turf/simulated/floor/cult,/area/planet/jungle)
-"t" = (/turf/simulated/floor/planet/jungle/path,/area/planet/jungle)
-"u" = (/obj/machinery/door/unpowered/simple/wood,/turf/simulated/floor/wood{tag = "icon-wood-broken3"; icon_state = "wood-broken3"},/area/planet/jungle)
-"v" = (/obj/structure/curtain/black{pixel_y = -32},/turf/simulated/floor/wood,/area/planet/jungle)
-"w" = (/obj/item/device/flashlight/lamp/lantern,/turf/simulated/floor/wood,/area/planet/jungle)
-"x" = (/obj/structure/table/woodentable,/obj/machinery/light/small/red{tag = "icon-firelight1 (EAST)"; icon_state = "firelight1"; dir = 4},/obj/item/trash/candle,/obj/item/weapon/flame/candle,/obj/item/weapon/flame/lighter/random,/turf/simulated/floor/wood,/area/planet/jungle)
-"y" = (/obj/structure/curtain/black{pixel_y = -32},/obj/machinery/light/small/red{tag = "icon-firelight1 (WEST)"; icon_state = "firelight1"; dir = 8},/obj/structure/table/woodentable,/obj/item/weapon/flame/candle,/turf/simulated/floor/cult,/area/planet/jungle)
-"z" = (/obj/structure/curtain/black{pixel_y = -32},/obj/structure/bed/chair/wood{tag = "icon-wooden_chair (EAST)"; icon_state = "wooden_chair"; dir = 4},/turf/simulated/floor/cult,/area/planet/jungle)
-"A" = (/obj/structure/table/woodentable,/obj/item/clothing/suit/chaplain_hoodie,/obj/item/bodybag,/obj/item/bodybag,/obj/item/bodybag,/obj/item/weapon/flame/candle,/obj/item/weapon/storage/backpack/cultpack,/turf/simulated/floor/cult,/area/planet/jungle)
-"B" = (/turf/simulated/wall/wood,/turf/simulated/wall/cult,/area/planet/jungle)
-"C" = (/turf/simulated/floor/planet/jungle/clear,/area/planet/jungle)
-"D" = (/turf/simulated/floor/planet/jungle/clear/grass1{desc = "A patch of dirt."; icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"; name = "wet dirt"},/area/planet/jungle)
-"E" = (/obj/item/weapon/shovel,/turf/simulated/floor/planet/jungle/clear/grass1{desc = "A patch of dirt."; icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"; name = "wet dirt"},/area/planet/jungle)
-"F" = (/obj/item/remains/human,/turf/simulated/floor/planet/jungle/clear/grass1{desc = "A patch of dirt."; icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"; name = "wet dirt"},/area/planet/jungle)
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/planet/jungle/templatethick,
+/area/planet/jungle)
+"b" = (
+/turf/simulated/wall/wood,
+/area/planet/jungle)
+"c" = (
+/obj/structure/window/phoronreinforced{
+	tag = "icon-phoronrwindow (NORTH)";
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced{
+	tag = "icon-phoronrwindow (WEST)";
+	icon_state = "phoronrwindow";
+	dir = 8
+	},
+/obj/structure/window/phoronreinforced{
+	tag = "icon-phoronrwindow (EAST)";
+	icon_state = "phoronrwindow";
+	dir = 4
+	},
+/obj/structure/window/phoronreinforced,
+/obj/structure/grille/cult,
+/turf/simulated/floor/wood,
+/area/planet/jungle)
+"d" = (
+/obj/structure/bookcase{
+	name = "bookcase (Religious)"
+	},
+/turf/simulated/floor/wood{
+	icon_state = "wood-broken6"
+	},
+/area/planet/jungle)
+"e" = (
+/obj/structure/curtain/black{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
+/area/planet/jungle)
+"f" = (
+/obj/structure/noticeboard{
+	pixel_y = 32
+	},
+/obj/structure/coatrack,
+/turf/simulated/floor/wood,
+/area/planet/jungle)
+"g" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/storage/box{
+	name = "donation box"
+	},
+/obj/item/weapon/spacecash/bundle/c20,
+/obj/machinery/light/small/red{
+	tag = "icon-firelight1 (EAST)";
+	icon_state = "firelight1";
+	dir = 4
+	},
+/obj/item/weapon/flame/candle,
+/turf/simulated/floor/wood,
+/area/planet/jungle)
+"h" = (
+/obj/structure/curtain/black{
+	pixel_y = 32
+	},
+/obj/machinery/light/small/red{
+	tag = "icon-firelight1 (WEST)";
+	icon_state = "firelight1";
+	dir = 8
+	},
+/obj/structure/table/woodentable,
+/obj/item/weapon/flame/candle,
+/turf/simulated/floor/cult,
+/area/planet/jungle)
+"i" = (
+/obj/structure/bed/chair/wood{
+	tag = "icon-wooden_chair (EAST)";
+	icon_state = "wooden_chair";
+	dir = 4
+	},
+/turf/simulated/floor/cult,
+/area/planet/jungle)
+"j" = (
+/obj/structure/curtain/black{
+	pixel_y = 32
+	},
+/obj/structure/bed/chair/wood{
+	tag = "icon-wooden_chair (EAST)";
+	icon_state = "wooden_chair";
+	dir = 4
+	},
+/turf/simulated/floor/cult,
+/area/planet/jungle)
+"k" = (
+/obj/structure/curtain/black,
+/turf/simulated/floor/cult,
+/area/planet/jungle)
+"l" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/book/tome,
+/obj/item/weapon/veilrender{
+	charged = 0
+	},
+/obj/item/weapon/flame/candle,
+/turf/simulated/floor/cult,
+/area/planet/jungle)
+"m" = (
+/turf/simulated/wall/cult,
+/area/planet/jungle)
+"n" = (
+/obj/structure/hygiene/sink/puddle{
+	desc = "A puddle of slightly reddish water."
+	},
+/turf/simulated/floor/planet/jungle/path,
+/area/planet/jungle)
+"o" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/simulated/floor/wood,
+/area/planet/jungle)
+"p" = (
+/turf/simulated/floor/wood,
+/area/planet/jungle)
+"q" = (
+/obj/machinery/door/unpowered/simple/iron,
+/turf/simulated/floor/wood,
+/area/planet/jungle)
+"r" = (
+/turf/simulated/floor/cult,
+/area/planet/jungle)
+"s" = (
+/obj/structure/cult/talisman,
+/obj/effect/gibspawner/human,
+/obj/effect/landmark/corpse/russian/ranged,
+/turf/simulated/floor/cult,
+/area/planet/jungle)
+"t" = (
+/turf/simulated/floor/planet/jungle/path,
+/area/planet/jungle)
+"u" = (
+/obj/machinery/door/unpowered/simple/wood,
+/turf/simulated/floor/wood{
+	tag = "icon-wood-broken3";
+	icon_state = "wood-broken3"
+	},
+/area/planet/jungle)
+"v" = (
+/obj/structure/curtain/black{
+	pixel_y = -32
+	},
+/turf/simulated/floor/wood,
+/area/planet/jungle)
+"w" = (
+/obj/item/device/flashlight/lamp/lantern,
+/turf/simulated/floor/wood,
+/area/planet/jungle)
+"x" = (
+/obj/structure/table/woodentable,
+/obj/machinery/light/small/red{
+	tag = "icon-firelight1 (EAST)";
+	icon_state = "firelight1";
+	dir = 4
+	},
+/obj/item/trash/candle,
+/obj/item/weapon/flame/candle,
+/obj/item/weapon/flame/lighter/random,
+/turf/simulated/floor/wood,
+/area/planet/jungle)
+"y" = (
+/obj/structure/curtain/black{
+	pixel_y = -32
+	},
+/obj/machinery/light/small/red{
+	tag = "icon-firelight1 (WEST)";
+	icon_state = "firelight1";
+	dir = 8
+	},
+/obj/structure/table/woodentable,
+/obj/item/weapon/flame/candle,
+/turf/simulated/floor/cult,
+/area/planet/jungle)
+"z" = (
+/obj/structure/curtain/black{
+	pixel_y = -32
+	},
+/obj/structure/bed/chair/wood{
+	tag = "icon-wooden_chair (EAST)";
+	icon_state = "wooden_chair";
+	dir = 4
+	},
+/turf/simulated/floor/cult,
+/area/planet/jungle)
+"A" = (
+/obj/structure/table/woodentable,
+/obj/item/clothing/suit/chaplain_hoodie,
+/obj/item/bodybag,
+/obj/item/bodybag,
+/obj/item/bodybag,
+/obj/item/weapon/flame/candle,
+/obj/item/weapon/storage/backpack/cultpack,
+/turf/simulated/floor/cult,
+/area/planet/jungle)
+"B" = (
+/turf/simulated/wall/wood,
+/turf/simulated/wall/cult,
+/area/planet/jungle)
+"C" = (
+/turf/simulated/floor/planet/jungle/clear,
+/area/planet/jungle)
+"D" = (
+/turf/simulated/floor/planet/jungle/clear/grass1{
+	desc = "A patch of dirt.";
+	icon = 'icons/turf/floors.dmi';
+	icon_state = "asteroid";
+	name = "wet dirt"
+	},
+/area/planet/jungle)
+"E" = (
+/obj/item/weapon/shovel,
+/turf/simulated/floor/planet/jungle/clear/grass1{
+	desc = "A patch of dirt.";
+	icon = 'icons/turf/floors.dmi';
+	icon_state = "asteroid";
+	name = "wet dirt"
+	},
+/area/planet/jungle)
+"F" = (
+/obj/item/remains/human,
+/turf/simulated/floor/planet/jungle/clear/grass1{
+	desc = "A patch of dirt.";
+	icon = 'icons/turf/floors.dmi';
+	icon_state = "asteroid";
+	name = "wet dirt"
+	},
+/area/planet/jungle)
 
 (1,1,1) = {"
-aaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaa
-aabbcbbbcbcbcbbbaa
-aabdefgbhijijklmba
-anbopppqrrrrrkrsba
-atupvwxbyizizkABba
-atbbcbbbcbcbcbbbaa
-ataaaaaaaaaaaaaaaa
-ataaattttaaaaaaaaa
-attatttattaatttaaa
-aCttttaaattttttaaa
-aaCCaaaaattttataaa
-aDDDDaaaaaaaaataaa
-aDDEFaaaaaaaatttaa
-aaaaaaaaaaaaatttaa
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+a
+a
+a
+n
+t
+t
+t
+t
+t
+C
+a
+D
+D
+a
+"}
+(3,1,1) = {"
+a
+a
+b
+b
+b
+u
+b
+a
+a
+t
+t
+C
+D
+D
+a
+"}
+(4,1,1) = {"
+a
+a
+b
+d
+o
+p
+b
+a
+a
+a
+t
+C
+D
+E
+a
+"}
+(5,1,1) = {"
+a
+a
+c
+e
+p
+v
+c
+a
+a
+t
+t
+a
+D
+F
+a
+"}
+(6,1,1) = {"
+a
+a
+b
+f
+p
+w
+b
+a
+t
+t
+t
+a
+a
+a
+a
+"}
+(7,1,1) = {"
+a
+a
+b
+g
+p
+x
+b
+a
+t
+t
+a
+a
+a
+a
+a
+"}
+(8,1,1) = {"
+a
+a
+b
+b
+q
+b
+b
+a
+t
+a
+a
+a
+a
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+c
+h
+r
+y
+c
+a
+t
+t
+a
+a
+a
+a
+a
+"}
+(10,1,1) = {"
+a
+a
+b
+i
+r
+i
+b
+a
+a
+t
+t
+t
+a
+a
+a
+"}
+(11,1,1) = {"
+a
+a
+c
+j
+r
+z
+c
+a
+a
+a
+t
+t
+a
+a
+a
+"}
+(12,1,1) = {"
+a
+a
+b
+i
+r
+i
+b
+a
+a
+a
+t
+t
+a
+a
+a
+"}
+(13,1,1) = {"
+a
+a
+c
+j
+r
+z
+c
+a
+a
+t
+t
+t
+a
+a
+a
+"}
+(14,1,1) = {"
+a
+a
+b
+k
+k
+k
+b
+a
+a
+t
+t
+a
+a
+t
+t
+"}
+(15,1,1) = {"
+a
+a
+b
+l
+r
+A
+b
+a
+a
+t
+t
+t
+t
+t
+t
+"}
+(16,1,1) = {"
+a
+a
+b
+m
+s
+B
+b
+a
+a
+a
+a
+a
+a
+t
+t
+"}
+(17,1,1) = {"
+a
+a
+a
+b
+b
+b
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(18,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
 "}
