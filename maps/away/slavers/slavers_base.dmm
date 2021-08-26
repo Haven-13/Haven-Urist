@@ -4324,10 +4324,6 @@
 /obj/effect/shuttle_landmark/nav_slavers_base/nav6,
 /turf/space,
 /area/space)
-"kZ" = (
-/obj/effect/landmark/random_gen/asteroid,
-/turf/space,
-/area/space)
 "lb" = (
 /obj/structure/hygiene/sink{
 	pixel_y = -20
@@ -4549,7 +4545,7 @@ aa
 aa
 aa
 aa
-kZ
+aa
 "}
 (2,1,1) = {"
 aa

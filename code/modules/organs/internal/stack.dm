@@ -43,6 +43,7 @@
 	return 	(!istype(backup) || backup == owner.mind || (backup.current && backup.current.stat != DEAD))
 
 /obj/item/organ/internal/stack/replaced()
+	set waitfor = FALSE
 	if(!..()) return 0
 
 	if(owner && !backup_inviable())
