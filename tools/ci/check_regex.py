@@ -41,7 +41,7 @@ import yaml
 import colorama
 from colorama import Fore, Back, Style
 
-config_file_default_name = "config_check_regex.yaml"
+config_file_default_name = "check_regex.yaml"
 annotation_file_output_name = "check_regex_output.txt"
 
 class TestExpression:
