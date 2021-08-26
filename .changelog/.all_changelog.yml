@@ -269,3 +269,10 @@
   - code_imp: Compiler options moved to code root folder from __defines folder.
   - config: Compiling toolchain has been changed from simple node building to a juke-build
       suite.
+2021-08-26:
+  martinlyra:
+  - rscadd: Added overlays system
+  - rscdel: Removed vis_overlays system
+  - tweak: Changed how airlocks behave when animating
+  - tweak: Changed emissives from using 3 planes to 1 plane for efficiency and performance
+      boost.
