@@ -9,9 +9,8 @@ SUBSYSTEM_DEF(chemistry)
 	var/list/datum/reagents/queue
 	var/list/datum/reagents/processing
 
-	var/processing_index
-
 /datum/controller/subsystem/chemistry/PreInit()
+	processing = list()
 	queue = list()
 	stats = list()
 
@@ -20,7 +19,7 @@ SUBSYSTEM_DEF(chemistry)
 	return ..()
 
 /datum/controller/subsystem/chemistry/stat_entry(msg)
-	msg = "Q:[length(queue)], P:[processing_index] of [processing.len]"
+	msg = "Q:[length(queue)], P:[processing.len]"
 	return ..()
 
 /datum/controller/subsystem/chemistry/Recover()
@@ -28,24 +27,19 @@ SUBSYSTEM_DEF(chemistry)
 
 /datum/controller/subsystem/chemistry/fire(resumed = FALSE)
 	if(!resumed)
-		processing_index = 0
-		processing = list()
-		for(var/thing in queue)
-			if(queue[thing])
-				processing += thing
-		queue.Cut()
+		processing = queue.Copy()
 
-	while(processing_index < processing.len)
-		var/datum/reagents/holder = processing[processing_index]
-		processing_index++
+	while(processing.len)
+		var/datum/reagents/holder = processing[processing.len]
+		processing.len--
 		if(!QDELETED(holder))
 			STAT_START_STOPWATCH
-			if(holder.process_reactions())
-				queue[holder] = TRUE // Add to queue
+			if(!holder.process_reactions())
+				queue -= holder
 			STAT_STOP_STOPWATCH
 			STAT_LOG_ENTRY(stats, holder.my_atom?.type || "Unheld containers")
 		if(MC_TICK_CHECK)
 			return
 
 #define QUEUE_REACTIONS(X) SSchemistry.queue[X] = TRUE
-#define UNQUEUE_REACTIONS(X) SSchemistry.queue[X] = FALSE
+#define DEQUEUE_REACTIONS(X) SSchemistry.queue -= X

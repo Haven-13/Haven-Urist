@@ -15,7 +15,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 
 /datum/reagents/Destroy()
 	. = ..()
-
+	DEQUEUE_REACTIONS(src)
 	QDEL_NULL_LIST(reagent_list)
 	my_atom = null
 
@@ -66,13 +66,13 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 
 /datum/reagents/proc/process_reactions()
 	if(!my_atom) // No reactions in temporary holders
-		return 0
+		return FALSE
 	if(!my_atom.loc) //No reactions inside GC'd containers
-		return 0
+		return FALSE
 	if(my_atom.atom_flags & ATOM_FLAG_NO_REACT) // No reactions here
-		return 0
+		return FALSE
 
-	var/reaction_occured = 0
+	var/reaction_occured = FALSE
 
 	var/list/datum/chemical_reaction/eligible_reactions = list()
 
@@ -84,13 +84,13 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 	for(var/datum/chemical_reaction/C in eligible_reactions)
 		if(C.can_happen(src))
 			active_reactions |= C
-			reaction_occured = 1
+			reaction_occured = TRUE
 
 	var/list/used_reagents = list()
 	for(var/datum/chemical_reaction/C in active_reactions)
 		var/list/adding = C.get_used_reagents()
 		for(var/R in adding)
-			used_reagents[R] += 1
+			used_reagents[R] += TRUE
 
 	var/max_split = 1
 	for(var/R in used_reagents)
@@ -130,14 +130,15 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 			if(!isnull(data)) // For all we know, it could be zero or empty string and meaningful
 				current.mix_data(data, amount)
 			. = TRUE
-	if(ispath(reagent_type, /datum/reagent))
-		var/datum/reagent/R = new reagent_type(src)
-		reagent_list += R
-		R.volume = amount
-		R.initialize_data(data)
-		. = TRUE
-	else
-		warning("[log_info_line(my_atom)] attempted to add a reagent of type '[reagent_type]' which doesn't exist. ([usr])")
+	if(!.)
+		if(ispath(reagent_type, /datum/reagent))
+			var/datum/reagent/R = new reagent_type(src)
+			reagent_list += R
+			R.volume = amount
+			R.initialize_data(data)
+			. = TRUE
+		else
+			warning("[log_info_line(my_atom)] attempted to add a reagent of type '[reagent_type]' which doesn't exist. ([usr])")
 
 	if(.)
 		handle_update(safety)
