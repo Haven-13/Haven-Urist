@@ -1,8 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - tweak: Changed how objects initialize to remove time spent on waiting, to cut
-      down the times.
-  - tweak: Chemistry reactions are now handled by a small subsystem for the time being
-  - bugfix: Fixed cave & mineral generation not being synchronized with the server
-      & mapping initialization

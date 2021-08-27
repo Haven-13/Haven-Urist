@@ -276,3 +276,13 @@
   - tweak: Changed how airlocks behave when animating
   - tweak: Changed emissives from using 3 planes to 1 plane for efficiency and performance
       boost.
+2021-08-27:
+  martinlyra:
+  - tweak: Optimized away maps
+  - tweak: Changed how objects initialize to remove time spent on waiting, to cut
+      down the times.
+  - tweak: Chemistry reactions are now handled by a small subsystem for the time being
+  - bugfix: Fixed cave & mineral generation not being synchronized with the server
+      & mapping initialization
+  - bugfix: Fixed overmap objects whose location are known not showing up
+  - bugfix: Fixed star not showing up.
