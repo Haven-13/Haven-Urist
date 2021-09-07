@@ -11,7 +11,12 @@ jobs:
     name: Run Linters
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - name: Fetch master
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: Fetch PR commits
+        uses: actions/checkout@v2
       - name: Setup cache
         uses: actions/cache@v2
         with:
@@ -27,7 +32,7 @@ jobs:
         run: |
           bash tools/ci/check_changelogs.sh
           tools/bootstrap/python -m dmi.test
-          tools/bootstrap/python -m ci.check_regex
+          tools/bootstrap/python -m ci.check_regex --log-changes-only
           tgui/bin/tgui --lint
           ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
       - name: Annotate Regex

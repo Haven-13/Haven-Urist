@@ -18,6 +18,11 @@
 		"editor.rulers": [100]
 	},
 
+	"[yaml]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2
+	},
+
 	"[javascript]": {
 		"editor.rulers": [80]
 	}
