@@ -134,14 +134,14 @@ english_only - whether to use traditional english letters only (for use in NanoU
 					if(english_only)
 						newletter += "*"
 					else
-						newletter = pick("�", "�", "%", "�", "�")
+						newletter = pick("ø", "Ð", "%", "æ", "µ")
 				distortion += 0.5 * distortion_speed
 			else if(prob(0.75 * distortion)) // Incomprehensible
 				newletter = pick("<", ">", "!", "$", "%", "^", "&", "*", "~", "#")
 				distortion += 0.75 * distortion_speed
 			else if(prob(0.05 * distortion)) // Total cut out
 				if(!english_only)
-					newletter = "�w��b�%> -BZZT-"
+					newletter = "¦w¡¼b»%> -BZZT-"
 				else
 					newletter = "srgt%$hjc< -BZZT-"
 				new_message += newletter
@@ -151,15 +151,15 @@ english_only - whether to use traditional english letters only (for use in NanoU
 					if("s")
 						newletter = "$"
 					if("e")
-						newletter = "�"
+						newletter = "£"
 					if("w")
-						newletter = "�"
+						newletter = "ø"
 					if("y")
-						newletter = "�"
+						newletter = "¡"
 					if("x")
-						newletter = "�"
+						newletter = "æ"
 					if("u")
-						newletter = "�"
+						newletter = "µ"
 		else
 			if(prob(0.2 * distortion))
 				newletter = " *crackle* "
