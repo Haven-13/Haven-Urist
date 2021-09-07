@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Fixed several cases of mangled characters showing up in text and some
+      interfaces
