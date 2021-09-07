@@ -443,7 +443,12 @@ class RegexStandardAnalyzer:
             return self.___test_content_lines(results, file, contents)
         except UnicodeDecodeError as _:
             self.invalid_encoding += 1
-            output_write(" - Non-UTF-8 encoding!: %s" % file, colour=Fore.RED)
+            output_write(" - Not encoded with %s!: %s" % (
+                    preferred_encoding,
+                    file
+                ),
+                colour=Fore.RED
+            )
             return self.___empty_match_list()
 
     def ___create_data_sets(self) -> Tuple[Dict, Dict]:
@@ -863,8 +868,9 @@ if __name__ == "__main__":
     fail_files = analyser.invalid_encoding
     if fail_files > 0:
         output_write(
-            "\nThere are %d file(s) not encoded with UTF-8, please fix those shown in \"Analysizing\" stage!" % (
-                fail_files
+            "\nThere are %d file(s) not encoded with \"%s\", please fix those shown in \"Analysizing\" stage!" % (
+                fail_files,
+                preferred_encoding
             ),
             colour=Fore.RED
         )
