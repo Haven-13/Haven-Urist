@@ -51,7 +51,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "Kar 98k"
 	icon = 'icons/urist/items/guns.dmi'
-	desc = "The standard bolt action rifle of the Wehrmacht. Chambered in 7.92�57mm."
+	desc = "The standard bolt action rifle of the Wehrmacht. Chambered in 7.92x57mm."
 	wielded_item_state = "rifle2" //maybe change this
 	icon_state = "kar98"
 	item_state = "rifle2"
@@ -350,7 +350,10 @@
 	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/grenade)
 	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
-//guns //making the different calibres for germany was stupid. I'm just going to collapse the 7.62�38mmR, 7.62�54mmR and 7.62�25mm Tokarev into just 7.62mm. They're all going to use the same projectile anyways, so fuck it
+//guns
+//making the different calibres for germany was stupid.
+// I'm just going to collapse the 7.62x38mmR, 7.62x54mmR and 7.62x25mm Tokarev into just 7.62mm.
+// They're all going to use the same projectile anyways, so fuck it
 
 /obj/item/weapon/gun/projectile/manualcycle/mosinnagant
 	item_icons = DEF_URIST_INHANDS

@@ -33,7 +33,7 @@
 //Syllable Lists
 
 /datum/language/mekanik/syllables = list(
-"hur","dëh", "ant", "wurdah ", "zik", "köhn", "ork", "bahnn", "strain", "wort", "siš", "felt", "wirt",
-"da", "fünk", "zort", "wuhr", "di", "heul", "urwah ", "glaö", "šteuhr", "wurd", "dowëri", "rin", "sün",
-"hirr", "ünt", "tlait", "wowosëhn", "ri", "wölt"
+"hur","dah", "ant", "wurdah ", "zik", "kehn", "ork", "bahnn", "strain", "wort", "sia", "felt", "wirt",
+"da", "fenk", "zort", "wuhr", "di", "heul", "urwah ", "glae", "eteuhr", "wurd", "dowuri", "rin", "sun",
+"hirr", "unt", "tlait", "wowosohn", "ri", "welt"
 )
