@@ -394,16 +394,17 @@ def collect_candidate_files(directory, extensions):
 class RegexStandardAnalyzer:
     def __init__(self) -> None:
         self.ignore_comments = False
+        self.invalid_encoding = 0
         self.line_comment_regex_expression = regex.compile(r'^\s*\/\/')
 
     def ___is_a_line_comment(self, line) -> bool:
         return self.line_comment_regex_expression.match(line)
 
-    def ___test_content_lines(self, results, key, lines):
-        matched = [None] * len(self.expressions)
-        for i in range(0, len(self.expressions)):
-            matched[i] = []
+    def ___empty_match_list(self) -> List:
+        return [[]] * len(self.expressions)
 
+    def ___test_content_lines(self, results, key, lines):
+        matched = self.___empty_match_list()
         is_comment_block = False
 
         enumeration = list()
@@ -435,10 +436,15 @@ class RegexStandardAnalyzer:
         return matched
 
     def ___test_file(self, results, file):
-        contents = []
-        with open(file, 'rt', encoding=preferred_encoding) as f:
-            contents = f.readlines()
-        return self.___test_content_lines(results, file, contents)
+        try:
+            contents = []
+            with open(file, 'rt', encoding=preferred_encoding) as f:
+                contents = f.readlines()
+            return self.___test_content_lines(results, file, contents)
+        except UnicodeDecodeError as _:
+            self.invalid_encoding += 1
+            output_write(" - Non-UTF-8 encoding!: %s" % file, colour=Fore.RED)
+            return self.___empty_match_list()
 
     def ___create_data_sets(self) -> Tuple[Dict, Dict]:
         results = list()
@@ -853,6 +859,16 @@ if __name__ == "__main__":
                 Fore.GREEN,
             to_file= False
         )
+
+    fail_files = analyser.invalid_encoding
+    if fail_files > 0:
+        output_write(
+            "\nThere are %d file(s) not encoded with UTF-8, please fix those shown in \"Analysizing\" stage!" % (
+                fail_files
+            ),
+            colour=Fore.RED
+        )
+
     output_write("\nThis script completed in %7.3f seconds"
         % (time.time() - start_time)
     )
@@ -871,4 +887,4 @@ if __name__ == "__main__":
     output_file.close()
     output_file = None
 
-    exit(failure > 0)
+    exit(failure > 0 or fail_files > 0)
