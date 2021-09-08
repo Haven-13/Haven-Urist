@@ -286,3 +286,7 @@
       & mapping initialization
   - bugfix: Fixed overmap objects whose location are known not showing up
   - bugfix: Fixed star not showing up.
+2021-09-08:
+  martinlyra:
+  - bugfix: Fixed several cases of mangled characters showing up in text and some
+      interfaces
