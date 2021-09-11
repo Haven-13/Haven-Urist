@@ -35,6 +35,8 @@
 	var/obj/screen/action_intent
 	var/obj/screen/move_intent
 
+	var/atom/movable/screen/screentip
+
 	var/obj/screen/plane_master/emissive/hud_emissive_catcher
 
 	var/list/adding
