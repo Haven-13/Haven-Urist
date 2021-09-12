@@ -1,0 +1,6 @@
+author: martinlyra
+delete-after: true
+changes:
+  - rscadd: Added potential bugs related to map UI elements
+  - refactor: Renamned typepaths for UI elements to a special atom/movable instead
+      for technical imporvements
