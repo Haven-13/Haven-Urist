@@ -572,7 +572,12 @@ its easier to just keep the beam vertical.
 		)
 			usr.hud_used.screen_tip_text.maptext = ""
 		else
-			usr.hud_used.screen_tip_text.maptext = MAPTEXT("<span class='center screen-tip'>[name]</span>")
+			var/classes = jointext(list(
+				"center",
+				"screen-tip",
+				((usr.client?.get_preference_value(/datum/client_preference/style_screen_tip) == GLOB.PREF_YES) && "stylized") || ""
+			), " ")
+			usr.hud_used.screen_tip_text.maptext = MAPTEXT("<span class='[classes]'>[name]</span>")
 
 
 /atom/proc/get_color()

@@ -25,14 +25,21 @@
 	text-align: center;
 }
 .maptext {
-	font-family: 'Small Fonts';
-	font-size: 7px;
+	font-family: san-serif;
+	font-size: 8px;
 	color: white;
-	line-height: 1.1;
+	line-height: 0.6;
 	-dm-text-outline: 1px black;
 }
 .screen-tip {
-	font-size: 16px;
+	font-size: 12px;
+	font-weight: 900;
+}
+.stylized {
+	font-family: 'Consolas', san-serif;
+}
+.clown {
+	font-family: 'Comic Sans MS', san-serif;
 }
 "}
 	return map_theme_cache
