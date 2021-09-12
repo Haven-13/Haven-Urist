@@ -387,6 +387,8 @@ def collect_candidate_files(directory, extensions):
             if is_a_match(file):
                 full_path = os.path.join(path, file)
                 full_path = os.path.normpath(full_path)
+                if os.name == "nt":
+                    full_path = full_path.replace('\\', '/')
                 candidates[len(candidates) + 1] = full_path
     return candidates
 
@@ -401,7 +403,7 @@ class RegexStandardAnalyzer:
         return self.line_comment_regex_expression.match(line)
 
     def ___empty_match_list(self) -> List:
-        return [[]] * len(self.expressions)
+        return [[] for _ in range(0, len(self.expressions))]
 
     def ___test_content_lines(self, results, key, lines):
         matched = self.___empty_match_list()

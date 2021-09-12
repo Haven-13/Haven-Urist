@@ -1,7 +1,7 @@
 /atom/movable/map_view
 	var/assigned_map
-	var/list/obj/screen/plane_master/plane_master_cache = list()
-	var/list/obj/screen/openspace_overlay/openspace_overlay_cache = list()
+	var/list/atom/movable/screen/plane_master/plane_master_cache = list()
+	var/list/atom/movable/screen/openspace_overlay/openspace_overlay_cache = list()
 
 	var/list/active_planes = list()
 	var/list/active_overlays = list()
@@ -23,10 +23,10 @@
 	active_overlays.Cut()
 
 	for(var/idx in 1 to z_depth)
-		for(var/mytype in subtypesof(/obj/screen/plane_master))
+		for(var/mytype in subtypesof(/atom/movable/screen/plane_master))
 			var/key = "[idx]-[mytype]"
 			if(!plane_master_cache.Find(key))
-				var/obj/screen/plane_master/instance = new mytype()
+				var/atom/movable/screen/plane_master/instance = new mytype()
 				instance.update_screen_plane(idx)
 				instance.screen_loc = "CENTER"
 				if(assigned_map)
@@ -39,7 +39,7 @@
 			for (var/pidx in multiz_rendering_planes())
 				var/key = "[idx]-[pidx]"
 				if(!openspace_overlay_cache.Find(key))
-					var/obj/screen/openspace_overlay/oover = new
+					var/atom/movable/screen/openspace_overlay/oover = new
 					oover.plane = calculate_plane(idx, pidx)
 					oover.alpha = min(255,z_delta*60 + 30)
 					oover.screen_loc = "CENTER"
@@ -53,12 +53,12 @@
 		return
 
 	for(var/key in active_planes)
-		var/obj/screen/plane_master/PM = active_planes[key]
+		var/atom/movable/screen/plane_master/PM = active_planes[key]
 		mymob.client.screen += PM
 		PM.backdrop(mymob)
 
 	for(var/key in active_overlays)
-		var/obj/screen/openspace_overlay/OO = active_overlays[key]
+		var/atom/movable/screen/openspace_overlay/OO = active_overlays[key]
 		mymob.client.screen += OO
 
 /atom/movable/map_view/proc/clear_all(var/mob/mymob)
@@ -66,11 +66,11 @@
 		return
 
 	for(var/key in active_planes)
-		var/obj/screen/plane_master/PM = active_planes[key]
+		var/atom/movable/screen/plane_master/PM = active_planes[key]
 		mymob.client.screen -= PM
 
 	for(var/key in active_overlays)
-		var/obj/screen/openspace_overlay/OO = active_overlays[key]
+		var/atom/movable/screen/openspace_overlay/OO = active_overlays[key]
 		mymob.client.screen -= OO
 
 /atom/movable/map_view/proc/get_active_planes()

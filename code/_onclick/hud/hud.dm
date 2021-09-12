@@ -29,21 +29,21 @@
 	var/show_intent_icons = 0
 	var/hotkey_ui_hidden = 0	//This is to hide the buttons that can be used via hotkeys. (hotkeybuttons list of buttons)
 
-	var/obj/screen/lingchemdisplay
-	var/obj/screen/r_hand_hud_object
-	var/obj/screen/l_hand_hud_object
-	var/obj/screen/action_intent
-	var/obj/screen/move_intent
+	var/atom/movable/screen/lingchemdisplay
+	var/atom/movable/screen/r_hand_hud_object
+	var/atom/movable/screen/l_hand_hud_object
+	var/atom/movable/screen/action_intent
+	var/atom/movable/screen/move_intent
 
 	var/atom/movable/screen/screentip
 
-	var/obj/screen/plane_master/emissive/hud_emissive_catcher
+	var/atom/movable/screen/plane_master/emissive/hud_emissive_catcher
 
 	var/list/adding
 	var/list/other
-	var/list/obj/screen/hotkeybuttons
+	var/list/atom/movable/screen/hotkeybuttons
 
-	var/obj/screen/movable/action_button/hide_toggle/hide_actions_toggle
+	var/atom/movable/screen/movable/action_button/hide_toggle/hide_actions_toggle
 	var/action_buttons_hidden = 0
 
 	var/previous_z_depth
@@ -79,7 +79,7 @@
 	mymob = owner
 	world_map_view = new/atom/movable/map_view()
 
-	hud_emissive_catcher = new/obj/screen/plane_master/emissive()
+	hud_emissive_catcher = new/atom/movable/screen/plane_master/emissive()
 	hud_emissive_catcher.set_plane(
 		HUD_PLANE + (EMISSIVE_PLANE - OBJ_PLANE)
 	)

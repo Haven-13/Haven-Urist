@@ -124,6 +124,10 @@
 	return 1
 
 
+/client/proc/is_local_host()
+	var/localhost_addresses = list("127.0.0.1", "::1")
+	return (isnull(address) || (address in localhost_addresses))
+
 	///////////
 	//CONNECT//
 	///////////
@@ -135,7 +139,10 @@
 	if(byond_version < MIN_CLIENT_VERSION)		//Out of date client.
 		return null
 
-	if(!config.guests_allowed && IsGuestKey(key))
+	if(\
+		!config.guests_allowed && IsGuestKey(key)\
+		&& !(config.enable_localhost_rank && is_local_host())\
+	)
 		alert(src,"This server doesn't allow guest accounts to play. Please go to http://www.byond.com/ and register for a key.","Guest","OK")
 		qdel(src)
 		return
@@ -160,10 +167,16 @@
 	GLOB.ckey_directory[ckey] = src
 
 	//Admin Authorisation
+	var/connecting_admin = FALSE
 	holder = admin_datums[ckey]
 	if(holder)
 		GLOB.admins += src
 		holder.owner = src
+
+	if(config.enable_localhost_rank && !connecting_admin)
+		if(is_local_host())
+			holder = new /datum/admins("!localhost!", R_EVERYTHING, key)
+			holder.owner = src
 
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
 	prefs = preferences_datums[ckey]
