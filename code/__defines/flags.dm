@@ -18,9 +18,10 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define ATOM_FLAG_CLIMBABLE              (1<<1) // This object can be climbed on
 #define ATOM_FLAG_NO_BLOOD               (1<<2) // Used for items if they don't want to get a blood overlay.
 #define ATOM_FLAG_NO_REACT               (1<<3) // Reagents don't react inside this container.
-#define ATOM_FLAG_OPEN_CONTAINER         (1<<4) // Is an open container for chemistry purposes.
-#define ATOM_FLAG_INITIALIZED            (1<<5) // Has this atom been initialized
-#define ATOM_FLAG_OVERLAY_QUEUED         (1<<6) // Is this atom queued in SSoverlays
+#define ATOM_FLAG_NO_SCREEN_TIP          (1<<4) // Should this atom not display an screen tip
+#define ATOM_FLAG_OPEN_CONTAINER         (1<<5) // Is an open container for chemistry purposes.
+#define ATOM_FLAG_INITIALIZED            (1<<6) // Has this atom been initialized
+#define ATOM_FLAG_OVERLAY_QUEUED         (1<<7) // Is this atom queued in SSoverlays
 
 #define MOVABLE_FLAG_PROXMOVE            (1<<0) // Does this object require proximity checking in Enter()?
 

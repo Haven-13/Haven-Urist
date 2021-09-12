@@ -561,6 +561,20 @@ its easier to just keep the beam vertical.
 	else
 		return ..()
 
+//Update the screentip to reflect what we're hoverin over
+/atom/MouseEntered(location, control, params)
+	. = ..()
+	// Screentips
+	if(usr?.hud_used)
+		if(\
+			!usr.client?.get_preference_value(/datum/client_preference/show_screen_tip) == GLOB.PREF_HIDE\
+			|| (atom_flags & ATOM_FLAG_NO_SCREEN_TIP)\
+		)
+			usr.hud_used.screen_tip_text.maptext = ""
+		else
+			usr.hud_used.screen_tip_text.maptext = MAPTEXT("<span class='center'>[name]</span>")
+
+
 /atom/proc/get_color()
 	return color
 

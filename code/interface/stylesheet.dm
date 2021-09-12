@@ -132,10 +132,27 @@ BIG IMG.icon 			{width: 32px; height: 32px;}\
 \
 </style>"
 
+/proc/byond_map_theme()
+	return {"
+	.center {
+		text-align: center;
+	}
+	.maptext {
+		font-family: 'Small Fonts';
+		font-size: 7px;
+		color: white;
+		line-height: 1.1;
+		-dm-text-outline: 1px black;
+	}
+	"}
+
 /*
  * Should be used in all unique mob/Login() procs
  */
 /proc/apply_global_theme(client/user)
+	apply_skin_theme(user, list(
+		"mapwindow.map.style=[byond_map_theme()]"
+	))
 	apply_dark_theme(user)
 
 /proc/apply_skin_theme(client/user, list/theme)

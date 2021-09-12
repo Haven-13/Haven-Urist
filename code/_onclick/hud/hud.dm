@@ -35,9 +35,7 @@
 	var/atom/movable/screen/action_intent
 	var/atom/movable/screen/move_intent
 
-	var/atom/movable/screen/screentip
-
-	var/atom/movable/screen/plane_master/emissive/hud_emissive_catcher
+	var/atom/movable/screen/screen_tip/screen_tip_text
 
 	var/list/adding
 	var/list/other
@@ -48,6 +46,7 @@
 
 	var/previous_z_depth
 	var/atom/movable/map_view/world_map_view
+	var/atom/movable/screen/plane_master/emissive/hud_emissive_catcher
 
 /datum/hud/proc/update_plane_masters()
 	if(!mymob || !mymob.client)
@@ -77,6 +76,7 @@
 
 /datum/hud/New(mob/owner)
 	mymob = owner
+	screen_tip_text = new/atom/movable/screen/screen_tip(null, src)
 	world_map_view = new/atom/movable/map_view()
 
 	hud_emissive_catcher = new/atom/movable/screen/plane_master/emissive()
@@ -98,6 +98,7 @@
 	adding = null
 	other = null
 	hotkeybuttons = null
+	QDEL_NULL(screen_tip_text)
 	QDEL_NULL(hud_emissive_catcher)
 	QDEL_NULL(world_map_view)
 	mymob = null
@@ -197,6 +198,7 @@
 
 	FinalizeInstantiation(ui_style, ui_color, ui_alpha)
 	mymob.client.screen += hud_emissive_catcher
+	mymob.client.screen += screen_tip_text
 
 /datum/hud/proc/FinalizeInstantiation(var/ui_style, var/ui_color, var/ui_alpha)
 	return
