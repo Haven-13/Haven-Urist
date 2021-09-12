@@ -16,12 +16,11 @@ var/jobban_keylist[0]		//to store the keys & ranks
 //returns a reason if M is banned from rank, returns 0 otherwise
 /proc/jobban_isbanned(mob/M, rank)
 	if(M && rank)
-		/*
-		if(_jobban_isbanned(M, rank)) return "Reason Unspecified"	//for old jobban
-		*/
-
-		if (guest_jobbans(rank))
-			if(config.guest_jobban && IsGuestKey(M.key))
+		// WHY THE FUCK CAN M BE A client OBJECT WHEN IT IS SPECIFIED AS A mob VARIABLE???
+		// GOD DO I LOVE BYOND AND SS13 SHITCODE
+		var/client/C = (isclient(M) && M) || M.client
+		if (guest_jobbans(rank) && isnull(C.holder))
+			if(config.guest_jobban && IsGuestKey(C.key))
 				return "Guest Job-ban"
 			if(config.usewhitelist && !check_whitelist(M))
 				return "Whitelisted Job"
