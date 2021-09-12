@@ -572,7 +572,7 @@ its easier to just keep the beam vertical.
 		)
 			usr.hud_used.screen_tip_text.maptext = ""
 		else
-			usr.hud_used.screen_tip_text.maptext = MAPTEXT("<span class='center'>[name]</span>")
+			usr.hud_used.screen_tip_text.maptext = MAPTEXT("<span class='center screen-tip'>[name]</span>")
 
 
 /atom/proc/get_color()
