@@ -1,0 +1,8 @@
+author: martinlyra
+delete-after: true
+changes:
+  - tweak: Localhosts now will be automatically given a total-control rank, it is
+      enabled by default in the config, but false in code
+  - tweak: Localhosts now can bypass guest-key checks as long the automatic rank is
+      enabled
+  - tweak: Admins now bypass guest and whitelist checks for jobs
