@@ -108,19 +108,19 @@
 	mymob.fire.icon = 'icons/mob/screen1_construct.dmi'
 	mymob.fire.icon_state = "fire0"
 	mymob.fire.name = "fire"
-	mymob.fire.screen_loc = ui_construct_fire
+	mymob.fire.screen_loc = UI_CONSTRUCT_FIRE
 
 	mymob.healths = new /atom/movable/screen()
 	mymob.healths.icon = 'icons/mob/screen1_construct.dmi'
 	mymob.healths.icon_state = "harvester_health0"
 	mymob.healths.name = "health"
-	mymob.healths.screen_loc = ui_construct_health
+	mymob.healths.screen_loc = UI_CONSTRUCT_HEALTH
 
 	mymob.pullin = new /atom/movable/screen()
 	mymob.pullin.icon = 'icons/mob/screen1_construct.dmi'
 	mymob.pullin.icon_state = "pull0"
 	mymob.pullin.name = "pull"
-	mymob.pullin.screen_loc = ui_construct_pull
+	mymob.pullin.screen_loc = UI_CONSTRUCT_PULL
 
 	mymob.zone_sel = new /atom/movable/screen/zone_sel()
 	mymob.zone_sel.icon = 'icons/mob/screen1_construct.dmi'

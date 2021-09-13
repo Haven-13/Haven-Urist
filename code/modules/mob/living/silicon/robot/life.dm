@@ -288,11 +288,11 @@
 			if(I && !(istype(I,/obj/item/weapon/cell) || istype(I,/obj/item/device/radio)  || istype(I,/obj/machinery/camera) || istype(I,/obj/item/device/mmi)))
 				src.client.screen += I
 	if(src.module_state_1)
-		src.module_state_1:screen_loc = ui_inv1
+		src.module_state_1:screen_loc = UI_INVENTORY_1
 	if(src.module_state_2)
-		src.module_state_2:screen_loc = ui_inv2
+		src.module_state_2:screen_loc = UI_INVENTORY_2
 	if(src.module_state_3)
-		src.module_state_3:screen_loc = ui_inv3
+		src.module_state_3:screen_loc = UI_INVENTORY_3
 	update_icon()
 
 /mob/living/silicon/robot/proc/process_killswitch()

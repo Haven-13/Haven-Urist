@@ -119,14 +119,14 @@
 /atom/movable/screen/fullscreen/noise
 	icon = 'icons/effects/static.dmi'
 	icon_state = "1 light"
-	screen_loc = ui_entire_screen
+	screen_loc = UI_ENTIRE_SCREEN
 	layer = FULLSCREEN_LAYER
 	alpha = 127
 
 /atom/movable/screen/fullscreen/fadeout
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "black"
-	screen_loc = ui_entire_screen
+	screen_loc = UI_ENTIRE_SCREEN
 	layer = FULLSCREEN_LAYER
 	alpha = 0
 	allstate = 1
@@ -138,7 +138,7 @@
 /atom/movable/screen/fullscreen/scanline
 	icon = 'icons/effects/static.dmi'
 	icon_state = "scanlines"
-	screen_loc = ui_entire_screen
+	screen_loc = UI_ENTIRE_SCREEN
 	alpha = 50
 	layer = FULLSCREEN_LAYER
 

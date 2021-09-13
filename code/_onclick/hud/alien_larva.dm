@@ -13,7 +13,7 @@
 	using.set_dir(SOUTHWEST)
 	using.icon = 'icons/mob/screen1_alien.dmi'
 	using.icon_state = mymob.move_intent.hud_icon_state
-	using.screen_loc = ui_acti
+	using.screen_loc = UI_INTENT_ACTION
 	src.adding += using
 	move_intent = using
 
@@ -21,13 +21,13 @@
 	mymob.healths.icon = 'icons/mob/screen1_alien.dmi'
 	mymob.healths.icon_state = "health0"
 	mymob.healths.SetName("health")
-	mymob.healths.screen_loc = ui_alien_health
+	mymob.healths.screen_loc = UI_METER_HEALTH_ALIEN
 
 	mymob.fire = new /atom/movable/screen()
 	mymob.fire.icon = 'icons/mob/screen1_alien.dmi'
 	mymob.fire.icon_state = "fire0"
 	mymob.fire.SetName("fire")
-	mymob.fire.screen_loc = ui_fire
+	mymob.fire.screen_loc = UI_WARNING_FIRE
 
 	mymob.client.screen = list()
 	mymob.client.screen += list( mymob.healths, mymob.fire)
