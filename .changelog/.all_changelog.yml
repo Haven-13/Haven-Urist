@@ -290,3 +290,13 @@
   martinlyra:
   - bugfix: Fixed several cases of mangled characters showing up in text and some
       interfaces
+2021-09-13:
+  martinlyra:
+  - rscadd: Added potential bugs related to map UI elements
+  - refactor: Renamned typepaths for UI elements to a special atom/movable instead
+      for technical imporvements
+  - tweak: Localhosts now will be automatically given a total-control rank, it is
+      enabled by default in the config, but false in code
+  - tweak: Localhosts now can bypass guest-key checks as long the automatic rank is
+      enabled
+  - tweak: Admins now bypass guest and whitelist checks for jobs
