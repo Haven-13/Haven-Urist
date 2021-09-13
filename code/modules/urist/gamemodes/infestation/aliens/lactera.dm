@@ -72,29 +72,29 @@
 	has_internals = 0
 
 	gear = list(
-		"o_clothing" =   list("loc" = ui_iclothing, "name" = "Suit",     	 "slot" = slot_wear_suit, "state" = "center", "toggle" = 1, "dir" = SOUTH),
-		"shoes" =  		 list("loc" = ui_shoes,     "name" = "Shoes",        "slot" = slot_shoes,"state" = "equip",  "toggle" = 1, "dir" = SOUTH),
-		"gloves" =       list("loc" = ui_gloves,    "name" = "Gloves",       "slot" = slot_gloves,    "state" = "ears",   "toggle" = 1),
-		"eyes" =         list("loc" = ui_oclothing, "name" = "Eyes",         "slot" = slot_glasses,   "state" = "eyes",   "toggle" = 1),
-		"suit storage" = list("loc" = ui_sstore1,   "name" = "Suit Storage", "slot" = slot_s_store,   "state" = "belt",   "dir" = 8),
-		"back" =         list("loc" = ui_back,      "name" = "Back",         "slot" = slot_back,      "state" = "back",   "dir" = NORTH),
-		"id" =           list("loc" = ui_id,        "name" = "ID",           "slot" = slot_wear_id,   "state" = "id",     "dir" = NORTH),
-		"storage1" =     list("loc" = ui_storage1,  "name" = "Left Pocket",  "slot" = slot_l_store,   "state" = "pocket"),
-		"storage2" =     list("loc" = ui_storage2,  "name" = "Right Pocket", "slot" = slot_r_store,   "state" = "pocket"),
-		"belt" =         list("loc" = ui_belt,      "name" = "Belt",         "slot" = slot_belt,      "state" = "belt")
+		"o_clothing" =   list("loc" = UI_INVENTORY_SLOT_UNDERSUIT, "name" = "Suit",     	 "slot" = slot_wear_suit, "state" = "center", "toggle" = 1, "dir" = SOUTH),
+		"shoes" =  		 list("loc" = UI_INVENTORY_SLOT_SHOES,     "name" = "Shoes",        "slot" = slot_shoes,"state" = "equip",  "toggle" = 1, "dir" = SOUTH),
+		"gloves" =       list("loc" = UI_INVENTORY_SLOT_GLOVES,    "name" = "Gloves",       "slot" = slot_gloves,    "state" = "ears",   "toggle" = 1),
+		"eyes" =         list("loc" = UI_INVENTORY_SLOT_OVERSUIT, "name" = "Eyes",         "slot" = slot_glasses,   "state" = "eyes",   "toggle" = 1),
+		"suit storage" = list("loc" = UI_INVENTORY_SLOT_POCKET_SUIT,   "name" = "Suit Storage", "slot" = slot_s_store,   "state" = "belt",   "dir" = 8),
+		"back" =         list("loc" = UI_INVENTORY_SLOT_BACK,      "name" = "Back",         "slot" = slot_back,      "state" = "back",   "dir" = NORTH),
+		"id" =           list("loc" = UI_INVENTORY_SLOT_CARD,        "name" = "ID",           "slot" = slot_wear_id,   "state" = "id",     "dir" = NORTH),
+		"storage1" =     list("loc" = UI_INVENTORY_SLOT_POCKET_LEFT,  "name" = "Left Pocket",  "slot" = slot_l_store,   "state" = "pocket"),
+		"storage2" =     list("loc" = UI_INVENTORY_SLOT_POCKET_RIGHT,  "name" = "Right Pocket", "slot" = slot_r_store,   "state" = "pocket"),
+		"belt" =         list("loc" = UI_INVENTORY_SLOT_BELT,      "name" = "Belt",         "slot" = slot_belt,      "state" = "belt")
 		)
 
 	gear = list(
-		"i_clothing" =   list("loc" = ui_iclothing, "name" = "Uniform",      "slot" = slot_w_uniform, "state" = "center", "toggle" = 1, "dir" = SOUTH),
-		"o_clothing" =   list("loc" = ui_shoes,     "name" = "Suit",         "slot" = slot_wear_suit, "state" = "equip",  "toggle" = 1, "dir" = SOUTH),
-		"l_ear" =        list("loc" = ui_gloves,    "name" = "Ear",          "slot" = slot_l_ear,     "state" = "ears",   "toggle" = 1),
-		"head" =         list("loc" = ui_oclothing, "name" = "Hat",          "slot" = slot_head,      "state" = "hair",   "toggle" = 1),
-		"suit storage" = list("loc" = ui_sstore1,   "name" = "Suit Storage", "slot" = slot_s_store,   "state" = "belt",   "dir" = 8),
-		"back" =         list("loc" = ui_back,      "name" = "Back",         "slot" = slot_back,      "state" = "back",   "dir" = NORTH),
-		"id" =           list("loc" = ui_id,        "name" = "ID",           "slot" = slot_wear_id,   "state" = "id",     "dir" = NORTH),
-		"storage1" =     list("loc" = ui_storage1,  "name" = "Left Pocket",  "slot" = slot_l_store,   "state" = "pocket"),
-		"storage2" =     list("loc" = ui_storage2,  "name" = "Right Pocket", "slot" = slot_r_store,   "state" = "pocket"),
-		"belt" =         list("loc" = ui_belt,      "name" = "Belt",         "slot" = slot_belt,      "state" = "belt")
+		"i_clothing" =   list("loc" = UI_INVENTORY_SLOT_UNDERSUIT, "name" = "Uniform",      "slot" = slot_w_uniform, "state" = "center", "toggle" = 1, "dir" = SOUTH),
+		"o_clothing" =   list("loc" = UI_INVENTORY_SLOT_SHOES,     "name" = "Suit",         "slot" = slot_wear_suit, "state" = "equip",  "toggle" = 1, "dir" = SOUTH),
+		"l_ear" =        list("loc" = UI_INVENTORY_SLOT_GLOVES,    "name" = "Ear",          "slot" = slot_l_ear,     "state" = "ears",   "toggle" = 1),
+		"head" =         list("loc" = UI_INVENTORY_SLOT_OVERSUIT, "name" = "Hat",          "slot" = slot_head,      "state" = "hair",   "toggle" = 1),
+		"suit storage" = list("loc" = UI_INVENTORY_SLOT_POCKET_SUIT,   "name" = "Suit Storage", "slot" = slot_s_store,   "state" = "belt",   "dir" = 8),
+		"back" =         list("loc" = UI_INVENTORY_SLOT_BACK,      "name" = "Back",         "slot" = slot_back,      "state" = "back",   "dir" = NORTH),
+		"id" =           list("loc" = UI_INVENTORY_SLOT_CARD,        "name" = "ID",           "slot" = slot_wear_id,   "state" = "id",     "dir" = NORTH),
+		"storage1" =     list("loc" = UI_INVENTORY_SLOT_POCKET_LEFT,  "name" = "Left Pocket",  "slot" = slot_l_store,   "state" = "pocket"),
+		"storage2" =     list("loc" = UI_INVENTORY_SLOT_POCKET_RIGHT,  "name" = "Right Pocket", "slot" = slot_r_store,   "state" = "pocket"),
+		"belt" =         list("loc" = UI_INVENTORY_SLOT_BELT,      "name" = "Belt",         "slot" = slot_belt,      "state" = "belt")
 		)*/
 
 /datum/species/xenos/lactera

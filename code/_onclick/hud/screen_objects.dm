@@ -100,7 +100,7 @@
 /atom/movable/screen/zone_sel
 	name = "damage zone"
 	icon_state = "zone_sel"
-	screen_loc = ui_zonesel
+	screen_loc = UI_SELECT_ZONE
 	var/selecting = BP_CHEST
 
 /atom/movable/screen/zone_sel/Click(location, control,params)
@@ -178,7 +178,7 @@
 	name = "intent"
 	icon = 'icons/mob/screen1_White.dmi'
 	icon_state = "intent_help"
-	screen_loc = ui_acti
+	screen_loc = UI_INTENT_ACTION
 	var/intent = I_HELP
 
 /atom/movable/screen/intent/Click(var/location, var/control, var/params)

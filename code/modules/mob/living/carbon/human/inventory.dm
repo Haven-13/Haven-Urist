@@ -253,12 +253,12 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if(slot_l_hand)
 			src.l_hand = W
 			W.equipped(src, slot)
-			W.screen_loc = ui_lhand
+			W.screen_loc = UI_HAND_LEFT
 			update_inv_l_hand(redraw_mob)
 		if(slot_r_hand)
 			src.r_hand = W
 			W.equipped(src, slot)
-			W.screen_loc = ui_rhand
+			W.screen_loc = UI_HAND_RIGHT
 			update_inv_r_hand(redraw_mob)
 		if(slot_belt)
 			src.belt = W

@@ -18,7 +18,7 @@ var/atom/movable/screen/robot_inventory
 	using.set_dir(SOUTHWEST)
 	using.icon = 'icons/mob/screen1_robot.dmi'
 	using.icon_state = "radio"
-	using.screen_loc = ui_movi
+	using.screen_loc = UI_INTENT_PACE
 	src.adding += using
 
 //Module select
@@ -28,7 +28,7 @@ var/atom/movable/screen/robot_inventory
 	using.set_dir(SOUTHWEST)
 	using.icon = 'icons/mob/screen1_robot.dmi'
 	using.icon_state = "inv1"
-	using.screen_loc = ui_inv1
+	using.screen_loc = UI_INVENTORY_1
 	src.adding += using
 	myrobot.inv1 = using
 
@@ -37,7 +37,7 @@ var/atom/movable/screen/robot_inventory
 	using.set_dir(SOUTHWEST)
 	using.icon = 'icons/mob/screen1_robot.dmi'
 	using.icon_state = "inv2"
-	using.screen_loc = ui_inv2
+	using.screen_loc = UI_INVENTORY_2
 	src.adding += using
 	myrobot.inv2 = using
 
@@ -46,7 +46,7 @@ var/atom/movable/screen/robot_inventory
 	using.set_dir(SOUTHWEST)
 	using.icon = 'icons/mob/screen1_robot.dmi'
 	using.icon_state = "inv3"
-	using.screen_loc = ui_inv3
+	using.screen_loc = UI_INVENTORY_3
 	src.adding += using
 	myrobot.inv3 = using
 
@@ -58,7 +58,7 @@ var/atom/movable/screen/robot_inventory
 	using.set_dir(SOUTHWEST)
 	using.icon = 'icons/mob/screen1_robot.dmi'
 	using.icon_state = mymob.a_intent
-	using.screen_loc = ui_acti
+	using.screen_loc = UI_INTENT_ACTION
 	src.adding += using
 	action_intent = using
 
@@ -67,28 +67,28 @@ var/atom/movable/screen/robot_inventory
 	myrobot.cells.icon = 'icons/mob/screen1_robot.dmi'
 	myrobot.cells.icon_state = "charge-empty"
 	myrobot.cells.SetName("cell")
-	myrobot.cells.screen_loc = ui_toxin
+	myrobot.cells.screen_loc = UI_WARNING_TOXIN
 
 //Health
 	mymob.healths = new /atom/movable/screen()
 	mymob.healths.icon = 'icons/mob/screen1_robot.dmi'
 	mymob.healths.icon_state = "health0"
 	mymob.healths.SetName("health")
-	mymob.healths.screen_loc = ui_borg_health
+	mymob.healths.screen_loc = UI_METER_HEALTH_BORG
 
 //Installed Module
 	mymob.hands = new /atom/movable/screen()
 	mymob.hands.icon = 'icons/mob/screen1_robot.dmi'
 	mymob.hands.icon_state = "nomod"
 	mymob.hands.SetName("module")
-	mymob.hands.screen_loc = ui_borg_module
+	mymob.hands.screen_loc = UI_BORG_MODULE
 
 //Module Panel
 	using = new /atom/movable/screen()
 	using.SetName("panel")
 	using.icon = 'icons/mob/screen1_robot.dmi'
 	using.icon_state = "panel"
-	using.screen_loc = ui_borg_panel
+	using.screen_loc = UI_BORG_PANEL
 	src.adding += using
 
 //Store
@@ -96,39 +96,39 @@ var/atom/movable/screen/robot_inventory
 	mymob.throw_icon.icon = 'icons/mob/screen1_robot.dmi'
 	mymob.throw_icon.icon_state = "store"
 	mymob.throw_icon.SetName("store")
-	mymob.throw_icon.screen_loc = ui_borg_store
+	mymob.throw_icon.screen_loc = UI_BORG_STORAGE
 
 //Inventory
 	robot_inventory = new /atom/movable/screen()
 	robot_inventory.SetName("inventory")
 	robot_inventory.icon = 'icons/mob/screen1_robot.dmi'
 	robot_inventory.icon_state = "inventory"
-	robot_inventory.screen_loc = ui_borg_inventory
+	robot_inventory.screen_loc = UI_BORG_INVENTORY
 
 //Temp
 	mymob.bodytemp = new /atom/movable/screen()
 	mymob.bodytemp.icon_state = "temp0"
 	mymob.bodytemp.SetName("body temperature")
-	mymob.bodytemp.screen_loc = ui_temp
+	mymob.bodytemp.screen_loc = UI_METER_BODY_TEMPERATURE
 
 
 	mymob.oxygen = new /atom/movable/screen()
 	mymob.oxygen.icon = 'icons/mob/screen1_robot.dmi'
 	mymob.oxygen.icon_state = "oxy0"
 	mymob.oxygen.SetName("oxygen")
-	mymob.oxygen.screen_loc = ui_oxygen
+	mymob.oxygen.screen_loc = UI_WARNING_OXYGEN
 
 	mymob.fire = new /atom/movable/screen()
 	mymob.fire.icon = 'icons/mob/screen1_robot.dmi'
 	mymob.fire.icon_state = "fire0"
 	mymob.fire.SetName("fire")
-	mymob.fire.screen_loc = ui_fire
+	mymob.fire.screen_loc = UI_WARNING_FIRE
 
 	mymob.pullin = new /atom/movable/screen()
 	mymob.pullin.icon = 'icons/mob/screen1_robot.dmi'
 	mymob.pullin.icon_state = "pull0"
 	mymob.pullin.SetName("pull")
-	mymob.pullin.screen_loc = ui_borg_pull
+	mymob.pullin.screen_loc = UI_BORG_PULL
 
 	mymob.zone_sel = new /atom/movable/screen/zone_sel()
 	mymob.zone_sel.icon = 'icons/mob/screen1_robot.dmi'
