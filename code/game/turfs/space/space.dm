@@ -7,6 +7,7 @@
 	dynamic_lighting = 0
 	luminosity = 1
 	temperature = T20C
+	atom_flags = ATOM_FLAG_NO_SCREEN_TIP
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
 
 /turf/space/Initialize()
