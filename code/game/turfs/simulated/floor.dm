@@ -3,6 +3,8 @@
 	icon = 'icons/turf/flooring/plating.dmi'
 	icon_state = "plating"
 
+	atom_flags = ATOM_FLAG_NO_SCREEN_TIP
+
 	// Damage to flooring.
 	var/broken
 	var/burnt
