@@ -5,6 +5,7 @@
 	density = 0
 	opacity = 1
 	luminosity = 0
+	atom_flags = ATOM_FLAG_NO_SCREEN_TIP
 	dynamic_lighting = FALSE
 
 /turf/null/New()

@@ -1,6 +1,7 @@
 /turf/unsimulated/beach
 	name = "Beach"
 	icon = 'icons/misc/beach.dmi'
+	atom_flags = ATOM_FLAG_NO_SCREEN_TIP
 
 /turf/unsimulated/beach/sand
 	name = "Sand"
