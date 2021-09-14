@@ -12,8 +12,12 @@
 	plane = HUD_PLANE
 	layer = HUD_BASE_LAYER
 	appearance_flags = NO_CLIENT_COLOR
-	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
-	var/globalscreen = FALSE //Global screens are not qdeled when the holding mob is destroyed.
+	/// A reference to the object in the slot. Grabs or items, generally.
+	var/obj/master = null
+	/// A reference to the owner HUD, if any.
+	var/datum/hud/hud = null
+	///Global screens are not qdeled when the holding mob is destroyed.
+	var/globalscreen = FALSE
 	appearance_flags = NO_CLIENT_COLOR
 
 /atom/movable/screen/update_plane()
