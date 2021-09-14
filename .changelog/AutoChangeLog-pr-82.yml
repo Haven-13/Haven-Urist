@@ -1,0 +1,9 @@
+author: martinlyra
+delete-after: true
+changes:
+  - rscadd: A popup text at top of screen will appear when howevering over an atom
+  - rscadd: Preference (in Global category) allowing players to show or hide the popup
+      text. It is turned on by default.
+  - rscadd: Preference (in Global category) controlling whether the hover-over should
+      display in either the stylic or the San Serif font.
+  - tweak: Byond interface CSS is now compiled and loaded at runtime instead of compile-time
