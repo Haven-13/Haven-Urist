@@ -300,3 +300,11 @@
   - tweak: Localhosts now can bypass guest-key checks as long the automatic rank is
       enabled
   - tweak: Admins now bypass guest and whitelist checks for jobs
+2021-09-15:
+  martinlyra:
+  - rscadd: A popup text at top of screen will appear when howevering over an atom
+  - rscadd: Preference (in Global category) allowing players to show or hide the popup
+      text. It is turned on by default.
+  - rscadd: Preference (in Global category) controlling whether the hover-over should
+      display in either the stylic or the San Serif font.
+  - tweak: Byond interface CSS is now compiled and loaded at runtime instead of compile-time
