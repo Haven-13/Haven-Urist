@@ -183,7 +183,7 @@
 		mymob.internals.icon = ui_style
 		mymob.internals.icon_state = "internal0"
 		mymob.internals.SetName("internal")
-		mymob.internals.screen_loc = UI_METER_INTERNAL
+		mymob.internals.screen_loc = UI_BUTTON_INTERNAL
 		hud_elements |= mymob.internals
 
 	/**
@@ -244,12 +244,38 @@
 		mymob.freeze.screen_loc = UI_WARNING_FREEZE
 		hud_elements |= mymob.freeze
 
+		using = new /atom/movable/screen()
+		using.dir = SOUTH
+		using.icon = ui_style
+		using.icon_state = "vitals_top"
+		using.screen_loc = UI_METER_HEART
+		using.layer = UNDER_HUD_LAYER
+		adding += using
+
 		mymob.healths = new /atom/movable/screen()
 		mymob.healths.icon = ui_style
 		mymob.healths.icon_state = "health0"
 		mymob.healths.SetName("health")
 		mymob.healths.screen_loc = UI_METER_HEALTH
+		mymob.healths.pixel_y = 4
 		hud_elements |= mymob.healths
+
+		using = new /atom/movable/screen()
+		using.dir = SOUTH
+		using.icon = ui_style
+		using.icon_state = "vitals_mid"
+		using.screen_loc = UI_METER_HEALTH
+		using.layer = UNDER_HUD_LAYER
+		adding += using
+
+
+		using = new /atom/movable/screen()
+		using.dir = SOUTH
+		using.icon = ui_style
+		using.icon_state = "vitals_bottom"
+		using.screen_loc = UI_METER_VITALS
+		using.layer = UNDER_HUD_LAYER
+		adding += using
 
 	if(hud_data.has_pressure)
 		using = new /atom/movable/screen()

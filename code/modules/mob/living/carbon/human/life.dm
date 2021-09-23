@@ -733,8 +733,6 @@
 							health_images += image('icons/mob/screen1_health.dmi',"softcrit")
 						if(trauma_val >= 1)
 							health_images += image('icons/mob/screen1_health.dmi',"hardcrit")
-				else if(no_damage)
-					health_images += image('icons/mob/screen1_health.dmi',"fullhealth")
 
 				healths.overlays += health_images
 

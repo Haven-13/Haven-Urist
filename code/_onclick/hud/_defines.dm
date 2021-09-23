@@ -38,13 +38,15 @@
 #define UI_CONSTRUCT_FIRE "EAST-1:16,CENTER+1:13" //above health, slightly to the left
 #define UI_CONSTRUCT_PULL "EAST-1:28,SOUTH+1:10" //above the zone_sel icon
 
-//Lower right, persistant menu
+//Lower right, persistent menu
 #define UI_BUTTON_DROP "WEST-1,CENTER-4"
 #define UI_BUTTON_THROW "WEST-1,CENTER-4"
 #define UI_BUTTON_RESIST "WEST-2,CENTER-4"
 #define UI_INTENT_ACTION "WEST-2,CENTER-3"
 #define UI_INTENT_PACE "WEST-3,CENTER-3"
 #define UI_SELECT_ZONE "WEST-1,CENTER-3"
+
+#define UI_BUTTON_INTERNAL "WEST-2,CENTER-5"
 
 #define UI_BORG_PULL "EAST-3:24,SOUTH+1:7"
 #define UI_BORG_MODULE "EAST-2:26,SOUTH+1:7"
@@ -63,11 +65,12 @@
 #define UI_WARNING_FREEZE "EAST+1,NORTH-4"
 
 //Middle right (status indicators)
-#define UI_METER_INTERNAL "EAST+1,NORTH"
 #define UI_METER_PRESSURE "EAST+1,CENTER+2"
 #define UI_METER_BODY_TEMPERATURE "EAST+1,CENTER+1"
-#define UI_METER_HEALTH "EAST+1,CENTER"
-#define UI_METER_NUTRITION "EAST+1,CENTER-2"
+#define UI_METER_HEART "EAST+1,CENTER"
+#define UI_METER_HEALTH "EAST+1,CENTER-1"
+#define UI_METER_VITALS "EAST+1,CENTER-2"
+#define UI_METER_NUTRITION "EAST+1,CENTER-3"
 
 //borgs have the health display where humans have the pressure damage indicator.
 #define UI_METER_HEALTH_BORG "EAST-1:28,CENTER-1:13"
