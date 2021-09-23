@@ -36,6 +36,7 @@
 	var/co2_alert = 0
 	var/fire_alert = 0
 	var/pressure_alert = 0
+	var/pressure_felt = 0
 	var/temperature_alert = 0
 	var/heartbeat = 0
 
@@ -309,6 +310,7 @@
 	//Moved pressure calculations here for use in skip-processing check.
 	var/pressure = environment.return_pressure()
 	var/adjusted_pressure = calculate_affecting_pressure(pressure)
+	pressure_felt = adjusted_pressure
 
 	//Check for contaminants before anything else because we don't want to skip it.
 	for(var/g in environment.gas)
@@ -330,7 +332,14 @@
 	if(relative_density > 0.02) //don't bother if we are in vacuum or near-vacuum
 		var/loc_temp = environment.temperature
 
-		if(adjusted_pressure < species.warning_high_pressure && adjusted_pressure > species.warning_low_pressure && abs(loc_temp - bodytemperature) < 20 && bodytemperature < species.heat_level_1 && bodytemperature > species.cold_level_1 && species.body_temperature)
+		if(\
+			adjusted_pressure < species.warning_high_pressure\
+			&& adjusted_pressure > species.warning_low_pressure\
+			&& abs(loc_temp - bodytemperature) < 20\
+			&& bodytemperature < species.heat_level_1\
+			&& bodytemperature > species.cold_level_1\
+			&& species.body_temperature\
+		)
 			pressure_alert = 0
 			return // Temperatures are within normal ranges, fuck all this processing. ~Ccomp
 
@@ -746,29 +755,52 @@
 				cells.icon_state = "charge-empty"
 
 		if(pressure)
-			pressure.icon_state = "pressure[pressure_alert]"
+			var/lower_p = species && species.warning_low_pressure
+			var/upper_p = species && species.warning_high_pressure
+			var/mid_point = (upper_p - lower_p)/2
+			var/result = sqrt(pressure_felt/mid_point)/2
+			var/angle = between(-125, 270 * result - 135, 125)
+
+			var/matrix/M = new/matrix()
+			M.Turn(angle)
+			pressure.transform = M
+
+			pressure_lamp.icon_state = "cover_alert_[abs(pressure_alert)]"
+
 		if(toxin)
-			if(phoron_alert)	toxin.icon_state = "tox1"
+			if(phoron_alert)						toxin.icon_state = "tox1"
 			else									toxin.icon_state = "tox0"
 		if(oxygen)
-			if(oxygen_alert)	oxygen.icon_state = "oxy1"
+			if(oxygen_alert)						oxygen.icon_state = "oxy1"
 			else									oxygen.icon_state = "oxy0"
 		if(fire)
-			if(fire_alert)							fire.icon_state = "fire[fire_alert]" //fire_alert is either 0 if no alert, 1 for cold and 2 for heat.
+			if(fire_alert)							fire.icon_state = "fire1" //fire_alert is either 0 if no alert, 1 for cold and 2 for heat.
 			else									fire.icon_state = "fire0"
 
 		if(bodytemp)
+			var/lower_temp = (species && getSpeciesOrSynthTemp(COLD_LEVEL_1)) || 320
+			var/upper_temp = (species && getSpeciesOrSynthTemp(HEAT_LEVEL_1)) || 295
+			var/temp_range = upper_temp - lower_temp
+			var/ratio = (bodytemperature - lower_temp)/temp_range
+			var/angle = between(-125, 90 * ratio - 45, 125)
+
+			var/matrix/M = new/matrix()
+			M.Turn(angle)
+			bodytemp.transform = M
+
+			// This is original code with `bodytemp` replaced by `bodytemp_lamp` and most of the
+			// icon states with 3 different icon-states instead of 9 icon-states
 			if (!species)
 				switch(bodytemperature) //310.055 optimal body temp
-					if(370 to INFINITY)		bodytemp.icon_state = "temp4"
-					if(350 to 370)			bodytemp.icon_state = "temp3"
-					if(335 to 350)			bodytemp.icon_state = "temp2"
-					if(320 to 335)			bodytemp.icon_state = "temp1"
-					if(300 to 320)			bodytemp.icon_state = "temp0"
-					if(295 to 300)			bodytemp.icon_state = "temp-1"
-					if(280 to 295)			bodytemp.icon_state = "temp-2"
-					if(260 to 280)			bodytemp.icon_state = "temp-3"
-					else					bodytemp.icon_state = "temp-4"
+					if(370 to INFINITY)		bodytemp_lamp.icon_state = "cover_alert_2"
+					if(350 to 370)			bodytemp_lamp.icon_state = "cover_alert_2"
+					if(335 to 350)			bodytemp_lamp.icon_state = "cover_alert_1"
+					if(320 to 335)			bodytemp_lamp.icon_state = "cover_alert_0"
+					if(300 to 320)			bodytemp_lamp.icon_state = "cover_alert_0"
+					if(295 to 300)			bodytemp_lamp.icon_state = "cover_alert_0"
+					if(280 to 295)			bodytemp_lamp.icon_state = "cover_alert_1"
+					if(260 to 280)			bodytemp_lamp.icon_state = "cover_alert_2"
+					else					bodytemp_lamp.icon_state = "cover_alert_2"
 			else
 				//TODO: precalculate all of this stuff when the species datum is created
 				var/base_temperature = species.body_temperature
@@ -780,29 +812,29 @@
 					temp_step = (getSpeciesOrSynthTemp(HEAT_LEVEL_1) - base_temperature)/4
 
 					if (bodytemperature >= getSpeciesOrSynthTemp(HEAT_LEVEL_1))
-						bodytemp.icon_state = "temp4"
+						bodytemp_lamp.icon_state = "cover_alert_2"
 					else if (bodytemperature >= base_temperature + temp_step*3)
-						bodytemp.icon_state = "temp3"
+						bodytemp_lamp.icon_state = "cover_alert_2"
 					else if (bodytemperature >= base_temperature + temp_step*2)
-						bodytemp.icon_state = "temp2"
+						bodytemp_lamp.icon_state = "cover_alert_1"
 					else if (bodytemperature >= base_temperature + temp_step*1)
-						bodytemp.icon_state = "temp1"
+						bodytemp_lamp.icon_state = "cover_alert_0"
 					else
-						bodytemp.icon_state = "temp0"
+						bodytemp_lamp.icon_state = "cover_alert_0"
 
 				else if (bodytemperature < base_temperature)
 					temp_step = (base_temperature - getSpeciesOrSynthTemp(COLD_LEVEL_1))/4
 
 					if (bodytemperature <= getSpeciesOrSynthTemp(COLD_LEVEL_1))
-						bodytemp.icon_state = "temp-4"
+						bodytemp_lamp.icon_state = "cover_alert_2"
 					else if (bodytemperature <= base_temperature - temp_step*3)
-						bodytemp.icon_state = "temp-3"
+						bodytemp_lamp.icon_state = "cover_alert_2"
 					else if (bodytemperature <= base_temperature - temp_step*2)
-						bodytemp.icon_state = "temp-2"
+						bodytemp_lamp.icon_state = "cover_alert_1"
 					else if (bodytemperature <= base_temperature - temp_step*1)
-						bodytemp.icon_state = "temp-1"
+						bodytemp_lamp.icon_state = "cover_alert_0"
 					else
-						bodytemp.icon_state = "temp0"
+						bodytemp_lamp.icon_state = "cover_alert_0"
 	return 1
 
 /mob/living/carbon/human/handle_random_events()

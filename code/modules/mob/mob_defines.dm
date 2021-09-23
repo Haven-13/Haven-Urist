@@ -44,11 +44,14 @@
 	var/atom/movable/screen/m_select = null
 	var/atom/movable/screen/toxin = null
 	var/atom/movable/screen/fire = null
+	var/atom/movable/screen/freeze = null
 	var/atom/movable/screen/bodytemp = null
+	var/atom/movable/screen/bodytemp_lamp = null
 	var/atom/movable/screen/healths = null
 	var/atom/movable/screen/throw_icon = null
 	var/atom/movable/screen/nutrition_icon = null
 	var/atom/movable/screen/pressure = null
+	var/atom/movable/screen/pressure_lamp = null
 	var/atom/movable/screen/pain = null
 	var/atom/movable/screen/gun/item/item_use_icon = null
 	var/atom/movable/screen/gun/radio/radio_use_icon = null
