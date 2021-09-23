@@ -262,7 +262,7 @@
 
 		mymob.pressure = new /atom/movable/screen()
 		mymob.pressure.icon = ui_style
-		mymob.pressure.icon_state = "gauge_indictator"
+		mymob.pressure.icon_state = "gauge_indicator"
 		mymob.pressure.SetName("Pressure")
 		mymob.pressure.screen_loc = UI_METER_PRESSURE
 		hud_elements |= mymob.pressure
@@ -293,7 +293,7 @@
 
 		mymob.bodytemp = new /atom/movable/screen()
 		mymob.bodytemp.icon = ui_style
-		mymob.bodytemp.icon_state = "gauge_indictator"
+		mymob.bodytemp.icon_state = "gauge_indicator"
 		mymob.bodytemp.SetName("Body Temperature")
 		mymob.bodytemp.screen_loc = UI_METER_BODY_TEMPERATURE
 		hud_elements |= mymob.bodytemp
