@@ -3,7 +3,7 @@
 
 	available_cultural_info = list(
 		TAG_CULTURE = list(
-			CULTURE_POSITRONICS,
+			CULTURE_SYNTHMORPHS,
 			CULTURE_OTHER_AH13
 		),
 		TAG_HOMEWORLD = list(
@@ -36,7 +36,7 @@
 	)
 
 	default_cultural_info = list(
-		TAG_CULTURE = CULTURE_POSITRONICS,
+		TAG_CULTURE = CULTURE_SYNTHMORPHS,
 		TAG_HOMEWORLD = HOME_SYSTEM_OTHER,
 		TAG_FACTION = FACTION_OTHER
 	)
