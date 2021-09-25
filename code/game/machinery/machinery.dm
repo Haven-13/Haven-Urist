@@ -223,7 +223,7 @@
 	..()
 	if(!CanInteract(usr))
 		return TRUE
-	if(!usr.CanUseTopic(src))
+	if(!src.CanUseTopic(usr))
 		return TRUE
 	add_fingerprint(usr)
 	return FALSE
