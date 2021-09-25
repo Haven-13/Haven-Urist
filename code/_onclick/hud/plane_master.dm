@@ -26,7 +26,7 @@
 
 //Why do plane masters need a backdrop sometimes? Read https://secure.byond.com/forum/?post=2141928
 //Trust me, you need one. Period. If you don't think you do, you're doing something extremely wrong.
-/atom/movable/screen/plane_master/proc/backdrop(mob/mymob)
+/atom/movable/screen/plane_master/proc/backdrop(client/C)
 
 /*
  *  I hate myself, I hate Baycode, I hate Byond

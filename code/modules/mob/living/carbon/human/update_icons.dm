@@ -154,6 +154,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	cut_overlays()
 
 	var/list/overlays_to_apply = list()
+	var/image/I
 	if (icon_update)
 
 		var/list/visible_overlays
@@ -179,8 +180,9 @@ Please contact me on #coderbus IRC. ~Carn x
 				overlays_to_apply += overlay
 			else if(istype(entry, /atom/movable/emissive_blocker))
 				var/atom/movable/emissive_blocker/blocker = entry
-				var/image/I = image(blocker)
+				I = image(blocker)
 				I.plane = get_float_plane(EMISSIVE_PLANE)
+				I.layer = src.layer
 				overlays_to_apply += I
 			else if(istype(entry, /list))
 				for(var/image/overlay in entry)
@@ -190,7 +192,7 @@ Please contact me on #coderbus IRC. ~Carn x
 
 		var/obj/item/organ/external/head/head = organs_by_name[BP_HEAD]
 		if(istype(head) && !head.is_stump())
-			var/image/I = head.get_eye_overlay()
+			I = head.get_eye_overlay()
 			if(I) overlays_to_apply += I
 
 	if(auras)

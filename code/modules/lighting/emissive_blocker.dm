@@ -17,12 +17,12 @@
 	//Since only render_target handles transform we don't get any applied transform "stacking"
 	appearance_flags = RESET_TRANSFORM
 
-/atom/movable/emissive_blocker/Initialize(mapload, source)
+/atom/movable/emissive_blocker/Initialize(mapload, atom/source)
 	. = ..()
 	verbs.Cut() //Cargo culting from lighting object, this maybe affects memory usage?
 	render_source = source
 	color = GLOB.em_block_color
-	plane = get_float_plane(original_plane)
+	plane = loc.get_float_plane(original_plane)
 
 /atom/movable/emissive_blocker/update_plane()
 	return
