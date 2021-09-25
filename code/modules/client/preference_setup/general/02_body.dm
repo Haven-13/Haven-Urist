@@ -47,8 +47,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	)
 	var/background_state = "Void"
 
-	var/preview_buffer = 0
-
 /datum/category_item/player_setup_item/physical/body
 	name = "Body"
 	sort_order = 2

@@ -22,7 +22,7 @@
 	verbs.Cut() //Cargo culting from lighting object, this maybe affects memory usage?
 	render_source = source
 	color = GLOB.em_block_color
-	plane = source.get_float_plane(original_plane)
+	plane = loc.get_float_plane(original_plane)
 
 /atom/movable/emissive_blocker/update_plane()
 	return

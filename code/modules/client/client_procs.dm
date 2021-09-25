@@ -417,9 +417,7 @@ client/verb/character_setup()
 		screen |= O
 		O.appearance = MA
 		O.dir = D
-		// the atom/movable/screen defaults to a FLOAT_PLANE for unknown reasons
-		// so this function below is necessary
-		O.set_plane(MOB_PLANE)
+		O.set_plane(HUMAN_PLANE)
 		O.screen_loc = "character_preview_map:1,[pos]"
 
 /client/proc/clear_character_previews()

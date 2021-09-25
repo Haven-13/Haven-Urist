@@ -21,9 +21,6 @@ var/list/preferences_datums = list()
 	var/tgui_fancy = TRUE
 	var/tgui_lock = FALSE
 
-	//Mob preview
-	var/icon/preview_icon = null
-
 	var/client/client = null
 	var/client_ckey = null
 
@@ -32,6 +29,7 @@ var/list/preferences_datums = list()
 	var/datum/category_collection/player_setup_collection/player_setup
 	var/datum/browser/panel
 
+	//Mob preview
 	var/atom/movable/map_view/preview_view = null
 	var/atom/movable/screen/preview_background = null
 
