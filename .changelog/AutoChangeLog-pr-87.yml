@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Fixed a runtime preventing the old HTML UIs from responding properly to
+      input
