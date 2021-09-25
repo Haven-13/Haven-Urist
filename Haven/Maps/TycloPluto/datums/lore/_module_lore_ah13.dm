@@ -15,7 +15,7 @@
 	Either way, this is how the sytem works:
 
 	1. Define name macros with human-readable string values
-	2. Use the macros inside /decl/culture_info declarations and definitions
+	2. Use the macros inside /decl/cultural_info declarations and definitions
 	3. Put them inside species datums' available_cultural_info list of associated
 		lists with corresponding tags;
 		- Cultures                   -> TAG_CULTURE
@@ -39,6 +39,7 @@
 // Define culture
 #include "cultures/cultures_common.dm"
 #include "cultures/cultures_human.dm"
+#include "cultures/cultures_machine.dm"
 #include "cultures/cultures_skrell.dm"
 #include "cultures/cultures_teshari.dm"
 #include "cultures/cultures_unathi.dm"
