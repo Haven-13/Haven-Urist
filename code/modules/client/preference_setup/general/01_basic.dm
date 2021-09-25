@@ -93,7 +93,7 @@
 		var/new_age = input(user, "Choose your character's age:\n([S.min_age]-[S.max_age])", CHARACTER_PREFERENCE_INPUT_TITLE, pref.age) as num|null
 		if(new_age && CanUseTopic(user))
 			pref.age = max(min(round(text2num(new_age)), S.max_age), S.min_age)
-			return TRUE
+			return UPDATE_PREVIEW
 
 	else if(href_list["spawnpoint"])
 		var/list/spawnkeys = list()

@@ -9,6 +9,9 @@
 	GLOB.human_mob_list -= src
 	delete_inventory()
 
+/mob/living/carbon/human/dummy/mannequin/update_plane()
+	return FALSE
+
 /mob/living/carbon/human/dummy/mannequin/add_to_living_mob_list()
 	return FALSE
 

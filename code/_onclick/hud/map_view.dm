@@ -49,29 +49,35 @@
 				active_overlays[key] += openspace_overlay_cache[key]
 
 /atom/movable/map_view/proc/add_all_active(var/mob/mymob)
-	if(!mymob.client)
+	. = client_add_all_active(mymob.client)
+
+/atom/movable/map_view/proc/client_add_all_active(client/C)
+	if(!C)
 		return
 
 	for(var/key in active_planes)
 		var/atom/movable/screen/plane_master/PM = active_planes[key]
-		mymob.client.screen += PM
-		PM.backdrop(mymob)
+		C.screen |= PM
+		PM.backdrop(C)
 
 	for(var/key in active_overlays)
 		var/atom/movable/screen/openspace_overlay/OO = active_overlays[key]
-		mymob.client.screen += OO
+		C.screen |= OO
 
 /atom/movable/map_view/proc/clear_all(var/mob/mymob)
-	if(!mymob.client)
+	. = client_clear_all(mymob.client)
+
+/atom/movable/map_view/proc/client_clear_all(client/C)
+	if(!C)
 		return
 
 	for(var/key in active_planes)
 		var/atom/movable/screen/plane_master/PM = active_planes[key]
-		mymob.client.screen -= PM
+		C.screen -= PM
 
 	for(var/key in active_overlays)
 		var/atom/movable/screen/openspace_overlay/OO = active_overlays[key]
-		mymob.client.screen -= OO
+		C.screen -= OO
 
 /atom/movable/map_view/proc/get_active_planes()
 	return active_planes
