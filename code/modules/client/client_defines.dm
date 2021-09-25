@@ -56,3 +56,6 @@
 	var/connection_realtime
 	///world.timeofday they connected
 	var/connection_timeofday
+
+	///Should only be a key-value list of north/south/east/west = atom/movable/screen.
+	var/list/char_render_holders

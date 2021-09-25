@@ -32,6 +32,9 @@ var/list/preferences_datums = list()
 	var/datum/category_collection/player_setup_collection/player_setup
 	var/datum/browser/panel
 
+	var/atom/movable/map_view/preview_view = null
+	var/atom/movable/screen/preview_background = null
+
 /datum/preferences/New(client/C)
 	player_setup = new(src)
 	gender = pick(MALE, FEMALE)
@@ -46,6 +49,14 @@ var/list/preferences_datums = list()
 			load_preferences()
 			load_and_update_character()
 
+		preview_view = new()
+		preview_view.assigned_map = "character_preview_map"
+		preview_view.update_map_view(1)
+
+		preview_background = new()
+		preview_background.set_plane(TURF_PLANE)
+		preview_background.screen_loc = "character_preview_map:1,1 to 1,4"
+
 /datum/preferences/proc/load_and_update_character(var/slot)
 	load_character(slot)
 	if(update_setup(loaded_preferences, loaded_character))
@@ -54,6 +65,8 @@ var/list/preferences_datums = list()
 
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user || !user.client)	return
+
+	update_preview_icon()
 
 	if(!get_mob_by_key(client_ckey))
 		to_chat(user, "<span class='danger'>No mob exists for the given client!</span>")

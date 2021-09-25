@@ -179,9 +179,7 @@ Please contact me on #coderbus IRC. ~Carn x
 				overlays_to_apply += overlay
 			else if(istype(entry, /atom/movable/emissive_blocker))
 				var/atom/movable/emissive_blocker/blocker = entry
-				var/image/I = image(blocker)
-				I.plane = get_float_plane(EMISSIVE_PLANE)
-				overlays_to_apply += I
+				overlays_to_apply += entry
 			else if(istype(entry, /list))
 				for(var/image/overlay in entry)
 					if(i != HUMAN_OVERLAYS_DAMAGE_INDEX)
