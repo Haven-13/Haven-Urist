@@ -60,7 +60,7 @@ var/list/preferences_datums = list()
 		close_load_dialog(user)
 		return
 
-	var/dat = "<html><body><center>"
+	var/list/dat = list("<html><body><center>")
 
 	if(path)
 		dat += "Slot - "
@@ -78,9 +78,12 @@ var/list/preferences_datums = list()
 	dat += player_setup.content(user)
 
 	dat += "</html></body>"
-	var/datum/browser/popup = new(user, "Character Setup","Character Setup", 1200, 800, src)
-	popup.set_content(dat)
-	popup.open()
+
+	winshow(user, "preferences_window", TRUE)
+	var/datum/browser/popup = new(user, "preferences_browser", "<div align='center'>Character Setup</div>", 640, 825)
+	popup.set_content(dat.Join())
+	popup.open(FALSE)
+	onclose(user, "preferences_window", src)
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
 
