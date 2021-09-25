@@ -12,6 +12,8 @@
 #define CULTURE_SOLARIAN      "Solarian"
 #define CULTURE_OLD_EARTHER   "Old Earther"
 
+#define CULTURE_SYNTHMORPHS   "Synthmorphs"
+
 #define CULTURE_MOGHES        "Old Moghei"
 #define CULTURE_POST_MOGHES   "Post-Moghei"
 #define CULTURE_NAGNECAN      "Nagnecan"
