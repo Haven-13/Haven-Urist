@@ -308,3 +308,19 @@
   - rscadd: Preference (in Global category) controlling whether the hover-over should
       display in either the stylic or the San Serif font.
   - tweak: Byond interface CSS is now compiled and loaded at runtime instead of compile-time
+2021-09-26:
+  martinlyra:
+  - tweak: The preview is now tgstation-based instead of using a static image. Using
+      a map for easy, clean, and reliable updating.
+  - tweak: There are now three different backgrounds to select for the preview instead
+      of four.
+  - bugfix: The shadow-people have been sent back to the shadow realm from the character
+      creator preview.
+  - bugfix: As of the above tweak, the delay that causes a discrepancy between client
+      and server has been removed.
+  - bugfix: Fixed a runtime preventing the old HTML UIs from responding properly to
+      input
+  - rscadd: Added the Synthmorph culture, the default culture for the Machine/IPC
+      species on the Pluto map
+  retlaw34:
+  - imageadd: Redoes the fuel port and oxygen wall locker
