@@ -1,15 +1,14 @@
 import { useBackend } from 'tgui/backend';
-import { Box, Button, LabeledList, NoticeBox, ProgressBar, Section } from 'tgui/components';
+import { Box, Button, Flex, LabeledList, NoticeBox, ProgressBar, Section } from 'tgui/components';
+import { formatSiUnit } from 'tgui/format';
 import { Window } from 'tgui/layouts';
 
 export const PortableGenerator = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    stack_percent,
-  } = data;
+  const stackPercent = data.fuel_stored / data.fuel_capacity * 100;
   const stackPercentState = (
-    stack_percent > 50 && 'good'
-    || stack_percent > 15 && 'average'
+    stackPercent > 50 && 'good'
+    || stackPercent > 15 && 'average'
     || 'bad'
   );
   return (
@@ -31,9 +30,9 @@ export const PortableGenerator = (props, context) => {
                 {data.active ? 'On' : 'Off'}
               </Button>
             </LabeledList.Item>
-            <LabeledList.Item label={data.sheet_name + ' sheets'}>
-              <Box inline color={stackPercentState}>{data.sheets}</Box>
-              {data.sheets >= 1 && (
+            <LabeledList.Item label={data.fuel_type + ' fuel'}>
+              <Box inline color={stackPercentState}>{data.fuel_sheets}</Box>
+              {data.fuel_sheets >= 1 && (
                 <Button
                   ml={1}
                   icon="eject"
@@ -43,9 +42,9 @@ export const PortableGenerator = (props, context) => {
                 </Button>
               )}
             </LabeledList.Item>
-            <LabeledList.Item label="Current sheet level">
+            <LabeledList.Item label="Current fuel level">
               <ProgressBar
-                value={data.stack_percent / 100}
+                value={stackPercent / 100}
                 ranges={{
                   good: [0.1, Infinity],
                   average: [0.01, 0.1],
@@ -53,38 +52,50 @@ export const PortableGenerator = (props, context) => {
                 }} />
             </LabeledList.Item>
             <LabeledList.Item label="Heat level">
-              {data.current_heat < 100 ? (
-                <Box inline color="good">Nominal</Box>
-              ) : (
-                data.current_heat < 200 ? (
-                  <Box inline color="average">Caution</Box>
-                ) : (
-                  <Box inline color="bad">DANGER</Box>
-                )
-              )}
+              <ProgressBar
+                value={data.temperature_current / data.temperature_max}
+                ranges={{
+                  good: [-Infinity, 0.6],
+                  average: [0.6, 0.8],
+                  bad: [0.8, Infinity]
+                }}
+              />
             </LabeledList.Item>
           </LabeledList>
         </Section>
         <Section title="Output">
           <LabeledList>
-            <LabeledList.Item label="Current output">
-              {data.power_output}
-            </LabeledList.Item>
-            <LabeledList.Item label="Adjust output">
-              <Button
-                icon="minus"
-                onClick={() => act('lower_power')}>
-                {data.power_generated}
-              </Button>
-              <Button
-                icon="plus"
-                onClick={() => act('higher_power')}>
-                {data.power_generated}
-              </Button>
+            <LabeledList.Item label="Power setting">
+              <Flex>
+                <Flex.Item>
+                  <Button
+                    icon="minus"
+                    onClick={() => act('lower_power')}
+                  />
+                </Flex.Item>
+                <Flex.Item grow>
+                  <ProgressBar
+                    value={data.output_set}
+                    maxValue={data.output_max}
+                    ranges={{
+                      default: [-Infinity, data.output_safe],
+                      average: [data.output_safe, Infinity]
+                    }}
+                  >
+                    {data.output_set} / {data.output_max}
+                  </ProgressBar>
+                </Flex.Item>
+                <Flex.Item>
+                  <Button
+                    icon="plus"
+                    onClick={() => act('higher_power')}
+                  />
+                </Flex.Item>
+              </Flex>
             </LabeledList.Item>
             <LabeledList.Item label="Power available">
               <Box inline color={!data.connected && 'bad'}>
-                {data.connected ? data.power_available : "Unconnected"}
+                {data.connected ? formatSiUnit(data.output_watts, 1, 'W') : "Unconnected"}
               </Box>
             </LabeledList.Item>
           </LabeledList>
