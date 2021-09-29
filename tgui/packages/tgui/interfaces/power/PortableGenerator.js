@@ -57,7 +57,7 @@ export const PortableGenerator = (props, context) => {
                 ranges={{
                   good: [-Infinity, 0.6],
                   average: [0.6, 0.8],
-                  bad: [0.8, Infinity]
+                  bad: [0.8, Infinity],
                 }}
               />
             </LabeledList.Item>
@@ -79,7 +79,7 @@ export const PortableGenerator = (props, context) => {
                     maxValue={data.output_max}
                     ranges={{
                       default: [-Infinity, data.output_safe],
-                      average: [data.output_safe, Infinity]
+                      average: [data.output_safe, Infinity],
                     }}
                   >
                     {data.output_set} / {data.output_max}
