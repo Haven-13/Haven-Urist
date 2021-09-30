@@ -47,8 +47,6 @@ const NukeKeypad = (props, context) => {
 export const NuclearBomb = (props, context) => {
   const { act, data } = useBackend(context);
   const {
-    anchored,
-    disk_present,
     status1,
     status2,
   } = data;
@@ -100,15 +98,17 @@ export const NuclearBomb = (props, context) => {
                   mb="6px"
                   className="NuclearBomb__Button NuclearBomb__Button--C"
                   onClick={() => act('arm')} />
-                <Button
-                  fluid
-                  bold
-                  content="ANCHOR"
-                  textAlign="center"
-                  fontSize="28px"
-                  lineHeight={1.1}
-                  className="NuclearBomb__Button NuclearBomb__Button--E"
-                  onClick={() => act('anchor')} />
+                {!!!data.immobile && (
+                  <Button
+                    fluid
+                    bold
+                    content="ANCHOR"
+                    textAlign="center"
+                    fontSize="28px"
+                    lineHeight={1.1}
+                    className="NuclearBomb__Button NuclearBomb__Button--E"
+                    onClick={() => act('anchor')} />
+                )}
                 <Box
                   textAlign="center"
                   color="#9C9987"
