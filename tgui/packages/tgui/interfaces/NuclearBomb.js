@@ -98,7 +98,7 @@ export const NuclearBomb = (props, context) => {
                   mb="6px"
                   className="NuclearBomb__Button NuclearBomb__Button--C"
                   onClick={() => act('arm')} />
-                {!!!data.immobile && (
+                {!data.immobile && (
                   <Button
                     fluid
                     bold
