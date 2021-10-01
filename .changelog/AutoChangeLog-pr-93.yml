@@ -1,0 +1,4 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Fixed runtimes caused by improper garbage collection of unused map-views.
