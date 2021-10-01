@@ -7,7 +7,8 @@
 #define QDEL_LIST_ASSOC_VAL(L) if(L) { for(var/I in L) qdel(L[I]); L.Cut(); }
 
 #define QDEL_NULL_LIST(x) if(x) { for(var/y in x) { qdel(y) } ; x = null }
-#define QDEL_NULL_ASSOC_LIST(x) if(x) { for(var/y in x) { qdel(x[y]); x[y] = null; qdel(y) } ; x = null }
+#define QDEL_NULL_ASSOC_LIST(x) if(x) { for(var/y in x) { qdel(x[y]); x[y] = null; qdel(y);} ; x = null }
+#define QDEL_NULL_ASSOC_VAL_LIST(x) if(x) { for(var/y in x) { qdel(x[y]); x[y] = null;} ; x = null }
 
 //the underscores are to encourage people not to use this directly.
 /proc/______qdel_list_wrapper(list/L)
