@@ -319,11 +319,13 @@
 /obj/machinery/power/port_gen/pacman/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "PacmanGenerator")
+		ui = new(user, src, "power/PortableGenerator", name)
 		ui.open()
 
 /obj/machinery/power/port_gen/pacman/ui_data(mob/user)
 	var/data[0]
+	data["anchored"] = anchored
+	data["ready_to_boot"] = anchored && HasFuel() && !IsBroken()
 	data["active"] = active
 	if(istype(user, /mob/living/silicon/ai))
 		data["is_ai"] = 1
@@ -331,6 +333,7 @@
 		data["is_ai"] = 1
 	else
 		data["is_ai"] = 0
+	data["connected"] = powernet != null
 	data["output_set"] = power_output
 	data["output_max"] = max_power_output
 	data["output_safe"] = max_safe_output
@@ -342,6 +345,7 @@
 	else
 		data["temperature_overheat"] = 0
 	// 1 sheet = 1000cm3?
+	data["fuel_sheets"] = sheets
 	data["fuel_stored"] = round((sheets * 1000) + (sheet_left * 1000))
 	data["fuel_capacity"] = round(max_sheets * 1000, 0.1)
 	data["fuel_usage"] = active ? round((power_output / time_per_sheet) * 1000) : 0
@@ -349,57 +353,33 @@
 
 	return data
 
-/*
-/obj/machinery/power/port_gen/pacman/interact(mob/user)
-	if (get_dist(src, user) > 1 )
-		if (!istype(user, /mob/living/silicon/ai))
-			user.unset_machine()
-			close_browser(user, "window=port_gen")
-			return
+/obj/machinery/power/port_gen/pacman/ui_act(action, list/params)
+	. = ..()
+	if (.)
+		return TRUE
 
-	user.set_machine(src)
-
-	var/dat = text("<b>[name]</b><br>")
-	if (active)
-		dat += text("Generator: <A href='?src=[REF(src)];action=disable'>On</A><br>")
-	else
-		dat += text("Generator: <A href='?src=[REF(src)];action=enable'>Off</A><br>")
-	dat += text("[capitalize(sheet_name)]: [sheets] - <A href='?src=[REF(src)];action=eject'>Eject</A><br>")
-	var/stack_percent = round(sheet_left * 100, 1)
-	dat += text("Current stack: [stack_percent]% <br>")
-	dat += text("Power output: <A href='?src=[REF(src)];action=lower_power'>-</A> [power_gen * power_output] Watts<A href='?src=[REF(src)];action=higher_power'>+</A><br>")
-	dat += text("Power current: [(powernet == null ? "Unconnected" : "[avail()]")]<br>")
-
-	var/tempstr = "Temperature: [temperature]&deg;C<br>"
-	dat += (overheating)? "<span class='danger'>[tempstr]</span>" : tempstr
-	dat += "<br><A href='?src=[REF(src)];action=close'>Close</A>"
-	show_browser(user, "[dat]", "window=port_gen")
-	onclose(user, "port_gen")
-*/
-
-/obj/machinery/power/port_gen/pacman/Topic(href, href_list)
-	if(..())
-		return
-
-	src.add_fingerprint(usr)
-	if(href_list["action"])
-		if(href_list["action"] == "enable")
+	switch(action)
+		if("toggle_power")
 			if(!active && HasFuel() && !IsBroken())
 				active = 1
 				update_icon()
-		if(href_list["action"] == "disable")
-			if (active)
+				. = TRUE
+			else if (active)
 				active = 0
 				update_icon()
-		if(href_list["action"] == "eject")
+				. = TRUE
+		if("eject")
 			if(!active)
 				DropFuel()
-		if(href_list["action"] == "lower_power")
+				. = TRUE
+		if("lower_power")
 			if (power_output > 1)
 				power_output--
-		if (href_list["action"] == "higher_power")
+				. = TRUE
+		if ("higher_power")
 			if (power_output < max_power_output || (emagged && power_output < round(max_power_output*2.5)))
 				power_output++
+				. = TRUE
 
 /obj/machinery/power/port_gen/pacman/super
 	name = "S.U.P.E.R.P.A.C.M.A.N.-type Portable Generator"
