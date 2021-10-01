@@ -11,8 +11,8 @@
 
 /atom/movable/map_view/Destroy()
 	. = ..()
-	QDEL_NULL_ASSOC_LIST(plane_master_cache)
-	QDEL_NULL_ASSOC_LIST(openspace_overlay_cache)
+	QDEL_NULL_ASSOC_VAL_LIST(plane_master_cache)
+	QDEL_NULL_ASSOC_VAL_LIST(openspace_overlay_cache)
 	// Just null those lists, they are subsets of the caches above
 	// Or do you want to get a spam of "could not GC X"?
 	active_planes = null
