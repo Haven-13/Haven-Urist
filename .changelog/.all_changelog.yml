@@ -324,3 +324,10 @@
       species on the Pluto map
   retlaw34:
   - imageadd: Redoes the fuel port and oxygen wall locker
+2021-10-02:
+  martinlyra:
+  - rscadd: Added tgUI for portable generators
+  - bugfix: Fixed runtimes caused by improper garbage collection of unused map-views.
+  - tweak: The stationary self-destruct terminal accepts, and requires the nuclear
+      authorization disk.
+  - bugfix: Fixed the nuclear bomb and self-destruct UI
