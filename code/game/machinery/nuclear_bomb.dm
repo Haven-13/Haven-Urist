@@ -249,7 +249,7 @@ var/bomb_set
 			if(timing)
 				second_status = "TIME: [get_time_left()]"
 			else
-				second_status = "AWAIT DISK"
+				second_status = "AWAITING DISK"
 		if(NUKEUI_AWAIT_CODE)
 			first_status = "INPUT CODE"
 			second_status = "CODE: [current_code]"
@@ -413,6 +413,7 @@ var/bomb_set
 	timing = -1
 	yes_code = 0
 	safety = 1
+	exploded = TRUE
 	update_icon()
 
 	SetUniversalState(/datum/universal_state/nuclear_explosion, arguments=list(src))
