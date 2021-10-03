@@ -1,0 +1,4 @@
+author: martinlyra
+delete-after: true
+changes:
+  - tweak: Blocking procs and calls have been forbidden from garbage collection procs
