@@ -16,6 +16,8 @@
 // This should be overridden to remove all references pointing to the object being destroyed.
 // Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
 /datum/proc/Destroy(force=FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	tag = null
 	SStgui && SStgui.close_uis(src)
 	var/list/timers = active_timers
