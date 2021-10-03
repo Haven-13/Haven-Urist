@@ -121,7 +121,7 @@
 
 //tier 2 - lets have everything here by 3 missions in.
 
-datum/scomscience/recipe/lsniper
+/datum/scomscience/recipe/lsniper
 	name = "LWAP sniper"
 	path = /obj/item/weapon/gun/energy/sniperrifle
 	category = "Sniper"

@@ -41,7 +41,8 @@
 		qdel(src)
 	..()
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable //leaving BS12's sandwich in it's own thing, but leaving this here because meh. lazy.
+//leaving BS12's sandwich in it's own thing, but leaving this here because meh. lazy.
+/obj/item/weapon/reagent_containers/food/snacks/customizable
 	name = "sandwich"
 	desc = "A sandwich! A timeless classic."
 	icon = 'icons/urist/kitchen.dmi'
@@ -59,9 +60,9 @@
 
 	var/list/ingredients = list()
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 8)
+/obj/item/weapon/reagent_containers/food/snacks/customizable/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 8)
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/pizza
 	name = "personal pizza"

@@ -1881,7 +1881,6 @@
 	},
 /area/space)
 "dq" = (
-/obj/structure/closet/secure_closet/exile,
 /turf/unsimulated/floor{
 	name = "engraved floor";
 	icon = 'icons/turf/flooring/cult.dmi';
