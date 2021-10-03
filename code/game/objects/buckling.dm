@@ -43,6 +43,7 @@
 	return 1
 
 /obj/proc/unbuckle_mob()
+	set waitfor = 0
 	if(buckled_mob && buckled_mob.buckled == src)
 		. = buckled_mob
 		buckled_mob.buckled = null

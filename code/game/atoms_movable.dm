@@ -87,12 +87,10 @@
 					AM.Crossed(src)
 			if(is_new_area && is_destination_turf)
 				destination.loc.Entered(src, origin)
-
-	// Only update plane if we're located on map
-	if (isturf(src.loc))
-		// if we wasn't on map OR our Z coord was changed
-		if (!isturf(origin) || (get_z(loc) != get_z(origin)))
-			update_plane()
+			// Only update plane if we're located on map
+			// if we wasn't on map OR our Z coord was changed
+			if (!is_origin_turf || (get_z(loc) != get_z(origin)))
+				update_plane()
 
 	return 1
 
