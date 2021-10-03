@@ -143,24 +143,24 @@
 /obj/item/weapon/reagent_containers/food/snacks/grown/Crossed(var/mob/living/M)
 	if(seed && seed.get_trait(TRAIT_JUICY) == 2)
 		if(istype(M))
-
 			if(M.buckled)
 				return
-
 			if(istype(M,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = M
 				if(H.shoes && H.shoes.item_flags & ITEM_FLAG_NOSLIP)
 					return
+			stepped_on(M)
 
-			M.stop_pulling()
-			to_chat(M, "<span class='notice'>You slipped on the [name]!</span>")
-			playsound(src.loc, 'sound/misc/slip.ogg', 50, 1, -3)
-			M.Stun(8)
-			M.Weaken(5)
-			seed.thrown_at(src,M)
-			sleep(-1)
-			if(src) qdel(src)
-			return
+/obj/item/weapon/reagent_containers/food/snacks/grown/proc/stepped_on(mob/living/M)
+	set waitfor = 0
+	M.stop_pulling()
+	to_chat(M, "<span class='notice'>You slipped on the [name]!</span>")
+	playsound(src.loc, 'sound/misc/slip.ogg', 50, 1, -3)
+	M.Stun(8)
+	M.Weaken(5)
+	seed.thrown_at(src,M)
+	sleep(-1)
+	if(src) qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/throw_impact(atom/hit_atom)
 	if(seed) seed.thrown_at(src,hit_atom)

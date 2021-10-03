@@ -11,19 +11,14 @@
 
 /obj/mecha/working/Destroy()
 	for(var/mob/M in src)
-		if(M==src.occupant)
+		if(M==src.occupant) // will be handled in go_out in parent
 			continue
-		M.loc = get_turf(src)
-		M.loc.Entered(M)
+		M.dropInto(src.loc)
 		step_rand(M)
 	for(var/atom/movable/A in src.cargo)
-		A.loc = get_turf(src)
-		var/turf/T = get_turf(A)
-		if(T)
-			T.Entered(A)
+		A.dropInto(src.loc)
 		step_rand(A)
-	..()
-	return
+	return ..()
 
 /obj/mecha/working/Topic(href, href_list)
 	..()
