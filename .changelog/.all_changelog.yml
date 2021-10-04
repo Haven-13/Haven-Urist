@@ -331,3 +331,9 @@
   - tweak: The stationary self-destruct terminal accepts, and requires the nuclear
       authorization disk.
   - bugfix: Fixed the nuclear bomb and self-destruct UI
+2021-10-04:
+  martinlyra:
+  - rscdel: Removed the fountain of youth
+  - rscdel: Removed the temple from the orb asteroid
+  - spellcheck: AWAIT changed to AWAITING in nuclear bomb UI
+  - tweak: Blocking procs and calls have been forbidden from garbage collection procs
