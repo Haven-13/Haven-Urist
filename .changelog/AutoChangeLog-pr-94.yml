@@ -1,6 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - rscdel: Removed the fountain of youth
-  - rscdel: Removed the temple from the orb asteroid
-  - spellcheck: AWAIT changed to AWAITING in nuclear bomb UI
