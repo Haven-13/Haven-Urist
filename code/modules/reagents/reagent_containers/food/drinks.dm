@@ -155,9 +155,9 @@
 	icon_state = "soymilk"
 	item_state = "carton"
 	center_of_mass = "x=16;y=9"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/drink/milk/soymilk, 50)
+/obj/item/weapon/reagent_containers/food/drinks/soymilk/New()
+	..()
+	reagents.add_reagent(/datum/reagent/drink/milk/soymilk, 50)
 
 /obj/item/weapon/reagent_containers/food/drinks/milk/smallcarton
 	name = "small milk carton"
@@ -194,9 +194,9 @@
 	filling_states = "100"
 	base_name = "cup"
 	base_icon = "teacup"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/drink/tea, 30)
+/obj/item/weapon/reagent_containers/food/drinks/tea/New()
+	..()
+	reagents.add_reagent(/datum/reagent/drink/tea, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/ice
 	name = "cup of ice"
@@ -223,9 +223,9 @@
 	desc = "Just add 10ml water, self heats! A taste that reminds you of your school years."
 	icon_state = "ramen"
 	center_of_mass = "x=16;y=11"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/drink/dry_ramen, 30)
+/obj/item/weapon/reagent_containers/food/drinks/dry_ramen/New()
+	..()
+	reagents.add_reagent(/datum/reagent/drink/dry_ramen, 30)
 
 
 /obj/item/weapon/reagent_containers/food/drinks/sillycup
@@ -235,13 +235,13 @@
 	possible_transfer_amounts = null
 	volume = 10
 	center_of_mass = "x=16;y=12"
-	New()
-		..()
-	on_reagent_change()
-		if(reagents.total_volume)
-			icon_state = "water_cup"
-		else
-			icon_state = "water_cup_e"
+/obj/item/weapon/reagent_containers/food/drinks/sillycup/New()
+	..()
+/obj/item/weapon/reagent_containers/food/drinks/sillycup/on_reagent_change()
+	if(reagents.total_volume)
+		icon_state = "water_cup"
+	else
+		icon_state = "water_cup_e"
 
 
 //////////////////////////pitchers, pots, flasks and cups //
