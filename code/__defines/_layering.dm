@@ -68,37 +68,39 @@
 		#define ABOVE_MOB_LAYER           5020.0
 
 // For special effects.
-#define EFFECTS_PLANE  2
-	#define BELOW_PROJECTILE_LAYER  1
-	#define DEEP_FLUID_LAYER        2
-	#define FIRE_LAYER              3
-	#define PROJECTILE_LAYER        4
-	#define ABOVE_PROJECTILE_LAYER  5
-	#define SINGULARITY_LAYER       6
-	#define POINTER_LAYER           7
-	#define ALARM_LAYER             8
+#define EFFECTS_PLANE 2
+	#define BELOW_PROJECTILE_LAYER    1
+	#define DEEP_FLUID_LAYER          2
+	#define FIRE_LAYER                3
+	#define PROJECTILE_LAYER          4
+	#define ABOVE_PROJECTILE_LAYER    5
+	#define SINGULARITY_LAYER         6
+	#define POINTER_LAYER             7
+	#define ALARM_LAYER               8
+	#define WEATHER_EFFECT_LAYER      9
 	#define OBSERVER_LAYER          256
 
 // Used for masking the Lighting plane
-#define VISIBLE_GAME_WORLD_PLANE      3
+#define VISIBLE_GAME_WORLD_PLANE 3
 
 // For Lighting. - The highest plane (ignoring all other even higher planes)
-#define LIGHTING_PLANE                4
-	#define LIGHTING_LAYER         0
-	#define ABOVE_LIGHTING_LAYER   1
+#define LIGHTING_PLANE 4
+	#define LIGHTING_LAYER 0
+	#define ABOVE_LIGHTING_LAYER 1
 
 // For glowy eyes, laser beams, etc. that shouldn't be affected by darkness
-#define EMISSIVE_PLANE                5
+#define EMISSIVE_PLANE 5
 	#define EMISSIVE_BASE_LAYER -16384
 	#define EMISSIVE_UNBLOCKABLE_LAYER 16384
 
 // For visualnets, such as the AI's static.
-#define OBSCURITY_PLANE               6
+#define OBSCURITY_PLANE 6
 
 //This is difference between highest and lowest visible game planes
-#define PLANE_DIFFERENCE              6
+#define PLANE_DIFFERENCE 6
 
-#define FULLSCREEN_PLANE              9000 // for fullscreen overlays that do not cover the hud.
+// for fullscreen overlays that do not cover the hud.
+#define FULLSCREEN_PLANE 9000
 	#define FULLSCREEN_LAYER    0
 	#define DAMAGE_LAYER        1
 	#define IMPAIRED_LAYER      2
@@ -106,14 +108,15 @@
 	#define CRIT_LAYER          4
 	#define HALLUCINATION_LAYER 5
 
-#define HUD_PLANE                     9001 // For the Head-Up Display
+// For the Head-Up Display
+#define HUD_PLANE 9001
 	#define UNDER_HUD_LAYER      0
 	#define HUD_BASE_LAYER       1
 	#define HUD_CLICKABLE_LAYER  2
 	#define HUD_ITEM_LAYER       3
 	#define HUD_ABOVE_ITEM_LAYER 4
 
-#define ABOVE_HUD_PLANE               9002 // For things to appear over the HUD
+#define ABOVE_HUD_PLANE 9002 // For things to appear over the HUD
 
 // This is the difference between the highest and lowest visible FULLSCREEN planes
-#define FULLSCREEN_PLANE_DIFFERENCE   3
+#define FULLSCREEN_PLANE_DIFFERENCE 3

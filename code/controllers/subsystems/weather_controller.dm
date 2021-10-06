@@ -1,5 +1,3 @@
-#define WEATHER_PLANE ABOVE_HUMAN_PLANE+3
-
 /* fuck it, let's store that in a global until the controller wakes the fuck up for now */
 /var/global/list/pending_weathers = list()
 

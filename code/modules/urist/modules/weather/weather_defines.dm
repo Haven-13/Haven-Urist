@@ -9,8 +9,8 @@
 	alpha = 255
 	mouse_opacity = 2
 	anchored = 1
-	layer = EFFECTS_LAYER
-	plane = WEATHER_PLANE
+	plane = EFFECTS_PLANE
+	layer = WEATHER_EFFECT_LAYER
 	var/weathertemp = 310.15 //Kelvin temperature, default is neutral to mobs
 	var/list/init_reagents = list() //carried reagents as ids
 
