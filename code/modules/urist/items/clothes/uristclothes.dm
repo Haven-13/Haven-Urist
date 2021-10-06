@@ -172,26 +172,26 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/reagent_containers/syringe,/obj/item/weapon/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/weapon/reagent_containers/glass/bottle,/obj/item/weapon/reagent_containers/glass/beaker,/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/storage/pill_bottle,/obj/item/weapon/paper)
 
-	verb/toggle()
-		set name = "Toggle Coat Buttons"
-		set category = "Object"
-		set src in usr
+/obj/item/clothing/suit/psychologist/verb/toggle()
+	set name = "Toggle Coat Buttons"
+	set category = "Object"
+	set src in usr
 
-		var/mob/living/carbon/human/user = usr
-		if(user.incapacitated())
-			return 0
+	var/mob/living/carbon/human/user = usr
+	if(user.incapacitated())
+		return 0
 
-		switch(icon_state)
-			if("tweedjacket_open")
-				src.icon_state = "tweedjacket"
-				to_chat(usr, "You button up the jacket.")
-			if("tweedjacket")
-				src.icon_state = "tweedjacket_open"
-				to_chat(usr, "You unbutton the jacket.")
-			else
-				to_chat(usr, "You attempt to button-up the velcro on your [src], before promptly realising how retarded you are.")
-				return
-		usr.update_inv_wear_suit()	//so our overlays update
+	switch(icon_state)
+		if("tweedjacket_open")
+			src.icon_state = "tweedjacket"
+			to_chat(usr, "You button up the jacket.")
+		if("tweedjacket")
+			src.icon_state = "tweedjacket_open"
+			to_chat(usr, "You unbutton the jacket.")
+		else
+			to_chat(usr, "You attempt to button-up the velcro on your [src], before promptly realising how retarded you are.")
+			return
+	usr.update_inv_wear_suit()	//so our overlays update
 
 //Terran Confederacy Trader outfit
 

@@ -12,44 +12,42 @@
 	usr.client.mob.say("O LORD, bless this Thy hand grenade that with it Thou mayest blow Thine enemies to tiny bits, in Thy mercy")
 	..()
 
-/obj/item/weapon/grenade/chem_grenade/hhg/dumb
-	New()
-		..()
-		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
-		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
-		B1.reagents.add_reagent(/datum/reagent/space_drugs, 1)
-		B1.reagents.add_reagent(/datum/reagent/potassium, 32)
-		B1.reagents.add_reagent(/datum/reagent/sugar, 17)
-		B2.reagents.add_reagent(/datum/reagent/space_drugs, 3)
-		B2.reagents.add_reagent(/datum/reagent/sugar, 15)
-		B2.reagents.add_reagent(/datum/reagent/phosphorus, 32)
+/obj/item/weapon/grenade/chem_grenade/hhg/dumb/New()
+	..()
+	var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
+	var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
+	B1.reagents.add_reagent(/datum/reagent/space_drugs, 1)
+	B1.reagents.add_reagent(/datum/reagent/potassium, 32)
+	B1.reagents.add_reagent(/datum/reagent/sugar, 17)
+	B2.reagents.add_reagent(/datum/reagent/space_drugs, 3)
+	B2.reagents.add_reagent(/datum/reagent/sugar, 15)
+	B2.reagents.add_reagent(/datum/reagent/phosphorus, 32)
 
-		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
-		beakers += B1
-		beakers += B2
+	beakers += B1
+	beakers += B2
 
-		icon_state = initial(icon_state) +"_locked"
+	icon_state = initial(icon_state) +"_locked"
 
 
-/obj/item/weapon/grenade/chem_grenade/hhg/good
-	New()
-		..()
-		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
-		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
-		B1.reagents.add_reagent(/datum/reagent/water/holywater, 1)
-		B1.reagents.add_reagent(/datum/reagent/potassium, 32)
-		B1.reagents.add_reagent(/datum/reagent/sugar, 17)
-		B2.reagents.add_reagent(/datum/reagent/water/holywater, 3)
-		B2.reagents.add_reagent(/datum/reagent/sugar, 15)
-		B2.reagents.add_reagent(/datum/reagent/phosphorus, 32)
+/obj/item/weapon/grenade/chem_grenade/hhg/good/New()
+	..()
+	var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
+	var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
+	B1.reagents.add_reagent(/datum/reagent/water/holywater, 1)
+	B1.reagents.add_reagent(/datum/reagent/potassium, 32)
+	B1.reagents.add_reagent(/datum/reagent/sugar, 17)
+	B2.reagents.add_reagent(/datum/reagent/water/holywater, 3)
+	B2.reagents.add_reagent(/datum/reagent/sugar, 15)
+	B2.reagents.add_reagent(/datum/reagent/phosphorus, 32)
 
-		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
-		beakers += B1
-		beakers += B2
+	beakers += B1
+	beakers += B2
 
-		icon_state = initial(icon_state) +"_locked"
+	icon_state = initial(icon_state) +"_locked"
 
 //Sonic Grenades: Shatter windows and stun people.
 /obj/item/weapon/grenade/sonic
@@ -144,11 +142,11 @@
 	name = "box of cleaner grenades"
 	desc = "A box of cleaner grenades"
 
-	New()
-		..()
-		new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
-		new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
-		new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
+/obj/item/weapon/storage/box/cleangrenades/New()
+	..()
+	new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
+	new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
+	new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
 
 /obj/item/weapon/grenade/chem_grenade/heal2
 	name = "light healing grenade"
