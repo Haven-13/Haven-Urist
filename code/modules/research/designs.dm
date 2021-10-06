@@ -1681,12 +1681,6 @@ CIRCUITS BELOW
 	sort_string = "MABAA"
 	category = GENERAL_CIRCUITS
 
-/datum/design/circuit/prisonmanage
-	name = "prisoner management console"
-	id = "prisonmanage"
-	build_path = /obj/item/weapon/circuitboard/prisoner
-	sort_string = "DACAA"
-
 /datum/design/circuit/operating
 	name = "patient monitoring console"
 	id = "operating"

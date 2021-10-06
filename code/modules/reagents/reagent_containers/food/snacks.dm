@@ -3397,9 +3397,10 @@
 	center_of_mass = "x=15;y=12"
 	nutriment_desc = list("sunflower seeds" = 3, "bits of shell" = 3)
 	nutriment_amt = 6
-	New()
-		..()
-		bitesize = 3
+/obj/item/weapon/reagent_containers/food/snacks/bird/New()
+	..()
+	bitesize = 3
+
 /obj/item/weapon/reagent_containers/food/snacks/candy
 	name = "candy"
 	desc = "Nougat, love it or hate it."

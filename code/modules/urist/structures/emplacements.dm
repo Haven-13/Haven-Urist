@@ -1,15 +1,15 @@
 /mob/living/carbon/human
 	var/obj/structure/emplacement/mounted
 
-	ClickOn(var/atom/A, params)
-		if(mounted)
-			if(mounted.loc == src.loc)
-				if(A && mounted.nextshot <= world.time && mounted.anchored)
-					mounted.shoot(get_turf(A))
-			else
-				mounted = null
+/mob/living/carbon/human/ClickOn(var/atom/A, params)
+	if(mounted)
+		if(mounted.loc == src.loc)
+			if(A && mounted.nextshot <= world.time && mounted.anchored)
+				mounted.shoot(get_turf(A))
 		else
-			..()
+			mounted = null
+	else
+		..()
 
 
 /obj/structure/emplacement

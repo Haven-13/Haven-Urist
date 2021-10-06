@@ -116,13 +116,13 @@
 	icon_state = "missile"
 	throwforce = 15
 
-	throw_impact(atom/hit_atom)
-		if(primed)
-			explosion(hit_atom, 1, 2, 4, 4)
-			qdel(src)
-		else
-			..()
-		return
+/obj/item/missile/heavy/throw_impact(atom/hit_atom)
+	if(primed)
+		explosion(hit_atom, 1, 2, 4, 4)
+		qdel(src)
+	else
+		..()
+	return
 
 /mob/living/simple_animal/hostile/scom/fighter
 	name = "alien fighter"

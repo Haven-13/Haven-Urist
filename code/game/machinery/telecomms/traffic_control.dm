@@ -20,182 +20,178 @@
 
 	var/storedcode = ""			// code stored
 
-
-	proc/update_ide()
-
-		// loop if there's someone manning the keyboard
-		while(editingcode)
-			if(!editingcode.client)
-				editingcode = null
-				break
-
-			// For the typer, the input is enabled. Buffer the typed text
-			if(editingcode)
-				storedcode = "[winget(editingcode, "tcscode", "text")]"
-			if(editingcode) // double if's to work around a runtime error
-				winset(editingcode, "tcscode", "is-disabled=false")
-
-			// If the player's not manning the keyboard anymore, adjust everything
-			if( (!(editingcode in range(1, src)) && !issilicon(editingcode)) || (editingcode.machine != src && !issilicon(editingcode)))
-				if(editingcode)
-					winshow(editingcode, "Telecomms IDE", 0) // hide the window!
-				editingcode = null
-				break
-
-			// For other people viewing the typer type code, the input is disabled and they can only view the code
-			// (this is put in place so that there's not any magical shenanigans with 50 people inputting different code all at once)
-
-			if(length(viewingcode))
-				// This piece of code is very important - it escapes quotation marks so string aren't cut off by the input element
-				var/showcode = replacetext(storedcode, "\\\"", "\\\\\"")
-				showcode = replacetext(storedcode, "\"", "\\\"")
-
-				for(var/mob/M in viewingcode)
-
-					if( (M.machine == src && (M in view(1, src))) || issilicon(M))
-						winset(M, "tcscode", "is-disabled=true")
-						winset(M, "tcscode", "text=\"[showcode]\"")
-					else
-						viewingcode.Remove(M)
-						winshow(M, "Telecomms IDE", 0) // hide the window!
-
-			sleep(5)
-
-		if(length(viewingcode) > 0)
-			editingcode = pick(viewingcode)
-			viewingcode.Remove(editingcode)
-			update_ide()
-
-
-
 	req_access = list(access_tcomsat)
 
-	attack_hand(mob/user as mob)
-		if(stat & (BROKEN|NOPOWER))
-			return
-		user.set_machine(src)
-		var/dat = "<TITLE>Telecommunication Traffic Control</TITLE><center><b>Telecommunications Traffic Control</b></center>"
+/obj/machinery/computer/telecomms/traffic/proc/update_ide()
+	// loop if there's someone manning the keyboard
+	while(editingcode)
+		if(!editingcode.client)
+			editingcode = null
+			break
 
-		switch(screen)
-			// --- Main Menu ---
-			if(0)
-				dat += "<br>[temp]<br>"
-				dat += "<br>Current Network: <a href='?src=[REF(src)];network=1'>[network]</a><br>"
-				if(servers.len)
-					dat += "<br>Detected Telecommunication Servers:<ul>"
-					for(var/obj/machinery/telecomms/T in servers)
-						dat += "<li><a href='?src=[REF(src)];viewserver=[T.id]'>[REF(T)] [T.name]</a> ([T.id])</li>"
-					dat += "</ul>"
-					dat += "<br><a href='?src=[REF(src)];operation=release'>\[Flush Buffer\]</a>"
+		// For the typer, the input is enabled. Buffer the typed text
+		if(editingcode)
+			storedcode = "[winget(editingcode, "tcscode", "text")]"
+		if(editingcode) // double if's to work around a runtime error
+			winset(editingcode, "tcscode", "is-disabled=false")
 
+		// If the player's not manning the keyboard anymore, adjust everything
+		if( (!(editingcode in range(1, src)) && !issilicon(editingcode)) || (editingcode.machine != src && !issilicon(editingcode)))
+			if(editingcode)
+				winshow(editingcode, "Telecomms IDE", 0) // hide the window!
+			editingcode = null
+			break
+
+		// For other people viewing the typer type code, the input is disabled and they can only view the code
+		// (this is put in place so that there's not any magical shenanigans with 50 people inputting different code all at once)
+
+		if(length(viewingcode))
+			// This piece of code is very important - it escapes quotation marks so string aren't cut off by the input element
+			var/showcode = replacetext(storedcode, "\\\"", "\\\\\"")
+			showcode = replacetext(storedcode, "\"", "\\\"")
+
+			for(var/mob/M in viewingcode)
+
+				if( (M.machine == src && (M in view(1, src))) || issilicon(M))
+					winset(M, "tcscode", "is-disabled=true")
+					winset(M, "tcscode", "text=\"[showcode]\"")
 				else
-					dat += "<br>No servers detected. Scan for servers: <a href='?src=[REF(src)];operation=scan'>\[Scan\]</a>"
+					viewingcode.Remove(M)
+					winshow(M, "Telecomms IDE", 0) // hide the window!
+
+		sleep(5)
+
+	if(length(viewingcode) > 0)
+		editingcode = pick(viewingcode)
+		viewingcode.Remove(editingcode)
+		update_ide()
+
+/obj/machinery/computer/telecomms/traffic/attack_hand(mob/user as mob)
+	if(stat & (BROKEN|NOPOWER))
+		return
+	user.set_machine(src)
+	var/dat = "<TITLE>Telecommunication Traffic Control</TITLE><center><b>Telecommunications Traffic Control</b></center>"
+
+	switch(screen)
+		// --- Main Menu ---
+		if(0)
+			dat += "<br>[temp]<br>"
+			dat += "<br>Current Network: <a href='?src=[REF(src)];network=1'>[network]</a><br>"
+			if(servers.len)
+				dat += "<br>Detected Telecommunication Servers:<ul>"
+				for(var/obj/machinery/telecomms/T in servers)
+					dat += "<li><a href='?src=[REF(src)];viewserver=[T.id]'>[REF(T)] [T.name]</a> ([T.id])</li>"
+				dat += "</ul>"
+				dat += "<br><a href='?src=[REF(src)];operation=release'>\[Flush Buffer\]</a>"
+
+			else
+				dat += "<br>No servers detected. Scan for servers: <a href='?src=[REF(src)];operation=scan'>\[Scan\]</a>"
 
 
-			// --- Viewing Server ---
-			if(1)
-				dat += "<br>[temp]<br>"
-				dat += "<center><a href='?src=[REF(src)];operation=mainmenu'>\[Main Menu\]</a>     <a href='?src=[REF(src)];operation=refresh'>\[Refresh\]</a></center>"
-				dat += "<br>Current Network: [network]"
-				dat += "<br>Selected Server: [SelectedServer.id]<br><br>"
+		// --- Viewing Server ---
+		if(1)
+			dat += "<br>[temp]<br>"
+			dat += "<center><a href='?src=[REF(src)];operation=mainmenu'>\[Main Menu\]</a>     <a href='?src=[REF(src)];operation=refresh'>\[Refresh\]</a></center>"
+			dat += "<br>Current Network: [network]"
+			dat += "<br>Selected Server: [SelectedServer.id]<br><br>"
 
 
-		show_browser(user, dat, "window=traffic_control;size=575x400")
-		onclose(user, "server_control")
+	show_browser(user, dat, "window=traffic_control;size=575x400")
+	onclose(user, "server_control")
 
-		temp = ""
+	temp = ""
+	return
+
+
+/obj/machinery/computer/telecomms/traffic/Topic(href, href_list)
+	if(..())
 		return
 
+	usr.set_machine(src)
+	if(!src.allowed(usr) && !emagged)
+		to_chat(usr, "<span class='warning'>ACCESS DENIED.</span>")
+		return
 
-	Topic(href, href_list)
-		if(..())
-			return
+	if(href_list["viewserver"])
+		screen = 1
+		for(var/obj/machinery/telecomms/T in servers)
+			if(T.id == href_list["viewserver"])
+				SelectedServer = T
+				break
 
-		usr.set_machine(src)
-		if(!src.allowed(usr) && !emagged)
-			to_chat(usr, "<span class='warning'>ACCESS DENIED.</span>")
-			return
+	if(href_list["operation"])
+		switch(href_list["operation"])
 
-		if(href_list["viewserver"])
-			screen = 1
-			for(var/obj/machinery/telecomms/T in servers)
-				if(T.id == href_list["viewserver"])
-					SelectedServer = T
-					break
+			if("release")
+				servers = list()
+				screen = 0
 
-		if(href_list["operation"])
-			switch(href_list["operation"])
+			if("mainmenu")
+				screen = 0
 
-				if("release")
-					servers = list()
-					screen = 0
+			if("scan")
+				if(servers.len > 0)
+					temp = "<font color = #d70b00>- FAILED: CANNOT PROBE WHEN BUFFER FULL -</font>"
 
-				if("mainmenu")
-					screen = 0
+				else
+					for(var/obj/machinery/telecomms/server/T in range(25, src))
+						if(T.network == network)
+							servers.Add(T)
 
-				if("scan")
-					if(servers.len > 0)
-						temp = "<font color = #d70b00>- FAILED: CANNOT PROBE WHEN BUFFER FULL -</font>"
-
+					if(!servers.len)
+						temp = "<font color = #d70b00>- FAILED: UNABLE TO LOCATE SERVERS IN \[[network]\] -</font>"
 					else
-						for(var/obj/machinery/telecomms/server/T in range(25, src))
-							if(T.network == network)
-								servers.Add(T)
+						temp = "<font color = #336699>- [servers.len] SERVERS PROBED & BUFFERED -</font>"
 
-						if(!servers.len)
-							temp = "<font color = #d70b00>- FAILED: UNABLE TO LOCATE SERVERS IN \[[network]\] -</font>"
-						else
-							temp = "<font color = #336699>- [servers.len] SERVERS PROBED & BUFFERED -</font>"
-
-						screen = 0
-
-		if(href_list["network"])
-
-			var/newnet = input(usr, "Which network do you want to view?", "Comm Monitor", network) as null|text
-
-			if(newnet && ((usr in range(1, src) || issilicon(usr))))
-				if(length(newnet) > 15)
-					temp = "<font color = #d70b00>- FAILED: NETWORK TAG STRING TOO LENGHTLY -</font>"
-
-				else
-
-					network = newnet
 					screen = 0
-					servers = list()
-					temp = "<font color = #336699>- NEW NETWORK TAG SET IN ADDRESS \[[network]\] -</font>"
 
-		updateUsrDialog()
-		return
+	if(href_list["network"])
 
-	attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
-		if(isScrewdriver(D))
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-			if(do_after(user, 20, src))
-				if (src.stat & BROKEN)
-					to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
-					var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
-					new /obj/item/weapon/material/shard( src.loc )
-					var/obj/item/weapon/circuitboard/comm_traffic/M = new /obj/item/weapon/circuitboard/comm_traffic( A )
-					for (var/obj/C in src)
-						C.loc = src.loc
-					A.circuit = M
-					A.state = 3
-					A.icon_state = "3"
-					A.anchored = 1
-					qdel(src)
-				else
-					to_chat(user, "<span class='notice'>You disconnect the monitor.</span>")
-					var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
-					var/obj/item/weapon/circuitboard/comm_traffic/M = new /obj/item/weapon/circuitboard/comm_traffic( A )
-					for (var/obj/C in src)
-						C.loc = src.loc
-					A.circuit = M
-					A.state = 4
-					A.icon_state = "4"
-					A.anchored = 1
-					qdel(src)
-		src.updateUsrDialog()
-		return
+		var/newnet = input(usr, "Which network do you want to view?", "Comm Monitor", network) as null|text
+
+		if(newnet && ((usr in range(1, src) || issilicon(usr))))
+			if(length(newnet) > 15)
+				temp = "<font color = #d70b00>- FAILED: NETWORK TAG STRING TOO LENGHTLY -</font>"
+
+			else
+
+				network = newnet
+				screen = 0
+				servers = list()
+				temp = "<font color = #336699>- NEW NETWORK TAG SET IN ADDRESS \[[network]\] -</font>"
+
+	updateUsrDialog()
+	return
+
+/obj/machinery/computer/telecomms/traffic/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
+	if(isScrewdriver(D))
+		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		if(do_after(user, 20, src))
+			if (src.stat & BROKEN)
+				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
+				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
+				new /obj/item/weapon/material/shard( src.loc )
+				var/obj/item/weapon/circuitboard/comm_traffic/M = new /obj/item/weapon/circuitboard/comm_traffic( A )
+				for (var/obj/C in src)
+					C.loc = src.loc
+				A.circuit = M
+				A.state = 3
+				A.icon_state = "3"
+				A.anchored = 1
+				qdel(src)
+			else
+				to_chat(user, "<span class='notice'>You disconnect the monitor.</span>")
+				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
+				var/obj/item/weapon/circuitboard/comm_traffic/M = new /obj/item/weapon/circuitboard/comm_traffic( A )
+				for (var/obj/C in src)
+					C.loc = src.loc
+				A.circuit = M
+				A.state = 4
+				A.icon_state = "4"
+				A.anchored = 1
+				qdel(src)
+	src.updateUsrDialog()
+	return
 
 /obj/machinery/computer/telecomms/traffic/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)

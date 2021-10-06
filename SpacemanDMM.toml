@@ -77,8 +77,8 @@ dreamchecker = true
 
 [code_standards]
 # When set to true, they will show as warning-severity errors.
-disallow_relative_proc_definitions = false
-disallow_relative_type_definitions = false
+disallow_relative_proc_definitions = true
+disallow_relative_type_definitions = true
 
 [dmdoc]
 # Use the full typepath instead of the last part (name)?
