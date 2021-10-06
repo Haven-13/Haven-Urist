@@ -1,0 +1,4 @@
+author: martinlyra
+delete-after: true
+changes:
+  - refactor: Relative type pathing has been changed to absolute
