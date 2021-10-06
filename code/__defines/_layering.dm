@@ -26,7 +26,7 @@
 
 	#define PLATING_LAYER             1000.0
 		#define ABOVE_PLATING_LAYER       1010.0
-		#define DECAL_PLATING_LAYER       1020.0
+		#define PLATING_DECAL_LAYER       1020.0
 		#define LATTICE_LAYER             1030.0
 		#define DISPOSALS_PIPE_LAYER      1040.0
 		#define PIPE_LAYER                1050.0

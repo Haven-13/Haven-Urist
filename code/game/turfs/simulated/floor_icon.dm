@@ -44,7 +44,7 @@ var/list/flooring_cache = list()
 
 	else if(decals && decals.len)
 		for(var/image/I in decals)
-			if(I.plane != src.get_relative_plane(ABOVE_PLATING_PLANE))
+			if(I.plane != src.get_relative_plane(DEFAULT_PLANE))
 				continue
 			overlays |= I
 

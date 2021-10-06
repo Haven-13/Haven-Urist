@@ -14,12 +14,12 @@
 	)
 
 /image/proc/plating_decal_layerise(atom/target)
-	plane = target.get_float_plane(ABOVE_PLATING_PLANE)
-	layer = DECAL_PLATING_LAYER
+	plane = target.get_float_plane(DEFAULT_PLANE)
+	layer = PLATING_DECAL_LAYER
 
 /image/proc/turf_decal_layerise(atom/target)
-	plane = target.get_float_plane(ABOVE_TURF_PLANE)
-	layer = DECAL_LAYER
+	plane = target.get_float_plane(DEFAULT_PLANE)
+	layer = TURF_DECAL_LAYER
 
 /atom/proc/hud_layerise()
 	plane = HUD_PLANE

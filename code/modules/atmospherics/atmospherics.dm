@@ -50,7 +50,7 @@ Pipelines + Other Objects -> Pipe network
 
 /obj/machinery/atmospherics/hide(var/do_hide)
 	if(do_hide && level == 1)
-		plane = ABOVE_PLATING_PLANE
+		plane = DEFAULT_PLANE
 		layer = PIPE_LAYER
 	else
 		reset_plane_and_layer()

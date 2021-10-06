@@ -2,8 +2,8 @@
 	icon = 'icons/turf/floors.dmi'
 	level = 1
 
-	plane = TURF_PLANE
-	layer = BASE_TURF_LAYER
+	plane = DEFAULT_PLANE
+	layer = TURF_LAYER
 	vis_flags = VIS_INHERIT_ID
 
 	var/turf_flags
