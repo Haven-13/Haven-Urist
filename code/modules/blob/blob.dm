@@ -11,8 +11,8 @@
 	anchored = 1
 	mouse_opacity = 2
 
-	plane = BLOB_PLANE
-	layer = BLOB_SHIELD_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_VEHICLE_LAYER + 1
 
 	var/maxHealth = 30
 	var/health
@@ -179,7 +179,7 @@
 	laser_resist = 8
 	regen_rate = 2
 
-	layer = BLOB_CORE_LAYER
+	layer = ABOVE_VEHICLE_LAYER + 1
 
 	expandType = /obj/effect/blob/shield
 	var/blob_may_process = 1
@@ -228,7 +228,7 @@
 	regen_rate = 1
 	growth_range = 3
 
-	layer = BLOB_NODE_LAYER
+	layer = ABOVE_VEHICLE_LAYER + 1
 
 /obj/effect/blob/core/secondary/update_icon()
 	icon_state = (health / maxHealth >= 0.5) ? "blob_node" : "blob_factory"

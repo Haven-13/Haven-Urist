@@ -20,9 +20,9 @@
 
 // Visible game planes
 #define DEFAULT_PLANE 1
-	#define OPEN_SPACE_LAYER          0000.0
-		#define Z_MIMIC_LAYER             0010.0
-		#define OPEN_DARKNESS_LAYER       0020.0
+	#define OPEN_SPACE_LAYER             0.0
+		#define Z_MIMIC_LAYER               10.0
+		#define OPEN_DARKNESS_LAYER         20.0
 
 	#define PLATING_LAYER             1000.0
 		#define ABOVE_PLATING_LAYER       1010.0
@@ -51,7 +51,8 @@
 		#define BELOW_DOOR_LAYER          3030.0
 		#define OPEN_DOOR_LAYER           3040.0
 		#define BELOW_TABLE_LAYER         3050.0
-		#define STRUCTURE_LAYER           3060.0
+		#define TABLE_LAYER               3060.0
+		#define STRUCTURE_LAYER           3070.0
 
 	#define OBJ_LAYER                 4000.00
 		#define CLOSED_DOOR_LAYER         4010.0
@@ -66,6 +67,7 @@
 	#define MOB_LAYER                 5000.00
 		#define HUMANOID_LAYER            5010.0
 		#define ABOVE_MOB_LAYER           5020.0
+		#define ABOVE_VEHICLE_LAYER       5030.0
 
 // For special effects.
 #define EFFECTS_PLANE 2

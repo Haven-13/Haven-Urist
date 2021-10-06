@@ -29,7 +29,7 @@
 /obj/machinery/power/terminal/hide(var/do_hide)
 	if(do_hide && level == 1)
 		plane = DEFAULT_PLANE
-		layer = WIRE_TERMINAL_LAYER
+		layer = TERMINAL_LAYER
 	else
 		reset_plane_and_layer()
 

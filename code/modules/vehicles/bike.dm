@@ -204,8 +204,8 @@
 	else
 		icon_state = "[bike_icon]_off"
 	var/image/I = new(src.icon, "[icon_state]_overlay")
-	I.layer = ABOVE_HUMAN_LAYER
-	I.plane = ABOVE_HUMAN_PLANE
+	I.layer = ABOVE_MOB_LAYER
+	I.plane = DEFAULT_PLANE
 	overlays += I
 	..()
 

@@ -15,12 +15,12 @@
 
 	if(couchpart == 1)
 		armrest = image("icons/urist/objects/NienplantsCouch.dmi", "armrest_left")
-		armrest.plane = ABOVE_HUMAN_PLANE
-		armrest.layer = ABOVE_HUMAN_LAYER
+		armrest.plane = DEFAULT_PLANE
+		armrest.layer = ABOVE_MOB_LAYER
 	else if(couchpart == 2)
 		armrest = image("icons/urist/objects/NienplantsCouch.dmi", "armrest_right")
-		armrest.plane = ABOVE_HUMAN_PLANE
-		armrest.layer = ABOVE_HUMAN_LAYER
+		armrest.plane = DEFAULT_PLANE
+		armrest.layer = ABOVE_MOB_LAYER
 
 	..()
 

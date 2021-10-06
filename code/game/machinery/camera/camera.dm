@@ -6,8 +6,8 @@
 	use_power = 2
 	idle_power_usage = 5
 	active_power_usage = 10
-	plane = ABOVE_HUMAN_PLANE
-	layer = CAMERA_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_VEHICLE_LAYER
 
 	var/list/network = list(NETWORK_EXODUS)
 	var/c_tag = null

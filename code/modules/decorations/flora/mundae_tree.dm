@@ -4,8 +4,8 @@
 	anchored = 1
 	density = 1
 	pixel_x = -16
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 
 /obj/structure/flora/tree/pine
 	name = "pine tree"
