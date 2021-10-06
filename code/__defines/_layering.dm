@@ -38,11 +38,13 @@
 		#define TURF_DETAIL_LAYER         2010.0
 		#define TURF_DECAL_LAYER          2020.0
 		#define TURF_RUNE_LAYER           2030.0
-		#define ABOVE_TILE_LAYER          2040.0
+		#define ABOVE_TURF_LAYER          2040.0
 		#define EXPOSED_PIPE_LAYER        2050.0
 		#define EXPOSED_WIRE_LAYER        2060.0
 		#define EXPOSED_TERMINAL_LAYER    2070.0
 		#define CATWALK_LAYER             2080.0
+		#define TURF_BLOOD_LAYER          2090.0
+		#define TURF_PLANT_LAYER          2100.0
 
 	#define BELOW_OBJ_LAYER           3000.00
 		#define HIDING_MOB_LAYER          3010.0
@@ -88,7 +90,7 @@
 
 // For glowy eyes, laser beams, etc. that shouldn't be affected by darkness
 #define EMISSIVE_PLANE                5
-	#define EMISSIVE_BASE_LAYER 0
+	#define EMISSIVE_BASE_LAYER -16384
 	#define EMISSIVE_UNBLOCKABLE_LAYER 16384
 
 // For visualnets, such as the AI's static.

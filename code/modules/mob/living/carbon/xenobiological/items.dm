@@ -238,8 +238,8 @@
 	icon = 'icons/obj/rune.dmi'
 	icon_state = "golem"
 	unacidable = 1
-	plane = ABOVE_TURF_PLANE
-	layer = RUNE_LAYER
+	plane = DEFAULT_PLANE
+	layer = TURF_RUNE_LAYER
 
 /obj/effect/golemrune/Initialize()
 	..()

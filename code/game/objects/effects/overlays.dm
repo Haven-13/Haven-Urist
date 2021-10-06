@@ -49,8 +49,8 @@
 	icon = 'icons/effects/wallrot.dmi'
 	anchored = 1
 	density = 1
-	plane = ABOVE_TURF_PLANE
-	layer = ABOVE_TILE_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_TURF_LAYER
 	mouse_opacity = 0
 
 /obj/effect/overlay/wallrot/New()

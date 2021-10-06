@@ -8,8 +8,8 @@
 	density = 0
 	opacity = 0
 	anchored = 1
-	plane = ABOVE_TURF_PLANE
-	layer = RUNE_LAYER
+	plane = DEFAULT_PLANE
+	layer = TURF_RUNE_LAYER
 
 /obj/structure/stairs/Initialize()
 	for(var/turf/turf in locs)
