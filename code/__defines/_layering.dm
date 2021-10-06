@@ -21,6 +21,8 @@
 // Visible game planes
 #define DEFAULT_PLANE 1
 	#define OPEN_SPACE_LAYER          0000.0
+		#define Z_MIMIC_LAYER             0010.0
+		#define OPEN_DARKNESS_LAYER       0020.0
 
 	#define BELOW_TURF_LAYER          1000.0
 
