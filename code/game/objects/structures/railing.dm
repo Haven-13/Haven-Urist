@@ -4,7 +4,7 @@
 	icon = 'icons/obj/railing.dmi'
 	density = 1
 	throwpass = 1
-	layer = ABOVE_OBJ_LAYER
+	layer = ABOVE_MOB_LAYER
 	anchored = FALSE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER | ATOM_FLAG_CLIMBABLE
 	icon_state = "railing0"
