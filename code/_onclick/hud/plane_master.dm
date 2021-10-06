@@ -96,7 +96,7 @@
 	plane = BLOB_PLANE
 
 /atom/movable/screen/plane_master/effects_below_lighting_master
-	plane = EFFECTS_BELOW_LIGHTING_PLANE
+	plane = EFFECTS_PLANE
 
 /atom/movable/screen/plane_master/observer_master
 	plane = OBSERVER_PLANE
