@@ -61,7 +61,7 @@
 		#define FULL_WINDOW_LAYER         4.040
 		#define ABOVE_WINDOW_LAYER        4.050
 		#define LYING_MOB_LAYER           4.060
-		#define LYING_HUMAN_LAYER         4.070
+		#define LYING_HUMANOID_LAYER      4.070
 		#define ABOVE_OBJ_LAYER           4.080
 
 	#define MOB_LAYER                 5.000

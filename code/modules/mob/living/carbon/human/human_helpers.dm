@@ -212,7 +212,7 @@
 		layer = HIDING_MOB_LAYER
 	else if(lying)
 		set_plane(DEFAULT_PLANE)
-		layer = LYING_HUMAN_LAYER
+		layer = LYING_HUMANOID_LAYER
 	else
 		..()
 
