@@ -1,5 +1,5 @@
 /mob/living/carbon/human
-	plane = HUMAN_PLANE
+	plane = DEFAULT_PLANE
 
 	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
 

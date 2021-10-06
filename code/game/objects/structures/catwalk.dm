@@ -6,7 +6,7 @@
 	density = 0
 	anchored = 1.0
 	var/obj/item/stack/tile/mono/plated_tile
-	plane = UNDER_OBJ_PLANE
+	plane = DEFAULT_PLANE
 	layer = CATWALK_LAYER
 	var/hatch_open = FALSE
 	footstep_sounds= list(

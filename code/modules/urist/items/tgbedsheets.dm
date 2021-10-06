@@ -13,8 +13,8 @@ LINEN BINS
 	item_state = "bedsheet"
 	slot_flags = SLOT_BACK
 	randpixel = 0
-	plane = ABOVE_OBJ_PLANE
-	layer = BASE_ABOVE_OBJ_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_OBJ_LAYER
 	throwforce = 1
 	throw_speed = 1
 	throw_range = 2

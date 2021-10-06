@@ -95,19 +95,19 @@
 	name = "rock pile"
 	icon = 'icons/obj/flora/largejungleflora.dmi'
 	icon_state = "rocks1"
-	plane = OBJ_PLANE
+	plane = DEFAULT_PLANE
 	layer = STRUCTURE_LAYER
 
 /obj/structure/flora/big/rocks2
 	name = "rock pile"
 	icon = 'icons/obj/flora/largejungleflora.dmi'
 	icon_state = "rocks2"
-	plane = OBJ_PLANE
+	plane = DEFAULT_PLANE
 	layer = STRUCTURE_LAYER
 
 /obj/structure/flora/big/rocks3
 	name = "rock pile"
 	icon = 'icons/obj/flora/largejungleflora.dmi'
 	icon_state = "rocks3"
-	plane = OBJ_PLANE
+	plane = DEFAULT_PLANE
 	layer = STRUCTURE_LAYER

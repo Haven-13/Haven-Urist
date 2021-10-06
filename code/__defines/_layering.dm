@@ -44,7 +44,6 @@
 		#define EXPOSED_TERMINAL_LAYER    2070.0
 		#define CATWALK_LAYER             2080.0
 		#define TURF_BLOOD_LAYER          2090.0
-		#define TURF_PLANT_LAYER          2100.0
 
 	#define BELOW_OBJ_LAYER           3000.00
 		#define HIDING_MOB_LAYER          3010.0

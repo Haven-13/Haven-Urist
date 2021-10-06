@@ -208,10 +208,10 @@
 
 /mob/living/carbon/human/reset_layer()
 	if(hiding)
-		set_plane(HIDING_MOB_PLANE)
+		set_plane(DEFAULT_PLANE)
 		layer = HIDING_MOB_LAYER
 	else if(lying)
-		set_plane(LYING_HUMAN_PLANE)
+		set_plane(DEFAULT_PLANE)
 		layer = LYING_HUMAN_LAYER
 	else
 		..()

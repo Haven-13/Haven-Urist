@@ -28,7 +28,7 @@
 /obj/vehicle/bike/New()
 	..()
 	layer = ABOVE_OBJ_LAYER
-	plane = ABOVE_OBJ_PLANE
+	plane = DEFAULT_PLANE
 	if(engine_type)
 		load_engine(new engine_type(src.loc))
 		if(prefilled)

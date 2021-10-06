@@ -33,7 +33,7 @@
 		layer = ABOVE_WINDOW_LAYER
 	else
 		icon_state = "open"
-		plane = OBJ_PLANE
+		plane = DEFAULT_PLANE
 		layer = ABOVE_WINDOW_LAYER
 
 /obj/structure/curtain/black
