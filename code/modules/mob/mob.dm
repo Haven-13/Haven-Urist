@@ -742,7 +742,7 @@
 
 /mob/proc/reset_layer()
 	if(lying)
-		set_plane(LYING_MOB_PLANE)
+		set_plane(DEFAULT_PLANE)
 		layer = LYING_MOB_LAYER
 	else
 		reset_plane_and_layer()

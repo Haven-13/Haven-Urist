@@ -18,8 +18,8 @@
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "palm1"
 	density = 1
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 	anchored = 1
 
 /obj/effect/overlay/palmtree_l
@@ -27,8 +27,8 @@
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "palm2"
 	density = 1
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 	anchored = 1
 
 /obj/effect/overlay/coconut
@@ -49,8 +49,8 @@
 	icon = 'icons/effects/wallrot.dmi'
 	anchored = 1
 	density = 1
-	plane = ABOVE_TURF_PLANE
-	layer = ABOVE_TILE_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_TURF_LAYER
 	mouse_opacity = 0
 
 /obj/effect/overlay/wallrot/New()

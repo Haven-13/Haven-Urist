@@ -53,7 +53,7 @@
 		gas_data.molar_mass[gas.id] = gas.molar_mass
 		if(gas.tile_overlay)
 			var/image/I = image('icons/effects/tile_effects.dmi', gas.tile_overlay, ABOVE_PROJECTILE_LAYER)
-			I.plane = EFFECTS_BELOW_LIGHTING_PLANE
+			I.plane = EFFECTS_PLANE
 			I.appearance_flags = RESET_COLOR
 			gas_data.tile_overlay[gas.id] = I
 		if(gas.overlay_limit) gas_data.overlay_limit[gas.id] = gas.overlay_limit

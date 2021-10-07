@@ -1,5 +1,5 @@
 /obj/structure/flora/big
 	name = "big bush"
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_PLANE
+	plane = DEFAULT_PLANE
+	layer = DEFAULT_PLANE
 	anchored = 1

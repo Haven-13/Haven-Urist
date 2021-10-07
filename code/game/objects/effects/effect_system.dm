@@ -168,7 +168,7 @@ steam.start() -- spawns the effect
 	opacity = 1
 	anchored = 0.0
 	mouse_opacity = 0
-	plane = EFFECTS_BELOW_LIGHTING_PLANE
+	plane = EFFECTS_PLANE
 	layer = ABOVE_PROJECTILE_LAYER
 	var/amount = 6.0
 	var/time_to_live = 100

@@ -6,8 +6,8 @@
 	anchored = 1
 	density = 0
 	opacity = 0
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 	simulated = 0
 	mouse_opacity = 0
 

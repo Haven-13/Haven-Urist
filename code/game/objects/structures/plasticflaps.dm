@@ -5,8 +5,8 @@
 	icon_state = "plasticflaps"
 	density = 0
 	anchored = 1
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 	explosion_resistance = 5
 
 	obj_flags = OBJ_FLAG_ANCHORABLE
