@@ -45,8 +45,8 @@
 		var/mutable_appearance/I = mutable_appearance('icons/obj/furniture.dmi', "[base_icon]_over")
 		if(material_alteration & MATERIAL_ALTERATION_COLOR)
 			I.color = material.icon_colour
-		I.plane = src.get_float_plane(ABOVE_HUMAN_PLANE)
-		I.layer = ABOVE_HUMAN_LAYER
+		I.plane = src.get_float_plane(DEFAULT_PLANE)
+		I.layer = ABOVE_MOB_LAYER
 		stool_cache[cache_key] = I
 	overlays |= stool_cache[cache_key]
 	// Padding overlay.
@@ -56,8 +56,8 @@
 			var/mutable_appearance/I =  mutable_appearance(icon, "[base_icon]_padding_over")
 			if(material_alteration & MATERIAL_ALTERATION_COLOR)
 				I.color = padding_material.icon_colour
-			I.plane = src.get_float_plane(ABOVE_HUMAN_PLANE)
-			I.layer = ABOVE_HUMAN_LAYER
+			I.plane = src.get_float_plane(DEFAULT_PLANE)
+			I.layer = ABOVE_MOB_LAYER
 			stool_cache[padding_cache_key] = I
 		overlays |= stool_cache[padding_cache_key]
 
@@ -66,8 +66,8 @@
 			cache_key = "[base_icon]-armrest-[padding_material.name]"
 		if(isnull(stool_cache[cache_key]))
 			var/mutable_appearance/I = mutable_appearance(icon, "[base_icon]_armrest")
-			I.plane = src.get_float_plane(ABOVE_HUMAN_PLANE)
-			I.layer = ABOVE_HUMAN_LAYER
+			I.plane = src.get_float_plane(DEFAULT_PLANE)
+			I.layer = ABOVE_MOB_LAYER
 			if(material_alteration & MATERIAL_ALTERATION_COLOR)
 				I.color = material.icon_colour
 			stool_cache[cache_key] = I
@@ -76,8 +76,8 @@
 			cache_key = "[base_icon]-padding-armrest-[padding_material.name]"
 			if(isnull(stool_cache[cache_key]))
 				var/mutable_appearance/I = mutable_appearance(icon, "[base_icon]_padding_armrest")
-				I.plane = src.get_float_plane(ABOVE_HUMAN_PLANE)
-				I.layer = ABOVE_HUMAN_LAYER
+				I.plane = src.get_float_plane(DEFAULT_PLANE)
+				I.layer = ABOVE_MOB_LAYER
 				if(material_alteration & MATERIAL_ALTERATION_COLOR)
 					I.color = padding_material.icon_colour
 				stool_cache[cache_key] = I
@@ -186,8 +186,8 @@
 /obj/structure/bed/chair/comfy/captain/update_icon()
 	..()
 	var/image/I = image(icon, "[base_icon]_special")
-	I.plane = src.get_relative_plane(ABOVE_HUMAN_PLANE)
-	I.layer = ABOVE_HUMAN_LAYER
+	I.plane = src.get_relative_plane(DEFAULT_PLANE)
+	I.layer = ABOVE_MOB_LAYER
 	overlays |= I
 
 /obj/structure/bed/chair/comfy/captain/New(var/newloc,var/newmaterial)
@@ -354,8 +354,8 @@
 		var/cache_key = "[base_icon]-[material.name]-special"
 		if (isnull(stool_cache[cache_key]))
 			var/mutable_appearance/I = mutable_appearance(icon, "[base_icon]_special")
-			I.plane = src.get_float_plane(ABOVE_HUMAN_PLANE)
-			I.layer = ABOVE_HUMAN_LAYER
+			I.plane = src.get_float_plane(DEFAULT_PLANE)
+			I.layer = ABOVE_MOB_LAYER
 			if(material_alteration & MATERIAL_ALTERATION_COLOR)
 				I.color = material.icon_colour
 			stool_cache[cache_key] = I

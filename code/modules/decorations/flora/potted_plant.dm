@@ -2,8 +2,8 @@
 	name = "potted plant"
 	icon = 'icons/obj/plants.dmi'
 	icon_state = "plant-26"
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 
 //potted plants credit: Flashkirby
 //potted plants 27-30: Cajoes
@@ -12,8 +12,8 @@
 	desc = "Really brings the room together."
 	icon = 'icons/obj/plants.dmi'
 	icon_state = "plant-01"
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 
 /obj/structure/flora/pottedplant/fern
 	name = "potted fern"

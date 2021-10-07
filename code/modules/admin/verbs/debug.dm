@@ -372,8 +372,8 @@
 /obj/effect/debugmarker
 	icon = 'icons/effects/lighting_overlay.dmi'
 	icon_state = "transparent"
-	plane = ABOVE_TURF_PLANE
-	layer = HOLOMAP_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_TURF_LAYER
 	alpha = 127
 
 /client/var/list/image/powernet_markers = list()
@@ -389,7 +389,7 @@
 		var/netcolor = rgb(rand(100,255),rand(100,255),rand(100,255))
 		for(var/obj/structure/cable/C in PN.cables)
 			var/image/I = image('icons/effects/lighting_overlay.dmi', get_turf(C), "transparent")
-			I.plane = ABOVE_TURF_PLANE
+			I.plane = DEFAULT_PLANE
 			I.alpha = 127
 			I.color = netcolor
 			I.maptext = REF(PN)

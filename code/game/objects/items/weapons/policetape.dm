@@ -319,8 +319,8 @@ var/list/tape_roll_applications = list()
 
 /obj/item/tape/proc/lift(time)
 	lifted = 1
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 	spawn(time)
 		lifted = 0
 		reset_plane_and_layer()

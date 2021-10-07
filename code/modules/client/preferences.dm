@@ -52,7 +52,8 @@ var/list/preferences_datums = list()
 		preview_view.update_map_view(1)
 
 		preview_background = new()
-		preview_background.set_plane(TURF_PLANE)
+		preview_background.layer = TURF_LAYER
+		preview_background.set_plane(DEFAULT_PLANE)
 		preview_background.screen_loc = "character_preview_map:1,1 to 1,4"
 
 /datum/preferences/proc/load_and_update_character(var/slot)

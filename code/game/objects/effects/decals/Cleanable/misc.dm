@@ -64,8 +64,8 @@
 	desc = "Somebody should remove that."
 	density = 0
 	anchored = 1
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "cobweb1"
 
@@ -84,8 +84,8 @@
 	desc = "Somebody should remove that."
 	density = 0
 	anchored = 1
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "cobweb2"
 

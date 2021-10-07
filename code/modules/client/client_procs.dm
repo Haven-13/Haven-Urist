@@ -417,7 +417,8 @@
 		screen |= O
 		O.appearance = MA
 		O.dir = D
-		O.set_plane(HUMAN_PLANE)
+		O.layer = HUMANOID_LAYER
+		O.set_plane(DEFAULT_PLANE)
 		O.screen_loc = "character_preview_map:1,[pos]"
 
 /client/proc/clear_character_previews()

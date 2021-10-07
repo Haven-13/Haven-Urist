@@ -13,8 +13,8 @@ LINEN BINS
 	item_state = "bedsheet"
 	slot_flags = SLOT_BACK
 	randpixel = 0
-	plane = ABOVE_OBJ_PLANE
-	layer = BASE_ABOVE_OBJ_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_OBJ_LAYER
 	throwforce = 1
 	throw_speed = 1
 	throw_range = 2
@@ -36,8 +36,8 @@ LINEN BINS
 /obj/item/weapon/bedsheet/attack_self(mob/user as mob)
 	user.drop_item()
 	if(layer == initial(layer))
-		layer = ABOVE_HUMAN_LAYER
-		plane = ABOVE_HUMAN_PLANE
+		layer = ABOVE_MOB_LAYER
+		plane = DEFAULT_PLANE
 	else
 		layer = initial(layer)
 	add_fingerprint(user)
