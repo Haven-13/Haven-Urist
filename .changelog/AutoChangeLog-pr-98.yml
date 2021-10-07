@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - refactor: Graphical layering has been compressed to improve performance and reliability.
+      From 23 to 6 planes in total.
