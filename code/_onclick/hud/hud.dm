@@ -81,7 +81,7 @@
 
 	hud_emissive_catcher = new/atom/movable/screen/plane_master/emissive()
 	hud_emissive_catcher.set_plane(
-		HUD_PLANE + (EMISSIVE_PLANE - OBJ_PLANE)
+		HUD_PLANE + (EMISSIVE_PLANE - DEFAULT_PLANE)
 	)
 
 	instantiate()

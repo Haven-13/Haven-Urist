@@ -47,59 +47,11 @@
 /atom/movable/screen/plane_master/space_master/update_screen_plane(z_level)
 	return
 
-/atom/movable/screen/plane_master/openspace_master
-	plane = OPENSPACE_PLANE
+/atom/movable/screen/plane_master/default_master
+	plane = DEFAULT_PLANE
 
-/atom/movable/screen/plane_master/below_turf_master
-	plane = BELOW_TURF_PLANE
-
-/atom/movable/screen/plane_master/plating_plane_master
-	plane = PLATING_PLANE
-
-/atom/movable/screen/plane_master/above_plating_master
-	plane = ABOVE_PLATING_PLANE
-
-/atom/movable/screen/plane_master/turf_master
-	plane = TURF_PLANE
-
-/atom/movable/screen/plane_master/above_turf_master
-	plane = ABOVE_TURF_PLANE
-
-/atom/movable/screen/plane_master/under_obj_master
-	plane = UNDER_OBJ_PLANE
-
-/atom/movable/screen/plane_master/hiding_mob_master
-	plane = HIDING_MOB_PLANE
-
-/atom/movable/screen/plane_master/obj_plane_master
-	plane = OBJ_PLANE
-
-/atom/movable/screen/plane_master/lying_mob_master
-	plane = LYING_MOB_PLANE
-
-/atom/movable/screen/plane_master/lying_human_master
-	plane = LYING_HUMAN_PLANE
-
-/atom/movable/screen/plane_master/above_obj_master
-	plane = ABOVE_OBJ_PLANE
-
-/atom/movable/screen/plane_master/human_plane_master
-	plane = HUMAN_PLANE
-
-/atom/movable/screen/plane_master/mob_plane_master
-	plane = MOB_PLANE
-
-/atom/movable/screen/plane_master/above_human_master
-	plane = ABOVE_HUMAN_PLANE
-
-/atom/movable/screen/plane_master/blob_plane_master
-	plane = BLOB_PLANE
-
-/atom/movable/screen/plane_master/effects_below_lighting_master
-	plane = EFFECTS_BELOW_LIGHTING_PLANE
-
-/atom/movable/screen/plane_master/observer_master
-	plane = OBSERVER_PLANE
+/atom/movable/screen/plane_master/effects_master
+	plane = EFFECTS_PLANE
 
 /atom/movable/screen/plane_master/visible_game_world_plane_master
 	plane = VISIBLE_GAME_WORLD_PLANE
@@ -111,7 +63,7 @@
 	update_composite(z_level)
 
 /atom/movable/screen/plane_master/visible_game_world_plane_master/proc/update_composite(z)
-	for (var/plane in BELOW_TURF_PLANE to OBSERVER_PLANE)
+	for (var/plane in DEFAULT_PLANE to EFFECTS_PLANE)
 		filters += filter(
 			type="layer",
 			render_source="[plane]-[z]z",

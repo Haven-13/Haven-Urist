@@ -11,7 +11,7 @@
 	anchored = 0
 	opacity = 0
 
-	plane = OBJ_PLANE
+	plane = DEFAULT_PLANE
 	layer = BELOW_OBJ_LAYER
 
 	var/list/welder_salvage = list(/obj/item/stack/material/plasteel,/obj/item/stack/material/steel,/obj/item/stack/rods)

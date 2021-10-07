@@ -6,7 +6,7 @@
 	var/turf/T=get_turf(src)
 	var/image/I=image(icon, icon_state = icon_state, dir = dir)
 	I.color=color
-	I.plane = ABOVE_TURF_PLANE
-	I.layer = DECAL_LAYER
+	I.plane = DEFAULT_PLANE
+	I.layer = TURF_DECAL_LAYER
 	T.overlays += I
 	return INITIALIZE_HINT_QDEL

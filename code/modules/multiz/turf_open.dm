@@ -5,7 +5,8 @@
 	name = "open space"
 	icon = 'icons/turf/open_space.dmi'
 	icon_state = "black_open"
-	plane = OPENSPACE_PLANE
+	plane = DEFAULT_PLANE
+	layer = OPEN_SPACE_LAYER
 	blend_mode = BLEND_OVERLAY
 	luminosity = 1
 	density = 0

@@ -4,7 +4,7 @@
 	icon = 'icons/obj/turbolift.dmi'
 	anchored = 1
 	density = 0
-	plane = OBJ_PLANE
+	plane = DEFAULT_PLANE
 	layer = ABOVE_OBJ_LAYER
 
 	var/datum/turbolift/lift

@@ -1,6 +1,6 @@
 /obj/effect/decal
-	plane = ABOVE_TURF_PLANE
-	layer = DECAL_LAYER
+	plane = DEFAULT_PLANE
+	layer = TURF_DECAL_LAYER
 
 
 /obj/effect/decal/fall_damage()

@@ -2,8 +2,8 @@
 	screen_loc = "CENTER,CENTER"
 	icon = 'icons/primitives.dmi'
 	icon_state = "black"
-	plane = OPENSPACE_PLANE
-	layer = OPENSPACE_DARKNESS_LAYER
+	plane = DEFAULT_PLANE
+	layer = OPEN_SPACE_LAYER
 	blend_mode = BLEND_MULTIPLY
 	alpha = 255
 	mouse_opacity = FALSE

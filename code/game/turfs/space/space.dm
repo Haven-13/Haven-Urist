@@ -14,7 +14,8 @@
 	. = ..()
 	icon = null
 	icon_state = "blank"
-	plane = OPENSPACE_PLANE
+	plane = DEFAULT_PLANE
+	layer = OPEN_SPACE_LAYER
 
 	update_starlight()
 

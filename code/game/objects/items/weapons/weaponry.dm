@@ -148,8 +148,8 @@
 
 /obj/effect/energy_net/post_buckle_mob(mob/living/M)
 	if(buckled_mob)
-		plane = ABOVE_HUMAN_PLANE
-		layer = ABOVE_HUMAN_LAYER
+		plane = DEFAULT_PLANE
+		layer = ABOVE_MOB_LAYER
 		visible_message("\The [M] was caught in [src]!")
 	else
 		to_chat(M,"<span class='warning'>You are free of the net!</span>")

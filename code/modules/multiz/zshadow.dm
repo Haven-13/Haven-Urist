@@ -10,8 +10,8 @@
 	density = 0
 	opacity = 0					// Don't trigger lighting recalcs gah!
 	vis_flags = VIS_HIDE
-	layer = OPENSPACE_LAYER_MOBS
-	plane = OPENSPACE_PLANE
+	layer = Z_MIMIC_LAYER
+	plane = DEFAULT_PLANE
 	//auto_init = FALSE 			// We do not need to be initialize()d
 	var/mob/owner = null		// What we are a shadow of.
 

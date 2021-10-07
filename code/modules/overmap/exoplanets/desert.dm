@@ -144,8 +144,8 @@
 	if(buckled_mob)
 		overlays += buckled_mob
 		var/image/I = image(icon,icon_state="overlay")
-		I.plane = ABOVE_HUMAN_PLANE
-		I.layer = ABOVE_HUMAN_LAYER
+		I.plane = DEFAULT_PLANE
+		I.layer = ABOVE_MOB_LAYER
 		overlays += I
 
 /obj/structure/quicksand/proc/expose()

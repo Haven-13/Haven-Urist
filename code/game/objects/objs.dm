@@ -1,4 +1,5 @@
 /obj
+	plane = DEFAULT_PLANE
 	layer = OBJ_LAYER
 
 	var/obj_flags

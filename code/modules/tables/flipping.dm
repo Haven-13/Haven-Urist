@@ -86,8 +86,8 @@
 
 	set_dir(direction)
 	if(dir != NORTH)
-		plane = ABOVE_HUMAN_PLANE
-		layer = ABOVE_HUMAN_LAYER
+		plane = DEFAULT_PLANE
+		layer = ABOVE_MOB_LAYER
 	atom_flags &= ~ATOM_FLAG_CLIMBABLE //flipping tables allows them to be used as makeshift barriers
 	flipped = 1
 	atom_flags |= ATOM_FLAG_CHECKS_BORDER

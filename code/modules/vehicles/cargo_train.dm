@@ -304,7 +304,7 @@
 		C.pixel_x += load_offset_x
 		C.pixel_y += load_offset_y
 		C.plane = plane
-		C.layer = VEHICLE_LOAD_LAYER
+		C.layer = ABOVE_VEHICLE_LAYER
 
 		overlays += C
 
