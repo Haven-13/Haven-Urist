@@ -337,3 +337,6 @@
   - rscdel: Removed the temple from the orb asteroid
   - spellcheck: AWAIT changed to AWAITING in nuclear bomb UI
   - tweak: Blocking procs and calls have been forbidden from garbage collection procs
+2021-10-07:
+  martinlyra:
+  - refactor: Relative type pathing has been changed to absolute
