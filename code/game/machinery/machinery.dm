@@ -95,6 +95,7 @@
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
 	w_class = ITEM_SIZE_NO_CONTAINER
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 	var/stat = 0
 	var/emagged = 0
