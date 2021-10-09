@@ -122,7 +122,7 @@
 /obj/item/weapon/mine/n2o/on_trigger(atom/movable/A)
 	for (var/turf/simulated/floor/target in range(1,src))
 		if(!target.blocks_air)
-			target.assume_gas("sleeping_agent", 30)
+			target.assume_gas("nitrous_oxide", 30)
 
 /obj/item/weapon/mine/stun
 	name = "stun mine"
