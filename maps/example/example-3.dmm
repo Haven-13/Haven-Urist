@@ -193,6 +193,11 @@
 	},
 /turf/space,
 /area/space)
+"M" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/alarm,
+/turf/simulated/floor/tiled,
+/area/maintenance/fsmaint2)
 "Q" = (
 /obj/effect/shuttle_landmark/upper_level,
 /turf/space,
@@ -984,7 +989,7 @@ a
 F
 a
 c
-d
+M
 d
 d
 k

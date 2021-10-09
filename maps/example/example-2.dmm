@@ -304,16 +304,6 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
-"aS" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/medical/surgery)
 "aT" = (
 /obj/structure/cable,
 /obj/machinery/power/debug_items/infinite_generator,
@@ -347,6 +337,19 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/camera/autoname{
 	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
+"md" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/alarm{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
@@ -1005,7 +1008,7 @@ ai
 aN
 aP
 aR
-aS
+md
 aT
 ac
 aa

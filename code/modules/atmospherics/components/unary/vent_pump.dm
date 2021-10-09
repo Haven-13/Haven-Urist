@@ -233,8 +233,10 @@
 		"tag" = src.id_tag,
 		"device" = "AVP",
 		"power" = use_power,
-		"direction" = pump_direction?("release"):("siphon"),
+		"direction" = pump_direction,
 		"checks" = pressure_checks,
+		"incheck" = pressure_checks & PRESSURE_CHECK_INTERNAL,
+		"excheck" = pressure_checks & PRESSURE_CHECK_EXTERNAL,
 		"internal" = internal_pressure_bound,
 		"external" = external_pressure_bound,
 		"timestamp" = world.time,
@@ -301,6 +303,12 @@
 		else
 			pressure_checks = text2num(signal.data["checks"])
 
+	if(signal.data["incheck"] != null)
+		pressure_checks = PRESSURE_CHECK_INTERNAL
+
+	if(signal.data["excheck"] != null)
+		pressure_checks = PRESSURE_CHECK_EXTERNAL
+
 	if(signal.data["checks_toggle"] != null)
 		pressure_checks = (pressure_checks?0:3)
 
@@ -330,12 +338,12 @@
 		return
 
 	if(signal.data["status"] != null)
-		spawn(2)
+		spawn(0)
 			broadcast_status()
 		return //do not update_icon
 
 		//log_admin("DEBUG \[[world.timeofday]\]: vent_pump/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
-	spawn(2)
+	spawn(0)
 		broadcast_status()
 	update_icon()
 	return

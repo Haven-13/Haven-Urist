@@ -14,7 +14,7 @@
 	var/clogged
 	var/filter_water
 	var/gas_filter_strength = 1			//For gas mask filters
-	var/list/filtered_gases = list("phoron", "sleeping_agent")
+	var/list/filtered_gases = list("phoron", "nitrous_oxide")
 
 /obj/item/clothing/mask/gas/examine(var/mob/user)
 	. = ..()
@@ -164,7 +164,7 @@
 	flags_inv = 0
 	body_parts_covered = 0
 	species_restricted = list(SPECIES_VOX)
-	filtered_gases = list("phoron", "sleeping_agent", "oxygen")
+	filtered_gases = list("phoron", "nitrous_oxide", "oxygen")
 
 
 /obj/item/clothing/mask/gas/swat/vox
@@ -174,7 +174,7 @@
 	item_state = "voxswat"
 	body_parts_covered = 0 //Hack to allow vox to eat while wearing this mask.
 	species_restricted = list(SPECIES_VOX)
-	filtered_gases = list("phoron", "sleeping_agent", "oxygen")
+	filtered_gases = list("phoron", "nitrous_oxide", "oxygen")
 
 /obj/item/clothing/mask/gas/aquabreather
 	name = "aquabreather"
