@@ -1,0 +1,6 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Fixed emissives showing through machinery
+  - bugfix: Fixed emissives showing through structures
+  - bugfix: Fixed lighting switches not showing through darkness properly
