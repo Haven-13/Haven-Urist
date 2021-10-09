@@ -156,17 +156,17 @@ const AirAlarmControlHome = (props, context) => {
           <Button.Checkbox
             content="Disabled"
             checked={rcon === 1}
-            onClick={() => act("rcon", {rcon: 1})}
+            onClick={() => act("rcon", { rcon: 1 })}
           />
           <Button.Checkbox
             content="Auto"
             checked={rcon === 2}
-            onClick={() => act("rcon", {rcon: 2})}
+            onClick={() => act("rcon", { rcon: 2 })}
           />
           <Button.Checkbox
             content="Enabled"
             checked={rcon === 3}
-            onClick={() => act("rcon", {rcon: 3})}
+            onClick={() => act("rcon", { rcon: 3 })}
           />
         </LabeledList.Item>
         <LabeledList.Item
@@ -181,7 +181,7 @@ const AirAlarmControlHome = (props, context) => {
             icon="undo"
             content="Reset"
             onClick={() => act("temperature", {
-              val: 20
+              val: 20,
             })}
           />
         </LabeledList.Item>
@@ -272,7 +272,7 @@ const AirAlarmControlModes = (props, context) => {
   }
 
   return modes.map(e => {
-    e.selected = e.mode === mode
+    e.selected = e.mode === mode;
     return e;
   }).map(mode => (
     <Fragment key={mode.mode}>
