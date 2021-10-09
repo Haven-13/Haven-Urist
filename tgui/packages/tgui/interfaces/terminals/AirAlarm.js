@@ -176,8 +176,8 @@ const AirAlarmControlHome = (props, context) => {
             width="75px"
             value={data.target_temperature}
             unit="C"
-            onChange={(e,value) => act("temperature", {
-              val: value
+            onChange={(e, value) => act("temperature", {
+              val: value,
             })}
           />
           <Button
