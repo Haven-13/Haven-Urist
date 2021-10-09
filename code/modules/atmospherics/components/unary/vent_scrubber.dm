@@ -102,7 +102,7 @@
 		"filter_n2" = ("nitrogen" in scrubbing_gas),
 		"filter_co2" = ("carbon_dioxide" in scrubbing_gas),
 		"filter_phoron" = ("phoron" in scrubbing_gas),
-		"filter_n2o" = ("sleeping_agent" in scrubbing_gas),
+		"filter_n2o" = ("nitrous_oxide" in scrubbing_gas),
 		"sigtype" = "status"
 	)
 	if(!initial_loc.air_scrub_names[id_tag])
@@ -211,30 +211,16 @@
 
 	var/list/toggle = list()
 
-	if(!isnull(signal.data["o2_scrub"]) && text2num(signal.data["o2_scrub"]) != ("oxygen" in scrubbing_gas))
-		toggle += "oxygen"
-	else if(signal.data["toggle_o2_scrub"])
-		toggle += "oxygen"
+	if(signal.data["toggle_filter"] != null)
+		toggle += signal.data["toggle_filter"]
 
-	if(!isnull(signal.data["n2_scrub"]) && text2num(signal.data["n2_scrub"]) != ("nitrogen" in scrubbing_gas))
-		toggle += "nitrogen"
-	else if(signal.data["toggle_n2_scrub"])
-		toggle += "nitrogen"
-
-	if(!isnull(signal.data["co2_scrub"]) && text2num(signal.data["co2_scrub"]) != ("carbon_dioxide" in scrubbing_gas))
-		toggle += "carbon_dioxide"
-	else if(signal.data["toggle_co2_scrub"])
-		toggle += "carbon_dioxide"
-
-	if(!isnull(signal.data["tox_scrub"]) && text2num(signal.data["tox_scrub"]) != ("phoron" in scrubbing_gas))
-		toggle += "phoron"
-	else if(signal.data["toggle_tox_scrub"])
-		toggle += "phoron"
-
-	if(!isnull(signal.data["n2o_scrub"]) && text2num(signal.data["n2o_scrub"]) != ("sleeping_agent" in scrubbing_gas))
-		toggle += "sleeping_agent"
-	else if(signal.data["toggle_n2o_scrub"])
-		toggle += "sleeping_agent"
+	if(signal.data["set_filter"] != null)
+		var/targets = signal.data["set_filter"]
+		for (var/key in targets)
+			var/value = targets[key]
+			if(!isnum(value)) value = text2num(value)
+			if((value && !(key in scrubbing_gas)) || (!value && (key in scrubbing_gas)))
+				toggle += key
 
 	scrubbing_gas ^= toggle
 
@@ -243,12 +229,12 @@
 		return
 
 	if(signal.data["status"] != null)
-		spawn(2)
+		spawn(0)
 			broadcast_status()
 		return //do not update_icon
 
 //			log_admin("DEBUG \[[world.timeofday]\]: vent_scrubber/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
-	spawn(2)
+	spawn(0)
 		broadcast_status()
 	update_icon()
 	return

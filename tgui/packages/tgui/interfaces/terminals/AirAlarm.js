@@ -144,10 +144,49 @@ const AirAlarmControlHome = (props, context) => {
   const [screen, setScreen] = useLocalState(context, 'screen');
   const {
     mode,
+    rcon,
     atmos_alarm,
   } = data;
   return (
     <Fragment>
+      <LabeledList>
+        <LabeledList.Item
+          label="Remote Control"
+        >
+          <Button.Checkbox
+            content="Disabled"
+            checked={rcon === 1}
+            onClick={() => act("rcon", {rcon: 1})}
+          />
+          <Button.Checkbox
+            content="Auto"
+            checked={rcon === 2}
+            onClick={() => act("rcon", {rcon: 2})}
+          />
+          <Button.Checkbox
+            content="Enabled"
+            checked={rcon === 3}
+            onClick={() => act("rcon", {rcon: 3})}
+          />
+        </LabeledList.Item>
+        <LabeledList.Item
+          label="Temperature"
+        >
+          <NumberInput
+            width="75px"
+            value={data.target_temperature}
+            unit="C"
+          />
+          <Button
+            icon="undo"
+            content="Reset"
+            onClick={() => act("temperature", {
+              val: 20
+            })}
+          />
+        </LabeledList.Item>
+      </LabeledList>
+      <Box mt={2} />
       <Button
         icon={atmos_alarm
           ? 'exclamation-triangle'
@@ -227,11 +266,15 @@ const AirAlarmControlScrubbers = (props, context) => {
 
 const AirAlarmControlModes = (props, context) => {
   const { act, data } = useBackend(context);
-  const { modes } = data;
+  const { mode, modes } = data;
   if (!modes || modes.length === 0) {
     return 'Nothing to show';
   }
-  return modes.map(mode => (
+
+  return modes.map(e => {
+    e.selected = e.mode === mode
+    return e;
+  }).map(mode => (
     <Fragment key={mode.mode}>
       <Button
         icon={mode.selected ? 'check-square-o' : 'square-o'}
@@ -267,12 +310,14 @@ const AirAlarmControlThresholds = (props, context) => {
       <tbody>
         {thresholds.map(threshold => (
           <tr key={threshold.name}>
-            <td className="LabeledList__label">{threshold.name}</td>
+            <td className="LabeledList__label">
+              {decodeHtmlEntities(threshold.name)}
+            </td>
             {threshold.settings.map(setting => (
               <td key={setting.val}>
                 <Button
                   content={toFixed(setting.selected, 2)}
-                  onClick={() => act('threshold', {
+                  onClick={() => act('set_threshold', {
                     env: setting.env,
                     var: setting.val,
                   })} />
