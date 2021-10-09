@@ -104,7 +104,7 @@
 		if(ATM_P)
 			return "phoron"
 		if(ATM_N2O)
-			return "sleeping_agent"
+			return "nitrous_oxide"
 		if(ATM_H2)
 			return "hydrogen"
 		else

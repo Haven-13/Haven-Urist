@@ -49,7 +49,7 @@
 		if(3) //removing CO2
 			filtered_out = list("carbon_dioxide")
 		if(4)//removing N2O
-			filtered_out = list("sleeping_agent")
+			filtered_out = list("nitrous_oxide")
 		if(5)//removing H2
 			filtered_out = list("hydrogen")
 
@@ -213,7 +213,7 @@
 			if(3) //removing CO2
 				filtered_out += "carbon_dioxide"
 			if(4)//removing N2O
-				filtered_out += "sleeping_agent"
+				filtered_out += "nitrous_oxide"
 			if(5)//removing H2
 				filtered_out += "hydrogen"
 

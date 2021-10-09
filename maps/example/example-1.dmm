@@ -286,6 +286,12 @@
 "Ln" = (
 /turf/simulated/wall,
 /area/shuttle/escape)
+"Px" = (
+/obj/machinery/alarm{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/constructionsite)
 "Sx" = (
 /obj/structure/lattice,
 /obj/structure/catwalk,
@@ -924,7 +930,7 @@ ac
 ac
 ae
 ac
-ac
+Px
 au
 ac
 ac

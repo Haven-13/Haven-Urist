@@ -124,7 +124,7 @@
 	initial_gas = list("carbon_dioxide" = ATMOSTANK_CO2)
 
 /turf/simulated/floor/reinforced/n20
-	initial_gas = list("sleeping_agent" = ATMOSTANK_NITROUSOXIDE)
+	initial_gas = list("nitrous_oxide" = ATMOSTANK_NITROUSOXIDE)
 
 //Tiled floor + sub-types
 
