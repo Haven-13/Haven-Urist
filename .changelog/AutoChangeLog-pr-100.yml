@@ -1,6 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Fixed air alarms not responding in most cases
-  - bugfix: Fixed vent pumps never changing mode
-  - bugfix: Fixed interface garbage for air alarms
