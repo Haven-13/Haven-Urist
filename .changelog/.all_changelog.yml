@@ -344,3 +344,11 @@
   martinlyra:
   - refactor: Graphical layering has been compressed to improve performance and reliability.
       From 23 to 6 planes in total.
+2021-10-10:
+  martinlyra:
+  - bugfix: Fixed emissives showing through machinery
+  - bugfix: Fixed emissives showing through structures
+  - bugfix: Fixed lighting switches not showing through darkness properly
+  - bugfix: Fixed air alarms not responding in most cases
+  - bugfix: Fixed vent pumps never changing mode
+  - bugfix: Fixed interface garbage for air alarms
