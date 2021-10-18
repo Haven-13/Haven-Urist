@@ -15,6 +15,10 @@ H13's Urist McStation's BS12 branch.
 - [Code of Conduct](.github/CODE_OF_CONDUCT.md)
 - [Contributing](.github/CONTRIBUTING.md)
 
+### ATTRIBUTION
+
+In addition to people who have contributed and authors of commits cherry-picked to this codebase. This fork is a "hard fork" where the history has beem compressed into a single commit. So there are much more attribution and credits due. This codebase is derived from commit [`0149e4644d4ae35a8f247c6d9052a1188a4d3029`](https://github.com/UristMcStation/UristMcStation/commit/0149e4644d4ae35a8f247c6d9052a1188a4d3029) @ [Urist McStation](https://github.com/UristMcStation/UristMcStation/tree/0149e4644d4ae35a8f247c6d9052a1188a4d3029)
+
 ### LICENSE
 
 Licenses used in this repo, applicable for the entire repo *and* distribution:
