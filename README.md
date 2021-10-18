@@ -15,6 +15,24 @@ H13's Urist McStation's BS12 branch.
 - [Code of Conduct](.github/CODE_OF_CONDUCT.md)
 - [Contributing](.github/CONTRIBUTING.md)
 
+### ATTRIBUTION
+
+#### Codebases
+Builds and codebases that have gotten content or code ported from there to here:
+
+- [CEV Eris](https://github.com/discordia-space/CEV-Eris)
+- [Goonstation](https://github.com/goonstation/goonstation)
+- [/tg/station](https://github.com/tgstation/tgstation)
+
+#### This build
+
+In addition to people who have contributed and authors of commits cherry-picked to this codebase. This fork is a "hard fork" where the history has beem compressed into a single commit. So there are much more attribution and credits due. This build is derived from commit [`0149e4644d4ae35a8f247c6d9052a1188a4d3029`](https://github.com/UristMcStation/UristMcStation/commit/0149e4644d4ae35a8f247c6d9052a1188a4d3029) @ [Urist McStation](https://github.com/UristMcStation/UristMcStation/tree/0149e4644d4ae35a8f247c6d9052a1188a4d3029)
+
+- [Urist McStation](https://github.com/UristMcStation/UristMcStation) @ [`0149e4644d4ae35a8f247c6d9052a1188a4d3029`](https://github.com/UristMcStation/UristMcStation/commit/0149e4644d4ae35a8f247c6d9052a1188a4d3029)
+- [Baystation 12](https://github.com/Baystation12/Baystation12) @ [`24930d70348958a97d86358497ebb31763f3fbb1`](https://github.com/Baystation12/Baystation12/commit/24930d70348958a97d86358497ebb31763f3fbb1)
+- [/tg/station](https://github.com/tgstation/tgstation)
+- [Goonstation](https://github.com/goonstation) @ [r4407](https://github.com/goonstation/goonstation-r4407)
+
 ### LICENSE
 
 Licenses used in this repo, applicable for the entire repo *and* distribution:
