@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - tweak: Changed power cells in APCs for critical rooms on Pluto; Atmospherics,
+      Aft First Deck Hallway, Armoury, Bridge, Engineering, Medical, and Security.
