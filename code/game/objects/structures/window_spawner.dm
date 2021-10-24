@@ -44,11 +44,14 @@
 /obj/effect/wingrille_spawn/proc/activate()
 	if(activated) return
 
+	if(locate(/turf/simulated/wall) in loc || locate(/turf/unsimulated/wall))
+		error("Window Spawner: A wall turf exists at [loc.x]-[loc.y]-[loc.z]")
+
 	if(locate(/obj/structure/window) in loc)
-		warning("Window Spawner: A window structure already exists at [loc.x]-[loc.y]-[loc.z]")
+		error("Window Spawner: A window structure already exists at [loc.x]-[loc.y]-[loc.z]")
 
 	if(locate(/obj/structure/grille) in loc)
-		warning("Window Spawner: A grille already exists at [loc.x]-[loc.y]-[loc.z]")
+		error("Window Spawner: A grille already exists at [loc.x]-[loc.y]-[loc.z]")
 	else
 		var/obj/structure/grille/G = new /obj/structure/grille(loc)
 		handle_grille_spawn(G)
