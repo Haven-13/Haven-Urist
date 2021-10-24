@@ -5,6 +5,10 @@
 ## Merger hooks, run tools/hooks/install.bat or install.sh to set up (not yet implemented)
 *.dmi binary merge=dmi
 
+*.gif binary
+*.png binary
+*.ogg binary
+
 # force changelog merging to use union
 html/changelog.html merge=union
 
