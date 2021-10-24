@@ -15,10 +15,6 @@
 
 /var/global/log_end= world.system_type == UNIX ? ascii2text(13) : ""
 
-
-/proc/error(msg)
-	to_world_log("## ERROR: [msg][log_end]")
-
 /proc/log_ss(subsystem, text, log_world = TRUE)
 	if (!subsystem)
 		subsystem = "UNKNOWN"
@@ -30,17 +26,21 @@
 /proc/log_ss_init(text)
 	game_log("SS", "[text]")
 
+/proc/error(msg)
+	to_world_log("## ERROR: [msg][log_end]")
+	game_log("ERROR", msg)
+
 //print a warning message to world.log
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [UNLINT(src)] usr: [usr].")
 /proc/warning(msg)
-	msg = "## WARNING: [msg]"
-	log_world(msg)
+	log_world("## WARNING: [msg][log_end]")
+	game_log("WARNING", msg)
 
 //not an error or a warning, but worth to mention on the world log, just in case.
 #define NOTICE(MSG) notice(MSG)
 /proc/notice(msg)
-	msg = "## NOTICE: [msg]"
-	log_world(msg)
+	log_world("## NOTICE: [msg][log_end]")
+	game_log("NOTICE", msg)
 
 //print a testing-mode debug message to world.log
 /proc/testing(msg)
