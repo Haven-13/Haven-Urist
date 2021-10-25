@@ -18,7 +18,7 @@
 
 /obj/mecha/working/hoverpod/fighter/small/alien
 	name = "alien fighter"
-	icon = 'icons/urist/vehicles/uristvehicles.dmi'
+	icon = 'resources/icons/urist/vehicles/uristvehicles.dmi'
 	icon_state = "alien"
 	initial_icon = "alien"
 	wreckage = /obj/effect/decal/mecha_wreckage/smallfighter
@@ -43,17 +43,17 @@
 	energy_drain = 30
 	projectiles_per_shot = 4
 	projectile = /obj/item/projectile/beam/scom/alien6
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'resources/sound/weapons/Laser.ogg'
 
 /obj/effect/decal/mecha_wreckage/smallfighter
 	name = "fighter wreckage"
-	icon = 'icons/urist/vehicles/uristvehicles.dmi'
+	icon = 'resources/icons/urist/vehicles/uristvehicles.dmi'
 	icon_state = "fighter-broken"
 
 /obj/mecha/working/hoverpod/fighter/small/human
 	health = 250
 	name = "fighter"
-	icon = 'icons/urist/vehicles/uristvehicles.dmi'
+	icon = 'resources/icons/urist/vehicles/uristvehicles.dmi'
 	icon_state = "fighter"
 	initial_icon = "fighter"
 	wreckage = /obj/effect/decal/mecha_wreckage/smallfighter
@@ -65,14 +65,14 @@
 
 /obj/mecha/working/hoverpod/fighter/large/human
 	name = "large fighter"
-	icon = 'icons/urist/vehicles/64x64vehicles.dmi'
+	icon = 'resources/icons/urist/vehicles/64x64vehicles.dmi'
 	icon_state = "bigfighter"
 	initial_icon = "bigfighter"
 	wreckage = /obj/effect/decal/mecha_wreckage/bigfighter
 
 /obj/effect/decal/mecha_wreckage/bigfighter
 	name = "large fighter wreckage"
-	icon = 'icons/urist/vehicles/64x64vehicles.dmi'
+	icon = 'resources/icons/urist/vehicles/64x64vehicles.dmi'
 	icon_state = "bigfighter-broken"
 
 /obj/mecha/working/hoverpod/fighter/large/human/New()
@@ -101,7 +101,7 @@
 	name = "\improper HSRM-4 heavy missile rack"
 	icon_state = "mecha_missilerack"
 	projectile = /obj/item/missile/heavy
-	fire_sound = 'sound/effects/bang.ogg'
+	fire_sound = 'resources/sound/effects/bang.ogg'
 	projectiles = 4
 	projectile_energy_cost = 1000
 	equip_cooldown = 60
@@ -112,26 +112,26 @@
 	..()
 
 /obj/item/missile/heavy
-	icon = 'icons/obj/grenade.dmi'
+	icon = 'resources/icons/obj/grenade.dmi'
 	icon_state = "missile"
 	throwforce = 15
 
-	throw_impact(atom/hit_atom)
-		if(primed)
-			explosion(hit_atom, 1, 2, 4, 4)
-			qdel(src)
-		else
-			..()
-		return
+/obj/item/missile/heavy/throw_impact(atom/hit_atom)
+	if(primed)
+		explosion(hit_atom, 1, 2, 4, 4)
+		qdel(src)
+	else
+		..()
+	return
 
 /mob/living/simple_animal/hostile/scom/fighter
 	name = "alien fighter"
-	icon = 'icons/urist/vehicles/uristvehicles.dmi'
+	icon = 'resources/icons/urist/vehicles/uristvehicles.dmi'
 	icon_state = "alien"
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	ranged = 1
-	projectilesound = 'sound/weapons/laser.ogg'
+	projectilesound = 'resources/sound/weapons/laser.ogg'
 	minimum_distance = 5
 	icon_living = "alien"
 	icon_dead = "alien"
@@ -155,7 +155,7 @@
 	step_in = 8
 	icon_state = "aliendrone"
 	initial_icon = "aliendrone"
-	icon = 'icons/urist/vehicles/cvrt.dmi'
+	icon = 'resources/icons/urist/vehicles/cvrt.dmi'
 	deflect_chance = 20
 
 /obj/mecha/working/hoverpod/fighter/large/alien/New()

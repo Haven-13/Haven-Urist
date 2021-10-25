@@ -1,7 +1,8 @@
 /obj/structure
-	icon = 'icons/obj/structures.dmi'
+	icon = 'resources/icons/obj/structures.dmi'
 	w_class = ITEM_SIZE_NO_CONTAINER
 	layer = STRUCTURE_LAYER
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	var/health = 100
 	var/breakable
 	var/parts

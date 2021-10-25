@@ -171,7 +171,7 @@
 	w_class = ITEM_SIZE_TINY
 	throwforce = 2
 	slot_flags = SLOT_EARS
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/ears.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'resources/icons/mob/species/resomi/ears.dmi')
 
 /obj/item/clothing/ears/update_clothing_icon()
 	if (ismob(src.loc))
@@ -216,7 +216,7 @@
 /obj/item/clothing/ears/flower
 	name = "flower crown"
 	desc = "A crown of flowers. You're not sure how it never decays."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	item_icons = URIST_ALL_ONMOBS
 
 /obj/item/clothing/ears/flower/Initialize()
@@ -253,17 +253,17 @@
 ///////////////////////////////////////////////////////////////////////
 //Glasses
 /*
-SEE_SELF  // can see self, no matter what
-SEE_MOBS  // can see all mobs, no matter what
-SEE_OBJS  // can see all objs, no matter what
-SEE_TURFS // can see all turfs (and areas), no matter what
-SEE_PIXELS// if an object is located on an unlit area, but some of its pixels are
-	      // in a lit area (via pixel_x, y or smooth movement), can see those pixels
-BLIND     // can't see anything
+* SEE_SELF   // can see self, no matter what
+* SEE_MOBS   // can see all mobs, no matter what
+* SEE_OBJS   // can see all objs, no matter what
+* SEE_TURFS  // can see all turfs (and areas), no matter what
+* SEE_PIXELS // if an object is located on an unlit area, but some of its pixels are
+*            // in a lit area (via pixel_x, y or smooth movement), can see those pixels
+* BLIND      // can't see anything
 */
 /obj/item/clothing/glasses
 	name = "glasses"
-	icon = 'icons/obj/clothing/glasses.dmi'
+	icon = 'resources/icons/obj/clothing/glasses.dmi'
 	w_class = ITEM_SIZE_SMALL
 	body_parts_covered = EYES
 	slot_flags = SLOT_EYES
@@ -272,9 +272,9 @@ BLIND     // can't see anything
 	var/see_invisible = -1
 	var/light_protection = 0
 	sprite_sheets = list(
-		SPECIES_VOX = 'icons/mob/species/vox/eyes.dmi',
-		SPECIES_UNATHI = 'icons/mob/onmob/Unathi/eyes.dmi',
-		SPECIES_RESOMI = 'icons/mob/species/resomi/eyes.dmi',
+		SPECIES_VOX = 'resources/icons/mob/species/vox/eyes.dmi',
+		SPECIES_UNATHI = 'resources/icons/mob/onmob/Unathi/eyes.dmi',
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/eyes.dmi',
 		)
 
 /obj/item/clothing/glasses/get_icon_state(mob/user_mob, slot)
@@ -294,7 +294,7 @@ BLIND     // can't see anything
 	name = "gloves"
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	w_class = ITEM_SIZE_SMALL
-	icon = 'icons/obj/clothing/gloves.dmi'
+	icon = 'resources/icons/obj/clothing/gloves.dmi'
 	siemens_coefficient = 0.75
 	var/wired = 0
 	var/obj/item/weapon/cell/cell = 0
@@ -306,10 +306,10 @@ BLIND     // can't see anything
 	attack_verb = list("challenged")
 	species_restricted = list("exclude",SPECIES_NABBER, SPECIES_UNATHI,SPECIES_VOX)
 	sprite_sheets = list(
-		SPECIES_VOX = 'icons/mob/species/vox/gloves.dmi',
-		SPECIES_NABBER = 'icons/mob/species/nabber/gloves.dmi',
-		SPECIES_UNATHI = 'icons/mob/onmob/Unathi/hands.dmi',
-		SPECIES_RESOMI = 'icons/mob/species/resomi/gloves.dmi',
+		SPECIES_VOX = 'resources/icons/mob/species/vox/gloves.dmi',
+		SPECIES_NABBER = 'resources/icons/mob/species/nabber/gloves.dmi',
+		SPECIES_UNATHI = 'resources/icons/mob/onmob/Unathi/hands.dmi',
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/gloves.dmi',
 		)
 	blood_overlay_type = "bloodyhands"
 
@@ -346,7 +346,7 @@ BLIND     // can't see anything
 			update_icon()
 			return
 
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 100, 1)
 		user.visible_message("<span class='warning'>\The [user] modifies \the [src] with \the [W].</span>","<span class='warning'>You modify \the [src] with \the [W].</span>")
 
 		cut_fingertops() // apply change, so relevant xenos can wear these
@@ -405,10 +405,10 @@ BLIND     // can't see anything
 //Head
 /obj/item/clothing/head
 	name = "head"
-	icon = 'icons/obj/clothing/hats.dmi'
+	icon = 'resources/icons/obj/clothing/hats.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/onmob/items/lefthand_hats.dmi',
-		slot_r_hand_str = 'icons/mob/onmob/items/righthand_hats.dmi',
+		slot_l_hand_str = 'resources/icons/mob/onmob/items/lefthand_hats.dmi',
+		slot_r_hand_str = 'resources/icons/mob/onmob/items/righthand_hats.dmi',
 		)
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
@@ -420,9 +420,9 @@ BLIND     // can't see anything
 	var/on = 0
 
 	sprite_sheets = list(
-		SPECIES_VOX = 'icons/mob/species/vox/head.dmi',
-		SPECIES_UNATHI = 'icons/mob/onmob/Unathi/head.dmi',
-		SPECIES_RESOMI = 'icons/mob/species/resomi/head.dmi'
+		SPECIES_VOX = 'resources/icons/mob/species/vox/head.dmi',
+		SPECIES_UNATHI = 'resources/icons/mob/onmob/Unathi/head.dmi',
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/head.dmi'
 		)
 	blood_overlay_type = "helmetblood"
 
@@ -437,9 +437,9 @@ BLIND     // can't see anything
 				if(use_icon)
 					ret.overlays |= user_human.species.get_offset_overlay_image(TRUE, use_icon, "[light_overlay]", color, slot)
 					return ret
-			ret.overlays |= user_human.species.get_offset_overlay_image(FALSE, 'icons/mob/light_overlays.dmi', "[light_overlay]", color, slot)
+			ret.overlays |= user_human.species.get_offset_overlay_image(FALSE, 'resources/icons/mob/light_overlays.dmi', "[light_overlay]", color, slot)
 		else
-			ret.overlays |= overlay_image('icons/mob/light_overlays.dmi', "[light_overlay]", null, RESET_COLOR)
+			ret.overlays |= overlay_image('resources/icons/mob/light_overlays.dmi', "[light_overlay]", null, RESET_COLOR)
 	return ret
 
 /obj/item/clothing/head/attack_self(mob/user)
@@ -497,7 +497,7 @@ BLIND     // can't see anything
 	if(on)
 		// Generate object icon.
 		if(!light_overlay_cache["[light_overlay]_icon"])
-			light_overlay_cache["[light_overlay]_icon"] = image("icon" = 'icons/obj/light_overlays.dmi', "icon_state" = "[light_overlay]")
+			light_overlay_cache["[light_overlay]_icon"] = image("icon" = 'resources/icons/obj/light_overlays.dmi', "icon_state" = "[light_overlay]")
 		overlays |= light_overlay_cache["[light_overlay]_icon"]
 
 	if(istype(user,/mob/living/carbon/human))
@@ -513,13 +513,13 @@ BLIND     // can't see anything
 //Mask
 /obj/item/clothing/mask
 	name = "mask"
-	icon = 'icons/obj/clothing/masks.dmi'
+	icon = 'resources/icons/obj/clothing/masks.dmi'
 	slot_flags = SLOT_MASK
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
-		SPECIES_VOX = 'icons/mob/species/vox/masks.dmi',
-		SPECIES_UNATHI = 'icons/mob/onmob/Unathi/mask.dmi',
-		SPECIES_RESOMI = 'icons/mob/species/resomi/masks.dmi',
+		SPECIES_VOX = 'resources/icons/mob/species/vox/masks.dmi',
+		SPECIES_UNATHI = 'resources/icons/mob/onmob/Unathi/mask.dmi',
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/masks.dmi',
 		)
 
 	var/voicechange = 0
@@ -589,7 +589,7 @@ BLIND     // can't see anything
 //Shoes
 /obj/item/clothing/shoes
 	name = "shoes"
-	icon = 'icons/obj/clothing/shoes.dmi'
+	icon = 'resources/icons/obj/clothing/shoes.dmi'
 	desc = "Comfortable-looking shoes."
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	siemens_coefficient = 0.9
@@ -604,9 +604,9 @@ BLIND     // can't see anything
 	var/overshoes = 0
 	species_restricted = list("exclude", SPECIES_NABBER, SPECIES_UNATHI, SPECIES_VOX)
 	sprite_sheets = list(
-		SPECIES_VOX = 'icons/mob/species/vox/shoes.dmi',
-		SPECIES_UNATHI = 'icons/mob/onmob/Unathi/feet.dmi',
-		SPECIES_RESOMI = 'icons/mob/species/resomi/shoes.dmi',
+		SPECIES_VOX = 'resources/icons/mob/species/vox/shoes.dmi',
+		SPECIES_UNATHI = 'resources/icons/mob/onmob/Unathi/feet.dmi',
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/shoes.dmi',
 		)
 	blood_overlay_type = "shoeblood"
 
@@ -624,7 +624,7 @@ BLIND     // can't see anything
 	if(usr.put_in_hands(holding))
 		usr.visible_message("<span class='warning'>\The [usr] pulls \the [holding] out of \the [src]!</span>", range = 1)
 		holding = null
-		playsound(get_turf(src), 'sound/effects/holster/sheathout.ogg', 25)
+		playsound(get_turf(src), 'resources/sound/effects/holster/sheathout.ogg', 25)
 	else
 		to_chat(usr, "<span class='warning'>Your need an empty, unbroken hand to do that.</span>")
 		holding.forceMove(src)
@@ -672,7 +672,7 @@ BLIND     // can't see anything
 ///////////////////////////////////////////////////////////////////////
 //Suit
 /obj/item/clothing/suit
-	icon = 'icons/obj/clothing/suits.dmi'
+	icon = 'resources/icons/obj/clothing/suits.dmi'
 	name = "suit"
 	var/fire_resist = T0C+100
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
@@ -684,10 +684,10 @@ BLIND     // can't see anything
 	w_class = ITEM_SIZE_NORMAL
 
 	sprite_sheets = list(
-		SPECIES_VOX = 'icons/mob/species/vox/suit.dmi',
-		SPECIES_UNATHI = 'icons/mob/onmob/Unathi/suit.dmi',
-		SPECIES_NABBER = 'icons/mob/species/nabber/suit.dmi',
-		SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi'
+		SPECIES_VOX = 'resources/icons/mob/species/vox/suit.dmi',
+		SPECIES_UNATHI = 'resources/icons/mob/onmob/Unathi/suit.dmi',
+		SPECIES_NABBER = 'resources/icons/mob/species/nabber/suit.dmi',
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/suit.dmi'
 		)
 
 /obj/item/clothing/suit/update_clothing_icon()
@@ -704,7 +704,7 @@ BLIND     // can't see anything
 	return ret
 
 /obj/item/clothing/suit/proc/get_collar()
-	var/icon/C = new('icons/mob/collar.dmi')
+	var/icon/C = new('resources/icons/mob/collar.dmi')
 	if(icon_state in C.IconStates())
 		var/image/I = image(C, icon_state)
 		I.color = color
@@ -712,10 +712,10 @@ BLIND     // can't see anything
 ///////////////////////////////////////////////////////////////////////
 //Under clothing
 /obj/item/clothing/under
-	icon = 'icons/obj/clothing/uniforms.dmi'
+	icon = 'resources/icons/obj/clothing/uniforms.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/onmob/items/lefthand_uniforms.dmi',
-		slot_r_hand_str = 'icons/mob/onmob/items/righthand_uniforms.dmi',
+		slot_l_hand_str = 'resources/icons/mob/onmob/items/lefthand_uniforms.dmi',
+		slot_r_hand_str = 'resources/icons/mob/onmob/items/righthand_uniforms.dmi',
 		)
 	name = "under"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
@@ -735,10 +735,10 @@ BLIND     // can't see anything
 	var/rolled_down = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	var/rolled_sleeves = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	sprite_sheets = list(
-		SPECIES_VOX = 'icons/mob/species/vox/uniform.dmi',
-		SPECIES_NABBER = 'icons/mob/species/nabber/uniform.dmi',
-		SPECIES_UNATHI = 'icons/mob/onmob/Unathi/uniform.dmi',
-		SPECIES_RESOMI = 'icons/mob/species/resomi/uniform.dmi',
+		SPECIES_VOX = 'resources/icons/mob/species/vox/uniform.dmi',
+		SPECIES_NABBER = 'resources/icons/mob/species/nabber/uniform.dmi',
+		SPECIES_UNATHI = 'resources/icons/mob/onmob/Unathi/uniform.dmi',
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/uniform.dmi',
 		)
 
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
@@ -966,7 +966,7 @@ BLIND     // can't see anything
 /obj/item/clothing/ring
 	name = "ring"
 	w_class = ITEM_SIZE_TINY
-	icon = 'icons/obj/clothing/rings.dmi'
+	icon = 'resources/icons/obj/clothing/rings.dmi'
 	slot_flags = SLOT_GLOVES
 	gender = NEUTER
 	species_restricted = list("exclude", SPECIES_NABBER)

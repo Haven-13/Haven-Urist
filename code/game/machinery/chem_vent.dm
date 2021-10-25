@@ -1,7 +1,7 @@
 /obj/machinery/chemical_vent
 	name = "chemical vent"
 	desc = "A vent that produces smoke infused with chemicals."
-	icon = 'icons/atmos/vent_pump.dmi'
+	icon = 'resources/icons/atmos/vent_pump.dmi'
 	icon_state = "off"
 
 	var/datum/radio_frequency/radio_connection
@@ -21,7 +21,7 @@
 	create_reagents(120)
 	for(var/chem in chemicals)
 		reagents.add_reagent(chem, chemicals[chem])
-	var/image/I = image('icons/atmos/vent_pump.dmi',"overlay")
+	var/image/I = image('resources/icons/atmos/vent_pump.dmi',"overlay")
 	I.color = reagents.get_color()
 	overlays += I
 
@@ -34,7 +34,7 @@
 		activate()
 
 /obj/machinery/chemical_vent/proc/activate()
-	playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
+	playsound(src.loc, 'resources/sound/effects/smoke.ogg', 50, 1, -3)
 	var/datum/effect/effect/system/smoke_spread/chem/smoke_system = new()
 	smoke_system.set_up(reagents, 10, 0, get_turf(src))
 	smoke_system.start()

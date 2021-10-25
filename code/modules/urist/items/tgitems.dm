@@ -1,6 +1,6 @@
 /*										*****New space to put all /tg/station small item ports*****
 
-Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/items/tgitems.dmi'
+Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'resources/icons/urist/items/tgitems.dmi'
 Please only put items here that don't have a huge definition - Glloyd																*/
 
 //seclite flashlight
@@ -9,7 +9,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	item_icons = DEF_URIST_INHANDS
 	name = "seclite"
 	desc = "A robust flashlight used by security."
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	icon_state = "seclite"
 	item_state = "seclite"
 	force = 9 // Not as good as a stun baton.
@@ -53,7 +53,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	reduces space tremendously, allowing you to create much more complex and interesting books (such as a googlespreadsheet.)
 	Just replace the var with your own bookname, and point the var into the right direction. - Skeeve2 */
 
-	var/seclaw = file2text('html/ingame_manuals/corporate_regulations.html')
+	var/seclaw = file2text('resources/html/ingame_manuals/corporate_regulations.html')
 	if(!seclaw)
 		seclaw = "Error loading help (file html/ingame_manuals/corporate_regulations.html is probably missing). Please report this to server administration staff."
 
@@ -64,7 +64,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/item/weapon/book/manual/security_space_law/nervaspacelaw
 	name = "ICS Nerva - Security Law & Regulation Guidelines."
 	desc = "A book describing the multiple sentencings for different crimes aboard the ICS Nerva."
-	icon = 'icons/urist/items/library.dmi'
+	icon = 'resources/icons/urist/items/library.dmi'
 	icon_state = "icsnervalaw"
 	author = "ICS Nerva Security Team"
 	title = "Security Law & Regulation Guidelines"
@@ -72,7 +72,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/item/weapon/book/manual/security_space_law/nervaspacelaw/New()
 	..()
 
-	var/nervalaw = file2text('html/ingame_manuals/icsnervalaw.html')
+	var/nervalaw = file2text('resources/html/ingame_manuals/icsnervalaw.html')
 	if(!nervalaw)
 		nervalaw = "Error loading help (file html/ingame_manuals/icsnervalaw.html is probably missing). Please report this to server administration staff."
 
@@ -80,7 +80,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 /obj/effect/decal/warning_stripes/urist
 	name = "warning decal"
-	icon = 'icons/urist/items/uristdecals.dmi'
+	icon = 'resources/icons/urist/items/uristdecals.dmi'
 
 /obj/effect/decal/warning_stripes/urist/arrow
 	name = "guide arrow"
@@ -93,7 +93,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/item/weapon/storage/bag/books
 	name = "book bag"
 	desc = "A bag for books."
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	icon_state = "bookbag"
 	storage_slots = 7
 	max_storage_space = 21 //check values!
@@ -106,7 +106,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/item/weapon/storage/lockbox/medal
 	name = "medal box"
 	desc = "A locked box used to store medals of honor."
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	icon_state = "medalbox+l"
 	item_state = "syringe_kit"
 	w_class = 3
@@ -159,7 +159,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/item/weapon/storage/fancy/cigarettes/urist
 	name = "urist packet"
 	desc = "The most dwarven of all cigarettes"
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	w_class = 1
 	throwforce = 2
 	slot_flags = SLOT_BELT
@@ -221,8 +221,8 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/item/weapon/storage/backpack/satchel_flat
 	name = "smuggler's satchel"
 	desc = "A very slim satchel that can easily fit into tight spaces."
-	icon = 'icons/urist/items/tgitems.dmi'
-	icon_override = 'icons/uristmob/back.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
+	icon_override = 'resources/icons/uristmob/back.dmi'
 	icon_state = "satchel-flat"
 	w_class = 3 //Can fit in backpacks itself.
 	storage_slots = 5
@@ -247,8 +247,8 @@ Please only put items here that don't have a huge definition - Glloyd											
 // Rolling papers from /tg/
 
 /obj/item/clothing/mask/smokable/cigarette/rollie
-	icon = 'icons/urist/items/tgitems.dmi'
-	icon_override = 'icons/uristmob/mask.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
+	icon_override = 'resources/icons/uristmob/mask.dmi'
 
 	name = "rollie"
 	desc = "A roll of dried plant matter wrapped in thin paper."
@@ -266,7 +266,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	src.pixel_y = rand(-5, 5)
 
 /obj/item/trash/cigbutt/roach
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 
 	name = "roach"
 	desc = "A manky old roach, or for non-stoners, a used rollup."
@@ -281,7 +281,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/item/weapon/rollingpaper
 	name = "rolling paper"
 	desc = "A thin piece of paper used to make fine smokeables."
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	icon_state = "cig_paper"
 	w_class = 1
 
@@ -310,7 +310,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	name = "rolling paper pack"
 	desc = "A pack of NanoTrasen brand rolling papers."
 	w_class = 1
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	icon_state = "cig_paper_pack"
 	storage_slots = 10
 	key_type = /obj/item/weapon/rollingpaper

@@ -11,7 +11,7 @@
 *******/
 /obj/item/device/camera_film
 	name = "film cartridge"
-	icon = 'icons/obj/photography.dmi'
+	icon = 'resources/icons/obj/photography.dmi'
 	desc = "A camera film cartridge. Insert it into a camera to reload it."
 	icon_state = "film"
 	item_state = "electropack"
@@ -25,7 +25,7 @@ var/global/photo_count = 0
 
 /obj/item/weapon/photo
 	name = "photo"
-	icon = 'icons/obj/photography.dmi'
+	icon = 'resources/icons/obj/photography.dmi'
 	icon_state = "photo"
 	item_state = "paper"
 	randpixel = 10
@@ -53,7 +53,7 @@ var/global/photo_count = 0
 
 	tiny = image(img)
 	tiny.transform *= 0.5*scale
-	tiny.underlays += image('icons/obj/bureaucracy.dmi',"photo")
+	tiny.underlays += image('resources/icons/obj/bureaucracy.dmi',"photo")
 	tiny.pixel_x = -32*(photo_size-1)/2 - 3
 	tiny.pixel_y = -32*(photo_size-1)/2 + 3
 
@@ -103,7 +103,7 @@ var/global/photo_count = 0
 **************/
 /obj/item/weapon/storage/photo_album
 	name = "Photo album"
-	icon = 'icons/obj/photography.dmi'
+	icon = 'resources/icons/obj/photography.dmi'
 	icon_state = "album"
 	item_state = "briefcase"
 	w_class = ITEM_SIZE_NORMAL //same as book
@@ -114,7 +114,7 @@ var/global/photo_count = 0
 
 	if((istype(usr, /mob/living/carbon/human)))
 		var/mob/M = usr
-		if(!( istype(over_object, /obj/screen) ))
+		if(!( istype(over_object, /atom/movable/screen) ))
 			return ..()
 		playsound(loc, "rustle", 50, 1, -5)
 		if((!( M.restrained() ) && !( M.stat ) && M.back == src))
@@ -139,7 +139,7 @@ var/global/photo_count = 0
 *********/
 /obj/item/device/camera
 	name = "camera"
-	icon = 'icons/obj/photography.dmi'
+	icon = 'resources/icons/obj/photography.dmi'
 	desc = "A polaroid camera."
 	icon_state = "camera"
 	item_state = "electropack"
@@ -223,7 +223,7 @@ var/global/photo_count = 0
 	if(!on || !pictures_left || ismob(target.loc)) return
 	captureimage(target, user, flag)
 
-	playsound(loc, pick('sound/items/polaroid1.ogg', 'sound/items/polaroid2.ogg'), 75, 1, -3)
+	playsound(loc, pick('resources/sound/items/polaroid1.ogg', 'resources/sound/items/polaroid2.ogg'), 75, 1, -3)
 
 	pictures_left--
 	to_chat(user, "<span class='notice'>[pictures_left] photos left.</span>")

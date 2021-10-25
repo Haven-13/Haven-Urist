@@ -1,7 +1,7 @@
 /obj/item/weapon/storage/pill_bottle/dice	//7d6
 	name = "bag of dice"
 	desc = "It's a small bag with dice inside."
-	icon = 'icons/obj/dice.dmi'
+	icon = 'resources/icons/obj/dice.dmi'
 	icon_state = "dicebag"
 
 /obj/item/weapon/storage/pill_bottle/dice/New()
@@ -12,7 +12,7 @@
 /obj/item/weapon/storage/pill_bottle/dice_nerd	//DnD dice
 	name = "bag of gaming dice"
 	desc = "It's a small bag with gaming dice inside."
-	icon = 'icons/obj/dice.dmi'
+	icon = 'resources/icons/obj/dice.dmi'
 	icon_state = "magicdicebag"
 
 /obj/item/weapon/storage/pill_bottle/dice_nerd/New()
@@ -30,7 +30,7 @@
  */
 
 /obj/item/weapon/storage/box/donut
-	icon = 'icons/obj/food.dmi'
+	icon = 'resources/icons/obj/food.dmi'
 	icon_state = "donutbox"
 	name = "donut box"
 	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/donut)
@@ -42,7 +42,7 @@
 	overlays.Cut()
 	var/i = 0
 	for(var/obj/item/weapon/reagent_containers/food/snacks/donut/D in contents)
-		overlays += image('icons/obj/food.dmi', "[i][D.overlay_state]")
+		overlays += image('resources/icons/obj/food.dmi', "[i][D.overlay_state]")
 		i++
 
 /obj/item/weapon/storage/box/donut/empty
@@ -53,7 +53,7 @@
 /obj/item/weapon/storage/cigpaper
 	name = "\improper Gen. Eric cigarette paper"
 	desc = "A ubiquitous brand of cigarette paper, allegedly endorsed by 24th century war hero General Eric Osmundsun for rolling your own cigarettes. Osmundsun died in a freak kayak accident. As it ate him alive during his last campaign. It was pretty freaky."
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'resources/icons/obj/cigarettes.dmi'
 	icon_state = "cigpaperbook"
 	item_state = "cigpacket"
 	w_class = ITEM_SIZE_SMALL
@@ -67,7 +67,7 @@
 /obj/item/weapon/storage/cigpaper/fancy
 	name = "\improper Trident cigarette paper"
 	desc = "A fancy brand of Trident cigarette paper, for rolling your own cigarettes. Like a person who appreciates the finer things in life."
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'resources/icons/obj/cigarettes.dmi'
 	icon_state = "fancycigpaperbook"
 
 	startswith = list(/obj/item/weapon/paper/cig/fancy = 10)
@@ -76,7 +76,7 @@
 /obj/item/weapon/storage/cigpaper/filters
 	name = "box of cigarette filters"
 	desc = "A box of generic cigarette filters for those who rolls their own but prefers others to inhale the fumes. Not endorsed by Late General Osmundsun."
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'resources/icons/obj/cigarettes.dmi'
 	icon_state = "filterbin"
 
 	startswith = list(/obj/item/weapon/paper/cig/filter = 10)
@@ -84,7 +84,7 @@
 /obj/item/weapon/storage/chewables
 	name = "box of chewing wads master"
 	desc = "A generic brands of Waffle Co Wads, unflavored chews. Why do these exist?"
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'resources/icons/obj/cigarettes.dmi'
 	icon_state = "placeholder"
 	item_state = "cigpacket"
 	w_class = ITEM_SIZE_SMALL
@@ -93,8 +93,6 @@
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	startswith = list(/obj/item/clothing/mask/chewable/tobacco = 6)
-	make_exact_fit()
-
 
 
 //tobacco for rolling cigs, stored seperately.
@@ -155,8 +153,6 @@
 	icon_state = "cookiebag"
 	max_storage_space = 6
 	startswith = list(/obj/item/weapon/reagent_containers/food/snacks/cookie = 6)
-	make_exact_fit()
-
 
 /obj/item/weapon/storage/chewables/candy/gum
 	name = "\improper Rainbo-Gums"
@@ -164,8 +160,6 @@
 	icon_state = "gumpack"
 	max_storage_space = 8
 	startswith = list(/obj/item/clothing/mask/chewable/candy/gum = 8)
-	make_exact_fit()
-
 
 /obj/item/weapon/storage/chewables/candy/medicallollis
 	name = "\improper Medibay-lols"
@@ -173,4 +167,3 @@
 	icon_state = "lollipack"
 	max_storage_space = 20
 	startswith = list(/obj/item/clothing/mask/chewable/candy/lolli/meds = 20)
-	make_exact_fit()

@@ -2,5 +2,5 @@
 	artist = "Zhay Tee"
 	title = "Absconditus"
 	album = "Minerva: Metastasis OST"
-	song = 'sound/music/traitor.ogg'
+	song = 'resources/sound/music/traitor.ogg'
 	license = /decl/license/grandfathered

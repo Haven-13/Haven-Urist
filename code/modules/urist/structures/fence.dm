@@ -16,7 +16,7 @@
 	density = TRUE
 	anchored = TRUE
 	atom_flags = ATOM_FLAG_CLIMBABLE
-	icon = 'icons/urist/objects/fence.dmi'
+	icon = 'resources/icons/urist/objects/fence.dmi'
 	icon_state = "straight"
 
 	var/cuttable = TRUE
@@ -137,7 +137,7 @@
 			open = FALSE
 
 	update_door_status()
-	playsound(src, 'sound/machines/click.ogg', 100, 1)
+	playsound(src, 'resources/sound/machines/click.ogg', 100, 1)
 
 /obj/structure/fence/door/proc/update_door_status()
 	switch(open)

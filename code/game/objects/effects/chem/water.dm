@@ -1,6 +1,6 @@
 /obj/effect/effect/water
 	name = "water"
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	icon_state = "extinguish"
 	mouse_opacity = 0
 	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GRILLE
@@ -60,5 +60,5 @@
 //Used by spraybottles.
 /obj/effect/effect/water/chempuff
 	name = "chemicals"
-	icon = 'icons/obj/chempuff.dmi'
+	icon = 'resources/icons/obj/chempuff.dmi'
 	icon_state = ""

@@ -6,7 +6,7 @@
 
 /obj/item/weapon/deck
 	w_class = ITEM_SIZE_SMALL
-	icon = 'icons/obj/playing_cards.dmi'
+	icon = 'resources/icons/obj/playing_cards.dmi'
 	var/list/cards = list()
 
 /obj/item/weapon/deck/holder
@@ -192,7 +192,7 @@
 	desc = "For those with disposible income."
 
 	icon_state = "card_pack"
-	icon = 'icons/obj/playing_cards.dmi'
+	icon = 'resources/icons/obj/playing_cards.dmi'
 	w_class = ITEM_SIZE_TINY
 	var/list/cards = list()
 
@@ -211,7 +211,7 @@
 /obj/item/weapon/hand
 	name = "hand of cards"
 	desc = "Some playing cards."
-	icon = 'icons/obj/playing_cards.dmi'
+	icon = 'resources/icons/obj/playing_cards.dmi'
 	icon_state = "empty"
 	w_class = ITEM_SIZE_TINY
 

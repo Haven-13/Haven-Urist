@@ -6,7 +6,7 @@ var/list/solars_list = list()
 /obj/machinery/power/solar
 	name = "solar panel"
 	desc = "A solar electrical generator."
-	icon = 'icons/obj/power.dmi'
+	icon = 'resources/icons/obj/power.dmi'
 	icon_state = "sp_base"
 	anchored = 1
 	density = 1
@@ -62,14 +62,14 @@ var/list/solars_list = list()
 /obj/machinery/power/solar/attackby(obj/item/weapon/W, mob/user)
 
 	if(isCrowbar(W))
-		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/machines/click.ogg', 50, 1)
 		user.visible_message("<span class='notice'>[user] begins to take the glass off the solar panel.</span>")
 		if(do_after(user, 50,src))
 			var/obj/item/solar_assembly/S = locate() in src
 			if(S)
 				S.loc = src.loc
 				S.give_glass()
-			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 			user.visible_message("<span class='notice'>[user] takes the glass off the solar panel.</span>")
 			qdel(src)
 		return
@@ -91,9 +91,9 @@ var/list/solars_list = list()
 	..()
 	overlays.Cut()
 	if(stat & BROKEN)
-		overlays += image('icons/obj/power.dmi', icon_state = "solar_panel-b", layer = FLY_LAYER)
+		overlays += image('resources/icons/obj/power.dmi', icon_state = "solar_panel-b", layer = FLY_LAYER)
 	else
-		overlays += image('icons/obj/power.dmi', icon_state = "solar_panel", layer = FLY_LAYER)
+		overlays += image('resources/icons/obj/power.dmi', icon_state = "solar_panel", layer = FLY_LAYER)
 		src.set_dir(angle2dir(adir))
 	return
 
@@ -203,7 +203,7 @@ var/list/solars_list = list()
 /obj/item/solar_assembly
 	name = "solar panel assembly"
 	desc = "A solar panel assembly kit, allows constructions of a solar panel, or with a tracking circuit board, a solar tracker."
-	icon = 'icons/obj/power.dmi'
+	icon = 'resources/icons/obj/power.dmi'
 	icon_state = "sp_base"
 	item_state = "electropack"
 	w_class = ITEM_SIZE_HUGE // Pretty big!
@@ -232,20 +232,20 @@ var/list/solars_list = list()
 			pixel_y = 0
 			pixel_z = 0
 			user.visible_message("<span class='notice'>[user] wrenches the solar assembly into place.</span>")
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+			playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 			return 1
 	else
 		if(isWrench(W))
 			anchored = 0
 			user.visible_message("<span class='notice'>[user] unwrenches the solar assembly from it's place.</span>")
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+			playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 			return 1
 
 		if(istype(W, /obj/item/stack/material) && (W.get_material_name() == "glass" || W.get_material_name() == "rglass"))
 			var/obj/item/stack/material/S = W
 			if(S.use(2))
 				glass_type = W.type
-				playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/machines/click.ogg', 50, 1)
 				user.visible_message("<span class='notice'>[user] places the glass on the solar assembly.</span>")
 				if(tracker)
 					new /obj/machinery/power/tracker(get_turf(src), src)
@@ -277,7 +277,7 @@ var/list/solars_list = list()
 /obj/machinery/power/solar_control
 	name = "solar panel control"
 	desc = "A controller for solar panel arrays."
-	icon = 'icons/obj/computer.dmi'
+	icon = 'resources/icons/obj/computer.dmi'
 	icon_state = "computer"
 	anchored = 1
 	density = 1
@@ -369,23 +369,23 @@ var/list/solars_list = list()
 // nabbed from /obj/machinery/computer/update_icon()
 // why the fuck is this object a special snowflake holy fucking shit
 /obj/machinery/power/solar_control/update_icon()
-	overlays.Cut()
+	cut_overlays()
+	. = list()
 
-	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	if(stat & NOPOWER)
 		set_light(0)
-		overlays += image(icon,"power_key_off", layer)
+		. += image(icon,"power_key_off", layer)
 		return
 	else
 		set_light(light_max_bright_on, light_inner_range_on, light_outer_range_on, 2, light_color)
 
 	if(stat & BROKEN)
-		overlays += image(icon,"computer_broken", layer)
+		. += image(icon,"computer_broken", layer)
 	else
-		add_emissive_overlay(icon, "solar_screen", layer)
-		add_emissive_overlay(icon, "power_key", layer)
+		. += get_emissive_overlay(icon, "solar_screen", layer)
+		. += get_emissive_overlay(icon, "power_key", layer)
 
-	return
+	add_overlay(.)
 
 /obj/machinery/power/solar_control/attack_hand(mob/user)
 	if(!..())
@@ -423,7 +423,7 @@ var/list/solars_list = list()
 
 /obj/machinery/power/solar_control/attackby(I as obj, user as mob)
 	if(isScrewdriver(I))
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 20,src))
 			if (src.stat & BROKEN)
 				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")

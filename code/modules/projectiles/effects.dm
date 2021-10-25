@@ -1,8 +1,8 @@
 /obj/effect/projectile
-	icon = 'icons/effects/projectiles.dmi'
+	icon = 'resources/icons/effects/projectiles.dmi'
 	icon_state = "bolt"
 	plane = EMISSIVE_PLANE
-	layer = BEAM_PROJECTILE_LAYER //Muzzle flashes would be above the lighting plane anyways.
+	layer = EMISSIVE_UNBLOCKABLE_LAYER //Muzzle flashes would be above the lighting plane anyways.
 	//Standard compiletime light vars aren't working here, so we've made some of our own.
 	light_outer_range = 2
 	light_max_bright = 0.75

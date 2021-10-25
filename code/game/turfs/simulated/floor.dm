@@ -1,7 +1,9 @@
 /turf/simulated/floor
 	name = "plating"
-	icon = 'icons/turf/flooring/plating.dmi'
+	icon = 'resources/icons/turf/flooring/plating.dmi'
 	icon_state = "plating"
+
+	atom_flags = ATOM_FLAG_NO_SCREEN_TIP
 
 	// Damage to flooring.
 	var/broken
@@ -10,7 +12,7 @@
 	// Plating data.
 	var/base_name = "plating"
 	var/base_desc = "The naked hull."
-	var/base_icon = 'icons/turf/flooring/plating.dmi'
+	var/base_icon = 'resources/icons/turf/flooring/plating.dmi'
 	var/base_icon_state = "plating"
 	var/base_color = COLOR_WHITE
 
@@ -64,7 +66,7 @@
 	icon = base_icon
 	icon_state = base_icon_state
 	color = base_color
-	plane = PLATING_PLANE
+	layer = PLATING_LAYER
 
 	if(flooring)
 		flooring.on_remove()
@@ -86,9 +88,9 @@
 		O.hide(O.hides_under_flooring() && src.flooring)
 
 	if(flooring)
-		plane = TURF_PLANE
+		layer = TURF_LAYER
 	else
-		plane = PLATING_PLANE
+		layer = PLATING_LAYER
 
 /turf/simulated/floor/can_engrave()
 	return (!flooring || flooring.can_engrave)

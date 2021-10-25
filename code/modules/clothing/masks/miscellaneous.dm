@@ -11,7 +11,7 @@
 /obj/item/clothing/mask/muzzle/tape
 	name = "length of tape"
 	desc = "It's a robust DIY muzzle!"
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'resources/icons/obj/bureaucracy.dmi'
 	icon_state = "tape_cross"
 	item_state = null
 	w_class = ITEM_SIZE_TINY
@@ -43,7 +43,7 @@
 	down_icon_state = "steriledown"
 	pull_mask = 1
 	sprite_sheets = list(
-		SPECIES_RESOMI = 'icons/mob/species/resomi/masks.dmi'
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/masks.dmi'
 		)
 
 /obj/item/clothing/mask/fakemoustache

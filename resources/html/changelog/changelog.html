@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Haven-Urist Changelog</title>
+  <link rel="stylesheet" type="text/css" href="changelog.css">
+  <base target="_blank" />
+  <script type='text/javascript'>
+
+	function changeText(tagID, newText, linkTagID){
+		var tag = document.getElementById(tagID);
+		tag.innerHTML = newText;
+		var linkTag = document.getElementById(linkTagID);
+		linkTag.removeAttribute("href");
+		linkTag.removeAttribute("onclick");
+	}
+
+  </script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<table align='center' width='650'><tr><td>
+<table align='center' class="top">
+	<tr>
+		<td valign='top'>
+			<div align='center'><font size='3'><b>Haven-Urist</b></font></div>
+			<div align='center'><font size='3'><b><i>Yet Another Space Station 13 Project</i></b></font></div>
+
+			<p><div align='center'><font size='3'><a href="https://github.com/Haven-13/Haven-Urist">Haven-Urist source code</a> | <a href="https://github.com/UristMcStation/UristMcStation">Urist McStation source code</a></font></div></p>
+            <font size='2'>Code licensed under <a href="http://www.gnu.org/licenses/agpl.html">AGPLv3</a>.<br>Combined work licenses include <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPLv3</a> & <a href="https://tldrlegal.com/license/mit-license">MIT License</a>.<br>Content licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.<br><br>
+			</td>
+	</tr>
+</table>
+
+		<!--
+
+		TO ADD AN ENTRY, ADD AND MAINTAIN YOUR OWN changelog/USERNAME.yml FILE.
+
+		*** DO NOT MODIFY THIS FILE OR YOU WILL CAUSE MERGE CONFLICTS. ***
+
+		-->
+		<div class="commit sansserif">
+
+			<h2 class="date">25 October 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Updated rust_g from 0.4.8 to 0.5.0</li>
+				<li class="tweak">Changed power cells in APCs for critical rooms on Pluto; Atmospherics, Aft First Deck Hallway, Armoury, Bridge, Engineering, Medical, and Security.</li>
+				<li class="bugfix">Fix how some errors and warnings would end up getting ignored because they were not properly flushed to the master log.</li>
+			</ul>
+
+			<h2 class="date">10 October 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed emissives showing through machinery</li>
+				<li class="bugfix">Fixed emissives showing through structures</li>
+				<li class="bugfix">Fixed lighting switches not showing through darkness properly</li>
+				<li class="bugfix">Fixed air alarms not responding in most cases</li>
+				<li class="bugfix">Fixed vent pumps never changing mode</li>
+				<li class="bugfix">Fixed interface garbage for air alarms</li>
+			</ul>
+
+			<h2 class="date">08 October 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Graphical layering has been compressed to improve performance and reliability. From 23 to 6 planes in total.</li>
+			</ul>
+
+			<h2 class="date">07 October 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Relative type pathing has been changed to absolute</li>
+			</ul>
+
+			<h2 class="date">04 October 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removed the fountain of youth</li>
+				<li class="rscdel">Removed the temple from the orb asteroid</li>
+				<li class="spellcheck">AWAIT changed to AWAITING in nuclear bomb UI</li>
+				<li class="tweak">Blocking procs and calls have been forbidden from garbage collection procs</li>
+			</ul>
+
+			<h2 class="date">02 October 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added tgUI for portable generators</li>
+				<li class="bugfix">Fixed runtimes caused by improper garbage collection of unused map-views.</li>
+				<li class="tweak">The stationary self-destruct terminal accepts, and requires the nuclear authorization disk.</li>
+				<li class="bugfix">Fixed the nuclear bomb and self-destruct UI</li>
+			</ul>
+
+			<h2 class="date">26 September 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The preview is now tgstation-based instead of using a static image. Using a map for easy, clean, and reliable updating.</li>
+				<li class="tweak">There are now three different backgrounds to select for the preview instead of four.</li>
+				<li class="bugfix">The shadow-people have been sent back to the shadow realm from the character creator preview.</li>
+				<li class="bugfix">As of the above tweak, the delay that causes a discrepancy between client and server has been removed.</li>
+				<li class="bugfix">Fixed a runtime preventing the old HTML UIs from responding properly to input</li>
+				<li class="rscadd">Added the Synthmorph culture, the default culture for the Machine/IPC species on the Pluto map</li>
+			</ul>
+			<h3 class="author">retlaw34 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Redoes the fuel port and oxygen wall locker</li>
+			</ul>
+
+			<h2 class="date">15 September 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">A popup text at top of screen will appear when howevering over an atom</li>
+				<li class="rscadd">Preference (in Global category) allowing players to show or hide the popup text. It is turned on by default.</li>
+				<li class="rscadd">Preference (in Global category) controlling whether the hover-over should display in either the stylic or the San Serif font.</li>
+				<li class="tweak">Byond interface CSS is now compiled and loaded at runtime instead of compile-time</li>
+			</ul>
+
+			<h2 class="date">13 September 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added potential bugs related to map UI elements</li>
+				<li class="refactor">Renamned typepaths for UI elements to a special atom/movable instead for technical imporvements</li>
+				<li class="tweak">Localhosts now will be automatically given a total-control rank, it is enabled by default in the config, but false in code</li>
+				<li class="tweak">Localhosts now can bypass guest-key checks as long the automatic rank is enabled</li>
+				<li class="tweak">Admins now bypass guest and whitelist checks for jobs</li>
+			</ul>
+
+			<h2 class="date">08 September 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed several cases of mangled characters showing up in text and some interfaces</li>
+			</ul>
+
+			<h2 class="date">27 August 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Optimized away maps</li>
+				<li class="tweak">Changed how objects initialize to remove time spent on waiting, to cut down the times.</li>
+				<li class="tweak">Chemistry reactions are now handled by a small subsystem for the time being</li>
+				<li class="bugfix">Fixed cave & mineral generation not being synchronized with the server & mapping initialization</li>
+				<li class="bugfix">Fixed overmap objects whose location are known not showing up</li>
+				<li class="bugfix">Fixed star not showing up.</li>
+			</ul>
+
+			<h2 class="date">26 August 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added overlays system</li>
+				<li class="rscdel">Removed vis_overlays system</li>
+				<li class="tweak">Changed how airlocks behave when animating</li>
+				<li class="tweak">Changed emissives from using 3 planes to 1 plane for efficiency and performance boost.</li>
+			</ul>
+
+			<h2 class="date">25 August 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="code_imp">Compiler options moved to code root folder from __defines folder.</li>
+				<li class="config">Compiling toolchain has been changed from simple node building to a juke-build suite.</li>
+			</ul>
+		</div>
+
+<br><b>Astro-Haven 13 Credit List</b>
+<table align='center' class="top">
+	<tr>
+		<td valign='top'>
+			<font size='2'><b>Developers:</b> martinlyra</font><br>
+			<font size='2'><b>Credits:</b>Ashturi, Glloyd, Greenjoe12345, MarkSuckerberg, retlaw34, Rockonanon, triplezeta</font><br>
+		</td>
+	</tr>
+</table>
+<br><b>Urist McStation Credit List</b>
+<table align='center' class="top">
+	<tr>
+		<td valign='top'>
+			<font size='2'><b>Developers:</b> Glloyd, Lmandude, Naxodile, scrdst, Vakothu</font><br>
+			<font size='2'><b>Spriters:</b> Deer, Olly</font><br>
+			<font size='2'><b>Credits:</b> Addle, Android SFV, Andromeda-K22, bknight286, Boggart, CanIgetanaccount, cgale212, chaoko99, Cheedows, CoZarctan, CPU-Blanc, dore0062, EyesNoEyes, Flip-Sandwich, ggermanicus, Greenjoe12345, Iamgoofball, JacobLee1, KG333, Knoxon, Kydrasz, Laniakeaaaa, liction15, LorenLuke, Lyeos, martinlyra, Mistamage, moonheart08, Octobomb, Racerbiscuit, rockwithagun, ShibberinoShipperino, Stefender, thomasstoeckert, Torque4607, Wymar</font><br>
+		</td>
+	</tr>
+</table>
+<br><b>Baystation 12 Credit List</b>
+<table align='center' class="top">
+	<tr>
+		<td valign='top'>
+			<font size='2'><b>Developers:</b> chinsky, F-Tang Steve, mloc, PsiOmegaDelta, sabiram, Snapshot, xales, Zuhayr</font><br>
+			<font size='2'><b>Credits:</b> Abi79, Apple_Master, Arcalane, Aryn, Cael_Aislinn, Ccomp5950, chinsky, cib, CompactNinja, Deus Dactyl, DopeGhoti, Erthilo, faux, Flashkirby, Hawk_v3, Head, Ipsil, Invisty, JoeyJo0, Lexusjjss, Melonstorm, Miniature, mloc, NerdyBoy1104, PsiOmegaDelta, sabiram, Searif, SkyMarshal, Snapshot, Spectre, Strumpetplaya, Sunfall, Tastyfish, Uristqwerty, Xenone<br>
+		</td>
+	</tr>
+</table>
+<br>
+<b>GoonStation 13 Development Team</b>
+<table align='center' class="top">
+	<tr>
+		<td valign='top'>
+			<font size='2'><b>Coders:</b> Stuntwaffle, Showtime, Pantaloons, Nannek, Keelin, Exadv1, hobnob, Justicefries, 0staf, sniperchance, AngriestIBM, BrianOBlivion</font><br>
+			<font size='2'><b>Spriters:</b> Supernorn, Haruhi, Stuntwaffle, Pantaloons, Rho, SynthOrange, I Said No</font><br>
+		</td>
+	</tr>
+</table>
+<br>
+<b>	Special thanks to... </b><br>
+<font size='2'><b> The developers of Urist McStation, CEV-Eris, /tg/station, /vg/station, GoonStation and the original Space Station 13</b></font>
+<p class="lic"><a name="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img src="88x31.png" alt="Creative Commons License" /></a><br><i>Except where otherwise noted, Goon Station 13 is licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 License</a>.<br>Rights are currently extended to <a href="http://forums.somethingawful.com/">SomethingAwful Goons</a> only.</i></p>
+<p class="lic">Some icons by <a href="http://p.yusukekamiyamane.com/">Yusuke Kamiyamane</a>. All rights reserved. Licensed under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</p>
+</td></tr></table>
+</body>
+</html>

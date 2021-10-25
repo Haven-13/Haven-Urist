@@ -10,7 +10,7 @@
 /obj/item/projectile/energy/flash
 	name = "chemical shell"
 	icon_state = "bullet"
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/gunshot_pistol.ogg'
 	damage = 5
 	agony = 20
 	kill_count = 15 //if the shell hasn't hit anything after travelling this far it just explodes.
@@ -31,7 +31,7 @@
 			M.confused += (brightness / 2)
 
 	//snap pop
-	playsound(src, 'sound/effects/snap.ogg', 50, 1)
+	playsound(src, 'resources/sound/effects/snap.ogg', 50, 1)
 	src.visible_message("<span class='warning'>\The [src] explodes in a bright flash!</span>")
 
 	var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
@@ -45,7 +45,7 @@
 /obj/item/projectile/energy/flash/flare
 	damage = 10
 	agony = 25
-	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/shotgun.ogg'
 	flash_range = 2
 	brightness = 15
 
@@ -60,7 +60,7 @@
 /obj/item/projectile/energy/electrode
 	name = "electrode"
 	icon_state = "spark"
-	fire_sound = 'sound/weapons/Taser.ogg'
+	fire_sound = 'resources/sound/weapons/Taser.ogg'
 	nodamage = 1
 	agony = 50
 	damage_type = DAMAGE_TYPE_PAIN //Damage will be handled on the MOB side, to prevent window shattering.
@@ -79,7 +79,7 @@
 /obj/item/projectile/energy/declone
 	name = "decloner beam"
 	icon_state = "declone"
-	fire_sound = 'sound/weapons/pulse3.ogg'
+	fire_sound = 'resources/sound/weapons/pulse3.ogg'
 	damage = 30
 	damage_type = DAMAGE_TYPE_GENETIC
 	irradiate = 40
@@ -119,7 +119,7 @@
 /obj/item/projectile/energy/phoron
 	name = "phoron bolt"
 	icon_state = "energy"
-	fire_sound = 'sound/effects/stealthoff.ogg'
+	fire_sound = 'resources/sound/effects/stealthoff.ogg'
 	damage = 20
 	damage_type = DAMAGE_TYPE_TOXIN
 	irradiate = 20
@@ -127,7 +127,7 @@
 /obj/item/projectile/energy/plasmastun
 	name = "plasma pulse"
 	icon_state = "plasma_stun"
-	fire_sound = 'sound/weapons/blaster.ogg'
+	fire_sound = 'resources/sound/weapons/blaster.ogg'
 	armor_penetration = 10
 	kill_count = 4
 	damage = 5

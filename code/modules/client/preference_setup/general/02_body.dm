@@ -31,8 +31,21 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	var/has_cortical_stack = TRUE
 	var/equip_preview_mob = EQUIP_PREVIEW_ALL
 
-	var/icon/bgstate = "000"
-	var/list/bgstate_options = list("000", "FFF", "steel", "white")
+	var/list/background_options = list(
+		"Void" = list(
+			"icon" = null,
+			"icon_state" = ""
+		),
+		"Dark" = list(
+			"icon" = 'resources/icons/turf/flooring/techfloor.dmi',
+			"icon_state" = "techfloor_gray"
+		),
+		"Rusty" = list(
+			"icon" = 'resources/icons/turf/flooring/tiles.dmi',
+			"icon_state" = "steel_dirty"
+		)
+	)
+	var/background_state = "Void"
 
 /datum/category_item/player_setup_item/physical/body
 	name = "Body"
@@ -64,8 +77,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	from_file(S["has_cortical_stack"], pref.has_cortical_stack)
 	from_file(S["body_markings"], pref.body_markings)
 	from_file(S["body_descriptors"], pref.body_descriptors)
-	pref.preview_icon = null
-	from_file(S["bgstate"], pref.bgstate)
+	from_file(S["background_state"], pref.background_state)
 
 /datum/category_item/player_setup_item/physical/body/save_character(var/savefile/S)
 	to_file(S["species"], pref.species)
@@ -92,7 +104,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	to_file(S["has_cortical_stack"], pref.has_cortical_stack)
 	to_file(S["body_markings"], pref.body_markings)
 	to_file(S["body_descriptors"], pref.body_descriptors)
-	to_file(S["bgstate"], pref.bgstate)
+	to_file(S["background_state"], pref.background_state)
 
 /datum/category_item/player_setup_item/physical/body/sanitize_character(var/savefile/S)
 	pref.r_hair			= sanitize_integer(pref.r_hair, 0, 255, initial(pref.r_hair))
@@ -147,14 +159,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				else
 					pref.body_descriptors[entry] = Clamp(last_descriptors[entry], 1, LAZY_LENGTH(descriptor.standalone_value_descriptors))
 
-	if(!pref.bgstate || !(pref.bgstate in pref.bgstate_options))
-		pref.bgstate = "000"
+	if(!pref.background_state || !(pref.background_state in pref.background_options))
+		pref.background_state = "Void"
 
 /datum/category_item/player_setup_item/physical/body/content(var/mob/user)
 	. = list()
-	if(!pref.preview_icon)
-		pref.update_preview_icon()
-	send_rsc(user, pref.preview_icon, "previewicon.png")
 
 	var/datum/species/mob_species = all_species[pref.species]
 	var/title = "<b>Species<a href='?src=[REF(src)];show_species=1'><small>?</small></a>:</b> <a href='?src=[REF(src)];set_species=1'>[mob_species.name]</a>"
@@ -277,7 +286,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		. += "</table><br>"
 
 	. += "</td><td><b>Preview</b><br>"
-	. += "<div class='statusDisplay'><center><img src=previewicon.png width=[pref.preview_icon.Width()] height=[pref.preview_icon.Height()]></center></div>"
 	. += "<br><a href='?src=[REF(src)];cycle_bg=1'>Cycle background</a>"
 	. += "<br><a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
 	. += "<br><a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
@@ -667,7 +675,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		return UPDATE_PREVIEW
 
 	else if(href_list["cycle_bg"])
-		pref.bgstate = next_in_list(pref.bgstate, pref.bgstate_options)
+		pref.background_state = next_in_list(pref.background_state, pref.background_options)
 		return UPDATE_PREVIEW
 
 	return ..()

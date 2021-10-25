@@ -4,7 +4,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 /mob/observer/ghost
 	name = "ghost"
 	desc = "It's a g-g-g-g-ghooooost!" //jinkies!
-	icon = 'icons/mob/mob.dmi'
+	icon = 'resources/icons/mob/mob.dmi'
 	icon_state = "ghost"
 	appearance_flags = KEEP_TOGETHER
 	blinded = 0
@@ -442,7 +442,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		hud_images = list()
 	var/image/hud_image = hud_images[icon_state]
 	if(!hud_image)
-		hud_image = image('icons/mob/mob.dmi', loc = src, icon_state = icon_state)
+		hud_image = image('resources/icons/mob/mob.dmi', loc = src, icon_state = icon_state)
 		hud_images[icon_state] = hud_image
 
 	if(make_visible)

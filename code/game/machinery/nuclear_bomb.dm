@@ -1,23 +1,38 @@
 var/bomb_set
 
+#define NUKEUI_AWAIT_DISK 1
+#define NUKEUI_AWAIT_CODE 2
+#define NUKEUI_AWAIT_TIMER 3
+#define NUKEUI_AWAIT_ARM 4
+#define NUKEUI_TIMING 5
+#define NUKEUI_EXPLODED 6
+
 /obj/machinery/nuclearbomb
 	name = "\improper Nuclear Fission Explosive"
 	desc = "Uh oh. RUN!"
-	icon = 'icons/obj/nuke.dmi'
+	icon = 'resources/icons/obj/nuke.dmi'
 	icon_state = "idle"
 	density = 1
 	use_power = 0
 	unacidable = 1
 
-	var/deployable = 0
-	var/extended = 0
+	var/timer_set = 90
+	var/minimum_timer_set = 90
+	var/maximum_timer_set = 3600
+
+	var/numeric_input = ""
+	var/ui_mode = NUKEUI_AWAIT_DISK
+
+	var/exploded = FALSE
+	var/deployable = FALSE
+	var/extended = FALSE
 	var/lighthack = 0
-	var/timeleft = 120
+	var/time_left = 120
 	var/timing = 0
 	var/r_code = "ADMIN"
 	var/code = ""
-	var/yes_code = 0
-	var/safety = 1
+	var/yes_code = FALSE
+	var/safety = TRUE
 	var/obj/item/weapon/disk/nuclear/auth = null
 	var/removal_stage = 0 // 0 is no removal, 1 is covers removed, 2 is covers open, 3 is sealant open, 4 is unwrenched, 5 is removed from bolts.
 	var/lastentered
@@ -39,9 +54,9 @@ var/bomb_set
 
 /obj/machinery/nuclearbomb/Process(var/wait)
 	if(timing)
-		timeleft = max(timeleft - (wait / 10), 0)
-		playsound(loc, 'sound/items/timer.ogg', 50)
-		if(timeleft <= 0)
+		time_left = max(time_left - (wait / 10), 0)
+		playsound(loc, 'resources/sound/items/timer.ogg', 50)
+		if(time_left <= 0)
 			addtimer(CALLBACK(src, .proc/explode), 0)
 		SStgui.update_uis(src)
 
@@ -53,12 +68,12 @@ var/bomb_set
 				panel_open = 1
 				overlays |= "panel_open"
 				to_chat(user, "You unscrew the control panel of [src].")
-				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 			else
 				panel_open = 0
 				overlays -= "panel_open"
 				to_chat(user, "You screw the control panel of [src] back on.")
-				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 		else
 			if(panel_open == 0)
 				to_chat(user, "\The [src] emits a buzzing noise, the panel staying locked in.")
@@ -66,7 +81,7 @@ var/bomb_set
 				panel_open = 0
 				overlays -= "panel_open"
 				to_chat(user, "You screw the control panel of \the [src] back on.")
-				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 			flick("lock", src)
 		return
 
@@ -149,6 +164,7 @@ var/bomb_set
 	attack_hand(user)
 
 /obj/machinery/nuclearbomb/attack_hand(mob/user as mob)
+	update_ui_mode()
 	if(extended)
 		if(panel_open)
 			wires.Interact(user)
@@ -166,41 +182,6 @@ var/bomb_set
 			update_icon()
 	return
 
-/obj/machinery/nuclearbomb/ui_interact(mob/user, var/datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "NuclearBomb")
-		ui.open()
-
-/obj/machinery/nuclearbomb/ui_data(mob/user)
-	var/data[0]
-	data["hacking"] = 0
-	data["auth"] = is_auth(user)
-	data["moveable_anchor"] = !istype(src, /obj/machinery/nuclearbomb/station)
-	if(is_auth(user))
-		if(yes_code)
-			data["authstatus"] = timing ? "Functional/Set" : "Functional"
-		else
-			data["authstatus"] = "Auth. S2"
-	else
-		if(timing)
-			data["authstatus"] = "Set"
-		else
-			data["authstatus"] = "Auth. S1"
-	data["safe"] = safety ? "Safe" : "Engaged"
-	data["time"] = timeleft
-	data["timer"] = timing
-	data["safety"] = safety
-	data["anchored"] = anchored
-	data["yescode"] = yes_code
-	data["message"] = "AUTH"
-	if(is_auth(user))
-		data["message"] = code
-		if(yes_code)
-			data["message"] = "*****"
-
-	return data
-
 /obj/machinery/nuclearbomb/verb/toggle_deployable()
 	set category = "Object"
 	set name = "Toggle Deployable"
@@ -217,101 +198,189 @@ var/bomb_set
 		deployable = 1
 	return
 
-/obj/machinery/nuclearbomb/proc/is_auth(var/mob/user)
-	if(auth)
-		return 1
-	if(user.can_admin_interact())
-		return 1
-	return 0
+/obj/machinery/nuclearbomb/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "NuclearBomb")
+		ui.open()
 
-/obj/machinery/nuclearbomb/Topic(href, href_list)
-	if(..())
-		return 1
+/obj/machinery/nuclearbomb/proc/update_ui_mode()
+	if(exploded)
+		ui_mode = NUKEUI_EXPLODED
+		return
 
-	if(href_list["auth"])
-		if(auth)
-			auth.forceMove(loc)
-			yes_code = 0
-			auth = null
-		else
-			var/obj/item/I = usr.get_active_hand()
-			if(istype(I, /obj/item/weapon/disk/nuclear))
-				if(!usr.unEquip(I, src))
-					return 1
-				auth = I
-	if(is_auth(usr))
-		if(href_list["type"])
-			if(href_list["type"] == "E")
-				if(code == r_code)
-					yes_code = 1
-					code = null
-					log_and_message_admins("has armed \the [src]")
-				else
-					code = "ERROR"
+	if(!auth)
+		ui_mode = NUKEUI_AWAIT_DISK
+		return
+
+	if(timing)
+		ui_mode = NUKEUI_TIMING
+		return
+
+	if(!safety)
+		ui_mode = NUKEUI_AWAIT_ARM
+		return
+
+	if(!yes_code)
+		ui_mode = NUKEUI_AWAIT_CODE
+		return
+
+	ui_mode = NUKEUI_AWAIT_TIMER
+
+/obj/machinery/nuclearbomb/ui_data(mob/user)
+	. = list()
+
+	var/hidden_code = (ui_mode == NUKEUI_AWAIT_CODE && numeric_input != "ERROR")
+
+	var/current_code = ""
+	if(hidden_code)
+		while(length(current_code) < length(numeric_input))
+			current_code = "[current_code]*"
+	else
+		current_code = numeric_input
+	while(length(current_code) < 5)
+		current_code = "[current_code]-"
+
+	var/first_status
+	var/second_status
+	switch(ui_mode)
+		if(NUKEUI_AWAIT_DISK)
+			first_status = "DEVICE LOCKED"
+			if(timing)
+				second_status = "TIME: [get_time_left()]"
 			else
-				if(href_list["type"] == "R")
-					yes_code = 0
-					code = null
-				else
-					lastentered = text("[]", href_list["type"])
-					if(text2num(lastentered) == null)
-						log_and_message_admins("tried to exploit a nuclear bomb by entering non-numerical codes")
-					else
-						code += lastentered
-						if(length(code) > 5)
-							code = "ERROR"
-		if(yes_code)
-			if(href_list["time"])
-				if(timing)
-					to_chat(usr, "<span class='warning'>Cannot alter the timing during countdown.</span>")
-					return
+				second_status = "AWAITING DISK"
+		if(NUKEUI_AWAIT_CODE)
+			first_status = "INPUT CODE"
+			second_status = "CODE: [current_code]"
+		if(NUKEUI_AWAIT_TIMER)
+			first_status = "INPUT TIME"
+			second_status = "TIME: [current_code]"
+		if(NUKEUI_AWAIT_ARM)
+			first_status = "DEVICE READY"
+			second_status = "TIME: [get_time_left()]"
+		if(NUKEUI_TIMING)
+			first_status = "DEVICE ARMED"
+			second_status = "TIME: [get_time_left()]"
+		if(NUKEUI_EXPLODED)
+			first_status = "DEVICE DEPLOYED"
+			second_status = "THANK YOU"
 
-				var/time = text2num(href_list["time"])
-				timeleft += time
-				timeleft = Clamp(timeleft, 120, 600)
-			if(href_list["timer"])
-				if(timing == -1)
-					return 1
-				if(!anchored)
-					to_chat(usr, "<span class='warning'>\The [src] needs to be anchored.</span>")
-					return 1
-				if(safety)
-					to_chat(usr, "<span class='warning'>The safety is still on.</span>")
-					return 1
-				if(wires.IsIndexCut(NUCLEARBOMB_WIRE_TIMING))
-					to_chat(usr, "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>")
-					return 1
-				if(!timing && !safety)
-					start_bomb()
-				else
-					check_cutoff()
-			if(href_list["safety"])
-				if (wires.IsIndexCut(NUCLEARBOMB_WIRE_SAFETY))
-					to_chat(usr, "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>")
-					return 1
-				safety = !safety
-				if(safety)
-					secure_device()
-				update_icon()
-			if(href_list["anchor"])
-				if(removal_stage == 5)
-					anchored = 0
-					visible_message("<span class='warning'>\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut.</span>")
-					return 1
+	.["status1"] = first_status
+	.["status2"] = second_status
+	.["immobile"] = FALSE
 
-				if(!isinspace())
-					anchored = !anchored
-					if(anchored)
-						visible_message("<span class='warning'>With a steely snap, bolts slide out of \the [src] and anchor it to the flooring.</span>")
-					else
-						secure_device()
-						visible_message("<span class='warning'>The anchoring bolts slide back into the depths of \the [src].</span>")
-				else
-					to_chat(usr, "<span class='warning'>There is nothing to anchor to!</span>")
-	return 1
+/obj/machinery/nuclearbomb/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
+	playsound(src, "terminal_type", 20, FALSE)
+	switch(action)
+		if("eject_disk")
+			if(auth && auth.loc == src)
+				playsound(src, 'resources/sound/machines/terminal_insert_disc.ogg', 50, FALSE)
+				playsound(src, 'resources/sound/machines/nuke/general_beep.ogg', 50, FALSE)
+				auth.forceMove(get_turf(src))
+				auth = null
+				. = TRUE
+			else
+				var/obj/item/I = usr.get_active_hand()
+				if(I && istype(I, /obj/item/weapon/disk/nuclear) && usr.drop_item(I) && I.forceMove(src))
+					playsound(src, 'resources/sound/machines/terminal_insert_disc.ogg', 50, FALSE)
+					playsound(src, 'resources/sound/machines/nuke/general_beep.ogg', 50, FALSE)
+					auth = I
+					. = TRUE
+			update_ui_mode()
+		if("keypad")
+			if(auth)
+				var/digit = params["digit"]
+				switch(digit)
+					if("C")
+						if(auth && ui_mode == NUKEUI_AWAIT_ARM)
+							set_safety()
+							yes_code = FALSE
+							playsound(src, 'resources/sound/machines/nuke/confirm_beep.ogg', 50, FALSE)
+							update_ui_mode()
+						else
+							playsound(src, 'resources/sound/machines/nuke/general_beep.ogg', 50, FALSE)
+						numeric_input = ""
+						. = TRUE
+					if("E")
+						switch(ui_mode)
+							if(NUKEUI_AWAIT_CODE)
+								if(numeric_input == r_code)
+									numeric_input = ""
+									yes_code = TRUE
+									playsound(src, 'resources/sound/machines/nuke/general_beep.ogg', 50, FALSE)
+									. = TRUE
+								else
+									playsound(src, 'resources/sound/machines/nuke/angry_beep.ogg', 50, FALSE)
+									numeric_input = "ERROR"
+							if(NUKEUI_AWAIT_TIMER)
+								var/number_value = text2num(numeric_input)
+								if(number_value)
+									timer_set = clamp(number_value, minimum_timer_set, maximum_timer_set)
+									playsound(src, 'resources/sound/machines/nuke/general_beep.ogg', 50, FALSE)
+									set_safety()
+									. = TRUE
+							else
+								playsound(src, 'resources/sound/machines/nuke/angry_beep.ogg', 50, FALSE)
+						update_ui_mode()
+					if("0","1","2","3","4","5","6","7","8","9")
+						if(numeric_input != "ERROR")
+							numeric_input += digit
+							if(length(numeric_input) > 5)
+								numeric_input = "ERROR"
+							else
+								playsound(src, 'resources/sound/machines/nuke/general_beep.ogg', 50, FALSE)
+							. = TRUE
+			else
+				playsound(src, 'resources/sound/machines/nuke/angry_beep.ogg', 50, FALSE)
+		if("arm")
+			if(auth && yes_code && !safety && !exploded)
+				playsound(src, 'resources/sound/machines/nuke/confirm_beep.ogg', 50, FALSE)
+				set_active()
+				update_ui_mode()
+				. = TRUE
+			else
+				playsound(src, 'resources/sound/machines/nuke/angry_beep.ogg', 50, FALSE)
+		if("anchor")
+			if(auth)
+				playsound(src, 'resources/sound/machines/nuke/general_beep.ogg', 50, FALSE)
+				set_anchor()
+			else
+				playsound(src, 'resources/sound/machines/nuke/angry_beep.ogg', 50, FALSE)
+
+/obj/machinery/nuclearbomb/proc/set_anchor()
+	if(isinspace() && !anchored)
+		to_chat(usr, "<span class='warning'>There is nothing to anchor to!</span>")
+	else
+		anchored = !anchored
+
+/obj/machinery/nuclearbomb/proc/set_active()
+	if(safety)
+		to_chat(usr, "<span class='danger'>The safety is still on.</span>")
+		return
+	timing = !timing
+	if(timing)
+		start_bomb()
+	else
+		check_cutoff()
+
+/obj/machinery/nuclearbomb/proc/set_safety()
+	safety = !safety
+	if(safety)
+		check_cutoff()
+
+/obj/machinery/nuclearbomb/proc/get_time_left()
+	if(timing)
+		. = round(max(0, time_left), 1)
+	else
+		. = timer_set
 
 /obj/machinery/nuclearbomb/proc/start_bomb()
 	timing = 1
+	time_left = clamp(timer_set, minimum_timer_set, maximum_timer_set)
 	log_and_message_admins("activated the detonation countdown of \the [src]")
 	bomb_set++ //There can still be issues with this resetting when there are multiple bombs. Not a big deal though for Nuke/N
 	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
@@ -330,7 +399,7 @@ var/bomb_set
 	bomb_set--
 	safety = TRUE
 	timing = 0
-	timeleft = Clamp(timeleft, 120, 600)
+	time_left = clamp(time_left, minimum_timer_set, maximum_timer_set)
 	update_icon()
 
 /obj/machinery/nuclearbomb/ex_act(severity)
@@ -344,6 +413,7 @@ var/bomb_set
 	timing = -1
 	yes_code = 0
 	safety = 1
+	exploded = TRUE
 	update_icon()
 
 	SetUniversalState(/datum/universal_state/nuclear_explosion, arguments=list(src))
@@ -364,7 +434,7 @@ var/bomb_set
 /obj/item/weapon/disk/nuclear
 	name = "nuclear authentication disk"
 	desc = "Better keep this safe."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "nucleardisk"
 	item_state = "card-id"
 	w_class = ITEM_SIZE_TINY
@@ -440,7 +510,7 @@ var/bomb_set
 	This concludes the instructions.", "vessel self-destruct instructions")
 
 	//stamp the paper
-	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+	var/image/stampoverlay = image('resources/icons/obj/bureaucracy.dmi')
 	stampoverlay.icon_state = "paper_stamp-hos"
 	R.stamped += /obj/item/weapon/stamp
 	R.overlays += stampoverlay
@@ -450,7 +520,7 @@ var/bomb_set
 /obj/machinery/nuclearbomb/station
 	name = "self-destruct terminal"
 	desc = "For when it all gets too much to bear. Do not taunt."
-	icon = 'icons/obj/nuke_station.dmi'
+	icon = 'resources/icons/obj/nuke_station.dmi'
 	anchored = 1
 	deployable = 1
 	extended = 1
@@ -474,24 +544,12 @@ var/bomb_set
 		inserters += ch
 
 /obj/machinery/nuclearbomb/station/attackby(obj/item/weapon/O as obj, mob/user as mob)
-	if(isWrench(O))
-		return
-
-/obj/machinery/nuclearbomb/station/Topic(href, href_list)
-	if((. = ..()))
-		return
-
-	if(href_list["anchor"])
-		return
-
-	if(href_list["time"])
-		if(timing)
-			to_chat(usr, "<span class='warning'>Cannot alter the timing during countdown.</span>")
+	if(istype(O, /obj/item/weapon/disk/nuclear))
+		if(!user.unEquip(O, src))
 			return
-		var/time = text2num(href_list["time"])
-		timeleft += time
-		timeleft = Clamp(timeleft, 300, 900)
-		return 1
+		auth = O
+		add_fingerprint(user)
+		return attack_hand(user)
 
 /obj/machinery/nuclearbomb/station/start_bomb()
 	for(var/inserter in inserters)
@@ -503,10 +561,14 @@ var/bomb_set
 	..()
 
 /obj/machinery/nuclearbomb/station/check_cutoff()
-	if(timeleft <= self_destruct_cutoff)
+	if(time_left <= self_destruct_cutoff)
 		visible_message("<span class='warning'>Self-Destruct abort is no longer possible.</span>")
 		return
 	..()
+
+/obj/machinery/nuclearbomb/station/ui_data(mob/user)
+	. = ..()
+	.["immobile"] = TRUE
 
 /obj/machinery/nuclearbomb/station/Destroy()
 	flash_tiles.Cut()
@@ -514,8 +576,8 @@ var/bomb_set
 
 /obj/machinery/nuclearbomb/station/Process()
 	..()
-	if(timeleft > 0 && GAME_STATE < RUNLEVEL_POSTGAME)
-		if(timeleft <= self_destruct_cutoff)
+	if(time_left > 0 && GAME_STATE < RUNLEVEL_POSTGAME)
+		if(time_left <= self_destruct_cutoff)
 			if(!announced)
 				priority_announcement.Announce("The self-destruct sequence has reached terminal countdown, abort systems have been disabled.", "Self-Destruct Control Computer")
 				announced = 1
@@ -523,7 +585,7 @@ var/bomb_set
 				var/range
 				var/high_intensity
 				var/low_intensity
-				if(timeleft <= (self_destruct_cutoff/2))
+				if(time_left <= (self_destruct_cutoff/2))
 					range = rand(2, 3)
 					high_intensity = rand(5,8)
 					low_intensity = rand(7,10)
@@ -566,3 +628,10 @@ var/bomb_set
 				continue
 			T.icon_state = target_icon_state
 		last_turf_state = target_icon_state
+
+#undef NUKEUI_AWAIT_DISK
+#undef NUKEUI_AWAIT_CODE
+#undef NUKEUI_AWAIT_TIMER
+#undef NUKEUI_AWAIT_ARM
+#undef NUKEUI_TIMING
+#undef NUKEUI_EXPLODED

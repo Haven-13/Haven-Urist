@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/smshard
 	name = "shard of supermatter"
 	desc = "A floating, iridescent shard of a supermatter."
-	icon = 'icons/mob/critter.dmi'
+	icon = 'resources/icons/mob/critter.dmi'
 	icon_state = "smshard"
 	icon_living = "smshard"
 	pass_flags = PASS_FLAG_TABLE
@@ -23,6 +23,6 @@
 /obj/item/researchshard
 	name = "supermatter dust"
 	desc = "This looks like the opposite of safe."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	icon_state = "smdust"
 	origin_tech = list(TECH_MATERIAL = 8, TECH_PHORON = 5, TECH_POWER = 7)

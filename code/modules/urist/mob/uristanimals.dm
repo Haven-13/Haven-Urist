@@ -7,7 +7,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /mob/living/simple_animal/fox
 	name = "fox"
 	desc = "It's a fox. I wonder what it says?"
-	icon = 'icons/urist/uristicons.dmi'
+	icon = 'resources/icons/urist/uristicons.dmi'
 	icon_state = "fox"
 	icon_living = "fox"
 	icon_dead = "fox_dead"
@@ -36,7 +36,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /mob/living/simple_animal/hostile/retaliate/bat
 	name = "Space Bat"
 	desc = "A rare breed of bat which roosts in spaceships, probably not vampiric."
-	icon = 'icons/urist/uristicons.dmi'
+	icon = 'resources/icons/urist/uristicons.dmi'
 	icon_state = "bat"
 	icon_living = "bat"
 	icon_dead = "bat_dead"
@@ -57,7 +57,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	attacktext = "bites"
 	pass_flags = PASS_FLAG_TABLE
 	faction = "carp"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = 'resources/sound/weapons/bite.ogg'
 
 	//Space bats need no air to fly in.
 	min_gas = null
@@ -72,7 +72,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	faction = "spiders"
 	harm_intent_damage = 3
 	health = 200
-	icon = 'icons/mob/animal.dmi'
+	icon = 'resources/icons/mob/animal.dmi'
 	icon_dead = "guard_dead"
 	icon_gib = "guard_dead"
 	icon_living = "guard"
@@ -92,7 +92,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /mob/living/simple_animal/turtle
 	name = "turtle"
 	desc = "Look out for bites!"
-	icon = 'icons/urist/uristicons.dmi'
+	icon = 'resources/icons/urist/uristicons.dmi'
 	icon_state = "turtle"
 	icon_living = "turtle"
 	icon_dead = "turtle_dead"
@@ -109,12 +109,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "Mule"
 	desc = "The QuarterMaster's turtle. Look out for bites!"
 
-/*holds a random chem for animal venom
-  should be used WITH copy=1 on transfer */
+//	holds a random chem for animal venom
+//	should be used WITH copy=1 on transfer
 /obj/item/venom_sac
 	name = "venom sac"
 	desc = "A sac something evolved to store venom in."
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'resources/icons/obj/surgery.dmi'
 	icon_state = "roro core"
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/chem_type_amt = 3 //should def it probably; max chem types

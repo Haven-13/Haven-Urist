@@ -2,7 +2,7 @@
 /obj/item/weapon/coilgun_assembly
 	name = "coilgun stock"
 	desc = "It might be a coilgun, someday."
-	icon = 'icons/obj/coilgun.dmi'
+	icon = 'resources/icons/obj/coilgun.dmi'
 	icon_state = "coilgun_construction_1"
 
 	var/construction_stage = 1
@@ -44,7 +44,7 @@
 			return
 
 		user.visible_message("<span class='notice'>\The [user] welds the barrel of \the [src] into place.</span>")
-		playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/items/Welder2.ogg', 100, 1)
 		increment_construction_stage()
 		return
 
@@ -66,7 +66,7 @@
 
 	if(isScrewdriver(thing) && construction_stage >= 9)
 		user.visible_message("<span class='notice'>\The [user] secures \the [src] and finishes it off.</span>")
-		playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 		var/obj/item/weapon/gun/magnetic/coilgun = new(loc)
 		var/put_in_hands
 		var/mob/M = src.loc

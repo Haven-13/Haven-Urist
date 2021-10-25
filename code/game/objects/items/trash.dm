@@ -3,7 +3,7 @@
 
 //Added by Jack Rost
 /obj/item/trash
-	icon = 'icons/obj/trash.dmi'
+	icon = 'resources/icons/obj/trash.dmi'
 	w_class = ITEM_SIZE_SMALL
 	desc = "This is rubbish."
 	var/age = 0
@@ -99,7 +99,7 @@
 
 /obj/item/trash/candle
 	name = "candle"
-	icon = 'icons/obj/candle.dmi'
+	icon = 'resources/icons/obj/candle.dmi'
 	icon_state = "candle4"
 
 /obj/item/trash/liquidfood
@@ -112,22 +112,22 @@
 
 /obj/item/trash/onigiri
 	name = "onigiri remains"
-	icon = 'icons/urist/items/uristtrash.dmi'
+	icon = 'resources/icons/urist/items/uristtrash.dmi'
 	icon_state = "onigiri-trash"
 
 /obj/item/trash/ramenbowl
 	name = "empty ramen bowl"
-	icon = 'icons/urist/items/uristtrash.dmi'
+	icon = 'resources/icons/urist/items/uristtrash.dmi'
 	icon_state = "ramen-trash"
 
 /obj/item/trash/skewers
 	name = "empty skewers"
-	icon = 'icons/urist/items/uristtrash.dmi'
+	icon = 'resources/icons/urist/items/uristtrash.dmi'
 	icon_state = "yakidango-trash"
 
 /obj/item/trash/surpriseonigiri
 	name = "surprise pack"
-	icon = 'icons/urist/items/uristtrash.dmi'
+	icon = 'resources/icons/urist/items/uristtrash.dmi'
 	icon_state = "surprise-o"
 
 /obj/item/trash/attack(mob/M as mob, mob/living/user as mob)

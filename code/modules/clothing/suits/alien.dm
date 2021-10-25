@@ -80,24 +80,24 @@
 //Resomi clothing
 
 /obj/item/clothing/suit/storage/toggle/resomicoat
- 	name = "small coat"
- 	desc = "A coat that seems too small to fit a human."
- 	icon_state = "resomicoat"
- 	item_state = "resomicoat"
- 	icon_open = "resomicoat_open"
- 	icon_closed = "resomicoat"
- 	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS
- 	species_restricted = list(SPECIES_RESOMI)
+	name = "small coat"
+	desc = "A coat that seems too small to fit a human."
+	icon_state = "resomicoat"
+	item_state = "resomicoat"
+	icon_open = "resomicoat_open"
+	icon_closed = "resomicoat"
+	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS
+	species_restricted = list(SPECIES_RESOMI)
 
 /obj/item/clothing/suit/storage/toggle/resomicoat/white
- 	name = "small coat"
- 	desc = "A coat that seems too small to fit a human."
- 	icon_state = "resomicoatwhite"
- 	item_state = "resomicoatwhite"
- 	icon_open = "resomicoatwhite_open"
- 	icon_closed = "resomicoatwhite"
- 	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS
- 	species_restricted = list(SPECIES_RESOMI)
+	name = "small coat"
+	desc = "A coat that seems too small to fit a human."
+	icon_state = "resomicoatwhite"
+	item_state = "resomicoatwhite"
+	icon_open = "resomicoatwhite_open"
+	icon_closed = "resomicoatwhite"
+	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS
+	species_restricted = list(SPECIES_RESOMI)
 
 /obj/item/clothing/suit/armor/vox_scrap
 	name = "rusted metal armor"
@@ -114,8 +114,8 @@
 /obj/item/clothing/suit/storage/teshari/cloak/color
 	name = "black cloak"
 	desc = "It drapes over a Teshari's shoulders and closes at the neck with pockets convienently placed inside."
-	icon = 'icons/mob/species/resomi/teshari_cloak.dmi'
-	item_icons = list(slot_wear_suit_str = 'icons/mob/species/resomi/teshari_cloak.dmi')
+	icon = 'resources/icons/mob/species/resomi/teshari_cloak.dmi'
+	item_icons = list(slot_wear_suit_str = 'resources/icons/mob/species/resomi/teshari_cloak.dmi')
 	icon_state = "tesh_cloak_bn"
 	item_state = "tesh_cloak_bn"
 	species_restricted = list(SPECIES_RESOMI)
@@ -235,24 +235,24 @@
 	name = "dark aesthetic cloak"
 	icon_state = "tesh_cloak_dretrowave"
 	item_state = "tesh_cloak_dretrowave"
-	icon = 'icons/mob/species/resomi/teshari_cloak.dmi'
-	icon_override = 'icons/mob/species/resomi/teshari_cloak.dmi'
+	icon = 'resources/icons/mob/species/resomi/teshari_cloak.dmi'
+	icon_override = 'resources/icons/mob/species/resomi/teshari_cloak.dmi'
 
 /obj/item/clothing/suit/storage/teshari/cloak/color/standard/black_glow
 	name = "black and glowing cloak"
 	desc = "It drapes over a Teshari's shoulders and closes at the neck with pockets convienently placed inside. This one has a polychromatic glowing rim at the bottom!"
 	icon_state = "tesh_cloak_bglowing"
 	item_state = "tesh_cloak_bglowing"
-	icon = 'icons/mob/species/resomi/teshari_cloak.dmi'
-	icon_override = 'icons/mob/species/resomi/teshari_cloak.dmi'
+	icon = 'resources/icons/mob/species/resomi/teshari_cloak.dmi'
+	icon_override = 'resources/icons/mob/species/resomi/teshari_cloak.dmi'
 
 
 // Job Cloaks
 /obj/item/clothing/suit/storage/teshari/cloak/jobs
 	name = "Captain cloak"
 	desc = "A soft Teshari cloak made for the Captain"
-	icon = 'icons/mob/species/resomi/deptcloak.dmi'
-	item_icons = list(slot_wear_suit_str = 'icons/mob/species/resomi/deptcloak.dmi')
+	icon = 'resources/icons/mob/species/resomi/deptcloak.dmi'
+	item_icons = list(slot_wear_suit_str = 'resources/icons/mob/species/resomi/deptcloak.dmi')
 	icon_state = "tesh_cloak_cap"
 	item_state = "tesh_cloak_cap"
 	species_restricted = list(SPECIES_RESOMI)

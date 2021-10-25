@@ -1,11 +1,11 @@
 /obj/machinery/door/unpowered/simple
 	name = "door"
-	icon = 'icons/obj/doors/material_doors.dmi'
+	icon = 'resources/icons/obj/doors/material_doors.dmi'
 	icon_state = "metal"
 
 	var/material/material
 	var/icon_base
-	hitsound = 'sound/weapons/genhit.ogg'
+	hitsound = 'resources/sound/weapons/genhit.ogg'
 	var/datum/lock/lock
 	var/initial_lock_value //for mapping purposes. Basically if this value is set, it sets the lock to this value.
 

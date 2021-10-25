@@ -18,25 +18,25 @@
 
 /turf/simulated/floor/holofloor/carpet
 	name = "brown carpet"
-	icon = 'icons/turf/flooring/carpet.dmi'
+	icon = 'resources/icons/turf/flooring/carpet.dmi'
 	icon_state = "brown"
 	initial_flooring = /decl/flooring/carpet
 
 /turf/simulated/floor/holofloor/concrete
 	name = "brown carpet"
-	icon = 'icons/turf/flooring/carpet.dmi'
+	icon = 'resources/icons/turf/flooring/carpet.dmi'
 	icon_state = "brown"
 	initial_flooring = /decl/flooring/carpet
 
 /turf/simulated/floor/holofloor/concrete
 	name = "floor"
-	icon = 'icons/turf/flooring/misc.dmi'
+	icon = 'resources/icons/turf/flooring/misc.dmi'
 	icon_state = "concrete"
 	initial_flooring = null
 
 /turf/simulated/floor/holofloor/tiled
 	name = "floor"
-	icon = 'icons/turf/flooring/tiles.dmi'
+	icon = 'resources/icons/turf/flooring/tiles.dmi'
 	icon_state = "steel"
 	initial_flooring = /decl/flooring/tiling
 
@@ -52,37 +52,37 @@
 
 /turf/simulated/floor/holofloor/lino
 	name = "lino"
-	icon = 'icons/turf/flooring/linoleum.dmi'
+	icon = 'resources/icons/turf/flooring/linoleum.dmi'
 	icon_state = "lino"
 	initial_flooring = /decl/flooring/linoleum
 
 /turf/simulated/floor/holofloor/wood
 	name = "wooden floor"
-	icon = 'icons/turf/flooring/wood.dmi'
+	icon = 'resources/icons/turf/flooring/wood.dmi'
 	icon_state = "wood"
 	initial_flooring = /decl/flooring/wood
 
 /turf/simulated/floor/holofloor/grass
 	name = "lush grass"
-	icon = 'icons/turf/flooring/grass.dmi'
+	icon = 'resources/icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
 
 /turf/simulated/floor/holofloor/snow
 	name = "snow"
 	base_name = "snow"
-	icon = 'icons/turf/floors.dmi'
-	base_icon = 'icons/turf/floors.dmi'
+	icon = 'resources/icons/turf/floors.dmi'
+	base_icon = 'resources/icons/turf/floors.dmi'
 	icon_state = "snow"
 	base_icon_state = "snow"
 
 /turf/simulated/floor/holofloor/space
-	icon = 'icons/turf/space.dmi'
+	icon = 'resources/icons/turf/space.dmi'
 	name = "\proper space"
 	icon_state = "0"
 
 /turf/simulated/floor/holofloor/reinforced
-	icon = 'icons/turf/flooring/tiles.dmi'
+	icon = 'resources/icons/turf/flooring/tiles.dmi'
 	initial_flooring = /decl/flooring/reinforced
 	name = "reinforced holofloor"
 	icon_state = "reinforced"
@@ -93,8 +93,8 @@
 /turf/simulated/floor/holofloor/beach
 	desc = "Uncomfortably gritty for a hologram."
 	base_desc = "Uncomfortably gritty for a hologram."
-	icon = 'icons/misc/beach.dmi'
-	base_icon = 'icons/misc/beach.dmi'
+	icon = 'resources/icons/misc/beach.dmi'
+	base_icon = 'resources/icons/misc/beach.dmi'
 	initial_flooring = null
 
 /turf/simulated/floor/holofloor/beach/sand
@@ -104,7 +104,7 @@
 
 /turf/simulated/floor/holofloor/beach/coastline
 	name = "coastline"
-	icon = 'icons/misc/beach2.dmi'
+	icon = 'resources/icons/misc/beach2.dmi'
 	icon_state = "sandwater"
 	base_icon_state = "sandwater"
 
@@ -120,8 +120,8 @@
 	base_desc = "Uncomfortably gritty for a hologram."
 	icon_state = "asteroid"
 	base_icon_state = "asteroid"
-	icon = 'icons/turf/flooring/asteroid.dmi'
-	base_icon = 'icons/turf/flooring/asteroid.dmi'
+	icon = 'resources/icons/turf/flooring/asteroid.dmi'
+	base_icon = 'resources/icons/turf/flooring/asteroid.dmi'
 	initial_flooring = null
 
 /turf/simulated/floor/holofloor/desert/New()
@@ -132,7 +132,7 @@
 /obj/structure/holostool
 	name = "stool"
 	desc = "Apply butt."
-	icon = 'icons/obj/furniture.dmi'
+	icon = 'resources/icons/obj/furniture.dmi'
 	icon_state = "stool_padded_preview"
 	anchored = 1.0
 
@@ -170,7 +170,7 @@
 				update_nearby_icons()
 				step(src, get_dir(user, src))
 		else
-			playsound(loc, 'sound/effects/Glasshit.ogg', 75, 1)
+			playsound(loc, 'resources/sound/effects/Glasshit.ogg', 75, 1)
 		..()
 	return
 
@@ -194,7 +194,7 @@
 
 	if(src.density && istype(I, /obj/item/weapon) && !istype(I, /obj/item/weapon/card))
 		var/aforce = I.force
-		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
+		playsound(src.loc, 'resources/sound/effects/Glasshit.ogg', 75, 1)
 		visible_message("<span class='danger'>\The [src] was hit by \the [I].</span>")
 		if(I.damtype == DAMAGE_TYPE_BRUTE || I.damtype == DAMAGE_TYPE_BURN)
 			take_damage(aforce)
@@ -260,7 +260,7 @@
 		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 		spark_system.set_up(5, 0, user.loc)
 		spark_system.start()
-		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+		playsound(user.loc, 'resources/sound/weapons/blade1.ogg', 50, 1)
 
 /obj/item/weapon/holo/esword/get_parry_chance(mob/user)
 	return active ? ..() : 0
@@ -275,13 +275,13 @@
 		force = 30
 		icon_state = "sword[blade_color]"
 		w_class = ITEM_SIZE_HUGE
-		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
+		playsound(user, 'resources/sound/weapons/saberon.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>[src] is now active.</span>")
 	else
 		force = 3
 		icon_state = "sword0"
 		w_class = ITEM_SIZE_SMALL
-		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
+		playsound(user, 'resources/sound/weapons/saberoff.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>[src] can now be concealed.</span>")
 
 	update_held_icon()
@@ -292,7 +292,7 @@
 //BASKETBALL OBJECTS
 
 /obj/item/weapon/beach_ball/holoball
-	icon = 'icons/obj/basketball.dmi'
+	icon = 'resources/icons/obj/basketball.dmi'
 	icon_state = "basketball"
 	name = "basketball"
 	item_state = "basketball"
@@ -302,7 +302,7 @@
 /obj/structure/holohoop
 	name = "basketball hoop"
 	desc = "Boom, Shakalaka!"
-	icon = 'icons/obj/basketball.dmi'
+	icon = 'resources/icons/obj/basketball.dmi'
 	icon_state = "hoop"
 	anchored = 1
 	density = 1
@@ -325,7 +325,7 @@
 //VOLEYBALL OBJECTS
 
 /obj/item/weapon/beach_ball/holovolleyball
-	icon = 'icons/obj/basketball.dmi'
+	icon = 'resources/icons/obj/basketball.dmi'
 	icon_state = "volleyball"
 	name = "voleyball"
 	item_state = "volleyball"
@@ -335,7 +335,7 @@
 /obj/structure/holonet
 	name = "net"
 	desc = "Bullshit, you can be mine!"
-	icon = 'icons/obj/basketball.dmi'
+	icon = 'resources/icons/obj/basketball.dmi'
 	icon_state = "volleynet_mid"
 	density = 1
 	anchored = 1
@@ -363,7 +363,7 @@
 /obj/machinery/readybutton
 	name = "Ready Declaration Device"
 	desc = "This device is used to declare ready. If all devices in an area are ready, the event will begin!"
-	icon = 'icons/obj/monitors.dmi'
+	icon = 'resources/icons/obj/monitors.dmi'
 	icon_state = "auth_off"
 	var/ready = 0
 	var/area/currentarea = null
@@ -436,7 +436,7 @@
 //Holocarp
 
 /mob/living/simple_animal/hostile/carp/holodeck
-	icon = 'icons/mob/hologram.dmi'
+	icon = 'resources/icons/mob/hologram.dmi'
 	icon_state = "Carp"
 	icon_living = "Carp"
 	icon_dead = "Carp"

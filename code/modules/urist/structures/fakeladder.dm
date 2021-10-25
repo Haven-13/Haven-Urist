@@ -1,7 +1,7 @@
 /obj/structure/fakeladder
 	name = "ladder"
 	desc = "A sturdy metal ladder."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'resources/icons/obj/structures.dmi'
 	icon_state = "ladder11"
 	var/id = null
 	var/height = 0							//the 'height' of the ladder. higher numbers are considered physically higher
@@ -40,27 +40,35 @@
 	if(up && down)
 		switch( alert("Go up or down the ladder?", "Ladder", "Up", "Down", "Cancel") )
 			if("Up")
-				user.visible_message("<span class='notice'>[user] climbs up \the [src]!</span>", \
-									 "<span class='notice'>You climb up \the [src]!</span>")
+				user.visible_message(
+					"<span class='notice'>[user] climbs up \the [src]!</span>",
+					"<span class='notice'>You climb up \the [src]!</span>"
+				)
 				user.loc = get_turf(up)
 				up.add_fingerprint(user)
 			if("Down")
-				user.visible_message("<span class='notice'>[user] climbs down \the [src]!</span>", \
-									 "<span class='notice'>You climb down \the [src]!</span>")
+				user.visible_message(
+					"<span class='notice'>[user] climbs down \the [src]!</span>",
+					"<span class='notice'>You climb down \the [src]!</span>"
+				)
 				user.loc = get_turf(down)
 				down.add_fingerprint(user)
 			if("Cancel")
 				return
 
 	else if(up)
-		user.visible_message("<span class='notice'>[user] climbs up \the [src]!</span>", \
-							 "<span class='notice'>You climb up \the [src]!</span>")
+		user.visible_message(
+			"<span class='notice'>[user] climbs up \the [src]!</span>",
+			"<span class='notice'>You climb up \the [src]!</span>"
+		)
 		user.loc = get_turf(up)
 		up.add_fingerprint(user)
 
 	else if(down)
-		user.visible_message("<span class='notice'>[user] climbs down \the [src]!</span>", \
-							 "<span class='notice'>You climb down \the [src]!</span>")
+		user.visible_message(
+			"<span class='notice'>[user] climbs down \the [src]!</span>",
+			"<span class='notice'>You climb down \the [src]!</span>"
+		)
 		user.loc = get_turf(down)
 		down.add_fingerprint(user)
 

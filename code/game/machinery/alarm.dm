@@ -34,7 +34,7 @@
 
 /obj/machinery/alarm
 	name = "alarm"
-	icon = 'icons/obj/monitors.dmi'
+	icon = 'resources/icons/obj/monitors.dmi'
 	icon_state = "alarm0"
 	anchored = 1
 	use_power = 1
@@ -279,7 +279,7 @@
 
 	if (environment_pressure <= pressure_levels[1])		//low pressures
 		if (!(mode == AALARM_MODE_PANIC || mode == AALARM_MODE_CYCLE))
-			playsound(src.loc, 'sound/machines/airalarm.ogg', 25, 0, 4)
+			playsound(src.loc, 'resources/sound/machines/airalarm.ogg', 25, 0, 4)
 			return 1
 
 	return 0
@@ -429,7 +429,7 @@
 	switch(mode)
 		if(AALARM_MODE_SCRUBBING)
 			for(var/device_id in alarm_area.air_scrub_names)
-				send_signal(device_id, list("power"= 1, "co2_scrub"= 1, "scrubbing"= SCRUBBER_SCRUB, "panic_siphon"= 0) )
+				send_signal(device_id, list("power"= 1, "set_filter"= list("carbon_dioxide"= 1), "scrubbing"= SCRUBBER_SCRUB, "panic_siphon"= 0) )
 			for(var/device_id in alarm_area.air_vent_names)
 				send_signal(device_id, list("power"= 1, "checks"= "default", "set_external_pressure"= "default") )
 
@@ -500,12 +500,12 @@
 	var/data = list()
 
 	var/modes[0]
-	modes[++modes.len] = list("name" = "Filtering - Scrubs out contaminants", 			"mode" = AALARM_MODE_SCRUBBING,		"selected" = mode == AALARM_MODE_SCRUBBING, 	"danger" = 0)
-	modes[++modes.len] = list("name" = "Replace Air - Siphons out air while replacing", "mode" = AALARM_MODE_REPLACEMENT,	"selected" = mode == AALARM_MODE_REPLACEMENT,	"danger" = 0)
-	modes[++modes.len] = list("name" = "Panic - Siphons air out of the room", 			"mode" = AALARM_MODE_PANIC,			"selected" = mode == AALARM_MODE_PANIC, 		"danger" = 1)
-	modes[++modes.len] = list("name" = "Cycle - Siphons air before replacing", 			"mode" = AALARM_MODE_CYCLE,			"selected" = mode == AALARM_MODE_CYCLE, 		"danger" = 1)
-	modes[++modes.len] = list("name" = "Fill - Shuts off scrubbers and opens vents", 	"mode" = AALARM_MODE_FILL,			"selected" = mode == AALARM_MODE_FILL, 			"danger" = 0)
-	modes[++modes.len] = list("name" = "Off - Shuts off vents and scrubbers", 			"mode" = AALARM_MODE_OFF,			"selected" = mode == AALARM_MODE_OFF, 			"danger" = 0)
+	modes[++modes.len] = list("name" = "Filtering - Scrubs out contaminants", 			"mode" = AALARM_MODE_SCRUBBING,		"danger" = 0)
+	modes[++modes.len] = list("name" = "Replace Air - Siphons out air while replacing", "mode" = AALARM_MODE_REPLACEMENT,	"danger" = 0)
+	modes[++modes.len] = list("name" = "Panic - Siphons air out of the room", 			"mode" = AALARM_MODE_PANIC,			"danger" = 1)
+	modes[++modes.len] = list("name" = "Cycle - Siphons air before replacing", 			"mode" = AALARM_MODE_CYCLE,			"danger" = 1)
+	modes[++modes.len] = list("name" = "Fill - Shuts off scrubbers and opens vents", 	"mode" = AALARM_MODE_FILL,			"danger" = 0)
+	modes[++modes.len] = list("name" = "Off - Shuts off vents and scrubbers", 			"mode" = AALARM_MODE_OFF,			"danger" = 0)
 	data["modes"] = modes
 
 	return data
@@ -565,12 +565,15 @@
 		if(!info)
 			continue
 		vents[++vents.len] = list(
-				"id_tag"	= id_tag,
+				"id_tag"    = id_tag,
 				"long_name" = sanitize(long_name),
-				"power"		= info["power"],
-				"checks"	= info["checks"],
-				"direction"	= info["direction"],
-				"external"	= info["external"]
+				"power"     = info["power"],
+				"checks"    = info["checks"],
+				"incheck"   = info["incheck"],
+				"excheck"   = info["excheck"],
+				"direction" = info["direction"],
+				"external"  = info["external"],
+				"internal"  = info["internal"]
 			)
 	data["vents"] = vents
 
@@ -589,11 +592,11 @@
 				"panic"		= info["panic"],
 				"filters"	= list()
 			)
-		scrubbers[scrubbers.len]["filters"] += list(list("name" = "Oxygen",			"command" = "o2_scrub",	"val" = info["filter_o2"]))
-		scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrogen",		"command" = "n2_scrub",	"val" = info["filter_n2"]))
-		scrubbers[scrubbers.len]["filters"] += list(list("name" = "Carbon Dioxide", "command" = "co2_scrub","val" = info["filter_co2"]))
-		scrubbers[scrubbers.len]["filters"] += list(list("name" = "Toxin"	, 		"command" = "tox_scrub","val" = info["filter_phoron"]))
-		scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrous Oxide",	"command" = "n2o_scrub","val" = info["filter_n2o"]))
+		scrubbers[scrubbers.len]["filters"] += list(list("name" = "oxygen",			"val" = info["filter_o2"]))
+		scrubbers[scrubbers.len]["filters"] += list(list("name" = "nitrogen",		"val" = info["filter_n2"]))
+		scrubbers[scrubbers.len]["filters"] += list(list("name" = "carbon_dioxide", "val" = info["filter_co2"]))
+		scrubbers[scrubbers.len]["filters"] += list(list("name" = "phoron"	, 		"val" = info["filter_phoron"]))
+		scrubbers[scrubbers.len]["filters"] += list(list("name" = "nitrous_oxide",	"val" = info["filter_n2o"]))
 	data["scrubbers"] = scrubbers
 
 	// Sensor settings
@@ -659,7 +662,7 @@
 			var/list/selected = TLV["temperature"]
 			var/max_temperature = min(selected[3] - T0C, MAX_TEMPERATURE)
 			var/min_temperature = max(selected[2] - T0C, MIN_TEMPERATURE)
-			var/input_temperature = input(usr, "What temperature would you like the system to mantain? (Capped between [min_temperature] and [max_temperature]C)", "Thermostat Controls", target_temperature - T0C) as num|null
+			var/input_temperature = text2num(params["val"])
 			if(isnum(input_temperature))
 				if(input_temperature > max_temperature || input_temperature < min_temperature)
 					to_chat(usr, "Temperature must be between [min_temperature]C and [max_temperature]C")
@@ -667,94 +670,80 @@
 					target_temperature = input_temperature + T0C
 			return TRUE
 
-	// hrefs that need the AA unlocked -walter0o
-	var/extra_href = list()
-	if(!(locked && !extra_href["remote_connection"]) || extra_href["remote_access"] || issilicon(usr))
+	var/device_id = params["id_tag"]
+	if(!(locked && !params["remote_connection"]) || params["remote_access"] || issilicon(usr))
 		switch(action)
-			if("command")
-				var/device_id = params["id_tag"]
-				switch(params["command"])
-					if("set_external_pressure")
-						var/input_pressure = input(usr, "What pressure you like the system to mantain?", "Pressure Controls") as num|null
-						if(isnum(input_pressure))
-							send_signal(device_id, list(params["command"] = input_pressure))
-						return TRUE
+			if("set_internal_pressure",
+				"set_external_pressure")
+				var/input_pressure = text2num(params["value"])
+				if(isnum(input_pressure))
+					send_signal(device_id, list("[action]" = input_pressure))
+				else if (params["value"] == "default")
+					send_signal(device_id, list("[action]" = "default"))
+				return TRUE
 
-					if("reset_external_pressure")
-						send_signal(device_id, list(params["command"] = ONE_ATMOSPHERE))
-						return TRUE
+			if( "power",
+				"scrubbing",
+				"direction",
+				"excheck",
+				"incheck",
+				"panic_siphon")
+				send_signal(device_id, list("[action]" = text2num(params["val"])))
+				return TRUE
 
-					if( "power",
-						"direction",
-						"adjust_external_pressure",
-						"checks",
-						"o2_scrub",
-						"n2_scrub",
-						"co2_scrub",
-						"tox_scrub",
-						"n2o_scrub",
-						"panic_siphon")
+			if("toggle_filter")
+				send_signal(device_id, list("[action]" = params["val"]))
+				return TRUE
 
-						send_signal(device_id, list(params["command"] = text2num(params["val"]) ) )
-						return TRUE
+			if("set_threshold")
+				var/env = params["env"]
+				var/threshold = text2num(params["var"])
+				var/list/selected = TLV[env]
+				var/list/thresholds = list("lower bound", "low warning", "high warning", "upper bound")
+				var/newval = input(usr, "Enter [thresholds[threshold]] for [env]", "Alarm triggers", selected[threshold]) as null|num
+				if (isnull(newval))
+					return FALSE
+				if (newval<0)
+					selected[threshold] = -1.0
+				else if (env=="temperature" && newval>5000)
+					selected[threshold] = 5000
+				else if (env=="pressure" && newval>50*ONE_ATMOSPHERE)
+					selected[threshold] = 50*ONE_ATMOSPHERE
+				else if (env!="temperature" && env!="pressure" && newval>200)
+					selected[threshold] = 200
+				else
+					newval = round(newval,0.01)
+					selected[threshold] = newval
+				if(threshold == 1)
+					if(selected[1] > selected[2])
+						selected[2] = selected[1]
+					if(selected[1] > selected[3])
+						selected[3] = selected[1]
+					if(selected[1] > selected[4])
+						selected[4] = selected[1]
+				if(threshold == 2)
+					if(selected[1] > selected[2])
+						selected[1] = selected[2]
+					if(selected[2] > selected[3])
+						selected[3] = selected[2]
+					if(selected[2] > selected[4])
+						selected[4] = selected[2]
+				if(threshold == 3)
+					if(selected[1] > selected[3])
+						selected[1] = selected[3]
+					if(selected[2] > selected[3])
+						selected[2] = selected[3]
+					if(selected[3] > selected[4])
+						selected[4] = selected[3]
+				if(threshold == 4)
+					if(selected[1] > selected[4])
+						selected[1] = selected[4]
+					if(selected[2] > selected[4])
+						selected[2] = selected[4]
+					if(selected[3] > selected[4])
+						selected[3] = selected[4]
 
-					if("scrubbing")
-						send_signal(device_id, list(params["command"] = params["scrub_mode"]) )
-						return TRUE
-
-					if("set_threshold")
-						var/env = params["env"]
-						var/threshold = text2num(params["var"])
-						var/list/selected = TLV[env]
-						var/list/thresholds = list("lower bound", "low warning", "high warning", "upper bound")
-						var/newval = input(usr, "Enter [thresholds[threshold]] for [env]", "Alarm triggers", selected[threshold]) as null|num
-						if (isnull(newval))
-							return FALSE
-						if (newval<0)
-							selected[threshold] = -1.0
-						else if (env=="temperature" && newval>5000)
-							selected[threshold] = 5000
-						else if (env=="pressure" && newval>50*ONE_ATMOSPHERE)
-							selected[threshold] = 50*ONE_ATMOSPHERE
-						else if (env!="temperature" && env!="pressure" && newval>200)
-							selected[threshold] = 200
-						else
-							newval = round(newval,0.01)
-							selected[threshold] = newval
-						if(threshold == 1)
-							if(selected[1] > selected[2])
-								selected[2] = selected[1]
-							if(selected[1] > selected[3])
-								selected[3] = selected[1]
-							if(selected[1] > selected[4])
-								selected[4] = selected[1]
-						if(threshold == 2)
-							if(selected[1] > selected[2])
-								selected[1] = selected[2]
-							if(selected[2] > selected[3])
-								selected[3] = selected[2]
-							if(selected[2] > selected[4])
-								selected[4] = selected[2]
-						if(threshold == 3)
-							if(selected[1] > selected[3])
-								selected[1] = selected[3]
-							if(selected[2] > selected[3])
-								selected[2] = selected[3]
-							if(selected[3] > selected[4])
-								selected[4] = selected[3]
-						if(threshold == 4)
-							if(selected[1] > selected[4])
-								selected[1] = selected[4]
-							if(selected[2] > selected[4])
-								selected[2] = selected[4]
-							if(selected[3] > selected[4])
-								selected[3] = selected[4]
-
-						apply_mode()
-						return TRUE
-
-			if("screen")
-				screen = text2num(params["screen"])
+				apply_mode()
 				return TRUE
 
 			if("atmos_unlock")
@@ -765,13 +754,13 @@
 						alarm_area.air_doors_open()
 				return TRUE
 
-			if("atmos_alarm")
+			if("alarm")
 				if (alarm_area.atmosalert(2, src))
 					apply_danger_level(2)
 				update_icon()
 				return TRUE
 
-			if("atmos_reset")
+			if("reset")
 				if (alarm_area.atmosalert(0, src))
 					apply_danger_level(0)
 				update_icon()
@@ -794,7 +783,7 @@
 
 			if (wiresexposed && isWirecutter(W))
 				user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You have cut the wires inside \the [src].")
-				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
 				buildstage = 1
 				update_icon()
@@ -826,7 +815,7 @@
 
 			else if(isCrowbar(W))
 				to_chat(user, "You start prying out the circuit.")
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 				if(do_after(user,20) && buildstage == 1)
 					to_chat(user, "You pry out the circuit!")
 					var/obj/item/weapon/airalarm_electronics/circuit = new /obj/item/weapon/airalarm_electronics()
@@ -845,7 +834,7 @@
 			else if(isWrench(W))
 				to_chat(user, "You remove the fire alarm assembly from the wall!")
 				new /obj/item/frame/air_alarm(get_turf(user))
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 				qdel(src)
 
 	return ..()
@@ -862,7 +851,7 @@ Just a object used in constructing air alarms
 */
 /obj/item/weapon/airalarm_electronics
 	name = "air alarm electronics"
-	icon = 'icons/obj/doors/door_assembly.dmi'
+	icon = 'resources/icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_electronics"
 	desc = "Looks like a circuit. Probably is."
 	w_class = ITEM_SIZE_SMALL
@@ -874,7 +863,7 @@ FIRE ALARM
 /obj/machinery/firealarm
 	name = "fire alarm"
 	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
-	icon = 'icons/obj/monitors.dmi'
+	icon = 'resources/icons/obj/monitors.dmi'
 	icon_state = "fire0"
 	var/detecting = 1.0
 	var/working = 1.0
@@ -981,7 +970,7 @@ FIRE ALARM
 				else if(isWirecutter(W))
 					user.visible_message("<span class='notice'>\The [user] has cut the wires inside \the [src]!</span>", "<span class='notice'>You have cut the wires inside \the [src].</span>")
 					new/obj/item/stack/cable_coil(get_turf(src), 5)
-					playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+					playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 50, 1)
 					buildstage = 1
 					update_icon()
 			if(1)
@@ -996,7 +985,7 @@ FIRE ALARM
 						return
 				else if(isCrowbar(W))
 					to_chat(user, "You pry out the circuit!")
-					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+					playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 					spawn(20)
 						var/obj/item/weapon/firealarm_electronics/circuit = new /obj/item/weapon/firealarm_electronics()
 						circuit.dropInto(user.loc)
@@ -1012,7 +1001,7 @@ FIRE ALARM
 				else if(isWrench(W))
 					to_chat(user, "You remove the fire alarm assembly from the wall!")
 					new /obj/item/frame/fire_alarm(get_turf(user))
-					playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+					playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 					qdel(src)
 		return
 
@@ -1056,7 +1045,7 @@ FIRE ALARM
 	for(var/obj/machinery/firealarm/FA in area)
 		fire_alarm.triggerAlarm(loc, FA, duration)
 	update_icon()
-	playsound(src, 'sound/machines/fire_alarm.ogg', 75, 0)
+	playsound(src, 'resources/sound/machines/fire_alarm.ogg', 75, 0)
 	return
 
 
@@ -1085,7 +1074,7 @@ Just a object used in constructing fire alarms
 */
 /obj/item/weapon/firealarm_electronics
 	name = "fire alarm electronics"
-	icon = 'icons/obj/doors/door_assembly.dmi'
+	icon = 'resources/icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_electronics"
 	desc = "A circuit. It has a label on it, it says \"Can handle heat levels up to 40 degrees celsius!\"."
 	w_class = ITEM_SIZE_SMALL
@@ -1094,7 +1083,7 @@ Just a object used in constructing fire alarms
 /obj/machinery/partyalarm
 	name = "\improper PARTY BUTTON"
 	desc = "Cuban Pete is in the house!"
-	icon = 'icons/obj/monitors.dmi'
+	icon = 'resources/icons/obj/monitors.dmi'
 	icon_state = "fire0"
 	var/detecting = 1.0
 	var/working = 1.0

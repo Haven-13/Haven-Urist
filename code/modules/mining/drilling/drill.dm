@@ -1,10 +1,10 @@
 /obj/machinery/mining
-	icon = 'icons/obj/mining_drill.dmi'
+	icon = 'resources/icons/obj/mining_drill.dmi'
 	anchored = 0
 	use_power = 0 //The drill takes power directly from a cell.
 	density = 1
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER //So it draws over mobs in the tile north of it.
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER //So it draws over mobs in the tile north of it.
 
 /obj/machinery/mining/drill
 	name = "mining drill head"
@@ -322,7 +322,7 @@
 			to_chat(user, "<span class='notice'>You can't anchor something to empty space. Idiot.</span>")
 			return
 
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>You [anchored ? "un" : ""]anchor the brace.</span>")
 
 		anchored = !anchored

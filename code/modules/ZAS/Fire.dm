@@ -20,7 +20,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 /mob/is_burnable()
 	return simulated
 
-turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
+/turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 
 
 /turf/simulated/hotspot_expose(exposed_temperature, exposed_volume, soh)
@@ -122,10 +122,10 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 
 	blend_mode = BLEND_ADD
 
-	icon = 'icons/effects/fire.dmi'
+	icon = 'resources/icons/effects/fire.dmi'
 	icon_state = "1"
 	light_color = "#ed9200"
-	plane = EFFECTS_BELOW_LIGHTING_PLANE
+	plane = EFFECTS_PLANE
 	layer = FIRE_LAYER
 
 	var/firelevel = 1 //Calculated by gas_mixture.calculate_firelevel()

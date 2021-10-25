@@ -17,9 +17,9 @@
 /obj/structure/bed/chair/wheelchair/set_dir()
 	..()
 	overlays = null
-	var/image/O = image(icon = 'icons/obj/furniture.dmi', icon_state = "w_overlay", dir = src.dir)
-	O.plane = ABOVE_HUMAN_PLANE
-	O.layer = ABOVE_HUMAN_LAYER
+	var/image/O = image(icon = 'resources/icons/obj/furniture.dmi', icon_state = "w_overlay", dir = src.dir)
+	O.plane = DEFAULT_PLANE
+	O.layer = ABOVE_MOB_LAYER
 	overlays += O
 	if(buckled_mob)
 		buckled_mob.set_dir(dir)
@@ -155,7 +155,7 @@
 		occupant.apply_effect(6, DAMAGE_TYPE_WEAKEN, blocked)
 		occupant.apply_effect(6, DAMAGE_TYPE_STUTTER, blocked)
 		occupant.apply_damage(10, DAMAGE_TYPE_BRUTE, def_zone, blocked)
-		playsound(src.loc, 'sound/weapons/punch1.ogg', 50, 1, -1)
+		playsound(src.loc, 'resources/sound/weapons/punch1.ogg', 50, 1, -1)
 		if(istype(A, /mob/living))
 			var/mob/living/victim = A
 			def_zone = ran_zone()

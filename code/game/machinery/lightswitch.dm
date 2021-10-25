@@ -4,7 +4,7 @@
 /obj/machinery/light_switch
 	name = "light switch"
 	desc = "It turns lights on and off. What are you, simple?"
-	icon = 'icons/obj/power.dmi'
+	icon = 'resources/icons/obj/power.dmi'
 	icon_state = "light0"
 	anchored = 1.0
 	use_power = 1
@@ -13,7 +13,6 @@
 	var/on = 0
 	var/area/connected_area = null
 	var/other_area = null
-	var/image/overlay
 
 /obj/machinery/light_switch/Initialize()
 	. = ..()
@@ -29,19 +28,14 @@
 	update_icon()
 
 /obj/machinery/light_switch/update_icon()
-	if(!overlay)
-		overlay = image(icon, "light1-overlay")
-		overlay.plane = get_float_plane(EMISSIVE_PLANE)
-		overlay.layer = ABOVE_LIGHTING_LAYER
-
-	overlays.Cut()
+	cut_overlays()
 	if(stat & (NOPOWER|BROKEN))
 		icon_state = "light-p"
 		set_light(0)
 	else
 		icon_state = "light[on]"
-		overlay.icon_state = "light[on]-overlay"
-		overlays += overlay
+		add_overlay(get_emissive_blocker())
+		add_overlay(get_emissive_overlay(state = "light[on]-overlay"))
 		set_light(0.1, 0.1, 1, 2, on ? "#82ff4c" : "#f86060")
 
 /obj/machinery/light_switch/examine(mob/user)

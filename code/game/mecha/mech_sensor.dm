@@ -1,5 +1,5 @@
 /obj/machinery/mech_sensor
-	icon = 'icons/obj/airlock_machines.dmi'
+	icon = 'resources/icons/obj/airlock_machines.dmi'
 	icon_state = "airlock_sensor_off"
 	name = "mechatronic sensor"
 	desc = "Regulates mech movement."

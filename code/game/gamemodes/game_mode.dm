@@ -460,7 +460,7 @@ var/global/list/additional_antag_types = list()
 	return
 
 // Manipulates the end-game cinematic in conjunction with GLOB.cinematic
-/datum/game_mode/proc/nuke_act(obj/screen/cinematic_screen, station_missed = 0)
+/datum/game_mode/proc/nuke_act(atom/movable/screen/cinematic_screen, station_missed = 0)
 	if(!cinematic_icon_states)
 		return
 	if(station_missed < 2)
@@ -482,7 +482,7 @@ var/global/list/additional_antag_types = list()
 
 	else
 		sleep(50)
-	sound_to(world, sound('sound/effects/explosionfar.ogg'))
+	sound_to(world, sound('resources/sound/effects/explosionfar.ogg'))
 
 //////////////////////////
 //Reports player logouts//

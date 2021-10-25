@@ -30,9 +30,8 @@ var/list/hit_appends = list("-OOF", "-ACK", "-UGH", "-HRNK", "-HURGH", "-GLORF")
 // The way blocks are handled badly needs a rewrite, this is horrible.
 // Too much of a project to handle at the moment, TODO for later.
 
-var/diary               = null
 var/href_logfile        = null
-var/game_version        = "Baystation12"
+var/game_version        = "Haven-Urist"
 var/changelog_hash      = ""
 var/game_year           = (text2num(time2text(world.realtime, "YYYY")) + 544)
 
@@ -153,23 +152,23 @@ var/list/robot_module_types = list(
 
 // Some scary sounds.
 var/static/list/scarySounds = list(
-	'sound/weapons/thudswoosh.ogg',
-	'sound/weapons/Taser.ogg',
-	'sound/weapons/armbomb.ogg',
-	'sound/voice/hiss1.ogg',
-	'sound/voice/hiss2.ogg',
-	'sound/voice/hiss3.ogg',
-	'sound/voice/hiss4.ogg',
-	'sound/voice/hiss5.ogg',
-	'sound/voice/hiss6.ogg',
-	'sound/effects/Glassbr1.ogg',
-	'sound/effects/Glassbr2.ogg',
-	'sound/effects/Glassbr3.ogg',
-	'sound/items/Welder.ogg',
-	'sound/items/Welder2.ogg',
-	'sound/machines/airlock.ogg',
-	'sound/effects/clownstep1.ogg',
-	'sound/effects/clownstep2.ogg'
+	'resources/sound/weapons/thudswoosh.ogg',
+	'resources/sound/weapons/Taser.ogg',
+	'resources/sound/weapons/armbomb.ogg',
+	'resources/sound/voice/hiss1.ogg',
+	'resources/sound/voice/hiss2.ogg',
+	'resources/sound/voice/hiss3.ogg',
+	'resources/sound/voice/hiss4.ogg',
+	'resources/sound/voice/hiss5.ogg',
+	'resources/sound/voice/hiss6.ogg',
+	'resources/sound/effects/Glassbr1.ogg',
+	'resources/sound/effects/Glassbr2.ogg',
+	'resources/sound/effects/Glassbr3.ogg',
+	'resources/sound/items/Welder.ogg',
+	'resources/sound/items/Welder2.ogg',
+	'resources/sound/machines/airlock.ogg',
+	'resources/sound/effects/clownstep1.ogg',
+	'resources/sound/effects/clownstep2.ogg'
 )
 
 // Bomb cap!

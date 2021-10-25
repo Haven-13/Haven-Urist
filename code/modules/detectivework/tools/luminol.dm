@@ -1,7 +1,7 @@
 /obj/item/weapon/reagent_containers/spray/luminol
 	name = "luminol bottle"
 	desc = "A bottle containing an odourless, colorless liquid."
-	icon = 'icons/obj/forensics.dmi'
+	icon = 'resources/icons/obj/forensics.dmi'
 	icon_state = "luminol"
 	item_state = "cleaner"
 	amount_per_transfer_from_this = 10

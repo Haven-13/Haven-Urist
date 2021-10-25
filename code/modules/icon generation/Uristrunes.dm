@@ -9,7 +9,7 @@
 //----------------------------------------
 
 /proc/create_border_image(icon/input, border_color = "#000000", fill_color = "#000000", border_alpha = 255, fill_alpha = 255)
-	var/icon/I = icon('icons/effects/uristrunes.dmi', "blank")
+	var/icon/I = icon('resources/icons/effects/uristrunes.dmi', "blank")
 	I.Blend(input, ICON_OVERLAY)
 
 	//Discard the image
@@ -36,14 +36,14 @@
 				var/sw = I.GetPixel(x - 1, y - 1)
 
 				var/sum_adj = ((n == "#00ff00"? 1 : 0) \
-				             + (s == "#00ff00"? 1 : 0) \
-				             + (e == "#00ff00"? 1 : 0) \
-				             + (w == "#00ff00"? 1 : 0))
+					+ (s == "#00ff00"? 1 : 0) \
+					+ (e == "#00ff00"? 1 : 0) \
+					+ (w == "#00ff00"? 1 : 0))
 
 				var/sum_diag = ((ne == "#00ff00"? 1 : 0) \
-				              + (se == "#00ff00"? 1 : 0) \
-				              + (nw == "#00ff00"? 1 : 0) \
-				              + (sw == "#00ff00"? 1 : 0))
+					+ (se == "#00ff00"? 1 : 0) \
+					+ (nw == "#00ff00"? 1 : 0) \
+					+ (sw == "#00ff00"? 1 : 0))
 
 
 				if(sum_adj)
@@ -176,11 +176,11 @@ var/list/rune_animation = list(
 	if(lookup in rune_cache)
 		return rune_cache[lookup]
 
-	var/icon/base = icon('icons/effects/uristrunes.dmi', "")
+	var/icon/base = icon('resources/icons/effects/uristrunes.dmi', "")
 
 	for(var/i = 0, i < 10, i++)
 		if(BITTEST(rune_bits, i))
-			base.Blend(icon('icons/effects/uristrunes.dmi', "rune-[1 << i]"), ICON_OVERLAY)
+			base.Blend(icon('resources/icons/effects/uristrunes.dmi', "rune-[1 << i]"), ICON_OVERLAY)
 
 	var/icon/result
 
@@ -210,59 +210,3 @@ var/list/rune_animation = list(
 	for(var/turf/t in range(7))
 		var/obj/o = new /obj(t)
 		o.icon = get_rune(rand(1, 1023), 1)
-
-
-/*
-/mob/verb/create_rune_custom(rune as num, color1 as color, border1 as color, color2 as color, border2 as color, alpha1 as num, alpha2 as num)
-	var/icon/I = icon('icons/effects/uristrunes.dmi', "blank")
-
-	for(var/i = 0, i < 10, i++)
-		if(BITTEST(rune, i))
-			I.Blend(icon('icons/effects/uristrunes.dmi', "rune-[1 << i]"), ICON_OVERLAY)
-
-	var/obj/o = new(locate(x, y, z))
-	o.icon = animate_rune(I, color1, border1, color2, border2, alpha1, alpha2)
-
-/mob/verb/spam()
-	for(var/turf/t in range(4))
-		var/icon/I = icon('icons/effects/uristrunes.dmi', "blank")
-
-		var/rune = rand(1, 1023)
-		for(var/i = 0, i < 10, i++)
-			if(BITTEST(rune, i))
-				I.Blend(icon('icons/effects/uristrunes.dmi', "rune-[1 << i]"), ICON_OVERLAY)
-
-		var/obj/o = new(t)
-		o.icon = animate_rune_full(I, rand(0, 255), rand(0, 255), rand(0, 255), rand(-255, 255),
-		                                       rand(0, 255), rand(0, 255), rand(0, 255), rand(-255, 255),
-		                                       rand(0, 255), rand(0, 255), rand(0, 255), rand(-255, 255),
-		                                       rand(0, 255), rand(0, 255), rand(0, 255), rand(-255, 255),
-		                                       0,            0,            0,            rand(0, 255),
-		                                       0,            0,            0,            rand(0, 255),
-		                                       0,            0,            0,            0,
-		                                       0,            0,            0,            0,
-		                                       list(
-		                                       		list(0.000, 5),
-		                                       		list(0.020, 1),
-		                                       		list(0.050, 1),
-		                                       		list(0.090, 1),
-		                                       		list(0.140, 1),
-		                                       		list(0.200, 1),
-		                                       		list(0.270, 1),
-		                                       		list(0.340, 1),
-		                                       		list(0.420, 1),
-		                                       		list(0.500, 1),
-		                                       		list(0.590, 1),
-		                                       		list(0.675, 1),
-		                                       		list(0.750, 1),
-		                                       		list(0.900, 1),
-		                                       		list(1.000, 6),
-		                                       		list(0.875, 1),
-		                                       		list(0.750, 1),
-		                                       		list(0.625, 1),
-		                                       		list(0.500, 1),
-		                                       		list(0.375, 1),
-		                                       		list(0.250, 1),
-		                                       		list(0.125, 1),
-		                                       	))
-*/

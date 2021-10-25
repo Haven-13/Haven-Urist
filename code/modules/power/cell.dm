@@ -2,7 +2,7 @@
 /obj/item/weapon/cell
 	name = "power cell"
 	desc = "A rechargable electrochemical power cell."
-	icon = 'icons/obj/power.dmi'
+	icon = 'resources/icons/obj/power.dmi'
 	icon_state = "cell"
 	item_state = "cell"
 	origin_tech = list(TECH_POWER = 1)
@@ -52,7 +52,7 @@
 		overlay_state = new_overlay_state
 		overlays.Cut()
 		if(overlay_state)
-			overlays += image('icons/obj/power.dmi', overlay_state)
+			overlays += image('resources/icons/obj/power.dmi', overlay_state)
 
 /obj/item/weapon/cell/proc/percent()		// return % charge of cell
 	return maxcharge && (100.0*charge/maxcharge)
@@ -250,7 +250,7 @@
 	name = "potato battery"
 	desc = "A rechargable starch based power cell."
 	origin_tech = list(TECH_POWER = 1)
-	icon = 'icons/obj/power.dmi' //'icons/obj/harvest.dmi'
+	icon = 'resources/icons/obj/power.dmi' //'resources/icons/obj/harvest.dmi'
 	icon_state = "potato_cell" //"potato_battery"
 	maxcharge = 20
 
@@ -259,7 +259,7 @@
 	name = "charged slime core"
 	desc = "A yellow slime core infused with phoron, it crackles with power."
 	origin_tech = list(TECH_POWER = 2, TECH_BIO = 4)
-	icon = 'icons/mob/slimes.dmi' //'icons/obj/harvest.dmi'
+	icon = 'resources/icons/mob/slimes.dmi' //'resources/icons/obj/harvest.dmi'
 	icon_state = "yellow slime extract" //"potato_battery"
 	maxcharge = 200
 	matter = null

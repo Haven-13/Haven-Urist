@@ -11,7 +11,12 @@ jobs:
     name: Run Linters
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - name: Fetch master
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: Fetch PR commits
+        uses: actions/checkout@v2
       - name: Setup cache
         uses: actions/cache@v2
         with:
@@ -23,12 +28,18 @@ jobs:
           bash tools/ci/install_node.sh
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
           tools/bootstrap/python -c ''
-      - name: Run Linters
+      - name: Run linters
         run: |
           bash tools/ci/check_changelogs.sh
+          tools/bootstrap/python -m dmi.test
+          tools/bootstrap/python -m ci.check_regex --log-changes-only
           tgui/bin/tgui --lint
           ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
-      - name: Annotate Lints
+      - name: Annotate Regex
+        if: always()
+        run: |
+          cat check_regex_output.txt
+      - name: Annotate lints
         uses: yogstation13/DreamAnnotate@v1
         if: always()
         with:
@@ -39,62 +50,89 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Cache
+      - name: Setup Byond cache
+        uses: actions/cache@v2
+        with:
+          path: $HOME/BYOND
+          key: ${{ runner.os }}-byond
+      - uses: actions/checkout@v2
+      - name: Setup code cache
         uses: actions/cache@v2
         with:
           path: $HOME/CODE
           key: ${{ runner.os }}-code
-      - name: Install Dependencies
+      - name: Install dependencies
         run: sudo apt-get install -y uchardet
-      - name: Run Tests
+      - name: Run tests
         env:
-          TEST: CODE_QUALITY
           TARGET_PROJECT_NAME: baystation12
-        run: bash tools/ci/run-test.sh
+        run: |
+          bash tools/ci/install_byond.sh
+          source $HOME/BYOND/byond/bin/byondsetup
+          bash tools/ci/check_code.sh
 
   test_compile:
     name: Test Compile
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - name: Setup cache
+      - name: Setup Byond cache
         uses: actions/cache@v2
         with:
           path: $HOME/BYOND
           key: ${{ runner.os }}-byond
-      - name: Compile Run
+      - name: Setup Yarn cache
+        uses: actions/cache@v2
+        with:
+          path: tgui/.yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('tgui/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Run compile
         run: |
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
-          tgui/bin/tgui --build
-          bash tools/ci/dm.sh baystation12.dme
+          tools/build/build
 
   maps:
-    name: Unit-test
+    name: Unit-Test
     runs-on: ubuntu-20.04
     strategy:
       matrix:
         maps: [example, tyclo-pluto, away_sites_testing]
+      fail-fast: false
     steps:
       - uses: actions/checkout@v2
-      - name: Setup cache
+      - name: Setup Byond cache
         uses: actions/cache@v2
         with:
           path: $HOME/BYOND
           key: ${{ runner.os }}-byond
-      - name: Install RUST_G Dependencies
+      - name: Setup Yarn cache
+        uses: actions/cache@v2
+        with:
+          path: tgui/.yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('tgui/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Install rust-g
         run: |
           sudo dpkg --add-architecture i386
           sudo apt update || true
-          sudo apt install zlib1g-dev:i386 libssl-dev:i386 pkg-config:i386
-          ldd librust_g.so
-      - name: Run Tests
+          sudo apt install -o APT::Immediate-Configure=false libssl1.1:i386
+          bash tools/ci/install_rust_g.sh
+      - name: Copy example config
+        run: |
+          cp -p config/example/* config/
+      - name: Run tests
         env:
-          TEST: MAP
           MAP_PATH: ${{matrix.maps}}
-          TARGET_PROJECT_NAME: baystation12
         run: |
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
-          tgui/bin/tgui --build
-          bash tools/ci/run-test.sh
+          tools/build/build --map-override=${MAP_PATH} test
+      - name: Log post-processing
+        run: |
+          bash tools/ci/check_log.sh data/logs/ci/diary.log

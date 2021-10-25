@@ -256,7 +256,7 @@
 /obj/effect/meteor
 	name = "the concept of meteor"
 	desc = "You should probably run instead of gawking at this."
-	icon = 'icons/obj/meteor.dmi'
+	icon = 'resources/icons/obj/meteor.dmi'
 	icon_state = "small"
 	density = 1
 	anchored = 1
@@ -455,7 +455,7 @@
 /obj/effect/meteor/supermatter
 	name = "supermatter shard"
 	desc = "Oh god, what will be next..?"
-	icon = 'icons/obj/engine.dmi'
+	icon = 'resources/icons/obj/engine.dmi'
 	icon_state = "darkmatter"
 
 /obj/effect/meteor/supermatter/meteor_effect()
@@ -471,7 +471,7 @@
 /obj/effect/meteor/supermatter/missile
 	name = "photon torpedo"
 	desc = "An advanded warhead designed to tactically destroy space installations."
-	icon = 'icons/obj/missile.dmi'
+	icon = 'resources/icons/obj/missile.dmi'
 	icon_state = "photon"
 	meteordrop = null
 	ismissile = TRUE
@@ -480,7 +480,7 @@
 /obj/effect/meteor/medium/missile
 	name = "missile"
 	desc = "Some kind of missile."
-	icon = 'icons/obj/missile.dmi'
+	icon = 'resources/icons/obj/missile.dmi'
 	icon_state = "missile"
 	meteordrop = null
 	ismissile = TRUE
@@ -489,7 +489,7 @@
 /obj/effect/meteor/big/missile
 	name = "high-yield missile"
 	desc = "Some kind of missile."
-	icon = 'icons/obj/missile.dmi'
+	icon = 'resources/icons/obj/missile.dmi'
 	icon_state = "missile"
 	meteordrop = null
 	ismissile = TRUE
@@ -498,7 +498,7 @@
 /obj/effect/meteor/flaming/missile
 	name = "incendiary missile"
 	desc = "Some kind of missile."
-	icon = 'icons/obj/missile.dmi'
+	icon = 'resources/icons/obj/missile.dmi'
 	icon_state = "missile"
 	meteordrop = null
 	ismissile = TRUE
@@ -507,7 +507,7 @@
 /obj/effect/meteor/emp/missile
 	name = "ion torpedo"
 	desc = "Some kind of missile."
-	icon = 'icons/obj/missile.dmi'
+	icon = 'resources/icons/obj/missile.dmi'
 	icon_state = "torpedo"
 	meteordrop = null
 	ismissile = TRUE

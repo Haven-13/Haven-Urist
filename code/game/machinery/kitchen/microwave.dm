@@ -1,7 +1,7 @@
 
 /obj/machinery/microwave
 	name = "microwave"
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'resources/icons/obj/kitchen.dmi'
 	icon_state = "mw"
 	layer = BELOW_OBJ_LAYER
 	density = 1
@@ -119,10 +119,10 @@
 				"<span class='notice'>\The [user] has added \the [O] to \the [src].</span>", \
 				"<span class='notice'>You add \the [O] to \the [src].</span>")
 			return
-	else if(istype(O,/obj/item/weapon/reagent_containers/glass) || \
-	        istype(O,/obj/item/weapon/reagent_containers/food/drinks) || \
-	        istype(O,/obj/item/weapon/reagent_containers/food/condiment) \
-		)
+	else if(istype(O,/obj/item/weapon/reagent_containers/glass) \
+		|| istype(O,/obj/item/weapon/reagent_containers/food/drinks) \
+		|| istype(O,/obj/item/weapon/reagent_containers/food/condiment) \
+	)
 		if (!O.reagents)
 			return 1
 		for (var/datum/reagent/R in O.reagents.reagent_list)
@@ -313,7 +313,7 @@
 	src.update_icon()
 
 /obj/machinery/microwave/proc/stop()
-	playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/machines/ding.ogg', 50, 1)
 	src.operating = 0 // Turn it off again aferwards
 	src.updateUsrDialog()
 	src.update_icon()
@@ -328,11 +328,11 @@
 	src.updateUsrDialog()
 
 /obj/machinery/microwave/proc/muck_start()
-	playsound(src.loc, 'sound/effects/splat.ogg', 50, 1) // Play a splat sound
+	playsound(src.loc, 'resources/sound/effects/splat.ogg', 50, 1) // Play a splat sound
 	src.update_icon()
 
 /obj/machinery/microwave/proc/muck_finish()
-	playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/machines/ding.ogg', 50, 1)
 	src.visible_message("<span class='warning'>The microwave gets covered in muck!</span>")
 	src.dirty = 100 // Make it dirty so it can't be used util cleaned
 	src.obj_flags = null //So you can't add condiments

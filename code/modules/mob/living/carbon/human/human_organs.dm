@@ -112,7 +112,7 @@
 		if(!(lying || resting))
 			if(limb_pain)
 				emote("scream")
-			custom_emote(VISIBLE_MESSAGE, "collapses!")
+			emote("custom", VISIBLE_MESSAGE, "collapses!")
 		Weaken(5) //can't emote while weakened, apparently.
 
 /mob/living/carbon/human/proc/handle_grasp()

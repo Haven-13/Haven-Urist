@@ -34,8 +34,8 @@
 	var/list/turf/last_camera_turf = list()
 
 	var/list/atom/movable/map_view/camera_map_views = list()
-	var/list/obj/screen/background/camera_foregrounds = list()
-	var/list/obj/screen/background/camera_skyboxes = list()
+	var/list/atom/movable/screen/background/camera_foregrounds = list()
+	var/list/atom/movable/screen/background/camera_skyboxes = list()
 
 # define MAX_ACTIVE_CAMERAS 4
 
@@ -56,19 +56,19 @@
 		camera_map_views[key] = cam
 
 		// Create the bounding-box canvas & effect overlay for the view
-		var/obj/screen/background/foreground = new
+		var/atom/movable/screen/background/foreground = new
 		foreground.screen_loc = "[key]:1,1 to [8],[6]"
-		foreground.icon = 'icons/primitives.dmi'
+		foreground.icon = 'resources/icons/primitives.dmi'
 		foreground.icon_state = "white"
 		foreground.plane = FULLSCREEN_PLANE
 		foreground.layer = FULLSCREEN_LAYER
 
-		var/mutable_appearance/scanlines = mutable_appearance('icons/effects/static.dmi', "scanlines")
+		var/mutable_appearance/scanlines = mutable_appearance('resources/icons/effects/static.dmi', "scanlines")
 		scanlines.plane = FULLSCREEN_PLANE
 		scanlines.layer = FULLSCREEN_LAYER
 		scanlines.alpha = 125
 
-		var/mutable_appearance/noise = mutable_appearance('icons/effects/static.dmi', "1 moderate")
+		var/mutable_appearance/noise = mutable_appearance('resources/icons/effects/static.dmi', "1 moderate")
 		noise.plane = FULLSCREEN_PLANE
 		noise.layer = FULLSCREEN_LAYER
 
@@ -79,8 +79,8 @@
 
 		// Create the local skybox for the camera
 		// Because the obj/skybox type is a sealed nasty piece of shit, we'll use
-		// obj/screen/background for now.
-		var/obj/screen/background/skybox = new
+		// atom/movable/screen/background for now.
+		var/atom/movable/screen/background/skybox = new
 		skybox.name = "skybox"
 		skybox.mouse_opacity = 0
 		skybox.blend_mode = BLEND_MULTIPLY
@@ -90,7 +90,7 @@
 		skybox.color = SSskybox.BGcolor
 		skybox.appearance_flags |= TILE_BOUND
 
-		var/mutable_appearance/sky = mutable_appearance('icons/turf/skybox.dmi', "background_[SSskybox.BGstate]")
+		var/mutable_appearance/sky = mutable_appearance('resources/icons/turf/skybox.dmi', "background_[SSskybox.BGstate]")
 		sky.appearance_flags = RESET_ALPHA
 		skybox.overlays += sky
 
@@ -264,11 +264,11 @@
 	var/size_x = bbox[3] - bbox[1] + 1
 	var/size_y = bbox[4] - bbox[2] + 1
 
-	var/obj/screen/background/foreground = camera_foregrounds[index]
+	var/atom/movable/screen/background/foreground = camera_foregrounds[index]
 	foreground.icon_state = "blank"
 	foreground.screen_loc = "[key]:1,1 to [size_x],[size_y]"
 
-	var/obj/screen/background/skybox = camera_skyboxes[index]
+	var/atom/movable/screen/background/skybox = camera_skyboxes[index]
 	var/matrix/M = matrix()
 	// The skybox does not always cover the background, so upscale it a bit
 	M.Scale(between(1, 1 + max(size_x, size_y)/DEFAULT_VIEW_SIZE, 2))
@@ -283,7 +283,7 @@
 	var/atom/movable/map_view/MV = camera_map_views[key]
 	MV.vis_contents.Cut()
 
-	var/obj/screen/background/foreground = camera_foregrounds[index]
+	var/atom/movable/screen/background/foreground = camera_foregrounds[index]
 	foreground.icon_state = "white"
 	foreground.screen_loc = "[key]:1,1 to [8],[6]"
 	return TRUE

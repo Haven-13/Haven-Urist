@@ -1,7 +1,7 @@
 /obj/machinery/disease2/centrifuge
 	name = "isolation centrifuge"
 	desc = "Used to separate things with different weights. Spin 'em round, round, right round."
-	icon = 'icons/obj/virology.dmi'
+	icon = 'resources/icons/obj/virology.dmi'
 	icon_state = "centrifuge"
 	density = TRUE
 	var/curing
@@ -136,7 +136,7 @@
 			delay = delay/2
 
 	curing = round(delay)
-	playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/machines/juicer.ogg', 50, 1)
 
 /obj/machinery/disease2/centrifuge/proc/cure()
 	if (!sample) return

@@ -3,11 +3,11 @@
 	name_plural = "Monkeys"
 	description = "Ook."
 
-	icobase =         'icons/mob/human_races/species/monkey/monkey_body.dmi'
-	deform =          'icons/mob/human_races/species/monkey/monkey_body.dmi'
-	damage_overlays = 'icons/mob/human_races/species/monkey/damage_overlays.dmi'
-	damage_mask =     'icons/mob/human_races/species/monkey/damage_mask.dmi'
-	blood_mask =      'icons/mob/human_races/species/monkey/blood_mask.dmi'
+	icobase =         'resources/icons/mob/human_races/species/monkey/monkey_body.dmi'
+	deform =          'resources/icons/mob/human_races/species/monkey/monkey_body.dmi'
+	damage_overlays = 'resources/icons/mob/human_races/species/monkey/damage_overlays.dmi'
+	damage_mask =     'resources/icons/mob/human_races/species/monkey/damage_mask.dmi'
+	blood_mask =      'resources/icons/mob/human_races/species/monkey/blood_mask.dmi'
 
 	greater_form = SPECIES_HUMAN
 	mob_size = MOB_SMALL
@@ -89,8 +89,8 @@
 	name_plural = "Farwa"
 	health_hud_intensity = 2
 
-	icobase = 'icons/mob/human_races/species/monkey/farwa_body.dmi'
-	deform = 'icons/mob/human_races/species/monkey/farwa_body.dmi'
+	icobase = 'resources/icons/mob/human_races/species/monkey/farwa_body.dmi'
+	deform = 'resources/icons/mob/human_races/species/monkey/farwa_body.dmi'
 
 	flesh_color = "#afa59e"
 	base_color = "#333333"
@@ -106,8 +106,8 @@
 	name_plural = "Neaera"
 	health_hud_intensity = 1.75
 
-	icobase = 'icons/mob/human_races/species/monkey/neaera_body.dmi'
-	deform = 'icons/mob/human_races/species/monkey/neaera_body.dmi'
+	icobase = 'resources/icons/mob/human_races/species/monkey/neaera_body.dmi'
+	deform = 'resources/icons/mob/human_races/species/monkey/neaera_body.dmi'
 
 	greater_form = SPECIES_SKRELL
 	flesh_color = "#8cd7a3"
@@ -126,8 +126,8 @@
 	name_plural = "Stok"
 	health_hud_intensity = 1.5
 
-	icobase = 'icons/mob/human_races/species/monkey/stok_body.dmi'
-	deform = 'icons/mob/human_races/species/monkey/stok_body.dmi'
+	icobase = 'resources/icons/mob/human_races/species/monkey/stok_body.dmi'
+	deform = 'resources/icons/mob/human_races/species/monkey/stok_body.dmi'
 
 	tail = "stoktail"
 	greater_form = SPECIES_UNATHI

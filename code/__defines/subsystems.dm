@@ -36,7 +36,6 @@
 #define SS_INIT_MAPPING          6
 #define SS_INIT_CIRCUIT          5
 #define SS_INIT_OPEN_SPACE       4
-#define SS_INIT_VIS              10
 #define SS_INIT_ATOMS            3
 #define SS_INIT_ICON_UPDATE      2
 #define SS_INIT_MACHINES         1
@@ -46,7 +45,8 @@
 #define SS_INIT_MISC_LATE       -3
 #define SS_INIT_ALARM           -4
 #define SS_INIT_SHUTTLE         -5
-#define SS_INIT_LIGHTING        -6
+#define SS_INIT_OVERLAY         -6
+#define SS_INIT_LIGHTING        -7
 #define SS_INIT_BAY_LEGACY      -12
 #define SS_INIT_TICKER          -20
 #define SS_INIT_UNIT_TESTS      -100
@@ -60,3 +60,22 @@
 #define RUNLEVEL_POSTGAME 8
 
 #define RUNLEVELS_DEFAULT (RUNLEVEL_SETUP | RUNLEVEL_GAME | RUNLEVEL_POSTGAME)
+
+//! ## Overlays subsystem
+
+///Compile all the overlays for an atom from the cache lists
+// |= on overlays is not actually guaranteed to not add same appearances but we're optimistically using it anyway.
+#define COMPILE_OVERLAYS(A)\
+	do {\
+		var/list/ad = A.add_overlays;\
+		var/list/rm = A.remove_overlays;\
+		if(LAZY_LENGTH(rm)){\
+			A.overlays -= rm;\
+			rm.Cut();\
+		}\
+		if(LAZY_LENGTH(ad)){\
+			A.overlays |= ad;\
+			ad.Cut();\
+		}\
+		A.atom_flags &= ~ATOM_FLAG_OVERLAY_QUEUED;\
+	} while (FALSE)

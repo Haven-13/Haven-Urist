@@ -7,7 +7,7 @@
 	description_fluff = "Before the advent of ultra-heat-resistant fibers and flexible alloyed shielding, portable coolers were most commonly used to keep technicians from roasting alive in their suits. Nowadays they have been repurposed to keep IPCs from overheating in vacuum environments."
 
 	w_class = ITEM_SIZE_LARGE
-	icon = 'icons/obj/suitcooler.dmi'
+	icon = 'resources/icons/obj/suitcooler.dmi'
 	icon_state = "suitcooler0"
 	item_state = "coolingpack"			// beautiful codersprites until someone makes a prettier one.
 	slot_flags = SLOT_BACK

@@ -2,24 +2,26 @@
 // Abstract Class
 //
 
-var/global/list/protected_objects = list(/obj/machinery,
-										 /obj/structure/table,
-										 /obj/structure/cable,
-										 /obj/structure/window,
-										 /obj/structure/wall_frame,
-										 /obj/structure/grille,
-										 /obj/structure/catwalk,
-										 /obj/structure/ladder,
-										 /obj/structure/stairs,
-										 /obj/structure/sign,
-										 /obj/structure/railing,
-										 /obj/item/modular_computer,
-										 /obj/item/projectile/animate)
+var/global/list/protected_objects = list(
+	/obj/machinery,
+	/obj/structure/table,
+	/obj/structure/cable,
+	/obj/structure/window,
+	/obj/structure/wall_frame,
+	/obj/structure/grille,
+	/obj/structure/catwalk,
+	/obj/structure/ladder,
+	/obj/structure/stairs,
+	/obj/structure/sign,
+	/obj/structure/railing,
+	/obj/item/modular_computer,
+	/obj/item/projectile/animate
+)
 
 /mob/living/simple_animal/hostile/mimic
 	name = "crate"
 	desc = "A rectangular steel crate."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'resources/icons/obj/storage.dmi'
 	icon_state = "crate"
 	icon_living = "crate"
 
@@ -35,7 +37,7 @@ var/global/list/protected_objects = list(/obj/machinery,
 	melee_damage_lower = 8
 	melee_damage_upper = 12
 	attacktext = "attacked"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = 'resources/sound/weapons/bite.ogg'
 
 	min_gas = null
 	max_gas = null

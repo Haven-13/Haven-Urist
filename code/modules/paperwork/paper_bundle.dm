@@ -1,7 +1,7 @@
 /obj/item/weapon/paper_bundle
 	name = "paper bundle"
 	gender = NEUTER
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'resources/icons/obj/bureaucracy.dmi'
 	icon_state = "paper"
 	item_state = "paper"
 	randpixel = 8
@@ -216,7 +216,7 @@
 	var/i = 0
 	var/photo
 	for(var/obj/O in src)
-		var/image/img = image('icons/obj/bureaucracy.dmi')
+		var/image/img = image('resources/icons/obj/bureaucracy.dmi')
 		if(istype(O, /obj/item/weapon/paper))
 			img.icon_state = O.icon_state
 			img.pixel_x -= min(1*i, 2)
@@ -236,5 +236,5 @@
 		desc = "A single sheet of paper."
 	if(photo)
 		desc += "\nThere is a photo attached to it."
-	overlays += image('icons/obj/bureaucracy.dmi', "clip")
+	overlays += image('resources/icons/obj/bureaucracy.dmi', "clip")
 	return

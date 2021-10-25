@@ -8,7 +8,7 @@
 #define PRESSURE_CHECK_INTERNAL 2
 
 /obj/machinery/atmospherics/unary/vent_pump
-	icon = 'icons/atmos/vent_pump.dmi'
+	icon = 'resources/icons/atmos/vent_pump.dmi'
 	icon_state = "map_vent"
 
 	name = "Air Vent"
@@ -233,8 +233,10 @@
 		"tag" = src.id_tag,
 		"device" = "AVP",
 		"power" = use_power,
-		"direction" = pump_direction?("release"):("siphon"),
+		"direction" = pump_direction,
 		"checks" = pressure_checks,
+		"incheck" = pressure_checks & PRESSURE_CHECK_INTERNAL,
+		"excheck" = pressure_checks & PRESSURE_CHECK_EXTERNAL,
 		"internal" = internal_pressure_bound,
 		"external" = external_pressure_bound,
 		"timestamp" = world.time,
@@ -301,6 +303,12 @@
 		else
 			pressure_checks = text2num(signal.data["checks"])
 
+	if(signal.data["incheck"] != null)
+		pressure_checks = PRESSURE_CHECK_INTERNAL
+
+	if(signal.data["excheck"] != null)
+		pressure_checks = PRESSURE_CHECK_EXTERNAL
+
 	if(signal.data["checks_toggle"] != null)
 		pressure_checks = (pressure_checks?0:3)
 
@@ -330,12 +338,12 @@
 		return
 
 	if(signal.data["status"] != null)
-		spawn(2)
+		spawn(0)
 			broadcast_status()
 		return //do not update_icon
 
 		//log_admin("DEBUG \[[world.timeofday]\]: vent_pump/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
-	spawn(2)
+	spawn(0)
 		broadcast_status()
 	update_icon()
 	return
@@ -354,7 +362,7 @@
 			return 1
 
 		to_chat(user, "<span class='notice'>Now welding \the [src].</span>")
-		playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Welder2.ogg', 50, 1)
 
 		if(!do_after(user, 20, src))
 			to_chat(user, "<span class='notice'>You must remain close to finish this task.</span>")
@@ -405,7 +413,7 @@
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
 		return 1
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
 	if (do_after(user, 40, src))
 		user.visible_message( \

@@ -1,0 +1,535 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"b" = (
+/obj/machinery/door/unpowered/simple/iron,
+/turf/simulated/floor/wood,
+/area/mine/unexplored)
+"c" = (
+/obj/machinery/teleport/hub,
+/turf/simulated/floor/wood,
+/area/mine/unexplored)
+"d" = (
+/turf/simulated/floor/wood,
+/area/mine/unexplored)
+"e" = (
+/obj/structure/coatrack,
+/turf/simulated/floor/wood,
+/area/mine/unexplored)
+"f" = (
+/turf/simulated/wall/wood,
+/area/mine/unexplored)
+"g" = (
+/obj/structure/sign/double/barsign,
+/turf/simulated/wall/wood,
+/area/mine/unexplored)
+"h" = (
+/obj/machinery/door/unpowered/simple/wood/saloon,
+/turf/simulated/floor/wood,
+/area/mine/unexplored)
+"i" = (
+/obj/structure/bed/chair/wood{
+	tag = "icon-wooden_chair (EAST)";
+	icon_state = "wooden_chair";
+	dir = 4
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"j" = (
+/obj/structure/table/woodentable,
+/obj/item/device/flashlight/lamp/green,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"k" = (
+/obj/structure/bed/chair/wood{
+	dir = 8
+	},
+/obj/random/trash,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"l" = (
+/obj/structure/bed/chair/wood{
+	tag = "icon-wooden_chair (EAST)";
+	icon_state = "wooden_chair";
+	dir = 4
+	},
+/obj/random/trash,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"m" = (
+/obj/structure/table/woodentable,
+/obj/item/device/flashlight/lamp/green,
+/obj/item/weapon/reagent_containers/food/drinks/bottle/cognac,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"n" = (
+/obj/structure/bed/chair/wood{
+	dir = 8
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"o" = (
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"p" = (
+/obj/machinery/door/window{
+	dir = 8
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"q" = (
+/obj/random/trash,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"r" = (
+/obj/item/weapon/tank/emergency/oxygen/double,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"s" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/material/ashtray/bronze,
+/obj/item/weapon/storage/pill_bottle/zoom,
+/obj/random/contraband,
+/obj/weathertype/fog{
+	name = "smoke"
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"t" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/folder/red,
+/obj/weathertype/fog{
+	name = "smoke"
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"u" = (
+/obj/item/weapon/stool/urist/bar,
+/obj/weathertype/fog{
+	name = "smoke"
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"v" = (
+/obj/structure/table/marble,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"w" = (
+/obj/weathertype/fog{
+	name = "smoke"
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"x" = (
+/obj/machinery/vending/boozeomat,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"y" = (
+/obj/item/weapon/stool/urist/bar,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"z" = (
+/obj/structure/table/marble,
+/obj/item/weapon/reagent_containers/food/snacks/sandwich,
+/obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"A" = (
+/obj/structure/table/steel,
+/obj/random/medical,
+/obj/item/weapon/storage/box/glasses,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"B" = (
+/obj/structure/bed/chair/couch/left/black{
+	tag = "icon-couchblack_left (EAST)";
+	icon_state = "couch_left";
+	dir = 4
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"C" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/reagent_containers/food/drinks/bottle/absinthe,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"D" = (
+/obj/structure/bed/chair/wood,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"E" = (
+/obj/structure/table/marble,
+/obj/item/weapon/newspaper,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"F" = (
+/obj/weathertype/fog{
+	name = "smoke"
+	},
+/mob/living/simple_animal/hostile/urist/gunman{
+	name = "Bartender"
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"G" = (
+/obj/structure/table/steel,
+/obj/item/weapon/reagent_containers/food/drinks/bottle/specialwhiskey,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"H" = (
+/obj/structure/bed/chair/couch/right/black{
+	tag = "icon-couchblack_right (EAST)";
+	icon_state = "couch_right";
+	dir = 4
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"I" = (
+/obj/structure/table/woodentable,
+/obj/random/contraband,
+/obj/weathertype/fog{
+	name = "smoke"
+	},
+/obj/item/weapon/storage/fancy/cigar,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"J" = (
+/obj/structure/table/woodentable,
+/obj/random/loot,
+/obj/weathertype/fog{
+	name = "smoke"
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"K" = (
+/obj/structure/table/gamblingtable,
+/obj/weathertype/fog{
+	name = "smoke"
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"L" = (
+/obj/structure/table/gamblingtable,
+/obj/item/weapon/deck/cards,
+/obj/weathertype/fog{
+	name = "smoke"
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"M" = (
+/obj/structure/table/gamblingtable,
+/obj/weathertype/fog{
+	name = "smoke"
+	},
+/obj/item/device/flashlight/lamp/green,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"N" = (
+/obj/structure/table/marble,
+/obj/item/weapon/reagent_containers/food/snacks/poppypretzel,
+/obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"O" = (
+/obj/structure/table/steel,
+/obj/machinery/microwave,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"P" = (
+/obj/structure/flora/pottedplant/subterranean,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"Q" = (
+/obj/structure/bed/chair/couch/left/black{
+	tag = "icon-couchblack_left (NORTH)";
+	icon_state = "couch_left";
+	dir = 1
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"R" = (
+/obj/structure/bed/chair/couch/right/black{
+	tag = "icon-couchblack_right (NORTH)";
+	icon_state = "couch_right";
+	dir = 1
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"S" = (
+/obj/item/weapon/storage/briefcase,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"T" = (
+/obj/item/weapon/stool/urist/bar,
+/obj/random/trash,
+/mob/living/simple_animal/hostile/russian/ranged{
+	faction = "syndicate"
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"U" = (
+/obj/structure/table/gamblingtable,
+/obj/item/weapon/storage/pill_bottle/dice,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"V" = (
+/obj/structure/table/marble,
+/obj/random/contraband,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"W" = (
+/obj/random/trash,
+/obj/structure/safe/floor,
+/obj/weathertype/fog{
+	name = "smoke"
+	},
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+"X" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp/green,
+/obj/item/weapon/storage/pill_bottle/happy,
+/turf/simulated/floor/lino,
+/area/mine/unexplored)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+c
+f
+f
+f
+f
+f
+f
+f
+a
+"}
+(3,1,1) = {"
+b
+d
+h
+o
+o
+B
+H
+P
+f
+a
+"}
+(4,1,1) = {"
+a
+e
+f
+q
+w
+C
+I
+Q
+f
+a
+"}
+(5,1,1) = {"
+a
+f
+f
+f
+o
+j
+J
+R
+f
+a
+"}
+(6,1,1) = {"
+a
+f
+i
+i
+o
+o
+o
+S
+f
+a
+"}
+(7,1,1) = {"
+a
+f
+j
+s
+o
+f
+f
+f
+f
+a
+"}
+(8,1,1) = {"
+a
+f
+k
+n
+w
+o
+o
+o
+f
+a
+"}
+(9,1,1) = {"
+a
+f
+f
+f
+o
+D
+K
+o
+f
+a
+"}
+(10,1,1) = {"
+a
+f
+l
+i
+o
+D
+L
+T
+f
+a
+"}
+(11,1,1) = {"
+a
+f
+m
+t
+o
+D
+M
+U
+f
+a
+"}
+(12,1,1) = {"
+a
+f
+n
+n
+o
+o
+n
+n
+f
+a
+"}
+(13,1,1) = {"
+a
+f
+f
+f
+w
+o
+w
+o
+f
+a
+"}
+(14,1,1) = {"
+a
+g
+o
+o
+o
+o
+o
+o
+f
+a
+"}
+(15,1,1) = {"
+a
+f
+o
+u
+y
+y
+u
+y
+f
+a
+"}
+(16,1,1) = {"
+a
+f
+p
+v
+z
+E
+N
+V
+f
+a
+"}
+(17,1,1) = {"
+a
+f
+q
+w
+o
+F
+o
+W
+f
+a
+"}
+(18,1,1) = {"
+a
+f
+r
+x
+A
+G
+O
+X
+f
+a
+"}
+(19,1,1) = {"
+a
+f
+f
+f
+f
+f
+f
+f
+f
+a
+"}
+(20,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}

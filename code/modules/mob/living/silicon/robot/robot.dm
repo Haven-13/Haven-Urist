@@ -3,7 +3,7 @@
 /mob/living/silicon/robot
 	name = "Cyborg"
 	real_name = "Cyborg"
-	icon = 'icons/uristmob/robots.dmi'
+	icon = 'resources/icons/uristmob/robots.dmi'
 	icon_state = "robot"
 	maxHealth = 300
 	health = 300
@@ -33,12 +33,12 @@
 
 //Hud stuff
 
-	var/obj/screen/inv1 = null
-	var/obj/screen/inv2 = null
-	var/obj/screen/inv3 = null
+	var/atom/movable/screen/inv1 = null
+	var/atom/movable/screen/inv2 = null
+	var/atom/movable/screen/inv3 = null
 
 	var/shown_robot_modules = 0 //Used to determine whether they have the module menu shown or not
-	var/obj/screen/robot_modules_background
+	var/atom/movable/screen/robot_modules_background
 
 //3 Modules can be activated at any one time.
 	var/obj/item/weapon/robot_module/module = null
@@ -70,7 +70,7 @@
 	var/has_power = 1
 	var/spawn_module = null
 
-	var/spawn_sound = list('sound/voice/liveagain.ogg','sound/voice/systembooted.ogg')
+	var/spawn_sound = list('resources/sound/voice/liveagain.ogg','resources/sound/voice/systembooted.ogg')
 	var/pitch_toggle = 1
 	var/list/req_access = list(access_robotics)
 	var/ident = 0
@@ -143,15 +143,15 @@
 
 	add_robot_verbs()
 
-	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealth100")
-	hud_list[LIFE_HUD]        = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealth100")
-	hud_list[ID_HUD]          = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[WANTED_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[HEALTH_HUD]      = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudblank")
+	hud_list[STATUS_HUD]      = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudhealth100")
+	hud_list[LIFE_HUD]        = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudhealth100")
+	hud_list[ID_HUD]          = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudblank")
+	hud_list[WANTED_HUD]      = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudblank")
+	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudblank")
+	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudblank")
+	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudblank")
+	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudblank")
 
 /mob/living/silicon/robot/Initialize()
 	. = ..()
@@ -758,7 +758,7 @@
 			if(!eye_overlay)
 				eye_overlay = image(icon, eye_icon_state)
 				eye_overlay.plane = get_float_plane(EMISSIVE_PLANE)
-				eye_overlay.layer = EYE_GLOW_LAYER
+				eye_overlay.layer = FLOAT_LAYER
 				eye_overlays[cache_key] = eye_overlay
 			overlays += eye_overlay
 
@@ -769,7 +769,7 @@
 	if(module_active && istype(module_active,/obj/item/borg/combat/shield))
 		var/image/shield_overlay = image(icon, "droid-combat-shield")
 		shield_overlay.plane = get_float_plane(EMISSIVE_PLANE)
-		shield_overlay.layer = BEAM_PROJECTILE_LAYER
+		shield_overlay.layer = EMISSIVE_UNBLOCKABLE_LAYER
 		overlays += shield_overlay
 
 	if(modtype == "Combat")

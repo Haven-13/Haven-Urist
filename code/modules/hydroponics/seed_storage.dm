@@ -20,7 +20,7 @@
 /obj/machinery/seed_storage
 	name = "Seed storage"
 	desc = "It stores, sorts, and dispenses seeds."
-	icon = 'icons/obj/vending.dmi'
+	icon = 'resources/icons/obj/vending.dmi'
 	icon_state = "seeds"
 	density = 1
 	anchored = 1
@@ -315,7 +315,7 @@
 			to_chat(user, "<span class='notice'>There are no seeds in \the [O.name].</span>")
 		return
 	else if(isWrench(O))
-		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "wrench" : "unwrench"] \the [src].")
 

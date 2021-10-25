@@ -1,7 +1,7 @@
 /obj/structure/mopbucket
 	name = "mop bucket"
 	desc = "Fill it with water, but don't forget a mop!"
-	icon = 'icons/obj/janitor.dmi'
+	icon = 'resources/icons/obj/janitor.dmi'
 	icon_state = "mopbucket"
 	density = 1
 	w_class = ITEM_SIZE_NORMAL
@@ -24,4 +24,4 @@
 		else
 			reagents.trans_to_obj(I, 5)
 			to_chat(user, "<span class='notice'>You wet \the [I] in \the [src].</span>")
-			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+			playsound(loc, 'resources/sound/effects/slosh.ogg', 25, 1)

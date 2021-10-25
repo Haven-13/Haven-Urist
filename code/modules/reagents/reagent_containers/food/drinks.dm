@@ -4,12 +4,12 @@
 /obj/item/weapon/reagent_containers/food/drinks
 	name = "drink"
 	desc = "Yummy!"
-	icon = 'icons/obj/drinks.dmi'
+	icon = 'resources/icons/obj/drinks.dmi'
 	icon_state = null
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	amount_per_transfer_from_this = 5
 	volume = 50
-	var/static/drinksounds = list('sound/urist/drink1.ogg', 'sound/urist/drink2.ogg', 'sound/urist/drink3.ogg', 'sound/urist/drink4.ogg')
+	var/static/drinksounds = list('resources/sound/urist/drink1.ogg', 'resources/sound/urist/drink2.ogg', 'resources/sound/urist/drink3.ogg', 'resources/sound/urist/drink4.ogg')
 	var/filling_states   // List of percentages full that have icons
 	var/base_name = null // Name to put in front of drinks, i.e. "[base_name] of [contents]"
 	var/base_icon = null // Base icon name for fill states
@@ -23,12 +23,12 @@
 		open(user)
 
 /obj/item/weapon/reagent_containers/food/drinks/proc/open(mob/user)
-	playsound(loc,'sound/effects/canopen.ogg', rand(10,50), 1)
+	playsound(loc,'resources/sound/effects/canopen.ogg', rand(10,50), 1)
 	to_chat(user, "<span class='notice'>You open \the [src] with an audible pop!</span>")
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle/open(mob/user)
-	playsound(loc,'sound/effects/bonebreak1.ogg', rand(10,50), 1)
+	playsound(loc,'resources/sound/effects/bonebreak1.ogg', rand(10,50), 1)
 	to_chat(user, "<span class='notice'>You twist open \the [src], destroying the safety seal!</span>")
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
@@ -78,7 +78,7 @@
 //	playsound(target_ladder, pick(climbsounds), 50)
 //	return M.Move(T)
 //	/obj/item/weapon/reagent_containers/food/drinks/feed_sound(var/mob/user)
-//		playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
+//		playsound(user.loc, 'resources/sound/items/drink.ogg', rand(10, 50), 1)
 
 /obj/item/weapon/reagent_containers/food/drinks/examine(mob/user)
 	if(!..(user, 1))
@@ -155,9 +155,9 @@
 	icon_state = "soymilk"
 	item_state = "carton"
 	center_of_mass = "x=16;y=9"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/drink/milk/soymilk, 50)
+/obj/item/weapon/reagent_containers/food/drinks/soymilk/New()
+	..()
+	reagents.add_reagent(/datum/reagent/drink/milk/soymilk, 50)
 
 /obj/item/weapon/reagent_containers/food/drinks/milk/smallcarton
 	name = "small milk carton"
@@ -194,9 +194,9 @@
 	filling_states = "100"
 	base_name = "cup"
 	base_icon = "teacup"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/drink/tea, 30)
+/obj/item/weapon/reagent_containers/food/drinks/tea/New()
+	..()
+	reagents.add_reagent(/datum/reagent/drink/tea, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/ice
 	name = "cup of ice"
@@ -223,9 +223,9 @@
 	desc = "Just add 10ml water, self heats! A taste that reminds you of your school years."
 	icon_state = "ramen"
 	center_of_mass = "x=16;y=11"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/drink/dry_ramen, 30)
+/obj/item/weapon/reagent_containers/food/drinks/dry_ramen/New()
+	..()
+	reagents.add_reagent(/datum/reagent/drink/dry_ramen, 30)
 
 
 /obj/item/weapon/reagent_containers/food/drinks/sillycup
@@ -235,13 +235,13 @@
 	possible_transfer_amounts = null
 	volume = 10
 	center_of_mass = "x=16;y=12"
-	New()
-		..()
-	on_reagent_change()
-		if(reagents.total_volume)
-			icon_state = "water_cup"
-		else
-			icon_state = "water_cup_e"
+/obj/item/weapon/reagent_containers/food/drinks/sillycup/New()
+	..()
+/obj/item/weapon/reagent_containers/food/drinks/sillycup/on_reagent_change()
+	if(reagents.total_volume)
+		icon_state = "water_cup"
+	else
+		icon_state = "water_cup_e"
 
 
 //////////////////////////pitchers, pots, flasks and cups //

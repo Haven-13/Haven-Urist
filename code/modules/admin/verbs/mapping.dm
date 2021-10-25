@@ -23,15 +23,15 @@ var/camera_range_display_status = 0
 var/intercom_range_display_status = 0
 
 /obj/effect/debugging/camera_range
-	icon = 'icons/480x480.dmi'
+	icon = 'resources/icons/480x480.dmi'
 	icon_state = "25percent"
 
-	New()
-		src.pixel_x = -224
-		src.pixel_y = -224
+/obj/effect/debugging/camera_range/New()
+	src.pixel_x = -224
+	src.pixel_y = -224
 
 /obj/effect/debugging/marker
-	icon = 'icons/turf/areas.dmi'
+	icon = 'resources/icons/turf/areas.dmi'
 	icon_state = "yellow"
 
 /obj/effect/debugging/marker/Move()
@@ -245,7 +245,7 @@ var/list/debug_verbs = list (
 	testZAScolors_zones.Cut()
 
 	for(var/image/i in images)
-		if(i.icon == 'icons/misc/debug_group.dmi')
+		if(i.icon == 'resources/icons/misc/debug_group.dmi')
 			images.Remove(i)
 
 /client/proc/rebootAirMaster()
@@ -327,4 +327,4 @@ var/list/debug_verbs = list (
 	feedback_add_details("admin_verb","mOBJ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /proc/get_zas_image(var/turf/T, var/icon_state)
-	return image_repository.atom_image(T, 'icons/misc/debug_group.dmi', icon_state, plane = ABOVE_TURF_PLANE, layer = ABOVE_TILE_LAYER)
+	return image_repository.atom_image(T, 'resources/icons/misc/debug_group.dmi', icon_state, plane = DEFAULT_PLANE, layer = ABOVE_TURF_LAYER)

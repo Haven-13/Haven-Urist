@@ -1,7 +1,7 @@
 /obj/machinery/food_replicator
 	name = "replicator"
 	desc = "like a microwave, except better."
-	icon = 'icons/obj/vending.dmi'
+	icon = 'resources/icons/obj/vending.dmi'
 	icon_state = "soda"
 	density = 1
 	anchored = 1
@@ -15,12 +15,14 @@
 	var/list/queued_dishes = list()
 	var/make_time = 0
 	var/start_making = 0
-	var/list/menu = list("nutrition slab" = /obj/item/weapon/reagent_containers/food/snacks/tofu,
-					 "turkey substitute" = /obj/item/weapon/reagent_containers/food/snacks/tofurkey,
-					 "waffle substitute" = /obj/item/weapon/reagent_containers/food/snacks/soylenviridians,
-					 "nutrition fries" = /obj/item/weapon/reagent_containers/food/snacks/fries,
-					 "liquid nutrition" = /obj/item/weapon/reagent_containers/food/snacks/soydope,
-					 "pudding substitute" = /obj/item/weapon/reagent_containers/food/snacks/ricepudding)
+	var/list/menu = list(
+		"nutrition slab" = /obj/item/weapon/reagent_containers/food/snacks/tofu,
+		"turkey substitute" = /obj/item/weapon/reagent_containers/food/snacks/tofurkey,
+		"waffle substitute" = /obj/item/weapon/reagent_containers/food/snacks/soylenviridians,
+		"nutrition fries" = /obj/item/weapon/reagent_containers/food/snacks/fries,
+		"liquid nutrition" = /obj/item/weapon/reagent_containers/food/snacks/soydope,
+		"pudding substitute" = /obj/item/weapon/reagent_containers/food/snacks/ricepudding
+	)
 
 /obj/machinery/food_replicator/New()
 	..()
@@ -109,7 +111,7 @@
 		return 0
 	biomass -= biomass_per
 	src.audible_message("<b>\The [src]</b> states, \"Your [text] is ready!\"")
-	playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/machines/ding.ogg', 50, 1)
 	var/atom/A = new type(src.loc)
 	A.SetName(text)
 	A.desc = "Looks... actually pretty good."
@@ -144,7 +146,7 @@
 	if(queued_dishes && queued_dishes.len)
 		if(start_making) //want to do this first so that the first dish won't instantly come out
 			src.audible_message("<b>\The [src]</b> rumbles and vibrates.")
-			playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/machines/juicer.ogg', 50, 1)
 			make_time = world.time + rand(100, 300)
 			start_making = 0
 		if(world.time > make_time)

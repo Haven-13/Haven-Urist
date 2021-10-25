@@ -89,7 +89,7 @@
 /obj/item/weapon/gun/special_check()
 	if(is_secure_gun() && !free_fire() && (!authorized_modes[sel_mode] || !registered_owner))
 		audible_message("<span class='warning'>\The [src] buzzes, refusing to fire.</span>")
-		playsound(loc, 'sound/machines/buzz-sigh.ogg', 30, 0)
+		playsound(loc, 'resources/sound/machines/buzz-sigh.ogg', 30, 0)
 		return 0
 
 	. = ..()

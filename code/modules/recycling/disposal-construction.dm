@@ -5,7 +5,7 @@
 
 	name = "disposal pipe segment"
 	desc = "A huge pipe segment used for constructing disposal systems."
-	icon = 'icons/obj/pipes/disposal.dmi'
+	icon = 'resources/icons/obj/pipes/disposal.dmi'
 	icon_state = "conpipe-s"
 	anchored = 0
 	density = 0
@@ -55,7 +55,7 @@
 		if(5)
 			base_state = "pipe-t"
 			dpdir = dir
-		 // disposal bin has only one dir, thus we don't need to care about setting it
+		// disposal bin has only one dir, thus we don't need to care about setting it
 		if(6)
 			if(anchored)
 				base_state = "disposal"
@@ -280,7 +280,7 @@
 			else
 				set_density(1) // We don't want disposal bins or outlets to go density 0
 			to_chat(user, "You attach the [nicetype] to the underfloor.")
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 100, 1)
 		update()
 		update_verbs()
 
@@ -288,7 +288,7 @@
 		if(anchored)
 			var/obj/item/weapon/weldingtool/W = I
 			if(W.remove_fuel(0,user))
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				playsound(src.loc, 'resources/sound/items/Welder2.ogg', 100, 1)
 				to_chat(user, "Welding the [nicetype] in place.")
 				if(do_after(user, 20, src))
 					if(!src || !W.isOn()) return

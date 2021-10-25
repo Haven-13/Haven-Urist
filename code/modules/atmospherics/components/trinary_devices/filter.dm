@@ -1,5 +1,5 @@
 /obj/machinery/atmospherics/trinary/filter
-	icon = 'icons/atmos/filter.dmi'
+	icon = 'resources/icons/atmos/filter.dmi'
 	icon_state = "map"
 	density = 0
 	level = 1
@@ -15,14 +15,14 @@
 	var/set_flow_rate = ATMOS_DEFAULT_VOLUME_FILTER
 
 	/*
-	Filter types:
-	-1: Nothing
-	 0: Phoron: Phoron, Oxygen Agent B
-	 1: Oxygen: Oxygen ONLY
-	 2: Nitrogen: Nitrogen ONLY
-	 3: Carbon Dioxide: Carbon Dioxide ONLY
-	 4: Sleeping Agent (N2O)
-	 5: Hydrogen (H2)
+	* Filter types:
+	* -1: Nothing
+	*  0: Phoron: Phoron, Oxygen Agent B
+	*  1: Oxygen: Oxygen ONLY
+	*  2: Nitrogen: Nitrogen ONLY
+	*  3: Carbon Dioxide: Carbon Dioxide ONLY
+	*  4: Sleeping Agent (N2O)
+	*  5: Hydrogen (H2)
 	*/
 	var/filter_type = -1
 	var/list/filtered_out = list()
@@ -49,7 +49,7 @@
 		if(3) //removing CO2
 			filtered_out = list("carbon_dioxide")
 		if(4)//removing N2O
-			filtered_out = list("sleeping_agent")
+			filtered_out = list("nitrous_oxide")
 		if(5)//removing H2
 			filtered_out = list("hydrogen")
 
@@ -134,7 +134,7 @@
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
 		return 1
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
 	if (do_after(user, 40, src))
 		user.visible_message( \
@@ -213,7 +213,7 @@
 			if(3) //removing CO2
 				filtered_out += "carbon_dioxide"
 			if(4)//removing N2O
-				filtered_out += "sleeping_agent"
+				filtered_out += "nitrous_oxide"
 			if(5)//removing H2
 				filtered_out += "hydrogen"
 

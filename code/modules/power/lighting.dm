@@ -19,11 +19,11 @@
 /obj/machinery/light_construct
 	name = "light fixture frame"
 	desc = "A light fixture under construction."
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'resources/icons/obj/lighting.dmi'
 	icon_state = "tube-construct-stage1"
 	anchored = 1
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 
 	var/stage = 1
 	var/fixture_type = /obj/machinery/light
@@ -60,14 +60,14 @@
 	src.add_fingerprint(user)
 	if(isWrench(W))
 		if (src.stage == 1)
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+			playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 			to_chat(usr, "You begin deconstructing \a [src].")
 			if (!do_after(usr, 30,src))
 				return
 			new /obj/item/stack/material/steel( get_turf(src.loc), sheets_refunded )
 			user.visible_message("[user.name] deconstructs [src].", \
 				"You deconstruct [src].", "You hear a noise.")
-			playsound(src.loc, 'sound/items/Deconstruct.ogg', 75, 1)
+			playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 75, 1)
 			qdel(src)
 		if (src.stage == 2)
 			to_chat(usr, "You have to remove the wires first.")
@@ -84,7 +84,7 @@
 		new /obj/item/stack/cable_coil(get_turf(src.loc), 1, "red")
 		user.visible_message("[user.name] removes the wiring from [src].", \
 			"You remove the wiring from [src].", "You hear a noise.")
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 100, 1)
 		return
 
 	if(istype(W, /obj/item/stack/cable_coil))
@@ -103,7 +103,7 @@
 			src.update_icon()
 			user.visible_message("[user.name] closes [src]'s casing.", \
 				"You close [src]'s casing.", "You hear a noise.")
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 75, 1)
+			playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 75, 1)
 
 			var/obj/machinery/light/newlight = new fixture_type(src.loc, src)
 			newlight.set_dir(src.dir)
@@ -116,11 +116,11 @@
 /obj/machinery/light_construct/small
 	name = "small light fixture frame"
 	desc = "A small light fixture under construction."
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'resources/icons/obj/lighting.dmi'
 	icon_state = "bulb-construct-stage1"
 	anchored = 1
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 	stage = 1
 	fixture_type = /obj/machinery/light/small
 	sheets_refunded = 1
@@ -134,13 +134,13 @@
 // the standard tube light fixture
 /obj/machinery/light
 	name = "light fixture"
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'resources/icons/obj/lighting.dmi'
 	var/base_state = "tube"		// base description and icon_state
 	icon_state = "tube_map"
 	desc = "A lighting fixture."
 	anchored = 1
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER  					// They were appearing under mobs which is a little weird - Ostaf
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER  					// They were appearing under mobs which is a little weird - Ostaf
 	use_power = 2
 	idle_power_usage = 2
 	active_power_usage = 20
@@ -367,7 +367,7 @@
 	// attempt to stick weapon into light socket
 	else if(!lightbulb)
 		if(istype(W, /obj/item/weapon/screwdriver)) //If it's a screwdriver open it.
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 75, 1)
+			playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 75, 1)
 			user.visible_message("[user.name] opens [src]'s casing.", "You open [src]'s casing.", "You hear a noise.")
 			new construct_type(src.loc, src.dir, src)
 			qdel(src)
@@ -475,7 +475,7 @@
 
 	if(!skip_sound_and_sparks)
 		if(lightbulb && !(lightbulb.status == LIGHT_BROKEN))
-			playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
+			playsound(src.loc, 'resources/sound/effects/Glasshit.ogg', 75, 1)
 		if(on)
 			s.set_up(3, 1, src)
 			s.start()
@@ -534,7 +534,7 @@
 // will fit into empty /obj/machinery/light of the corresponding type
 
 /obj/item/weapon/light
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'resources/icons/obj/lighting.dmi'
 	force = 2
 	throwforce = 5
 	w_class = ITEM_SIZE_TINY
@@ -577,7 +577,7 @@
 	lighting_modes = list(
 		LIGHTMODE_EMERGENCY = list(l_outer_range = 4, l_max_bright = 1, l_color = "#da0205"),
 		)
-	sound_on = 'sound/machines/lightson.ogg'
+	sound_on = 'resources/sound/machines/lightson.ogg'
 
 /obj/item/weapon/light/tube/party/Initialize() //Randomly colored light tubes. Mostly for testing, but maybe someone will find a use for them.
 	. = ..()
@@ -701,7 +701,7 @@
 		status = LIGHT_BROKEN
 		force = 5
 		sharp = 1
-		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
+		playsound(src.loc, 'resources/sound/effects/Glasshit.ogg', 75, 1)
 		update_icon()
 
 /obj/item/weapon/light/proc/switch_on()

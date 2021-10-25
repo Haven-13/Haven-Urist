@@ -1,9 +1,9 @@
 /turf
-	icon = 'icons/turf/floors.dmi'
+	icon = 'resources/icons/turf/floors.dmi'
 	level = 1
 
-	plane = TURF_PLANE
-	layer = BASE_TURF_LAYER
+	plane = DEFAULT_PLANE
+	layer = TURF_LAYER
 	vis_flags = VIS_INHERIT_ID
 
 	var/turf_flags
@@ -88,7 +88,7 @@
 	if(Adjacent(user))
 		attack_hand(user)
 
-turf/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/turf/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/storage))
 		var/obj/item/weapon/storage/S = W
 		if(S.use_to_pickup && S.collection_mode)

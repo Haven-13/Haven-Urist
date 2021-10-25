@@ -29,7 +29,7 @@
 
 /obj/item/weapon/grenade/flashbang/proc/bang(var/turf/T , var/mob/living/carbon/M)					// Added a new proc called 'bang' that takes a location and a person to be banged.
 	to_chat(M, "<span class='danger'>BANG</span>")// Called during the loop that bangs people in lockers/containers and when banging
-	playsound(src.loc, 'sound/effects/bang.ogg', 50, 1, 30)		// people in normal view.  Could theroetically be called during other explosions.
+	playsound(src.loc, 'resources/sound/effects/bang.ogg', 50, 1, 30)		// people in normal view.  Could theroetically be called during other explosions.
 																// -- Polymorph
 
 //Checking for protections
@@ -110,7 +110,7 @@
 /obj/item/weapon/grenade/flashbang/clusterbang//Created by Polymorph, fixed by Sieve
 	desc = "Use of this weapon may constiute a war crime in your area, consult your local captain."
 	name = "clusterbang"
-	icon = 'icons/obj/grenade.dmi'
+	icon = 'resources/icons/obj/grenade.dmi'
 	icon_state = "clusterbang"
 
 /obj/item/weapon/grenade/flashbang/clusterbang/detonate()
@@ -124,19 +124,19 @@
 	for(,numspawned > 0, numspawned--)
 		spawn(0)
 			new /obj/item/weapon/grenade/flashbang/cluster(src.loc)//Launches flashbangs
-			playsound(src.loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
+			playsound(src.loc, 'resources/sound/weapons/armbomb.ogg', 75, 1, -3)
 
 	for(,again > 0, again--)
 		spawn(0)
 			new /obj/item/weapon/grenade/flashbang/clusterbang/segment(src.loc)//Creates a 'segment' that launches a few more flashbangs
-			playsound(src.loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
+			playsound(src.loc, 'resources/sound/weapons/armbomb.ogg', 75, 1, -3)
 	qdel(src)
 	return
 
 /obj/item/weapon/grenade/flashbang/clusterbang/segment
 	desc = "A smaller segment of a clusterbang. Better run."
 	name = "clusterbang segment"
-	icon = 'icons/obj/grenade.dmi'
+	icon = 'resources/icons/obj/grenade.dmi'
 	icon_state = "clusterbang_segment"
 
 /obj/item/weapon/grenade/flashbang/clusterbang/segment/New()//Segments should never exist except part of the clusterbang, since these immediately 'do their thing' and asplode
@@ -160,7 +160,7 @@
 	for(,numspawned > 0, numspawned--)
 		spawn(0)
 			new /obj/item/weapon/grenade/flashbang/cluster(src.loc)
-			playsound(src.loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
+			playsound(src.loc, 'resources/sound/weapons/armbomb.ogg', 75, 1, -3)
 	qdel(src)
 	return
 

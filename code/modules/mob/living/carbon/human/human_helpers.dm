@@ -176,9 +176,9 @@
 		if(!T2 || L == src || L.stat == DEAD || is_below_sound_pressure(T2))
 			continue
 		heard_something = TRUE
-		var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = T1)
+		var/image/ping_image = image(icon = 'resources/icons/effects/effects.dmi', icon_state = "sonar_ping", loc = T1)
 		ping_image.plane = EMISSIVE_PLANE
-		ping_image.layer = BEAM_PROJECTILE_LAYER
+		ping_image.layer = EMISSIVE_UNBLOCKABLE_LAYER
 		ping_image.pixel_x = (T2.x - T1.x) * WORLD_ICON_SIZE
 		ping_image.pixel_y = (T2.y - T1.y) * WORLD_ICON_SIZE
 		show_image(src, ping_image)
@@ -208,11 +208,11 @@
 
 /mob/living/carbon/human/reset_layer()
 	if(hiding)
-		set_plane(HIDING_MOB_PLANE)
+		set_plane(DEFAULT_PLANE)
 		layer = HIDING_MOB_LAYER
 	else if(lying)
-		set_plane(LYING_HUMAN_PLANE)
-		layer = LYING_HUMAN_LAYER
+		set_plane(DEFAULT_PLANE)
+		layer = LYING_HUMANOID_LAYER
 	else
 		..()
 

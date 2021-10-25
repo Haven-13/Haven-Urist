@@ -1,7 +1,7 @@
 /obj/item/device/oxycandle
 	name = "oxygen candle"
 	desc = "A steel tube with the words 'OXYGEN - PULL CORD TO IGNITE' stamped on the side. A small label warns against using the device underwater"
-	icon = 'icons/obj/device.dmi'
+	icon = 'resources/icons/obj/device.dmi'
 	icon_state = "oxycandle"
 	item_state = "oxycandle"
 	w_class = ITEM_SIZE_SMALL // Should fit into internal's box or maybe pocket
@@ -9,7 +9,7 @@
 	var/datum/gas_mixture/air_contents = null
 	var/volume = 4600
 	var/on = 0
-	var/activation_sound = 'sound/effects/flare.ogg'
+	var/activation_sound = 'resources/sound/effects/flare.ogg'
 	light_color = "#e58775"
 	light_outer_range = 2
 	light_max_bright = 1

@@ -7,7 +7,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/structure/sign/uristmap
 	name = "station map"
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 	desc = "A framed picture of the station."
 
 /obj/structure/sign/uristmap/left
@@ -19,7 +19,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //signnnnnnnnnssssssssssss
 
 /obj/structure/sign/urist
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 
 //Department signs, icons based off the ones from Para station
 
@@ -106,7 +106,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/structure/bed/nice
 	name = "bed"
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 	desc = "This is used to lie in, sleep in or strap on. Looks comfortable."
 	icon_state = "bed"
 	base_icon = "bed"
@@ -122,7 +122,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/table/poker //No specialties, Just a mapping object.
 	name = "gambling table"
 	desc = "A seedy table for seedy dealings in seedy places."
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 	icon_state = "pokertable_table"
 	parts = /obj/item/weapon/table_parts/poker
 	health = 50
@@ -130,7 +130,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/weapon/table_parts/poker
 	name = "poker table parts"
 	desc = "Keep away from fire, and keep near seedy dealers."
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	icon_state = "poker_tableparts"
 	obj_flags = null
 
@@ -152,7 +152,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //shuttle chairs
 
 /obj/structure/bed/chair/urist
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 
 /obj/structure/bed/chair/urist/update_icon()
 	return
@@ -164,9 +164,9 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	var/image/armrest = null
 
 /obj/structure/bed/chair/urist/shuttle/New()
-	armrest = image('icons/urist/objects/structures.dmi', "shuttlechair_armrest")
-	armrest.plane = ABOVE_HUMAN_PLANE
-	armrest.layer = ABOVE_HUMAN_LAYER
+	armrest = image('resources/icons/urist/objects/structures.dmi', "shuttlechair_armrest")
+	armrest.plane = DEFAULT_PLANE
+	armrest.layer = ABOVE_MOB_LAYER
 
 	return ..()
 
@@ -206,7 +206,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //stools
 
 /obj/item/weapon/stool/urist
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 
 /obj/item/weapon/stool/urist/update_icon()
 	return
@@ -231,7 +231,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/structure/sign/urist/barber
 	name = "barber pole"
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 	icon_state = "barber_pole"
 	desc = "A spinning barber pole."
 
@@ -240,12 +240,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/filingcabinet/wood
 	name = "filing cabinet"
 	desc = "A large wood cabinet with drawers."
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 	icon_state = "tallcabinet"
 
 /obj/structure/filingcabinet/wood/attackby(var/obj/item/P, mob/user as mob)
 	if(istype(P, /obj/item/weapon/screwdriver))
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You disassemble \the [src].</span>")
 		var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(src.loc)
 		S.amount = 2
@@ -260,7 +260,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "table parts"
 	desc = "Parts of a table. Poor table."
 	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "table_parts"
 	matter = list("metal" = 3750)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
@@ -299,12 +299,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/structure/table/rack/wood
 	name = "wooden rack"
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 	icon_state = "rack"
 
 /obj/structure/table/rack/wood/attackby(var/obj/item/P, mob/user as mob)
 	if(istype(P, /obj/item/weapon/wrench))
-		playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
+		playsound(src, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You disassemble \the [src].</span>")
 		var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(src.loc)
 		S.amount = 1
@@ -347,7 +347,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/grille/wood
 	name = "wooden grille"
 	desc = "A flimsy lattice of wooden rods, with screws to secure it to the floor."
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 	icon_state = "woodgrille"
 	rodpath = /obj/item/stack/woodrods
 
@@ -364,7 +364,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/raft //just a fucking raft
 	name = "raft frame"
 	desc = "It's a shitty little improvised raft frame."
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 	icon_state = "raft_frame0"
 	density = 0
 	anchored = 0
@@ -453,7 +453,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/raft/built
 	name = "raft"
 	desc = "It's a shitty little improvised raft. Good luck."
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 	icon_state = "raft_frame4"
 	built = 1
 	buildstate = 4
@@ -476,7 +476,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/barricade/wooden/crude
 	name = "crude plank barricade"
 	desc = "This space is blocked off by a crude assortment of planks."
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 	icon_state = "woodenbarricade-old"
 	health = 50
 	maxhealth = 50

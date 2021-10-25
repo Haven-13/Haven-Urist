@@ -1,10 +1,10 @@
 /mob/living/bot/secbot/ed209
 	name = "ED-209 Security Robot"
 	desc = "A security robot.  He looks less than thrilled."
-	icon = 'icons/mob/bot/ED209.dmi'
+	icon = 'resources/icons/mob/bot/ED209.dmi'
 	icon_state = "ed2090"
 	attack_state = "ed209-c"
-	plane = MOB_PLANE
+	plane = DEFAULT_PLANE
 	layer = MOB_LAYER
 	density = 1
 	health = 100
@@ -62,7 +62,7 @@
 	if(emagged)
 		projectile = /obj/item/projectile/beam
 
-	playsound(loc, emagged ? 'sound/weapons/Laser.ogg' : 'sound/weapons/Taser.ogg', 50, 1)
+	playsound(loc, emagged ? 'resources/sound/weapons/Laser.ogg' : 'resources/sound/weapons/Taser.ogg', 50, 1)
 	var/obj/item/projectile/P = new projectile(loc)
 	var/def_zone = get_exposed_defense_zone(A)
 	P.launch(A, def_zone)
@@ -71,7 +71,7 @@
 /obj/item/weapon/secbot_assembly/ed209_assembly
 	name = "ED-209 assembly"
 	desc = "Some sort of bizarre assembly."
-	icon = 'icons/mob/bot/ED209.dmi'
+	icon = 'resources/icons/mob/bot/ED209.dmi'
 	icon_state = "ed209_frame"
 	item_state = "ed209_frame"
 	created_name = "ED-209 Security Robot"
@@ -166,7 +166,7 @@
 
 		if(8)
 			if(isScrewdriver(W))
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+				playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 100, 1)
 				var/turf/T = get_turf(user)
 				to_chat(user, "<span class='notice'>Now attaching the gun to the frame...</span>")
 				sleep(40)

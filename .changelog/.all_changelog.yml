@@ -254,3 +254,108 @@
   martinlyra:
   - tweak: SMES units now have emissive overlays
   - imageadd: Added new icons for the SMES units, based on the old one
+2021-08-10:
+  martinlyra:
+  - bugfix: Added missing UI for escape pod control
+  - bugfix: Added missing UI for escape pod berth control
+  - bugfix: Fixed the evacuation selection not properly annotating which option was
+      selected in the Communications program
+2021-08-23:
+  martinlyra:
+  - code_imp: 'Developer QoL: Whitespaces in source code will now be CI-checked. This
+      will not affect the game directly.'
+2021-08-25:
+  martinlyra:
+  - code_imp: Compiler options moved to code root folder from __defines folder.
+  - config: Compiling toolchain has been changed from simple node building to a juke-build
+      suite.
+2021-08-26:
+  martinlyra:
+  - rscadd: Added overlays system
+  - rscdel: Removed vis_overlays system
+  - tweak: Changed how airlocks behave when animating
+  - tweak: Changed emissives from using 3 planes to 1 plane for efficiency and performance
+      boost.
+2021-08-27:
+  martinlyra:
+  - tweak: Optimized away maps
+  - tweak: Changed how objects initialize to remove time spent on waiting, to cut
+      down the times.
+  - tweak: Chemistry reactions are now handled by a small subsystem for the time being
+  - bugfix: Fixed cave & mineral generation not being synchronized with the server
+      & mapping initialization
+  - bugfix: Fixed overmap objects whose location are known not showing up
+  - bugfix: Fixed star not showing up.
+2021-09-08:
+  martinlyra:
+  - bugfix: Fixed several cases of mangled characters showing up in text and some
+      interfaces
+2021-09-13:
+  martinlyra:
+  - rscadd: Added potential bugs related to map UI elements
+  - refactor: Renamned typepaths for UI elements to a special atom/movable instead
+      for technical imporvements
+  - tweak: Localhosts now will be automatically given a total-control rank, it is
+      enabled by default in the config, but false in code
+  - tweak: Localhosts now can bypass guest-key checks as long the automatic rank is
+      enabled
+  - tweak: Admins now bypass guest and whitelist checks for jobs
+2021-09-15:
+  martinlyra:
+  - rscadd: A popup text at top of screen will appear when howevering over an atom
+  - rscadd: Preference (in Global category) allowing players to show or hide the popup
+      text. It is turned on by default.
+  - rscadd: Preference (in Global category) controlling whether the hover-over should
+      display in either the stylic or the San Serif font.
+  - tweak: Byond interface CSS is now compiled and loaded at runtime instead of compile-time
+2021-09-26:
+  martinlyra:
+  - tweak: The preview is now tgstation-based instead of using a static image. Using
+      a map for easy, clean, and reliable updating.
+  - tweak: There are now three different backgrounds to select for the preview instead
+      of four.
+  - bugfix: The shadow-people have been sent back to the shadow realm from the character
+      creator preview.
+  - bugfix: As of the above tweak, the delay that causes a discrepancy between client
+      and server has been removed.
+  - bugfix: Fixed a runtime preventing the old HTML UIs from responding properly to
+      input
+  - rscadd: Added the Synthmorph culture, the default culture for the Machine/IPC
+      species on the Pluto map
+  retlaw34:
+  - imageadd: Redoes the fuel port and oxygen wall locker
+2021-10-02:
+  martinlyra:
+  - rscadd: Added tgUI for portable generators
+  - bugfix: Fixed runtimes caused by improper garbage collection of unused map-views.
+  - tweak: The stationary self-destruct terminal accepts, and requires the nuclear
+      authorization disk.
+  - bugfix: Fixed the nuclear bomb and self-destruct UI
+2021-10-04:
+  martinlyra:
+  - rscdel: Removed the fountain of youth
+  - rscdel: Removed the temple from the orb asteroid
+  - spellcheck: AWAIT changed to AWAITING in nuclear bomb UI
+  - tweak: Blocking procs and calls have been forbidden from garbage collection procs
+2021-10-07:
+  martinlyra:
+  - refactor: Relative type pathing has been changed to absolute
+2021-10-08:
+  martinlyra:
+  - refactor: Graphical layering has been compressed to improve performance and reliability.
+      From 23 to 6 planes in total.
+2021-10-10:
+  martinlyra:
+  - bugfix: Fixed emissives showing through machinery
+  - bugfix: Fixed emissives showing through structures
+  - bugfix: Fixed lighting switches not showing through darkness properly
+  - bugfix: Fixed air alarms not responding in most cases
+  - bugfix: Fixed vent pumps never changing mode
+  - bugfix: Fixed interface garbage for air alarms
+2021-10-25:
+  martinlyra:
+  - tweak: Updated rust_g from 0.4.8 to 0.5.0
+  - tweak: Changed power cells in APCs for critical rooms on Pluto; Atmospherics,
+      Aft First Deck Hallway, Armoury, Bridge, Engineering, Medical, and Security.
+  - bugfix: Fix how some errors and warnings would end up getting ignored because
+      they were not properly flushed to the master log.

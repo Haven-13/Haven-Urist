@@ -5,7 +5,7 @@ var/list/limb_icon_cache = list()
 
 /obj/item/organ/external/proc/compile_icon()
 	overlays.Cut()
-	 // This is a kludge, only one icon has more than one generation of children though.
+	// This is a kludge, only one icon has more than one generation of children though.
 	for(var/obj/item/organ/external/organ in contents)
 		if(organ.children && organ.children.len)
 			for(var/obj/item/organ/external/child in organ.children)
@@ -83,13 +83,13 @@ var/list/limb_icon_cache = list()
 	if(force_icon)
 		icon = force_icon
 	else if (BP_IS_ROBOTIC(src))
-		icon = 'icons/mob/human_races/cyberlimbs/robotic.dmi'
+		icon = 'resources/icons/mob/human_races/cyberlimbs/robotic.dmi'
 	else if (!dna)
-		icon = 'icons/mob/human_races/species/human/body.dmi'
+		icon = 'resources/icons/mob/human_races/species/human/body.dmi'
 	else if (status & ORGAN_MUTATED)
 		icon = species.deform
 	else if (owner && (SKELETON in owner.mutations))
-		icon = 'icons/mob/human_races/species/human/skeleton.dmi'
+		icon = 'resources/icons/mob/human_races/species/human/skeleton.dmi'
 	else
 		icon = species.get_icobase(owner)
 

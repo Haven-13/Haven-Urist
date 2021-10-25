@@ -111,15 +111,15 @@ def FindCompiler():
 	return compiler_path
 
 def GenCode(variables):
-	out = "// THIS FILE IS AUTOMATICALLY CREATED BY tools/gen_globals.py\n/proc/readglobal(which)\n\tswitch(which)\n\t\t"
+	out = "// THIS FILE IS AUTOMATICALLY CREATED BY tools/gen_globals.py\n/proc/readglobal(which)\n\tswitch(which)\n"
 
 	for variable in variables:
-		out += 'if("{0}")\n\t\t\treturn global.{0};\n\t\t'.format(variable)
+		out += '\t\tif("{0}")\n\t\t\treturn global.{0};\n'.format(variable)
 
-	out += "\n/proc/writeglobal(which, newval)\n\tswitch(which)\n\t\t"
+	out += "\n/proc/writeglobal(which, newval)\n\tswitch(which)\n"
 
 	for variable in variables:
-		out += 'if("{0}")\n\t\t\tglobal.{0}=newval;\n\t\t'.format(variable)
+		out += '\t\tif("{0}")\n\t\t\tglobal.{0}=newval;\n'.format(variable)
 
 	out += "\n/var/list/_all_globals=list(\n"
 	for i, variable in enumerate(variables):
@@ -127,7 +127,7 @@ def GenCode(variables):
 		if i != len(variables) - 1:
 			out += ",\n"
 
-	out += ")\n"
+	out += "\n)\n"
 
 	return out
 

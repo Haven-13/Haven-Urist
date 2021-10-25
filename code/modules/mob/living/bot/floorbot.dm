@@ -1,7 +1,7 @@
 /mob/living/bot/floorbot
 	name = "Floorbot"
 	desc = "A little floor repairing robot, he looks so excited!"
-	icon = 'icons/mob/bot/floorbot.dmi'
+	icon = 'resources/icons/mob/bot/floorbot.dmi'
 	icon_state = "floorbot0"
 	req_one_access = list(access_construction, access_robotics)
 	wait_if_pulled = 1
@@ -271,7 +271,7 @@
 /obj/item/weapon/toolbox_tiles
 	desc = "It's a toolbox with tiles sticking out the top."
 	name = "tiles and toolbox"
-	icon = 'icons/mob/bot/floorbot.dmi'
+	icon = 'resources/icons/mob/bot/floorbot.dmi'
 	icon_state = "toolbox_tiles"
 	force = 3.0
 	throwforce = 10.0
@@ -302,7 +302,7 @@
 /obj/item/weapon/toolbox_tiles_sensor
 	desc = "It's a toolbox with tiles sticking out the top and a sensor attached."
 	name = "tiles, toolbox and sensor arrangement"
-	icon = 'icons/mob/bot/floorbot.dmi'
+	icon = 'resources/icons/mob/bot/floorbot.dmi'
 	icon_state = "toolbox_tiles_sensor"
 	force = 3.0
 	throwforce = 10.0

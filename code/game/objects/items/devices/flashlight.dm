@@ -1,7 +1,7 @@
 /obj/item/device/flashlight
 	name = "flashlight"
 	desc = "A hand-held emergency light."
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'resources/icons/obj/lighting.dmi'
 	icon_state = "flashlight"
 	item_state = "flashlight"
 	w_class = ITEM_SIZE_SMALL
@@ -12,7 +12,7 @@
 
 	action_button_name = "Toggle Flashlight"
 	var/on = 0
-	var/activation_sound = 'sound/effects/flashlight.ogg'
+	var/activation_sound = 'resources/sound/effects/flashlight.ogg'
 	var/flashlight_max_bright = 0.5 //brightness of light when on, must be no greater than 1.
 	var/flashlight_inner_range = 1 //inner range of light when on, can be negative
 	var/flashlight_outer_range = 3 //outer range of light when on, can be negative
@@ -67,8 +67,10 @@
 				to_chat(user, "<span class='warning'>\The [H] is missing \his [initial(vision.name)]!</span>")
 				return
 
-			user.visible_message("<span class='notice'>\The [user] directs [src] into [M]'s [vision.name].</span>", \
-								 "<span class='notice'>You direct [src] into [M]'s [vision.name].</span>")
+			user.visible_message(
+				"<span class='notice'>\The [user] directs [src] into [M]'s [vision.name].</span>",
+				"<span class='notice'>You direct [src] into [M]'s [vision.name].</span>"
+			)
 
 			inspect_vision(vision, user)
 
@@ -153,7 +155,7 @@
 /obj/item/device/flashlight/lantern
 	name = "lantern"
 	desc = "A mining lantern."
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'resources/icons/obj/lighting.dmi'
 	icon_state = "lantern"
 	item_state = "lantern"
 	force = 10
@@ -227,7 +229,7 @@
 	var/fuel = 0
 	var/on_damage = 7
 	var/produce_heat = 1500
-	activation_sound = 'sound/effects/flare.ogg'
+	activation_sound = 'resources/sound/effects/flare.ogg'
 
 	flashlight_max_bright = 0.8
 	flashlight_inner_range = 0.1
@@ -375,7 +377,7 @@
 	gender = PLURAL
 	name = "glowing slime extract"
 	desc = "A glowing ball of what appears to be amber."
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'resources/icons/obj/lighting.dmi'
 	icon_state = "floor1" //not a slime extract sprite but... something close enough!
 	item_state = "slime"
 	w_class = ITEM_SIZE_TINY
@@ -399,7 +401,7 @@
 /obj/item/device/flashlight/lamp/floodlamp
 	name = "flood lamp"
 	desc = "A portable emergency flood light with a ultra-bright LED."
-	icon = 'icons/obj/machines/floodlight.dmi'
+	icon = 'resources/icons/obj/machines/floodlight.dmi'
 	icon_state = "floodlamp"
 	item_state = "lamp"
 	on = 0
@@ -439,7 +441,7 @@
 /obj/item/device/flashlight/lamp/lava
 	name = "lava lamp"
 	desc = "A kitchy throwback decorative light. Noir Edition."
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'resources/icons/obj/lighting.dmi'
 	icon_state = "lavalamp"
 	on = 0
 	action_button_name = "Toggle lamp"

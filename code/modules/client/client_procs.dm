@@ -86,8 +86,6 @@
 
 		ticket.close(client_repository.get_lite_client(usr.client))
 
-
-
 	//Logs all hrefs
 	if(config && config.log_hrefs && href_logfile)
 		to_chat(href_logfile, "<small>[time2text(world.timeofday,"hh:mm")] [src] (usr:[usr])</small> || [hsrc ? "[hsrc] " : ""][href]<br>")
@@ -124,6 +122,10 @@
 	return 1
 
 
+/client/proc/is_local_host()
+	var/localhost_addresses = list("127.0.0.1", "::1")
+	return (isnull(address) || (address in localhost_addresses))
+
 	///////////
 	//CONNECT//
 	///////////
@@ -135,7 +137,10 @@
 	if(byond_version < MIN_CLIENT_VERSION)		//Out of date client.
 		return null
 
-	if(!config.guests_allowed && IsGuestKey(key))
+	if(\
+		!config.guests_allowed && IsGuestKey(key)\
+		&& !(config.enable_localhost_rank && is_local_host())\
+	)
 		alert(src,"This server doesn't allow guest accounts to play. Please go to http://www.byond.com/ and register for a key.","Guest","OK")
 		qdel(src)
 		return
@@ -160,10 +165,16 @@
 	GLOB.ckey_directory[ckey] = src
 
 	//Admin Authorisation
+	var/connecting_admin = FALSE
 	holder = admin_datums[ckey]
 	if(holder)
 		GLOB.admins += src
 		holder.owner = src
+
+	if(config.enable_localhost_rank && !connecting_admin)
+		if(is_local_host())
+			holder = new /datum/admins("!localhost!", R_EVERYTHING, key)
+			holder.owner = src
 
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
 	prefs = preferences_datums[ckey]
@@ -224,6 +235,12 @@
 	//DISCONNECT//
 	//////////////
 /client/Del()
+	if(!gc_destroyed)
+		Destroy() //Clean up signals and timers.
+	return ..()
+
+/client/Destroy()
+	..()
 	ticket_panels -= src
 	if(src && watched_variables_window)
 		STOP_PROCESSING(SSprocessing, watched_variables_window)
@@ -232,10 +249,10 @@
 		GLOB.admins -= src
 	GLOB.ckey_directory -= ckey
 	GLOB.clients -= src
-	return ..()
 
-/client/Destroy()
-	..()
+	clear_character_previews()
+	QDEL_LIST_ASSOC_VAL(char_render_holders)
+
 	return QDEL_HINT_HARDDEL_NOW
 
 // here because it's similar to below
@@ -372,14 +389,14 @@
 /mob/proc/MayRespawn()
 	return 0
 
-client/proc/MayRespawn()
+/client/proc/MayRespawn()
 	if(mob)
 		return mob.MayRespawn()
 
 	// Something went wrong, client is usually kicked or transfered to a new mob at this point
 	return 0
 
-client/verb/character_setup()
+/client/verb/character_setup()
 	set name = "Character Setup"
 	set category = "OOC"
 	if(prefs)
@@ -388,3 +405,25 @@ client/verb/character_setup()
 /client/proc/apply_fps(var/client_fps)
 	if(world.byond_version >= 511 && byond_version >= 511 && client_fps >= CLIENT_MIN_FPS && client_fps <= CLIENT_MAX_FPS)
 		vars["fps"] = prefs.clientfps
+
+/client/proc/show_character_previews(mutable_appearance/MA)
+	var/pos = 0
+	for(var/D in GLOB.cardinal)
+		pos++
+		var/atom/movable/screen/O = LAZY_ACCESS_ASSOC(char_render_holders, "[D]")
+		if(!O)
+			O = new
+			LAZY_SET(char_render_holders, "[D]", O)
+		screen |= O
+		O.appearance = MA
+		O.dir = D
+		O.layer = HUMANOID_LAYER
+		O.set_plane(DEFAULT_PLANE)
+		O.screen_loc = "character_preview_map:1,[pos]"
+
+/client/proc/clear_character_previews()
+	for(var/index in char_render_holders)
+		var/atom/movable/screen/S = char_render_holders[index]
+		screen -= S
+		qdel(S)
+	char_render_holders = null

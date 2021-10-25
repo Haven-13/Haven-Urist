@@ -134,7 +134,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 						declared = 0
 
 
-datum/game_mode/scom/declare_completion() //failure states removed pending a rewrite
+/datum/game_mode/scom/declare_completion() //failure states removed pending a rewrite
 	if(sploded == 2)
 		declared = 1
 		to_world("<FONT size = 3><B>Major S-COM victory!</B></FONT>")
@@ -157,7 +157,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 
 /obj/structure/scom/fuckitall //what the fuck was wrong with me
 	name = "mothership central computer"
-	icon = 'icons/urist/turf/scomturfs.dmi'
+	icon = 'resources/icons/urist/turf/scomturfs.dmi'
 	icon_state = "9,8"
 	var/fuckitall = 0
 	anchored = 1

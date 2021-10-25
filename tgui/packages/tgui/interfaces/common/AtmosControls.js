@@ -49,7 +49,7 @@ export const Vent = (props, context) => {
           <Button
             icon="sign-in-alt"
             content="Internal"
-            selected={!external}
+            selected={incheck}
             onClick={() => act('incheck', {
               id_tag,
               val: checks,
@@ -57,7 +57,7 @@ export const Vent = (props, context) => {
           <Button
             icon="sign-out-alt"
             content="External"
-            selected={external}
+            selected={excheck}
             onClick={() => act('excheck', {
               id_tag,
               val: checks,
@@ -80,8 +80,9 @@ export const Vent = (props, context) => {
               icon="undo"
               disabled={intdefault}
               content="Reset"
-              onClick={() => act('reset_internal_pressure', {
+              onClick={() => act('set_internal_pressure', {
                 id_tag,
+                value: "default",
               })} />
           </LabeledList.Item>
         )}
@@ -102,8 +103,9 @@ export const Vent = (props, context) => {
               icon="undo"
               disabled={extdefault}
               content="Reset"
-              onClick={() => act('reset_external_pressure', {
+              onClick={() => act('set_external_pressure', {
                 id_tag,
+                value: "default",
               })} />
           </LabeledList.Item>
         )}
@@ -142,19 +144,11 @@ export const Scrubber = (props, context) => {
         <LabeledList.Item label="Mode">
           <Button
             icon={scrubbing ? 'filter' : 'sign-in-alt'}
-            color={scrubbing || 'danger'}
+            color={!scrubbing && 'danger'}
             content={scrubbing ? 'Scrubbing' : 'Siphoning'}
             onClick={() => act('scrubbing', {
               id_tag,
               val: Number(!scrubbing),
-            })} />
-          <Button
-            icon={widenet ? 'expand' : 'compress'}
-            selected={widenet}
-            content={widenet ? 'Expanded range' : 'Normal range'}
-            onClick={() => act('widenet', {
-              id_tag,
-              val: Number(!widenet),
             })} />
         </LabeledList.Item>
         <LabeledList.Item label="Filters">

@@ -1,7 +1,7 @@
 /obj/effect/force_portal
 	name = "portal"
 	desc = "Like looking into a mirror."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "portal"
 	blend_mode = BLEND_SUBTRACT
 	density = 1
@@ -34,10 +34,10 @@
 		if(istype(picked, /obj/item/projectile))
 			var/obj/item/projectile/P = picked
 			P.launch(target)
-			playsound(src, P.fire_sound ? P.fire_sound : 'sound/effects/teleport.ogg', 60, 1)
+			playsound(src, P.fire_sound ? P.fire_sound : 'resources/sound/effects/teleport.ogg', 60, 1)
 		else
 			picked.throw_at(target, 5, 10, src)
-			playsound(src,'sound/effects/teleport.ogg',60,1)
+			playsound(src,'resources/sound/effects/teleport.ogg',60,1)
 		sleep(1)
 	qdel(src)
 
@@ -48,7 +48,7 @@
 		var/obj/O = AM
 		if(O.w_class <= ITEM_SIZE_SMALL)
 			return //Dont spam for small stuff
-	playsound(src,'sound/effects/teleport.ogg',40,1)
+	playsound(src,'resources/sound/effects/teleport.ogg',40,1)
 	return
 
 /obj/effect/force_portal/Bumped(var/atom/movable/AM)

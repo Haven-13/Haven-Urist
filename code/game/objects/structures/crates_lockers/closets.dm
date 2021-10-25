@@ -1,10 +1,10 @@
 /obj/structure/closet
 	name = "closet"
 	desc = "It's a basic storage unit."
-	icon = 'icons/obj/closet.dmi'
+	icon = 'resources/icons/obj/closet.dmi'
 	icon_state = "closed"
 	density = 1
-	plane = HIDING_MOB_PLANE
+	plane = DEFAULT_PLANE
 	w_class = ITEM_SIZE_NO_CONTAINER
 
 	var/icon_closed = "closed"
@@ -20,9 +20,9 @@
 	health = 100
 	var/breakout = 0 //if someone is currently breaking out. mutex
 	var/storage_capacity = 2 * MOB_MEDIUM //This is so that someone can't pack hundreds of items in a locker/crate
-							  //then open it in a populated area to crash clients.
-	var/open_sound = 'sound/effects/closet_open.ogg'
-	var/close_sound = 'sound/effects/closet_close.ogg'
+							//then open it in a populated area to crash clients.
+	var/open_sound = 'resources/sound/effects/closet_open.ogg'
+	var/close_sound = 'resources/sound/effects/closet_close.ogg'
 
 	var/storage_types = CLOSET_STORAGE_ALL
 	var/setup = CLOSET_CAN_BE_WELDED
@@ -276,9 +276,10 @@
 			var/turf/T = get_turf(src)
 			for(var/obj/item/I in LB.contents)
 				LB.remove_from_storage(I, T)
-			user.visible_message("<span class='notice'>[user] empties \the [LB] into \the [src].</span>", \
-								 "<span class='notice'>You empty \the [LB] into \the [src].</span>", \
-								 "<span class='notice'>You hear rustling of clothes.</span>")
+			user.visible_message(
+				"<span class='notice'>[user] empties \the [LB] into \the [src].</span>",
+				"<span class='notice'>You empty \the [LB] into \the [src].</span>",
+				"<span class='notice'>You hear rustling of clothes.</span>")
 			return
 
 		if(user.unEquip(W, loc))
@@ -292,7 +293,7 @@
 			var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 			spark_system.set_up(5, 0, src.loc)
 			spark_system.start()
-			playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/weapons/blade1.ogg', 50, 1)
 			playsound(src.loc, "sparks", 50, 1)
 			open()
 	else if(istype(W, /obj/item/stack/package_wrap))
@@ -318,13 +319,14 @@
 		to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")
 		return
 	new /obj/item/stack/material/steel(src.loc)
-	user.visible_message("<span class='notice'>\The [src] has been cut apart by [user] with \the [WT].</span>", \
-						 "<span class='notice'>You have cut \the [src] apart with \the [WT].</span>", \
-						 "You hear welding.")
+	user.visible_message(
+		"<span class='notice'>\The [src] has been cut apart by [user] with \the [WT].</span>",
+		"<span class='notice'>You have cut \the [src] apart with \the [WT].</span>",
+		"You hear welding.")
 	qdel(src)
 
 /obj/structure/closet/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
-	if(istype(O, /obj/screen))	//fix for HUD elements making their way into the world	-Pete
+	if(istype(O, /atom/movable/screen))	//fix for HUD elements making their way into the world	-Pete
 		return
 	if(O.loc == user)
 		return
@@ -442,7 +444,7 @@
 			breakout = 0
 			return
 
-		playsound(src.loc, 'sound/effects/grillehit.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/effects/grillehit.ogg', 100, 1)
 		shake_animation()
 		add_fingerprint(escapee)
 
@@ -450,7 +452,7 @@
 	breakout = 0
 	to_chat(escapee, "<span class='warning'>You successfully break out!</span>")
 	visible_message("<span class='danger'>\The [escapee] successfully broke out of \the [src]!</span>")
-	playsound(src.loc, 'sound/effects/grillehit.ogg', 100, 1)
+	playsound(src.loc, 'resources/sound/effects/grillehit.ogg', 100, 1)
 	break_open()
 	shake_animation()
 

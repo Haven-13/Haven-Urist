@@ -1,7 +1,7 @@
 /obj/item/weapon/dice
 	name = "d6"
 	desc = "A dice with six sides."
-	icon = 'icons/obj/dice.dmi'
+	icon = 'resources/icons/obj/dice.dmi'
 	icon_state = "d66"
 	w_class = ITEM_SIZE_TINY
 	var/sides = 6
@@ -64,9 +64,11 @@
 	var/result = roll_result[1]
 	var/comment = roll_result[2]
 	icon_state = "[name][result]"
-	user.visible_message("<span class='notice'>[user] has thrown [src]. It lands on [result]. [comment]</span>", \
-						 "<span class='notice'>You throw [src]. It lands on a [result]. [comment]</span>", \
-						 "<span class='notice'>You hear [src] landing on a [result]. [comment]</span>")
+	user.visible_message(
+		"<span class='notice'>[user] has thrown [src]. It lands on [result]. [comment]</span>",
+		"<span class='notice'>You throw [src]. It lands on a [result]. [comment]</span>",
+		"<span class='notice'>You hear [src] landing on a [result]. [comment]</span>"
+	)
 
 /obj/item/weapon/dice/throw_impact(atom/hit_atom, var/speed)
 	..()

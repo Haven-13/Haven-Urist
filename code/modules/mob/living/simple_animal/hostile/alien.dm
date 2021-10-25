@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/alien
 	name = "alien hunter"
 	desc = "Hiss!"
-	icon = 'icons/mob/alien.dmi'
+	icon = 'resources/icons/mob/alien.dmi'
 	icon_state = "alienh_running"
 	icon_living = "alienh_running"
 	icon_dead = "alienh_dead"
@@ -18,7 +18,7 @@
 	melee_damage_upper = 25
 	attacktext = "slashed"
 	a_intent = I_HURT
-	attack_sound = 'sound/weapons/bladeslice.ogg'
+	attack_sound = 'resources/sound/weapons/bladeslice.ogg'
 	min_gas = null
 	max_gas = null
 	unsuitable_atmos_damage = 15
@@ -50,7 +50,7 @@
 	melee_damage_upper = 15
 	ranged = 1
 	projectiletype = /obj/item/projectile/neurotox
-	projectilesound = 'sound/weapons/pierce.ogg'
+	projectilesound = 'resources/sound/weapons/pierce.ogg'
 	can_escape = 0
 
 
@@ -66,13 +66,13 @@
 	ranged = 1
 	move_to_delay = 3
 	projectiletype = /obj/item/projectile/neurotox
-	projectilesound = 'sound/weapons/pierce.ogg'
+	projectilesound = 'resources/sound/weapons/pierce.ogg'
 	rapid = 2
 	status_flags = 0
 
 /mob/living/simple_animal/hostile/alien/queen/large
 	name = "alien empress"
-	icon = 'icons/mob/alienqueen.dmi'
+	icon = 'resources/icons/mob/alienqueen.dmi'
 	icon_state = "queen_s"
 	icon_living = "queen_s"
 	icon_dead = "queen_dead"
@@ -85,5 +85,5 @@
 	icon_state = "toxin"
 
 /mob/living/simple_animal/hostile/alien/death(gibbed, deathmessage, show_dead_message)
-	playsound(src, 'sound/voice/hiss6.ogg', 100, 1)
+	playsound(src, 'resources/sound/voice/hiss6.ogg', 100, 1)
 	..(gibbed, "lets out a waning guttural screech, green blood bubbling from its maw...", show_dead_message)

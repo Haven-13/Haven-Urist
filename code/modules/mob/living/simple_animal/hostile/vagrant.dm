@@ -2,7 +2,7 @@
 /mob/living/simple_animal/hostile/vagrant
 	name = "creature"
 	desc = "You get the feeling you should run."
-	icon = 'icons/mob/mob.dmi'
+	icon = 'resources/icons/mob/mob.dmi'
 	icon_state = "vagrant"
 	icon_living = "vagrant"
 	icon_dead = "vagrant"
@@ -23,7 +23,7 @@
 	melee_damage_upper = 4
 	light_color = "#8a0707"
 	attacktext = "mauled"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = 'resources/sound/weapons/bite.ogg'
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0

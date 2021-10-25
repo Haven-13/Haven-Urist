@@ -7,13 +7,13 @@ LINEN BINS
 /obj/item/weapon/bedsheet
 	name = "bedsheet"
 	desc = "A surprisingly soft linen bedsheet."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "sheet"
 	item_state = "bedsheet"
 	randpixel = 0
 	slot_flags = SLOT_BACK
-	plane = ABOVE_OBJ_PLANE
-	layer = BASE_ABOVE_OBJ_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_OBJ_LAYER
 	throwforce = 1
 	throw_speed = 1
 	throw_range = 2
@@ -99,7 +99,7 @@ LINEN BINS
 /obj/structure/bedsheetbin
 	name = "linen bin"
 	desc = "A linen bin. It looks rather cosy."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'resources/icons/obj/structures.dmi'
 	icon_state = "linenbin-full"
 	anchored = 1
 	var/amount = 20

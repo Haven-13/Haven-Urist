@@ -2,7 +2,7 @@
 
 /obj/structure/closet/secure_closet/miner
 	name = "miner's equipment"
-	icon = 'icons/urist/restored/closet.dmi'
+	icon = 'resources/icons/urist/restored/closet.dmi'
 	icon_state = "miningsec1"
 	icon_closed = "miningsec"
 	icon_locked = "miningsec1"
@@ -35,7 +35,7 @@
 /obj/item/weapon/pickaxe
 	name = "mining drill"
 	desc = "The most basic of mining drills, for short excavations and small mineral extractions."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'resources/icons/obj/tools.dmi'
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
 	force = 15.0
@@ -47,7 +47,7 @@
 	var/digspeed = 40 //moving the delay to an item var so R&D can make improved picks. --NEO
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
-	var/drill_sound = 'sound/weapons/Genhit.ogg'
+	var/drill_sound = 'resources/sound/weapons/Genhit.ogg'
 	var/drill_verb = "drilling"
 	sharp = 0
 
@@ -127,7 +127,7 @@
 /obj/item/weapon/shovel
 	name = "shovel"
 	desc = "A large tool for digging and moving dirt."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'resources/icons/obj/tools.dmi'
 	icon_state = "shovel"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
@@ -156,7 +156,7 @@
 /obj/structure/closet/crate/miningcar
 	desc = "A mining car. This one doesn't work on rails, but has to be dragged."
 	name = "Mining car (not for rails)"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'resources/icons/obj/storage.dmi'
 	icon_state = "miningcar"
 	density = 1
 	icon_opened = "miningcaropen"
@@ -170,7 +170,7 @@
 	singular_name = "flag"
 	amount = 10
 	max_amount = 10
-	icon = 'icons/obj/mining.dmi'
+	icon = 'resources/icons/obj/mining.dmi'
 
 	var/upright = 0
 	var/fringe = null

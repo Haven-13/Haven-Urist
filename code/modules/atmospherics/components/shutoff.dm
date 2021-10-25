@@ -1,5 +1,5 @@
 /obj/machinery/atmospherics/valve/shutoff
-	icon = 'icons/atmos/clamp.dmi'
+	icon = 'resources/icons/atmos/clamp.dmi'
 	icon_state = "map_vclamp0"
 
 	name = "automatic shutoff valve"
@@ -31,7 +31,7 @@
 /obj/machinery/atmospherics/valve/shutoff/hide(var/do_hide)
 	if(do_hide)
 		if(level == 1)
-			plane = ABOVE_PLATING_PLANE
+			plane = DEFAULT_PLANE
 			layer = PIPE_LAYER
 		else if(level == 2)
 			..()

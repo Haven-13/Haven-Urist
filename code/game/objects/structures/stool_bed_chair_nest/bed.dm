@@ -10,7 +10,7 @@
 /obj/structure/bed
 	name = "bed"
 	desc = "This is used to lie in, sleep in or strap on."
-	icon = 'icons/obj/furniture.dmi'
+	icon = 'resources/icons/obj/furniture.dmi'
 	icon_state = "bed"
 	anchored = 1
 	can_buckle = 1
@@ -46,7 +46,7 @@
 	// Base icon.
 	var/cache_key = "[base_icon]-[material.name]"
 	if(isnull(stool_cache[cache_key]))
-		var/image/I = image('icons/obj/furniture.dmi', base_icon)
+		var/image/I = image('resources/icons/obj/furniture.dmi', base_icon)
 		if(material_alteration & MATERIAL_ALTERATION_COLOR)
 			I.color = material.icon_colour
 		stool_cache[cache_key] = I
@@ -91,7 +91,7 @@
 
 /obj/structure/bed/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(isWrench(W))
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 		dismantle()
 		qdel(src)
 	else if(istype(W,/obj/item/stack))
@@ -124,7 +124,7 @@
 			to_chat(user, "\The [src] has no padding to remove.")
 			return
 		to_chat(user, "You remove the padding from \the [src].")
-		playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src, 'resources/sound/items/Wirecutter.ogg', 100, 1)
 		remove_padding()
 
 	else if(istype(W, /obj/item/grab))
@@ -189,7 +189,7 @@
  */
 /obj/structure/bed/roller
 	name = "roller bed"
-	icon = 'icons/obj/rollerbed.dmi'
+	icon = 'resources/icons/obj/rollerbed.dmi'
 	icon_state = "down"
 	anchored = 0
 	buckle_pixel_shift = "x=0;y=6"
@@ -214,7 +214,7 @@
 /obj/item/roller
 	name = "roller bed"
 	desc = "A collapsed roller bed that can be carried around."
-	icon = 'icons/obj/rollerbed.dmi'
+	icon = 'resources/icons/obj/rollerbed.dmi'
 	icon_state = "folded"
 	item_state = "rbed"
 	slot_flags = SLOT_BACK
@@ -246,7 +246,7 @@
 /obj/item/robot_rack/roller
 	name = "roller bed rack"
 	desc = "A rack for carrying collapsed roller beds. Can also be used for carrying ironing boards."
-	icon = 'icons/obj/rollerbed.dmi'
+	icon = 'resources/icons/obj/rollerbed.dmi'
 	icon_state = "folded"
 	object_type = /obj/item/roller
 	interact_type = /obj/structure/bed/roller

@@ -8,7 +8,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 /obj/effect/effect
 	name = "effect"
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	mouse_opacity = 0
 	unacidable = 1//So effect are not targeted by alien acid.
 	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GRILLE
@@ -53,7 +53,7 @@ steam.start() -- spawns the effect
 /////////////////////////////////////////////
 /obj/effect/effect/steam
 	name = "steam"
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	icon_state = "extinguish"
 	density = 0
 
@@ -96,7 +96,7 @@ steam.start() -- spawns the effect
 /obj/effect/sparks
 	name = "sparks"
 	icon_state = "sparks"
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	var/amount = 6.0
 	anchored = 1.0
 	mouse_opacity = 0
@@ -168,13 +168,13 @@ steam.start() -- spawns the effect
 	opacity = 1
 	anchored = 0.0
 	mouse_opacity = 0
-	plane = EFFECTS_BELOW_LIGHTING_PLANE
+	plane = EFFECTS_PLANE
 	layer = ABOVE_PROJECTILE_LAYER
 	var/amount = 6.0
 	var/time_to_live = 100
 
 	//Remove this bit to use the old smoke
-	icon = 'icons/effects/96x96.dmi'
+	icon = 'resources/icons/effects/96x96.dmi'
 	pixel_x = -32
 	pixel_y = -32
 
@@ -207,7 +207,7 @@ steam.start() -- spawns the effect
 /obj/effect/effect/smoke/illumination
 	name = "illumination"
 	opacity = 0
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	icon_state = "sparks"
 
 /obj/effect/effect/smoke/illumination/New(var/newloc, var/lifetime=10, var/range=null, var/power=null, var/color=null)

@@ -1,24 +1,24 @@
 /mob/living/carbon/human
 	var/obj/structure/emplacement/mounted
 
-	ClickOn(var/atom/A, params)
-		if(mounted)
-			if(mounted.loc == src.loc)
-				if(A && mounted.nextshot <= world.time && mounted.anchored)
-					mounted.shoot(get_turf(A))
-			else
-				mounted = null
+/mob/living/carbon/human/ClickOn(var/atom/A, params)
+	if(mounted)
+		if(mounted.loc == src.loc)
+			if(A && mounted.nextshot <= world.time && mounted.anchored)
+				mounted.shoot(get_turf(A))
 		else
-			..()
+			mounted = null
+	else
+		..()
 
 
 /obj/structure/emplacement
 	name = "machine gun"
 	desc = "A stationary machine gun."
-	icon = 'icons/urist/objects/emplacements.dmi'
+	icon = 'resources/icons/urist/objects/emplacements.dmi'
 	icon_state = "mgun+barrier"
-	var/fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
-	var/empty_sound = 'sound/weapons/empty.ogg'
+	var/fire_sound = 'resources/sound/weapons/gunshot/gunshot_strong.ogg'
+	var/empty_sound = 'resources/sound/weapons/empty.ogg'
 	var/ammo_type = /obj/item/projectile/bullet/rifle/a762
 	var/ammo = 500
 	var/ammomax = 500
@@ -36,7 +36,7 @@
 /obj/structure/emplacement/AT
 	name = "anti-tank gun"
 	desc = "A stationary anti-tank gun."
-	icon = 'icons/urist/objects/64x64machinery.dmi'
+	icon = 'resources/icons/urist/objects/64x64machinery.dmi'
 	icon_state = "ryclies_AT"
 	bound_width = 64
 	ammo = 25
@@ -44,18 +44,18 @@
 	FIRETIME = 250
 	anchored = 1
 	ammo_type = /obj/item/missile
-	fire_sound = 'sound/effects/Explosion1.ogg'
+	fire_sound = 'resources/sound/effects/Explosion1.ogg'
 
 /obj/structure/emplacement/laser
 	name = "laser turret"
 	desc = "A stationary laser turret."
 	icon_state = "laser"
-	icon = 'icons/urist/objects/emplacements.dmi'
+	icon = 'resources/icons/urist/objects/emplacements.dmi'
 	ammo = 500
 	ammomax = 500
 	FIRETIME = 10
 	ammo_type = /obj/item/projectile/beam
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'resources/sound/weapons/Laser.ogg'
 
 /obj/structure/emplacement/AT/New()
 	..()
@@ -265,7 +265,7 @@
 	return 1
 
 /obj/item/machinegunammo
-	icon = 'icons/urist/objects/emplacements.dmi'
+	icon = 'resources/icons/urist/objects/emplacements.dmi'
 	icon_state = "mgun_crate"
 	name = "machinegun ammo"
 	desc = "Machine gun ammo. It has 500 rounds remaining"

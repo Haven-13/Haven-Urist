@@ -1,12 +1,12 @@
 /obj/structure/droppod_door
 	name = "pod door"
 	desc = "A drop pod door. Opens rapidly using explosive bolts."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'resources/icons/obj/structures.dmi'
 	icon_state = "droppod_door_closed"
 	anchored = 1
 	density = 1
 	opacity = 1
-	plane = OBJ_PLANE
+	plane = DEFAULT_PLANE
 	layer = ABOVE_DOOR_LAYER
 	var/deploying
 	var/deployed
@@ -38,7 +38,7 @@
 
 	deployed = 1
 	visible_message("<span class='danger'>The explosive bolts on \the [src] detonate, throwing it open!</span>")
-	playsound(src.loc, 'sound/effects/bang.ogg', 50, 1, 5)
+	playsound(src.loc, 'resources/sound/effects/bang.ogg', 50, 1, 5)
 
 	// This is shit but it will do for the sake of testing.
 	for(var/obj/structure/droppod_door/D in orange(1,src))

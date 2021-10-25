@@ -8,7 +8,7 @@
 /obj/machinery/atm
 	name = "automatic teller machine"
 	desc = "For all your monetary needs!"
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'resources/icons/obj/terminals.dmi'
 	icon_state = "atm"
 	anchored = 1
 	use_power = 1
@@ -49,9 +49,9 @@
 	for(var/obj/item/weapon/spacecash/S in src)
 		S.loc = src.loc
 		if(prob(50))
-			playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
+			playsound(loc, 'resources/sound/items/polaroid1.ogg', 50, 1)
 		else
-			playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
+			playsound(loc, 'resources/sound/items/polaroid2.ogg', 50, 1)
 		break
 
 /obj/machinery/atm/emag_act(var/remaining_charges, var/mob/user)
@@ -91,9 +91,9 @@
 		if(istype(I,/obj/item/weapon/spacecash))
 			var/obj/item/weapon/spacecash/dolla = I
 			if(prob(50))
-				playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
+				playsound(loc, 'resources/sound/items/polaroid1.ogg', 50, 1)
 			else
-				playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
+				playsound(loc, 'resources/sound/items/polaroid2.ogg', 50, 1)
 
 			//create a transaction log entry
 			var/datum/transaction/T = new(authenticated_account.owner_name, "Credit deposit", dolla.worth, machine_id)
@@ -291,7 +291,7 @@
 							if(number_incorrect_tries >= max_pin_attempts)
 								//lock down the atm
 								ticks_left_locked_down = 30
-								playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
+								playsound(src, 'resources/sound/machines/buzz-two.ogg', 50, 1)
 
 								//create an entry in the account transaction log
 								var/datum/money_account/failed_account = get_account(tried_account_num)
@@ -301,12 +301,12 @@
 							else
 								to_chat(usr, "\icon[src] <span class='warning'>Incorrect pin/account combination entered, [max_pin_attempts - number_incorrect_tries] attempts remaining.</span>")
 								previous_account_number = tried_account_num
-								playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
+								playsound(src, 'resources/sound/machines/buzz-sigh.ogg', 50, 1)
 						else
 							to_chat(usr, "\icon[src] <span class='warning'>Unable to log in to account, additional information may be required.</span>")
 							number_incorrect_tries = 0
 					else
-						playsound(src, 'sound/machines/twobeep.ogg', 50, 1)
+						playsound(src, 'resources/sound/machines/twobeep.ogg', 50, 1)
 						ticks_left_timeout = 120
 						view_screen = NO_SCREEN
 
@@ -324,7 +324,7 @@
 					alert("That is not a valid amount.")
 				else if(authenticated_account && amount > 0)
 					if(amount <= authenticated_account.money)
-						playsound(src, 'sound/machines/chime.ogg', 50, 1)
+						playsound(src, 'resources/sound/machines/chime.ogg', 50, 1)
 						spawn_ewallet(amount,src.loc,usr)
 
 						//create an entry in the account transaction log
@@ -339,7 +339,7 @@
 					alert("That is not a valid amount.")
 				else if(authenticated_account && amount > 0)
 					if(amount <= authenticated_account.money)
-						playsound(src, 'sound/machines/chime.ogg', 50, 1)
+						playsound(src, 'resources/sound/machines/chime.ogg', 50, 1)
 						spawn_money(amount,src.loc,usr)
 
 						//remove the money
@@ -359,7 +359,7 @@
 					R.info += "<i>Service terminal ID:</i> [machine_id]<br>"
 
 					//stamp the paper
-					var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+					var/image/stampoverlay = image('resources/icons/obj/bureaucracy.dmi')
 					stampoverlay.icon_state = "paper_stamp-cent"
 					if(!R.stamped)
 						R.stamped = new
@@ -368,9 +368,9 @@
 					R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
 
 				if(prob(50))
-					playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
+					playsound(loc, 'resources/sound/items/polaroid1.ogg', 50, 1)
 				else
-					playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
+					playsound(loc, 'resources/sound/items/polaroid2.ogg', 50, 1)
 			if ("print_transaction")
 				if(authenticated_account)
 					var/obj/item/weapon/paper/R = new(src.loc)
@@ -401,7 +401,7 @@
 					R.info += "</table>"
 
 					//stamp the paper
-					var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+					var/image/stampoverlay = image('resources/icons/obj/bureaucracy.dmi')
 					stampoverlay.icon_state = "paper_stamp-cent"
 					if(!R.stamped)
 						R.stamped = new
@@ -410,9 +410,9 @@
 					R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
 
 				if(prob(50))
-					playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
+					playsound(loc, 'resources/sound/items/polaroid1.ogg', 50, 1)
 				else
-					playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
+					playsound(loc, 'resources/sound/items/polaroid2.ogg', 50, 1)
 
 			if("insert_card")
 				if(!held_card)

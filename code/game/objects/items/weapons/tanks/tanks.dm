@@ -4,7 +4,7 @@ var/list/global/tank_gauge_cache = list()
 
 /obj/item/weapon/tank
 	name = "tank"
-	icon = 'icons/obj/tank.dmi'
+	icon = 'resources/icons/obj/tank.dmi'
 
 	var/gauge_icon = "indicator_tank"
 	var/gauge_cap = 6
@@ -20,7 +20,7 @@ var/list/global/tank_gauge_cache = list()
 
 
 	sprite_sheets = list(
-		SPECIES_RESOMI = 'icons/mob/species/resomi/back.dmi'
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/back.dmi'
 		)
 
 	var/datum/gas_mixture/air_contents = null
@@ -43,14 +43,14 @@ var/list/global/tank_gauge_cache = list()
 	description_info = "These tanks are utilised to store any of the various types of gaseous substances. \
 	They can be attached to various portable atmospheric devices to be filled or emptied. <br>\
 	<br>\
-	Each tank is fitted with an emergency relief valve. This relief valve will open if the tank is pressurised to over ~3000kPa or heated to over 173�C. \
+	Each tank is fitted with an emergency relief valve. This relief valve will open if the tank is pressurised to over ~3000kPa or heated to over 173 C. \
 	The valve itself will close after expending most or all of the contents into the air.<br>\
 	<br>\
 	Filling a tank such that experiences ~4000kPa of pressure will cause the tank to rupture, spilling out its contents and destroying the tank. \
 	Tanks filled over ~5000kPa will rupture rather violently, exploding with significant force."
 
-	description_antag = "Each tank may be incited to burn by attaching wires and an igniter assembly, though the igniter can only be used once and the mixture only burn if the igniter pushes a flammable gas mixture above the minimum burn temperature (126�C). \
-	Wired and assembled tanks may be disarmed with a set of wirecutters. Any exploding or rupturing tank will generate shrapnel, assuming their relief valves have been welded beforehand. Even if not, they can be incited to expel hot gas on ignition if pushed above 173�C. \
+	description_antag = "Each tank may be incited to burn by attaching wires and an igniter assembly, though the igniter can only be used once and the mixture only burn if the igniter pushes a flammable gas mixture above the minimum burn temperature (126 C). \
+	Wired and assembled tanks may be disarmed with a set of wirecutters. Any exploding or rupturing tank will generate shrapnel, assuming their relief valves have been welded beforehand. Even if not, they can be incited to expel hot gas on ignition if pushed above 173 C. \
 	Relatively easy to make, the single tank bomb requries no tank transfer valve, and is still a fairly formidable weapon that can be manufactured from any tank."
 
 
@@ -428,7 +428,7 @@ var/list/global/tank_gauge_cache = list()
 			if(!T)
 				return
 			T.assume_air(air_contents)
-			playsound(get_turf(src), 'sound/weapons/gunshot/shotgun.ogg', 20, 1)
+			playsound(get_turf(src), 'resources/sound/weapons/gunshot/shotgun.ogg', 20, 1)
 			visible_message("\icon[src] <span class='danger'>\The [src] flies apart!</span>", "<span class='warning'>You hear a bang!</span>")
 			T.hotspot_expose(air_contents.temperature, 70, 1)
 
@@ -462,7 +462,7 @@ var/list/global/tank_gauge_cache = list()
 			T.assume_air(leaked_gas)
 			if(!leaking)
 				visible_message("\icon[src] <span class='warning'>\The [src] relief valve flips open with a hiss!</span>", "You hear hissing.")
-				playsound(loc, 'sound/effects/spray.ogg', 10, 1, -3)
+				playsound(loc, 'resources/sound/effects/spray.ogg', 10, 1, -3)
 				leaking = 1
 				#ifdef FIREDBG
 				log_debug("<span class='warning'>[x],[y] tank is leaking: [pressure] kPa, integrity [integrity]</span>")

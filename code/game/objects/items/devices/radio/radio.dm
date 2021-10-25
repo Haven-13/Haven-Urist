@@ -1,5 +1,5 @@
 /obj/item/device/radio
-	icon = 'icons/obj/radio.dmi'
+	icon = 'resources/icons/obj/radio.dmi'
 	name = "shortwave radio"
 	suffix = "\[3\]"
 	icon_state = "walkietalkie"
@@ -268,7 +268,7 @@
 			return 0
 
 	if(loc == M)
-		playsound(loc, 'sound/effects/walkietalkie.ogg', 20, 0, -1)
+		playsound(loc, 'resources/sound/effects/walkietalkie.ogg', 20, 0, -1)
 
 
 	/* Quick introduction:
@@ -338,16 +338,16 @@
 
 
 
-  /* ###### Radio headsets can only broadcast through subspace ###### */
+	/* ###### Radio headsets can only broadcast through subspace ###### */
 	if(subspace_transmission)
 		// First, we want to generate a new radio signal
 		var/datum/signal/signal = new
 		signal.transmission_method = 2 // 2 would be a subspace transmission.
-									   // transmission_method could probably be enumerated through #define. Would be neater.
+									// transmission_method could probably be enumerated through #define. Would be neater.
 
 		// --- Finally, tag the actual signal with the appropriate values ---
 		signal.data = list(
-		  // Identity-associated tags:
+		// Identity-associated tags:
 			"mob" = M, // store a reference to the mob
 			"mobtype" = M.type, 	// the mob's type
 			"realname" = real_name, // the mob's real name
@@ -361,7 +361,7 @@
 			// We store things that would otherwise be kept in the actual mob
 			// so that they can be logged even AFTER the mob is deleted or something
 
-		  // Other tags:
+			// Other tags:
 			"compression" = rand(45,50), // compressed radio signal
 			"message" = message, // the actual sent message
 			"connection" = connection, // the radio connection to use
@@ -379,7 +379,7 @@
 		)
 		signal.frequency = connection.frequency // Quick frequency set
 
-	  //#### Sending the signal to all subspace receivers ####//
+		//#### Sending the signal to all subspace receivers ####//
 
 		for(var/obj/machinery/telecomms/receiver/R in telecomms_list)
 			R.receive_signal(signal)
@@ -398,7 +398,7 @@
 					return R.talk_into(M, message, channel, verb, speaking)
 			return FALSE
 
-  /* ###### Intercoms and station-bounced radios ###### */
+	/* ###### Intercoms and station-bounced radios ###### */
 
 	var/filter_type = 2
 
@@ -457,10 +457,11 @@
 
 	//THIS IS TEMPORARY. YEAH RIGHT
 	if(!connection)	return 0	//~Carn
-	return Broadcast_Message(connection, M, voicemask, pick(M.speak_emote),
-					  src, message, displayname, jobname, real_name, M.voice_name,
-					  filter_type, signal.data["compression"], GetConnectedZlevels(position.z), connection.frequency, verb, speaking,
-					  "#unkn", channel_color_presets["Menacing Maroon"])
+	return Broadcast_Message(
+		connection, M, voicemask, pick(M.speak_emote),
+		src, message, displayname, jobname, real_name, M.voice_name,
+		filter_type, signal.data["compression"], GetConnectedZlevels(position.z), connection.frequency, verb, speaking,
+		"#unkn", channel_color_presets["Menacing Maroon"])
 
 
 /obj/item/device/radio/hear_talk(mob/M as mob, msg, var/verb = "says", var/datum/language/speaking = null)
@@ -571,7 +572,7 @@
 	var/mob/living/silicon/robot/myborg = null // Cyborg which owns this radio. Used for power checks
 	var/obj/item/device/encryptionkey/keyslot = null//Borg radios can handle a single encryption key
 	var/shut_up = 1
-	icon = 'icons/obj/robot_component.dmi' // Cyborgs radio icons should look like the component.
+	icon = 'resources/icons/obj/robot_component.dmi' // Cyborgs radio icons should look like the component.
 	icon_state = "radio"
 	canhear_range = 0
 	subspace_transmission = 1
@@ -784,7 +785,7 @@
 
 /obj/item/device/radio/phone
 	broadcasting = 0
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "red_phone"
 	randpixel = 0
 	listening = 1

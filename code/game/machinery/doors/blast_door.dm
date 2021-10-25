@@ -10,7 +10,7 @@
 /obj/machinery/door/blast
 	name = "Blast Door"
 	desc = "That looks like it doesn't open easily."
-	icon = 'icons/obj/doors/rapid_pdoor.dmi'
+	icon = 'resources/icons/obj/doors/rapid_pdoor.dmi'
 	icon_state = null
 
 	// Icon states for different shutter types. Simply change this instead of rewriting the update_icon proc.
@@ -19,8 +19,8 @@
 	var/icon_state_closed = null
 	var/icon_state_closing = null
 
-	var/open_sound = 'sound/machines/blastdoor_open.ogg'
-	var/close_sound = 'sound/machines/blastdoor_close.ogg'
+	var/open_sound = 'resources/sound/machines/blastdoor_open.ogg'
+	var/close_sound = 'resources/sound/machines/blastdoor_close.ogg'
 
 	closed_layer = ABOVE_WINDOW_LAYER
 	var/id = 1.0
@@ -210,8 +210,8 @@
 	icon_state_closed = "shutter1"
 	icon_state_closing = "shutterc1"
 	icon_state = "shutter1"
-	open_sound = 'sound/machines/shutters_open.ogg'
-	close_sound = 'sound/machines/shutters_close.ogg'
+	open_sound = 'resources/sound/machines/shutters_open.ogg'
+	close_sound = 'resources/sound/machines/shutters_close.ogg'
 	min_force = 15
 	maxhealth = 500
 	explosion_resistance = 10

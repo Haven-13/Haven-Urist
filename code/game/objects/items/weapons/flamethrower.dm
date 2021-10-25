@@ -1,7 +1,7 @@
 /obj/item/weapon/flamethrower
 	name = "flamethrower"
 	desc = "You are a firestarter!"
-	icon = 'icons/obj/flamethrower.dmi'
+	icon = 'resources/icons/obj/flamethrower.dmi'
 	icon_state = "flamethrowerbase"
 	item_state = "flamethrower_0"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE

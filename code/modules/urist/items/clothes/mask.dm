@@ -1,8 +1,8 @@
 //Totally not The Joker mask.
 
 /obj/item/clothing/mask/jester
-	icon = 'icons/urist/items/clothes/masks.dmi'
-	icon_override = 'icons/uristmob/mask.dmi'
+	icon = 'resources/icons/urist/items/clothes/masks.dmi'
+	icon_override = 'resources/icons/uristmob/mask.dmi'
 	desc = "The Jester's mask."
 	item_state = "the_jester"
 	icon_state = "the_jester"
@@ -10,8 +10,8 @@
 	slot_flags = SLOT_MASK
 
 /obj/item/clothing/mask/penguin
-	icon = 'icons/urist/items/clothes/masks.dmi'
-	icon_override = 'icons/uristmob/mask.dmi'
+	icon = 'resources/icons/urist/items/clothes/masks.dmi'
+	icon_override = 'resources/icons/uristmob/mask.dmi'
 	desc = "The Penquin's mask."
 	item_state = "penguincig"
 	icon_state = "penguincig"
@@ -22,8 +22,8 @@
 
 /obj/item/clothing/mask/flower
 	name = "paper flower"
-	icon = 'icons/urist/items/papercrafts.dmi'
-	icon_override = 'icons/uristmob/mask.dmi'
+	icon = 'resources/icons/urist/items/papercrafts.dmi'
+	icon_override = 'resources/icons/uristmob/mask.dmi'
 	desc = "A Paper flower."
 	item_state = "paperflower"
 	icon_state = "paperflower"
@@ -43,8 +43,8 @@
 
 /obj/item/clothing/mask/gas/payday
 	name = "clown mask"
-	icon = 'icons/urist/items/clothes/masks.dmi'
-	icon_override = 'icons/uristmob/mask.dmi'
+	icon = 'resources/icons/urist/items/clothes/masks.dmi'
+	icon_override = 'resources/icons/uristmob/mask.dmi'
 	item_flags = ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	w_class = 3.0
@@ -83,8 +83,8 @@
 /obj/item/clothing/mask/balaclava/skimask
 	name = "ski mask"
 	desc = "A balaclava with three separate holes instead of just one. This clearly makes it superior."
-	icon = 'icons/urist/items/clothes/masks.dmi'
-	icon_override = 'icons/uristmob/mask.dmi'
+	icon = 'resources/icons/urist/items/clothes/masks.dmi'
+	icon_override = 'resources/icons/uristmob/mask.dmi'
 	icon_state = "skimask"
 	item_state = "skimask"
 	cold_protection = FACE
@@ -114,7 +114,7 @@
 	item_icons = URIST_ALL_ONMOBS
 	name = "face mask"
 	desc = "A compact, durable gas mask that can be connected to an air supply."
-	icon_override = 'icons/uristmob/mask.dmi'
+	icon_override = 'resources/icons/uristmob/mask.dmi'
 	icon_state = "halfgas"
 	item_state = "halfgas"
 	siemens_coefficient = 0.7
@@ -126,8 +126,8 @@
 /obj/item/clothing/mask/gas/biohazardrespirator
 	name = "biohazard respirator"
 	desc = "A fully enclosed respirator that can be connected to an air supply to filter out toxins. Filters harmful gases from the air while protecting the users face."
-	icon = 'icons/urist/items/clothes/masks.dmi'
-	icon_override = 'icons/uristmob/mask.dmi'
+	icon = 'resources/icons/urist/items/clothes/masks.dmi'
+	icon_override = 'resources/icons/uristmob/mask.dmi'
 	icon_state = "biomask"
 	item_state = "biomask"
 	flags_inv = HIDEEARS

@@ -17,12 +17,12 @@
 	sharp = 1
 	edge = 1
 	slot_flags |= SLOT_DENYPOCKET
-	playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
+	playsound(user, 'resources/sound/weapons/saberon.ogg', 50, 1)
 
 /obj/item/weapon/melee/energy/proc/deactivate(mob/living/user)
 	if(!active)
 		return
-	playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
+	playsound(user, 'resources/sound/weapons/saberoff.ogg', 50, 1)
 	active = 0
 	force = initial(force)
 	throwforce = initial(throwforce)
@@ -150,7 +150,7 @@
 		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 		spark_system.set_up(5, 0, user.loc)
 		spark_system.start()
-		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+		playsound(user.loc, 'resources/sound/weapons/blade1.ogg', 50, 1)
 
 /obj/item/weapon/melee/energy/sword/get_parry_chance(mob/user)
 	return active ? ..() : 0

@@ -4,10 +4,10 @@
 	unacidable = 1
 	mouse_opacity = 0
 	density = 0
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 
-/obj/effect/temporary/Initialize(var/mapload, var/duration = 30, var/_icon = 'icons/effects/effects.dmi', var/_state)
+/obj/effect/temporary/Initialize(var/mapload, var/duration = 30, var/_icon = 'resources/icons/effects/effects.dmi', var/_state)
 	. = ..()
 	icon = _icon
 	icon_state = _state

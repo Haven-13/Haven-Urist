@@ -2,7 +2,7 @@
 	name = "Bot"
 	health = 20
 	maxHealth = 20
-	icon = 'icons/mob/bot/placeholder.dmi'
+	icon = 'resources/icons/mob/bot/placeholder.dmi'
 	universal_speak = 1
 	density = 0
 	var/obj/item/weapon/card/id/botcard = null
@@ -37,7 +37,7 @@
 	var/frustration = 0
 	var/max_frustration = 0
 
-	plane = HIDING_MOB_PLANE
+	plane = DEFAULT_PLANE
 	layer = HIDING_MOB_LAYER
 
 /mob/living/bot/New()

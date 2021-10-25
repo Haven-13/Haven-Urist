@@ -1,7 +1,7 @@
 /obj/machinery/disease2/antibodyanalyser
 	name = "antibody analyser"
 	desc = "An advanced machine that analyses pure antibody samples and stores the structure of them on the ExoNet in exchange for cargo points."
-	icon = 'icons/obj/virology.dmi'
+	icon = 'resources/icons/obj/virology.dmi'
 	icon_state = "analyser"
 	anchored = 1
 	density = 1

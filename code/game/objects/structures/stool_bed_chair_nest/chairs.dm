@@ -19,7 +19,7 @@
 		if(!user.unEquip(SK))
 			return
 		var/obj/structure/bed/chair/e_chair/E = new (src.loc, material.name)
-		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 		E.set_dir(dir)
 		E.part = SK
 		SK.forceMove(E)
@@ -42,11 +42,11 @@
 
 	var/cache_key = "[base_icon]-[material.name]-over"
 	if(isnull(stool_cache[cache_key]))
-		var/mutable_appearance/I = mutable_appearance('icons/obj/furniture.dmi', "[base_icon]_over")
+		var/mutable_appearance/I = mutable_appearance('resources/icons/obj/furniture.dmi', "[base_icon]_over")
 		if(material_alteration & MATERIAL_ALTERATION_COLOR)
 			I.color = material.icon_colour
-		I.plane = src.get_float_plane(ABOVE_HUMAN_PLANE)
-		I.layer = ABOVE_HUMAN_LAYER
+		I.plane = src.get_float_plane(DEFAULT_PLANE)
+		I.layer = ABOVE_MOB_LAYER
 		stool_cache[cache_key] = I
 	overlays |= stool_cache[cache_key]
 	// Padding overlay.
@@ -56,8 +56,8 @@
 			var/mutable_appearance/I =  mutable_appearance(icon, "[base_icon]_padding_over")
 			if(material_alteration & MATERIAL_ALTERATION_COLOR)
 				I.color = padding_material.icon_colour
-			I.plane = src.get_float_plane(ABOVE_HUMAN_PLANE)
-			I.layer = ABOVE_HUMAN_LAYER
+			I.plane = src.get_float_plane(DEFAULT_PLANE)
+			I.layer = ABOVE_MOB_LAYER
 			stool_cache[padding_cache_key] = I
 		overlays |= stool_cache[padding_cache_key]
 
@@ -66,8 +66,8 @@
 			cache_key = "[base_icon]-armrest-[padding_material.name]"
 		if(isnull(stool_cache[cache_key]))
 			var/mutable_appearance/I = mutable_appearance(icon, "[base_icon]_armrest")
-			I.plane = src.get_float_plane(ABOVE_HUMAN_PLANE)
-			I.layer = ABOVE_HUMAN_LAYER
+			I.plane = src.get_float_plane(DEFAULT_PLANE)
+			I.layer = ABOVE_MOB_LAYER
 			if(material_alteration & MATERIAL_ALTERATION_COLOR)
 				I.color = material.icon_colour
 			stool_cache[cache_key] = I
@@ -76,8 +76,8 @@
 			cache_key = "[base_icon]-padding-armrest-[padding_material.name]"
 			if(isnull(stool_cache[cache_key]))
 				var/mutable_appearance/I = mutable_appearance(icon, "[base_icon]_padding_armrest")
-				I.plane = src.get_float_plane(ABOVE_HUMAN_PLANE)
-				I.layer = ABOVE_HUMAN_LAYER
+				I.plane = src.get_float_plane(DEFAULT_PLANE)
+				I.layer = ABOVE_MOB_LAYER
 				if(material_alteration & MATERIAL_ALTERATION_COLOR)
 					I.color = padding_material.icon_colour
 				stool_cache[cache_key] = I
@@ -186,8 +186,8 @@
 /obj/structure/bed/chair/comfy/captain/update_icon()
 	..()
 	var/image/I = image(icon, "[base_icon]_special")
-	I.plane = src.get_relative_plane(ABOVE_HUMAN_PLANE)
-	I.layer = ABOVE_HUMAN_LAYER
+	I.plane = src.get_relative_plane(DEFAULT_PLANE)
+	I.layer = ABOVE_MOB_LAYER
 	overlays |= I
 
 /obj/structure/bed/chair/comfy/captain/New(var/newloc,var/newmaterial)
@@ -262,7 +262,7 @@
 		occupant.apply_effect(6, DAMAGE_TYPE_WEAKEN, blocked)
 		occupant.apply_effect(6, DAMAGE_TYPE_STUTTER, blocked)
 		occupant.apply_damage(10, DAMAGE_TYPE_BRUTE, def_zone, blocked)
-		playsound(src.loc, 'sound/weapons/punch1.ogg', 50, 1, -1)
+		playsound(src.loc, 'resources/sound/weapons/punch1.ogg', 50, 1, -1)
 		if(istype(A, /mob/living))
 			var/mob/living/victim = A
 			def_zone = ran_zone()
@@ -354,8 +354,8 @@
 		var/cache_key = "[base_icon]-[material.name]-special"
 		if (isnull(stool_cache[cache_key]))
 			var/mutable_appearance/I = mutable_appearance(icon, "[base_icon]_special")
-			I.plane = src.get_float_plane(ABOVE_HUMAN_PLANE)
-			I.layer = ABOVE_HUMAN_LAYER
+			I.plane = src.get_float_plane(DEFAULT_PLANE)
+			I.layer = ABOVE_MOB_LAYER
 			if(material_alteration & MATERIAL_ALTERATION_COLOR)
 				I.color = material.icon_colour
 			stool_cache[cache_key] = I

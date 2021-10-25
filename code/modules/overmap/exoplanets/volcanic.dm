@@ -71,12 +71,12 @@
 	rare_val = 0.4
 
 /area/exoplanet/volcanic
-	forced_ambience = list('sound/ambience/magma.ogg')
+	forced_ambience = list('resources/sound/ambience/magma.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/volcanic
 
 /turf/simulated/floor/exoplanet/volcanic
 	name = "volcanic floor"
-	icon = 'icons/turf/flooring/lava.dmi'
+	icon = 'resources/icons/turf/flooring/lava.dmi'
 	icon_state = "cold"
 
 /turf/simulated/floor/exoplanet/volcanic/Initialize()
@@ -111,7 +111,7 @@
 
 /turf/simulated/floor/exoplanet/lava
 	name = "lava"
-	icon = 'icons/turf/flooring/lava.dmi'
+	icon = 'resources/icons/turf/flooring/lava.dmi'
 	icon_state = "lava"
 	movement_delay = 4
 	var/list/victims
@@ -156,12 +156,12 @@
 
 /turf/simulated/mineral/volcanic
 	name = "volcanic rock"
-	icon = 'icons/turf/flooring/lava.dmi'
+	icon = 'resources/icons/turf/flooring/lava.dmi'
 
 /turf/simulated/mineral/random/volcanic
 	name = "volcanic rock"
-	icon = 'icons/turf/flooring/lava.dmi'
+	icon = 'resources/icons/turf/flooring/lava.dmi'
 
 /turf/simulated/mineral/random/high_chance/volcanic
 	name = "volcanic rock"
-	icon = 'icons/turf/flooring/lava.dmi'
+	icon = 'resources/icons/turf/flooring/lava.dmi'

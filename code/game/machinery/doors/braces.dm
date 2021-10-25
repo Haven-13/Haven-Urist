@@ -3,7 +3,7 @@
 	name = "maintenance jack"
 	desc = "A special crowbar that can be used to safely remove airlock braces from airlocks."
 	w_class = ITEM_SIZE_NORMAL
-	icon = 'icons/obj/tools.dmi'
+	icon = 'resources/icons/obj/tools.dmi'
 	icon_state = "maintenance_jack"
 	force = 8 //It has a hammer head, should probably do some more damage. - Cirra
 	throwforce = 10
@@ -16,7 +16,7 @@
 	name = "airlock brace"
 	desc = "A sturdy device that can be attached to an airlock to reinforce it and provide additional security."
 	w_class = ITEM_SIZE_LARGE
-	icon = 'icons/obj/airlock_machines.dmi'
+	icon = 'resources/icons/obj/airlock_machines.dmi'
 	icon_state = "brace_open"
 	var/cur_health
 	var/max_health = 450
@@ -105,7 +105,7 @@
 			to_chat(user, "\The [src] does not require repairs.")
 			return
 		if(C.remove_fuel(0,user))
-			playsound(src, 'sound/items/Welder.ogg', 100, 1)
+			playsound(src, 'resources/sound/items/Welder.ogg', 100, 1)
 			cur_health = min(cur_health + rand(80,120), max_health)
 			if(cur_health == max_health)
 				to_chat(user, "You repair some dents on \the [src]. It is in perfect condition now.")

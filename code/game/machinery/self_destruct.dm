@@ -1,7 +1,7 @@
 /obj/machinery/self_destruct
 	name = "\improper Nuclear Cylinder Inserter"
 	desc = "A hollow space used to insert nuclear cylinders for arming the self destruct."
-	icon = 'icons/obj/machines/self_destruct.dmi'
+	icon = 'resources/icons/obj/machines/self_destruct.dmi'
 	icon_state = "empty"
 	density = 0
 	anchored = 1
@@ -63,7 +63,7 @@
 				density = 0
 				usr.visible_message("[usr] arms [cylinder].", "You arm [cylinder].")
 				flick("loading", src)
-				playsound(src.loc,'sound/effects/caution.ogg',50,1,5)
+				playsound(src.loc,'resources/sound/effects/caution.ogg',50,1,5)
 		update_icon()
 		src.add_fingerprint(usr)
 	else

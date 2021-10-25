@@ -5,7 +5,7 @@
 // So this cannot be abused for other uses, we make it two-handed and inable to have its storage looked into.
 /obj/item/weapon/storage/laundry_basket
 	name = "laundry basket"
-	icon = 'icons/obj/janitor.dmi'
+	icon = 'resources/icons/obj/janitor.dmi'
 	icon_state = "laundry-empty"
 	item_state = "laundry"
 	desc = "The peak of thousands of years of laundry evolution."
@@ -76,7 +76,7 @@
 
 //Offhand
 /obj/item/weapon/storage/laundry_basket/offhand
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'resources/icons/obj/weapons.dmi'
 	icon_state = "offhand"
 	name = "second hand"
 	use_to_pickup = 0

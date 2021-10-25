@@ -10,14 +10,18 @@
 	selection_color = "#8e2929"
 	req_admin_notify = 1
 	economic_power = 10
-	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_heads,
-			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
-			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
-			            access_bridge, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks)
-	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_heads,
-			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
-			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
-			            access_bridge, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks)
+	access = list(
+		access_security, access_eva, access_sec_doors, access_brig, access_armory, access_heads,
+		access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
+		access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
+		access_bridge, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks
+	)
+	minimal_access = list(
+		access_security, access_eva, access_sec_doors, access_brig, access_armory, access_heads,
+		access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
+		access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
+		access_bridge, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks
+	)
 	minimal_player_age = 14
 	outfit_type = /decl/hierarchy/outfit/job/security/hos
 
@@ -83,18 +87,22 @@
 	req_admin_notify = 1
 	minimal_player_age = 8
 	outfit_type = /decl/hierarchy/outfit/job/blueshield
-	access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,
-			            access_medical, access_engine, access_ai_upload, access_eva, access_heads,
-			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,
-			            access_crematorium, access_kitchen, access_cargo, access_cargo_bot, access_mailsorting, access_qm, access_hydroponics, access_lawyer,
-			            access_theatre, access_chapel_office, access_library, access_research, access_mining, access_heads_vault, access_mining_station,
-			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_gateway, access_blueshield, access_heads, access_bridge)
-	minimal_access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,
-			            access_medical, access_engine, access_eva, access_heads,
-			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,
-			            access_crematorium, access_kitchen, access_cargo, access_cargo_bot, access_mailsorting, access_qm, access_hydroponics, access_lawyer,
-			            access_theatre, access_chapel_office, access_library, access_research, access_mining, access_heads_vault, access_mining_station,
-			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_gateway, access_blueshield)
+	access = list(
+		access_security, access_sec_doors, access_court, access_forensics_lockers,
+		access_medical, access_engine, access_ai_upload, access_eva, access_heads,
+		access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,
+		access_crematorium, access_kitchen, access_cargo, access_cargo_bot, access_mailsorting, access_qm, access_hydroponics, access_lawyer,
+		access_theatre, access_chapel_office, access_library, access_research, access_mining, access_heads_vault, access_mining_station,
+		access_clown, access_mime, access_RC_announce, access_keycard_auth, access_gateway, access_blueshield, access_heads, access_bridge
+	)
+	minimal_access = list(
+		access_security, access_sec_doors, access_court, access_forensics_lockers,
+		access_medical, access_engine, access_eva, access_heads,
+		access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,
+		access_crematorium, access_kitchen, access_cargo, access_cargo_bot, access_mailsorting, access_qm, access_hydroponics, access_lawyer,
+		access_theatre, access_chapel_office, access_library, access_research, access_mining, access_heads_vault, access_mining_station,
+		access_clown, access_mime, access_RC_announce, access_keycard_auth, access_gateway, access_blueshield
+	)
 
 //Urist Job, it's here for compatability with other maps.
 /decl/hierarchy/outfit/job/blueshield

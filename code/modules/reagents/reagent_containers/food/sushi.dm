@@ -1,7 +1,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/sushi
 	name = "sushi"
 	desc = "A small, neatly wrapped morsel. Itadakimasu!"
-	icon = 'icons/obj/sushi.dmi'
+	icon = 'resources/icons/obj/sushi.dmi'
 	icon_state = "sushi_rice"
 	bitesize = 1
 	var/fish_type = "fish"
@@ -51,7 +51,7 @@
 /////////////
 /obj/item/weapon/reagent_containers/food/snacks/sashimi
 	name = "sashimi"
-	icon = 'icons/obj/sushi.dmi'
+	icon = 'resources/icons/obj/sushi.dmi'
 	desc = "Thinly sliced raw fish. Tasty."
 	icon_state = "sashimi"
 	gender = PLURAL
@@ -117,11 +117,12 @@
 			else
 				new /obj/item/weapon/reagent_containers/food/snacks/sushi(get_turf(src), src, I)
 			return
-		if(istype(I, /obj/item/weapon/reagent_containers/food/snacks/friedegg) || \
-		 istype(I, /obj/item/weapon/reagent_containers/food/snacks/tofu) || \
-		 istype(I, /obj/item/weapon/reagent_containers/food/snacks/cutlet) || \
-		 istype(I, /obj/item/weapon/reagent_containers/food/snacks/rawcutlet) || \
-		 istype(I, /obj/item/weapon/reagent_containers/food/snacks/meat/chicken))
+		if(istype(I, /obj/item/weapon/reagent_containers/food/snacks/friedegg) \
+			|| istype(I, /obj/item/weapon/reagent_containers/food/snacks/tofu) \
+			|| istype(I, /obj/item/weapon/reagent_containers/food/snacks/cutlet) \
+			|| istype(I, /obj/item/weapon/reagent_containers/food/snacks/rawcutlet) \
+			|| istype(I, /obj/item/weapon/reagent_containers/food/snacks/meat/chicken) \
+		)
 			new /obj/item/weapon/reagent_containers/food/snacks/sushi(get_turf(src), src, I)
 			return
 	. = ..()

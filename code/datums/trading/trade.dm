@@ -11,8 +11,7 @@
 	var/list/possible_wanted_items                              //List of all possible wanted items. Structure is (type = mode)
 	var/list/possible_trading_items                             //List of all possible trading items. Structure is (type = mode)
 	var/list/trading_items = list()                             //What items they are currently trading away.
-	var/list/blacklisted_trade_items = list(/mob/living/carbon/human)
-	                                                            //Things they will automatically refuse
+	var/list/blacklisted_trade_items = list(/mob/living/carbon/human) //Things they will automatically refuse
 
 	var/list/speech = list()                                    //The list of all their replies and messages. Structure is (id = talk)
 	/*SPEECH IDS:
@@ -216,7 +215,7 @@
 	var/type = trading_items[num]
 
 	var/atom/movable/M = new type(location)
-	playsound(location, 'sound/effects/teleport.ogg', 50, 1)
+	playsound(location, 'resources/sound/effects/teleport.ogg', 50, 1)
 
 	disposition += rand(compliment_increase,compliment_increase*3) //Traders like it when you trade with them
 
@@ -256,7 +255,7 @@
 			return TRADER_FOUND_UNWANTED
 		. += get_value(offer) * mult
 
-	playsound(get_turf(offers[1]), 'sound/effects/teleport.ogg', 50, 1)
+	playsound(get_turf(offers[1]), 'resources/sound/effects/teleport.ogg', 50, 1)
 	for(var/offer in offers)
 		qdel(offer)
 

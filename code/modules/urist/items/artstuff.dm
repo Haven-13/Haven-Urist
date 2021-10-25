@@ -13,7 +13,7 @@
 /obj/structure/easel
 	name = "easel"
 	desc = "only for the finest of art!"
-	icon = 'icons/urist/items/artstuff.dmi'
+	icon = 'resources/icons/urist/items/artstuff.dmi'
 	icon_state = "easel"
 	density = 1
 	var/obj/item/weapon/canvas/painting = null
@@ -55,7 +55,7 @@ var/global/list/globalBlankCanvases[AMT_OF_CANVASES]
 /obj/item/weapon/canvas
 	name = "11px by 11px canvas"
 	desc = "Draw out your soul on this canvas! Only crayons can draw on it. Examine it to focus on the canvas."
-	icon = 'icons/urist/items/artstuff.dmi'
+	icon = 'resources/icons/urist/items/artstuff.dmi'
 	icon_state = "11x11"
 	var/whichGlobalBackup = 1 //List index
 

@@ -1,7 +1,7 @@
 /obj/structure/largecrate
 	name = "large crate"
 	desc = "A hefty wooden crate."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'resources/icons/obj/storage.dmi'
 	icon_state = "densecrate"
 	density = 1
 	atom_flags = ATOM_FLAG_CLIMBABLE
@@ -23,9 +23,10 @@
 		var/turf/T = get_turf(src)
 		for(var/atom/movable/AM in contents)
 			if(AM.simulated) AM.forceMove(T)
-		user.visible_message("<span class='notice'>[user] pries \the [src] open.</span>", \
-							 "<span class='notice'>You pry open \the [src].</span>", \
-							 "<span class='notice'>You hear splitting wood.</span>")
+		user.visible_message(
+			"<span class='notice'>[user] pries \the [src] open.</span>",
+			"<span class='notice'>You pry open \the [src].</span>",
+			"<span class='notice'>You hear splitting wood.</span>")
 		qdel(src)
 	else
 		return attack_hand(user)

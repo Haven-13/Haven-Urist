@@ -149,7 +149,7 @@
 		to_chat(user, "<span class='notice'>You leave the crate alone.</span>")
 	else if(check_input(input) && locked)
 		to_chat(user, "<span class='notice'>The crate unlocks!</span>")
-		playsound(user, 'sound/machines/lockreset.ogg', 50, 1)
+		playsound(user, 'resources/sound/machines/lockreset.ogg', 50, 1)
 		..()
 	else
 		visible_message("<span class='warning'>A red light on \the [src]'s control panel flashes briefly.</span>")

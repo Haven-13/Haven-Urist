@@ -46,9 +46,9 @@
 	anchored = 1
 	opacity = 0
 	density = 0
-	icon = 'icons/obj/hydroponics_growing.dmi'
+	icon = 'resources/icons/obj/hydroponics_growing.dmi'
 	icon_state = ""
-	plane = OBJ_PLANE
+	plane = DEFAULT_PLANE
 	layer = OBJ_LAYER
 	pass_flags = PASS_FLAG_TABLE
 	mouse_opacity = 1

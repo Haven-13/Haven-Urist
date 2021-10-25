@@ -1,5 +1,5 @@
 /obj/machinery/atmospherics/tvalve
-	icon = 'icons/atmos/tvalve.dmi'
+	icon = 'resources/icons/atmos/tvalve.dmi'
 	icon_state = "map_tvalve0"
 
 	name = "manual switching valve"
@@ -216,7 +216,7 @@
 	update_underlays()
 
 /obj/machinery/atmospherics/tvalve/build_network()
-	if(!network_node1 && node1)				
+	if(!network_node1 && node1)
 		network_node1 = new /datum/pipe_network()
 		network_node1.normal_members += src
 		network_node1.build_network(node1, src)
@@ -279,7 +279,7 @@
 /obj/machinery/atmospherics/tvalve/digital		// can be controlled by AI
 	name = "digital switching valve"
 	desc = "A digitally controlled valve."
-	icon = 'icons/atmos/digital_tvalve.dmi'
+	icon = 'resources/icons/atmos/digital_tvalve.dmi'
 
 	var/frequency = 0
 	var/id = null
@@ -351,7 +351,7 @@
 		to_chat(user, "<span class='warnng'>You cannot unwrench \the [src], it too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
 		return 1
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
 	if (do_after(user, 40, src))
 		user.visible_message( \
@@ -414,7 +414,7 @@
 /obj/machinery/atmospherics/tvalve/mirrored/digital		// can be controlled by AI
 	name = "digital switching valve"
 	desc = "A digitally controlled valve."
-	icon = 'icons/atmos/digital_tvalve.dmi'
+	icon = 'resources/icons/atmos/digital_tvalve.dmi'
 
 	var/frequency = 0
 	var/id = null

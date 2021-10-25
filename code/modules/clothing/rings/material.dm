@@ -1,7 +1,7 @@
 /////////////////////////////////////////
 //Material Rings
 /obj/item/clothing/ring/material
-	icon = 'icons/obj/clothing/rings.dmi'
+	icon = 'resources/icons/obj/clothing/rings.dmi'
 	icon_state = "material"
 	var/material/material
 

@@ -29,24 +29,24 @@
 	var/show_intent_icons = 0
 	var/hotkey_ui_hidden = 0	//This is to hide the buttons that can be used via hotkeys. (hotkeybuttons list of buttons)
 
-	var/obj/screen/lingchemdisplay
-	var/obj/screen/r_hand_hud_object
-	var/obj/screen/l_hand_hud_object
-	var/obj/screen/action_intent
-	var/obj/screen/move_intent
+	var/atom/movable/screen/lingchemdisplay
+	var/atom/movable/screen/r_hand_hud_object
+	var/atom/movable/screen/l_hand_hud_object
+	var/atom/movable/screen/action_intent
+	var/atom/movable/screen/move_intent
 
-	var/list/obj/screen/plane_master/plane_masters = list()
+	var/atom/movable/screen/screen_tip/screen_tip_text
 
 	var/list/adding
 	var/list/other
-	var/list/obj/screen/hotkeybuttons
+	var/list/atom/movable/screen/hotkeybuttons
 
-	var/obj/screen/movable/action_button/hide_toggle/hide_actions_toggle
+	var/atom/movable/screen/movable/action_button/hide_toggle/hide_actions_toggle
 	var/action_buttons_hidden = 0
 
 	var/previous_z_depth
 	var/atom/movable/map_view/world_map_view
-	var/list/atom/movable/map_view/map_views = list()
+	var/atom/movable/screen/plane_master/emissive/hud_emissive_catcher
 
 /datum/hud/proc/update_plane_masters()
 	if(!mymob || !mymob.client)
@@ -76,7 +76,14 @@
 
 /datum/hud/New(mob/owner)
 	mymob = owner
+	screen_tip_text = new/atom/movable/screen/screen_tip(null, src)
 	world_map_view = new/atom/movable/map_view()
+
+	hud_emissive_catcher = new/atom/movable/screen/plane_master/emissive()
+	hud_emissive_catcher.set_plane(
+		HUD_PLANE + (EMISSIVE_PLANE - DEFAULT_PLANE)
+	)
+
 	instantiate()
 	update_plane_masters()
 	..()
@@ -91,11 +98,10 @@
 	adding = null
 	other = null
 	hotkeybuttons = null
-	map_views = null
-	world_map_view = null
+	QDEL_NULL(screen_tip_text)
+	QDEL_NULL(hud_emissive_catcher)
+	QDEL_NULL(world_map_view)
 	mymob = null
-
-	QDEL_LIST_ASSOC_VAL(plane_masters)
 
 /datum/hud/proc/hidden_inventory_update()
 	if(!mymob) return
@@ -190,8 +196,9 @@
 	var/ui_color = mymob.client.prefs.UI_style_color
 	var/ui_alpha = mymob.client.prefs.UI_style_alpha
 
-
 	FinalizeInstantiation(ui_style, ui_color, ui_alpha)
+	mymob.client.screen += hud_emissive_catcher
+	mymob.client.screen += screen_tip_text
 
 /datum/hud/proc/FinalizeInstantiation(var/ui_style, var/ui_color, var/ui_alpha)
 	return

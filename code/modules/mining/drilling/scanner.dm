@@ -3,7 +3,7 @@
 /obj/item/weapon/mining_scanner
 	name = "ore detector"
 	desc = "A complex device used to locate ore deep underground."
-	icon = 'icons/obj/device.dmi'
+	icon = 'resources/icons/obj/device.dmi'
 	icon_state = "forensic0-old" //GET A BETTER SPRITE.
 	item_state = "electronic"
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
@@ -37,15 +37,15 @@
 			var/data_value = 1
 
 			switch(metal)
-				if("silicates", "carbonaceous rock", "iron")	
+				if("silicates", "carbonaceous rock", "iron")
 					ore_type = "surface minerals"
-				if("gold", "silver", "diamond")					
+				if("gold", "silver", "diamond")
 					ore_type = "precious metals"
 					data_value = 2
-				if("uranium")									
+				if("uranium")
 					ore_type = "nuclear fuel"
 					data_value = 3
-				if("phoron", "osmium", "hydrogen")				
+				if("phoron", "osmium", "hydrogen")
 					ore_type = "exotic matter"
 					data_value = 4
 
@@ -71,14 +71,14 @@
 
 	if(new_data)
 		survey_data += new_data
-		playsound(loc, 'sound/machines/ping.ogg', 40, 1)
+		playsound(loc, 'resources/sound/machines/ping.ogg', 40, 1)
 		to_chat(user,"<span class='notice'>New survey data stored - [new_data] GEP.</span>")
 
 /obj/item/weapon/mining_scanner/verb/get_data()
 	set category = "Object"
 	set name = "Get Survey Data"
 	set src in usr
-	
+
 	var/mob/M = usr
 	if(!istype(M))
 		return
@@ -95,7 +95,7 @@
 
 /obj/item/weapon/disk/survey
 	name = "survey data disk"
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "nucleardisk"
 	var/data
 

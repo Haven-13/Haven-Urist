@@ -9,7 +9,7 @@
 	obj_flags =  OBJ_FLAG_CONDUCTIBLE
 	fire_sound_text = "a loud whoosh of moving air"
 	fire_delay = 50
-	fire_sound = 'sound/weapons/tablehit1.ogg'
+	fire_sound = 'resources/sound/weapons/tablehit1.ogg'
 
 	var/fire_pressure                                   // Used in fire checks/pressure checks.
 	var/max_w_class = ITEM_SIZE_NORMAL                                 // Hopper intake size.
@@ -20,8 +20,9 @@
 	var/pressure_setting = 10                           // Percentage of the gas in the tank used to fire the projectile.
 	var/possible_pressure_amounts = list(5,10,20,25,50) // Possible pressure settings.
 	var/force_divisor = 400                             // Force equates to speed. Speed/5 equates to a damage multiplier for whoever you hit.
-	                                                    // For reference, a fully pressurized oxy tank at 50% gas release firing a health
-	                                                    // analyzer with a force_divisor of 10 hit with a damage multiplier of 3000+.
+	// For reference, a fully pressurized oxy tank at 50% gas release firing a health
+	// analyzer with a force_divisor of 10 hit with a damage multiplier of 3000+.
+
 /obj/item/weapon/gun/launcher/pneumatic/New()
 	..()
 	item_storage = new(src)
@@ -185,7 +186,7 @@
 			var/obj/item/weapon/weldingtool/T = W
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				playsound(src.loc, 'resources/sound/items/Welder2.ogg', 100, 1)
 				to_chat(user, "<span class='notice'>You weld the pipe into place.</span>")
 				buildstate++
 				update_icon()
@@ -193,7 +194,7 @@
 			var/obj/item/weapon/weldingtool/T = W
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				playsound(src.loc, 'resources/sound/items/Welder2.ogg', 100, 1)
 				to_chat(user, "<span class='notice'>You weld the metal chassis together.</span>")
 				buildstate++
 				update_icon()
@@ -201,7 +202,7 @@
 			var/obj/item/weapon/weldingtool/T = W
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				playsound(src.loc, 'resources/sound/items/Welder2.ogg', 100, 1)
 				to_chat(user, "<span class='notice'>You weld the valve into place.</span>")
 				new /obj/item/weapon/gun/launcher/pneumatic(get_turf(src))
 				qdel(src)

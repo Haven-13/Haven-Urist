@@ -1,6 +1,6 @@
 /obj/machinery/computer
 	name = "computer"
-	icon = 'icons/obj/computer.dmi'
+	icon = 'resources/icons/obj/computer.dmi'
 	icon_state = "computer"
 	density = 1
 	anchored = 1.0
@@ -65,24 +65,27 @@
 	..()
 
 /obj/machinery/computer/update_icon()
-	overlays.Cut()
+	cut_overlays()
+	. = list()
+	. += get_emissive_blocker()
 
-	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	if(stat & NOPOWER)
 		set_light(0)
 		if(icon_keyboard)
-			overlays += image(icon,"[icon_keyboard]_off", overlay_layer)
+			. += image(icon,"[icon_keyboard]_off", overlay_layer)
 		return
 	else
 		set_light(light_max_bright_on, light_inner_range_on, light_outer_range_on, 2, light_color)
 
 	if(stat & BROKEN)
-		overlays += image(icon,"[icon_state]_broken", overlay_layer)
+		. += image(icon,"[icon_state]_broken", overlay_layer)
 	else
-		add_emissive_overlay(icon, icon_screen, overlay_layer)
+		. += get_emissive_overlay(icon, icon_screen, overlay_layer)
 
 	if(icon_keyboard)
-		add_emissive_overlay(icon, icon_keyboard, overlay_layer)
+		. += get_emissive_overlay(icon, icon_keyboard, overlay_layer)
+
+	add_overlay(.)
 
 /obj/machinery/computer/proc/set_broken()
 	stat |= BROKEN
@@ -95,7 +98,7 @@
 
 /obj/machinery/computer/attackby(I as obj, user as mob)
 	if(isScrewdriver(I) && circuit)
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 20, src))
 			var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 			A.set_dir(src.dir)

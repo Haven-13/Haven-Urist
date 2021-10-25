@@ -5,7 +5,7 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 	name = "energy gun"
 	desc = "A basic energy-based gun."
 	icon_state = "energy"
-	fire_sound = 'sound/weapons/Taser.ogg'
+	fire_sound = 'resources/sound/weapons/Taser.ogg'
 	fire_sound_text = "laser blast"
 
 	var/obj/item/weapon/cell/power_supply //What type of power cell this uses

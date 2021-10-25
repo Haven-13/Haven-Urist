@@ -7,8 +7,8 @@
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/onmob/items/lefthand_backpacks.dmi',
-		slot_r_hand_str = 'icons/mob/onmob/items/righthand_backpacks.dmi',
+		slot_l_hand_str = 'resources/icons/mob/onmob/items/lefthand_backpacks.dmi',
+		slot_r_hand_str = 'resources/icons/mob/onmob/items/righthand_backpacks.dmi',
 		)
 	icon_state = "backpack"
 	item_state = null
@@ -18,7 +18,7 @@
 		slot_r_hand_str = "backpack",
 		)
 	sprite_sheets = list(
-		SPECIES_RESOMI = 'icons/mob/species/resomi/back.dmi'
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/back.dmi'
 		)
 	w_class = ITEM_SIZE_HUGE
 	slot_flags = SLOT_BACK
@@ -51,22 +51,22 @@
 	icon_state = "holdingpack"
 	max_storage_space = 56
 
-	New()
-		..()
-		return
+/obj/item/weapon/storage/backpack/holding/New()
+	..()
+	return
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if(istype(W, /obj/item/weapon/storage/backpack/holding))
-			to_chat(user, "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>")
-			qdel(W)
-			return 1
-		return ..()
+/obj/item/weapon/storage/backpack/holding/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/weapon/storage/backpack/holding))
+		to_chat(user, "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>")
+		qdel(W)
+		return 1
+	return ..()
 
-	//Please don't clutter the parent storage item with stupid hacks.
-	can_be_inserted(obj/item/W as obj, stop_messages = 0)
-		if(istype(W, /obj/item/weapon/storage/backpack/holding))
-			return 1
-		return ..()
+//Please don't clutter the parent storage item with stupid hacks.
+/obj/item/weapon/storage/backpack/holding/can_be_inserted(obj/item/W as obj, stop_messages = 0)
+	if(istype(W, /obj/item/weapon/storage/backpack/holding))
+		return 1
+	return ..()
 
 /obj/item/weapon/storage/backpack/santabag
 	name = "\improper Santa's gift bag"

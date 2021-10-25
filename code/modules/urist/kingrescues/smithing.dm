@@ -3,7 +3,7 @@
 /obj/structure/blacksmithingfurnace
 	name = "furnace"
 	desc = "The furnace wall, warm to the touch."
-	icon = 'icons/urist/king/furnace.dmi'
+	icon = 'resources/icons/urist/king/furnace.dmi'
 	icon_state = "furnace"
 	density = 0
 	anchored = 1
@@ -11,7 +11,7 @@
 /obj/structure/blacksmithingfurnace/furnace
 	name = "furnace"
 	desc = "A pretty hot furnance. Be careful while using it."
-	icon = 'icons/urist/king/blacksmithing.dmi'
+	icon = 'resources/icons/urist/king/blacksmithing.dmi'
 	icon_state = "furnace"
 	density = 0
 	anchored = 1
@@ -19,7 +19,7 @@
 /obj/structure/blacksmithingfurnace/furnace/attackby(obj/item/W, mob/user, var/click_params)
 	if(istype(W, /obj/item/weapon/ore/iron))
 		user.drop_item(W)
-		playsound(loc, 'sound/urist/furnace.ogg', 100, 5, 5)
+		playsound(loc, 'resources/sound/urist/furnace.ogg', 100, 5, 5)
 		qdel(W)
 		sleep(180)
 		visible_message("<span class='notice'>The ore finished smelting.</span>")
@@ -27,7 +27,7 @@
 
 	else if(istype(W, /obj/item/weapon/ore/gold))
 		user.drop_item(W)
-		playsound(loc, 'sound/urist/furnace.ogg', 100, 5, 5)
+		playsound(loc, 'resources/sound/urist/furnace.ogg', 100, 5, 5)
 		qdel(W)
 		sleep(200)
 		visible_message("<span class='notice'>The ore finished smelting.</span>")
@@ -35,7 +35,7 @@
 
 	else if(istype(W, /obj/item/weapon/ore/silver))
 		user.drop_item(W)
-		playsound(loc, 'sound/urist/furnace.ogg', 100, 5, 5)
+		playsound(loc, 'resources/sound/urist/furnace.ogg', 100, 5, 5)
 		qdel(W)
 		sleep(190)
 		visible_message("<span class='notice'>The ore finished smelting.</span>")
@@ -43,7 +43,7 @@
 
 	else if(istype(W, /obj/item/weapon/ore/diamond))
 		user.drop_item(W)
-		playsound(loc, 'sound/urist/furnace.ogg', 100, 5, 5)
+		playsound(loc, 'resources/sound/urist/furnace.ogg', 100, 5, 5)
 		qdel(W)
 		sleep(220)
 		visible_message("<span class='notice'>The ore finished smelting.</span>")
@@ -51,7 +51,7 @@
 
 //	else if(istype(W, /obj/item/weapon/ore/glass))
 //		user.drop_item(W)
-//		playsound(loc, 'sound/urist/furnace.ogg', 100, 5, 5)
+//		playsound(loc, 'resources/sound/urist/furnace.ogg', 100, 5, 5)
 //		qdel(W)
 //		sleep(150)
 //		visible_message("<span class='notice'>The ore finished smelting.</span>")
@@ -67,7 +67,7 @@
 /obj/item/weapon/hammer
 	name = "hammer"
 	desc = "Hmmm, it's shaped like a hammer, I wonder what it could be?"
-	icon = 'icons/urist/king/items.dmi'
+	icon = 'resources/icons/urist/king/items.dmi'
 	icon_state = "hammer"
 	slot_flags = SLOT_BELT
 	force = 9.0
@@ -159,7 +159,7 @@
 /obj/item/weapon/ore/hot
 	name = "hot ingot"
 	desc = "A hot ingot. Duh."
-	icon = 'icons/urist/king/blacksmithing.dmi'
+	icon = 'resources/icons/urist/king/blacksmithing.dmi'
 	icon_state = "iron"
 	var/busy
 	var/output
@@ -175,7 +175,7 @@
 	if((istype(W, /obj/item/weapon/hammer)) && (locate(/obj/structure/anvil) in loc))
 		if(!busy)
 			busy = 1
-			playsound(loc, 'sound/urist/metalsmack.ogg', 100, 20, 20)
+			playsound(loc, 'resources/sound/urist/metalsmack.ogg', 100, 20, 20)
 			if(do_after(user, 10, src)) //One second
 				to_chat(usr, "<font color='red'>You hit the [name]!</font>")
 
@@ -216,7 +216,7 @@
 
 /obj/structure/anvil
 	name = "anvil"
-	icon = 'icons/urist/king/blacksmithing.dmi'
+	icon = 'resources/icons/urist/king/blacksmithing.dmi'
 	icon_state = "anvil"
 	density = 1
 	anchored = 1
@@ -229,7 +229,7 @@
 	if(istype(W,/obj/item/weapon/weldingtool))
 		var/obj/item/weapon/weldingtool/WT = W
 		if (WT.remove_fuel(0,user))
-			playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Welder2.ogg', 50, 1)
 			user.visible_message("[user.name] starts to disassemble the anvil.", \
 				"You start to disassemble the anvil.", \
 				"You hear welding")
@@ -247,7 +247,7 @@
 //PARTS
 
 /obj/item/weapon/gunsmith
-	icon = 'icons/urist/king/gunsmith.dmi'
+	icon = 'resources/icons/urist/king/gunsmith.dmi'
 
 /obj/item/weapon/gunsmith/stock
 	name = "error"

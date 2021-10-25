@@ -51,9 +51,9 @@
 //must not sleep
 //Other parameters are passed from New (excluding loc), this does not happen if mapload is TRUE
 //Must return an Initialize hint. Defined in __DEFINES/subsystems.dm
-
 /atom/proc/Initialize(mapload, ...)
 	SHOULD_CALL_PARENT(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
 
 	if(atom_flags & ATOM_FLAG_INITIALIZED)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
@@ -187,7 +187,7 @@ Also, the icon used for the beam will have to be vertical and 32x32.
 The math involved assumes that the icon is vertical to begin with so unless you want to adjust the math,
 its easier to just keep the beam vertical.
 */
-/atom/proc/Beam(atom/BeamTarget,icon_state="b_beam",icon='icons/effects/beam.dmi',time=50, maxdistance=10)
+/atom/proc/Beam(atom/BeamTarget,icon_state="b_beam",icon='resources/icons/effects/beam.dmi',time=50, maxdistance=10)
 	//BeamTarget represents the target for the beam, basically just means the other end.
 	//Time is the duration to draw the beam
 	//Icon is obviously which icon to use for the beam, default is beam.dmi
@@ -304,7 +304,7 @@ its easier to just keep the beam vertical.
 
 /atom/proc/lava_act()
 	visible_message("<span class='danger'>\The [src] sizzles and melts away, consumed by the lava!</span>")
-	playsound(src, 'sound/effects/flare.ogg', 100, 3)
+	playsound(src, 'resources/sound/effects/flare.ogg', 100, 3)
 	qdel(src)
 	. = TRUE
 
@@ -560,6 +560,25 @@ its easier to just keep the beam vertical.
 		do_climb(target)
 	else
 		return ..()
+
+//Update the screentip to reflect what we're hoverin over
+/atom/MouseEntered(location, control, params)
+	. = ..()
+	// Screentips
+	if(usr?.hud_used)
+		if(\
+			!usr.client?.get_preference_value(/datum/client_preference/show_screen_tip) == GLOB.PREF_HIDE\
+			|| (atom_flags & ATOM_FLAG_NO_SCREEN_TIP)\
+		)
+			usr.hud_used.screen_tip_text.maptext = ""
+		else
+			var/classes = jointext(list(
+				"center",
+				"screen-tip",
+				((usr.client?.get_preference_value(/datum/client_preference/style_screen_tip) == GLOB.PREF_YES) && "stylized") || ""
+			), " ")
+			usr.hud_used.screen_tip_text.maptext = MAPTEXT("<span class='[classes]'>[name]</span>")
+
 
 /atom/proc/get_color()
 	return color

@@ -3,7 +3,7 @@
 /obj/item/weapon/grenade/frag/anforgrenade
 	desc = "A small explosive meant for anti-personnel use."
 	name = "ANFOR grenade"
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'resources/icons/urist/items/uristweapons.dmi'
 	icon_state = "large_grenade"
 	item_state = "flashbang"
 	origin_tech = "materials=3;magnets=3"
@@ -27,7 +27,7 @@
 /obj/structure/assaultshieldgen
 	name = "shield generator"
 	desc = "The shield generator for the station. Protect it with your life. Repair it with a welding torch."
-	icon = 'icons/obj/power.dmi'
+	icon = 'resources/icons/obj/power.dmi'
 	icon_state = "bbox_on"
 	health = 300
 	var/maxhealth = 300
@@ -41,7 +41,7 @@
 			if(health >= maxhealth)
 				to_chat(user, "<span class='warning'>The shield generator is fully repaired alredy!</span>")
 			else
-				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Welder2.ogg', 50, 1)
 				user.visible_message("[user.name] starts to patch some dents on the shield generator.", \
 					"You start to patch some dents on the shield generator", \
 					"You hear welding")

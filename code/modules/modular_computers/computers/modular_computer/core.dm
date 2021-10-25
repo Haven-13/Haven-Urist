@@ -33,7 +33,7 @@
 	handle_power() // Handles all computer power interaction
 	check_update_ui_need()
 
-	var/static/list/beepsounds = list('sound/effects/compbeep1.ogg','sound/effects/compbeep2.ogg','sound/effects/compbeep3.ogg','sound/effects/compbeep4.ogg','sound/effects/compbeep5.ogg')
+	var/static/list/beepsounds = list('resources/sound/effects/compbeep1.ogg','resources/sound/effects/compbeep2.ogg','resources/sound/effects/compbeep3.ogg','resources/sound/effects/compbeep4.ogg','resources/sound/effects/compbeep5.ogg')
 	if(enabled && world.time > ambience_last_played + 60 SECONDS && prob(1))
 		ambience_last_played = world.time
 		playsound(src.loc, pick(beepsounds),15,1,10, is_ambiance = 1)
@@ -91,11 +91,13 @@
 		return 1
 
 /obj/item/modular_computer/update_icon()
+	. = list()
+	. += get_emissive_blocker()
 	icon_state = icon_state_unpowered
 
-	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
+	cut_overlays()
 	if(bsod)
-		add_emissive_overlay(state = "bsod")
+		. += get_emissive_overlay(state = "bsod")
 		set_light(0.2, 0.1, light_strength, l_color = "#4444ee")
 		return
 	if(!enabled)
@@ -103,11 +105,13 @@
 		return
 	set_light(0.2, 0.1, light_strength)
 	if(active_program)
-		add_emissive_overlay(state = (active_program.program_icon_state || icon_state_menu))
+		. += get_emissive_overlay(state = (active_program.program_icon_state || icon_state_menu))
 		if(active_program.program_key_state)
-			add_emissive_overlay(state = active_program.program_key_state)
+			. += get_emissive_overlay(state = active_program.program_key_state)
 	else
-		add_emissive_overlay(state = icon_state_menu)
+		. += get_emissive_overlay(state = icon_state_menu)
+
+	add_overlay(.)
 
 /obj/item/modular_computer/proc/turn_on(var/mob/user)
 	if(bsod)
@@ -136,6 +140,7 @@
 
 // Relays kill program request to currently active program. Use this to quit current program.
 /obj/item/modular_computer/proc/kill_program(var/forced = 0)
+	set waitfor = 0
 	if(active_program)
 		active_program.kill_program(forced)
 		active_program = null

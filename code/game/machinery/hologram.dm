@@ -36,8 +36,8 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	desc = "It's a floor-mounted device for projecting holographic images."
 	icon_state = "holopad-B0"
 
-	plane = ABOVE_TURF_PLANE
-	layer = ABOVE_TILE_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_TURF_LAYER
 
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5
@@ -122,7 +122,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	targetpad.sourcepad = src //This marks the holopad you are making the call from
 	targetpad.caller_id = user //This marks you as the caller
 	targetpad.incoming_connection = 1
-	playsound(targetpad.loc, 'sound/machines/chime.ogg', 25, 5)
+	playsound(targetpad.loc, 'resources/sound/machines/chime.ogg', 25, 5)
 	targetpad.icon_state = "[targetpad.base_icon]1"
 	targetpad.audible_message("<b>\The [src]</b> announces, \"Incoming communications request from [targetpad.sourcepad.loc.loc].\"")
 	to_chat(user, "<span class='notice'>Trying to establish a connection to the holopad in [targetpad.loc.loc]... Please await confirmation from recipient.</span>")
@@ -252,8 +252,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		if(A.holo_icon_malf == TRUE)
 			hologram.overlays += icon("icons/effects/effects.dmi", "malf-scanline")
 	hologram.mouse_opacity = 0//So you can't click on it.
-	hologram.set_plane(ABOVE_HUMAN_PLANE)
-	hologram.layer = ABOVE_HUMAN_LAYER //Above all the other objects/mobs. Or the vast majority of them.
+	hologram.set_plane(DEFAULT_PLANE)
+	hologram.layer = ABOVE_MOB_LAYER //Above all the other objects/mobs. Or the vast majority of them.
 	hologram.anchored = 1//So space wind cannot drag it.
 	if(caller_id)
 		hologram.SetName("[caller_id.name] (Hologram)")
@@ -381,7 +381,7 @@ Holographic project of everything else.
 	flat_icon.ChangeOpacity(0.5)//Make it half transparent.
 	var/input = input("Select what icon state to use in effect.",,"")
 	if(input)
-		var/icon/alpha_mask = new('icons/effects/effects.dmi', "[input]")
+		var/icon/alpha_mask = new('resources/icons/effects/effects.dmi', "[input]")
 		flat_icon.AddAlphaMask(alpha_mask)//Finally, let's mix in a distortion effect.
 		hologram.icon = flat_icon
 
@@ -396,7 +396,7 @@ Holographic project of everything else.
 /obj/machinery/hologram/projector
 	name = "hologram projector"
 	desc = "It makes a hologram appear...with magnets or something..."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "hologram0"
 
 /obj/machinery/hologram/holopad/longrange

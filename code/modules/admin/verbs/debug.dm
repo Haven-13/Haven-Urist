@@ -263,7 +263,7 @@
 					qdel(G)
 				S.energy = 1750
 				S.current_size = 7
-				S.icon = 'icons/effects/224x224.dmi'
+				S.icon = 'resources/icons/effects/224x224.dmi'
 				S.icon_state = "singularity_s7"
 				S.pixel_x = -96
 				S.pixel_y = -96
@@ -370,10 +370,10 @@
 	feedback_add_details("admin_verb","ANLS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /obj/effect/debugmarker
-	icon = 'icons/effects/lighting_overlay.dmi'
+	icon = 'resources/icons/effects/lighting_overlay.dmi'
 	icon_state = "transparent"
-	plane = ABOVE_TURF_PLANE
-	layer = HOLOMAP_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_TURF_LAYER
 	alpha = 127
 
 /client/var/list/image/powernet_markers = list()
@@ -388,8 +388,8 @@
 	for(var/datum/powernet/PN in SSmachines.powernets)
 		var/netcolor = rgb(rand(100,255),rand(100,255),rand(100,255))
 		for(var/obj/structure/cable/C in PN.cables)
-			var/image/I = image('icons/effects/lighting_overlay.dmi', get_turf(C), "transparent")
-			I.plane = ABOVE_TURF_PLANE
+			var/image/I = image('resources/icons/effects/lighting_overlay.dmi', get_turf(C), "transparent")
+			I.plane = DEFAULT_PLANE
 			I.alpha = 127
 			I.color = netcolor
 			I.maptext = REF(PN)

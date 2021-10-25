@@ -1,6 +1,6 @@
 /obj/item/device/kit
 	icon_state = "modkit"
-	icon = 'icons/obj/device.dmi'
+	icon = 'resources/icons/obj/device.dmi'
 	var/new_name = "mech"    //What is the variant called?
 	var/new_desc = "A mech." //How is the new mech described?
 	var/new_icon = "ripley"  //What base icon will the new mech use?
@@ -13,7 +13,7 @@
 
 /obj/item/device/kit/proc/use(var/amt, var/mob/user)
 	uses -= amt
-	playsound(get_turf(user), 'sound/items/Screwdriver.ogg', 50, 1)
+	playsound(get_turf(user), 'resources/sound/items/Screwdriver.ogg', 50, 1)
 	if(uses<1)
 		qdel(src)
 

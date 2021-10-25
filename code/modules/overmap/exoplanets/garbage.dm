@@ -78,11 +78,11 @@
 	return land_type
 
 /area/exoplanet/garbage
-	ambience = list('sound/effects/wind/desert0.ogg','sound/effects/wind/desert1.ogg','sound/effects/wind/desert2.ogg','sound/effects/wind/desert3.ogg','sound/effects/wind/desert4.ogg','sound/effects/wind/desert5.ogg')
+	ambience = list('resources/sound/effects/wind/desert0.ogg','resources/sound/effects/wind/desert1.ogg','resources/sound/effects/wind/desert2.ogg','resources/sound/effects/wind/desert3.ogg','resources/sound/effects/wind/desert4.ogg','resources/sound/effects/wind/desert5.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/desert
 
 /turf/simulated/floor/exoplanet/concrete
 	name = "concrete"
 	desc = "Stone-like artificial material."
-	icon = 'icons/turf/flooring/misc.dmi'
+	icon = 'resources/icons/turf/flooring/misc.dmi'
 	icon_state = "concrete"

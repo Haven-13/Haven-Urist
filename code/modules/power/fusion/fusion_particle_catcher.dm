@@ -1,5 +1,5 @@
 /obj/effect/fusion_particle_catcher
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	density = 1
 	anchored = 1
 	invisibility = 101

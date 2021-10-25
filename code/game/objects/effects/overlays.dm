@@ -5,7 +5,7 @@
 
 /obj/effect/overlay/beam //Not actually a projectile, just an effect.
 	name="beam"
-	icon='icons/effects/beam.dmi'
+	icon='resources/icons/effects/beam.dmi'
 	icon_state= "b_beam"
 	var/tmp/atom/BeamSource
 
@@ -15,42 +15,42 @@
 
 /obj/effect/overlay/palmtree_r
 	name = "Palm tree"
-	icon = 'icons/misc/beach2.dmi'
+	icon = 'resources/icons/misc/beach2.dmi'
 	icon_state = "palm1"
 	density = 1
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 	anchored = 1
 
 /obj/effect/overlay/palmtree_l
 	name = "Palm tree"
-	icon = 'icons/misc/beach2.dmi'
+	icon = 'resources/icons/misc/beach2.dmi'
 	icon_state = "palm2"
 	density = 1
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 	anchored = 1
 
 /obj/effect/overlay/coconut
 	name = "Coconuts"
-	icon = 'icons/misc/beach.dmi'
+	icon = 'resources/icons/misc/beach.dmi'
 	icon_state = "coconuts"
 
 /obj/effect/overlay/bluespacify
 	name = "Bluespace"
-	icon = 'icons/turf/space.dmi'
+	icon = 'resources/icons/turf/space.dmi'
 	icon_state = "bluespacify"
 	plane = EMISSIVE_PLANE
-	layer = SUPERMATTER_WALL_LAYER
+	layer = EMISSIVE_UNBLOCKABLE_LAYER
 
 /obj/effect/overlay/wallrot
 	name = "wallrot"
 	desc = "Ick..."
-	icon = 'icons/effects/wallrot.dmi'
+	icon = 'resources/icons/effects/wallrot.dmi'
 	anchored = 1
 	density = 1
-	plane = ABOVE_TURF_PLANE
-	layer = ABOVE_TILE_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_TURF_LAYER
 	mouse_opacity = 0
 
 /obj/effect/overlay/wallrot/New()

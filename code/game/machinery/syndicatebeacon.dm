@@ -9,7 +9,7 @@
 /obj/machinery/syndicate_beacon
 	name = "ominous beacon"
 	desc = "This looks suspicious..."
-	icon = 'icons/obj/device.dmi'
+	icon = 'resources/icons/obj/device.dmi'
 	icon_state = "syndbeacon"
 
 	anchored = 1
@@ -79,13 +79,13 @@
 /obj/machinery/power/singularity_beacon
 	name = "ominous beacon"
 	desc = "This looks suspicious..."
-	icon = 'icons/obj/singularity.dmi'
+	icon = 'resources/icons/obj/singularity.dmi'
 	icon_state = "beacon"
 
 	anchored = 0
 	density = 1
-	plane = ABOVE_OBJ_PLANE
-	layer = BASE_ABOVE_OBJ_LAYER //so people can't hide it and it's REALLY OBVIOUS
+	plane = DEFAULT_PLANE
+	layer = ABOVE_OBJ_LAYER //so people can't hide it and it's REALLY OBVIOUS
 	stat = 0
 
 	var/active = 0

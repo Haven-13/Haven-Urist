@@ -2,9 +2,9 @@
 // Chem smoke
 /////////////////////////////////////////////
 /obj/effect/effect/smoke/chem
-	icon = 'icons/effects/chemsmoke.dmi'
+	icon = 'resources/icons/effects/chemsmoke.dmi'
 	opacity = 0
-	plane = EFFECTS_BELOW_LIGHTING_PLANE
+	plane = EFFECTS_PLANE
 	layer = ABOVE_PROJECTILE_LAYER
 	time_to_live = 300
 	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GRILLE | PASS_FLAG_GLASS //PASS_FLAG_GLASS is fine here, it's just so the visual effect can "flow" around glass
@@ -37,8 +37,6 @@
 /obj/effect/effect/smoke/chem/Destroy()
 	walk(src, 0) // Because we might have called walk_to, we must stop the walk loop or BYOND keeps an internal reference to us forever.
 	set_opacity(0)
-	// TODO - fadeOut() sleeps.  Sleeping in /Destroy is Bad, this needs to be fixed.
-	fadeOut()
 	return ..()
 
 /obj/effect/effect/smoke/chem/Move()
@@ -175,10 +173,10 @@
 	var/color = chemholder.reagents.get_color() //build smoke icon
 	var/icon/I
 	if(color)
-		I = icon('icons/effects/chemsmoke.dmi')
+		I = icon('resources/icons/effects/chemsmoke.dmi')
 		I += color
 	else
-		I = icon('icons/effects/96x96.dmi', "smoke")
+		I = icon('resources/icons/effects/96x96.dmi', "smoke")
 
 	//Calculate smoke duration
 	var/smoke_duration = 150

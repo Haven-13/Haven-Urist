@@ -12,7 +12,7 @@
 
 /obj/structure/bookcase
 	name = "bookcase"
-	icon = 'icons/obj/library.dmi'
+	icon = 'resources/icons/obj/library.dmi'
 	icon_state = "book-0"
 	anchored = 1
 	density = 1
@@ -38,7 +38,7 @@
 		else
 			SetName("bookcase ([newname])")
 	else if(isScrewdriver(O))
-		playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
+		playsound(loc, 'resources/sound/items/Screwdriver.ogg', 75, 1)
 		to_chat(user, "<span class='notice'>You begin dismantling \the [src].</span>")
 		if(do_after(user,25,src))
 			to_chat(user, "<span class='notice'>You dismantle \the [src].</span>")
@@ -97,36 +97,36 @@
 /obj/structure/bookcase/manuals/medical
 	name = "Medical Manuals bookcase"
 
-	New()
-		..()
-		new /obj/item/weapon/book/manual/medical_cloning(src)
-		new /obj/item/weapon/book/manual/medical_diagnostics_manual(src)
-		new /obj/item/weapon/book/manual/medical_diagnostics_manual(src)
-		new /obj/item/weapon/book/manual/medical_diagnostics_manual(src)
-		update_icon()
+/obj/structure/bookcase/manuals/medical/New()
+	..()
+	new /obj/item/weapon/book/manual/medical_cloning(src)
+	new /obj/item/weapon/book/manual/medical_diagnostics_manual(src)
+	new /obj/item/weapon/book/manual/medical_diagnostics_manual(src)
+	new /obj/item/weapon/book/manual/medical_diagnostics_manual(src)
+	update_icon()
 
 
 /obj/structure/bookcase/manuals/engineering
 	name = "Engineering Manuals bookcase"
 
-	New()
-		..()
-		new /obj/item/weapon/book/manual/engineering_construction(src)
-		new /obj/item/weapon/book/manual/engineering_particle_accelerator(src)
-		new /obj/item/weapon/book/manual/engineering_hacking(src)
-		new /obj/item/weapon/book/manual/engineering_guide(src)
-		new /obj/item/weapon/book/manual/atmospipes(src)
-		new /obj/item/weapon/book/manual/engineering_singularity_safety(src)
-		new /obj/item/weapon/book/manual/evaguide(src)
-		update_icon()
+/obj/structure/bookcase/manuals/engineering/New()
+	..()
+	new /obj/item/weapon/book/manual/engineering_construction(src)
+	new /obj/item/weapon/book/manual/engineering_particle_accelerator(src)
+	new /obj/item/weapon/book/manual/engineering_hacking(src)
+	new /obj/item/weapon/book/manual/engineering_guide(src)
+	new /obj/item/weapon/book/manual/atmospipes(src)
+	new /obj/item/weapon/book/manual/engineering_singularity_safety(src)
+	new /obj/item/weapon/book/manual/evaguide(src)
+	update_icon()
 
 /obj/structure/bookcase/manuals/research_and_development
 	name = "R&D Manuals bookcase"
 
-	New()
-		..()
-		new /obj/item/weapon/book/manual/research_and_development(src)
-		update_icon()
+/obj/structure/bookcase/manuals/research_and_development/New()
+	..()
+	new /obj/item/weapon/book/manual/research_and_development(src)
+	update_icon()
 
 
 /*
@@ -134,7 +134,7 @@
  */
 /obj/item/weapon/book
 	name = "book"
-	icon = 'icons/obj/library.dmi'
+	icon = 'resources/icons/obj/library.dmi'
 	icon_state ="book"
 	throw_speed = 1
 	throw_range = 5
@@ -230,5 +230,5 @@
  * Manual Base Object
  */
 /obj/item/weapon/book/manual
-	icon = 'icons/obj/library.dmi'
+	icon = 'resources/icons/obj/library.dmi'
 	unique = 1   // 0 - Normal book, 1 - Should not be treated as normal book, unable to be copied, unable to be modified

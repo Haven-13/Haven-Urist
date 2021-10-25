@@ -1,6 +1,6 @@
 /datum/unarmed_attack/bite/sharp //eye teeth
 	attack_verb = list("bit", "chomped on")
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = 'resources/sound/weapons/bite.ogg'
 	shredding = 0
 	sharp = 1
 	edge = 1
@@ -10,8 +10,8 @@
 	attack_noun = list("claws")
 	eye_attack_text = "claws"
 	eye_attack_text_victim = "sharp claws"
-	attack_sound = 'sound/weapons/slice.ogg'
-	miss_sound = 'sound/weapons/slashmiss.ogg'
+	attack_sound = 'resources/sound/weapons/slice.ogg'
+	miss_sound = 'resources/sound/weapons/slashmiss.ogg'
 	sharp = 1
 	edge = 1
 

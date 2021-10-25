@@ -3,14 +3,14 @@ GLOBAL_VAR(universe_has_ended)
 /datum/universal_state/nuclear_explosion
 	name = "Nuclear Demolition Warhead"
 	var/atom/explosion_source
-	var/obj/screen/cinematic
+	var/atom/movable/screen/cinematic
 
 /datum/universal_state/nuclear_explosion/New(atom/nuke)
 	explosion_source = nuke
 
 	//create the cinematic screen obj
 	cinematic = new
-	cinematic.icon = 'icons/effects/station_explosion.dmi'
+	cinematic.icon = 'resources/icons/effects/station_explosion.dmi'
 	cinematic.icon_state = "station_intact"
 	cinematic.plane = HUD_PLANE
 	cinematic.layer = HUD_ABOVE_ITEM_LAYER
@@ -70,7 +70,7 @@ GLOBAL_VAR(universe_has_ended)
 
 /datum/universal_state/nuclear_explosion/proc/start_cinematic_intro()
 	for(var/mob/M in GLOB.player_list) //I guess so that people in the lobby only hear the explosion
-		sound_to(M, sound('sound/machines/Alarm.ogg'))
+		sound_to(M, sound('resources/sound/machines/Alarm.ogg'))
 
 	sleep(100)
 
@@ -79,7 +79,7 @@ GLOBAL_VAR(universe_has_ended)
 	sleep(30)
 
 /datum/universal_state/nuclear_explosion/proc/play_cinematic_station_destroyed()
-	sound_to(world, sound('sound/effects/explosionfar.ogg'))//makes no sense if you're not on the station but whatever
+	sound_to(world, sound('resources/sound/effects/explosionfar.ogg'))//makes no sense if you're not on the station but whatever
 
 	flick("station_explode_fade_red",cinematic)
 	cinematic.icon_state = "summary_selfdes"
@@ -88,7 +88,7 @@ GLOBAL_VAR(universe_has_ended)
 /datum/universal_state/nuclear_explosion/proc/play_cinematic_station_unaffected()
 	cinematic.icon_state = "station_intact"
 	sleep(5)
-	sound_to(world, sound('sound/effects/explosionfar.ogg'))//makes no sense if you are on the station but whatever
+	sound_to(world, sound('resources/sound/effects/explosionfar.ogg'))//makes no sense if you are on the station but whatever
 
 
 	sleep(75)
@@ -97,7 +97,7 @@ GLOBAL_VAR(universe_has_ended)
 //MALF
 /datum/universal_state/nuclear_explosion/malf/start_cinematic_intro()
 	for(var/mob/M in GLOB.player_list) //I guess so that people in the lobby only hear the explosion
-		to_chat(M, sound('sound/machines/Alarm.ogg'))
+		to_chat(M, sound('resources/sound/machines/Alarm.ogg'))
 
 	sleep(28)
 

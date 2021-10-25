@@ -1,12 +1,12 @@
 
 
 /var/all_ui_styles = list(
-	"Midnight"     = 'icons/mob/screen/midnight.dmi',
-	"Orange"       = 'icons/mob/screen/orange.dmi',
-	"old"          = 'icons/mob/screen/old.dmi',
-	"White"        = 'icons/mob/screen/white.dmi',
-	"old-noborder" = 'icons/mob/screen/old-noborder.dmi',
-	"minimalist"   = 'icons/mob/screen/minimalist.dmi'
+	"Midnight"     = 'resources/icons/mob/screen/midnight.dmi',
+	"Orange"       = 'resources/icons/mob/screen/orange.dmi',
+	"old"          = 'resources/icons/mob/screen/old.dmi',
+	"White"        = 'resources/icons/mob/screen/white.dmi',
+	"old-noborder" = 'resources/icons/mob/screen/old-noborder.dmi',
+	"minimalist"   = 'resources/icons/mob/screen/minimalist.dmi'
 	)
 
 /proc/ui_style2icon(ui_style)
@@ -43,7 +43,7 @@
 
 	var/icon/ic = all_ui_styles[UI_style_new]
 
-	for(var/obj/screen/I in icons)
+	for(var/atom/movable/screen/I in icons)
 		if(I.name in list(I_HELP, I_HURT, I_DISARM, I_GRAB)) continue
 		I.icon = ic
 		I.color = UI_style_color_new

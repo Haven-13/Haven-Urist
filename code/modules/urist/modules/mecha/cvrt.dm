@@ -1,7 +1,7 @@
 /obj/mecha/working/cvrt //why working? because we don't want people to be able to hit things.
 	name = "Combat Vehicle - Reconnaissance"
 	desc = "A fast armoured vehicle designed to perform reconnaissance missions in combat situations."
-	icon = 'icons/urist/vehicles/cvrt.dmi'
+	icon = 'resources/icons/urist/vehicles/cvrt.dmi'
 	icon_state = "cvrt"
 	initial_icon = "cvrt"
 	health = 300
@@ -25,20 +25,20 @@
 //these three procs overriden to play different sounds
 /obj/mecha/working/cvrt/mechturn(direction)
 	set_dir(direction)
-	//playsound(src,'sound/machines/hiss.ogg',40,1)
+	//playsound(src,'resources/sound/machines/hiss.ogg',40,1)
 	return 1
 
 /obj/mecha/working/cvrt/mechstep(direction)
 	var/result = step(src,direction)
 	if(result)
-		playsound(src,'sound/machines/hiss.ogg',40,1)
+		playsound(src,'resources/sound/machines/hiss.ogg',40,1)
 	return result
 
 
 /obj/mecha/working/cvrt/mechsteprand()
 	var/result = step_rand(src)
 	if(result)
-		playsound(src,'sound/machines/hiss.ogg',40,1)
+		playsound(src,'resources/sound/machines/hiss.ogg',40,1)
 	return result
 
 /obj/mecha/working/cvrt/basic/New() //we've got a gun and we take four passengers
@@ -61,7 +61,7 @@
 	energy_drain = 30
 	projectiles_per_shot = 3
 	projectile = /obj/item/projectile/beam
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'resources/sound/weapons/Laser.ogg'
 
 /obj/mecha/working/cvrt/upgraded
 	name = "Upgraded Combat Vehicle"
@@ -83,7 +83,7 @@
 
 /obj/effect/decal/mecha_wreckage/cvrt
 	name = "CVR wreckage"
-	icon = 'icons/urist/vehicles/cvrt.dmi'
+	icon = 'resources/icons/urist/vehicles/cvrt.dmi'
 	bound_width = 64
 	bound_height = 64
 	icon_state = "cvrt-broken"
@@ -97,7 +97,7 @@
 
 /obj/effect/decal/mecha_wreckage/rcvrt
 	name = "CVR wreckage"
-	icon = 'icons/urist/vehicles/cvrt.dmi'
+	icon = 'resources/icons/urist/vehicles/cvrt.dmi'
 	bound_width = 64
 	bound_height = 64
 	icon_state = "rcvrt-broken"

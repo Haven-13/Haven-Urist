@@ -34,7 +34,7 @@
 			H.do_attack_animation(src)
 			var/damage = rand(0, 9)
 			if(!damage)
-				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+				playsound(loc, 'resources/sound/weapons/punchmiss.ogg', 25, 1, -1)
 				visible_message("<span class='danger'>\The [H] has attempted to punch \the [src]!</span>")
 				return 0
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
@@ -168,28 +168,28 @@
 			var/attack_message
 			if(!accurate)
 				/* ~Hubblenaut
-					This place is kind of convoluted and will need some explaining.
-					ran_zone() will pick out of 11 zones, thus the chance for hitting
-					our target where we want to hit them is circa 9.1%.
+				*	This place is kind of convoluted and will need some explaining.
+				*	ran_zone() will pick out of 11 zones, thus the chance for hitting
+				*	our target where we want to hit them is circa 9.1%.
 
-					Now since we want to statistically hit our target organ a bit more
-					often than other organs, we add a base chance of 20% for hitting it.
+				*	Now since we want to statistically hit our target organ a bit more
+				*	often than other organs, we add a base chance of 20% for hitting it.
 
-					This leaves us with the following chances:
+				*	This leaves us with the following chances:
 
-					If aiming for chest:
-						27.3% chance you hit your target organ
-						70.5% chance you hit a random other organ
-						 2.2% chance you miss
+				*	If aiming for chest:
+				*		27.3% chance you hit your target organ
+				*		70.5% chance you hit a random other organ
+				*		 2.2% chance you miss
 
-					If aiming for something else:
-						23.2% chance you hit your target organ
-						56.8% chance you hit a random other organ
-						15.0% chance you miss
+				*	If aiming for something else:
+				*		23.2% chance you hit your target organ
+				*		56.8% chance you hit a random other organ
+				*		15.0% chance you miss
 
-					Note: We don't use get_zone_with_miss_chance() here since the chances
-						  were made for projectiles.
-					TODO: proc for melee combat miss chances depending on organ?
+				*	Note: We don't use get_zone_with_miss_chance() here since the chances
+				*	     were made for projectiles.
+				*	TODO: proc for melee combat miss chances depending on organ?
 				*/
 				if(prob(80))
 					hit_zone = ran_zone(hit_zone)
@@ -211,7 +211,7 @@
 			else
 				H.visible_message("<span class='danger'>[attack_message]</span>")
 
-			playsound(loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
+			playsound(loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'resources/sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
 			admin_attack_log(H, src, "[miss_type ? (miss_type == 1 ? "Has missed" : "Was blocked by") : "Has [pick(attack.attack_verb)]"] their victim.", "[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] their attacker", "[miss_type ? (miss_type == 1 ? "has missed" : "was blocked by") : "has [pick(attack.attack_verb)]"]")
 
 			if(miss_type)
@@ -309,7 +309,7 @@
 	return 1
 
 /obj/item/pressure //could this be a grab? probably. does it matter? probably not
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 	icon_state = "pressure"
 	was_bloodied = TRUE
 	var/obj/item/organ/external/applied

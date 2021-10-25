@@ -72,7 +72,7 @@
 	icon_state = "mecha_laser"
 	energy_drain = 3 KILOWATTS
 	projectile = /obj/item/projectile/beam
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'resources/sound/weapons/Laser.ogg'
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/riggedlaser
 	equip_cooldown = 30
@@ -81,7 +81,7 @@
 	icon_state = "mecha_laser"
 	energy_drain = 10 KILOWATTS // Inefficient
 	projectile = /obj/item/projectile/beam
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'resources/sound/weapons/Laser.ogg'
 	required_type = list(/obj/mecha/combat, /obj/mecha/working)
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/heavy
@@ -90,7 +90,7 @@
 	icon_state = "mecha_laser"
 	energy_drain = 6 KILOWATTS
 	projectile = /obj/item/projectile/beam/heavylaser
-	fire_sound = 'sound/weapons/lasercannonfire.ogg'
+	fire_sound = 'resources/sound/weapons/lasercannonfire.ogg'
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/ion
 	equip_cooldown = 40
@@ -98,7 +98,7 @@
 	icon_state = "mecha_ion"
 	energy_drain = 25 KILOWATTS
 	projectile = /obj/item/projectile/ion
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'resources/sound/weapons/Laser.ogg'
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/pulse
 	equip_cooldown = 30
@@ -107,7 +107,7 @@
 	energy_drain = 15 KILOWATTS
 	origin_tech = list(TECH_MATERIAL = 3, TECH_COMBAT = 6, TECH_POWER = 4)
 	projectile = /obj/item/projectile/beam/pulse/heavy
-	fire_sound = 'sound/weapons/marauder.ogg'
+	fire_sound = 'resources/sound/weapons/marauder.ogg'
 
 /obj/item/projectile/beam/pulse/heavy
 	name = "heavy pulse laser"
@@ -119,7 +119,7 @@
 	energy_drain = 2 KILOWATTS
 	equip_cooldown = 8
 	projectile = /obj/item/projectile/beam/stun
-	fire_sound = 'sound/weapons/Taser.ogg'
+	fire_sound = 'resources/sound/weapons/Taser.ogg'
 
 /* Commenting this out rather than removing it because it may be useful for reference.
 /obj/item/mecha_parts/mecha_equipment/weapon/honker
@@ -144,7 +144,7 @@
 		if(!equip_ready)
 			return 0
 
-		playsound(chassis, 'sound/items/AirHorn.ogg', 100, 1)
+		playsound(chassis, 'resources/sound/items/AirHorn.ogg', 100, 1)
 		chassis.occupant_message("<font color='red' size='5'>HONK</font>")
 		for(var/mob/living/carbon/M in ohearers(6, chassis))
 			if(istype(M, /mob/living/carbon/human))
@@ -197,7 +197,7 @@
 	icon_state = "mecha_scatter"
 	equip_cooldown = 20
 	projectile = /obj/item/projectile/bullet/pistol/medium
-	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/shotgun.ogg'
 	fire_volume = 80
 	projectiles = 40
 	projectiles_per_shot = 4
@@ -209,7 +209,7 @@
 	icon_state = "mecha_uac2"
 	equip_cooldown = 10
 	projectile = /obj/item/projectile/bullet/pistol/medium
-	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/gunshot3.ogg'
 	projectiles = 300
 	projectiles_per_shot = 3
 	deviation = 0.3
@@ -227,7 +227,7 @@
 	name = "\improper BNI Flare Launcher"
 	icon_state = "mecha_flaregun"
 	projectile = /obj/item/device/flashlight/flare
-	fire_sound = 'sound/weapons/tablehit1.ogg'
+	fire_sound = 'resources/sound/weapons/tablehit1.ogg'
 	auto_rearm = 1
 	fire_cooldown = 20
 	projectiles_per_shot = 1
@@ -245,7 +245,7 @@
 	name = "\improper SRM-8 missile rack"
 	icon_state = "mecha_missilerack"
 	projectile = /obj/item/missile
-	fire_sound = 'sound/effects/bang.ogg'
+	fire_sound = 'resources/sound/effects/bang.ogg'
 	projectiles = 8
 	projectile_energy_cost = 200 KILOWATTS
 	equip_cooldown = 60
@@ -256,24 +256,24 @@
 	..()
 
 /obj/item/missile
-	icon = 'icons/obj/grenade.dmi'
+	icon = 'resources/icons/obj/grenade.dmi'
 	icon_state = "missile"
 	var/primed = null
 	throwforce = 15
 
-	throw_impact(atom/hit_atom)
-		if(primed)
-			explosion(hit_atom, 0, 1, 2, 4)
-			qdel(src)
-		else
-			..()
-		return
+/obj/item/missile/throw_impact(atom/hit_atom)
+	if(primed)
+		explosion(hit_atom, 0, 1, 2, 4)
+		qdel(src)
+	else
+		..()
+	return
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang
 	name = "\improper SGL-6 grenade launcher"
 	icon_state = "mecha_grenadelnchr"
 	projectile = /obj/item/weapon/grenade/flashbang
-	fire_sound = 'sound/effects/bang.ogg'
+	fire_sound = 'resources/sound/effects/bang.ogg'
 	projectiles = 6
 	missile_speed = 1.5
 	projectile_energy_cost = 200 KILOWATTS

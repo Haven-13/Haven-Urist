@@ -1,7 +1,7 @@
 /atom/movable/map_view
 	var/assigned_map
-	var/list/obj/screen/plane_master/plane_master_cache = list()
-	var/list/obj/screen/openspace_overlay/openspace_overlay_cache = list()
+	var/list/atom/movable/screen/plane_master/plane_master_cache = list()
+	var/list/atom/movable/screen/openspace_overlay/openspace_overlay_cache = list()
 
 	var/list/active_planes = list()
 	var/list/active_overlays = list()
@@ -11,8 +11,8 @@
 
 /atom/movable/map_view/Destroy()
 	. = ..()
-	QDEL_NULL_ASSOC_LIST(plane_master_cache)
-	QDEL_NULL_ASSOC_LIST(openspace_overlay_cache)
+	QDEL_NULL_ASSOC_VAL_LIST(plane_master_cache)
+	QDEL_NULL_ASSOC_VAL_LIST(openspace_overlay_cache)
 	// Just null those lists, they are subsets of the caches above
 	// Or do you want to get a spam of "could not GC X"?
 	active_planes = null
@@ -23,10 +23,10 @@
 	active_overlays.Cut()
 
 	for(var/idx in 1 to z_depth)
-		for(var/mytype in subtypesof(/obj/screen/plane_master))
+		for(var/mytype in subtypesof(/atom/movable/screen/plane_master))
 			var/key = "[idx]-[mytype]"
 			if(!plane_master_cache.Find(key))
-				var/obj/screen/plane_master/instance = new mytype()
+				var/atom/movable/screen/plane_master/instance = new mytype()
 				instance.update_screen_plane(idx)
 				instance.screen_loc = "CENTER"
 				if(assigned_map)
@@ -39,7 +39,7 @@
 			for (var/pidx in multiz_rendering_planes())
 				var/key = "[idx]-[pidx]"
 				if(!openspace_overlay_cache.Find(key))
-					var/obj/screen/openspace_overlay/oover = new
+					var/atom/movable/screen/openspace_overlay/oover = new
 					oover.plane = calculate_plane(idx, pidx)
 					oover.alpha = min(255,z_delta*60 + 30)
 					oover.screen_loc = "CENTER"
@@ -49,29 +49,35 @@
 				active_overlays[key] += openspace_overlay_cache[key]
 
 /atom/movable/map_view/proc/add_all_active(var/mob/mymob)
-	if(!mymob.client)
+	. = client_add_all_active(mymob.client)
+
+/atom/movable/map_view/proc/client_add_all_active(client/C)
+	if(!C)
 		return
 
 	for(var/key in active_planes)
-		var/obj/screen/plane_master/PM = active_planes[key]
-		mymob.client.screen += PM
-		PM.backdrop(mymob)
+		var/atom/movable/screen/plane_master/PM = active_planes[key]
+		C.screen |= PM
+		PM.backdrop(C)
 
 	for(var/key in active_overlays)
-		var/obj/screen/openspace_overlay/OO = active_overlays[key]
-		mymob.client.screen += OO
+		var/atom/movable/screen/openspace_overlay/OO = active_overlays[key]
+		C.screen |= OO
 
 /atom/movable/map_view/proc/clear_all(var/mob/mymob)
-	if(!mymob.client)
+	. = client_clear_all(mymob.client)
+
+/atom/movable/map_view/proc/client_clear_all(client/C)
+	if(!C)
 		return
 
 	for(var/key in active_planes)
-		var/obj/screen/plane_master/PM = active_planes[key]
-		mymob.client.screen -= PM
+		var/atom/movable/screen/plane_master/PM = active_planes[key]
+		C.screen -= PM
 
 	for(var/key in active_overlays)
-		var/obj/screen/openspace_overlay/OO = active_overlays[key]
-		mymob.client.screen -= OO
+		var/atom/movable/screen/openspace_overlay/OO = active_overlays[key]
+		C.screen -= OO
 
 /atom/movable/map_view/proc/get_active_planes()
 	return active_planes

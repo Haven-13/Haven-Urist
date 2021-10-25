@@ -1,6 +1,6 @@
 /mob/living/simple_animal
 	name = "animal"
-	icon = 'icons/mob/animal.dmi'
+	icon = 'resources/icons/mob/animal.dmi'
 	health = 20
 	maxHealth = 20
 
@@ -157,7 +157,7 @@
 		if(abs(environment.temperature - bodytemperature) > 40 )
 			bodytemperature += ((environment.temperature - bodytemperature) / 5)
 
-		 // don't bother checking it twice if we got a supplied 0 val.
+		// don't bother checking it twice if we got a supplied 0 val.
 		if(atmos_suitable)
 			if(LAZY_LENGTH(min_gas))
 				for(var/gas in min_gas)

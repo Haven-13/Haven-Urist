@@ -1,7 +1,7 @@
 /obj/item/modular_computer/console
 	name = "console"
 	desc = "A stationary computer."
-	icon = 'icons/obj/modular_console.dmi'
+	icon = 'resources/icons/obj/modular_console.dmi'
 	icon_state = "console"
 	icon_state_unpowered = "console"
 	icon_state_menu = "menu"

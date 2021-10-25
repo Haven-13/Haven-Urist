@@ -1,7 +1,7 @@
 /obj/machinery/status_light
 	name = "combustion chamber status indicator"
 	desc = "A status indicator for a combustion chamber, based on temperature."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "doortimer-p"
 	var/frequency = 1439
 	var/id_tag

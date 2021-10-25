@@ -3,17 +3,17 @@
 	* not me. All I did was just refactor the /obj/effect/mine crap to use the beautiful
 	* obj/item/weapon/mine instead
 	*
- 	*/
+	*/
 
 /obj/item/weapon/mine
 	name = "land mine"
 	desc = "Mines and libertarians have one thing in common, a 'No Step' label."
 	density = 0
 	anchored = 0
-	plane = OBJ_PLANE
+	plane = DEFAULT_PLANE
 	layer = OBJ_LAYER
 	throwpass = 1
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'resources/icons/obj/weapons.dmi'
 	icon_state = "uglymine"
 
 	var/triggered = 0
@@ -30,8 +30,8 @@
 	src.anchored = TRUE
 	icon_state = "uglyminearmed"
 
-	var/image/I = image('icons/urist/jungle/turfs.dmi', "exclamation")
-	I.plane = src.get_float_plane(OBJ_PLANE)
+	var/image/I = image('resources/icons/urist/jungle/turfs.dmi', "exclamation")
+	I.plane = src.get_float_plane(DEFAULT_PLANE)
 	I.layer = src.layer + 0.5
 
 	src.overlays += I
@@ -122,7 +122,7 @@
 /obj/item/weapon/mine/n2o/on_trigger(atom/movable/A)
 	for (var/turf/simulated/floor/target in range(1,src))
 		if(!target.blocks_air)
-			target.assume_gas("sleeping_agent", 30)
+			target.assume_gas("nitrous_oxide", 30)
 
 /obj/item/weapon/mine/stun
 	name = "stun mine"

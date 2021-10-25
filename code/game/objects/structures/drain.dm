@@ -3,7 +3,7 @@
 /obj/structure/drain
 	name = "gutter"
 	desc = "You probably can't get sucked down the plughole."
-	icon = 'icons/obj/drain.dmi'
+	icon = 'resources/icons/obj/drain.dmi'
 	icon_state = "drain"
 	anchored = 1
 	density = 0

@@ -4,8 +4,8 @@
 	item_icons = URIST_ALL_ONMOBS
 	name = "winter coat"
 	desc = "A coat that protects against the bitter cold."
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-//	icon_override = 'icons/uristmob/clothes.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
+//	icon_override = 'resources/icons/uristmob/clothes.dmi'
 	icon_state = "coatwinter"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -75,8 +75,8 @@
 
 /obj/item/clothing/suit/armor/vest/jacket
 	name = "military jacket"
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon_override = 'resources/icons/uristmob/clothes.dmi'
 	desc = "An old military jacket, it has armoring."
 	icon_state = "militaryjacket"
 	item_state = "militaryjacket"
@@ -86,8 +86,8 @@
 /obj/item/clothing/head/helmet/space/void/syndistealth
 	name = "night-black hardsuit helmet"
 	desc = "A sleek, armored space helmet designed for work in covert operations. Property of MI13."
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon_override = 'resources/icons/uristmob/head.dmi'
 	icon_state = "rig0-stealth"
 	//item_color = "stealth"
 	armor = list(melee = 65, bullet = 45, laser = 30,energy = 20, bomb = 30, bio = 100, rad = 50)
@@ -96,8 +96,8 @@
 	icon_state = "stealth"
 	name = "night-black hardsuit"
 	desc = "A sleek, armored space suit that protects the wearer against injuries during covert operations. Unique syndicate technology allows it to be carried in a backpack when not in use. Property of MI13."
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon_override = 'resources/icons/uristmob/clothes.dmi'
 	w_class = 3
 	armor = list(melee = 65, bullet = 45, laser = 30, energy = 20, bomb = 30, bio = 100, rad = 50)
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency)
@@ -112,7 +112,7 @@
 /obj/item/clothing/head/helmet/space/void/security/cold
 	name = "security cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low pressure environment. Has an additional layer of armor."
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_state = "rig0-seccold"
 	item_state = "rig0-seccold"
 	//item_color = "seccold"
@@ -122,14 +122,14 @@
 	icon_state = "cryo-security"
 	name = "security cryo hardsuit"
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has an additional layer of armor."
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
 	item_icons = URIST_ALL_ONMOBS
 
 //Engineering
 /obj/item/clothing/head/helmet/space/void/engineering/cold
 	name = "engineering cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low-pressure environment. Has radiation shielding."
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_state = "rig0-engicold"
 	item_state = "rig0-engicold"
 	//item_color = "engicold"
@@ -138,7 +138,7 @@
 /obj/item/clothing/suit/space/void/engineering/cold
 	name = "engineering cryo hardsuit"
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has radiation shielding."
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_state = "cryo-engineering"
 	item_icons = URIST_ALL_ONMOBS
 
@@ -146,7 +146,7 @@
 /obj/item/clothing/head/helmet/space/void/atmos/cold
 	name = "atmospherics cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low-pressure environment. Has thermal shielding."
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_state = "rig0-atmocold"
 	item_state = "rig0-atmocold"
 	//item_color = "atmocold"
@@ -155,7 +155,7 @@
 /obj/item/clothing/suit/space/void/atmos/cold
 	name = "atmospherics cryo hardsuit"
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has thermal shielding."
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_state = "cryo-atmos"
 	item_state = "atmo_coldsuit"
 	item_icons = URIST_ALL_ONMOBS
@@ -164,7 +164,7 @@
 /obj/item/clothing/head/helmet/space/void/mining/cold
 	name = "mining cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low pressure environment. Has reinforced plating."
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_state = "rig0-minecold"
 	item_state = "rig0-minecold"
 	//item_color = "minecold"
@@ -174,14 +174,14 @@
 	icon_state = "cryo-mining"
 	name = "mining cryo hardsuit"
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has reinforced plating."
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
 	item_icons = URIST_ALL_ONMOBS
 
 //pants
 
 /*/obj/item/clothing/under/pants
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon_override = 'resources/icons/uristmob/clothes.dmi'
 	gender = PLURAL
 	body_parts_covered = LOWER_TORSO|LEGS*/
 
@@ -218,8 +218,8 @@
 /obj/item/clothing/suit/nerdshirt
 	name = "gamer shirt"
 	desc = "A baggy shirt with vintage game character Phanic the Weasel. Why would someone wear this?"
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon_override = 'resources/icons/uristmob/clothes.dmi'
 	icon_state = "nerdshirt"
 	item_state = "nerdshirt"
 
@@ -228,8 +228,8 @@
 /obj/item/clothing/head/beanie
 	name = "beanie"
 	desc = "A dirty looking beanie."
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon_override = 'resources/icons/uristmob/head.dmi'
 	icon_state = "beanie"
 	cold_protection = HEAD
 	min_cold_protection_temperature = 243.15
@@ -240,8 +240,8 @@
 	item_icons = URIST_ALL_ONMOBS
 	name = "captain's carapace"
 	desc = "An armored vest reinforced with ceramic plates and pauldrons to provide additional protection whilst still offering maximum mobility and flexibility. Issued only to the station's finest, although it does chafe your nipples."
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-//	icon_override = 'icons/uristmob/clothes.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
+//	icon_override = 'resources/icons/uristmob/clothes.dmi'
 	icon_state = "capcarapace"
 	item_state = "armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
@@ -252,14 +252,14 @@
 /obj/item/clothing/suit/urist/billydonka
 	name = "candyman vest"
 	desc = "The candy man can 'cause he mixes it with love and makes the world taste good."
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_state = "billydonkaoutfit"
 	item_state = "billydonkaoutfit"
 
 /obj/item/clothing/under/urist/billydonka
 	name = "candyman outfit"
 	desc = "Who can take a rainbow and wrap it in a sigh?"
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_state = "billydonka"
 	item_state = "billydonka"
 	//item_color = "billydonka"
@@ -267,6 +267,6 @@
 /obj/item/clothing/head/urist/billydonka
 	name = "candyman's hat"
 	desc = "And the world tastes good 'cause the candyman thinks it should.."
-	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon = 'resources/icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_state = "billydonkahat"
 	item_state = "billydonkahat"

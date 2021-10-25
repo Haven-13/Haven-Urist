@@ -5,14 +5,14 @@
 ***********************************************************************/
 /obj/item/borg/overdrive
 	name = "overdrive"
-	icon = 'icons/obj/decals.dmi'
+	icon = 'resources/icons/obj/decals.dmi'
 	icon_state = "shock"
 
 /**********************************************************************
 						HUD/SIGHT things
 ***********************************************************************/
 /obj/item/borg/sight
-	icon = 'icons/obj/decals.dmi'
+	icon = 'resources/icons/obj/decals.dmi'
 	icon_state = "securearea"
 	var/sight_mode = null
 	var/hud_type
@@ -27,14 +27,14 @@
 	name = "\proper thermal vision"
 	sight_mode = BORGTHERM
 	icon_state = "thermal"
-	icon = 'icons/obj/clothing/glasses.dmi'
+	icon = 'resources/icons/obj/clothing/glasses.dmi'
 
 
 /obj/item/borg/sight/meson
 	name = "\proper meson vision"
 	sight_mode = BORGMESON
 	icon_state = "meson"
-	icon = 'icons/obj/clothing/glasses.dmi'
+	icon = 'resources/icons/obj/clothing/glasses.dmi'
 
 /obj/item/borg/sight/material
 	name = "\proper material scanner vision"
@@ -48,7 +48,7 @@
 /obj/item/borg/sight/hud/med
 	name = "medical hud"
 	icon_state = "healthhud"
-	icon = 'icons/obj/clothing/glasses.dmi'
+	icon = 'resources/icons/obj/clothing/glasses.dmi'
 	hud_type = HUD_MEDICAL
 
 /obj/item/borg/sight/hud/med/New()
@@ -60,7 +60,7 @@
 /obj/item/borg/sight/hud/sec
 	name = "security hud"
 	icon_state = "securityhud"
-	icon = 'icons/obj/clothing/glasses.dmi'
+	icon = 'resources/icons/obj/clothing/glasses.dmi'
 	hud_type = HUD_SECURITY
 
 /obj/item/borg/sight/hud/sec/New()

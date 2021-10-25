@@ -83,7 +83,7 @@ GLOBAL_LIST_INIT(atmos_pipe_recipes, list(
 /obj/item/weapon/rpd
 	name = "rapid piping device"
 	desc = "A rapid piping device. This is a miniaturized piping dispenser mounted onto a portable frame and power supply, and employs advanced technology - such as a robotic arm holding a wrench, to automatically fasten pipes."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "rcd"
 	opacity = 0
 	density = 0
@@ -111,13 +111,13 @@ GLOBAL_LIST_INIT(atmos_pipe_recipes, list(
 /obj/item/weapon/rpd/attack_self(mob/user)
 	active_category = next_in_list(active_category, GLOB.atmos_pipe_recipes)
 	to_chat(user, "<span class='notice'>Selected [active_category].</span>")
-	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
+	playsound(src.loc, 'resources/sound/effects/pop.ogg', 50, 0)
 	activedesign = GLOB.atmos_pipe_recipes[active_category][1]
 
 /obj/item/weapon/rpd/AltClick(mob/user)
 	activedesign = next_in_list(activedesign, GLOB.atmos_pipe_recipes[active_category])
 	to_chat(user, "<span class='notice'>Selected [activedesign.name].</span>")
-	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
+	playsound(src.loc, 'resources/sound/effects/pop.ogg', 50, 0)
 	active_direction = activedesign.pipedirdefault
 
 /obj/item/weapon/rpd/afterattack(var/atom/A, var/mob/user, proximity, params)

@@ -12,7 +12,7 @@
 	release_force = 80
 	fire_sound_text = "a whoosh and a crisp, papery rustle"
 	fire_delay = 1
-	fire_sound = 'sound/weapons/gunshot/money_launcher.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/money_launcher.ogg'
 	var/emagged = 0
 
 	var/receptacle_value = 0
@@ -44,7 +44,7 @@
 		playsound(T, "sound/weapons/gunshot/money_launcher_jackpot.ogg", 100, 1)
 	else
 		vomit_onto.visible_message("<span class='danger'>\The [vomit_onto] ejects a few thaler into their face.</span>")
-		playsound(T, 'sound/weapons/gunshot/money_launcher.ogg', 100, 1)
+		playsound(T, 'resources/sound/weapons/gunshot/money_launcher.ogg', 100, 1)
 
 	receptacle_value = 0
 

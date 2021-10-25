@@ -94,8 +94,10 @@
 	id = "CentComm Hub"
 	network = "tcommsat"
 	produces_heat = 0
-	autolinkers = list("hub_cent", "c_relay", "s_relay", "m_relay", "r_relay", "s1_relay", "s2_relay",
-	 "centcomm", "receiverCent", "broadcasterCent")
+	autolinkers = list(
+		"hub_cent", "c_relay", "s_relay", "m_relay", "r_relay", "s1_relay", "s2_relay",
+		"centcomm", "receiverCent", "broadcasterCent"
+	)
 
 /obj/machinery/telecomms/hub/preset/wyrm
 	autolinkers = list("busWyrm", "serverWyrm", "receiverWyrm", "broadcasterWyrm", "prim_relay", "sub_relay")
@@ -111,11 +113,11 @@
 	autolinkers = list("receiverA") // link to relay
 	freq_listening = list(AI_FREQ, SCI_FREQ, MED_FREQ, SUP_FREQ, SRV_FREQ, COMM_FREQ, ENG_FREQ, SEC_FREQ, ENT_FREQ)
 
-	//Common and other radio frequencies for people to freely use
-	New()
-		for(var/i = PUBLIC_LOW_FREQ, i < PUBLIC_HIGH_FREQ, i += 2)
-			freq_listening |= i
-		..()
+//Common and other radio frequencies for people to freely use
+/obj/machinery/telecomms/receiver/preset_right/New()
+	for(var/i = PUBLIC_LOW_FREQ, i < PUBLIC_HIGH_FREQ, i += 2)
+		freq_listening |= i
+	..()
 
 /obj/machinery/telecomms/receiver/preset_cent
 	id = "CentComm Receiver"

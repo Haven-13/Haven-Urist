@@ -2,7 +2,7 @@
 	gender = PLURAL
 	name = "red lipstick"
 	desc = "A generic brand of lipstick."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "lipstick"
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
@@ -53,16 +53,22 @@
 				to_chat(user, "<span class='notice'>You need to wipe off the old lipstick first!</span>")
 				return
 			if(H == user)
-				user.visible_message("<span class='notice'>[user] does their lips with \the [src].</span>", \
-									 "<span class='notice'>You take a moment to apply \the [src]. Perfect!</span>")
+				user.visible_message(
+					"<span class='notice'>[user] does their lips with \the [src].</span>",
+					"<span class='notice'>You take a moment to apply \the [src]. Perfect!</span>"
+				)
 				H.lip_style = colour
 				H.update_body()
 			else
-				user.visible_message("<span class='warning'>[user] begins to do [H]'s lips with \the [src].</span>", \
-									 "<span class='notice'>You begin to apply \the [src].</span>")
+				user.visible_message(
+					"<span class='warning'>[user] begins to do [H]'s lips with \the [src].</span>",
+					"<span class='notice'>You begin to apply \the [src].</span>"
+				)
 				if(do_after(user, 20, H) && do_after(H, 20, needhand = 0, progress = 0, incapacitation_flags = INCAPACITATION_NONE))	//user needs to keep their active hand, H does not.
-					user.visible_message("<span class='notice'>[user] does [H]'s lips with \the [src].</span>", \
-										 "<span class='notice'>You apply \the [src].</span>")
+					user.visible_message(
+						"<span class='notice'>[user] does [H]'s lips with \the [src].</span>",
+						"<span class='notice'>You apply \the [src].</span>"
+					)
 					H.lip_style = colour
 					H.update_body()
 	else if(istype(A, /obj/item/organ/external/head))
@@ -77,7 +83,7 @@
 	desc = "A pristine comb made from flexible plastic."
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "comb"
 	item_state = "comb"
 

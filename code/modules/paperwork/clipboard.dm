@@ -1,6 +1,6 @@
 /obj/item/weapon/clipboard
 	name = "clipboard"
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'resources/icons/obj/bureaucracy.dmi'
 	icon_state = "clipboard"
 	item_state = "clipboard"
 	throwforce = 0
@@ -18,7 +18,7 @@
 /obj/item/weapon/clipboard/MouseDrop(obj/over_object as obj) //Quick clipboard fix. -Agouri
 	if(ishuman(usr))
 		var/mob/M = usr
-		if(!(istype(over_object, /obj/screen) ))
+		if(!(istype(over_object, /atom/movable/screen) ))
 			return ..()
 
 		if(!M.restrained() && !M.stat)

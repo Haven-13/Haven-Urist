@@ -39,7 +39,7 @@
 /obj/machinery/dna_scannernew
 	name = "\improper DNA modifier"
 	desc = "It scans DNA structures."
-	icon = 'icons/obj/Cryogenic2.dmi'
+	icon = 'resources/icons/obj/Cryogenic2.dmi'
 	icon_state = "scanner_0"
 	density = 1
 	anchored = 1.0
@@ -221,7 +221,7 @@
 /obj/machinery/computer/scan_consolenew
 	name = "DNA Modifier Access Console"
 	desc = "Scan DNA."
-	icon = 'icons/obj/computer.dmi'
+	icon = 'resources/icons/obj/computer.dmi'
 	icon_keyboard = "med_key"
 	icon_screen = "dna"
 	density = 1

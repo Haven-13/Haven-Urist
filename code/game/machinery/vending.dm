@@ -5,7 +5,7 @@
 /obj/machinery/vending
 	name = "Vendomat"
 	desc = "A generic vending machine."
-	icon = 'icons/obj/vending.dmi'
+	icon = 'resources/icons/obj/vending.dmi'
 	icon_state = "generic"
 	layer = BELOW_OBJ_LAYER
 	anchored = 1
@@ -999,8 +999,16 @@
 		/obj/item/seeds/riceseed = 3,
 		/obj/item/seeds/lavenderseed = 3
 	)
-	contraband = list(/obj/item/seeds/amanitamycelium = 2,/obj/item/seeds/glowshroom = 2,/obj/item/seeds/libertymycelium = 2,/obj/item/seeds/mtearseed = 2,
-					  /obj/item/seeds/nettleseed = 2,/obj/item/seeds/reishimycelium = 2,/obj/item/seeds/reishimycelium = 2,/obj/item/seeds/shandseed = 2,)
+	contraband = list(
+		/obj/item/seeds/amanitamycelium = 2,
+		/obj/item/seeds/glowshroom = 2,
+		/obj/item/seeds/libertymycelium = 2,
+		/obj/item/seeds/mtearseed = 2,
+		/obj/item/seeds/nettleseed = 2,
+		/obj/item/seeds/reishimycelium = 2,
+		/obj/item/seeds/reishimycelium = 2,
+		/obj/item/seeds/shandseed = 2,
+	)
 	premium = list(/obj/item/weapon/reagent_containers/spray/waterflower = 1)
 
 /**
@@ -1207,17 +1215,19 @@
 					/obj/item/weapon/towel/random = 6
 					)
 	premium = list(/obj/item/weapon/soap/gold = 1)
-	contraband = list(/obj/item/weapon/soap/syndie = 4,
-					  /obj/item/weapon/inflatable_duck = 1)
-	prices = list(/obj/item/weapon/soap = 20,
-				  /obj/item/weapon/soap/nanotrasen = 30,
-				  /obj/item/weapon/soap/deluxe = 60,
-				  /obj/item/weapon/soap/syndie = 10,
-				  /obj/item/weapon/mirror = 40,
-				  /obj/item/weapon/haircomb/random = 40,
-				  /obj/item/weapon/haircomb/brush = 80,
-				  /obj/item/weapon/towel/random = 50
-					)
+	contraband = list(
+		/obj/item/weapon/soap/syndie = 4,
+		/obj/item/weapon/inflatable_duck = 1)
+	prices = list(
+		/obj/item/weapon/soap = 20,
+		/obj/item/weapon/soap/nanotrasen = 30,
+		/obj/item/weapon/soap/deluxe = 60,
+		/obj/item/weapon/soap/syndie = 10,
+		/obj/item/weapon/mirror = 40,
+		/obj/item/weapon/haircomb/random = 40,
+		/obj/item/weapon/haircomb/brush = 80,
+		/obj/item/weapon/towel/random = 50
+	)
 
 //a food variant of the boda machine, only has one item currently.
 /obj/machinery/vending/snix

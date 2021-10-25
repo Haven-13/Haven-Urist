@@ -52,7 +52,7 @@ var/list/flooring_types
 /decl/flooring/grass
 	name = "grass"
 	desc = "Do they smoke grass out in space, Bowie? Or do they smoke AstroTurf?"
-	icon = 'icons/turf/flooring/grass.dmi'
+	icon = 'resources/icons/turf/flooring/grass.dmi'
 	icon_base = "grass"
 	has_base_range = 3
 	damage_temperature = T0C+80
@@ -63,7 +63,7 @@ var/list/flooring_types
 /decl/flooring/asteroid
 	name = "coarse sand"
 	desc = "Gritty and unpleasant."
-	icon = 'icons/turf/flooring/asteroid.dmi'
+	icon = 'resources/icons/turf/flooring/asteroid.dmi'
 	icon_base = "asteroid"
 	flags = TURF_HAS_EDGES | TURF_REMOVE_SHOVEL
 	build_type = null
@@ -72,7 +72,7 @@ var/list/flooring_types
 /decl/flooring/carpet
 	name = "brown carpet"
 	desc = "Comfy and fancy carpeting."
-	icon = 'icons/turf/flooring/carpet.dmi'
+	icon = 'resources/icons/turf/flooring/carpet.dmi'
 	icon_base = "brown"
 	build_type = /obj/item/stack/tile/carpet
 	damage_temperature = T0C+200
@@ -112,7 +112,7 @@ var/list/flooring_types
 /decl/flooring/linoleum
 	name = "linoleum"
 	desc = "It's like the 2390's all over again."
-	icon = 'icons/turf/flooring/linoleum.dmi'
+	icon = 'resources/icons/turf/flooring/linoleum.dmi'
 	icon_base = "lino"
 	can_paint = 1
 	build_type = /obj/item/stack/tile/linoleum
@@ -121,7 +121,7 @@ var/list/flooring_types
 /decl/flooring/tiling
 	name = "floor"
 	desc = "Scuffed from the passage of countless greyshirts."
-	icon = 'icons/turf/flooring/tiles.dmi'
+	icon = 'resources/icons/turf/flooring/tiles.dmi'
 	icon_base = "tiled"
 	color = COLOR_GUNMETAL
 	has_damage_range = 4
@@ -169,7 +169,7 @@ var/list/flooring_types
 	build_type = /obj/item/stack/tile/floor_freezer
 
 /decl/flooring/tiling/tech
-	icon = 'icons/turf/flooring/techfloor.dmi'
+	icon = 'resources/icons/turf/flooring/techfloor.dmi'
 	icon_base = "techfloor_gray"
 	build_type = /obj/item/stack/tile/techgrey
 	color = null
@@ -208,13 +208,13 @@ var/list/flooring_types
 
 /decl/flooring/tiling/sand
 	color = ""
-	icon = 'icons/turf/flooring/asteroid.dmi'
+	icon = 'resources/icons/turf/flooring/asteroid.dmi'
 	icon_base = "asteroidfloor"
 
 /decl/flooring/wood
 	name = "wooden floor"
 	desc = "Polished redwood planks."
-	icon = 'icons/turf/flooring/wood.dmi'
+	icon = 'resources/icons/turf/flooring/wood.dmi'
 	icon_base = "wood"
 	has_damage_range = 6
 	damage_temperature = T0C+200
@@ -225,7 +225,7 @@ var/list/flooring_types
 /decl/flooring/reinforced
 	name = "reinforced floor"
 	desc = "Heavily reinforced with steel plating."
-	icon = 'icons/turf/flooring/tiles.dmi'
+	icon = 'resources/icons/turf/flooring/tiles.dmi'
 	icon_base = "reinforced"
 	flags = TURF_REMOVE_WRENCH | TURF_ACID_IMMUNE
 	build_type = /obj/item/stack/material/steel
@@ -237,7 +237,7 @@ var/list/flooring_types
 
 /decl/flooring/reinforced/circuit
 	name = "processing strata"
-	icon = 'icons/turf/flooring/circuit.dmi'
+	icon = 'resources/icons/turf/flooring/circuit.dmi'
 	icon_base = "bcircuit"
 	build_type = null
 	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK | TURF_REMOVE_WRENCH
@@ -260,7 +260,7 @@ var/list/flooring_types
 
 /decl/flooring/reinforced/shuttle
 	name = "floor"
-	icon = 'icons/turf/shuttle.dmi'
+	icon = 'resources/icons/turf/shuttle.dmi'
 	build_type = null
 	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK | TURF_REMOVE_WRENCH
 	can_paint = 1
@@ -289,7 +289,7 @@ var/list/flooring_types
 
 /decl/flooring/crystal
 	name = "crystal floor"
-	icon = 'icons/turf/flooring/crystal.dmi'
+	icon = 'resources/icons/turf/flooring/crystal.dmi'
 	build_type = null
 	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK | TURF_REMOVE_CROWBAR
 	color = "#00ffe1"

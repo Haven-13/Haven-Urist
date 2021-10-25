@@ -12,7 +12,7 @@
 	var/can_use = 1
 	var/obj/effect/dummy/chameleon/active_dummy = null
 	var/saved_item = /obj/item/trash/cigbutt
-	var/saved_icon = 'icons/obj/clothing/masks.dmi'
+	var/saved_icon = 'resources/icons/obj/clothing/masks.dmi'
 	var/saved_icon_state = "cigbutt"
 	var/saved_overlays
 
@@ -31,7 +31,7 @@
 	if(!proximity) return
 	if(!active_dummy)
 		if(istype(target,/obj/item) && !istype(target, /obj/item/weapon/disk/nuclear))
-			playsound(get_turf(src), 'sound/weapons/flash.ogg', 100, 1, -6)
+			playsound(get_turf(src), 'resources/sound/weapons/flash.ogg', 100, 1, -6)
 			to_chat(user, "<span class='notice'>Scanned [target].</span>")
 			saved_item = target.type
 			saved_icon = target.icon
@@ -42,16 +42,16 @@
 	if(!can_use || !saved_item) return
 	if(active_dummy)
 		eject_all()
-		playsound(get_turf(src), 'sound/effects/pop.ogg', 100, 1, -6)
+		playsound(get_turf(src), 'resources/sound/effects/pop.ogg', 100, 1, -6)
 		qdel(active_dummy)
 		active_dummy = null
 		to_chat(usr, "<span class='notice'>You deactivate the [src].</span>")
 		var/obj/effect/overlay/T = new /obj/effect/overlay(get_turf(src))
-		T.icon = 'icons/effects/effects.dmi'
+		T.icon = 'resources/icons/effects/effects.dmi'
 		flick("emppulse",T)
 		QDEL_IN(T, 8)
 	else
-		playsound(get_turf(src), 'sound/effects/pop.ogg', 100, 1, -6)
+		playsound(get_turf(src), 'resources/sound/effects/pop.ogg', 100, 1, -6)
 		var/obj/O = new saved_item(src)
 		if(!O) return
 		var/obj/effect/dummy/chameleon/C = new /obj/effect/dummy/chameleon(usr.loc)
@@ -59,7 +59,7 @@
 		qdel(O)
 		to_chat(usr, "<span class='notice'>You activate the [src].</span>")
 		var/obj/effect/overlay/T = new/obj/effect/overlay(get_turf(src))
-		T.icon = 'icons/effects/effects.dmi'
+		T.icon = 'resources/icons/effects/effects.dmi'
 		flick("emppulse",T)
 		QDEL_IN(T, 8)
 

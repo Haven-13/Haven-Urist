@@ -1,7 +1,7 @@
 //bushes
 /obj/structure/flora/bush
 	name = "bush"
-	icon = 'icons/obj/flora/snowflora.dmi'
+	icon = 'resources/icons/obj/flora/snowflora.dmi'
 	icon_state = "snowbush1"
 	anchored = 1
 
@@ -13,7 +13,7 @@
 
 /obj/structure/flora/ausbushes
 	name = "bush"
-	icon = 'icons/obj/flora/ausflora.dmi'
+	icon = 'resources/icons/obj/flora/ausflora.dmi'
 	icon_state = "firstbush_1"
 	anchored = 1
 
@@ -132,47 +132,47 @@
 
 /obj/structure/flora/small/busha1
 	name = "bush"
-	icon = 'icons/obj/flora/jungleflora.dmi'
+	icon = 'resources/icons/obj/flora/jungleflora.dmi'
 	icon_state = "busha1"
 
 /obj/structure/flora/small/busha2
 	name = "bush"
-	icon = 'icons/obj/flora/jungleflora.dmi'
+	icon = 'resources/icons/obj/flora/jungleflora.dmi'
 	icon_state = "busha2"
 
 /obj/structure/flora/small/busha3
 	name = "bush"
-	icon = 'icons/obj/flora/jungleflora.dmi'
+	icon = 'resources/icons/obj/flora/jungleflora.dmi'
 	icon_state = "busha3"
 
 /obj/structure/flora/small/bushb1
 	name = "bush"
-	icon = 'icons/obj/flora/jungleflora.dmi'
+	icon = 'resources/icons/obj/flora/jungleflora.dmi'
 	icon_state = "bushb1"
 
 /obj/structure/flora/small/bushb2
 	name = "bush"
-	icon = 'icons/obj/flora/jungleflora.dmi'
+	icon = 'resources/icons/obj/flora/jungleflora.dmi'
 	icon_state = "bushb2"
 
 /obj/structure/flora/small/bushb3
 	name = "bush"
-	icon = 'icons/obj/flora/jungleflora.dmi'
+	icon = 'resources/icons/obj/flora/jungleflora.dmi'
 	icon_state = "bushb3"
 
 /obj/structure/flora/small/bushc1
 	name = "bush"
-	icon = 'icons/obj/flora/jungleflora.dmi'
+	icon = 'resources/icons/obj/flora/jungleflora.dmi'
 	icon_state = "bushc1"
 
 /obj/structure/flora/small/bushc2
 	name = "bush"
-	icon = 'icons/obj/flora/jungleflora.dmi'
+	icon = 'resources/icons/obj/flora/jungleflora.dmi'
 	icon_state = "bushc2"
 
 /obj/structure/flora/small/bushc3
 	name = "bush"
-	icon = 'icons/obj/flora/jungleflora.dmi'
+	icon = 'resources/icons/obj/flora/jungleflora.dmi'
 	icon_state = "bushc3"
 
 //
@@ -180,13 +180,13 @@
 //
 
 /obj/structure/flora/big/bush1
-	icon = 'icons/obj/flora/largejungleflora.dmi'
+	icon = 'resources/icons/obj/flora/largejungleflora.dmi'
 	icon_state = "bush1"
 
 /obj/structure/flora/big/bush2
-	icon = 'icons/obj/flora/largejungleflora.dmi'
+	icon = 'resources/icons/obj/flora/largejungleflora.dmi'
 	icon_state = "bush2"
 
 /obj/structure/flora/big/bush3
-	icon = 'icons/obj/flora/largejungleflora.dmi'
+	icon = 'resources/icons/obj/flora/largejungleflora.dmi'
 	icon_state = "bush3"

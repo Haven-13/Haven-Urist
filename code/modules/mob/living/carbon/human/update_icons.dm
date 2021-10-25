@@ -151,20 +151,21 @@ Please contact me on #coderbus IRC. ~Carn x
 /mob/living/carbon/human/update_icons()
 	lying_prev = lying	//so we don't update overlays for lying/standing unless our stance changes again
 	update_hud()		//TODO: remove the need for this
-	overlays.Cut()
+	cut_overlays()
 
 	var/list/overlays_to_apply = list()
+	var/image/I
 	if (icon_update)
 
 		var/list/visible_overlays
 		if(is_cloaked())
-			icon = 'icons/mob/human.dmi'
+			icon = 'resources/icons/mob/human.dmi'
 			icon_state = "blank"
 			visible_overlays = list(visible_overlays[HUMAN_OVERLAYS_R_HAND_INDEX], visible_overlays[HUMAN_OVERLAYS_L_HAND_INDEX])
 		else
 			icon = stand_icon
 			icon_state = null
-			visible_overlays = overlays_standing
+			visible_overlays = (overlays_standing + get_emissive_blocker())
 
 		var/matrix/M = matrix()
 		if(lying && (species.prone_overlay_offset[1] || species.prone_overlay_offset[2]))
@@ -177,6 +178,12 @@ Please contact me on #coderbus IRC. ~Carn x
 				if(i != HUMAN_OVERLAYS_DAMAGE_INDEX)
 					overlay.transform = M
 				overlays_to_apply += overlay
+			else if(istype(entry, /atom/movable/emissive_blocker))
+				var/atom/movable/emissive_blocker/blocker = entry
+				I = image(blocker)
+				I.plane = get_float_plane(EMISSIVE_PLANE)
+				I.layer = src.layer
+				overlays_to_apply += I
 			else if(istype(entry, /list))
 				for(var/image/overlay in entry)
 					if(i != HUMAN_OVERLAYS_DAMAGE_INDEX)
@@ -185,13 +192,13 @@ Please contact me on #coderbus IRC. ~Carn x
 
 		var/obj/item/organ/external/head/head = organs_by_name[BP_HEAD]
 		if(istype(head) && !head.is_stump())
-			var/image/I = head.get_eye_overlay()
+			I = head.get_eye_overlay()
 			if(I) overlays_to_apply += I
 
 	if(auras)
 		overlays_to_apply += auras
 
-	overlays = overlays_to_apply
+	add_overlay(overlays_to_apply)
 
 	var/matrix/M = matrix()
 	if(lying)
@@ -269,7 +276,7 @@ var/global/list/damage_icon_parts = list()
 	//Create a new, blank icon for our mob to use.
 	if(stand_icon)
 		qdel(stand_icon)
-	stand_icon = new(species.icon_template || 'icons/mob/human.dmi',"blank")
+	stand_icon = new(species.icon_template || 'resources/icons/mob/human.dmi',"blank")
 
 	var/g = "male"
 	if(gender == FEMALE)
@@ -329,7 +336,7 @@ var/global/list/damage_icon_parts = list()
 			//That part makes left and right legs drawn topmost and lowermost when human looks WEST or EAST
 			//And no change in rendering for other parts (they icon_position is 0, so goes to 'else' part)
 			if(part.icon_position & (LEFT | RIGHT))
-				var/icon/temp2 = new('icons/mob/human.dmi',"blank")
+				var/icon/temp2 = new('resources/icons/mob/human.dmi',"blank")
 				temp2.Insert(new/icon(temp,dir=NORTH),dir=NORTH)
 				temp2.Insert(new/icon(temp,dir=SOUTH),dir=SOUTH)
 				if(!(part.icon_position & LEFT))
@@ -423,7 +430,7 @@ var/global/list/damage_icon_parts = list()
 	if(FAT in mutations)
 		fat = "fat"
 
-	var/image/standing	= overlay_image('icons/effects/genetics.dmi', flags=RESET_COLOR)
+	var/image/standing	= overlay_image('resources/icons/effects/genetics.dmi', flags=RESET_COLOR)
 	var/add_image = 0
 	var/g = "m"
 	if(gender == FEMALE)	g = "f"
@@ -539,7 +546,7 @@ var/global/list/damage_icon_parts = list()
 
 	if(l_ear || r_ear)
 		// Blank image upon which to layer left & right overlays.
-		var/image/both = image("icon" = 'icons/effects/effects.dmi', "icon_state" = "nothing")
+		var/image/both = image("icon" = 'resources/icons/effects/effects.dmi', "icon_state" = "nothing")
 		if(l_ear)
 			both.overlays += l_ear.get_mob_overlay(src,slot_l_ear_str)
 		if(r_ear)
@@ -689,13 +696,13 @@ var/global/list/damage_icon_parts = list()
 	if(!tail_icon)
 		//generate a new one
 		var/species_tail_anim = species.get_tail_animation(src)
-		if(!species_tail_anim) species_tail_anim = 'icons/effects/species.dmi'
+		if(!species_tail_anim) species_tail_anim = 'resources/icons/effects/species.dmi'
 		tail_icon = new/icon(species_tail_anim)
 		tail_icon.Blend(rgb(r_skin, g_skin, b_skin), species.tail_blend)
 		// The following will not work with animated tails.
 		var/use_species_tail = species.get_tail_hair(src)
 		if(use_species_tail)
-			var/icon/hair_icon = icon('icons/effects/species.dmi', "[species.get_tail(src)]_[use_species_tail]")
+			var/icon/hair_icon = icon('resources/icons/effects/species.dmi', "[species.get_tail(src)]_[use_species_tail]")
 			hair_icon.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
 			tail_icon.Blend(hair_icon, ICON_OVERLAY)
 		tail_icon_cache[icon_key] = tail_icon
@@ -774,7 +781,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_fire(var/update_icons=1)
 	overlays_standing[HUMAN_OVERLAYS_FIRE_INDEX] = null
 	if(on_fire)
-		var/image/standing = overlay_image('icons/mob/OnFire.dmi', "Standing", RESET_COLOR)
+		var/image/standing = overlay_image('resources/icons/mob/OnFire.dmi', "Standing", RESET_COLOR)
 		overlays_standing[HUMAN_OVERLAYS_FIRE_INDEX] = standing
 	if(update_icons)
 		queue_icon_update()
@@ -784,7 +791,7 @@ var/global/list/damage_icon_parts = list()
 	var/image/total = new
 	for(var/obj/item/organ/external/E in organs)
 		if(!BP_IS_ROBOTIC(E) && E.how_open())
-			var/image/I = image("icon"='icons/mob/surgery.dmi', "icon_state"="[E.icon_name][round(E.how_open())]", "layer"=-HUMAN_OVERLAYS_SURGERY_INDEX)
+			var/image/I = image("icon"='resources/icons/mob/surgery.dmi', "icon_state"="[E.icon_name][round(E.how_open())]", "layer"=-HUMAN_OVERLAYS_SURGERY_INDEX)
 			total.overlays += I
 	total.appearance_flags = RESET_COLOR
 	overlays_standing[HUMAN_OVERLAYS_SURGERY_INDEX] = total

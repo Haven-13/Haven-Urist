@@ -3,7 +3,7 @@
 //When it receives the "inject" signal, it will try to pump it's entire contents into the environment regardless of pressure, using power.
 
 /obj/machinery/atmospherics/unary/outlet_injector
-	icon = 'icons/atmos/injector.dmi'
+	icon = 'resources/icons/atmos/injector.dmi'
 	icon_state = "map_injector"
 
 	name = "air injector"
@@ -105,7 +105,7 @@
 		"power" = use_power,
 		"volume_rate" = volume_rate,
 		"sigtype" = "status"
-	 )
+	)
 
 	radio_connection.post_signal(src, signal)
 

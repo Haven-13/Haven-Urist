@@ -1,7 +1,7 @@
 /obj/item/weapon/material/butterflyconstruction
 	name = "unfinished concealed knife"
 	desc = "An unfinished concealed knife, it looks like the screws need to be tightened."
-	icon = 'icons/obj/buildingobject.dmi'
+	icon = 'resources/icons/obj/buildingobject.dmi'
 	icon_state = "butterflystep1"
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
@@ -16,7 +16,7 @@
 /obj/item/weapon/material/butterflyblade
 	name = "knife blade"
 	desc = "A knife blade. Unusable as a weapon without a grip."
-	icon = 'icons/obj/buildingobject.dmi'
+	icon = 'resources/icons/obj/buildingobject.dmi'
 	icon_state = "butterfly2"
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
@@ -24,7 +24,7 @@
 /obj/item/weapon/material/butterflyhandle
 	name = "concealed knife grip"
 	desc = "A plasteel grip with screw fittings for a blade."
-	icon = 'icons/obj/buildingobject.dmi'
+	icon = 'resources/icons/obj/buildingobject.dmi'
 	icon_state = "butterfly1"
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1

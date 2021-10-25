@@ -2,7 +2,7 @@
 /obj/item/weapon/pen/department
 	desc = "Nicer pens for the staff."
 	name = "pen"
-	icon = 'icons/urist/items/morepens.dmi'
+	icon = 'resources/icons/urist/items/morepens.dmi'
 	icon_state = "pen"
 	item_state = "pen"
 

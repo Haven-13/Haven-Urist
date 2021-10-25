@@ -5,7 +5,7 @@
 /obj/item/weapon/autopsy_scanner
 	name = "autopsy scanner"
 	desc = "Used to gather information on wounds."
-	icon = 'icons/obj/autopsy_scanner.dmi'
+	icon = 'resources/icons/obj/autopsy_scanner.dmi'
 	icon_state = ""
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	w_class = ITEM_SIZE_SMALL
@@ -17,8 +17,11 @@
 
 /datum/autopsy_data_scanner
 	var/weapon = null // this is the DEFINITE weapon type that was used
-	var/list/organs_scanned = list() // this maps a number of scanned organs to
-									 // the wounds to those organs with this data's weapon type
+
+	// this maps a number of scanned organs to
+	// the wounds to those organs with this data's weapon type
+	var/list/organs_scanned = list()
+
 	var/organ_names = ""
 
 /datum/autopsy_data

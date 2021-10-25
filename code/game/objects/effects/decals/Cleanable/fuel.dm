@@ -1,9 +1,9 @@
 /obj/effect/decal/cleanable/liquid_fuel
 	//Liquid fuel is used for things that used to rely on volatile fuels or phoron being contained to a couple tiles.
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	icon_state = "fuel"
-	plane = ABOVE_TURF_PLANE
-	layer = BLOOD_LAYER
+	plane = DEFAULT_PLANE
+	layer = TURF_BLOOD_LAYER
 	anchored = 1
 	persistent = FALSE
 	var/amount = 1

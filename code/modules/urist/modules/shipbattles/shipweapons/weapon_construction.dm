@@ -4,7 +4,7 @@
 /obj/structure/shipweapons/hardpoint
 	name = "weapon hardpoint"
 	desc = "A mounting for a powerful ship-to-ship weapon."
-	icon = 'icons/urist/objects/64x64machinery.dmi'
+	icon = 'resources/icons/urist/objects/64x64machinery.dmi'
 	icon_state = "hardpoint"
 	anchored = 1
 	density = 0
@@ -16,7 +16,7 @@
 /obj/structure/shipweapons/incomplete_weapon
 	name = "incomplete weapon"
 	desc = "It's a ship-to-ship weapon assembly. Wrench it into a hardpoint to make it functional, or just chuck it out an airlock at an enemy vessel and see how far that gets you."
-	icon = 'icons/urist/objects/64x64machinery.dmi'
+	icon = 'resources/icons/urist/objects/64x64machinery.dmi'
 	icon_state = "cannon_con"
 	anchored = 0
 	density = 1
@@ -34,7 +34,7 @@
 				if(!H.attached)
 					H.attached = TRUE
 					src.shipid = H.shipid
-					playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+					playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 					to_chat(user, "You wrench the weapon into place on the hardpoint.")
 					anchored = 1
 					state = 1
@@ -56,7 +56,7 @@
 				var/turf/T = get_turf(src)
 				var/obj/structure/shipweapons/hardpoint/H = (locate(/obj/structure/shipweapons/hardpoint) in T)
 				H.attached = FALSE
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 				to_chat(user, "You unattach the assembly from its place.")
 				anchored = 0
 				state = 0
@@ -71,7 +71,7 @@
 				var/obj/item/weapon/weldingtool/F = W
 				if(F.isOn())
 					if(F.remove_fuel(0,user))
-						playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
+						playsound(src.loc, 'resources/sound/items/Welder.ogg', 50, 1)
 						if(do_after(user, 20, src))
 							to_chat(user, "You weld the external sheeting securely into place.")
 							state = 3
@@ -80,7 +80,7 @@
 					return
 
 			if(isCrowbar(W))
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 				to_chat(user, "You pry off the external sheeting.")
 				new /obj/item/stack/material/steel(get_turf(src), 2)
 				desc = "It's a ship-to-ship weapon assembly. It is missing external sheeting."
@@ -105,7 +105,7 @@
 				var/obj/item/weapon/weldingtool/F = W
 				if(F.isOn())
 					if(F.remove_fuel(0,user))
-						playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
+						playsound(src.loc, 'resources/sound/items/Welder.ogg', 50, 1)
 						if(do_after(user, 20, src))
 							desc = "It's a ship-to-ship weapon assembly. It has some loose external sheeting."
 							state = 2
@@ -114,7 +114,7 @@
 
 		if(4)
 			if(isScrewdriver(W))
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "<span class='warning'>You secure the wires and screw down the external hatches: the weapon is ready to fire.</span>")
 				var/obj/machinery/shipweapons/S = new weapon_type(get_turf(src))
 				S.shipid = src.shipid
@@ -123,7 +123,7 @@
 			else if(isWirecutter(W))
 
 				new/obj/item/stack/cable_coil(get_turf(src), 2)
-				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You cut the wires from the weapon assembly.</span>")
 				desc = "It's a ship-to-ship weapon assembly with secured external plating. It is missing wiring."
 				state = 3

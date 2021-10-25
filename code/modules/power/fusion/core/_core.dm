@@ -10,10 +10,10 @@ var/list/fusion_cores = list()
 /obj/machinery/power/fusion_core
 	name = "\improper R-UST Mk. 8 Tokamak core"
 	desc = "An enormous solenoid for generating extremely high power electromagnetic fields. It includes a kinetic energy harvester."
-	icon = 'icons/obj/machines/power/fusion_core.dmi'
+	icon = 'resources/icons/obj/machines/power/fusion_core.dmi'
 	icon_state = "core0"
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 	density = 1
 	use_power = 1
 	idle_power_usage = 50
@@ -111,7 +111,7 @@ var/list/fusion_cores = list()
 
 	else if(isWrench(W))
 		anchored = !anchored
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 		if(anchored)
 			user.visible_message("[user.name] secures [src.name] to the floor.", \
 				"You secure the [src.name] to the floor.", \

@@ -36,22 +36,22 @@
 #define ASTEROID CAVE
 #define SPACE UNDERWATER
 
-GLOBAL_LIST_INIT(shatter_sound,list('sound/effects/Glassbr1.ogg','sound/effects/Glassbr2.ogg','sound/effects/Glassbr3.ogg'))
-GLOBAL_LIST_INIT(explosion_sound,list('sound/effects/Explosion1.ogg','sound/effects/Explosion2.ogg'))
-GLOBAL_LIST_INIT(spark_sound,list('sound/effects/sparks1.ogg','sound/effects/sparks2.ogg','sound/effects/sparks3.ogg','sound/effects/sparks4.ogg'))
-GLOBAL_LIST_INIT(rustle_sound,list('sound/effects/rustle1.ogg','sound/effects/rustle2.ogg','sound/effects/rustle3.ogg','sound/effects/rustle4.ogg','sound/effects/rustle5.ogg'))
-GLOBAL_LIST_INIT(punch_sound,list('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg'))
-GLOBAL_LIST_INIT(clown_sound,list('sound/effects/clownstep1.ogg','sound/effects/clownstep2.ogg'))
-GLOBAL_LIST_INIT(swing_hit_sound,list('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg'))
-GLOBAL_LIST_INIT(hiss_sound,list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg'))
-GLOBAL_LIST_INIT(page_sound,list('sound/effects/pageturn1.ogg', 'sound/effects/pageturn2.ogg','sound/effects/pageturn3.ogg'))
-GLOBAL_LIST_INIT(fracture_sound,list('sound/effects/bonebreak1.ogg','sound/effects/bonebreak2.ogg','sound/effects/bonebreak3.ogg','sound/effects/bonebreak4.ogg'))
-GLOBAL_LIST_INIT(lighter_sound,list('sound/items/lighter1.ogg','sound/items/lighter2.ogg','sound/items/lighter3.ogg'))
-GLOBAL_LIST_INIT(keyboard_sound,list('sound/machines/keyboard/keypress1.ogg','sound/machines/keyboard/keypress2.ogg','sound/machines/keyboard/keypress3.ogg','sound/machines/keyboard/keypress4.ogg'))
-GLOBAL_LIST_INIT(keystroke_sound,list('sound/machines/keyboard/keystroke1.ogg','sound/machines/keyboard/keystroke2.ogg','sound/machines/keyboard/keystroke3.ogg','sound/machines/keyboard/keystroke4.ogg'))
-GLOBAL_LIST_INIT(switch_sound,list('sound/machines/switch1.ogg','sound/machines/switch2.ogg','sound/machines/switch3.ogg','sound/machines/switch4.ogg'))
-GLOBAL_LIST_INIT(button_sound,list('sound/machines/button1.ogg','sound/machines/button2.ogg','sound/machines/button3.ogg','sound/machines/button4.ogg'))
-GLOBAL_LIST_INIT(chop_sound,list('sound/weapons/chop1.ogg','sound/weapons/chop2.ogg','sound/weapons/chop3.ogg'))
+GLOBAL_LIST_INIT(shatter_sound,list('resources/sound/effects/Glassbr1.ogg','resources/sound/effects/Glassbr2.ogg','resources/sound/effects/Glassbr3.ogg'))
+GLOBAL_LIST_INIT(explosion_sound,list('resources/sound/effects/Explosion1.ogg','resources/sound/effects/Explosion2.ogg'))
+GLOBAL_LIST_INIT(spark_sound,list('resources/sound/effects/sparks1.ogg','resources/sound/effects/sparks2.ogg','resources/sound/effects/sparks3.ogg','resources/sound/effects/sparks4.ogg'))
+GLOBAL_LIST_INIT(rustle_sound,list('resources/sound/effects/rustle1.ogg','resources/sound/effects/rustle2.ogg','resources/sound/effects/rustle3.ogg','resources/sound/effects/rustle4.ogg','resources/sound/effects/rustle5.ogg'))
+GLOBAL_LIST_INIT(punch_sound,list('resources/sound/weapons/punch1.ogg','resources/sound/weapons/punch2.ogg','resources/sound/weapons/punch3.ogg','resources/sound/weapons/punch4.ogg'))
+GLOBAL_LIST_INIT(clown_sound,list('resources/sound/effects/clownstep1.ogg','resources/sound/effects/clownstep2.ogg'))
+GLOBAL_LIST_INIT(swing_hit_sound,list('resources/sound/weapons/genhit1.ogg', 'resources/sound/weapons/genhit2.ogg', 'resources/sound/weapons/genhit3.ogg'))
+GLOBAL_LIST_INIT(hiss_sound,list('resources/sound/voice/hiss1.ogg','resources/sound/voice/hiss2.ogg','resources/sound/voice/hiss3.ogg','resources/sound/voice/hiss4.ogg'))
+GLOBAL_LIST_INIT(page_sound,list('resources/sound/effects/pageturn1.ogg', 'resources/sound/effects/pageturn2.ogg','resources/sound/effects/pageturn3.ogg'))
+GLOBAL_LIST_INIT(fracture_sound,list('resources/sound/effects/bonebreak1.ogg','resources/sound/effects/bonebreak2.ogg','resources/sound/effects/bonebreak3.ogg','resources/sound/effects/bonebreak4.ogg'))
+GLOBAL_LIST_INIT(lighter_sound,list('resources/sound/items/lighter1.ogg','resources/sound/items/lighter2.ogg','resources/sound/items/lighter3.ogg'))
+GLOBAL_LIST_INIT(keyboard_sound,list('resources/sound/machines/keyboard/keypress1.ogg','resources/sound/machines/keyboard/keypress2.ogg','resources/sound/machines/keyboard/keypress3.ogg','resources/sound/machines/keyboard/keypress4.ogg'))
+GLOBAL_LIST_INIT(keystroke_sound,list('resources/sound/machines/keyboard/keystroke1.ogg','resources/sound/machines/keyboard/keystroke2.ogg','resources/sound/machines/keyboard/keystroke3.ogg','resources/sound/machines/keyboard/keystroke4.ogg'))
+GLOBAL_LIST_INIT(switch_sound,list('resources/sound/machines/switch1.ogg','resources/sound/machines/switch2.ogg','resources/sound/machines/switch3.ogg','resources/sound/machines/switch4.ogg'))
+GLOBAL_LIST_INIT(button_sound,list('resources/sound/machines/button1.ogg','resources/sound/machines/button2.ogg','resources/sound/machines/button3.ogg','resources/sound/machines/button4.ogg'))
+GLOBAL_LIST_INIT(chop_sound,list('resources/sound/weapons/chop1.ogg','resources/sound/weapons/chop2.ogg','resources/sound/weapons/chop3.ogg'))
 
 /proc/playsound(var/atom/source, soundin, vol as num, vary, extrarange as num, falloff, var/is_global, var/frequency, var/is_ambiance = 0)
 
@@ -63,7 +63,7 @@ GLOBAL_LIST_INIT(chop_sound,list('sound/weapons/chop1.ogg','sound/weapons/chop2.
 	frequency = vary && isnull(frequency) ? get_rand_frequency() : frequency // Same frequency for everybody
 	var/turf/turf_source = get_turf(source)
 
- 	// Looping through the player list has the added bonus of working for mobs inside containers
+	// Looping through the player list has the added bonus of working for mobs inside containers
 	for (var/P in GLOB.player_list)
 		var/mob/M = P
 		if(!M || !M.client)

@@ -1,7 +1,7 @@
 /obj/machinery/deepfryer
 	name = "deep fryer"
 	desc = "Deep fried <i>everything</i>."
-	icon = 'icons/urist/kitchen.dmi'
+	icon = 'resources/icons/urist/kitchen.dmi'
 	icon_state = "fryer_off"
 	layer = 2.9
 	density = 1
@@ -50,7 +50,7 @@
 
 		icon_state = "fryer_off"
 		on = FALSE
-		playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/machines/ding.ogg', 50, 1)
 
 
 /obj/machinery/deepfryer/attack_hand(mob/user)

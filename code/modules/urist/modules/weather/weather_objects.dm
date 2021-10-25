@@ -5,7 +5,7 @@
 
 /obj/effect/weather
 	name = "weather"
-	icon = 'icons/urist/weather.dmi'
+	icon = 'resources/icons/urist/weather.dmi'
 	icon_state = "splash" //mapping indicator only!
 
 	layer = 5

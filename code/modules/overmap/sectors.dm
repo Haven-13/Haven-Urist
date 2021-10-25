@@ -3,7 +3,7 @@
 //===================================================================================
 /obj/effect/overmap
 	name = "map object"
-	icon = 'icons/obj/overmap.dmi'
+	icon = 'resources/icons/obj/overmap.dmi'
 	icon_state = "object"
 	var/list/map_z = list()
 
@@ -79,4 +79,8 @@
 	. = ..()
 	if(known)
 		layer = ABOVE_LIGHTING_LAYER
-		plane = EMISSIVE_PLANE
+		add_overlay(list(mutable_appearance(
+			icon,
+			icon_state,
+			plane = get_float_plane(EMISSIVE_PLANE)
+		)))

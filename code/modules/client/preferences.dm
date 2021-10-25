@@ -21,9 +21,6 @@ var/list/preferences_datums = list()
 	var/tgui_fancy = TRUE
 	var/tgui_lock = FALSE
 
-	//Mob preview
-	var/icon/preview_icon = null
-
 	var/client/client = null
 	var/client_ckey = null
 
@@ -31,6 +28,10 @@ var/list/preferences_datums = list()
 	var/savefile/loaded_character
 	var/datum/category_collection/player_setup_collection/player_setup
 	var/datum/browser/panel
+
+	//Mob preview
+	var/atom/movable/map_view/preview_view = null
+	var/atom/movable/screen/preview_background = null
 
 /datum/preferences/New(client/C)
 	player_setup = new(src)
@@ -46,6 +47,15 @@ var/list/preferences_datums = list()
 			load_preferences()
 			load_and_update_character()
 
+		preview_view = new()
+		preview_view.assigned_map = "character_preview_map"
+		preview_view.update_map_view(1)
+
+		preview_background = new()
+		preview_background.layer = TURF_LAYER
+		preview_background.set_plane(DEFAULT_PLANE)
+		preview_background.screen_loc = "character_preview_map:1,1 to 1,4"
+
 /datum/preferences/proc/load_and_update_character(var/slot)
 	load_character(slot)
 	if(update_setup(loaded_preferences, loaded_character))
@@ -55,12 +65,14 @@ var/list/preferences_datums = list()
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user || !user.client)	return
 
+	update_preview_icon()
+
 	if(!get_mob_by_key(client_ckey))
 		to_chat(user, "<span class='danger'>No mob exists for the given client!</span>")
 		close_load_dialog(user)
 		return
 
-	var/dat = "<html><body><center>"
+	var/list/dat = list("<html><body><center>")
 
 	if(path)
 		dat += "Slot - "
@@ -78,9 +90,12 @@ var/list/preferences_datums = list()
 	dat += player_setup.content(user)
 
 	dat += "</html></body>"
-	var/datum/browser/popup = new(user, "Character Setup","Character Setup", 1200, 800, src)
-	popup.set_content(dat)
-	popup.open()
+
+	winshow(user, "preferences_window", TRUE)
+	var/datum/browser/popup = new(user, "preferences_browser", "<div align='center'>Character Setup</div>", 640, 825)
+	popup.set_content(dat.Join())
+	popup.open(FALSE)
+	onclose(user, "preferences_window", src)
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
 

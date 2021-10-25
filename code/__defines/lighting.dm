@@ -9,7 +9,7 @@
 #define LIGHTING_LAMBERTIAN 0 // use lambertian shading for light sources
 #define LIGHTING_HEIGHT 1 // height off the ground of light sources on the pseudo-z-axis, you should probably leave this alone
 
-#define LIGHTING_ICON 'icons/effects/lighting_overlay.dmi' // icon used for lighting shading effects
+#define LIGHTING_ICON 'resources/icons/effects/lighting_overlay.dmi' // icon used for lighting shading effects
 #define LIGHTING_ICON_STATE_DARK "dark" // Change between "soft_dark" and "dark" to swap soft darkvision
 
 #define LIGHTING_ROUND_VALUE (1 / 64) // Value used to round lumcounts, values smaller than 1/69 don't matter (if they do, thanks sinking points), greater values will make lighting less precise, but in turn increase performance, VERY SLIGHTLY.
@@ -54,3 +54,12 @@
 #define EMISSIVE_DEFS_DEFINED
 #define EMISSIVE_BLOCK_GENERIC 1
 #define EMISSIVE_BLOCK_UNIQUE 2
+
+#define EMISSIVE_COLOR list(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 1,1,1,0)
+GLOBAL_LIST_INIT(emissive_color, EMISSIVE_COLOR)
+
+#define EM_BLOCK_COLOR list(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
+GLOBAL_LIST_INIT(em_block_color, EM_BLOCK_COLOR)
+
+#define EM_MASK_MATRIX list(0,0,0,1/3, 0,0,0,1/3, 0,0,0,1/3, 0,0,0,0, 1,1,1,0)
+GLOBAL_LIST_INIT(em_mask_matrix, EM_MASK_MATRIX)

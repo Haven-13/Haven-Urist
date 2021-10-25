@@ -1,55 +1,55 @@
 var/list/department_radio_keys = list(
-	  ":r" = "right ear",	".r" = "right ear",
-	  ":l" = "left ear",	".l" = "left ear",
-	  ":i" = "intercom",	".i" = "intercom",
-	  ":h" = "department",	".h" = "department",
-	  ":+" = "special",		".+" = "special", //activate radio-specific special functions
-	  ":c" = "Command",		".c" = "Command",
-	  ":n" = "Science",		".n" = "Science",
-	  ":m" = "Medical",		".m" = "Medical",
-	  ":e" = "Engineering", ".e" = "Engineering",
-	  ":s" = "Security",	".s" = "Security",
-	  ":w" = "whisper",		".w" = "whisper",
-	  ":t" = "Mercenary",	".t" = "Mercenary",
-	  ":x" = "Raider",		".x" = "Raider",
-	  ":u" = "Supply",		".u" = "Supply",
-	  ":v" = "Service",		".v" = "Service",
-	  ":p" = "AI Private",	".p" = "AI Private",
-	  ":z" = "Entertainment",".z" = "Entertainment",
-	  ":y" = "Exploration",		".y" = "Exploration",
+	":r" = "right ear",     ".r" = "right ear",
+	":l" = "left ear",      ".l" = "left ear",
+	":i" = "intercom",      ".i" = "intercom",
+	":h" = "department",    ".h" = "department",
+	":+" = "special",       ".+" = "special", //activate radio-specific special functions
+	":c" = "Command",       ".c" = "Command",
+	":n" = "Science",       ".n" = "Science",
+	":m" = "Medical",       ".m" = "Medical",
+	":e" = "Engineering",   ".e" = "Engineering",
+	":s" = "Security",      ".s" = "Security",
+	":w" = "whisper",       ".w" = "whisper",
+	":t" = "Mercenary",     ".t" = "Mercenary",
+	":x" = "Raider",        ".x" = "Raider",
+	":u" = "Supply",        ".u" = "Supply",
+	":v" = "Service",       ".v" = "Service",
+	":p" = "AI Private",    ".p" = "AI Private",
+	":z" = "Entertainment", ".z" = "Entertainment",
+	":y" = "Exploration",   ".y" = "Exploration",
 
-	  ":R" = "right ear",	".R" = "right ear",
-	  ":L" = "left ear",	".L" = "left ear",
-	  ":I" = "intercom",	".I" = "intercom",
-	  ":H" = "department",	".H" = "department",
-	  ":C" = "Command",		".C" = "Command",
-	  ":N" = "Science",		".N" = "Science",
-	  ":M" = "Medical",		".M" = "Medical",
-	  ":E" = "Engineering",	".E" = "Engineering",
-	  ":S" = "Security",	".S" = "Security",
-	  ":W" = "whisper",		".W" = "whisper",
-	  ":T" = "Mercenary",	".T" = "Mercenary",
-	  ":X" = "Raider",		".X" = "Raider",
-	  ":U" = "Supply",		".U" = "Supply",
-	  ":V" = "Service",		".V" = "Service",
-	  ":P" = "AI Private",	".P" = "AI Private",
-	  ":Z" = "Entertainment",".Z" = "Entertainment",
-	  ":Y" = "Exploration",		".Y" = "Exploration",
+	":R" = "right ear",     ".R" = "right ear",
+	":L" = "left ear",      ".L" = "left ear",
+	":I" = "intercom",      ".I" = "intercom",
+	":H" = "department",    ".H" = "department",
+	":C" = "Command",       ".C" = "Command",
+	":N" = "Science",       ".N" = "Science",
+	":M" = "Medical",       ".M" = "Medical",
+	":E" = "Engineering",   ".E" = "Engineering",
+	":S" = "Security",      ".S" = "Security",
+	":W" = "whisper",       ".W" = "whisper",
+	":T" = "Mercenary",     ".T" = "Mercenary",
+	":X" = "Raider",        ".X" = "Raider",
+	":U" = "Supply",        ".U" = "Supply",
+	":V" = "Service",       ".V" = "Service",
+	":P" = "AI Private",    ".P" = "AI Private",
+	":Z" = "Entertainment", ".Z" = "Entertainment",
+	":Y" = "Exploration",   ".Y" = "Exploration",
 
-	  //kinda localization -- rastaf0
-	  //same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
-	  ":ê" = "right ear",	".ê" = "right ear",
-	  ":ä" = "left ear",	".ä" = "left ear",
-	  ":ø" = "intercom",	".ø" = "intercom",
-	  ":ð" = "department",	".ð" = "department",
-	  ":ñ" = "Command",		".ñ" = "Command",
-	  ":ò" = "Science",		".ò" = "Science",
-	  ":ü" = "Medical",		".ü" = "Medical",
-	  ":ó" = "Engineering",	".ó" = "Engineering",
-	  ":û" = "Security",	".û" = "Security",
-	  ":ö" = "whisper",		".ö" = "whisper",
-	  ":å" = "Mercenary",	".å" = "Mercenary",
-	  ":é" = "Supply",		".é" = "Supply",
+	//kinda localization -- rastaf0
+	//same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
+	":ê" = "right ear",     ".ê" = "right ear",
+	":ä" = "left ear",      ".ä" = "left ear",
+	":ø" = "intercom",      ".ø" = "intercom",
+	":ð" = "department",    ".ð" = "department",
+	":ñ" = "Command",       ".ñ" = "Command",
+	":ò" = "Science",       ".ò" = "Science",
+	":ü" = "Medical",       ".ü" = "Medical",
+	":ó" = "Engineering",   ".ó" = "Engineering",
+	":û" = "Security",      ".û" = "Security",
+	":ö" = "whisper",       ".ö" = "whisper",
+	":å" = "Mercenary",     ".å" = "Mercenary",
+	":é" = "Supply",        ".é" = "Supply",
 )
 
 
@@ -265,7 +265,7 @@ var/list/channel_to_radio_key = new
 
 
 	var/speech_bubble_test = say_test(message)
-	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
+	var/image/speech_bubble = image('resources/icons/mob/talk.dmi',src,"h[speech_bubble_test]")
 
 	// VOREStation Port - Attempt Multi-Z Talking
 	var/mob/above = src.shadow
@@ -274,7 +274,7 @@ var/list/channel_to_radio_key = new
 		if(ST)
 
 			get_mobs_and_objs_in_view_fast(ST, world.view, listening, listening_obj, /datum/client_preference/ghost_ears)
-			var/image/z_speech_bubble = image('icons/mob/talk.dmi', above, "h[speech_bubble_test]")
+			var/image/z_speech_bubble = image('resources/icons/mob/talk.dmi', above, "h[speech_bubble_test]")
 			spawn(30) qdel(z_speech_bubble)
 		above = above.shadow
 

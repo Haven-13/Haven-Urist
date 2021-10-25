@@ -1,7 +1,7 @@
 //Define all tape types in policetape.dm
 /obj/item/taperoll
 	name = "tape roll"
-	icon = 'icons/policetape.dmi'
+	icon = 'resources/icons/policetape.dmi'
 	icon_state = "tape"
 	w_class = ITEM_SIZE_SMALL
 	var/turf/start
@@ -28,7 +28,7 @@ var/list/tape_roll_applications = list()
 
 /obj/item/tape
 	name = "tape"
-	icon = 'icons/policetape.dmi'
+	icon = 'resources/icons/policetape.dmi'
 	icon_state = "tape"
 	layer = ABOVE_DOOR_LAYER
 	randpixel = 0
@@ -58,10 +58,10 @@ var/list/tape_roll_applications = list()
 		update_icon()
 	if(!hazard_overlays)
 		hazard_overlays = list()
-		hazard_overlays["[NORTH]"]	= new/image('icons/effects/warning_stripes.dmi', icon_state = "N")
-		hazard_overlays["[EAST]"]	= new/image('icons/effects/warning_stripes.dmi', icon_state = "E")
-		hazard_overlays["[SOUTH]"]	= new/image('icons/effects/warning_stripes.dmi', icon_state = "S")
-		hazard_overlays["[WEST]"]	= new/image('icons/effects/warning_stripes.dmi', icon_state = "W")
+		hazard_overlays["[NORTH]"]	= new/image('resources/icons/effects/warning_stripes.dmi', icon_state = "N")
+		hazard_overlays["[EAST]"]	= new/image('resources/icons/effects/warning_stripes.dmi', icon_state = "E")
+		hazard_overlays["[SOUTH]"]	= new/image('resources/icons/effects/warning_stripes.dmi', icon_state = "S")
+		hazard_overlays["[WEST]"]	= new/image('resources/icons/effects/warning_stripes.dmi', icon_state = "W")
 
 /obj/item/taperoll/police
 	name = "police tape"
@@ -319,8 +319,8 @@ var/list/tape_roll_applications = list()
 
 /obj/item/tape/proc/lift(time)
 	lifted = 1
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 	spawn(time)
 		lifted = 0
 		reset_plane_and_layer()

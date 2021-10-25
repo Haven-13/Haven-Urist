@@ -1,6 +1,6 @@
 /obj/machinery/portable_atmospherics/canister
 	name = "\improper Canister: \[CAUTION\]"
-	icon = 'icons/obj/atmos.dmi'
+	icon = 'resources/icons/obj/atmos.dmi'
 	icon_state = "yellow"
 	density = 1
 	var/health = 100.0
@@ -200,7 +200,7 @@ update_flag
 		location.assume_air(air_contents)
 
 		src.destroyed = 1
-		playsound(src.loc, 'sound/effects/spray.ogg', 10, 1, -3)
+		playsound(src.loc, 'resources/sound/effects/spray.ogg', 10, 1, -3)
 		src.set_density(0)
 		update_icon()
 
@@ -424,14 +424,14 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/New()
 	..()
 
-	air_contents.adjust_gas("sleeping_agent", MolesForPressure())
+	air_contents.adjust_gas("nitrous_oxide", MolesForPressure())
 	src.update_icon()
 	return 1
 
 //Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/New()
 	..()
-	air_contents.gas["sleeping_agent"] = 9*4000
+	air_contents.gas["nitrous_oxide"] = 9*4000
 	spawn(10)
 		var/turf/simulated/location = src.loc
 		if (istype(src.loc))

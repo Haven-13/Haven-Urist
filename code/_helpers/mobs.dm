@@ -135,7 +135,7 @@
 		else				return "unknown"
 
 /proc/RoundHealth(health)
-	var/list/icon_states = icon_states('icons/mob/hud_med.dmi')
+	var/list/icon_states = icon_states('resources/icons/mob/hud_med.dmi')
 	for(var/icon_state in icon_states)
 		if(health >= text2num(icon_state))
 			return icon_state

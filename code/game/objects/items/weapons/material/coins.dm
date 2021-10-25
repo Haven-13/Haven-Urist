@@ -1,6 +1,6 @@
 /obj/item/weapon/material/coin
 	name = "coin"
-	icon = 'icons/obj/coin.dmi'
+	icon = 'resources/icons/obj/coin.dmi'
 	icon_state = "coin1"
 	applies_material_colour = TRUE
 	randpixel = 8

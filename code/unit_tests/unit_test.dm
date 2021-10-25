@@ -271,6 +271,10 @@ SUBSYSTEM_DEF(unit_tests)
 		if (5)	// Finalization.
 			unit_test_final_message()
 			log_unit_test("Caught [GLOB.total_runtimes] Runtime\s.")
+			log_unit_test("Premliniary result: "\
+				+ (((!failed_unit_tests && !GLOB.total_runtimes) && "Success!") || "Failure!"))
+			if (!failed_unit_tests && !GLOB.total_runtimes)
+				text2file("Success!", "[GLOB.log_directory]/clean_run.lk")
 			del world
 #endif
 #undef MAX_UNIT_TEST_RUN_TIME

@@ -1,7 +1,7 @@
 var/list/all_virtual_listeners = list()
 
 /mob/observer/virtual
-	icon = 'icons/mob/virtual.dmi'
+	icon = 'resources/icons/mob/virtual.dmi'
 	invisibility = INVISIBILITY_SYSTEM
 	see_in_dark = SEE_IN_DARK_DEFAULT
 	see_invisible = SEE_INVISIBLE_LIVING
@@ -26,7 +26,7 @@ var/list/all_virtual_listeners = list()
 	all_virtual_listeners += src
 
 	update_icon()
-   
+
 /mob/observer/virtual/Initialize()
 	. = ..()
 	STOP_PROCESSING(SSmobs, src)

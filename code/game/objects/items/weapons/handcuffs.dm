@@ -2,7 +2,7 @@
 	name = "handcuffs"
 	desc = "Use this to keep prisoners in line."
 	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "handcuff"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
@@ -15,9 +15,9 @@
 	var/elastic
 	var/dispenser = 0
 	var/breakouttime = 1200 //Deciseconds = 120s = 2 minutes
-	var/cuff_sound = 'sound/weapons/handcuffs.ogg'
+	var/cuff_sound = 'resources/sound/weapons/handcuffs.ogg'
 	var/cuff_type = "handcuffs"
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/handcuffs.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'resources/icons/mob/species/resomi/handcuffs.dmi')
 
 
 
@@ -112,7 +112,7 @@ var/last_chew = 0
 	desc = "Looks like some cables tied together. Could be used to tie something up."
 	icon_state = "cuff_white"
 	breakouttime = 300 //Deciseconds = 30s
-	cuff_sound = 'sound/weapons/cablecuff.ogg'
+	cuff_sound = 'resources/sound/weapons/cablecuff.ogg'
 	cuff_type = "cable restraints"
 	elastic = 1
 
@@ -167,6 +167,6 @@ var/last_chew = 0
 	desc = "DIY!"
 	icon_state = "tape_cross"
 	item_state = null
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'resources/icons/obj/bureaucracy.dmi'
 	breakouttime = 200
 	cuff_type = "duct tape"

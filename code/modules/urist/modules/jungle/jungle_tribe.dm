@@ -8,7 +8,7 @@
 /obj/effect/jungle_tribe_spawn
 	name = "campfire"
 	desc = "Looks cosy, in an alien sort of way."
-	icon = 'icons/jungle.dmi'
+	icon = 'resources/icons/jungle.dmi'
 	icon_state = "campfire"
 	anchored = 1
 	var/list/tribesmen = list()
@@ -47,7 +47,7 @@
 /mob/living/simple_animal/hostile/tribesman
 	name = "tribesman"
 	desc = "A noble savage, doesn't seem to know what to make of you."
-	icon = 'icons/jungle.dmi'
+	icon = 'resources/icons/jungle.dmi'
 	icon_state = "native1"
 	icon_living = "native1"
 	icon_dead = "native1_dead"

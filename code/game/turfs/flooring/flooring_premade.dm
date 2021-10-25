@@ -1,13 +1,13 @@
 // simulated/floor is currently plating by default, but there really should be an explicit plating type.
 /turf/simulated/floor/plating
 	name = "plating"
-	icon = 'icons/turf/flooring/plating.dmi'
+	icon = 'resources/icons/turf/flooring/plating.dmi'
 	icon_state = "plating"
-	plane = PLATING_PLANE
+	layer = PLATING_LAYER
 
 /turf/simulated/floor/bluegrid
 	name = "mainframe floor"
-	icon = 'icons/turf/flooring/circuit.dmi'
+	icon = 'resources/icons/turf/flooring/circuit.dmi'
 	icon_state = "bcircuit"
 	initial_flooring = /decl/flooring/reinforced/circuit
 
@@ -20,13 +20,13 @@
 
 /turf/simulated/floor/greengrid
 	name = "mainframe floor"
-	icon = 'icons/turf/flooring/circuit.dmi'
+	icon = 'resources/icons/turf/flooring/circuit.dmi'
 	icon_state = "gcircuit"
 	initial_flooring = /decl/flooring/reinforced/circuit/green
 
 /turf/simulated/floor/blackgrid
 	name = "mainframe floor"
-	icon = 'icons/turf/flooring/circuit.dmi'
+	icon = 'resources/icons/turf/flooring/circuit.dmi'
 	icon_state = "rcircuit"
 	initial_flooring = /decl/flooring/reinforced/circuit/red
 
@@ -35,7 +35,7 @@
 
 /turf/simulated/floor/wood
 	name = "wooden floor"
-	icon = 'icons/turf/flooring/wood.dmi'
+	icon = 'resources/icons/turf/flooring/wood.dmi'
 	icon_state = "wood"
 	initial_flooring = /decl/flooring/wood
 
@@ -46,13 +46,13 @@
 
 /turf/simulated/floor/grass
 	name = "grass patch"
-	icon = 'icons/turf/flooring/grass.dmi'
+	icon = 'resources/icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
 
 /turf/simulated/floor/carpet
 	name = "brown carpet"
-	icon = 'icons/turf/flooring/carpet.dmi'
+	icon = 'resources/icons/turf/flooring/carpet.dmi'
 	icon_state = "brown"
 	initial_flooring = /decl/flooring/carpet
 
@@ -88,7 +88,7 @@
 
 /turf/simulated/floor/reinforced
 	name = "reinforced floor"
-	icon = 'icons/turf/flooring/tiles.dmi'
+	icon = 'resources/icons/turf/flooring/tiles.dmi'
 	icon_state = "reinforced"
 	initial_flooring = /decl/flooring/reinforced
 
@@ -124,19 +124,19 @@
 	initial_gas = list("carbon_dioxide" = ATMOSTANK_CO2)
 
 /turf/simulated/floor/reinforced/n20
-	initial_gas = list("sleeping_agent" = ATMOSTANK_NITROUSOXIDE)
+	initial_gas = list("nitrous_oxide" = ATMOSTANK_NITROUSOXIDE)
 
 //Tiled floor + sub-types
 
 /turf/simulated/floor/tiled
 	name = "steel floor"
-	icon = 'icons/turf/flooring/tiles.dmi'
+	icon = 'resources/icons/turf/flooring/tiles.dmi'
 	icon_state = "steel"
 	initial_flooring = /decl/flooring/tiling
 
 /turf/simulated/floor/stone
 	name = "stone tiles"
-	icon = 'icons/turf/flooring/cult.dmi'
+	icon = 'resources/icons/turf/flooring/cult.dmi'
 	icon_state = "greycult"
 
 /turf/simulated/floor/tiled/dark
@@ -186,7 +186,7 @@
 
 /turf/simulated/floor/tiled/techmaint
 	name = "floor"
-	icon = 'icons/turf/flooring/tiles.dmi'
+	icon = 'resources/icons/turf/flooring/tiles.dmi'
 	icon_state = "techmaint"
 	initial_flooring = /decl/flooring/tiling/new_tile/techmaint
 
@@ -197,7 +197,7 @@
 
 /turf/simulated/floor/tiled/techfloor
 	name = "floor"
-	icon = 'icons/turf/flooring/techfloor.dmi'
+	icon = 'resources/icons/turf/flooring/techfloor.dmi'
 	icon_state = "techfloor_gray"
 	initial_flooring = /decl/flooring/tiling/tech
 
@@ -241,13 +241,13 @@
 
 /turf/simulated/floor/tiled/sand
 	name = "sand covered tiles"
-	icon = 'icons/turf/flooring/asteroid.dmi'
+	icon = 'resources/icons/turf/flooring/asteroid.dmi'
 	icon_state = "asteroidfloor"
 	initial_flooring = /decl/flooring/tiling/sand
 
 /turf/simulated/floor/lino
 	name = "lino"
-	icon = 'icons/turf/flooring/linoleum.dmi'
+	icon = 'resources/icons/turf/flooring/linoleum.dmi'
 	icon_state = "lino"
 	initial_flooring = /decl/flooring/linoleum
 
@@ -283,17 +283,17 @@
 // Placeholders
 /turf/simulated/floor/airless/lava
 	name = "lava"
-	icon = 'icons/turf/flooring/lava.dmi'
+	icon = 'resources/icons/turf/flooring/lava.dmi'
 	icon_state = "lava"
 
 /turf/simulated/floor/ice
 	name = "ice"
-	icon = 'icons/turf/snow.dmi'
+	icon = 'resources/icons/turf/snow.dmi'
 	icon_state = "ice"
 
 /turf/simulated/floor/snow
 	name = "snow"
-	icon = 'icons/turf/snow.dmi'
+	icon = 'resources/icons/turf/snow.dmi'
 	icon_state = "snow"
 
 /turf/simulated/floor/snow/New()
@@ -305,7 +305,7 @@
 
 /turf/simulated/floor/beach
 	name = "beach"
-	icon = 'icons/misc/beach.dmi'
+	icon = 'resources/icons/misc/beach.dmi'
 
 /turf/simulated/floor/beach/sand
 	name = "sand"
@@ -321,7 +321,7 @@
 
 /turf/simulated/floor/beach/coastline
 	name = "coastline"
-	icon = 'icons/misc/beach2.dmi'
+	icon = 'resources/icons/misc/beach2.dmi'
 	icon_state = "sandwater"
 	turf_flags = TURF_IS_WET
 
@@ -338,10 +338,10 @@
 
 /turf/simulated/floor/beach/water/New()
 	..()
-	overlays += image("icon"='icons/misc/beach.dmi',"icon_state"="water5","layer"=MOB_LAYER+0.1)
+	overlays += image("icon"='resources/icons/misc/beach.dmi',"icon_state"="water5","layer"=MOB_LAYER+0.1)
 
 /turf/simulated/floor/crystal
 	name = "crystal floor"
-	icon = 'icons/turf/flooring/crystal.dmi'
+	icon = 'resources/icons/turf/flooring/crystal.dmi'
 	icon_state = ""
 	initial_flooring = /decl/flooring/crystal

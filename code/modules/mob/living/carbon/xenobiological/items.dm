@@ -1,7 +1,7 @@
 /obj/item/slime_extract
 	name = "slime extract"
 	desc = "Goo extracted from a slime. Legends claim these to have \"magical powers\"."
-	icon = 'icons/mob/slimes.dmi'
+	icon = 'resources/icons/mob/slimes.dmi'
 	icon_state = "grey slime extract"
 	force = 1.0
 	w_class = ITEM_SIZE_TINY
@@ -13,18 +13,18 @@
 	var/enhanced = 0 //has it been enhanced before?
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
-	attackby(obj/item/O as obj, mob/user as mob)
-		if(istype(O, /obj/item/weapon/slimesteroid2))
-			if(enhanced == 1)
-				to_chat(user, "<span class='warning'> This extract has already been enhanced!</span>")
-				return ..()
-			if(Uses == 0)
-				to_chat(user, "<span class='warning'> You can't enhance a used extract!</span>")
-				return ..()
-			to_chat(user, "You apply the enhancer. It now has triple the amount of uses.")
-			Uses = 3
-			enhanced = 1
-			qdel(O)
+/obj/item/slime_extract/attackby(obj/item/O as obj, mob/user as mob)
+	if(istype(O, /obj/item/weapon/slimesteroid2))
+		if(enhanced == 1)
+			to_chat(user, "<span class='warning'> This extract has already been enhanced!</span>")
+			return ..()
+		if(Uses == 0)
+			to_chat(user, "<span class='warning'> You can't enhance a used extract!</span>")
+			return ..()
+		to_chat(user, "You apply the enhancer. It now has triple the amount of uses.")
+		Uses = 3
+		enhanced = 1
+		qdel(O)
 
 /obj/item/slime_extract/New()
 	..()
@@ -124,97 +124,97 @@
 /obj/item/weapon/slimepotion
 	name = "docility potion"
 	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'resources/icons/obj/chemical.dmi'
 	icon_state = "bottle19"
 
-	attack(mob/living/carbon/slime/M as mob, mob/user as mob)
-		if(!istype(M, /mob/living/carbon/slime))//If target is not a slime.
-			to_chat(user, "<span class='warning'> The potion only works on baby slimes!</span>")
-			return ..()
-		if(M.is_adult) //Can't tame adults
-			to_chat(user, "<span class='warning'> Only baby slimes can be tamed!</span>")
-			return..()
-		if(M.stat)
-			to_chat(user, "<span class='warning'> The slime is dead!</span>")
-			return..()
-		if(M.mind)
-			to_chat(user, "<span class='warning'> The slime resists!</span>")
-			return ..()
-		var/mob/living/simple_animal/slime/pet = new /mob/living/simple_animal/slime(M.loc)
-		pet.icon_state = "[M.colour] baby slime"
-		pet.icon_living = "[M.colour] baby slime"
-		pet.icon_dead = "[M.colour] baby slime dead"
-		pet.colour = "[M.colour]"
-		to_chat(user, "You feed the slime the potion, removing it's powers and calming it.")
-		qdel(M)
-		var/newname = sanitize(input(user, "Would you like to give the slime a name?", "Name your new pet", "pet slime") as null|text, MAX_NAME_LEN)
+/obj/item/weapon/slimepotion/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
+	if(!istype(M, /mob/living/carbon/slime))//If target is not a slime.
+		to_chat(user, "<span class='warning'> The potion only works on baby slimes!</span>")
+		return ..()
+	if(M.is_adult) //Can't tame adults
+		to_chat(user, "<span class='warning'> Only baby slimes can be tamed!</span>")
+		return..()
+	if(M.stat)
+		to_chat(user, "<span class='warning'> The slime is dead!</span>")
+		return..()
+	if(M.mind)
+		to_chat(user, "<span class='warning'> The slime resists!</span>")
+		return ..()
+	var/mob/living/simple_animal/slime/pet = new /mob/living/simple_animal/slime(M.loc)
+	pet.icon_state = "[M.colour] baby slime"
+	pet.icon_living = "[M.colour] baby slime"
+	pet.icon_dead = "[M.colour] baby slime dead"
+	pet.colour = "[M.colour]"
+	to_chat(user, "You feed the slime the potion, removing it's powers and calming it.")
+	qdel(M)
+	var/newname = sanitize(input(user, "Would you like to give the slime a name?", "Name your new pet", "pet slime") as null|text, MAX_NAME_LEN)
 
-		if (!newname)
-			newname = "pet slime"
-		pet.SetName(newname)
-		pet.real_name = newname
-		qdel(src)
+	if (!newname)
+		newname = "pet slime"
+	pet.SetName(newname)
+	pet.real_name = newname
+	qdel(src)
 
 /obj/item/weapon/slimepotion2
 	name = "advanced docility potion"
 	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame. This one is meant for adult slimes."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'resources/icons/obj/chemical.dmi'
 	icon_state = "bottle19"
 
-	attack(mob/living/carbon/slime/M as mob, mob/user as mob)
-		if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
-			to_chat(user, "<span class='warning'> The potion only works on slimes!</span>")
-			return ..()
-		if(M.stat)
-			to_chat(user, "<span class='warning'> The slime is dead!</span>")
-			return..()
-		if(M.mind)
-			to_chat(user, "<span class='warning'> The slime resists!</span>")
-			return ..()
-		var/mob/living/simple_animal/adultslime/pet = new /mob/living/simple_animal/adultslime(M.loc)
-		pet.icon_state = "[M.colour] adult slime"
-		pet.icon_living = "[M.colour] adult slime"
-		pet.icon_dead = "[M.colour] baby slime dead"
-		pet.colour = "[M.colour]"
-		to_chat(user, "You feed the slime the potion, removing it's powers and calming it.")
-		qdel(M)
-		var/newname = sanitize(input(user, "Would you like to give the slime a name?", "Name your new pet", "pet slime") as null|text, MAX_NAME_LEN)
+/obj/item/weapon/slimepotion2/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
+	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
+		to_chat(user, "<span class='warning'> The potion only works on slimes!</span>")
+		return ..()
+	if(M.stat)
+		to_chat(user, "<span class='warning'> The slime is dead!</span>")
+		return..()
+	if(M.mind)
+		to_chat(user, "<span class='warning'> The slime resists!</span>")
+		return ..()
+	var/mob/living/simple_animal/adultslime/pet = new /mob/living/simple_animal/adultslime(M.loc)
+	pet.icon_state = "[M.colour] adult slime"
+	pet.icon_living = "[M.colour] adult slime"
+	pet.icon_dead = "[M.colour] baby slime dead"
+	pet.colour = "[M.colour]"
+	to_chat(user, "You feed the slime the potion, removing it's powers and calming it.")
+	qdel(M)
+	var/newname = sanitize(input(user, "Would you like to give the slime a name?", "Name your new pet", "pet slime") as null|text, MAX_NAME_LEN)
 
-		if (!newname)
-			newname = "pet slime"
-		pet.SetName(newname)
-		pet.real_name = newname
-		qdel(src)
+	if (!newname)
+		newname = "pet slime"
+	pet.SetName(newname)
+	pet.real_name = newname
+	qdel(src)
 
 
 /obj/item/weapon/slimesteroid
 	name = "slime steroid"
 	desc = "A potent chemical mix that will cause a slime to generate more extract."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'resources/icons/obj/chemical.dmi'
 	icon_state = "bottle16"
 
-	attack(mob/living/carbon/slime/M as mob, mob/user as mob)
-		if(!istype(M, /mob/living/carbon/slime))//If target is not a slime.
-			to_chat(user, "<span class='warning'> The steroid only works on baby slimes!</span>")
-			return ..()
-		if(M.is_adult) //Can't tame adults
-			to_chat(user, "<span class='warning'> Only baby slimes can use the steroid!</span>")
-			return..()
-		if(M.stat)
-			to_chat(user, "<span class='warning'> The slime is dead!</span>")
-			return..()
-		if(M.cores == 3)
-			to_chat(user, "<span class='warning'> The slime already has the maximum amount of extract!</span>")
-			return..()
+/obj/item/weapon/slimesteroid/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
+	if(!istype(M, /mob/living/carbon/slime))//If target is not a slime.
+		to_chat(user, "<span class='warning'> The steroid only works on baby slimes!</span>")
+		return ..()
+	if(M.is_adult) //Can't tame adults
+		to_chat(user, "<span class='warning'> Only baby slimes can use the steroid!</span>")
+		return..()
+	if(M.stat)
+		to_chat(user, "<span class='warning'> The slime is dead!</span>")
+		return..()
+	if(M.cores == 3)
+		to_chat(user, "<span class='warning'> The slime already has the maximum amount of extract!</span>")
+		return..()
 
-		to_chat(user, "You feed the slime the steroid. It now has triple the amount of extract.")
-		M.cores = 3
-		qdel(src)
+	to_chat(user, "You feed the slime the steroid. It now has triple the amount of extract.")
+	M.cores = 3
+	qdel(src)
 
 /obj/item/weapon/slimesteroid2
 	name = "extract enhancer"
 	desc = "A potent chemical mix that will give a slime extract three uses."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'resources/icons/obj/chemical.dmi'
 	icon_state = "bottle17"
 
 /obj/item/weapon/slimesteroid2/afterattack(obj/target, mob/user , flag)
@@ -235,11 +235,11 @@
 	anchored = 1
 	desc = "a strange rune used to create golems. It glows when spirits are nearby."
 	name = "rune"
-	icon = 'icons/obj/rune.dmi'
+	icon = 'resources/icons/obj/rune.dmi'
 	icon_state = "golem"
 	unacidable = 1
-	plane = ABOVE_TURF_PLANE
-	layer = RUNE_LAYER
+	plane = DEFAULT_PLANE
+	layer = TURF_RUNE_LAYER
 
 /obj/effect/golemrune/Initialize()
 	..()

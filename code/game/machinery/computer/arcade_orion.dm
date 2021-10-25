@@ -37,15 +37,16 @@
 	var/list/supply_name = list("1" = "engine parts", "2" = "hull parts", "3" = "electronic parts", "4" = "food", "5" = "fuel", "6" = "thalers")
 	var/list/settlers = list()
 	var/num_traitors = 0
-	var/list/events = list(ORION_TRAIL_RAIDERS		= 3,
-						   ORION_TRAIL_FLUX			= 1,
-						   ORION_TRAIL_ILLNESS		= 3,
-						   ORION_TRAIL_BREAKDOWN	= 2,
-						   ORION_TRAIL_MUTINY		= 3,
-						   ORION_TRAIL_MALFUNCTION	= 2,
-						   ORION_TRAIL_COLLISION	= 1,
-						   ORION_TRAIL_CARP			= 3
-						   )
+	var/list/events = list(
+		ORION_TRAIL_RAIDERS		= 3,
+		ORION_TRAIL_FLUX			= 1,
+		ORION_TRAIL_ILLNESS		= 3,
+		ORION_TRAIL_BREAKDOWN	= 2,
+		ORION_TRAIL_MUTINY		= 3,
+		ORION_TRAIL_MALFUNCTION	= 2,
+		ORION_TRAIL_COLLISION	= 1,
+		ORION_TRAIL_CARP			= 3
+	)
 	var/list/stops = list("Pluto","Asteroid Belt","Proxima Centauri","Dead Space","Rigel Prime","Tau Ceti Beta","Black Hole","Space Outpost Beta-9","Orion Prime")
 	var/list/stopblurbs = list(
 		"Pluto, long since occupied with long-range sensors and scanners, stands ready to, and indeed continues to probe the far reaches of the galaxy.",
@@ -480,7 +481,7 @@
 /obj/item/weapon/orion_ship
 	name = "model settler ship"
 	desc = "A model spaceship, it looks like those used back in the day when travelling to Orion! It even has a miniature FX-293 reactor, which was renowned for its instability and tendency to explode..."
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	icon_state = "ship"
 	w_class = ITEM_SIZE_SMALL
 	var/active = 0 //if the ship is on

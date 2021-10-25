@@ -1,6 +1,6 @@
 //trash
 /obj/item/trash/urist
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	w_class = 2.0
 	desc = "This is rubbish."
 
@@ -32,7 +32,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/urist
 	name = "snack"
 	desc = "yummy"
-	icon = 'icons/urist/kitchen.dmi'
+	icon = 'resources/icons/urist/kitchen.dmi'
 	icon_state = null
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/blamco
@@ -42,10 +42,10 @@
 	trash = /obj/item/trash/urist/blamco
 	filling_color = "#ffe98c"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 3)
-		bitesize = 2
+/obj/item/weapon/reagent_containers/food/snacks/urist/blamco/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 3)
+	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/bubblegum
 	name = "bubblegum."
@@ -54,9 +54,9 @@
 	trash = /obj/item/trash/urist/bubblegum
 	filling_color = "#ffe98c"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/sugar, 2)
+/obj/item/weapon/reagent_containers/food/snacks/urist/bubblegum/New()
+	..()
+	reagents.add_reagent(/datum/reagent/sugar, 2)
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/cram
 	name = "cram"
@@ -65,11 +65,11 @@
 	trash = /obj/item/trash/urist/cram
 	filling_color = "#ffbec7"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 3)
-		reagents.add_reagent(/datum/reagent/sugar, 2)
-		bitesize = 3
+/obj/item/weapon/reagent_containers/food/snacks/urist/cram/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 3)
+	reagents.add_reagent(/datum/reagent/sugar, 2)
+	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/dapples
 	name = "dandy boy apples"
@@ -78,10 +78,10 @@
 	trash = /obj/item/trash/urist/dapples
 	filling_color = "#ffbec7"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 1)
-		reagents.add_reagent(/datum/reagent/sugar, 3)
+/obj/item/weapon/reagent_containers/food/snacks/urist/dapples/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 1)
+	reagents.add_reagent(/datum/reagent/sugar, 3)
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/fancycakes
 	name = "fancy lads snack cakes"
@@ -90,11 +90,11 @@
 	trash = /obj/item/trash/urist/fancycakes
 	filling_color = "#f3f6ff"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 2)
-		reagents.add_reagent(/datum/reagent/sugar, 3)
-		bitesize = 2
+/obj/item/weapon/reagent_containers/food/snacks/urist/fancycakes/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 2)
+	reagents.add_reagent(/datum/reagent/sugar, 3)
+	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/instamash
 	name = "instaMash"
@@ -103,75 +103,75 @@
 	trash = /obj/item/trash/urist/instamash
 	filling_color = "#f94a32"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 4)
-		bitesize = 2
+/obj/item/weapon/reagent_containers/food/snacks/urist/instamash/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 4)
+	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/onigiri
 	name = "Umeboshi Onigiri"
 	desc = "A riceball made of white rice, wrapped in seaweed. This one appears to be filled with Umeboshi."
-	icon = 'icons/urist/items/uristfood.dmi'
+	icon = 'resources/icons/urist/items/uristfood.dmi'
 	icon_state = "onigiri"
 	trash = /obj/item/trash/onigiri
 	filling_color = "#eddd00"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 3)
-		bitesize = 2
+/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 3)
+	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/onigiri2
 	name = "Katsoubushi Onigiri"
 	desc = "A riceball made of white rice, wrapped in seaweed. This one appears to be filled with Katsuobushi."
-	icon = 'icons/urist/items/uristfood.dmi'
+	icon = 'resources/icons/urist/items/uristfood.dmi'
 	icon_state = "onigiri2"
 	trash = /obj/item/trash/onigiri
 	filling_color = "#eddd00"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 4)
-		bitesize = 2
+/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri2/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 4)
+	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/onigiri4
 	name = "Cat-Shaped Onigiri"
 	desc = "A riceball made of white rice, wrapped in seaweed. This one appears to shaped into a cute face!"
-	icon = 'icons/urist/items/uristfood.dmi'
+	icon = 'resources/icons/urist/items/uristfood.dmi'
 	icon_state = "onigiri4"
 	trash = /obj/item/trash/onigiri
 	filling_color = "#eddd00"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 3)
-		bitesize = 2
+/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri4/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 3)
+	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/yakidango
 	name = "Yakidango Skewers"
 	desc = "A skewer of Dangos. Made often of rice flour, they look delicious."
-	icon = 'icons/urist/items/uristfood.dmi'
+	icon = 'resources/icons/urist/items/uristfood.dmi'
 	icon_state = "yakidango-s"
 	trash = /obj/item/trash/skewers
 	filling_color = "#7a3d11"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 5)
-		bitesize = 4
+/obj/item/weapon/reagent_containers/food/snacks/urist/yakidango/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 5)
+	bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/ramenmiso
 	name = "Miso Ramen"
 	desc = "A small recycable bowl containing piping hot Ramen. The label reads that it is the Miso flavour variant."
-	icon = 'icons/urist/items/uristfood.dmi'
+	icon = 'resources/icons/urist/items/uristfood.dmi'
 	icon_state = "ramen-o"
 	trash = /obj/item/trash/ramenbowl
 	filling_color = "#7a3d11"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 5)
-		bitesize = 3
+/obj/item/weapon/reagent_containers/food/snacks/urist/ramenmiso/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 5)
+	bitesize = 3
 
 // Mingus Dew Reagent
 /datum/reagent/drink/mingusdew
@@ -258,21 +258,21 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox
 	name = "juicebox"
 	desc = "A test juicebox, contact the admins if you see this, something has broken."
-	icon = 'icons/urist/items/uristfood.dmi'
+	icon = 'resources/icons/urist/items/uristfood.dmi'
 	icon_state = "juicebox-test"
 
 // Add the noise and the straw overlay to show it's open.
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/open(mob/user)
-	playsound(loc,'sound/effects/bonebreak1.ogg', rand(10,50), 1)
+	playsound(loc,'resources/sound/effects/bonebreak1.ogg', rand(10,50), 1)
 	to_chat(user, "<span class='notice'>You take the straw out of \the [src], piercing the film!</span>")
-	overlays += image('icons/urist/items/uristfood.dmi', "straw_overlay")
+	overlays += image('resources/icons/urist/items/uristfood.dmi', "straw_overlay")
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 // Juicebox of Mingus Dew.
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/mingusdew
 	name = "\improper Mingus Dew"
 	desc = "Give me my damn Mingus Dew!"
-	icon = 'icons/urist/items/uristfood.dmi'
+	icon = 'resources/icons/urist/items/uristfood.dmi'
 	icon_state = "mingus"
 	trash = /obj/item/trash/urist/mingus_trash
 
@@ -284,7 +284,7 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/mangoreinhardt
 	name = "\improper Mango Reinhardt"
 	desc = "The thinking man's pop!"
-	icon = 'icons/urist/items/uristfood.dmi'
+	icon = 'resources/icons/urist/items/uristfood.dmi'
 	icon_state = "mango"
 	trash = /obj/item/trash/urist/mango_trash
 
@@ -296,7 +296,7 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/starman
 	name = "\improper Starman Sparkle"
 	desc = "A popular drink near some of the outer rimworlds, known for it's unique taste."
-	icon = 'icons/urist/items/uristfood.dmi'
+	icon = 'resources/icons/urist/items/uristfood.dmi'
 	icon_state = "starman"
 	trash = /obj/item/trash/urist/starman_trash
 
@@ -308,7 +308,7 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/royal
 	name = "\improper Royal Mix"
 	desc = "A mixture of cranberries and some other strange spices in a Juicebox."
-	icon = 'icons/urist/items/uristfood.dmi'
+	icon = 'resources/icons/urist/items/uristfood.dmi'
 	icon_state = "royal"
 	trash = /obj/item/trash/urist/royal_trash
 
@@ -320,7 +320,7 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/redkola
 	name = "\improper Red Kola"
 	desc = "Sparkling, tasty and refreshing. A great companion on any adventure."
-	icon = 'icons/urist/items/uristfood.dmi'
+	icon = 'resources/icons/urist/items/uristfood.dmi'
 	icon_state = "redkola"
 	trash = /obj/item/trash/urist/redkola_trash
 
@@ -332,7 +332,7 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/aloha
 	name = "\improper Aloha Coe"
 	desc = "A juicebox full of delicious tropical coconut flavors."
-	icon = 'icons/urist/items/uristfood.dmi'
+	icon = 'resources/icons/urist/items/uristfood.dmi'
 	icon_state = "aloha"
 	trash = /obj/item/trash/urist/aloha_trash
 
@@ -344,7 +344,7 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/happybrain
 	name = "\improper Happy Brain"
 	desc = "I feel happy, don't you?"
-	icon = 'icons/urist/items/uristfood.dmi'
+	icon = 'resources/icons/urist/items/uristfood.dmi'
 	icon_state = "happybrain"
 	trash = /obj/item/trash/urist/happybrain_trash
 
@@ -357,41 +357,41 @@
 // Trash Happy Brain Carton
 /obj/item/trash/urist/happybrain_trash
 	name = "empty happy brain carton"
-	icon = 'icons/urist/items/uristtrash.dmi'
+	icon = 'resources/icons/urist/items/uristtrash.dmi'
 	icon_state= "happybrain_trash"
 
 	// Trash Royal Mix Carton
 /obj/item/trash/urist/royal_trash
 	name = "empty royal mix carton"
-	icon = 'icons/urist/items/uristtrash.dmi'
+	icon = 'resources/icons/urist/items/uristtrash.dmi'
 	icon_state= "royal_trash"
 
 // Trash Mingus Dew Carton
 /obj/item/trash/urist/mingus_trash
 	name = "empty mingus dew carton"
-	icon = 'icons/urist/items/uristtrash.dmi'
+	icon = 'resources/icons/urist/items/uristtrash.dmi'
 	icon_state= "mingus_trash"
 
 // Trash Mango Reinhardt Carton
 /obj/item/trash/urist/mango_trash
 	name = "empty mango reinhardt carton"
-	icon = 'icons/urist/items/uristtrash.dmi'
+	icon = 'resources/icons/urist/items/uristtrash.dmi'
 	icon_state= "mango_trash"
 
 // Trash Starman Sparkle Carton
 /obj/item/trash/urist/starman_trash
 	name = "empty starman sparkle carton"
-	icon = 'icons/urist/items/uristtrash.dmi'
+	icon = 'resources/icons/urist/items/uristtrash.dmi'
 	icon_state= "starman_trash"
 
 // Trash Red Kola Carton
 /obj/item/trash/urist/redkola_trash
 	name = "empty red kola carton"
-	icon = 'icons/urist/items/uristtrash.dmi'
+	icon = 'resources/icons/urist/items/uristtrash.dmi'
 	icon_state= "redkola_trash"
 
 // Trash Aloha Coe Carton
 /obj/item/trash/urist/aloha_trash
 	name = "empty aloha coe carton"
-	icon = 'icons/urist/items/uristtrash.dmi'
+	icon = 'resources/icons/urist/items/uristtrash.dmi'
 	icon_state= "aloha_trash"

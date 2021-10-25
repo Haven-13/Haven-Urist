@@ -1,6 +1,6 @@
 /obj/effect/urist/projectile_landmark
 	icon_state = "x3"
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 	invisibility = 101
 //	var/fire_dir = 0
 //	var/obj/item/projectile/projectile_type

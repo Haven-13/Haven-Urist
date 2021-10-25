@@ -34,7 +34,7 @@
 /obj/item/weapon/energy_net
 	name = "energy net"
 	desc = "It's a net made of green energy."
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	icon_state = "energynet"
 	throwforce = 0
 	force = 0
@@ -72,7 +72,7 @@
 /obj/effect/energy_net
 	name = "energy net"
 	desc = "It's a net made of green energy."
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	icon_state = "energynet"
 
 	density = 1
@@ -148,8 +148,8 @@
 
 /obj/effect/energy_net/post_buckle_mob(mob/living/M)
 	if(buckled_mob)
-		plane = ABOVE_HUMAN_PLANE
-		layer = ABOVE_HUMAN_LAYER
+		plane = DEFAULT_PLANE
+		layer = ABOVE_MOB_LAYER
 		visible_message("\The [M] was caught in [src]!")
 	else
 		to_chat(M,"<span class='warning'>You are free of the net!</span>")
@@ -178,7 +178,7 @@
 	var/mob/living/carbon/human/H = user
 	if(istype(H))
 		if(H.species.can_shred(H))
-			playsound(src.loc, 'sound/weapons/slash.ogg', 80, 1)
+			playsound(src.loc, 'resources/sound/weapons/slash.ogg', 80, 1)
 			health -= rand(10, 20)
 		else
 			health -= rand(1,3)

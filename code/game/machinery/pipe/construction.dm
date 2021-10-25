@@ -11,7 +11,7 @@ Buildable meters
 	var/pipename
 	var/connect_types = CONNECT_TYPE_REGULAR
 	force = 7
-	icon = 'icons/obj/pipe-item.dmi'
+	icon = 'resources/icons/obj/pipe-item.dmi'
 	icon_state = "simple"
 	randpixel = 5
 	item_state = "buildpipe"
@@ -1266,7 +1266,7 @@ Buildable meters
 			P.atmos_init()
 			P.build_network()
 
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 	user.visible_message( \
 		"[user] fastens the [src].", \
 		"<span class='notice'>You have fastened the [src].</span>", \
@@ -1274,7 +1274,7 @@ Buildable meters
 	qdel(src)	// remove the pipe item
 
 	return
-	 //TODO: DEFERRED
+	//TODO: DEFERRED
 
 // ensure that setterm() is called for a newly connected pipeline
 
@@ -1283,7 +1283,7 @@ Buildable meters
 /obj/item/pipe_meter
 	name = "meter"
 	desc = "A meter that can be laid on pipes."
-	icon = 'icons/obj/pipe-item.dmi'
+	icon = 'resources/icons/obj/pipe-item.dmi'
 	icon_state = "meter"
 	item_state = "buildpipe"
 	w_class = ITEM_SIZE_LARGE
@@ -1297,7 +1297,7 @@ Buildable meters
 		to_chat(user, "<span class='warning'>You need to fasten it to a pipe</span>")
 		return 1
 	new/obj/machinery/meter( src.loc )
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 	to_chat(user, "<span class='notice'>You have fastened the meter to the pipe</span>")
 	qdel(src)
 //not sure why these are necessary

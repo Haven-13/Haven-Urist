@@ -1,0 +1,478 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/planet/jungle/templatethick,
+/area/planet/jungle)
+"b" = (
+/obj/item/weapon/storage/secure/briefcase/money,
+/obj/item/remains/human,
+/turf/simulated/floor/planet/jungle/path,
+/area/planet/jungle)
+"c" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/planet/jungle/path,
+/area/planet/jungle)
+"d" = (
+/turf/simulated/floor/planet/jungle/path,
+/area/planet/jungle)
+"e" = (
+/turf/simulated/floor/planet/jungle/clear/dark,
+/area/planet/jungle)
+"f" = (
+/obj/item/remains/robot,
+/turf/simulated/floor/planet/jungle/path,
+/area/planet/jungle)
+"g" = (
+/obj/structure/shuttle/engine/propulsion/burst{
+	dir = 4
+	},
+/turf/simulated/floor/planet/jungle/clear/dark,
+/area/planet/jungle)
+"h" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/planet/jungle/clear/dark,
+/area/planet/jungle)
+"i" = (
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/plating,
+/area/planet/jungle)
+"j" = (
+/turf/simulated/floor/plating,
+/area/planet/jungle)
+"k" = (
+/turf/simulated/shuttle/wall{
+	tag = "icon-swall_straight (EAST)";
+	icon_state = "swall_straight";
+	dir = 4
+	},
+/area/planet/jungle)
+"l" = (
+/turf/simulated/floor/planet/jungle,
+/turf/simulated/shuttle/wall{
+	tag = "icon-corner_white";
+	icon_state = "corner_white"
+	},
+/area/planet/jungle)
+"m" = (
+/obj/item/remains/robot,
+/turf/simulated/floor/planet/jungle/clear/dark,
+/area/planet/jungle)
+"n" = (
+/obj/machinery/door/airlock/external{
+	aiControlDisabled = 1;
+	aiDisabledIdScanner = 1;
+	autoclose = 0;
+	density = 0;
+	explosion_resistance = 0;
+	frequency = null;
+	icon_state = "door_open";
+	id_tag = null;
+	locked = 1;
+	main_power_lost_until = -1;
+	name = "Escape Pod Hatch";
+	opacity = 0
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/plating,
+/area/planet/jungle)
+"o" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/planet/jungle)
+"p" = (
+/obj/structure/bed/chair/urist/shuttle{
+	tag = "icon-shuttlechair (EAST)";
+	icon_state = "shuttlechair";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/material/shard{
+	icon_state = "medium"
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/shuttle/white,
+/area/planet/jungle)
+"q" = (
+/obj/structure/window/reinforced,
+/obj/item/stack/rods,
+/obj/item/stack/rods,
+/obj/item/stack/rods,
+/obj/item/weapon/material/shard,
+/obj/item/weapon/material/shard{
+	icon_state = "small"
+	},
+/turf/simulated/floor/plating,
+/area/planet/jungle)
+"r" = (
+/obj/structure/bed/chair/urist/shuttle,
+/turf/simulated/floor/planet/jungle/clear/dark,
+/area/planet/jungle)
+"s" = (
+/turf/simulated/floor/plating,
+/obj/structure/shuttle/engine/propulsion/burst{
+	dir = 4
+	},
+/turf/simulated/shuttle/wall{
+	icon_state = "swall_f5";
+	dir = 2
+	},
+/area/planet/jungle)
+"t" = (
+/turf/simulated/floor/planet/jungle,
+/turf/simulated/shuttle/wall{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
+	},
+/area/planet/jungle)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+d
+a
+"}
+(2,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+d
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+f
+d
+"}
+(4,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+e
+d
+e
+"}
+(5,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+d
+d
+d
+"}
+(6,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+d
+e
+a
+"}
+(7,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+d
+d
+"}
+(8,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+f
+d
+e
+"}
+(9,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+d
+d
+d
+"}
+(10,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+e
+d
+e
+"}
+(11,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+g
+e
+d
+"}
+(12,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+e
+e
+d
+"}
+(13,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+e
+d
+a
+"}
+(14,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+e
+m
+d
+"}
+(15,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+d
+d
+e
+"}
+(16,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+e
+d
+r
+"}
+(17,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+e
+d
+"}
+(18,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+e
+d
+e
+"}
+(19,1,1) = {"
+a
+b
+a
+d
+d
+a
+a
+c
+d
+d
+e
+d
+"}
+(20,1,1) = {"
+a
+a
+c
+a
+a
+c
+d
+a
+d
+h
+d
+m
+"}
+(21,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+d
+d
+e
+"}
+(22,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+i
+n
+s
+"}
+(23,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+j
+o
+k
+"}
+(24,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+k
+p
+k
+"}
+(25,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+l
+q
+t
+"}

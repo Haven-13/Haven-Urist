@@ -1,6 +1,6 @@
 /obj/effect/wallframe_spawn
 	name = "wall frame window grille spawner"
-	icon = 'icons/obj/structures.dmi'
+	icon = 'resources/icons/obj/structures.dmi'
 	icon_state = "wingrille"
 	density = 1
 	anchored = 1.0
@@ -33,17 +33,20 @@
 /obj/effect/wallframe_spawn/proc/activate()
 	if(activated) return
 
+	if(locate(/turf/simulated/wall) in loc || locate(/turf/unsimulated/wall))
+		error("Window Spawner: A wall turf exists at [loc.x]-[loc.y]-[loc.z]")
+
 	if(locate(/obj/structure/wall_frame) in loc)
-		warning("Frame Spawner: A frame structure already exists at [loc.x]-[loc.y]-[loc.z]")
+		error("Frame Spawner: A frame structure already exists at [loc.x]-[loc.y]-[loc.z]")
 	else
 		var/obj/structure/wall_frame/F = new frame_path(loc)
 		handle_frame_spawn(F)
 
 	if(locate(/obj/structure/window) in loc)
-		warning("Frame Spawner: A window structure already exists at [loc.x]-[loc.y]-[loc.z]")
+		error("Frame Spawner: A window structure already exists at [loc.x]-[loc.y]-[loc.z]")
 
 	if(locate(/obj/structure/grille) in loc)
-		warning("Frame Spawner: A grille already exists at [loc.x]-[loc.y]-[loc.z]")
+		error("Frame Spawner: A grille already exists at [loc.x]-[loc.y]-[loc.z]")
 	else
 		var/obj/structure/grille/G = new /obj/structure/grille(loc)
 		handle_grille_spawn(G)

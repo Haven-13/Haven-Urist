@@ -1,7 +1,7 @@
 //I will need to recode parts of this but I am way too tired atm
 /obj/effect/blob
 	name = "blob"
-	icon = 'icons/mob/blob.dmi'
+	icon = 'resources/icons/mob/blob.dmi'
 	icon_state = "blob"
 	light_outer_range = 2
 	light_color = "#b5ff5b"
@@ -11,8 +11,8 @@
 	anchored = 1
 	mouse_opacity = 2
 
-	plane = BLOB_PLANE
-	layer = BLOB_SHIELD_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_VEHICLE_LAYER + 1
 
 	var/maxHealth = 30
 	var/health
@@ -51,7 +51,7 @@
 /obj/effect/blob/proc/take_damage(var/damage)
 	health -= damage
 	if(health < 0)
-		playsound(loc, 'sound/effects/splat.ogg', 50, 1)
+		playsound(loc, 'resources/sound/effects/splat.ogg', 50, 1)
 		qdel(src)
 	else
 		update_icon()
@@ -120,7 +120,7 @@
 		if(L.stat == DEAD)
 			continue
 		L.visible_message("<span class='danger'>The blob attacks \the [L]!</span>", "<span class='danger'>The blob attacks you!</span>")
-		playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
+		playsound(loc, 'resources/sound/effects/attackblob.ogg', 50, 1)
 		L.take_organ_damage(rand(30, 40))
 		return
 	if(!(locate(/obj/effect/blob/core) in range(T, 2)) && prob(secondary_core_growth_chance))
@@ -156,13 +156,13 @@
 /obj/effect/blob/attackby(var/obj/item/weapon/W, var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
-	playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
+	playsound(loc, 'resources/sound/effects/attackblob.ogg', 50, 1)
 	var/damage = 0
 	switch(W.damtype)
 		if("fire")
 			damage = (W.force / fire_resist)
 			if(isWelder(W))
-				playsound(loc, 'sound/items/Welder.ogg', 100, 1)
+				playsound(loc, 'resources/sound/items/Welder.ogg', 100, 1)
 		if("brute")
 			damage = (W.force / brute_resist)
 
@@ -171,7 +171,7 @@
 
 /obj/effect/blob/core
 	name = "blob core"
-	icon = 'icons/mob/blob.dmi'
+	icon = 'resources/icons/mob/blob.dmi'
 	icon_state = "blob_core"
 	maxHealth = 200
 	brute_resist = 2
@@ -179,7 +179,7 @@
 	laser_resist = 8
 	regen_rate = 2
 
-	layer = BLOB_CORE_LAYER
+	layer = ABOVE_VEHICLE_LAYER + 1
 
 	expandType = /obj/effect/blob/shield
 	var/blob_may_process = 1
@@ -219,7 +219,7 @@
 // Half the stats of a normal core. Blob has a very small probability of growing these when spreading. These will spread the blob further.
 /obj/effect/blob/core/secondary
 	name = "small blob core"
-	icon = 'icons/mob/blob.dmi'
+	icon = 'resources/icons/mob/blob.dmi'
 	icon_state = "blob_node"
 	maxHealth = 100
 	brute_resist = 1
@@ -228,14 +228,14 @@
 	regen_rate = 1
 	growth_range = 3
 
-	layer = BLOB_NODE_LAYER
+	layer = ABOVE_VEHICLE_LAYER + 1
 
 /obj/effect/blob/core/secondary/update_icon()
 	icon_state = (health / maxHealth >= 0.5) ? "blob_node" : "blob_factory"
 
 /obj/effect/blob/shield
 	name = "strong blob"
-	icon = 'icons/mob/blob.dmi'
+	icon = 'resources/icons/mob/blob.dmi'
 	icon_state = "blob_idle"
 	desc = "Some blob creature thingy."
 	maxHealth = 60

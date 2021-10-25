@@ -6,9 +6,9 @@
 
 /obj/vehicle
 	name = "vehicle"
-	icon = 'icons/obj/vehicles.dmi'
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	icon = 'resources/icons/obj/vehicles.dmi'
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 	density = 1
 	anchored = 1
 	animate_movement=1
@@ -143,7 +143,7 @@
 	var/was_on = on
 	stat |= EMPED
 	var/obj/effect/overlay/pulse2 = new /obj/effect/overlay(loc)
-	pulse2.icon = 'icons/effects/effects.dmi'
+	pulse2.icon = 'resources/icons/effects/effects.dmi'
 	pulse2.icon_state = "empdisable"
 	pulse2.SetName("emp sparks")
 	pulse2.anchored = 1
@@ -289,7 +289,7 @@
 
 	if(load_item_visible)
 		C.plane = plane
-		C.layer = VEHICLE_LOAD_LAYER		//so it sits above the vehicle
+		C.layer = ABOVE_VEHICLE_LAYER		//so it sits above the vehicle
 
 	if(ismob(C))
 		buckle_mob(C)

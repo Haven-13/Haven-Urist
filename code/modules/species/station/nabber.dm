@@ -14,7 +14,7 @@
 	min_age = 8
 	max_age = 40
 
-	speech_sounds = list('sound/voice/bug.ogg')
+	speech_sounds = list('resources/sound/voice/bug.ogg')
 	speech_chance = 2
 
 	warning_low_pressure = 50
@@ -28,11 +28,11 @@
 
 	reagent_tag = IS_NABBER
 
-	icon_template = 'icons/mob/human_races/species/template_tall.dmi'
-	icobase = 'icons/mob/human_races/species/nabber/body.dmi'
-	deform = 'icons/mob/human_races/species/nabber/body.dmi'
-	preview_icon = 'icons/mob/human_races/species/nabber/preview.dmi'
-	blood_mask = 'icons/mob/human_races/species/nabber/blood_mask.dmi'
+	icon_template = 'resources/icons/mob/human_races/species/template_tall.dmi'
+	icobase = 'resources/icons/mob/human_races/species/nabber/body.dmi'
+	deform = 'resources/icons/mob/human_races/species/nabber/body.dmi'
+	preview_icon = 'resources/icons/mob/human_races/species/nabber/preview.dmi'
+	blood_mask = 'resources/icons/mob/human_races/species/nabber/blood_mask.dmi'
 
 	limb_blend = ICON_MULTIPLY
 
@@ -272,7 +272,7 @@
 			var/image/threat_image = skin_overlays[image_key]
 			if(!threat_image)
 				var/icon/base_icon = icon(H.stand_icon)
-				var/icon/I = new('icons/mob/human_races/species/nabber/threat.dmi', "threat")
+				var/icon/I = new('resources/icons/mob/human_races/species/nabber/threat.dmi', "threat")
 				base_icon.Blend(COLOR_BLACK, ICON_MULTIPLY)
 				base_icon.Blend(I, ICON_ADD)
 				threat_image  = image(base_icon)
@@ -289,7 +289,7 @@
 		return 0
 	attacker.last_attack = world.time
 	var/turf/T = get_step(get_turf(target), get_dir(get_turf(attacker), get_turf(target)))
-	playsound(target.loc, 'sound/weapons/pushhiss.ogg', 50, 1, -1)
+	playsound(target.loc, 'resources/sound/weapons/pushhiss.ogg', 50, 1, -1)
 	if(!T.density)
 		step(target, get_dir(get_turf(attacker), get_turf(target)))
 		target.visible_message("<span class='danger'>[pick("[target] was sent flying backward!", "[target] staggers back from the impact!")]</span>")
@@ -319,7 +319,7 @@
 	grabber.unEquip(grabber.l_hand)
 	grabber.unEquip(grabber.r_hand)
 	to_chat(grabber, "<span class='warning'>You drop everything as you spring out to nab \the [target]!.</span>")
-	playsound(grabber.loc, 'sound/weapons/pierce.ogg', 25, 1, -1)
+	playsound(grabber.loc, 'resources/sound/weapons/pierce.ogg', 25, 1, -1)
 
 	if(!grabber.is_cloaked())
 		return ..(grabber, target, GRAB_NAB)
@@ -336,7 +336,7 @@
 		target.LAssailant = grabber
 		grabber.visible_message("<span class='danger'>\The [grabber] suddenly lunges out and grabs \the [target]!</span>")
 		grabber.do_attack_animation(target)
-		playsound(grabber.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+		playsound(grabber.loc, 'resources/sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		return 1
 	else
 		grabber.visible_message("<span class='danger'>\The [grabber] suddenly lunges out, almost grabbing \the [target]!</span>")

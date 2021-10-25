@@ -25,7 +25,7 @@
 	var/result_amount = 0
 
 	var/mix_message = "The solution begins to bubble."
-	var/reaction_sound = 'sound/effects/bubbles.ogg'
+	var/reaction_sound = 'resources/sound/effects/bubbles.ogg'
 
 	var/log_is_important = 0 // If this reaction should be considered important for logging. Important recipes message admins when mixed, non-important ones just log to file.
 
@@ -583,7 +583,7 @@
 	var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem
 	S.attach(location)
 	S.set_up(holder, created_volume, 0, location)
-	playsound(location, 'sound/effects/smoke.ogg', 50, 1, -3)
+	playsound(location, 'resources/sound/effects/smoke.ogg', 50, 1, -3)
 	spawn(0)
 		S.start()
 	holder.clear_reagents()
@@ -954,7 +954,7 @@
 
 /datum/chemical_reaction/slime/bork/on_reaction(var/datum/reagents/holder)
 	var/list/borks = typesof(/obj/item/weapon/reagent_containers/food/snacks) - /obj/item/weapon/reagent_containers/food/snacks
-	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
+	playsound(get_turf(holder.my_atom), 'resources/sound/effects/phasein.ogg', 100, 1)
 	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
 		if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
 			M.flash_eyes()
@@ -990,7 +990,7 @@
 	set waitfor = 0
 	..()
 	sleep(50)
-	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
+	playsound(get_turf(holder.my_atom), 'resources/sound/effects/phasein.ogg', 100, 1)
 	for(var/mob/living/M in range (get_turf(holder.my_atom), 7))
 		M.bodytemperature -= 140
 		to_chat(M, "<span class='warning'>You feel a chill!</span>")
@@ -1203,7 +1203,7 @@
 	result = null
 	required_reagents = list(/datum/reagent/toxin/phoron = 1)
 	required = /obj/item/slime_extract/bluespace
-	reaction_sound = 'sound/effects/teleport.ogg'
+	reaction_sound = 'resources/sound/effects/teleport.ogg'
 
 /datum/chemical_reaction/slime/teleport/on_reaction(var/datum/reagents/holder)
 	var/list/turfs = list()

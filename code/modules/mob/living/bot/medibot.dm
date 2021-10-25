@@ -1,7 +1,7 @@
 /mob/living/bot/medbot
 	name = "Medibot"
 	desc = "A little medical robot. He looks somewhat underwhelmed."
-	icon = 'icons/mob/bot/medibot.dmi'
+	icon = 'resources/icons/mob/bot/medibot.dmi'
 	icon_state = "medibot0"
 	req_one_access = list(access_medical, access_robotics)
 	botcard_access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
@@ -88,7 +88,7 @@
 /mob/living/bot/medbot/update_icons()
 	overlays.Cut()
 	if(skin)
-		overlays += image('icons/mob/bot/medibot_skins.dmi', "medskin_[skin]")
+		overlays += image('resources/icons/mob/bot/medibot_skins.dmi', "medskin_[skin]")
 	if(busy)
 		icon_state = "medibots"
 	else
@@ -272,7 +272,7 @@
 /obj/item/weapon/firstaid_arm_assembly
 	name = "first aid/robot arm assembly"
 	desc = "A first aid kit with a robot arm permanently grafted to it."
-	icon = 'icons/mob/bot/medibot.dmi'
+	icon = 'resources/icons/mob/bot/medibot.dmi'
 	icon_state = "firstaid_arm"
 	var/build_step = 0
 	var/created_name = "Medibot" //To preserve the name if it's a unique medbot I guess
@@ -282,7 +282,7 @@
 /obj/item/weapon/firstaid_arm_assembly/Initialize()
 	. = ..()
 	if(skin != "firstaid")//Let's not add any unnecessary overlays.
-		overlays += image('icons/mob/bot/medibot_skins.dmi', "kit_skin_[src.skin]")
+		overlays += image('resources/icons/mob/bot/medibot_skins.dmi', "kit_skin_[src.skin]")
 
 /obj/item/weapon/firstaid_arm_assembly/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
@@ -301,7 +301,7 @@
 					build_step++
 					to_chat(user, "<span class='notice'>You add the health sensor to [src].</span>")
 					SetName("First aid/robot arm/health analyzer assembly")
-					overlays += image('icons/mob/bot/medibot.dmi', "na_scanner")
+					overlays += image('resources/icons/mob/bot/medibot.dmi', "na_scanner")
 
 			if(1)
 				if(isprox(W))

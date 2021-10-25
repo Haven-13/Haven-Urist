@@ -1,20 +1,20 @@
 /obj/structure/catwalk
 	name = "catwalk"
 	desc = "Cats really don't like these things."
-	icon = 'icons/obj/catwalks.dmi'
+	icon = 'resources/icons/obj/catwalks.dmi'
 	icon_state = "catwalk"
 	density = 0
 	anchored = 1.0
 	var/obj/item/stack/tile/mono/plated_tile
-	plane = UNDER_OBJ_PLANE
+	plane = DEFAULT_PLANE
 	layer = CATWALK_LAYER
 	var/hatch_open = FALSE
 	footstep_sounds= list(
-		'sound/effects/footstep/catwalk1.ogg',
-		'sound/effects/footstep/catwalk2.ogg',
-		'sound/effects/footstep/catwalk3.ogg',
-		'sound/effects/footstep/catwalk4.ogg',
-		'sound/effects/footstep/catwalk5.ogg')
+		'resources/sound/effects/footstep/catwalk1.ogg',
+		'resources/sound/effects/footstep/catwalk2.ogg',
+		'resources/sound/effects/footstep/catwalk3.ogg',
+		'resources/sound/effects/footstep/catwalk4.ogg',
+		'resources/sound/effects/footstep/catwalk5.ogg')
 
 /obj/structure/catwalk/Initialize()
 	. = ..()
@@ -45,10 +45,10 @@
 	var/image/I
 	if(!hatch_open)
 		for(var/i = 1 to 4)
-			I = image('icons/obj/catwalks.dmi', "catwalk[connections[i]]", dir = 1<<(i-1))
+			I = image('resources/icons/obj/catwalks.dmi', "catwalk[connections[i]]", dir = 1<<(i-1))
 			overlays += I
 	if(plated_tile)
-		I = image('icons/obj/catwalks.dmi', "plated")
+		I = image('resources/icons/obj/catwalks.dmi', "plated")
 		I.color = plated_tile.color
 		overlays += I
 
@@ -72,7 +72,7 @@
 	if(isWelder(C))
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
-			playsound(src, 'sound/items/Welder.ogg', 100, 1)
+			playsound(src, 'resources/sound/items/Welder.ogg', 100, 1)
 			to_chat(user, "<span class='notice'>Slicing \the [src] joints ...</span>")
 			new /obj/item/stack/rods(src.loc)
 			new /obj/item/stack/rods(src.loc)
@@ -86,10 +86,10 @@
 	if(isCrowbar(C) && plated_tile)
 		hatch_open = !hatch_open
 		if(hatch_open)
-			playsound(src, 'sound/items/Crowbar.ogg', 100, 2)
+			playsound(src, 'resources/sound/items/Crowbar.ogg', 100, 2)
 			to_chat(user, "<span class='notice'>You pry open \the [src]'s maintenance hatch.</span>")
 		else
-			playsound(src, 'sound/items/Deconstruct.ogg', 100, 2)
+			playsound(src, 'resources/sound/items/Deconstruct.ogg', 100, 2)
 			to_chat(user, "<span class='notice'>You shut \the [src]'s maintenance hatch.</span>")
 		update_icon()
 		return
@@ -117,12 +117,12 @@
 
 /obj/effect/catwalk_plated
 	name = "plated catwalk spawner"
-	icon = 'icons/obj/catwalks.dmi'
+	icon = 'resources/icons/obj/catwalks.dmi'
 	icon_state = "catwalk_plated"
 	density = 1
 	anchored = 1.0
 	var/activated = FALSE
-	layer = ABOVE_TURF_PLANE
+	layer = DEFAULT_PLANE
 	var/plating_type = /decl/flooring/tiling/mono
 
 /obj/effect/catwalk_plated/Initialize(mapload)

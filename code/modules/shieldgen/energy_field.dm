@@ -4,10 +4,10 @@
 /obj/effect/energy_field
 	name = "energy field"
 	desc = "Impenetrable field of energy, capable of blocking anything as long as it's active."
-	icon = 'icons/obj/machines/shielding.dmi'
+	icon = 'resources/icons/obj/machines/shielding.dmi'
 	icon_state = "shield_normal"
 	anchored = 1
-	plane = EFFECTS_BELOW_LIGHTING_PLANE
+	plane = EFFECTS_PLANE
 	layer = PROJECTILE_LAYER
 	density = 0
 	invisibility = 101

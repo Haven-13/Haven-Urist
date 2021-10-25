@@ -1,7 +1,7 @@
 /obj/item/weapon/key
 	name = "key"
 	desc = "Used to unlock things."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "keys"
 	w_class = 1
 	var/key_data = ""

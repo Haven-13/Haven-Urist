@@ -113,7 +113,7 @@
 /obj/structure/fuel_port
 	name = "fuel port"
 	desc = "The fuel input port of the shuttle. Holds one fuel tank. Use a crowbar to open and close it."
-	icon = 'icons/turf/shuttle.dmi'
+	icon = 'resources/icons/turf/shuttle.dmi'
 	icon_state = "fuel_port"
 	density = 0
 	anchored = 1
@@ -147,11 +147,11 @@
 	if(isCrowbar(W))
 		if(opened)
 			to_chat(user, "<span class='notice'>You tightly shut \the [src] door.</span>")
-			playsound(src.loc, 'sound/effects/locker_close.ogg', 25, 0, -3)
+			playsound(src.loc, 'resources/sound/effects/locker_close.ogg', 25, 0, -3)
 			opened = 0
 		else
 			to_chat(user, "<span class='notice'>You open up \the [src] door.</span>")
-			playsound(src.loc, 'sound/effects/locker_open.ogg', 15, 1, -3)
+			playsound(src.loc, 'resources/sound/effects/locker_open.ogg', 15, 1, -3)
 			opened = 1
 	else if(istype(W,/obj/item/weapon/tank))
 		if(!opened)

@@ -2,7 +2,7 @@
 	item_icons = URIST_ALL_ONMOBS
 	name = "backpack water tank"
 	desc = "A S.U.N.S.H.I.N.E. brand watertank backpack with nozzle to water plants."
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	icon_state = "waterbackpack"
 	item_state = "waterbackpack"
 	w_class = 4.0
@@ -62,7 +62,7 @@
 	item_icons = URIST_ALL_ONMOBS
 	name = "water mister"
 	desc = "A mister nozzle attached to a water tank."
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	icon_state = "mister"
 	item_state = "mister"
 	w_class = 4.0

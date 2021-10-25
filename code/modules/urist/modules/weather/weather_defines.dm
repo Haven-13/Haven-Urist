@@ -2,15 +2,15 @@
 //Those are objs only because they need to have access to some vars, *DO NOT* USE THEM DIRECTLY!
 /obj/weathertype
 	name = "DO NOT USE THIS, THIS IS ONLY AN OVERLAY!"
-	icon = 'icons/urist/weather.dmi'
+	icon = 'resources/icons/urist/weather.dmi'
 	icon_state = ""
 	appearance_flags = RESET_COLOR | RESET_ALPHA
 	color = null
 	alpha = 255
 	mouse_opacity = 2
 	anchored = 1
-	layer = EFFECTS_LAYER
-	plane = WEATHER_PLANE
+	plane = EFFECTS_PLANE
+	layer = WEATHER_EFFECT_LAYER
 	var/weathertemp = 310.15 //Kelvin temperature, default is neutral to mobs
 	var/list/init_reagents = list() //carried reagents as ids
 
@@ -127,7 +127,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 
 /* direct damage weathers */
 /obj/weathertype/sandstorm
-	//icon = 'icons/urist/96x96.dmi'
+	//icon = 'resources/icons/urist/96x96.dmi'
 	icon_state = "fog"
 	pixel_x = -32
 	pixel_y = -32
@@ -155,7 +155,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 	color = null
 
 /obj/weathertype/fog
-	//icon = 'icons/urist/96x96.dmi'
+	//icon = 'resources/icons/urist/96x96.dmi'
 	icon_state = "fog"
 	pixel_x = -32
 	pixel_y = -32

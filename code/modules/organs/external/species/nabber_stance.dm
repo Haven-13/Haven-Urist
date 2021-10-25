@@ -3,7 +3,7 @@
 	vital = 0
 	has_lips = 0
 	encased = "carapace"
-	eye_icon_location = 'icons/mob/human_races/species/nabber/eyes.dmi'
+	eye_icon_location = 'resources/icons/mob/human_races/species/nabber/eyes.dmi'
 	action_button_name = "Switch Stance" // Basically just a wrapper for switch stance verb, since GAS use it more than normals.
 	limb_flags = ORGAN_FLAG_CAN_AMPUTATE | ORGAN_FLAG_GENDERED_ICON | ORGAN_FLAG_CAN_BREAK
 

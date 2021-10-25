@@ -4,7 +4,7 @@
 /obj/item/weapon/reagent_containers/food/snacks
 	name = "snack"
 	desc = "Yummy!"
-	icon = 'icons/obj/food.dmi'
+	icon = 'resources/icons/obj/food.dmi'
 	icon_state = null
 	var/bitesize = 1
 	var/bitecount = 0
@@ -92,7 +92,7 @@
 			user.visible_message("<span class='danger'>[user] feeds [M] [src].</span>")
 
 		if(reagents)								//Handle ingestion of the reagent.
-			playsound(M.loc,'sound/items/eatfood.ogg', rand(10,50), 1)
+			playsound(M.loc,'resources/sound/items/eatfood.ogg', rand(10,50), 1)
 			if(reagents.total_volume)
 				if(reagents.total_volume > bitesize)
 					reagents.trans_to_mob(M, bitesize, CHEM_INGEST)
@@ -361,7 +361,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/organ
 	name = "organ"
 	desc = "It's good for you."
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'resources/icons/obj/surgery.dmi'
 	icon_state = "appendix"
 	filling_color = "#e00d34"
 	center_of_mass = "x=16;y=16"
@@ -491,7 +491,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/sausage
 	name = "sausage"
 	desc = "A piece of mixed, long meat."
-	icon = 'icons/obj/food_ingredients.dmi'
+	icon = 'resources/icons/obj/food_ingredients.dmi'
 	icon_state = "sausage"
 	filling_color = "#db0000"
 	center_of_mass = "x=16;y=16"
@@ -629,7 +629,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/plainburger
 	name = "burger"
 	desc = "The cornerstone of every nutritious breakfast."
-	icon = 'icons/obj/food_ingredients.dmi'
+	icon = 'resources/icons/obj/food_ingredients.dmi'
 	icon_state = "burger"
 	filling_color = "#d63c3c"
 	center_of_mass = "x=16;y=11"
@@ -643,7 +643,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/hamburger
 	name = "hamburger"
 	desc = "The cornerstone of every nutritious breakfast, now with ham!"
-	icon = 'icons/obj/food_ingredients.dmi'
+	icon = 'resources/icons/obj/food_ingredients.dmi'
 	icon_state = "hamburger"
 	filling_color = "#d63c3c"
 	center_of_mass = "x=16;y=11"
@@ -1123,7 +1123,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/plainsteak
 	name = "plain steak"
 	desc = "A piece of unseasoned cooked meat."
-	icon = 'icons/obj/food_ingredients.dmi'
+	icon = 'resources/icons/obj/food_ingredients.dmi'
 	icon_state = "steak"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/cutlet
 	slices_num = 3
@@ -2767,7 +2767,7 @@
 /obj/item/pizzabox
 	name = "pizza box"
 	desc = "A box suited for pizzas."
-	icon = 'icons/obj/food.dmi'
+	icon = 'resources/icons/obj/food.dmi'
 	icon_state = "pizzabox1"
 
 	var/open = 0 // Is the box open?
@@ -2945,7 +2945,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/dough
 	name = "dough"
 	desc = "A piece of dough."
-	icon = 'icons/obj/food_ingredients.dmi'
+	icon = 'resources/icons/obj/food_ingredients.dmi'
 	icon_state = "dough"
 	bitesize = 2
 	center_of_mass = "x=16;y=13"
@@ -2967,7 +2967,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough
 	name = "flat dough"
 	desc = "A flattened dough."
-	icon = 'icons/obj/food_ingredients.dmi'
+	icon = 'resources/icons/obj/food_ingredients.dmi'
 	icon_state = "flat dough"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/doughslice
 	slices_num = 3
@@ -2981,7 +2981,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/doughslice
 	name = "dough slice"
 	desc = "A building block of an impressive dish."
-	icon = 'icons/obj/food_ingredients.dmi'
+	icon = 'resources/icons/obj/food_ingredients.dmi'
 	icon_state = "doughslice"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/spagetti
 	slices_num = 1
@@ -2994,7 +2994,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/bun
 	name = "bun"
 	desc = "A base for any self-respecting burger."
-	icon = 'icons/obj/food_ingredients.dmi'
+	icon = 'resources/icons/obj/food_ingredients.dmi'
 	icon_state = "bun"
 	bitesize = 2
 	center_of_mass = "x=16;y=12"
@@ -3115,7 +3115,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/rawcutlet
 	name = "raw cutlet"
 	desc = "A thin piece of raw meat."
-	icon = 'icons/obj/food_ingredients.dmi'
+	icon = 'resources/icons/obj/food_ingredients.dmi'
 	icon_state = "rawcutlet"
 	bitesize = 1
 	center_of_mass = "x=17;y=20"
@@ -3127,7 +3127,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/cutlet
 	name = "cutlet"
 	desc = "A tasty meat slice."
-	icon = 'icons/obj/food_ingredients.dmi'
+	icon = 'resources/icons/obj/food_ingredients.dmi'
 	icon_state = "cutlet"
 	bitesize = 2
 	center_of_mass = "x=17;y=20"
@@ -3139,7 +3139,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/rawmeatball
 	name = "raw meatball"
 	desc = "A raw meatball."
-	icon = 'icons/obj/food_ingredients.dmi'
+	icon = 'resources/icons/obj/food_ingredients.dmi'
 	icon_state = "rawmeatball"
 	bitesize = 2
 	center_of_mass = "x=16;y=15"
@@ -3173,7 +3173,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/flatbread
 	name = "flatbread"
 	desc = "Bland but filling."
-	icon = 'icons/obj/food_ingredients.dmi'
+	icon = 'resources/icons/obj/food_ingredients.dmi'
 	icon_state = "flatbread"
 	bitesize = 2
 	center_of_mass = "x=16;y=16"
@@ -3192,7 +3192,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/rawsticks
 	name = "raw potato sticks"
 	desc = "Raw fries, not very tasty."
-	icon = 'icons/obj/food_ingredients.dmi'
+	icon = 'resources/icons/obj/food_ingredients.dmi'
 	icon_state = "rawsticks"
 	bitesize = 2
 	center_of_mass = "x=16;y=12"
@@ -3391,15 +3391,16 @@
 /obj/item/weapon/reagent_containers/food/snacks/bird
 	name = "\improper Chicken's Choice"
 	desc = "Bird seed for Teshari and Livestock, or insane people."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	icon_state = "birdseed"
 	filling_color = "#a66829"
 	center_of_mass = "x=15;y=12"
 	nutriment_desc = list("sunflower seeds" = 3, "bits of shell" = 3)
 	nutriment_amt = 6
-	New()
-		..()
-		bitesize = 3
+/obj/item/weapon/reagent_containers/food/snacks/bird/New()
+	..()
+	bitesize = 3
+
 /obj/item/weapon/reagent_containers/food/snacks/candy
 	name = "candy"
 	desc = "Nougat, love it or hate it."

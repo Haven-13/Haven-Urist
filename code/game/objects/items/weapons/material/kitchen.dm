@@ -1,5 +1,5 @@
 /obj/item/weapon/material/kitchen
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'resources/icons/obj/kitchen.dmi'
 
 /*
  * Utensils
@@ -46,7 +46,7 @@
 			if(!(M.can_force_feed(user, loaded) && do_mob(user, M, 5 SECONDS)))
 				return
 			M.visible_message("<span class='notice'>\The [user] feeds some [loaded] to \the [M] with \the [src].</span>")
-		playsound(M.loc,'sound/items/eatfood.ogg', rand(10,40), 1)
+		playsound(M.loc,'resources/sound/items/eatfood.ogg', rand(10,40), 1)
 		overlays.Cut()
 		return
 	else
@@ -89,7 +89,7 @@
 /obj/item/weapon/material/kitchen/utensil/knife/boot
 	name = "small knife"
 	desc = "A small, easily concealed knife."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'resources/icons/obj/weapons.dmi'
 	icon_state = "pocketknife_open"
 	item_state = "knife"
 	applies_material_colour = 0
@@ -105,7 +105,7 @@
 /obj/item/weapon/material/kitchen/utensil/knife/unathiknife
 	name = "dueling knife"
 	desc = "A length of leather-bound wood studded with razor-sharp teeth. How crude."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'resources/icons/obj/weapons.dmi'
 	icon_state = "unathiknife"
 	item_state = "knife"
 	attack_verb = list("ripped", "torn", "cut")
@@ -144,7 +144,7 @@
 /obj/item/weapon/material/kitchen/utensil/chopsticks
 	name = "chopsticks"
 	desc = "A pair of wooden chopsticks, with a stylish finish."
-	icon = 'icons/urist/items/uristutensils.dmi'
+	icon = 'resources/icons/urist/items/uristutensils.dmi'
 	icon_state = "chopsticks"
 	attack_verb = list("poked", "chopped", "grabbed", "pinched", "flicked")
 	default_material = "wood"

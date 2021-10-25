@@ -8,7 +8,7 @@
 	response_help = "pokes"
 	response_disarm = "shoves"
 	response_harm = "hits"
-	icon = 'icons/uristmob/scommobs.dmi'
+	icon = 'resources/icons/uristmob/scommobs.dmi'
 	icon_state = "civ1"
 	icon_living = "civ1"
 	icon_dead = "civ1_d"
@@ -40,7 +40,7 @@
 /mob/living/simple_animal/hostile/scom/civ/combat/police
 	name = "police officer"
 	desc = "An officer from a local police force."
-	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon = 'resources/icons/uristmob/simpleanimals.dmi'
 	icon_state = "gunman"
 	icon_living = "gunman"
 	icon_dead = "gunman_dead"
@@ -61,7 +61,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	ranged = 1
-	projectilesound = 'sound/weapons/laser.ogg'
+	projectilesound = 'resources/sound/weapons/laser.ogg'
 	weapon1 = /obj/item/weapon/gun/projectile/automatic/kh50
 	minimum_distance = 5
 
@@ -74,6 +74,6 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	ranged = 1
-	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
+	projectilesound = 'resources/sound/weapons/gunshot/gunshot3.ogg'
 	weapon1 = /obj/item/weapon/gun/energy/laser
 	minimum_distance = 5

@@ -1,3 +1,36 @@
+/// Overlay cache.  Why isn't this just in /obj/machinery/door/airlock?  Because its used just a
+/// tiny bit in door_assembly.dm  Refactored so you don't have to make a null copy of airlock
+/// to get to the damn thing
+/// Someone, for the love of god, profile this.  Is there a reason to cache mutable_appearance
+/// if so, why are we JUST doing the airlocks when we can put this in mutable_appearance.dm for
+/// everything
+/proc/get_airlock_overlay(atom/source, icon_file, em_block, color = null)
+	var/static/list/airlock_overlays = list()
+
+	var/base_icon_key = "[icon_file]"
+	var/em_block_key = "[base_icon_key][em_block]"
+
+	base_icon_key = "[base_icon_key][color]"
+	if(!(. = airlock_overlays[base_icon_key]))
+		. = airlock_overlays[base_icon_key]\
+			= mutable_appearance(
+				icon_file,
+				color = color
+			)
+	if(isnull(em_block))
+		return
+
+	var/mutable_appearance/em_blocker = airlock_overlays[em_block_key]
+	if(!em_blocker)
+		em_blocker = airlock_overlays[em_block_key]\
+			= mutable_appearance(
+				icon_file,
+				plane = source.get_float_plane(EMISSIVE_PLANE)
+			)
+		em_blocker.color = (em_block && GLOB.em_block_color) || GLOB.emissive_color
+
+	return list(., em_blocker)
+
 #define BOLTS_FINE 0
 #define BOLTS_EXPOSED 1
 #define BOLTS_CUT 2
@@ -13,13 +46,12 @@
 #define AIRLOCK_STRIPABLE 2
 #define AIRLOCK_DETAILABLE 4
 
-var/list/airlock_overlays = list()
-
 /obj/machinery/door/airlock
 	name = "airlock"
-	icon = 'icons/obj/doors/station/door.dmi'
+	icon = 'resources/icons/obj/doors/station/door.dmi'
 	icon_state = "closed"
 	power_channel = ENVIRON
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 	explosion_resistance = 10
 	var/aiControlDisabled = 0 //If 1, AI control is disabled until the AI hacks back in and disables the lock. If 2, the AI has bypassed the lock. If -1, the control is enabled but the AI had bypassed it earlier, so if it is disabled again the AI would have no trouble getting back in.
@@ -49,16 +81,16 @@ var/list/airlock_overlays = list()
 	var/secured_wires = 0
 	var/datum/wires/airlock/wires = null
 
-	var/open_sound_powered = 'sound/machines/airlock_open.ogg'
-	var/open_sound_unpowered = 'sound/machines/airlock_open_force.ogg'
-	var/open_failure_access_denied = 'sound/machines/buzz-two.ogg'
+	var/open_sound_powered = 'resources/sound/machines/airlock_open.ogg'
+	var/open_sound_unpowered = 'resources/sound/machines/airlock_open_force.ogg'
+	var/open_failure_access_denied = 'resources/sound/machines/buzz-two.ogg'
 
-	var/close_sound_powered = 'sound/machines/airlock_close.ogg'
-	var/close_sound_unpowered = 'sound/machines/airlock_close_force.ogg'
-	var/close_failure_blocked = 'sound/machines/triple_beep.ogg'
+	var/close_sound_powered = 'resources/sound/machines/airlock_close.ogg'
+	var/close_sound_unpowered = 'resources/sound/machines/airlock_close_force.ogg'
+	var/close_failure_blocked = 'resources/sound/machines/triple_beep.ogg'
 
-	var/bolts_rising = 'sound/machines/bolts_up.ogg'
-	var/bolts_dropping = 'sound/machines/bolts_down.ogg'
+	var/bolts_rising = 'resources/sound/machines/bolts_up.ogg'
+	var/bolts_dropping = 'resources/sound/machines/bolts_down.ogg'
 
 	var/door_crush_damage = DOOR_CRUSH_DAMAGE
 
@@ -75,20 +107,20 @@ var/list/airlock_overlays = list()
 	var/stripe_color = null
 	var/symbol_color = null
 
-	var/fill_file = 'icons/obj/doors/station/fill_steel.dmi'
-	var/color_file = 'icons/obj/doors/station/color.dmi'
-	var/color_fill_file = 'icons/obj/doors/station/fill_color.dmi'
-	var/stripe_file = 'icons/obj/doors/station/stripe.dmi'
-	var/stripe_fill_file = 'icons/obj/doors/station/fill_stripe.dmi'
-	var/glass_file = 'icons/obj/doors/station/fill_glass.dmi'
-	var/bolts_file = 'icons/obj/doors/station/lights_bolts.dmi'
-	var/deny_file = 'icons/obj/doors/station/lights_deny.dmi'
-	var/lights_file = 'icons/obj/doors/station/lights_green.dmi'
-	var/panel_file = 'icons/obj/doors/station/panel.dmi'
-	var/sparks_damaged_file = 'icons/obj/doors/station/sparks_damaged.dmi'
-	var/sparks_broken_file = 'icons/obj/doors/station/sparks_broken.dmi'
-	var/welded_file = 'icons/obj/doors/station/welded.dmi'
-	var/emag_file = 'icons/obj/doors/station/emag.dmi'
+	var/fill_file = 'resources/icons/obj/doors/station/fill_steel.dmi'
+	var/color_file = 'resources/icons/obj/doors/station/color.dmi'
+	var/color_fill_file = 'resources/icons/obj/doors/station/fill_color.dmi'
+	var/stripe_file = 'resources/icons/obj/doors/station/stripe.dmi'
+	var/stripe_fill_file = 'resources/icons/obj/doors/station/fill_stripe.dmi'
+	var/glass_file = 'resources/icons/obj/doors/station/fill_glass.dmi'
+	var/bolts_file = 'resources/icons/obj/doors/station/lights_bolts.dmi'
+	var/deny_file = 'resources/icons/obj/doors/station/lights_deny.dmi'
+	var/lights_file = 'resources/icons/obj/doors/station/lights_green.dmi'
+	var/panel_file = 'resources/icons/obj/doors/station/panel.dmi'
+	var/sparks_damaged_file = 'resources/icons/obj/doors/station/sparks_damaged.dmi'
+	var/sparks_broken_file = 'resources/icons/obj/doors/station/sparks_broken.dmi'
+	var/welded_file = 'resources/icons/obj/doors/station/welded.dmi'
+	var/emag_file = 'resources/icons/obj/doors/station/emag.dmi'
 
 /obj/machinery/door/airlock/attack_generic(var/mob/user, var/damage)
 	if(stat & (BROKEN|NOPOWER))
@@ -162,7 +194,7 @@ var/list/airlock_overlays = list()
 
 /obj/machinery/door/airlock/glass
 	name = "Glass Airlock"
-	hitsound = 'sound/effects/Glasshit.ogg'
+	hitsound = 'resources/sound/effects/Glasshit.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
 	opacity = 0
@@ -221,15 +253,15 @@ var/list/airlock_overlays = list()
 /obj/machinery/door/airlock/external
 	airlock_type = "External"
 	name = "External Airlock"
-	icon = 'icons/obj/doors/external/door.dmi'
-	fill_file = 'icons/obj/doors/external/fill_steel.dmi'
-	color_file = 'icons/obj/doors/external/color.dmi'
-	color_fill_file = 'icons/obj/doors/external/fill_color.dmi'
-	glass_file = 'icons/obj/doors/external/fill_glass.dmi'
-	bolts_file = 'icons/obj/doors/external/lights_bolts.dmi'
-	deny_file = 'icons/obj/doors/external/lights_deny.dmi'
-	lights_file = 'icons/obj/doors/external/lights_green.dmi'
-	emag_file = 'icons/obj/doors/external/emag.dmi'
+	icon = 'resources/icons/obj/doors/external/door.dmi'
+	fill_file = 'resources/icons/obj/doors/external/fill_steel.dmi'
+	color_file = 'resources/icons/obj/doors/external/color.dmi'
+	color_fill_file = 'resources/icons/obj/doors/external/fill_color.dmi'
+	glass_file = 'resources/icons/obj/doors/external/fill_glass.dmi'
+	bolts_file = 'resources/icons/obj/doors/external/lights_bolts.dmi'
+	deny_file = 'resources/icons/obj/doors/external/lights_deny.dmi'
+	lights_file = 'resources/icons/obj/doors/external/lights_green.dmi'
+	emag_file = 'resources/icons/obj/doors/external/emag.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 	door_color = COLOR_NT_RED
 	paintable = AIRLOCK_PAINTABLE
@@ -301,15 +333,15 @@ var/list/airlock_overlays = list()
 /obj/machinery/door/airlock/centcom
 	airlock_type = "centcomm"
 	name = "\improper Airlock"
-	icon = 'icons/obj/doors/centcomm/door.dmi'
-	fill_file = 'icons/obj/doors/centcomm/fill_steel.dmi'
+	icon = 'resources/icons/obj/doors/centcomm/door.dmi'
+	fill_file = 'resources/icons/obj/doors/centcomm/fill_steel.dmi'
 	paintable = AIRLOCK_PAINTABLE|AIRLOCK_STRIPABLE
 
 /obj/machinery/door/airlock/highsecurity
 	airlock_type = "secure"
 	name = "Secure Airlock"
-	icon = 'icons/obj/doors/secure/door.dmi'
-	fill_file = 'icons/obj/doors/secure/fill_steel.dmi'
+	icon = 'resources/icons/obj/doors/secure/door.dmi'
+	fill_file = 'resources/icons/obj/doors/secure/fill_steel.dmi'
 	explosion_resistance = 20
 	secured_wires = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity
@@ -321,16 +353,16 @@ var/list/airlock_overlays = list()
 /obj/machinery/door/airlock/hatch
 	airlock_type = "hatch"
 	name = "\improper Airtight Hatch"
-	icon = 'icons/obj/doors/hatch/door.dmi'
-	fill_file = 'icons/obj/doors/hatch/fill_steel.dmi'
-	stripe_file = 'icons/obj/doors/hatch/stripe.dmi'
-	stripe_fill_file = 'icons/obj/doors/hatch/fill_stripe.dmi'
-	bolts_file = 'icons/obj/doors/hatch/lights_bolts.dmi'
-	deny_file = 'icons/obj/doors/hatch/lights_deny.dmi'
-	lights_file = 'icons/obj/doors/hatch/lights_green.dmi'
-	panel_file = 'icons/obj/doors/hatch/panel.dmi'
-	welded_file = 'icons/obj/doors/hatch/welded.dmi'
-	emag_file = 'icons/obj/doors/hatch/emag.dmi'
+	icon = 'resources/icons/obj/doors/hatch/door.dmi'
+	fill_file = 'resources/icons/obj/doors/hatch/fill_steel.dmi'
+	stripe_file = 'resources/icons/obj/doors/hatch/stripe.dmi'
+	stripe_fill_file = 'resources/icons/obj/doors/hatch/fill_stripe.dmi'
+	bolts_file = 'resources/icons/obj/doors/hatch/lights_bolts.dmi'
+	deny_file = 'resources/icons/obj/doors/hatch/lights_deny.dmi'
+	lights_file = 'resources/icons/obj/doors/hatch/lights_green.dmi'
+	panel_file = 'resources/icons/obj/doors/hatch/panel.dmi'
+	welded_file = 'resources/icons/obj/doors/hatch/welded.dmi'
+	emag_file = 'resources/icons/obj/doors/hatch/emag.dmi'
 	explosion_resistance = 20
 	opacity = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_hatch
@@ -346,8 +378,8 @@ var/list/airlock_overlays = list()
 /obj/machinery/door/airlock/vault
 	airlock_type = "vault"
 	name = "Vault"
-	icon = 'icons/obj/doors/vault/door.dmi'
-	fill_file = 'icons/obj/doors/vault/fill_steel.dmi'
+	icon = 'resources/icons/obj/doors/vault/door.dmi'
+	fill_file = 'resources/icons/obj/doors/vault/fill_steel.dmi'
 	explosion_resistance = 20
 	opacity = 1
 	secured_wires = 1
@@ -531,7 +563,7 @@ About the new airlock wires panel:
 	if(feedback && message)
 		to_chat(usr, message)
 	if(.)
-		playsound(src, 'sound/effects/sparks3.ogg', 30, 0, -6)
+		playsound(src, 'resources/sound/effects/sparks3.ogg', 30, 0, -6)
 
 /obj/machinery/door/airlock/proc/set_idscan(var/activate, var/feedback = 0)
 	var/message = ""
@@ -594,186 +626,102 @@ About the new airlock wires panel:
 			else
 				icon_state = "open"
 				state = AIRLOCK_OPEN
-		if(AIRLOCK_OPEN)
+		if(AIRLOCK_OPEN, AIRLOCK_OPENING)
 			icon_state = "open"
-		if(AIRLOCK_CLOSED)
+		if(AIRLOCK_CLOSED, AIRLOCK_CLOSING, AIRLOCK_EMAG, AIRLOCK_DENY)
 			icon_state = "closed"
-		if(AIRLOCK_OPENING, AIRLOCK_CLOSING, AIRLOCK_EMAG, AIRLOCK_DENY)
+		else
 			icon_state = ""
 
 	set_airlock_overlays(state)
 
 /obj/machinery/door/airlock/proc/set_airlock_overlays(state)
-	var/icon/color_overlay
-	var/icon/filling_overlay
-	var/icon/stripe_overlay
-	var/icon/stripe_filling_overlay
-	var/icon/lights_overlay
-	var/icon/panel_overlay
-	var/icon/weld_overlay
-	var/icon/damage_overlay
-	var/icon/sparks_overlay
-	var/icon/brace_overlay
-
-	var/image/lights_overlay_emissive
-	var/image/sparks_overlay_emissive
-
 	set_light(0)
-
-	if(door_color && !(door_color == "none"))
-		var/ikey = "[airlock_type]-[door_color]-color"
-		color_overlay = airlock_icon_cache["[ikey]"]
-		if(!color_overlay)
-			color_overlay = new(color_file)
-			color_overlay.Blend(door_color, ICON_MULTIPLY)
-			airlock_icon_cache["[ikey]"] = color_overlay
-	if(glass)
-		filling_overlay = glass_file
-	else
-		if(door_color && !(door_color == "none"))
-			var/ikey = "[airlock_type]-[door_color]-fillcolor"
-			filling_overlay = airlock_icon_cache["[ikey]"]
-			if(!filling_overlay)
-				filling_overlay = new(color_fill_file)
-				filling_overlay.Blend(door_color, ICON_MULTIPLY)
-				airlock_icon_cache["[ikey]"] = filling_overlay
-		else
-			filling_overlay = fill_file
-	if(stripe_color && !(stripe_color == "none"))
-		var/ikey = "[airlock_type]-[stripe_color]-stripe"
-		stripe_overlay = airlock_icon_cache["[ikey]"]
-		if(!stripe_overlay)
-			stripe_overlay = new(stripe_file)
-			stripe_overlay.Blend(stripe_color, ICON_MULTIPLY)
-			airlock_icon_cache["[ikey]"] = stripe_overlay
-		if(!glass)
-			var/ikey2 = "[airlock_type]-[stripe_color]-fillstripe"
-			stripe_filling_overlay = airlock_icon_cache["[ikey2]"]
-			if(!stripe_filling_overlay)
-				stripe_filling_overlay = new(stripe_fill_file)
-				stripe_filling_overlay.Blend(stripe_color, ICON_MULTIPLY)
-				airlock_icon_cache["[ikey2]"] = stripe_filling_overlay
-
 	switch(state)
 		if(AIRLOCK_CLOSED)
-			if(p_open)
-				panel_overlay = panel_file
-			if(welded)
-				weld_overlay = welded_file
-			if(stat & BROKEN)
-				damage_overlay = sparks_broken_file
-			else if(health < maxhealth * 3/4)
-				damage_overlay = sparks_damaged_file
 			if(lights && src.arePowerSystemsOn())
 				if(locked)
-					lights_overlay = bolts_file
 					set_light(0.25, 0.1, 1, 2, COLOR_RED_LIGHT)
 
 		if(AIRLOCK_DENY)
-			if(!src.arePowerSystemsOn())
-				return
-			if(p_open)
-				panel_overlay = panel_file
-			if(stat & BROKEN)
-				damage_overlay = sparks_broken_file
-			else if(health < maxhealth * 3/4)
-				damage_overlay = sparks_damaged_file
-			if(welded)
-				weld_overlay = welded_file
 			if(lights && src.arePowerSystemsOn())
-				lights_overlay = deny_file
 				set_light(0.25, 0.1, 1, 2, COLOR_RED_LIGHT)
-
-		if(AIRLOCK_EMAG)
-			sparks_overlay = emag_file
-			if(p_open)
-				panel_overlay = panel_file
-			if(stat & BROKEN)
-				damage_overlay = sparks_broken_file
-			else if(health < maxhealth * 3/4)
-				damage_overlay = sparks_damaged_file
-			if(welded)
-				weld_overlay = welded_file
 
 		if(AIRLOCK_CLOSING)
 			if(lights && src.arePowerSystemsOn())
-				lights_overlay = lights_file
 				set_light(0.25, 0.1, 1, 2, COLOR_LIME)
-			if(p_open)
-				panel_overlay = panel_file
-
-		if(AIRLOCK_OPEN)
-			if(stat & BROKEN)
-				damage_overlay = sparks_broken_file
-			else if(health < maxhealth * 3/4)
-				damage_overlay = sparks_damaged_file
 
 		if(AIRLOCK_OPENING)
 			if(lights && src.arePowerSystemsOn())
-				lights_overlay = lights_file
 				set_light(0.25, 0.1, 1, 2, COLOR_LIME)
-			if(p_open)
-				panel_overlay = panel_file
 
-	if(lights_overlay)
-		var/ikey = "[airlock_type]-[state]-[locked]-lights"
-		if (!(ikey in airlock_icon_cache))
-			var/image/I = new(lights_overlay)
-			I.plane = get_float_plane(EMISSIVE_PLANE)
-			airlock_icon_cache[ikey] = I
-		lights_overlay_emissive = airlock_icon_cache[ikey]
+		if(AIRLOCK_EMAG)
+			set_light(0.35, 0.1, 1, 2, COLOR_YELLOW)
 
-	if(sparks_overlay)
-		var/ikey = "[airlock_type]-[state]-sparks"
-		if (!(ikey in airlock_icon_cache))
-			var/image/I = new(sparks_overlay)
-			I.plane = get_float_plane(EMISSIVE_PLANE)
-			airlock_icon_cache[ikey] = I
-		sparks_overlay_emissive = airlock_icon_cache[ikey]
+	. = list()
+	. += get_emissive_blocker()
 
-	if(brace)
+	// Main airlock body
+	if(door_color && !(door_color == "none"))
+		. += get_airlock_overlay(src, color_file, null, door_color)
+	if(glass)
+		. += get_airlock_overlay(src, glass_file, TRUE)
+	else
+		if(door_color && !(door_color == "none"))
+			. += get_airlock_overlay(src, color_fill_file, TRUE, door_color)
+		else
+			. += get_airlock_overlay(src, fill_file, TRUE)
+	if(stripe_color && !(stripe_color == "none"))
+		. += get_airlock_overlay(src, stripe_file, null, stripe_color)
+		if(!glass)
+			. += get_airlock_overlay(src, stripe_fill_file, null, stripe_color)
+
+	// Other airlock features
+	if(p_open)
+		. += get_airlock_overlay(src, panel_file, null)
+	if(welded)
+		. += get_airlock_overlay(src, welded_file, null)
+	if(brace) // FUCKING SNOWFLAKE SON OF A MUPPET SOCK
 		brace.update_icon()
-		brace_overlay += image(brace.icon, brace.icon_state)
+		. += image(brace.icon, brace.icon_state)
 
-	overlays.Cut()
+	// Damage (emissives)
+	if(stat & BROKEN)
+		. += get_airlock_overlay(src, sparks_broken_file, FALSE)
+	else if(health < maxhealth * 3/4)
+		. += get_airlock_overlay(src, sparks_damaged_file, FALSE)
 
-	overlays += color_overlay
-	overlays += filling_overlay
-	overlays += stripe_overlay
-	overlays += stripe_filling_overlay
-	overlays += panel_overlay
-	overlays += weld_overlay
-	overlays += brace_overlay
-	overlays += lights_overlay
-	overlays += sparks_overlay
-	overlays += damage_overlay
+	// Lights (emissives)
+	if(lights && src.arePowerSystemsOn())
+		if(locked)
+			. += get_airlock_overlay(src, bolts_file, FALSE)
+		if(state != AIRLOCK_EMAG)
+			. += get_airlock_overlay(src, deny_file, FALSE)
+		. += get_airlock_overlay(src, lights_file, FALSE)
+	if(state == AIRLOCK_EMAG)
+		. += get_airlock_overlay(src, emag_file, FALSE)
 
-	overlays += lights_overlay_emissive
-	overlays += sparks_overlay_emissive
+	cut_overlays()
+	add_overlay(.)
 
 /obj/machinery/door/airlock/do_animate(animation)
-	if(overlays)
-		overlays.Cut()
-
 	switch(animation)
 		if("opening")
-			set_airlock_overlays(AIRLOCK_OPENING)
-			flick("opening", src)//[stat ? "_stat":]
-			update_icon(AIRLOCK_OPEN)
+			update_icon(AIRLOCK_OPENING)
+			flick("opening", src)
 		if("closing")
-			set_airlock_overlays(AIRLOCK_CLOSING)
+			update_icon(AIRLOCK_CLOSING)
 			flick("closing", src)
-			update_icon(AIRLOCK_CLOSED)
 		if("deny")
 			if(density && src.arePowerSystemsOn())
-				set_airlock_overlays(AIRLOCK_DENY)
+				update_icon(AIRLOCK_DENY)
 				flick("deny", src)
 				if(secured_wires)
 					playsound(src.loc, open_failure_access_denied, 50, 0)
 				update_icon(AIRLOCK_CLOSED)
 		if("emag")
 			if(density && src.arePowerSystemsOn())
-				set_airlock_overlays(AIRLOCK_EMAG)
+				update_icon(AIRLOCK_EMAG)
 				flick("deny", src)
 		else
 			update_icon()
@@ -967,10 +915,10 @@ About the new airlock wires panel:
 			to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")
 			return 0
 		cut_verb = "cutting"
-		cut_sound = 'sound/items/Welder.ogg'
+		cut_sound = 'resources/sound/items/Welder.ogg'
 	else if(istype(item,/obj/item/weapon/gun/energy/plasmacutter)) //They could probably just shoot them out, but who cares!
 		cut_verb = "cutting"
-		cut_sound = 'sound/items/Welder.ogg'
+		cut_sound = 'resources/sound/items/Welder.ogg'
 		cut_delay *= 0.66
 	else if(istype(item,/obj/item/weapon/melee/energy/blade) || istype(item,/obj/item/weapon/melee/energy/sword))
 		cut_verb = "slicing"
@@ -978,7 +926,7 @@ About the new airlock wires panel:
 		cut_delay *= 0.66
 	else if(istype(item,/obj/item/weapon/circular_saw))
 		cut_verb = "sawing"
-		cut_sound = 'sound/weapons/circsawhit.ogg'
+		cut_sound = 'resources/sound/weapons/circsawhit.ogg'
 		cut_delay *= 1.5
 
 	else if(istype(item,/obj/item/weapon/material/twohanded/fireaxe))
@@ -992,7 +940,7 @@ About the new airlock wires panel:
 			"<span class='danger'>\The [user] smashes the bolt cover open!</span>",
 			"<span class='warning'>You smash the bolt cover open!</span>"
 			)
-		playsound(src, 'sound/weapons/smash.ogg', 100, 1)
+		playsound(src, 'resources/sound/weapons/smash.ogg', 100, 1)
 		src.lock_cut_state = BOLTS_EXPOSED
 		return 0
 
@@ -1070,7 +1018,7 @@ About the new airlock wires panel:
 				src.welded = 1
 			else
 				src.welded = null
-			playsound(src, 'sound/items/Welder.ogg', 100, 1)
+			playsound(src, 'resources/sound/items/Welder.ogg', 100, 1)
 			src.update_icon()
 			return
 		else
@@ -1095,7 +1043,7 @@ About the new airlock wires panel:
 		cable.plugin(src, user)
 	else if(!repairing && isCrowbar(C))
 		if(src.p_open && (operating < 0 || (!operating && welded && !src.arePowerSystemsOn() && density && !src.locked)) && !brace)
-			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+			playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 100, 1)
 			user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to remove electronics from the airlock assembly.")
 			if(do_after(user,40,src))
 				to_chat(user, "<span class='notice'>You removed the airlock electronics!</span>")
@@ -1117,7 +1065,7 @@ About the new airlock wires panel:
 	else if (istype(C, /obj/item/weapon/material/twohanded/fireaxe) && !(stat & BROKEN) && (src.health <= src.maxhealth / 2) && user.a_intent == I_HURT)
 		var/obj/item/weapon/material/twohanded/fireaxe/F = C
 		if (F.wielded)
-			playsound(src, 'sound/weapons/smash.ogg', 100, 1)
+			playsound(src, 'resources/sound/weapons/smash.ogg', 100, 1)
 			user.visible_message("<span class='danger'>[user] smashes \the [C] into the airlock's control panel! It explodes in a shower of sparks!</span>", "<span class='danger'>You smash \the [C] into the airlock's control panel! It explodes in a shower of sparks!</span>")
 			src.health = 0
 			src.set_broken()

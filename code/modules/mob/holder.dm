@@ -4,18 +4,18 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/weapon/holder
 	name = "holder"
 	desc = "You shouldn't ever see this."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'resources/icons/obj/objects.dmi'
 	slot_flags = SLOT_HEAD | SLOT_HOLSTER
 
 	sprite_sheets = list(
-		SPECIES_VOX = 'icons/mob/species/vox/head.dmi',
-		SPECIES_RESOMI = 'icons/mob/species/resomi/head.dmi'
+		SPECIES_VOX = 'resources/icons/mob/species/vox/head.dmi',
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/head.dmi'
 		)
 
 	origin_tech = null
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/onmob/items/lefthand_holder.dmi',
-		slot_r_hand_str = 'icons/mob/onmob/items/righthand_holder.dmi',
+		slot_l_hand_str = 'resources/icons/mob/onmob/items/lefthand_holder.dmi',
+		slot_r_hand_str = 'resources/icons/mob/onmob/items/righthand_holder.dmi',
 		)
 	pixel_y = 8
 
@@ -178,7 +178,7 @@ var/list/holder_mob_icon_cache = list()
 	return (scooper.mob_size > src.mob_size && a_intent == I_HELP)
 
 /obj/item/weapon/holder/human
-	icon = 'icons/mob/holder_complex.dmi'
+	icon = 'resources/icons/mob/holder_complex.dmi'
 	var/list/generate_for_slots = list(slot_l_hand_str, slot_r_hand_str, slot_back_str)
 	slot_flags = SLOT_BACK
 

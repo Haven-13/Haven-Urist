@@ -1,7 +1,7 @@
 var/image/white_background = _create_white_background()
 
 /proc/_create_white_background()
-	var/image/I = image('icons/primitives.dmi', icon_state = "white")
+	var/image/I = image('resources/icons/primitives.dmi', icon_state = "white")
 	I.plane = SPACE_PLANE
 	return I
 

@@ -7,7 +7,7 @@
 	var/trap_spawn_chance = 0
 	name = "wet grass"
 	desc = "Thick, long wet grass"
-	icon = 'icons/jungle.dmi'
+	icon = 'resources/icons/jungle.dmi'
 	icon_state = "grass1"
 	light_max_bright = 0.4
 	light_inner_range = 0.1
@@ -46,16 +46,16 @@
 		if(prob(90))
 			var/image/I
 			if(prob(35))
-				I = image('icons/jungle.dmi',"plant[rand(1,7)]")
+				I = image('resources/icons/jungle.dmi',"plant[rand(1,7)]")
 			else
 				if(prob(30))
-					I = image('icons/obj/flora/ausflora.dmi',"reedbush_[rand(1,4)]")
+					I = image('resources/icons/obj/flora/ausflora.dmi',"reedbush_[rand(1,4)]")
 				else if(prob(33))
-					I = image('icons/obj/flora/ausflora.dmi',"leafybush_[rand(1,3)]")
+					I = image('resources/icons/obj/flora/ausflora.dmi',"leafybush_[rand(1,3)]")
 				else if(prob(50))
-					I = image('icons/obj/flora/ausflora.dmi',"fernybush_[rand(1,3)]")
+					I = image('resources/icons/obj/flora/ausflora.dmi',"fernybush_[rand(1,3)]")
 				else
-					I = image('icons/obj/flora/ausflora.dmi',"stalkybush_[rand(1,3)]")
+					I = image('resources/icons/obj/flora/ausflora.dmi',"stalkybush_[rand(1,3)]")
 			I.pixel_x = rand(-6,6)
 			I.pixel_y = rand(-6,6)
 			overlays += I
@@ -106,7 +106,7 @@
 /turf/simulated/floor/planet/border
 	density = 1
 	opacity = 1
-	icon = 'icons/urist/turf/scomturfs.dmi'
+	icon = 'resources/icons/urist/turf/scomturfs.dmi'
 	icon_state = "border"
 	name = ""
 	desc = ""
@@ -144,7 +144,7 @@
 					"<span class='notice'>You smooth over the ground, removing the farm plot.</span>")
 					for(var/obj/machinery/portable_atmospherics/hydroponics/soil/S in src.contents)
 						qdel(S)
-					src.overlays += image('icons/urist/jungle/turfs.dmi', "dirt", layer=2.1)
+					src.overlays += image('resources/icons/urist/jungle/turfs.dmi', "dirt", layer=2.1)
 					farmed = 0
 				if("Dig a pit")
 					user.visible_message("<span class='notice'>[user] starts to dig up large amounts of soil to form a pit.</span>", \
@@ -173,7 +173,7 @@
 	misc_plant_spawn_chance = 0
 	name = "wet grass"
 	desc = "Thick, long wet grass"
-	icon = 'icons/jungle.dmi'
+	icon = 'resources/icons/jungle.dmi'
 	icon_state = "grass1"
 	icon_spawn_state = "grass1"
 	light_max_bright = 0.3
@@ -269,7 +269,7 @@
 	misc_plant_spawn_chance = 5
 	name = "wet grass"
 	desc = "thick, long wet grass"
-	icon = 'icons/jungle.dmi'
+	icon = 'resources/icons/jungle.dmi'
 	icon_state = "grass_path" //path
 	icon_spawn_state = "grass2"
 	light_max_bright = 0.3
@@ -300,7 +300,7 @@
 /turf/simulated/floor/planet/plains
 	bushspawnchance = 0
 	small_trees_chance = 0
-	icon = 'icons/urist/events/train.dmi'
+	icon = 'resources/icons/urist/events/train.dmi'
 	icon_state = "g"
 	icon_spawn_state = "g"
 	light_max_bright = 0.5
@@ -315,7 +315,7 @@
 		)
 
 /turf/simulated/floor/planet/plains/clear
-	icon = 'icons/urist/events/train.dmi'
+	icon = 'resources/icons/urist/events/train.dmi'
 	icon_state = "g"
 	icon_spawn_state = "g"
 	animal_spawn_chance = 0
@@ -355,7 +355,7 @@
 	opacity = 1
 	name = "cliffside wall"
 	desc = "A massive wall of natural rock. No point in trying to mine it, try underground."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'resources/icons/turf/walls.dmi'
 	icon_state = "rock"
 //	icon_spawn_state = "rock"
 	icon_spawn_state = null
@@ -382,19 +382,19 @@
 	if(!istype(get_step(src, NORTH), /turf/simulated/floor/planet/jungle/rock) && !istype(get_step(src, NORTH), /turf/unsimulated/wall))
 		T = get_step(src, NORTH)
 		if (T)
-			T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_s")
+			T.overlays += image('resources/icons/urist/turf/uristturf.dmi', "rock_side_s")
 	if(!istype(get_step(src, SOUTH), /turf/simulated/floor/planet/jungle/rock) && !istype(get_step(src, SOUTH), /turf/unsimulated/wall))
 		T = get_step(src, SOUTH)
 		if (T)
-			T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_n", layer=6)
+			T.overlays += image('resources/icons/urist/turf/uristturf.dmi', "rock_side_n", layer=6)
 	if(!istype(get_step(src, EAST), /turf/simulated/floor/planet/jungle/rock) && !istype(get_step(src, EAST), /turf/unsimulated/wall))
 		T = get_step(src, EAST)
 		if (T)
-			T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_w", layer=6)
+			T.overlays += image('resources/icons/urist/turf/uristturf.dmi', "rock_side_w", layer=6)
 	if(!istype(get_step(src, WEST), /turf/simulated/floor/planet/jungle/rock) && !istype(get_step(src, WEST), /turf/unsimulated/wall))
 		T = get_step(src, WEST)
 		if (T)
-			T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_e", layer=6)
+			T.overlays += image('resources/icons/urist/turf/uristturf.dmi', "rock_side_e", layer=6)
 	. = ..()
 
 /turf/simulated/floor/planet/jungle/rock/weather_enable()
@@ -408,7 +408,7 @@
 	misc_plant_spawn_chance = 15 //get dem reeds boi
 	name = "murky water"
 	desc = "thick, murky water"
-	icon = 'icons/urist/jungle/turfs.dmi'
+	icon = 'resources/icons/urist/jungle/turfs.dmi'
 	icon_state = "rivernew"
 //	icon_spawn_state = "rivernew"
 	icon_spawn_state = null
@@ -443,14 +443,14 @@
 
 			if (do_after(user, fishtime, src))
 				to_chat(user, "<span class='notice'>You feel a tug on your line!</span>")
-				src.overlays += image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)	//exclamation mark
+				src.overlays += image('resources/icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)	//exclamation mark
 				fishing = 2
 				var/tempfish = fishleft
 				spawn(rand(35,70))
 					if(fishing && fishleft == tempfish)
 						to_chat(user, "<span class='notice'>Looks like it got away...</span>")
 						fishing = 0
-						src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
+						src.overlays -= image('resources/icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
 
 		else if(fishleft && fishing == 2 && !bridge)
 			var/obj/item/F
@@ -473,7 +473,7 @@
 			else
 				F = new/obj/item/fish(user.loc)
 
-			src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
+			src.overlays -= image('resources/icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
 			fishleft -= 1
 			fishing = 0
 			to_chat(user, "<span class='notice'>You yank on your line, pulling up [F]!</span>")
@@ -492,7 +492,7 @@
 				desc = "thick murky water. There's a makeshift platform over it."
 				R.use(3)
 				bridge = 1
-				src.overlays += image('icons/urist/jungle/turfs.dmi', "bridge", layer=2.1)
+				src.overlays += image('resources/icons/urist/jungle/turfs.dmi', "bridge", layer=2.1)
 			else
 				to_chat(user, "<span class='notice'>You do not have enough wood to build a bridge.</span>")
 
@@ -505,7 +505,7 @@
 				desc = "thick murky water. There's a makeshift platform over it."
 				R.use(3)
 
-				src.overlays += image('icons/urist/jungle/turfs.dmi', "bridge2", layer=2.1)
+				src.overlays += image('resources/icons/urist/jungle/turfs.dmi', "bridge2", layer=2.1)
 				bridge = 2
 			else
 				to_chat(user, "<span class='notice'>You do not have enough wood to build a bridge.</span>")
@@ -548,7 +548,7 @@
 		if(bridge)
 			to_chat(user, "<span class='notice'>You begin to disassemble the bridge.</span>")
 			if (do_after(user, rand(15,30), src))
-				playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
+				playsound(src, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 
 				to_chat(user, "<span class='notice'>You disassemble the bridge.</span>")
 
@@ -654,7 +654,7 @@
 	name = "temple wall"
 	desc = ""
 	density = 1
-	icon = 'icons/turf/walls.dmi'
+	icon = 'resources/icons/turf/walls.dmi'
 	icon_state = "phoron0"
 	mineral = "phoron"
 	terrain_type = null
@@ -662,13 +662,13 @@
 /obj/effect/floor_decal/water_edge
 	name = "murky water"
 	desc = "thick, murky water"
-	icon = 'icons/urist/jungle/turfs.dmi'
+	icon = 'resources/icons/urist/jungle/turfs.dmi'
 	icon_state = "test"
 
 /turf/simulated/floor/planet/jungle/clear/underground
 	name = "dirt"
 	desc = "gritty, rough dirt, the kind found in a cave."
-	icon = 'icons/turf/floors.dmi'
+	icon = 'resources/icons/turf/floors.dmi'
 	icon_state = "asteroid"
 	light_outer_range = 0
 	light_max_bright = 0
@@ -686,7 +686,7 @@
 /turf/simulated/floor/planet/dirt
 	name = "dirt"
 	desc = "gritty, rough, dirt, the kind found outside."
-	icon = 'icons/urist/jungle/turfs.dmi'
+	icon = 'resources/icons/urist/jungle/turfs.dmi'
 	icon_state = "dirt_full"
 	icon_spawn_state = null
 	misc_plant_spawn_chance = 15
@@ -700,7 +700,7 @@
 /turf/simulated/floor/planet/ariddirt
 	name = "arid dirt"
 	desc = "Arid, sandy dirt."
-	icon = 'icons/urist/jungle/aridwaste.dmi'
+	icon = 'resources/icons/urist/jungle/aridwaste.dmi'
 	icon_state = "wasteland1"
 	icon_spawn_state = null
 	misc_plant_spawn_chance = 10

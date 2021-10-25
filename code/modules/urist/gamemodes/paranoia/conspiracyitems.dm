@@ -22,7 +22,7 @@
 	name = "intel"
 	desc = "A file containing top-secret data."
 	gender = NEUTER
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	icon_state = "conspiracyfolder"
 	item_state = "paper"
 	throwforce = 0
@@ -52,7 +52,7 @@
 	if(faction)
 		desc = "[basedesc] It seems to concern the assets of \the [faction]."
 
-		/*icon = 'icons/obj/bureaucracy.dmi' //reenable this for faction-specific folder icons
+		/*icon = 'resources/icons/obj/bureaucracy.dmi' //reenable this for faction-specific folder icons
 		switch(faction)
 			if("Buildaborg Group")
 				icon_state = "folder_blue
@@ -85,7 +85,7 @@
 /obj/item/device/inteluplink
 	name		= "Laptop Computer"
 	desc		= "A clamshell portable computer. It is closed."
-	icon		= 'icons/urist/items/misc.dmi'
+	icon		= 'resources/icons/urist/items/misc.dmi'
 	icon_state	=  "adv-laptop-closed"
 	item_state	=  "laptop-inhand"
 	pixel_x		= 2
@@ -168,11 +168,11 @@
 		icon_state = "laptop"
 		light_outer_range = 3
 		if(uploading)
-			var/global/image/screen = image('icons/obj/computer.dmi',icon_state="command")
+			var/global/image/screen = image('resources/icons/obj/computer.dmi',icon_state="command")
 			overlays = list(screen)
 			desc = "A clamshell portable computer. It is open. It seems that some kind of files are being transmitted."
 		else
-			var/global/image/screen = image('icons/obj/computer.dmi',icon_state="generic")
+			var/global/image/screen = image('resources/icons/obj/computer.dmi',icon_state="generic")
 			overlays = list(screen)
 			desc = "A clamshell portable computer. It is open."
 	else
@@ -240,7 +240,7 @@
 	desc = "REGULAR HUMAN suit. Nothing to see here, fellow human."
 	item_state = "jensensuit"
 	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon = 'resources/icons/urist/items/clothes/clothes.dmi'
 	icon_state = "fleshsuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS|FEET|HANDS
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
@@ -248,8 +248,8 @@
 //the mask for the full kit, straight out of the Uncanny Valley
 
 /obj/item/clothing/mask/chameleon/voice/fleshmask
-	icon = 'icons/urist/items/clothes/masks.dmi'
-	icon_override = 'icons/uristmob/mask.dmi'
+	icon = 'resources/icons/urist/items/clothes/masks.dmi'
+	icon_override = 'resources/icons/uristmob/mask.dmi'
 	name = "ugly green collar (?)" //for examining wearers
 	desc = "AAAH! WHYYYYYY?"
 	item_state = "fleshmask"

@@ -1,6 +1,6 @@
 /var/datum/announcement/priority/priority_announcement = new(do_log = 0)
 /var/datum/announcement/priority/command/command_announcement = new(do_log = 0, do_newscast = 1)
-/var/datum/announcement/minor/minor_announcement = new(new_sound = 'sound/AI/commandreport.ogg',)
+/var/datum/announcement/minor/minor_announcement = new(new_sound = 'resources/sound/AI/commandreport.ogg',)
 
 /datum/announcement
 	var/title = "Attention"
@@ -24,7 +24,7 @@
 	log = do_log
 	newscast = do_newscast
 
-/datum/announcement/priority/command/New(var/do_log = 1, var/new_sound = 'sound/misc/notice2.ogg', var/do_newscast = 0)
+/datum/announcement/priority/command/New(var/do_log = 1, var/new_sound = 'resources/sound/misc/notice2.ogg', var/do_newscast = 0)
 	..(do_log, new_sound, do_newscast)
 	title = "[command_name()] Update"
 	announcement_type = "[command_name()] Update"

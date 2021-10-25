@@ -163,7 +163,7 @@
 		C.leave_evidence(assailant)
 		if(prob(50))
 			C.ironed_state = WRINKLES_WRINKLY
-	
+
 /obj/item/grab/proc/upgrade(var/bypass_cooldown = FALSE)
 	if(!check_upgrade_cooldown() && !bypass_cooldown)
 		to_chat(assailant, "<span class='danger'>It's too soon to upgrade.</span>")

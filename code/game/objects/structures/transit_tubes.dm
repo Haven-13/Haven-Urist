@@ -4,11 +4,11 @@
 // Mappers: you can use "Generate Instances from Icon-states"
 //  to get the different pieces.
 /obj/structure/transit_tube
-	icon = 'icons/obj/pipes/transit_tube.dmi'
+	icon = 'resources/icons/obj/pipes/transit_tube.dmi'
 	icon_state = "E-W"
 	density = 1
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
+	plane = DEFAULT_PLANE
+	layer = ABOVE_MOB_LAYER
 	anchored = 1.0
 	var/list/tube_dirs = null
 	var/exit_delay = 2
@@ -25,7 +25,7 @@
 // Mappers: use "Generate Instances from Directions" for this
 //  one.
 /obj/structure/transit_tube/station
-	icon = 'icons/obj/pipes/transit_tube_station.dmi'
+	icon = 'resources/icons/obj/pipes/transit_tube_station.dmi'
 	icon_state = "closed"
 	exit_delay = 2
 	enter_delay = 3
@@ -38,7 +38,7 @@
 
 
 /obj/structure/transit_tube_pod
-	icon = 'icons/obj/pipes/transit_tube_pod.dmi'
+	icon = 'resources/icons/obj/pipes/transit_tube_pod.dmi'
 	icon_state = "pod"
 	animate_movement = FORWARD_STEPS
 	anchored = 1.0

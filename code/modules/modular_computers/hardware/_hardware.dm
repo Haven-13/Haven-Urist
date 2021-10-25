@@ -1,7 +1,7 @@
 /obj/item/weapon/computer_hardware/
 	name = "Hardware"
 	desc = "Unknown Hardware."
-	icon = 'icons/obj/modular_components.dmi'
+	icon = 'resources/icons/obj/modular_components.dmi'
 	var/obj/item/modular_computer/holder2 = null
 	var/power_usage = 0 			// If the hardware uses extra power, change this.
 	var/enabled = 1					// If the hardware is turned off set this to 0.

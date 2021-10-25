@@ -2,7 +2,7 @@
 /obj/effect/spider
 	name = "web"
 	desc = "It's stringy and sticky."
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	anchored = 1
 	density = 0
 	var/health = 15
@@ -35,7 +35,7 @@
 
 		if(WT.remove_fuel(0, user))
 			damage = 15
-			playsound(loc, 'sound/items/Welder.ogg', 100, 1)
+			playsound(loc, 'resources/sound/items/Welder.ogg', 100, 1)
 
 	health -= damage
 	healthcheck()
@@ -115,7 +115,7 @@
 	desc = "It never stays still for long."
 	icon_state = "guard"
 	anchored = 0
-	plane = OBJ_PLANE
+	plane = DEFAULT_PLANE
 	layer = BELOW_OBJ_LAYER
 	health = 3
 	var/mob/living/simple_animal/hostile/giant_spider/greater_form
@@ -294,11 +294,11 @@
 /obj/effect/decal/cleanable/spiderling_remains
 	name = "spiderling remains"
 	desc = "Green squishy mess."
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	icon_state = "greenshatter"
 	anchored = 1
-	plane = ABOVE_TURF_PLANE
-	layer = BLOOD_LAYER
+	plane = DEFAULT_PLANE
+	layer = TURF_BLOOD_LAYER
 
 /obj/effect/spider/cocoon
 	name = "cocoon"

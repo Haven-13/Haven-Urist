@@ -46,7 +46,7 @@
 	description_fluff = "Can you believe they used to have to screw lightbulbs in by hand?"
 	description_antag = "Using a cryptographic sequencer on this device will cause it to overload each light it replaces; when turned on, the new lights will explode!"
 
-	icon = 'icons/obj/janitor.dmi'
+	icon = 'resources/icons/obj/janitor.dmi'
 	icon_state = "lightreplacer0"
 	item_state = "electronic"
 
@@ -135,7 +135,7 @@
 
 /obj/item/device/lightreplacer/proc/Use(var/mob/user)
 
-	playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/machines/click.ogg', 50, 1)
 	AddUses(-1)
 	return 1
 

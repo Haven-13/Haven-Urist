@@ -6,7 +6,7 @@
 	name = " "
 	var/base_name = " "
 	desc = ""
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'resources/icons/obj/chemical.dmi'
 	icon_state = "null"
 	item_state = "null"
 	amount_per_transfer_from_this = 10
@@ -106,53 +106,53 @@
 /obj/item/weapon/reagent_containers/glass/beaker
 	name = "beaker"
 	desc = "A beaker."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'resources/icons/obj/chemical.dmi'
 	icon_state = "beaker"
 	item_state = "beaker"
 	center_of_mass = "x=15;y=10"
 	matter = list("glass" = 500)
 
-	New()
-		..()
-		desc += " It can hold up to [volume] units."
+/obj/item/weapon/reagent_containers/glass/beaker/New()
+	..()
+	desc += " It can hold up to [volume] units."
 
-	on_reagent_change()
-		update_icon()
-
-	pickup(mob/user)
-		..()
-		update_icon()
-
-	dropped(mob/user)
-		..()
-		update_icon()
-
-	attack_hand()
-		..()
-		update_icon()
-
+/obj/item/weapon/reagent_containers/glass/beaker/on_reagent_change()
 	update_icon()
-		overlays.Cut()
 
-		if(reagents.total_volume)
-			var/image/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]10")
+/obj/item/weapon/reagent_containers/glass/beaker/pickup(mob/user)
+	..()
+	update_icon()
 
-			var/percent = round((reagents.total_volume / volume) * 100)
-			switch(percent)
-				if(0 to 9)		filling.icon_state = "[icon_state]-10"
-				if(10 to 24) 	filling.icon_state = "[icon_state]10"
-				if(25 to 49)	filling.icon_state = "[icon_state]25"
-				if(50 to 74)	filling.icon_state = "[icon_state]50"
-				if(75 to 79)	filling.icon_state = "[icon_state]75"
-				if(80 to 90)	filling.icon_state = "[icon_state]80"
-				if(91 to INFINITY)	filling.icon_state = "[icon_state]100"
+/obj/item/weapon/reagent_containers/glass/beaker/dropped(mob/user)
+	..()
+	update_icon()
 
-			filling.color = reagents.get_color()
-			overlays += filling
+/obj/item/weapon/reagent_containers/glass/beaker/attack_hand()
+	..()
+	update_icon()
 
-		if (!is_open_container())
-			var/image/lid = image(icon, src, "lid_[initial(icon_state)]")
-			overlays += lid
+/obj/item/weapon/reagent_containers/glass/beaker/update_icon()
+	overlays.Cut()
+
+	if(reagents.total_volume)
+		var/image/filling = image('resources/icons/obj/reagentfillings.dmi', src, "[icon_state]10")
+
+		var/percent = round((reagents.total_volume / volume) * 100)
+		switch(percent)
+			if(0 to 9)		filling.icon_state = "[icon_state]-10"
+			if(10 to 24) 	filling.icon_state = "[icon_state]10"
+			if(25 to 49)	filling.icon_state = "[icon_state]25"
+			if(50 to 74)	filling.icon_state = "[icon_state]50"
+			if(75 to 79)	filling.icon_state = "[icon_state]75"
+			if(80 to 90)	filling.icon_state = "[icon_state]80"
+			if(91 to INFINITY)	filling.icon_state = "[icon_state]100"
+
+		filling.color = reagents.get_color()
+		overlays += filling
+
+	if (!is_open_container())
+		var/image/lid = image(icon, src, "lid_[initial(icon_state)]")
+		overlays += lid
 
 /obj/item/weapon/reagent_containers/glass/beaker/large
 	name = "large beaker"
@@ -168,7 +168,7 @@
 /obj/item/weapon/reagent_containers/glass/beaker/bowl
 	name = "mixing bowl"
 	desc = "A large mixing bowl."
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'resources/icons/obj/kitchen.dmi'
 	icon_state = "mixingbowl"
 	center_of_mass = "x=16;y=10"
 	matter = list(DEFAULT_WALL_MATERIAL = 300)
@@ -219,70 +219,60 @@
 	visible_message("<span class='warning'>\The [src] shatters against \The [hit_atom]!</span>", blind_message = "<span class='warning'>You hear the sound of shattering glass!</span>")
 	qdel(src)
 
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/cryoxadone, 30)
-		update_icon()
+/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone/New()
+	..()
+	reagents.add_reagent(/datum/reagent/cryoxadone, 30)
+	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/sulphuric
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/acid, 60)
-		update_icon()
+/obj/item/weapon/reagent_containers/glass/beaker/sulphuric/New()
+	..()
+	reagents.add_reagent(/datum/reagent/acid, 60)
+	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/fuel
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/fuel, 60)
-		update_icon()
+/obj/item/weapon/reagent_containers/glass/beaker/fuel/New()
+	..()
+	reagents.add_reagent(/datum/reagent/fuel, 60)
+	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/water
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/water, 60)
-		update_icon()
+/obj/item/weapon/reagent_containers/glass/beaker/water/New()
+	..()
+	reagents.add_reagent(/datum/reagent/water, 60)
+	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/sugar
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/sugar, 60)
-		update_icon()
+/obj/item/weapon/reagent_containers/glass/beaker/sugar/New()
+	..()
+	reagents.add_reagent(/datum/reagent/sugar, 60)
+	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/mercury
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/mercury, 60)
-		update_icon()
+/obj/item/weapon/reagent_containers/glass/beaker/mercury/New()
+	..()
+	reagents.add_reagent(/datum/reagent/mercury, 60)
+	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/lithium
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/lithium, 60)
-		update_icon()
+/obj/item/weapon/reagent_containers/glass/beaker/lithium/New()
+	..()
+	reagents.add_reagent(/datum/reagent/lithium, 60)
+	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/acetone
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/acetone, 60)
-		update_icon()
+/obj/item/weapon/reagent_containers/glass/beaker/acetone/New()
+	..()
+	reagents.add_reagent(/datum/reagent/acetone, 60)
+	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/ethanol
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/ethanol, 60)
-		update_icon()
+/obj/item/weapon/reagent_containers/glass/beaker/ethanol/New()
+	..()
+	reagents.add_reagent(/datum/reagent/ethanol, 60)
+	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/radium
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/radium, 60)
-		update_icon()
+/obj/item/weapon/reagent_containers/glass/beaker/radium/New()
+	..()
+	reagents.add_reagent(/datum/reagent/radium, 60)
+	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bucket
 	desc = "It's a bucket."
 	name = "bucket"
-	icon = 'icons/obj/janitor.dmi'
+	icon = 'resources/icons/obj/janitor.dmi'
 	icon_state = "bucket"
 	item_state = "bucket"
 	center_of_mass = "x=16;y=9"
@@ -308,7 +298,7 @@
 		else
 			reagents.trans_to_obj(D, 5)
 			to_chat(user, "<span class='notice'>You wet \the [D] in \the [src].</span>")
-			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+			playsound(loc, 'resources/sound/effects/slosh.ogg', 25, 1)
 		return
 	else
 		return ..()
@@ -323,7 +313,7 @@
 /obj/item/weapon/reagent_containers/glass/blender_jug
 	name = "Blender Jug"
 	desc = "A blender jug, part of a blender."
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'resources/icons/obj/kitchen.dmi'
 	icon_state = "blender_jug_e"
 	volume = 100
 
@@ -339,7 +329,7 @@
 /obj/item/weapon/reagent_containers/glass/canister		//not used apparantly
 	desc = "It's a canister. Mainly used for transporting fuel."
 	name = "canister"
-	icon = 'icons/obj/tank.dmi'
+	icon = 'resources/icons/obj/tank.dmi'
 	icon_state = "canister"
 	item_state = "canister"
 	m_amt = 300

@@ -2,7 +2,7 @@
 /obj/effect/spresent
 	name = "strange present"
 	desc = "It's a ... present?"
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "strangepresent"
 	density = 1
 	anchored = 0
@@ -16,9 +16,8 @@
 //Paints the wall it spawns on, then dies
 /obj/effect/paint
 	name = "coat of paint"
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	icon_state = "white"
-	plane = TURF_PLANE
 	layer = TURF_DETAIL_LAYER
 	blend_mode = BLEND_MULTIPLY
 
@@ -51,9 +50,9 @@
 //Stripes the wall it spawns on, then dies
 /obj/effect/paint_stripe
 	name = "stripe of paint"
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	icon_state = "white"
-	plane = TURF_PLANE
+	plane = DEFAULT_PLANE
 	layer = TURF_DETAIL_LAYER
 	blend_mode = BLEND_MULTIPLY
 

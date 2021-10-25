@@ -45,7 +45,7 @@
  */
 
 /obj/item/weapon/storage/fancy/egg_box
-	icon = 'icons/obj/food.dmi'
+	icon = 'resources/icons/obj/food.dmi'
 	icon_state = "eggbox"
 	name = "egg box"
 	storage_slots = 12
@@ -71,7 +71,7 @@
 /obj/item/weapon/storage/fancy/candle_box
 	name = "candle pack"
 	desc = "A pack of red candles."
-	icon = 'icons/obj/candle.dmi'
+	icon = 'resources/icons/obj/candle.dmi'
 	icon_state = "candlebox"
 	opened = 1 //no closed state
 	throwforce = 2
@@ -90,7 +90,7 @@
 /obj/item/weapon/storage/fancy/crayons
 	name = "box of crayons"
 	desc = "A box of crayons for all your rune drawing needs."
-	icon = 'icons/obj/crayons.dmi'
+	icon = 'resources/icons/obj/crayons.dmi'
 	icon_state = "crayonbox"
 	w_class = ITEM_SIZE_SMALL
 	max_w_class = ITEM_SIZE_TINY
@@ -108,9 +108,9 @@
 
 /obj/item/weapon/storage/fancy/crayons/update_icon()
 	overlays = list() //resets list
-	overlays += image('icons/obj/crayons.dmi',"crayonbox")
+	overlays += image('resources/icons/obj/crayons.dmi',"crayonbox")
 	for(var/obj/item/weapon/pen/crayon/crayon in contents)
-		overlays += image('icons/obj/crayons.dmi',crayon.colourName)
+		overlays += image('resources/icons/obj/crayons.dmi',crayon.colourName)
 
 ////////////
 //CIG PACK//
@@ -118,7 +118,7 @@
 /obj/item/weapon/storage/fancy/cigarettes
 	name = "pack of Trans-Stellar Duty-frees"
 	desc = "A ubiquitous brand of cigarettes, found in the facilities of every major spacefaring corporation in the universe. As mild and flavorless as it gets."
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'resources/icons/obj/cigarettes.dmi'
 	icon_state = "cigpacket"
 	item_state = "cigpacket"
 	w_class = ITEM_SIZE_SMALL
@@ -259,7 +259,7 @@
 	desc = "A case for holding your cigars when you are not smoking them."
 	icon_state = "cigarcase"
 	item_state = "cigpacket"
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'resources/icons/obj/cigarettes.dmi'
 	w_class = ITEM_SIZE_SMALL
 	max_w_class = ITEM_SIZE_TINY
 	throwforce = 2
@@ -285,7 +285,7 @@
  */
 
 /obj/item/weapon/storage/fancy/vials
-	icon = 'icons/obj/vialbox.dmi'
+	icon = 'resources/icons/obj/vialbox.dmi'
 	icon_state = "vialbox"
 	name = "vial storage box"
 	w_class = ITEM_SIZE_NORMAL
@@ -305,7 +305,7 @@
 /obj/item/weapon/storage/lockbox/vials
 	name = "secure vial storage box"
 	desc = "A locked box for keeping things away from children."
-	icon = 'icons/obj/vialbox.dmi'
+	icon = 'resources/icons/obj/vialbox.dmi'
 	icon_state = "vialbox0"
 	item_state = "syringe_kit"
 	w_class = ITEM_SIZE_NORMAL

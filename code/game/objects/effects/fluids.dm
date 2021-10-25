@@ -1,6 +1,6 @@
 /obj/effect/fluid
 	name = ""
-	icon = 'icons/effects/liquids.dmi'
+	icon = 'resources/icons/effects/liquids.dmi'
 	anchored = 1
 	simulated = 0
 	opacity = 0
@@ -52,10 +52,10 @@
 
 	if(fluid_amount > FLUID_OVER_MOB_HEAD)
 		layer = DEEP_FLUID_LAYER
-		plane = EFFECTS_BELOW_LIGHTING_PLANE
+		plane = EFFECTS_PLANE
 	else
 		layer = SHALLOW_FLUID_LAYER
-		plane = HIDING_MOB_PLANE
+		plane = DEFAULT_PLANE
 
 	if(fluid_amount > FLUID_DEEP)
 		alpha = FLUID_MAX_ALPHA
@@ -96,7 +96,7 @@
 	mouse_opacity = 0
 	layer = FLY_LAYER
 	color = COLOR_OCEAN
-	icon = 'icons/effects/liquids.dmi'
+	icon = 'resources/icons/effects/liquids.dmi'
 	icon_state = "ocean"
 	alpha = FLUID_MAX_ALPHA
 	simulated = 0

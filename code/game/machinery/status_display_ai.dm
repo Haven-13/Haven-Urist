@@ -55,7 +55,7 @@ var/list/ai_status_emotions = list(
 				SD.friendc = 0
 
 /obj/machinery/ai_status_display
-	icon = 'icons/obj/status_display.dmi'
+	icon = 'resources/icons/obj/status_display.dmi'
 	icon_state = "frame"
 	name = "AI display"
 	anchored = 1
@@ -95,4 +95,4 @@ var/list/ai_status_emotions = list(
 	picture_state = state
 	if(overlays.len)
 		overlays.Cut()
-	overlays += image('icons/obj/status_display.dmi', icon_state=picture_state)
+	overlays += image('resources/icons/obj/status_display.dmi', icon_state=picture_state)

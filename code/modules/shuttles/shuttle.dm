@@ -15,13 +15,15 @@
 
 	var/ceiling_type = /turf/unsimulated/floor/shuttle_ceiling
 
-	var/sound_takeoff = 'sound/effects/shuttle_takeoff.ogg'
-	var/sound_landing = 'sound/effects/shuttle_landing.ogg'
+	var/sound_takeoff = 'resources/sound/effects/shuttle_takeoff.ogg'
+	var/sound_landing = 'resources/sound/effects/shuttle_landing.ogg'
 
 	var/knockdown = 1 //whether shuttle downs non-buckled people when it moves
 
-	var/defer_initialisation = FALSE //this shuttle will/won't be initialised automatically. If set to true, you are responsible for initialzing the shuttle manually.
-	                                 //Useful for shuttles that are initialed by map_template loading, or shuttles that are created in-game or not used.
+	//this shuttle will/won't be initialised automatically. If set to true, you are responsible for initialzing the shuttle manually.
+	//Useful for shuttles that are initialed by map_template loading, or shuttles that are created in-game or not used.
+	var/defer_initialisation = FALSE
+
 	var/logging_home_tag   //Whether in-game logs will be generated whenever the shuttle leaves/returns to the landmark with this landmark_tag.
 	var/logging_access     //Controls who has write access to log-related stuff; should correlate with pilot access.
 

@@ -117,7 +117,7 @@
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
 		return 1
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
 	if (do_after(user, 40, src))
 		user.visible_message( \
@@ -169,7 +169,7 @@
 		return pipe_color
 
 /obj/machinery/atmospherics/pipe/simple
-	icon = 'icons/atmos/pipes.dmi'
+	icon = 'resources/icons/atmos/pipes.dmi'
 	icon_state = ""
 	var/pipe_icon = "" //what kind of pipe it is and from which dmi is the icon manager getting its icons, "" for simple pipes, "hepipe" for HE pipes, "hejunction" for HE junctions
 	name = "pipe"
@@ -251,7 +251,7 @@
 	ASSERT(parent)
 	parent.temporarily_store_air()
 	src.visible_message("<span class='danger'>\The [src] bursts!</span>");
-	playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
+	playsound(src.loc, 'resources/sound/effects/bang.ogg', 25, 1)
 	var/datum/effect/effect/system/smoke_spread/smoke = new
 	smoke.set_up(1,0, src.loc, 0)
 	smoke.start()
@@ -450,7 +450,7 @@
 	alert_pressure = 350*ONE_ATMOSPHERE
 
 /obj/machinery/atmospherics/pipe/manifold
-	icon = 'icons/atmos/manifold.dmi'
+	icon = 'resources/icons/atmos/manifold.dmi'
 	icon_state = ""
 	name = "pipe manifold"
 	desc = "A manifold composed of regular pipes."
@@ -713,7 +713,7 @@
 	color = PIPE_COLOR_ORANGE
 
 /obj/machinery/atmospherics/pipe/manifold4w
-	icon = 'icons/atmos/manifold.dmi'
+	icon = 'resources/icons/atmos/manifold.dmi'
 	icon_state = ""
 	name = "4-way pipe manifold"
 	desc = "A manifold composed of regular pipes."
@@ -981,7 +981,7 @@
 /obj/machinery/atmospherics/pipe/cap
 	name = "pipe endcap"
 	desc = "An endcap for pipes."
-	icon = 'icons/atmos/pipes.dmi'
+	icon = 'resources/icons/atmos/pipes.dmi'
 	icon_state = ""
 	level = 2
 
@@ -1106,7 +1106,7 @@
 
 
 /obj/machinery/atmospherics/pipe/tank
-	icon = 'icons/atmos/tank.dmi'
+	icon = 'resources/icons/atmos/tank.dmi'
 	icon_state = "air_map"
 
 	name = "Pressure Tank"
@@ -1189,8 +1189,12 @@
 	air_temporary.volume = volume
 	air_temporary.temperature = T20C
 
-	air_temporary.adjust_multi("oxygen",  (start_pressure*O2STANDARD)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature), \
-	                           "nitrogen",(start_pressure*N2STANDARD)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
+	air_temporary.adjust_multi(
+		"oxygen",
+		(start_pressure*O2STANDARD)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature),
+		"nitrogen",
+		(start_pressure*N2STANDARD)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature)
+	)
 
 
 	..()
@@ -1261,7 +1265,7 @@
 	air_temporary.volume = volume
 	air_temporary.temperature = T0C
 
-	air_temporary.adjust_gas("sleeping_agent", (start_pressure)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
+	air_temporary.adjust_gas("nitrous_oxide", (start_pressure)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
 
 	..()
 	icon_state = "n2o"
@@ -1281,7 +1285,7 @@
 	icon_state = "h2"
 
 /obj/machinery/atmospherics/pipe/vent
-	icon = 'icons/obj/atmospherics/pipe_vent.dmi'
+	icon = 'resources/icons/obj/atmospherics/pipe_vent.dmi'
 	icon_state = "intact"
 
 	name = "Vent"

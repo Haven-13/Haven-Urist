@@ -208,7 +208,7 @@
 // Component Objects
 // These objects are visual representation of modules
 /obj/item/robot_parts/robot_component
-	icon = 'icons/obj/robot_component.dmi'
+	icon = 'resources/icons/obj/robot_component.dmi'
 	icon_state = "working"
 	var/brute = 0
 	var/burn = 0

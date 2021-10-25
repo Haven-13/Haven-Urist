@@ -5,7 +5,7 @@
 	opacity = 0
 	density = 0
 	icon_state = "small"
-	icon = 'icons/urist/objects/scrap/base.dmi'
+	icon = 'resources/icons/urist/objects/scrap/base.dmi'
 	var/obj/item/weapon/storage/internal/updating/loot	//the visible loot
 	var/loot_min = 2
 	var/loot_max = 6
@@ -39,7 +39,7 @@
 		/obj/item/frame/light,
 		)
 
-	var/parts_icon = 'icons/urist/objects/scrap/trash.dmi'
+	var/parts_icon = 'resources/icons/urist/objects/scrap/trash.dmi'
 	var/base_min = 3	//min and max number of random pieces of base icon
 	var/base_max = 7
 	var/base_spread = 8	//limits on pixel offsets of base pieces
@@ -122,7 +122,7 @@
 		if(!(loot.contents.len || contents.len > 1))
 			var/obj/item/weapon/weldingtool/WT = W
 			if (WT.remove_fuel(0,user))
-				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Welder2.ogg', 50, 1)
 				user.visible_message("[user.name] starts to disassemble the scrap pile.", \
 					"You start to disassemble the scrap pile.", \
 					"You hear welding")
@@ -141,7 +141,7 @@
 
 /obj/structure/scrap/vehicle
 	name = "debris pile"
-	parts_icon = 'icons/urist/objects/scrap/vehicle.dmi'
+	parts_icon = 'resources/icons/urist/objects/scrap/vehicle.dmi'
 	loot_list = list(
 		/obj/item/vehicle_part/random,
 		/obj/item/vehicle_part/random,
@@ -215,7 +215,7 @@
 	name = "vehicle part"
 	desc = "A part from a vehicle."
 	icon_state = "engine"
-	icon = 'icons/urist/items/vehicle_parts.dmi'
+	icon = 'resources/icons/urist/items/vehicle_parts.dmi'
 	w_class = 3
 
 /obj/item/vehicle_part/random/Initialize()

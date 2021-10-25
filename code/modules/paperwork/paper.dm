@@ -6,7 +6,7 @@
 /obj/item/weapon/paper
 	name = "sheet of paper"
 	gender = NEUTER
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'resources/icons/obj/bureaucracy.dmi'
 	icon_state = "paper"
 	item_state = "paper"
 	randpixel = 8
@@ -41,6 +41,7 @@
 	set_content(text || info, title)
 
 /obj/item/weapon/paper/proc/set_content(text,title)
+	set waitfor = FALSE
 	if(title)
 		SetName(title)
 	info = html_encode(text)
@@ -107,7 +108,7 @@
 	if(rigged && (Holiday == "April Fool's Day"))
 		if(spam_flag == 0)
 			spam_flag = 1
-			playsound(loc, 'sound/items/bikehorn.ogg', 50, 1)
+			playsound(loc, 'resources/sound/items/bikehorn.ogg', 50, 1)
 			spawn(20)
 				spam_flag = 0
 
@@ -128,11 +129,15 @@
 				H.lip_style = null
 				H.update_body()
 			else
-				user.visible_message("<span class='warning'>[user] begins to wipe [H]'s lipstick off with \the [src].</span>", \
-								 	 "<span class='notice'>You begin to wipe off [H]'s lipstick.</span>")
+				user.visible_message(
+					"<span class='warning'>[user] begins to wipe [H]'s lipstick off with \the [src].</span>", \
+					"<span class='notice'>You begin to wipe off [H]'s lipstick.</span>"
+				)
 				if(do_after(user, 10, H) && do_after(H, 10, needhand = 0))	//user needs to keep their active hand, H does not.
-					user.visible_message("<span class='notice'>[user] wipes [H]'s lipstick off with \the [src].</span>", \
-										 "<span class='notice'>You wipe off [H]'s lipstick.</span>")
+					user.visible_message(
+						"<span class='notice'>[user] wipes [H]'s lipstick off with \the [src].</span>", \
+						"<span class='notice'>You wipe off [H]'s lipstick.</span>"
+					)
 					H.lip_style = null
 					H.update_body()
 
@@ -320,7 +325,7 @@
 
 		show_browser(usr, "<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[info_links][stamps]</BODY></HTML>", "window=[name]") // Update the window
 
-		playsound(src, pick('sound/effects/pen1.ogg','sound/effects/pen2.ogg'), 10)
+		playsound(src, pick('resources/sound/effects/pen1.ogg','resources/sound/effects/pen2.ogg'), 10)
 		update_icon()
 
 
@@ -376,7 +381,7 @@
 
 		stamps += (stamps=="" ? "<HR>" : "<BR>") + "<i>This paper has been stamped with the [P.name].</i>"
 
-		var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+		var/image/stampoverlay = image('resources/icons/obj/bureaucracy.dmi')
 		var/x
 		var/y
 		if(istype(P, /obj/item/weapon/stamp/captain) || istype(P, /obj/item/weapon/stamp/centcomm))
@@ -405,7 +410,7 @@
 		stamped += P.type
 		overlays += stampoverlay
 
-		playsound(src, 'sound/effects/stamp.ogg', 50, 1)
+		playsound(src, 'resources/sound/effects/stamp.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You stamp the paper with your [P.name].</span>")
 
 	else if(istype(P, /obj/item/weapon/flame))
