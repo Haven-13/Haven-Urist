@@ -352,3 +352,10 @@
   - bugfix: Fixed air alarms not responding in most cases
   - bugfix: Fixed vent pumps never changing mode
   - bugfix: Fixed interface garbage for air alarms
+2021-10-25:
+  martinlyra:
+  - tweak: Updated rust_g from 0.4.8 to 0.5.0
+  - tweak: Changed power cells in APCs for critical rooms on Pluto; Atmospherics,
+      Aft First Deck Hallway, Armoury, Bridge, Engineering, Medical, and Security.
+  - bugfix: Fix how some errors and warnings would end up getting ignored because
+      they were not properly flushed to the master log.

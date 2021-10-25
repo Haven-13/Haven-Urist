@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Fix how some errors and warnings would end up getting ignored because
-      they were not properly flushed to the master log.
