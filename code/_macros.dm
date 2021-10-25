@@ -106,7 +106,7 @@
 #define send_file(target, file)                             target << run(file)
 #define open_link(target, url)                              target << link(url)
 
-#define MAP_IMAGE_PATH "html/images/[GLOB.using_map.path]/"
+#define MAP_IMAGE_PATH "resources/html/images/[GLOB.using_map.path]/"
 
 #define map_image_file_name(z_level) "[GLOB.using_map.path]-[z_level].png"
 
