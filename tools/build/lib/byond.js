@@ -99,7 +99,7 @@ export const DreamMaker = async (dmeFile, options = {}) => {
     fs.writeFileSync(`${dmeBaseName}.m.dme`, injectedContent);
     if(mapOverride)
       fs.writeFileSync(
-        "maps/_map_include.dm",
+        "resources/maps/_map_include.dm",
         `#include "${mapOverride}/${mapOverride}.dm"\n`);
     const dmeContent = fs.readFileSync(`${dmeBaseName}.dme`);
     fs.appendFileSync(`${dmeBaseName}.m.dme`, dmeContent);

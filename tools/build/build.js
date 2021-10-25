@@ -42,17 +42,17 @@ export const CiParameter = new Juke.Parameter({
 export const DmMapsIncludeTarget = new Juke.Target({
   executes: async () => {
     const folders = [
-      ...Juke.glob('maps/away/**/*.dmm'),
-      ...Juke.glob('maps/random_ruins/**/*.dmm'),
-      ...Juke.glob('maps/RandomZLevels/**/*.dmm'),
-      ...Juke.glob('maps/shipmaps/**/*.dmm'),
-      ...Juke.glob('maps/templates/**/*.dmm'),
+      ...Juke.glob('resources/maps/away/**/*.dmm'),
+      ...Juke.glob('resources/maps/random_ruins/**/*.dmm'),
+      ...Juke.glob('resources/maps/RandomZLevels/**/*.dmm'),
+      ...Juke.glob('resources/maps/shipmaps/**/*.dmm'),
+      ...Juke.glob('resources/maps/templates/**/*.dmm'),
     ];
     const content = folders
-      .map((file) => file.replace('maps/', ''))
+      .map((file) => file.replace('resources/maps/', ''))
       .map((file) => `#include "${file}"`)
       .join('\n') + '\n';
-    fs.writeFileSync('maps/templates.dm', content);
+    fs.writeFileSync('resources/maps/templates.dm', content);
   },
 });
 
@@ -61,11 +61,12 @@ export const DmTarget = new Juke.Target({
     get(DefineParameter).includes('ALL_MAPS') && DmMapsIncludeTarget,
   ],
   inputs: [
-    'Haven/**',
-    'maps/**',
+    'resources/Haven/**',
+    'resources/html/**',
+    'resources/maps/**',
+    'resources/icons/**',
+    'resources/sound/**',
     'code/**',
-    'html/**',
-    'icons/**',
     `${DME_NAME}.dme`,
   ],
   outputs: [
