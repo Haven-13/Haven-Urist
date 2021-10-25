@@ -1,4 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - tweak: Updated rust_g from 0.4.8 to 0.5.0
