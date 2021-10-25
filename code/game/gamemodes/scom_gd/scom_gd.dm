@@ -28,7 +28,7 @@
 	GLOB.latejoin_cryo = list()
 	GLOB.latejoin_cyborg = list()
 
-	maploader.load_map('maps/templates/scomhq.dmm')
-	maploader.load_map('maps/templates/scomcruiser.dmm')
+	maploader.load_map('resources/maps/templates/scomhq.dmm')
+	maploader.load_map('resources/maps/templates/scomcruiser.dmm')
 	to_world("SCOM Z-levels setup")
 

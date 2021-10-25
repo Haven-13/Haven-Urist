@@ -4,7 +4,7 @@
 	full_name = "Away Sites Testing Land"
 	path = "away_sites_testing"
 
-	lobby_icon = 'maps/example/example_lobby.dmi'
+	lobby_icon = 'resources/maps/example/example_lobby.dmi'
 
 	station_levels = list()
 	contact_levels = list()

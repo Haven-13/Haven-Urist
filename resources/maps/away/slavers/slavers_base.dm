@@ -56,7 +56,7 @@
 /obj/structure/slavers_base/mattress
 	name = "dirty mattress"
 	desc = "Dirty, smelling mattress, covered with body fluids. You wouldn't want to touch this."
-	icon = 'maps/away/slavers/slavers_base_sprites.dmi'
+	icon = 'resources/maps/away/slavers/slavers_base_sprites.dmi'
 	icon_state = "dirty_mattress"
 	anchored = 0
 
@@ -138,7 +138,7 @@
 /mob/living/simple_animal/hostile/abolition_extremist
 	name = "abolition extremist"
 	desc = "Vigiliant fighter against slavery."
-	icon = 'maps/away/slavers/slavers_base_sprites.dmi'
+	icon = 'resources/maps/away/slavers/slavers_base_sprites.dmi'
 	icon_state = "extremist"
 	icon_living = "extremist"
 	icon_dead = "extremist_dead"
@@ -184,8 +184,8 @@
 /obj/item/clothing/under/abol_uniform
 	name = "abolitionist combat suit"
 	desc = "Lightly armored suit worn by abolition extremists during raids. It has green patches on the right sleeve and the chest. There is big green \"A\" on the back."
-	icon = 'maps/away/slavers/slavers_base_sprites.dmi'
+	icon = 'resources/maps/away/slavers/slavers_base_sprites.dmi'
 	icon_state = "abol_suit"
-	item_icons = list(slot_w_uniform_str = 'maps/away/slavers/slavers_base_sprites.dmi')
+	item_icons = list(slot_w_uniform_str = 'resources/maps/away/slavers/slavers_base_sprites.dmi')
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	armor = list(melee = 30, bullet = 25, laser = 10, energy = 10, bomb = 5, bio = 0, rad = 0)

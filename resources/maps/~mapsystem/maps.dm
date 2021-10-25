@@ -87,7 +87,7 @@ GLOBAL_LIST_EMPTY(all_maps)
 	var/overmap_event_areas = 0 //How many event "clouds" will be generated
 
 	var/lobby_icon // Deprecated
-	var/list/lobby_screens = list('Haven/Images/default_lobbyscreen.png') // The list of lobby screen to pick() from. If left unset the first icon state is always selected.
+	var/list/lobby_screens = list('resources/Haven/Images/default_lobbyscreen.png') // The list of lobby screen to pick() from. If left unset the first icon state is always selected.
 	var/current_lobby_screen
 	var/music_track/lobby_track                              // The track that will play in the lobby screen.
 	var/list/lobby_tracks = list()                           // The list of lobby tracks to pick() from. If left unset will randomly select among all available /music_track subtypes.
