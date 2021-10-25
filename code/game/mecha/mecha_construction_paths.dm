@@ -6,22 +6,22 @@
 	if(isWelder(used_atom))
 		var/obj/item/weapon/weldingtool/W = used_atom
 		if (W.remove_fuel(0, user))
-			playsound(holder, 'sound/items/Welder2.ogg', 50, 1)
+			playsound(holder, 'resources/sound/items/Welder2.ogg', 50, 1)
 		else
 			return 0
 	else if(isWrench(used_atom))
-		playsound(holder, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(holder, 'resources/sound/items/Ratchet.ogg', 50, 1)
 
 	else if(isScrewdriver(used_atom))
-		playsound(holder, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(holder, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 
 	else if(isWirecutter(used_atom))
-		playsound(holder, 'sound/items/Wirecutter.ogg', 50, 1)
+		playsound(holder, 'resources/sound/items/Wirecutter.ogg', 50, 1)
 
 	else if(isCoil(used_atom))
 		var/obj/item/stack/cable_coil/C = used_atom
 		if(C.use(4))
-			playsound(holder, 'sound/items/Deconstruct.ogg', 50, 1)
+			playsound(holder, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 		else
 			to_chat(user, ("There's not enough cable to finish the task."))
 			return 0
@@ -38,22 +38,22 @@
 	if(isWelder(used_atom))
 		var/obj/item/weapon/weldingtool/W = used_atom
 		if (W.remove_fuel(0, user))
-			playsound(holder, 'sound/items/Welder2.ogg', 50, 1)
+			playsound(holder, 'resources/sound/items/Welder2.ogg', 50, 1)
 		else
 			return 0
 	else if(isWrench(used_atom))
-		playsound(holder, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(holder, 'resources/sound/items/Ratchet.ogg', 50, 1)
 
 	else if(isScrewdriver(used_atom))
-		playsound(holder, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(holder, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 
 	else if(isWirecutter(used_atom))
-		playsound(holder, 'sound/items/Wirecutter.ogg', 50, 1)
+		playsound(holder, 'resources/sound/items/Wirecutter.ogg', 50, 1)
 
 	else if(istype(used_atom, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/C = used_atom
 		if(C.use(4))
-			playsound(holder, 'sound/items/Deconstruct.ogg', 50, 1)
+			playsound(holder, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 		else
 			to_chat(user, ("There's not enough cable to finish the task."))
 			return 0
@@ -88,7 +88,7 @@
 /datum/construction/mecha/ripley_chassis/spawn_result()
 	var/obj/item/mecha_parts/chassis/const_holder = holder
 	const_holder.construct = new /datum/construction/reversible/mecha/ripley(const_holder)
-	const_holder.icon = 'icons/mecha/mech_construction.dmi'
+	const_holder.icon = 'resources/icons/mecha/mech_construction.dmi'
 	const_holder.icon_state = "ripley0"
 	const_holder.set_density(1)
 	const_holder.overlays.len = 0
@@ -300,7 +300,7 @@
 /datum/construction/mecha/gygax_chassis/spawn_result()
 	var/obj/item/mecha_parts/chassis/const_holder = holder
 	const_holder.construct = new /datum/construction/reversible/mecha/gygax(const_holder)
-	const_holder.icon = 'icons/mecha/mech_construction.dmi'
+	const_holder.icon = 'resources/icons/mecha/mech_construction.dmi'
 	const_holder.icon_state = "gygax0"
 	const_holder.set_density(1)
 	spawn()
@@ -581,7 +581,7 @@
 /datum/construction/mecha/firefighter_chassis/spawn_result()
 	var/obj/item/mecha_parts/chassis/const_holder = holder
 	const_holder.construct = new /datum/construction/reversible/mecha/firefighter(const_holder)
-	const_holder.icon = 'icons/mecha/mech_construction.dmi'
+	const_holder.icon = 'resources/icons/mecha/mech_construction.dmi'
 	const_holder.icon_state = "fireripley0"
 	const_holder.set_density(1)
 	spawn()
@@ -805,7 +805,7 @@
 /datum/construction/mecha/durand_chassis/spawn_result()
 	var/obj/item/mecha_parts/chassis/const_holder = holder
 	const_holder.construct = new /datum/construction/reversible/mecha/durand(const_holder)
-	const_holder.icon = 'icons/mecha/mech_construction.dmi'
+	const_holder.icon = 'resources/icons/mecha/mech_construction.dmi'
 	const_holder.icon_state = "durand0"
 	const_holder.set_density(1)
 	spawn()
@@ -1109,7 +1109,7 @@
 /datum/construction/mecha/odysseus_chassis/spawn_result()
 	var/obj/item/mecha_parts/chassis/const_holder = holder
 	const_holder.construct = new /datum/construction/reversible/mecha/odysseus(const_holder)
-	const_holder.icon = 'icons/mecha/mech_construction.dmi'
+	const_holder.icon = 'resources/icons/mecha/mech_construction.dmi'
 	const_holder.icon_state = "odysseus0"
 	const_holder.set_density(1)
 	spawn()

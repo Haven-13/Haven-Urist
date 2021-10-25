@@ -1,7 +1,7 @@
 //old style retardo-cart
 /obj/structure/bed/chair/janicart
 	name = "janicart"
-	icon = 'icons/obj/vehicles.dmi'
+	icon = 'resources/icons/obj/vehicles.dmi'
 	icon_state = "pussywagon"
 	anchored = 1
 	density = 1
@@ -30,7 +30,7 @@
 		if(reagents.total_volume > 1)
 			reagents.trans_to_obj(I, 2)
 			to_chat(user, "<span class='notice'>You wet [I] in the [callme].</span>")
-			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+			playsound(loc, 'resources/sound/effects/slosh.ogg', 25, 1)
 		else
 			to_chat(user, "<span class='notice'>This [callme] is out of water!</span>")
 	else if(istype(I, /obj/item/key))
@@ -119,6 +119,6 @@
 /obj/item/key
 	name = "key"
 	desc = "A keyring with a small steel key, and a pink fob reading \"Pussy Wagon\"."
-	icon = 'icons/obj/vehicles.dmi'
+	icon = 'resources/icons/obj/vehicles.dmi'
 	icon_state = "keys"
 	w_class = ITEM_SIZE_TINY

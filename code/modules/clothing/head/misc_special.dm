@@ -31,7 +31,7 @@
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
 	sprite_sheets = list(
-		SPECIES_RESOMI = 'icons/mob/species/resomi/head.dmi'
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/head.dmi'
 		)
 
 /obj/item/clothing/head/welding/attack_self()
@@ -203,10 +203,10 @@
 
 /obj/item/clothing/head/kitty/update_icon(var/mob/living/carbon/human/user)
 	if(!istype(user)) return
-	var/icon/ears = new/icon("icon" = 'icons/mob/onmob/head.dmi', "icon_state" = "kitty")
+	var/icon/ears = new/icon("icon" = 'resources/icons/mob/onmob/head.dmi', "icon_state" = "kitty")
 	ears.Blend(rgb(user.r_hair, user.g_hair, user.b_hair), ICON_ADD)
 
-	var/icon/earbit = new/icon("icon" = 'icons/mob/onmob/head.dmi', "icon_state" = "kittyinner")
+	var/icon/earbit = new/icon("icon" = 'resources/icons/mob/onmob/head.dmi', "icon_state" = "kittyinner")
 	ears.Blend(earbit, ICON_OVERLAY)
 
 /obj/item/clothing/head/richard

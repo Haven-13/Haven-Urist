@@ -2,7 +2,7 @@
 	density = 1
 	anchored = 0
 	name = "\improper AI core"
-	icon = 'icons/mob/AI.dmi'
+	icon = 'resources/icons/mob/AI.dmi'
 	icon_state = "0"
 	var/state = 0
 	var/datum/ai_laws/laws = new /datum/ai_laws/nanotrasen
@@ -25,7 +25,7 @@
 	switch(state)
 		if(0)
 			if(isWrench(P))
-				playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
+				playsound(loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 				if(do_after(user, 20, src))
 					to_chat(user, "<span class='notice'>You wrench the frame into place.</span>")
 					anchored = 1
@@ -35,7 +35,7 @@
 				if(!WT.isOn())
 					to_chat(user, "The welder must be on for this task.")
 					return
-				playsound(loc, 'sound/items/Welder.ogg', 50, 1)
+				playsound(loc, 'resources/sound/items/Welder.ogg', 50, 1)
 				if(do_after(user, 20, src))
 					if(!src || !WT.remove_fuel(0, user)) return
 					to_chat(user, "<span class='notice'>You deconstruct the frame.</span>")
@@ -44,23 +44,23 @@
 					return
 		if(1)
 			if(isWrench(P))
-				playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
+				playsound(loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 				if(do_after(user, 20, src))
 					to_chat(user, "<span class='notice'>You unfasten the frame.</span>")
 					anchored = 0
 					state = 0
 			if(istype(P, /obj/item/weapon/circuitboard/aicore) && !circuit && user.unEquip(P, src))
-				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
+				playsound(loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You place the circuit board inside the frame.</span>")
 				icon_state = "1"
 				circuit = P
 			if(isScrewdriver(P) && circuit)
-				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You screw the circuit board into place.</span>")
 				state = 2
 				icon_state = "2"
 			if(isCrowbar(P) && circuit)
-				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You remove the circuit board.</span>")
 				state = 1
 				icon_state = "0"
@@ -68,7 +68,7 @@
 				circuit = null
 		if(2)
 			if(isScrewdriver(P) && circuit)
-				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You unfasten the circuit board.</span>")
 				state = 1
 				icon_state = "1"
@@ -78,7 +78,7 @@
 					to_chat(user, "<span class='warning'>You need five coils of wire to add them to the frame.</span>")
 					return
 				to_chat(user, "<span class='notice'>You start to add cables to the frame.</span>")
-				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
+				playsound(loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 				if (do_after(user, 20, src) && state == 2)
 					if (C.use(5))
 						state = 3
@@ -90,7 +90,7 @@
 				if (brain)
 					to_chat(user, "Get that brain out of there first")
 				else
-					playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
+					playsound(loc, 'resources/sound/items/Wirecutter.ogg', 50, 1)
 					to_chat(user, "<span class='notice'>You remove the cables.</span>")
 					state = 2
 					icon_state = "2"
@@ -103,7 +103,7 @@
 					to_chat(user, "<span class='warning'>You need two sheets of glass to put in the glass panel.</span>")
 					return
 				to_chat(user, "<span class='notice'>You start to put in the glass panel.</span>")
-				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
+				playsound(loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 				if (do_after(user, 20,src) && state == 3)
 					if(RG.use(2))
 						to_chat(user, "<span class='notice'>You put in the glass panel.</span>")
@@ -160,7 +160,7 @@
 				icon_state = "3b"
 
 			if(isCrowbar(P) && brain)
-				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You remove the brain.</span>")
 				brain.loc = loc
 				brain = null
@@ -168,7 +168,7 @@
 
 		if(4)
 			if(isCrowbar(P))
-				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You remove the glass panel.</span>")
 				state = 3
 				if (brain)
@@ -183,7 +183,7 @@
 					to_chat(user, "<span class='warning'>Core fails to connect to the systems of [GLOB.using_map.full_name]!</span>")
 					return
 
-				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You connect the monitor.</span>")
 				if(!brain)
 					var/open_for_latejoin = alert(user, "Would you like this core to be open for latejoining AIs?", "Latejoin", "Yes", "Yes", "No") == "Yes"
@@ -200,7 +200,7 @@
 
 /obj/structure/AIcore/deactivated
 	name = "inactive AI"
-	icon = 'icons/mob/AI.dmi'
+	icon = 'resources/icons/mob/AI.dmi'
 	icon_state = "ai-empty"
 	anchored = 1
 	state = 20//So it doesn't interact based on the above. Not really necessary.

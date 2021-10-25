@@ -1,7 +1,7 @@
 /mob/living/bot/remotebot
 	name = "Remote-Bot"
 	desc = "A remote controlled robot used by lazy people to switch channels and get pizza."
-	icon = 'icons/mob/bot/fetchbot.dmi'
+	icon = 'resources/icons/mob/bot/fetchbot.dmi'
 	icon_state = "fetchbot1"
 	health = 15
 	maxHealth = 15
@@ -159,7 +159,7 @@
 /obj/item/device/bot_kit
 	name = "Remote-Bot Kit"
 	desc = "The cover says 'control your own cardboard nuclear powered robot. Comes with real plutonium!"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'resources/icons/obj/storage.dmi'
 	icon_state = "remotebot"
 
 /obj/item/device/bot_kit/attack_self(var/mob/living/user)

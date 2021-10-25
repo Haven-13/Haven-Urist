@@ -25,7 +25,7 @@
 
 /obj/item/clothing/suit/space/void/tdfrangerarmor
 	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon = 'resources/icons/urist/items/clothes/clothes.dmi'
 	allowed = list(/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank,/obj/item/device/flashlight)
 	armor = list(melee = 65, bullet = 50, laser = 40,energy = 15, bomb = 35, bio = 100, rad = 30)
 	name = "Defence Force ranger voidsuit"
@@ -95,12 +95,12 @@
 	item_state = "elite_riot"
 	light_overlay = "helmet_light_dual"
 	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	armor = list(melee = 65, bullet = 50, laser = 40,energy = 15, bomb = 35, bio = 100, rad = 30)
 
 /obj/item/ammo_magazine/c10mm
 	name = "TD-10 SMG magazine (10mm)"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "smg10mm"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
@@ -122,12 +122,12 @@
 /obj/item/weapon/gun/projectile/td10_pistol
 	name = "\improper TD-10 Pistol"
 	desc = "The standard 10mm service pistol of the Terran Defence Force. It shares a number of parts with the SMG version of the TD-10 series. Rugged and durable, the TD-10 pistol is the best choice for frontier rangers."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "pistol10mm"
 	item_state = "gun"
 	w_class = 2
 	caliber = "10mm"
-	fire_sound = 'sound/weapons/gunshot/Gunshot_pistol.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/Gunshot_pistol.ogg'
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c10mm/TD10
@@ -145,7 +145,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper TD-10 SMG"
 	desc = "The standard 10mm submachine gun of the Terran Defence Force. It shares many parts with the pistol version of the TD-10, and even accepts TD-10 pistol magazines. This is handy for far flung frontier worlds where parts may be scarce."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "smg10mm-fo"
 	item_state = "smg10mm-fo"
 	w_class = 3
@@ -157,7 +157,7 @@
 	magazine_type = /obj/item/ammo_magazine/c10mm
 	allowed_magazines = list(/obj/item/ammo_magazine/c10mm, /obj/item/ammo_magazine/c10mm/TD10)
 	one_hand_penalty = 1
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/gunshot_pistol.ogg'
 
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=0, one_hand_penalty = 1, move_delay=null, burst_accuracy=null, dispersion=null),

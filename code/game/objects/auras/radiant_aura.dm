@@ -1,6 +1,6 @@
 /obj/aura/radiant_aura
 	name = "radiant aura"
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	icon_state = "fire_goon"
 	plane = DEFAULT_PLANE
 	layer = ABOVE_WINDOW_LAYER

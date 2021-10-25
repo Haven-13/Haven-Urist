@@ -4,7 +4,7 @@
 /obj/item/weapon/holosign_creator
 	name = "holographic sign projector"
 	desc = "A handy-dandy projector that displays a janitorial sign."
-	icon = 'icons/urist/items/hologram_creator.dmi'
+	icon = 'resources/icons/urist/items/hologram_creator.dmi'
 	icon_state = "signmaker"
 	item_state = "electronic"
 	force = 5
@@ -50,7 +50,7 @@
 /obj/structure/hologramsign
 	name = "wet floor sign"
 	desc = "The words flicker as if they mean nothing."
-	icon = 'icons/urist/items/hologram_creator.dmi'
+	icon = 'resources/icons/urist/items/hologram_creator.dmi'
 	icon_state = "holosign"
 	anchored = 1
 	density = 0

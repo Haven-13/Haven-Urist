@@ -22,7 +22,7 @@
 	var/time_last_drone = 500
 	var/drone_type = /mob/living/silicon/robot/drone
 
-	icon = 'icons/obj/machines/drone_fab.dmi'
+	icon = 'resources/icons/obj/machines/drone_fab.dmi'
 	icon_state = "drone_fab_idle"
 
 /obj/machinery/drone_fabricator/derelict

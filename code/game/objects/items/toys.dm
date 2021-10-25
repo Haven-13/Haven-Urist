@@ -24,7 +24,7 @@
 
 
 /obj/item/toy
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
@@ -36,7 +36,7 @@
 /obj/item/toy/water_balloon
 	name = "water balloon"
 	desc = "A translucent balloon. There's nothing in it."
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	icon_state = "waterballoon-e"
 	item_state = "balloon-empty"
 
@@ -100,7 +100,7 @@
 	throw_speed = 4
 	throw_range = 20
 	force = 0
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'resources/icons/obj/weapons.dmi'
 	icon_state = "syndballoon"
 	item_state = "syndballoon"
 	w_class = ITEM_SIZE_HUGE
@@ -121,7 +121,7 @@
 /obj/item/toy/blink
 	name = "electronic blink toy game"
 	desc = "Blink.  Blink.  Blink. Ages 8 and up."
-	icon = 'icons/obj/radio.dmi'
+	icon = 'resources/icons/obj/radio.dmi'
 	icon_state = "beacon"
 	item_state = "signaler"
 
@@ -131,7 +131,7 @@
 /obj/item/toy/spinningtoy
 	name = "gravitational singularity"
 	desc = "\"Singulo\" brand spinning toy."
-	icon = 'icons/obj/singularity.dmi'
+	icon = 'resources/icons/obj/singularity.dmi'
 	icon_state = "singularity_s1"
 
 /*
@@ -141,12 +141,12 @@
 /obj/item/toy/crossbow
 	name = "foam dart crossbow"
 	desc = "A weapon favored by many overactive children. Ages 8 and up."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'resources/icons/obj/gun.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow"
 	item_icons = list(
-		icon_l_hand = 'icons/mob/onmob/items/lefthand_guns.dmi',
-		icon_r_hand = 'icons/mob/onmob/items/righthand_guns.dmi',
+		icon_l_hand = 'resources/icons/mob/onmob/items/lefthand_guns.dmi',
+		icon_r_hand = 'resources/icons/mob/onmob/items/righthand_guns.dmi',
 		)
 	w_class = ITEM_SIZE_SMALL
 	attack_verb = list("attacked", "struck", "hit")
@@ -180,7 +180,7 @@
 		bullets--
 		D.icon_state = "foamdart"
 		D.SetName("foam dart")
-		playsound(user.loc, 'sound/items/syringeproj.ogg', 50, 1)
+		playsound(user.loc, 'resources/sound/items/syringeproj.ogg', 50, 1)
 
 		for(var/i=0, i<6, i++)
 			if (D)
@@ -228,7 +228,7 @@
 				O.show_message(text("<span class='danger'>\The [] casually lines up a shot with []'s head and pulls the trigger!</span>", user, M), 1, "<span class='warning'>You hear the sound of foam against skull</span>", 2)
 				O.show_message(text("<span class='warning'>\The [] was hit in the head by the foam dart!</span>", M), 1)
 
-		playsound(user.loc, 'sound/items/syringeproj.ogg', 50, 1)
+		playsound(user.loc, 'resources/sound/items/syringeproj.ogg', 50, 1)
 		new /obj/item/toy/ammo/crossbow(M.loc)
 		src.bullets--
 	else if (M.lying && src.bullets == 0)
@@ -240,7 +240,7 @@
 /obj/item/toy/ammo/crossbow
 	name = "foam dart"
 	desc = "It's nerf or nothing! Ages 8 and up."
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	icon_state = "foamdart"
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
@@ -248,7 +248,7 @@
 /obj/effect/foam_dart_dummy
 	name = ""
 	desc = ""
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	icon_state = "null"
 	anchored = 1
 	density = 0
@@ -260,7 +260,7 @@
 /obj/item/toy/sword
 	name = "toy sword"
 	desc = "A cheap, plastic replica of an energy sword. Realistic sounds! Ages 8 and up."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'resources/icons/obj/weapons.dmi'
 	icon_state = "sword0"
 	item_state = "sword0"
 	var/active = 0.0
@@ -271,13 +271,13 @@
 	src.active = !( src.active )
 	if (src.active)
 		to_chat(user, "<span class='notice'>You extend the plastic blade with a quick flick of your wrist.</span>")
-		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
+		playsound(user, 'resources/sound/weapons/saberon.ogg', 50, 1)
 		src.icon_state = "swordblue"
 		src.item_state = "swordblue"
 		src.w_class = ITEM_SIZE_HUGE
 	else
 		to_chat(user, "<span class='notice'>You push the plastic blade back down into the handle.</span>")
-		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
+		playsound(user, 'resources/sound/weapons/saberoff.ogg', 50, 1)
 		src.icon_state = "sword0"
 		src.item_state = "sword0"
 		src.w_class = initial(w_class)
@@ -290,7 +290,7 @@
 /obj/item/toy/katana
 	name = "replica katana"
 	desc = "Woefully underpowered in D20."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'resources/icons/obj/weapons.dmi'
 	icon_state = "katana"
 	item_state = "katana"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
@@ -306,7 +306,7 @@
 /obj/item/toy/snappop
 	name = "snap pop"
 	desc = "Wow!"
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	icon_state = "snappop"
 	w_class = ITEM_SIZE_TINY
 
@@ -317,7 +317,7 @@
 	s.start()
 	new /obj/effect/decal/cleanable/ash(src.loc)
 	src.visible_message("<span class='warning'>The [src.name] explodes!</span>","<span class='warning'>You hear a snap!</span>")
-	playsound(src, 'sound/effects/snap.ogg', 50, 1)
+	playsound(src, 'resources/sound/effects/snap.ogg', 50, 1)
 	qdel(src)
 
 /obj/item/toy/snappop/Crossed(H as mob|obj)
@@ -331,7 +331,7 @@
 			s.start()
 			new /obj/effect/decal/cleanable/ash(src.loc)
 			src.visible_message("<span class='warning'>The [src.name] explodes!</span>","<span class='warning'>You hear a snap!</span>")
-			playsound(src, 'sound/effects/snap.ogg', 50, 1)
+			playsound(src, 'resources/sound/effects/snap.ogg', 50, 1)
 			qdel(src)
 
 /*
@@ -341,7 +341,7 @@
 /obj/item/toy/bosunwhistle
 	name = "bosun's whistle"
 	desc = "A genuine Admiral Krush Bosun's Whistle, for the aspiring ship's captain! Suitable for ages 8 and up, do not swallow."
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	icon_state = "bosunwhistle"
 	var/cooldown = 0
 	w_class = ITEM_SIZE_TINY
@@ -350,14 +350,14 @@
 /obj/item/toy/bosunwhistle/attack_self(mob/user as mob)
 	if(cooldown < world.time - 35)
 		to_chat(user, "<span class='notice'>You blow on [src], creating an ear-splitting noise!</span>")
-		playsound(user, 'sound/misc/boatswain.ogg', 20, 1)
+		playsound(user, 'resources/sound/misc/boatswain.ogg', 20, 1)
 		cooldown = world.time
 
 /*
  * Mech prizes
  */
 /obj/item/toy/prize
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	icon_state = "ripleytoy"
 	var/cooldown = 0
 
@@ -365,14 +365,14 @@
 /obj/item/toy/prize/attack_self(mob/user as mob)
 	if(cooldown < world.time - 8)
 		to_chat(user, "<span class='notice'>You play with [src].</span>")
-		playsound(user, 'sound/mecha/mechstep.ogg', 20, 1)
+		playsound(user, 'resources/sound/mecha/mechstep.ogg', 20, 1)
 		cooldown = world.time
 
 /obj/item/toy/prize/attack_hand(mob/user as mob)
 	if(loc == user)
 		if(cooldown < world.time - 8)
 			to_chat(user, "<span class='notice'>You play with [src].</span>")
-			playsound(user, 'sound/mecha/mechturn.ogg', 20, 1)
+			playsound(user, 'resources/sound/mecha/mechturn.ogg', 20, 1)
 			cooldown = world.time
 			return
 	..()
@@ -439,7 +439,7 @@
 	name = "Completely Glitched action figure"
 	desc = "A \"Space Life\" brand... wait, what the hell is this thing? It seems to be requesting the sweet release of death."
 	icon_state = "assistant"
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 
 /obj/item/toy/figure/cmo
 	name = "Chief Medical Officer action figure"
@@ -573,7 +573,7 @@
 
 /obj/item/toy/figure/miner
 	name = "Shaft Miner action figure"
-	icon = 'icons/urist/restored/toy.dmi'
+	icon = 'resources/icons/urist/restored/toy.dmi'
 	desc = "A \"Space Life\" brand Shaft Miner action figure."
 	icon_state = "miner"
 
@@ -589,7 +589,7 @@
 
 /obj/item/toy/figure/rd
 	name = "Research Director action figure"
-	icon = 'icons/urist/restored/toy.dmi'
+	icon = 'resources/icons/urist/restored/toy.dmi'
 	desc = "A \"Space Life\" brand Research Director action figure."
 	icon_state = "rd"
 
@@ -600,7 +600,7 @@
 
 /obj/item/toy/figure/scientist
 	name = "Scientist action figure"
-	icon = 'icons/urist/restored/toy.dmi'
+	icon = 'resources/icons/urist/restored/toy.dmi'
 	desc = "A \"Space Life\" brand Scientist action figure."
 	icon_state = "scientist"
 
@@ -684,14 +684,14 @@
 /obj/structure/plushie
 	name = "generic plush"
 	desc = "A very generic plushie. It seems to not want to exist."
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	icon_state = "ianplushie"
 	anchored = 0
 	density = 1
 	var/phrase = "I don't want to exist anymore!"
 
 /obj/structure/plushie/attack_hand(mob/user)
-	playsound(src.loc, 'sound/effects/rustle1.ogg', 100, 1)
+	playsound(src.loc, 'resources/sound/effects/rustle1.ogg', 100, 1)
 	if(user.a_intent == I_HELP)
 		user.visible_message("<span class='notice'><b>\The [user]</b> hugs [src]!</span>","<span class='notice'>You hug [src]!</span>")
 	else if (user.a_intent == I_HURT)
@@ -730,7 +730,7 @@
 /obj/item/toy/plushie
 	name = "generic small plush"
 	desc = "A very generic small plushie. It seems to not want to exist."
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	icon_state = "nymphplushie"
 
 /obj/item/toy/plushie/attack_self(mob/user as mob)
@@ -772,7 +772,7 @@
 /obj/item/toy/cultsword
 	name = "foam sword"
 	desc = "An arcane weapon (made of foam) wielded by the followers of the hit Saturday morning cartoon \"King Nursee and the Acolytes of Heroism\"."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'resources/icons/obj/weapons.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"
 	w_class = ITEM_SIZE_HUGE
@@ -783,7 +783,7 @@
 	desc = "No bother to sink or swim when you can just float!"
 	icon_state = "inflatable"
 	item_state = "inflatable"
-	icon = 'icons/obj/clothing/belts.dmi'
+	icon = 'resources/icons/obj/clothing/belts.dmi'
 	slot_flags = SLOT_BELT
 
 /obj/item/weapon/marshalling_wand
@@ -791,10 +791,10 @@
 	desc = "An illuminated, hand-held baton used by hangar personnel to visually signal shuttle pilots. The signal changes depending on your intent."
 	icon_state = "marshallingwand"
 	item_state = "marshallingwand"
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	item_icons = list(
-		icon_l_hand = 'icons/mob/onmob/items/lefthand.dmi',
-		icon_r_hand = 'icons/mob/onmob/items/righthand.dmi',
+		icon_l_hand = 'resources/icons/mob/onmob/items/lefthand.dmi',
+		icon_r_hand = 'resources/icons/mob/onmob/items/righthand.dmi',
 		)
 	slot_flags = SLOT_BELT
 	w_class = ITEM_SIZE_SMALL
@@ -806,7 +806,7 @@
 	return ..()
 
 /obj/item/weapon/marshalling_wand/attack_self(mob/living/user as mob)
-	playsound(src.loc, 'sound/effects/rustle1.ogg', 100, 1)
+	playsound(src.loc, 'resources/sound/effects/rustle1.ogg', 100, 1)
 	if (user.a_intent == I_HELP)
 		user.visible_message("<span class='notice'>[user] beckons with \the [src], signalling forward motion.</span>",
 							"<span class='notice'>You beckon with \the [src], signalling forward motion.</span>")
@@ -827,26 +827,26 @@
 /obj/item/toy/torchmodel
 	name = "table-top SEV Torch model"
 	desc = "This is a replica of the SEV Torch, in 1:250th scale, on a handsome wooden stand. Small lights blink on the hull and at the engine exhaust."
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	icon_state = "torch_model_figure"
 
 /obj/item/toy/ringbell
 	name = "ringside bell"
 	desc = "A bell used to signal the beginning and end of various ring sports."
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	icon_state= "ringbell"
 	anchored = 1
 
 /obj/item/toy/ringbell/attack_hand(mob/user as mob)
 	if (user.a_intent == I_HELP)
 		user.visible_message("<span class='notice'>[user] rings \the [src], signalling the beginning of the contest.</span>")
-		playsound(user.loc, 'sound/items/oneding.ogg', 60)
+		playsound(user.loc, 'resources/sound/items/oneding.ogg', 60)
 	else if (user.a_intent == I_DISARM)
 		user.visible_message("<span class='notice'>[user] rings \the [src] three times, signalling the end of the contest!</span>")
-		playsound(user.loc, 'sound/items/threedings.ogg', 60)
+		playsound(user.loc, 'resources/sound/items/threedings.ogg', 60)
 	else if (user.a_intent == I_HURT)
 		user.visible_message("<span class='warning'>[user] rings \the [src] repeatedly, signalling a disqualification!</span>")
-		playsound(user.loc, 'sound/items/manydings.ogg', 60)
+		playsound(user.loc, 'resources/sound/items/manydings.ogg', 60)
 
 //Office Desk Toys
 
@@ -855,7 +855,7 @@
 	desc = "A object that does not exist. Parent Item"
 
 	var/on = 0
-	var/activation_sound = 'sound/effects/flashlight.ogg'
+	var/activation_sound = 'resources/sound/effects/flashlight.ogg'
 
 /obj/item/toy/desk/update_icon()
 	if(on)

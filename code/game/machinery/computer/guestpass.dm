@@ -181,7 +181,7 @@
 					pass.reason = reason
 					pass.SetName("guest pass #[number]")
 					pass.assignment = "Guest"
-					playsound(src.loc, 'sound/machines/ping.ogg', 25, 0)
+					playsound(src.loc, 'resources/sound/machines/ping.ogg', 25, 0)
 					. = TRUE
 				else if(!giver)
 					to_chat(user, "<span class='warning'>Cannot issue pass without issuing ID.</span>")

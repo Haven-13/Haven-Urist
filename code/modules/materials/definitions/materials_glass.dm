@@ -7,7 +7,7 @@
 	opacity = 0.3
 	integrity = 50
 	shard_type = SHARD_SHARD
-	tableslam_noise = 'sound/effects/Glasshit.ogg'
+	tableslam_noise = 'resources/sound/effects/Glasshit.ogg'
 	hardness = 50
 	melting_point = T0C + 100
 	weight = 14
@@ -19,7 +19,7 @@
 	window_options = list("One Direction" = 1, "Full Window" = 4)
 	created_window = /obj/structure/window/basic
 	rod_product = /obj/item/stack/material/glass/reinforced
-	hitsound = 'sound/effects/Glasshit.ogg'
+	hitsound = 'resources/sound/effects/Glasshit.ogg'
 	conductive = 0
 	sale_price = 1
 
@@ -107,7 +107,7 @@
 	integrity = 100
 	melting_point = T0C + 750
 	shard_type = SHARD_SHARD
-	tableslam_noise = 'sound/effects/Glasshit.ogg'
+	tableslam_noise = 'resources/sound/effects/Glasshit.ogg'
 	weight = 17
 	brute_armor = 2
 	burn_armor = 3

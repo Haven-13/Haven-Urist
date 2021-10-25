@@ -1,5 +1,5 @@
 /turf
-	icon = 'icons/turf/floors.dmi'
+	icon = 'resources/icons/turf/floors.dmi'
 	level = 1
 
 	plane = DEFAULT_PLANE

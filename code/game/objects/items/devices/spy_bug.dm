@@ -1,7 +1,7 @@
 /obj/item/device/spy_bug
 	name = "bug"
 	desc = ""	// Nothing to see here
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'resources/icons/obj/weapons.dmi'
 	icon_state = "eshield0"
 	item_state = "nothing"
 	plane = DEFAULT_PLANE
@@ -55,7 +55,7 @@
 /obj/item/device/spy_monitor
 	name = "\improper PDA"
 	desc = "A portable microcomputer by Thinktronic Systems, LTD. Functionality determined by a preprogrammed ROM cartridge."
-	icon = 'icons/obj/pda.dmi'
+	icon = 'resources/icons/obj/pda.dmi'
 	icon_state = "pai"
 	item_state = "electronic"
 

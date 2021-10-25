@@ -1,7 +1,7 @@
 /obj/item/clothing/accessory
 	name = "tie"
 	desc = "A neosilk clip-on tie."
-	icon = 'icons/obj/clothing/ties.dmi'
+	icon = 'resources/icons/obj/clothing/ties.dmi'
 	icon_state = "tie"
 	item_state = ""	//no inhands
 	slot_flags = SLOT_TIE
@@ -11,11 +11,11 @@
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
 	var/list/mob_overlay = list()
 	var/overlay_state = null
-	var/list/accessory_icons = list(slot_w_uniform_str = 'icons/mob/onmob/ties.dmi', slot_wear_suit_str = 'icons/mob/onmob/ties.dmi')
+	var/list/accessory_icons = list(slot_w_uniform_str = 'resources/icons/mob/onmob/ties.dmi', slot_wear_suit_str = 'resources/icons/mob/onmob/ties.dmi')
 	sprite_sheets = list(
-		SPECIES_RESOMI = 'icons/mob/species/resomi/ties.dmi',
-		SPECIES_NABBER = 'icons/mob/species/nabber/ties.dmi',
-		SPECIES_UNATHI = 'icons/mob/onmob/Unathi/ties.dmi'
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/ties.dmi',
+		SPECIES_NABBER = 'resources/icons/mob/species/nabber/ties.dmi',
+		SPECIES_UNATHI = 'resources/icons/mob/onmob/Unathi/ties.dmi'
 		)
 	var/list/on_rolled = list()	//used when jumpsuit sleevels are rolled ("rolled" entry) or it's rolled down ("down"). Set to "none" to hide in those states.
 	var/high_visibility	//if it should appear on examine without detailed view

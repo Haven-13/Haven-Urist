@@ -37,11 +37,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			"icon_state" = ""
 		),
 		"Dark" = list(
-			"icon" = 'icons/turf/flooring/techfloor.dmi',
+			"icon" = 'resources/icons/turf/flooring/techfloor.dmi',
 			"icon_state" = "techfloor_gray"
 		),
 		"Rusty" = list(
-			"icon" = 'icons/turf/flooring/tiles.dmi',
+			"icon" = 'resources/icons/turf/flooring/tiles.dmi',
 			"icon_state" = "steel_dirty"
 		)
 	)

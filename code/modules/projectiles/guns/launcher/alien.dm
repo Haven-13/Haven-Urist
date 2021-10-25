@@ -49,11 +49,11 @@
 	ammo_name = "spike"
 	ammo_type = /obj/item/weapon/spike
 	release_force = 30
-	icon = 'icons/obj/gun.dmi'
+	icon = 'resources/icons/obj/gun.dmi'
 	icon_state = "spikethrower3"
 	item_state = "spikethrower"
 	fire_sound_text = "a strange noise"
-	fire_sound = 'sound/weapons/bladeslice.ogg'
+	fire_sound = 'resources/sound/weapons/bladeslice.ogg'
 
 /obj/item/weapon/gun/launcher/alien/spikethrower/update_icon()
 	icon_state = "spikethrower[ammo]"

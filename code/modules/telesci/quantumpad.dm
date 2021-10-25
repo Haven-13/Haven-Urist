@@ -2,7 +2,7 @@
 /obj/machinery/power/quantumpad
 	name = "quantum pad"
 	desc = "A bluespace quantum-linked telepad used for teleporting objects to other quantum pads."
-	icon = 'icons/obj/telescience.dmi'
+	icon = 'resources/icons/obj/telescience.dmi'
 	icon_state = "qpad-idle"
 	anchored = TRUE
 	use_power = 1
@@ -137,7 +137,7 @@
 /obj/machinery/power/quantumpad/proc/doteleport(mob/user)
 	if(!linked_pad)
 		return
-	playsound(get_turf(src), 'sound/weapons/flash.ogg', 25, 1)
+	playsound(get_turf(src), 'resources/sound/weapons/flash.ogg', 25, 1)
 	teleporting = 1
 
 	spawn(teleport_speed)
@@ -165,9 +165,9 @@
 		linked_pad.sparks()
 
 		flick("qpad-beam", src)
-		playsound(get_turf(src), 'sound/weapons/emitter2.ogg', 25, 1, extrarange = 3, falloff = 5)
+		playsound(get_turf(src), 'resources/sound/weapons/emitter2.ogg', 25, 1, extrarange = 3, falloff = 5)
 		flick("qpad-beam", linked_pad)
-		playsound(get_turf(linked_pad), 'sound/weapons/emitter2.ogg', 25, 1, extrarange = 3, falloff = 5)
+		playsound(get_turf(linked_pad), 'resources/sound/weapons/emitter2.ogg', 25, 1, extrarange = 3, falloff = 5)
 		for(var/atom/movable/ROI in get_turf(src))
 			// if is anchored, don't let through
 			if(ROI.anchored)

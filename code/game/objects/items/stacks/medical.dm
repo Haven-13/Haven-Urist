@@ -1,7 +1,7 @@
 /obj/item/stack/medical
 	name = "medical pack"
 	singular_name = "medical pack"
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	amount = 5
 	max_amount = 5
 	w_class = ITEM_SIZE_SMALL
@@ -62,7 +62,7 @@
 	icon_state = "brutepack"
 	origin_tech = list(TECH_BIO = 1)
 	animal_heal = 5
-	apply_sounds = list('sound/effects/rip1.ogg','sound/effects/rip2.ogg')
+	apply_sounds = list('resources/sound/effects/rip1.ogg','resources/sound/effects/rip2.ogg')
 	amount = 10
 
 /obj/item/stack/medical/bruise_pack/attack(mob/living/carbon/M as mob, mob/user as mob)
@@ -130,7 +130,7 @@
 	heal_burn = 1
 	origin_tech = list(TECH_BIO = 1)
 	animal_heal = 4
-	apply_sounds = list('sound/effects/ointment.ogg')
+	apply_sounds = list('resources/sound/effects/ointment.ogg')
 
 /obj/item/stack/medical/ointment/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -168,7 +168,7 @@
 	heal_brute = 0
 	origin_tech = list(TECH_BIO = 1)
 	animal_heal = 12
-	apply_sounds = list('sound/effects/rip1.ogg','sound/effects/rip2.ogg','sound/effects/tape.ogg')
+	apply_sounds = list('resources/sound/effects/rip1.ogg','resources/sound/effects/rip2.ogg','resources/sound/effects/tape.ogg')
 	amount = 10
 
 /obj/item/stack/medical/advanced/bruise_pack/attack(mob/living/carbon/M as mob, mob/user as mob)
@@ -234,7 +234,7 @@
 	heal_burn = 5
 	origin_tech = list(TECH_BIO = 1)
 	animal_heal = 7
-	apply_sounds = list('sound/effects/ointment.ogg')
+	apply_sounds = list('resources/sound/effects/ointment.ogg')
 
 
 /obj/item/stack/medical/advanced/ointment/attack(mob/living/carbon/M as mob, mob/user as mob)

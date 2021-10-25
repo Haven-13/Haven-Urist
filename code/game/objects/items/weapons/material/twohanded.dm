@@ -111,8 +111,8 @@
 	throw_range = 5
 	w_class = 2.0
 	force_wielded = 30
-	wieldsound = 'sound/weapons/saberon.ogg'
-	unwieldsound = 'sound/weapons/saberoff.ogg'
+	wieldsound = 'resources/sound/weapons/saberon.ogg'
+	unwieldsound = 'resources/sound/weapons/saberoff.ogg'
 //	flags =
 	origin_tech = "magnets=3;syndicate=4"
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
@@ -136,7 +136,7 @@
 	if(wielded)
 		if(default_parry_check(user, attacker, damage_source) && prob(50))
 			user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-			playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
+			playsound(user.loc, 'resources/sound/weapons/punchmiss.ogg', 50, 1)
 			return 1
 	return 0
 
@@ -159,7 +159,7 @@
 	throw_speed = 3
 	edge = 0
 	sharp = 1
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'resources/sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	default_material = "glass"*/
 

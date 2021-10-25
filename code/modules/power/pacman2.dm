@@ -78,7 +78,7 @@
 		else if(!active)
 			if(isWrench(O))
 				anchored = !anchored
-				playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 				if(anchored)
 					to_chat(user, "<span class='notice'>You secure the generator to the floor.</span>")
 				else
@@ -86,7 +86,7 @@
 				SSmachines.makepowernets()
 			else if(isScrewdriver(O))
 				open = !open
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 				if(open)
 					to_chat(user, "<span class='notice'>You open the access panel.</span>")
 				else

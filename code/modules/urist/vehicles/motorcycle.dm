@@ -1,7 +1,7 @@
 /obj/vehicle/train/cargo/engine/motorcycle_4dir
 	name = "motorcycle"
 	desc = "A fast and highly maneuverable vehicle."
-	icon = 'icons/urist/vehicles/uristvehicles.dmi'
+	icon = 'resources/icons/urist/vehicles/uristvehicles.dmi'
 	icon_state = "motorcycle_4dir"
 	emagged = 0
 	mob_offset_y = 6
@@ -13,13 +13,13 @@
 	overlays = null
 	if(src.dir == NORTH||SOUTH)
 		if(src.dir == NORTH)
-			var/image/I = new(icon = 'icons/urist/vehicles/uristvehicles.dmi', icon_state = "motorcycle_overlay_n", layer = src.layer + 0.2) //over mobs
+			var/image/I = new(icon = 'resources/icons/urist/vehicles/uristvehicles.dmi', icon_state = "motorcycle_overlay_n", layer = src.layer + 0.2) //over mobs
 			overlays += I
 		else if(src.dir == SOUTH)
-			var/image/I = new(icon = 'icons/urist/vehicles/uristvehicles.dmi', icon_state = "motorcycle_overlay_s", layer = src.layer + 0.2) //over mobs
+			var/image/I = new(icon = 'resources/icons/urist/vehicles/uristvehicles.dmi', icon_state = "motorcycle_overlay_s", layer = src.layer + 0.2) //over mobs
 			overlays += I
 	else
-		var/image/I = new(icon = 'icons/urist/vehicles/uristvehicles.dmi', icon_state = "motorcycle_overlay_side", layer = src.layer + 0.2) //over mobs
+		var/image/I = new(icon = 'resources/icons/urist/vehicles/uristvehicles.dmi', icon_state = "motorcycle_overlay_side", layer = src.layer + 0.2) //over mobs
 		overlays += I
 
 /obj/vehicle/train/cargo/engine/motorcycle_4dir/New()
@@ -33,7 +33,7 @@
 /obj/vehicle/train/cargo/engine/motorcycle_1dir
 	name = "motorcycle"
 	desc = "A fast and highly maneuverable vehicle."
-	icon = 'icons/urist/vehicles/uristvehicles.dmi'
+	icon = 'resources/icons/urist/vehicles/uristvehicles.dmi'
 	icon_state = "motorcycle"
 	emagged = 1
 	mob_offset_y = 6
@@ -44,7 +44,7 @@
 /obj/vehicle/train/cargo/engine/motorcycle_1dir/New()
 	..()
 	overlays = null
-	var/image/I = new(icon = 'icons/urist/vehicles/uristvehicles.dmi', icon_state = "motorcycle_overlay_n", layer = src.layer + 0.2) //over mobs
+	var/image/I = new(icon = 'resources/icons/urist/vehicles/uristvehicles.dmi', icon_state = "motorcycle_overlay_n", layer = src.layer + 0.2) //over mobs
 	overlays += I
 
 /obj/vehicle/train/cargo/engine/motorcycle_1dir/Move()
@@ -55,7 +55,7 @@
 
 /obj/structure/vehicle_frame/motorcycle
 	name = "motorcycle frame"
-	icon = 'icons/urist/vehicles/bike.dmi'
+	icon = 'resources/icons/urist/vehicles/bike.dmi'
 	icon_state = "bike_frame"
 	var/buildstate = 0
 
@@ -89,7 +89,7 @@
 			var/obj/item/weapon/weldingtool/T = W
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				playsound(src.loc, 'resources/sound/items/Welder2.ogg', 100, 1)
 				to_chat(user, "<span class='notice'>You weld the rods into place.</span>")
 			buildstate++
 		return
@@ -99,7 +99,7 @@
 			to_chat(user, "<span class='notice'>You slide a tire into the back wheel mount.</span>")
 			buildstate++
 			update_icon()
-			playsound(src.loc, 'sound/items/Deconstruct.ogg', 100, 1)
+			playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 100, 1)
 			qdel(W)
 			return
 
@@ -107,7 +107,7 @@
 			to_chat(user, "<span class='notice'>You slide a tire into the front wheel mount.</span>")
 			buildstate++
 			update_icon()
-			playsound(src.loc, 'sound/items/Deconstruct.ogg', 100, 1)
+			playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 100, 1)
 			qdel(W)
 			return
 
@@ -115,12 +115,12 @@
 		if(buildstate == 4)
 			to_chat(user, "<span class='notice'>You secure the tires into the motorcycle frame.</span>")
 			buildstate++
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+			playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 100, 1)
 			return
 
 		else if(buildstate == 8)
 			to_chat(user, "<span class='notice'>You secure the battery into the frame.</span>")
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+			playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 100, 1)
 			new /obj/vehicle/bike/motorcycle(get_turf(src))
 			qdel(src)
 			return
@@ -130,7 +130,7 @@
 			to_chat(user, "<span class='notice'>You slide the transmission into the frame.</span>")
 			buildstate++
 			update_icon()
-			playsound(src.loc, 'sound/items/Deconstruct.ogg', 100, 1)
+			playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 100, 1)
 			qdel(W)
 			return
 
@@ -138,7 +138,7 @@
 		if(buildstate == 6)
 			to_chat(user, "<span class='notice'>You secure the transmission into the frame.</span>")
 			buildstate++
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+			playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 100, 1)
 			return
 
 	else if(istype(W,/obj/item/vehicle_part/battery))
@@ -146,7 +146,7 @@
 			to_chat(user, "<span class='notice'>You slide the battery into the frame.</span>")
 			buildstate++
 			update_icon()
-			playsound(src.loc, 'sound/items/Deconstruct.ogg', 100, 1)
+			playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 100, 1)
 			qdel(W)
 			return
 
@@ -159,7 +159,7 @@
 /obj/vehicle/bike/motorcycle
 	name = "motorbike"
 	desc = "Wheelies! Head trauma! Woo! "
-	icon = 'icons/urist/vehicles/bike.dmi'
+	icon = 'resources/icons/urist/vehicles/bike.dmi'
 	icon_state = "bike_off"
 	dir = SOUTH
 	bike_icon = "bike"
@@ -174,8 +174,8 @@
 //	debris_path = /obj/structure/scrap/vehicle
 	light_max_bright = 1
 	light_outer_range = 6
-	var/idle_sound = 'sound/urist/vehicle/bike_idle.ogg'
-	var/start_sound = 'sound/urist/vehicle/bike_start.ogg'
+	var/idle_sound = 'resources/sound/urist/vehicle/bike_idle.ogg'
+	var/start_sound = 'resources/sound/urist/vehicle/bike_start.ogg'
 	space_speed = 0
 	var/collision_cooldown
 	var/max_move_speed = 3

@@ -1,7 +1,7 @@
 /obj/effect/decal/writing
 	name = "graffiti"
 	icon_state = "writing1"
-	icon = 'icons/effects/writing.dmi'
+	icon = 'resources/icons/effects/writing.dmi'
 	desc = "It looks like someone has scratched something here."
 	gender = PLURAL
 	blend_mode = BLEND_MULTIPLY
@@ -41,7 +41,7 @@
 	if(isWelder(thing))
 		var/obj/item/weapon/weldingtool/welder = thing
 		if(welder.isOn() && welder.remove_fuel(0,user) && do_after(user, 5, src) && !QDELETED(src))
-			playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Welder2.ogg', 50, 1)
 			user.visible_message("<span class='notice'>\The [user] clears away some graffiti.</span>")
 			qdel(src)
 	else if(thing.sharp) // TODO: partial overwrites instead of complete overwrite.

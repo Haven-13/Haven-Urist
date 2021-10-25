@@ -1,7 +1,7 @@
 /obj/item/device/eftpos
 	name = "\improper EFTPOS scanner"
 	desc = "Swipe your ID card to make purchases electronically."
-	icon = 'icons/obj/device.dmi'
+	icon = 'resources/icons/obj/device.dmi'
 	icon_state = "eftpos"
 	var/machine_id = ""
 	var/eftpos_name = "Default EFTPOS scanner"
@@ -47,7 +47,7 @@
 
 
 		//stamp the paper
-		var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+		var/image/stampoverlay = image('resources/icons/obj/bureaucracy.dmi')
 		stampoverlay.icon_state = "paper_stamp-cent"
 		if(!R.stamped)
 			R.stamped = new
@@ -70,7 +70,7 @@
 	R.info += "<b>Do not lose or misplace this code.</b><br>"
 
 	//stamp the paper
-	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+	var/image/stampoverlay = image('resources/icons/obj/bureaucracy.dmi')
 	stampoverlay.icon_state = "paper_stamp-cent"
 	if(!R.stamped)
 		R.stamped = new
@@ -125,7 +125,7 @@
 			if(!linked_account.suspended)
 				if(transaction_locked && !transaction_paid)
 					if(transaction_amount <= E.worth)
-						playsound(src, 'sound/machines/chime.ogg', 50, 1)
+						playsound(src, 'resources/sound/machines/chime.ogg', 50, 1)
 						src.visible_message("\icon[src] \The [src] chimes.")
 						transaction_paid = 1
 
@@ -237,7 +237,7 @@
 					if(D)
 						if(!D.suspended)
 							if(transaction_amount <= D.money)
-								playsound(src, 'sound/machines/chime.ogg', 50, 1)
+								playsound(src, 'resources/sound/machines/chime.ogg', 50, 1)
 								src.visible_message("\icon[src] \The [src] chimes.")
 								transaction_paid = 1
 
@@ -265,7 +265,7 @@
 				transaction_paid = 0
 			else
 				usr.visible_message("<span class='info'>\The [usr] swipes a card through \the [src].</span>")
-				playsound(src, 'sound/machines/chime.ogg', 50, 1)
+				playsound(src, 'resources/sound/machines/chime.ogg', 50, 1)
 				src.visible_message("\icon[src] \The [src] chimes.")
 				transaction_paid = 1
 

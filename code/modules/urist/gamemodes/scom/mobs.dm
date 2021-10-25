@@ -34,7 +34,7 @@
 	response_help = "pokes"
 	response_disarm = "shoves"
 	response_harm = "hits"
-	icon = 'icons/uristmob/scommobs.dmi'
+	icon = 'resources/icons/uristmob/scommobs.dmi'
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
@@ -97,7 +97,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	ranged = 1
-	projectilesound = 'sound/weapons/laser.ogg'
+	projectilesound = 'resources/sound/weapons/laser.ogg'
 	weapon1 = /obj/item/scom/aliengun/a1
 	minimum_distance = 5
 
@@ -219,7 +219,7 @@
 /mob/living/simple_animal/hostile/scom/forgotten/death()
 	..()
 	visible_message("<span class='danger'>The [src.name] wails and disappears!</span>")
-	playsound(src.loc, 'sound/hallucinations/wail.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/hallucinations/wail.ogg', 50, 1)
 	flick("forgotten_die", src)
 	spawn(4)
 		qdel(src)
@@ -227,7 +227,7 @@
 /mob/living/simple_animal/hostile/alien/ravager
 	name = "alien ravager"
 	desc = "This one's not like the others..."
-	icon = 'icons/uristmob/scommobs.dmi'
+	icon = 'resources/icons/uristmob/scommobs.dmi'
 	icon_state = "ravager"
 	icon_living = "ravager"
 	icon_dead = "ravager_dead"
@@ -237,7 +237,7 @@
 	melee_damage_upper = 30
 
 /obj/item/projectile/beam/scom
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	muzzle_type = /obj/effect/projectile/laser/xray/muzzle
 	tracer_type = /obj/effect/projectile/laser/xray/tracer
 	impact_type = /obj/effect/projectile/laser/xray/impact

@@ -23,7 +23,7 @@
 			0.00, 0.00, 0.00, 0.5,
 			0.00, 0.00, 0.00, 0.0
 		)
-	var/image/scan = image('icons/effects/effects.dmi', "scanline")
+	var/image/scan = image('resources/icons/effects/effects.dmi', "scanline")
 	scan.color = list(
 			0.30,0.30,0.30,0.00, // Greyscale the scanline icon too
 			0.59,0.59,0.59,0.00,

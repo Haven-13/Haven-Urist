@@ -11,51 +11,51 @@
 
 /turf/simulated/floor/var/global/list/footstep_sounds = list(
 	FOOTSTEP_WOOD = list(
-		'sound/effects/footstep/wood1.ogg',
-		'sound/effects/footstep/wood2.ogg',
-		'sound/effects/footstep/wood3.ogg',
-		'sound/effects/footstep/wood4.ogg',
-		'sound/effects/footstep/wood5.ogg'),
+		'resources/sound/effects/footstep/wood1.ogg',
+		'resources/sound/effects/footstep/wood2.ogg',
+		'resources/sound/effects/footstep/wood3.ogg',
+		'resources/sound/effects/footstep/wood4.ogg',
+		'resources/sound/effects/footstep/wood5.ogg'),
 	FOOTSTEP_TILES = list(
-		'sound/effects/footstep/floor1.ogg',
-		'sound/effects/footstep/floor2.ogg',
-		'sound/effects/footstep/floor3.ogg',
-		'sound/effects/footstep/floor4.ogg',
-		'sound/effects/footstep/floor5.ogg'),
+		'resources/sound/effects/footstep/floor1.ogg',
+		'resources/sound/effects/footstep/floor2.ogg',
+		'resources/sound/effects/footstep/floor3.ogg',
+		'resources/sound/effects/footstep/floor4.ogg',
+		'resources/sound/effects/footstep/floor5.ogg'),
 	FOOTSTEP_PLATING =  list(
-		'sound/effects/footstep/plating1.ogg',
-		'sound/effects/footstep/plating2.ogg',
-		'sound/effects/footstep/plating3.ogg',
-		'sound/effects/footstep/plating4.ogg',
-		'sound/effects/footstep/plating5.ogg'),
+		'resources/sound/effects/footstep/plating1.ogg',
+		'resources/sound/effects/footstep/plating2.ogg',
+		'resources/sound/effects/footstep/plating3.ogg',
+		'resources/sound/effects/footstep/plating4.ogg',
+		'resources/sound/effects/footstep/plating5.ogg'),
 	FOOTSTEP_CARPET = list(
-		'sound/effects/footstep/carpet1.ogg',
-		'sound/effects/footstep/carpet2.ogg',
-		'sound/effects/footstep/carpet3.ogg',
-		'sound/effects/footstep/carpet4.ogg',
-		'sound/effects/footstep/carpet5.ogg'),
+		'resources/sound/effects/footstep/carpet1.ogg',
+		'resources/sound/effects/footstep/carpet2.ogg',
+		'resources/sound/effects/footstep/carpet3.ogg',
+		'resources/sound/effects/footstep/carpet4.ogg',
+		'resources/sound/effects/footstep/carpet5.ogg'),
 	FOOTSTEP_ASTEROID = list(
-		'sound/effects/footstep/asteroid1.ogg',
-		'sound/effects/footstep/asteroid2.ogg',
-		'sound/effects/footstep/asteroid3.ogg',
-		'sound/effects/footstep/asteroid4.ogg',
-		'sound/effects/footstep/asteroid5.ogg'),
+		'resources/sound/effects/footstep/asteroid1.ogg',
+		'resources/sound/effects/footstep/asteroid2.ogg',
+		'resources/sound/effects/footstep/asteroid3.ogg',
+		'resources/sound/effects/footstep/asteroid4.ogg',
+		'resources/sound/effects/footstep/asteroid5.ogg'),
 	FOOTSTEP_GRASS = list(
-		'sound/effects/footstep/grass1.ogg',
-		'sound/effects/footstep/grass2.ogg',
-		'sound/effects/footstep/grass3.ogg',
-		'sound/effects/footstep/grass4.ogg'),
+		'resources/sound/effects/footstep/grass1.ogg',
+		'resources/sound/effects/footstep/grass2.ogg',
+		'resources/sound/effects/footstep/grass3.ogg',
+		'resources/sound/effects/footstep/grass4.ogg'),
 	FOOTSTEP_WATER = list(
-		'sound/effects/footstep/water1.ogg',
-		'sound/effects/footstep/water2.ogg',
-		'sound/effects/footstep/water3.ogg',
-		'sound/effects/footstep/water4.ogg'),
+		'resources/sound/effects/footstep/water1.ogg',
+		'resources/sound/effects/footstep/water2.ogg',
+		'resources/sound/effects/footstep/water3.ogg',
+		'resources/sound/effects/footstep/water4.ogg'),
 	FOOTSTEP_LAVA = list(
-		'sound/effects/footstep/lava1.ogg',
-		'sound/effects/footstep/lava2.ogg',
-		'sound/effects/footstep/lava3.ogg'),
+		'resources/sound/effects/footstep/lava1.ogg',
+		'resources/sound/effects/footstep/lava2.ogg',
+		'resources/sound/effects/footstep/lava3.ogg'),
 	FOOTSTEP_BLANK = list(
-		'sound/effects/footstep/blank.ogg')
+		'resources/sound/effects/footstep/blank.ogg')
 )
 
 /decl/flooring/var/footstep_type

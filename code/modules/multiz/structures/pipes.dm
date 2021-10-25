@@ -2,7 +2,7 @@
 // parent class for pipes //
 ////////////////////////////
 /obj/machinery/atmospherics/pipe/zpipe
-	icon = 'icons/obj/structures.dmi'
+	icon = 'resources/icons/obj/structures.dmi'
 	icon_state = "up"
 
 	name = "upwards pipe"
@@ -71,7 +71,7 @@
 
 /obj/machinery/atmospherics/pipe/zpipe/proc/burst()
 	src.visible_message("<span class='warning'>\The [src] bursts!</span>");
-	playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
+	playsound(src.loc, 'resources/sound/effects/bang.ogg', 25, 1)
 	var/datum/effect/effect/system/smoke_spread/smoke = new
 	smoke.set_up(1,0, src.loc, 0)
 	smoke.start()
@@ -112,7 +112,7 @@
 // the elusive up pipe //
 /////////////////////////
 /obj/machinery/atmospherics/pipe/zpipe/up
-	icon = 'icons/obj/structures.dmi'
+	icon = 'resources/icons/obj/structures.dmi'
 	icon_state = "up"
 
 	name = "upwards pipe"
@@ -151,7 +151,7 @@
 ///////////////////////
 
 /obj/machinery/atmospherics/pipe/zpipe/down
-	icon = 'icons/obj/structures.dmi'
+	icon = 'resources/icons/obj/structures.dmi'
 	icon_state = "down"
 
 	name = "downwards pipe"

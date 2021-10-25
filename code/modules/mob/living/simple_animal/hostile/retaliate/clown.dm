@@ -23,7 +23,7 @@
 	melee_damage_upper = 10
 	can_escape = 1
 	attacktext = "attacked"
-	attack_sound = 'sound/items/bikehorn.ogg'
+	attack_sound = 'resources/sound/items/bikehorn.ogg'
 	minbodytemp = 270
 	maxbodytemp = 370
 	heat_damage_per_tick = 15	//amount of damage applied if animal's body temperature is higher than maxbodytemp

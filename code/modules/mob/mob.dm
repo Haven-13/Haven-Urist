@@ -406,7 +406,7 @@
 /*
 /mob/verb/help()
 	set name = "Help"
-	show_browser(src, 'html/help.html', "window=help")
+	show_browser(src, 'resources/html/help.html', "window=help")
 	return
 */
 
@@ -414,7 +414,7 @@
 	set name = "Changelog"
 	set category = "OOC"
 	get_asset_datum(/datum/asset/simple/changelog).send(src)
-	show_browser(src, 'html/changelog/changelog.html', "window=changes;size=675x650")
+	show_browser(src, 'resources/html/changelog/changelog.html', "window=changes;size=675x650")
 	if(prefs.lastchangelog != changelog_hash)
 		prefs.lastchangelog = changelog_hash
 		prefs.save_preferences()

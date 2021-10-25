@@ -1,13 +1,13 @@
 /*										*****New space to put all UristMcStation Shoes and Boots!*****
 
-Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/items/clothes/shoes.dmi' and on- mob
-icon_override sprites go to 'icons/uristmob/shoes.dmi' Items should go to clothing/shoes/urist to avoid worrying about the sprites -Glloyd*/
+Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'resources/icons/urist/items/clothes/shoes.dmi' and on- mob
+icon_override sprites go to 'resources/icons/uristmob/shoes.dmi' Items should go to clothing/shoes/urist to avoid worrying about the sprites -Glloyd*/
 
 //generic define
 
 /obj/item/clothing/shoes/urist
 	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/shoes.dmi'
+	icon = 'resources/icons/urist/items/clothes/shoes.dmi'
 
 //obviously the guy who made the equipment for engineers never worked a blue collar job in his life. The engineers
 //ingame wouldn't even be allowed on a modern constuction site without steel toed boots, let alone allowed to work on one.

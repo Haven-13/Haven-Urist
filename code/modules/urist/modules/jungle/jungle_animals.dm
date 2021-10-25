@@ -147,7 +147,7 @@
 /mob/living/simple_animal/huntable/monkey
 	name = "monkey"
 	desc = "It's a monkey. Seems quite content to lounge around all the time."
-	icon = 'icons/uristmob/monkey.dmi'
+	icon = 'resources/icons/uristmob/monkey.dmi'
 	icon_state = "preview"
 	icon_living = "preview"
 	icon_dead = "preview_dead"
@@ -181,7 +181,7 @@
 /mob/living/simple_animal/hostile/huntable/panther
 	name = "panther"
 	desc = "A long sleek, black cat with sharp teeth and claws."
-	icon = 'icons/urist/jungle/mobs.dmi'
+	icon = 'resources/icons/urist/jungle/mobs.dmi'
 	icon_state = "panther"
 	icon_living = "panther"
 	icon_dead = "panther_dead"
@@ -200,7 +200,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	attacktext = "slashed"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = 'resources/sound/weapons/bite.ogg'
 	meat_amount = 2
 	hide = 4
 
@@ -241,7 +241,7 @@
 /mob/living/simple_animal/hostile/snake
 	name = "snake"
 	desc = "A sinuously coiled, venomous looking reptile."
-	icon = 'icons/urist/jungle/mobs.dmi'
+	icon = 'resources/icons/urist/jungle/mobs.dmi'
 	icon_state = "snake_green"
 	icon_living = "snake_green"
 	icon_dead = "snake_green_dead"
@@ -260,7 +260,7 @@
 	melee_damage_lower = 3
 	melee_damage_upper = 10
 	attacktext = "bitten"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = 'resources/sound/weapons/bite.ogg'
 
 //	layer = 3.1		//so they can stay hidde under the /obj/structure/bush
 	var/stalk_tick_delay = 3
@@ -333,7 +333,7 @@
 /mob/living/simple_animal/hostile/huntable/deer
 	name = "deer"
 	desc = "It's a deer. It has antlers, so it's a buck."
-	icon = 'icons/urist/jungle/mobs.dmi'
+	icon = 'resources/icons/urist/jungle/mobs.dmi'
 	icon_state = "deer"
 	icon_living = "deer"
 	icon_dead = "deer_dead"
@@ -355,7 +355,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	attacktext = "gored" //antlers
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = 'resources/sound/weapons/bite.ogg'
 	var/chase_time = 100
 	hide = 4
 	meat_amount = 2
@@ -384,7 +384,7 @@
 /mob/living/simple_animal/hostile/huntable/bear
 	name = "bear"
 	desc = "A big scary brown bear, probably best to stay away"
-	icon = 'icons/uristmob/64x64_mobs.dmi'
+	icon = 'resources/icons/uristmob/64x64_mobs.dmi'
 	icon_state = "bigbear"
 	icon_living = "bigbear"
 	icon_dead = "bigbear_dead"
@@ -404,6 +404,6 @@
 	melee_damage_lower = 25
 	melee_damage_upper = 30
 	attacktext = "slashed"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = 'resources/sound/weapons/bite.ogg'
 	meat_amount = 4
 	hide = 7 //seems like a more fair reward at 7

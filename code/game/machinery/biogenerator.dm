@@ -6,7 +6,7 @@
 /obj/machinery/biogenerator
 	name = "Biogenerator"
 	desc = ""
-	icon = 'icons/obj/biogenerator.dmi'
+	icon = 'resources/icons/obj/biogenerator.dmi'
 	icon_state = "biogen-stand"
 	density = 1
 	anchored = 1
@@ -183,7 +183,7 @@
 	if(S)
 		state = BG_PROCESSING
 		update_icon()
-		playsound(src.loc, 'sound/machines/blender.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/machines/blender.ogg', 50, 1)
 		use_power(S * 30)
 		sleep((S + 15) / eat_eff)
 		state = BG_READY

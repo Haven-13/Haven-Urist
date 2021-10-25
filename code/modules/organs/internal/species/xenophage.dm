@@ -1,13 +1,13 @@
 /obj/item/organ/internal/brain/xeno
 	name = "thinkpan"
 	desc = "It looks kind of like an enormous wad of purple bubblegum."
-	icon = 'icons/mob/alien.dmi'
+	icon = 'resources/icons/mob/alien.dmi'
 	icon_state = "chitin"
 
 //XENOMORPH ORGANS
 /obj/item/organ/internal/xeno
 	name = "xeno organ"
-	icon = 'icons/effects/blood.dmi'
+	icon = 'resources/icons/effects/blood.dmi'
 	desc = "It smells like an accident in a chemical factory."
 	var/associated_power = /mob/living/carbon/human/proc/resin
 

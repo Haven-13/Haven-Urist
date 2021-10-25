@@ -1,5 +1,5 @@
 /obj/machinery/atmospherics/unary/vent_scrubber
-	icon = 'icons/atmos/vent_scrubber.dmi'
+	icon = 'resources/icons/atmos/vent_scrubber.dmi'
 	icon_state = "map_scrubber_off"
 
 	name = "Air Scrubber"
@@ -254,7 +254,7 @@
 			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
 			add_fingerprint(user)
 			return 1
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
 		if (do_after(user, 40, src))
 			user.visible_message( \
@@ -278,7 +278,7 @@
 			return 1
 
 		to_chat(user, "<span class='notice'>Now welding \the [src].</span>")
-		playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Welder2.ogg', 50, 1)
 
 		if(!do_after(user, 20, src))
 			to_chat(user, "<span class='notice'>You must remain close to finish this task.</span>")

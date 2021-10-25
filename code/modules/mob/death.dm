@@ -11,7 +11,7 @@
 	var/atom/movable/overlay/animation = null
 	animation = new(loc)
 	animation.icon_state = "blank"
-	animation.icon = 'icons/mob/mob.dmi'
+	animation.icon = 'resources/icons/mob/mob.dmi'
 	animation.master = src
 
 	flick(anim, animation)
@@ -35,7 +35,7 @@
 
 	animation = new(loc)
 	animation.icon_state = "blank"
-	animation.icon = 'icons/mob/mob.dmi'
+	animation.icon = 'resources/icons/mob/mob.dmi'
 	animation.master = src
 
 	flick(anim, animation)

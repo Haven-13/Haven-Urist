@@ -130,7 +130,7 @@
 	user.visible_message("[user] starts putting \the [tool] inside [target]'s [affected.cavity_name] cavity.", \
 	"You start putting \the [tool] inside [target]'s [affected.cavity_name] cavity." )
 	target.custom_pain("The pain in your chest is living hell!",1,affecting = affected)
-	playsound(target.loc, 'sound/effects/squelch1.ogg', 25, 1)
+	playsound(target.loc, 'resources/sound/effects/squelch1.ogg', 25, 1)
 	..()
 
 /datum/surgery_step/cavity/place_item/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -224,7 +224,7 @@
 				var/obj/item/weapon/implant/imp = obj
 				imp.removed()
 
-			playsound(target.loc, 'sound/effects/squelch1.ogg', 15, 1)
+			playsound(target.loc, 'resources/sound/effects/squelch1.ogg', 15, 1)
 		else
 			user.visible_message("<span class='notice'>[user] removes \the [tool] from [target]'s [affected.name].</span>", \
 			"<span class='notice'>There's something inside [target]'s [affected.name], but you just missed it this time.</span>" )
@@ -240,7 +240,7 @@
 		fail_prob += 100 - tool_quality(tool)
 		if (prob(fail_prob))
 			user.visible_message("<span class='warning'>Something beeps inside [target]'s [affected.name]!</span>")
-			playsound(imp.loc, 'sound/items/countdown.ogg', 75, 1, -3)
+			playsound(imp.loc, 'resources/sound/items/countdown.ogg', 75, 1, -3)
 			spawn(25)
 				imp.activate()
 

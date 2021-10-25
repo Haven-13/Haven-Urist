@@ -1,7 +1,7 @@
 /obj/random/ore
 	name = "random ore"
 	desc = "This is a random ore."
-	icon = 'icons/obj/clothing/ties.dmi'
+	icon = 'resources/icons/obj/clothing/ties.dmi'
 	icon_state = "horribletie"
 
 /obj/random/ore/spawn_choices()

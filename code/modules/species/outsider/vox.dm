@@ -1,9 +1,9 @@
 /datum/species/vox
 	name = SPECIES_VOX
 	name_plural = SPECIES_VOX
-	icobase = 'icons/mob/human_races/species/vox/body.dmi'
-	deform = 'icons/mob/human_races/species/vox/body.dmi'
-	husk_icon = 'icons/mob/human_races/species/vox/husk.dmi'
+	icobase = 'resources/icons/mob/human_races/species/vox/body.dmi'
+	deform = 'resources/icons/mob/human_races/species/vox/body.dmi'
+	husk_icon = 'resources/icons/mob/human_races/species/vox/husk.dmi'
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite/strong)
 	rarity_value = 4
 	description = "The Vox are the broken remnants of a once-proud race, now reduced to little more than \
@@ -14,7 +14,7 @@
 	dealing with their traders and merchants; those that do rarely enjoy the experience."
 
 	taste_sensitivity = TASTE_DULL
-	speech_sounds = list('sound/voice/shriek1.ogg')
+	speech_sounds = list('resources/sound/voice/shriek1.ogg')
 	speech_chance = 20
 
 	warning_low_pressure = 50

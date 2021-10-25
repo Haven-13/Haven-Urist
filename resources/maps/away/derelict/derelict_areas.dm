@@ -5,12 +5,12 @@
 /area/AIsattele
 	name = "\improper AI Satellite Teleporter Room"
 	icon_state = "teleporter"
-	ambience = list('sound/ambience/ambimalf.ogg')
+	ambience = list('resources/sound/ambience/ambimalf.ogg')
 
 /area/constructionsite
 	name = "\improper Construction Site"
 	icon_state = "storage"
-	ambience = list('sound/ambience/spookyspace1.ogg', 'sound/ambience/spookyspace2.ogg')
+	ambience = list('resources/sound/ambience/spookyspace1.ogg', 'resources/sound/ambience/spookyspace2.ogg')
 
 /area/constructionsite/storage
 	name = "\improper Construction Site Storage Area"

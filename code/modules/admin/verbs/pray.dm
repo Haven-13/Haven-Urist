@@ -11,7 +11,7 @@
 	for(var/client/C in GLOB.admins)
 		if(R_ADMIN & C.holder.rights)
 			to_chat(C, msg)
-			sound_to(C, 'sound/machines/signal.ogg')
+			sound_to(C, 'resources/sound/machines/signal.ogg')
 
 /proc/Syndicate_announce(var/msg, var/mob/Sender)
 	var/mob/intercepted = check_for_interception()
@@ -19,4 +19,4 @@
 	for(var/client/C in GLOB.admins)
 		if(R_ADMIN & C.holder.rights)
 			to_chat(C, msg)
-			sound_to(C, 'sound/machines/signal.ogg')
+			sound_to(C, 'resources/sound/machines/signal.ogg')

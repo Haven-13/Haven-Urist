@@ -1,7 +1,7 @@
 /obj/structure/painting
 	name = "landscape painting"
 	desc = "A fairly pretty landscape. Signed by the great Galavant."
-	icon = 'icons/urist/king/misc.dmi'
+	icon = 'resources/icons/urist/king/misc.dmi'
 	icon_state = "landscape"
 	anchored = 1
 	density = 0
@@ -15,7 +15,7 @@
 
 /obj/item/weapon/book/manual/betting
 	name = "The Book of Betting"
-	icon = 'icons/urist/king/misc.dmi'
+	icon = 'resources/icons/urist/king/misc.dmi'
 	icon_state = "bettingbook"
 	author = "Captain William Markham"
 	title = "Games for Landlubbers"

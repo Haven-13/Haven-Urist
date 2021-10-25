@@ -1,6 +1,6 @@
 /turf/unsimulated/wall
 	name = "wall"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'resources/icons/turf/walls.dmi'
 	icon_state = "riveted"
 	opacity = 1
 	density = 1
@@ -11,5 +11,5 @@
 	opacity = 0
 
 /turf/unsimulated/wall/other
-	icon = 'icons/urist/turf/oldwalls.dmi'
+	icon = 'resources/icons/urist/turf/oldwalls.dmi'
 	icon_state = "r_wall"

@@ -1,6 +1,6 @@
 /obj/item/device/floor_painter
 	name = "paintgun"
-	icon = 'icons/obj/device.dmi'
+	icon = 'resources/icons/obj/device.dmi'
 	icon_state = "flpainter"
 	item_state = "fl_painter"
 	desc = "A slender and none-too-sophisticated device capable of painting, erasing, and applying decals to most types of floors. It can also paint walls."
@@ -165,7 +165,7 @@
 	if(decal_data["coloured"] && paint_colour)
 		painting_colour = paint_colour
 
-	playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
+	playsound(get_turf(src), 'resources/sound/effects/spray3.ogg', 30, 1, -6)
 	new painting_decal(F, painting_dir, painting_colour)
 
 /obj/item/device/floor_painter/attack_self(var/mob/user)

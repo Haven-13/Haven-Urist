@@ -1,7 +1,7 @@
 /obj/item/weapon/dnainjector
 	name = "\improper DNA injector"
 	desc = "This injects the person with DNA."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "dnainjector"
 	var/block=0
 	var/datum/dna2/record/buf=null

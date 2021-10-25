@@ -1,7 +1,7 @@
 /obj/item/device/boombox
 	name = "boombox"
 	desc = "A device used to emit rhythmic sounds, colloquialy refered to as a 'boombox'. It's in a retro style (massive), and absolutely unwieldy."
-	icon = 'icons/obj/boombox.dmi'
+	icon = 'resources/icons/obj/boombox.dmi'
 	icon_state = "off"
 	item_state = "boombox"
 	force = 7
@@ -90,7 +90,7 @@
 	if(isScrewdriver(W))
 		if(!panel)
 			user.visible_message(SPAN_NOTICE("\The [user] re-attaches \the [src]'s front panel with \the [W]."), SPAN_NOTICE("You re-attach \the [src]'s front panel."))
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 			panel = TRUE
 			return TRUE
 		if(!broken)
@@ -98,7 +98,7 @@
 			return TRUE
 		else if(panel)
 			user.visible_message(SPAN_NOTICE("\The [user] unhinges \the [src]'s front panel with \the [W]."), SPAN_NOTICE("You unhinge \the [src]'s front panel."))
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 			panel = FALSE
 	if(istype(W,/obj/item/stack/nanopaste))
 		var/obj/item/stack/S = W
@@ -145,7 +145,7 @@
 	frequency = Clamp(frequency, MIN_FREQUENCY, MAX_FREQUENCY)
 
 	user.visible_message(SPAN_NOTICE("\The [user] adjusts \the [src]'s player head."), SPAN_NOTICE("You adjust \the [src]'s player head."))
-	playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 
 	if(frequency > 1.0)
 		to_chat(user, SPAN_NOTICE("\The [src] should be playing faster than usual."))
@@ -181,7 +181,7 @@
 
 /obj/item/device/boombox/proc/boombox_break()
 	audible_message(SPAN_WARNING("\The [src]'s speakers pop with a sharp crack!"))
-	playsound(src.loc, 'sound/effects/snap.ogg', 100, 1)
+	playsound(src.loc, 'resources/sound/effects/snap.ogg', 100, 1)
 	broken = TRUE
 	stop()
 

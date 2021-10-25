@@ -7,7 +7,7 @@
 /obj/machinery/cooker
 	name = "cooker"
 	desc = "You shouldn't be seeing this!"
-	icon = 'icons/obj/cooking_machines.dmi'
+	icon = 'resources/icons/obj/cooking_machines.dmi'
 	density = 1
 	anchored = 1
 	use_power = 1

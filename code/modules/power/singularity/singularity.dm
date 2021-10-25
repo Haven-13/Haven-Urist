@@ -3,7 +3,7 @@
 /obj/singularity/
 	name = "gravitational singularity"
 	desc = "A gravitational singularity."
-	icon = 'icons/obj/singularity.dmi'
+	icon = 'resources/icons/obj/singularity.dmi'
 	icon_state = "singularity_s1"
 	anchored = 1
 	density = 1
@@ -126,7 +126,7 @@
 			SetName("gravitational singularity")
 			desc = "A gravitational singularity."
 			current_size = STAGE_ONE
-			icon = 'icons/obj/singularity.dmi'
+			icon = 'resources/icons/obj/singularity.dmi'
 			icon_state = "singularity_s1"
 			pixel_x = 0
 			pixel_y = 0
@@ -143,7 +143,7 @@
 			SetName("gravitational singularity")
 			desc = "A gravitational singularity."
 			current_size = STAGE_TWO
-			icon = 'icons/effects/96x96.dmi'
+			icon = 'resources/icons/effects/96x96.dmi'
 			icon_state = "singularity_s3"
 			pixel_x = -32
 			pixel_y = -32
@@ -164,7 +164,7 @@
 				SetName("gravitational singularity")
 				desc = "A gravitational singularity."
 				current_size = STAGE_THREE
-				icon = 'icons/effects/160x160.dmi'
+				icon = 'resources/icons/effects/160x160.dmi'
 				icon_state = "singularity_s5"
 				pixel_x = -64
 				pixel_y = -64
@@ -185,7 +185,7 @@
 				SetName("gravitational singularity")
 				desc = "A gravitational singularity."
 				current_size = STAGE_FOUR
-				icon = 'icons/effects/224x224.dmi'
+				icon = 'resources/icons/effects/224x224.dmi'
 				icon_state = "singularity_s7"
 				pixel_x = -96
 				pixel_y = -96
@@ -205,7 +205,7 @@
 			SetName("gravitational singularity")
 			desc = "A gravitational singularity."
 			current_size = STAGE_FIVE
-			icon = 'icons/effects/288x288.dmi'
+			icon = 'resources/icons/effects/288x288.dmi'
 			icon_state = "singularity_s9"
 			pixel_x = -128
 			pixel_y = -128
@@ -223,7 +223,7 @@
 			SetName("super gravitational singularity")
 			desc = "A gravitational singularity with the properties of supermatter. <b>It has the power to destroy worlds.</b>"
 			current_size = STAGE_SUPER
-			icon = 'icons/effects/352x352.dmi'
+			icon = 'resources/icons/effects/352x352.dmi'
 			icon_state = "singularity_s11"//uh, whoever drew that, you know that black holes are supposed to look dark right? What's this, the clown's singulo?
 			pixel_x = -160
 			pixel_y = -160
@@ -467,15 +467,15 @@
 	move_self = 0
 	switch (current_size)
 		if(1)
-			overlays += image('icons/obj/singularity.dmi',"chain_s1")
+			overlays += image('resources/icons/obj/singularity.dmi',"chain_s1")
 		if(3)
-			overlays += image('icons/effects/96x96.dmi',"chain_s3")
+			overlays += image('resources/icons/effects/96x96.dmi',"chain_s3")
 		if(5)
-			overlays += image('icons/effects/160x160.dmi',"chain_s5")
+			overlays += image('resources/icons/effects/160x160.dmi',"chain_s5")
 		if(7)
-			overlays += image('icons/effects/224x224.dmi',"chain_s7")
+			overlays += image('resources/icons/effects/224x224.dmi',"chain_s7")
 		if(9)
-			overlays += image('icons/effects/288x288.dmi',"chain_s9")
+			overlays += image('resources/icons/effects/288x288.dmi',"chain_s9")
 
 /obj/singularity/proc/on_release()
 	chained = 0

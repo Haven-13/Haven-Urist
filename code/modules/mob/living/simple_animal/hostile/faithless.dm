@@ -17,7 +17,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	attacktext = "gripped"
-	attack_sound = 'sound/hallucinations/growl1.ogg'
+	attack_sound = 'resources/sound/hallucinations/growl1.ogg'
 
 	min_gas = null
 	max_gas = null

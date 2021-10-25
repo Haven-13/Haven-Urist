@@ -5,7 +5,7 @@ var/const/SAFETY_COOLDOWN = 100
 /obj/machinery/recycler
 	name = "crusher"
 	desc = "A large crushing machine which is used to recycle small items ineffeciently; there are lights on the side of it."
-	icon = 'icons/obj/recycling.dmi'
+	icon = 'resources/icons/obj/recycling.dmi'
 	icon_state = "grinder-o0"
 	layer = MOB_LAYER+1 // Overhead
 	anchored = 1
@@ -87,7 +87,7 @@ var/const/SAFETY_COOLDOWN = 100
 		else if(istype(AM, /obj/item))
 			recycle(AM)
 		else // Can't recycle
-			playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
+			playsound(src.loc, 'resources/sound/machines/buzz-sigh.ogg', 50, 0)
 			AM.loc = src.loc
 
 /obj/machinery/recycler/proc/recycle(var/obj/item/I, var/sound = 1)
@@ -103,17 +103,17 @@ var/const/SAFETY_COOLDOWN = 100
 		if(prob(1))
 			new /obj/item/stack/material/glass/reinforced(loc)
 		if(sound)
-			playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Welder.ogg', 50, 1)
 
 
 /obj/machinery/recycler/proc/stop(var/mob/living/L)
-	playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
+	playsound(src.loc, 'resources/sound/machines/buzz-sigh.ogg', 50, 0)
 	safety_mode = 1
 	update_icon()
 	L.loc = src.loc
 
 	spawn(SAFETY_COOLDOWN)
-		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
+		playsound(src.loc, 'resources/sound/machines/ping.ogg', 50, 0)
 		safety_mode = 0
 		update_icon()
 
@@ -122,9 +122,9 @@ var/const/SAFETY_COOLDOWN = 100
 	L.loc = src.loc
 
 	if(issilicon(L))
-		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Welder.ogg', 50, 1)
 	else
-		playsound(src.loc, 'sound/effects/splat.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/effects/splat.ogg', 50, 1)
 
 	var/gib = 1
 	// By default, the emagged recycler will gib all non-carbons. (human simple animal mobs don't count)

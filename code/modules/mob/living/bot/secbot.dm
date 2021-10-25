@@ -5,7 +5,7 @@
 /mob/living/bot/secbot
 	name = "Securitron"
 	desc = "A little security robot.  He looks less than thrilled."
-	icon = 'icons/mob/bot/secbot.dmi'
+	icon = 'resources/icons/mob/bot/secbot.dmi'
 	icon_state = "secbot0"
 	var/attack_state = "secbot-c"
 	plane = DEFAULT_PLANE
@@ -32,8 +32,8 @@
 	var/obj/item/weapon/melee/baton/stun_baton
 	var/obj/item/weapon/handcuffs/cyborg/handcuffs
 
-	var/list/threat_found_sounds = list('sound/voice/bcriminal.ogg', 'sound/voice/bjustice.ogg', 'sound/voice/bfreeze.ogg')
-	var/list/preparing_arrest_sounds = list('sound/voice/bfreeze.ogg')
+	var/list/threat_found_sounds = list('resources/sound/voice/bcriminal.ogg', 'resources/sound/voice/bjustice.ogg', 'resources/sound/voice/bfreeze.ogg')
+	var/list/preparing_arrest_sounds = list('resources/sound/voice/bfreeze.ogg')
 
 /mob/living/bot/secbot/beepsky
 	name = "Officer Beepsky"
@@ -220,7 +220,7 @@
 
 	var/obj/item/weapon/secbot_assembly/Sa = new /obj/item/weapon/secbot_assembly(Tsec)
 	Sa.build_step = 1
-	Sa.overlays += image('icons/mob/bot/secbot.dmi', "hs_hole")
+	Sa.overlays += image('resources/icons/mob/bot/secbot.dmi', "hs_hole")
 	Sa.created_name = name
 	new /obj/item/device/assembly/prox_sensor(Tsec)
 	new /obj/item/weapon/melee/baton(Tsec)
@@ -272,7 +272,7 @@
 /obj/item/weapon/secbot_assembly
 	name = "helmet/signaler assembly"
 	desc = "Some sort of bizarre assembly."
-	icon = 'icons/mob/bot/secbot.dmi'
+	icon = 'resources/icons/mob/bot/secbot.dmi'
 	icon_state = "helmet_signaler"
 	item_state = "helmet"
 	var/build_step = 0
@@ -284,13 +284,13 @@
 		var/obj/item/weapon/weldingtool/WT = O
 		if(WT.remove_fuel(0, user))
 			build_step = 1
-			overlays += image('icons/mob/bot/secbot.dmi', "hs_hole")
+			overlays += image('resources/icons/mob/bot/secbot.dmi', "hs_hole")
 			to_chat(user, "You weld a hole in \the [src].")
 
 	else if(isprox(O) && (build_step == 1))
 		build_step = 2
 		to_chat(user, "You add \the [O] to [src].")
-		overlays += image('icons/mob/bot/secbot.dmi', "hs_eye")
+		overlays += image('resources/icons/mob/bot/secbot.dmi', "hs_eye")
 		SetName("helmet/signaler/prox sensor assembly")
 		qdel(O)
 
@@ -298,7 +298,7 @@
 		build_step = 3
 		to_chat(user, "You add \the [O] to [src].")
 		SetName("helmet/signaler/prox sensor/robot arm assembly")
-		overlays += image('icons/mob/bot/secbot.dmi', "hs_arm")
+		overlays += image('resources/icons/mob/bot/secbot.dmi', "hs_arm")
 		qdel(O)
 
 	else if(istype(O, /obj/item/weapon/melee/baton) && build_step == 3)

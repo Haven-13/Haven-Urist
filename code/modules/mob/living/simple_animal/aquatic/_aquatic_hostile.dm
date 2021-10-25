@@ -1,9 +1,9 @@
 /mob/living/simple_animal/hostile/aquatic
-	icon = 'icons/mob/aquatic.dmi'
+	icon = 'resources/icons/mob/aquatic.dmi'
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/fish
 	turns_per_move = 5
 	attacktext = "bitten"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = 'resources/sound/weapons/bite.ogg'
 	speed = 4
 	mob_size = MOB_MEDIUM
 	emote_see = list("gnashes")

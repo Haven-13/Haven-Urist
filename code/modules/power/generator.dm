@@ -28,7 +28,7 @@
 	var/datum/effect_system/sparks/spark_system
 
 	var/list/soundverb = list("shudders violently", "rumbles brutally", "vibrates disturbingly", "shakes with a deep rumble", "bangs and thumps")
-	var/list/soundlist = list('sound/ambience/ambigen9.ogg','sound/effects/meteorimpact.ogg','sound/effects/caution.ogg')
+	var/list/soundlist = list('resources/sound/ambience/ambigen9.ogg','resources/sound/effects/meteorimpact.ogg','resources/sound/effects/caution.ogg')
 
 /obj/machinery/power/generator/New()
 	create_reagents(120)
@@ -76,7 +76,7 @@
 		overlays.Cut()
 
 		if(lastgenlev != 0)
-			overlays += image('icons/obj/power.dmi', "teg-op[lastgenlev]")
+			overlays += image('resources/icons/obj/power.dmi', "teg-op[lastgenlev]")
 
 /obj/machinery/power/generator/Process()
 	if(!circ1 || !circ2 || !anchored || stat & (BROKEN|NOPOWER))
@@ -109,7 +109,7 @@
 			else
 				air2.temperature = air2.temperature + heat/air2_heat_capacity
 				air1.temperature = air1.temperature - energy_transfer/air1_heat_capacity
-		playsound(src.loc, 'sound/effects/beam.ogg', 25, 0, 10,  is_ambiance = 1)
+		playsound(src.loc, 'resources/sound/effects/beam.ogg', 25, 0, 10,  is_ambiance = 1)
 
 	//Transfer the air
 	if (air1)
@@ -139,14 +139,14 @@
 				if(prob(20))
 					var/datum/effect/effect/system/smoke_spread/SM = new()
 					SM.set_up(5, 0, src.loc)
-					playsound(src.loc, 'sound/machines/warning-buzzer.ogg', 50, 1, -3)
+					playsound(src.loc, 'resources/sound/machines/warning-buzzer.ogg', 50, 1, -3)
 					spawn(2 SECONDS)
-						playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1, -3)
+						playsound(src.loc, 'resources/sound/effects/meteorimpact.ogg', 50, 1, -3)
 						for(var/mob/living/M in view(7, src))
 							shake_camera(M, 1, 2)
 						spawn(0.5 SECONDS)
 							SM.start()
-							playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
+							playsound(src.loc, 'resources/sound/effects/smoke.ogg', 50, 1, -3)
 	//Power
 	last_circ1_gen = circ1.return_stored_energy()
 	last_circ2_gen = circ2.return_stored_energy()
@@ -177,7 +177,7 @@
 
 /obj/machinery/power/generator/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(isWrench(W))
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
 					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \

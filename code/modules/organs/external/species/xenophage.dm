@@ -1,7 +1,7 @@
 // Xenomorph limbs.
 /obj/item/organ/external/head/unbreakable/xeno
 	limb_flags = ORGAN_FLAG_GENDERED_ICON
-	eye_icon_location = 'icons/mob/human_races/species/xenos/eyes.dmi'
+	eye_icon_location = 'resources/icons/mob/human_races/species/xenos/eyes.dmi'
 	glowing_eyes = TRUE
 	encased = "carapace"
 

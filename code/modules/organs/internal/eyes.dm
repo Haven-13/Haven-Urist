@@ -23,7 +23,7 @@
 /obj/item/organ/internal/eyes/robotize()
 	..()
 	name = "optical sensor"
-	icon = 'icons/obj/robot_component.dmi'
+	icon = 'resources/icons/obj/robot_component.dmi'
 	icon_state = "camera"
 	dead_icon = "camera_broken"
 	verbs |= /obj/item/organ/internal/eyes/proc/change_eye_color

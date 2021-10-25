@@ -26,7 +26,7 @@
 // Hence using a blank icon.
 /obj/machinery/portable_atmospherics/hydroponics/soil/invisible
 	name = "plant"
-	icon = 'icons/obj/seeds.dmi'
+	icon = 'resources/icons/obj/seeds.dmi'
 	icon_state = "blank"
 	var/list/connected_zlevels //cached for checking if we someone is obseving us so we should process
 

@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/tree
 	name = "pine tree"
 	desc = "A pissed off tree-like alien. It seems annoyed with the festivities..."
-	icon = 'icons/obj/flora/pinetrees.dmi'
+	icon = 'resources/icons/obj/flora/pinetrees.dmi'
 	icon_state = "pine_1"
 	icon_living = "pine_1"
 	icon_dead = "pine_1"
@@ -22,7 +22,7 @@
 	melee_damage_lower = 8
 	melee_damage_upper = 12
 	attacktext = "bitten"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = 'resources/sound/weapons/bite.ogg'
 
 	//Space carp aren't affected by atmos.
 	min_gas = null

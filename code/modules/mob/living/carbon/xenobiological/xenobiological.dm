@@ -1,6 +1,6 @@
 /mob/living/carbon/slime
 	name = "baby slime"
-	icon = 'icons/mob/slimes.dmi'
+	icon = 'resources/icons/mob/slimes.dmi'
 	icon_state = "grey baby slime"
 	pass_flags = PASS_FLAG_TABLE
 	speak_emote = list("chirps")
@@ -207,11 +207,11 @@
 		if(Victim == M)
 			if(prob(60))
 				visible_message("<span class='warning'>\The [M] attempts to wrestle \the [src] off!</span>")
-				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+				playsound(loc, 'resources/sound/weapons/punchmiss.ogg', 25, 1, -1)
 
 			else
 				visible_message("<span class='warning'>\The [M] manages to wrestle \the [src] off!</span>")
-				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+				playsound(loc, 'resources/sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 				confused = max(confused, 2)
 				Feedstop()
@@ -222,11 +222,11 @@
 		else
 			if(prob(30))
 				visible_message("<span class='warning'>\The [M] attempts to wrestle \the [src] off \the [Victim]!</span>")
-				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+				playsound(loc, 'resources/sound/weapons/punchmiss.ogg', 25, 1, -1)
 
 			else
 				visible_message("<span class='warning'>\The [M] manages to wrestle \the [src] off \the [Victim]!</span>")
-				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+				playsound(loc, 'resources/sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 				confused = max(confused, 2)
 				Feedstop()
@@ -245,9 +245,9 @@
 			if(success)
 				confused = max(confused, 2)
 				UpdateFace()
-				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+				playsound(loc, 'resources/sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			else
-				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+				playsound(loc, 'resources/sound/weapons/punchmiss.ogg', 25, 1, -1)
 
 		else
 
@@ -272,7 +272,7 @@
 				adjustBruteLoss(damage)
 				updatehealth()
 			else
-				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+				playsound(loc, 'resources/sound/weapons/punchmiss.ogg', 25, 1, -1)
 				visible_message("<span class='danger'>[M] has attempted to punch [src]!</span>")
 	return
 

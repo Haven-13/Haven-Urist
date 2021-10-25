@@ -62,7 +62,7 @@
 	rare_val = 0.5
 
 /area/exoplanet/desert
-	ambience = list('sound/effects/wind/desert0.ogg','sound/effects/wind/desert1.ogg','sound/effects/wind/desert2.ogg','sound/effects/wind/desert3.ogg','sound/effects/wind/desert4.ogg','sound/effects/wind/desert5.ogg')
+	ambience = list('resources/sound/effects/wind/desert0.ogg','resources/sound/effects/wind/desert1.ogg','resources/sound/effects/wind/desert2.ogg','resources/sound/effects/wind/desert3.ogg','resources/sound/effects/wind/desert4.ogg','resources/sound/effects/wind/desert5.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/desert
 
 /turf/simulated/floor/exoplanet/desert
@@ -80,7 +80,7 @@
 
 /obj/structure/quicksand
 	name = "sand"
-	icon = 'icons/obj/quicksand.dmi'
+	icon = 'resources/icons/obj/quicksand.dmi'
 	icon_state = "intact0"
 	density = 0
 	anchored = 1

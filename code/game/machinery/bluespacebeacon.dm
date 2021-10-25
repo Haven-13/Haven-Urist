@@ -2,7 +2,7 @@ GLOBAL_LIST_EMPTY(emergency_responses)
 
 /obj/machinery/emergency_beacon
 	name = "emergency bluespace beacon"
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "bspacerelay"
 	var/datum/announcement/beacon_announcer
 	var/timer_id

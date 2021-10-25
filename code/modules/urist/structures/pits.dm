@@ -1,7 +1,7 @@
 /obj/structure/pit
 	name = "pit"
 	desc = "Watch your step, partner."
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 	icon_state = "pit1"
 //	blend_mode = BLEND_MULTIPLY
 	density = 0
@@ -45,7 +45,7 @@
 			else
 				to_chat(user, "<span class='notice'>You stick a sharpened wooden shaft into the side of the pit.</span>")
 				punji += 1
-				src.overlays += image('icons/urist/objects/structures.dmi', "punji[punji]", layer=3.7)
+				src.overlays += image('resources/icons/urist/objects/structures.dmi', "punji[punji]", layer=3.7)
 				qdel(W)
 				user.regenerate_icons()
 	..()
@@ -73,7 +73,7 @@
 	if(punji)
 		to_chat(user, "You yank out one of the sharpened sticks from the pit.")
 		new /obj/item/weapon/sharpwoodrod(src.loc)
-		src.overlays -= image('icons/urist/objects/structures.dmi', "punji[punji]")
+		src.overlays -= image('resources/icons/urist/objects/structures.dmi', "punji[punji]")
 		punji -= 1
 
 /obj/structure/pit/examine()
@@ -116,7 +116,7 @@
 	visible_message("<span class='danger'>Something is scratching its way out of \the [src]!</span>")
 
 	for(var/i in 1 to (6*breakout_time * 2)) //minutes * 6 * 5seconds * 2
-		playsound(src.loc, 'sound/weapons/bite.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/weapons/bite.ogg', 100, 1)
 
 		if(!do_after(escapee, 50))
 			to_chat(escapee, "<span class='warning'>You have stopped digging.</span>")
@@ -131,7 +131,7 @@
 
 	to_chat(escapee, "<span class='warning'>You successfuly dig yourself out!</span>")
 	visible_message("<span class='danger'>\the [escapee] emerges from \the [src]!</span>")
-	playsound(src.loc, 'sound/effects/squelch1.ogg', 100, 1)
+	playsound(src.loc, 'resources/sound/effects/squelch1.ogg', 100, 1)
 	open()
 
 /obj/structure/pit/punji6
@@ -139,12 +139,12 @@
 
 /obj/structure/pit/punji6/New()
 	..()
-	src.overlays += image('icons/urist/objects/structures.dmi', "punji1", layer=3.7)
-	src.overlays += image('icons/urist/objects/structures.dmi', "punji2", layer=3.7)
-	src.overlays += image('icons/urist/objects/structures.dmi', "punji3", layer=3.7)
-	src.overlays += image('icons/urist/objects/structures.dmi', "punji4", layer=3.7)
-	src.overlays += image('icons/urist/objects/structures.dmi', "punji5", layer=3.7)
-	src.overlays += image('icons/urist/objects/structures.dmi', "punji6", layer=3.7)
+	src.overlays += image('resources/icons/urist/objects/structures.dmi', "punji1", layer=3.7)
+	src.overlays += image('resources/icons/urist/objects/structures.dmi', "punji2", layer=3.7)
+	src.overlays += image('resources/icons/urist/objects/structures.dmi', "punji3", layer=3.7)
+	src.overlays += image('resources/icons/urist/objects/structures.dmi', "punji4", layer=3.7)
+	src.overlays += image('resources/icons/urist/objects/structures.dmi', "punji5", layer=3.7)
+	src.overlays += image('resources/icons/urist/objects/structures.dmi', "punji6", layer=3.7)
 
 /obj/structure/pit/punji6/hidden
 	icon_state = "hiddentrap"
@@ -243,7 +243,7 @@
 /obj/structure/gravemarker
 	name = "grave marker"
 	desc = "You're not the first."
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 	icon_state = "wood"
 	pixel_x = 15
 	pixel_y = 8

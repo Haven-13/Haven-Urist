@@ -1,13 +1,13 @@
 /*										*****New space to put all UristMcStation Gloves!*****
 
-Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/items/clothes/gloves.dmi' and on- mob
-icon_override sprites go to 'icons/uristmob/gloves.dmi' Items should go to clothing/gloves/urist to avoid worrying about the sprites.-Glloyd*/
+Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'resources/icons/urist/items/clothes/gloves.dmi' and on- mob
+icon_override sprites go to 'resources/icons/uristmob/gloves.dmi' Items should go to clothing/gloves/urist to avoid worrying about the sprites.-Glloyd*/
 
 //generic define
 
 /obj/item/clothing/gloves/urist
 	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/gloves.dmi'
+	icon = 'resources/icons/urist/items/clothes/gloves.dmi'
 
 //cunts. fucking alien cunts.
 
@@ -16,7 +16,7 @@ icon_override sprites go to 'icons/uristmob/gloves.dmi' Items should go to cloth
 	if(istype(W, /obj/item/weapon/wirecutters) || istype(W, /obj/item/weapon/scalpel))
 		//clipping fingertips
 		if(!clipped)
-			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+			playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 100, 1)
 			user.visible_message("<span class='warning'> [user] cuts the fingertips off of the [src].</span>","<span class='warning'> You cut the fingertips off of the [src].</span>")
 
 			clipped = 1
@@ -51,8 +51,8 @@ icon_override sprites go to 'icons/uristmob/gloves.dmi' Items should go to cloth
 /obj/item/clothing/gloves/biohazard
 	desc = "These rubber gloves are made to assist in protecting the user from biological hazards."
 	name = "biohazard rubber gloves"
-	icon = 'icons/urist/items/clothes/gloves.dmi'
-	icon_override = 'icons/uristmob/gloves.dmi'
+	icon = 'resources/icons/urist/items/clothes/gloves.dmi'
+	icon_override = 'resources/icons/uristmob/gloves.dmi'
 	icon_state = "rubbergloves"
 	item_state = "rubbergloves"
 	body_parts_covered = HANDS|ARMS

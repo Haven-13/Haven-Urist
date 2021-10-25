@@ -4,7 +4,7 @@
 /obj/vehicle/train/cargo/engine/sportscar
 	name = "sports car"
 	desc = "A very luxurious vehicle."
-	icon = 'icons/urist/vehicles/sportscar.dmi'
+	icon = 'resources/icons/urist/vehicles/sportscar.dmi'
 	icon_state = "sportscar"
 	emagged = 0
 	health = 100
@@ -17,22 +17,22 @@
 	src.overlays = null
 	if(src.dir == NORTH||SOUTH||WEST)
 		if(src.dir == NORTH)
-			var/image/I = new(icon = 'icons/urist/vehicles/sportscar.dmi', icon_state = "sportscar_north", layer = src.layer + 0.2) //over mobs
+			var/image/I = new(icon = 'resources/icons/urist/vehicles/sportscar.dmi', icon_state = "sportscar_north", layer = src.layer + 0.2) //over mobs
 			src.overlays += I
 			src.mob_offset_x = 16
 			src.mob_offset_y = 20
 		else if(src.dir == SOUTH)
-			var/image/I = new(icon = 'icons/urist/vehicles/sportscar.dmi', icon_state = "sportscar_south", layer = src.layer + 0.2) //over mobs
+			var/image/I = new(icon = 'resources/icons/urist/vehicles/sportscar.dmi', icon_state = "sportscar_south", layer = src.layer + 0.2) //over mobs
 			overlays += I
 			src.mob_offset_x = 20
 			src.mob_offset_y = 27
 		else if(src.dir == WEST)
 			src.mob_offset_x = 34
 			src.mob_offset_y = 25
-			var/image/I = new(icon = 'icons/urist/vehicles/sportscar.dmi', icon_state = "sportscar_west", layer = src.layer + 0.2) //over mobs
+			var/image/I = new(icon = 'resources/icons/urist/vehicles/sportscar.dmi', icon_state = "sportscar_west", layer = src.layer + 0.2) //over mobs
 			src.overlays += I
 		else if(src.dir == EAST)
-			var/image/I = new(icon = 'icons/urist/vehicles/sportscar.dmi', icon_state = "sportscar_east", layer = src.layer + 0.2) //over mobs
+			var/image/I = new(icon = 'resources/icons/urist/vehicles/sportscar.dmi', icon_state = "sportscar_east", layer = src.layer + 0.2) //over mobs
 			src.mob_offset_x = 20
 			src.mob_offset_y = 23
 			src.overlays += I

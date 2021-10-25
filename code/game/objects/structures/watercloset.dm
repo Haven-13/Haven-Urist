@@ -27,15 +27,15 @@
 	if(!isnull(clogged) && clogged > 0 && istype(thing, /obj/item/clothing/mask/plunger))
 		user.visible_message("<span class='notice'>\The [user] strives valiantly to unclog \the [src] with \the [thing]!</span>")
 		spawn
-			playsound(loc, 'sound/effects/plunger.ogg', 75, 1)
+			playsound(loc, 'resources/sound/effects/plunger.ogg', 75, 1)
 			sleep(5)
-			playsound(loc, 'sound/effects/plunger.ogg', 75, 1)
+			playsound(loc, 'resources/sound/effects/plunger.ogg', 75, 1)
 			sleep(5)
-			playsound(loc, 'sound/effects/plunger.ogg', 75, 1)
+			playsound(loc, 'resources/sound/effects/plunger.ogg', 75, 1)
 			sleep(5)
-			playsound(loc, 'sound/effects/plunger.ogg', 75, 1)
+			playsound(loc, 'resources/sound/effects/plunger.ogg', 75, 1)
 			sleep(5)
-			playsound(loc, 'sound/effects/plunger.ogg', 75, 1)
+			playsound(loc, 'resources/sound/effects/plunger.ogg', 75, 1)
 		if(do_after(user, 45, src) && clogged)
 			visible_message("<span class='notice'>With a loud gurgle, \the [src] begins flowing more freely.</span>")
 			playsound(loc, pick(SSfluids.gurgles), 100, 1)
@@ -75,7 +75,7 @@
 /obj/structure/hygiene/toilet
 	name = "toilet"
 	desc = "The HT-451, a torque rotation-based, waste disposal unit for small matter. This one seems remarkably clean."
-	icon = 'icons/obj/watercloset.dmi'
+	icon = 'resources/icons/obj/watercloset.dmi'
 	icon_state = "toilet00"
 	density = 0
 	anchored = 1
@@ -117,7 +117,7 @@
 /obj/structure/hygiene/toilet/attackby(obj/item/I as obj, var/mob/living/user)
 	if(isCrowbar(I))
 		to_chat(user, "<span class='notice'>You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"].</span>")
-		playsound(loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
+		playsound(loc, 'resources/sound/effects/stonedoor_openclose.ogg', 50, 1)
 		if(do_after(user, 30, src))
 			user.visible_message("<span class='notice'>[user] [cistern ? "replaces the lid on the cistern" : "lifts the lid off the cistern"]!</span>", "<span class='notice'>You [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]!</span>", "You hear grinding porcelain.")
 			cistern = !cistern
@@ -161,7 +161,7 @@
 /obj/structure/hygiene/urinal
 	name = "urinal"
 	desc = "The HU-452, an experimental urinal."
-	icon = 'icons/obj/watercloset.dmi'
+	icon = 'resources/icons/obj/watercloset.dmi'
 	icon_state = "urinal"
 	density = 0
 	anchored = 1
@@ -181,7 +181,7 @@
 /obj/structure/hygiene/shower
 	name = "shower"
 	desc = "The HS-451. Installed in the 2200s by the Hygiene Division."
-	icon = 'icons/obj/watercloset.dmi'
+	icon = 'resources/icons/obj/watercloset.dmi'
 	icon_state = "shower"
 	density = 0
 	anchored = 1
@@ -203,7 +203,7 @@
 
 /obj/effect/mist
 	name = "mist"
-	icon = 'icons/obj/watercloset.dmi'
+	icon = 'resources/icons/obj/watercloset.dmi'
 	icon_state = "mist"
 	layer = MOB_LAYER + 1
 	anchored = 1
@@ -227,7 +227,7 @@
 	if(isWrench(I))
 		var/newtemp = input(user, "What setting would you like to set the temperature valve to?", "Water Temperature Valve") in temperature_settings
 		to_chat(user,"<span class='notice'>You begin to adjust the temperature valve with \the [I].</span>")
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 		if(do_after(user, 50, src))
 			watertemp = newtemp
 			user.visible_message("<span class='notice'>\The [user] adjusts \the [src] with \the [I].</span>", "<span class='notice'>You adjust the shower with \the [I].</span>")
@@ -242,7 +242,7 @@
 		mymist = null
 
 	if(on)
-		overlays += image('icons/obj/watercloset.dmi', src, "water", MOB_LAYER + 1, dir)
+		overlays += image('resources/icons/obj/watercloset.dmi', src, "water", MOB_LAYER + 1, dir)
 		if(temperature_settings[watertemp] < T20C)
 			return //no mist for cold water
 		if(!ismist)
@@ -313,13 +313,13 @@
 /obj/item/weapon/bikehorn/rubberducky
 	name = "rubber ducky"
 	desc = "Rubber ducky you're so fine, you make bathtime lots of fuuun. Rubber ducky I'm awfully fooooond of yooooouuuu~"	//thanks doohl
-	icon = 'icons/obj/watercloset.dmi'
+	icon = 'resources/icons/obj/watercloset.dmi'
 	icon_state = "rubberducky"
 	item_state = "rubberducky"
 
 /obj/structure/hygiene/sink
 	name = "sink"
-	icon = 'icons/obj/watercloset.dmi'
+	icon = 'resources/icons/obj/watercloset.dmi'
 	icon_state = "sink"
 	desc = "A sink used for washing one's hands and face."
 	anchored = 1
@@ -409,7 +409,7 @@
 	else if(istype(O, /obj/item/weapon/mop))
 		O.reagents.add_reagent(/datum/reagent/water, 5)
 		to_chat(user, "<span class='notice'>You wet \the [O] in \the [src].</span>")
-		playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+		playsound(loc, 'resources/sound/effects/slosh.ogg', 25, 1)
 		return
 
 	var/turf/location = user.loc

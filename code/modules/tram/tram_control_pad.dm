@@ -1,7 +1,7 @@
 /obj/tram/controlpad
 	name = "tram controller interface"
 	desc = "Controls a tram."
-	icon = 'icons/obj/airlock_machines.dmi'
+	icon = 'resources/icons/obj/airlock_machines.dmi'
 	icon_state = "airlock_control_standby"
 	anchored = 1
 	var/obj/tram/tram_controller/tram_linked

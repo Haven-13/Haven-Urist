@@ -23,8 +23,8 @@
 		if(active_apc)
 			if(!active_apc.locked)
 				active_apc.say("Remote access canceled. Interface locked.")
-				playsound(active_apc, 'sound/machines/boltsdown.ogg', 25, FALSE)
-				playsound(active_apc, 'sound/machines/terminal_alert.ogg', 50, FALSE)
+				playsound(active_apc, 'resources/sound/machines/boltsdown.ogg', 25, FALSE)
+				playsound(active_apc, 'resources/sound/machines/terminal_alert.ogg', 50, FALSE)
 			active_apc.locked = TRUE
 			active_apc.update_icon()
 			active_apc.remote_control = null
@@ -95,7 +95,7 @@
 					authenticated = TRUE
 					auth_id = "[ID.registered_name] ([ID.assignment]):"
 					log_activity("[auth_id] logged in to the terminal")
-					playsound(src, 'sound/machines/terminal_on.ogg', 50, FALSE)
+					playsound(src, 'resources/sound/machines/terminal_on.ogg', 50, FALSE)
 				else
 					auth_id = "[ID.registered_name] ([ID.assignment]):"
 					log_activity("[auth_id] attempted to log into the terminal")
@@ -104,7 +104,7 @@
 			log_activity("[auth_id] attempted to log into the terminal")
 		if("log-out")
 			log_activity("[auth_id] logged out of the terminal")
-			playsound(src, 'sound/machines/terminal_off.ogg', 50, FALSE)
+			playsound(src, 'resources/sound/machines/terminal_off.ogg', 50, FALSE)
 			authenticated = FALSE
 			auth_id = "\[NULL\]"
 		if("toggle-logs")
@@ -122,21 +122,21 @@
 			if(active_apc)
 				to_chat(operator, "<span class='robot danger'>[icon2html(src, auth_id)] Disconnected from [active_apc].</span>")
 				active_apc.say("Remote access canceled. Interface locked.")
-				playsound(active_apc, 'sound/machines/boltsdown.ogg', 25, FALSE)
-				playsound(active_apc, 'sound/machines/terminal_alert.ogg', 50, FALSE)
+				playsound(active_apc, 'resources/sound/machines/boltsdown.ogg', 25, FALSE)
+				playsound(active_apc, 'resources/sound/machines/terminal_alert.ogg', 50, FALSE)
 				active_apc.locked = TRUE
 				active_apc.update_icon()
 				active_apc.remote_control = null
 				active_apc = null
 			APC.remote_control = src
 			APC.ui_interact(operator)
-			playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
+			playsound(src, 'resources/sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 			log_game("[key_name(operator)] remotely accessed [APC] from [src] at [AREACOORD(src)].")
 			log_activity("[auth_id] remotely accessed APC in [get_area_name(APC.area, TRUE)]")
 			if(APC.locked)
 				APC.say("Remote access detected. Interface unlocked.")
-				playsound(APC, 'sound/machines/boltsup.ogg', 25, FALSE)
-				playsound(APC, 'sound/machines/terminal_alert.ogg', 50, FALSE)
+				playsound(APC, 'resources/sound/machines/boltsup.ogg', 25, FALSE)
+				playsound(APC, 'resources/sound/machines/terminal_alert.ogg', 50, FALSE)
 			APC.locked = FALSE
 			APC.update_icon()
 			active_apc = APC

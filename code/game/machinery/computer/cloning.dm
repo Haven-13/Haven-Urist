@@ -1,6 +1,6 @@
 /obj/machinery/computer/cloning
 	name = "cloning control console"
-	icon = 'icons/obj/computer.dmi'
+	icon = 'resources/icons/obj/computer.dmi'
 	icon_keyboard = "med_key"
 	icon_screen = "dna"
 	light_color = "#315ab4"
@@ -351,7 +351,7 @@
 						pod.growclone(C)
 					else
 						var/mob/selected = find_dead_player("[C.ckey]")
-						sound_to(selected, 'sound/machines/chime.ogg')//probably not the best sound but I think it's reasonable
+						sound_to(selected, 'resources/sound/machines/chime.ogg')//probably not the best sound but I think it's reasonable
 
 						var/answer = alert(selected,"Do you want to return to life?","Cloning","Yes","No")
 						if(answer == "Yes" && pod.growclone(C))

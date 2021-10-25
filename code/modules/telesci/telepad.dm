@@ -2,7 +2,7 @@
 /obj/machinery/telepad
 	name = "telepad"
 	desc = "A bluespace telepad used for teleporting objects to and from a location."
-	icon = 'icons/obj/telescience.dmi'
+	icon = 'resources/icons/obj/telescience.dmi'
 	icon_state = "pad-idle"
 	anchored = 1
 	use_power = 1
@@ -12,7 +12,7 @@
 /obj/machinery/telepad_cargo
 	name = "cargo telepad"
 	desc = "A telepad used by the Rapid Crate Sender."
-	icon = 'icons/obj/telescience.dmi'
+	icon = 'resources/icons/obj/telescience.dmi'
 	icon_state = "pad-idle"
 	anchored = 1
 	use_power = 1
@@ -22,7 +22,7 @@
 /obj/machinery/telepad_cargo/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/wrench))
 		anchored = 0
-		playsound(src, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src, 'resources/sound/items/Ratchet.ogg', 50, 1)
 		if(anchored)
 			anchored = 0
 			to_chat(user, "<span class = 'caution'> The [src] can now be moved.</span>")
@@ -31,15 +31,15 @@
 			to_chat(user, "<span class = 'caution'> The [src] is now secured.</span>")
 	if(istype(W, /obj/item/weapon/screwdriver))
 		if(stage == 0)
-			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 			to_chat(user, "<span class = 'caution'> You unscrew the telepad's tracking beacon.</span>")
 			stage = 1
 		else if(stage == 1)
-			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 			to_chat(user, "<span class = 'caution'> You screw in the telepad's tracking beacon.</span>")
 			stage = 0
 	if(istype(W, /obj/item/weapon/weldingtool) && stage == 1)
-		playsound(src, 'sound/items/Welder.ogg', 50, 1)
+		playsound(src, 'resources/sound/items/Welder.ogg', 50, 1)
 		to_chat(user, "<span class = 'caution'> You disassemble the telepad.</span>")
 		new /obj/item/stack/material/steel(get_turf(src))
 		new /obj/item/stack/material/glass(get_turf(src))
@@ -49,7 +49,7 @@
 /obj/item/device/telepad_beacon
 	name = "telepad beacon"
 	desc = "Use to warp in a cargo telepad."
-	icon = 'icons/obj/radio.dmi'
+	icon = 'resources/icons/obj/radio.dmi'
 	icon_state = "beacon"
 	item_state = "signaler"
 	origin_tech = "bluespace=3"
@@ -58,7 +58,7 @@
 	if(user)
 		to_chat(user, "<span class = 'caution'> Locked In</span>")
 		new /obj/machinery/telepad_cargo(user.loc)
-		playsound(src, 'sound/effects/pop.ogg', 100, 1, 1)
+		playsound(src, 'resources/sound/effects/pop.ogg', 100, 1, 1)
 		qdel(src)
 	return
 
@@ -66,7 +66,7 @@
 /obj/item/weapon/rcs
 	name = "rapid-crate-sender (RCS)"
 	desc = "Use this to send crates and closets to cargo telepads."
-	icon = 'icons/obj/telescience.dmi'
+	icon = 'resources/icons/obj/telescience.dmi'
 	icon_state = "rcs"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	force = 10.0
@@ -107,11 +107,11 @@
 	if(emagged)
 		if(mode == 0)
 			mode = 1
-			playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
+			playsound(src.loc, 'resources/sound/effects/pop.ogg', 50, 0)
 			to_chat(user, "<span class = 'caution'> The telepad locator has become uncalibrated.</span>")
 		else
 			mode = 0
-			playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
+			playsound(src.loc, 'resources/sound/effects/pop.ogg', 50, 0)
 			to_chat(user, "<span class = 'caution'> You calibrate the telepad locator.</span>")
 
 /obj/item/weapon/rcs/attackby(obj/item/W, mob/user)

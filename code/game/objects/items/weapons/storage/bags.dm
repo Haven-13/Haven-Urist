@@ -41,7 +41,7 @@
 /obj/item/weapon/storage/bag/trash
 	name = "trash bag"
 	desc = "It's the heavy-duty black polymer kind. Time to take out the trash!"
-	icon = 'icons/obj/janitor.dmi'
+	icon = 'resources/icons/obj/janitor.dmi'
 	icon_state = "trashbag0"
 	item_state = "trashbag"
 
@@ -68,7 +68,7 @@
 /obj/item/weapon/storage/bag/plasticbag
 	name = "plastic bag"
 	desc = "It's a very flimsy, very noisy alternative to a bag."
-	icon = 'icons/obj/trash.dmi'
+	icon = 'resources/icons/obj/trash.dmi'
 	icon_state = "plasticbag"
 	item_state = "plasticbag"
 
@@ -83,7 +83,7 @@
 
 /obj/item/weapon/storage/bag/cash
 	name = "cash bag"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'resources/icons/obj/storage.dmi'
 	icon_state = "cashbag"
 	desc = "A bag for carrying lots of cash. It's got a big dollar sign printed on the front."
 	max_storage_space = 100

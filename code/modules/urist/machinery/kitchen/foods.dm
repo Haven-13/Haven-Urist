@@ -30,7 +30,7 @@
 /obj/item/trash/bowl
 	name = "bowl"
 	desc = "An empty bowl. Put some food in it to start making a soup."
-	icon = 'icons/urist/kitchen.dmi'
+	icon = 'resources/icons/urist/kitchen.dmi'
 	icon_state = "soup"
 
 /obj/item/trash/bowl/attackby(obj/item/W as obj, mob/user as mob)
@@ -45,7 +45,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/customizable
 	name = "sandwich"
 	desc = "A sandwich! A timeless classic."
-	icon = 'icons/urist/kitchen.dmi'
+	icon = 'resources/icons/urist/kitchen.dmi'
 	icon_state = "breadslice"
 	var/baseicon = "sandwich"
 	var/basename = "sandwich"
@@ -387,7 +387,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/icecream
 	name = "ice cream"
 	desc = "Delicious ice cream."
-	icon = 'icons/urist/kitchen.dmi'
+	icon = 'resources/icons/urist/kitchen.dmi'
 	icon_state = "icecream_cone"
 
 /obj/item/weapon/reagent_containers/food/snacks/icecream/New()
@@ -399,7 +399,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/icecream/update_icon()
 	overlays.Cut()
-	var/image/filling = image('icons/urist/kitchen.dmi', src, "icecream_color") //GLLEEEEEEERD!
+	var/image/filling = image('resources/icons/urist/kitchen.dmi', src, "icecream_color") //GLLEEEEEEERD!
 	filling.icon += reagents.get_color()
 	overlays += filling
 
@@ -434,7 +434,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/cereal
 	name = "box of cereal"
 	desc = "A box of cereal."
-	icon = 'icons/urist/kitchen.dmi'
+	icon = 'resources/icons/urist/kitchen.dmi'
 	icon_state = "cereal_box"
 	bitesize = 2
 
@@ -447,7 +447,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/deepfryholder
 	name = "Deep Fried Foods Holder Obj"
 	desc = "If you can see this description the code for the deep fryer fucked up."
-	icon = 'icons/urist/kitchen.dmi'
+	icon = 'resources/icons/urist/kitchen.dmi'
 	icon_state = "deepfried_holder_icon"
 	bitesize = 2
 	deepfried = 1
@@ -463,7 +463,7 @@
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable // Shamelessly stolen from original customizables, so that I can easily use the oven code.
 	name = "Customizable Drink"
 	desc = "If you can see this, tell a coder."
-	icon = 'icons/urist/kitchen.dmi'
+	icon = 'resources/icons/urist/kitchen.dmi'
 	icon_state = "vodkacustom"
 	var/baseicon = "vodkacustom"
 	var/basename = "hooch"

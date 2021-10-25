@@ -1,7 +1,7 @@
 /obj/item/frame
 	name = "frame"
 	desc = "Used for building machines."
-	icon = 'icons/obj/monitors.dmi'
+	icon = 'resources/icons/obj/monitors.dmi'
 	icon_state = "fire_bitem"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	var/build_machine_type
@@ -65,7 +65,7 @@
 /obj/item/frame/light
 	name = "light fixture frame"
 	desc = "Used for building lights."
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'resources/icons/obj/lighting.dmi'
 	icon_state = "tube-construct-item"
 	build_machine_type = /obj/machinery/light_construct
 	reverse = 1

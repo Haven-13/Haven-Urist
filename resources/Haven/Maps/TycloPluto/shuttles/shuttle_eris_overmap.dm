@@ -14,8 +14,8 @@
 	dock_target ="eris_shuttle"
 	current_location = "nav_hangar_eris"
 	landmark_transition = "nav_transit_eris"
-	sound_takeoff = 'sound/effects/rocket.ogg'
-	sound_landing = 'sound/effects/rocket_backwards.ogg'
+	sound_takeoff = 'resources/sound/effects/rocket.ogg'
+	sound_landing = 'resources/sound/effects/rocket_backwards.ogg'
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_eris"

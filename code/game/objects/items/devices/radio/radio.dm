@@ -1,5 +1,5 @@
 /obj/item/device/radio
-	icon = 'icons/obj/radio.dmi'
+	icon = 'resources/icons/obj/radio.dmi'
 	name = "shortwave radio"
 	suffix = "\[3\]"
 	icon_state = "walkietalkie"
@@ -268,7 +268,7 @@
 			return 0
 
 	if(loc == M)
-		playsound(loc, 'sound/effects/walkietalkie.ogg', 20, 0, -1)
+		playsound(loc, 'resources/sound/effects/walkietalkie.ogg', 20, 0, -1)
 
 
 	/* Quick introduction:
@@ -572,7 +572,7 @@
 	var/mob/living/silicon/robot/myborg = null // Cyborg which owns this radio. Used for power checks
 	var/obj/item/device/encryptionkey/keyslot = null//Borg radios can handle a single encryption key
 	var/shut_up = 1
-	icon = 'icons/obj/robot_component.dmi' // Cyborgs radio icons should look like the component.
+	icon = 'resources/icons/obj/robot_component.dmi' // Cyborgs radio icons should look like the component.
 	icon_state = "radio"
 	canhear_range = 0
 	subspace_transmission = 1
@@ -785,7 +785,7 @@
 
 /obj/item/device/radio/phone
 	broadcasting = 0
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "red_phone"
 	randpixel = 0
 	listening = 1

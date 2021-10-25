@@ -1,7 +1,7 @@
 /turf/simulated/wall
 	name = "wall"
 	desc = "A huge chunk of metal used to seperate rooms."
-	icon = 'icons/turf/wall_masks.dmi'
+	icon = 'resources/icons/turf/wall_masks.dmi'
 	icon_state = "generic"
 	opacity = 1
 	density = 1
@@ -18,7 +18,7 @@
 	var/material/reinf_material
 	var/last_state
 	var/construction_stage
-	var/hitsound = 'sound/weapons/Genhit.ogg'
+	var/hitsound = 'resources/sound/weapons/Genhit.ogg'
 	var/list/wall_connections = list("0", "0", "0", "0")
 	var/list/other_connections = list("0", "0", "0", "0")
 	var/floor_type = /turf/simulated/floor/plating //turf it leaves after destruction
@@ -191,7 +191,7 @@
 
 /turf/simulated/wall/proc/dismantle_wall(var/devastated, var/explode, var/no_product)
 
-	playsound(src, 'sound/items/Welder.ogg', 100, 1)
+	playsound(src, 'resources/sound/items/Welder.ogg', 100, 1)
 	if(!no_product)
 		if(reinf_material)
 			reinf_material.place_dismantled_girder(src, reinf_material)
@@ -247,7 +247,7 @@
 	var/obj/effect/overlay/O = new/obj/effect/overlay( src )
 	O.SetName("Thermite")
 	O.desc = "Looks hot."
-	O.icon = 'icons/effects/fire.dmi'
+	O.icon = 'resources/icons/effects/fire.dmi'
 	O.icon_state = "2"
 	O.anchored = 1
 	O.set_density(1)

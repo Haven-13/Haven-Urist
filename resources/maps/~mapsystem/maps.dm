@@ -91,12 +91,12 @@ GLOBAL_LIST_EMPTY(all_maps)
 	var/current_lobby_screen
 	var/music_track/lobby_track                              // The track that will play in the lobby screen.
 	var/list/lobby_tracks = list()                           // The list of lobby tracks to pick() from. If left unset will randomly select among all available /music_track subtypes.
-	var/welcome_sound = 'sound/AI/welcome.ogg'               // Sound played on roundstart
+	var/welcome_sound = 'resources/sound/AI/welcome.ogg'               // Sound played on roundstart
 
 	var/default_law_type = /datum/ai_laws/nanotrasen  // The default lawset use by synth units, if not overriden by their laws var.
 	var/security_state = /decl/security_state/default // The default security state system to use.
 
-	var/id_hud_icons = 'icons/mob/hud.dmi' // Used by the ID HUD (primarily sechud) overlay.
+	var/id_hud_icons = 'resources/icons/mob/hud.dmi' // Used by the ID HUD (primarily sechud) overlay.
 
 	var/num_exoplanets = 0
 	var/list/planet_size  //dimensions of planet zlevel, defaults to world size. Due to how maps are generated, must be (2^n+1) e.g. 17,33,65,129 etc. Map will just round up to those if set to anything other.
@@ -365,7 +365,7 @@ GLOBAL_LIST_EMPTY(all_maps)
 	winset(C, "lobbybrowser", "is-disabled=false;is-visible=true")
 
 	show_browser(C, current_lobby_screen, "file=titlescreen.png;display=0")
-	show_browser(C, file('html/lobby_titlescreen_holder.html'), "window=lobbybrowser")
+	show_browser(C, file('resources/html/lobby_titlescreen_holder.html'), "window=lobbybrowser")
 
 /datum/map/proc/hide_titlescreen(client/C)
 	if(C.mob) // Check if the client is still connected to something

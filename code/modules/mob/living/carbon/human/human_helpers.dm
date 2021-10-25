@@ -176,7 +176,7 @@
 		if(!T2 || L == src || L.stat == DEAD || is_below_sound_pressure(T2))
 			continue
 		heard_something = TRUE
-		var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = T1)
+		var/image/ping_image = image(icon = 'resources/icons/effects/effects.dmi', icon_state = "sonar_ping", loc = T1)
 		ping_image.plane = EMISSIVE_PLANE
 		ping_image.layer = EMISSIVE_UNBLOCKABLE_LAYER
 		ping_image.pixel_x = (T2.x - T1.x) * WORLD_ICON_SIZE

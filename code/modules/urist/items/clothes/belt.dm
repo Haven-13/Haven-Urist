@@ -5,8 +5,8 @@
 /obj/item/weapon/storage/belt/robotics
 	name = "Robotics Toolbelt"
 	desc = "A toolbelt that has roboticist markings on it."
-	icon = 'icons/urist/items/clothes/belt.dmi'
-	icon_override = 'icons/uristmob/belt_mirror.dmi'
+	icon = 'resources/icons/urist/items/clothes/belt.dmi'
+	icon_override = 'resources/icons/uristmob/belt_mirror.dmi'
 	icon_state = "beltRobo"
 	storage_slots = 7
 	can_hold = list(
@@ -32,8 +32,8 @@
 	new /obj/item/stack/cable_coil(src, 30, pick("red", "yellow", "orange"))
 
 /obj/item/weapon/storage/belt/vanity
-	icon = 'icons/urist/items/clothes/belt.dmi'
-	icon_override = 'icons/uristmob/belt_mirror.dmi'
+	icon = 'resources/icons/urist/items/clothes/belt.dmi'
+	icon_override = 'resources/icons/uristmob/belt_mirror.dmi'
 	storage_slots = 1
 	can_hold = list(
 		/obj/item/modular_computer/pda
@@ -90,8 +90,8 @@
 //use this from now on
 
 /obj/item/weapon/storage/belt/urist
-	icon = 'icons/urist/items/clothes/belt.dmi'
-	icon_override = 'icons/uristmob/belt_mirror.dmi'
+	icon = 'resources/icons/urist/items/clothes/belt.dmi'
+	icon_override = 'resources/icons/uristmob/belt_mirror.dmi'
 
 //bandoliers
 

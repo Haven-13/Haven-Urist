@@ -1,7 +1,7 @@
 /obj/machinery/recharge_station
 	name = "cyborg recharging station"
 	desc = "A heavy duty rapid charging system, designed to quickly recharge cyborg power reserves."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'resources/icons/obj/objects.dmi'
 	icon_state = "borgcharger0"
 	density = 1
 	anchored = 1
@@ -186,17 +186,17 @@
 	overlays.Cut()
 	switch(round(chargepercentage()))
 		if(1 to 20)
-			overlays += image('icons/obj/objects.dmi', "statn_c0")
+			overlays += image('resources/icons/obj/objects.dmi', "statn_c0")
 		if(21 to 40)
-			overlays += image('icons/obj/objects.dmi', "statn_c20")
+			overlays += image('resources/icons/obj/objects.dmi', "statn_c20")
 		if(41 to 60)
-			overlays += image('icons/obj/objects.dmi', "statn_c40")
+			overlays += image('resources/icons/obj/objects.dmi', "statn_c40")
 		if(61 to 80)
-			overlays += image('icons/obj/objects.dmi', "statn_c60")
+			overlays += image('resources/icons/obj/objects.dmi', "statn_c60")
 		if(81 to 98)
-			overlays += image('icons/obj/objects.dmi', "statn_c80")
+			overlays += image('resources/icons/obj/objects.dmi', "statn_c80")
 		if(99 to 110)
-			overlays += image('icons/obj/objects.dmi', "statn_c100")
+			overlays += image('resources/icons/obj/objects.dmi', "statn_c100")
 
 /obj/machinery/recharge_station/update_icon()
 	..()

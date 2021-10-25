@@ -1,6 +1,6 @@
 /obj/machinery/disease2/diseaseanalyser
 	name = "disease analyser"
-	icon = 'icons/obj/virology.dmi'
+	icon = 'resources/icons/obj/virology.dmi'
 	icon_state = "analyser"
 	anchored = 1
 	density = 1

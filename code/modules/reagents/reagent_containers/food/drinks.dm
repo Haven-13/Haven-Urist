@@ -4,12 +4,12 @@
 /obj/item/weapon/reagent_containers/food/drinks
 	name = "drink"
 	desc = "Yummy!"
-	icon = 'icons/obj/drinks.dmi'
+	icon = 'resources/icons/obj/drinks.dmi'
 	icon_state = null
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	amount_per_transfer_from_this = 5
 	volume = 50
-	var/static/drinksounds = list('sound/urist/drink1.ogg', 'sound/urist/drink2.ogg', 'sound/urist/drink3.ogg', 'sound/urist/drink4.ogg')
+	var/static/drinksounds = list('resources/sound/urist/drink1.ogg', 'resources/sound/urist/drink2.ogg', 'resources/sound/urist/drink3.ogg', 'resources/sound/urist/drink4.ogg')
 	var/filling_states   // List of percentages full that have icons
 	var/base_name = null // Name to put in front of drinks, i.e. "[base_name] of [contents]"
 	var/base_icon = null // Base icon name for fill states
@@ -23,12 +23,12 @@
 		open(user)
 
 /obj/item/weapon/reagent_containers/food/drinks/proc/open(mob/user)
-	playsound(loc,'sound/effects/canopen.ogg', rand(10,50), 1)
+	playsound(loc,'resources/sound/effects/canopen.ogg', rand(10,50), 1)
 	to_chat(user, "<span class='notice'>You open \the [src] with an audible pop!</span>")
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle/open(mob/user)
-	playsound(loc,'sound/effects/bonebreak1.ogg', rand(10,50), 1)
+	playsound(loc,'resources/sound/effects/bonebreak1.ogg', rand(10,50), 1)
 	to_chat(user, "<span class='notice'>You twist open \the [src], destroying the safety seal!</span>")
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
@@ -78,7 +78,7 @@
 //	playsound(target_ladder, pick(climbsounds), 50)
 //	return M.Move(T)
 //	/obj/item/weapon/reagent_containers/food/drinks/feed_sound(var/mob/user)
-//		playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
+//		playsound(user.loc, 'resources/sound/items/drink.ogg', rand(10, 50), 1)
 
 /obj/item/weapon/reagent_containers/food/drinks/examine(mob/user)
 	if(!..(user, 1))

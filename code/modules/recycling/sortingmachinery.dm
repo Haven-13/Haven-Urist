@@ -1,7 +1,7 @@
 /obj/structure/bigDelivery
 	desc = "A big wrapped package."
 	name = "large parcel"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'resources/icons/obj/storage.dmi'
 	icon_state = "deliverycloset"
 	var/obj/wrapped = null
 	density = 1
@@ -35,7 +35,7 @@
 					update_icon()
 				else
 					src.sortTag = O.currTag
-				playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/machines/twobeep.ogg', 50, 1)
 			else
 				to_chat(user, "<span class='warning'>The package is already labeled for [O.currTag].</span>")
 		else
@@ -75,7 +75,7 @@
 /obj/structure/bigDelivery/update_icon()
 	overlays = new()
 	if(nameset || examtext)
-		var/image/I = new/image('icons/obj/storage.dmi',"delivery_label")
+		var/image/I = new/image('resources/icons/obj/storage.dmi',"delivery_label")
 		if(icon_state == "deliverycloset")
 			I.pixel_x = 2
 			if(label_y == null)
@@ -88,7 +88,7 @@
 			I.pixel_y = -3
 		overlays += I
 	if(src.sortTag)
-		var/image/I = new/image('icons/obj/storage.dmi',"delivery_tag")
+		var/image/I = new/image('resources/icons/obj/storage.dmi',"delivery_tag")
 		if(icon_state == "deliverycloset")
 			if(tag_x == null)
 				tag_x = rand(-2, 3)
@@ -124,7 +124,7 @@
 /obj/item/smallDelivery
 	desc = "A small wrapped package."
 	name = "small parcel"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'resources/icons/obj/storage.dmi'
 	icon_state = "deliverycrate3"
 	var/obj/item/wrapped = null
 	var/sortTag = null
@@ -160,7 +160,7 @@
 					update_icon()
 				else
 					src.sortTag = O.currTag
-				playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/machines/twobeep.ogg', 50, 1)
 			else
 				to_chat(user, "<span class='warning'>The package is already labeled for [O.currTag].</span>")
 		else
@@ -201,12 +201,12 @@
 /obj/item/smallDelivery/update_icon()
 	overlays = new()
 	if((nameset || examtext) && icon_state != "deliverycrate1")
-		var/image/I = new/image('icons/obj/storage.dmi',"delivery_label")
+		var/image/I = new/image('resources/icons/obj/storage.dmi',"delivery_label")
 		if(icon_state == "deliverycrate5")
 			I.pixel_y = -1
 		overlays += I
 	if(src.sortTag)
-		var/image/I = new/image('icons/obj/storage.dmi',"delivery_tag")
+		var/image/I = new/image('resources/icons/obj/storage.dmi',"delivery_tag")
 		switch(icon_state)
 			if("deliverycrate1")
 				I.pixel_y = -5
@@ -236,7 +236,7 @@
 	desc = "Heavy duty brown paper used to wrap packages to protect them during shipping."
 	singular_name = "sheet"
 	max_amount = 25
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "deliveryPaper"
 	w_class = ITEM_SIZE_NORMAL
 
@@ -247,7 +247,7 @@
 /obj/item/weapon/c_tube
 	name = "cardboard tube"
 	desc = "A tube... of cardboard."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "c_tube"
 	throwforce = 1
 	w_class = ITEM_SIZE_SMALL
@@ -366,7 +366,7 @@
 	if(href_list["nextTag"] && (href_list["nextTag"] in GLOB.tagger_locations))
 		src.currTag = href_list["nextTag"]
 		to_chat(user, "<span class='notice'>You set [src] to <b>[src.currTag]</b>.</span>")
-		playsound(src.loc, 'sound/machines/chime.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/machines/chime.ogg', 50, 1)
 		. = TRUE
 	if(href_list["nextTag"] == "CUSTOM")
 		var/dest = input(user, "Please enter custom location.", "Location", src.currTag ? src.currTag : "None")
@@ -374,11 +374,11 @@
 			if(dest && lowertext(dest) != "none")
 				src.currTag = dest
 				to_chat(user, "<span class='notice'>You designate a custom location on [src], set to <b>[src.currTag]</b>.</span>")
-				playsound(src.loc, 'sound/machines/chime.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/machines/chime.ogg', 50, 1)
 			else
 				src.currTag = 0
 				to_chat(user, "<span class='notice'>You clear [src]'s custom location.</span>")
-				playsound(src.loc, 'sound/machines/chime.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/machines/chime.ogg', 50, 1)
 			. = TRUE
 		else
 			. = FALSE
@@ -435,7 +435,7 @@
 	air_contents = new()		// new empty gas resv.
 
 	sleep(10)
-	playsound(src, 'sound/machines/disposalflush.ogg', 50, 0, 0)
+	playsound(src, 'resources/sound/machines/disposalflush.ogg', 50, 0, 0)
 	sleep(5) // wait for animation to finish
 
 	if(prob(35))
@@ -467,12 +467,12 @@
 	if(isScrewdriver(I))
 		if(c_mode==0)
 			c_mode=1
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 			to_chat(user, "You remove the screws around the power connection.")
 			return
 		else if(c_mode==1)
 			c_mode=0
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 			to_chat(user, "You attach the screws around the power connection.")
 			return
 	else if(isWelder(I) && c_mode==1)
@@ -480,7 +480,7 @@
 		if(W.remove_fuel(1,user))
 			to_chat(user, "You start slicing the floorweld off the delivery chute.")
 			if(do_after(user,20, src))
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				playsound(src.loc, 'resources/sound/items/Welder2.ogg', 100, 1)
 				if(!src || !W.isOn()) return
 				to_chat(user, "You sliced the floorweld off the delivery chute.")
 				var/obj/structure/disposalconstruct/C = new (src.loc)
@@ -501,7 +501,7 @@
 
 /obj/item/stack/package_wrap/cyborg
 	name = "package wrapper synthesizer"
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "deliveryPaper"
 	gender = NEUTER
 	matter = null

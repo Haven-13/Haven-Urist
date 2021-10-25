@@ -2,7 +2,7 @@
 	name = "Vox Armalis"
 	desc = "In truth, this scares you."
 
-	icon = 'icons/mob/armalis.dmi'
+	icon = 'resources/icons/mob/armalis.dmi'
 	icon_state = "armalis_naked"
 	icon_living = "armalis_naked"
 	icon_dead = "armalis_naked_dead"
@@ -16,7 +16,7 @@
 	response_harm   = "hits"
 
 	attacktext = "reaped"
-	attack_sound = 'sound/effects/bamf.ogg'
+	attack_sound = 'resources/sound/effects/bamf.ogg'
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	can_escape = 1

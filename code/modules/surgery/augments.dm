@@ -53,7 +53,7 @@
 		affected.fracture()
 		controller.take_damage(10)
 		target.custom_pain("<span class = 'danger'>Unbearable pain is felt as metal connections are ripped out from inside your body!</span>",100, affecting = affected)
-	playsound(target.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	playsound(target.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 	controller.change_controller(target,null)
 	affected.implants |= controller
 	controller.dropInto(target.loc)

@@ -1,7 +1,7 @@
 /obj/machinery/cooking
 	name = "oven"
 	desc = "Cookies are ready, dear."
-	icon = 'icons/urist/kitchen.dmi'
+	icon = 'resources/icons/urist/kitchen.dmi'
 	icon_state = "oven_off"
 	var/orig = "oven"
 	var/production_meth = "cooking"
@@ -44,7 +44,7 @@
 			icon_state = "[orig]_off"
 			C.loc = get_turf(src)
 			C.attackby(F,user)
-			playsound(loc, 'sound/machines/ding.ogg', 50, 1)
+			playsound(loc, 'resources/sound/machines/ding.ogg', 50, 1)
 			updatefood()
 			return
 

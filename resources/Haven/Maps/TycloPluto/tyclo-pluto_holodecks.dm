@@ -2,8 +2,8 @@
 
 	holodeck_programs = list(
 		"beach sim"         = new/datum/holodeck_program(/area/holodeck/source_beach, list()),
-		"boxingcourt"       = new/datum/holodeck_program(/area/holodeck/source_boxingcourt, list('sound/music/THUNDERDOME.ogg')),
-		"basketball"        = new/datum/holodeck_program(/area/holodeck/source_basketball, list('sound/music/THUNDERDOME.ogg')),
+		"boxingcourt"       = new/datum/holodeck_program(/area/holodeck/source_boxingcourt, list('resources/sound/music/THUNDERDOME.ogg')),
+		"basketball"        = new/datum/holodeck_program(/area/holodeck/source_basketball, list('resources/sound/music/THUNDERDOME.ogg')),
 
 		"turnoff"           = new/datum/holodeck_program(/area/holodeck/source_plating, list())
 	)

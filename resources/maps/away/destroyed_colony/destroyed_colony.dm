@@ -40,7 +40,7 @@
 //	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /obj/effect/urist/spawn_bomb
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 	icon_state = "grabbed1"
 	invisibility = 101
 	var/dmg_dev = 1
@@ -55,7 +55,7 @@
 /turf/simulated/floor/fixed/destroyedroad
 	name = "road"
 	desc = "It's a road. It's seen better days."
-	icon = 'icons/urist/turf/floorsplus.dmi'
+	icon = 'resources/icons/urist/turf/floorsplus.dmi'
 	icon_state = ""
 
 /turf/simulated/floor/fixed/destroyedroad/attackby(var/obj/item/C, var/mob/user)

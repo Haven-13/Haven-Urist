@@ -8,7 +8,7 @@
 
 /obj/machinery/power
 	name = null
-	icon = 'icons/obj/power.dmi'
+	icon = 'resources/icons/obj/power.dmi'
 	anchored = 1.0
 	var/datum/powernet/powernet = null
 	use_power = 0

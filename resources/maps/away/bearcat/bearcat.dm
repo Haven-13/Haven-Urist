@@ -47,8 +47,8 @@
 	warmup_time = 3	//give those below some time to get out of the way
 	waypoint_station = "nav_bearcat_lift_bottom"
 	waypoint_offsite = "nav_bearcat_lift_top"
-	sound_takeoff = 'sound/effects/lift_heavy_start.ogg'
-	sound_landing = 'sound/effects/lift_heavy_stop.ogg'
+	sound_takeoff = 'resources/sound/effects/lift_heavy_start.ogg'
+	sound_landing = 'resources/sound/effects/lift_heavy_stop.ogg'
 	ceiling_type = null
 	knockdown = 0
 	defer_initialisation = TRUE

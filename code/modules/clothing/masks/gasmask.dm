@@ -56,7 +56,7 @@
 	w_class = ITEM_SIZE_SMALL
 	armor = list(melee = 10, bullet = 10, laser = 10, energy = 0, bomb = 0, bio = 55, rad = 0)
 	sprite_sheets = list(
-		SPECIES_RESOMI = 'icons/mob/species/resomi/masks.dmi'
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/masks.dmi'
 		)
 
 //In scaling order of utility and seriousness

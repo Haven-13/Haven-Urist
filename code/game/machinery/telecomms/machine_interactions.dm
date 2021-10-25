@@ -38,24 +38,24 @@
 		if(0)
 			if(isScrewdriver(P))
 				to_chat(user, "You unfasten the bolts.")
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 				construct_op ++
 		if(1)
 			if(isScrewdriver(P))
 				to_chat(user, "You fasten the bolts.")
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 				construct_op --
 			if(isWrench(P))
 				to_chat(user, "You dislodge the external plating.")
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+				playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 				construct_op ++
 		if(2)
 			if(isWrench(P))
 				to_chat(user, "You secure the external plating.")
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+				playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 				construct_op --
 			if(isWirecutter(P))
-				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 50, 1)
 				to_chat(user, "You remove the cables.")
 				construct_op ++
 				var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( user.loc )
@@ -72,7 +72,7 @@
 					to_chat(user, "<span class='warning'>You need five coils of wire for this.</span>")
 			if(isCrowbar(P))
 				to_chat(user, "You begin prying out the circuit board other components...")
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 				if(do_after(user,60, src))
 					to_chat(user, "You finish prying out the components.")
 

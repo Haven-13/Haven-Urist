@@ -1,5 +1,5 @@
 /obj/machinery/power/debug_items/
-	icon = 'icons/obj/power.dmi'
+	icon = 'resources/icons/obj/power.dmi'
 	icon_state = "tracker"
 	anchored = 1
 	density = 1

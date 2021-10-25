@@ -11,15 +11,15 @@
 	var/cyborg_noun = "Cyborg"
 
 	// Icon/appearance vars.
-	var/icobase =      'icons/mob/human_races/species/human/body.dmi'          // Normal icon set.
-	var/deform =       'icons/mob/human_races/species/human/deformed_body.dmi' // Mutated icon set.
-	var/preview_icon = 'icons/mob/human_races/species/human/preview.dmi'
-	var/husk_icon =    'icons/mob/human_races/species/default_husk.dmi'
+	var/icobase =      'resources/icons/mob/human_races/species/human/body.dmi'          // Normal icon set.
+	var/deform =       'resources/icons/mob/human_races/species/human/deformed_body.dmi' // Mutated icon set.
+	var/preview_icon = 'resources/icons/mob/human_races/species/human/preview.dmi'
+	var/husk_icon =    'resources/icons/mob/human_races/species/default_husk.dmi'
 
 	// Damage overlay and masks.
-	var/damage_overlays = 'icons/mob/human_races/species/human/damage_overlay.dmi'
-	var/damage_mask =     'icons/mob/human_races/species/human/damage_mask.dmi'
-	var/blood_mask =      'icons/mob/human_races/species/human/blood_mask.dmi'
+	var/damage_overlays = 'resources/icons/mob/human_races/species/human/damage_overlay.dmi'
+	var/damage_mask =     'resources/icons/mob/human_races/species/human/damage_mask.dmi'
+	var/blood_mask =      'resources/icons/mob/human_races/species/human/blood_mask.dmi'
 
 	var/blood_color = COLOR_BLOOD_HUMAN               // Red.
 	var/flesh_color = "#ffc896"               // Pink.
@@ -40,7 +40,7 @@
 	var/default_f_style = "Shaved"
 
 	var/race_key = 0                          // Used for mob icon cache string.
-	var/icon_template = 'icons/mob/human_races/species/template.dmi' // Used for mob icon generation for non-32x32 species.
+	var/icon_template = 'resources/icons/mob/human_races/species/template.dmi' // Used for mob icon generation for non-32x32 species.
 	var/pixel_offset_x = 0                    // Used for offsetting large icons.
 	var/pixel_offset_y = 0                    // Used for offsetting large icons.
 	var/antaghud_offset_x = 0                 // As above, but specifically for the antagHUD indicator.
@@ -218,7 +218,7 @@
 	var/swap_flags = ~HEAVY	// What can we swap place with?
 
 	var/pass_flags = 0
-	var/breathing_sound = 'sound/voice/monkey.ogg'
+	var/breathing_sound = 'resources/sound/voice/monkey.ogg'
 	var/list/equip_adjust = list()
 	var/list/equip_overlays = list()
 
@@ -594,7 +594,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 	if(!(species_flags & SPECIES_FLAG_NO_SLIP) && randn <= 25)
 		var/armor_check = target.run_armor_check(affecting, "melee")
 		target.apply_effect(3, DAMAGE_TYPE_WEAKEN, armor_check)
-		playsound(target.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+		playsound(target.loc, 'resources/sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		if(armor_check < 100)
 			target.visible_message("<span class='danger'>[attacker] has pushed [target]!</span>")
 		else
@@ -604,17 +604,17 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 	if(randn <= 60)
 		//See about breaking grips or pulls
 		if(target.break_all_grabs(attacker))
-			playsound(target.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+			playsound(target.loc, 'resources/sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			return
 
 		//Actually disarm them
 		for(var/obj/item/I in holding)
 			if(I && target.unEquip(I))
 				target.visible_message("<span class='danger'>[attacker] has disarmed [target]!</span>")
-				playsound(target.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+				playsound(target.loc, 'resources/sound/weapons/thudswoosh.ogg', 50, 1, -1)
 				return
 
-	playsound(target.loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+	playsound(target.loc, 'resources/sound/weapons/punchmiss.ogg', 25, 1, -1)
 	target.visible_message("<span class='danger'>[attacker] attempted to disarm \the [target]!</span>")
 
 /datum/species/proc/disfigure_msg(var/mob/living/carbon/human/H) //Used for determining the message a disfigured face has on examine. To add a unique message, just add this onto a specific species and change the "return" message.

@@ -9,7 +9,7 @@
 #define PRESSURE_CHECK_OUTPUT 4
 
 /obj/machinery/atmospherics/binary/dp_vent_pump
-	icon = 'icons/atmos/vent_pump.dmi'
+	icon = 'resources/icons/atmos/vent_pump.dmi'
 	icon_state = "map_dp_vent"
 
 	//node2 is output port

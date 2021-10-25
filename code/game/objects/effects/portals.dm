@@ -1,7 +1,7 @@
 /obj/effect/portal
 	name = "portal"
 	desc = "Looks unstable. Best to test it with the clown."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "portal"
 	density = 1
 	unacidable = 1//Can't destroy energy portals.
@@ -36,7 +36,7 @@
 		if(prob(failchance))
 			icon_state = "portal1"
 			dangerous = 1
-	playsound(src, 'sound/effects/phasein.ogg', 25, 1)
+	playsound(src, 'resources/sound/effects/phasein.ogg', 25, 1)
 	target = end
 
 	if(delete_after)

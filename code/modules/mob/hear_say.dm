@@ -100,7 +100,7 @@
 		return
 
 	if(last_radio_sound + 0.5 SECOND > world.time)
-		playsound(loc, 'sound/effects/radio_chatter.ogg', 10, 0, -1, falloff = -3)
+		playsound(loc, 'resources/sound/effects/radio_chatter.ogg', 10, 0, -1, falloff = -3)
 		last_radio_sound = world.time
 
 	if(sleeping || stat==1) //If unconscious or sleeping

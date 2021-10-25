@@ -118,7 +118,7 @@
 /obj/item/weapon/storage/lockbox/station_account
 	name = "station account card lockbox"
 	desc = "A locked box used to store the ICS Nerva's account card."
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	icon_state = "medalbox+l"
 	item_state = "syringe_kit"
 	w_class = 3

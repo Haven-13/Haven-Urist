@@ -494,7 +494,7 @@ var/global/datum/controller/occupations/job_master
 			if("AI")
 				return H
 			if("Captain")
-				var/sound/announce_sound = (GAME_STATE <= RUNLEVEL_SETUP)? null : sound('sound/misc/boatswain.ogg', volume=20)
+				var/sound/announce_sound = (GAME_STATE <= RUNLEVEL_SETUP)? null : sound('resources/sound/misc/boatswain.ogg', volume=20)
 				captain_announcement.Announce("All hands, Captain [H.real_name] on deck!", new_sound=announce_sound)
 
 	if(spawn_in_storage)

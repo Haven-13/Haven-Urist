@@ -6,7 +6,7 @@
 
 /area/medical/lobby
 	name = "\improper Medical Lobby"
-	ambience = list('sound/ambience/signal.ogg')
+	ambience = list('resources/sound/ambience/signal.ogg')
 
 /area/medical/treatment
 	name = "\improper Medical Treatment Center"

@@ -3,7 +3,7 @@
 
 /turf/simulated/floor/fixed
 	name = "floor"
-	icon = 'icons/turf/flooring/tiles.dmi'
+	icon = 'resources/icons/turf/flooring/tiles.dmi'
 	icon_state = "steel"
 	initial_flooring = null
 
@@ -28,7 +28,7 @@
 /turf/simulated/floor/fixed/alium
 	name = "alien plating"
 	desc = "This obviously wasn't made for your feet."
-	icon = 'icons/turf/flooring/alium.dmi'
+	icon = 'resources/icons/turf/flooring/alium.dmi'
 	icon_state = "jaggy"
 
 /turf/simulated/floor/fixed/alium/attackby(var/obj/item/C, var/mob/user)

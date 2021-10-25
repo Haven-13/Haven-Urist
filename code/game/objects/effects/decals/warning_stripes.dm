@@ -1,5 +1,5 @@
 /obj/effect/decal/warning_stripes
-	icon = 'icons/effects/warning_stripes.dmi'
+	icon = 'resources/icons/effects/warning_stripes.dmi'
 
 /obj/effect/decal/warning_stripes/Initialize()
 	. = ..()

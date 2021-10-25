@@ -1,6 +1,6 @@
 /turf/simulated/floor
 	name = "plating"
-	icon = 'icons/turf/flooring/plating.dmi'
+	icon = 'resources/icons/turf/flooring/plating.dmi'
 	icon_state = "plating"
 
 	atom_flags = ATOM_FLAG_NO_SCREEN_TIP
@@ -12,7 +12,7 @@
 	// Plating data.
 	var/base_name = "plating"
 	var/base_desc = "The naked hull."
-	var/base_icon = 'icons/turf/flooring/plating.dmi'
+	var/base_icon = 'resources/icons/turf/flooring/plating.dmi'
 	var/base_icon_state = "plating"
 	var/base_color = COLOR_WHITE
 

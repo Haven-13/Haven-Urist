@@ -1,16 +1,16 @@
 /obj/item/clothing/glasses
 	name = "glasses"
-	icon = 'icons/obj/clothing/glasses.dmi'
+	icon = 'resources/icons/obj/clothing/glasses.dmi'
 	sprite_sheets = list(
-		SPECIES_UNATHI = 'icons/mob/onmob/Unathi/eyes.dmi',
-		SPECIES_RESOMI = 'icons/mob/species/resomi/eyes.dmi'
+		SPECIES_UNATHI = 'resources/icons/mob/onmob/Unathi/eyes.dmi',
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/eyes.dmi'
 		)
 	var/hud_type
 	var/prescription = FALSE
 	var/toggleable = FALSE
 	var/off_state = "degoggles"
 	var/active = TRUE
-	var/activation_sound = 'sound/items/goggles_charge.ogg'
+	var/activation_sound = 'resources/sound/items/goggles_charge.ogg'
 	var/atom/movable/screen/overlay = null
 	var/obj/item/clothing/glasses/hud/hud = null	// Hud glasses, if any
 	var/electric = FALSE //if the glasses should be disrupted by EMP
@@ -314,7 +314,7 @@
 /obj/item/clothing/glasses/sunglasses/blindfold/tape
 	name = "length of tape"
 	desc = "It's a robust DIY blindfold!"
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'resources/icons/obj/bureaucracy.dmi'
 	action_button_name = null
 	icon_state = "tape_cross"
 	item_state = null
@@ -355,7 +355,7 @@
 	action_button_name = "Toggle Mode"
 	var/on = TRUE
 	toggleable = TRUE
-	activation_sound = 'sound/effects/pop.ogg'
+	activation_sound = 'resources/sound/effects/pop.ogg'
 
 	var/hud_holder
 

@@ -58,17 +58,17 @@
 		// Create the bounding-box canvas & effect overlay for the view
 		var/atom/movable/screen/background/foreground = new
 		foreground.screen_loc = "[key]:1,1 to [8],[6]"
-		foreground.icon = 'icons/primitives.dmi'
+		foreground.icon = 'resources/icons/primitives.dmi'
 		foreground.icon_state = "white"
 		foreground.plane = FULLSCREEN_PLANE
 		foreground.layer = FULLSCREEN_LAYER
 
-		var/mutable_appearance/scanlines = mutable_appearance('icons/effects/static.dmi', "scanlines")
+		var/mutable_appearance/scanlines = mutable_appearance('resources/icons/effects/static.dmi', "scanlines")
 		scanlines.plane = FULLSCREEN_PLANE
 		scanlines.layer = FULLSCREEN_LAYER
 		scanlines.alpha = 125
 
-		var/mutable_appearance/noise = mutable_appearance('icons/effects/static.dmi', "1 moderate")
+		var/mutable_appearance/noise = mutable_appearance('resources/icons/effects/static.dmi', "1 moderate")
 		noise.plane = FULLSCREEN_PLANE
 		noise.layer = FULLSCREEN_LAYER
 
@@ -90,7 +90,7 @@
 		skybox.color = SSskybox.BGcolor
 		skybox.appearance_flags |= TILE_BOUND
 
-		var/mutable_appearance/sky = mutable_appearance('icons/turf/skybox.dmi', "background_[SSskybox.BGstate]")
+		var/mutable_appearance/sky = mutable_appearance('resources/icons/turf/skybox.dmi', "background_[SSskybox.BGstate]")
 		sky.appearance_flags = RESET_ALPHA
 		skybox.overlays += sky
 

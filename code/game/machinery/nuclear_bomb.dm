@@ -10,7 +10,7 @@ var/bomb_set
 /obj/machinery/nuclearbomb
 	name = "\improper Nuclear Fission Explosive"
 	desc = "Uh oh. RUN!"
-	icon = 'icons/obj/nuke.dmi'
+	icon = 'resources/icons/obj/nuke.dmi'
 	icon_state = "idle"
 	density = 1
 	use_power = 0
@@ -55,7 +55,7 @@ var/bomb_set
 /obj/machinery/nuclearbomb/Process(var/wait)
 	if(timing)
 		time_left = max(time_left - (wait / 10), 0)
-		playsound(loc, 'sound/items/timer.ogg', 50)
+		playsound(loc, 'resources/sound/items/timer.ogg', 50)
 		if(time_left <= 0)
 			addtimer(CALLBACK(src, .proc/explode), 0)
 		SStgui.update_uis(src)
@@ -68,12 +68,12 @@ var/bomb_set
 				panel_open = 1
 				overlays |= "panel_open"
 				to_chat(user, "You unscrew the control panel of [src].")
-				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 			else
 				panel_open = 0
 				overlays -= "panel_open"
 				to_chat(user, "You screw the control panel of [src] back on.")
-				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 		else
 			if(panel_open == 0)
 				to_chat(user, "\The [src] emits a buzzing noise, the panel staying locked in.")
@@ -81,7 +81,7 @@ var/bomb_set
 				panel_open = 0
 				overlays -= "panel_open"
 				to_chat(user, "You screw the control panel of \the [src] back on.")
-				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 			flick("lock", src)
 		return
 
@@ -278,16 +278,16 @@ var/bomb_set
 	switch(action)
 		if("eject_disk")
 			if(auth && auth.loc == src)
-				playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
-				playsound(src, 'sound/machines/nuke/general_beep.ogg', 50, FALSE)
+				playsound(src, 'resources/sound/machines/terminal_insert_disc.ogg', 50, FALSE)
+				playsound(src, 'resources/sound/machines/nuke/general_beep.ogg', 50, FALSE)
 				auth.forceMove(get_turf(src))
 				auth = null
 				. = TRUE
 			else
 				var/obj/item/I = usr.get_active_hand()
 				if(I && istype(I, /obj/item/weapon/disk/nuclear) && usr.drop_item(I) && I.forceMove(src))
-					playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
-					playsound(src, 'sound/machines/nuke/general_beep.ogg', 50, FALSE)
+					playsound(src, 'resources/sound/machines/terminal_insert_disc.ogg', 50, FALSE)
+					playsound(src, 'resources/sound/machines/nuke/general_beep.ogg', 50, FALSE)
 					auth = I
 					. = TRUE
 			update_ui_mode()
@@ -299,10 +299,10 @@ var/bomb_set
 						if(auth && ui_mode == NUKEUI_AWAIT_ARM)
 							set_safety()
 							yes_code = FALSE
-							playsound(src, 'sound/machines/nuke/confirm_beep.ogg', 50, FALSE)
+							playsound(src, 'resources/sound/machines/nuke/confirm_beep.ogg', 50, FALSE)
 							update_ui_mode()
 						else
-							playsound(src, 'sound/machines/nuke/general_beep.ogg', 50, FALSE)
+							playsound(src, 'resources/sound/machines/nuke/general_beep.ogg', 50, FALSE)
 						numeric_input = ""
 						. = TRUE
 					if("E")
@@ -311,20 +311,20 @@ var/bomb_set
 								if(numeric_input == r_code)
 									numeric_input = ""
 									yes_code = TRUE
-									playsound(src, 'sound/machines/nuke/general_beep.ogg', 50, FALSE)
+									playsound(src, 'resources/sound/machines/nuke/general_beep.ogg', 50, FALSE)
 									. = TRUE
 								else
-									playsound(src, 'sound/machines/nuke/angry_beep.ogg', 50, FALSE)
+									playsound(src, 'resources/sound/machines/nuke/angry_beep.ogg', 50, FALSE)
 									numeric_input = "ERROR"
 							if(NUKEUI_AWAIT_TIMER)
 								var/number_value = text2num(numeric_input)
 								if(number_value)
 									timer_set = clamp(number_value, minimum_timer_set, maximum_timer_set)
-									playsound(src, 'sound/machines/nuke/general_beep.ogg', 50, FALSE)
+									playsound(src, 'resources/sound/machines/nuke/general_beep.ogg', 50, FALSE)
 									set_safety()
 									. = TRUE
 							else
-								playsound(src, 'sound/machines/nuke/angry_beep.ogg', 50, FALSE)
+								playsound(src, 'resources/sound/machines/nuke/angry_beep.ogg', 50, FALSE)
 						update_ui_mode()
 					if("0","1","2","3","4","5","6","7","8","9")
 						if(numeric_input != "ERROR")
@@ -332,24 +332,24 @@ var/bomb_set
 							if(length(numeric_input) > 5)
 								numeric_input = "ERROR"
 							else
-								playsound(src, 'sound/machines/nuke/general_beep.ogg', 50, FALSE)
+								playsound(src, 'resources/sound/machines/nuke/general_beep.ogg', 50, FALSE)
 							. = TRUE
 			else
-				playsound(src, 'sound/machines/nuke/angry_beep.ogg', 50, FALSE)
+				playsound(src, 'resources/sound/machines/nuke/angry_beep.ogg', 50, FALSE)
 		if("arm")
 			if(auth && yes_code && !safety && !exploded)
-				playsound(src, 'sound/machines/nuke/confirm_beep.ogg', 50, FALSE)
+				playsound(src, 'resources/sound/machines/nuke/confirm_beep.ogg', 50, FALSE)
 				set_active()
 				update_ui_mode()
 				. = TRUE
 			else
-				playsound(src, 'sound/machines/nuke/angry_beep.ogg', 50, FALSE)
+				playsound(src, 'resources/sound/machines/nuke/angry_beep.ogg', 50, FALSE)
 		if("anchor")
 			if(auth)
-				playsound(src, 'sound/machines/nuke/general_beep.ogg', 50, FALSE)
+				playsound(src, 'resources/sound/machines/nuke/general_beep.ogg', 50, FALSE)
 				set_anchor()
 			else
-				playsound(src, 'sound/machines/nuke/angry_beep.ogg', 50, FALSE)
+				playsound(src, 'resources/sound/machines/nuke/angry_beep.ogg', 50, FALSE)
 
 /obj/machinery/nuclearbomb/proc/set_anchor()
 	if(isinspace() && !anchored)
@@ -434,7 +434,7 @@ var/bomb_set
 /obj/item/weapon/disk/nuclear
 	name = "nuclear authentication disk"
 	desc = "Better keep this safe."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "nucleardisk"
 	item_state = "card-id"
 	w_class = ITEM_SIZE_TINY
@@ -510,7 +510,7 @@ var/bomb_set
 	This concludes the instructions.", "vessel self-destruct instructions")
 
 	//stamp the paper
-	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+	var/image/stampoverlay = image('resources/icons/obj/bureaucracy.dmi')
 	stampoverlay.icon_state = "paper_stamp-hos"
 	R.stamped += /obj/item/weapon/stamp
 	R.overlays += stampoverlay
@@ -520,7 +520,7 @@ var/bomb_set
 /obj/machinery/nuclearbomb/station
 	name = "self-destruct terminal"
 	desc = "For when it all gets too much to bear. Do not taunt."
-	icon = 'icons/obj/nuke_station.dmi'
+	icon = 'resources/icons/obj/nuke_station.dmi'
 	anchored = 1
 	deployable = 1
 	extended = 1

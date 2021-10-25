@@ -1,10 +1,10 @@
 /obj/structure/shuttle
 	name = "shuttle"
-	icon = 'icons/turf/shuttle.dmi'
+	icon = 'resources/icons/turf/shuttle.dmi'
 
 /obj/structure/shuttle/window
 	name = "shuttle window"
-	icon = 'icons/obj/podwindows.dmi'
+	icon = 'resources/icons/obj/podwindows.dmi'
 	icon_state = "1"
 	density = 1
 	opacity = 0

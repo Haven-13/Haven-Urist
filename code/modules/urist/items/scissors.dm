@@ -2,7 +2,7 @@
 /obj/item/weapon/scissors //DON'T USE THIS FOR THE GAME! THIS IS FOR ORGINIZATIONAL THINGS ONLY!!
 	name = "Scissors"
 	desc = "Those are scissors. Don't run with them!"
-	icon = 'icons/urist/uristicons.dmi'
+	icon = 'resources/icons/urist/uristicons.dmi'
 	icon_state = "scissors"
 	item_state = "scissors"
 	force = 5
@@ -40,7 +40,7 @@
 /obj/item/weapon/improvised/scissorsassembly //So you can put it together!
 	name = "Scissor Assembly"
 	desc = "Two parts of a scissor loosely combined"
-	icon = 'icons/urist/uristicons.dmi'
+	icon = 'resources/icons/urist/uristicons.dmi'
 	icon_state = "scissors"
 	item_state = "scissors"
 	matter = list("metal" = 35)

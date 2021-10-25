@@ -1,6 +1,6 @@
 /datum/sprite_accessory/hair/resomi
 	name = "Teshari Plumage"
-	icon = 'icons/mob/human_races/species/teshari/hair.dmi'
+	icon = 'resources/icons/mob/human_races/species/teshari/hair.dmi'
 	icon_state = "resomi_default"
 	species_allowed = list(SPECIES_RESOMI)
 

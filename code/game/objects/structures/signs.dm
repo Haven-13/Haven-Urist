@@ -1,5 +1,5 @@
 /obj/structure/sign
-	icon = 'icons/obj/decals.dmi'
+	icon = 'resources/icons/obj/decals.dmi'
 	anchored = 1
 	opacity = 0
 	density = 0
@@ -34,7 +34,7 @@
 /obj/item/sign
 	name = "sign"
 	desc = ""
-	icon = 'icons/obj/decals.dmi'
+	icon = 'resources/icons/obj/decals.dmi'
 	w_class = ITEM_SIZE_NORMAL		//big
 	var/sign_state = ""
 
@@ -419,7 +419,7 @@
 /obj/item/sign/medipolma
 	name = "medical diploma"
 	desc = "A fancy print laminated paper that certifies that its bearer is indeed a Doctor of Medicine, graduated from a medical school in one of fringe systems. You don't recognize the name though, and half of latin words they used do not actually exist."
-	icon = 'icons/obj/decals.dmi'
+	icon = 'resources/icons/obj/decals.dmi'
 	icon_state = "goldenplaque"
 	sign_state = "goldenplaque"
 	var/claimant
@@ -439,7 +439,7 @@
 
 /obj/structure/sign/osha
 	name = "Sign!"
-	icon = 'icons/urist/decals/urist.dmi'
+	icon = 'resources/icons/urist/decals/urist.dmi'
 
 /obj/structure/sign/osha/radiationsignyellow
 	name = "RADIATION WARNING!"

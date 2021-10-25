@@ -9,7 +9,7 @@
 	center_of_mass = null
 	randpixel = 3
 
-	icon = 'icons/obj/stack_objects.dmi'
+	icon = 'resources/icons/obj/stack_objects.dmi'
 
 	var/default_type = DEFAULT_WALL_MATERIAL
 	var/material/material

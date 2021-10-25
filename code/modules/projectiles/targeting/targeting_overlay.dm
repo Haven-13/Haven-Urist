@@ -1,7 +1,7 @@
 /obj/aiming_overlay
 	name = ""
 	desc = "Stick 'em up!"
-	icon = 'icons/effects/Targeted.dmi'
+	icon = 'resources/icons/effects/Targeted.dmi'
 	icon_state = "locking"
 	anchored = 1
 	density = 0
@@ -164,7 +164,7 @@
 	aiming_with = thing
 	aiming_at = target
 	if(istype(aiming_with, /obj/item/weapon/gun))
-		playsound(get_turf(owner), 'sound/weapons/TargetOn.ogg', 50,1)
+		playsound(get_turf(owner), 'resources/sound/weapons/TargetOn.ogg', 50,1)
 
 	forceMove(get_turf(target))
 	START_PROCESSING(SSobj, src)
@@ -208,7 +208,7 @@
 	if(!aiming_with || !aiming_at)
 		return
 	if(istype(aiming_with, /obj/item/weapon/gun))
-		playsound(get_turf(owner), 'sound/weapons/TargetOff.ogg', 50,1)
+		playsound(get_turf(owner), 'resources/sound/weapons/TargetOff.ogg', 50,1)
 	if(!no_message)
 		owner.visible_message("<span class='notice'>\The [owner] lowers \the [aiming_with].</span>")
 

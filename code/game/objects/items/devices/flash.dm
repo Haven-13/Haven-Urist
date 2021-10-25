@@ -63,7 +63,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)
 
-	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
+	playsound(src.loc, 'resources/sound/weapons/flash.ogg', 100, 1)
 	var/flashfail = 0
 
 	if(iscarbon(M))
@@ -99,7 +99,7 @@
 			animation.plane = user.plane
 			animation.layer = user.layer + 0.01
 			animation.icon_state = "blank"
-			animation.icon = 'icons/mob/mob.dmi'
+			animation.icon = 'resources/icons/mob/mob.dmi'
 			animation.master = user
 			flick("blspell", animation)
 			sleep(5)
@@ -141,7 +141,7 @@
 			user.show_message("<span class='warning'>*click* *click*</span>", 2)
 			return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
+	playsound(src.loc, 'resources/sound/weapons/flash.ogg', 100, 1)
 	flick("[initial(icon_state)]_on", src)
 	if(user && isrobot(user))
 		spawn(0)
@@ -149,7 +149,7 @@
 			animation.plane = user.plane
 			animation.layer = user.layer + 0.01
 			animation.icon_state = "blank"
-			animation.icon = 'icons/mob/mob.dmi'
+			animation.icon = 'resources/icons/mob/mob.dmi'
 			animation.master = user
 			flick("blspell", animation)
 			sleep(5)

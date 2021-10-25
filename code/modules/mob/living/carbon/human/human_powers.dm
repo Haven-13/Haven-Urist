@@ -73,7 +73,7 @@
 
 	last_special = world.time + 50
 
-	playsound(loc, 'sound/weapons/pierce.ogg', 25, 1, -1)
+	playsound(loc, 'resources/sound/weapons/pierce.ogg', 25, 1, -1)
 	T.Weaken(rand(1,3))
 	if(prob(75))
 		visible_message("<span class='danger'>\The [src] has tackled down [T]!</span>")
@@ -113,7 +113,7 @@
 		to_chat(src, "<span class='warning'>You cannot leap in your current state.</span>")
 		return
 
-	playsound(src.loc, 'sound/voice/shriek1.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/voice/shriek1.ogg', 50, 1)
 
 	last_special = world.time + (17.5 SECONDS)
 	status_flags |= LEAPING

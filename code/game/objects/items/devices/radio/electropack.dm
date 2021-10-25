@@ -28,7 +28,7 @@
 		if(!user.unEquip(W) || !user.unEquip(src))
 			return
 		var/obj/item/assembly/shock_kit/A = new /obj/item/assembly/shock_kit( user )
-		A.icon = 'icons/obj/assemblies.dmi'
+		A.icon = 'resources/icons/obj/assemblies.dmi'
 
 		W.forceMove(A)
 		W.master = A

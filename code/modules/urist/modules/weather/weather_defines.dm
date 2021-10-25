@@ -2,7 +2,7 @@
 //Those are objs only because they need to have access to some vars, *DO NOT* USE THEM DIRECTLY!
 /obj/weathertype
 	name = "DO NOT USE THIS, THIS IS ONLY AN OVERLAY!"
-	icon = 'icons/urist/weather.dmi'
+	icon = 'resources/icons/urist/weather.dmi'
 	icon_state = ""
 	appearance_flags = RESET_COLOR | RESET_ALPHA
 	color = null
@@ -127,7 +127,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 
 /* direct damage weathers */
 /obj/weathertype/sandstorm
-	//icon = 'icons/urist/96x96.dmi'
+	//icon = 'resources/icons/urist/96x96.dmi'
 	icon_state = "fog"
 	pixel_x = -32
 	pixel_y = -32
@@ -155,7 +155,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 	color = null
 
 /obj/weathertype/fog
-	//icon = 'icons/urist/96x96.dmi'
+	//icon = 'resources/icons/urist/96x96.dmi'
 	icon_state = "fog"
 	pixel_x = -32
 	pixel_y = -32

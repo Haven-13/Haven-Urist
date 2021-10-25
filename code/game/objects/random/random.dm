@@ -1,7 +1,7 @@
 /obj/random
 	name = "random object"
 	desc = "This item type is used to spawn random objects at round-start."
-	icon = 'icons/misc/mark.dmi'
+	icon = 'resources/icons/misc/mark.dmi'
 	icon_state = "rup"
 	var/spawn_nothing_percentage = 0 // this variable determines the likelyhood that this random object will not spawn anything
 
@@ -44,7 +44,7 @@
 /obj/random/tool
 	name = "random tool"
 	desc = "This is a random tool."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'resources/icons/obj/tools.dmi'
 	icon_state = "welder_m"
 
 /obj/random/tool/spawn_choices()
@@ -58,7 +58,7 @@
 /obj/random/technology_scanner
 	name = "random scanner"
 	desc = "This is a random technology scanner."
-	icon = 'icons/obj/device.dmi'
+	icon = 'resources/icons/obj/device.dmi'
 	icon_state = "atmos"
 
 /obj/random/technology_scanner/spawn_choices()
@@ -69,7 +69,7 @@
 /obj/random/powercell
 	name = "random powercell"
 	desc = "This is a random powercell."
-	icon = 'icons/obj/power.dmi'
+	icon = 'resources/icons/obj/power.dmi'
 	icon_state = "hcell"
 
 /obj/random/powercell/spawn_choices()
@@ -84,7 +84,7 @@
 /obj/random/bomb_supply
 	name = "bomb supply"
 	desc = "This is a random bomb supply."
-	icon = 'icons/obj/assemblies/new_assemblies.dmi'
+	icon = 'resources/icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "signaller"
 
 /obj/random/bomb_supply/spawn_choices()
@@ -97,7 +97,7 @@
 /obj/random/toolbox
 	name = "random toolbox"
 	desc = "This is a random toolbox."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'resources/icons/obj/storage.dmi'
 	icon_state = "red"
 
 /obj/random/toolbox/spawn_choices()
@@ -109,7 +109,7 @@
 /obj/random/tech_supply
 	name = "random tech supply"
 	desc = "This is a random piece of technology supplies."
-	icon = 'icons/obj/power.dmi'
+	icon = 'resources/icons/obj/power.dmi'
 	icon_state = "cell"
 	spawn_nothing_percentage = 50
 
@@ -131,7 +131,7 @@
 /obj/random/medical
 	name = "Random Medical equipment"
 	desc = "This is a random medical item."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "traumakit"
 
 /obj/random/medical/spawn_choices()
@@ -154,7 +154,7 @@
 /obj/random/medical/lite
 	name = "Random Medicine"
 	desc = "This is a random simple medical item."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "brutepack"
 	spawn_nothing_percentage = 25
 
@@ -179,7 +179,7 @@
 /obj/random/firstaid
 	name = "Random First Aid Kit"
 	desc = "This is a random first aid kit."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'resources/icons/obj/storage.dmi'
 	icon_state = "firstaid"
 
 /obj/random/firstaid/spawn_choices()
@@ -196,7 +196,7 @@
 /obj/random/contraband
 	name = "Random Illegal Item"
 	desc = "Hot Stuff."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "purplecomb"
 	spawn_nothing_percentage = 50
 
@@ -228,7 +228,7 @@
 /obj/random/drinkbottle
 	name = "random drink"
 	desc = "This is a random drink."
-	icon = 'icons/obj/drinks.dmi'
+	icon = 'resources/icons/obj/drinks.dmi'
 	icon_state = "whiskeybottle"
 
 /obj/random/drinkbottle/spawn_choices()
@@ -247,7 +247,7 @@
 /obj/random/energy
 	name = "Random Energy Weapon"
 	desc = "This is a random energy weapon."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'resources/icons/obj/gun.dmi'
 	icon_state = "energykill100"
 
 /obj/random/energy/spawn_choices()
@@ -267,7 +267,7 @@
 /obj/random/projectile
 	name = "Random Projectile Weapon"
 	desc = "This is a random projectile weapon."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'resources/icons/obj/gun.dmi'
 	icon_state = "revolver"
 
 /obj/random/projectile/spawn_choices()
@@ -293,7 +293,7 @@
 /obj/random/handgun
 	name = "Random Handgun"
 	desc = "This is a random sidearm."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'resources/icons/obj/gun.dmi'
 	icon_state = "secgundark"
 
 /obj/random/handgun/spawn_choices()
@@ -308,7 +308,7 @@
 /obj/random/ammo
 	name = "Random Ammunition"
 	desc = "This is random ammunition."
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'resources/icons/obj/ammo.dmi'
 	icon_state = "45-10"
 
 /obj/random/ammo/spawn_choices()
@@ -325,7 +325,7 @@
 /obj/random/action_figure
 	name = "random action figure"
 	desc = "This is a random action figure."
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	icon_state = "assistant"
 
 /obj/random/action_figure/spawn_choices()
@@ -372,7 +372,7 @@
 /obj/random/plushie
 	name = "random plushie"
 	desc = "This is a random plushie."
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	icon_state = "nymphplushie"
 
 /obj/random/plushie/spawn_choices()
@@ -385,7 +385,7 @@
 /obj/random/plushie/large
 	name = "random large plushie"
 	desc = "This is a random large plushie."
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	icon_state = "droneplushie"
 
 /obj/random/plushie/large/spawn_choices()
@@ -397,7 +397,7 @@
 /obj/random/junk //Broken items, or stuff that could be picked up
 	name = "random junk"
 	desc = "This is some random junk."
-	icon = 'icons/obj/trash.dmi'
+	icon = 'resources/icons/obj/trash.dmi'
 	icon_state = "trashbag3"
 
 /obj/random/junk/spawn_choices()
@@ -406,7 +406,7 @@
 /obj/random/trash //Mostly remains and cleanable decals. Stuff a janitor could clean up
 	name = "random trash"
 	desc = "This is some random trash."
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	icon_state = "greenglow"
 
 /obj/random/trash/spawn_choices()
@@ -428,7 +428,7 @@
 /obj/random/closet //A couple of random closets to spice up maint
 	name = "random closet"
 	desc = "This is a random closet."
-	icon = 'icons/obj/closet.dmi'
+	icon = 'resources/icons/obj/closet.dmi'
 	icon_state = "syndicate1"
 
 /obj/random/closet/spawn_choices()
@@ -456,7 +456,7 @@
 /obj/random/coin
 	name = "random coin"
 	desc = "This is a random coin."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "coin"
 
 /obj/random/coin/spawn_choices()
@@ -471,7 +471,7 @@
 /obj/random/toy
 	name = "random toy"
 	desc = "This is a random toy."
-	icon = 'icons/obj/toy.dmi'
+	icon = 'resources/icons/obj/toy.dmi'
 	icon_state = "ship"
 
 /obj/random/toy/spawn_choices()
@@ -506,7 +506,7 @@
 /obj/random/tank
 	name = "random tank"
 	desc = "This is a tank."
-	icon = 'icons/obj/tank.dmi'
+	icon = 'resources/icons/obj/tank.dmi'
 	icon_state = "canister"
 
 /obj/random/tank/spawn_choices()
@@ -525,7 +525,7 @@
 /obj/random/material //Random materials for building stuff
 	name = "random material"
 	desc = "This is a random material."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "sheet-metal"
 
 /obj/random/material/spawn_choices()
@@ -549,7 +549,7 @@
 /obj/random/soap
 	name = "Random Cleaning Supplies"
 	desc = "This is a random bar of soap. Soap! SOAP?! SOAP!!!"
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "soap"
 
 /obj/random/soap/spawn_choices()
@@ -565,7 +565,7 @@
 /obj/random/obstruction //Large objects to block things off in maintenance
 	name = "random obstruction"
 	desc = "This is a random obstruction."
-	icon = 'icons/obj/cult.dmi'
+	icon = 'resources/icons/obj/cult.dmi'
 	icon_state = "cultgirder"
 
 /obj/random/obstruction/spawn_choices()
@@ -584,7 +584,7 @@
 /obj/random/advdevice
 	name = "random advanced device"
 	desc = "This is a random advanced device."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "game_kit"
 
 /obj/random/advdevice/spawn_choices()
@@ -609,7 +609,7 @@
 /obj/random/smokes
 	name = "random smokeable"
 	desc = "This is a random smokeable item."
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'resources/icons/obj/cigarettes.dmi'
 	icon_state = "Bpacket"
 
 /obj/random/smokes/spawn_choices()
@@ -631,7 +631,7 @@
 /obj/random/masks
 	name = "random mask"
 	desc = "This is a random face mask."
-	icon = 'icons/obj/clothing/masks.dmi'
+	icon = 'resources/icons/obj/clothing/masks.dmi'
 	icon_state = "gas_mask"
 
 /obj/random/masks/spawn_choices()
@@ -648,7 +648,7 @@
 /obj/random/snack
 	name = "random snack"
 	desc = "This is a random snack item."
-	icon = 'icons/obj/food.dmi'
+	icon = 'resources/icons/obj/food.dmi'
 	icon_state = "sosjerky"
 
 /obj/random/snack/spawn_choices()
@@ -677,7 +677,7 @@
 /obj/random/storage
 	name = "random storage item"
 	desc = "This is a storage item."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'resources/icons/obj/storage.dmi'
 	icon_state = "idOld"
 
 /obj/random/storage/spawn_choices()
@@ -711,7 +711,7 @@
 /obj/random/shoes
 	name = "random footwear"
 	desc = "This is a random pair of shoes."
-	icon = 'icons/obj/clothing/shoes.dmi'
+	icon = 'resources/icons/obj/clothing/shoes.dmi'
 	icon_state = "boots"
 
 /obj/random/shoes/spawn_choices()
@@ -739,7 +739,7 @@
 /obj/random/gloves
 	name = "random gloves"
 	desc = "This is a random pair of gloves."
-	icon = 'icons/obj/clothing/gloves.dmi'
+	icon = 'resources/icons/obj/clothing/gloves.dmi'
 	icon_state = "rainbow"
 
 /obj/random/gloves/spawn_choices()
@@ -759,7 +759,7 @@
 /obj/random/glasses
 	name = "random eyewear"
 	desc = "This is a random pair of glasses."
-	icon = 'icons/obj/clothing/glasses.dmi'
+	icon = 'resources/icons/obj/clothing/glasses.dmi'
 	icon_state = "leforge"
 
 /obj/random/glasses/spawn_choices()
@@ -782,7 +782,7 @@
 /obj/random/hat
 	name = "random headgear"
 	desc = "This is a random hat of some kind."
-	icon = 'icons/obj/clothing/hats.dmi'
+	icon = 'resources/icons/obj/clothing/hats.dmi'
 	icon_state = "tophat"
 
 /obj/random/hat/spawn_choices()
@@ -800,7 +800,7 @@
 /obj/random/suit
 	name = "random suit"
 	desc = "This is a random piece of outerwear."
-	icon = 'icons/obj/clothing/suits.dmi'
+	icon = 'resources/icons/obj/clothing/suits.dmi'
 	icon_state = "fire"
 
 /obj/random/suit/spawn_choices()
@@ -823,7 +823,7 @@
 /obj/random/clothing
 	name = "random clothes"
 	desc = "This is a random piece of clothing."
-	icon = 'icons/obj/clothing/uniforms.dmi'
+	icon = 'resources/icons/obj/clothing/uniforms.dmi'
 	icon_state = "grey"
 
 /obj/random/clothing/spawn_choices()
@@ -842,7 +842,7 @@
 /obj/random/accessory
 	name = "random accessory"
 	desc = "This is a random utility accessory."
-	icon = 'icons/obj/clothing/ties.dmi'
+	icon = 'resources/icons/obj/clothing/ties.dmi'
 	icon_state = "horribletie"
 
 /obj/random/accessory/spawn_choices()
@@ -862,7 +862,7 @@
 /obj/random/cash
 	name = "random currency"
 	desc = "LOADSAMONEY!"
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "spacecash1"
 
 /obj/random/cash/spawn_choices()
@@ -875,7 +875,7 @@
 
 /obj/random/documents // top secret documents for SCG eyes only
 	name = "random secret documents"
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'resources/icons/obj/bureaucracy.dmi'
 	icon_state = "docs_generic"
 
 /obj/random/documents/spawn_choices()
@@ -886,7 +886,7 @@
 /obj/random/maintenance //Clutter and loot for maintenance and away missions
 	name = "random maintenance item"
 	desc = "This is a random maintenance item."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "gift1"
 
 /obj/random/maintenance/spawn_choices()
@@ -900,7 +900,7 @@ Individual items to add to the maintenance list should go here, if you add
 something, make sure it's not in one of the other lists.*/
 	name = "random clean maintenance item"
 	desc = "This is a random clean maintenance item."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "gift2"
 
 /obj/random/maintenance/clean/spawn_choices()
@@ -938,7 +938,7 @@ something, make sure it's not in one of the other lists.*/
 /obj/random/loot /*Better loot for away missions and salvage */
 	name = "random loot"
 	desc = "This is some random loot."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "gift3"
 
 /obj/random/loot/spawn_choices()
@@ -990,7 +990,7 @@ something, make sure it's not in one of the other lists.*/
 /obj/random/voidhelmet
 	name = "Random Voidsuit Helmet"
 	desc = "This is a random voidsuit helmet."
-	icon = 'icons/obj/clothing/hats.dmi'
+	icon = 'resources/icons/obj/clothing/hats.dmi'
 	icon_state = "void"
 
 /obj/random/voidhelmet/spawn_choices()
@@ -1011,7 +1011,7 @@ something, make sure it's not in one of the other lists.*/
 /obj/random/voidsuit
 	name = "Random Voidsuit"
 	desc = "This is a random voidsuit."
-	icon = 'icons/obj/clothing/suits.dmi'
+	icon = 'resources/icons/obj/clothing/suits.dmi'
 	icon_state = "void"
 
 /obj/random/voidsuit/spawn_choices()
@@ -1032,7 +1032,7 @@ something, make sure it's not in one of the other lists.*/
 /obj/random/hardsuit
 	name = "Random Hardsuit"
 	desc = "This is a random hardsuit control module."
-	icon = 'icons/obj/rig_modules.dmi'
+	icon = 'resources/icons/obj/rig_modules.dmi'
 	icon_state = "generic"
 
 /obj/random/hardsuit/spawn_choices()
@@ -1047,7 +1047,7 @@ something, make sure it's not in one of the other lists.*/
 /obj/random/hostile
 	name = "Random Hostile Mob"
 	desc = "This is a random hostile mob."
-	icon = 'icons/mob/amorph.dmi'
+	icon = 'resources/icons/mob/amorph.dmi'
 	icon_state = "standing"
 	spawn_nothing_percentage = 80
 
@@ -1065,7 +1065,7 @@ var/list/multi_point_spawns
 /obj/random_multi
 	name = "random object spawn point"
 	desc = "This item type is used to spawn random objects at round-start. Only one spawn point for a given group id is selected."
-	icon = 'icons/misc/mark.dmi'
+	icon = 'resources/icons/misc/mark.dmi'
 	icon_state = "x3"
 	invisibility = INVISIBILITY_MAXIMUM
 	var/id     // Group id

@@ -5,8 +5,8 @@
 
 /datum/shuttle/autodock/ferry/escape_pod/numbered
 	category = /datum/shuttle/autodock/ferry/escape_pod/numbered
-	sound_takeoff = 'sound/effects/rocket.ogg'
-	sound_landing = 'sound/effects/rocket_backwards.ogg'
+	sound_takeoff = 'resources/sound/effects/rocket.ogg'
+	sound_landing = 'resources/sound/effects/rocket_backwards.ogg'
 	var/number
 
 	warmup_time = 10
