@@ -120,7 +120,7 @@
 	icon_state = "swathelm"
 	valid_accessory_slots = null
 	sprite_sheets = list(
-		SPECIES_UNATHI = 'icons/mob/species/unathi/helmet.dmi'
+		SPECIES_UNATHI = 'resources/icons/mob/species/unathi/helmet.dmi'
 		)
 
 	armor = list(melee = 62, bullet = 50, laser = 50,energy = 35, bomb = 10, bio = 2, rad = 0)

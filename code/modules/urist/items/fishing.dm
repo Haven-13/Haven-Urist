@@ -2,7 +2,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "fishing rod"
 	desc = "A standard fishing rod. It's good for fishing. You fish with it, dumbass."
-	icon = 'icons/urist/items/tools.dmi'
+	icon = 'resources/icons/urist/items/tools.dmi'
 	icon_state = "fishingrod"
 	item_state = "fishingrod"
 	force = 5
@@ -21,7 +21,7 @@
 /obj/item/fish
 	name = "fish"
 	desc = "It's a dead freshly caught fish. Use a knife or something to fillet it."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	icon_state = "fish1"
 	force = 5
 	w_class = 2 //pocket fish!

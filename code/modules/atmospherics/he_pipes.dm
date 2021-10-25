@@ -1,6 +1,6 @@
 
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging
-	icon = 'icons/atmos/heat.dmi'
+	icon = 'resources/icons/atmos/heat.dmi'
 	icon_state = "intact"
 	pipe_icon = "hepipe"
 	color = "#404040"
@@ -105,7 +105,7 @@
 
 
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction
-	icon = 'icons/atmos/junction.dmi'
+	icon = 'resources/icons/atmos/junction.dmi'
 	icon_state = "intact"
 	pipe_icon = "hejunction"
 	level = 2

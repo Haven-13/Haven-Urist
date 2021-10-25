@@ -538,7 +538,7 @@ The _flatIcons list is a cache for generated icon files.
 
 /proc/getFlatIcon(image/A, defdir=2, deficon=null, defstate="", defblend=BLEND_DEFAULT, always_use_defdir = 0)
 	// We start with a blank canvas, otherwise some icon procs crash silently
-	var/icon/flat = icon('icons/effects/effects.dmi', "icon_state"="nothing") // Final flattened icon
+	var/icon/flat = icon('resources/icons/effects/effects.dmi', "icon_state"="nothing") // Final flattened icon
 	if(!A)
 		return flat
 	if(A.alpha <= 0)
@@ -740,7 +740,7 @@ The _flatIcons list is a cache for generated icon files.
 		else
 			flat_icon.ColorTone(rgb(125,180,225))//Let's make it bluish.
 	flat_icon.ChangeOpacity(0.5)//Make it half transparent.
-	var/icon/alpha_mask = new('icons/effects/effects.dmi', "scanline-[hologram_color]")//Scanline effect.
+	var/icon/alpha_mask = new('resources/icons/effects/effects.dmi', "scanline-[hologram_color]")//Scanline effect.
 	flat_icon.AddAlphaMask(alpha_mask)//Finally, let's mix in a distortion effect.
 	return flat_icon
 
@@ -818,7 +818,7 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 			atoms.Add(A)
 	//Lines below actually render all colected data
 	atoms = sort_atoms_by_layer(atoms)
-	var/icon/cap = icon('icons/effects/96x96.dmi', "")
+	var/icon/cap = icon('resources/icons/effects/96x96.dmi', "")
 	cap.Scale(range*32, range*32)
 	cap.Blend("#000", ICON_OVERLAY)
 	for(var/atom/A in atoms)

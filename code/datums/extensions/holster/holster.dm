@@ -1,8 +1,8 @@
 /datum/extension/holster
 	var/atom/atom_holder
 	var/obj/item/weapon/storage/storage
-	var/sound_in = 'sound/effects/holster/holsterin.ogg'
-	var/sound_out = 'sound/effects/holster/holsterout.ogg'
+	var/sound_in = 'resources/sound/effects/holster/holsterin.ogg'
+	var/sound_out = 'resources/sound/effects/holster/holsterout.ogg'
 	var/list/can_holster = null
 	var/obj/item/holstered = null
 

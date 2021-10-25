@@ -66,7 +66,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "electric razor"
 	desc = "The latest and greatest power razor born from the science of shaving."
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	icon_state = "razor"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	w_class = 1.0
@@ -89,7 +89,7 @@
 					"<span class='notice'>You finish shaving with the [src]. Fast and clean!</span>")
 					H.f_style = "Shaved"
 					H.update_hair()
-					playsound(src.loc, 'sound/items/Welder2.ogg', 20, 1)
+					playsound(src.loc, 'resources/sound/items/Welder2.ogg', 20, 1)
 			else
 				var/turf/user_loc = user.loc
 				var/turf/H_loc = H.loc
@@ -101,7 +101,7 @@
 						"<span class='notice'>You shave [H]'s facial hair clean off.</span>")
 						H.f_style = "Shaved"
 						H.update_hair()
-						playsound(src.loc, 'sound/items/Welder2.ogg', 20, 1)
+						playsound(src.loc, 'resources/sound/items/Welder2.ogg', 20, 1)
 		if(user.zone_sel.selecting == "head")
 			if(!get_location_accessible(H, "head"))
 				to_chat(user, "<span class='warning'>The headgear is in the way.</span>")
@@ -117,7 +117,7 @@
 					"<span class='notice'>You finish shaving with the [src].</span>")
 					H.h_style = "Skinhead"
 					H.update_hair()
-					playsound(src.loc, 'sound/items/Welder2.ogg', 40, 1)
+					playsound(src.loc, 'resources/sound/items/Welder2.ogg', 40, 1)
 			else
 				var/turf/user_loc = user.loc
 				var/turf/H_loc = H.loc
@@ -129,7 +129,7 @@
 						"<span class='warning'>You shave [H]'s head bald.</span>")
 						H.h_style = "Skinhead"
 						H.update_hair()
-						playsound(src.loc, 'sound/items/Welder2.ogg', 40, 1)
+						playsound(src.loc, 'resources/sound/items/Welder2.ogg', 40, 1)
 		else
 			..()
 	else

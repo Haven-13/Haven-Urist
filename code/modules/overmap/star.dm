@@ -42,7 +42,7 @@ var/list/star_classes = list(
 
 /obj/effect/overmap_static
 	name = "event"
-	icon = 'icons/obj/overmap.dmi'
+	icon = 'resources/icons/obj/overmap.dmi'
 	icon_state = "event"
 	opacity = 1
 	plane = EFFECTS_PLANE

@@ -96,7 +96,7 @@
 	icon_base = "solid"
 	icon_reinf = "reinf_over"
 	icon_colour = "#666666"
-	hitsound = 'sound/weapons/smash.ogg'
+	hitsound = 'resources/sound/weapons/smash.ogg'
 	chem_products = list(
 				/datum/reagent/iron = 15,
 				/datum/reagent/carbon = 5
@@ -130,7 +130,7 @@
 	hardness = 80
 	weight = 23
 	stack_origin_tech = list(TECH_MATERIAL = 2)
-	hitsound = 'sound/weapons/smash.ogg'
+	hitsound = 'resources/sound/weapons/smash.ogg'
 	alloy_materials = list("steel" = 2500, "platinum" = 1250)
 	alloy_product = TRUE
 	sale_price = 2
@@ -236,7 +236,7 @@
 	weight = 22
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
-	hitsound = 'sound/weapons/smash.ogg'
+	hitsound = 'resources/sound/weapons/smash.ogg'
 	chem_products = list(
 				/datum/reagent/iron = 20
 				)
@@ -268,7 +268,7 @@
 	icon_base = "jaggy"
 	door_icon_base = "metal"
 	icon_reinf = "reinf_metal"
-	hitsound = 'sound/weapons/smash.ogg'
+	hitsound = 'resources/sound/weapons/smash.ogg'
 	sheet_singular_name = "chunk"
 	sheet_plural_name = "chunks"
 	stack_type = /obj/item/stack/material/aliumium

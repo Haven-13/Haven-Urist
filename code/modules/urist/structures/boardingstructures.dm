@@ -3,7 +3,7 @@
 /obj/structure/boarding/shipportal //this is for returning from the map ships
 	name = "portal"
 	desc = "Looks unstable. Best to test it with the clown."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "portal"
 	density = 1
 	anchored = 1
@@ -49,7 +49,7 @@
 	var/triggered = FALSE
 	name = "self destruct mechanism"
 	anchored = 1
-	icon = 'icons/urist/turf/scomturfs.dmi' //this only makes sense for lactera right now, i'm going to make others for the other ships
+	icon = 'resources/icons/urist/turf/scomturfs.dmi' //this only makes sense for lactera right now, i'm going to make others for the other ships
 	icon_state = "9,8"
 	var/shipid = null
 

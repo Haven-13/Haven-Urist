@@ -1,7 +1,7 @@
 /obj/structure/lattice
 	name = "lattice"
 	desc = "A lightweight support lattice."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'resources/icons/obj/structures.dmi'
 	icon_state = "latticefull"
 	density = 0
 	anchored = 1.0
@@ -19,7 +19,7 @@
 		if(LAT != src)
 			crash_with("Found multiple lattices at '[log_info_line(loc)]'")
 			return INITIALIZE_HINT_QDEL
-	icon = 'icons/obj/smoothlattice.dmi'
+	icon = 'resources/icons/obj/smoothlattice.dmi'
 	icon_state = "latticeblank"
 	updateOverlays()
 	for (var/dir in GLOB.cardinal)
@@ -65,7 +65,7 @@
 		var/obj/item/stack/rods/R = C
 		if(R.use(2))
 			src.alpha = 0
-			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
+			playsound(src, 'resources/sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/catwalk(src.loc)
 			qdel(src)
 			return

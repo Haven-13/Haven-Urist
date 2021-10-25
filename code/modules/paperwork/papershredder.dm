@@ -1,7 +1,7 @@
 /obj/machinery/papershredder
 	name = "paper shredder"
 	desc = "For those documents you don't want seen."
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'resources/icons/obj/bureaucracy.dmi'
 	icon_state = "papershredder0"
 	density = 1
 	anchored = 1
@@ -35,7 +35,7 @@
 				return
 			paperamount += paper_result
 			qdel(W)
-			playsound(src.loc, 'sound/items/pshred.ogg', 75, 1)
+			playsound(src.loc, 'resources/sound/items/pshred.ogg', 75, 1)
 			if(paperamount > max_paper)
 				to_chat(user, "<span class='danger'>\The [src] was too full, and shredded paper goes everywhere!</span>")
 				for(var/i=(paperamount-max_paper);i>0;i--)
@@ -125,7 +125,7 @@
 
 /obj/item/weapon/shreddedp
 	name = "shredded paper"
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'resources/icons/obj/bureaucracy.dmi'
 	icon_state = "shredp"
 	randpixel = 5
 	throwforce = 0

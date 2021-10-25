@@ -18,7 +18,7 @@
 	name = "improvised explosive assembly"
 	desc = "An igniter stuffed into an aluminum shell."
 	w_class = 2.0
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	icon_state = "improvised_grenade"
 	item_state = "flashbang"
 	throw_speed = 4
@@ -41,9 +41,9 @@
 			F.reagents.remove_reagent(/datum/reagent/fuel, 50, 1)//Deleting 50 fuel from the welding fuel tank,
 			assembled = 1
 			to_chat(user, "<span  class='notice'>You've filled the makeshift explosive with welding fuel.</span>")
-			playsound(get_turf(src), 'sound/effects/refill.ogg', 50, 1, -6)
+			playsound(get_turf(src), 'resources/sound/effects/refill.ogg', 50, 1, -6)
 			desc = "An improvised explosive assembly. Filled to the brim with 'Explosive flavor'"
-			overlays += image('icons/obj/grenade.dmi', icon_state = "improvised_grenade_filled")
+			overlays += image('resources/icons/obj/grenade.dmi', icon_state = "improvised_grenade_filled")
 			return
 
 
@@ -55,7 +55,7 @@
 			assembled = 2
 			to_chat(user, "<span  class='notice'>You wire the igniter to detonate the fuel.</span>")
 			desc = "A weak, improvised explosive."
-			overlays += image('icons/obj/grenade.dmi', icon_state = "improvised_grenade_wired")
+			overlays += image('resources/icons/obj/grenade.dmi', icon_state = "improvised_grenade_wired")
 			name = "improvised explosive"
 			active = 0
 			det_time = rand(30,80)
@@ -65,7 +65,7 @@
 		if(clown_check(user))
 			to_chat(user, "<span class='warning'>You light the [name]!</span>")
 			active = 1
-			overlays -= image('icons/obj/grenade.dmi', icon_state = "improvised_grenade_filled")
+			overlays -= image('resources/icons/obj/grenade.dmi', icon_state = "improvised_grenade_filled")
 			icon_state = initial(icon_state) + "_active"
 			assembled = 3
 			add_fingerprint(user)

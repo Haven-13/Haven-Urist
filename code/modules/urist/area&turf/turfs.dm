@@ -10,33 +10,33 @@ Icons for uristturfs from Nienhaus, Glloyd and Lord Slowpoke*/
 
 /turf/simulated/floor/fixed/uristturf
 	name = "floor"
-	icon = 'icons/urist/turf/uristturf.dmi'
+	icon = 'resources/icons/urist/turf/uristturf.dmi'
 	icon_state = "yellowdiag02"
 
 //unsimulated version
 
 /turf/unsimulated/floor/uristturf
 	name = "floor"
-	icon = 'icons/urist/turf/uristturf.dmi'
+	icon = 'resources/icons/urist/turf/uristturf.dmi'
 	icon_state = "yellowdiag02"
 
 //rails
 
 /turf/unsimulated/floor/uristturf/rail
 	name = "rail"
-	icon = 'icons/urist/turf/uristturf.dmi'
+	icon = 'resources/icons/urist/turf/uristturf.dmi'
 	icon_state = "rail1"
 
 //Holy fuck. Anyways, this is pool turf, so we don't fuck up /tg/ .dmi's. ALSO, if there ARE turfs to add, add them above this.
 
 /turf/simulated/floor/beach/pool
 	name = "Pool"
-	icon = 'icons/urist/turf/uristturf.dmi'
+	icon = 'resources/icons/urist/turf/uristturf.dmi'
 	icon_state = "water4"
 
 /turf/simulated/floor/beach/pool/New()
 	..()
-	overlays += image("icon"='icons/urist/turf/uristturf.dmi',"icon_state"="water2","layer"=MOB_LAYER+0.1)
+	overlays += image("icon"='resources/icons/urist/turf/uristturf.dmi',"icon_state"="water2","layer"=MOB_LAYER+0.1)
 
 /turf/simulated/floor/plating/airless
 	initial_gas = null
@@ -44,7 +44,7 @@ Icons for uristturfs from Nienhaus, Glloyd and Lord Slowpoke*/
 /*//Space! Because fuck /tg/!
 transit/east is the same thing now AFAIK
 /turf/space/transit/west // moving to the west
-	icon = 'icons/urist/turf/uristturf.dmi'
+	icon = 'resources/icons/urist/turf/uristturf.dmi'
 	pushdirection = EAST
 
 	shuttlespace_ew1
@@ -82,7 +82,7 @@ transit/east is the same thing now AFAIK
 
 /turf/unsimulated/wall/uristscreen
 	name = "Space Station 13"
-	icon = 'icons/urist/entryscreen.dmi'
+	icon = 'resources/icons/urist/entryscreen.dmi'
 	icon_state = "title"
 	layer = FLY_LAYER
 
@@ -90,15 +90,15 @@ transit/east is the same thing now AFAIK
 
 /turf/simulated/floor/plating/snow/trail
 	name = "snow covered trail"
-	icon = 'icons/urist/turf/uristturf.dmi'
+	icon = 'resources/icons/urist/turf/uristturf.dmi'
 	icon_state = "snowpath"
 
 // VOX SHUTTLE SHIT
 /turf/simulated/shuttle/floor/vox
-	//icon = 'icons/turf/shuttle-debug.dmi'
+	//icon = 'resources/icons/turf/shuttle-debug.dmi'
 
 /turf/simulated/shuttle/plating/vox
-	//icon = 'icons/turf/shuttle-debug.dmi'
+	//icon = 'resources/icons/turf/shuttle-debug.dmi'
 
 
 // CATWALKS
@@ -108,7 +108,7 @@ transit/east is the same thing now AFAIK
 	return 0
 
 /turf/simulated/floor/plating/airless/catwalk
-	icon = 'icons/urist/turf/catwalks.dmi'
+	icon = 'resources/icons/urist/turf/catwalks.dmi'
 	icon_state = "catwalk0"
 	name = "catwalk"
 	desc = "Cats really don't like these things."
@@ -128,7 +128,7 @@ transit/east is the same thing now AFAIK
 
 /turf/simulated/floor/plating/airless/catwalk/update_icon(var/propogate=1)
 	underlays.Cut()
-	underlays += new /icon('icons/turf/space.dmi',"[((x + y) ^ ~(x * y) + z) % 25]")
+	underlays += new /icon('resources/icons/turf/space.dmi',"[((x + y) ^ ~(x * y) + z) % 25]")
 
 	var/dirs = 0
 	for(var/direction in GLOB.cardinal)
@@ -146,7 +146,7 @@ transit/east is the same thing now AFAIK
 		return 0
 	if(istype(C, /obj/item/weapon/screwdriver))
 		ReplaceWithLattice()
-		playsound(src, 'sound/items/Screwdriver.ogg', 80, 1)
+		playsound(src, 'resources/sound/items/Screwdriver.ogg', 80, 1)
 		return
 
 	if(istype(C, /obj/item/stack/cable_coil))
@@ -160,7 +160,7 @@ transit/east is the same thing now AFAIK
 
 /turf/simulated/floor/plating/airless/moon //floor piece
 	name = "Moon"
-	icon = 'icons/urist/turf/uristturf.dmi'
+	icon = 'resources/icons/urist/turf/uristturf.dmi'
 	icon_state = "moon"
 	temperature = T0C
 
@@ -175,12 +175,12 @@ transit/east is the same thing now AFAIK
 
 /turf/simulated/floor/airless/uristturf
 	name = "floor"
-	icon = 'icons/urist/turf/uristturf.dmi'
+	icon = 'resources/icons/urist/turf/uristturf.dmi'
 	icon_state = "moon_floor"
 
 /turf/simulated/floor/plating/airless/uristturf
 	name = "plating"
-	icon = 'icons/urist/turf/uristturf.dmi'
+	icon = 'resources/icons/urist/turf/uristturf.dmi'
 	icon_state = "moon_plating"
 
 
@@ -189,12 +189,12 @@ transit/east is the same thing now AFAIK
 
 /turf/unsimulated/wall/wood
 	name = "wood wall"
-	icon = 'icons/urist/turf/walls.dmi'
+	icon = 'resources/icons/urist/turf/walls.dmi'
 	icon_state = "wood0"
 
 /turf/unsimulated/wall/stone
 	name = "stone wall"
-	icon = 'icons/urist/turf/walls.dmi'
+	icon = 'resources/icons/urist/turf/walls.dmi'
 	icon_state = "stone0"
 
 //for mappers
@@ -206,7 +206,7 @@ transit/east is the same thing now AFAIK
 	can_open = 1
 
 /turf/simulated/wall/wood
-	icon = 'icons/urist/turf/walls.dmi'
+	icon = 'resources/icons/urist/turf/walls.dmi'
 	icon_state = "wood0"
 
 /turf/simulated/wall/wood/New(var/newloc)
@@ -215,23 +215,23 @@ transit/east is the same thing now AFAIK
 //unsimulated floor w/ plating icon, for base-turf in hangars and such
 /turf/unsimulated/floor/plating
 	name = "floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'resources/icons/turf/floors.dmi'
 	icon_state = "plating"
 
 /turf/unsimulated/floor/fakestairs
 	name = "stairs"
-	icon = 'icons/urist/turf/uristturf.dmi'
+	icon = 'resources/icons/urist/turf/uristturf.dmi'
 	icon_state = "fakestairs"
 
 //more baseturf
 /turf/unsimulated/floor/snow
 	name = "snow"
-	icon = 'icons/turf/snow.dmi'
+	icon = 'resources/icons/turf/snow.dmi'
 	icon_state = "snow"
 
 /turf/simulated/floor/snow
 	name = "snow"
-	icon = 'icons/turf/snow.dmi'
+	icon = 'resources/icons/turf/snow.dmi'
 	icon_state = "snow"
 
 /turf/simulated/floor/plating/flaps //this is hacky, but it'll prevent the airtight flaps from resetting every time the ship takes off
@@ -240,7 +240,7 @@ transit/east is the same thing now AFAIK
 //alium space ships
 
 /turf/simulated/wall/alium/ship
-	icon = 'icons/urist/turf/scomturfs.dmi'
+	icon = 'resources/icons/urist/turf/scomturfs.dmi'
 
 /turf/simulated/wall/alium/ship/see
 	opacity = 0
@@ -248,15 +248,15 @@ transit/east is the same thing now AFAIK
 /turf/simulated/floor/fixed/alium/ship
 	name = "alien flooring"
 	desc = "This obviously wasn't made for your feet."
-	icon = 'icons/urist/turf/scomturfs.dmi'
+	icon = 'resources/icons/urist/turf/scomturfs.dmi'
 
 //holofloors
 
 /turf/simulated/floor/holofloor/ice
 	name = "ice"
 	base_name = "ice"
-	icon = 'icons/turf/snow.dmi'
-	base_icon = 'icons/turf/snow.dmi'
+	icon = 'resources/icons/turf/snow.dmi'
+	base_icon = 'resources/icons/turf/snow.dmi'
 	icon_state = "ice"
 	base_icon_state = "ice"
 
@@ -264,6 +264,6 @@ transit/east is the same thing now AFAIK
 
 /turf/simulated/floor/shuttle_ceiling
 	name = "hull plating"
-	icon = 'icons/turf/flooring/tiles.dmi'
+	icon = 'resources/icons/turf/flooring/tiles.dmi'
 	icon_state = "reinforced_light"
 	initial_gas = null

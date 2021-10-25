@@ -1,7 +1,7 @@
 /obj/vehicle/train/cargo/engine
 	name = "cargo train tug"
 	desc = "A ridable electric car designed for pulling cargo trolleys."
-	icon = 'icons/obj/vehicles.dmi'
+	icon = 'resources/icons/obj/vehicles.dmi'
 	icon_state = "cargo_engine"
 	on = 0
 	powered = 1
@@ -19,13 +19,13 @@
 /obj/item/weapon/key/cargo_train
 	name = "key"
 	desc = "A keyring with a small steel key, and a yellow fob reading \"Choo Choo!\"."
-	icon = 'icons/obj/vehicles.dmi'
+	icon = 'resources/icons/obj/vehicles.dmi'
 	icon_state = "train_keys"
 	w_class = ITEM_SIZE_TINY
 
 /obj/vehicle/train/cargo/trolley
 	name = "cargo train trolley"
-	icon = 'icons/obj/vehicles.dmi'
+	icon = 'resources/icons/obj/vehicles.dmi'
 	icon_state = "cargo_trailer"
 	anchored = 0
 	passenger_allowed = 0
@@ -43,7 +43,7 @@
 	..()
 	cell = new /obj/item/weapon/cell/high(src)
 	key = new(src)
-	var/image/I = new(icon = 'icons/obj/vehicles.dmi', icon_state = "cargo_engine_overlay")
+	var/image/I = new(icon = 'resources/icons/obj/vehicles.dmi', icon_state = "cargo_engine_overlay")
 	I.plane = plane
 	I.layer = layer
 	overlays += I

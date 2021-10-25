@@ -37,7 +37,7 @@
 /decl/emote/audible/chirp
 	key ="chirp"
 	emote_message_3p = "USER chirps!"
-	emote_sound = 'sound/misc/nymphchirp.ogg'
+	emote_sound = 'resources/sound/misc/nymphchirp.ogg'
 
 /decl/emote/audible/alarm
 	key = "alarm"
@@ -145,14 +145,14 @@
 	key ="hiss"
 	emote_message_3p_target = "USER hisses at TARGET."
 	emote_message_3p = "USER hisses."
-	emote_sound = 'sound/voice/BugHiss.ogg'
+	emote_sound = 'resources/sound/voice/BugHiss.ogg'
 
 /decl/emote/audible/bug_buzz
 	key ="buzz"
 	emote_message_3p = "USER buzzes its wings."
-	emote_sound = 'sound/voice/BugBuzz.ogg'
+	emote_sound = 'resources/sound/voice/BugBuzz.ogg'
 
 /decl/emote/audible/bug_chitter
 	key ="chitter"
 	emote_message_3p = "USER chitters."
-	emote_sound = 'sound/voice/Bug.ogg'
+	emote_sound = 'resources/sound/voice/Bug.ogg'

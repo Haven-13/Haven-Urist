@@ -1,7 +1,7 @@
 /obj/item/slime_extract
 	name = "slime extract"
 	desc = "Goo extracted from a slime. Legends claim these to have \"magical powers\"."
-	icon = 'icons/mob/slimes.dmi'
+	icon = 'resources/icons/mob/slimes.dmi'
 	icon_state = "grey slime extract"
 	force = 1.0
 	w_class = ITEM_SIZE_TINY
@@ -124,7 +124,7 @@
 /obj/item/weapon/slimepotion
 	name = "docility potion"
 	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'resources/icons/obj/chemical.dmi'
 	icon_state = "bottle19"
 
 /obj/item/weapon/slimepotion/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
@@ -158,7 +158,7 @@
 /obj/item/weapon/slimepotion2
 	name = "advanced docility potion"
 	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame. This one is meant for adult slimes."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'resources/icons/obj/chemical.dmi'
 	icon_state = "bottle19"
 
 /obj/item/weapon/slimepotion2/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
@@ -190,7 +190,7 @@
 /obj/item/weapon/slimesteroid
 	name = "slime steroid"
 	desc = "A potent chemical mix that will cause a slime to generate more extract."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'resources/icons/obj/chemical.dmi'
 	icon_state = "bottle16"
 
 /obj/item/weapon/slimesteroid/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
@@ -214,7 +214,7 @@
 /obj/item/weapon/slimesteroid2
 	name = "extract enhancer"
 	desc = "A potent chemical mix that will give a slime extract three uses."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'resources/icons/obj/chemical.dmi'
 	icon_state = "bottle17"
 
 /obj/item/weapon/slimesteroid2/afterattack(obj/target, mob/user , flag)
@@ -235,7 +235,7 @@
 	anchored = 1
 	desc = "a strange rune used to create golems. It glows when spirits are nearby."
 	name = "rune"
-	icon = 'icons/obj/rune.dmi'
+	icon = 'resources/icons/obj/rune.dmi'
 	icon_state = "golem"
 	unacidable = 1
 	plane = DEFAULT_PLANE

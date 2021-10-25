@@ -77,19 +77,19 @@
 /obj/item/clothing/ring/seal/secgen
 	name = "Secretary-General's official seal"
 	desc = "The official seal of the Secretary-General of the Sol Central Government, featured prominently on a silver ring."
-	icon = 'icons/obj/clothing/rings.dmi'
+	icon = 'resources/icons/obj/clothing/rings.dmi'
 	icon_state = "seal-secgen"
 
 /obj/item/clothing/ring/seal/mason
 	name = "masonic ring"
 	desc = "The Square and Compasses feature prominently on this Masonic ring."
-	icon = 'icons/obj/clothing/rings.dmi'
+	icon = 'resources/icons/obj/clothing/rings.dmi'
 	icon_state = "seal-masonic"
 
 /obj/item/clothing/ring/seal/signet
 	name = "signet ring"
 	desc = "A signet ring, for when you're too sophisticated to sign letters."
-	icon = 'icons/obj/clothing/rings.dmi'
+	icon = 'resources/icons/obj/clothing/rings.dmi'
 	icon_state = "seal-signet"
 	var/nameset = 0
 

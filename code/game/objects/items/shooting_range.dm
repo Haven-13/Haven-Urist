@@ -2,7 +2,7 @@
 /obj/item/target
 	name = "shooting target"
 	desc = "A shooting target."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'resources/icons/obj/objects.dmi'
 	icon_state = "target_h"
 	density = 0
 	var/obj/structure/target_stake/stake
@@ -65,7 +65,7 @@
 		var/obj/bmark = new
 		bmark.pixel_x = p_x
 		bmark.pixel_y = p_y
-		bmark.icon = 'icons/effects/effects.dmi'
+		bmark.icon = 'resources/icons/effects/effects.dmi'
 		bmark.plane = DEFAULT_PLANE
 		bmark.layer = ABOVE_OBJ_LAYER
 		bmark.icon_state = "scorch"

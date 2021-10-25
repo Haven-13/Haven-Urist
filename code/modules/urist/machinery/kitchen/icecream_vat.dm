@@ -5,7 +5,7 @@
 	name = "\improper Cream-Master Deluxe"
 	density = 1
 	anchored = 1
-	icon = 'icons/urist/kitchen.dmi'
+	icon = 'resources/icons/urist/kitchen.dmi'
 	icon_state = "icecream_vat"
 	use_power = 1
 	idle_power_usage = 20
@@ -44,7 +44,7 @@
 		if(!I.reagents.has_reagent(/datum/reagent/nutriment/sprinkles))
 			if(I.reagents.total_volume > 29) I.reagents.remove_any(1)
 			I.reagents.add_reagent(/datum/reagent/nutriment/sprinkles,1)
-			var/image/sprinkles = image('icons/obj/kitchen.dmi', src, "sprinkles")
+			var/image/sprinkles = image('resources/icons/obj/kitchen.dmi', src, "sprinkles")
 			I.overlays += sprinkles
 			I.name += " with sprinkles"
 			I.desc += ". This also has sprinkles."
@@ -58,7 +58,7 @@
 	else
 		if(reagents.total_volume < 500)
 			to_chat(usr, "<span class='notice'>[src] vibrates for a moment, apparently accepting the unknown liquid.</span>")
-			playsound(loc, 'sound/machines/twobeep.ogg', 10, 1)
+			playsound(loc, 'resources/sound/machines/twobeep.ogg', 10, 1)
 		return 1
 
 

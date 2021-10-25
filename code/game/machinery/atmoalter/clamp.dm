@@ -4,7 +4,7 @@
 /obj/machinery/clamp
 	name = "stasis clamp"
 	desc = "A magnetic clamp which can halt the flow of gas in a pipe, via a localised stasis field."
-	icon = 'icons/atmos/clamp.dmi'
+	icon = 'resources/icons/atmos/clamp.dmi'
 	icon_state = "pclamp0"
 	anchored = 1.0
 	var/obj/machinery/atmospherics/pipe/simple/target = null
@@ -134,7 +134,7 @@
 /obj/item/clamp
 	name = "stasis clamp"
 	desc = "A magnetic clamp which can halt the flow of gas in a pipe, via a localised stasis field."
-	icon = 'icons/atmos/clamp.dmi'
+	icon = 'resources/icons/atmos/clamp.dmi'
 	icon_state = "pclamp0"
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MAGNET = 4)
 

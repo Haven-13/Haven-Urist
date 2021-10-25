@@ -6,7 +6,7 @@
 	description_info = "On use, this device will toggle between various types of structures (or their removal). You can examine it to see its current mode. It must be loaded with compressed matter cartridges, which can be obtained from an autolathe. Click an adjacent tile to use the device."
 	description_fluff = "Advents in material printing and synthesis technology have produced everyday miracles, such as the RCD, which in certain industries has single-handedly put entire construction crews out of a job."
 	description_antag = "RCDs can be incredibly dangerous in the wrong hands. Use them to swiftly block off corridors, or instantly breach the ship wherever you want."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "rcd"
 	opacity = 0
 	density = 0
@@ -71,7 +71,7 @@
 			return
 		stored_matter += cartridge.remaining
 		qdel(W)
-		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/machines/click.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>The RCD now holds [stored_matter]/[max_stored_matter] matter-units.</span>")
 		return
 	..()
@@ -81,7 +81,7 @@
 	work_id++
 	work_mode = next_in_list(work_mode, work_modes)
 	to_chat(user, "<span class='notice'>Changed mode to '[work_mode]'</span>")
-	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
+	playsound(src.loc, 'resources/sound/effects/pop.ogg', 50, 0)
 	if(prob(20)) src.spark_system.start()
 
 /obj/item/weapon/rcd/afterattack(atom/A, mob/user, proximity)
@@ -102,7 +102,7 @@
 /obj/item/weapon/rcd_ammo
 	name = "compressed matter cartridge"
 	desc = "A highly-compressed matter cartridge usable in rapid construction (and deconstruction) devices, such as railguns."
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'resources/icons/obj/ammo.dmi'
 	icon_state = "rcd"
 	item_state = "rcdammo"
 	w_class = ITEM_SIZE_SMALL
@@ -175,7 +175,7 @@
 			to_chat(user, "<span class='warning'>Insufficient resources.</span>")
 			return FALSE
 
-		playsound(get_turf(user), 'sound/machines/click.ogg', 50, 1)
+		playsound(get_turf(user), 'resources/sound/machines/click.ogg', 50, 1)
 		rcdm.work_message(target, user, rcd)
 
 		if(rcdm.delay)
@@ -184,7 +184,7 @@
 				return FALSE
 
 		rcdm.do_handle_work(target)
-		playsound(get_turf(user), 'sound/items/Deconstruct.ogg', 50, 1)
+		playsound(get_turf(user), 'resources/sound/items/Deconstruct.ogg', 50, 1)
 		return TRUE
 
 	return FALSE

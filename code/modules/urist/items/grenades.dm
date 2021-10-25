@@ -1,7 +1,7 @@
 /obj/item/weapon/grenade/chem_grenade/hhg
 	name = "The Holy Hand Grenade of Antioch"
 	desc = "The Holy Hand Grenade of Antioch."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'resources/icons/urist/items/uristweapons.dmi'
 	icon_state = "hhg"
 	item_state = "hhg"
 	path = 1
@@ -98,7 +98,7 @@
 			M.make_jittery(30)	//No ear damage because I don't want spam
 			//To lead to deafness.
 
-	playsound(src.loc, 'sound/effects/bang.ogg', 50, 1, 5)
+	playsound(src.loc, 'resources/sound/effects/bang.ogg', 50, 1, 5)
 	qdel(src)
 	return
 
@@ -176,7 +176,7 @@
 /obj/item/weapon/grenade/syndieminibomb
 	desc = "A syndicate manufactured explosive used to sow destruction and chaos"
 	name = "syndicate minibomb"
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	icon_state = "syndicate"
 	item_state = "flashbang"
 	origin_tech = "materials=3;magnets=4;syndicate=4"

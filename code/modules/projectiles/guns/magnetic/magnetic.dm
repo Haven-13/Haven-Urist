@@ -3,7 +3,7 @@
 	desc = "A coilgun hastily thrown together out of a basic frame and advanced power storage components. Is it safely held together with duct tape."
 	icon_state = "coilgun"
 	item_state = "coilgun"
-	icon = 'icons/obj/railgun.dmi'
+	icon = 'resources/icons/obj/railgun.dmi'
 	one_hand_penalty = 5
 	fire_delay = 20
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4, TECH_ILLEGAL = 2, TECH_MAGNET = 4)
@@ -101,7 +101,7 @@
 			if(!user.unEquip(cell, src))
 				return
 			cell = thing
-			playsound(loc, 'sound/machines/click.ogg', 10, 1)
+			playsound(loc, 'resources/sound/machines/click.ogg', 10, 1)
 			user.visible_message("<span class='notice'>\The [user] slots \the [cell] into \the [src].</span>")
 			user.unEquip(cell, get_turf(src))
 			cell.forceMove(src)
@@ -115,7 +115,7 @@
 			capacitor.forceMove(get_turf(src))
 			user.put_in_hands(capacitor)
 			user.visible_message("<span class='notice'>\The [user] unscrews \the [capacitor] from \the [src].</span>")
-			playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 			capacitor = null
 			update_icon()
 			return
@@ -127,7 +127,7 @@
 			if(!user.unEquip(capacitor, src))
 				return
 			capacitor = thing
-			playsound(loc, 'sound/machines/click.ogg', 10, 1)
+			playsound(loc, 'resources/sound/machines/click.ogg', 10, 1)
 			power_per_tick = (power_cost*0.15) * capacitor.rating
 			user.visible_message("<span class='notice'>\The [user] slots \the [capacitor] into \the [src].</span>")
 			user.unEquip(capacitor, get_turf(src))
@@ -169,7 +169,7 @@
 			ammo.use(1)
 
 		user.visible_message("<span class='notice'>\The [user] loads \the [src] with \the [loaded].</span>")
-		playsound(loc, 'sound/weapons/flipblade.ogg', 50, 1)
+		playsound(loc, 'resources/sound/weapons/flipblade.ogg', 50, 1)
 		update_icon()
 		return
 	. = ..()
@@ -189,7 +189,7 @@
 			removing.forceMove(get_turf(src))
 			user.put_in_hands(removing)
 			user.visible_message("<span class='notice'>\The [user] removes \the [removing] from \the [src].</span>")
-			playsound(loc, 'sound/machines/click.ogg', 10, 1)
+			playsound(loc, 'resources/sound/machines/click.ogg', 10, 1)
 			update_icon()
 			return
 	. = ..()

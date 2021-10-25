@@ -71,7 +71,7 @@
 	desc = "A control terminal for the area electrical systems."
 
 	icon_state = "apc0"
-	icon = 'icons/obj/apc.dmi'
+	icon = 'resources/icons/obj/apc.dmi'
 	plane = DEFAULT_PLANE
 	anchored = 1
 	use_power = 0
@@ -219,7 +219,7 @@
 	if(emp_hardened)
 		return
 	failure_timer = max(failure_timer, round(duration))
-	playsound(src, 'sound/machines/apc_nopower.ogg', 75, 0)
+	playsound(src, 'resources/sound/machines/apc_nopower.ogg', 75, 0)
 
 /obj/machinery/power/apc/proc/make_terminal()
 	// create a terminal object at the same position as original turf loc
@@ -447,7 +447,7 @@
 			if (terminal)
 				to_chat(user, "<span class='warning'>Disconnect wires first.</span>")
 				return
-			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 			to_chat(user, "You begin to remove the power control board...")//lpeters - fixed grammar issues
 
 			if(do_after(user, 50, src))
@@ -502,12 +502,12 @@
 				if (has_electronics==1 && terminal)
 					has_electronics = 2
 					stat &= ~MAINT
-					playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+					playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 					to_chat(user, "You screw the circuit electronics into place.")
 				else if (has_electronics==2)
 					has_electronics = 1
 					stat |= MAINT
-					playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+					playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 					to_chat(user, "You unfasten the electronics.")
 				else /* has_electronics==0 */
 					to_chat(user, "<span class='warning'>There is nothing to secure.</span>")
@@ -547,7 +547,7 @@
 			return
 		user.visible_message("<span class='warning'>[user.name] starts adding cables to the APC frame.</span>", \
 							"You start adding cables to the APC frame...")
-		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 		if(do_after(user, 20, src))
 			if (C.amount >= 10 && !terminal && opened && has_electronics != 2)
 				var/obj/structure/cable/N = T.get_cable_node()
@@ -570,7 +570,7 @@
 			return
 		user.visible_message("<span class='warning'>[user.name] begins dismantling the power terminal from \the [src].</span>", \
 							"You begin to cut the cables...")
-		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 		if(do_after(user, 50, src))
 			if(terminal && opened && has_electronics!=2)
 				if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
@@ -585,7 +585,7 @@
 	else if (istype(W, /obj/item/weapon/module/power_control) && opened && has_electronics==0 && !((stat & BROKEN)))
 		user.visible_message("<span class='warning'>[user.name] starts inserting the power control board into [src].</span>", \
 							"You start to insert the power control board into the frame...")
-		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 		if(do_after(user, 10, src))
 			if(has_electronics==0)
 				has_electronics = 1
@@ -603,7 +603,7 @@
 		user.visible_message("<span class='warning'>[user.name] starts welding \the [src].</span>", \
 							"You start welding the APC frame...", \
 							"You hear welding.")
-		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Welder.ogg', 50, 1)
 		if(do_after(user, 50, src))
 			if(!src || !WT.remove_fuel(3, user)) return
 			if (emagged || (stat & BROKEN) || opened==2)
@@ -680,7 +680,7 @@
 						to_chat(user, "<span class='warning'>There's a nasty sound and \the [src] goes cold...</span>")
 						stat |= BROKEN
 				update_icon()
-		playsound(get_turf(src), 'sound/weapons/smash.ogg', 75, 1)
+		playsound(get_turf(src), 'resources/sound/weapons/smash.ogg', 75, 1)
 
 // attack with hand - remove cell (if cover open) or interact with the APC
 
@@ -717,7 +717,7 @@
 
 		if(H.species.can_shred(H))
 			user.visible_message("<span class='warning'>\The [user] slashes at \the [src]!</span>", "<span class='notice'>You slash at \the [src]!</span>")
-			playsound(src.loc, 'sound/weapons/slash.ogg', 100, 1)
+			playsound(src.loc, 'resources/sound/weapons/slash.ogg', 100, 1)
 
 			var/allcut = wires.IsAllCut()
 
@@ -901,7 +901,7 @@
 
 	if(!cell || cell.charge <= 0)
 		if(needs_powerdown_sound == TRUE)
-			playsound(src, 'sound/machines/apc_nopower.ogg', 75, 0)
+			playsound(src, 'resources/sound/machines/apc_nopower.ogg', 75, 0)
 			needs_powerdown_sound = FALSE
 		else
 			needs_powerdown_sound = TRUE
@@ -1277,7 +1277,7 @@
 /obj/item/weapon/module/power_control
 	name = "power control module"
 	desc = "Heavy-duty switching circuits for power control."
-	icon = 'icons/obj/module.dmi'
+	icon = 'resources/icons/obj/module.dmi'
 	icon_state = "power_mod"
 	item_state = "electronic"
 	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)

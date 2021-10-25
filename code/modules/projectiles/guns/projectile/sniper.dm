@@ -18,7 +18,7 @@
 	scoped_accuracy = 5 //increased accuracy over the LWAP because only one shot
 	var/bolt_open = 0
 	wielded_item_state = "heavysniper-wielded" //sort of placeholder
-	load_sound = 'sound/weapons/guns/interaction/rifle_load.ogg'
+	load_sound = 'resources/sound/weapons/guns/interaction/rifle_load.ogg'
 
 /obj/item/weapon/gun/projectile/heavysniper/apds
 	ammo_type = /obj/item/ammo_casing/a145/apds
@@ -40,10 +40,10 @@
 			chambered = null
 		else
 			to_chat(user, "<span class='notice'>You work the bolt open.</span>")
-		playsound(src.loc, 'sound/weapons/guns/interaction/rifle_boltback.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/weapons/guns/interaction/rifle_boltback.ogg', 50, 1)
 	else
 		to_chat(user, "<span class='notice'>You work the bolt closed.</span>")
-		playsound(src.loc, 'sound/weapons/guns/interaction/rifle_boltforward.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/weapons/guns/interaction/rifle_boltforward.ogg', 50, 1)
 		bolt_open = 0
 	add_fingerprint(user)
 	update_icon()

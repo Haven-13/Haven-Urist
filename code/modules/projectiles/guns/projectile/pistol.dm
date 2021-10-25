@@ -89,8 +89,8 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a50
 	allowed_magazines = /obj/item/ammo_magazine/a50
-	mag_insert_sound = 'sound/weapons/guns/interaction/hpistol_magin.ogg'
-	mag_remove_sound = 'sound/weapons/guns/interaction/hpistol_magout.ogg'
+	mag_insert_sound = 'resources/sound/weapons/guns/interaction/hpistol_magin.ogg'
+	mag_remove_sound = 'resources/sound/weapons/guns/interaction/hpistol_magout.ogg'
 
 /obj/item/weapon/gun/projectile/magnum_pistol/update_icon()
 	..()
@@ -111,9 +111,9 @@
 	magazine_type = /obj/item/ammo_magazine/a75
 	fire_delay = 25
 	auto_eject = 1
-	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
-	mag_insert_sound = 'sound/weapons/guns/interaction/hpistol_magin.ogg'
-	mag_remove_sound = 'sound/weapons/guns/interaction/hpistol_magout.ogg'
+	auto_eject_sound = 'resources/sound/weapons/smg_empty_alarm.ogg'
+	mag_insert_sound = 'resources/sound/weapons/guns/interaction/hpistol_magin.ogg'
+	mag_remove_sound = 'resources/sound/weapons/guns/interaction/hpistol_magout.ogg'
 
 /obj/item/weapon/gun/projectile/gyropistol/update_icon()
 	..()
@@ -198,7 +198,7 @@
 /obj/item/weapon/silencer
 	name = "silencer"
 	desc = "A silencer."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'resources/icons/obj/gun.dmi'
 	icon_state = "silencer"
 	w_class = ITEM_SIZE_SMALL
 
@@ -276,7 +276,7 @@
 		return
 	else if(isScrewdriver(thing) && buildstate == 3)
 		user.visible_message("<span class='notice'>\The [user] secures the trigger assembly with \the [thing].</span>")
-		playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 		var/obj/item/weapon/gun/projectile/pirate/zipgun
 		zipgun = new/obj/item/weapon/gun/projectile/pirate { starts_loaded = 0 } (loc)
 		if(ismob(loc))

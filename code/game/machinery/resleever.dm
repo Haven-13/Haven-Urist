@@ -1,7 +1,7 @@
 /obj/machinery/resleever
 	name = "neural lace resleever"
 	desc = "It's a machine that allows neural laces to be sleeved into new bodies."
-	icon = 'icons/obj/Cryogenic2.dmi'
+	icon = 'resources/icons/obj/Cryogenic2.dmi'
 
 	anchored = 1
 	density = 1
@@ -56,7 +56,7 @@
 			resleeving = 0
 			update_use_power(1)
 			eject_occupant()
-			playsound(loc, 'sound/machines/ping.ogg', 100, 1)
+			playsound(loc, 'resources/sound/machines/ping.ogg', 100, 1)
 			visible_message("\The [src] pings as it completes its procedure!", 3)
 			return
 	update_use_power(0)
@@ -176,7 +176,7 @@
 			else
 				anchored = 1
 				user.visible_message("[user] secures [src] to the floor.", "You secure [src] to the floor.")
-			playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+			playsound(loc, 'resources/sound/items/Ratchet.ogg', 100, 1)
 		else
 			to_chat(user, "<span class='warning'>Can not do that while [src] is occupied.</span>")
 

@@ -1,7 +1,7 @@
 /obj/item/inflatable
 	name = "inflatable"
 	w_class = ITEM_SIZE_NORMAL
-	icon = 'icons/obj/inflatable.dmi'
+	icon = 'resources/icons/obj/inflatable.dmi'
 	var/deploy_path = null
 
 	atmos_canpass = CANPASS_DENSITY
@@ -9,7 +9,7 @@
 /obj/item/inflatable/attack_self(mob/user)
 	if(!deploy_path)
 		return
-	playsound(loc, 'sound/items/zip.ogg', 75, 1)
+	playsound(loc, 'resources/sound/items/zip.ogg', 75, 1)
 	to_chat(user, "<span class='notice'>You inflate \the [src].</span>")
 	var/obj/structure/inflatable/R = new deploy_path(user.loc)
 	src.transfer_fingerprints_to(R)
@@ -35,7 +35,7 @@
 	density = 1
 	anchored = 1
 	opacity = 0
-	icon = 'icons/obj/inflatable.dmi'
+	icon = 'resources/icons/obj/inflatable.dmi'
 	icon_state = "wall"
 
 	var/undeploy_path = null
@@ -95,7 +95,7 @@
 /obj/structure/inflatable/proc/hit(var/damage, var/sound_effect = 1)
 	health = max(0, health - damage)
 	if(sound_effect)
-		playsound(loc, 'sound/effects/Glasshit.ogg', 75, 1)
+		playsound(loc, 'resources/sound/effects/Glasshit.ogg', 75, 1)
 	if(health <= 0)
 		deflate(1)
 		return 1
@@ -105,7 +105,7 @@
 	hand_deflate()
 
 /obj/structure/inflatable/proc/deflate(var/violent=0)
-	playsound(loc, 'sound/machines/hiss.ogg', 75, 1)
+	playsound(loc, 'resources/sound/machines/hiss.ogg', 75, 1)
 	if(violent)
 		visible_message("[src] rapidly deflates!")
 		var/obj/item/inflatable/torn/R = new /obj/item/inflatable/torn(loc)
@@ -221,7 +221,7 @@
 		icon_state = "door_closed"
 
 /obj/structure/inflatable/door/deflate(var/violent=0)
-	playsound(loc, 'sound/machines/hiss.ogg', 75, 1)
+	playsound(loc, 'resources/sound/machines/hiss.ogg', 75, 1)
 	if(violent)
 		visible_message("[src] rapidly deflates!")
 		var/obj/item/inflatable/door/torn/R = new /obj/item/inflatable/door/torn(loc)
@@ -237,7 +237,7 @@
 /obj/item/inflatable/torn
 	name = "torn inflatable wall"
 	desc = "A folded membrane which rapidly expands into a large cubical shape on activation. It is too torn to be usable."
-	icon = 'icons/obj/inflatable.dmi'
+	icon = 'resources/icons/obj/inflatable.dmi'
 	icon_state = "folded_wall_torn"
 
 /obj/item/inflatable/torn/attack_self(mob/user)
@@ -247,7 +247,7 @@
 /obj/item/inflatable/door/torn
 	name = "torn inflatable door"
 	desc = "A folded membrane which rapidly expands into a simple door on activation. It is too torn to be usable."
-	icon = 'icons/obj/inflatable.dmi'
+	icon = 'resources/icons/obj/inflatable.dmi'
 	icon_state = "folded_door_torn"
 
 /obj/item/inflatable/door/torn/attack_self(mob/user)

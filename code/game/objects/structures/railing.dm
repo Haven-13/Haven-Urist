@@ -1,7 +1,7 @@
 /obj/structure/railing
 	name = "railing"
 	desc = "A standard steel railing. Prevents from human stupidity."
-	icon = 'icons/obj/railing.dmi'
+	icon = 'resources/icons/obj/railing.dmi'
 	density = 1
 	throwpass = 1
 	layer = ABOVE_MOB_LAYER
@@ -89,7 +89,7 @@
 	health -= amount
 	if(health <= 0)
 		visible_message("<span class='danger'>\The [src] [material.destruction_desc]!</span>")
-		playsound(loc, 'sound/effects/grillehit.ogg', 50, 1)
+		playsound(loc, 'resources/sound/effects/grillehit.ogg', 50, 1)
 		material.place_shard(get_turf(usr))
 		qdel(src)
 
@@ -220,7 +220,7 @@
 			if(G.force_danger())
 				if(user.a_intent == I_HURT)
 					visible_message("<span class='danger'>[G.assailant] slams [G.affecting]'s face against \the [src]!</span>")
-					playsound(loc, 'sound/effects/grillehit.ogg', 50, 1)
+					playsound(loc, 'resources/sound/effects/grillehit.ogg', 50, 1)
 					var/blocked = G.affecting.run_armor_check(BP_HEAD, "melee")
 					if (prob(30 * blocked_mult(blocked)))
 						G.affecting.Weaken(5)
@@ -239,7 +239,7 @@
 
 	// Dismantle
 	if(isWrench(W) && !anchored)
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 		if(do_after(user, 20, src))
 			user.visible_message("<span class='notice'>\The [user] dismantles \the [src].</span>", "<span class='notice'>You dismantle \the [src].</span>")
 			material.place_sheet(loc, 2)
@@ -253,7 +253,7 @@
 			if(health >= maxhealth)
 				to_chat(user, "<span class='warning'>\The [src] does not need repairs.</span>")
 				return
-			playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Welder.ogg', 50, 1)
 			if(do_after(user, 20, src))
 				user.visible_message("<span class='notice'>\The [user] repairs some damage to \the [src].</span>", "<span class='notice'>You repair some damage to \the [src].</span>")
 				health = min(health+(maxhealth/5), maxhealth)
@@ -262,7 +262,7 @@
 	// Install
 	if(isScrewdriver(W))
 		user.visible_message(anchored ? "<span class='notice'>\The [user] begins unscrew \the [src].</span>" : "<span class='notice'>\The [user] begins fasten \the [src].</span>" )
-		playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
+		playsound(loc, 'resources/sound/items/Screwdriver.ogg', 75, 1)
 		if(do_after(user, 10, src))
 			to_chat(user, (anchored ? "<span class='notice'>You have unfastened \the [src] from the floor.</span>" : "<span class='notice'>You have fastened \the [src] to the floor.</span>"))
 			anchored = !anchored

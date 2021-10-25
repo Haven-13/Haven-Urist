@@ -3,13 +3,13 @@
 /*/obj/structure/tanningrack
 	name = "tanning rack"
 	desc = "It's a tanning rack. Nothing too special, place hides or gut on it and leave them to dry."
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 	icon_state = "drying-rack"*/
 
 /obj/machinery/smartfridge/tanningrack
 	name = "\improper Tanning Rack"
 	desc = "A machine for tanning hides."
-	icon = 'icons/urist/objects/machinery.dmi'
+	icon = 'resources/icons/urist/objects/machinery.dmi'
 	icon_state = "drying_rack"
 	icon_on = "drying_rack_on"
 	icon_off = "drying_rack"
@@ -77,7 +77,7 @@
 //hide
 
 /obj/item/stack/hide //the old hide stuff is garbage and makes no sense. why did bay make them materials? we will never know, and I don't want the potential of hairless hide barricades because fucking hell Zuhayr.
-	icon = 'icons/obj/items.dmi' //so then, to make things make sense, we're making new things. But we're keeping the steps mostly the same.
+	icon = 'resources/icons/obj/items.dmi' //so then, to make things make sense, we're making new things. But we're keeping the steps mostly the same.
 
 /obj/item/stack/hide/animalhide
 	name = "animal hide"

@@ -1,4 +1,4 @@
-#define DRINK_ICON_FILE 'icons/pdrink.dmi'
+#define DRINK_ICON_FILE 'resources/icons/pdrink.dmi'
 
 /var/const/DRINK_FIZZ = "fizz"
 /var/const/DRINK_ICE = "ice"

@@ -58,7 +58,7 @@
 
 /obj/structure/closet/secure_closet/blueshield
 	name = "Blueshield Locker"
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 	req_access = list(access_blueshield)
 	icon_state = "bssecure1"
 	icon_closed = "bssecure"
@@ -90,7 +90,7 @@
 /obj/structure/closet/emsuits
 	name = "emergency suit closet"
 	desc = "It's a closet for storing emergency equipment and suits. A small  sign on the bottom reads 'use only in extreme emergencies'"
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 	icon_state = "ecloset"
 	icon_closed = "ecloset"
 	icon_opened = "eclosetopen"

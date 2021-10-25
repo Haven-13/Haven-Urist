@@ -1,7 +1,7 @@
 /mob/living/carbon/slime
 	hud_type = /datum/hud/slime
 
-/datum/hud/slime/FinalizeInstantiation(ui_style = 'icons/mob/screen1_Midnight.dmi')
+/datum/hud/slime/FinalizeInstantiation(ui_style = 'resources/icons/mob/screen1_Midnight.dmi')
 	src.adding = list()
 
 	var/atom/movable/screen/using

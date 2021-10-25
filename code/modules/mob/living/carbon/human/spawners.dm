@@ -1,6 +1,6 @@
 
 /obj/effect/spawner/carbon/human
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 	icon_state = "x"
 	invisibility = 0
 	var/species = SPECIES_HUMAN

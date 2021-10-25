@@ -157,7 +157,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 
 /obj/structure/scom/fuckitall //what the fuck was wrong with me
 	name = "mothership central computer"
-	icon = 'icons/urist/turf/scomturfs.dmi'
+	icon = 'resources/icons/urist/turf/scomturfs.dmi'
 	icon_state = "9,8"
 	var/fuckitall = 0
 	anchored = 1

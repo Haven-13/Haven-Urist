@@ -1,6 +1,6 @@
 /obj/machinery/button
 	name = "button"
-	icon = 'icons/obj/objects.dmi'
+	icon = 'resources/icons/obj/objects.dmi'
 	icon_state = "launcherbtt"
 	desc = "A remote control switch for something."
 	layer = ABOVE_WINDOW_LAYER
@@ -59,7 +59,7 @@
 
 //alternate button with the same functionality, except has a lightswitch sprite instead
 /obj/machinery/button/switch
-	icon = 'icons/obj/power.dmi'
+	icon = 'resources/icons/obj/power.dmi'
 	icon_state = "light0"
 
 /obj/machinery/button/switch/update_icon()
@@ -67,7 +67,7 @@
 
 //alternate button with the same functionality, except has a door control sprite instead
 /obj/machinery/button/alternate
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "doorctrl0"
 
 /obj/machinery/button/alternate/update_icon()
@@ -118,7 +118,7 @@
 /obj/structure/holo_shield
 	name = "simulated shield"
 	desc = "A shield programmed to automatically lower itself after a time."
-	icon = 'icons/obj/machines/shielding.dmi'
+	icon = 'resources/icons/obj/machines/shielding.dmi'
 	icon_state = "shield_normal"
 	dir = WEST
 	density = TRUE
@@ -152,7 +152,7 @@
 
 //alternate button with the same toggle functionality, except has a lightswitch sprite instead
 /obj/machinery/button/toggle/switch
-	icon = 'icons/obj/power.dmi'
+	icon = 'resources/icons/obj/power.dmi'
 	icon_state = "light0"
 
 /obj/machinery/button/toggle/switch/update_icon()
@@ -162,7 +162,7 @@
 
 //alternate button with the same toggle functionality, except has a door control sprite instead
 /obj/machinery/button/toggle/alternate
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "doorctrl0"
 
 /obj/machinery/button/toggle/alternate/update_icon()
@@ -207,7 +207,7 @@
 #define SAFE   0x10
 
 /obj/machinery/button/toggle/door
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "doorctrl"
 
 	var/_door_functions = 1

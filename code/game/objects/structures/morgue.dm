@@ -13,7 +13,7 @@
 /obj/structure/morgue
 	name = "morgue"
 	desc = "Used to keep bodies in until someone fetches them."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "morgue1"
 	dir = EAST
 	density = 1
@@ -65,11 +65,11 @@
 		for(var/atom/movable/A as mob|obj in src.connected.loc)
 			if (!( A.anchored ))
 				A.forceMove(src)
-		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 		qdel(src.connected)
 		src.connected = null
 	else
-		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 		src.connected = new /obj/structure/m_tray( src.loc )
 		step(src.connected, src.dir)
 		src.connected.layer = OBJ_LAYER
@@ -133,7 +133,7 @@
 /obj/structure/m_tray
 	name = "morgue tray"
 	desc = "Apply corpse before closing."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "morguet"
 	density = 1
 	layer = BELOW_OBJ_LAYER
@@ -183,7 +183,7 @@
 /obj/structure/crematorium
 	name = "crematorium"
 	desc = "A human incinerator. Works well on barbeque nights."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "crema1"
 	density = TRUE
 	var/obj/structure/c_tray/connected = null
@@ -252,10 +252,10 @@
 		for(var/atom/movable/A as mob|obj in src.connected.loc)
 			if (!( A.anchored ))
 				A.forceMove(src)
-		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 		qdel(src.connected)
 	else if(src.locked == 0)
-		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 		src.connected = new /obj/structure/c_tray(src.loc)
 		step(src.connected, dir)
 		src.connected.layer = OBJ_LAYER
@@ -337,27 +337,27 @@
 						var/desperation = rand(1,5)
 						switch(desperation) //This is messy. A better solution would probably be to make more sounds, but...
 							if(1)
-								playsound(src.loc, 'sound/weapons/genhit.ogg', 45, 1)
+								playsound(src.loc, 'resources/sound/weapons/genhit.ogg', 45, 1)
 								shake_animation(2)
-								playsound(src.loc, 'sound/weapons/genhit.ogg', 45, 1)
+								playsound(src.loc, 'resources/sound/weapons/genhit.ogg', 45, 1)
 							if(2)
-								playsound(src.loc, 'sound/effects/grillehit.ogg', 45, 1)
+								playsound(src.loc, 'resources/sound/effects/grillehit.ogg', 45, 1)
 								shake_animation(3)
-								playsound(src.loc, 'sound/effects/grillehit.ogg', 45, 1)
+								playsound(src.loc, 'resources/sound/effects/grillehit.ogg', 45, 1)
 							if(3)
-								playsound(src, 'sound/effects/bang.ogg', 45, 1)
+								playsound(src, 'resources/sound/effects/bang.ogg', 45, 1)
 								if(prob(50))
-									playsound(src, 'sound/effects/bang.ogg', 45, 1)
+									playsound(src, 'resources/sound/effects/bang.ogg', 45, 1)
 									shake_animation()
 								else
 									shake_animation(5)
 							if(4)
-								playsound(src, 'sound/effects/clang.ogg', 45, 1)
+								playsound(src, 'resources/sound/effects/clang.ogg', 45, 1)
 								shake_animation(5)
 							if(5)
-								playsound(src, 'sound/weapons/smash.ogg', 50, 1)
+								playsound(src, 'resources/sound/weapons/smash.ogg', 50, 1)
 								if(prob(50))
-									playsound(src, 'sound/weapons/smash.ogg', 50, 1)
+									playsound(src, 'resources/sound/weapons/smash.ogg', 50, 1)
 									shake_animation(9)
 								else
 									shake_animation()
@@ -366,9 +366,9 @@
 			if(M.stat >= DEAD)
 				if(round_is_spooky())
 					if(prob(50))
-						playsound(src, 'sound/effects/ghost.ogg', 10, 5)
+						playsound(src, 'resources/sound/effects/ghost.ogg', 10, 5)
 					else
-						playsound(src, 'sound/effects/ghost2.ogg', 10, 5)
+						playsound(src, 'resources/sound/effects/ghost2.ogg', 10, 5)
 
 				admin_attack_log(M, A, "Cremated their victim.", "Was cremated.", "cremated alive")
 				M.audible_message("[M]'s screams cease, as does any movement within the [src]. All that remains is a dull, empty silence.")
@@ -382,7 +382,7 @@
 		cremating = initial(cremating)
 		locked = initial(locked)
 		update()
-		playsound(src.loc, 'sound/effects/spray.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/effects/spray.ogg', 50, 1)
 	return
 
 /*
@@ -391,7 +391,7 @@
 /obj/structure/c_tray
 	name = "crematorium tray"
 	desc = "Apply body before burning."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "cremat"
 	density = 1
 	layer = BELOW_OBJ_LAYER
@@ -436,7 +436,7 @@
 /obj/machinery/button/crematorium
 	name = "crematorium igniter"
 	desc = "Burn baby burn!"
-	icon = 'icons/obj/power.dmi'
+	icon = 'resources/icons/obj/power.dmi'
 	icon_state = "crema_switch"
 	req_access = list(access_crematorium)
 	id = 1

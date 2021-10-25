@@ -1,7 +1,7 @@
 /obj/structure/extinguisher_cabinet
 	name = "extinguisher cabinet"
 	desc = "A small wall mounted cabinet designed to hold a fire extinguisher."
-	icon = 'icons/obj/closet.dmi'
+	icon = 'resources/icons/obj/closet.dmi'
 	icon_state = "extinguisher_closed"
 	anchored = 1
 	density = 0
@@ -19,7 +19,7 @@
 		if(!has_extinguisher && opened && user.unEquip(O, src))
 			has_extinguisher = O
 			to_chat(user, "<span class='notice'>You place [O] in [src].</span>")
-			playsound(src.loc, 'sound/effects/extin.ogg', 50, 0)
+			playsound(src.loc, 'resources/sound/effects/extin.ogg', 50, 0)
 		else
 			opened = !opened
 	else
@@ -41,7 +41,7 @@
 	if(has_extinguisher)
 		user.put_in_hands(has_extinguisher)
 		to_chat(user, "<span class='notice'>You take [has_extinguisher] from [src].</span>")
-		playsound(src.loc, 'sound/effects/extout.ogg', 50, 0)
+		playsound(src.loc, 'resources/sound/effects/extout.ogg', 50, 0)
 		has_extinguisher = null
 		opened = 1
 	else

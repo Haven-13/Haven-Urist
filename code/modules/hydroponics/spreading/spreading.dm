@@ -46,7 +46,7 @@
 	anchored = 1
 	opacity = 0
 	density = 0
-	icon = 'icons/obj/hydroponics_growing.dmi'
+	icon = 'resources/icons/obj/hydroponics_growing.dmi'
 	icon_state = ""
 	plane = DEFAULT_PLANE
 	layer = OBJ_LAYER

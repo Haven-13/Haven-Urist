@@ -7,7 +7,7 @@
 	plane = DEFAULT_PLANE
 	layer = ABOVE_MOB_LAYER
 
-/obj/effect/temporary/Initialize(var/mapload, var/duration = 30, var/_icon = 'icons/effects/effects.dmi', var/_state)
+/obj/effect/temporary/Initialize(var/mapload, var/duration = 30, var/_icon = 'resources/icons/effects/effects.dmi', var/_state)
 	. = ..()
 	icon = _icon
 	icon_state = _state

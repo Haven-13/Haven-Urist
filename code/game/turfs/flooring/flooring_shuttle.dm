@@ -1,6 +1,6 @@
 /turf/simulated/floor/shuttle
 	name = "floor"
-	icon = 'icons/turf/shuttle.dmi'
+	icon = 'resources/icons/turf/shuttle.dmi'
 
 /turf/simulated/floor/shuttle/blue
 	icon_state = "floor"

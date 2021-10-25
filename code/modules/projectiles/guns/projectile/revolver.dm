@@ -10,8 +10,8 @@
 	fire_delay = 6.75 //Revolvers are naturally slower-firing
 	ammo_type = /obj/item/ammo_casing/a357
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
-	mag_insert_sound = 'sound/weapons/guns/interaction/rev_magin.ogg'
-	mag_remove_sound = 'sound/weapons/guns/interaction/rev_magout.ogg'
+	mag_insert_sound = 'resources/sound/weapons/guns/interaction/rev_magin.ogg'
+	mag_remove_sound = 'resources/sound/weapons/guns/interaction/rev_magout.ogg'
 
 /obj/item/weapon/gun/projectile/revolver/AltClick()
 	if(CanPhysicallyInteract(usr))
@@ -25,7 +25,7 @@
 	chamber_offset = 0
 	visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", \
 	"<span class='notice'>You hear something metallic spin and click.</span>")
-	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
+	playsound(src.loc, 'resources/sound/weapons/revolver_spin.ogg', 100, 1)
 	loaded = shuffle(loaded)
 	if(rand(1,max_shells) > loaded.len)
 		chamber_offset = rand(0,max_shells - loaded.len)

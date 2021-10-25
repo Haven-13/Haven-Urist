@@ -96,26 +96,26 @@
 
 //Playing a random sound
 /datum/hallucination/sound
-	var/list/sounds = list('sound/machines/airlock.ogg','sound/effects/explosionfar.ogg','sound/machines/windowdoor.ogg','sound/machines/twobeep.ogg')
+	var/list/sounds = list('resources/sound/machines/airlock.ogg','resources/sound/effects/explosionfar.ogg','resources/sound/machines/windowdoor.ogg','resources/sound/machines/twobeep.ogg')
 
 /datum/hallucination/sound/start()
 	var/turf/T = locate(holder.x + rand(6,11), holder.y + rand(6,11), holder.z)
 	holder.playsound_local(T,pick(sounds),70)
 
 /datum/hallucination/sound/tools
-	sounds = list('sound/items/Ratchet.ogg','sound/items/Welder.ogg','sound/items/Crowbar.ogg','sound/items/Screwdriver.ogg')
+	sounds = list('resources/sound/items/Ratchet.ogg','resources/sound/items/Welder.ogg','resources/sound/items/Crowbar.ogg','resources/sound/items/Screwdriver.ogg')
 
 /datum/hallucination/sound/danger
 	min_power = 30
-	sounds = list('sound/effects/Explosion1.ogg','sound/effects/Explosion2.ogg','sound/effects/Glassbr1.ogg','sound/effects/Glassbr2.ogg','sound/effects/Glassbr3.ogg','sound/weapons/smash.ogg')
+	sounds = list('resources/sound/effects/Explosion1.ogg','resources/sound/effects/Explosion2.ogg','resources/sound/effects/Glassbr1.ogg','resources/sound/effects/Glassbr2.ogg','resources/sound/effects/Glassbr3.ogg','resources/sound/weapons/smash.ogg')
 
 /datum/hallucination/sound/spooky
 	min_power = 50
-	sounds = list('sound/effects/ghost.ogg', 'sound/effects/ghost2.ogg', 'sound/effects/screech.ogg',\
-	'sound/hallucinations/behind_you1.ogg', 'sound/hallucinations/behind_you2.ogg', 'sound/hallucinations/far_noise.ogg', 'sound/hallucinations/growl1.ogg', 'sound/hallucinations/growl2.ogg',\
-	'sound/hallucinations/growl3.ogg', 'sound/hallucinations/im_here1.ogg', 'sound/hallucinations/im_here2.ogg', 'sound/hallucinations/i_see_you1.ogg', 'sound/hallucinations/i_see_you2.ogg',\
-	'sound/hallucinations/look_up1.ogg', 'sound/hallucinations/look_up2.ogg', 'sound/hallucinations/over_here1.ogg', 'sound/hallucinations/over_here2.ogg', 'sound/hallucinations/over_here3.ogg',\
-	'sound/hallucinations/turn_around1.ogg', 'sound/hallucinations/turn_around2.ogg', 'sound/hallucinations/veryfar_noise.ogg', 'sound/hallucinations/wail.ogg')
+	sounds = list('resources/sound/effects/ghost.ogg', 'resources/sound/effects/ghost2.ogg', 'resources/sound/effects/screech.ogg',\
+	'resources/sound/hallucinations/behind_you1.ogg', 'resources/sound/hallucinations/behind_you2.ogg', 'resources/sound/hallucinations/far_noise.ogg', 'resources/sound/hallucinations/growl1.ogg', 'resources/sound/hallucinations/growl2.ogg',\
+	'resources/sound/hallucinations/growl3.ogg', 'resources/sound/hallucinations/im_here1.ogg', 'resources/sound/hallucinations/im_here2.ogg', 'resources/sound/hallucinations/i_see_you1.ogg', 'resources/sound/hallucinations/i_see_you2.ogg',\
+	'resources/sound/hallucinations/look_up1.ogg', 'resources/sound/hallucinations/look_up2.ogg', 'resources/sound/hallucinations/over_here1.ogg', 'resources/sound/hallucinations/over_here2.ogg', 'resources/sound/hallucinations/over_here3.ogg',\
+	'resources/sound/hallucinations/turn_around1.ogg', 'resources/sound/hallucinations/turn_around2.ogg', 'resources/sound/hallucinations/veryfar_noise.ogg', 'resources/sound/hallucinations/wail.ogg')
 
 //Hearing someone being shot twice
 /datum/hallucination/gunfire
@@ -125,7 +125,7 @@
 	min_power = 30
 
 /datum/hallucination/gunfire/start()
-	gunshot = pick('sound/weapons/gunshot/gunshot_strong.ogg', 'sound/weapons/gunshot/gunshot2.ogg', 'sound/weapons/gunshot/shotgun.ogg', 'sound/weapons/gunshot/gunshot.ogg','sound/weapons/Taser.ogg')
+	gunshot = pick('resources/sound/weapons/gunshot/gunshot_strong.ogg', 'resources/sound/weapons/gunshot/gunshot2.ogg', 'resources/sound/weapons/gunshot/shotgun.ogg', 'resources/sound/weapons/gunshot/gunshot.ogg','resources/sound/weapons/Taser.ogg')
 	origin = locate(holder.x + rand(4,8), holder.y + rand(4,8), holder.z)
 	holder.playsound_local(origin,gunshot,50)
 
@@ -162,7 +162,7 @@
 		else
 			to_chat(holder,"<B>[talker.name]</B> points at [holder.name]")
 			to_chat(holder,"<span class='game say'><span class='name'>[talker.name]</span> says something softly.</span>")
-		var/image/speech_bubble = image('icons/mob/talk.dmi',talker,"h[holder.say_test(message)]")
+		var/image/speech_bubble = image('resources/icons/mob/talk.dmi',talker,"h[holder.say_test(message)]")
 		spawn(30) qdel(speech_bubble)
 		show_image(holder,speech_bubble)
 		sanity-- //don't spam them in very populated rooms.
@@ -195,7 +195,7 @@
 	. = ..()
 
 /datum/hallucination/mirage/proc/generate_mirage()
-	var/icon/T = new('icons/obj/trash.dmi')
+	var/icon/T = new('resources/icons/obj/trash.dmi')
 	return image(T, pick(T.IconStates()), layer = BELOW_TABLE_LAYER)
 
 /datum/hallucination/mirage/start()
@@ -220,7 +220,7 @@
 	number = 2
 
 /datum/hallucination/mirage/money/generate_mirage()
-	return image('icons/obj/items.dmi', "spacecash[pick(1000,500,200,100,50)]", layer = BELOW_TABLE_LAYER)
+	return image('resources/icons/obj/items.dmi', "spacecash[pick(1000,500,200,100,50)]", layer = BELOW_TABLE_LAYER)
 
 //Blood and aftermath of firefight
 /datum/hallucination/mirage/carnage
@@ -229,11 +229,11 @@
 
 /datum/hallucination/mirage/carnage/generate_mirage()
 	if(prob(50))
-		var/image/I = image('icons/effects/blood.dmi', pick("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7"), layer = BELOW_TABLE_LAYER)
+		var/image/I = image('resources/icons/effects/blood.dmi', pick("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7"), layer = BELOW_TABLE_LAYER)
 		I.color = COLOR_BLOOD_HUMAN
 		return I
 	else
-		var/image/I = image('icons/obj/ammo.dmi', "s-casing-spent", layer = BELOW_TABLE_LAYER)
+		var/image/I = image('resources/icons/obj/ammo.dmi', "s-casing-spent", layer = BELOW_TABLE_LAYER)
 		I.layer = BELOW_TABLE_LAYER
 		I.dir = pick(GLOB.alldirs)
 		I.pixel_x = rand(-10,10)

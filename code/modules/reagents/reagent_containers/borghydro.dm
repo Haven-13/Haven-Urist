@@ -1,7 +1,7 @@
 /obj/item/weapon/reagent_containers/borghypo
 	name = "cyborg hypospray"
 	desc = "An advanced chemical synthesizer and injection system, designed for heavy-duty medical equipment."
-	icon = 'icons/obj/syringe.dmi'
+	icon = 'resources/icons/obj/syringe.dmi'
 	item_state = "hypo"
 	icon_state = "borghypo"
 	amount_per_transfer_from_this = 5
@@ -101,7 +101,7 @@
 	if(href_list["reagent_index"])
 		var/index = text2num(href_list["reagent_index"])
 		if(index > 0 && index <= reagent_ids.len)
-			playsound(loc, 'sound/effects/pop.ogg', 50, 0)
+			playsound(loc, 'resources/sound/effects/pop.ogg', 50, 0)
 			mode = index
 			var/datum/reagent/R = reagent_ids[mode]
 			to_chat(usr, "<span class='notice'>Synthesizer is now producing '[initial(R.name)]'.</span>")
@@ -118,7 +118,7 @@
 /obj/item/weapon/reagent_containers/borghypo/service
 	name = "cyborg drink synthesizer"
 	desc = "A portable drink dispencer."
-	icon = 'icons/obj/drinks.dmi'
+	icon = 'resources/icons/obj/drinks.dmi'
 	icon_state = "shaker"
 	charge_cost = 20
 	recharge_time = 3

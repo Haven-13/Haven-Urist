@@ -1,10 +1,10 @@
 //Base Urist, for less var/icon copypasta
 
 /datum/category_item/underwear/undershirt/urist
-	icon = 'icons/uristmob/uristUndiesUndershirt.dmi'
+	icon = 'resources/icons/uristmob/uristUndiesUndershirt.dmi'
 
 /datum/category_item/underwear/bottom/urist
-	icon = 'icons/uristmob/uristUndiesBottom.dmi'
+	icon = 'resources/icons/uristmob/uristUndiesBottom.dmi'
 
 //Underwear added during Glloydcode
 

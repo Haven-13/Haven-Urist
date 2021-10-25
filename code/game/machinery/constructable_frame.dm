@@ -4,7 +4,7 @@
 
 /obj/machinery/constructable_frame //Made into a seperate type to make future revisions easier.
 	name = "machine frame"
-	icon = 'icons/obj/stock_parts.dmi'
+	icon = 'resources/icons/obj/stock_parts.dmi'
 	icon_state = "box_0"
 	density = 1
 	anchored = 1
@@ -34,7 +34,7 @@
 				if (C.get_amount() < 5)
 					to_chat(user, "<span class='warning'>You need five lengths of cable to add them to the frame.</span>")
 					return
-				playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You start to add cables to the frame.</span>")
 				if(do_after(user, 20, src) && state == 1)
 					if(C.use(5))
@@ -43,7 +43,7 @@
 						icon_state = "box_1"
 			else
 				if(isWrench(P))
-					playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+					playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 					to_chat(user, "<span class='notice'>You dismantle the frame</span>")
 					new /obj/item/stack/material/steel(src.loc, 5)
 					qdel(src)
@@ -53,7 +53,7 @@
 				if(B.board_type == "machine")
 					if(!user.unEquip(P, src))
 						return
-					playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+					playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 					to_chat(user, "<span class='notice'>You add the circuit board to the frame.</span>")
 					circuit = P
 					icon_state = "box_2"
@@ -72,7 +72,7 @@
 					to_chat(user, "<span class='warning'>This frame does not accept circuit boards of this type!</span>")
 			else
 				if(isWirecutter(P))
-					playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+					playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 50, 1)
 					to_chat(user, "<span class='notice'>You remove the cables.</span>")
 					state = 1
 					icon_state = "box_0"
@@ -81,7 +81,7 @@
 
 		if(3)
 			if(isCrowbar(P))
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 				state = 2
 				circuit.loc = src.loc
 				circuit = null
@@ -103,7 +103,7 @@
 							component_check = 0
 							break
 					if(component_check)
-						playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+						playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 						var/obj/machinery/new_machine = new src.circuit.build_path(src.loc, src.dir)
 
 						if(new_machine.component_parts)
@@ -161,7 +161,7 @@
 								req_components[I]--
 								update_desc()
 								break
-						playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+						playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 						to_chat(user, desc)
 						if(P && P.loc != src && !istype(P, /obj/item/stack/cable_coil))
 							to_chat(user, "<span class='warning'>You cannot add that component to the machine!</span>")

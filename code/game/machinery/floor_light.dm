@@ -2,7 +2,7 @@ var/list/floor_light_cache = list()
 
 /obj/machinery/floor_light
 	name = "floor light"
-	icon = 'icons/obj/machines/floor_light.dmi'
+	icon = 'resources/icons/obj/machines/floor_light.dmi'
 	icon_state = "base"
 	desc = "A backlit floor panel."
 	plane = DEFAULT_PLANE
@@ -33,7 +33,7 @@ var/list/floor_light_cache = list()
 		if(!WT.remove_fuel(0, user))
 			to_chat(user, "<span class='warning'>\The [src] must be on to complete this task.</span>")
 			return
-		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Welder.ogg', 50, 1)
 		if(!do_after(user, 20, src))
 			return
 		if(!src || !WT.isOn())
@@ -55,7 +55,7 @@ var/list/floor_light_cache = list()
 			stat |= BROKEN
 		else
 			visible_message("<span class='danger'>\The [user] attacks \the [src]!</span>")
-			playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
+			playsound(src.loc, 'resources/sound/effects/Glasshit.ogg', 75, 1)
 			if(isnull(damaged)) damaged = 0
 		update_brightness()
 		return

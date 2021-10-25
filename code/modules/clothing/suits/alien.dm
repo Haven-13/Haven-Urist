@@ -114,8 +114,8 @@
 /obj/item/clothing/suit/storage/teshari/cloak/color
 	name = "black cloak"
 	desc = "It drapes over a Teshari's shoulders and closes at the neck with pockets convienently placed inside."
-	icon = 'icons/mob/species/resomi/teshari_cloak.dmi'
-	item_icons = list(slot_wear_suit_str = 'icons/mob/species/resomi/teshari_cloak.dmi')
+	icon = 'resources/icons/mob/species/resomi/teshari_cloak.dmi'
+	item_icons = list(slot_wear_suit_str = 'resources/icons/mob/species/resomi/teshari_cloak.dmi')
 	icon_state = "tesh_cloak_bn"
 	item_state = "tesh_cloak_bn"
 	species_restricted = list(SPECIES_RESOMI)
@@ -235,24 +235,24 @@
 	name = "dark aesthetic cloak"
 	icon_state = "tesh_cloak_dretrowave"
 	item_state = "tesh_cloak_dretrowave"
-	icon = 'icons/mob/species/resomi/teshari_cloak.dmi'
-	icon_override = 'icons/mob/species/resomi/teshari_cloak.dmi'
+	icon = 'resources/icons/mob/species/resomi/teshari_cloak.dmi'
+	icon_override = 'resources/icons/mob/species/resomi/teshari_cloak.dmi'
 
 /obj/item/clothing/suit/storage/teshari/cloak/color/standard/black_glow
 	name = "black and glowing cloak"
 	desc = "It drapes over a Teshari's shoulders and closes at the neck with pockets convienently placed inside. This one has a polychromatic glowing rim at the bottom!"
 	icon_state = "tesh_cloak_bglowing"
 	item_state = "tesh_cloak_bglowing"
-	icon = 'icons/mob/species/resomi/teshari_cloak.dmi'
-	icon_override = 'icons/mob/species/resomi/teshari_cloak.dmi'
+	icon = 'resources/icons/mob/species/resomi/teshari_cloak.dmi'
+	icon_override = 'resources/icons/mob/species/resomi/teshari_cloak.dmi'
 
 
 // Job Cloaks
 /obj/item/clothing/suit/storage/teshari/cloak/jobs
 	name = "Captain cloak"
 	desc = "A soft Teshari cloak made for the Captain"
-	icon = 'icons/mob/species/resomi/deptcloak.dmi'
-	item_icons = list(slot_wear_suit_str = 'icons/mob/species/resomi/deptcloak.dmi')
+	icon = 'resources/icons/mob/species/resomi/deptcloak.dmi'
+	item_icons = list(slot_wear_suit_str = 'resources/icons/mob/species/resomi/deptcloak.dmi')
 	icon_state = "tesh_cloak_cap"
 	item_state = "tesh_cloak_cap"
 	species_restricted = list(SPECIES_RESOMI)

@@ -3,7 +3,7 @@
 	desc = "Specially made-to-order by Xenonomix, the XX-1 \"Varmint Catcher\" is designed to trap even the most unruly of creatures for safe transport."
 	icon_state = "netgun"
 	item_state = "netgun"
-	fire_sound = 'sound/weapons/empty.ogg'
+	fire_sound = 'resources/sound/weapons/empty.ogg'
 	fire_sound_text = "a metallic thunk"
 
 	var/obj/item/weapon/net_shell/chambered
@@ -11,7 +11,7 @@
 /obj/item/weapon/net_shell
 	name = "net gun shell"
 	desc = "A casing containing an autodeploying net for use in a net gun. Kind of looks like a flash light."
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'resources/icons/obj/ammo.dmi'
 	icon_state = "netshell"
 
 /obj/item/weapon/gun/launcher/net/examine(mob/user)

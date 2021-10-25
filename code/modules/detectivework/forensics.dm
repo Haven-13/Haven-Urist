@@ -1,5 +1,5 @@
 /obj/item/weapon/forensics
-	icon = 'icons/obj/forensics.dmi'
+	icon = 'resources/icons/obj/forensics.dmi'
 	w_class = ITEM_SIZE_TINY
 
 //This is the output of the stringpercent(print) proc, and means about 80% of

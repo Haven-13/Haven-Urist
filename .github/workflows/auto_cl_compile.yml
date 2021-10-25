@@ -28,7 +28,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pyyaml bs4
       - name: Compile CL
-        run: python tools/changelog/compile_cl.py html/changelog/changelog.html .changelog
+        run: python tools/changelog/compile_cl.py resources/html/changelog/changelog.html .changelog
       - name: Commit
         run: |
           git config --local user.email $GIT_EMAIL

@@ -1,5 +1,5 @@
 /obj/effect/submap_landmark
-	icon = 'icons/misc/mark.dmi'
+	icon = 'resources/icons/misc/mark.dmi'
 	invisibility = INVISIBILITY_MAXIMUM
 	anchored = TRUE
 	simulated = FALSE

@@ -2,7 +2,7 @@
 // Chem smoke
 /////////////////////////////////////////////
 /obj/effect/effect/smoke/chem
-	icon = 'icons/effects/chemsmoke.dmi'
+	icon = 'resources/icons/effects/chemsmoke.dmi'
 	opacity = 0
 	plane = EFFECTS_PLANE
 	layer = ABOVE_PROJECTILE_LAYER
@@ -173,10 +173,10 @@
 	var/color = chemholder.reagents.get_color() //build smoke icon
 	var/icon/I
 	if(color)
-		I = icon('icons/effects/chemsmoke.dmi')
+		I = icon('resources/icons/effects/chemsmoke.dmi')
 		I += color
 	else
-		I = icon('icons/effects/96x96.dmi', "smoke")
+		I = icon('resources/icons/effects/96x96.dmi', "smoke")
 
 	//Calculate smoke duration
 	var/smoke_duration = 150

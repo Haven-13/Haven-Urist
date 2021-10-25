@@ -2,7 +2,7 @@
 /mob/living/carbon/harvester
 	name = "Harvester"
 	desc = "What the fuck is that thing?"
-	icon = 'icons/uristmob/scommobs.dmi'
+	icon = 'resources/icons/uristmob/scommobs.dmi'
 	icon_state = "harvester"
 	maxHealth = 75 //start off weak, can absorb health.
 	health = 75
@@ -58,7 +58,7 @@
 			if (M == src)
 				return
 
-			playsound(loc, 'sound/weapons/punchmiss.ogg', 50, 1, -1)
+			playsound(loc, 'resources/sound/weapons/punchmiss.ogg', 50, 1, -1)
 			for(var/mob/O in viewers(src, null))
 				if ((O.client && !( O.blinded )))
 					O.show_message(text("<span class='danger'> [] tried to grab [] but their hands passed through!</span>", M, src), 1)
@@ -67,7 +67,7 @@
 			if (M == src)
 				return
 
-			playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+			playsound(loc, 'resources/sound/weapons/punchmiss.ogg', 25, 1, -1)
 			for(var/mob/O in viewers(src, null))
 				if ((O.client && !( O.blinded )))
 					O.show_message(text("<span class='danger'> <B>[] has attempted to punch [] but their hand passed through!</B></span>", M, src), 1)
@@ -105,27 +105,27 @@
 /datum/hud/proc/infestharvester_hud()
 
 	mymob.fire = new /atom/movable/screen()
-	mymob.fire.icon = 'icons/mob/screen1_construct.dmi'
+	mymob.fire.icon = 'resources/icons/mob/screen1_construct.dmi'
 	mymob.fire.icon_state = "fire0"
 	mymob.fire.name = "fire"
 	mymob.fire.screen_loc = ui_construct_fire
 
 	mymob.healths = new /atom/movable/screen()
-	mymob.healths.icon = 'icons/mob/screen1_construct.dmi'
+	mymob.healths.icon = 'resources/icons/mob/screen1_construct.dmi'
 	mymob.healths.icon_state = "harvester_health0"
 	mymob.healths.name = "health"
 	mymob.healths.screen_loc = ui_construct_health
 
 	mymob.pullin = new /atom/movable/screen()
-	mymob.pullin.icon = 'icons/mob/screen1_construct.dmi'
+	mymob.pullin.icon = 'resources/icons/mob/screen1_construct.dmi'
 	mymob.pullin.icon_state = "pull0"
 	mymob.pullin.name = "pull"
 	mymob.pullin.screen_loc = ui_construct_pull
 
 	mymob.zone_sel = new /atom/movable/screen/zone_sel()
-	mymob.zone_sel.icon = 'icons/mob/screen1_construct.dmi'
+	mymob.zone_sel.icon = 'resources/icons/mob/screen1_construct.dmi'
 	mymob.zone_sel.overlays.len = 0
-	mymob.zone_sel.overlays += image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]")
+	mymob.zone_sel.overlays += image('resources/icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]")
 
 	mymob.client.screen = null
 

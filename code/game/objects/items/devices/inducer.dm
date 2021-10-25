@@ -1,7 +1,7 @@
 /obj/item/inducer
 	name = "inducer"
 	desc = "A tool for inductively charging internal power cells."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'resources/icons/obj/tools.dmi'
 	icon_state = "inducer-sci"
 	item_state = "inducer-sci"
 	force = 7

@@ -10,7 +10,7 @@
 	desc = "An electronically-lockable pod for growing organic tissue."
 	density = 1
 	anchored = 1
-	icon = 'icons/obj/cloning.dmi'
+	icon = 'resources/icons/obj/cloning.dmi'
 	icon_state = "pod_0"
 	req_access = list(access_genetics) //For premature unlocking.
 	var/mob/living/occupant
@@ -157,7 +157,7 @@
 			return
 
 		if(GetCloneReadiness() >= 100 && !eject_wait)
-			playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/machines/ding.ogg', 50, 1)
 			src.audible_message("\The [src] signals that the cloning process is complete.")
 			connected_message("Cloning Process Complete.")
 			locked = 0
@@ -229,7 +229,7 @@
 				connected = null
 			else
 				anchored = 1
-			playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+			playsound(loc, 'resources/sound/items/Ratchet.ogg', 100, 1)
 			if(anchored)
 				user.visible_message("[user] secures [src] to the floor.", "You secure [src] to the floor.")
 			else
@@ -368,7 +368,7 @@
 //TO-DO: Make the genetics machine accept them.
 /obj/item/weapon/disk/data
 	name = "Cloning Data Disk"
-	icon = 'icons/obj/cloning.dmi'
+	icon = 'resources/icons/obj/cloning.dmi'
 	icon_state = "datadisk0" //Gosh I hope syndies don't mistake them for the nuke disk.
 	item_state = "card-id"
 	w_class = ITEM_SIZE_SMALL

@@ -285,7 +285,7 @@
 
 /area/exoplanet
 	name = "\improper Planetary surface"
-	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
+	ambience = list('resources/sound/effects/wind/wind_2_1.ogg','resources/sound/effects/wind/wind_2_2.ogg','resources/sound/effects/wind/wind_3_1.ogg','resources/sound/effects/wind/wind_4_1.ogg','resources/sound/effects/wind/wind_4_2.ogg','resources/sound/effects/wind/wind_5_1.ogg')
 
 //Random map itself
 
@@ -419,7 +419,7 @@
 
 /turf/simulated/floor/exoplanet
 	name = "space land"
-	icon = 'icons/turf/desert.dmi'
+	icon = 'resources/icons/turf/desert.dmi'
 	icon_state = "desert"
 	has_resources = 1
 	var/diggable = 1
@@ -469,7 +469,7 @@
 
 /turf/simulated/floor/exoplanet/water/shallow
 	name = "shallow water"
-	icon = 'icons/misc/beach.dmi'
+	icon = 'resources/icons/misc/beach.dmi'
 	icon_state = "seashallow"
 	movement_delay = 2
 	mudpit = 1
@@ -480,7 +480,7 @@
 /obj/effect/fogofwar
 	name = "fog of war"
 	desc = "Thar be dragons"
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	icon_state = "smoke"
 	opacity = 0
 	anchored = 1

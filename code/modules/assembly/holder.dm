@@ -1,6 +1,6 @@
 /obj/item/device/assembly_holder
 	name = "Assembly"
-	icon = 'icons/obj/assemblies/new_assemblies.dmi'
+	icon = 'resources/icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "holder"
 	item_state = "assembly"
 	movable_flags = MOVABLE_FLAG_PROXMOVE

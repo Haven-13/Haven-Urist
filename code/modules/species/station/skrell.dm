@@ -1,9 +1,9 @@
 /datum/species/skrell
 	name = SPECIES_SKRELL
 	name_plural = SPECIES_SKRELL
-	icobase = 'icons/mob/human_races/species/skrell/body.dmi'
-	deform = 'icons/mob/human_races/species/skrell/deformed_body.dmi'
-	preview_icon = 'icons/mob/human_races/species/skrell/preview.dmi'
+	icobase = 'resources/icons/mob/human_races/species/skrell/body.dmi'
+	deform = 'resources/icons/mob/human_races/species/skrell/deformed_body.dmi'
+	preview_icon = 'resources/icons/mob/human_races/species/skrell/preview.dmi'
 	primitive_form = "Neaera"
 	unarmed_types = list(/datum/unarmed_attack/punch)
 	description = "An amphibious species, Skrell come from the star system known as Qerr'Vallis, which translates to 'Star of \
@@ -40,7 +40,7 @@
 	flesh_color = "#8cd7a3"
 	blood_color = "#1d2cbf"
 	base_color = "#006666"
-	organs_icon = 'icons/mob/human_races/species/skrell/organs.dmi'
+	organs_icon = 'resources/icons/mob/human_races/species/skrell/organs.dmi'
 
 	cold_level_1 = 280 //Default 260 - Lower is better
 	cold_level_2 = 220 //Default 200

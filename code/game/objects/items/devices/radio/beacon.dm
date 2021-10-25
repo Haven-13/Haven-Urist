@@ -25,7 +25,7 @@
 
 
 /obj/item/device/radio/beacon/anchored
-	icon = 'icons/obj/objects.dmi'
+	icon = 'resources/icons/obj/objects.dmi'
 	icon_state = "floor_magnet"
 	anchored = TRUE
 	randpixel = 0

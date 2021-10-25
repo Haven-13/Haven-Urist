@@ -49,7 +49,7 @@ var/list/flooring_cache = list()
 			overlays |= I
 
 	if(is_plating() && !(isnull(broken) && isnull(burnt))) //temp, todo
-		icon = 'icons/turf/flooring/plating.dmi'
+		icon = 'resources/icons/turf/flooring/plating.dmi'
 		icon_state = "dmg[rand(1,4)]"
 	else if(flooring)
 		if(!isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
@@ -70,7 +70,7 @@ var/list/flooring_cache = list()
 
 /turf/simulated/floor/proc/get_damage_overlay(var/cache_key, var/blend)
 	if(!flooring_cache[cache_key])
-		var/image/I = image(icon = 'icons/turf/flooring/damage.dmi', icon_state = cache_key)
+		var/image/I = image(icon = 'resources/icons/turf/flooring/damage.dmi', icon_state = cache_key)
 		if(blend)
 			I.blend_mode = blend
 		I.turf_decal_layerise(target = src)

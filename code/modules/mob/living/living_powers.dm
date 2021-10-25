@@ -36,7 +36,7 @@
 	chem.create_reagents(10)
 	chem.reagents.add_reagent(/datum/reagent/toxin/zombie, 2)
 	chem.set_up(get_step(T, dir), 2, 10)
-	playsound(T, 'sound/hallucinations/wail.ogg', 20, 1)
+	playsound(T, 'resources/sound/hallucinations/wail.ogg', 20, 1)
 
 /mob/living/proc/consume()
 	set name = "Consume"

@@ -7,8 +7,8 @@
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/onmob/items/lefthand_backpacks.dmi',
-		slot_r_hand_str = 'icons/mob/onmob/items/righthand_backpacks.dmi',
+		slot_l_hand_str = 'resources/icons/mob/onmob/items/lefthand_backpacks.dmi',
+		slot_r_hand_str = 'resources/icons/mob/onmob/items/righthand_backpacks.dmi',
 		)
 	icon_state = "backpack"
 	item_state = null
@@ -18,7 +18,7 @@
 		slot_r_hand_str = "backpack",
 		)
 	sprite_sheets = list(
-		SPECIES_RESOMI = 'icons/mob/species/resomi/back.dmi'
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/back.dmi'
 		)
 	w_class = ITEM_SIZE_HUGE
 	slot_flags = SLOT_BACK

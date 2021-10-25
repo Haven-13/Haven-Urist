@@ -1,7 +1,7 @@
 /obj/structure/pit
 	name = "pit"
 	desc = "Watch your step, partner."
-	icon = 'icons/obj/pit.dmi'
+	icon = 'resources/icons/obj/pit.dmi'
 	icon_state = "pit1"
 	blend_mode = BLEND_MULTIPLY
 	density = 0
@@ -77,7 +77,7 @@
 	visible_message("<span class='danger'>Something is scratching its way out of \the [src]!</span>")
 
 	for(var/i in 1 to (6*breakout_time * 2)) //minutes * 6 * 5seconds * 2
-		playsound(src.loc, 'sound/weapons/bite.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/weapons/bite.ogg', 100, 1)
 
 		if(!do_after(escapee, 50))
 			to_chat(escapee, "<span class='warning'>You have stopped digging.</span>")
@@ -90,7 +90,7 @@
 
 	to_chat(escapee, "<span class='warning'>You successfuly dig yourself out!</span>")
 	visible_message("<span class='danger'>\the [escapee] emerges from \the [src]!</span>")
-	playsound(src.loc, 'sound/effects/squelch1.ogg', 100, 1)
+	playsound(src.loc, 'resources/sound/effects/squelch1.ogg', 100, 1)
 	open()
 
 /obj/structure/pit/closed
@@ -127,7 +127,7 @@
 /obj/structure/gravemarker
 	name = "grave marker"
 	desc = "You're not the first."
-	icon = 'icons/obj/gravestone.dmi'
+	icon = 'resources/icons/obj/gravestone.dmi'
 	icon_state = "wood"
 	pixel_x = 15
 	pixel_y = 8

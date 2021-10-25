@@ -80,7 +80,7 @@
 /obj/item/device/flashlight/lamp/lantern
 	name = "lantern"
 	desc = "An apparently old-school portable kerosene lamp, using modern technology to provide an extremely long-lasting flame with no fire hazard."
-	icon = 'icons/urist/events/train.dmi'
+	icon = 'resources/icons/urist/events/train.dmi'
 	icon_state = "wolfflight"
 	item_state = "lamp"
 	flashlight_max_bright = 0.5

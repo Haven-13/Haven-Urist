@@ -2,7 +2,7 @@
 
 /obj/item/weapon/storage/backpack/duffel
 	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/back.dmi'
+	icon = 'resources/icons/urist/items/clothes/back.dmi'
 	item_icons = null
 	item_state_slots = null
 

@@ -2,7 +2,7 @@
 //  And with them "existing" on the overmap Z-level things quickly get odd.
 /obj/effect/overmap_event
 	name = "event"
-	icon = 'icons/obj/overmap.dmi'
+	icon = 'resources/icons/obj/overmap.dmi'
 	icon_state = "event"
 	opacity = 1
 

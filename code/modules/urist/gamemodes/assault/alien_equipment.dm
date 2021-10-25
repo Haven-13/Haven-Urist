@@ -14,13 +14,13 @@
 /obj/machinery/computer/shuttle_control/assault/alien1
 	name = "alien shuttle console (Shuttle 1)"
 	shuttle_tag = "Assault 1"
-	icon = 'icons/obj/Cryogenic2.dmi'
+	icon = 'resources/icons/obj/Cryogenic2.dmi'
 	icon_state = "cellconsole"
 
 /obj/machinery/computer/shuttle_control/assault/alien2
 	name = "alien shuttle console (Shuttle 2)"
 	shuttle_tag = "Assault 2"
-	icon = 'icons/obj/Cryogenic2.dmi'
+	icon = 'resources/icons/obj/Cryogenic2.dmi'
 	icon_state = "cellconsole"
 
 /obj/item/weapon/gun/energy/lactera
@@ -29,10 +29,10 @@
 	desc = "A weapon of unknown origin, carried by the Lactera soldiers."
 	icon_state = "alienrifle"
 	item_state = "alienrifle"
-	fire_sound = 'sound/weapons/laser3.ogg'
+	fire_sound = 'resources/sound/weapons/laser3.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 3
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	force = 10
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	origin_tech = "combat=7;magnets=5;materials=4;engineering=2;powerstorage=4;"
@@ -129,7 +129,7 @@
 /obj/item/weapon/grenade/aliengrenade
 	desc = "An explosive of unknown origin used by Lactera soldiers to sow destruction and chaos."
 	name = "alien grenade"
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'resources/icons/urist/items/uristweapons.dmi'
 	icon_state = "aliengrenade"
 	item_state = "flashbang"
 	origin_tech = "materials=5;magnets=5"
@@ -141,7 +141,7 @@
 /obj/item/weapon/plastique/alienexplosive
 	name = "alien explosives"
 	desc = "Used by Lactera soldiers to put holes in specific areas without too much extra hole."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'resources/icons/urist/items/uristweapons.dmi'
 	icon_state = "plastic-explosive0"
 	item_state = "device"
 
@@ -173,9 +173,9 @@
 /obj/item/clothing/under/lactera
 	name = "lactera hide"
 	desc = "the hide of the lactera soldiers, genetically modified to be resistent to any threats."
-	icon = 'icons/uristmob/scommobs.dmi'
+	icon = 'resources/icons/uristmob/scommobs.dmi'
 	icon_state = "lactera_under"
-	icon_override = 'icons/uristmob/scommobs.dmi'
+	icon_override = 'resources/icons/uristmob/scommobs.dmi'
 	item_state = "lactera_under"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 5, bio = 80, rad = 60)
@@ -187,9 +187,9 @@
 /obj/item/clothing/shoes/magboots/lactera
 	name = "lactera mag claws"
 	desc = "the claws of the lactera soldiers, implanted with a mag traction locking system."
-	icon = 'icons/uristmob/r_lactera.dmi'
+	icon = 'resources/icons/uristmob/r_lactera.dmi'
 	icon_state = "lactera_shoes"
-	icon_override = 'icons/uristmob/scommobs.dmi'
+	icon_override = 'resources/icons/uristmob/scommobs.dmi'
 	item_state = "lactera_shoes"
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 5, bio = 80, rad = 60)
 	species_restricted = list("Lactera")
@@ -198,8 +198,8 @@
 	return
 
 /obj/item/clothing/suit/lactera
-	icon = 'icons/urist/items/clothes/lactera.dmi'
-	icon_override = 'icons/uristmob/r_lactera.dmi'
+	icon = 'resources/icons/urist/items/clothes/lactera.dmi'
+	icon_override = 'resources/icons/uristmob/r_lactera.dmi'
 	species_restricted = list("Lactera")
 	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/grenade,/obj/item/weapon/plastique)
 	item_flags = ITEM_FLAG_THICKMATERIAL
@@ -252,8 +252,8 @@
 	armor = list(melee = 65, bullet = 55, laser = 55, energy = 35, bomb = 50, bio = 0, rad = 0)
 
 /obj/item/clothing/head/lactera
-	icon = 'icons/urist/items/clothes/lactera.dmi'
-	icon_override = 'icons/uristmob/r_lactera.dmi'
+	icon = 'resources/icons/urist/items/clothes/lactera.dmi'
+	icon_override = 'resources/icons/uristmob/r_lactera.dmi'
 	species_restricted = list("Lactera")
 	item_flags = ITEM_FLAG_THICKMATERIAL
 	body_parts_covered = HEAD

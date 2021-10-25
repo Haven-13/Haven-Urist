@@ -1,6 +1,6 @@
 /datum/sprite_accessory/hair/una
 	name = "Demon Horns"
-	icon = 'icons/mob/human_races/species/unathi/hair.dmi'
+	icon = 'resources/icons/mob/human_races/species/unathi/hair.dmi'
 	icon_state = "demon_horn"
 	blend = ICON_MULTIPLY
 	species_allowed = list(SPECIES_UNATHI)
@@ -40,5 +40,5 @@
 /datum/sprite_accessory/skin/unathi
 	name = "Default Unathi skin"
 	icon_state = "default"
-	icon = 'icons/mob/human_races/species/unathi/body.dmi'
+	icon = 'resources/icons/mob/human_races/species/unathi/body.dmi'
 	species_allowed = list(SPECIES_UNATHI)

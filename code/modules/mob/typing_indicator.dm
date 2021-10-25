@@ -7,7 +7,7 @@ I IS TYPIN'!'
 	var/atom/movable/overlay/typing_indicator/typing_indicator = null
 
 /atom/movable/overlay/typing_indicator
-	icon = 'icons/mob/talk.dmi'
+	icon = 'resources/icons/mob/talk.dmi'
 	icon_state = "typing"
 
 /atom/movable/overlay/typing_indicator/New(var/newloc, var/mob/master)

@@ -1,5 +1,5 @@
 /obj/machinery/air_sensor
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "gsensor1"
 	name = "Gas Sensor"
 
@@ -78,7 +78,7 @@
 	. = ..()
 
 /obj/machinery/computer/general_air_control
-	icon = 'icons/obj/computer.dmi'
+	icon = 'resources/icons/obj/computer.dmi'
 	icon_keyboard = "atmos_key"
 	icon_screen = "tank"
 
@@ -135,7 +135,7 @@
 	. = ..()
 
 /obj/machinery/computer/general_air_control/large_tank_control
-	icon = 'icons/obj/computer.dmi'
+	icon = 'resources/icons/obj/computer.dmi'
 
 	frequency = 1441
 	var/input_tag
@@ -243,7 +243,7 @@
 	radio_connection.post_signal(src, signal, radio_filter = RADIO_ATMOSIA)
 
 /obj/machinery/computer/general_air_control/supermatter_core
-	icon = 'icons/obj/computer.dmi'
+	icon = 'resources/icons/obj/computer.dmi'
 
 	frequency = 1438
 	var/input_tag
@@ -367,7 +367,7 @@ Min Core Pressure: [pressure_limit] kPa<BR>"}
 		src.updateUsrDialog()
 
 /obj/machinery/computer/general_air_control/fuel_injection
-	icon = 'icons/obj/computer.dmi'
+	icon = 'resources/icons/obj/computer.dmi'
 	icon_screen = "alert:0"
 
 	var/device_tag

@@ -19,7 +19,7 @@
 	..(loc)
 	icon_state = "[ismetal? "m" : ""]foam"
 	metal = ismetal
-	playsound(src, 'sound/effects/bubbles2.ogg', 80, 1, -3)
+	playsound(src, 'resources/sound/effects/bubbles2.ogg', 80, 1, -3)
 	spawn(3 + metal * 3)
 		Process()
 		checkReagents()
@@ -122,7 +122,7 @@
 // wall formed by metal foams, dense and opaque, but easy to break
 
 /obj/structure/foamedmetal
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	icon_state = "metalfoam"
 	density = 1
 	opacity = 1 // changed in New()

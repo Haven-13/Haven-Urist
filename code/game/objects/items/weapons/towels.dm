@@ -1,18 +1,18 @@
 /obj/item/weapon/towel
 	name = "towel"
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'resources/icons/obj/weapons.dmi'
 	icon_state = "towel"
 	item_flags = ITEM_FLAG_IS_BELT
 	slot_flags = SLOT_HEAD | SLOT_BELT | SLOT_OCLOTHING
 	force = 0.5
 	w_class = ITEM_SIZE_NORMAL
 	attack_verb = list("whipped")
-	hitsound = 'sound/weapons/towelwhip.ogg'
+	hitsound = 'resources/sound/weapons/towelwhip.ogg'
 	desc = "A soft cotton towel."
 
 /obj/item/weapon/towel/attack_self(mob/living/user as mob)
 	user.visible_message(text("<span class='notice'>[] uses [] to towel themselves off.</span>", user, src))
-	playsound(user, 'sound/weapons/towelwipe.ogg', 25, 1)
+	playsound(user, 'resources/sound/weapons/towelwipe.ogg', 25, 1)
 
 /obj/item/weapon/towel/random/New()
 	..()
@@ -27,4 +27,4 @@
 
 /obj/item/weapon/towel/equipped(var/M, var/slot)
 	..()
-	sprite_sheets = list(SPECIES_RESOMI = (slot == slot_head ? 'icons/mob/species/resomi/head.dmi' : 'icons/mob/species/resomi/suit.dmi'))
+	sprite_sheets = list(SPECIES_RESOMI = (slot == slot_head ? 'resources/icons/mob/species/resomi/head.dmi' : 'resources/icons/mob/species/resomi/suit.dmi'))

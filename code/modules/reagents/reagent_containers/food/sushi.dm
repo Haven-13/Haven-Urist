@@ -1,7 +1,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/sushi
 	name = "sushi"
 	desc = "A small, neatly wrapped morsel. Itadakimasu!"
-	icon = 'icons/obj/sushi.dmi'
+	icon = 'resources/icons/obj/sushi.dmi'
 	icon_state = "sushi_rice"
 	bitesize = 1
 	var/fish_type = "fish"
@@ -51,7 +51,7 @@
 /////////////
 /obj/item/weapon/reagent_containers/food/snacks/sashimi
 	name = "sashimi"
-	icon = 'icons/obj/sushi.dmi'
+	icon = 'resources/icons/obj/sushi.dmi'
 	desc = "Thinly sliced raw fish. Tasty."
 	icon_state = "sashimi"
 	gender = PLURAL

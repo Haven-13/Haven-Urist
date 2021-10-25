@@ -22,7 +22,7 @@ GLOBAL_DATUM_INIT(cinematic, /datum/cinematic, new)
 
 	//initialise our cinematic screen object
 	cinematic_screen = new(src)
-	cinematic_screen.icon = 'icons/effects/station_explosion.dmi'
+	cinematic_screen.icon = 'resources/icons/effects/station_explosion.dmi'
 	cinematic_screen.icon_state = "station_intact"
 	cinematic_screen.plane = HUD_PLANE
 	cinematic_screen.layer = HUD_ABOVE_ITEM_LAYER

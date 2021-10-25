@@ -28,7 +28,7 @@
 /mob/living/simple_animal/parrot
 	name = "parrot"
 	desc = "A large, colourful tropical bird native to Earth, known for its strong beak and ability to mimic speech."
-	icon = 'icons/mob/animal.dmi'
+	icon = 'resources/icons/mob/animal.dmi'
 	icon_state = "parrot_fly"
 	icon_living = "parrot_fly"
 	icon_dead = "parrot_dead"

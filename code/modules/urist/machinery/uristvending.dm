@@ -1,18 +1,18 @@
 /*										*****New space to put all UMcS Vending Machines*****
 
-Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/objects/machinery.dmi' -Glloyd													*/
+Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'resources/icons/urist/objects/machinery.dmi' -Glloyd													*/
 
 //base define to clean up the object tree.
 
 /obj/machinery/vending/urist
-	icon = 'icons/urist/objects/machinery.dmi'
+	icon = 'resources/icons/urist/objects/machinery.dmi'
 
 //attadrabe -- autodrobe from /tg/
 
 /obj/machinery/vending/urist/autodrobe
 	name = "\improper AutoDrobe"
 	desc = "A vending machine for costumes."
-	icon = 'icons/obj/vending.dmi'
+	icon = 'resources/icons/obj/vending.dmi'
 	icon_state = "theater"
 	icon_deny = "theater-deny"
 	req_access = list(access_theatre) // Theatre access needed, unless hacked.
@@ -233,7 +233,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "White Dragon"
 	desc = "A vendor shining with bright lamps, it appears to be selling asian food."
 	vend_delay = 30
-	icon = 'icons/urist/objects/uristvendors.dmi'
+	icon = 'resources/icons/urist/objects/uristvendors.dmi'
 	icon_state = "whitedragon"
 	product_slogans = list("Award-winning sushi!",
 		"Go off-world!", "MSG negotiable!", "500 years of traditional food!")

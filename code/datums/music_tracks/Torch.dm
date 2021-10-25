@@ -1,7 +1,7 @@
 /music_track/torch
 	artist = "L. Luke Leimer/LorenLuke"
 	title = "Torch: A Light in the Darkness"
-	song = 'sound/music/Torch.ogg'
+	song = 'resources/sound/music/Torch.ogg'
 	license = /decl/license/cc_by_nc_sa_3_0
 	url = "https://soundcloud.com/luke-leimer/torch-a-light-in-the-darkness"
 

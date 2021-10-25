@@ -1,6 +1,6 @@
 /obj/machinery/beehive
 	name = "apiary"
-	icon = 'icons/obj/beekeeping.dmi'
+	icon = 'resources/icons/obj/beekeeping.dmi'
 	icon_state = "beehive-0"
 	desc = "A wooden box designed specifically to house our buzzling buddies. Far more efficient than traditional hives. Just insert a frame and a queen, close it up, and you're good to go!"
 	density = 1
@@ -119,7 +119,7 @@
 			to_chat(user, "<span class='notice'>You can't dismantle \the [src] with these bees inside.</span>")
 			return
 		to_chat(user, "<span class='notice'>You start dismantling \the [src]...</span>")
-		playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 30, src))
 			user.visible_message("<span class='notice'>\The [user] dismantles \the [src].</span>", "<span class='notice'>You dismantle \the [src].</span>")
 			new /obj/item/beehive_assembly(loc)
@@ -165,7 +165,7 @@
 /obj/machinery/honey_extractor
 	name = "honey extractor"
 	desc = "A machine used to extract honey and wax from a beehive frame."
-	icon = 'icons/obj/virology.dmi'
+	icon = 'resources/icons/obj/virology.dmi'
 	icon_state = "centrifuge"
 	anchored = 1
 	density = 1
@@ -206,14 +206,14 @@
 /obj/item/bee_smoker
 	name = "bee smoker"
 	desc = "A device used to calm down bees before harvesting honey."
-	icon = 'icons/obj/device.dmi'
+	icon = 'resources/icons/obj/device.dmi'
 	icon_state = "battererburnt"
 	w_class = ITEM_SIZE_SMALL
 
 /obj/item/honey_frame
 	name = "beehive frame"
 	desc = "A frame for the beehive that the bees will fill with honeycombs."
-	icon = 'icons/obj/beekeeping.dmi'
+	icon = 'resources/icons/obj/beekeeping.dmi'
 	icon_state = "honeyframe"
 	w_class = ITEM_SIZE_SMALL
 
@@ -231,7 +231,7 @@
 /obj/item/beehive_assembly
 	name = "beehive assembly"
 	desc = "Contains everything you need to build a beehive."
-	icon = 'icons/obj/apiary_bees_etc.dmi'
+	icon = 'resources/icons/obj/apiary_bees_etc.dmi'
 	icon_state = "apiary"
 
 /obj/item/beehive_assembly/attack_self(var/mob/user)
@@ -245,7 +245,7 @@
 	name = "wax"
 	singular_name = "wax piece"
 	desc = "Soft substance produced by bees. Used to make candles."
-	icon = 'icons/obj/beekeeping.dmi'
+	icon = 'resources/icons/obj/beekeeping.dmi'
 	icon_state = "wax"
 
 /obj/item/stack/wax/New()
@@ -259,7 +259,7 @@ var/global/list/datum/stack_recipe/wax_recipes = list(
 /obj/item/bee_pack
 	name = "bee pack"
 	desc = "Contains a queen bee and some worker bees. Everything you'll need to start a hive!"
-	icon = 'icons/obj/beekeeping.dmi'
+	icon = 'resources/icons/obj/beekeeping.dmi'
 	icon_state = "beepack"
 	var/full = 1
 

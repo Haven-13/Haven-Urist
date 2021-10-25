@@ -1390,7 +1390,7 @@ var/global/floorIsLava = 0
 	if(shouldStamp)
 		P.stamps += "<hr><i>This paper has been stamped by the [P.origin] Quantum Relay.</i>"
 
-		var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+		var/image/stampoverlay = image('resources/icons/obj/bureaucracy.dmi')
 		var/x
 		var/y
 		x = rand(-2, 0)

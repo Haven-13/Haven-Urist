@@ -1,7 +1,7 @@
 /obj/machinery/cooker/cereal
 	name = "cereal maker"
 	desc = "Now with Dann O's available!"
-	icon = 'icons/obj/cooking_machines.dmi'
+	icon = 'resources/icons/obj/cooking_machines.dmi'
 	icon_state = "cereal_off"
 	cook_type = "cerealized"
 	on_icon = "cereal_on"
@@ -12,7 +12,7 @@
 	product.SetName("box of [cooking_obj.name] cereal")
 
 /obj/machinery/cooker/cereal/change_product_appearance(var/obj/item/weapon/reagent_containers/food/snacks/product)
-	product.icon = 'icons/obj/food.dmi'
+	product.icon = 'resources/icons/obj/food.dmi'
 	product.icon_state = "cereal_box"
 	product.filling_color = cooking_obj.color
 

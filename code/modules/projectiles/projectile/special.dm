@@ -1,7 +1,7 @@
 /obj/item/projectile/ion
 	name = "ion bolt"
 	icon_state = "ion"
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'resources/sound/weapons/Laser.ogg'
 	damage = 0
 	damage_type = DAMAGE_TYPE_BURN
 	nodamage = 1
@@ -33,7 +33,7 @@
 /obj/item/projectile/temp
 	name = "temperature beam"
 	icon_state = "ice_2"
-	fire_sound = 'sound/weapons/pulse3.ogg'
+	fire_sound = 'resources/sound/weapons/pulse3.ogg'
 	damage = 10
 	damage_type = DAMAGE_TYPE_BURN
 	check_armour = "energy"
@@ -56,7 +56,7 @@
 
 /obj/item/projectile/meteor
 	name = "meteor"
-	icon = 'icons/obj/meteor.dmi'
+	icon = 'resources/icons/obj/meteor.dmi'
 	icon_state = "smallf"
 	damage = 0
 	damage_type = DAMAGE_TYPE_BRUTE
@@ -72,7 +72,7 @@
 	if(src)//Do not add to this if() statement, otherwise the meteor won't delete them
 		if(A)
 			A.ex_act(2)
-			playsound(src.loc, 'sound/effects/meteorimpact.ogg', 40, 1)
+			playsound(src.loc, 'resources/sound/effects/meteorimpact.ogg', 40, 1)
 
 			for(var/mob/M in range(20, src))
 				if(!M.stat && !istype(M, /mob/living/silicon/ai))\
@@ -85,7 +85,7 @@
 /obj/item/projectile/energy/floramut
 	name = "alpha somatoray"
 	icon_state = "energy"
-	fire_sound = 'sound/effects/stealthoff.ogg'
+	fire_sound = 'resources/sound/effects/stealthoff.ogg'
 	damage = 0
 	damage_type = DAMAGE_TYPE_TOXIN
 	nodamage = 1
@@ -119,7 +119,7 @@
 /obj/item/projectile/energy/floramut/gene
 	name = "gamma somatoray"
 	icon_state = "energy2"
-	fire_sound = 'sound/effects/stealthoff.ogg'
+	fire_sound = 'resources/sound/effects/stealthoff.ogg'
 	damage = 0
 	damage_type = DAMAGE_TYPE_TOXIN
 	nodamage = 1
@@ -129,7 +129,7 @@
 /obj/item/projectile/energy/florayield
 	name = "beta somatoray"
 	icon_state = "energy2"
-	fire_sound = 'sound/effects/stealthoff.ogg'
+	fire_sound = 'resources/sound/effects/stealthoff.ogg'
 	damage = 0
 	damage_type = DAMAGE_TYPE_TOXIN
 	nodamage = 1

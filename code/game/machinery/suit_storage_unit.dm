@@ -6,7 +6,7 @@
 /obj/machinery/suit_storage_unit
 	name = "Suit Storage Unit"
 	desc = "An industrial U-Stor-It Storage unit designed to accomodate all kinds of space suits. Its on-board equipment also allows the user to decontaminate the contents through a UV-ray purging cycle. There's a warning label dangling from the control pad, reading \"STRICTLY NO BIOLOGICALS IN THE CONFINES OF THE UNIT\"."
-	icon = 'icons/obj/suitstorage.dmi'
+	icon = 'resources/icons/obj/suitstorage.dmi'
 	icon_state = "close"
 	anchored = 1
 	density = 1
@@ -362,7 +362,7 @@
 		eject_occupant(user)
 		return  // eject_occupant opens the door, so we need to return
 	isopen = !isopen
-	playsound(src, 'sound/machines/suitstorage_cycledoor.ogg', 50, 0)
+	playsound(src, 'resources/sound/machines/suitstorage_cycledoor.ogg', 50, 0)
 	return
 
 
@@ -379,7 +379,7 @@
 	if(isopen)
 		return
 	islocked = !islocked
-	playsound(src, 'sound/machines/suitstorage_lockdoor.ogg', 50, 0)
+	playsound(src, 'resources/sound/machines/suitstorage_lockdoor.ogg', 50, 0)
 	return
 
 
@@ -529,7 +529,7 @@
 /obj/machinery/suit_storage_unit/attackby(obj/item/I as obj, mob/user as mob)
 	if(isScrewdriver(I))
 		panelopen = !panelopen
-		playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
+		playsound(loc, 'resources/sound/items/Screwdriver.ogg', 100, 1)
 		to_chat(user, text("<span class='notice'>You [panelopen ? "open" : "close"] the unit's maintenance panel.</span>"))
 		updateUsrDialog()
 		update_icon()
@@ -613,7 +613,7 @@
 	anchored = 1
 	density = 1
 
-	icon = 'icons/obj/suitstorage.dmi'
+	icon = 'resources/icons/obj/suitstorage.dmi'
 	icon_state = "close"
 
 	req_access = list(access_captain,access_bridge)

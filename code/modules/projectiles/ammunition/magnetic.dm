@@ -1,7 +1,7 @@
 /obj/item/weapon/magnetic_ammo
 	name = "flechette magazine"
 	desc = "A magazine containing steel flechettes."
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'resources/icons/obj/ammo.dmi'
 	icon_state = "5.56"
 	w_class = ITEM_SIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)

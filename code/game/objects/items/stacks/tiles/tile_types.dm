@@ -14,7 +14,7 @@
 	randpixel = 7
 	w_class = ITEM_SIZE_NORMAL
 	max_amount = 100
-	icon = 'icons/obj/tiles.dmi'
+	icon = 'resources/icons/obj/tiles.dmi'
 
 	force = 1
 	throwforce = 1

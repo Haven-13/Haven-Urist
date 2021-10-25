@@ -1,7 +1,7 @@
 /obj/structure/alien
 	name = "alien thing"
 	desc = "There's something alien about this."
-	icon = 'icons/mob/alien.dmi'
+	icon = 'resources/icons/mob/alien.dmi'
 	layer = ABOVE_OBJ_LAYER
 	health = 50
 
@@ -39,7 +39,7 @@
 		tforce = 10
 	else
 		tforce = AM:throwforce
-	playsound(loc, 'sound/effects/attackblob.ogg', 100, 1)
+	playsound(loc, 'resources/sound/effects/attackblob.ogg', 100, 1)
 	health = max(0, health - tforce)
 	healthcheck()
 	..()
@@ -50,7 +50,7 @@
 
 /obj/structure/alien/attackby(var/obj/item/weapon/W, var/mob/user)
 	health = max(0, health - W.force)
-	playsound(loc, 'sound/effects/attackblob.ogg', 100, 1)
+	playsound(loc, 'resources/sound/effects/attackblob.ogg', 100, 1)
 	healthcheck()
 	..()
 	return

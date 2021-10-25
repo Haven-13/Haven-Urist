@@ -5,7 +5,7 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal
 	name = "floor decal"
-	icon = 'icons/turf/flooring/decals.dmi'
+	icon = 'resources/icons/turf/flooring/decals.dmi'
 	layer = TURF_DECAL_LAYER
 	appearance_flags = RESET_COLOR
 	var/supplied_dir
@@ -51,7 +51,7 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/carpet
 	name = "brown carpet"
-	icon = 'icons/turf/flooring/carpet.dmi'
+	icon = 'resources/icons/turf/flooring/carpet.dmi'
 	icon_state = "brown_edges"
 
 /obj/effect/floor_decal/carpet/blue
@@ -975,7 +975,7 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/beach
 	name = "sandy border"
-	icon = 'icons/misc/beach.dmi'
+	icon = 'resources/icons/misc/beach.dmi'
 	icon_state = "beachborder"
 
 /obj/effect/floor_decal/beach/corner
@@ -1091,7 +1091,7 @@ var/list/floor_decals = list()
 	icon_state = "solarpanel"
 
 /obj/effect/floor_decal/snow
-	icon = 'icons/turf/overlays.dmi'
+	icon = 'resources/icons/turf/overlays.dmi'
 	icon_state = "snowfloor"
 
 /obj/effect/floor_decal/floordetail

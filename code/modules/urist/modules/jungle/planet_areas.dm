@@ -5,7 +5,7 @@
 /area/planet
 	name = "planet"
 	luminosity = 1
-	icon = 'icons/jungle.dmi'
+	icon = 'resources/icons/jungle.dmi'
 	icon_state = "area"
 
 /area/planet/jungle
@@ -19,7 +19,7 @@
 
 /area/planet/jungle/temple_one
 	name = "temple"
-	icon = 'icons/jungle.dmi'
+	icon = 'resources/icons/jungle.dmi'
 	icon_state = "temple1"
 
 /area/jungleoutpost

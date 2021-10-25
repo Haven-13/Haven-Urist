@@ -17,7 +17,7 @@
 
 	var/list/preview = list()
 	for(var/S in template.get_affected_turfs(T,centered = TRUE))
-		preview += image('icons/turf/overlays.dmi',S,"greenOverlay")
+		preview += image('resources/icons/turf/overlays.dmi',S,"greenOverlay")
 	usr.client.images += preview
 	if(alert(usr,"Confirm location.","Template Confirm","Yes","No") == "Yes")
 		if(template.load(T, centered = TRUE))

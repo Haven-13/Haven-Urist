@@ -4,7 +4,7 @@
 /obj/item/weapon/storage/belt
 	name = "belt"
 	desc = "Can hold various things."
-	icon = 'icons/obj/clothing/belts.dmi'
+	icon = 'resources/icons/obj/clothing/belts.dmi'
 	icon_state = "utilitybelt"
 	item_state = "utility"
 	storage_slots = 7
@@ -13,7 +13,7 @@
 	slot_flags = SLOT_BELT
 	var/overlay_flags
 	attack_verb = list("whipped", "lashed", "disciplined")
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/belt.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'resources/icons/mob/species/resomi/belt.dmi')
 
 /obj/item/weapon/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
@@ -30,7 +30,7 @@
 	overlays.Cut()
 	if(overlay_flags & BELT_OVERLAY_ITEMS)
 		for(var/obj/item/I in contents)
-			overlays += image('icons/obj/clothing/belts_overlays.dmi', "[I.icon_state]")
+			overlays += image('resources/icons/obj/clothing/belts_overlays.dmi', "[I.icon_state]")
 
 /obj/item/weapon/storage/belt/get_mob_overlay(mob/user_mob, slot)
 	var/image/ret = ..()
@@ -40,9 +40,9 @@
 			var/use_state = (I.item_state || I.icon_state)
 			if(ishuman(user_mob))
 				var/mob/living/carbon/human/H = user_mob
-				ret_overlays += H.species.get_offset_overlay_image(FALSE, 'icons/mob/onmob/belt.dmi', use_state, I.color, slot)
+				ret_overlays += H.species.get_offset_overlay_image(FALSE, 'resources/icons/mob/onmob/belt.dmi', use_state, I.color, slot)
 			else
-				ret_overlays += overlay_image('icons/mob/onmob/belt.dmi', use_state, I.color, RESET_COLOR)
+				ret_overlays += overlay_image('resources/icons/mob/onmob/belt.dmi', use_state, I.color, RESET_COLOR)
 			ret.overlays += ret_overlays
 	return ret
 
@@ -54,8 +54,8 @@
 	storage_slots = 2
 	overlay_flags = BELT_OVERLAY_ITEMS|BELT_OVERLAY_HOLSTER
 	var/list/can_holster //List of objects which this item can store in the designated holster slot(if unset, it will default to any holsterable items)
-	var/sound_in = 'sound/effects/holster/holsterin.ogg'
-	var/sound_out = 'sound/effects/holster/holsterout.ogg'
+	var/sound_in = 'resources/sound/effects/holster/holsterin.ogg'
+	var/sound_out = 'resources/sound/effects/holster/holsterout.ogg'
 	can_hold = list(
 		/obj/item/weapon/melee/baton,
 		/obj/item/weapon/melee/telebaton
@@ -95,9 +95,9 @@
 		for(var/obj/item/I in contents)
 			if(I == H.holstered)
 				if(overlay_flags & BELT_OVERLAY_HOLSTER)
-					overlays += image('icons/obj/clothing/belts_overlays.dmi', "[I.icon_state]")
+					overlays += image('resources/icons/obj/clothing/belts_overlays.dmi', "[I.icon_state]")
 			else if(overlay_flags & BELT_OVERLAY_ITEMS)
-				overlays += image('icons/obj/clothing/belts_overlays.dmi', "[I.icon_state]")
+				overlays += image('resources/icons/obj/clothing/belts_overlays.dmi', "[I.icon_state]")
 
 /obj/item/weapon/storage/belt/utility
 	name = "tool belt"
@@ -196,7 +196,7 @@
 	item_state = "emsbelt"
 
 /obj/item/weapon/storage/belt/medical/classic
-	icon = 'icons/urist/items/clothes/belt.dmi'
+	icon = 'resources/icons/urist/items/clothes/belt.dmi'
 	item_icons = URIST_ALL_ONMOBS
 
 /obj/item/weapon/storage/belt/holster/security
@@ -358,8 +358,8 @@
 		/obj/item/device/analyzer
 		)
 	can_holster = list(/obj/item/weapon/material/hatchet/machete)
-	sound_in = 'sound/effects/holster/sheathin.ogg'
-	sound_out = 'sound/effects/holster/sheathout.ogg'
+	sound_in = 'resources/sound/effects/holster/sheathin.ogg'
+	sound_out = 'resources/sound/effects/holster/sheathout.ogg'
 
 /obj/item/weapon/storage/belt/champion
 	name = "championship belt"

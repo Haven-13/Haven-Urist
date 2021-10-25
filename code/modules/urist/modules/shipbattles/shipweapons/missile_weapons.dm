@@ -2,7 +2,7 @@
 //missiles
 
 /obj/machinery/shipweapons/missile
-	icon = 'icons/urist/96x96.dmi'
+	icon = 'resources/icons/urist/96x96.dmi'
 	passshield = 1
 	var/loaded = 0
 	var/maxload = 1 //in case we have missile arrays
@@ -26,7 +26,7 @@
 	name = "torpedo casing"
 	density = 0
 	anchored = 0
-	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
+	icon = 'resources/icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state = "bigtorpedo-unloaded"
 	var/loaded = 0
 	var/obj/item/shipweapons/torpedo_warhead/warhead = null
@@ -66,7 +66,7 @@
 /obj/structure/shipammo/torpedo/loaded
 	name = "loaded torpedo"
 	loaded = 1
-	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
+	icon = 'resources/icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state = "bigtorpedo"
 	warhead = /obj/item/shipweapons/torpedo_warhead
 
@@ -78,7 +78,7 @@
 	component_hit = 25
 	rechargerate = 16 SECONDS
 	projectile_type = /obj/item/projectile/bullet/ship/bigtorpedo
-	fire_sound = 'sound/weapons/railgun.ogg'
+	fire_sound = 'resources/sound/weapons/railgun.ogg'
 
 /obj/machinery/shipweapons/missile/torpedo/Bumped(atom/movable/M as mob|obj)
 	..()

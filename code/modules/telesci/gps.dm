@@ -2,7 +2,7 @@ var/list/GPS_list = list()
 /obj/item/device/gps
 	name = "global positioning system"
 	desc = "Helping lost spacemen find their way through the planets since 2016."
-	icon = 'icons/obj/telescience.dmi'
+	icon = 'resources/icons/obj/telescience.dmi'
 	icon_state = "gps-c"
 	w_class = 2.0
 	slot_flags = SLOT_BELT
@@ -62,11 +62,11 @@ var/list/GPS_list = list()
 			attack_self(usr)
 
 /obj/item/device/gps/science
-	icon = 'icons/obj/telescience.dmi'
+	icon = 'resources/icons/obj/telescience.dmi'
 	icon_state = "gps-s"
 	gpstag = "SCI0"
 
 /obj/item/device/gps/engineering
-	icon = 'icons/obj/telescience.dmi'
+	icon = 'resources/icons/obj/telescience.dmi'
 	icon_state = "gps-e"
 	gpstag = "ENG0"

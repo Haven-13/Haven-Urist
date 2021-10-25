@@ -14,7 +14,7 @@
 
 	assailant.put_in_active_hand(src)
 	assailant.do_attack_animation(affecting)
-	playsound(affecting.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+	playsound(affecting.loc, 'resources/sound/weapons/thudswoosh.ogg', 50, 1, -1)
 	visible_message("<span class='warning'>[assailant] has nabbed [affecting] passively!</span>")
 	affecting.grabbed_by += src
 
@@ -23,7 +23,7 @@
 
 	type_name = GRAB_NAB
 
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 
 	stop_move = 1
 	force_stand = 1
@@ -88,7 +88,7 @@
 		G.affecting.visible_message("<span class='danger'>[G.assailant]'s spikes dig in painfully!</span>")
 	else
 		G.affecting.apply_damage(attack_damage, DAMAGE_TYPE_BRUTE, hit_zone, armor,, "crushing")
-	playsound(get_turf(G.assailant), 'sound/weapons/bite.ogg', 25, 1, -1)
+	playsound(get_turf(G.assailant), 'resources/sound/weapons/bite.ogg', 25, 1, -1)
 
 	admin_attack_log(G.assailant, G.affecting, "Crushed their victim.", "Was crushed.", "crushed")
 
@@ -101,6 +101,6 @@
 
 	G.affecting.apply_damage(attack_damage, DAMAGE_TYPE_BRUTE, hit_zone, armor, DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE, "mandibles")
 	G.affecting.visible_message("<span class='danger'>[G.assailant] chews on [G.affecting]'s [damaging.name]!</span>")
-	playsound(get_turf(G.assailant), 'sound/weapons/bite.ogg', 25, 1, -1)
+	playsound(get_turf(G.assailant), 'resources/sound/weapons/bite.ogg', 25, 1, -1)
 
 	admin_attack_log(G.assailant, G.affecting, "Chews their victim.", "Was chewed.", "chewed")

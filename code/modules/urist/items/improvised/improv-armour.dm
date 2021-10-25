@@ -7,27 +7,27 @@
 	desc = "A high-visibility vest used in work zones. There are some holes in it."
 	icon_state = "vest_hole"
 	item_state = "hazard"
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 
 /obj/item/improv/hazardvest/step2
 	name = "hazard vest with cables"
 	desc = "A high-visibility vest used in work zones. There are some cables strapped to it."
 	icon_state = "vest_hole_wire"
 	item_state = "hazard"
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 
 /obj/item/improv/hazardvest/step3
 	name = "hazard vest with metal"
 	desc = "A high-visibility vest used in work zones. There is a metal sheet strapped loosely to it."
 	icon_state = "vest_wire_metal"
 	item_state = "hazard"
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 
 /obj/item/clothing/suit/storage/hazardvest/armor //fukken americans. it's armour, but conventions
 	name = "hazard vest armor"
 	desc = "A high-visibility vest used in work zones. It's been made into a rudimentary armored vest."	//armoured. fuck.
-	icon_override = 'icons/uristmob/clothes.dmi'
-	icon = 'icons/urist/items/improvised.dmi'
+	icon_override = 'resources/icons/uristmob/clothes.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 	icon_state = "vest_wire_tight_metal"
 	item_state = "hazard"
 	armor = list(melee = 27, bullet = 12, laser = 5, energy = 0, bomb = 5, bio = 0, rad = 0)//roughly half as effective as sec armour

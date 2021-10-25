@@ -5,7 +5,7 @@
 	idle_power_usage = 10
 	anchored = 1
 	density = 1
-	icon = 'icons/urist/objects/machinery.dmi'
+	icon = 'resources/icons/urist/objects/machinery.dmi'
 
 /obj/machinery/carpentry/planer
 	name = "wood processor"
@@ -37,7 +37,7 @@
 				anchored = 0
 			else
 				anchored = 1
-			playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+			playsound(loc, 'resources/sound/items/Ratchet.ogg', 100, 1)
 			if(anchored)
 				user.visible_message("[user] secures [src] to the floor.", "You secure [src] to the floor.")
 			else
@@ -77,7 +77,7 @@
 /obj/item/stack/material/r_wood
 	name = "unprocessed wooden planks"
 //	desc = "A bunch of unprocessed wood planks."
-	icon = 'icons/urist/items/wood.dmi'
+	icon = 'resources/icons/urist/items/wood.dmi'
 	icon_state = "planks"
 	singular_name = "unprocessed wood plank"
 	default_type = "wood"
@@ -129,7 +129,7 @@
 				anchored = 0
 			else
 				anchored = 1
-			playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+			playsound(loc, 'resources/sound/items/Ratchet.ogg', 100, 1)
 			if(anchored)
 				user.visible_message("[user] secures [src] to the floor.", "You secure [src] to the floor.")
 			else

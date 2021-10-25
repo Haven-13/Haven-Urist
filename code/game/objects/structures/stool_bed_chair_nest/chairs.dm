@@ -19,7 +19,7 @@
 		if(!user.unEquip(SK))
 			return
 		var/obj/structure/bed/chair/e_chair/E = new (src.loc, material.name)
-		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 		E.set_dir(dir)
 		E.part = SK
 		SK.forceMove(E)
@@ -42,7 +42,7 @@
 
 	var/cache_key = "[base_icon]-[material.name]-over"
 	if(isnull(stool_cache[cache_key]))
-		var/mutable_appearance/I = mutable_appearance('icons/obj/furniture.dmi', "[base_icon]_over")
+		var/mutable_appearance/I = mutable_appearance('resources/icons/obj/furniture.dmi', "[base_icon]_over")
 		if(material_alteration & MATERIAL_ALTERATION_COLOR)
 			I.color = material.icon_colour
 		I.plane = src.get_float_plane(DEFAULT_PLANE)
@@ -262,7 +262,7 @@
 		occupant.apply_effect(6, DAMAGE_TYPE_WEAKEN, blocked)
 		occupant.apply_effect(6, DAMAGE_TYPE_STUTTER, blocked)
 		occupant.apply_damage(10, DAMAGE_TYPE_BRUTE, def_zone, blocked)
-		playsound(src.loc, 'sound/weapons/punch1.ogg', 50, 1, -1)
+		playsound(src.loc, 'resources/sound/weapons/punch1.ogg', 50, 1, -1)
 		if(istype(A, /mob/living))
 			var/mob/living/victim = A
 			def_zone = ran_zone()

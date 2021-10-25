@@ -20,7 +20,7 @@
 	description_info = "This versatile tool is used for dismantling machine frames, anchoring or unanchoring heavy objects like vending machines and emitters, and much more. In general, if you want something to move or stop moving entirely, you ought to use a wrench on it."
 	description_fluff = "The classic open-end wrench (or spanner, if you prefer) hasn't changed significantly in shape in over 500 years, though these days they employ a bit of automated trickery to match various bolt sizes and configurations."
 	description_antag = "Not only is this handy tool good for making off with machines, but it even makes a weapon in a pinch!"
-	icon = 'icons/obj/tools.dmi'
+	icon = 'resources/icons/obj/tools.dmi'
 	icon_state = "wrench"
 	item_state = "wrench"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
@@ -35,7 +35,7 @@
 
 /obj/item/weapon/wrench/Initialize()
 	if(prob(25))
-		icon = 'icons/urist/items/tools.dmi'
+		icon = 'resources/icons/urist/items/tools.dmi'
 		icon_state = "wrench"
 	else
 		icon_state = "wrench[pick("","_red","_black")]"
@@ -50,7 +50,7 @@
 	description_info = "This tool is used to expose or safely hide away cabling. It can open and shut the maintenance panels on vending machines, airlocks, and much more. You can also use it, in combination with a crowbar, to install or remove windows."
 	description_fluff = "Screws have not changed significantly in centuries, and neither have the drivers used to install and remove them."
 	description_antag = "In the world of breaking and entering, tools like multitools and wirecutters are the bread; the screwdriver is the butter. In a pinch, try targetting someone's eyes and stabbing them with it - it'll really hurt!"
-	icon = 'icons/obj/tools.dmi'
+	icon = 'resources/icons/obj/tools.dmi'
 	icon_state = "screwdriver"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT | SLOT_EARS
@@ -111,7 +111,7 @@
 	description_info = "This tool will cut wiring anywhere you see it - make sure to wear insulated gloves! When used on more complicated machines or airlocks, it can not only cut cables, but repair them, as well."
 	description_fluff = "With modern alloys, today's wirecutters can snap through cables of astonishing thickness."
 	description_antag = "These cutters can be used to cripple the power anywhere on the ship. All it takes is some creativity, and being in the right place at the right time."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'resources/icons/obj/tools.dmi'
 	icon_state = "cutters"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
@@ -150,7 +150,7 @@
  */
 /obj/item/weapon/weldingtool
 	name = "welding tool"
-	icon = 'icons/obj/tools.dmi'
+	icon = 'resources/icons/obj/tools.dmi'
 	icon_state = "welder_m"
 	item_state = "welder"
 	desc = "A heavy but portable welding gun with its own interchangeable fuel tank. It features a simple toggle switch and a port for attaching an external tank."
@@ -300,7 +300,7 @@
 			return
 		O.reagents.trans_to_obj(tank, tank.max_fuel)
 		to_chat(user, "<span class='notice'>You refuel \the [tank].</span>")
-		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
+		playsound(src.loc, 'resources/sound/effects/refill.ogg', 50, 1, -6)
 		return
 	if (src.welding)
 		remove_fuel(1)
@@ -486,7 +486,7 @@
 /obj/item/weapon/welder_tank
 	name = "welding fuel tank"
 	desc = "An interchangeable fuel tank meant for a welding tool."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'resources/icons/obj/tools.dmi'
 	icon_state = "fuel_m"
 	w_class = ITEM_SIZE_SMALL
 	var/max_fuel = 20
@@ -502,7 +502,7 @@
 	if (istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1)
 		O.reagents.trans_to_obj(src, max_fuel)
 		to_chat(user, "<span class='notice'>You refuel \the [src].</span>")
-		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
+		playsound(src.loc, 'resources/sound/effects/refill.ogg', 50, 1, -6)
 		return
 
 /obj/item/weapon/weldingtool/mini
@@ -619,7 +619,7 @@
 	description_info = "Crowbars have countless uses: click on floor tiles to pry them loose. Use alongside a screwdriver to install or remove windows. Force open emergency shutters, or depowered airlocks. Open the panel of an unlocked APC. Pry a computer's circuit board free. And much more!"
 	description_fluff = "As is the case with most standard-issue tools, crowbars are a simple and timeless design, the only difference being that advanced materials like plasteel have made them uncommonly tough."
 	description_antag = "Need to bypass a bolted door? You can use a crowbar to pry the electronics out of an airlock, provided that it has no power and has been welded shut."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'resources/icons/obj/tools.dmi'
 	icon_state = "crowbar"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
@@ -660,7 +660,7 @@
 /*/obj/item/weapon/combitool
 	name = "combi-tool"
 	desc = "It even has one of those nubbins for doing the thingy."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "combitool"
 	w_class = ITEM_SIZE_SMALL
 

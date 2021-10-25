@@ -2,7 +2,7 @@
 	name = "ladder"
 	desc = "A ladder. You can climb it up and down."
 	icon_state = "ladder01"
-	icon = 'icons/obj/structures.dmi'
+	icon = 'resources/icons/obj/structures.dmi'
 	density = 0
 	opacity = 0
 	anchored = 1
@@ -12,7 +12,7 @@
 	var/obj/structure/ladder/target_down
 
 	var/const/climb_time = 2 SECONDS
-	var/static/list/climbsounds = list('sound/effects/ladder.ogg','sound/effects/ladder2.ogg','sound/effects/ladder3.ogg','sound/effects/ladder4.ogg')
+	var/static/list/climbsounds = list('resources/sound/effects/ladder.ogg','resources/sound/effects/ladder2.ogg','resources/sound/effects/ladder3.ogg','resources/sound/effects/ladder4.ogg')
 
 /obj/structure/ladder/Initialize()
 	. = ..()

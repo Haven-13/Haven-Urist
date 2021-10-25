@@ -3,7 +3,7 @@
 //===================================================================================
 /obj/effect/overmap
 	name = "map object"
-	icon = 'icons/obj/overmap.dmi'
+	icon = 'resources/icons/obj/overmap.dmi'
 	icon_state = "object"
 	var/list/map_z = list()
 

@@ -84,7 +84,7 @@ GLOBAL_VAR(restart_counter)
 	var/date_string = time2text(world.realtime, "YYYY/MM/DD")
 	href_logfile = file("data/logs/[date_string] hrefs.htm")
 
-	changelog_hash = md5('html/changelog/changelog.html')					//used for telling if the changelog has changed recently
+	changelog_hash = md5('resources/html/changelog/changelog.html')					//used for telling if the changelog has changed recently
 	if(fexists(RESTART_COUNTER_PATH))
 		GLOB.restart_counter = text2num(trim(file2text(RESTART_COUNTER_PATH)))
 		fdel(RESTART_COUNTER_PATH)
@@ -361,7 +361,7 @@ var/world_topic_spam_protect_time = world.timeofday
 		C.received_irc_pm = world.time
 		C.irc_admin = input["sender"]
 
-		sound_to(C, 'sound/effects/adminhelp.ogg')
+		sound_to(C, 'resources/sound/effects/adminhelp.ogg')
 		to_chat(C, message)
 
 		for(var/client/A in GLOB.admins)
@@ -463,7 +463,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 /world/Reboot(var/reason)
 	/*spawn(0)
-		sound_to(world, sound(pick('sound/AI/newroundsexy.ogg','sound/misc/apcdestroyed.ogg','sound/misc/bangindonk.ogg')))// random end sounds!! - LastyBatsy
+		sound_to(world, sound(pick('resources/sound/AI/newroundsexy.ogg','resources/sound/misc/apcdestroyed.ogg','resources/sound/misc/bangindonk.ogg')))// random end sounds!! - LastyBatsy
 
 		*/
 

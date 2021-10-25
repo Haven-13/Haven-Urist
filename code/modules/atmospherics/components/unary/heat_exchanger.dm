@@ -1,6 +1,6 @@
 /obj/machinery/atmospherics/unary/heat_exchanger
 
-	icon = 'icons/obj/atmospherics/heat_exchanger.dmi'
+	icon = 'resources/icons/obj/atmospherics/heat_exchanger.dmi'
 	icon_state = "intact"
 	density = 1
 
@@ -79,7 +79,7 @@
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
 		return 1
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
 	if (do_after(user, 40, src))
 		user.visible_message( \

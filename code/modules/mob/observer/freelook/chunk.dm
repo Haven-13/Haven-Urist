@@ -6,7 +6,7 @@
 // Allows the Eye to stream these chunks and know what it can and cannot see.
 
 /datum/obfuscation
-	var/icon = 'icons/effects/cameravis.dmi'
+	var/icon = 'resources/icons/effects/cameravis.dmi'
 	var/icon_state = "black"
 	var/list/obfuscation_images = list()
 	var/static/icon/obfuscation_underlay

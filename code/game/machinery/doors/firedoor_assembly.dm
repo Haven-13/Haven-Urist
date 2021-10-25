@@ -1,7 +1,7 @@
 /obj/structure/firedoor_assembly
 	name = "\improper emergency shutter assembly"
 	desc = "It can save lives."
-	icon = 'icons/obj/doors/hazard/door.dmi'
+	icon = 'resources/icons/obj/doors/hazard/door.dmi'
 	icon_state = "construction"
 	anchored = 0
 	opacity = 0
@@ -27,7 +27,7 @@
 				to_chat(user, "<span class='notice'>You wire \the [src].</span>")
 
 	else if(isWirecutter(C) && wired )
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 100, 1)
 		user.visible_message("[user] cuts the wires from \the [src].", "You start to cut the wires from \the [src].")
 
 		if(do_after(user, 40, src))
@@ -38,7 +38,7 @@
 
 	else if(istype(C, /obj/item/weapon/airalarm_electronics) && wired)
 		if(anchored)
-			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 			user.visible_message(
 				"<span class='warning'>[user] has inserted a circuit into \the [src]!</span>",
 				"You have inserted the circuit into \the [src]!"
@@ -50,7 +50,7 @@
 			to_chat(user, "<span class='warning'>You must secure \the [src] first!</span>")
 	else if(isWrench(C))
 		anchored = !anchored
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 		user.visible_message(
 			"<span class='warning'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
 			"You have [anchored ? "" : "un" ]secured \the [src]!"

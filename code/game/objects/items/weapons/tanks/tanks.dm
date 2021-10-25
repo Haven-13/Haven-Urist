@@ -4,7 +4,7 @@ var/list/global/tank_gauge_cache = list()
 
 /obj/item/weapon/tank
 	name = "tank"
-	icon = 'icons/obj/tank.dmi'
+	icon = 'resources/icons/obj/tank.dmi'
 
 	var/gauge_icon = "indicator_tank"
 	var/gauge_cap = 6
@@ -20,7 +20,7 @@ var/list/global/tank_gauge_cache = list()
 
 
 	sprite_sheets = list(
-		SPECIES_RESOMI = 'icons/mob/species/resomi/back.dmi'
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/back.dmi'
 		)
 
 	var/datum/gas_mixture/air_contents = null
@@ -428,7 +428,7 @@ var/list/global/tank_gauge_cache = list()
 			if(!T)
 				return
 			T.assume_air(air_contents)
-			playsound(get_turf(src), 'sound/weapons/gunshot/shotgun.ogg', 20, 1)
+			playsound(get_turf(src), 'resources/sound/weapons/gunshot/shotgun.ogg', 20, 1)
 			visible_message("\icon[src] <span class='danger'>\The [src] flies apart!</span>", "<span class='warning'>You hear a bang!</span>")
 			T.hotspot_expose(air_contents.temperature, 70, 1)
 
@@ -462,7 +462,7 @@ var/list/global/tank_gauge_cache = list()
 			T.assume_air(leaked_gas)
 			if(!leaking)
 				visible_message("\icon[src] <span class='warning'>\The [src] relief valve flips open with a hiss!</span>", "You hear hissing.")
-				playsound(loc, 'sound/effects/spray.ogg', 10, 1, -3)
+				playsound(loc, 'resources/sound/effects/spray.ogg', 10, 1, -3)
 				leaking = 1
 				#ifdef FIREDBG
 				log_debug("<span class='warning'>[x],[y] tank is leaking: [pressure] kPa, integrity [integrity]</span>")

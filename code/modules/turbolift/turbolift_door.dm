@@ -6,12 +6,12 @@
 	autoclose = 0
 	glass = 1
 	airlock_type = "elevator"
-	icon = 'icons/obj/doors/elevator/door.dmi'
-	fill_file = 'icons/obj/doors/elevator/fill_steel.dmi'
-	glass_file = 'icons/obj/doors/elevator/fill_glass.dmi'
-	bolts_file = 'icons/obj/doors/elevator/lights_bolts.dmi'
-	deny_file = 'icons/obj/doors/elevator/lights_deny.dmi'
-	lights_file = 'icons/obj/doors/elevator/lights_green.dmi'
+	icon = 'resources/icons/obj/doors/elevator/door.dmi'
+	fill_file = 'resources/icons/obj/doors/elevator/fill_steel.dmi'
+	glass_file = 'resources/icons/obj/doors/elevator/fill_glass.dmi'
+	bolts_file = 'resources/icons/obj/doors/elevator/lights_bolts.dmi'
+	deny_file = 'resources/icons/obj/doors/elevator/lights_deny.dmi'
+	lights_file = 'resources/icons/obj/doors/elevator/lights_green.dmi'
 
 	paintable = 0
 

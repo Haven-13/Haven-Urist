@@ -1,14 +1,14 @@
 /*IT'S PARTY TIME*/
 
 /sound/turntable/test
-	file = 'sound/turntable/TestLoop1.ogg'
+	file = 'resources/sound/turntable/TestLoop1.ogg'
 	falloff = 2
 	repeat = 1
 
 /obj/machinery/party/turntable
 	name = "turntable"
 	desc = "A turntable used for parties and shit."
-	icon = 'icons/urist/items/effects.dmi'
+	icon = 'resources/icons/urist/items/effects.dmi'
 	icon_state = "turntable"
 //	var/playing = 0
 	anchored = 1
@@ -17,7 +17,7 @@
 /obj/machinery/party/mixer
 	name = "mixer"
 	desc = "A mixing board for mixing music"
-	icon = 'icons/urist/items/effects.dmi'
+	icon = 'resources/icons/urist/items/effects.dmi'
 	icon_state = "mixer"
 	anchored = 1
 
@@ -43,15 +43,15 @@
 /obj/machinery/party/turntable/Topic(href, href_list)
 	..()
 	if( href_list["on1"] )
-		track = 'sound/turntable/TestLoop1.ogg'
+		track = 'resources/sound/turntable/TestLoop1.ogg'
 		playmusic()
 
 	if( href_list["on2"] )
-		track = 'sound/turntable/TestLoop2.ogg'
+		track = 'resources/sound/turntable/TestLoop2.ogg'
 		playmusic()
 
 	if( href_list["on3"] )
-		track = 'sound/turntable/TestLoop3.ogg'
+		track = 'resources/sound/turntable/TestLoop3.ogg'
 		playmusic()
 
 	if( href_list["off"] )
@@ -98,7 +98,7 @@
 /obj/machinery/party/lasermachine
 	name = "laser machine"
 	desc = "A laser machine that shoots lasers."
-	icon = 'icons/urist/items/effects.dmi'
+	icon = 'resources/icons/urist/items/effects.dmi'
 	icon_state = "lasermachine"
 	anchored = 1
 	var/mirrored = 0
@@ -106,7 +106,7 @@
 /obj/effects/laser
 	name = "laser"
 	desc = "A laser..."
-	icon = 'icons/urist/items/effects.dmi'
+	icon = 'resources/icons/urist/items/effects.dmi'
 	icon_state = "laserred1"
 	anchored = 1
 	layer = 4

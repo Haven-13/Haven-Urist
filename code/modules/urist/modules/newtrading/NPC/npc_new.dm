@@ -25,8 +25,8 @@
 	else
 		name = "[real_name] (NPC)"
 
-	var/image/res = image('icons/mob/human_races/species/human/hair.dmi',"bald_s")
-	var/image/res2 = image('icons/mob/human_races/species/human/facial.dmi',"bald_s")
+	var/image/res = image('resources/icons/mob/human_races/species/human/hair.dmi',"bald_s")
+	var/image/res2 = image('resources/icons/mob/human_races/species/human/facial.dmi',"bald_s")
 
 	h_style(res)
 	f_style(res2)

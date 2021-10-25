@@ -3,7 +3,7 @@
 //--------------------------------------------
 /obj/machinery/atmospherics/omni
 	name = "omni device"
-	icon = 'icons/atmos/omni_devices.dmi'
+	icon = 'resources/icons/atmos/omni_devices.dmi'
 	icon_state = "base"
 	use_power = 1
 	initialize_directions = 0
@@ -84,7 +84,7 @@
 		add_fingerprint(user)
 		return 1
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 	if(do_after(user, 40, src))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \

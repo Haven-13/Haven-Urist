@@ -1,6 +1,6 @@
 /obj/structure/door_assembly
 	name = "airlock assembly"
-	icon = 'icons/obj/doors/station/door.dmi'
+	icon = 'resources/icons/obj/doors/station/door.dmi'
 	icon_state = "construction"
 	anchored = 0
 	density = 1
@@ -13,40 +13,40 @@
 	var/glass_type = "/glass"
 	var/glass = 0 // 0 = glass can be installed. -1 = glass can't be installed. 1 = glass is already installed. Text = mineral plating is installed instead.
 	var/created_name = null
-	var/panel_icon = 'icons/obj/doors/station/panel.dmi'
-	var/fill_icon = 'icons/obj/doors/station/fill_steel.dmi'
-	var/glass_icon = 'icons/obj/doors/station/fill_glass.dmi'
+	var/panel_icon = 'resources/icons/obj/doors/station/panel.dmi'
+	var/fill_icon = 'resources/icons/obj/doors/station/fill_steel.dmi'
+	var/glass_icon = 'resources/icons/obj/doors/station/fill_glass.dmi'
 
 /obj/structure/door_assembly/New()
 	update_state()
 
 /obj/structure/door_assembly/door_assembly_hatch
-	icon = 'icons/obj/doors/hatch/door.dmi'
-	panel_icon = 'icons/obj/doors/hatch/panel.dmi'
-	fill_icon = 'icons/obj/doors/hatch/fill_steel.dmi'
+	icon = 'resources/icons/obj/doors/hatch/door.dmi'
+	panel_icon = 'resources/icons/obj/doors/hatch/panel.dmi'
+	fill_icon = 'resources/icons/obj/doors/hatch/fill_steel.dmi'
 	base_name = "Airtight Hatch"
 	airlock_type = "/hatch"
 	glass = -1
 
 /obj/structure/door_assembly/door_assembly_highsecurity // Borrowing this until WJohnston makes sprites for the assembly
-	icon = 'icons/obj/doors/secure/door.dmi'
-	fill_icon = 'icons/obj/doors/secure/fill_steel.dmi'
+	icon = 'resources/icons/obj/doors/secure/door.dmi'
+	fill_icon = 'resources/icons/obj/doors/secure/fill_steel.dmi'
 	base_name = "High Security Airlock"
 	airlock_type = "/highsecurity"
 	glass = -1
 
 /obj/structure/door_assembly/door_assembly_ext
-	icon = 'icons/obj/doors/external/door.dmi'
-	fill_icon = 'icons/obj/doors/external/fill_steel.dmi'
-	glass_icon = 'icons/obj/doors/external/fill_glass.dmi'
+	icon = 'resources/icons/obj/doors/external/door.dmi'
+	fill_icon = 'resources/icons/obj/doors/external/fill_steel.dmi'
+	glass_icon = 'resources/icons/obj/doors/external/fill_glass.dmi'
 	base_name = "External Airlock"
 	airlock_type = "/external"
 
 /obj/structure/door_assembly/multi_tile
-	icon = 'icons/obj/doors/double/door.dmi'
-	fill_icon = 'icons/obj/doors/double/fill_steel.dmi'
-	glass_icon = 'icons/obj/doors/double/fill_glass.dmi'
-	panel_icon = 'icons/obj/doors/double/panel.dmi'
+	icon = 'resources/icons/obj/doors/double/door.dmi'
+	fill_icon = 'resources/icons/obj/doors/double/fill_steel.dmi'
+	glass_icon = 'resources/icons/obj/doors/double/fill_glass.dmi'
+	panel_icon = 'resources/icons/obj/doors/double/panel.dmi'
 	dir = EAST
 	var/width = 1
 	airlock_type = "/multi_tile"
@@ -83,7 +83,7 @@
 	if(isWelder(W) && ( (istext(glass)) || (glass == 1) || (!anchored) ))
 		var/obj/item/weapon/weldingtool/WT = W
 		if (WT.remove_fuel(0, user))
-			playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Welder2.ogg', 50, 1)
 			if(istext(glass))
 				user.visible_message("[user] welds the [glass] plating off the airlock assembly.", "You start to weld the [glass] plating off the airlock assembly.")
 				if(do_after(user, 40,src))
@@ -111,7 +111,7 @@
 			return
 
 	else if(isWrench(W) && state == 0)
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 100, 1)
 		if(anchored)
 			user.visible_message("[user] begins unsecuring the airlock assembly from the floor.", "You starts unsecuring the airlock assembly from the floor.")
 		else
@@ -134,7 +134,7 @@
 				to_chat(user, "<span class='notice'>You wire the airlock.</span>")
 
 	else if(isWirecutter(W) && state == 1 )
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 100, 1)
 		user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
 
 		if(do_after(user, 40,src))
@@ -144,7 +144,7 @@
 			src.state = 0
 
 	else if(istype(W, /obj/item/weapon/airlock_electronics) && state == 1)
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 100, 1)
 		user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
 
 		if(do_after(user, 40,src))
@@ -163,7 +163,7 @@
 			src.state = 1
 			return
 
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 100, 1)
 		user.visible_message("\The [user] starts removing the electronics from the airlock assembly.", "You start removing the electronics from the airlock assembly.")
 
 		if(do_after(user, 40,src))
@@ -180,7 +180,7 @@
 		if (S)
 			if (S.get_amount() >= 1)
 				if(material_name == "rglass")
-					playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+					playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 100, 1)
 					user.visible_message("[user] adds [S.name] to the airlock assembly.", "You start to install [S.name] into the airlock assembly.")
 					if(do_after(user, 40,src) && !glass)
 						if (S.use(1))
@@ -192,7 +192,7 @@
 						to_chat(user, "You cannot make an airlock out of that material.")
 						return
 					if(S.get_amount() >= 2)
-						playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+						playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 100, 1)
 						user.visible_message("[user] adds [S.name] to the airlock assembly.", "You start to install [S.name] into the airlock assembly.")
 						if(do_after(user, 40,src) && !glass)
 							if (S.use(2))
@@ -200,7 +200,7 @@
 								glass = material_name
 
 	else if(isScrewdriver(W) && state == 2 )
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now finishing the airlock.</span>")
 
 		if(do_after(user, 40,src))

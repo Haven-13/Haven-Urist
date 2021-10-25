@@ -2,7 +2,7 @@
 
 /obj/machinery/atmospherics/unary/cryo_cell
 	name = "cryo cell"
-	icon = 'icons/obj/cryogenics.dmi' // map only
+	icon = 'resources/icons/obj/cryogenics.dmi' // map only
 	icon_state = "pod_preview"
 	density = 1
 	anchored = 1.0
@@ -14,7 +14,7 @@
 	use_power = 1
 	idle_power_usage = 20
 	active_power_usage = 200
-	clicksound = 'sound/machines/buttonbeep.ogg'
+	clicksound = 'resources/sound/machines/buttonbeep.ogg'
 	clickvol = 30
 
 	var/temperature_archived
@@ -25,7 +25,7 @@
 
 /obj/machinery/atmospherics/unary/cryo_cell/Initialize()
 	. = ..()
-	icon = 'icons/obj/cryogenics_split.dmi'
+	icon = 'resources/icons/obj/cryogenics_split.dmi'
 	update_icon()
 	initialize_directions = dir
 	atmos_init()

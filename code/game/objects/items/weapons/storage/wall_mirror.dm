@@ -2,13 +2,13 @@
 /obj/item/weapon/storage/mirror
 	name = "mirror"
 	desc = "A SalonPro Nano-Mirror(TM) mirror! The leading brand in hair salon products, utilizing nano-machinery to style your hair just right. The black box inside warns against attempting to release the nanomachines."
-	icon = 'icons/obj/watercloset.dmi'
+	icon = 'resources/icons/obj/watercloset.dmi'
 	icon_state = "mirror"
 	density = 0
 	anchored = 1
 	max_w_class = ITEM_SIZE_NORMAL
 	max_storage_space = DEFAULT_LARGEBOX_STORAGE
-	use_sound = 'sound/effects/closet_open.ogg'
+	use_sound = 'resources/sound/effects/closet_open.ogg'
 	var/shattered = 0
 	var/list/ui_users = list()
 
@@ -55,7 +55,7 @@
 		if(!shattered)
 			shatter()
 		else
-			playsound(src, 'sound/effects/hit_on_shattered_glass.ogg', 70, 1)
+			playsound(src, 'resources/sound/effects/hit_on_shattered_glass.ogg', 70, 1)
 	..()
 
 /obj/item/weapon/storage/mirror/attackby(obj/item/W as obj, mob/user as mob)
@@ -70,7 +70,7 @@
 /obj/item/weapon/storage/mirror/attack_generic(var/mob/user, var/damage)
 	attack_animation(user)
 	if(shattered)
-		playsound(src.loc, 'sound/effects/hit_on_shattered_glass.ogg', 70, 1)
+		playsound(src.loc, 'resources/sound/effects/hit_on_shattered_glass.ogg', 70, 1)
 		return 0
 
 	if(damage)
@@ -117,7 +117,7 @@
 /obj/item/weapon/mirror
 	name = "mirror"
 	desc = "A SalonPro Nano-Mirror(TM) brand mirror! Now a portable version."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "mirror"
 	var/list/ui_users = list()
 

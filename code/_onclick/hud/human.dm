@@ -1,7 +1,7 @@
 /mob/living/carbon/human
 	hud_type = /datum/hud/human
 
-/datum/hud/human/FinalizeInstantiation(var/ui_style='icons/mob/screen1_White.dmi', var/ui_color = "#ffffff", var/ui_alpha = 255)
+/datum/hud/human/FinalizeInstantiation(var/ui_style='resources/icons/mob/screen1_White.dmi', var/ui_color = "#ffffff", var/ui_alpha = 255)
 	var/mob/living/carbon/human/target = mymob
 	var/datum/hud_data/hud_data
 	if(!istype(target))
@@ -224,7 +224,7 @@
 
 	if(target.isSynthetic())
 		target.cells = new /atom/movable/screen()
-		target.cells.icon = 'icons/mob/screen1_robot.dmi'
+		target.cells.icon = 'resources/icons/mob/screen1_robot.dmi'
 		target.cells.icon_state = "charge-empty"
 		target.cells.SetName("cell")
 		target.cells.screen_loc = ui_nutrition
@@ -247,7 +247,7 @@
 	mymob.zone_sel.color = ui_color
 	mymob.zone_sel.alpha = ui_alpha
 	mymob.zone_sel.overlays.Cut()
-	mymob.zone_sel.overlays += image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]")
+	mymob.zone_sel.overlays += image('resources/icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]")
 	hud_elements |= mymob.zone_sel
 
 	//Handle the gun settings buttons

@@ -4,7 +4,7 @@
 /obj/structure/stairs
 	name = "stairs"
 	desc = "Stairs leading to another deck.  Not too useful if the gravity goes out."
-	icon = 'icons/obj/stairs.dmi'
+	icon = 'resources/icons/obj/stairs.dmi'
 	density = 0
 	opacity = 0
 	anchored = 1

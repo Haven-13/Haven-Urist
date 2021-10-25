@@ -6,7 +6,7 @@
 
 /obj/item/mecha_parts
 	name = "mecha part"
-	icon = 'icons/mecha/mech_construct.dmi'
+	icon = 'resources/icons/mecha/mech_construct.dmi'
 	icon_state = "blank"
 	w_class = ITEM_SIZE_HUGE
 	obj_flags = OBJ_FLAG_CONDUCTIBLE

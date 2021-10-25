@@ -2,7 +2,7 @@
 
 //Maintenance soundsssss
 /area/maintenance
-	ambience = list('sound/urist/ambience/ambimaint1.ogg', 'sound/urist/ambience/ambimaint2.ogg', 'sound/urist/ambience/ambimaint3.ogg', 'sound/urist/ambience/ambimaint4.ogg', 'sound/urist/ambience/ambimaint5.ogg')
+	ambience = list('resources/sound/urist/ambience/ambimaint1.ogg', 'resources/sound/urist/ambience/ambimaint2.ogg', 'resources/sound/urist/ambience/ambimaint3.ogg', 'resources/sound/urist/ambience/ambimaint4.ogg', 'resources/sound/urist/ambience/ambimaint5.ogg')
 
 //awaymap shit
 

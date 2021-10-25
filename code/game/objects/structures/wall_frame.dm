@@ -4,7 +4,7 @@
 /obj/structure/wall_frame
 	name = "low wall"
 	desc = "A low wall section which serves as the base of windows, amongst other things."
-	icon = 'icons/obj/wall_frame.dmi'
+	icon = 'resources/icons/obj/wall_frame.dmi'
 	icon_state = "frame"
 
 	atom_flags = ATOM_FLAG_CLIMBABLE
@@ -88,7 +88,7 @@
 			else if(istype(S, /obj/structure/grille))
 				to_chat(user, "<span class='notice'>There is still a grille on the low wall!</span>")
 				return
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now disassembling the low wall...</span>")
 		if(do_after(user, 40,src))
 			if(!src) return

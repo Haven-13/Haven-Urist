@@ -1,6 +1,6 @@
 /obj/structure/flora/pottedplant
 	name = "potted plant"
-	icon = 'icons/obj/plants.dmi'
+	icon = 'resources/icons/obj/plants.dmi'
 	icon_state = "plant-26"
 	plane = DEFAULT_PLANE
 	layer = ABOVE_MOB_LAYER
@@ -10,7 +10,7 @@
 /obj/structure/flora/pottedplant
 	name = "potted plant"
 	desc = "Really brings the room together."
-	icon = 'icons/obj/plants.dmi'
+	icon = 'resources/icons/obj/plants.dmi'
 	icon_state = "plant-01"
 	plane = DEFAULT_PLANE
 	layer = ABOVE_MOB_LAYER

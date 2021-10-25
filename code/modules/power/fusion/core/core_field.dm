@@ -6,7 +6,7 @@
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
 	desc = "A coruscating, barely visible field of energy. It is shaped like a slightly flattened torus."
-	icon = 'icons/obj/machines/power/fusion.dmi'
+	icon = 'resources/icons/obj/machines/power/fusion.dmi'
 	icon_state = "emfield_s1"
 	alpha = 50
 	layer = 4
@@ -310,16 +310,16 @@
 /obj/effect/fusion_em_field/proc/change_size(var/newsize = 1)
 	var/changed = 0
 	var/static/list/size_to_icon = list(
-			"3" = 'icons/effects/96x96.dmi',
-			"5" = 'icons/effects/160x160.dmi',
-			"7" = 'icons/effects/224x224.dmi',
-			"9" = 'icons/effects/288x288.dmi',
-			"11" = 'icons/effects/352x352.dmi',
-			"13" = 'icons/effects/416x416.dmi'
+			"3" = 'resources/icons/effects/96x96.dmi',
+			"5" = 'resources/icons/effects/160x160.dmi',
+			"7" = 'resources/icons/effects/224x224.dmi',
+			"9" = 'resources/icons/effects/288x288.dmi',
+			"11" = 'resources/icons/effects/352x352.dmi',
+			"13" = 'resources/icons/effects/416x416.dmi'
 			)
 
 	if( ((newsize-1)%2==0) && (newsize<=13) )
-		icon = 'icons/obj/machines/power/fusion.dmi'
+		icon = 'resources/icons/obj/machines/power/fusion.dmi'
 		if(newsize>1)
 			icon = size_to_icon["[newsize]"]
 		icon_state = "emfield_s[newsize]"

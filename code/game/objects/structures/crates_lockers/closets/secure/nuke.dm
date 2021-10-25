@@ -1,7 +1,7 @@
 /obj/structure/closet/secure_closet/nuke_wall
 	name = "nuclear cylinder closet"
 	desc = "It's a secure wall-mounted storage unit for storing the nuclear cylinders."
-	icon = 'icons/obj/machines/self_destruct.dmi'
+	icon = 'resources/icons/obj/machines/self_destruct.dmi'
 	icon_state = "self_destruct_wall_locked"
 	icon_closed = "self_destruct_wall_unlocked"
 	icon_locked = "self_destruct_wall_locked"

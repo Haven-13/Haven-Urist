@@ -24,7 +24,7 @@
 	name = "S-COM shuttle console"
 	var/fuckoff = 1
 	icon_state = "shuttle"
-	icon = 'icons/obj/computer.dmi'
+	icon = 'resources/icons/obj/computer.dmi'
 	density = 1
 	anchored = 1
 

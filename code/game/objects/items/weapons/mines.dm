@@ -13,7 +13,7 @@
 	plane = DEFAULT_PLANE
 	layer = OBJ_LAYER
 	throwpass = 1
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'resources/icons/obj/weapons.dmi'
 	icon_state = "uglymine"
 
 	var/triggered = 0
@@ -30,7 +30,7 @@
 	src.anchored = TRUE
 	icon_state = "uglyminearmed"
 
-	var/image/I = image('icons/urist/jungle/turfs.dmi', "exclamation")
+	var/image/I = image('resources/icons/urist/jungle/turfs.dmi', "exclamation")
 	I.plane = src.get_float_plane(DEFAULT_PLANE)
 	I.layer = src.layer + 0.5
 

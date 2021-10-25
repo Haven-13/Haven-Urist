@@ -2,7 +2,7 @@
 /obj/machinery/gibber
 	name = "meat grinder"
 	desc = "The name isn't descriptive enough?"
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'resources/icons/obj/kitchen.dmi'
 	icon_state = "grinder"
 	density = 1
 	anchored = 1
@@ -25,15 +25,15 @@
 /obj/machinery/gibber/update_icon()
 	overlays.Cut()
 	if (dirty)
-		src.overlays += image('icons/obj/kitchen.dmi', "grbloody")
+		src.overlays += image('resources/icons/obj/kitchen.dmi', "grbloody")
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if (!occupant)
-		src.overlays += image('icons/obj/kitchen.dmi', "grjam")
+		src.overlays += image('resources/icons/obj/kitchen.dmi', "grjam")
 	else if (operating)
-		src.overlays += image('icons/obj/kitchen.dmi', "gruse")
+		src.overlays += image('resources/icons/obj/kitchen.dmi', "gruse")
 	else
-		src.overlays += image('icons/obj/kitchen.dmi', "gridle")
+		src.overlays += image('resources/icons/obj/kitchen.dmi', "gridle")
 
 /obj/machinery/gibber/relaymove(mob/user as mob)
 	src.go_out()
@@ -191,7 +191,7 @@
 		src.occupant.gib()
 		qdel(src.occupant)
 
-		playsound(src.loc, 'sound/effects/splat.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/effects/splat.ogg', 50, 1)
 		operating = 0
 		for (var/obj/thing in contents)
 			// There's a chance that the gibber will fail to destroy some evidence.

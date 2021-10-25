@@ -1,5 +1,5 @@
 /obj/effect/spawner/lootdrop
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 	icon_state = "x2"
 	var/lootcount = 1		//how many items will be spawned
 	var/lootdoubles = 0		//if the same item can be spawned twice
@@ -24,7 +24,7 @@
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/closet_loader //Map loader messes up closets
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 	icon_state = "x2"
 
 /obj/effect/closet_loader/New()

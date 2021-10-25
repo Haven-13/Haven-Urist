@@ -106,7 +106,7 @@ Using robohead because of restricting to roboticist */
 /obj/item/weapon/TVAssembly
 	name = "TV Camera assembly"
 	desc = "A robotic head with an infrared sensor inside"
-	icon = 'icons/obj/robot_parts.dmi'
+	icon = 'resources/icons/obj/robot_parts.dmi'
 	icon_state = "head"
 	item_state = "head"
 	var/buildstep = 0

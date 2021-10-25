@@ -10,7 +10,7 @@
 	if(istype(I, /obj/item/weapon/carpentry/axe) || istype(I, /obj/item/weapon/material/twohanded/fireaxe))
 		to_chat(user, "<span class='notice'>You chop [src] with [I].</span>")
 
-		playsound(src.loc, 'sound/urist/chopchop.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/urist/chopchop.ogg', 100, 1)
 
 		sleep(5)
 
@@ -19,7 +19,7 @@
 
 		if(chops == 4 && size == 1)
 			to_chat(user, "<span class='notice'>[src] comes crashing down!</span>")
-			playsound(src.loc, 'sound/urist/treefalling.ogg', 100, 1)
+			playsound(src.loc, 'resources/sound/urist/treefalling.ogg', 100, 1)
 			new /obj/structure/log(src.loc)
 
 			qdel(src)
@@ -29,7 +29,7 @@
 
 			sleep(5)
 
-			playsound(src.loc, 'sound/urist/treefalling.ogg', 100, 1)
+			playsound(src.loc, 'resources/sound/urist/treefalling.ogg', 100, 1)
 
 			if(size == 2)
 
@@ -53,7 +53,7 @@
 /obj/structure/flora/tree/planet/jungle/large
 	desc = "An extremely large tree commonly found in jungle areas."
 	name = "large jungle tree"
-	icon = 'icons/urist/jungle/trees-large.dmi'
+	icon = 'resources/icons/urist/jungle/trees-large.dmi'
 	icon_state = "tree1"
 	pixel_x = -32
 	size = 3
@@ -64,7 +64,7 @@
 /obj/structure/flora/tree/planet/jungle/small
 	name = "jungle tree"
 	desc = "A large tree commonly found in jungle areas."
-	icon = 'icons/urist/jungle/trees-small.dmi'
+	icon = 'resources/icons/urist/jungle/trees-small.dmi'
 	icon_state = "tree1"
 	size = 1
 
@@ -74,7 +74,7 @@
 //logs
 
 /obj/structure/log
-	icon = 'icons/urist/items/wood.dmi'
+	icon = 'resources/icons/urist/items/wood.dmi'
 	icon_state = "log"
 	density = 1
 	anchored = 0
@@ -99,7 +99,7 @@
 /obj/structure/flora/tree/planet/arid/small
 	name = "dead tree"
 	desc = "It's a tree. Useful for combustion and/or construction."
-	icon = 'icons/urist/jungle/trees64x64.dmi'
+	icon = 'resources/icons/urist/jungle/trees64x64.dmi'
 	icon_state = "deadtree_1"
 	size = 1
 
@@ -110,7 +110,7 @@
 /obj/structure/flora/tree/planet/arid/large
 	name = "large dead tree"
 	desc = "It's a large tree. Useful for combustion and/or construction."
-	icon = 'icons/urist/jungle/trees64x128.dmi'
+	icon = 'resources/icons/urist/jungle/trees64x128.dmi'
 	icon_state = "tree_1"
 	size = 2
 
