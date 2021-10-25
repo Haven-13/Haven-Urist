@@ -3,7 +3,7 @@
 /obj/item/bodybag
 	name = "body bag"
 	desc = "A folded bag designed for the storage and transportation of cadavers."
-	icon = 'icons/obj/bodybag.dmi'
+	icon = 'resources/icons/obj/bodybag.dmi'
 	icon_state = "bodybag_folded"
 	w_class = ITEM_SIZE_SMALL
 
@@ -32,12 +32,12 @@
 /obj/structure/closet/body_bag
 	name = "body bag"
 	desc = "A plastic bag designed for the storage and transportation of cadavers."
-	icon = 'icons/obj/bodybag.dmi'
+	icon = 'resources/icons/obj/bodybag.dmi'
 	icon_state = "bodybag_closed"
 	icon_closed = "bodybag_closed"
 	icon_opened = "bodybag_open"
-	open_sound = 'sound/items/zip.ogg'
-	close_sound = 'sound/items/zip.ogg'
+	open_sound = 'resources/sound/items/zip.ogg'
+	close_sound = 'resources/sound/items/zip.ogg'
 	var/item_path = /obj/item/bodybag
 	density = 0
 	storage_capacity = (MOB_MEDIUM * 2) - 1
@@ -100,7 +100,7 @@
 /obj/item/robot_rack/body_bag
 	name = "stasis bag rack"
 	desc = "A rack for carrying folded stasis bags and body bags."
-	icon = 'icons/obj/cryobag.dmi'
+	icon = 'resources/icons/obj/cryobag.dmi'
 	icon_state = "bodybag_folded"
 	object_type = /obj/item/bodybag
 	interact_type = /obj/structure/closet/body_bag

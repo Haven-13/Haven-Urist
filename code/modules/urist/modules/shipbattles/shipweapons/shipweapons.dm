@@ -284,7 +284,7 @@
 /obj/machinery/shipweapons/attackby(obj/item/W as obj, mob/living/user as mob)
 	var/turf/T = get_turf(src)
 	if(isScrewdriver(W) && locate(/obj/structure/shipweapons/hardpoint) in T)
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 		to_chat(user, "<span class='warning'>You unsecure the wires and unscrew the external hatches: the weapon is no longer ready to fire.</span>")
 		var/obj/structure/shipweapons/incomplete_weapon/S = new /obj/structure/shipweapons/incomplete_weapon(get_turf(src))
 		S.state = 4

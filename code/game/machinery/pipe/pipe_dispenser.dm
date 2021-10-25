@@ -1,6 +1,6 @@
 /obj/machinery/pipedispenser
 	name = "Pipe Dispenser"
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "pipe_d"
 	density = 1
 	anchored = 1
@@ -111,7 +111,7 @@
 	else if(isWrench(W))
 		add_fingerprint(usr)
 		if (unwrenched==0)
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 			to_chat(user, "<span class='notice'>You begin to unfasten \the [src] from the floor...</span>")
 			if (do_after(user, 40, src))
 				user.visible_message( \
@@ -124,7 +124,7 @@
 				if (usr.machine==src)
 					close_browser(usr, "window=pipedispenser")
 		else /*if (unwrenched==1)*/
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 			to_chat(user, "<span class='notice'>You begin to fasten \the [src] to the floor...</span>")
 			if (do_after(user, 20, src))
 				user.visible_message( \
@@ -140,7 +140,7 @@
 
 /obj/machinery/pipedispenser/disposal
 	name = "Disposal Pipe Dispenser"
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "pipe_d"
 	density = 1
 	anchored = 1.0

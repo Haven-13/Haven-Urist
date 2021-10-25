@@ -4,7 +4,7 @@
 /obj/machinery/door
 	name = "Door"
 	desc = "It opens and closes."
-	icon = 'icons/obj/doors/doorint.dmi'
+	icon = 'resources/icons/obj/doors/doorint.dmi'
 	icon_state = "door1"
 	anchored = 1
 	opacity = 1
@@ -26,7 +26,7 @@
 	var/health
 	var/destroy_hits = 10 //How many strong hits it takes to destroy the door
 	var/min_force = 10 //minimum amount of force needed to damage the door with a melee weapon
-	var/hitsound = 'sound/weapons/smash.ogg' //sound door makes when hit with a weapon
+	var/hitsound = 'resources/sound/weapons/smash.ogg' //sound door makes when hit with a weapon
 	var/obj/item/stack/material/repairing
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
 	var/close_door_at = 0 //When to automatically close the door, if possible
@@ -279,7 +279,7 @@
 		var/obj/item/weapon/weldingtool/welder = I
 		if(welder.remove_fuel(0,user))
 			to_chat(user, "<span class='notice'>You start to fix dents and weld \the [repairing] into place.</span>")
-			playsound(src, 'sound/items/Welder.ogg', 100, 1)
+			playsound(src, 'resources/sound/items/Welder.ogg', 100, 1)
 			if(do_after(user, 5 * repairing.amount, src) && welder && welder.isOn())
 				to_chat(user, "<span class='notice'>You finish repairing the damage to \the [src].</span>")
 				health = between(health, health + repairing.amount*DOOR_REPAIR_AMOUNT, maxhealth)
@@ -290,7 +290,7 @@
 
 	if(repairing && isCrowbar(I))
 		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 100, 1)
 		repairing.loc = user.loc
 		repairing = null
 		return
@@ -423,7 +423,7 @@
 		if("deny")
 			if(density && !(stat & (NOPOWER|BROKEN)))
 				flick("door_deny", src)
-				playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 0)
+				playsound(src.loc, 'resources/sound/machines/buzz-two.ogg', 50, 0)
 	return
 
 
@@ -522,7 +522,7 @@
 	return null
 
 /obj/machinery/door/morgue
-	icon = 'icons/obj/doors/doormorgue.dmi'
+	icon = 'resources/icons/obj/doors/doormorgue.dmi'
 
 /obj/machinery/door/proc/update_connections(var/propagate = 0)
 	var/dirs = 0

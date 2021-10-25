@@ -16,7 +16,7 @@
 	name = "ALT APPEARANCE: Cardborg shall have base backpack variant"
 
 /datum/unit_test/alt_appearance_cardborg_all_icon_states_shall_exist/start_test()
-	var/list/existing_icon_states = icon_states('icons/mob/robots.dmi')
+	var/list/existing_icon_states = icon_states('resources/icons/mob/robots.dmi')
 	var/failed = FALSE
 
 	for(var/ca_type in subtypesof(/decl/cardborg_appearance))

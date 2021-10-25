@@ -1,7 +1,7 @@
 /obj/machinery/portable_atmospherics/powered/scrubber
 	name = "Portable Air Scrubber"
 
-	icon = 'icons/obj/atmos.dmi'
+	icon = 'resources/icons/obj/atmos.dmi'
 	icon_state = "pscrubber:0"
 	density = 1
 	w_class = ITEM_SIZE_NORMAL
@@ -219,7 +219,7 @@
 			return
 
 		anchored = !anchored
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
 
 		return

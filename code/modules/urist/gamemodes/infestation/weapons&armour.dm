@@ -127,7 +127,7 @@
 	item_icons = URIST_ALL_ONMOBS
 	name = "ANFOR NCO cap"
 	desc = "A cap worn by ANFOR NCOs. Doesn't offer all that much protection, but DAMN does it look good. Hey, you can flip it around too. Your corpse will look good for sure."
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	icon_state = "anforsoft"
 
 //voidsuit - might change this to an actual rig
@@ -135,8 +135,8 @@
 /obj/item/clothing/suit/space/void/anfor
 	name = "\improper ANFOR marine voidsuit"
 	desc = "A heavily armored suit that protects against moderate damage. Used by ANFOR marines when exposure to the cold dark void of space is likely."
-	icon_override = 'icons/uristmob/clothes.dmi'
-	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'resources/icons/uristmob/clothes.dmi'
+	icon = 'resources/icons/urist/items/clothes/clothes.dmi'
 	icon_state = "ANFOR-evasuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank)
@@ -152,7 +152,7 @@
 	item_icons = URIST_ALL_ONMOBS
 	name = "ANFOR marine voidsuit helmet"
 	desc = "A comfortable voidsuit helmet used by ANFOR marines. Features cranial armor and eight-channel surround sound."
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	icon_state = "rig0-anforeva"
 	armor = list(melee = 50, bullet = 80, laser = 35, energy = 25, bomb = 50, bio = 100, rad = 100)
 	siemens_coefficient = 0.7
@@ -164,7 +164,7 @@
 	item_icons = URIST_ALL_ONMOBS
 	name = "\improper A22 Combat Rifle"
 	desc = "20 high-powered rounds of 5.56mm. Staple rifle for the ANFOR Marine, perfect for punching 5.56 millimetre holes in alien scum. Can fire semi automatic or in 3 or 5 round bursts."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-rifle"
 	item_state = "ANFOR-rifle"
 	w_class = 4
@@ -175,7 +175,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a556/a22
 	one_hand_penalty = 5
-	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/gunshot2.ogg'
 	wielded_item_state = "ANFOR-rifle-wielded"
 
 	firemodes = list(
@@ -194,7 +194,7 @@
 
 /obj/item/ammo_magazine/a556/a22
 	name = "A22 magazine (5.56mm)"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-riflemag"
 	mag_type = MAGAZINE
 	caliber = "a556"
@@ -211,7 +211,7 @@
 	item_icons = URIST_ALL_ONMOBS
 	name = "\improper A18 Marksman's Rifle"
 	desc = "30 high-powered rounds of 7.62mm. The standard-issue marksman's rifle for the ANFOR Marine Corps. Can mount either a scope or a grenade launcher, making it a versatile, accurate semi-automatic rifle perfect for those serving in support roles."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-battlerifle"
 	item_state = "ANFOR-battlerifle"
 	w_class = 4
@@ -222,7 +222,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762mm/a18
 	one_hand_penalty = 5
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/gunshot_strong.ogg'
 //	var/use_launcher = 0
 	wielded_item_state = "ANFOR-battlerifle-wielded"
 	firemodes = list(
@@ -346,7 +346,7 @@
 */
 
 /obj/item/weapon/gunattachment
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 
 /*
 /obj/item/weapon/gunattachment/grenadelauncher
@@ -362,7 +362,7 @@
 
 /obj/item/ammo_magazine/a762mm/a18
 	name = "A18 magazine (7.62mm)"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-battleriflemag"
 	mag_type = MAGAZINE
 	caliber = "a762"
@@ -378,7 +378,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper A37 SMG"
 	desc = "The standard submachine gun of the ANFOR Marine Corps. Has 40 rounds of 9mm ammo, and can fire semi automatic or in 3 or 5 round bursts.."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-SMG"
 	item_state = "ANFOR-SMG"
 	w_class = 3
@@ -389,7 +389,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a9mm
 	one_hand_penalty = 1
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/gunshot_pistol.ogg'
 
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=0, one_hand_penalty = 1, move_delay=null, burst_accuracy=null, dispersion=null),
@@ -406,7 +406,7 @@
 
 /obj/item/ammo_magazine/a9mm
 	name = "A37 magazine (9mm)"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "ASMGmag"
 	mag_type = MAGAZINE
 	caliber = "9mm"
@@ -423,14 +423,14 @@
 	max_shells = 10
 	name = "\improper A41 combat shotgun"
 	desc = "The standard issue ANFOR shotgun. Holds 10 rounds (11 with one in the chamber). Pump-action, it's perfect for CQB and tight hallway clearing."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-shotgun"
 	item_state = "ANFOR-shotgun"
 	wielded_item_state = "ANFOR-shotgun-wielded"
 	slot_flags = SLOT_BACK
 	item_icons = URIST_ALL_ONMOBS
 	one_hand_penalty = 3
-	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/shotgun.ogg'
 
 /obj/item/weapon/gun/projectile/colt/a7
 	item_icons = DEF_URIST_INHANDS
@@ -438,11 +438,11 @@
 	desc = "A slightly modified version of the classic Colt M1911, the standard sidearm for ANFOR Marines. It holds 8 .45 rounds."
 	magazine_type = /obj/item/ammo_magazine/c45m/a7
 	icon_state = "ANFOR-pistol"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	load_method = MAGAZINE
 
 /obj/item/ammo_magazine/c45m/a7
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	name = "A7 magazine (.45)"
 	icon_state = "ANFOR-pistolmag"
 	ammo_type = /obj/item/ammo_casing/c45
@@ -455,12 +455,12 @@
 
 /obj/item/weapon/gun/projectile/manualcycle/a50
 	item_icons = list(
-		slot_l_hand_str = 'icons/uristmob/items_lefthand48x32.dmi',
-		slot_r_hand_str = 'icons/uristmob/items_righthand48x32.dmi',
-		slot_back_str = 'icons/uristmob/back.dmi'
+		slot_l_hand_str = 'resources/icons/uristmob/items_lefthand48x32.dmi',
+		slot_r_hand_str = 'resources/icons/uristmob/items_righthand48x32.dmi',
+		slot_back_str = 'resources/icons/uristmob/back.dmi'
 		)
 	name = "A50 Heavy Rifle"
-	icon = 'icons/urist/items/guns48x32.dmi'
+	icon = 'resources/icons/urist/items/guns48x32.dmi'
 	desc = "A bolt action anti-material rifle used by ANFOR support units. Chambered in 13.2x108mm, it is intended to breach the thin hulls of light landing craft, but in a pinch, could be used against the hardened carapaces of xenomorphs. Using state of the art technology, the gun manages to negate the majority of the recoil."
 	wielded_item_state = "ANFOR-sniper-wielded"
 	icon_state = "ANFOR-sniper"
@@ -476,7 +476,7 @@
 	ammo_type = /obj/item/ammo_casing/a132x108mm
 //	accuracy = -1
 //	jam_chance = 5
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/gunshot_strong.ogg'
 
 
 /obj/item/ammo_casing/a132x108mm
@@ -489,7 +489,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1250)
 
 /obj/item/projectile/bullet/rifle/a132x108mm
-	fire_sound = 'sound/weapons/gunshot/sniper.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/sniper.ogg'
 	damage = 50
 	stun = 1
 	weaken = 1
@@ -499,7 +499,7 @@
 /obj/item/ammo_magazine/a132x108mm
 	name = "A50 magazine (13.2x108mm)"
 	mag_type = MAGAZINE
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-snipermag"
 	caliber = "13.2x108mm"
 	max_ammo = 5

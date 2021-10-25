@@ -22,7 +22,7 @@
 	gas_data.breathed_product[gas_id] = reagent.type
 
 	if(reagent.gas_overlay)
-		var/image/I = image('icons/effects/tile_effects.dmi', reagent.gas_overlay, FLY_LAYER)
+		var/image/I = image('resources/icons/effects/tile_effects.dmi', reagent.gas_overlay, FLY_LAYER)
 		I.appearance_flags = RESET_COLOR
 		I.color = initial(reagent.color)
 		gas_data.tile_overlay[gas_id] = I
@@ -33,7 +33,7 @@
 /obj/machinery/portable_atmospherics/reagent_sublimator
 	name = "reagent sublimator"
 	desc = "An advanced machine that converts liquid or solid reagents into gasses."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'resources/icons/obj/chemical.dmi'
 	icon_state = "sublimator-off-unloaded-notank"
 	density = TRUE
 	use_power = 1

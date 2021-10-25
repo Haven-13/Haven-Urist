@@ -9,7 +9,7 @@
 /obj/machinery/syndicate_beacon
 	name = "ominous beacon"
 	desc = "This looks suspicious..."
-	icon = 'icons/obj/device.dmi'
+	icon = 'resources/icons/obj/device.dmi'
 	icon_state = "syndbeacon"
 
 	anchored = 1
@@ -79,7 +79,7 @@
 /obj/machinery/power/singularity_beacon
 	name = "ominous beacon"
 	desc = "This looks suspicious..."
-	icon = 'icons/obj/singularity.dmi'
+	icon = 'resources/icons/obj/singularity.dmi'
 	icon_state = "beacon"
 
 	anchored = 0

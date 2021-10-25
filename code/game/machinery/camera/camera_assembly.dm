@@ -1,7 +1,7 @@
 /obj/item/weapon/camera_assembly
 	name = "camera assembly"
 	desc = "A pre-fabricated security camera kit, ready to be assembled and mounted to a surface."
-	icon = 'icons/obj/monitors.dmi'
+	icon = 'resources/icons/obj/monitors.dmi'
 	icon_state = "cameracase"
 	w_class = ITEM_SIZE_SMALL
 	anchored = 0
@@ -30,7 +30,7 @@
 		if(0)
 			// State 0
 			if(isWrench(W) && isturf(src.loc))
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 				to_chat(user, "You wrench the assembly into place.")
 				anchored = 1
 				state = 1
@@ -48,7 +48,7 @@
 				return
 
 			else if(isWrench(W))
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 				to_chat(user, "You unattach the assembly from its place.")
 				anchored = 0
 				update_icon()
@@ -78,7 +78,7 @@
 		if(3)
 			// State 3
 			if(isScrewdriver(W))
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 
 				var/input = sanitize(input(usr, "Which networks would you like to connect this camera to? Separate networks with a comma. No Spaces!\nFor example: Exodus,Security,Secret", "Set Network", camera_network ? camera_network : NETWORK_EXODUS))
 				if(!input)
@@ -118,7 +118,7 @@
 			else if(isWirecutter(W))
 
 				new/obj/item/stack/cable_coil(get_turf(src), 2)
-				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 50, 1)
 				to_chat(user, "You cut the wires from the circuits.")
 				state = 2
 				return
@@ -134,7 +134,7 @@
 		var/obj/U = locate(/obj) in upgrades
 		if(U)
 			to_chat(user, "You unattach an upgrade from the assembly.")
-			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 			U.dropInto(loc)
 			upgrades -= U
 		return
@@ -159,7 +159,7 @@
 		return 0
 
 	to_chat(user, "<span class='notice'>You start to weld \the [src]..</span>")
-	playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/items/Welder.ogg', 50, 1)
 	WT.eyecheck(user)
 	busy = 1
 	if(do_after(user, 20, src))

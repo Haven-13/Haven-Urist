@@ -5,7 +5,7 @@
 
 /obj/item/weapon/circuitboard/mecha
 	name = "exosuit circuit board"
-	icon = 'icons/obj/module.dmi'
+	icon = 'resources/icons/obj/module.dmi'
 	icon_state = "std_mod"
 	item_state = "electronic"
 	board_type = "other"

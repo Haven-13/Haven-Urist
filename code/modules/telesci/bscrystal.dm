@@ -3,7 +3,7 @@
 /obj/item/bluespace_crystal
 	name = "bluespace crystal"
 	desc = "A glowing bluespace crystal, not much is known about how they work. It looks very delicate."
-	icon = 'icons/obj/telescience.dmi'
+	icon = 'resources/icons/obj/telescience.dmi'
 	icon_state = "bluespace_crystal"
 	w_class = 1
 	origin_tech = "bluespace=4;materials=3"

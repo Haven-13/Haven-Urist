@@ -3,7 +3,7 @@
 	anchored = 1
 	plane = HUD_PLANE
 	layer = HUD_BASE_LAYER
-	icon = 'icons/misc/buildmode.dmi'
+	icon = 'resources/icons/misc/buildmode.dmi'
 	var/datum/click_handler/build_mode/host
 
 /obj/effect/bmode/update_plane()

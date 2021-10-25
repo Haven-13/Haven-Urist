@@ -1,7 +1,7 @@
 // Map object.
 /obj/turbolift_map_holder
 	name = "turbolift map placeholder"
-	icon = 'icons/obj/turbolift_preview_3x3.dmi'
+	icon = 'resources/icons/obj/turbolift_preview_3x3.dmi'
 	dir = SOUTH         // Direction of the holder determines the placement of the lift control panel and doors.
 	var/depth = 1       // Number of floors to generate, including the initial floor.
 	var/lift_size_x = 2 // Number of turfs on each axis to generate in addition to the first
@@ -242,7 +242,7 @@
 //A bunch of copy&paste for a slightly different design
 /obj/freight_elevator_map_holder
 	name = "freight elevator map placeholder"
-	icon = 'icons/obj/turbolift_preview_3x3.dmi'
+	icon = 'resources/icons/obj/turbolift_preview_3x3.dmi'
 	dir = SOUTH         // Direction of the holder determines the placement of the lift control panel and doors.
 	var/depth = 2       // Number of floors to generate, including the initial floor.
 	var/lift_size_x = 2 // Number of turfs on each axis to generate in addition to the first

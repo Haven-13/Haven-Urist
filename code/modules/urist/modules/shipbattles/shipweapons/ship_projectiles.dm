@@ -15,7 +15,7 @@
 
 /obj/item/projectile/bullet/ship/cannon //don't get hit by this
 	name ="autocannon shell"
-	icon = 'icons/urist/items/ship_projectiles.dmi'
+	icon = 'resources/icons/urist/items/ship_projectiles.dmi'
 	icon_state= "cannon"
 	damage = 100
 	check_armour = "bullet"
@@ -33,7 +33,7 @@
 
 /obj/item/projectile/bullet/ship/smallmissile
 	name = "small missile"
-	icon = 'icons/urist/items/ship_projectiles.dmi'
+	icon = 'resources/icons/urist/items/ship_projectiles.dmi'
 	icon_state= "smallmissile"
 	damage = 100
 	shake_range = 15
@@ -47,7 +47,7 @@
 
 /obj/item/projectile/bullet/ship/smallalienmissile
 	name = "small alien missile"
-	icon = 'icons/urist/items/ship_projectiles.dmi'
+	icon = 'resources/icons/urist/items/ship_projectiles.dmi'
 	icon_state= "smallalienmissile"
 	damage = 150
 	shake_range = 20
@@ -61,7 +61,7 @@
 
 /obj/item/projectile/bullet/ship/bigmissile
 	name = "big missile"
-	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
+	icon = 'resources/icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigmissile"
 	damage = 200
 	shake_range = 25
@@ -75,7 +75,7 @@
 
 /obj/item/projectile/bullet/ship/bigalienmissile
 	name = "big alien missile"
-	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
+	icon = 'resources/icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigalienmissile"
 	damage = 250
 	shake_range = 30
@@ -89,7 +89,7 @@
 
 /obj/item/projectile/bullet/ship/smalltorpedo
 	name = "small torpedo"
-	icon = 'icons/urist/items/ship_projectiles.dmi'
+	icon = 'resources/icons/urist/items/ship_projectiles.dmi'
 	icon_state= "smalltorpedo"
 	damage = 100
 	shake_range = 20
@@ -103,7 +103,7 @@
 
 /obj/item/projectile/bullet/ship/alientorpedo
 	name = "alien torpedo"
-	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
+	icon = 'resources/icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "alientorpedo"
 	damage = 150
 	shake_range = 25
@@ -117,7 +117,7 @@
 
 /obj/item/projectile/bullet/ship/bigtorpedo
 	name = "big torpedo"
-	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
+	icon = 'resources/icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigtorpedo"
 	damage = 200
 	shake_range = 30
@@ -132,7 +132,7 @@
 //beam weapons
 
 /obj/effect/projectile/ship
-	icon = 'icons/urist/items/ship_projectiles.dmi'
+	icon = 'resources/icons/urist/items/ship_projectiles.dmi'
 
 /obj/effect/projectile/ship/heavy_laser
 	light_max_bright = 1
@@ -148,7 +148,7 @@
 
 /obj/item/projectile/beam/ship
 //	var/life = 20
-	icon = 'icons/urist/items/ship_projectiles.dmi'
+	icon = 'resources/icons/urist/items/ship_projectiles.dmi'
 	ship = 1
 	kill_count = 300
 
@@ -167,7 +167,7 @@
 /obj/item/projectile/beam/ship/lightlaser
 	name = "light laser"
 	icon_state = "heavylaser"
-	fire_sound = 'sound/weapons/lasercannonfire.ogg'
+	fire_sound = 'resources/sound/weapons/lasercannonfire.ogg'
 	damage = 300
 	armor_penetration = 100
 
@@ -178,7 +178,7 @@
 /obj/item/projectile/beam/ship/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
-	fire_sound = 'sound/weapons/lasercannonfire.ogg'
+	fire_sound = 'resources/sound/weapons/lasercannonfire.ogg'
 	damage = 600
 	armor_penetration = 200
 //	life = 30
@@ -188,7 +188,7 @@
 	impact_type = /obj/effect/projectile/laser/heavy/impact
 
 /obj/item/projectile/beam/ship/alien
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	muzzle_type = /obj/effect/projectile/laser/xray/muzzle
 	tracer_type = /obj/effect/projectile/laser/xray/tracer
 	impact_type = /obj/effect/projectile/laser/xray/impact
@@ -196,13 +196,13 @@
 /obj/item/projectile/beam/ship/alien/light
 	name = "light laser"
 	icon_state = "alienprojectile"
-	fire_sound = 'sound/weapons/lasercannonfire.ogg'
+	fire_sound = 'resources/sound/weapons/lasercannonfire.ogg'
 	damage = 1000
 	armor_penetration = 200
 
 /obj/item/projectile/beam/ship/alien/heavy
 	name = "heavy laser"
 	icon_state = "alienprojectile"
-	fire_sound = 'sound/weapons/lasercannonfire.ogg'
+	fire_sound = 'resources/sound/weapons/lasercannonfire.ogg'
 	damage = 1800
 	armor_penetration = 200

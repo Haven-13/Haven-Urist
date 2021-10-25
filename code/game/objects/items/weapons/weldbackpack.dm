@@ -5,7 +5,7 @@
 	description_fluff = "The Shenzhen Chain of 2380 was an industrial accident of noteworthy infamy that occurred at Earth's L3 Lagrange Point. An apprentice welder, working for the Shenzhen Space Fabrication Group, failed to properly seal her fuel port, triggering a chain reaction that spread from laborer to laborer, instantly vaporizing a crew of fourteen. Don't let this happen to you!"
 	description_antag = "In theory, you could hold an open flame to this pack and produce some pretty catastrophic results. The trick is getting out of the blast radius."
 	slot_flags = SLOT_BACK
-	icon = 'icons/obj/storage.dmi'
+	icon = 'resources/icons/obj/storage.dmi'
 	icon_state = "welderpack"
 	w_class = ITEM_SIZE_HUGE
 	var/max_fuel = 350
@@ -40,13 +40,13 @@
 				to_chat(user, "\The [T] has no tank attached!")
 			src.reagents.trans_to_obj(T.tank, T.tank.max_fuel)
 			to_chat(user, "<span class='notice'>You refuel \the [W].</span>")
-			playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
+			playsound(src.loc, 'resources/sound/effects/refill.ogg', 50, 1, -6)
 			return
 	else if(istype(W, /obj/item/weapon/welder_tank))
 		var/obj/item/weapon/welder_tank/tank = W
 		src.reagents.trans_to_obj(tank, tank.max_fuel)
 		to_chat(user, "<span class='notice'>You refuel \the [W].</span>")
-		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
+		playsound(src.loc, 'resources/sound/effects/refill.ogg', 50, 1, -6)
 		return
 
 	to_chat(user, "<span class='warning'>The tank will accept only a welding tool or cartridge.</span>")
@@ -58,7 +58,7 @@
 	if (istype(O, /obj/structure/reagent_dispensers/fueltank) && src.reagents.total_volume < max_fuel)
 		O.reagents.trans_to_obj(src, max_fuel)
 		to_chat(user, "<span class='notice'>You crack the cap off the top of the pack and fill it back up again from the tank.</span>")
-		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
+		playsound(src.loc, 'resources/sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if (istype(O, /obj/structure/reagent_dispensers/fueltank) && src.reagents.total_volume == max_fuel)
 		to_chat(user, "<span class='warning'>The pack is already full!</span>")

@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/urist
 	name = "gunman"
 	desc = "Armed and dangerous."
-	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon = 'resources/icons/uristmob/simpleanimals.dmi'
 	icon_state = "gunman"
 	icon_living = "gunman"
 	icon_dead = null
@@ -28,10 +28,10 @@
 	status_flags = CANPUSH
 	stat_attack = 1
 	projectiletype = /obj/item/projectile/bullet
-	projectilesound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	projectilesound = 'resources/sound/weapons/gunshot/gunshot_pistol.ogg'
 	casingtype = /obj/item/ammo_casing/c9mm
 	move_to_delay = 4
-	attack_sound = 'sound/weapons/punch3.ogg'
+	attack_sound = 'resources/sound/weapons/punch3.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol
 	simplify_dead_icon = 1 //set to 0 if you want a custom dead icon
 
@@ -47,12 +47,12 @@
 	ranged = 1
 	ranged_cooldown_cap = 5
 	rapid = 2
-	icon = 'icons/mob/animal.dmi'
+	icon = 'resources/icons/mob/animal.dmi'
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
 	icon_gib = "syndicate_gib"
 	casingtype = /obj/item/ammo_casing/a10mm
-	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
+	projectilesound = 'resources/sound/weapons/gunshot/gunshot_smg.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/medium/smg
 	maxHealth = 100
 	health = 100
@@ -70,7 +70,7 @@
 	health = 150
 	minimum_distance = 4
 	retreat_distance = 2
-	projectilesound = 'sound/urist/suppshot.ogg'
+	projectilesound = 'resources/sound/urist/suppshot.ogg'
 
 /mob/living/simple_animal/hostile/urist/ANTAG
 	icon_state = "ANTAG"
@@ -85,7 +85,7 @@
 	minimum_distance = 4
 	retreat_distance = 2
 	ranged_cooldown_cap = 2
-	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
+	projectilesound = 'resources/sound/weapons/gunshot/gunshot3.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle/a762
 
 /mob/living/simple_animal/hostile/urist/skrellterrorist
@@ -100,7 +100,7 @@
 	maxHealth = 100
 	health = 100
 	minimum_distance = 8
-	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
+	projectilesound = 'resources/sound/weapons/gunshot/gunshot3.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/medium/smg
 
 /mob/living/simple_animal/hostile/urist/riotcop
@@ -117,7 +117,7 @@
 	resistance = 4 //including padding
 	minimum_distance = 1
 	faction = "NTIS"
-	attack_sound = 'sound/weapons/genhit3.ogg'
+	attack_sound = 'resources/sound/weapons/genhit3.ogg'
 	melee_damage_lower = 10
 	melee_damage_upper = 15
 
@@ -135,7 +135,7 @@
 	minimum_distance = 1
 	environment_smash = 2
 	faction = "cult"
-	attack_sound = 'sound/weapons/bladeslice.ogg'
+	attack_sound = 'resources/sound/weapons/bladeslice.ogg'
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	aggro_vision_range = 18
@@ -163,13 +163,13 @@
 	health = 500
 	minimum_distance = 4
 	retreat_distance = 2
-	projectilesound = 'sound/urist/suppshot.ogg'
+	projectilesound = 'resources/sound/urist/suppshot.ogg'
 	attacktext = "brutalized"
-	attack_sound = 'sound/weapons/punch3.ogg' //overridden in AttackTarget!
+	attack_sound = 'resources/sound/weapons/punch3.ogg' //overridden in AttackTarget!
 	attack_same = 0
 
 /mob/living/simple_animal/hostile/urist/stalker/ntis/UnarmedAttack(var/atom/A, var/proximity)
-	attack_sound = pick('sound/weapons/bladeslice.ogg','sound/weapons/genhit1.ogg','sound/weapons/genhit2.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/smash.ogg')
+	attack_sound = pick('resources/sound/weapons/bladeslice.ogg','resources/sound/weapons/genhit1.ogg','resources/sound/weapons/genhit2.ogg','resources/sound/weapons/punch2.ogg','resources/sound/weapons/punch3.ogg','resources/sound/weapons/smash.ogg')
 	. = ..()
 
 //terran
@@ -186,7 +186,7 @@
 	icon_dead = "terran_marine_dead"
 	icon_gib = "syndicate_gib"
 	casingtype = /obj/item/ammo_casing/a556
-	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
+	projectilesound = 'resources/sound/weapons/gunshot/gunshot2.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle/a556
 	maxHealth = 150
 	health = 150
@@ -208,7 +208,7 @@
 	icon_dead = "terran_officer_dead"
 	icon_gib = "syndicate_gib"
 	casingtype = /obj/item/ammo_casing/c9mm
-	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
+	projectilesound = 'resources/sound/weapons/gunshot/gunshot_smg.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol
 	maxHealth = 120
 	health = 120
@@ -230,7 +230,7 @@
 	icon_dead = "terran_heavy_dead"
 	icon_gib = "syndicate_gib"
 	casingtype = /obj/item/ammo_casing/a556
-	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
+	projectilesound = 'resources/sound/weapons/gunshot/gunshot2.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle/a556
 	maxHealth = 200
 	health = 200
@@ -257,7 +257,7 @@
 	minimum_distance = 4
 	retreat_distance = 2
 	ranged_cooldown_cap = 2
-	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
+	projectilesound = 'resources/sound/weapons/gunshot/gunshot3.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle/a762
 
 /mob/living/simple_animal/hostile/urist/rebel/event

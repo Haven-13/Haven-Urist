@@ -7,8 +7,8 @@
 	body_parts_covered = EYES
 	dir = SOUTH
 
-	icon = 'icons/obj/clothing/monitor.dmi'
-	icon_override = 'icons/mob/monitor_icons.dmi'
+	icon = 'resources/icons/obj/clothing/monitor.dmi'
+	icon_override = 'resources/icons/mob/monitor_icons.dmi'
 	icon_state = "ipc_blank"
 	item_state = null
 

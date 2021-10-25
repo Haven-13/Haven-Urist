@@ -1,5 +1,5 @@
 /obj/machinery/atmospherics/valve
-	icon = 'icons/atmos/valve.dmi'
+	icon = 'resources/icons/atmos/valve.dmi'
 	icon_state = "map_valve0"
 
 	name = "manual valve"
@@ -223,7 +223,7 @@
 /obj/machinery/atmospherics/valve/digital		// can be controlled by AI
 	name = "digital valve"
 	desc = "A digitally controlled valve."
-	icon = 'icons/atmos/digital_valve.dmi'
+	icon = 'resources/icons/atmos/digital_valve.dmi'
 
 	var/frequency = 0
 	var/id = null
@@ -289,7 +289,7 @@
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
 		return 1
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
 	if (do_after(user, 40, src))
 		user.visible_message( \

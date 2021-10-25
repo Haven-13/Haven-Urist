@@ -7,7 +7,7 @@ RSF
 /obj/item/weapon/rsf
 	name = "\improper Rapid-Service-Fabricator"
 	desc = "A device used to rapidly deploy service items."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "rcd"
 	opacity = 0
 	density = 0
@@ -31,12 +31,12 @@ RSF
 		qdel(W)
 
 		stored_matter += 10
-		playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
+		playsound(src.loc, 'resources/sound/machines/click.ogg', 10, 1)
 		to_chat(user, "The RSF now holds [stored_matter]/30 fabrication-units.")
 		return
 
 /obj/item/weapon/rsf/attack_self(mob/user as mob)
-	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
+	playsound(src.loc, 'resources/sound/effects/pop.ogg', 50, 0)
 	if (mode == 1)
 		mode = 2
 		to_chat(user, "Changed dispensing mode to 'Drinking Glass'")
@@ -73,7 +73,7 @@ RSF
 	if(!istype(A, /obj/structure/table) && !istype(A, /turf/simulated/floor))
 		return
 
-	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
+	playsound(src.loc, 'resources/sound/machines/click.ogg', 10, 1)
 	var/used_energy = 0
 	var/obj/product
 

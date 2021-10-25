@@ -11,7 +11,7 @@
 
 	assailant.put_in_active_hand(src)
 	assailant.do_attack_animation(affecting)
-	playsound(affecting.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+	playsound(affecting.loc, 'resources/sound/weapons/thudswoosh.ogg', 50, 1, -1)
 	var/obj/O = get_targeted_organ()
 	visible_message("<span class='warning'>[assailant] has grabbed [affecting]'s [O.name]!</span>")
 	affecting.grabbed_by += src
@@ -24,7 +24,7 @@
 
 	var/drop_headbutt = 1
 
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 
 	help_action = "inspect"
 	disarm_action = "pin"
@@ -78,7 +78,7 @@
 		G.action_used()
 		O.jointlock(assailant)
 		assailant.visible_message("<span class='danger'>[affecting]'s [O.name] is twisted!</span>")
-		playsound(assailant.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+		playsound(assailant.loc, 'resources/sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		return 1
 
 	else
@@ -108,7 +108,7 @@
 			G.action_used()
 			O.dislocate(1)
 			assailant.visible_message("<span class='danger'>[affecting]'s [O.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
-			playsound(assailant.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+			playsound(assailant.loc, 'resources/sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			return 1
 
 		else

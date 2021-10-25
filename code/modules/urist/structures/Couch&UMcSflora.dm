@@ -1,7 +1,7 @@
 /obj/structure/bed/chair/couch
 	name = "couch"
 	desc = "A couch. Looks pretty comfortable."
-	icon = 'icons/urist/objects/NienplantsCouch.dmi'
+	icon = 'resources/icons/urist/objects/NienplantsCouch.dmi'
 	icon_state = "chair"
 	color = rgb(255,255,255)
 	var/image/armrest = null
@@ -86,7 +86,7 @@
 
 /obj/structure/bed/chair/couch/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/wrench))
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 		new /obj/item/stack/material/steel(src.loc)
 		qdel(src)
 	if(istype(W, /obj/item/weapon/chair_painter))
@@ -101,7 +101,7 @@
 
 /obj/structure/flora/pottedplant/Nienplants
 	name = "Pot"
-	icon = 'icons/urist/objects/NienplantsCouch.dmi'
+	icon = 'resources/icons/urist/objects/NienplantsCouch.dmi'
 	icon_state = "pot"
 	anchored = 1
 
@@ -140,7 +140,7 @@
 //tree
 /obj/structure/flora/pottedplant/Nienplants/Glloydtree //what is this path
 	name = "tree"
-	icon = 'icons/urist/objects/Glloydtrees.dmi'
+	icon = 'resources/icons/urist/objects/Glloydtrees.dmi'
 	icon_state = "tree"
 	anchored = 1
 	layer = 9
@@ -153,7 +153,7 @@
 //Putting this here because of stupid flora code -Glloyd //back when i signed things. why did i do this? why am i writing comments now? probably cause i'm a little drunk. but this file hasn't been touched in ages, so fuck it.
 /obj/structure/flora/pottedplant/Nienplants/plant
 	name = "bush"
-	icon = 'icons/obj/flora/ausflora.dmi'
+	icon = 'resources/icons/obj/flora/ausflora.dmi'
 	icon_state = "firstbush_1"
 	anchored = 1
 

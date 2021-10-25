@@ -20,7 +20,7 @@
 	var/ks1type = /obj/item/device/encryptionkey
 	var/ks2type = null
 
-	sprite_sheets = list(SPECIES_UNATHI = 'icons/mob/onmob/Unathi/ears.dmi', SPECIES_RESOMI = 'icons/mob/species/resomi/ears.dmi')
+	sprite_sheets = list(SPECIES_UNATHI = 'resources/icons/mob/onmob/Unathi/ears.dmi', SPECIES_RESOMI = 'resources/icons/mob/species/resomi/ears.dmi')
 
 /obj/item/device/radio/headset/Initialize()
 	. = ..()
@@ -183,7 +183,7 @@
 /obj/item/device/radio/headset/heads/ai_integrated //No need to care about icons, it should be hidden inside the AI anyway.
 	name = "\improper AI subspace transceiver"
 	desc = "Integrated AI radio transceiver."
-	icon = 'icons/obj/robot_component.dmi'
+	icon = 'resources/icons/obj/robot_component.dmi'
 	icon_state = "radio"
 	item_state = "headset"
 	ks1type = /obj/item/device/encryptionkey/heads/ai_integrated

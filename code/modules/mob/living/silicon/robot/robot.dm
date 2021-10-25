@@ -3,7 +3,7 @@
 /mob/living/silicon/robot
 	name = "Cyborg"
 	real_name = "Cyborg"
-	icon = 'icons/uristmob/robots.dmi'
+	icon = 'resources/icons/uristmob/robots.dmi'
 	icon_state = "robot"
 	maxHealth = 300
 	health = 300
@@ -70,7 +70,7 @@
 	var/has_power = 1
 	var/spawn_module = null
 
-	var/spawn_sound = list('sound/voice/liveagain.ogg','sound/voice/systembooted.ogg')
+	var/spawn_sound = list('resources/sound/voice/liveagain.ogg','resources/sound/voice/systembooted.ogg')
 	var/pitch_toggle = 1
 	var/list/req_access = list(access_robotics)
 	var/ident = 0
@@ -143,15 +143,15 @@
 
 	add_robot_verbs()
 
-	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealth100")
-	hud_list[LIFE_HUD]        = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealth100")
-	hud_list[ID_HUD]          = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[WANTED_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[HEALTH_HUD]      = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudblank")
+	hud_list[STATUS_HUD]      = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudhealth100")
+	hud_list[LIFE_HUD]        = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudhealth100")
+	hud_list[ID_HUD]          = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudblank")
+	hud_list[WANTED_HUD]      = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudblank")
+	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudblank")
+	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudblank")
+	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudblank")
+	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('resources/icons/mob/hud.dmi', src, "hudblank")
 
 /mob/living/silicon/robot/Initialize()
 	. = ..()

@@ -14,7 +14,7 @@
 /obj/item/weapon/card
 	name = "card"
 	desc = "Does card things."
-	icon = 'icons/obj/card.dmi'
+	icon = 'resources/icons/obj/card.dmi'
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
 	var/associated_account_number = 0
@@ -97,7 +97,7 @@ var/const/NO_EMAG_ACT = -50
 	item_state = "card-id"
 
 	sprite_sheets = list(
-		SPECIES_RESOMI = 'icons/mob/species/resomi/id.dmi'
+		SPECIES_RESOMI = 'resources/icons/mob/species/resomi/id.dmi'
 		)
 
 	var/access = list()

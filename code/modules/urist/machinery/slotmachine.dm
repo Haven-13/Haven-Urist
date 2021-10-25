@@ -5,7 +5,7 @@
 /obj/machinery/slot_machine
 	name = "Slot Machine"
 	desc = "Gambling for the antisocial."
-	icon = 'icons/urist/objects/machinery.dmi'
+	icon = 'resources/icons/urist/objects/machinery.dmi'
 	icon_state = "slots-off"
 	anchored = 1
 	density = 1

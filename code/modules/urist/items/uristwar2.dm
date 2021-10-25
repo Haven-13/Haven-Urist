@@ -40,8 +40,8 @@
 /obj/item/clothing/accessory/storage/webbing_german
 	name = "Wehrmacht webbing"
 	desc = "A large collection of pockets and pouches worn by Wehrmacht riflemen."
-	icon = 'icons/urist/items/clothes/ties.dmi'
-	icon_override = 'icons/uristmob/ties.dmi'
+	icon = 'resources/icons/urist/items/clothes/ties.dmi'
+	icon_override = 'resources/icons/uristmob/ties.dmi'
 	icon_state = "kr_webbing"
 	slots = 4
 
@@ -50,7 +50,7 @@
 /obj/item/weapon/gun/projectile/manualcycle/kar98
 	item_icons = DEF_URIST_INHANDS
 	name = "Kar 98k"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	desc = "The standard bolt action rifle of the Wehrmacht. Chambered in 7.92x57mm."
 	wielded_item_state = "rifle2" //maybe change this
 	icon_state = "kar98"
@@ -66,12 +66,12 @@
 	ammo_type = /obj/item/ammo_casing/a792x57mm
 //	accuracy = -1
 //	jam_chance = 5
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/gunshot_strong.ogg'
 
 /obj/item/ammo_magazine/a792x57mm
 	caliber = "7.92x57mm"
 	ammo_type = /obj/item/ammo_casing/a792x57mm
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	mag_type = MAGAZINE
 
 /obj/item/ammo_magazine/a792x57mm/stripper
@@ -93,7 +93,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper Gewehr 43"
 	desc = "The standard semi-automatic rifle of the Wehrmacht, chambered in 7.92x57mm. Holds 10 rounds."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "g43"
 	item_state = "rifle2"
 	w_class = 4
@@ -127,7 +127,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper StG 44"
 	desc = "The standard assault rifle of the Wehrmacht. Holds 30 rounds of 7.92x33mm."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "stg44"
 	item_state = "stg44"
 	w_class = 4
@@ -138,7 +138,7 @@
 	magazine_type = /obj/item/ammo_magazine/a792x33mm
 	allowed_magazines = list(/obj/item/ammo_magazine/a792x33mm)
 	one_hand_penalty = 4
-	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/gunshot2.ogg'
 	wielded_item_state = "genericrifle-wielded"
 
 	firemodes = list(
@@ -160,7 +160,7 @@
 	icon_state = "stg44mag"
 	caliber = "7.92x33mm"
 	ammo_type = /obj/item/ammo_casing/a792x33mm
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	max_ammo = 30
 	mag_type = MAGAZINE
 
@@ -179,7 +179,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "MP 40"
 	desc = "The standard sub-machinegun of the Wehrmacht. Only fires in short and long bursts. Takes magazines of 32 9mm rounds."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "mp40_stock"
 	item_state = "ppsh"
 	w_class = 3
@@ -190,7 +190,7 @@
 	magazine_type = /obj/item/ammo_magazine/mc9mm/mp40
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm/mp40)
 	one_hand_penalty = 1
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/gunshot_pistol.ogg'
 	firemodes = list(
 		list(mode_name="short bursts",	burst=4, fire_delay=null, move_delay=6, one_hand_penalty = 2, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
@@ -205,7 +205,7 @@
 	return
 
 /obj/item/ammo_magazine/mc9mm/mp40
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	name = "MP 40 (9mm)"
 	icon_state = "mpmag"
 	mag_type = MAGAZINE
@@ -218,12 +218,12 @@
 /obj/item/weapon/gun/projectile/p38
 	name = "\improper Walther P38"
 	desc = "The standard service pistol of the Wehrmacht. Chambered in 9mm, the magazine holds 8 rounds."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "p38"
 	item_state = "gun"
 	w_class = 2
 	caliber = "9mm"
-	fire_sound = 'sound/weapons/gunshot/Gunshot_pistol.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/Gunshot_pistol.ogg'
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm/p38
@@ -238,7 +238,7 @@
 	return
 
 /obj/item/ammo_magazine/mc9mm/p38
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	name = "Walther P38 magazine (9mm)"
 	icon_state = "p38mag"
 	mag_type = MAGAZINE
@@ -252,7 +252,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "MG 42"
 	desc = "The general-purpose machinegun of the Wehrmacht, perfect for support and suppresive fire. Holds 250 rounds of "
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "mg42closed"
 	item_state = "l6closedmag"
 	max_shells = 250
@@ -284,7 +284,7 @@
 /obj/item/weapon/grenade/stielhandgranate
 	desc = "A high explosive grenade, intended to be used as a sort of 'concussion' grenade."
 	name = "Model 21 Stielhandgranate"
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'resources/icons/urist/items/uristweapons.dmi'
 	icon_state = "kr_sticknade"
 	item_state = "flashbang"
 
@@ -335,8 +335,8 @@
 /obj/item/clothing/accessory/storage/webbing_soviet
 	name = "Red Army webbing"
 	desc = "A large collection of pockets and pouches worn by Red Army riflemen."
-	icon = 'icons/urist/items/clothes/ties.dmi'
-	icon_override = 'icons/uristmob/ties.dmi'
+	icon = 'resources/icons/urist/items/clothes/ties.dmi'
+	icon_override = 'resources/icons/uristmob/ties.dmi'
 	icon_state = "ru_webbing"
 	slots = 4
 
@@ -358,7 +358,7 @@
 /obj/item/weapon/gun/projectile/manualcycle/mosinnagant
 	item_icons = DEF_URIST_INHANDS
 	name = "Mosin-Nagant"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	desc = "The standard bolt action rifle of the Red Army. The glorious Soviet Moist Nugget is chambered in 7.62 and holds 5 rounds, fed by a stripper clip."
 	wielded_item_state = "rifle2"
 	icon_state = "mosin"
@@ -374,7 +374,7 @@
 	ammo_type = /obj/item/ammo_casing/a762
 //	accuracy = -1
 //	jam_chance = 5
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/gunshot_strong.ogg'
 
 /obj/item/ammo_magazine/a762mm/stripper
 	name = "stripper clip (7.62mm)"
@@ -396,7 +396,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper SVT-40"
 	desc = "The standard semi-automatic rifle of the Red Army, chambered in 7.62. Holds 10 rounds."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "svt40"
 	item_state = "rifle2"
 	w_class = 4
@@ -422,7 +422,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper M1918 BAR"
 	desc = "The M1918 Browning Automatic Rifle, a US Army support LMG. Chambered in 30-06, it holds 20 rounds."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "bar"
 	item_state = "bar"
 	w_class = 4
@@ -433,7 +433,7 @@
 	magazine_type = /obj/item/ammo_magazine/a762mm/barmag
 	allowed_magazines = list(/obj/item/ammo_magazine/a762mm/barmag)
 	one_hand_penalty = 4
-	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/gunshot2.ogg'
 	wielded_item_state = "genericrifle-wielded"
 
 	firemodes = list(
@@ -463,7 +463,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "PPSh-41"
 	desc = "The standard sub-machinegun of the Red Army. Only fires in short and long bursts. Takes drum magazines of 71 7.62x25mm rounds."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "ppsh41"
 	item_state = "ppsh"
 	w_class = 3
@@ -474,7 +474,7 @@
 	magazine_type = /obj/item/ammo_magazine/mc9mm/ppsh
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm/ppsh)
 	one_hand_penalty = 1
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/gunshot_pistol.ogg'
 	firemodes = list(
 		list(mode_name="short bursts",	burst=4, fire_delay=null, move_delay=6, one_hand_penalty = 2, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
@@ -491,7 +491,7 @@
 /obj/item/ammo_magazine/mc9mm/ppsh
 	name = "PPSh-41 drum magazine (7.62x25mm)" //7.62x25 is close enough to 9mm actually, so fuck it
 	icon_state = "ppsh_drum"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 71
@@ -502,12 +502,12 @@
 /obj/item/weapon/gun/projectile/tt33
 	name = "\improper TT-33"
 	desc = "The standard service pistol of the Red Army. Chambered in 7.62x25mm, the magazine holds 8 rounds."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "tt33"
 	item_state = "gun"
 	w_class = 2
 	caliber = "9mm"
-	fire_sound = 'sound/weapons/gunshot/Gunshot_pistol.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/Gunshot_pistol.ogg'
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm/tt33
@@ -522,7 +522,7 @@
 	return
 
 /obj/item/ammo_magazine/mc9mm/tt33
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	name = "TT-33 magazine (7.62x25mm)"
 	icon_state = "tt33mag"
 	mag_type = MAGAZINE
@@ -536,7 +536,7 @@
 	name = "Nagant M1895"
 	desc = "The standard sidearm for officers in the Red Army. Chambered in 7.62mm"
 	icon_state = "nagant"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	item_state = "revolver"
 	caliber = "a762"
 	w_class = 2
@@ -556,7 +556,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "Degtyaryov machine gun"
 	desc = "The standard light machinegun of the Red Army. Only fires in short and long bursts. Takes pan magazines of 60 7.62mm rounds."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "DT"
 	item_state = "l6closedmag"
 	w_class = 5
@@ -585,7 +585,7 @@
 /obj/item/ammo_magazine/a762mm/degtyaryov
 	name = "Degtyaryov pan magazine (7.62mm)"
 	icon_state = "DTmag"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 60 //only the vehicle mounted version had 60 round mags, but fuck it.
@@ -596,5 +596,5 @@
 /obj/item/weapon/grenade/frag/sovietgrenade
 	desc = "A small explosive meant for anti-personnel use."
 	name = "F1 fragmentation grenade"
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'resources/icons/urist/items/uristweapons.dmi'
 	icon_state = "rusk_nade"

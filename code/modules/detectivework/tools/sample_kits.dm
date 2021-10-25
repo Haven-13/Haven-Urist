@@ -1,6 +1,6 @@
 /obj/item/weapon/sample
 	name = "forensic sample"
-	icon = 'icons/obj/forensics.dmi'
+	icon = 'resources/icons/obj/forensics.dmi'
 	item_flags = ITEM_FLAG_NO_PRINT
 	w_class = ITEM_SIZE_TINY
 	var/list/evidence = list()
@@ -69,7 +69,7 @@
 /obj/item/weapon/sample/print
 	name = "fingerprint card"
 	desc = "Records a set of fingerprints."
-	icon = 'icons/obj/card.dmi'
+	icon = 'resources/icons/obj/card.dmi'
 	icon_state = "fingerprint0"
 	item_state = "paper"
 

@@ -15,7 +15,7 @@
 	src.id = "[random_id(/obj/machinery/computer/teleporter, 1000, 9999)]"
 	..()
 	underlays.Cut()
-	underlays += image('icons/obj/stationobjs.dmi', icon_state = "telecomp-wires")
+	underlays += image('resources/icons/obj/stationobjs.dmi', icon_state = "telecomp-wires")
 	return
 
 /obj/machinery/computer/teleporter/Initialize()
@@ -191,7 +191,7 @@
 
 /obj/machinery/teleport
 	name = "teleport"
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	density = 1
 	anchored = 1.0
 	var/lockeddown = 0
@@ -210,7 +210,7 @@
 /obj/machinery/teleport/hub/New()
 	..()
 	underlays.Cut()
-	underlays += image('icons/obj/stationobjs.dmi', icon_state = "tele-wires")
+	underlays += image('resources/icons/obj/stationobjs.dmi', icon_state = "tele-wires")
 
 /obj/machinery/teleport/hub/Bumped(M as mob|obj)
 	spawn()
@@ -245,7 +245,7 @@
 /obj/machinery/teleport/station/New()
 	..()
 	overlays.Cut()
-	overlays += image('icons/obj/stationobjs.dmi', icon_state = "controller-wires")
+	overlays += image('resources/icons/obj/stationobjs.dmi', icon_state = "controller-wires")
 
 /obj/machinery/teleport/station/attackby(var/obj/item/weapon/W, var/mob/user)
 	attack_hand(user)

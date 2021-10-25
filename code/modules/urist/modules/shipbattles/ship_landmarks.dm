@@ -14,14 +14,14 @@
 
 /obj/effect/urist/triggers/boarding_landmark
 	icon_state = "x3"
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 	invisibility = 101
 
 //ai spawns
 
 /obj/effect/urist/triggers/ai_defender_landmark
 	icon_state = "x3"
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 	invisibility = 101
 	var/spawn_type = null //what's the path of the thing we're spawning
 
@@ -60,7 +60,7 @@
 
 /obj/effect/urist/triggers/defender_landmark
 	icon_state = "x3"
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 	invisibility = 101
 	var/defender_outfit = null
 

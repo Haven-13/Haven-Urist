@@ -40,7 +40,7 @@
 /obj/machinery/atmospherics/unary/engine
 	name = "rocket nozzle"
 	desc = "Simple rocket nozzle, expelling gas at hypersonic velocities to propell the ship."
-	icon = 'icons/obj/ship_engine.dmi'
+	icon = 'resources/icons/obj/ship_engine.dmi'
 	icon_state = "nozzle"
 	use_power = 0
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
@@ -96,7 +96,7 @@
 	var/exhaust_dir = reverse_direction(dir)
 	var/datum/gas_mixture/removed = air_contents.remove(moles_per_burn * thrust_limit)
 	. = calculate_thrust(removed)
-	playsound(loc, 'sound/machines/thruster.ogg', 100 * thrust_limit, 0, world.view * 4, 0.1)
+	playsound(loc, 'resources/sound/machines/thruster.ogg', 100 * thrust_limit, 0, world.view * 4, 0.1)
 	var/turf/T = get_step(src,exhaust_dir)
 	if(T)
 		T.assume_air(removed)
@@ -108,7 +108,7 @@
 //Exhaust effect
 /obj/effect/engine_exhaust
 	name = "engine exhaust"
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	icon_state = "smoke"
 	light_color = "#ed9200"
 	anchored = 1

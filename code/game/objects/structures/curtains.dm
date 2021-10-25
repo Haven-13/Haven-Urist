@@ -1,6 +1,6 @@
 /obj/structure/curtain
 	name = "curtain"
-	icon = 'icons/obj/curtain.dmi'
+	icon = 'resources/icons/obj/curtain.dmi'
 	icon_state = "closed"
 	plane = DEFAULT_PLANE
 	layer = ABOVE_WINDOW_LAYER

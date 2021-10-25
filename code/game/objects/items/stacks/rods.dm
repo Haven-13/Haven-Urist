@@ -102,7 +102,7 @@
 
 /obj/item/stack/rods/update_icon()
 	if(amount == 1)
-		icon = 'icons/obj/weapons.dmi'
+		icon = 'resources/icons/obj/weapons.dmi'
 		icon_state = "metal-rod"
 	else
 		icon = initial(icon)

@@ -12,7 +12,7 @@
 /obj/item/weapon/storage/ore
 	name = "mining satchel"
 	desc = "This sturdy bag can be used to store and transport ores."
-	icon = 'icons/obj/mining.dmi'
+	icon = 'resources/icons/obj/mining.dmi'
 	icon_state = "satchel"
 	slot_flags = SLOT_BELT
 	max_storage_space = 200
@@ -31,7 +31,7 @@
 /obj/item/weapon/storage/plants
 	name = "botanical satchel"
 	desc = "This bag can be used to store all kinds of plant products and botanical specimen."
-	icon = 'icons/obj/hydroponics_machines.dmi'
+	icon = 'resources/icons/obj/hydroponics_machines.dmi'
 	icon_state = "plantbag"
 	slot_flags = SLOT_BELT
 	max_storage_space = 100
@@ -52,7 +52,7 @@
 
 /obj/item/weapon/storage/sheetsnatcher
 	name = "sheet snatcher"
-	icon = 'icons/obj/mining.dmi'
+	icon = 'resources/icons/obj/mining.dmi'
 	icon_state = "sheetsnatcher"
 	desc = "A patented storage system designed for any kind of mineral sheet."
 

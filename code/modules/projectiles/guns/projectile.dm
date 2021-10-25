@@ -23,7 +23,7 @@
 	var/ammo_type = null		//the type of ammo that the gun comes preloaded with
 	var/list/loaded = list()	//stored ammo
 	var/starts_loaded = 1		//whether the gun starts loaded or not, can be overridden for guns crafted in-game
-	var/load_sound = 'sound/weapons/guns/interaction/bullet_insert.ogg'
+	var/load_sound = 'resources/sound/weapons/guns/interaction/bullet_insert.ogg'
 
 	//For MAGAZINE guns
 	var/magazine_type = null	//the type of magazine that the gun comes preloaded with
@@ -31,8 +31,8 @@
 	var/allowed_magazines		//magazine types that may be loaded. Can be a list or single path
 	var/auto_eject = 0			//if the magazine should automatically eject itself when empty.
 	var/auto_eject_sound = null
-	var/mag_insert_sound = 'sound/weapons/guns/interaction/pistol_magin.ogg'
-	var/mag_remove_sound = 'sound/weapons/guns/interaction/pistol_magout.ogg'
+	var/mag_insert_sound = 'resources/sound/weapons/guns/interaction/pistol_magin.ogg'
+	var/mag_remove_sound = 'resources/sound/weapons/guns/interaction/pistol_magout.ogg'
 
 
 	var/is_jammed = 0           //Whether this gun is jammed
@@ -137,7 +137,7 @@
 						count++
 				if(count)
 					user.visible_message("[user] reloads [src].", "<span class='notice'>You load [count] round\s into [src].</span>")
-					playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+					playsound(src.loc, 'resources/sound/weapons/empty.ogg', 50, 1)
 		AM.update_icon()
 	else if(istype(A, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = A
@@ -161,7 +161,7 @@
 		if(!do_after(user, 4, src))
 			return
 		is_jammed = 0
-		playsound(src.loc, 'sound/weapons/flipblade.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/weapons/flipblade.ogg', 50, 1)
 	if(ammo_magazine)
 		user.put_in_hands(ammo_magazine)
 		user.visible_message("[user] removes [ammo_magazine] from [src].", "<span class='notice'>You remove [ammo_magazine] from [src].</span>")

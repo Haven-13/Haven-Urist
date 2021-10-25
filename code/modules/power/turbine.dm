@@ -1,7 +1,7 @@
 /obj/machinery/compressor
 	name = "compressor"
 	desc = "The compressor stage of a gas turbine generator."
-	icon = 'icons/obj/pipes.dmi'
+	icon = 'resources/icons/obj/pipes.dmi'
 	icon_state = "compressor"
 	anchored = 1
 	density = 1
@@ -17,7 +17,7 @@
 /obj/machinery/power/turbine
 	name = "gas turbine generator"
 	desc = "A gas turbine used for backup power generation."
-	icon = 'icons/obj/pipes.dmi'
+	icon = 'resources/icons/obj/pipes.dmi'
 	icon_state = "turbine"
 	anchored = 1
 	density = 1
@@ -28,7 +28,7 @@
 /obj/machinery/computer/turbine_computer
 	name = "Gas turbine control computer"
 	desc = "A computer to remotely control a gas turbine."
-	icon = 'icons/obj/computer.dmi'
+	icon = 'resources/icons/obj/computer.dmi'
 	icon_keyboard = "tech_key"
 	icon_screen = "turbinecomp"
 	circuit = /obj/item/weapon/circuitboard/turbine_control
@@ -89,13 +89,13 @@
 
 
 	if(rpm>50000)
-		overlays += image('icons/obj/pipes.dmi', "comp-o4", FLY_LAYER)
+		overlays += image('resources/icons/obj/pipes.dmi', "comp-o4", FLY_LAYER)
 	else if(rpm>10000)
-		overlays += image('icons/obj/pipes.dmi', "comp-o3", FLY_LAYER)
+		overlays += image('resources/icons/obj/pipes.dmi', "comp-o3", FLY_LAYER)
 	else if(rpm>2000)
-		overlays += image('icons/obj/pipes.dmi', "comp-o2", FLY_LAYER)
+		overlays += image('resources/icons/obj/pipes.dmi', "comp-o2", FLY_LAYER)
 	else if(rpm>500)
-		overlays += image('icons/obj/pipes.dmi', "comp-o1", FLY_LAYER)
+		overlays += image('resources/icons/obj/pipes.dmi', "comp-o1", FLY_LAYER)
 	//TODO: DEFERRED
 
 /obj/machinery/power/turbine/New()
@@ -141,7 +141,7 @@
 		outturf.assume_air(removed)
 
 	if(lastgen > 100)
-		overlays += image('icons/obj/pipes.dmi', "turb-o", FLY_LAYER)
+		overlays += image('resources/icons/obj/pipes.dmi', "turb-o", FLY_LAYER)
 
 
 	for(var/mob/M in viewers(1, src))
@@ -211,7 +211,7 @@
 /*
 /obj/machinery/computer/turbine_computer/attackby(I as obj, user as mob)
 	if(istype(I, /obj/item/weapon/screwdriver))
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 20))
 			if (src.stat & BROKEN)
 				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")

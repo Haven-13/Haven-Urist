@@ -144,7 +144,7 @@
 	user.visible_message("<span class='notice'>[user] has made an incision on [target]'s [affected.name] with \the [tool].</span>", \
 	"<span class='notice'>You have made an incision on [target]'s [affected.name] with \the [tool].</span>",)
 	affected.createwound(DAMAGE_TYPE_SLASH, affected.min_broken_damage/2, 1)
-	playsound(target.loc, 'sound/weapons/bladeslice.ogg', 15, 1)
+	playsound(target.loc, 'resources/sound/weapons/bladeslice.ogg', 15, 1)
 
 /datum/surgery_step/generic/cut_open/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -183,7 +183,7 @@
 	"<span class='notice'>You clamp bleeders in [target]'s [affected.name] with \the [tool].</span>")
 	affected.clamp_bleeding()
 	spread_germs_to_organ(affected, user)
-	playsound(target.loc, 'sound/items/Welder.ogg', 15, 1)
+	playsound(target.loc, 'resources/sound/items/Welder.ogg', 15, 1)
 
 /datum/surgery_step/generic/clamp_bleeders/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

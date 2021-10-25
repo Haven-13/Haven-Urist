@@ -6,7 +6,7 @@
 	name = " "
 	var/base_name = " "
 	desc = ""
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'resources/icons/obj/chemical.dmi'
 	icon_state = "null"
 	item_state = "null"
 	amount_per_transfer_from_this = 10
@@ -106,7 +106,7 @@
 /obj/item/weapon/reagent_containers/glass/beaker
 	name = "beaker"
 	desc = "A beaker."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'resources/icons/obj/chemical.dmi'
 	icon_state = "beaker"
 	item_state = "beaker"
 	center_of_mass = "x=15;y=10"
@@ -135,7 +135,7 @@
 	overlays.Cut()
 
 	if(reagents.total_volume)
-		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]10")
+		var/image/filling = image('resources/icons/obj/reagentfillings.dmi', src, "[icon_state]10")
 
 		var/percent = round((reagents.total_volume / volume) * 100)
 		switch(percent)
@@ -168,7 +168,7 @@
 /obj/item/weapon/reagent_containers/glass/beaker/bowl
 	name = "mixing bowl"
 	desc = "A large mixing bowl."
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'resources/icons/obj/kitchen.dmi'
 	icon_state = "mixingbowl"
 	center_of_mass = "x=16;y=10"
 	matter = list(DEFAULT_WALL_MATERIAL = 300)
@@ -272,7 +272,7 @@
 /obj/item/weapon/reagent_containers/glass/bucket
 	desc = "It's a bucket."
 	name = "bucket"
-	icon = 'icons/obj/janitor.dmi'
+	icon = 'resources/icons/obj/janitor.dmi'
 	icon_state = "bucket"
 	item_state = "bucket"
 	center_of_mass = "x=16;y=9"
@@ -298,7 +298,7 @@
 		else
 			reagents.trans_to_obj(D, 5)
 			to_chat(user, "<span class='notice'>You wet \the [D] in \the [src].</span>")
-			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+			playsound(loc, 'resources/sound/effects/slosh.ogg', 25, 1)
 		return
 	else
 		return ..()
@@ -313,7 +313,7 @@
 /obj/item/weapon/reagent_containers/glass/blender_jug
 	name = "Blender Jug"
 	desc = "A blender jug, part of a blender."
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'resources/icons/obj/kitchen.dmi'
 	icon_state = "blender_jug_e"
 	volume = 100
 
@@ -329,7 +329,7 @@
 /obj/item/weapon/reagent_containers/glass/canister		//not used apparantly
 	desc = "It's a canister. Mainly used for transporting fuel."
 	name = "canister"
-	icon = 'icons/obj/tank.dmi'
+	icon = 'resources/icons/obj/tank.dmi'
 	icon_state = "canister"
 	item_state = "canister"
 	m_amt = 300

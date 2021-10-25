@@ -11,7 +11,7 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	attacktext = "bit"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = 'resources/sound/weapons/bite.ogg'
 	faction = "undead"
 	min_gas = null
 	max_gas = null
@@ -148,7 +148,7 @@
 
 /mob/living/simple_animal/hostile/urist/zombie/Aggro()
 	if(prob(35))
-		playsound(src.loc, pick('sound/hallucinations/wail.ogg', 'sound/hallucinations/screech.ogg', 'sound/hallucinations/growl1.ogg', 'sound/hallucinations/growl2.ogg', 'sound/hallucinations/growl3.ogg'))
+		playsound(src.loc, pick('resources/sound/hallucinations/wail.ogg', 'resources/sound/hallucinations/screech.ogg', 'resources/sound/hallucinations/growl1.ogg', 'resources/sound/hallucinations/growl2.ogg', 'resources/sound/hallucinations/growl3.ogg'))
 	..()
 
 /mob/living/simple_animal/hostile/urist/zombie/say()
@@ -340,11 +340,11 @@
 	new_mob.update_icons()
 
 	playsound(src.loc, pick(
-		'sound/hallucinations/wail.ogg',
-		'sound/hallucinations/screech.ogg',
-		'sound/hallucinations/growl1.ogg',
-		'sound/hallucinations/growl2.ogg',
-		'sound/hallucinations/growl3.ogg')
+		'resources/sound/hallucinations/wail.ogg',
+		'resources/sound/hallucinations/screech.ogg',
+		'resources/sound/hallucinations/growl1.ogg',
+		'resources/sound/hallucinations/growl2.ogg',
+		'resources/sound/hallucinations/growl3.ogg')
 	)
 
 	spawn()
@@ -373,7 +373,7 @@
 /mob/living/simple_animal/hostile/urist/vampire
 	name = "vampire"
 	desc = "A bloodthirsty undead abomination."
-	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon = 'resources/icons/uristmob/simpleanimals.dmi'
 	icon_state = "vampire_m_s"
 	icon_living = "vampire_m_s"
 	icon_dead = "vampire_m_d"
@@ -382,7 +382,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	attacktext = "bit"
-	attack_sound = 'sound/items/drink.ogg'
+	attack_sound = 'resources/sound/items/drink.ogg'
 	faction = "undead"
 	min_gas = null
 	max_gas = null
@@ -405,7 +405,7 @@
 /mob/living/simple_animal/hostile/urist/skeleton
 	name = "skeleton"
 	desc = "Too spooky."
-	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon = 'resources/icons/uristmob/simpleanimals.dmi'
 	icon_state = "skeltal"
 	icon_living = "skeltal"
 	icon_dead = "skeltal_d"
@@ -423,7 +423,7 @@
 //a more persistent variant of the shadow wight with a different soundset
 /obj/effect/haunter
 	name = "wight"
-	icon = 'icons/mob/mob.dmi'
+	icon = 'resources/icons/mob/mob.dmi'
 	icon_state = "ghost-narsie"
 	density = 1
 
@@ -440,16 +440,16 @@
 		src.loc = get_turf(pick(orange(1,src)))
 		var/mob/living/carbon/M = locate() in src.loc
 		if(M)
-			playsound(src.loc, pick('sound/hallucinations/growl1.ogg',\
-			'sound/hallucinations/growl2.ogg',\
-			'sound/hallucinations/growl3.ogg',\
-			'sound/effects/ghost.ogg',\
-			'sound/effects/ghost2.ogg',\
-			'sound/hallucinations/wail.ogg',\
-			'sound/hallucinations/veryfar_noise.ogg',\
-			'sound/effects/wind/wind_2_2.ogg',\
-			'sound/effects/wind/wind_3_1.ogg',\
-			'sound/hallucinations/far_noise.ogg',\
+			playsound(src.loc, pick('resources/sound/hallucinations/growl1.ogg',\
+			'resources/sound/hallucinations/growl2.ogg',\
+			'resources/sound/hallucinations/growl3.ogg',\
+			'resources/sound/effects/ghost.ogg',\
+			'resources/sound/effects/ghost2.ogg',\
+			'resources/sound/hallucinations/wail.ogg',\
+			'resources/sound/hallucinations/veryfar_noise.ogg',\
+			'resources/sound/effects/wind/wind_2_2.ogg',\
+			'resources/sound/effects/wind/wind_3_1.ogg',\
+			'resources/sound/hallucinations/far_noise.ogg',\
 			), 50, 1, -3)
 			//M.sleeping = max(M.sleeping,rand(5,10))
 			if(prob(5))
@@ -461,7 +461,7 @@
 /mob/living/simple_animal/hostile/urist/amorph
 	name = "amorph"
 	desc = "A shapeless biomass twisted into a mockery of a human shape."
-	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon = 'resources/icons/uristmob/simpleanimals.dmi'
 	icon_state = "amorphic"
 	icon_living = "amorphic"
 	faction = "biohorror"
@@ -501,7 +501,7 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 15
 	attacktext = "hacked"
-	attack_sound = 'sound/weapons/slice.ogg'
+	attack_sound = 'resources/sound/weapons/slice.ogg'
 
 /mob/living/simple_animal/hostile/urist/mutant/Life()
 	if(IsInRange(src.health, 1, (maxHealth - 1)))
@@ -514,11 +514,11 @@
 	icon_state = "mutant_ranged"
 	icon_living = "mutant_ranged"
 	ranged = 1
-	projectilesound = 'sound/weapons/gunshot/shotgun.ogg'
+	projectilesound = 'resources/sound/weapons/gunshot/shotgun.ogg'
 	projectiletype = /obj/item/projectile/bullet/pellet/shotgun //check balance
 	ranged_cooldown_cap = 10
 	attacktext = "kicked"
-	attack_sound = 'sound/weapons/genhit3.ogg'
+	attack_sound = 'resources/sound/weapons/genhit3.ogg'
 	minimum_distance = 2
 
 /mob/living/simple_animal/hostile/urist/mutant/melee
@@ -532,7 +532,7 @@
 	melee_damage_upper = 25
 	resistance = 5
 	attacktext = "hacked"
-	attack_sound = 'sound/weapons/slice.ogg'
+	attack_sound = 'resources/sound/weapons/slice.ogg'
 
 /mob/living/simple_animal/hostile/urist/mutant/hybrid
 	name = "Xenohybrid"
@@ -547,7 +547,7 @@
 	vision_range = 12
 	aggro_vision_range = 18
 	attacktext = "slashed"
-	attack_sound = 'sound/weapons/rapidslice.ogg'
+	attack_sound = 'resources/sound/weapons/rapidslice.ogg'
 
 //A surreal alien with a massive mouth for a face, sprite by Nienhaus
 /mob/living/simple_animal/hostile/urist/devourer
@@ -559,13 +559,13 @@
 	simplify_dead_icon = 0
 	faction = "biohorror"
 	attacktext = "chomped"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = 'resources/sound/weapons/bite.ogg'
 	maxHealth = 100
 	health = 100
 	ranged = 1
 	ranged_message = "spits"
 	projectiletype = /obj/item/projectile/energy/neurotoxin
-	projectilesound = 'sound/weapons/bite.ogg'
+	projectilesound = 'resources/sound/weapons/bite.ogg'
 	minimum_distance = 1
 
 //even more blatant...
@@ -582,11 +582,11 @@
 	maxHealth = 75
 	health = 75
 	projectiletype = /obj/item/projectile/energy/phoron
-	projectilesound = 'sound/effects/squelch1.ogg'
+	projectilesound = 'resources/sound/effects/squelch1.ogg'
 	melee_damage_lower = 5
 	melee_damage_upper = 15
 	attacktext = "slashed"
-	attack_sound = 'sound/weapons/rapidslice.ogg'
+	attack_sound = 'resources/sound/weapons/rapidslice.ogg'
 
 //TOUGH bastard, teleports around to follow a victim (random if none, varedit to set)
 /mob/living/simple_animal/hostile/urist/stalker
@@ -603,7 +603,7 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 15
 	attacktext = "slashed"
-	attack_sound = 'sound/weapons/rapidslice.ogg'
+	attack_sound = 'resources/sound/weapons/rapidslice.ogg'
 	attack_same = 1
 	var/caution = 1 //hit and run if low on health
 	var/mob/stalkee //who he stalks

@@ -5,7 +5,7 @@ GLOBAL_LIST_EMPTY(adminfaxes)	//cache for faxes that have been sent to admins
 
 /obj/machinery/photocopier/faxmachine
 	name = "fax machine"
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'resources/icons/obj/bureaucracy.dmi'
 	icon_state = "fax"
 	insert_anim = "faxsend"
 	req_one_access = list(access_lawyer, access_bridge, access_armory, access_qm)
@@ -226,4 +226,4 @@ GLOBAL_LIST_EMPTY(adminfaxes)	//cache for faxes that have been sent to admins
 	for(var/client/C in GLOB.admins)
 		if(check_rights((R_ADMIN|R_MOD),0,C))
 			to_chat(C, msg)
-			sound_to(C, 'sound/machines/dotprinter.ogg')
+			sound_to(C, 'resources/sound/machines/dotprinter.ogg')

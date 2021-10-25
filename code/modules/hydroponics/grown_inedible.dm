@@ -4,7 +4,7 @@
 
 /obj/item/weapon/grown // Grown weapons
 	name = "grown_weapon"
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'resources/icons/obj/weapons.dmi'
 	var/plantname
 	var/potency = 1
 
@@ -35,7 +35,7 @@
 /obj/item/weapon/corncob
 	name = "corn cob"
 	desc = "A reminder of meals gone by."
-	icon = 'icons/obj/trash.dmi'
+	icon = 'resources/icons/obj/trash.dmi'
 	icon_state = "corncob"
 	item_state = "corncob"
 	w_class = ITEM_SIZE_SMALL
@@ -54,7 +54,7 @@
 /obj/item/weapon/bananapeel
 	name = "banana peel"
 	desc = "A peel from a banana."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "banana_peel"
 	item_state = "banana_peel"
 	w_class = ITEM_SIZE_SMALL

@@ -6,7 +6,7 @@
 /obj/machinery/power/tracker
 	name = "solar tracker"
 	desc = "A solar directional tracker."
-	icon = 'icons/obj/power.dmi'
+	icon = 'resources/icons/obj/power.dmi'
 	icon_state = "tracker"
 	anchored = 1
 	density = 1
@@ -60,14 +60,14 @@
 /obj/machinery/power/tracker/attackby(var/obj/item/weapon/W, var/mob/user)
 
 	if(isCrowbar(W))
-		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/machines/click.ogg', 50, 1)
 		user.visible_message("<span class='notice'>[user] begins to take the glass off the solar tracker.</span>")
 		if(do_after(user, 50,src))
 			var/obj/item/solar_assembly/S = locate() in src
 			if(S)
 				S.loc = src.loc
 				S.give_glass()
-			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 			user.visible_message("<span class='notice'>[user] takes the glass off the tracker.</span>")
 			qdel(src)
 		return
@@ -78,6 +78,6 @@
 /obj/item/weapon/tracker_electronics
 
 	name = "tracker electronics"
-	icon = 'icons/obj/doors/door_assembly.dmi'
+	icon = 'resources/icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_electronics"
 	w_class = ITEM_SIZE_SMALL

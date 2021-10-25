@@ -4,12 +4,12 @@
 
 /turf/unsimulated/floor/temple
 	name = "temple floor"
-	icon = 'icons/urist/jungle/turfs.dmi'
+	icon = 'resources/icons/urist/jungle/turfs.dmi'
 	icon_state = "templefloor"
 
 /turf/unsimulated/wall/temple
 	name = "temple wall"
-	icon = 'icons/urist/jungle/turfs.dmi'
+	icon = 'resources/icons/urist/jungle/turfs.dmi'
 	icon_state = "templewall"
 
 //false wall
@@ -17,7 +17,7 @@
 /obj/structure/temple_falsewall
 	name = "temple wall"
 	anchored = 1
-	icon = 'icons/urist/jungle/turfs.dmi'
+	icon = 'resources/icons/urist/jungle/turfs.dmi'
 	icon_state = "templewall"
 	opacity = 1
 	var/opening = 0
@@ -279,8 +279,8 @@
 
 /obj/effect/step_trigger/trap
 	name = "trap"
-	icon = 'icons/jungle.dmi'
-	icon = 'icons/jungle.dmi'
+	icon = 'resources/icons/jungle.dmi'
+	icon = 'resources/icons/jungle.dmi'
 	icon_state = "trap"
 	var/trap_type
 
@@ -305,7 +305,7 @@
 			M.apply_damage(rand(5,10), DAMAGE_TYPE_BRUTE, damage_flags = (DAMAGE_FLAGS_SHARP | DAMAGE_FLAGS_EDGE))
 
 			var/atom/myloc = src.loc
-			var/image/flicker = image('icons/jungle.dmi',"sawblade")
+			var/image/flicker = image('resources/icons/jungle.dmi',"sawblade")
 			myloc.overlays += flicker
 			spawn(8)
 				myloc.overlays -= flicker
@@ -316,7 +316,7 @@
 			M.apply_damage(rand(5,10), DAMAGE_TYPE_TOXIN)
 
 			var/atom/myloc = src.loc
-			var/image/flicker = image('icons/jungle.dmi',"dart[rand(1,3)]")
+			var/image/flicker = image('resources/icons/jungle.dmi',"dart[rand(1,3)]")
 			myloc.overlays += flicker
 			spawn(8)
 				myloc.overlays -= flicker
@@ -327,7 +327,7 @@
 			M.apply_damage(rand(5,10), DAMAGE_TYPE_BURN)
 
 			var/atom/myloc = src.loc
-			var/image/flicker = image('icons/jungle.dmi',"flameburst")
+			var/image/flicker = image('resources/icons/jungle.dmi',"flameburst")
 			myloc.overlays += flicker
 			spawn(8)
 				myloc.overlays -= flicker
@@ -343,7 +343,7 @@
 			M.visible_message("<span class='danger'>The floor under [M] suddenly tips upward!</span>","<span class='danger'>The floor tips upward under you!</span>")
 
 			var/atom/myloc = src.loc
-			var/image/flicker = image('icons/jungle.dmi',"throw[throw_dir]")
+			var/image/flicker = image('resources/icons/jungle.dmi',"throw[throw_dir]")
 			myloc.overlays += flicker
 			var/turf/my_turf = get_turf(loc)
 			if(!my_turf.density)
@@ -397,5 +397,5 @@
 /obj/structure/fountain
 	name = "fountain"
 	desc = "A fountain that appears to be spewing red water. Wait... Is that blood?"
-	icon = 'icons/urist/jungle/64x64.dmi'
+	icon = 'resources/icons/urist/jungle/64x64.dmi'
 	icon_state = "fountain"

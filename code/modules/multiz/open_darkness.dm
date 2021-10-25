@@ -1,6 +1,6 @@
 /atom/movable/screen/openspace_overlay
 	screen_loc = "CENTER,CENTER"
-	icon = 'icons/primitives.dmi'
+	icon = 'resources/icons/primitives.dmi'
 	icon_state = "black"
 	plane = DEFAULT_PLANE
 	layer = OPEN_SPACE_LAYER

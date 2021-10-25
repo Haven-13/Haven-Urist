@@ -3,7 +3,7 @@
 /obj/item/weapon/chair_painter
 	name = "chair painter"
 	desc = "An advanced autopainter used to change the colour of comfy chairs or couches. Select the colour you want, then use it on any comfy chair or couch."
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	icon_state = "paint_sprayer"
 	item_state = "paint_sprayer"
 

@@ -5,7 +5,7 @@
 /obj/structure/bush //time to rewrite this shit
 	name = "foliage"
 	desc = "Pretty thick scrub, it'll take something sharp and a lot of determination to clear away."
-	icon = 'icons/urist/jungle/plants.dmi'
+	icon = 'resources/icons/urist/jungle/plants.dmi'
 	icon_state = "bushnew1" //FUCKED UP THE ICON STATE, EVERYTHING IS MUSHROOMS
 	density = 1
 	anchored = 1
@@ -123,7 +123,7 @@ var/jungle_plants_init = 0
 	..()
 
 /obj/structure/jungle_plant
-	icon = 'icons/jungle.dmi'
+	icon = 'resources/icons/jungle.dmi'
 	icon_state = "plant1"
 	desc = "Looks like some of that fruit might be edible."
 	anchored = 1
@@ -143,7 +143,7 @@ var/jungle_plants_init = 0
 	fruit_type = rand(1,7)
 	icon_state = "plant[fruit_type]"
 	fruits_left = rand(1,5)
-	fruit_overlay = icon('icons/jungle.dmi',"fruit[fruits_left]")
+	fruit_overlay = icon('resources/icons/jungle.dmi',"fruit[fruits_left]")
 	fruit_r = 255 - fruit_type * 36
 	fruit_g = rand(1,255)
 	fruit_b = fruit_type * 36
@@ -164,7 +164,7 @@ var/jungle_plants_init = 0
 		J.attack_hand(user)
 
 		overlays -= fruit_overlay
-		fruit_overlay = icon('icons/jungle.dmi',"fruit[fruits_left]")
+		fruit_overlay = icon('resources/icons/jungle.dmi',"fruit[fruits_left]")
 		fruit_overlay.Blend(rgb(fruit_r, fruit_g, fruit_b), ICON_ADD)
 		overlays += fruit_overlay
 	else
@@ -187,7 +187,7 @@ var/jungle_plants_init = 0
 /obj/structure/flora/reeds
 	name = "reeds"
 	desc = "A bunch of reeds. This plant typically grows in wet areas."
-	icon = 'icons/obj/flora/ausflora.dmi'
+	icon = 'resources/icons/obj/flora/ausflora.dmi'
 	icon_state = "reedbush_1"
 	anchored = 1
 
@@ -213,7 +213,7 @@ var/jungle_plants_init = 0
 
 /obj/structure/flora/grass/arid
 	name = "dry grass"
-	icon = 'icons/urist/jungle/miscflora.dmi'
+	icon = 'resources/icons/urist/jungle/miscflora.dmi'
 	desc = "Some dry, virtually dead grass."
 	icon_state = "tall_grass_1"
 

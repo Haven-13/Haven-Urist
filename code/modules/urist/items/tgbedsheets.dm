@@ -7,8 +7,8 @@ LINEN BINS
 /obj/item/weapon/bedsheet
 	name = "bedsheet"
 	desc = "A surprisingly soft linen bedsheet."
-	icon = 'icons/urist/items/tgitems.dmi'
-	icon_override = 'icons/uristmob/back.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
+	icon_override = 'resources/icons/uristmob/back.dmi'
 	icon_state = "sheetwhite"
 	item_state = "bedsheet"
 	slot_flags = SLOT_BACK
@@ -192,7 +192,7 @@ LINEN BINS
 /obj/structure/bedsheetbin
 	name = "linen bin"
 	desc = "It looks rather cosy."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'resources/icons/obj/structures.dmi'
 	icon_state = "linenbin-full"
 	anchored = 1
 	var/amount = 10

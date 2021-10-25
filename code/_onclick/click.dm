@@ -310,9 +310,9 @@
 	var/turf/T = get_turf(src)
 
 	var/obj/item/projectile/beam/LE = new (T)
-	LE.icon = 'icons/effects/genetics.dmi'
+	LE.icon = 'resources/icons/effects/genetics.dmi'
 	LE.icon_state = "eyelasers"
-	playsound(usr.loc, 'sound/weapons/taser2.ogg', 75, 1)
+	playsound(usr.loc, 'resources/sound/weapons/taser2.ogg', 75, 1)
 	LE.launch(A)
 /mob/living/carbon/human/LaserEyes()
 	if(nutrition>0)
@@ -340,7 +340,7 @@
 		facedir(direction)
 
 /atom/movable/screen/click_catcher
-	icon = 'icons/mob/screen_gen.dmi'
+	icon = 'resources/icons/mob/screen_gen.dmi'
 	icon_state = "click_catcher"
 	plane = CLICKCATCHER_PLANE
 	mouse_opacity = 2

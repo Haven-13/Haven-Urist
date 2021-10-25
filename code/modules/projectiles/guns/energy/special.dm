@@ -110,7 +110,7 @@
 /obj/item/weapon/gun/energy/meteorgun/pen
 	name = "meteor pen"
 	desc = "The pen is mightier than the sword."
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'resources/icons/obj/bureaucracy.dmi'
 	icon_state = "pen"
 	item_state = "pen"
 	w_class = ITEM_SIZE_TINY
@@ -136,10 +136,10 @@
 	name = "plasma cutter"
 	desc = "A mining tool capable of expelling concentrated plasma bursts. You could use it to cut limbs off of xenos! Or, you know, mine stuff."
 	charge_meter = 0
-	icon = 'icons/obj/tools.dmi'
+	icon = 'resources/icons/obj/tools.dmi'
 	icon_state = "plasmacutter"
 	item_state = "plasmacutter"
-	fire_sound = 'sound/weapons/plasma_cutter.ogg'
+	fire_sound = 'resources/sound/weapons/plasma_cutter.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = ITEM_SIZE_NORMAL
 	force = 8

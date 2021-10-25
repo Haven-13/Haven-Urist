@@ -6,7 +6,7 @@
 /obj/machinery/atmospherics/binary/circulator
 	name = "circulator"
 	desc = "A gas circulator turbine and heat exchanger."
-	icon = 'icons/obj/pipes.dmi'
+	icon = 'resources/icons/obj/pipes.dmi'
 	icon_state = "circ-off"
 	anchored = 0
 
@@ -94,7 +94,7 @@
 		if((air1pressure > ONE_ATMOSPHERE) || (air2pressure > ONE_ATMOSPHERE))
 			to_chat(user, "<span class='warning'>You can't unbolt the circulator while it's pressurized!</span>")
 			return
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
 					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \

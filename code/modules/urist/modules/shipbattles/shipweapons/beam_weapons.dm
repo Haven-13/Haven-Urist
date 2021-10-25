@@ -1,7 +1,7 @@
 //beams
 
 /obj/machinery/shipweapons/beam
-	icon = 'icons/urist/objects/64x64machinery.dmi'
+	icon = 'resources/icons/urist/objects/64x64machinery.dmi'
 
 /obj/machinery/shipweapons/beam/lightlaser
 	name = "light laser cannon"
@@ -14,7 +14,7 @@
 	rechargerate = 15 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/lightlaser
 	fire_anim = 5
-	fire_sound = 'sound/weapons/marauder.ogg'
+	fire_sound = 'resources/sound/weapons/marauder.ogg'
 
 /obj/machinery/shipweapons/beam/duallightlaser
 	name = "dual light laser cannon"
@@ -26,7 +26,7 @@
 	component_hit = 25
 	rechargerate = 23 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/lightlaser
-	fire_sound = 'sound/weapons/marauder.ogg'
+	fire_sound = 'resources/sound/weapons/marauder.ogg'
 
 /obj/machinery/shipweapons/beam/heavylaser
 	name = "heavy laser cannon"
@@ -38,7 +38,7 @@
 	component_hit = 20
 	rechargerate = 19 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/heavylaser
-	fire_sound = 'sound/weapons/marauder.ogg'
+	fire_sound = 'resources/sound/weapons/marauder.ogg'
 
 /obj/machinery/shipweapons/beam/lightpulse
 	name = "light pulse cannon"
@@ -50,7 +50,7 @@
 	component_hit = 20
 	rechargerate = 16 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/lightlaser
-	fire_sound = 'sound/weapons/marauder.ogg'
+	fire_sound = 'resources/sound/weapons/marauder.ogg'
 
 /obj/machinery/shipweapons/beam/heavypulse
 	name = "heavy pulse cannon"
@@ -62,7 +62,7 @@
 	component_hit = 20
 	rechargerate = 22 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/lightlaser
-	fire_sound = 'sound/weapons/marauder.ogg'
+	fire_sound = 'resources/sound/weapons/marauder.ogg'
 
 /obj/machinery/shipweapons/beam/ion
 	name = "ion cannon"
@@ -72,7 +72,7 @@
 	active_power_usage = 6000
 	component_hit = 35
 	rechargerate = 13 SECONDS
-	fire_sound = 'sound/weapons/marauder.ogg'
+	fire_sound = 'resources/sound/weapons/marauder.ogg'
 	projectile_type = /obj/item/projectile/ion/ship
 
 /obj/machinery/shipweapons/beam/ion/HitComponents(var/targetship)

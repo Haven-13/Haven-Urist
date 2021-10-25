@@ -66,7 +66,7 @@
 	limb_flags = null
 	dislocated = -1
 	arterial_bleed_severity = 0
-	eye_icon_location = 'icons/uristmob/species/lactera/eyes.dmi'
+	eye_icon_location = 'resources/icons/uristmob/species/lactera/eyes.dmi'
 
 /*/datum/hud_data/lactera //work on this //just make the lactera clothing unremovable, delete this
 	has_internals = 0
@@ -101,10 +101,10 @@
 	name = "Lactera"
 	name_plural = "Lactera"
 
-	icon_template = 'icons/mob/human_races/species/template.dmi'
-	icobase = 'icons/uristmob/species/lactera/body.dmi'
-	preview_icon = 'icons/uristmob/species/lactera/preview.dmi'
-	deform = 'icons/uristmob/species/lactera/deform.dmi'
+	icon_template = 'resources/icons/mob/human_races/species/template.dmi'
+	icobase = 'resources/icons/uristmob/species/lactera/body.dmi'
+	preview_icon = 'resources/icons/uristmob/species/lactera/preview.dmi'
+	deform = 'resources/icons/uristmob/species/lactera/deform.dmi'
 
 	natural_armour_values = list(melee = 0, bullet = 0, laser = 0, energy = 10, bomb = 10, bio = 100, rad = 100)
 
@@ -135,13 +135,13 @@
 	gibbed_anim = "blank"
 	dusted_anim = "blank"
 	death_message = "bursts into flames and disappears."
-	death_sound = 'sound/voice/hiss6.ogg'
+	death_sound = 'resources/sound/voice/hiss6.ogg'
 
 	pixel_offset_x = 0
 //	default_language = "Xenomorph"
 //	language = "Hivemind"
 
-	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
+	speech_sounds = list('resources/sound/voice/hiss1.ogg','resources/sound/voice/hiss2.ogg','resources/sound/voice/hiss3.ogg','resources/sound/voice/hiss4.ogg')
 	speech_chance = 100
 
 	vision_flags = SEE_SELF
@@ -177,7 +177,7 @@
 		)
 
 /datum/species/xenos/lactera/handle_death(var/mob/living/carbon/human/H) //Handles any species-specific death events.
-	var/image/flicker = image('icons/uristmob/scommobs.dmi',"fire")
+	var/image/flicker = image('resources/icons/uristmob/scommobs.dmi',"fire")
 	flick(flicker, H)
 	spawn(5)
 		qdel(H)

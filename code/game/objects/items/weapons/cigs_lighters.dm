@@ -48,7 +48,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/weapon/flame/match
 	name = "match"
 	desc = "A simple match stick, used for lighting fine smokables."
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'resources/icons/obj/cigarettes.dmi'
 	icon_state = "match_unlit"
 	var/burnt = 0
 	var/smoketime = 5
@@ -454,7 +454,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/trash/cigbutt
 	name = "cigarette butt"
 	desc = "A manky old cigarette butt."
-	icon = 'icons/obj/clothing/masks.dmi'
+	icon = 'resources/icons/obj/clothing/masks.dmi'
 	icon_state = "cigbutt"
 	randpixel = 10
 	w_class = ITEM_SIZE_TINY
@@ -483,7 +483,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/weapon/paper/cig
 	name = "rolling paper"
 	desc = "A thin piece of paper used to make smokeables."
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'resources/icons/obj/cigarettes.dmi'
 	icon_state = "cig_paper"
 	w_class = ITEM_SIZE_TINY
 
@@ -502,7 +502,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/weapon/reagent_containers/terrbacco
 	name = "tobacco"
 	desc = "A wad of carefully cured and dried tobacco. Ground into a mess."
-	icon = 'icons/obj/clothing/masks.dmi'
+	icon = 'resources/icons/obj/clothing/masks.dmi'
 	icon_state = "chew"
 	w_class = ITEM_SIZE_TINY
 	volume = 15
@@ -820,7 +820,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/chewable
 	name = "chewable item master"
 	desc = "You're not sure what this is. You should probably ahelp it."
-	icon = 'icons/obj/clothing/masks.dmi'
+	icon = 'resources/icons/obj/clothing/masks.dmi'
 	body_parts_covered = 0
 
 	var/type_butt = null
@@ -1017,7 +1017,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/weapon/flame/lighter
 	name = "cheap lighter"
 	desc = "A cheap-as-free lighter."
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "lighter-g"
 	item_state = "lighter-g"
 	w_class = ITEM_SIZE_TINY
@@ -1077,18 +1077,18 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/weapon/flame/lighter/zippo/light_effects(mob/user)
 	user.visible_message("<span class='rose'>Without even breaking stride, [user] flips open and lights [src] in one smooth movement.</span>")
-	playsound(src.loc, 'sound/items/zippo_open.ogg', 100, 1, -4)
+	playsound(src.loc, 'resources/sound/items/zippo_open.ogg', 100, 1, -4)
 
 /obj/item/weapon/flame/lighter/zippo/shutoff_effects(mob/user)
 	user.visible_message("<span class='rose'>You hear a quiet click, as [user] shuts off [src] without even looking at what they're doing.</span>")
-	playsound(src.loc, 'sound/items/zippo_close.ogg', 100, 1, -4)
+	playsound(src.loc, 'resources/sound/items/zippo_close.ogg', 100, 1, -4)
 
 /obj/item/weapon/flame/lighter/zippo/afterattack(obj/O, mob/user, proximity)
 	if(!proximity) return
 	if (istype(O, /obj/structure/reagent_dispensers/fueltank) && !lit)
 		O.reagents.trans_to_obj(src, max_fuel)
 		to_chat(user, "<span class='notice'>You refuel [src] from \the [O]</span>")
-		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
+		playsound(src.loc, 'resources/sound/effects/refill.ogg', 50, 1, -6)
 
 /obj/item/weapon/flame/lighter/random/New()
 	icon_state = "lighter-[pick("r","c","y","g")]"

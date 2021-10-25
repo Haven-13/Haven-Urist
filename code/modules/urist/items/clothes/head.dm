@@ -1,15 +1,15 @@
 /*										*****New space to put all UristMcStation On-Head Clothing*****
 
-Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/items/clothes/head.dmi'
-and on_mob icon_override sprites go to 'icons/uristmob/head.dmi' Put anything that isn't a child of clothing/head/helmet under clothing/head/urist
+Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'resources/icons/urist/items/clothes/head.dmi'
+and on_mob icon_override sprites go to 'resources/icons/uristmob/head.dmi' Put anything that isn't a child of clothing/head/helmet under clothing/head/urist
 to avoid worrying about the sprites -Glloyd*/
 
 //urist head id
 
 /obj/item/clothing/head/urist
 	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/head.dmi'
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
+	sprite_sheets = list(SPECIES_RESOMI = 'resources/icons/mob/species/resomi/uristHead.dmi')
 
 //sci rig helmet
 
@@ -20,14 +20,14 @@ to avoid worrying about the sprites -Glloyd*/
 	item_state = "medical_helm"
 	//item_color = "medical"
 	armor = list(melee = 10, bullet = 5, laser = 5,energy = 5, bomb = 60, bio = 100, rad = 30)
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'resources/icons/mob/species/resomi/uristHead.dmi')
 
 //emergency suit hood
 
 /obj/item/clothing/head/urist/emergencyhood
 	name = "emergency hood"
 	desc = "A bulky hood meant to be used in emergencies only. It doesn't look too safe, and has some strange gray stains inside..."
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	icon_state = "emergency_hood"
 	item_state = "emergency_hood"
 	armor = list(melee = 5, bullet = 0, laser = 0,energy = 0, bomb = 5, bio = 50, rad = 25)
@@ -40,13 +40,13 @@ to avoid worrying about the sprites -Glloyd*/
 /obj/item/clothing/head/bio_hood/asec
 	item_icons = URIST_ALL_ONMOBS
 	name = "armoured bio hood"
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	icon_state = "Armouredbiohood"
 	desc = "An armoured hood that protects the head and face from biological contaminants and minor damage."
 	permeability_coefficient = 0.01
 	armor = list(melee = 20, bullet = 10, laser = 25, energy = 10, bomb = 25, bio = 100, rad = 20)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'resources/icons/mob/species/resomi/uristHead.dmi')
 
 
 //naval space suit helmet
@@ -55,7 +55,7 @@ to avoid worrying about the sprites -Glloyd*/
 	item_icons = URIST_ALL_ONMOBS
 	name = "naval space helmet"
 	desc = "A high quality space helmet used by the NanoTrasen Navy."
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	icon_state = "navyspacehelm"
 	armor = list(melee = 55, bullet = 45, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
 
@@ -65,7 +65,7 @@ to avoid worrying about the sprites -Glloyd*/
 	item_icons = URIST_ALL_ONMOBS
 	name = "naval commando helmet"
 	desc = "An extremely intimidating helmet worn by the NanoTrasen Naval Commandos"
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	icon_state = "rig0-commando"
 	//item_color = "commando"
 	armor = list(melee = 65, bullet = 55, laser = 35,energy = 20, bomb = 30, bio = 30, rad = 30)
@@ -73,7 +73,7 @@ to avoid worrying about the sprites -Glloyd*/
 //TC trader hat
 
 /obj/item/clothing/head/urist/terran
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'resources/icons/mob/species/resomi/uristHead.dmi')
 
 /obj/item/clothing/head/urist/terran/trader
 	name = "Terran Confederacy trader's hat"
@@ -85,11 +85,11 @@ to avoid worrying about the sprites -Glloyd*/
 
 /obj/item/clothing/head/wizard/urist
 	item_icons = URIST_ALL_ONMOBS
-	icon_override = 'icons/uristmob/head.dmi'
+	icon_override = 'resources/icons/uristmob/head.dmi'
 
 /obj/item/clothing/head/wizard/urist/necro
 	name = "necromancer's hood"
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	desc = "A charcoal-black hood worn by the masters of life and death. Simply putting it on sharpens your senses."
 	icon_state = "necrohood"
 	item_state = "necrohood"
@@ -97,24 +97,24 @@ to avoid worrying about the sprites -Glloyd*/
 /obj/item/clothing/head/wizard/urist/dresdendora
 	name = "urban wizard's hat"
 	desc = "A black, wide-brimmed fedora, radiating with an unearthly power of not looking dumb on your ugly mug. Very urban fantasy."
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	icon_state = "dresdendora"
 
 //matching NT hats
 
 /obj/item/clothing/head/soft/nanotrasen/blue
-	icon_override = 'icons/uristmob/head.dmi'
+	icon_override = 'resources/icons/uristmob/head.dmi'
 	name = "blue nanotrasen cap"
 	desc = "It's a baseball hat in the glorious colours of Nanotrasen. There is a white N on the front."
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	icon_state = "ntbluesoft"
 	//item_color = "ntblue"
 
 /obj/item/clothing/head/soft/nanotrasen/white
-	icon_override = 'icons/uristmob/head.dmi'
+	icon_override = 'resources/icons/uristmob/head.dmi'
 	name = "white nanotrasen cap"
 	desc = "It's a baseball hat in the glorious colours of Nanotrasen. There is a blue N on the front."
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	icon_state = "ntwhitesoft"
 	//item_color = "ntwhite"
 
@@ -122,13 +122,13 @@ to avoid worrying about the sprites -Glloyd*/
 
 /obj/item/clothing/head/princessbow
 	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	name = "princess bow"
 	desc = "A cute bow fit for a princess."
 	icon_state = "princess_bow"
 	//item_color = "princess_bow"
 	item_state = "princess_bow"
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'resources/icons/mob/species/resomi/uristHead.dmi')
 
 //fixing hats
 
@@ -231,7 +231,7 @@ to avoid worrying about the sprites -Glloyd*/
 /obj/item/clothing/ears/earmuffs/earplugs
 	name = "earplugs"
 	desc = "Protects your hearing from loud noises, but a little bit more discretely."
-	icon = 'icons/urist/items/clothes/ears.dmi'
+	icon = 'resources/icons/urist/items/clothes/ears.dmi'
 	icon_state = "earplugs"
 	item_state = "earplugs"
 
@@ -240,7 +240,7 @@ to avoid worrying about the sprites -Glloyd*/
 /obj/item/clothing/head/urist/hazardbandana
 	name = "orange bandana"
 	desc = "Hey, I think we're missing a hazard vest..."
-	icon = 'icons/urist/items/old_bay_custom_items.dmi'
+	icon = 'resources/icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "taryn_kifer_1"
 
 /obj/item/clothing/head/urist/hazardbandana/verb/toggle_bandana()
@@ -279,10 +279,10 @@ to avoid worrying about the sprites -Glloyd*/
 //Fallout hats
 
 /obj/item/clothing/head/urist/enclave
-	icon_override = 'icons/uristmob/head.dmi'
+	icon_override = 'resources/icons/uristmob/head.dmi'
 	name = "enclave officer cap"
 	desc = "An Enclave Officer cap, has a silver E on the front"
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	icon_state = "enclavesoft"
 	//item_color = "enclavesoft"
 
@@ -290,7 +290,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 /obj/item/clothing/head/helmet/urist
 	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 
 /obj/item/clothing/head/helmet/urist/blackwarden
 	item_icons = URIST_ALL_ONMOBS
@@ -300,7 +300,7 @@ to avoid worrying about the sprites -Glloyd*/
 	flags_inv = 0
 	body_parts_covered = 0
 	item_state = "policehelm"
-	sprite_sheets = list("Unathi" = 'icons/uristmob/species/unathi/head.dmi')
+	sprite_sheets = list("Unathi" = 'resources/icons/uristmob/species/unathi/head.dmi')
 
 //First Order
 
@@ -308,16 +308,16 @@ to avoid worrying about the sprites -Glloyd*/
 	item_icons = URIST_ALL_ONMOBS
 	name = "first order helmet"
 	desc = "A very clean white and black helmet."
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	icon_state = "fohelm"
 	armor = list(melee = 20, laser = 35)
 
 //toque/beanie
 /obj/item/clothing/head/urist/toque
-	icon_override = 'icons/uristmob/head.dmi'
+	icon_override = 'resources/icons/uristmob/head.dmi'
 	name = "toque"
 	desc = "A nice warm toque, known by some fucking heathens as a beanie."
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	icon_state = "toque"
 	cold_protection = HEAD
 	min_cold_protection_temperature = 243.15
@@ -429,20 +429,20 @@ to avoid worrying about the sprites -Glloyd*/
 /obj/item/clothing/head/urist/cowboy
 	name = "cowboy hat"
 	desc = "Giddy up pardner, yee haw cowpoke. Et cetera."
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	icon_state = "cowboyhat"
 
 /obj/item/clothing/head/urist/cowboy2
 	name = "brown cowboy hat"
 	desc = "It's a brown cowboy hat with a flat top. Perfect for rounding out the gunslinger aesthetic."
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	icon_state = "cowboyhat2"
 
 //hood
 
 /obj/item/clothing/head/winterhood/sandsuit
 	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	name = "leather hood"
 	desc = "A hood attached to a heavy leather protective suit."
 	icon_state = "sandsuit"
@@ -451,7 +451,7 @@ to avoid worrying about the sprites -Glloyd*/
 	flags_inv = HIDEEARS | BLOCKHAIR
 	min_cold_protection_temperature = 243.15
 	armor = list(melee = 15, bullet = 5, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'resources/icons/mob/species/resomi/uristHead.dmi')
 
 //terran stuff
 
@@ -464,7 +464,7 @@ to avoid worrying about the sprites -Glloyd*/
 	item_icons = URIST_ALL_ONMOBS
 	name = "Terran Confederacy Marine voidsuit"
 	desc = "A reinforced helmet worn by Terran Confederacy Marines."
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
 	icon_state = "terran_void_helm"
 	armor = list(melee = 65, bullet = 60, laser = 35,energy = 20, bomb = 35, bio = 100, rad = 30)
 
@@ -480,8 +480,8 @@ to avoid worrying about the sprites -Glloyd*/
 /obj/item/clothing/head/urist/headbanddragon
 	name = "ancient headband"
 	desc = "An ancient cloth headband, with a red circle in the middle."
-	icon = 'icons/urist/items/clothes/head.dmi'
-	icon_override = 'icons/uristmob/head.dmi'
+	icon = 'resources/icons/urist/items/clothes/head.dmi'
+	icon_override = 'resources/icons/uristmob/head.dmi'
 	icon_state = "risingsun"
 	item_state = "risingsun"
 	armor = list (melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)

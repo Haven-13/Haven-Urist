@@ -4,7 +4,7 @@
 /obj/item/borg/upgrade
 	name = "robot upgrade module"
 	desc = "Protected by FRM."
-	icon = 'icons/obj/module.dmi'
+	icon = 'resources/icons/obj/module.dmi'
 	icon_state = "cyborg_upgrade"
 	var/locked = 0
 	var/require_module = 0

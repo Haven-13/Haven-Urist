@@ -19,7 +19,7 @@
 	melee_damage_lower = 30
 	melee_damage_upper = 30
 	attacktext = "slashed"
-	attack_sound = 'sound/weapons/bladeslice.ogg'
+	attack_sound = 'resources/sound/weapons/bladeslice.ogg'
 
 	unsuitable_atmos_damage = 15
 	var/corpse = /obj/effect/landmark/corpse/pirate
@@ -32,7 +32,7 @@
 	icon_state = "pirateranged"
 	icon_living = "pirateranged"
 	icon_dead = "piratemelee_dead"
-	projectilesound = 'sound/weapons/laser.ogg'
+	projectilesound = 'resources/sound/weapons/laser.ogg'
 	ranged = 1
 	rapid = 2
 	projectiletype = /obj/item/projectile/beam

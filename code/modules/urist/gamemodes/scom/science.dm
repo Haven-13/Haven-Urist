@@ -1,6 +1,6 @@
 /obj/item/scom/science //a generic holder for science shit
 	name = "alien technology"
-	icon = 'icons/obj/stock_parts.dmi'
+	icon = 'resources/icons/obj/stock_parts.dmi'
 	w_class = 2
 
 /obj/item/scom/science/New()
@@ -12,7 +12,7 @@
 
 /obj/structure/scom/science //a generic holder for science shit
 	name = "alien technology"
-	icon = 'icons/urist/turf/scomturfs.dmi'
+	icon = 'resources/icons/urist/turf/scomturfs.dmi'
 	var/scomtechlvl = 0
 	var/scommoney = 0
 
@@ -31,7 +31,7 @@
 /obj/item/scom/aliengun
 	name = "alien weapon"
 	desc = "An inert alien weapon, dropped by the lactera."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 
 /obj/item/scom/aliengun/a1
 	icon_state = "xeno-pistol"
@@ -60,7 +60,7 @@
 /obj/item/scom/borgmodkit
 	name = "cyborg mod kit - Combat"
 	desc = "A mod kit to convert a cyborg into a Combat Borg"
-	icon = 'icons/urist/items/old_bay_custom_items.dmi'
+	icon = 'resources/icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "royce_kit"
 
 /obj/item/scom/borgmodkit/attack(var/mob/living/silicon/robot/R)

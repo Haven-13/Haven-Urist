@@ -11,9 +11,9 @@
 /obj/machinery/door/firedoor
 	name = "\improper Emergency Shutter"
 	desc = "Emergency air-tight shutter, capable of sealing off breached areas."
-	icon = 'icons/obj/doors/hazard/door.dmi'
-	var/panel_file = 'icons/obj/doors/hazard/panel.dmi'
-	var/welded_file = 'icons/obj/doors/hazard/welded.dmi'
+	icon = 'resources/icons/obj/doors/hazard/door.dmi'
+	var/panel_file = 'resources/icons/obj/doors/hazard/panel.dmi'
+	var/welded_file = 'resources/icons/obj/doors/hazard/welded.dmi'
 	icon_state = "open"
 	req_one_access = list(access_atmospherics, access_engine_equip)
 	opacity = 0
@@ -195,7 +195,7 @@
 			user.visible_message("<span class='danger'>\The [user] [blocked ? "welds" : "unwelds"] \the [src] with \a [W].</span>",\
 			"You [blocked ? "weld" : "unweld"] \the [src] with \the [W].",\
 			"You hear something being welded.")
-			playsound(src, 'sound/items/Welder.ogg', 100, 1)
+			playsound(src, 'resources/sound/items/Welder.ogg', 100, 1)
 			update_icon()
 			return
 
@@ -214,7 +214,7 @@
 									"You start to remove the electronics from [src].")
 			if(do_after(user,30,src))
 				if(blocked && density && hatch_open)
-					playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+					playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 100, 1)
 					user.visible_message("<span class='danger'>[user] has removed the electronics from \the [src].</span>",
 										"You have removed the electronics from [src].")
 					deconstruct(user)
@@ -435,7 +435,7 @@
 
 /obj/machinery/door/firedoor/border_only
 /*
-	icon = 'icons/obj/doors/edge_Doorfire.dmi'
+	icon = 'resources/icons/obj/doors/edge_Doorfire.dmi'
 	glass = 1 //There is a glass window so you can see through the door
 			//This is needed due to BYOND limitations in controlling visibility
 	heat_proof = 1
@@ -473,5 +473,5 @@
 */
 
 /obj/machinery/door/firedoor/multi_tile
-	icon = 'icons/obj/doors/DoorHazard2x1.dmi'
+	icon = 'resources/icons/obj/doors/DoorHazard2x1.dmi'
 	width = 2

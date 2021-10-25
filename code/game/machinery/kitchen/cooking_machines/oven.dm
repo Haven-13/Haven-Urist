@@ -1,7 +1,7 @@
 /obj/machinery/cooker/oven
 	name = "oven"
 	desc = "Cookies are ready, dear."
-	icon = 'icons/obj/cooking_machines.dmi'
+	icon = 'resources/icons/obj/cooking_machines.dmi'
 	icon_state = "oven_off"
 	on_icon = "oven_on"
 	off_icon = "oven_off"

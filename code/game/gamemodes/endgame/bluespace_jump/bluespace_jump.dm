@@ -131,7 +131,7 @@
 	qdel(src)
 
 /atom/movable/screen/fullscreen/bluespace_overlay
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	icon_state = "mfoam"
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	color = "#ff9900"

@@ -4,7 +4,7 @@ var/list/mining_floors = list()
 /**********************Mineral deposits**************************/
 /turf/unsimulated/mineral
 	name = "impassable rock"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'resources/icons/turf/walls.dmi'
 	icon_state = "rock-dark"
 	blocks_air = 1
 	density = 1
@@ -12,7 +12,7 @@ var/list/mining_floors = list()
 
 /turf/simulated/mineral //wall piece
 	name = "rock"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'resources/icons/turf/walls.dmi'
 	icon_state = "rock"
 	initial_gas = null
 	opacity = 1
@@ -134,7 +134,7 @@ var/list/mining_floors = list()
 
 /turf/simulated/mineral/proc/UpdateMineral()
 	clear_ore_effects()
-	ore_overlay = image('icons/turf/mining_decals.dmi', "[mineral.ore_icon_overlay]")
+	ore_overlay = image('resources/icons/turf/mining_decals.dmi', "[mineral.ore_icon_overlay]")
 	if(prob(50))
 		var/matrix/M = matrix()
 		M.Scale(-1,1)
@@ -257,11 +257,11 @@ var/list/mining_floors = list()
 // This means you can put grass on the asteroid etc.
 /turf/simulated/floor/asteroid
 	name = "sand"
-	icon = 'icons/turf/flooring/asteroid.dmi'
+	icon = 'resources/icons/turf/flooring/asteroid.dmi'
 	icon_state = "asteroid"
 	base_name = "sand"
 	base_desc = "Gritty and unpleasant."
-	base_icon = 'icons/turf/flooring/asteroid.dmi'
+	base_icon = 'resources/icons/turf/flooring/asteroid.dmi'
 	base_icon_state = "asteroid"
 
 	initial_flooring = null
@@ -328,7 +328,7 @@ var/list/mining_floors = list()
 			return
 
 		to_chat(user, "<span class='warning'>You start digging.</span>")
-		playsound(user.loc, 'sound/effects/rustle1.ogg', 50, 1)
+		playsound(user.loc, 'resources/sound/effects/rustle1.ogg', 50, 1)
 
 		if(!do_after(user,40, src)) return
 
@@ -366,20 +366,20 @@ var/list/mining_floors = list()
 		var/turf/T = get_step(src, direction)
 
 		if(istype(T, /turf/space) || istype(T, /turf/simulated/open))
-			var/image/aster_edge = image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = direction)
+			var/image/aster_edge = image('resources/icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = direction)
 			aster_edge.turf_decal_layerise(target = src)
 			if(istype(T, /turf/simulated/open))
 				aster_edge.layer = MOB_LAYER + 1
 			overlays += aster_edge
 
 		if(istype(T, /turf/simulated/mineral))
-			var/image/rock_wall = image('icons/turf/walls.dmi', "rock_side", dir = direction)
+			var/image/rock_wall = image('resources/icons/turf/walls.dmi', "rock_side", dir = direction)
 			rock_wall.turf_decal_layerise(target = src)
 			overlays += rock_wall
 
 	//todo cache
 	if(overlay_detail)
-		var/image/floor_decal = image(icon = 'icons/turf/flooring/decals.dmi', icon_state = overlay_detail)
+		var/image/floor_decal = image(icon = 'resources/icons/turf/flooring/decals.dmi', icon_state = overlay_detail)
 		floor_decal.turf_decal_layerise(target = src)
 		overlays |= floor_decal
 

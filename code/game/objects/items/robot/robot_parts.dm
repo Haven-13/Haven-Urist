@@ -1,6 +1,6 @@
 /obj/item/robot_parts
 	name = "robot parts"
-	icon = 'icons/obj/robot_parts.dmi'
+	icon = 'resources/icons/obj/robot_parts.dmi'
 	item_state = "buildpipe"
 	icon_state = "blank"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE

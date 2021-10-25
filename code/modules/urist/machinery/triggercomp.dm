@@ -2,7 +2,7 @@
 
 /obj/machinery/computer/trigger/blast
 	name = "Blast Door Computer" //let's just do blast doors for now all this does is condense buttons down so the warden/CE isn't shitting himself.
-	icon = 'icons/urist/objects/machinery.dmi'
+	icon = 'resources/icons/urist/objects/machinery.dmi'
 	icon_state = "trig"
 	density = 0
 

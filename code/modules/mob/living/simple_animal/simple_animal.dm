@@ -1,6 +1,6 @@
 /mob/living/simple_animal
 	name = "animal"
-	icon = 'icons/mob/animal.dmi'
+	icon = 'resources/icons/mob/animal.dmi'
 	health = 20
 	maxHealth = 20
 

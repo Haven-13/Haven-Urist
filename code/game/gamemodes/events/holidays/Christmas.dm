@@ -18,7 +18,7 @@
 
 /obj/item/weapon/toy/xmas_cracker
 	name = "xmas cracker"
-	icon = 'icons/obj/christmas.dmi'
+	icon = 'resources/icons/obj/christmas.dmi'
 	icon_state = "cracker"
 	desc = "Directions for use: Requires two people, one to pull each end."
 	var/cracked = 0
@@ -49,7 +49,7 @@
 		other_half.cracked = 1
 		other_half.icon_state = "cracker2"
 		target.put_in_active_hand(other_half)
-		playsound(user, 'sound/effects/snap.ogg', 50, 1)
+		playsound(user, 'resources/sound/effects/snap.ogg', 50, 1)
 		return 1
 	return ..()
 

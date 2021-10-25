@@ -7,7 +7,7 @@
 /obj/item/weapon/reagent_containers/ivbag
 	name = "\improper IV bag"
 	desc = "Flexible bag for IV injectors."
-	icon = 'icons/obj/bloodpack.dmi'
+	icon = 'resources/icons/obj/bloodpack.dmi'
 	icon_state = "empty"
 	w_class = ITEM_SIZE_SMALL
 	volume = 120

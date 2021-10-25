@@ -5,7 +5,7 @@
 /obj/item/weapon/reagent_containers/hypospray //obsolete, use hypospray/vial for the actual hypospray item
 	name = "hypospray"
 	desc = "The DeForest Medical Corporation, a subsidiary of Zeng-Hu Pharmaceuticals, hypospray is a sterile, air-needle autoinjector for rapid administration of drugs to patients."
-	icon = 'icons/obj/syringe.dmi'
+	icon = 'resources/icons/obj/syringe.dmi'
 	item_state = "hypo"
 	icon_state = "hypo"
 	origin_tech = list(TECH_MATERIAL = 4, TECH_BIO = 5)
@@ -48,7 +48,7 @@
 	user.do_attack_animation(M)
 	to_chat(user, "<span class='notice'>You inject [M] with [src].</span>")
 	to_chat(M, "<span class='notice'>You feel a tiny prick!</span>")
-	playsound(src, 'sound/effects/hypospray.ogg',25)
+	playsound(src, 'resources/sound/effects/hypospray.ogg',25)
 	user.visible_message("<span class='warning'>[user] injects [M] with [src].</span>")
 
 	if(M.reagents)
@@ -82,7 +82,7 @@
 			loaded_vial = null
 			to_chat(user, "You remove the vial from the [src].")
 			update_icon()
-			playsound(src.loc, 'sound/weapons/flipblade.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/weapons/flipblade.ogg', 50, 1)
 			return
 		..()
 	else
@@ -103,7 +103,7 @@
 			loaded_vial.reagents.trans_to_holder(reagents,volume)
 			user.visible_message("<span class='notice'>[user] has loaded [W] into \the [src].</span>","<span class='notice'>You load \the [W] into \the [src].</span>")
 			update_icon()
-			playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/weapons/empty.ogg', 50, 1)
 		else
 			to_chat(user,"<span class='notice'>\The [src] already has a vial.</span>")
 	else

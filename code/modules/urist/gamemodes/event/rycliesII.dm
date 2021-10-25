@@ -50,7 +50,7 @@
 /obj/effect/urist/planet/rycliesii
 	name = "Ryclies II"
 	desc = "Such a beautiful planet... You wish you would've come here before it was torn apart by the Galactic Crisis."
-	icon = 'icons/urist/events/planets.dmi'
+	icon = 'resources/icons/urist/events/planets.dmi'
 	icon_state = "rycliesii"
 //	bound_width = 720
 //	bound_height = 720
@@ -124,7 +124,7 @@
 	var/reload = 180
 	name = "bluespace artillery control"
 	icon_state = "control_boxp1"
-	icon = 'icons/obj/machines/particle_accelerator2.dmi'
+	icon = 'resources/icons/obj/machines/particle_accelerator2.dmi'
 	density = 1
 	anchored = 1
 	var/artillery = 0
@@ -187,7 +187,7 @@
 
 /obj/effect/urist/fakebomb
 	name = "explosion"
-	icon = 'icons/urist/96x96.dmi'
+	icon = 'resources/icons/urist/96x96.dmi'
 	icon_state = "explosion"
 
 /turf/simulated/shuttle/wall/destructable/ex_act(severity)
@@ -235,13 +235,13 @@
 	desc = "A compact rifle chambered in 12.7x54mm Caseless. Heavy and inaccurate, but hard-hitting and reliable. The stamped text on the side reads, 'Kayman-Hale KH-50'"
 	icon_state = "KH50"
 	item_state = "gun"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	force = 12
 	caliber = "12.7x54mm"
 	magazine_type = /obj/item/ammo_magazine/a127x54mm
 	load_method = MAGAZINE
 	auto_eject = 1
-	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	auto_eject_sound = 'resources/sound/weapons/smg_empty_alarm.ogg'
 
 
 /obj/item/weapon/gun/projectile/automatic/kh50/update_icon()
@@ -256,7 +256,7 @@
 	name = "magazine (12.7x54mm)"
 	icon_state = "12.7x54mm"
 	desc = "A magazine for the KH-50 rifle. Holds up to twenty 12.7x54mm Caseless rounds. This magazine is loaded with regular ball ammo."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	origin_tech = "combat=2"
 	ammo_type = /obj/item/ammo_casing/a127x54mm
 	max_ammo = 31
@@ -267,7 +267,7 @@
 /obj/item/ammo_magazine/a127x54mm/empty //not sure if this is even necessary anymore
 	name = "magazine (12.7x54mm)"
 	icon_state = "12.7x54mm-empty"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	initial_ammo = 0
 
 /obj/item/ammo_casing/a127x54mm
@@ -291,7 +291,7 @@
 /obj/structure/scom/shieldgen
 	name = "shield generator"
 	desc = "The shield generator for the alien mothership"
-	icon = 'icons/urist/objects/scomscience.dmi'
+	icon = 'resources/icons/urist/objects/scomscience.dmi'
 	icon_state = "norm2"
 
 /obj/structure/scom/shieldgen/ex_act(severity)
@@ -313,7 +313,7 @@
 /obj/structure/scom/shieldwall/shieldwall1
 	name = "energy field"
 	desc = "Impenetrable field of energy, capable of blocking anything as long as it's active."
-	icon = 'icons/obj/machines/shielding.dmi'
+	icon = 'resources/icons/obj/machines/shielding.dmi'
 	icon_state = "shieldsparkles"
 	anchored = 1
 	layer = 4.1		//just above mobs
@@ -326,7 +326,7 @@
 /obj/structure/scom/shieldwall/shieldwall2
 	name = "energy field"
 	desc = "Impenetrable field of energy, capable of blocking anything as long as it's active."
-	icon = 'icons/obj/machines/shielding.dmi'
+	icon = 'resources/icons/obj/machines/shielding.dmi'
 	icon_state = "shieldsparkles"
 	anchored = 1
 	layer = 4.1		//just above mobs
@@ -353,7 +353,7 @@
 /obj/structure/scom/tanktrap
 	name = "tank trap"
 	desc = "A twisted X of steel designed to stop a tank in its tracks."
-	icon = 'icons/urist/objects/structures.dmi'
+	icon = 'resources/icons/urist/objects/structures.dmi'
 	icon_state = "tanktrap"
 	density = 1
 	anchored = 1

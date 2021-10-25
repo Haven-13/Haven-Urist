@@ -2,7 +2,7 @@
 	name = "0 Thaler"
 	desc = "It's worth 0 Thalers."
 	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "spacecash1"
 	opacity = 0
 	density = 0
@@ -71,7 +71,7 @@
 	var/list/images = src.getMoneyImages()
 
 	for(var/A in images)
-		var/image/banknote = image('icons/obj/items.dmi', A)
+		var/image/banknote = image('resources/icons/obj/items.dmi', A)
 		var/matrix/M = matrix()
 		M.Translate(rand(-6, 6), rand(-4, 8))
 		M.Turn(pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45))

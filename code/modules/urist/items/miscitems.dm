@@ -4,7 +4,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "necromancer's staff"
 	desc = "A staff that emits a threatening aura of death."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	icon_state = "necrostaff"
 	item_state = "necrostaff"
 
@@ -17,7 +17,7 @@
 /obj/item/weapon/storage/box/glowsticks
 	name = "box of glowsticks"
 	desc = "Contains seven different coloured glowsticks."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	icon_state = "gsbox"
 
 	startswith = list(
@@ -34,18 +34,18 @@
 
 /obj/item/weapon/material/minihoe/wood/New()
 	..()
-	icon = 'icons/urist/items/wood.dmi'
+	icon = 'resources/icons/urist/items/wood.dmi'
 	matter = list(DEFAULT_WALL_MATERIAL = 400, "wood" = 250)
 
 /obj/item/weapon/material/hatchet/wood/New()
 	..()
-	icon = 'icons/urist/items/wood.dmi'
+	icon = 'resources/icons/urist/items/wood.dmi'
 	matter = list(DEFAULT_WALL_MATERIAL = 350, "wood" = 250)
 
 /obj/item/weapon/reagent_containers/food/drinks/woodcup
 	name = "cup"
 	desc = "A simple wooden cup."
-	icon = 'icons/urist/items/wood.dmi'
+	icon = 'resources/icons/urist/items/wood.dmi'
 	icon_state = "cup"
 	volume = 30
 	center_of_mass = list("x"=15, "y"=13)
@@ -54,16 +54,16 @@
 /obj/item/weapon/dice/wood
 	name = "d6"
 	matter = list("wood" = 30)
-	icon = 'icons/urist/items/wood.dmi'
+	icon = 'resources/icons/urist/items/wood.dmi'
 
 /obj/item/weapon/mop/wood
-	icon = 'icons/urist/items/wood.dmi'
+	icon = 'resources/icons/urist/items/wood.dmi'
 	matter = list(DEFAULT_WALL_MATERIAL = 150, "wood" = 200)
 
 /obj/item/weapon/pickaxe/old
 	name = "pickaxe"
 	desc = "The most basic of mining tools, for short excavations and small mineral extractions."
-	icon = 'icons/urist/items/wood.dmi'
+	icon = 'resources/icons/urist/items/wood.dmi'
 	icon_state = "pickaxe"
 	item_state = "pickaxe"
 	matter = list(DEFAULT_WALL_MATERIAL = 2000, "wood" = 900)
@@ -71,7 +71,7 @@
 /obj/item/weapon/shovel/spade/wood
 	name = "spade"
 	desc = "A small tool for digging and moving dirt. It has a wooden handle"
-	icon = 'icons/urist/items/wood.dmi'
+	icon = 'resources/icons/urist/items/wood.dmi'
 	matter = list(DEFAULT_WALL_MATERIAL = 300, "wood" = 300)
 
 /obj/item/weapon/material/ashtray/wood/New(var/newloc)
@@ -98,7 +98,7 @@
 	name = "wood shafts"
 	desc = "Some wood shafts. Can be used for some shit probably."
 	singular_name = "wood shaft"
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	icon_state = "woodrods"
 	w_class = 4
 	force = 8.0
@@ -196,7 +196,7 @@
 	update_icon()
 
 /obj/item/weapon/sharpwoodrod
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 //	item_state = "sharpwoodrod"
 	icon_state = "sharpwoodrod"
 	name = "sharpened wooden shaft"
@@ -269,7 +269,7 @@
 /obj/item/weapon/flame/torch
 	name = "torch"
 	desc = "An improvised torch, used for lighting up dark areas and cosplaying as Indiana Jones."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	icon_state = "torch_unlit"
 	item_state = "torch0"
 	var/burnt = 0
@@ -344,7 +344,7 @@
 /obj/item/weapon/shovel/improvised
 	name = "improvised shovel"
 	desc = "A shitty improvised shovel, watch out though, might break."
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 	icon_state = "impshovel"
 	slot_flags = SLOT_BELT
 	force = 8.0
@@ -366,7 +366,7 @@
 /obj/item/weapon/paddle
 	name = "paddle"
 	desc = "A shaped piece of wood, best used for manually propelling waterborne objects."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	icon_state = "paddle"
 	slot_flags = SLOT_BACK
 	force = 8.0
@@ -378,7 +378,7 @@
 
 /obj/item/device/radio/medical
 	name = "emergency medical radio"
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	icon_state = "medradio"
 	frequency = MED_I_FREQ
 
@@ -409,7 +409,7 @@
 /obj/item/improv/axe_head
 	name = "axe head"
 	desc = "It's an axe head. Slam it on a wood rod and you got yourself an axe son."
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 	icon_state = "axehead"
 
 /obj/item/improv/axe_head/attackby(obj/item/W as obj, mob/user as mob)
@@ -426,7 +426,7 @@
 /obj/item/improv/pickaxe_head
 	name = "pickaxe head"
 	desc = "It's a pickaxe head. Slam it on a wood rod and you got yourself a pickaxe son."
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 	icon_state = "pickaxehead"
 
 /obj/item/improv/pickaxe_head/attackby(obj/item/W as obj, mob/user as mob)
@@ -445,7 +445,7 @@
 /obj/item/weapon/storage/box/survivalkit/
 	name = "expedition survival kit"
 	desc = "A medium sized water-proofed holding case, which contains multiple tools used for survival on an expedition."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	icon_state = "survivalkit"
 	startswith = list(/obj/item/weapon/material/knife/survivalknife = 1,
 					/obj/item/weapon/reagent_containers/food/drinks/survivalcanteen = 1,
@@ -458,5 +458,5 @@
 /obj/item/weapon/reagent_containers/food/drinks/survivalcanteen
 	name = "survival canteen"
 	desc = "A stainless steel screw-topped green survival canteen with a brown cover, which can hold a fair amount of liquid for travel."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	icon_state = "canteen"

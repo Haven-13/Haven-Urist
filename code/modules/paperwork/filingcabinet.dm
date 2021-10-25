@@ -12,7 +12,7 @@
 /obj/structure/filingcabinet
 	name = "filing cabinet"
 	desc = "A large cabinet with drawers."
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'resources/icons/obj/bureaucracy.dmi'
 	icon_state = "filingcabinet"
 	density = 1
 	anchored = 1
@@ -61,7 +61,7 @@
 			to_chat(user, "<span class='warning'>You can't see anywhere to unscrew that!</span>")
 			return
 		else
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 			to_chat(user, "<span class='notice'>You disassemble \the [src].</span>")
 			var/obj/item/stack/material/steel/S =  new /obj/item/stack/material/steel(src.loc)
 			S.amount = 2

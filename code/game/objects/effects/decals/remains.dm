@@ -1,13 +1,13 @@
 /obj/item/remains
 	name = "remains"
 	gender = PLURAL
-	icon = 'icons/effects/blood.dmi'
+	icon = 'resources/icons/effects/blood.dmi'
 	icon_state = "remains"
 	anchored = 0
 
 /obj/effect/decal/remains	// Apparently used by cult somewhere?
 	desc = "They look like human remains. They have a strange aura about them."
-	icon = 'icons/effects/blood.dmi'
+	icon = 'resources/icons/effects/blood.dmi'
 	icon_state = "remains"
 
 /obj/item/remains/human
@@ -15,7 +15,7 @@
 
 /obj/effect/decal/remains	// Apparently used by cult somewhere?
 	desc = "They look like human remains. They have a strange aura about them."
-	icon = 'icons/effects/blood.dmi'
+	icon = 'resources/icons/effects/blood.dmi'
 	icon_state = "remains"
 
 /obj/item/remains/xeno
@@ -24,7 +24,7 @@
 
 /obj/item/remains/robot
 	desc = "They look like the remains of something mechanical. They have a strange aura about them."
-	icon = 'icons/mob/robots.dmi'
+	icon = 'resources/icons/mob/robots.dmi'
 	icon_state = "remainsrobot"
 
 /obj/item/remains/mouse

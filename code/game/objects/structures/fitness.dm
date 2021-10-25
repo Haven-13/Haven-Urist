@@ -1,5 +1,5 @@
 /obj/structure/fitness
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	anchored = 1
 	var/being_used = 0
 
@@ -21,7 +21,7 @@
 		if(user.a_intent == I_HURT)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			flick("[icon_state]_hit", src)
-			playsound(src.loc, 'sound/effects/woodhit.ogg', 25, 1, -1)
+			playsound(src.loc, 'resources/sound/effects/woodhit.ogg', 25, 1, -1)
 			user.do_attack_animation(src)
 			if(!synth)
 				user.nutrition = user.nutrition - 5
@@ -36,7 +36,7 @@
 
 /obj/structure/fitness/weightlifter/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(isWrench(W))
-		playsound(src.loc, 'sound/items/Deconstruct.ogg', 75, 1)
+		playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 75, 1)
 		weight = ((weight) % qualifiers.len) + 1
 		to_chat(user, "You set the machine's weight level to [weight].")
 
@@ -55,11 +55,11 @@
 		return
 	else
 		being_used = 1
-		playsound(src.loc, 'sound/effects/weightlifter.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/effects/weightlifter.ogg', 50, 1)
 		user.set_dir(SOUTH)
 		flick("[icon_state]_[weight]", src)
 		if(do_after(user, 20 + (weight * 10)))
-			playsound(src.loc, 'sound/effects/weightdrop.ogg', 25, 1)
+			playsound(src.loc, 'resources/sound/effects/weightdrop.ogg', 25, 1)
 			if(!synth)
 				user.nutrition -= weight * 10
 			to_chat(user, "<span class='notice'>You lift the weights [qualifiers[weight]].</span>")

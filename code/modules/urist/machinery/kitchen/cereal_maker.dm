@@ -1,7 +1,7 @@
 /obj/machinery/cerealmaker
 	name = "cereal maker"
 	desc = "Now with Dann O's available!"
-	icon = 'icons/urist/kitchen.dmi'
+	icon = 'resources/icons/urist/kitchen.dmi'
 	icon_state = "cereal_off"
 	layer = 2.9
 	density = 1
@@ -37,7 +37,7 @@
 		S.overlays += img
 		S.overlays += I.overlays
 		S.name = "box of [I] cereal"
-		playsound(loc, 'sound/machines/ding.ogg', 50, 1)
+		playsound(loc, 'resources/sound/machines/ding.ogg', 50, 1)
 		on = FALSE
 		qdel(I)
 

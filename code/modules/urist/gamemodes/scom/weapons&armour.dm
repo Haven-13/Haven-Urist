@@ -4,10 +4,10 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper pulse sniper rifle"
 	desc = "A pulse rifle constructed of lightweight materials, fitted with a SMART aiming-system scope."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "psniper"
 	item_state = "psniper"
-	fire_sound = 'sound/weapons/marauder.ogg'
+	fire_sound = 'resources/sound/weapons/marauder.ogg'
 	projectile_type = /obj/item/projectile/beam/sniper/pulse
 	slot_flags = SLOT_BACK
 	charge_cost = 250
@@ -19,20 +19,20 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "pulse pistol"
 	desc = "A heavy-duty, pulse-based energy pistol, preferred as a sidearm by front-line combat personnel."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "pulse_pistol"
 	item_state = "pulse_pistol"
 	force = 7
-	fire_sound = 'sound/weapons/pulse.ogg'
+	fire_sound = 'resources/sound/weapons/pulse.ogg'
 	charge_cost = 150
 	projectile_type = /obj/item/projectile/beam/pulse/light
 	cell_type = /obj/item/weapon/cell/super
 	w_class = 2.0
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg', fire_delay=null, charge_cost=null),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/light, fire_sound='sound/weapons/Laser.ogg', fire_delay=null, charge_cost=null),
-		list(mode_name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse/light, fire_sound='sound/weapons/pulse.ogg', fire_delay=25, charge_cost=400),
+		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='resources/sound/weapons/Taser.ogg', fire_delay=null, charge_cost=null),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/light, fire_sound='resources/sound/weapons/Laser.ogg', fire_delay=null, charge_cost=null),
+		list(mode_name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse/light, fire_sound='resources/sound/weapons/pulse.ogg', fire_delay=25, charge_cost=400),
 		)
 
 
@@ -40,11 +40,11 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "pulse cannon"
 	desc = "A heavy-duty, pulse-based energy cannon, preferred by front-line heavy infantry."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "pulse_cannon"
 	item_state = "pulse_cannon"
 	force = 12
-	fire_sound = 'sound/weapons/marauder.ogg'
+	fire_sound = 'resources/sound/weapons/marauder.ogg'
 	charge_cost = 250
 	projectile_type = /obj/item/projectile/beam/pulse/heavy/h2
 	cell_type = /obj/item/weapon/cell/super
@@ -58,7 +58,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "laser pistol"
 	desc = "A basic pistol designed to kill with concentrated energy bolts."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "lpistol"
 	item_state = "lpistol"
 	w_class = 2.0
@@ -68,7 +68,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "laser rifle"
 	desc = "A basic weapon designed to kill with concentrated energy bolts."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	icon_state = "lrifle"
 	item_state = "lrifle"
 	w_class = 3.0
@@ -81,7 +81,7 @@
 	desc = "A powerful semi automatic sniper, perfect for long-range warfare."
 	icon_state = "SVD"
 	item_state = "SVD"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	force = 10
 	caliber = "a762"
 	ammo_type = /obj/item/ammo_casing/a762/sniper
@@ -91,12 +91,12 @@
 	zoomdevicename = "scope"
 	scommoney = 100
 	auto_eject = 1
-	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	auto_eject_sound = 'resources/sound/weapons/smg_empty_alarm.ogg'
 	accuracy = -3 //shooting at the hip
 	scoped_accuracy = 0
 	handle_casings = EJECT_CASINGS
 	one_hand_penalty = 8
-	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/gunshot3.ogg'
 	wielded_item_state = "woodarifle-wielded"
 
 /obj/item/weapon/gun/projectile/sniper/verb/scope()
@@ -116,7 +116,7 @@
 /obj/item/ammo_magazine/a762mm
 	name = "magazine (7.62mm)"
 	icon_state = "7.62mm"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	origin_tech = "combat=2"
 	ammo_type = /obj/item/ammo_casing/a762
 	mag_type = MAGAZINE
@@ -125,7 +125,7 @@
 /obj/item/ammo_magazine/a762mm/sniper
 	name = "magazine (7.62mm)"
 	icon_state = "7.62mm"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	origin_tech = "combat=2"
 	ammo_type = /obj/item/ammo_casing/a762/sniper
 	max_ammo = 10
@@ -136,7 +136,7 @@
 /obj/item/ammo_magazine/a762mm/sniper/empty
 	name = "magazine (7.62mm)"
 	icon_state = "7.62mm"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	ammo_type = /obj/item/ammo_casing/a762/sniper
 	mag_type = MAGAZINE
 	initial_ammo = 0

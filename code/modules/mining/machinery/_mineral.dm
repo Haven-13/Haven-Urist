@@ -1,5 +1,5 @@
 /obj/machinery/mineral
-	icon = 'icons/obj/machines/mining_machines.dmi'
+	icon = 'resources/icons/obj/machines/mining_machines.dmi'
 	density =  TRUE
 	anchored = TRUE
 

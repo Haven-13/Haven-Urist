@@ -6,7 +6,7 @@
 /mob/observer/eye
 	name = "Eye"
 	var/name_sufix = "Eye"
-	icon = 'icons/mob/eye.dmi'
+	icon = 'resources/icons/mob/eye.dmi'
 	icon_state = "default-eye"
 
 	var/sprint = 10

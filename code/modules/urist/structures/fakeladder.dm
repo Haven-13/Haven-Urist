@@ -1,7 +1,7 @@
 /obj/structure/fakeladder
 	name = "ladder"
 	desc = "A sturdy metal ladder."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'resources/icons/obj/structures.dmi'
 	icon_state = "ladder11"
 	var/id = null
 	var/height = 0							//the 'height' of the ladder. higher numbers are considered physically higher

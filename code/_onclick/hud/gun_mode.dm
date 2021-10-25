@@ -1,6 +1,6 @@
 /atom/movable/screen/gun
 	name = "gun"
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 	master = null
 	dir = 2
 

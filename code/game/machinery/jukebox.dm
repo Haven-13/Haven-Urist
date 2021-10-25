@@ -20,7 +20,7 @@
 	description_info = "Click the jukebox and then select a track on the interface. You can choose to play or stop the track, or set the volume. Use a wrench to attach or detach the jukebox to the floor. The room it is installed in must have power for it to operate!"
 	description_fluff = "The Leitmotif is Auraliving's most popular brand of retro jukebox, putting a modern spin on the ancient curved plasmascreen design. The Enterprise Edition allows an indefinite number of users to sync music from their devices simultaneously... of course the Expeditionary Corps made sure to lock down the selection before they installed this one."
 	description_antag = "Slide a cryptographic sequencer into the jukebox to overload its speakers. Instead of music, it'll produce a hellish blast of noise and explode!"
-	icon = 'icons/obj/jukebox_new.dmi'
+	icon = 'resources/icons/obj/jukebox_new.dmi'
 	icon_state = "jukebox3-nopower"
 	var/state_base = "jukebox3"
 	anchored = 1
@@ -29,7 +29,7 @@
 	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 100
-	clicksound = 'sound/machines/buttonbeep.ogg'
+	clicksound = 'resources/sound/machines/buttonbeep.ogg'
 	pixel_x = -8
 
 	var/playing = 0
@@ -46,7 +46,7 @@
 	name = "space jukebox"
 	desc = "A battered and hard-loved jukebox in some forgotten style, carefully restored to some semblance of working condition."
 	description_fluff = "No one these days knows what civilization is responsible for this machine's design - various alien species have been credited on more than one occasion."
-	icon = 'icons/obj/jukebox.dmi'
+	icon = 'resources/icons/obj/jukebox.dmi'
 	icon_state = "jukebox2-nopower"
 	state_base = "jukebox2"
 	pixel_x = 0
@@ -152,7 +152,7 @@
 			. = TRUE
 
 /obj/machinery/media/jukebox/proc/emag_play()
-	playsound(loc, 'sound/items/AirHorn.ogg', 100, 1)
+	playsound(loc, 'resources/sound/items/AirHorn.ogg', 100, 1)
 	for(var/mob/living/carbon/M in ohearers(6, src))
 		if(istype(M, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = M

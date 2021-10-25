@@ -1,7 +1,7 @@
 /obj/item/weapon/board
 	name = "board"
 	desc = "A standard 16\" checkerboard. Well used." //Goddamn imperial system.
-	icon = 'icons/obj/pieces.dmi'
+	icon = 'resources/icons/obj/pieces.dmi'
 	icon_state = "board"
 
 	var/num = 0
@@ -166,7 +166,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/checker
 	name = "checker"
 	desc = "It is plastic and shiny."
-	icon = 'icons/obj/pieces.dmi'
+	icon = 'resources/icons/obj/pieces.dmi'
 	icon_state = "checker_black"
 	w_class = ITEM_SIZE_TINY
 	center_of_mass = "x=16;y=16"

@@ -1,6 +1,6 @@
 /obj/structure/displaycase
 	name = "display case"
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "glassbox"
 	desc = "A display case for prized possessions. It taunts you to kick it."
 	density = 1
@@ -53,7 +53,7 @@
 			playsound(src, "shatter", 70, 1)
 			update_icon()
 	else
-		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
+		playsound(src.loc, 'resources/sound/effects/Glasshit.ogg', 75, 1)
 
 /obj/structure/displaycase/update_icon()
 	underlays.Cut()

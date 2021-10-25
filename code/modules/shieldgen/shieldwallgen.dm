@@ -2,7 +2,7 @@
 /obj/machinery/shieldwallgen
 	name = "Shield Generator"
 	desc = "A shield generator."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "Shield_Gen"
 	anchored = 0
 	density = 1
@@ -205,13 +205,13 @@
 			return
 
 		else if(anchored == 0)
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+			playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 			to_chat(user, "You secure the external reinforcing bolts to the floor.")
 			src.anchored = 1
 			return
 
 		else if(anchored == 1)
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+			playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 			to_chat(user, "You undo the external reinforcing bolts.")
 			src.anchored = 0
 			return
@@ -259,7 +259,7 @@
 /obj/machinery/shieldwall
 	name = "Shield"
 	desc = "An energy shield."
-	icon = 'icons/effects/effects.dmi'
+	icon = 'resources/icons/effects/effects.dmi'
 	icon_state = "shieldwall"
 	anchored = 1
 	density = 1
@@ -302,7 +302,7 @@
 	user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [I]!</span>")
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
-	playsound(loc, 'sound/weapons/smash.ogg', 75, 1)
+	playsound(loc, 'resources/sound/weapons/smash.ogg', 75, 1)
 
 /obj/machinery/shieldwall/Process()
 	if(needs_power)

@@ -1,7 +1,7 @@
 /obj/machinery/mech_recharger
 	name = "mech recharger"
 	desc = "A mech recharger, built into the floor."
-	icon = 'icons/mecha/mech_bay.dmi'
+	icon = 'resources/icons/mecha/mech_bay.dmi'
 	icon_state = "recharge_floor"
 	density = 0
 	plane = DEFAULT_PLANE

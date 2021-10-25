@@ -1,7 +1,7 @@
 /obj/item/weapon/ore
 	name = "ore"
 	icon_state = "lump"
-	icon = 'icons/obj/materials/ore.dmi'
+	icon = 'resources/icons/obj/materials/ore.dmi'
 	randpixel = 8
 	w_class = 2
 	var/material/material

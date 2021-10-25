@@ -122,7 +122,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	targetpad.sourcepad = src //This marks the holopad you are making the call from
 	targetpad.caller_id = user //This marks you as the caller
 	targetpad.incoming_connection = 1
-	playsound(targetpad.loc, 'sound/machines/chime.ogg', 25, 5)
+	playsound(targetpad.loc, 'resources/sound/machines/chime.ogg', 25, 5)
 	targetpad.icon_state = "[targetpad.base_icon]1"
 	targetpad.audible_message("<b>\The [src]</b> announces, \"Incoming communications request from [targetpad.sourcepad.loc.loc].\"")
 	to_chat(user, "<span class='notice'>Trying to establish a connection to the holopad in [targetpad.loc.loc]... Please await confirmation from recipient.</span>")
@@ -381,7 +381,7 @@ Holographic project of everything else.
 	flat_icon.ChangeOpacity(0.5)//Make it half transparent.
 	var/input = input("Select what icon state to use in effect.",,"")
 	if(input)
-		var/icon/alpha_mask = new('icons/effects/effects.dmi', "[input]")
+		var/icon/alpha_mask = new('resources/icons/effects/effects.dmi', "[input]")
 		flat_icon.AddAlphaMask(alpha_mask)//Finally, let's mix in a distortion effect.
 		hologram.icon = flat_icon
 
@@ -396,7 +396,7 @@ Holographic project of everything else.
 /obj/machinery/hologram/projector
 	name = "hologram projector"
 	desc = "It makes a hologram appear...with magnets or something..."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "hologram0"
 
 /obj/machinery/hologram/holopad/longrange

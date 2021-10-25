@@ -1,7 +1,7 @@
 /obj/structure/grille
 	name = "grille"
 	desc = "A flimsy lattice of metal rods, with screws to secure it to the floor."
-	icon = 'icons/obj/grille.dmi'
+	icon = 'resources/icons/obj/grille.dmi'
 	icon_state = "grille"
 	density = 1
 	anchored = 1
@@ -57,7 +57,7 @@
 /obj/structure/grille/attack_hand(mob/user as mob)
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	playsound(loc, 'sound/effects/grillehit.ogg', 80, 1)
+	playsound(loc, 'resources/sound/effects/grillehit.ogg', 80, 1)
 	user.do_attack_animation(src)
 
 	var/damage_dealt = 1
@@ -125,12 +125,12 @@
 /obj/structure/grille/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(isWirecutter(W))
 		if(!shock(user, 100))
-			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
+			playsound(loc, 'resources/sound/items/Wirecutter.ogg', 100, 1)
 			new rodpath (list(get_turf(src), destroyed ? 1 : 2))
 			qdel(src)
 	else if((isScrewdriver(W)) && (istype(loc, /turf/simulated) || anchored))
 		if(!shock(user, 90))
-			playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
+			playsound(loc, 'resources/sound/items/Screwdriver.ogg', 100, 1)
 			anchored = !anchored
 			user.visible_message(
 				"<span class='notice'>[user] [anchored ? "fastens" : "unfastens"] the grille.</span>",
@@ -187,7 +187,7 @@
 	else if(!(W.obj_flags & OBJ_FLAG_CONDUCTIBLE) || !shock(user, 70))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.do_attack_animation(src)
-		playsound(loc, 'sound/effects/grillehit.ogg', 80, 1)
+		playsound(loc, 'resources/sound/effects/grillehit.ogg', 80, 1)
 		switch(W.damtype)
 			if("fire")
 				health -= W.force
@@ -267,7 +267,7 @@
 /obj/structure/grille/cult
 	name = "cult grille"
 	desc = "A matrice built out of an unknown material, with some sort of force field blocking air around it."
-	icon = 'icons/obj/grille_cult.dmi'
+	icon = 'resources/icons/obj/grille_cult.dmi'
 	health = 40 //Make it strong enough to avoid people breaking in too easily
 
 /obj/structure/grille/cult/CanPass(atom/movable/mover, turf/target, height = 1.5, air_group = 0)

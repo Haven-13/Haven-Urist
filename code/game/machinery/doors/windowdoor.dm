@@ -1,11 +1,11 @@
 /obj/machinery/door/window
 	name = "interior door"
 	desc = "A strong door."
-	icon = 'icons/obj/doors/windoor.dmi'
+	icon = 'resources/icons/obj/doors/windoor.dmi'
 	icon_state = "left"
 	var/base_state = "left"
 	min_force = 4
-	hitsound = 'sound/effects/Glasshit.ogg'
+	hitsound = 'resources/sound/effects/Glasshit.ogg'
 	maxhealth = 150 //If you change this, consiter changing ../door/window/brigdoor/ health at the bottom of this .dm file
 	health = 150
 	visible = 0.0
@@ -117,7 +117,7 @@
 		src.operating = 1
 
 	flick("[src.base_state]opening", src)
-	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
+	playsound(src.loc, 'resources/sound/machines/windowdoor.ogg', 100, 1)
 	sleep(10)
 
 	explosion_resistance = 0
@@ -134,7 +134,7 @@
 		return 0
 	operating = 1
 	flick(text("[]closing", src.base_state), src)
-	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
+	playsound(src.loc, 'resources/sound/machines/windowdoor.ogg', 100, 1)
 	set_density(1)
 	update_icon()
 	explosion_resistance = initial(explosion_resistance)
@@ -158,7 +158,7 @@
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(H.species.can_shred(H))
-			playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
+			playsound(src.loc, 'resources/sound/effects/Glasshit.ogg', 75, 1)
 			visible_message("<span class='danger'>[user] smashes against the [src.name].</span>", 1)
 			take_damage(25)
 			return
@@ -194,13 +194,13 @@
 			spark_system.set_up(5, 0, src.loc)
 			spark_system.start()
 			playsound(src.loc, "sparks", 50, 1)
-			playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/weapons/blade1.ogg', 50, 1)
 			visible_message("<span class='warning'>The glass door was sliced open by [user]!</span>")
 		return 1
 
 	//If it's emagged, crowbar can pry electronics out.
 	if (src.operating == -1 && isCrowbar(I))
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 100, 1)
 		user.visible_message("[user] removes the electronics from the windoor.", "You start to remove electronics from the windoor.")
 		if (do_after(user,40,src))
 			to_chat(user, "<span class='notice'>You removed the windoor electronics!</span>")
@@ -241,7 +241,7 @@
 	if(src.density && istype(I, /obj/item/weapon) && !istype(I, /obj/item/weapon/card))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		var/aforce = I.force
-		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
+		playsound(src.loc, 'resources/sound/effects/Glasshit.ogg', 75, 1)
 		visible_message("<span class='danger'>[src] was hit by [I].</span>")
 		if(I.damtype == DAMAGE_TYPE_BRUTE || I.damtype == DAMAGE_TYPE_BURN)
 			take_damage(aforce)
@@ -265,7 +265,7 @@
 
 /obj/machinery/door/window/brigdoor
 	name = "secure door"
-	icon = 'icons/obj/doors/windoor.dmi'
+	icon = 'resources/icons/obj/doors/windoor.dmi'
 	icon_state = "leftsecure"
 	base_state = "leftsecure"
 	req_access = list(access_security)

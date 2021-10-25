@@ -164,7 +164,7 @@
 			target.visible_message("<span class='danger'>[target] has been prodded in the [affecting.name] with [src]!</span>")
 		else
 			target.visible_message("<span class='danger'>[target] has been prodded with [src][abuser]!</span>")
-		playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
+		playsound(loc, 'resources/sound/weapons/Egloves.ogg', 50, 1, -1)
 
 	//stun effects
 	if(status)
@@ -226,7 +226,7 @@
 // Traitor variant for Engineering synthetics.
 /obj/item/weapon/melee/baton/robot/electrified_arm
 	name = "electrified arm"
-	icon = 'icons/obj/device.dmi'
+	icon = 'resources/icons/obj/device.dmi'
 	icon_state = "electrified_arm"
 
 /obj/item/weapon/melee/baton/robot/electrified_arm/update_icon()

@@ -42,7 +42,7 @@
 	plantcolors = list("#d0fef5","#93e1d8","#93e1d8", "#b2abbf", "#3590f3", "#4b4e6d")
 
 /area/exoplanet/snow
-	ambience = list('sound/effects/wind/tundra0.ogg','sound/effects/wind/tundra1.ogg','sound/effects/wind/tundra2.ogg','sound/effects/wind/spooky0.ogg','sound/effects/wind/spooky1.ogg')
+	ambience = list('resources/sound/effects/wind/tundra0.ogg','resources/sound/effects/wind/tundra1.ogg','resources/sound/effects/wind/tundra2.ogg','resources/sound/effects/wind/spooky0.ogg','resources/sound/effects/wind/spooky1.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/snow/
 
 /datum/random_map/noise/ore/poor
@@ -53,12 +53,12 @@
 
 /turf/simulated/floor/exoplanet/ice
 	name = "ice"
-	icon = 'icons/turf/snow.dmi'
+	icon = 'resources/icons/turf/snow.dmi'
 	icon_state = "ice"
 
 /turf/simulated/floor/exoplanet/snow
 	name = "snow"
-	icon = 'icons/turf/snow.dmi'
+	icon = 'resources/icons/turf/snow.dmi'
 	icon_state = "snow"
 
 /turf/simulated/floor/exoplanet/snow/New()

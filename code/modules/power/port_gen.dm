@@ -2,7 +2,7 @@
 /obj/machinery/power/port_gen
 	name = "Placeholder Generator"	//seriously, don't use this. It can't be anchored without VV magic.
 	desc = "A portable generator for emergency backup power."
-	icon = 'icons/obj/power.dmi'
+	icon = 'resources/icons/obj/power.dmi'
 	icon_state = "portgen0"
 	density = 1
 	anchored = 0
@@ -287,7 +287,7 @@
 				disconnect_from_network()
 				to_chat(user, "<span class='notice'>You unsecure the generator from the floor.</span>")
 
-			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 			anchored = !anchored
 
 		if(default_deconstruction_screwdriver(user, O))
@@ -471,10 +471,10 @@
 		if(R.standard_pour_into(src,user))
 			if(reagents.has_reagent("vodka"))
 				audible_message("<span class='notice'>[src] blips happily</span>")
-				playsound(get_turf(src),'sound/machines/synth_yes.ogg', 50, 0)
+				playsound(get_turf(src),'resources/sound/machines/synth_yes.ogg', 50, 0)
 			else
 				audible_message("<span class='warning'>[src] blips in disappointment</span>")
-				playsound(get_turf(src), 'sound/machines/synth_no.ogg', 50, 0)
+				playsound(get_turf(src), 'resources/sound/machines/synth_no.ogg', 50, 0)
 		return
 	..()
 

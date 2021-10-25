@@ -60,7 +60,7 @@
 			client.screen |= screens[category]
 
 /atom/movable/screen/fullscreen
-	icon = 'icons/mob/screen_full.dmi'
+	icon = 'resources/icons/mob/screen_full.dmi'
 	icon_state = "default"
 	screen_loc = "CENTER-7,CENTER-7"
 	plane = FULLSCREEN_PLANE
@@ -89,7 +89,7 @@
 	layer = BLIND_LAYER
 
 /atom/movable/screen/fullscreen/blackout
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 	icon_state = "black"
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	layer = BLIND_LAYER
@@ -99,12 +99,12 @@
 	layer = IMPAIRED_LAYER
 
 /atom/movable/screen/fullscreen/blurry
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	icon_state = "blurry"
 
 /atom/movable/screen/fullscreen/flash
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	icon_state = "flash"
 
@@ -112,19 +112,19 @@
 	icon_state = "noise"
 
 /atom/movable/screen/fullscreen/high
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	icon_state = "druggy"
 
 /atom/movable/screen/fullscreen/noise
-	icon = 'icons/effects/static.dmi'
+	icon = 'resources/icons/effects/static.dmi'
 	icon_state = "1 light"
 	screen_loc = ui_entire_screen
 	layer = FULLSCREEN_LAYER
 	alpha = 127
 
 /atom/movable/screen/fullscreen/fadeout
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 	icon_state = "black"
 	screen_loc = ui_entire_screen
 	layer = FULLSCREEN_LAYER
@@ -136,7 +136,7 @@
 	animate(src, alpha = 255, time = 10)
 
 /atom/movable/screen/fullscreen/scanline
-	icon = 'icons/effects/static.dmi'
+	icon = 'resources/icons/effects/static.dmi'
 	icon_state = "scanlines"
 	screen_loc = ui_entire_screen
 	alpha = 50

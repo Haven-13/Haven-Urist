@@ -1,7 +1,7 @@
 /mob/living/carbon/alien
 	name = "alien"
 	desc = "What IS that?"
-	icon = 'icons/mob/alien.dmi'
+	icon = 'resources/icons/mob/alien.dmi'
 	icon_state = "alien"
 	pass_flags = PASS_FLAG_TABLE
 	health = 100

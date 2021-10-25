@@ -1,7 +1,7 @@
 //Grown foods.
 /obj/item/weapon/reagent_containers/food/snacks/grown
 	name = "fruit"
-	icon = 'icons/obj/hydroponics_products.dmi'
+	icon = 'resources/icons/obj/hydroponics_products.dmi'
 	icon_state = "blank"
 	randpixel = 5
 	desc = "Nutritious! Probably."
@@ -135,8 +135,8 @@
 	overlays.Cut()
 	icon_state = "[seed.get_trait(TRAIT_PRODUCT_ICON)]-product"
 	color = seed.get_trait(TRAIT_PRODUCT_COLOUR)
-	if("[seed.get_trait(TRAIT_PRODUCT_ICON)]-leaf" in icon_states('icons/obj/hydroponics_products.dmi'))
-		var/image/fruit_leaves = image('icons/obj/hydroponics_products.dmi',"[seed.get_trait(TRAIT_PRODUCT_ICON)]-leaf")
+	if("[seed.get_trait(TRAIT_PRODUCT_ICON)]-leaf" in icon_states('resources/icons/obj/hydroponics_products.dmi'))
+		var/image/fruit_leaves = image('resources/icons/obj/hydroponics_products.dmi',"[seed.get_trait(TRAIT_PRODUCT_ICON)]-leaf")
 		fruit_leaves.color = seed.get_trait(TRAIT_PLANT_COLOUR)
 		overlays |= fruit_leaves
 
@@ -155,7 +155,7 @@
 	set waitfor = 0
 	M.stop_pulling()
 	to_chat(M, "<span class='notice'>You slipped on the [name]!</span>")
-	playsound(src.loc, 'sound/misc/slip.ogg', 50, 1, -3)
+	playsound(src.loc, 'resources/sound/misc/slip.ogg', 50, 1, -3)
 	M.Stun(8)
 	M.Weaken(5)
 	seed.thrown_at(src,M)
@@ -310,7 +310,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/fruit_slice
 	name = "fruit slice"
 	desc = "A slice of some tasty fruit."
-	icon = 'icons/obj/hydroponics_misc.dmi'
+	icon = 'resources/icons/obj/hydroponics_misc.dmi'
 	icon_state = ""
 
 var/list/fruit_icon_cache = list()

@@ -7,7 +7,7 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/rad
 	name = "anti-radiation autoinjector"
 	desc = "An autoinjector with a small concotion of drugs designed to treat radiation poisoning." //A label says: <b>Warning!</b> this product contains arithrazine."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	icon_state = "radinjector"
 	item_state = "autoinjector"
 
@@ -38,7 +38,7 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 /obj/item/weapon/storage/firstaid/tactical
 	name = "tactical medicine kit"
 	desc = "Contains experimental medicines and advanced tools."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	item_icons = URIST_ALL_ONMOBS
 	icon_state = "tactical"
 	item_state = "tactical"
@@ -60,7 +60,7 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv
 	name = "advanced autoinjector"
 	desc = "An advanced autoinjector, containing a number of helpful chemicals."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	icon_state = "radinjector"
 	item_state = "autoinjector"
 	volume = 20
@@ -77,7 +77,7 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/admin
 	name = "advanced autoinjector"
 	desc = "An advanced autoinjector, containing a number of helpful chemicals."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'resources/icons/urist/items/misc.dmi'
 	icon_state = "radinjector"
 	item_state = "autoinjector"
 	volume = 20

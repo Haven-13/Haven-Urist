@@ -1,7 +1,7 @@
 /obj/item/organ/internal/posibrain
 	name = "positronic brain"
 	desc = "A cube of shining metal, four inches to a side and covered in shallow grooves."
-	icon = 'icons/obj/assemblies.dmi'
+	icon = 'resources/icons/obj/assemblies.dmi'
 	icon_state = "posibrain"
 	organ_tag = BP_POSIBRAIN
 	parent_organ = BP_CHEST
@@ -142,7 +142,7 @@
 
 	overlays.Cut()
 	if(shackle)
-		overlays |= image('icons/obj/assemblies.dmi', "posibrain-shackles")
+		overlays |= image('resources/icons/obj/assemblies.dmi', "posibrain-shackles")
 
 /obj/item/organ/internal/posibrain/proc/transfer_identity(var/mob/living/carbon/H)
 	if(H && H.mind)

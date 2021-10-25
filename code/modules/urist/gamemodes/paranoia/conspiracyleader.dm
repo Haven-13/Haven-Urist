@@ -45,9 +45,9 @@ var/datum/antagonist/agent/agents
 		return
 	var/indicator = (faction_indicator && (other == leader)) ? faction_indicator : antag_indicator
 	if(src.uristantag)
-		return image('icons/urist/uristicons.dmi', loc = other.current, icon_state = indicator)
+		return image('resources/icons/urist/uristicons.dmi', loc = other.current, icon_state = indicator)
 	else
-		return image('icons/mob/mob.dmi', loc = other.current, icon_state = indicator)
+		return image('resources/icons/mob/mob.dmi', loc = other.current, icon_state = indicator)
 
 /mob/living/proc/convert_to_conspiracy(mob/M as mob in oview(src))
 	set name = "Recruit as Agent"

@@ -10,7 +10,7 @@
  */
 /obj/machinery/libraryscanner
 	name = "scanner"
-	icon = 'icons/obj/library.dmi'
+	icon = 'resources/icons/obj/library.dmi'
 	icon_state = "bigscanner"
 	anchored = 1
 	density = 1
@@ -61,7 +61,7 @@
  */
 /obj/machinery/bookbinder
 	name = "Book Binder"
-	icon = 'icons/obj/library.dmi'
+	icon = 'resources/icons/obj/library.dmi'
 	icon_state = "binder"
 	anchored = 1
 	density = 1

@@ -7,8 +7,8 @@
 	species_flags = SPECIES_FLAG_NO_SCAN
 	spawn_flags = SPECIES_IS_RESTRICTED
 
-	icobase = 'icons/mob/human_races/species/humanoid/body.dmi'
-	deform = 'icons/mob/human_races/species/humanoid/body.dmi'
+	icobase = 'resources/icons/mob/human_races/species/humanoid/body.dmi'
+	deform = 'resources/icons/mob/human_races/species/humanoid/body.dmi'
 	appearance_flags = HAS_SKIN_COLOR
 	limb_blend = ICON_MULTIPLY
 
@@ -128,7 +128,7 @@
 /obj/structure/aliumizer
 	name = "alien monolith"
 	desc = "Your true form is calling. Use this to become an alien humanoid."
-	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon = 'resources/icons/obj/xenoarchaeology.dmi'
 	icon_state = "ano51"
 	anchored = 1
 

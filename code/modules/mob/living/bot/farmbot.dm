@@ -6,7 +6,7 @@
 /mob/living/bot/farmbot
 	name = "Farmbot"
 	desc = "The botanist's best friend."
-	icon = 'icons/mob/bot/farmbot.dmi'
+	icon = 'resources/icons/mob/bot/farmbot.dmi'
 	icon_state = "farmbot0"
 	health = 50
 	maxHealth = 50
@@ -167,7 +167,7 @@
 				visible_message("<span class='notice'>[src] starts watering \the [A].</span>")
 				busy = 1
 				if(do_after(src, 30, A))
-					playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+					playsound(loc, 'resources/sound/effects/slosh.ogg', 25, 1)
 					visible_message("<span class='notice'>[src] waters \the [A].</span>")
 					tank.reagents.trans_to(T, 100 - T.waterlevel)
 			if(FARMBOT_UPROOT)
@@ -200,7 +200,7 @@
 		while(do_after(src, 10) && tank.reagents.total_volume < tank.reagents.maximum_volume)
 			tank.reagents.add_reagent(/datum/reagent/water, 10)
 			if(prob(5))
-				playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+				playsound(loc, 'resources/sound/effects/slosh.ogg', 25, 1)
 		busy = 0
 		action = ""
 		update_icons()
@@ -285,7 +285,7 @@
 /obj/item/weapon/farmbot_arm_assembly
 	name = "water tank/robot arm assembly"
 	desc = "A water tank with a robot arm permanently grafted to it."
-	icon = 'icons/mob/bot/farmbot.dmi'
+	icon = 'resources/icons/mob/bot/farmbot.dmi'
 	icon_state = "water_arm"
 	var/build_step = 0
 	var/created_name = "Farmbot"

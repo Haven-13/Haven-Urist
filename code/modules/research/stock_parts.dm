@@ -18,7 +18,7 @@
 /obj/item/weapon/storage/part_replacer/bluespace //from tg... somewhat
 	name = "bluespace rapid part exchange device"
 	desc = "A version of the RPED that allows for replacement of parts and scanning from a distance, along with higher capacity for parts."
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	icon_state = "BS_RPED"
 	w_class = ITEM_SIZE_NORMAL
 	storage_slots = 91 //400 originally but that many item slots makes the screen go screwy
@@ -34,7 +34,7 @@
 	name = "stock part"
 	desc = "What?"
 	gender = PLURAL
-	icon = 'icons/obj/stock_parts.dmi'
+	icon = 'resources/icons/obj/stock_parts.dmi'
 	randpixel = 5
 	w_class = ITEM_SIZE_SMALL
 	var/rating = 1
@@ -232,6 +232,6 @@
 /obj/item/weapon/research
 	name = "research debugging device"
 	desc = "Instant research tool. For testing purposes only."
-	icon = 'icons/obj/stock_parts.dmi'
+	icon = 'resources/icons/obj/stock_parts.dmi'
 	icon_state = "smes_coil"
 	origin_tech = list(TECH_MATERIAL = 19, TECH_ENGINEERING = 19, TECH_PHORON = 19, TECH_POWER = 19, TECH_BLUESPACE = 19, TECH_BIO = 19, TECH_COMBAT = 19, TECH_MAGNET = 19, TECH_DATA = 19, TECH_ILLEGAL = 19, TECH_ARCANE = 19)

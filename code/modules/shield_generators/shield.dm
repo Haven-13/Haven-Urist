@@ -1,7 +1,7 @@
 /obj/effect/shield
 	name = "energy shield"
 	desc = "An impenetrable field of energy, capable of blocking anything as long as it's active."
-	icon = 'icons/obj/machines/shielding.dmi'
+	icon = 'resources/icons/obj/machines/shielding.dmi'
 	icon_state = "shield_normal"
 	anchored = 1
 	plane = DEFAULT_PLANE
@@ -128,7 +128,7 @@
 
 	damage = round(damage)
 
-	new /obj/effect/temporary(get_turf(src), 2 SECONDS,'icons/obj/machines/shielding.dmi',"shield_impact")
+	new /obj/effect/temporary(get_turf(src), 2 SECONDS,'resources/icons/obj/machines/shielding.dmi',"shield_impact")
 
 	var/list/field_segments = gen.field_segments
 	switch(gen.take_damage(damage, damtype))

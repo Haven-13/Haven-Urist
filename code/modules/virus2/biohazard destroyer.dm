@@ -1,6 +1,6 @@
 /obj/machinery/disease2/biodestroyer
 	name = "Biohazard destroyer"
-	icon = 'icons/obj/pipes/disposal.dmi'
+	icon = 'resources/icons/obj/pipes/disposal.dmi'
 	icon_state = "disposalbio"
 	var/list/accepts = list(/obj/item/clothing,/obj/item/weapon/virusdish/,/obj/item/weapon/cureimplanter,/obj/item/weapon/diseasedisk,/obj/item/weapon/reagent_containers)
 	density = 1
@@ -10,7 +10,7 @@
 	for(var/path in accepts)
 		if(I.type in typesof(path))
 			qdel(I)
-			overlays += image('icons/obj/pipes/disposal.dmi', "dispover-handle")
+			overlays += image('resources/icons/obj/pipes/disposal.dmi', "dispover-handle")
 			return
 	if(!user.unEquip(I, get_turf(src)))
 		return

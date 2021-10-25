@@ -10,7 +10,7 @@ var/global/list/map_sectors = list()
 	base_turf = /turf/unsimulated/map
 
 /turf/unsimulated/map
-	icon = 'icons/turf/space.dmi'
+	icon = 'resources/icons/turf/space.dmi'
 	color = "#6d83bd"
 	icon_state = "map"
 	dynamic_lighting = 0
@@ -32,7 +32,7 @@ var/global/list/map_sectors = list()
 		numbers += list("[round(x/10)]","[round(x%10)]")
 
 	for(var/i = 1 to numbers.len)
-		var/image/I = image('icons/effects/numbers.dmi',numbers[i])
+		var/image/I = image('resources/icons/effects/numbers.dmi',numbers[i])
 		I.pixel_x = 5*i - 2
 		I.pixel_y = world.icon_size/2 - 3
 		if(y == 1)

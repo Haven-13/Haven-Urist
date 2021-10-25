@@ -4,7 +4,7 @@ var/global/list/rad_collectors = list()
 /obj/machinery/power/rad_collector
 	name = "Radiation Collector Array"
 	desc = "A device which uses radiation and phoron to produce power."
-	icon = 'icons/obj/singularity.dmi'
+	icon = 'resources/icons/obj/singularity.dmi'
 	icon_state = "ca"
 	anchored = 0
 	density = 1
@@ -82,7 +82,7 @@ var/global/list/rad_collectors = list()
 			if(R != src)
 				to_chat(user, "<span class='warning'>You cannot install more than one collector on the same spot.</span>")
 				return 1
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 		src.anchored = !src.anchored
 		user.visible_message("[user.name] [anchored? "secures":"unsecures"] the [src.name].", \
 			"You [anchored? "secure":"undo"] the external bolts.", \
@@ -220,7 +220,7 @@ var/global/list/rad_collectors = list()
 			if(R != src)
 				to_chat(user, "<span class='warning'>You cannot install more than one collector on the same spot.</span>")
 				return 1
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 		src.anchored = !src.anchored
 		user.visible_message("[user.name] [anchored? "secures":"unsecures"] the [src.name].", \
 			"You [anchored? "secure":"undo"] the external bolts.", \

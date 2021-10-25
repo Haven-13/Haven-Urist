@@ -115,7 +115,7 @@
 	drained_this_tick = 0
 	power_drained -= min(dissipation_rate, power_drained)
 	if(power_drained > max_power * 0.95)
-		playsound(src, 'sound/effects/screech.ogg', 100, 1, 1)
+		playsound(src, 'resources/sound/effects/screech.ogg', 100, 1, 1)
 	if(power_drained >= max_power)
 		explosion(src.loc, 3,6,9,12)
 		qdel(src)

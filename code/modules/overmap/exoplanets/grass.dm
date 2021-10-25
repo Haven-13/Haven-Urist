@@ -52,13 +52,13 @@
 
 /area/exoplanet/grass
 	base_turf = /turf/simulated/floor/exoplanet/grass
-	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/ambience/eeriejungle2.ogg','sound/ambience/eeriejungle1.ogg')
+	ambience = list('resources/sound/effects/wind/wind_2_1.ogg','resources/sound/effects/wind/wind_2_2.ogg','resources/sound/effects/wind/wind_3_1.ogg','resources/sound/effects/wind/wind_4_1.ogg','resources/sound/ambience/eeriejungle2.ogg','resources/sound/ambience/eeriejungle1.ogg')
 
 /area/exoplanet/grass/play_ambience(var/mob/living/L)
 	..()
 	if(!L.ear_deaf && L.client && !L.client.ambience_playing)
 		L.client.ambience_playing = 1
-		L.playsound_local(get_turf(L),sound('sound/ambience/jungle.ogg', repeat = 1, wait = 0, volume = 25, channel = GLOB.ambience_sound_channel))
+		L.playsound_local(get_turf(L),sound('resources/sound/ambience/jungle.ogg', repeat = 1, wait = 0, volume = 25, channel = GLOB.ambience_sound_channel))
 
 /datum/random_map/noise/exoplanet/grass
 	descriptor = "grass exoplanet"
@@ -94,7 +94,7 @@
 
 /turf/simulated/floor/exoplanet/grass
 	name = "grass"
-	icon = 'icons/turf/jungle.dmi'
+	icon = 'resources/icons/turf/jungle.dmi'
 	icon_state = "greygrass"
 	color = "#799c4b"
 	mudpit = 1

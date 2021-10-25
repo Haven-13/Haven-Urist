@@ -208,14 +208,14 @@
 			var/obj/o = target
 			var/amount = o.reagents.trans_to_obj(src, 200)
 			occupant_message("<span class='notice'>[amount] units transferred into internal tank.</span>")
-			playsound(chassis, 'sound/effects/refill.ogg', 50, 1, -6)
+			playsound(chassis, 'resources/sound/effects/refill.ogg', 50, 1, -6)
 			return
 
 		if (src.reagents.total_volume < 1)
 			occupant_message("<span class='warning'>\The [src] is empty.</span>")
 			return
 
-		playsound(chassis, 'sound/effects/extinguish.ogg', 75, 1, -3)
+		playsound(chassis, 'resources/sound/effects/extinguish.ogg', 75, 1, -3)
 
 		addtimer(CALLBACK(src, .proc/do_spray, target), 0)
 		return 1
@@ -272,7 +272,7 @@
 	if(!istype(target, /turf) && !istype(target, /obj/machinery/door/airlock))
 		target = get_turf(target)
 	if(!action_checks(target) || disabled || get_dist(chassis, target)>3) return
-	playsound(chassis, 'sound/machines/click.ogg', 50, 1)
+	playsound(chassis, 'resources/sound/machines/click.ogg', 50, 1)
 	//meh
 	switch(mode)
 		if(0)
@@ -283,7 +283,7 @@
 					if(disabled) return
 					chassis.spark_system.start()
 					target:ChangeTurf(/turf/simulated/floor/plating)
-					playsound(target, 'sound/items/Deconstruct.ogg', 50, 1)
+					playsound(target, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 					chassis.use_power(energy_drain)
 			else if (istype(target, /turf/simulated/floor))
 				occupant_message("Deconstructing [target]...")
@@ -292,7 +292,7 @@
 					if(disabled) return
 					chassis.spark_system.start()
 					target:ChangeTurf(get_base_turf_by_area(target))
-					playsound(target, 'sound/items/Deconstruct.ogg', 50, 1)
+					playsound(target, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 					chassis.use_power(energy_drain)
 			else if (istype(target, /obj/machinery/door/airlock))
 				occupant_message("Deconstructing [target]...")
@@ -301,7 +301,7 @@
 					if(disabled) return
 					chassis.spark_system.start()
 					qdel(target)
-					playsound(target, 'sound/items/Deconstruct.ogg', 50, 1)
+					playsound(target, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 					chassis.use_power(energy_drain)
 		if(1)
 			if(istype(target, /turf/space) || istype(target,get_base_turf_by_area(target)))
@@ -310,7 +310,7 @@
 				if(do_after_cooldown(target))
 					if(disabled) return
 					target:ChangeTurf(/turf/simulated/floor/plating)
-					playsound(target, 'sound/items/Deconstruct.ogg', 50, 1)
+					playsound(target, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 					chassis.spark_system.start()
 					chassis.use_power(energy_drain*2)
 			else if(istype(target, /turf/simulated/floor))
@@ -319,7 +319,7 @@
 				if(do_after_cooldown(target))
 					if(disabled) return
 					target:ChangeTurf(/turf/simulated/wall)
-					playsound(target, 'sound/items/Deconstruct.ogg', 50, 1)
+					playsound(target, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 					chassis.spark_system.start()
 					chassis.use_power(energy_drain*2)
 		if(2)
@@ -331,8 +331,8 @@
 					chassis.spark_system.start()
 					var/obj/machinery/door/airlock/T = new /obj/machinery/door/airlock(target)
 					T.autoclose = 1
-					playsound(target, 'sound/items/Deconstruct.ogg', 50, 1)
-					playsound(target, 'sound/effects/sparks2.ogg', 50, 1)
+					playsound(target, 'resources/sound/items/Deconstruct.ogg', 50, 1)
+					playsound(target, 'resources/sound/effects/sparks2.ogg', 50, 1)
 					chassis.use_power(energy_drain*2)
 	return
 
@@ -415,7 +415,7 @@
 	var/obj/effect/portal/P = new /obj/effect/portal(get_turf(target))
 	P.target = target_turf
 	P.creator = null
-	P.icon = 'icons/obj/objects.dmi'
+	P.icon = 'resources/icons/obj/objects.dmi'
 	P.failchance = 0
 	P.icon_state = "anom"
 	P.SetName("wormhole")

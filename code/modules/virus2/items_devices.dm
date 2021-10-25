@@ -37,7 +37,7 @@
 
 /obj/item/weapon/virusdish
 	name = "virus dish"
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "implantcase-b"
 	var/datum/disease2/disease/virus2 = null
 	var/growth = 0
@@ -79,7 +79,7 @@
 
 /obj/item/weapon/ruinedvirusdish
 	name = "ruined virus sample"
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "implantcase-b"
 	desc = "The bacteria in the dish are completely dead."
 
@@ -95,7 +95,7 @@
 
 /obj/item/weapon/diseasedisk
 	name = "blank GNA disk"
-	icon = 'icons/obj/cloning.dmi'
+	icon = 'resources/icons/obj/cloning.dmi'
 	icon_state = "datadisk0"
 	w_class = ITEM_SIZE_TINY
 	var/datum/disease2/effect/effect = null

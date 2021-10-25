@@ -1,5 +1,5 @@
 /obj/machinery/atmospherics/valve/shutoff
-	icon = 'icons/atmos/clamp.dmi'
+	icon = 'resources/icons/atmos/clamp.dmi'
 	icon_state = "map_vclamp0"
 
 	name = "automatic shutoff valve"

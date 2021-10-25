@@ -2,7 +2,7 @@ var/list/fuel_injectors = list()
 
 /obj/machinery/fusion_fuel_injector
 	name = "fuel injector"
-	icon = 'icons/obj/machines/power/fusion.dmi'
+	icon = 'resources/icons/obj/machines/power/fusion.dmi'
 	icon_state = "injector0"
 	density = 1
 	anchored = 0
@@ -68,7 +68,7 @@ var/list/fuel_injectors = list()
 			to_chat(user, "<span class='warning'>Shut \the [src] off first!</span>")
 			return
 		anchored = !anchored
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 		if(anchored)
 			user.visible_message("\The [user] secures \the [src] to the floor.")
 		else

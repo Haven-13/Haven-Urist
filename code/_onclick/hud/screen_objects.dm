@@ -8,7 +8,7 @@
 */
 /atom/movable/screen
 	name = ""
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'resources/icons/mob/screen1.dmi'
 	plane = HUD_PLANE
 	layer = HUD_BASE_LAYER
 	appearance_flags = NO_CLIENT_COLOR
@@ -176,11 +176,11 @@
 
 /atom/movable/screen/zone_sel/update_icon()
 	overlays.Cut()
-	overlays += mutable_appearance('icons/mob/zone_sel.dmi', "[selecting]")
+	overlays += mutable_appearance('resources/icons/mob/zone_sel.dmi', "[selecting]")
 
 /atom/movable/screen/intent
 	name = "intent"
-	icon = 'icons/mob/screen1_White.dmi'
+	icon = 'resources/icons/mob/screen1_White.dmi'
 	icon_state = "intent_help"
 	screen_loc = ui_acti
 	var/intent = I_HELP
@@ -328,7 +328,7 @@
 
 							if(best)
 								to_chat(C, "<span class='notice'>You are now running on internals from [tankcheck[best]] [from] your [nicename[best]].</span>")
-								playsound(usr, 'sound/effects/internals.ogg', 50, 0)
+								playsound(usr, 'resources/sound/effects/internals.ogg', 50, 0)
 								C.internal = tankcheck[best]
 
 

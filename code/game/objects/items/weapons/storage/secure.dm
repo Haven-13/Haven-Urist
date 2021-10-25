@@ -37,7 +37,7 @@
 			var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 			spark_system.set_up(5, 0, src.loc)
 			spark_system.start()
-			playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
+			playsound(src.loc, 'resources/sound/weapons/blade1.ogg', 50, 1)
 			playsound(src.loc, "sparks", 50, 1)
 			return
 
@@ -105,7 +105,7 @@
 			else if ((src.code == src.l_code) && (src.emagged == 0) && (src.l_set == 1))
 				src.locked = 0
 				src.overlays = null
-				overlays += image('icons/obj/storage.dmi', icon_opened)
+				overlays += image('resources/icons/obj/storage.dmi', icon_opened)
 				src.code = null
 			else
 				src.code = "ERROR"
@@ -128,10 +128,10 @@
 /obj/item/weapon/storage/secure/emag_act(var/remaining_charges, var/mob/user, var/feedback)
 	if(!emagged)
 		emagged = 1
-		src.overlays += image('icons/obj/storage.dmi', icon_sparking)
+		src.overlays += image('resources/icons/obj/storage.dmi', icon_sparking)
 		sleep(6)
 		src.overlays = null
-		overlays += image('icons/obj/storage.dmi', icon_locking)
+		overlays += image('resources/icons/obj/storage.dmi', icon_locking)
 		locked = 0
 		to_chat(user, (feedback || "You short out the lock of \the [src]."))
 		return 1
@@ -141,7 +141,7 @@
 // -----------------------------
 /obj/item/weapon/storage/secure/briefcase
 	name = "secure briefcase"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'resources/icons/obj/storage.dmi'
 	icon_state = "secure"
 	item_state = "sec-case"
 	desc = "A large briefcase with a digital locking system."
@@ -151,7 +151,7 @@
 	w_class = ITEM_SIZE_HUGE
 	max_w_class = ITEM_SIZE_NORMAL
 	max_storage_space = DEFAULT_BACKPACK_STORAGE
-	use_sound = 'sound/effects/storage/briefcase.ogg'
+	use_sound = 'resources/sound/effects/storage/briefcase.ogg'
 
 /obj/item/weapon/storage/secure/briefcase/attack_hand(mob/user as mob)
 	if ((src.loc == user) && (src.locked == 1))
@@ -172,7 +172,7 @@
 
 /obj/item/weapon/storage/secure/safe
 	name = "secure safe"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'resources/icons/obj/storage.dmi'
 	icon_state = "safe"
 	icon_opened = "safe0"
 	icon_locking = "safeb"

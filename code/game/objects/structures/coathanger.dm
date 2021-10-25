@@ -1,7 +1,7 @@
 /obj/structure/coatrack
 	name = "coat rack"
 	desc = "Rack that holds coats."
-	icon = 'icons/obj/coatrack.dmi'
+	icon = 'resources/icons/obj/coatrack.dmi'
 	icon_state = "coatrack0"
 	var/obj/item/clothing/suit/coat
 	var/list/allowed = list(/obj/item/clothing/suit/storage/toggle/labcoat, /obj/item/clothing/suit/storage/det_trench)
@@ -24,7 +24,7 @@
 		update_icon()
 
 	else if(istype(W, /obj/item/weapon/wrench) && !coat)
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 		var/obj/item/stack/material/wood/S = new /obj/item/stack/material/wood(src.loc)
 		S.amount = 2
 		del(src)

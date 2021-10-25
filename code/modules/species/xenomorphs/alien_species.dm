@@ -12,7 +12,7 @@
 
 	natural_armour_values = list(melee = 30, bullet = 15, laser = 25, energy = 30, bomb = 30, bio = 100, rad = 100)
 
-	icon_template = 'icons/mob/human_races/species/xenos/template.dmi'
+	icon_template = 'resources/icons/mob/human_races/species/xenos/template.dmi'
 
 	// temp until someone who isn't me makes some for this icon set
 	damage_overlays = null
@@ -55,9 +55,9 @@
 	gibbed_anim = "gibbed-a"
 	dusted_anim = "dust-a"
 	death_message = "lets out a waning guttural screech, green blood bubbling from its maw."
-	death_sound = 'sound/voice/hiss6.ogg'
+	death_sound = 'resources/sound/voice/hiss6.ogg'
 
-	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
+	speech_sounds = list('resources/sound/voice/hiss1.ogg','resources/sound/voice/hiss2.ogg','resources/sound/voice/hiss3.ogg','resources/sound/voice/hiss4.ogg')
 	speech_chance = 100
 
 	breath_type = null
@@ -202,8 +202,8 @@
 
 	rarity_value = 5
 	base_color = "#000d1a"
-	icobase = 'icons/mob/human_races/species/xenos/body_drone.dmi'
-	deform =  'icons/mob/human_races/species/xenos/body_drone.dmi'
+	icobase = 'resources/icons/mob/human_races/species/xenos/body_drone.dmi'
+	deform =  'resources/icons/mob/human_races/species/xenos/body_drone.dmi'
 
 	has_organ = list(
 		BP_EYES =     /obj/item/organ/internal/eyes/xeno,
@@ -240,8 +240,8 @@
 	total_health = 300
 	base_color = "#001a33"
 
-	icobase = 'icons/mob/human_races/species/xenos/body_hunter.dmi'
-	deform =  'icons/mob/human_races/species/xenos/body_hunter.dmi'
+	icobase = 'resources/icons/mob/human_races/species/xenos/body_hunter.dmi'
+	deform =  'resources/icons/mob/human_races/species/xenos/body_hunter.dmi'
 
 	brute_mod =     0.8
 	burn_mod =      0.8
@@ -276,8 +276,8 @@
 	slowdown = -1
 	base_color = "#00284d"
 	total_health = 250
-	icobase = 'icons/mob/human_races/species/xenos/body_sentinel.dmi'
-	deform =  'icons/mob/human_races/species/xenos/body_sentinel.dmi'
+	icobase = 'resources/icons/mob/human_races/species/xenos/body_sentinel.dmi'
+	deform =  'resources/icons/mob/human_races/species/xenos/body_sentinel.dmi'
 
 	has_organ = list(
 		BP_EYES =     /obj/item/organ/internal/eyes/xeno,
@@ -316,8 +316,8 @@
 	brute_mod =     0.6
 	burn_mod =      0.6
 
-	icobase = 'icons/mob/human_races/species/xenos/body_queen.dmi'
-	deform =  'icons/mob/human_races/species/xenos/body_queen.dmi'
+	icobase = 'resources/icons/mob/human_races/species/xenos/body_queen.dmi'
+	deform =  'resources/icons/mob/human_races/species/xenos/body_queen.dmi'
 
 	has_organ = list(
 		BP_EYES =     /obj/item/organ/internal/eyes/xeno,
@@ -354,7 +354,7 @@
 
 /datum/hud_data/alien
 
-	icon = 'icons/mob/screen1_alien.dmi'
+	icon = 'resources/icons/mob/screen1_alien.dmi'
 	has_a_intent =  1
 	has_m_intent =  1
 	has_warnings =  1

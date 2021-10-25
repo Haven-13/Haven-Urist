@@ -8,13 +8,13 @@
 
 /obj/structure/bed/chair/e_chair/New()
 	..()
-	overlays += image('icons/obj/objects.dmi', src, "echair_over", MOB_LAYER + 1, dir)
+	overlays += image('resources/icons/obj/objects.dmi', src, "echair_over", MOB_LAYER + 1, dir)
 	return
 
 /obj/structure/bed/chair/e_chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(isWrench(W))
 		var/obj/structure/bed/chair/C = new /obj/structure/bed/chair(loc)
-		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 		C.set_dir(dir)
 		part.loc = loc
 		part.master = null
@@ -40,7 +40,7 @@
 /obj/structure/bed/chair/e_chair/rotate()
 	..()
 	overlays.Cut()
-	overlays += image('icons/obj/objects.dmi', src, "echair_over", MOB_LAYER + 1, dir)	//there's probably a better way of handling this, but eh. -Pete
+	overlays += image('resources/icons/obj/objects.dmi', src, "echair_over", MOB_LAYER + 1, dir)	//there's probably a better way of handling this, but eh. -Pete
 	return
 
 /obj/structure/bed/chair/e_chair/proc/shock()

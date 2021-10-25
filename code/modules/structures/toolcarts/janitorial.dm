@@ -1,7 +1,7 @@
 /obj/structure/tool_cart/janitorial
 	name = "janitorial cart"
 	desc = "The ultimate in janitorial carts! Has space for water, mops, signs, trash bags, and more!"
-	icon = 'icons/obj/janitor.dmi'
+	icon = 'resources/icons/obj/janitor.dmi'
 	icon_state = "cart"
 
 	var/amount_per_transfer_from_this = 5 //shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
@@ -53,7 +53,7 @@
 			else
 				reagents.trans_to_obj(I, I.reagents.maximum_volume)
 				to_chat(user, "<span class='notice'>You wet [I] in [src].</span>")
-				playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+				playsound(loc, 'resources/sound/effects/slosh.ogg', 25, 1)
 		else
 			..()
 

@@ -9,7 +9,7 @@
 	var/firedelay = 100
 	var/designation = "FFS"
 	var/ship_category = "debug ship"
-	icon = 'icons/obj/overmap.dmi'
+	icon = 'resources/icons/obj/overmap.dmi'
 	icon_state = "ship"
 	icon_living = "ship"
 	icon_dead = "ship"

@@ -93,7 +93,7 @@
 
 /obj/machinery
 	name = "machinery"
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	w_class = ITEM_SIZE_NO_CONTAINER
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
@@ -144,7 +144,7 @@
 		use_power(7500/severity)
 
 		var/obj/effect/overlay/pulse2 = new /obj/effect/overlay(loc)
-		pulse2.icon = 'icons/effects/effects.dmi'
+		pulse2.icon = 'resources/icons/effects/effects.dmi'
 		pulse2.icon_state = "empdisable"
 		pulse2.SetName("emp sparks")
 		pulse2.anchored = 1
@@ -281,7 +281,7 @@
 		text = "\The [src] pings."
 
 	state(text, "blue")
-	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
+	playsound(src.loc, 'resources/sound/machines/ping.ogg', 50, 0)
 
 /obj/machinery/proc/shock(mob/user, prb)
 	if(inoperable())
@@ -312,7 +312,7 @@
 /obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/weapon/screwdriver/S)
 	if(!istype(S))
 		return 0
-	playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 	panel_open = !panel_open
 	to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of \the [src].</span>")
 	update_icon()
@@ -348,7 +348,7 @@
 	return 1
 
 /obj/machinery/proc/dismantle()
-	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+	playsound(loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(get_turf(src))
 	M.set_dir(src.dir)
 	M.state = 2

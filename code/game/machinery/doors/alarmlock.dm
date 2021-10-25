@@ -1,7 +1,7 @@
 /obj/machinery/door/airlock/alarmlock
 
 	name = "Glass Alarm Airlock"
-	icon = 'icons/obj/doors/Doorglass.dmi'
+	icon = 'resources/icons/obj/doors/Doorglass.dmi'
 	opacity = 0
 	glass = 1
 

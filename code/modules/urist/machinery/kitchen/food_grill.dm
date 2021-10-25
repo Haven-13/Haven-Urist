@@ -1,7 +1,7 @@
 /obj/machinery/foodgrill
 	name = "grill"
 	desc = "Backyard grilling, IN SPACE."
-	icon = 'icons/urist/kitchen.dmi'
+	icon = 'resources/icons/urist/kitchen.dmi'
 	icon_state = "grill_off"
 	layer = 2.9
 	density = 1

@@ -40,7 +40,7 @@
 
 /datum/computer_file/program/email_client/proc/new_mail_notify()
 	computer.visible_message("\The [computer] beeps softly, indicating a new email has been received.", 1)
-	playsound(computer, 'sound/machines/twobeep.ogg', 50, 1)
+	playsound(computer, 'resources/sound/machines/twobeep.ogg', 50, 1)
 
 /datum/computer_file/program/email_client/process_tick()
 	..()

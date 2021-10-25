@@ -2,7 +2,7 @@
 
 /obj/item/weapon/material/shard
 	name = "shard"
-	icon = 'icons/obj/shards.dmi'
+	icon = 'resources/icons/obj/shards.dmi'
 	desc = "Made of nothing. How does this even exist?" // set based on material, if this desc is visible it's a bug (shards default to being made of glass)
 	icon_state = "large"
 	randpixel = 8
@@ -62,7 +62,7 @@
 		if(M.buckled) //wheelchairs, office chairs, rollerbeds
 			return
 
-		playsound(src.loc, 'sound/effects/glass_step.ogg', 50, 1) // not sure how to handle metal shards with sounds
+		playsound(src.loc, 'resources/sound/effects/glass_step.ogg', 50, 1) // not sure how to handle metal shards with sounds
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 

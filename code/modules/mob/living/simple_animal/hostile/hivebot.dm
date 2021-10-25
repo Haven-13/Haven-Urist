@@ -5,7 +5,7 @@
 /mob/living/simple_animal/hostile/hivebot
 	name = "Hivebot"
 	desc = "A small robot"
-	icon = 'icons/mob/hivebot.dmi'
+	icon = 'resources/icons/mob/hivebot.dmi'
 	icon_state = "basic"
 	icon_living = "basic"
 	icon_dead = "basic"
@@ -14,7 +14,7 @@
 	melee_damage_lower = 2
 	melee_damage_upper = 3
 	attacktext = "clawed"
-	projectilesound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	projectilesound = 'resources/sound/weapons/gunshot/gunshot_pistol.ogg'
 	projectiletype = /obj/item/projectile/hivebotbullet
 	faction = "hivebot"
 	min_gas = null
@@ -52,7 +52,7 @@
 /mob/living/simple_animal/hostile/hivebot/tele
 	name = "Beacon"
 	desc = "Some odd beacon thing"
-	icon = 'icons/mob/hivebot.dmi'
+	icon = 'resources/icons/mob/hivebot.dmi'
 	icon_state = "def_radar-off"
 	icon_living = "def_radar-off"
 	health = 200
@@ -71,14 +71,14 @@
 	smoke.set_up(5, 0, src.loc)
 	smoke.start()
 	visible_message("<span class='danger'>\The [src] warps in!</span>")
-	playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
+	playsound(src.loc, 'resources/sound/effects/EMPulse.ogg', 25, 1)
 
 /mob/living/simple_animal/hostile/hivebot/tele/proc/warpbots()
 	while(bot_amt > 0 && bot_type)
 		bot_amt--
 		var/mob/M = new bot_type(get_turf(src))
 		M.faction = faction
-	playsound(src.loc, 'sound/effects/teleport.ogg', 50, 1)
+	playsound(src.loc, 'resources/sound/effects/teleport.ogg', 50, 1)
 	qdel(src)
 	return
 

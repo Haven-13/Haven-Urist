@@ -16,7 +16,7 @@
 
 	if(heavy_range > 1)
 		var/obj/effect/overlay/pulse = new/obj/effect/overlay(epicenter)
-		pulse.icon = 'icons/effects/effects.dmi'
+		pulse.icon = 'resources/icons/effects/effects.dmi'
 		pulse.icon_state = "emppulse"
 		pulse.SetName("emp pulse")
 		pulse.anchored = 1
@@ -27,7 +27,7 @@
 		light_range = heavy_range
 
 	for(var/mob/M in range(heavy_range, epicenter))
-		sound_to(M, 'sound/effects/EMPulse.ogg')
+		sound_to(M, 'resources/sound/effects/EMPulse.ogg')
 
 	for(var/atom/T in range(light_range, epicenter))
 		#ifdef EMPDEBUG

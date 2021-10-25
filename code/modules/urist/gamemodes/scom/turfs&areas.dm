@@ -18,7 +18,7 @@
 	icon_state = "away2"
 
 /turf/unsimulated/wall/urist/other
-	icon = 'icons/urist/turf/scomturfs.dmi'
+	icon = 'resources/icons/urist/turf/scomturfs.dmi'
 
 /turf/unsimulated/wall/urist/other/border
 	icon_state = "border"
@@ -26,24 +26,24 @@
 	desc = ""
 
 /turf/unsimulated/wall/urist/other/see
-	icon = 'icons/urist/turf/scomturfs.dmi'
+	icon = 'resources/icons/urist/turf/scomturfs.dmi'
 	opacity = 0
 	name = "alien ship"
 
 /turf/unsimulated/floor/uristturf/other
-	icon = 'icons/urist/turf/floorsplus.dmi'
+	icon = 'resources/icons/urist/turf/floorsplus.dmi'
 
 /turf/unsimulated/floor/uristturf/other/scom
-	icon = 'icons/urist/turf/scomturfs.dmi'
+	icon = 'resources/icons/urist/turf/scomturfs.dmi'
 
 /turf/unsimulated/wall/urist/shuttle
-	icon = 'icons/urist/turf/marine.dmi'
+	icon = 'resources/icons/urist/turf/marine.dmi'
 
 /turf/unsimulated/wall/urist/shuttle/see
 	opacity = 0
 
 /turf/unsimulated/floor/uristturf/shuttle
-	icon = 'icons/urist/turf/marine.dmi'
+	icon = 'resources/icons/urist/turf/marine.dmi'
 
 //shuttle areas
 

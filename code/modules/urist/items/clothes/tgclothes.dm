@@ -1,7 +1,7 @@
 /*										*****New space to put all /tg/station Clothing Ports*****
 
-Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/items/uristclothes.dmi'
-or 'icons/urist/items/tgitems.dmi'
+Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'resources/icons/urist/items/uristclothes.dmi'
+or 'resources/icons/urist/items/tgitems.dmi'
 All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloyd													*/
 
 
@@ -11,7 +11,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 /obj/item/clothing/head/helmet/roman
 	item_icons = URIST_ALL_ONMOBS
 	name = "roman helmet"
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	desc = "An ancient helmet made of bronze and leather."
 	armor = list(melee = 25, bullet = 0, laser = 25, energy = 10, bomb = 10, bio = 0, rad = 0)
 	icon_state = "roman_helm"
@@ -20,7 +20,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 /obj/item/clothing/head/helmet/roman/legionaire
 	item_icons = DEF_URIST_INHANDS
 	name = "roman legionaire helmet"
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	desc = "An ancient helmet made of bronze and leather. Has a red crest on top of it."
 	icon_state = "roman_helm_c"
 	item_state = "roman_helm_c"
@@ -28,7 +28,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 /obj/item/clothing/under/roman
 	item_icons = URIST_ALL_ONMOBS
 	name = "roman armor"
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	desc = "An ancient Roman armor. Made of metallic strips and leather straps."
 	icon_state = "roman"
 	//item_color = "roman"
@@ -38,7 +38,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 /obj/item/clothing/shoes/roman
 	item_icons = URIST_ALL_ONMOBS
 	name = "roman sandals"
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	desc = "Sandals with buckled leather straps on it."
 	icon_state = "roman_boots"
 	item_state = "roman_boots"
@@ -46,7 +46,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 /obj/item/weapon/shield/riot/roman
 	item_icons = URIST_ALL_ONMOBS
 	name = "roman shield"
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	desc = "Bears an inscription on the inside: <i>\"Romanes venio domus\"</i>."
 	icon_state = "roman_shield"
 	item_state = "roman_shield"
@@ -55,7 +55,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 
 /obj/item/clothing/under/urist/suit_jacket
 	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon = 'resources/icons/urist/items/clothes/clothes.dmi'
 
 /obj/item/clothing/under/urist/suit_jacket/charcoal
 	name = "charcoal suit"
@@ -101,7 +101,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 
 /obj/item/clothing/under/urist/formal
 	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon = 'resources/icons/urist/items/clothes/clothes.dmi'
 
 /obj/item/clothing/under/urist/formal/captainformal
 	name = "captain's formal uniform"
@@ -148,7 +148,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 
 /obj/item/clothing/suit/urist/blackjacket
 	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon = 'resources/icons/urist/items/clothes/clothes.dmi'
 	name = "black suit jacket"
 	desc = "A professional suit jacket."
 	icon_state = "suitjacket_black"
@@ -165,7 +165,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 
 /obj/item/clothing/head/helmet/urist/sombrero
 	item_icons = DEF_URIST_INHANDS
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'resources/icons/urist/items/tgitems.dmi'
 	name = "large sombrero"
 	desc = "A nice looking large sombrero"
 	icon_state = "sombrero"

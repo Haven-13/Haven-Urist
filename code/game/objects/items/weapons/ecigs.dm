@@ -1,7 +1,7 @@
 /obj/item/clothing/mask/smokable/ecig
 	name = "electronic cigarette"
 	desc = "Device with modern approach to smoking."
-	icon = 'icons/obj/ecig.dmi'
+	icon = 'resources/icons/obj/ecig.dmi'
 	var/active = 0
 	var/obj/item/weapon/cell/cigcell
 	var/cartridge_type = /obj/item/weapon/reagent_containers/ecig_cartridge/med_nicotine
@@ -214,7 +214,7 @@
 	name = "tobacco flavour cartridge"
 	desc = "A small metal cartridge, used with electronic cigarettes, which contains an atomizing coil and a solution to be atomized."
 	w_class = ITEM_SIZE_TINY
-	icon = 'icons/obj/ecig.dmi'
+	icon = 'resources/icons/obj/ecig.dmi'
 	icon_state = "ecartridge"
 	matter = list("metal" = 50, "glass" = 10)
 	volume = 20

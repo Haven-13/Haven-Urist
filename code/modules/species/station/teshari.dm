@@ -17,12 +17,12 @@
 	reagent_tag = IS_TESHARI
 
 
-	icobase = 'icons/mob/human_races/species/teshari/body.dmi'
-	preview_icon = 'icons/mob/human_races/species/teshari/preview.dmi'
-	deform = 'icons/mob/human_races/r_resomi.dmi'
-	damage_overlays = 'icons/mob/human_races/masks/dam_resomi.dmi'
-	damage_mask = 'icons/mob/human_races/masks/dam_mask_resomi.dmi'
-	blood_mask = 'icons/mob/human_races/masks/blood_resomi.dmi'
+	icobase = 'resources/icons/mob/human_races/species/teshari/body.dmi'
+	preview_icon = 'resources/icons/mob/human_races/species/teshari/preview.dmi'
+	deform = 'resources/icons/mob/human_races/r_resomi.dmi'
+	damage_overlays = 'resources/icons/mob/human_races/masks/dam_resomi.dmi'
+	damage_mask = 'resources/icons/mob/human_races/masks/dam_mask_resomi.dmi'
+	blood_mask = 'resources/icons/mob/human_races/masks/blood_resomi.dmi'
 
 	darksight_range = 6
 	darksight_tint = DARKTINT_GOOD
@@ -122,7 +122,7 @@
 /obj/item/organ/external/hand/right/teshari
 	body_hair = "feathers"
 /obj/item/organ/external/head/teshari
-	eye_icon_location = 'icons/mob/human_races/species/teshari/eyes.dmi'
+	eye_icon_location = 'resources/icons/mob/human_races/species/teshari/eyes.dmi'
 /obj/item/organ/internal/kidneys/teshari
 	parent_organ = BP_CHEST
 /obj/item/organ/internal/liver/teshari

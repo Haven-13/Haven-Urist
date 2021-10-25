@@ -1,7 +1,7 @@
 /obj/item/clothing/under/resomi/uniform
 	name = "small grey smock"
 	desc = "It looks fitted to nonhuman proportions."
-	icon = 'icons/obj/clothing/species/resomi/uniform.dmi'
+	icon = 'resources/icons/obj/clothing/species/resomi/uniform.dmi'
 	icon_state = "resomi_grey"
 	worn_state = "resomi_grey"
 	species_restricted = list(SPECIES_RESOMI)
@@ -98,7 +98,7 @@
 
 /obj/item/clothing/under/resomi/worksuit
 	name = "small black and red worksuit"
-	icon = 'icons/obj/clothing/species/resomi/uniform.dmi'
+	icon = 'resources/icons/obj/clothing/species/resomi/uniform.dmi'
 	icon_state = "teshari_black_red_worksuit"
 	worn_state = "teshari_black_red_worksuit"
 	desc = "A small worksuit designed for a Teshari"

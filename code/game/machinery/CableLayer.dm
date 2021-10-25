@@ -1,7 +1,7 @@
 /obj/machinery/cablelayer
 	name = "automatic cable layer"
 
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'resources/icons/obj/stationobjs.dmi'
 	icon_state = "pipe_d"
 	density = 1
 	var/obj/structure/cable/last_piece
@@ -42,7 +42,7 @@
 			m = min(m, cable.amount)
 			m = min(m, 30)
 			if(m)
-				playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
+				playsound(loc, 'resources/sound/items/Wirecutter.ogg', 50, 1)
 				use_cable(m)
 				var/obj/item/stack/cable_coil/CC = new (get_turf(src))
 				CC.amount = m

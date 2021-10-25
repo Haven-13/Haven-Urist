@@ -12,7 +12,7 @@
 
 /datum/unit_test/icon_test/robots_shall_have_eyes_for_each_state/start_test()
 	var/missing_states = 0
-	var/list/valid_states = icon_states('icons/mob/robots.dmi')
+	var/list/valid_states = icon_states('resources/icons/mob/robots.dmi')
 
 	var/list/original_valid_states = valid_states.Copy()
 	for(var/icon_state in valid_states)
@@ -101,7 +101,7 @@
 	name = "ICON STATE template"
 
 /datum/unit_test/icon_test/posters_shall_have_icon_states/start_test()
-	var/contraband_icons = icon_states('icons/obj/contraband.dmi')
+	var/contraband_icons = icon_states('resources/icons/obj/contraband.dmi')
 	var/list/invalid_posters = list()
 
 	for(var/poster_type in subtypesof(/decl/poster))

@@ -5,7 +5,7 @@
 //spears
 /obj/item/weapon/material/twohanded/spear
 	item_icons = DEF_URIST_INHANDS
-//	icon = 'icons/urist/items/improvised.dmi'
+//	icon = 'resources/icons/urist/items/improvised.dmi'
 	icon_state = "spearglass0"
 	name = "spear"
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
@@ -15,7 +15,7 @@
 	slot_flags = SLOT_BACK
 	throwforce = 15
 	//flags = NOSHIELD
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'resources/sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	edge = 1
 	sharp = 1
@@ -48,7 +48,7 @@
 
 /obj/item/weapon/material/twohanded/quarterstaff
 	item_icons = DEF_URIST_INHANDS
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 	item_state = "qstaff0"
 	icon_state = "qstaff0"
 	name = "quarterstaff"
@@ -63,7 +63,7 @@
 
 /obj/item/weapon/material/twohanded/quarterstaff/update_icon()
 	item_icons = DEF_URIST_INHANDS
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 	icon_state = "qstaff[wielded]"
 	item_state = "qstaff[wielded]"
 	return
@@ -71,12 +71,12 @@
 /obj/item/weapon/shiv
 	name = "shiv"
 	desc = "A small improvised blade made out of a glass shard. Looks like it could do some damage to a kidney or two..."
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 	icon_state = "shiv"
 	item_state = "shard-glass"
 	force = 12
 	throwforce = 5
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'resources/sound/weapons/bladeslice.ogg'
 	attack_verb = list("stabbed", "slashed", "sliced", "cut", "shanked")
 	w_class = 2.0
 	sharp = 1
@@ -100,7 +100,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "scrapper shield"
 	desc = "A large rectangular shield made out of hastily assembled chunks of plasteel."
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 	icon_state = "scrappershield"
 	item_state = "scrappershield"
 	force = 6.0
@@ -117,7 +117,7 @@
 /obj/item/weapon/baseballbat/nailed
 	name = "nailed baseball bat"
 	desc = "A wooden baseball bat with a bunch of sharpened rods attached to it."
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 	icon_state = "nailed"
 	item_state = "nailed"
 	force = 18
@@ -146,7 +146,7 @@
 /obj/item/weapon/improvised/scissorknife
 	name = "Knife"
 	desc = "The seperated part of a scissor. Where's the other half?"
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 	icon_state = "scissors_knife"
 	item_state = "scissors" // Sure, it's the same icon as the whole one, but at that scale it doesn't matter too much
 	force = 11
@@ -199,7 +199,7 @@
 /obj/item/weapon/improvised/mbrick
 	name = "Millwall brick"
 	desc = "two newspapers folded and rolled together to create an improvised blunt weapon."
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 	icon_state = "mbrick"
 	force = 8
 	throwforce = 4
@@ -231,7 +231,7 @@
 /obj/item/weapon/improvised/mbrick/sharp
 	name = "sharp Millwall brick"
 	desc = "two newspapers folded and rolled together around a sharp object to create an improvised weapon."
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 	icon_state = "mbricks"
 	force = 12
 	throwforce = 6
@@ -252,7 +252,7 @@
 //wood shit
 
 /obj/item/weapon/material/twohanded/woodspear
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 	icon_state = "woodspearglass0"
 	item_state = "spearglass0"
 	name = "spear"
@@ -265,7 +265,7 @@
 	throw_speed = 3
 	edge = 0
 	sharp = 1
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'resources/sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	default_material = "glass"
 	applies_material_colour = 0
@@ -276,7 +276,7 @@
 
 /obj/item/weapon/material/twohanded/woodquarterstaff
 	item_icons = DEF_URIST_INHANDS
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 	item_state = "woodqstaff0"
 	icon_state = "qstaff0"
 	name = "quarterstaff"
@@ -307,7 +307,7 @@
 	throwforce = 8
 	edge = 1
 	sharp = 1
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'resources/sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "slashed","torn")
 	default_material = "wood"
 	applies_material_colour = 0

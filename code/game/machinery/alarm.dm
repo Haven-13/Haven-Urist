@@ -34,7 +34,7 @@
 
 /obj/machinery/alarm
 	name = "alarm"
-	icon = 'icons/obj/monitors.dmi'
+	icon = 'resources/icons/obj/monitors.dmi'
 	icon_state = "alarm0"
 	anchored = 1
 	use_power = 1
@@ -279,7 +279,7 @@
 
 	if (environment_pressure <= pressure_levels[1])		//low pressures
 		if (!(mode == AALARM_MODE_PANIC || mode == AALARM_MODE_CYCLE))
-			playsound(src.loc, 'sound/machines/airalarm.ogg', 25, 0, 4)
+			playsound(src.loc, 'resources/sound/machines/airalarm.ogg', 25, 0, 4)
 			return 1
 
 	return 0
@@ -783,7 +783,7 @@
 
 			if (wiresexposed && isWirecutter(W))
 				user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You have cut the wires inside \the [src].")
-				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
 				buildstage = 1
 				update_icon()
@@ -815,7 +815,7 @@
 
 			else if(isCrowbar(W))
 				to_chat(user, "You start prying out the circuit.")
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 				if(do_after(user,20) && buildstage == 1)
 					to_chat(user, "You pry out the circuit!")
 					var/obj/item/weapon/airalarm_electronics/circuit = new /obj/item/weapon/airalarm_electronics()
@@ -834,7 +834,7 @@
 			else if(isWrench(W))
 				to_chat(user, "You remove the fire alarm assembly from the wall!")
 				new /obj/item/frame/air_alarm(get_turf(user))
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+				playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 				qdel(src)
 
 	return ..()
@@ -851,7 +851,7 @@ Just a object used in constructing air alarms
 */
 /obj/item/weapon/airalarm_electronics
 	name = "air alarm electronics"
-	icon = 'icons/obj/doors/door_assembly.dmi'
+	icon = 'resources/icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_electronics"
 	desc = "Looks like a circuit. Probably is."
 	w_class = ITEM_SIZE_SMALL
@@ -863,7 +863,7 @@ FIRE ALARM
 /obj/machinery/firealarm
 	name = "fire alarm"
 	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
-	icon = 'icons/obj/monitors.dmi'
+	icon = 'resources/icons/obj/monitors.dmi'
 	icon_state = "fire0"
 	var/detecting = 1.0
 	var/working = 1.0
@@ -970,7 +970,7 @@ FIRE ALARM
 				else if(isWirecutter(W))
 					user.visible_message("<span class='notice'>\The [user] has cut the wires inside \the [src]!</span>", "<span class='notice'>You have cut the wires inside \the [src].</span>")
 					new/obj/item/stack/cable_coil(get_turf(src), 5)
-					playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+					playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 50, 1)
 					buildstage = 1
 					update_icon()
 			if(1)
@@ -985,7 +985,7 @@ FIRE ALARM
 						return
 				else if(isCrowbar(W))
 					to_chat(user, "You pry out the circuit!")
-					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+					playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 					spawn(20)
 						var/obj/item/weapon/firealarm_electronics/circuit = new /obj/item/weapon/firealarm_electronics()
 						circuit.dropInto(user.loc)
@@ -1001,7 +1001,7 @@ FIRE ALARM
 				else if(isWrench(W))
 					to_chat(user, "You remove the fire alarm assembly from the wall!")
 					new /obj/item/frame/fire_alarm(get_turf(user))
-					playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+					playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 					qdel(src)
 		return
 
@@ -1045,7 +1045,7 @@ FIRE ALARM
 	for(var/obj/machinery/firealarm/FA in area)
 		fire_alarm.triggerAlarm(loc, FA, duration)
 	update_icon()
-	playsound(src, 'sound/machines/fire_alarm.ogg', 75, 0)
+	playsound(src, 'resources/sound/machines/fire_alarm.ogg', 75, 0)
 	return
 
 
@@ -1074,7 +1074,7 @@ Just a object used in constructing fire alarms
 */
 /obj/item/weapon/firealarm_electronics
 	name = "fire alarm electronics"
-	icon = 'icons/obj/doors/door_assembly.dmi'
+	icon = 'resources/icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_electronics"
 	desc = "A circuit. It has a label on it, it says \"Can handle heat levels up to 40 degrees celsius!\"."
 	w_class = ITEM_SIZE_SMALL
@@ -1083,7 +1083,7 @@ Just a object used in constructing fire alarms
 /obj/machinery/partyalarm
 	name = "\improper PARTY BUTTON"
 	desc = "Cuban Pete is in the house!"
-	icon = 'icons/obj/monitors.dmi'
+	icon = 'resources/icons/obj/monitors.dmi'
 	icon_state = "fire0"
 	var/detecting = 1.0
 	var/working = 1.0

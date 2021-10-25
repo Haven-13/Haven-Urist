@@ -6,7 +6,7 @@
 	penetrating = 5
 	armor_penetration = 70
 	penetration_modifier = 1.1
-	fire_sound = 'sound/weapons/railgun.ogg'
+	fire_sound = 'resources/sound/weapons/railgun.ogg'
 
 /obj/item/projectile/bullet/magnetic/slug
 	name = "slug"
@@ -20,4 +20,4 @@
 	icon_state = "flechette"
 	damage = 20
 	armor_penetration = 100
-	fire_sound = 'sound/weapons/rapidslice.ogg'
+	fire_sound = 'resources/sound/weapons/rapidslice.ogg'

@@ -21,7 +21,7 @@ var/global/list/protected_objects = list(
 /mob/living/simple_animal/hostile/mimic
 	name = "crate"
 	desc = "A rectangular steel crate."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'resources/icons/obj/storage.dmi'
 	icon_state = "crate"
 	icon_living = "crate"
 
@@ -37,7 +37,7 @@ var/global/list/protected_objects = list(
 	melee_damage_lower = 8
 	melee_damage_upper = 12
 	attacktext = "attacked"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = 'resources/sound/weapons/bite.ogg'
 
 	min_gas = null
 	max_gas = null

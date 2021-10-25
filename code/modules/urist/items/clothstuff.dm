@@ -53,7 +53,7 @@
 /obj/item/clothing/mask/surgical/makeshift_mask
 	name = "makeshift mask"
 	desc = "A cloth mask to weakly help prevent the spread of diseases."
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 	icon_state = "makemask"
 	item_state = "makemask"
 	w_class = ITEM_SIZE_SMALL
@@ -69,7 +69,7 @@
 
 /obj/item/stack/medical/bruise_pack/makeshift_bandage
 	name = "makeshift bandages"
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'resources/icons/urist/items/improvised.dmi'
 	singular_name = "makeshift bandage"
 	desc = "Some cloth to wrap around wounds"
 	icon_state = "makebandage"

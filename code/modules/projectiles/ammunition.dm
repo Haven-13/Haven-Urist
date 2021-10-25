@@ -1,7 +1,7 @@
 /obj/item/ammo_casing
 	name = "bullet casing"
 	desc = "A bullet casing."
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'resources/icons/obj/ammo.dmi'
 	icon_state = "s-casing"
 	randpixel = 10
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
@@ -14,7 +14,7 @@
 	var/projectile_type					//The bullet type to create when New() is called
 	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
 	var/spent_icon = "s-casing-spent"
-	var/fall_sounds = list('sound/weapons/guns/casingfall1.ogg','sound/weapons/guns/casingfall2.ogg','sound/weapons/guns/casingfall3.ogg')
+	var/fall_sounds = list('resources/sound/weapons/guns/casingfall1.ogg','resources/sound/weapons/guns/casingfall2.ogg','resources/sound/weapons/guns/casingfall3.ogg')
 
 /obj/item/ammo_casing/New()
 	..()
@@ -87,7 +87,7 @@
 	name = "magazine"
 	desc = "A magazine for some kind of gun."
 	icon_state = "357"
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'resources/icons/obj/ammo.dmi'
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
 	item_state = "syringe_kit"

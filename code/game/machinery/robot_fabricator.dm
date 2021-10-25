@@ -1,6 +1,6 @@
 /obj/machinery/robotic_fabricator
 	name = "Robotic Fabricator"
-	icon = 'icons/obj/robotics.dmi'
+	icon = 'resources/icons/obj/robotics.dmi'
 	icon_state = "fab-idle"
 	density = 1
 	anchored = 1

@@ -2,7 +2,7 @@
 
 /obj/item/weapon/carpentry
 	item_icons = DEF_URIST_INHANDS
-	icon = 'icons/urist/items/tools.dmi'
+	icon = 'resources/icons/urist/items/tools.dmi'
 
 /obj/item/weapon/carpentry/saw
 	name = "carpenter's saw"
@@ -36,7 +36,7 @@
 /obj/item/weapon/gun/projectile/manualcycle/hunterrifle
 	item_icons = DEF_URIST_INHANDS
 	name = "hunting rifle"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'resources/icons/urist/items/guns.dmi'
 	desc = "A standard issue Nanotrasen bolt-action rifle for its crew serving on hostile planetary environments."
 	wielded_item_state = "huntrifle2"
 	icon_state = "huntrifle"
@@ -52,7 +52,7 @@
 	ammo_type = /obj/item/ammo_casing/a762
 //	accuracy = -1
 //	jam_chance = 5
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	fire_sound = 'resources/sound/weapons/gunshot/gunshot_strong.ogg'
 	var/scoped = 0
 
 /obj/item/weapon/gun/projectile/manualcycle/hunterrifle/attackby(obj/item/I, mob/user) //i really need to make a partent class for guns that can be modified, but right now it's only the one so fuck it. //GlloydTODO
@@ -117,7 +117,7 @@
 //hunterknife
 
 /obj/item/weapon/material/knife/hunting
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'resources/icons/urist/items/uristweapons.dmi'
 	icon_state = "huntknife"
 	force_divisor = 0.2 // 12 with hardness 60 (steel)
 	thrown_force_divisor = 0.15 // 9 when wielded with hardness 60 (steel)
@@ -131,7 +131,7 @@
 /obj/item/weapon/material/knife/survivalknife
 	name = "survival knife"
 	desc = "A serrated survival knife, used for hunting, gutting, prying, skewering and just about everything else a traditional knife does."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'resources/icons/urist/items/uristweapons.dmi'
 	icon_state = "survivalknife"
 	force_divisor = 0.2
 	thrown_force_divisor = 0.10

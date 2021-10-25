@@ -2,7 +2,7 @@
 	name = "soap"
 	desc = "A cheap bar of soap. Doesn't smell."
 	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	icon = 'resources/icons/obj/items.dmi'
 	icon_state = "soap"
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	w_class = ITEM_SIZE_SMALL
@@ -72,7 +72,7 @@
 /obj/item/weapon/soap/update_icon()
 	overlays.Cut()
 	if(key_data)
-		overlays += image('icons/obj/items.dmi', icon_state = "soap_key_overlay")
+		overlays += image('resources/icons/obj/items.dmi', icon_state = "soap_key_overlay")
 
 /obj/item/weapon/soap/nanotrasen
 	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."

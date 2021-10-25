@@ -1,15 +1,15 @@
 /obj/structure/bed/roller/ironingboard
 	name = "ironing board"
 	desc = "An ironing board to unwrinkle your wrinkled clothing."
-	icon = 'icons/obj/ironing.dmi'
+	icon = 'resources/icons/obj/ironing.dmi'
 	item_form_type = /obj/item/roller/ironingboard
 
 	var/obj/item/clothing/cloth // the clothing on the ironing board
 	var/obj/item/weapon/ironingiron/holding // ironing iron on the board
 	var/list/move_sounds = list( // some nasty sounds to make when moving the board
-		'sound/effects/metalscrape1.ogg',
-		'sound/effects/metalscrape2.ogg',
-		'sound/effects/metalscrape3.ogg'
+		'resources/sound/effects/metalscrape1.ogg',
+		'resources/sound/effects/metalscrape2.ogg',
+		'resources/sound/effects/metalscrape3.ogg'
 	)
 
 /obj/structure/bed/roller/ironingboard/Destroy()
@@ -148,5 +148,5 @@
 /obj/item/roller/ironingboard
 	name = "ironing board"
 	desc = "A collapsed ironing board that can be carried around."
-	icon = 'icons/obj/ironing.dmi'
+	icon = 'resources/icons/obj/ironing.dmi'
 	structure_form_type = /obj/structure/bed/roller/ironingboard

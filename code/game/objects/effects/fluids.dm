@@ -1,6 +1,6 @@
 /obj/effect/fluid
 	name = ""
-	icon = 'icons/effects/liquids.dmi'
+	icon = 'resources/icons/effects/liquids.dmi'
 	anchored = 1
 	simulated = 0
 	opacity = 0
@@ -96,7 +96,7 @@
 	mouse_opacity = 0
 	layer = FLY_LAYER
 	color = COLOR_OCEAN
-	icon = 'icons/effects/liquids.dmi'
+	icon = 'resources/icons/effects/liquids.dmi'
 	icon_state = "ocean"
 	alpha = FLUID_MAX_ALPHA
 	simulated = 0

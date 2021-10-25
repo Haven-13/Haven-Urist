@@ -42,7 +42,7 @@
 				else if(dist <= far_dist)
 					var/far_volume = Clamp(far_dist, 30, 50) // Volume is based on explosion size and dist
 					far_volume += (dist <= far_dist * 0.5 ? 50 : 0) // add 50 volume if the mob is pretty close to the explosion
-					M.playsound_local(epicenter, 'sound/effects/explosionfar.ogg', far_volume, 1, frequency, falloff = 5)
+					M.playsound_local(epicenter, 'resources/sound/effects/explosionfar.ogg', far_volume, 1, frequency, falloff = 5)
 
 		if(adminlog)
 			message_admins("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[epicenter.x];Y=[epicenter.y];Z=[epicenter.z]'>JMP</a>)")

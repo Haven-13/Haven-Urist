@@ -9,7 +9,7 @@
 //----------------------------------------
 
 /proc/create_border_image(icon/input, border_color = "#000000", fill_color = "#000000", border_alpha = 255, fill_alpha = 255)
-	var/icon/I = icon('icons/effects/uristrunes.dmi', "blank")
+	var/icon/I = icon('resources/icons/effects/uristrunes.dmi', "blank")
 	I.Blend(input, ICON_OVERLAY)
 
 	//Discard the image
@@ -176,11 +176,11 @@ var/list/rune_animation = list(
 	if(lookup in rune_cache)
 		return rune_cache[lookup]
 
-	var/icon/base = icon('icons/effects/uristrunes.dmi', "")
+	var/icon/base = icon('resources/icons/effects/uristrunes.dmi', "")
 
 	for(var/i = 0, i < 10, i++)
 		if(BITTEST(rune_bits, i))
-			base.Blend(icon('icons/effects/uristrunes.dmi', "rune-[1 << i]"), ICON_OVERLAY)
+			base.Blend(icon('resources/icons/effects/uristrunes.dmi', "rune-[1 << i]"), ICON_OVERLAY)
 
 	var/icon/result
 

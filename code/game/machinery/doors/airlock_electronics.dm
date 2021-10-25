@@ -2,7 +2,7 @@
 
 /obj/item/weapon/airlock_electronics
 	name = "airlock electronics"
-	icon = 'icons/obj/doors/door_assembly.dmi'
+	icon = 'resources/icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_electronics"
 	w_class = ITEM_SIZE_SMALL //It should be tiny! -Agouri
 

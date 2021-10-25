@@ -12,7 +12,7 @@
 
 /obj/structure/bookcase
 	name = "bookcase"
-	icon = 'icons/obj/library.dmi'
+	icon = 'resources/icons/obj/library.dmi'
 	icon_state = "book-0"
 	anchored = 1
 	density = 1
@@ -38,7 +38,7 @@
 		else
 			SetName("bookcase ([newname])")
 	else if(isScrewdriver(O))
-		playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
+		playsound(loc, 'resources/sound/items/Screwdriver.ogg', 75, 1)
 		to_chat(user, "<span class='notice'>You begin dismantling \the [src].</span>")
 		if(do_after(user,25,src))
 			to_chat(user, "<span class='notice'>You dismantle \the [src].</span>")
@@ -134,7 +134,7 @@
  */
 /obj/item/weapon/book
 	name = "book"
-	icon = 'icons/obj/library.dmi'
+	icon = 'resources/icons/obj/library.dmi'
 	icon_state ="book"
 	throw_speed = 1
 	throw_range = 5
@@ -230,5 +230,5 @@
  * Manual Base Object
  */
 /obj/item/weapon/book/manual
-	icon = 'icons/obj/library.dmi'
+	icon = 'resources/icons/obj/library.dmi'
 	unique = 1   // 0 - Normal book, 1 - Should not be treated as normal book, unable to be copied, unable to be modified

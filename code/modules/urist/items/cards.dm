@@ -1,7 +1,7 @@
 /obj/item/toy/card
 	name = "Card"
 	desc = "Card"
-	icon = 'icons/urist/items/cards.dmi'
+	icon = 'resources/icons/urist/items/cards.dmi'
 	icon_state = "hearts"
 	var/suit = "Hearts"
 	var/rank = "Ace"
@@ -60,7 +60,7 @@
 /obj/item/toy/cardhand
 	name = "Card hand"
 	desc = ""
-	icon = 'icons/urist/items/cards.dmi'
+	icon = 'resources/icons/urist/items/cards.dmi'
 	icon_state = "hand"
 	w_class = 2
 
@@ -113,7 +113,7 @@
 /obj/item/weapon/storage/deck
 	name = "Card deck"
 	desc = "Deck of cards!"
-	icon = 'icons/urist/items/cards.dmi'
+	icon = 'resources/icons/urist/items/cards.dmi'
 	icon_state = "deck"
 	can_hold = list(/obj/item/toy/card)
 	var/list/cardsuits = list("Clubs","Diamonds","Spades","Hearts")

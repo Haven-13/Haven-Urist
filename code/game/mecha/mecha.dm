@@ -11,7 +11,7 @@
 /obj/mecha
 	name = "Mecha"
 	desc = "An exosuit."
-	icon = 'icons/mecha/mecha.dmi'
+	icon = 'resources/icons/mecha/mecha.dmi'
 	density = 1 //Dense. To raise the heat.
 	opacity = 1 ///opaque. Menacing.
 	anchored = 1 //no pulling around.
@@ -379,20 +379,20 @@
 
 /obj/mecha/proc/mechturn(direction)
 	set_dir(direction)
-	playsound(src,'sound/mecha/mechturn.ogg',40,1)
+	playsound(src,'resources/sound/mecha/mechturn.ogg',40,1)
 	return 1
 
 /obj/mecha/proc/mechstep(direction)
 	var/result = step(src,direction)
 	if(result)
-		playsound(src,'sound/mecha/mechstep.ogg',40,1)
+		playsound(src,'resources/sound/mecha/mechstep.ogg',40,1)
 	return result
 
 
 /obj/mecha/proc/mechsteprand()
 	var/result = step_rand(src)
 	if(result)
-		playsound(src,'sound/mecha/mechstep.ogg',40,1)
+		playsound(src,'resources/sound/mecha/mechstep.ogg',40,1)
 	return result
 
 /obj/mecha/Bump(var/atom/obstacle)
@@ -445,7 +445,7 @@
 	internal_damage |= int_dam_flag
 	pr_internal_damage.start()
 	log_append_to_last("Internal damage of type [int_dam_flag].",1)
-	sound_to(occupant, sound('sound/machines/warning-buzzer.ogg',wait=0))
+	sound_to(occupant, sound('resources/sound/machines/warning-buzzer.ogg',wait=0))
 	return
 
 /obj/mecha/proc/clearInternalDamage(int_dam_flag)
@@ -554,12 +554,12 @@
 			if(!deflect_hit(is_melee=1))
 				src.hit_damage(damage=15, is_melee=1)
 				src.check_for_internal_damage(list(MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST))
-				playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1, -1)
+				playsound(src.loc, 'resources/sound/weapons/slash.ogg', 50, 1, -1)
 				to_chat(user, "<span class='danger'>You slash at the armored suit!</span>")
 				visible_message("<span class='danger'>\The [user] slashes at [src.name]'s armor!</span>")
 			else
 				src.log_append_to_last("Armor saved.")
-				playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1, -1)
+				playsound(src.loc, 'resources/sound/weapons/slash.ogg', 50, 1, -1)
 				to_chat(user, "<span class='danger'>Your claws had no effect!</span>")
 				src.occupant_message("<span class='notice'>\The [user]'s claws are stopped by the armor.</span>")
 				visible_message("<span class='warning'>\The [user] rebounds off [src.name]'s armor!</span>")
@@ -664,14 +664,14 @@
 	if(!prob(src.deflect_chance))
 		src.take_damage(6)
 		src.check_for_internal_damage(list(MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST))
-		playsound(src.loc, 'sound/effects/blobattack.ogg', 50, 1, -1)
+		playsound(src.loc, 'resources/sound/effects/blobattack.ogg', 50, 1, -1)
 		to_chat(user, "<span class='danger'>You smash at the armored suit!</span>")
 		for (var/mob/V in viewers(src))
 			if(V.client && !(V.blinded))
 				V.show_message("<span class='danger'>\The [user] smashes against [src.name]'s armor!</span>", 1)
 	else
 		src.log_append_to_last("Armor saved.")
-		playsound(src.loc, 'sound/effects/blobattack.ogg', 50, 1, -1)
+		playsound(src.loc, 'resources/sound/effects/blobattack.ogg', 50, 1, -1)
 		to_chat(user, "<span class='warning'>Your attack had no effect!</span>")
 		src.occupant_message("<span class='warning'>\The [user]'s attack is stopped by the armor.</span>")
 		for (var/mob/V in viewers(src))
@@ -1054,9 +1054,9 @@
 		src.log_append_to_last("[H] moved in as pilot.")
 		src.icon_state = src.reset_icon()
 		set_dir(dir_in)
-		playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
+		playsound(src, 'resources/sound/machines/windowdoor.ogg', 50, 1)
 		if(!hasInternalDamage())
-			to_chat(src.occupant, sound('sound/mecha/nominal.ogg',volume=50))
+			to_chat(src.occupant, sound('resources/sound/mecha/nominal.ogg',volume=50))
 		return 1
 	else
 		return 0
@@ -1704,7 +1704,7 @@
 		admin_attacker_log(user, "attacked \the [src]")
 	else
 		src.log_append_to_last("Armor saved.")
-		playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1, -1)
+		playsound(src.loc, 'resources/sound/weapons/slash.ogg', 50, 1, -1)
 		src.occupant_message("<span class='notice'>\The [user]'s attack is stopped by the armor.</span>")
 		visible_message("<span class='notice'>\The [user] rebounds off [src.name]'s armor!</span>")
 		admin_attacker_log(user, "attacked \the [src] but rebounded")
