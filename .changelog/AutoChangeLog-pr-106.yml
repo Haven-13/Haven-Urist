@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - refactor: Moved icons, sound, maps, and other resource files into within a subfolder
+      called resources for organization
