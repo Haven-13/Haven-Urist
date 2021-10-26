@@ -359,3 +359,7 @@
       Aft First Deck Hallway, Armoury, Bridge, Engineering, Medical, and Security.
   - bugfix: Fix how some errors and warnings would end up getting ignored because
       they were not properly flushed to the master log.
+2021-10-26:
+  martinlyra:
+  - refactor: Moved icons, sound, maps, and other resource files into within a subfolder
+      called resources for organization
