@@ -1,9 +1,9 @@
-[cultures_common]
+[culture_common]
 language = "language_spacer"
 secondary_languages = ["language_sol_common", "language_sign", "language_basic_common"]
 
-[cultures_common_spacer]
-__extends = 'cultures_common'
+[culture_common_spacer]
+__extends = 'culture_common'
 name = "Spacer"
 description = """Unbound to planets, societies, or nationalities. It’s the
 	space that is your home, the space is infinite, and it is not empty as most
@@ -11,8 +11,8 @@ description = """Unbound to planets, societies, or nationalities. It’s the
 	better and ill. It doesn’t matter who you are, you can be anything, the void
 	doesn’t care."""
 
-[cultures_common_rimmer]
-__extends = 'cultures_common'
+[culture_common_rimmer]
+__extends = 'culture_common'
 name = "Rimmer"
 description = """For a reason or other, destiny has entrusted you into a fate
 	or childhood on a world at fringes of civilization known to man. Either you’ve
@@ -21,6 +21,6 @@ description = """For a reason or other, destiny has entrusted you into a fate
 	bypassing ship, or managed to find an old still-working ship, bringing you back
 	to the stars."""
 
-[cultures_common_other]
-__extends = 'cultures_common'
+[culture_common_other]
+__extends = 'culture_common'
 name = "Other"

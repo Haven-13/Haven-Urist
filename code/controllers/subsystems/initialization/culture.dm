@@ -14,15 +14,19 @@ SUBSYSTEM_DEF(culture)
 	return tagged_info[token]
 
 /datum/controller/subsystem/culture/Initialize()
-	/*for (var/file in flist("resources/defs/cultures/"))
+	var/files = list(
+		"resources/defs/cultures/cultures_common.toml"
+	)
+	for (var/file in files)
 		var/list/data = rustg_read_toml_file(file)
 		for(var/key in data)
 			data[key]["@source"] = file
 		raw_toml_data.Add(data)
 
 	for (var/key in raw_toml_data)
-		try_build_decl(key, resolve(key))*/
+		try_build_decl(key, resolve(key))
 
+	/*
 	for(var/ftype in typesof(/decl/cultural_info)-/decl/cultural_info)
 		var/decl/cultural_info/culture = ftype
 		if(!initial(culture.name))
@@ -37,6 +41,7 @@ SUBSYSTEM_DEF(culture)
 				tagged_info[culture.category] = list()
 			var/list/tag_list = tagged_info[culture.category]
 			tag_list[culture.name] = culture
+	*/
 	. = ..()
 
 /datum/controller/subsystem/culture/proc/resolve(key)
