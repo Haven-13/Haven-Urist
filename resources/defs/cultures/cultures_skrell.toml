@@ -1,0 +1,23 @@
+[culture_skrell]
+language = "language_skrell_basic"
+secondary_languages = ["language_basic_common"]
+
+[culture_skrell_qerr]
+__extends = 'culture_skrell'
+name = "Qerr'balakan"
+description = """The old fashioned yet the original lineage of Skrellian
+	cultures. The Qerr’Balakans are best known for their caste-systems and
+	how entire of their societies are built around them. A trait that draws
+	the most interest to from foreigners, often ignoring the more colourful
+	and more distinguishing features found in the depths of Skrellian cultures.
+	The top castes are known to be protective, ambitious, and stubborn. The
+	lower castes are known for being resourceful, hardy, and industrious."""
+
+[culture_skrell_arda]
+__extends = 'culture_skrell'
+name = "Arda'flipan"
+description = """A breakout lineage of Qerr’Balakan culture, without the
+	caste-system and its significances devalued to only superficial effect or
+	nothing. Liberated from a deeply-ingrained hierarchy, the Arda’Flipan cultures
+	have their stronghold at the planet of same name and are received as more
+	colourful and its people more diverse."""

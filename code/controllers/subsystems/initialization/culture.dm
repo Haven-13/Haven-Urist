@@ -15,7 +15,13 @@ SUBSYSTEM_DEF(culture)
 
 /datum/controller/subsystem/culture/Initialize()
 	var/files = list(
-		"resources/defs/cultures/cultures_common.toml"
+		"resources/defs/cultures/cultures_common.toml",
+		"resources/defs/cultures/cultures_human.toml",
+		"resources/defs/cultures/cultures_machine.toml",
+		"resources/defs/cultures/cultures_skrell.toml",
+		"resources/defs/cultures/cultures_teshari.toml",
+		"resources/defs/cultures/cultures_unathi.toml",
+		"resources/defs/cultures/cultures_vox.toml",
 	)
 	for (var/file in files)
 		var/list/data = rustg_read_toml_file(file)
@@ -57,8 +63,9 @@ SUBSYSTEM_DEF(culture)
 	culture.name = data["name"]
 	culture.description = data["description"]
 	culture.language = data["language"]
-	culture.secondary_langs = data["secondary_languages"]
-	culture.additional_langs = data["additional_languages"]
+	culture.secondary_langs = data["secondary_languages"] || list()
+	culture.additional_langs = data["additional_languages"] || list()
+	culture.hidden = data["hidden"] || FALSE
 	cultural_info_by_id[key] = culture
 
 /datum/controller/subsystem/culture/proc/get_culture(var/culture_ident)

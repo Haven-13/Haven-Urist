@@ -1,0 +1,11 @@
+[culture_machine]
+name = "Synthmorph"
+description = """
+	As a synthmorph, you are either a free mind born out of an artifical consciousness
+	training factory, a copy of an uploaded mind pattern, or simply a consciousness
+	transferred from an old body. You have the necessary identity for a synthmorph,
+	and have the freedom to identify yourself to a culture of choice or other. Or just
+	simply take pride in being a synthmorph."""
+
+language = "language_eal"
+additional_language = ["language_basic_common"]
