@@ -5,7 +5,7 @@ SUBSYSTEM_DEF(culture)
 
 	var/list/raw_toml_data = list()
 
-	var/list/cultural_info_by_name = list()
+	var/list/cultural_info_by_id = list()
 	var/list/tagged_info = list()
 
 /datum/controller/subsystem/culture/proc/get_all_entries_tagged_with(var/token)
@@ -71,4 +71,4 @@ SUBSYSTEM_DEF(culture)
 	return culture
 
 /datum/controller/subsystem/culture/proc/get_culture(var/identifer)
-	return cultural_info_by_id[culture_identifer]
+	return cultural_info_by_id[identifer]
