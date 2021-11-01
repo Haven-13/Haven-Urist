@@ -6,8 +6,6 @@ SUBSYSTEM_DEF(culture)
 	var/list/raw_toml_data = list()
 
 	var/list/cultural_info_by_name = list()
-	var/list/cultural_info_by_id = list()
-	var/list/cultural_info_by_path = list()
 	var/list/tagged_info = list()
 
 /datum/controller/subsystem/culture/proc/get_all_entries_tagged_with(var/token)
@@ -24,6 +22,9 @@ SUBSYSTEM_DEF(culture)
 		"resources/defs/cultures/cultures_vox.toml",
 	)
 	for (var/file in files)
+		if(!rustg_file_exists(file))
+			error("SSculture: File [file] does not exist")
+			continue
 		var/list/data = rustg_read_toml_file(file)
 		for(var/key in data)
 			data[key]["@source"] = file
@@ -67,6 +68,7 @@ SUBSYSTEM_DEF(culture)
 	culture.additional_langs = data["additional_languages"] || list()
 	culture.hidden = data["hidden"] || FALSE
 	cultural_info_by_id[key] = culture
+	return culture
 
-/datum/controller/subsystem/culture/proc/get_culture(var/culture_ident)
-	return cultural_info_by_name[culture_ident] ? cultural_info_by_name[culture_ident] : cultural_info_by_path[culture_ident]
+/datum/controller/subsystem/culture/proc/get_culture(var/identifer)
+	return cultural_info_by_id[culture_identifer]
