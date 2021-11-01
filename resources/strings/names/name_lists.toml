@@ -1,0 +1,13 @@
+NAME_FIRST_MALE = [
+	"personal/human_first_unisex.csv",
+	"personal/human_first_male.csv"]
+NAME_FIRST_FEMALE = [
+	"personal/human_first_unisex.csv",
+	"personal/human_first_female.csv"]
+NAME_FIRST_PLURAL = [
+	"personal/human_first_unisex.csv",
+	"personal/human_first_female.csv",
+	"personal/human_first_male.csv"]
+NAME_FIRST_UNISEX = ["human_first_unisex.csv"]
+
+NAME_LAST = ["human_last.csv"]

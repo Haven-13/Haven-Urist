@@ -68,3 +68,9 @@
 	fcopy(file, filename)
 	. = md5filepath(filename)
 	fdel(filename)
+
+/// Returns the extension of the filename
+/proc/file_get_extension(filename)
+	var/name = splicetext_char(filename, findlasttext_char(filename, "/"))
+	var/ext = splicetext_char(filename, findlasttext_char(name, "."))
+	return ext
