@@ -1,3 +1,30 @@
+* text=auto
+
+## Enforce text mode and LF line breaks
+*.bat text eol=lf
+*.cjs text eol=lf
+*.css text eol=lf
+*.dm text eol=lf
+*.dme text eol=lf
+*.dmf text eol=lf
+*.htm text eol=lf
+*.html text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.jsx text eol=lf
+*.md text eol=lf
+*.ps1 text eol=lf
+*.py text eol=lf
+*.scss text eol=lf
+*.sh text eol=lf
+*.sql text eol=lf
+*.svg text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.txt text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+
 # dmm map merger hook
 # needs additional setup, see tools/mapmerge/install.txt
 *.dmm merge=merge-dmm
@@ -5,18 +32,15 @@
 ## Merger hooks, run tools/hooks/install.bat or install.sh to set up (not yet implemented)
 *.dmi binary merge=dmi
 
+## Enforce binary mode
+*.bmp binary
+*.dll binary
+*.dmb binary
+*.exe binary
 *.gif binary
+*.jpg binary
 *.png binary
-*.ogg binary
+*.so binary
 
 # force changelog merging to use union
-html/changelog.html merge=union
-
-# Declare files that will always have CRLF line endings on checkout.
-*.dm text eol=crlf
-*.dmm text eol=crlf
-*.js text eol=crlf
-*.py text eol=crlf
-
-# Files to be always LF
-*.sh text eol=lf
+resources/html/changelog.html merge=union
