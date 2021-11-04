@@ -75,6 +75,7 @@ fi
 
 # Invoke Node with all command-line arguments
 mkdir -p "$Cache"
+printf '%s\n' "NodeJS version: $($NodeExe --version)"
 printf '%s\n' "$NodeExe" "$@" > "$Log"
 printf -- '---\n' >> "$Log"
 exec 4>&1
