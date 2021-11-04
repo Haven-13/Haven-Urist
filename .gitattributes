@@ -16,5 +16,7 @@ html/changelog.html merge=union
 *.dm text eol=crlf
 *.dmm text eol=crlf
 *.js text eol=crlf
-*.sh text eol=crlf
 *.py text eol=crlf
+
+# Files to be always LF
+*.sh text eol=lf
