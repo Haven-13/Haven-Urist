@@ -85,7 +85,7 @@ pr_author = pr.user.login
 
 write_cl = {}
 try:
-    cl = CL_BODY.search(pr_body)
+    cl = CL_BODY.search(pr_body or "")
     cl_list = CL_SPLIT.findall(cl.group(2))
 except AttributeError:
     print("No CL found!")
