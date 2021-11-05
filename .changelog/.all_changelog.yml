@@ -363,3 +363,6 @@
   martinlyra:
   - refactor: Moved icons, sound, maps, and other resource files into within a subfolder
       called resources for organization
+2021-11-05:
+  martinlyra:
+  - bugfix: Fixed missing configuration required for TGS 4 hosting
