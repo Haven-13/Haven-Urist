@@ -1,6 +1,6 @@
 import { decodeHtmlEntities } from 'common/string';
-import { useBackend, useLocalState } from "tgui/backend";
-import { Box, Button, LabeledList, NumberInput, Section } from "tgui/components";
+import { useBackend } from "tgui/backend";
+import { Button, LabeledList, NumberInput, Section } from "tgui/components";
 import { getGasLabel } from "tgui/constants";
 
 

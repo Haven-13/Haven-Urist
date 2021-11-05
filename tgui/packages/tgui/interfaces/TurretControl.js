@@ -1,6 +1,5 @@
 import { useBackend } from 'tgui/backend';
-import { Fragment } from 'inferno';
-import { Button, Box, LabeledList, Section } from 'tgui/components';
+import { Button, LabeledList, Section } from 'tgui/components';
 import { Window } from 'tgui/layouts';
 import { InterfaceLockNoticeBox } from './common/InterfaceLockNoticeBox';
 

@@ -1,8 +1,7 @@
 import { Fragment } from 'inferno';
-import { useBackend, useLocalState } from 'tgui/backend';
-import { Box, Button, Dimmer, Icon, LabeledList, ProgressBar, Section, Table } from 'tgui/components';
+import { useBackend } from 'tgui/backend';
+import { Box, Button, LabeledList, ProgressBar, Section, Table } from 'tgui/components';
 import { Window } from 'tgui/layouts';
-import { range } from 'common/math';
 
 export const PathogenicIncubator = (props, context) => {
   const { act, data } = useBackend(context);

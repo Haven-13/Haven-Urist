@@ -1,5 +1,5 @@
 import { NtosWindow } from "tgui/layouts";
-import { Box, Button, ColorBox, Flex, Input, Icon, LabeledList, Modal, Section, Stack, TextArea, TimeDisplay } from "tgui/components";
+import { Box, Button, ColorBox, Flex, Icon, LabeledList, Modal, Section, Stack, TextArea, TimeDisplay } from "tgui/components";
 import { useBackend, useSharedState } from "tgui/backend";
 import { toTitleCase } from "common/string";
 import { sanitizeText } from "tgui/sanitize";

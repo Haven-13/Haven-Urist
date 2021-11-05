@@ -1,7 +1,6 @@
 import { useBackend } from 'tgui/backend';
 import { AnimatedNumber, Box, Flex, Section, LabeledList, Button, ProgressBar, Table } from 'tgui/components';
 import { round } from 'common/math';
-import { Fragment } from 'inferno';
 import { Window } from 'tgui/layouts';
 import { MedicalScanInfo } from './common/MedicalScans';
 

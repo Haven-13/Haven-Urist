@@ -1,5 +1,5 @@
 import { useBackend, useSharedState } from "tgui/backend";
-import { Box, Button, Flex, Icon, Input, LabeledList, Modal, Section, Stack, Tabs, TextArea } from "tgui/components";
+import { Box, Button, Flex, Modal, Section, Stack, TextArea } from "tgui/components";
 import { NtosWindow } from "tgui/layouts";
 import { ErrorMessageModal, FileBrowserModal, FileNamePromptModal } from "tgui/interfaces/programs/components";
 
