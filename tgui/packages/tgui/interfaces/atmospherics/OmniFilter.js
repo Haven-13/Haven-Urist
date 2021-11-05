@@ -1,6 +1,5 @@
 import { useBackend } from "tgui/backend";
 import { Button, LabeledList, NumberInput, Section } from "tgui/components";
-import { getGasLabel } from "tgui/constants";
 import { Window } from "tgui/layouts";
 
 export const OmniFilter = (props, context) => {

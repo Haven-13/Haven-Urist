@@ -1,8 +1,6 @@
-import { classes } from 'common/react';
-import { uniqBy } from 'common/collections';
-import { useBackend, useSharedState } from 'tgui/backend';
-import { formatSiUnit, formatMoney } from 'tgui/format';
-import { Dimmer, Flex, Section, LabeledList, Tabs, Box, Button, Fragment, ProgressBar, NumberInput, Icon, Input } from 'tgui/components';
+import { useBackend } from 'tgui/backend';
+import { formatSiUnit } from 'tgui/format';
+import { Dimmer, Section, LabeledList, Box, Button, ProgressBar } from 'tgui/components';
 import { Window } from 'tgui/layouts';
 import { capitalize } from 'common/string';
 import { AnimatedNumber, LabeledControls } from 'tgui/components';

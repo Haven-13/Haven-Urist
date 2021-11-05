@@ -1,5 +1,5 @@
 import { useBackend } from "tgui/backend";
-import { Button, ColorBox, Section, Table } from "tgui/components";
+import { Button, Section, Table } from "tgui/components";
 import { NtosWindow } from "tgui/layouts";
 
 const PROGRAM_ICONS = {

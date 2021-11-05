@@ -1,5 +1,5 @@
 import { useBackend } from "tgui/backend";
-import { Button, LabeledList, NumberInput, ProgressBar, Section } from "tgui/components";
+import { Button, LabeledList, Section } from "tgui/components";
 import { Window } from "tgui/layouts";
 import { AnimatedNumber, Knob, LabeledControls } from "../../components";
 

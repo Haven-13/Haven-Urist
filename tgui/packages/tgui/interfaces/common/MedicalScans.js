@@ -1,6 +1,6 @@
 import { useBackend } from "tgui/backend";
 import { Fragment } from 'inferno';
-import { Box, Section, LabeledList, Button, AnimatedNumber } from "tgui/components";
+import { Box, Section, LabeledList, AnimatedNumber } from "tgui/components";
 import { round } from "common/math";
 
 const VitalsContents = (propes, context) => {

@@ -4,7 +4,7 @@ import { capitalize } from 'common/string';
 import { useBackend, useSharedState } from 'tgui/backend';
 import { AnimatedNumber, Box, Button, Flex, LabeledControls, LabeledList, Section, Table, Tabs, TimeDisplay } from 'tgui/components';
 import { formatMoney } from 'tgui/format';
-import { NtosWindow, Window } from 'tgui/layouts';
+import { NtosWindow } from 'tgui/layouts';
 
 export const SupplyProgram = (props, context) => {
   const { act, data } = useBackend(context);

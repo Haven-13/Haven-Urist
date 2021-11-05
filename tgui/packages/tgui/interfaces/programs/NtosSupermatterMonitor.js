@@ -6,7 +6,6 @@ import { useBackend } from "tgui/backend";
 import { AnimatedNumber, Box, Button, Flex, LabeledList, ProgressBar, Section, Table } from "tgui/components";
 import { getGasColor, getGasLabel } from "tgui/constants";
 import { NtosWindow } from "tgui/layouts";
-import { Tooltip } from '../../components/Tooltip';
 
 const logScale = value => Math.log2(16 + Math.max(0, value)) - 4;
 

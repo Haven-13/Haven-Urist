@@ -1,5 +1,4 @@
 import { useBackend } from "tgui/backend";
-import { Fragment } from 'inferno';
 import { Button, LabeledList, NumberInput, Section } from "tgui/components";
 import { Window } from "tgui/layouts";
 import { LabeledControls } from "../../components";

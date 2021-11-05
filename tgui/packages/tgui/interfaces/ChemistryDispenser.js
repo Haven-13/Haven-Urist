@@ -1,6 +1,6 @@
 import { Fragment } from 'inferno';
 import { useBackend } from 'tgui/backend';
-import { AnimatedNumber, Box, Button, Icon, LabeledList, ProgressBar, Section } from 'tgui/components';
+import { AnimatedNumber, Box, Button, LabeledList, Section } from 'tgui/components';
 import { Window } from 'tgui/layouts';
 
 export const ChemistryDispenser = (props, context) => {

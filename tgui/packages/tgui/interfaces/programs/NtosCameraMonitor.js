@@ -1,11 +1,10 @@
-import { filter, map, sortBy } from 'common/collections';
+import { filter, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { classes } from 'common/react';
 import { createSearch } from 'common/string';
-import { Fragment } from 'inferno';
 import { useBackend, useLocalState, useSharedState } from "tgui/backend";
-import { Button, ByondUi, Dropdown, Flex, Input, Section, Stack } from "tgui/components";
-import { NtosWindow, Window } from "tgui/layouts";
+import { Button, ByondUi, Dropdown, Input, Section, Stack } from "tgui/components";
+import { NtosWindow } from "tgui/layouts";
 
 /**
  * Camera selector.

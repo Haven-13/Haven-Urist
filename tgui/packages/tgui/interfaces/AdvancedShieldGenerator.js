@@ -1,4 +1,3 @@
-import { Fragment } from 'inferno';
 import { useBackend } from 'tgui/backend';
 import {
   Button, Flex, LabeledControls, LabeledList,

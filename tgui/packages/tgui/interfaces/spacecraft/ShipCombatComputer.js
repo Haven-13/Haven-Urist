@@ -1,7 +1,6 @@
 import { useBackend } from 'tgui/backend';
 import { Fragment } from 'inferno';
-import { Box, Button, ColorBox, Section, Table } from 'tgui/components';
-import { COLORS } from 'tgui/constants';
+import { Button, Section, Table } from 'tgui/components';
 import { Window } from 'tgui/layouts';
 import { Flex, LabeledList, ProgressBar } from 'tgui/components';
 import { TableCell, TableRow } from 'tgui/components/Table';

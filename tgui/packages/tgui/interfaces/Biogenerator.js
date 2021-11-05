@@ -3,7 +3,6 @@ import { createSearch } from 'common/string';
 import { Fragment } from 'inferno';
 import { useBackend, useLocalState } from 'tgui/backend';
 import { Box, Button, Dimmer, Flex, Icon, Input, LabeledList, NoticeBox, NumberInput, ProgressBar, Section, Table, Tabs } from 'tgui/components';
-import { TableRow } from 'tgui/components/Table';
 import { formatMoney } from 'tgui/format';
 import { Window } from 'tgui/layouts';
 

@@ -3,7 +3,6 @@ import { decodeHtmlEntities } from 'common/string';
 import { Fragment } from 'inferno';
 import { useBackend, useLocalState } from "tgui/backend";
 import { Box, Button, LabeledList, NumberInput, Section } from "tgui/components";
-import { getGasLabel } from "tgui/constants";
 import { Window } from "tgui/layouts";
 import { InterfaceLockNoticeBox } from 'tgui/interfaces/common/InterfaceLockNoticeBox';
 import { Vent, Scrubber } from 'tgui/interfaces/common/AtmosControls';
