@@ -62,6 +62,7 @@ const getDmPath = async () => {
  * @param {string} dmeFile
  * @param {{
  *   defines?: string[];
+ *   mapOverride?: string;
  *   warningsAsErrors?: boolean;
  * }} options
  */
@@ -97,7 +98,16 @@ export const DreamMaker = async (dmeFile, options = {}) => {
     return execReturn;
   }
   // Compile
-  const { defines } = options;
+  const { defines, mapOverride } = options;
+  if (mapOverride && mapOverride.length > 0) {
+    Juke.logger.info('Using override map:', mapOverride);
+    defines = defines || [];
+    defines.push("MAP_OVERRIDE");
+    fs.writeFileSync(
+      "resources/maps/_map_include.dm",
+      `#include "${mapOverride}/${mapOverride}.dm"\n`
+    );
+  }
   if (defines && defines.length > 0) {
     Juke.logger.info('Using defines:', defines.join(', '));
     try {

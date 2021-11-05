@@ -8,9 +8,18 @@
 // If you think you need more, rethink it
 #define MAX_ATOM_OVERLAYS 100
 
+#ifdef CIBUILDING
+#define UNIT_TEST
+#endif
+
 #ifdef TGS
 // TGS performs its own build of dm.exe, but includes a prepended TGS define.
 #define CBT
+#endif
+
+#if defined(UNIT_TESTS)
+//Hard del testing defines
+#define FIND_REF_NO_CHECK_TICK
 #endif
 
 #if !defined(CBT) && !defined(SPACEMAN_DMM)

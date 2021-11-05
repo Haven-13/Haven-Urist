@@ -64,7 +64,7 @@ export const DmMapsIncludeTarget = new Juke.Target({
 });
 
 export const DmTarget = new Juke.Target({
-  parameters: [DefineParameter],
+  parameters: [DefineParameter, MapOverrideParameter],
   dependsOn: ({ get }) => [
     get(DefineParameter).includes('ALL_MAPS') && DmMapsIncludeTarget,
   ],
@@ -84,13 +84,14 @@ export const DmTarget = new Juke.Target({
   executes: async ({ get }) => {
     await DreamMaker(`${DME_NAME}.dme`, {
       defines: ['CBT', ...get(DefineParameter)],
+      mapOverride: get(MapOverrideParameter),
       warningsAsErrors: get(WarningParameter).includes('error'),
     });
   },
 });
 
 export const DmTestTarget = new Juke.Target({
-  parameters: [DefineParameter],
+  parameters: [DefineParameter, MapOverrideParameter],
   dependsOn: ({ get }) => [
     get(DefineParameter).includes('ALL_MAPS') && DmMapsIncludeTarget,
   ],
@@ -98,6 +99,7 @@ export const DmTestTarget = new Juke.Target({
     fs.copyFileSync(`${DME_NAME}.dme`, `${DME_NAME}.test.dme`);
     await DreamMaker(`${DME_NAME}.test.dme`, {
       defines: ['CBT', 'CIBUILDING', ...get(DefineParameter)],
+      mapOverride: get(MapOverrideParameter),
       warningsAsErrors: get(WarningParameter).includes('error'),
     });
     Juke.rm('data/logs/ci', { recursive: true });
@@ -129,8 +131,6 @@ export const YarnTarget = new Juke.Target({
     'tgui/.yarn/install-target',
   ],
   executes: ({ get }) => yarn('install', get(CiParameter) && '--immutable'),
-});
-
 });
 
 export const TguiTarget = new Juke.Target({
