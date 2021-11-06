@@ -1,7 +1,8 @@
 import { Fragment } from 'inferno';
+import { sanitizeText } from 'tgui/sanitize';
+import { Box } from 'tgui/components';
 import { useBackend } from 'tgui/backend';
 import { AnimatedNumber, Button, LabeledList, ProgressBar, Section } from 'tgui/components';
-import { BeakerContents } from './common/BeakerContents';
 import { Window } from 'tgui/layouts';
 
 const damageTypes = [
@@ -23,7 +24,7 @@ const damageTypes = [
   },
 ];
 
-export const Cryo = () => {
+export const CryoCell = () => {
   return (
     <Window
       width={400}
@@ -38,49 +39,36 @@ export const Cryo = () => {
 
 const CryoContent = (props, context) => {
   const { act, data } = useBackend(context);
+  const {
+    occupant = null,
+    isBeakerLoaded,
+    beakerLabel,
+    beakerVolume,
+    beakerCapacity,
+  } = data;
+  const hasOccupant = !!occupant;
   return (
     <Fragment>
-      <Section title="Occupant">
-        <LabeledList>
-          <LabeledList.Item label="Occupant">
-            {data.occupant.name || 'No Occupant'}
-          </LabeledList.Item>
-          {!!data.hasOccupant && (
-            <Fragment>
-              <LabeledList.Item
-                label="State"
-                color={data.occupant.statstate}>
-                {data.occupant.stat}
-              </LabeledList.Item>
-              <LabeledList.Item
-                label="Temperature"
-                color={data.occupant.temperaturestatus}>
-                <AnimatedNumber
-                  value={data.occupant.bodyTemperature} />
-                {' K'}
-              </LabeledList.Item>
-              <LabeledList.Item label="Health">
-                <ProgressBar
-                  value={data.occupant.health / data.occupant.maxHealth}
-                  color={data.occupant.health > 0 ? 'good' : 'average'}>
-                  <AnimatedNumber
-                    value={data.occupant.health} />
-                </ProgressBar>
-              </LabeledList.Item>
-              {(damageTypes.map(damageType => (
-                <LabeledList.Item
-                  key={damageType.id}
-                  label={damageType.label}>
-                  <ProgressBar
-                    value={data.occupant[damageType.type]/100}>
-                    <AnimatedNumber
-                      value={data.occupant[damageType.type]} />
-                  </ProgressBar>
-                </LabeledList.Item>
-              )))}
-            </Fragment>
+      <Section
+        title="Occupant"
+        buttons={
+          <Button
+            icon="eject"
+            disabled={!!!hasOccupant}
+            onClick={() => act("ejectOccupant")}
+            content="Eject"/>
+        }>
+          {hasOccupant &&
+            /* Don't let a Baystation12 coder anywhere close to UI code.
+            Because, holy fucking shit, this is dumb as fuck. */
+            (<Box dangerouslySetInnerHTML={
+              { __html: sanitizeText(occupant) }
+            } />
+          ) || (
+            <Box italic>
+              No Occupant
+            </Box>
           )}
-        </LabeledList>
       </Section>
       <Section title="Cell">
         <LabeledList>
@@ -96,16 +84,6 @@ const CryoContent = (props, context) => {
           <LabeledList.Item label="Temperature">
             <AnimatedNumber value={data.cellTemperature} /> K
           </LabeledList.Item>
-          <LabeledList.Item label="Door">
-            <Button
-              icon={data.isOpen ? "unlock" : "lock"}
-              onClick={() => act('door')}
-              content={data.isOpen ? "Open" : "Closed"} />
-            <Button
-              icon={data.autoEject ? "sign-out-alt" : "sign-in-alt"}
-              onClick={() => act('autoeject')}
-              content={data.autoEject ? "Auto" : "Manual"} />
-          </LabeledList.Item>
         </LabeledList>
       </Section>
       <Section
@@ -113,13 +91,24 @@ const CryoContent = (props, context) => {
         buttons={(
           <Button
             icon="eject"
-            disabled={!data.isBeakerLoaded}
+            disabled={!isBeakerLoaded}
             onClick={() => act('ejectbeaker')}
             content="Eject" />
         )}>
-        <BeakerContents
-          beakerLoaded={data.isBeakerLoaded}
-          beakerContents={data.beakerContents} />
+        <LabeledList>
+          <LabeledList.Item label="Label">
+            {(isBeakerLoaded && beakerLabel) || "None loaded"}
+          </LabeledList.Item>
+          <LabeledList.Item label="Volume">
+            <ProgressBar
+              value={beakerVolume}
+              minValue={0}
+              maxValue={beakerCapacity || Infinity}
+            >
+              {beakerVolume} / {beakerCapacity}u
+            </ProgressBar>
+          </LabeledList.Item>
+        </LabeledList>
       </Section>
     </Fragment>
   );
