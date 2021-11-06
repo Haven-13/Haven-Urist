@@ -1,4 +1,3 @@
-import { toArray } from 'common/collections';
 import { Fragment } from 'inferno';
 import { capitalize } from 'common/string';
 import { useBackend, useSharedState } from 'tgui/backend';
@@ -141,7 +140,7 @@ export const CargoCatalog = (props, context) => {
     currency_short,
     current_security_level,
   } = data;
-  const supplies = toArray(data.supplies);
+  const supplies = data.supplies || [];
   const items = data.items || {};
   const categories = data.categories || [];
   const [
