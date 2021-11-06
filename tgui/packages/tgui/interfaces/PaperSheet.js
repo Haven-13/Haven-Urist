@@ -41,8 +41,7 @@ const textWidth = (text, font, fontsize) => {
   const c = document.createElement('canvas');
   const ctx = c.getContext("2d");
   ctx.font = font;
-  const width = ctx.measureText(text).width;
-  return width;
+  return ctx.measureText(text).width;
 };
 
 const setFontinText = (text, font, color, bold=false) => {
@@ -303,8 +302,7 @@ class PaperSheetStamper extends Component {
       position.y - offset.top,
     ];
     const centerOffset = vecScale([121, 51], 0.5);
-    const center = vecSubtract(pos, centerOffset);
-    return center;
+    return vecSubtract(pos, centerOffset);
   }
 
   componentDidMount() {
@@ -502,13 +500,12 @@ class PaperSheetEdit extends Component {
                 : "white"}
               selected={this.state.previewSelected === "Preview"}
               onClick={() => this.setState(() => {
-                const new_state = {
+                return {
                   previewSelected: "Preview",
                   textarea_text: this.state.textarea_text,
                   combined_text: this.createPreview(
                     this.state.textarea_text).text,
                 };
-                return new_state;
               })}>
               Preview
             </Tabs.Tab>
@@ -528,13 +525,12 @@ class PaperSheetEdit extends Component {
                 }
                 else if (this.state.previewSelected === "Edit") {
                   this.setState(() => {
-                    const new_state = {
+                    return {
                       previewSelected: "confirm",
                       textarea_text: this.state.textarea_text,
                       combined_text: this.createPreview(
                         this.state.textarea_text).text,
                     };
-                    return new_state;
                   });
                 }
                 else {

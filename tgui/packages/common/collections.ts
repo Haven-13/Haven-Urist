@@ -300,3 +300,13 @@ const binarySearch = <T, U = unknown>(
 
   return compare > insertingKey ? middle : middle + 1;
 };
+
+export const binaryInsertWith = <T, U = unknown>(getKey: (value: T) => U):
+  ((collection: readonly T[], value: T) => T[]) =>
+{
+  return (collection, value) => {
+    const copy = [...collection];
+    copy.splice(binarySearch(getKey, collection, value), 0, value);
+    return copy;
+  };
+};
