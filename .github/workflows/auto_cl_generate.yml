@@ -2,17 +2,17 @@ name: Changelog Automaker (Generate PR CL)
 
 on:
   push:
-    branches: [master]
+    branches: [latest]
   workflow_dispatch:
     inputs:
-      oref: 
+      oref:
         description: 'Override REF'
         required: True
 
 env:
   GIT_EMAIL: "action@github.com"
   GIT_NAME: "Changelog Automaker"
-  GIT_BRANCH: "master"
+  GIT_BRANCH: "latest"
 
 jobs:
   MakeCL:

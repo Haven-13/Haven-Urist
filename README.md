@@ -1,4 +1,4 @@
-# Haven 13 ![CI](https://github.com/Haven-13/Haven-Urist/actions/workflows/ci.yml/badge.svg?branch=master)
+# Haven 13 ![CI](https://github.com/Haven-13/Haven-Urist/actions/workflows/ci.yml/badge.svg?branch=latest)
 
 H13's Urist McStation's BS12 branch.
 

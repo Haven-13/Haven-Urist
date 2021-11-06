@@ -33,7 +33,7 @@ jobs:
         run: |
           git config --local user.email $GIT_EMAIL
           git config --local user.name "$GIT_NAME"
-          git pull origin master
+          git pull origin latest
           git commit -m "Auto-CL compile [ci skip]" -a || true
       - name: Push
         uses: ad-m/github-push-action@master

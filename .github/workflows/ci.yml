@@ -2,19 +2,19 @@ name: CI
 on:
   push:
     branches:
-    - master
+    - latest
   pull_request:
     branches:
-    - master
+    - latest
 jobs:
   run_linters:
     name: Run Linters
     runs-on: ubuntu-20.04
     steps:
-      - name: Fetch master
+      - name: Fetch latest
         uses: actions/checkout@v2
         with:
-          ref: master
+          ref: latest
       - name: Fetch PR commits
         uses: actions/checkout@v2
       - name: Setup cache
