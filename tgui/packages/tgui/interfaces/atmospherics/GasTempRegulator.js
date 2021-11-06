@@ -29,8 +29,10 @@ export const GasTempRegulator = (props, context) => {
               <ProgressBar
                 value={gasTemperature}
                 minValue={minGasTemperature}
-                maxValue={maxGasTemperature}>
-                {round(gasTemperature, 2)} &deg;K / {round(gasTemperature-273.15, 2)} &deg;C
+                maxValue={maxGasTemperature}
+                color={gasTemperatureClass}>
+                {round(gasTemperature, 2)} &deg;K /
+                {round(gasTemperature-273.15, 2)} &deg;C
               </ProgressBar>
             </LabeledList.Item>
             <LabeledList.Item
