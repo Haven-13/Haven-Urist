@@ -23,11 +23,12 @@ const normalizeData = (data, scale, rangeX, rangeY) => {
     min[1] = rangeY[0];
     max[1] = rangeY[1];
   }
-  return map(point => {
+  const normalized = map(point => {
     return zipWith((value, min, max, scale) => {
       return (value - min) / (max - min) * scale;
     })(point, min, max, scale);
   })(data);
+  return normalized;
 };
 
 const dataToPolylinePoints = data => {
