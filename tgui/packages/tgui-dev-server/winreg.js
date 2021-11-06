@@ -7,8 +7,8 @@
  */
 
 import { exec } from 'child_process';
-import { createLogger } from 'common/logging.js';
 import { promisify } from 'util';
+import { createLogger } from './logging.js';
 
 const logger = createLogger('winreg');
 
@@ -37,7 +37,8 @@ export const regQuery = async (path, key) => {
       logger.error('could not find the start of the key value');
       return null;
     }
-    return stdout.substring(indexOfValue + 4, indexOfEol);
+    const value = stdout.substring(indexOfValue + 4, indexOfEol);
+    return value;
   }
   catch (err) {
     logger.error(err);
