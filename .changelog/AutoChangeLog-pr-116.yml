@@ -1,0 +1,4 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Fixed exception in the Supply Management Program's UI
