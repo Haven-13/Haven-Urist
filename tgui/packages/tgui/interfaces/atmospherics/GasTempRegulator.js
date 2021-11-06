@@ -30,7 +30,7 @@ export const GasTempRegulator = (props, context) => {
                 value={gasTemperature}
                 minValue={minGasTemperature}
                 maxValue={maxGasTemperature}>
-                {gasTemperature} &deg;K / {gasTemperature-273.15} &deg;C
+                {round(gasTemperature, 2)} &deg;K / {round(gasTemperature-273.15, 2)} &deg;C
               </ProgressBar>
             </LabeledList.Item>
             <LabeledList.Item
@@ -55,7 +55,7 @@ export const GasTempRegulator = (props, context) => {
                 maxValue={maxGasTemperature}
                 unit="°K"
                 onChange={(e, value) => act('temp', {
-                  temp: value,
+                  temp: round(value, 2),
                 })}
               />
             </LabeledControls.Item>
