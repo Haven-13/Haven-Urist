@@ -103,15 +103,18 @@
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "CryoCell")
+		ui = new(user, src, "CryoCell", name)
 		ui.open()
+
+/obj/machinery/atmospherics/unary/cryo_cell/ui_state(mob/user)
+	return ui_not_contained_state()
 
 /obj/machinery/atmospherics/unary/cryo_cell/ui_data(mob/user)
 	// this is the data which will be sent to the ui
 	var/data[0]
 	data["isOperating"] = on
-	data["hasOccupant"] = occupant ? 1 : 0
 
+	data["occupant"] = null
 	if (occupant)
 		var/cloneloss = "none"
 		var/amount = occupant.getCloneLoss()
@@ -123,6 +126,10 @@
 			cloneloss = "moderate"
 		else if(amount)
 			cloneloss = "minor"
+		// Don't let a Baystation12 coder anywhere close to UI code.
+		// Because, holy fucking shit, this is dumb as fuck.
+		// I had to use a `dangerouslySetInnerHTML` for now.
+		// Like. No. Seriously. Go fuck yourself if you do this.
 		var/scan = medical_scan_results(occupant)
 		scan += "<br><br>Genetic degradation: [cloneloss]"
 		scan = replacetext(scan,"'notice'","'white'")
@@ -138,43 +145,30 @@
 	else if(air_contents.temperature > 225)
 		data["cellTemperatureStatus"] = "average"
 
-	data["isBeakerLoaded"] = beaker ? 1 : 0
-
-	data["beakerLabel"] = null
-	data["beakerVolume"] = 0
-	if(beaker)
-		data["beakerLabel"] = beaker.name
-		data["beakerVolume"] = beaker.reagents.total_volume
+	data["beakerLabel"] = beaker ? beaker.name : null
+	data["beakerVolume"] = beaker ? round(beaker.reagents.total_volume,2) : 0
+	data["beakerCapacity"] = beaker ? beaker.volume : 0
 
 	return data
 
-/obj/machinery/atmospherics/unary/cryo_cell/OnTopic(user, href_list)
-	if(user == occupant)
-		return UI_CLOSE
-	. = ..()
+/obj/machinery/atmospherics/unary/cryo_cell/ui_act(action, list/params)
+	switch(action)
+		if("power")
+			on = !on
+			update_icon()
+			return TRUE
 
-/obj/machinery/atmospherics/unary/cryo_cell/OnTopic(user, href_list)
-	if(href_list["switchOn"])
-		on = 1
-		update_icon()
-		return TRUE
+		if("ejectBeaker")
+			if(beaker)
+				beaker.forceMove(get_step(loc, SOUTH))
+				beaker = null
+			return TRUE
 
-	if(href_list["switchOff"])
-		on = 0
-		update_icon()
-		return TRUE
-
-	if(href_list["ejectBeaker"])
-		if(beaker)
-			beaker.forceMove(get_step(loc, SOUTH))
-			beaker = null
-		return TRUE
-
-	if(href_list["ejectOccupant"])
-		if(!occupant || isslime(user) || ispAI(user))
-			return FALSE // don't update UIs attached to this object
-		go_out()
-		return TRUE
+		if("ejectOccupant")
+			if(!occupant || isslime(usr) || ispAI(usr))
+				return FALSE // don't update UIs attached to this object
+			go_out()
+			return TRUE
 
 
 /obj/machinery/atmospherics/unary/cryo_cell/attackby(var/obj/G, var/mob/user as mob)
