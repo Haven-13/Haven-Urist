@@ -19,6 +19,24 @@
 			"label": "Build All"
 		},
 		{
+			"type": "process",
+			"command": "tools/build/build",
+			"windows": {
+				"command": ".\\tools\\build\\build.bat",
+				"args": ["--map-override=example"]
+			},
+			"problemMatcher": [
+				"$dreammaker",
+				"$eslint-stylish"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"dependsOn": "dm: reparse",
+			"label": "Build All (Dev)"
+		},
+		{
 			"type": "dreammaker",
 			"dme": "baystation12.dme",
 			"problemMatcher": [
