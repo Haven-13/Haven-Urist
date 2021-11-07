@@ -1,0 +1,4 @@
+author: martinlyra
+delete-after: true
+changes:
+  - config: Added a VSCode task for quickly testing code on the example map
