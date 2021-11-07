@@ -103,7 +103,7 @@
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "CryoCell")
+		ui = new(user, src, "CryoCell", name)
 		ui.open()
 
 /obj/machinery/atmospherics/unary/cryo_cell/ui_state(mob/user)
@@ -165,7 +165,7 @@
 			return TRUE
 
 		if("ejectOccupant")
-			if(!occupant || isslime(user) || ispAI(user))
+			if(!occupant || isslime(usr) || ispAI(usr))
 				return FALSE // don't update UIs attached to this object
 			go_out()
 			return TRUE
