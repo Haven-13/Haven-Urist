@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Fixed issues with rounding in the UI for Gas Heaters/Freezers
-  - bugfix: Fixed the temperature bar not being colour-coded properly

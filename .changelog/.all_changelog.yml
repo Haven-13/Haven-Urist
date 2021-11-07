@@ -366,3 +366,13 @@
 2021-11-05:
   martinlyra:
   - bugfix: Fixed missing configuration required for TGS 4 hosting
+2021-11-07:
+  martinlyra:
+  - bugfix: Fixed exception in the Supply Management Program's UI
+  - tweak: Updated tgUI to latest available from tgstation
+  - bugfix: Fixed the camera console not cleaning up properly
+  - bugfix: Fixed the tgUI for gas canisters
+  - rscadd: Added functional UI for cryocells
+  - bugfix: Fixed issues with rounding in the UI for Gas Heaters/Freezers
+  - bugfix: Fixed the temperature bar not being colour-coded properly
+  - config: Added a VSCode task for quickly testing code on the example map
