@@ -546,31 +546,19 @@ var/world_topic_spam_protect_time = world.timeofday
 	var/s = ""
 
 	if (config && config.server_name)
-		s += "<b>[config.server_name]</b>\]<br/>"
+		s += "<b>[config.server_name] - [station_name()]</b> | "
 	else
-		s += "<b>[station_name()]</b>\]<br/>"
+		s += "<b>[station_name()]</b> | "
 
 	if (config && config.server_tag_line)
-		s += " :: [config.server_tag_line]<br/>"
+		s += config.server_tag_line
 
-	if (config && config.server_type_line)
-		s += "<b>Type:</b> [config.server_type_line]"
-		s += " | "
-	s += "<b>Mode:</b> [SSticker.master_mode || "STARTING"]"
-	s += " | "
-	s += "<b>Map:</b> <i>[station_name()]</i>"
-	s += "<br/>"
-
-	s += "\[: Hosted by "
-	if (config && config.hostedby)
-		s += "<i>[config.hostedby]</i>"
+	s += " | [SSticker.master_mode || "Starting"]"
+	if (config)
 		if (config.forumurl)
 			s += " | <a href=\"[config.forumurl]\">Discord</a>"
 		if (config.githuburl)
 			s += " | <a href=\"[config.githuburl]\">Github</a>"
-	else
-		s += "<i>Urist McAnonymous Host</i>"
-	s += " :"
 
 	/* does this help? I do not know */
 	if (src.status != s)
