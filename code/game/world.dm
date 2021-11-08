@@ -561,7 +561,7 @@ var/world_topic_spam_protect_time = world.timeofday
 	s += "<b>Map:</b> <i>[station_name()]</i>"
 	s += "<br/>"
 
-	s += "\[ Hosted by "
+	s += "\[: Hosted by "
 	if (config && config.hostedby)
 		s += "<i>[config.hostedby]</i>"
 		if (config.forumurl)
@@ -570,7 +570,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			s += " | <a href=\"[config.githuburl]\">Github</a>"
 	else
 		s += "<i>Urist McAnonymous Host</i>"
-	s += " "
+	s += " :"
 
 	/* does this help? I do not know */
 	if (src.status != s)
