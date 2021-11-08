@@ -556,18 +556,18 @@ var/world_topic_spam_protect_time = world.timeofday
 	if (config && config.server_type_line)
 		s += "<b>Type:</b> [config.server_type_line]"
 		s += " | "
-	s += "<b>Mode:<b> [SSticker.master_mode || "STARTING"]"
+	s += "<b>Mode:</b> [SSticker.master_mode || "STARTING"]"
 	s += " | "
-	s += "<b>Map:<b> <i>[station_name()]</i>"
+	s += "<b>Map:</b> <i>[station_name()]</i>"
 	s += "<br/>"
 
 	s += "\[ Hosted by "
 	if (config && config.hostedby)
 		s += "<i>[config.hostedby]</i>"
 		if (config.forumurl)
-			s += " | <a href=[config.forumurl]>Discord</a>"
+			s += " | <a href=\"[config.forumurl]\">Discord</a>"
 		if (config.githuburl)
-			s += " | <a href=[config.githuburl]>Github</a>"
+			s += " | <a href=\"[config.githuburl]\">Github</a>"
 	else
 		s += "<i>Urist McAnonymous Host</i>"
 	s += " "
