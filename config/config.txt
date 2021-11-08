@@ -4,6 +4,9 @@ SERVERNAME Haven-Urist
 ## Server tagline: This appears at the Byond hub when publicly visible or posted to the hub. A good place to put in slogan or description of the server.
 SERVERTAGLINE Beginner friendly MRP set on a spaceship
 
+## Server type line: This appears at the Byond hub when publicly visible. It will be shown after "Type:" in same line as the map and current mode.
+SERVERTYPELINE MRP
+
 ## Hub visibility: If you want to be visible on the hub, uncomment the below line and be sure that Dream Daemon is set to "Visible." This can be changed in-round as well with toggle-hub-visibility if Dream Daemon is set correctly.
 HUB
 
