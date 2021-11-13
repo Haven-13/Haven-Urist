@@ -45,8 +45,8 @@ export const DIRECTIONS = {
   northeast: 5,
   northwest: 9,
   southeast: 6,
-  southwest: 10
-}
+  southwest: 10,
+};
 
 // Colors defined in CSS
 export const CSS_COLORS = [
