@@ -5,11 +5,6 @@
 	icon_keyboard = "tech_key"
 	icon_screen = "engines"
 	circuit = /obj/item/weapon/circuitboard/engine
-	var/obj/effect/overmap/ship/linked
-
-/obj/machinery/computer/ship/engines/Initialize()
-	. = ..()
-	linked = map_sectors["[z]"]
 
 /obj/machinery/computer/ship/engines/attack_hand(var/mob/user as mob)
 	if(..())

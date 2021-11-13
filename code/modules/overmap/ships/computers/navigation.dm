@@ -3,7 +3,6 @@
 	name = "navigation console"
 	circuit = /obj/item/weapon/circuitboard/nav
 	var/viewing = 0
-	var/obj/effect/overmap/ship/linked
 	icon_keyboard = "generic_key"
 	icon_screen = "helm"
 

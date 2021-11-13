@@ -2,6 +2,7 @@
 	name = "generic ship"
 	desc = "Space faring vessel."
 	icon_state = "ship"
+	moving_state = "ship_moving"
 	var/vessel_mass = 100 				//tonnes, arbitrary number, affects acceleration provided by engines
 	var/default_delay = 6 SECONDS 		//time it takes to move to next tile on overmap
 	var/speed_mod = 10					//multiplier for how much ship's speed reduces above time
@@ -23,23 +24,11 @@
 
 /obj/effect/overmap/ship/Initialize()
 	. = ..()
-	for(var/datum/ship_engine/E in ship_engines)
-		if (E.holder.z in map_z)
-			engines |= E
-	for(var/obj/machinery/computer/ship/engines/E in SSmachines.machinery)
-		if (E.z in map_z)
-			E.linked = src
-			//testing("Engines console at level [E.z] linked to overmap object '[name]'.")
-	for(var/obj/machinery/computer/ship/helm/H in SSmachines.machinery)
-		if (H.z in map_z)
-			nav_control = H
-			H.linked = src
-			//testing("Helm console at level [H.z] linked to overmap object '[name]'.")
-	for(var/obj/machinery/computer/ship/navigation/N in SSmachines.machinery)
-		if (N.z in map_z)
-			N.linked = src
-			//testing("Navigation console at level [N.z] linked to overmap object '[name]'.")
 	START_PROCESSING(SSobj, src)
+
+/obj/effect/overmap/ship/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	. = ..()
 
 /obj/effect/overmap/ship/relaymove(mob/user, direction)
 	accelerate(direction)
@@ -128,10 +117,10 @@
 
 /obj/effect/overmap/ship/update_icon()
 	if(!is_still())
-		icon_state = "ship_moving"
+		icon_state = moving_state
 		dir = get_heading()
 	else
-		icon_state = "ship"
+		icon_state = initial(icon_state)
 
 /obj/effect/overmap/ship/proc/burn()
 	for(var/datum/ship_engine/E in engines)
@@ -191,3 +180,14 @@
 
 /obj/effect/overmap/ship/proc/unhalt()
 	halted = 0
+
+/obj/effect/overmap/ship/populate_sector_objects()
+	..()
+	for(var/obj/machinery/computer/ship/S in SSmachines.machinery)
+		S.attempt_hook_up(src)
+	for(var/datum/ship_engine/E in ship_engines)
+		if(check_ownership(E.holder))
+			engines |= E
+
+/obj/effect/overmap/ship/proc/get_landed_info()
+	return "This ship cannot land."

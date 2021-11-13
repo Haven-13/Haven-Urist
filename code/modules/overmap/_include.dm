@@ -27,6 +27,8 @@
 
 // Ships
 #include "ships/ship.dm"
+#include "ships/landable.dm"
+#include "ships/computers/ship.dm"
 #include "ships/computers/engine_control.dm"
 #include "ships/computers/helm.dm"
 #include "ships/computers/navigation.dm"

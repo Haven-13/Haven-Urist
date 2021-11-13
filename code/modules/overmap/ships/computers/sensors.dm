@@ -4,7 +4,6 @@
 	icon_screen = "teleport"
 	light_color = "#77fff8"
 	//circuit = /obj/item/weapon/circuitboard/sensors
-	var/obj/effect/overmap/ship/linked
 	var/obj/machinery/shipsensors/sensors
 	var/viewing = 0
 	var/list/viewers
@@ -23,9 +22,16 @@
 				unlook(M)
 	. = ..()
 
+/obj/machinery/computer/ship/sensors/attempt_hook_up(obj/effect/overmap/ship/sector)
+	if(!(. = ..()))
+		return
+	find_sensors()
+
 /obj/machinery/computer/ship/sensors/proc/find_sensors()
+	if(!linked)
+		return
 	for(var/obj/machinery/shipsensors/S in SSmachines.machinery)
-		if (S.z in GetConnectedZlevels(z))
+		if (linked.check_ownership(S))
 			sensors = S
 			break
 

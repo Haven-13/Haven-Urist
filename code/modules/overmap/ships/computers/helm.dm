@@ -6,7 +6,6 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	icon_screen = "helm"
 	light_color = "#7faaff"
 	circuit = /obj/item/weapon/circuitboard/helm
-	var/obj/effect/overmap/ship/linked			//connected overmap object
 	var/viewing = 0
 	var/list/viewers = list()
 
@@ -21,6 +20,11 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 			if(M)
 				unlook(M)
 	. = ..()
+
+/obj/machinery/computer/ship/helm/attempt_hook_up(obj/effect/overmap/ship/sector)
+	if(!(. = ..()))
+		return
+	sector.nav_control = src
 
 /obj/machinery/computer/ship/helm/proc/get_overmap_area()
 	var/turf/T = locate(1,1,GLOB.using_map.overmap_z)

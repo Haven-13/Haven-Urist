@@ -47,7 +47,8 @@
 	if (SSatoms.initialized == INITIALIZATION_INSSATOMS)
 		return // let proper initialisation handle it later
 	if(length(shuttles_to_initialise))
-		SSshuttle.suspend() // For proper shuttle init behavior, we wait until done with init here.
+		// For proper shuttle init behavior, we wait until done with init here.
+		SSshuttle.suspend()
 	atoms = atoms.Copy()
 
 	var/list/turf/turfs = list()
@@ -84,7 +85,9 @@
 
 /datum/map_template/proc/init_shuttles()
 	for (var/shuttle_type in shuttles_to_initialise)
-		SSshuttle.initialise_shuttle(shuttle_type)
+		// queue up for init.
+		LAZY_ADD(SSshuttle.shuttles_to_initialize, shuttle_type)
+	SSshuttle.wake()
 
 /datum/map_template/proc/load_new_z()
 
