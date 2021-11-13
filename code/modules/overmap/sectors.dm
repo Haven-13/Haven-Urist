@@ -52,7 +52,7 @@
 
 	SSshuttle.initialize_sector(src) //Will populate the waypoint lists; waypoints not spawned yet will be added in as they spawn.
 
-	for(var/obj/machinery/computer/sensors/S in SSmachines.machinery)
+	for(var/obj/machinery/computer/ship/sensors/S in SSmachines.machinery)
 		if (S.z in map_z)
 			S.linked = src
 

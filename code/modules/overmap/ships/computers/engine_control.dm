@@ -1,17 +1,17 @@
 //Engine control and monitoring console
 
-/obj/machinery/computer/engines
+/obj/machinery/computer/ship/engines
 	name = "engine control console"
 	icon_keyboard = "tech_key"
 	icon_screen = "engines"
 	circuit = /obj/item/weapon/circuitboard/engine
 	var/obj/effect/overmap/ship/linked
 
-/obj/machinery/computer/engines/Initialize()
+/obj/machinery/computer/ship/engines/Initialize()
 	. = ..()
 	linked = map_sectors["[z]"]
 
-/obj/machinery/computer/engines/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/ship/engines/attack_hand(var/mob/user as mob)
 	if(..())
 		user.unset_machine()
 		return
@@ -21,13 +21,13 @@
 
 	ui_interact(user)
 
-/obj/machinery/computer/engines/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/computer/ship/engines/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "spacecraft/ShipEnginesControl", name)
 		ui.open()
 
-/obj/machinery/computer/engines/ui_data(mob/user)
+/obj/machinery/computer/ship/engines/ui_data(mob/user)
 	var/data[0]
 	data["globalState"] = linked.engines_state
 	data["globalThrustLimit"] = linked.thrust_limit
@@ -51,7 +51,7 @@
 
 	return data
 
-/obj/machinery/computer/engines/ui_act(action, list/params)
+/obj/machinery/computer/ship/engines/ui_act(action, list/params)
 	switch(action)
 		if("global_set_state")
 			linked.engines_state = params["state"]

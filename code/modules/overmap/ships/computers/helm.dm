@@ -1,6 +1,6 @@
 LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 
-/obj/machinery/computer/helm
+/obj/machinery/computer/ship/helm
 	name = "helm control console"
 	icon_keyboard = "teleport_key"
 	icon_screen = "helm"
@@ -10,11 +10,11 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	var/viewing = 0
 	var/list/viewers = list()
 
-/obj/machinery/computer/helm/Initialize()
+/obj/machinery/computer/ship/helm/Initialize()
 	. = ..()
 	linked = map_sectors["[z]"]
 
-/obj/machinery/computer/helm/Destroy()
+/obj/machinery/computer/ship/helm/Destroy()
 	if(LAZY_LENGTH(viewers))
 		for(var/weakref/W in viewers)
 			var/M = W.resolve()
@@ -22,24 +22,24 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 				unlook(M)
 	. = ..()
 
-/obj/machinery/computer/helm/proc/get_overmap_area()
+/obj/machinery/computer/ship/helm/proc/get_overmap_area()
 	var/turf/T = locate(1,1,GLOB.using_map.overmap_z)
 	if (T) // Baycode overmap may be the simplest, but it is also the shittest
 		return T.loc
 
-/obj/machinery/computer/helm/relaymove(var/mob/user, direction)
+/obj/machinery/computer/ship/helm/relaymove(var/mob/user, direction)
 	if(viewing && linked)
 		linked.relaymove(user,direction)
 		return 1
 
-/obj/machinery/computer/helm/check_eye(var/mob/user as mob)
+/obj/machinery/computer/ship/helm/check_eye(var/mob/user as mob)
 	if (!viewing)
 		return -1
 	if (!get_dist(user, src) > 1 || user.blinded || !linked )
 		return -1
 	return 0
 
-/obj/machinery/computer/helm/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/ship/helm/attack_hand(var/mob/user as mob)
 	if(..())
 		user.unset_machine()
 		unlook(user)
@@ -53,35 +53,35 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 
 	ui_interact(user)
 
-/obj/machinery/computer/helm/proc/look(var/mob/user)
+/obj/machinery/computer/ship/helm/proc/look(var/mob/user)
 	if(linked)
 		user.reset_view(linked)
 	if(user.client)
 		user.client.view = world.view + 4
-	GLOB.moved_event.register(user, src, /obj/machinery/computer/helm/proc/unlook)
-	GLOB.stat_set_event.register(user, src, /obj/machinery/computer/helm/proc/unlook)
+	GLOB.moved_event.register(user, src, /obj/machinery/computer/ship/helm/proc/unlook)
+	GLOB.stat_set_event.register(user, src, /obj/machinery/computer/ship/helm/proc/unlook)
 	LAZY_ADD_UNIQUE(viewers, weakref(user))
 
-/obj/machinery/computer/helm/proc/unlook(var/mob/user)
+/obj/machinery/computer/ship/helm/proc/unlook(var/mob/user)
 	user.reset_view()
 	if(user.client)
 		user.client.view = world.view
-	GLOB.moved_event.unregister(user, src, /obj/machinery/computer/helm/proc/unlook)
-	GLOB.stat_set_event.unregister(user, src, /obj/machinery/computer/helm/proc/unlook)
+	GLOB.moved_event.unregister(user, src, /obj/machinery/computer/ship/helm/proc/unlook)
+	GLOB.stat_set_event.unregister(user, src, /obj/machinery/computer/ship/helm/proc/unlook)
 	LAZY_REMOVE(viewers, weakref(user))
 
-/obj/machinery/computer/helm/ui_status(mob/user, datum/ui_state/state)
+/obj/machinery/computer/ship/helm/ui_status(mob/user, datum/ui_state/state)
 	if(!linked)
 		return UI_CLOSE
 	return ..()
 
-/obj/machinery/computer/helm/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/computer/ship/helm/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "spacecraft/ShipHelm")
 		ui.open()
 
-/obj/machinery/computer/helm/ui_data(mob/user)
+/obj/machinery/computer/ship/helm/ui_data(mob/user)
 	var/turf/T = get_turf(linked)
 	var/obj/effect/overmap/sector/current_sector = locate() in T
 
@@ -98,7 +98,7 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 		"etaNext" = linked.get_speed() ? round(linked.ETA()/10) : "N/A"
 	)
 
-/obj/machinery/computer/helm/ui_act(action, list/params)
+/obj/machinery/computer/ship/helm/ui_act(action, list/params)
 	switch(action)
 		if ("move")
 			linked.relaymove(usr, params["move"])

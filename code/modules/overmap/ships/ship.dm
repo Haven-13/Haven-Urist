@@ -11,7 +11,7 @@
 	var/list/last_movement = list(0,0)	//worldtime when ship last moved in x,y direction
 	var/fore_dir = NORTH				//what dir ship flies towards for purpose of moving stars effect procs
 
-	var/obj/machinery/computer/helm/nav_control
+	var/obj/machinery/computer/ship/helm/nav_control
 	var/list/engines = list()
 	var/engines_state = 1 //global on/off toggle for all engines
 	var/thrust_limit = 1 //global thrust limit for all engines, 0..1
@@ -26,16 +26,16 @@
 	for(var/datum/ship_engine/E in ship_engines)
 		if (E.holder.z in map_z)
 			engines |= E
-	for(var/obj/machinery/computer/engines/E in SSmachines.machinery)
+	for(var/obj/machinery/computer/ship/engines/E in SSmachines.machinery)
 		if (E.z in map_z)
 			E.linked = src
 			//testing("Engines console at level [E.z] linked to overmap object '[name]'.")
-	for(var/obj/machinery/computer/helm/H in SSmachines.machinery)
+	for(var/obj/machinery/computer/ship/helm/H in SSmachines.machinery)
 		if (H.z in map_z)
 			nav_control = H
 			H.linked = src
 			//testing("Helm console at level [H.z] linked to overmap object '[name]'.")
-	for(var/obj/machinery/computer/navigation/N in SSmachines.machinery)
+	for(var/obj/machinery/computer/ship/navigation/N in SSmachines.machinery)
 		if (N.z in map_z)
 			N.linked = src
 			//testing("Navigation console at level [N.z] linked to overmap object '[name]'.")
