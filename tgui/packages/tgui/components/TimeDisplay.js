@@ -1,4 +1,4 @@
-import { formatTime } from '../format';
+import { toFixed } from 'common/math';
 import { Component } from 'inferno';
 
 // AnimatedNumber Copypaste
@@ -23,10 +23,18 @@ export class TimeDisplay extends Component {
     }
   }
 
+  shouldTick() {
+    return this.props.auto !== undefined && this.props.auto !== "off";
+  }
+
+  isDisabled() {
+    return this.props.disabled !== undefined && this.props.disabled;
+  }
+
   componentDidUpdate() {
-    if (this.props.auto !== undefined) {
+    if (this.shouldTick()) {
       clearInterval(this.timer);
-      this.timer = setInterval(() => this.tick(), 1000); // every 1 s
+      this.timer = setInterval(() => this.tick(), 100); // every .1 s
     }
   }
 
@@ -36,14 +44,14 @@ export class TimeDisplay extends Component {
       this.last_seen_value = this.props.value;
       current = this.props.value;
     }
-    const mod = this.props.auto === "up" ? 10 : -10; // Time down by default.
-    const value = Math.max(0, current + mod); // one sec tick
+    const mod = this.props.auto === "up" ? 1 : -1; // Time down by default.
+    const value = Math.max(0, current + mod); // one deci-sec tick
     this.setState({ value });
   }
 
   componentDidMount() {
-    if (this.props.auto !== undefined) {
-      this.timer = setInterval(() => this.tick(), 1000); // every 1 s
+    if (this.shouldTick()) {
+      this.timer = setInterval(() => this.tick(), 100); // every .1 s
     }
   }
 
@@ -52,12 +60,29 @@ export class TimeDisplay extends Component {
   }
 
   render() {
-    const val = this.state.value;
-    // Directly display weird stuff
-    if (!isSafeNumber(val)) {
-      return this.state.value || null;
+    const { props, state } = this;
+    const { format } = props;
+    const val = state.value;
+    let seconds, minutes, hours;
+    if (!this.isDisabled()) {
+      // Directly display weird stuff
+      if (!isSafeNumber(val)) {
+        return state.value || null;
+      }
+      // THERE IS AS YET INSUFFICIENT DATA FOR A MEANINGFUL ANSWER
+      // HH:MM:SS
+      // 00:02:13
+      seconds = toFixed(Math.floor((val/10) % 60)).padStart(2, "0");
+      minutes = toFixed(Math.floor((val/(10*60)) % 60)).padStart(2, "0");
+      hours = toFixed(Math.floor((val/(10*60*60)) % 24)).padStart(2, "0");
+    } else {
+      seconds = minutes = hours = '--';
     }
-
-    return formatTime(val);
+    let formattedValue;
+    if (format)
+    { formattedValue = format(hours, minutes, seconds); }
+    else
+    { formattedValue = `${hours}:${minutes}:${seconds}`; }
+    return formattedValue;
   }
 }
