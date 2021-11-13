@@ -21,6 +21,11 @@
 	logging_home_tag = "nav_hangar_eris"
 	//logging_access = access_courier_shuttle_helm
 
+/obj/effect/overmap/ship/landable/courier_shuttle/pluto
+	name = "Eris"
+	shuttle = "Eris"
+	fore_dir = EAST
+
 /obj/machinery/computer/shuttle_control/explore/eris
 	name = "Eris Control Console"
 	shuttle_tag = "Eris"

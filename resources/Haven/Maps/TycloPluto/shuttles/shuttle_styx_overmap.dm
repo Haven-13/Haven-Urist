@@ -22,6 +22,11 @@
 	logging_home_tag = "nav_hangar_styx"
 	//logging_access = access_expedition_shuttle_helm
 
+/obj/effect/overmap/ship/landable/exploration_shuttle/pluto
+	name = "Styx"
+	shuttle = "Styx"
+	fore_dir = EAST
+
 /obj/machinery/computer/shuttle_control/explore/styx
 	name = "Styx Control Console"
 	shuttle_tag = "Styx"
