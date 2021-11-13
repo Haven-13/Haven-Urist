@@ -37,7 +37,8 @@
 
 // We autobuild our z levels.
 /obj/effect/overmap/ship/landable/find_z_levels()
-	world.maxz++
+	// Because the default turf is nullspace, we have to transform thet turfs to /turf/space
+	GLOB.using_map.create_new_empty_zlevel()
 	map_z += world.maxz
 	// Not really the center, but rather where the shuttle landmark should be
 	var/turf/center_loc = locate(round(world.maxx/2), round(world.maxy/2), world.maxz)
