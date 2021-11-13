@@ -2,9 +2,9 @@
 // Mapping location doesn't matter, so long as on a map loaded at the same time as the shuttle areas.
 // Multiz shuttles currently not supported. Non-autodock shuttles currently not supported.
 
-#define SHIP_STATUS_LANDED   1
-#define SHIP_STATUS_TRANSIT  2
-#define SHIP_STATUS_OVERMAP  3
+#define SHIP_STATUS_LANDED 1
+#define SHIP_STATUS_TRANSIT 2
+#define SHIP_STATUS_OVERMAP 3
 
 /obj/effect/overmap/ship/landable
 	var/shuttle                                         // Name of assotiated shuttle. Must be autodock.
