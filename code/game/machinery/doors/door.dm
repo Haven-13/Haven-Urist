@@ -56,6 +56,10 @@
 
 /obj/machinery/door/Initialize()
 	. = ..()
+	if(iswall(src.loc))
+		crash_with("Invalid turf for door, is a wall, not floor as expected '[log_info_line(loc)]'")
+		return INITIALIZE_HINT_QDEL
+
 	if(density)
 		layer = closed_layer
 		update_heat_protection(get_turf(src))
