@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Fixed the time display being broken on all UIs that use it
-  - bugfix: Fixed the ship helm being unable to be used

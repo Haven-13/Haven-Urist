@@ -376,3 +376,7 @@
   - bugfix: Fixed issues with rounding in the UI for Gas Heaters/Freezers
   - bugfix: Fixed the temperature bar not being colour-coded properly
   - config: Added a VSCode task for quickly testing code on the example map
+2021-11-14:
+  martinlyra:
+  - bugfix: Fixed the time display being broken on all UIs that use it
+  - bugfix: Fixed the ship helm being unable to be used
