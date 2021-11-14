@@ -3,4 +3,4 @@ delete-after: true
 changes:
   - tweak: For future mapping and propserity, airlocks and doors now sanity-check
       their turf locations for illegal turfs like walls.
-  - bugfix: fixed a few things
+  - bugfix: Fixed invalid turfs for airlocks at the Pluto map
