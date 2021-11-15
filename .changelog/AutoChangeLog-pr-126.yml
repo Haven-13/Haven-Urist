@@ -1,7 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Fixed wall sanity checks for window and window-wallframe spawners not
-      functioning properly.
-  - bugfix: Fixed two instances of walls in place where windows should spawn and allow
-      obstructed vision on the Pluto.

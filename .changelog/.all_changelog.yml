@@ -380,3 +380,13 @@
   martinlyra:
   - bugfix: Fixed the time display being broken on all UIs that use it
   - bugfix: Fixed the ship helm being unable to be used
+2021-11-15:
+  martinlyra:
+  - tweak: Changed how the server is listed on the public BYOND Hub
+  - bugfix: Fixed wall sanity checks for window and window-wallframe spawners not
+      functioning properly.
+  - bugfix: Fixed two instances of walls in place where windows should spawn and allow
+      obstructed vision on the Pluto.
+  - tweak: For future mapping and propserity, airlocks and doors now sanity-check
+      their turf locations for illegal turfs like walls.
+  - bugfix: Fixed invalid turfs for airlocks at the Pluto map
