@@ -62,12 +62,12 @@ export class TimeDisplay extends Component {
   render() {
     const { props, state } = this;
     const { format } = props;
-    const val = this.state.value;
+    const val = state.value;
     let seconds, minutes, hours;
     if (!this.isDisabled()) {
       // Directly display weird stuff
       if (!isSafeNumber(val)) {
-        return this.state.value || null;
+        return state.value || null;
       }
       // THERE IS AS YET INSUFFICIENT DATA FOR A MEANINGFUL ANSWER
       // HH:MM:SS

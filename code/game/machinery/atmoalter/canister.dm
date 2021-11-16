@@ -305,14 +305,17 @@ update_flag
 	data["name"] = name
 	data["canLabel"] = can_label ? 1 : 0
 	data["portConnected"] = connected_port ? 1 : 0
-	data["tankPressure"] = round(air_contents.return_pressure() || 0)
+	data["pressure"] = round(air_contents.return_pressure() || 0)
 	data["releasePressure"] = round(release_pressure || 0)
 	data["minReleasePressure"] = round(ONE_ATMOSPHERE/10)
 	data["maxReleasePressure"] = round(10*ONE_ATMOSPHERE)
+	data["defaultReleasePressure"] = round(initial(release_pressure))
 	data["valveOpen"] = valve_open ? 1 : 0
 
-	if (holding)
-		data["holdingTank"] = list("name" = holding.name, "pressure" = round(holding.air_contents.return_pressure()))
+	data["holdingTank"] = holding ? list(
+		"name" = holding.name,
+		"pressure" = round(holding.air_contents.return_pressure())
+	) : null
 
 	return data
 
@@ -367,7 +370,7 @@ update_flag
 			if(.)
 				release_pressure = clamp(round(pressure), min_release_pressure, max_release_pressure)
 				//investigate_log("was set to [release_pressure] kPa by [key_name(usr)].", INVESTIGATE_ATMOS)
-			return
+			return . // This will always return 'null' if . is not included
 
 		if ("relabel")
 			if (!can_label)

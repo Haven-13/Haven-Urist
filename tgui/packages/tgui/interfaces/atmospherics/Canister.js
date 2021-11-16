@@ -16,10 +16,11 @@ export const Canister = (props, context) => {
     maxReleasePressure,
     valveOpen,
     isPrototype,
-    hasHoldingTank,
     holdingTank,
     restricted,
+    canLabel,
   } = data;
+  const hasHoldingTank = !!holdingTank;
   return (
     <Window
       width={300}
@@ -42,6 +43,7 @@ export const Canister = (props, context) => {
               <Button
                 icon="pencil-alt"
                 content="Relabel"
+                disabled={!canLabel}
                 onClick={() => act('relabel')} />
             </Fragment>
           )}>

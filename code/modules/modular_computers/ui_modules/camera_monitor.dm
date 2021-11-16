@@ -102,7 +102,7 @@
 	. = ..()
 	selected_cameras = null
 	last_camera_turf = null
-	QDEL_NULL_ASSOC_LIST(camera_map_views)
+	QDEL_NULL_ASSOC_VAL_LIST(camera_map_views)
 	QDEL_NULL_LIST(camera_foregrounds)
 	QDEL_NULL_LIST(camera_skyboxes)
 

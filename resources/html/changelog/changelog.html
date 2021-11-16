@@ -41,6 +41,36 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">15 November 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changed how the server is listed on the public BYOND Hub</li>
+				<li class="bugfix">Fixed wall sanity checks for window and window-wallframe spawners not functioning properly.</li>
+				<li class="bugfix">Fixed two instances of walls in place where windows should spawn and allow obstructed vision on the Pluto.</li>
+				<li class="tweak">For future mapping and propserity, airlocks and doors now sanity-check their turf locations for illegal turfs like walls.</li>
+				<li class="bugfix">Fixed invalid turfs for airlocks at the Pluto map</li>
+			</ul>
+
+			<h2 class="date">14 November 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the time display being broken on all UIs that use it</li>
+				<li class="bugfix">Fixed the ship helm being unable to be used</li>
+			</ul>
+
+			<h2 class="date">07 November 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed exception in the Supply Management Program's UI</li>
+				<li class="tweak">Updated tgUI to latest available from tgstation</li>
+				<li class="bugfix">Fixed the camera console not cleaning up properly</li>
+				<li class="bugfix">Fixed the tgUI for gas canisters</li>
+				<li class="rscadd">Added functional UI for cryocells</li>
+				<li class="bugfix">Fixed issues with rounding in the UI for Gas Heaters/Freezers</li>
+				<li class="bugfix">Fixed the temperature bar not being colour-coded properly</li>
+				<li class="config">Added a VSCode task for quickly testing code on the example map</li>
+			</ul>
+
 			<h2 class="date">05 November 2021</h2>
 			<h3 class="author">martinlyra updated:</h3>
 			<ul class="changes bgimages16">
@@ -124,22 +154,6 @@
 				<li class="rscadd">Preference (in Global category) allowing players to show or hide the popup text. It is turned on by default.</li>
 				<li class="rscadd">Preference (in Global category) controlling whether the hover-over should display in either the stylic or the San Serif font.</li>
 				<li class="tweak">Byond interface CSS is now compiled and loaded at runtime instead of compile-time</li>
-			</ul>
-
-			<h2 class="date">13 September 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Added potential bugs related to map UI elements</li>
-				<li class="refactor">Renamned typepaths for UI elements to a special atom/movable instead for technical imporvements</li>
-				<li class="tweak">Localhosts now will be automatically given a total-control rank, it is enabled by default in the config, but false in code</li>
-				<li class="tweak">Localhosts now can bypass guest-key checks as long the automatic rank is enabled</li>
-				<li class="tweak">Admins now bypass guest and whitelist checks for jobs</li>
-			</ul>
-
-			<h2 class="date">08 September 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="bugfix">Fixed several cases of mangled characters showing up in text and some interfaces</li>
 			</ul>
 		</div>
 
