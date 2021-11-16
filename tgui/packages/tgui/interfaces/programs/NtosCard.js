@@ -100,8 +100,6 @@ export const NtosCardContent = (props, context) => {
               accessMod={ref => act('PRG_access', {
                 access_target: ref,
               })}
-              grantAll={() => act('PRG_grantall')}
-              denyAll={() => act('PRG_denyall')}
               grantDep={dep => act('PRG_grantregion', {
                 region: dep,
               })}

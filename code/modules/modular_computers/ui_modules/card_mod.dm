@@ -36,17 +36,17 @@
 		data["id_owner"] = id_card && id_card.registered_name || "-----"
 		data["id_name"] = id_card ? id_card.name : "-----"
 
-	data["command_jobs"] = format_jobs(GLOB.command_positions)
-	data["support_jobs"] = format_jobs(GLOB.support_positions)
-	data["engineering_jobs"] = format_jobs(GLOB.engineering_positions)
-	data["medical_jobs"] = format_jobs(GLOB.medical_positions)
-	data["science_jobs"] = format_jobs(GLOB.science_positions)
-	data["security_jobs"] = format_jobs(GLOB.security_positions)
-	data["exploration_jobs"] = format_jobs(GLOB.exploration_positions)
-	data["service_jobs"] = format_jobs(GLOB.service_positions)
-	data["supply_jobs"] = format_jobs(GLOB.supply_positions)
-	data["civilian_jobs"] = format_jobs(GLOB.civilian_positions)
-	data["centcom_jobs"] = format_jobs(get_all_centcom_jobs())
+	data["jobs"] = list(
+		"Command" = format_jobs(GLOB.command_positions),
+		"Engineering" = format_jobs(GLOB.engineering_positions),
+		"Medical" = format_jobs(GLOB.medical_positions),
+		"Security" = format_jobs(GLOB.security_positions),
+		"Service" = format_jobs(GLOB.service_positions),
+		"Supply" = format_jobs(GLOB.supply_positions),
+		"Civilian" = format_jobs(GLOB.civilian_positions),
+	)
+	if (is_centcom)
+		data["jobs"]["Centcom"] = format_jobs(get_all_centcom_jobs())
 
 	data["all_centcom_access"] = is_centcom ? get_accesses(1) : null
 	data["regions"] = get_accesses()
@@ -57,7 +57,7 @@
 			var/list/all_centcom_access = list()
 			for(var/access in get_all_centcom_access())
 				all_centcom_access.Add(list(list(
-					"desc" = replacetext(get_centcom_access_desc(access), " ", "&nbsp"),
+					"name" = get_centcom_access_desc(access),
 					"ref" = access,
 					"allowed" = (access in id_card.access) ? 1 : 0)))
 			data["all_centcom_access"] = all_centcom_access
@@ -68,12 +68,13 @@
 				for(var/access in get_region_accesses(i))
 					if (get_access_desc(access))
 						accesses.Add(list(list(
-							"desc" = replacetext(get_access_desc(access), " ", "&nbsp"),
+							"name" = get_access_desc(access),
 							"ref" = access,
 							"allowed" = (access in id_card.access) ? 1 : 0)))
 
 				regions.Add(list(list(
 					"name" = get_region_accesses_name(i),
+					"ref" = i,
 					"accesses" = accesses)))
 			data["regions"] = regions
 
@@ -84,7 +85,7 @@
 	var/list/formatted = list()
 	for(var/job in jobs)
 		formatted.Add(list(list(
-			"display_name" = replacetext(job, " ", "&nbsp"),
+			"display_name" = job,
 			"target_rank" = id_card && id_card.assignment || "Unassigned",
 			"job" = job)))
 

@@ -62,21 +62,7 @@ export const AccessList = (props, context) => {
 
   return (
     <Section
-      title="Access"
-      buttons={(
-        <Fragment>
-          <Button
-            icon="check-double"
-            content="Grant All"
-            color="good"
-            onClick={() => grantAll()} />
-          <Button
-            icon="undo"
-            content="Deny All"
-            color="bad"
-            onClick={() => denyAll()} />
-        </Fragment>
-      )}>
+      title="Access">
       <Flex>
         <Flex.Item>
           <Tabs vertical>
@@ -120,10 +106,10 @@ export const AccessList = (props, context) => {
           {selectedAccessEntries.map(entry => (
             <Button.Checkbox
               fluid
-              key={entry.id}
+              key={entry.ref}
               content={entry.name}
-              checked={selectedList.includes(entry.id)}
-              onClick={() => accessMod(entry.id)} />
+              checked={entry.allowed}
+              onClick={() => accessMod(entry.ref)} />
           ))}
         </Flex.Item>
       </Flex>
