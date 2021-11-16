@@ -1,5 +1,4 @@
 import { sortBy } from 'common/collections';
-import { Fragment } from 'inferno';
 import { useLocalState } from "tgui/backend";
 import { Button, Flex, Grid, Section, Tabs } from "tgui/components";
 
@@ -23,8 +22,6 @@ export const AccessList = (props, context) => {
     accesses = [],
     selectedList = [],
     accessMod,
-    grantAll,
-    denyAll,
     grantDep,
     denyDep,
   } = props;
@@ -35,7 +32,7 @@ export const AccessList = (props, context) => {
   const selectedAccess = accesses
     .find(access => access.name === selectedAccessName);
   const selectedAccessEntries = sortBy(
-    entry => entry.desc,
+    entry => entry.name,
   )(selectedAccess?.accesses || []);
 
   const checkAccessIcon = accesses => {
@@ -62,23 +59,9 @@ export const AccessList = (props, context) => {
 
   return (
     <Section
-      title="Access"
-      buttons={(
-        <Fragment>
-          <Button
-            icon="check-double"
-            content="Grant All"
-            color="good"
-            onClick={() => grantAll()} />
-          <Button
-            icon="undo"
-            content="Deny All"
-            color="bad"
-            onClick={() => denyAll()} />
-        </Fragment>
-      )}>
-      <Flex>
-        <Flex.Item>
+      title="Access">
+      <Flex justify="space-between">
+        <Flex.Item mr={2}>
           <Tabs vertical>
             {accesses.map(access => {
               const entries = access.accesses || [];
@@ -98,7 +81,7 @@ export const AccessList = (props, context) => {
             })}
           </Tabs>
         </Flex.Item>
-        <Flex.Item grow={1}>
+        <Flex.Item grow>
           <Grid>
             <Grid.Column mr={0}>
               <Button
@@ -106,7 +89,7 @@ export const AccessList = (props, context) => {
                 icon="check"
                 content="Grant Region"
                 color="good"
-                onClick={() => grantDep(selectedAccess.id)} />
+                onClick={() => grantDep(selectedAccess.ref)} />
             </Grid.Column>
             <Grid.Column ml={0}>
               <Button
@@ -114,16 +97,16 @@ export const AccessList = (props, context) => {
                 icon="times"
                 content="Deny Region"
                 color="bad"
-                onClick={() => denyDep(selectedAccess.id)} />
+                onClick={() => denyDep(selectedAccess.ref)} />
             </Grid.Column>
           </Grid>
           {selectedAccessEntries.map(entry => (
             <Button.Checkbox
               fluid
-              key={entry.id}
+              key={entry.ref}
               content={entry.name}
-              checked={selectedList.includes(entry.id)}
-              onClick={() => accessMod(entry.id)} />
+              checked={entry.allowed}
+              onClick={() => accessMod(entry.ref)} />
           ))}
         </Flex.Item>
       </Flex>

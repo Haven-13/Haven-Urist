@@ -96,7 +96,7 @@
 			if(computer && can_run(user, 1) && id_card)
 				var/t1 = params["assign_target"]
 				if(t1 == "Custom")
-					var/temp_t = sanitize(params["name"], 45)
+					var/temp_t = sanitize(params["custom_name"], 45)
 					//let custom jobs function as an impromptu alt title, mainly for sechuds
 					if(temp_t)
 						id_card.assignment = temp_t
@@ -124,15 +124,31 @@
 
 				callHook("reassign_employee", list(id_card))
 			. = TRUE
-		if("PRG_access")
-			if(params["allowed"] && computer && can_run(user, 1))
-				var/access_type = text2num(params["access_target"])
-				var/access_allowed = text2num(params["allowed"])
-				if(access_type in get_access_ids(ACCESS_TYPE_STATION|ACCESS_TYPE_CENTCOM))
-					id_card.access -= access_type
-					if(!access_allowed)
-						id_card.access += access_type
-			. = TRUE
+
+	if(computer && can_run(user, 1))
+		var/ids = module.is_centcom ? ACCESS_TYPE_STATION|ACCESS_TYPE_CENTCOM : ACCESS_TYPE_STATION
+		var/list/allowed_access_ids = get_access_ids(ids)
+		switch(action)
+			if("PRG_access")
+				var/access = text2num(params["access_target"])
+				if(access in allowed_access_ids)
+					if (access in id_card.access)
+						id_card.access -= access
+					else
+						id_card.access |= access
+				. = TRUE
+			if("PRG_grantregion")
+				var/department = text2num(params["region"])
+				for(var/access in get_region_accesses(department))
+					if(access in allowed_access_ids)
+						id_card.access |= access
+				. = TRUE
+			if("PRG_denyregion")
+				var/department = text2num(params["region"])
+				for(var/access in get_region_accesses(department))
+					if(access in allowed_access_ids)
+						id_card.access -= access
+				. = TRUE
 	if(id_card)
 		id_card.SetName(text("[id_card.registered_name]'s ID Card ([id_card.assignment])"))
 
