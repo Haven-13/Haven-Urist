@@ -22,7 +22,7 @@ export const NtosCardContent = (props, context) => {
   const [tab, setTab] = useLocalState(context, 'tab', 1);
   const {
     authenticated,
-    regions = [],
+    regions = {},
     jobs = {},
     id_rank,
     id_owner,
@@ -44,7 +44,7 @@ export const NtosCardContent = (props, context) => {
   }
   const departmentJobs = jobs[selectedDepartment] || [];
   const accessOnCard = regions
-    .map(region => region.accesses)
+    ?.map(region => region.accesses)
     .reduce((previous, current) =>
       previous.concat(current.filter(area => area.allowed)), [])
     .map(area => area.ref);
@@ -55,27 +55,18 @@ export const NtosCardContent = (props, context) => {
           ? (
             <Input
               value={id_owner}
-              width="250px"
+              width="350px"
               onInput={(e, value) => act('PRG_edit', {
                 name: value,
               })} />
           )
           : (id_owner || 'No Card Inserted')}
         buttons={(
-          <Fragment>
-            <Button
-              icon="print"
-              content="Print"
-              disabled={!have_printer || !has_id}
-              onClick={() => act('PRG_print')} />
-            <Button
-              icon={authenticated ? "sign-out-alt" : "sign-in-alt"}
-              content={authenticated ? "Log Out" : "Log In"}
-              color={authenticated ? "bad" : "good"}
-              onClick={() => {
-                act(authenticated ? 'PRG_logout' : 'PRG_authenticate');
-              }} />
-          </Fragment>
+          <Button
+            icon="print"
+            content="Print"
+            disabled={!have_printer || !has_id}
+            onClick={() => act('PRG_print')} />
         )}>
         <Button
           fluid
