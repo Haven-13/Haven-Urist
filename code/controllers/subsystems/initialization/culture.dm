@@ -72,3 +72,6 @@ SUBSYSTEM_DEF(culture)
 
 /datum/controller/subsystem/culture/proc/get_culture(var/identifer)
 	return cultural_info_by_id[identifer]
+
+/datum/controller/subsystem/culture/proc/pick_random_culture()
+	return cultural_info_by_id[pick(cultural_info_by_id)]

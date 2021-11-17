@@ -157,8 +157,8 @@ var/syndicate_name = null
 
 
 //Traitors and traitor silicons will get these. Revs will not.
-var/syndicate_code_phrase//Code phrase for traitors.
-var/syndicate_code_response//Code response for traitors.
+var/syndicate_code_phrase //Code phrase for traitors.
+var/syndicate_code_response //Code response for traitors.
 
 	/*
 	Should be expanded.
@@ -227,9 +227,9 @@ var/syndicate_code_response//Code response for traitors.
 					if(1)
 						code_phrase += pick(nouns)
 					if(2)
-						code_phrase += pick(GLOB.adjectives)
+						code_phrase += pick(STRINGS(adjectives))
 					if(3)
-						code_phrase += pick(GLOB.verbs)
+						code_phrase += pick(STRINGS(verbs))
 		if(words==1)
 			code_phrase += "."
 		else
