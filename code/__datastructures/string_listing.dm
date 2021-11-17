@@ -20,6 +20,3 @@
 /string_listing/var/initialized = FALSE
 /string_listing/New()
 	initialized = TRUE
-
-STRINGS_DEFINE(adjectives, "resources/strings/adjectives.txt")
-STRINGS_DEFINE(verbs,      "resources/strings/verbs.txt")

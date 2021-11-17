@@ -83,6 +83,8 @@
 			return global.SSassets;
 		if("SSatoms")
 			return global.SSatoms;
+		if("SSchemistry")
+			return global.SSchemistry;
 		if("SSculture")
 			return global.SSculture;
 		if("SSevac")
@@ -127,6 +129,8 @@
 			return global.SSshuttle;
 		if("SSskybox")
 			return global.SSskybox;
+		if("SSstrings")
+			return global.SSstrings;
 		if("SSsun")
 			return global.SSsun;
 		if("SSsupply")
@@ -1086,6 +1090,8 @@
 			global.SSassets=newval;
 		if("SSatoms")
 			global.SSatoms=newval;
+		if("SSchemistry")
+			global.SSchemistry=newval;
 		if("SSculture")
 			global.SSculture=newval;
 		if("SSevac")
@@ -1130,6 +1136,8 @@
 			global.SSshuttle=newval;
 		if("SSskybox")
 			global.SSskybox=newval;
+		if("SSstrings")
+			global.SSstrings=newval;
 		if("SSsun")
 			global.SSsun=newval;
 		if("SSsupply")
@@ -2047,6 +2055,7 @@
 	"SSantags",
 	"SSassets",
 	"SSatoms",
+	"SSchemistry",
 	"SSculture",
 	"SSevac",
 	"SSevent",
@@ -2069,6 +2078,7 @@
 	"SSradiation",
 	"SSshuttle",
 	"SSskybox",
+	"SSstrings",
 	"SSsun",
 	"SSsupply",
 	"SStgui",
