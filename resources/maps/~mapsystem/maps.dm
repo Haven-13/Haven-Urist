@@ -371,3 +371,14 @@ GLOBAL_LIST_EMPTY(all_maps)
 	if(C.mob) // Check if the client is still connected to something
 		// Hide title screen, allowing player to see the map
 		winset(C, "lobbybrowser", "is-disabled=true;is-visible=false")
+
+/datum/map/proc/get_culture_files()
+	return list(
+		"resources/defs/cultures/cultures_common.toml",
+		"resources/defs/cultures/cultures_human.toml",
+		"resources/defs/cultures/cultures_machine.toml",
+		"resources/defs/cultures/cultures_skrell.toml",
+		"resources/defs/cultures/cultures_teshari.toml",
+		"resources/defs/cultures/cultures_unathi.toml",
+		"resources/defs/cultures/cultures_vox.toml",
+	)

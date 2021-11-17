@@ -64,6 +64,7 @@
 #include "code\__defines\spaceman_dmm.dm"
 #include "code\__defines\species.dm"
 #include "code\__defines\stat_tracking.dm"
+#include "code\__defines\strings.dm"
 #include "code\__defines\subsystem-priority.dm"
 #include "code\__defines\subsystems.dm"
 #include "code\__defines\targeting.dm"
