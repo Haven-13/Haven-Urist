@@ -372,6 +372,11 @@ GLOBAL_LIST_EMPTY(all_maps)
 		// Hide title screen, allowing player to see the map
 		winset(C, "lobbybrowser", "is-disabled=true;is-visible=false")
 
+/datum/map/proc/get_language_files()
+	return list(
+		"resources/defs/languages/languages_common.toml",
+	)
+
 /datum/map/proc/get_culture_files()
 	return list(
 		"resources/defs/cultures/cultures_common.toml",
