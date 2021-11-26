@@ -1,7 +1,6 @@
 import { useBackend } from "tgui/backend";
-import { Button, LabeledList, NumberInput, Section } from "tgui/components";
+import { Button, LabeledControls, LabeledList, NumberInput, Section } from "tgui/components";
 import { Window } from "tgui/layouts";
-import { LabeledControls } from "../../components";
 
 export const GasTankControl = (props, context) => {
   const { act, data } = useBackend(context);
