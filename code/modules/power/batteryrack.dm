@@ -206,7 +206,7 @@
 /obj/machinery/power/smes/batteryrack/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "PowerBatteryRack")
+		ui = new(user, src, "power/PowerBatteryRack", src.name)
 		ui.open()
 
 /obj/machinery/power/smes/batteryrack/ui_data(mob/user)
@@ -223,7 +223,7 @@
 	.["cells_max"] = max_cells
 	.["cells_cur"] = N
 	.["cells"] = list()
-	for(var/cell_index in (1 to PSU_MAXCELLS))
+	for(var/cell_index in 1 to PSU_MAXCELLS)
 		if (cell_index <= N)
 			var/obj/item/weapon/cell/C = internal_cells[cell_index]
 			.["cells"] += list(list(
@@ -244,13 +244,10 @@
 			update_io(0)
 			return TRUE
 		if("enable")
-			update_io(between(1, text2num(param["mode"]), 3))
+			update_io(between(1, text2num(params["mode"]), 3))
 			return TRUE
-		if("equaliseon")
-			equalise = 1
-			return TRUE
-		if("equaliseoff")
-			equalise = 0
+		if("equalise")
+			equalise = !equalise
 			return TRUE
 		if("ejectcell")
 			var/obj/item/weapon/cell/C
