@@ -15,16 +15,20 @@ export const PowerBatteryRack = (props, context) => {
   } = data;
   const MODES = [
     "Offline",
-    "Input only",
     "Output only",
+    "Input only",
     "Automatic",
   ];
   return (
-    <Window>
+    <Window
+      width={400}
+      height={400}
+    >
       <Section>
         <LabeledControls>
           <LabeledControls.Item label="Input">
             <ProgressBar
+              width={9}
               value={input_load}
               maxValue={transfer_max}
             >
@@ -33,20 +37,25 @@ export const PowerBatteryRack = (props, context) => {
           </LabeledControls.Item>
           <LabeledControls.Item label="Output">
             <ProgressBar
+              width={9}
               value={output_load}
               maxValue={transfer_max}
             >
               {formatSiUnit(output_load, 0, "W")}
             </ProgressBar>
           </LabeledControls.Item>
-          <LabeledControls.Item label="Mode">
+          <LabeledControls.Item label="Mode" width={5}>
             {MODES[mode]}
           </LabeledControls.Item>
           <LabeledControls.Item label="Control">
             <Knob
               animated
+              value={mode}
               minValue={0}
               maxValue={3}
+              displayPos="left"
+              step={1}
+              stepPixelSize={25}
               format={(v) => `${v} (${MODES[v]})`}
               onChange={(e, v) => {
                 if (v) act("enable", { mode: v });
@@ -66,28 +75,34 @@ export const PowerBatteryRack = (props, context) => {
           />
         )}
       >
-        <table>
+        <table width="100%">
           <tr>
             <th>#</th>
-            <th>Charge</th>
+            <th width={300}>Charge</th>
             <th>Action</th>
           </tr>
           {cells.map((cell) => (
-            <tr key={cell.slot}>
+            <tr key={cell.slot} style={{ "line-height": "1.8em" }}>
               <td>{cell.slot}</td>
               <td>{cell.used && (
-                <ProgressBar />
+                <ProgressBar
+                  value={cell.charge}
+                  maxValue={cell.capacity}
+                >
+                  {formatSiUnit(cell.charge, 0, "W")} / {
+                    formatSiUnit(cell.capacity, 0, "W")
+                  }
+                </ProgressBar>
               ) || (
-                <Box italic>Empty</Box>
+                <Box textAlign="center" italic>Empty</Box>
               )}
               </td>
-              <td>{cell.used && (
+              <td>{!!cell.used && (
                 <Button
+                  fluid
+                  icon="sign-out-alt"
                   content="Eject"
-                />
-              ) || (
-                <Button
-                  content="Insert"
+                  onClick={() => act("ejectcell", { eject: cell.id })}
                 />
               )}
               </td>

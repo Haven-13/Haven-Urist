@@ -19,7 +19,7 @@
 	var/max_transfer_rate = 0							// Maximal input/output rate. Determined by used capacitors when building the device.
 	var/mode = PSU_OFFLINE								// Current inputting/outputting mode
 	var/list/internal_cells = list()					// Cells stored in this PSU
-	var/max_cells = 3									// Maximal amount of stored cells at once. Capped at 9.
+	var/max_cells = PSU_MAXCELLS						// Maximal amount of stored cells at once. Capped at 9.
 	var/previous_charge = 0								// Charge previous tick.
 	var/equalise = 0									// If true try to equalise charge between cells
 	var/icon_update = 0									// Timer in ticks for icon update.
@@ -37,8 +37,6 @@
 	component_parts += new /obj/item/weapon/stock_parts/capacitor/				// Capacitors: Maximal I/O
 	component_parts += new /obj/item/weapon/stock_parts/capacitor/
 	component_parts += new /obj/item/weapon/stock_parts/capacitor/
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin/				// Matter Bin: Max. amount of cells.
-
 
 /obj/machinery/power/smes/batteryrack/RefreshParts()
 	var/capacitor_efficiency = 0
@@ -46,11 +44,7 @@
 	for(var/obj/item/weapon/stock_parts/capacitor/CP in component_parts)
 		capacitor_efficiency += CP.rating
 
-	for(var/obj/item/weapon/stock_parts/matter_bin/MB in component_parts)
-		maxcells += MB.rating * 3
-
 	max_transfer_rate = 10000 * capacitor_efficiency // 30kw - 90kw depending on used capacitors.
-	max_cells = min(PSU_MAXCELLS, maxcells)
 	input_level = max_transfer_rate
 	output_level = max_transfer_rate
 
@@ -210,7 +204,6 @@
 		ui.open()
 
 /obj/machinery/power/smes/batteryrack/ui_data(mob/user)
-	var/N = length(internal_cells)
 	. = list()
 
 	.["mode"] = mode
@@ -220,16 +213,15 @@
 	.["equalise"] = equalise
 	.["blink_tick"] = ui_tick
 
-	.["cells_max"] = max_cells
-	.["cells_cur"] = N
 	.["cells"] = list()
-	for(var/cell_index in 1 to PSU_MAXCELLS)
-		if (cell_index <= N)
+	for(var/cell_index in 1 to max_cells)
+		if (cell_index <= length(internal_cells))
 			var/obj/item/weapon/cell/C = internal_cells[cell_index]
 			.["cells"] += list(list(
 				"slot" = cell_index,
 				"used" = TRUE,
-				"percentage" = round(C.percent(), 0.01),
+				"charge" = C.charge,
+				"capacity" = C.maxcharge,
 				"id" = C.c_uid,
 			))
 		else
