@@ -4,3 +4,7 @@ eg ../webfonts/fa-regular-400.ttf => fa-regular-400.ttf (or whatever you call it
 Second change is ripping out file types other than woff and eot(ie8) from the css
 
 Finally, removing brand related css.
+
+Some brand-related CSS were removed using regex:
+
+In `v4-shims.min.css`: `([\.a-z-:,]*)\{font-family:"Font Awesome 5 Brands";font-weight:400\}`
