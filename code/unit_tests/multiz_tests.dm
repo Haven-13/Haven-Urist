@@ -19,6 +19,14 @@
 				failed[lift.creator_type] = TRUE
 				continue
 
+			var/list/coords = turbolift_areas[A.type]
+			var/sane = A.x == coords[1] && A.y == coords[2] && A.z == coords[3]
+			if(!sane)
+				log_bad("Lift [lift.creator_type]: Area [A] for Option [i] ([floor.label] - [floor.name]) is insane - located wrong or wrongly used in a map!")
+				failures += 1
+				failed[lift.creator_type] = TRUE
+				continue
+
 			var/consistent = (\
 				A.lift_floor_label == floor.label\
 				&& (A.lift_floor_name == floor.name || A.name == floor.name)\
