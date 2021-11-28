@@ -37,6 +37,7 @@ export const Knob = props => {
     style,
     fillValue,
     color,
+    displayPos = "top",
     ranges = {},
     size = 1,
     bipolar,
@@ -109,7 +110,7 @@ export const Knob = props => {
               </div>
             </div>
             {dragging && (
-              <div className="Knob__popupValue">
+              <div className={`Knob__popupValue ${displayPos}`}>
                 {displayElement}
               </div>
             )}

@@ -1,0 +1,4 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Fixed names being missing from the old plain HTML manifests
