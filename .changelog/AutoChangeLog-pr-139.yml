@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - tweak: Converted the elevator panel from hardcoded popup to tgUI
+  - tweak: The elevator panel now shows its current floor
