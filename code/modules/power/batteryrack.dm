@@ -40,7 +40,6 @@
 
 /obj/machinery/power/smes/batteryrack/RefreshParts()
 	var/capacitor_efficiency = 0
-	var/maxcells = 0
 	for(var/obj/item/weapon/stock_parts/capacitor/CP in component_parts)
 		capacitor_efficiency += CP.rating
 
