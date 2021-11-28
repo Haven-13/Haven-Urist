@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - tweak: Elevators are now unit-tested
+  - bugfix: Fixed improper consistency with the world in elevator panels
