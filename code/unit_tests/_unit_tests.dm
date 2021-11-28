@@ -17,6 +17,7 @@
 #include "map_tests.dm"
 #include "mob_tests.dm"
 #include "movement_tests.dm"
+#include "multiz_tests.dm"
 #include "music_test.dm"
 #include "observation_tests.dm"
 #include "organ_tests.dm"

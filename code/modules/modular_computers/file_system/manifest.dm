@@ -75,9 +75,9 @@
 	for(var/list/department in dept_data)
 		var/list/names = department["names"]
 		if(names.len > 0)
-			dat += "<tr><th colspan=2>[department["header"]]</th></tr>"
+			dat += "<tr><th colspan=3>[department["header"]]</th></tr>"
 			for(var/name in names)
-				dat += "<tr class='candystripe'><td>[names[name]]</td><td>[isactive[name]]</td></tr>"
+				dat += "<tr class='candystripe'><td>[name]</td><td>[names[name]]</td><td>[isactive[name]]</td></tr>"
 
 	dat += "</table>"
 	dat = replacetext(dat, "\n", "") // so it can be placed on paper correctly

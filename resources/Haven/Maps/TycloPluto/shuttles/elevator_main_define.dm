@@ -39,7 +39,7 @@
 	wall_type = null
 
 	areas_to_use = list(
-		/area/turbolift/pluto/first_deck,
+		/area/turbolift/pluto/third_deck,
 		/area/turbolift/pluto/second_deck,
-		/area/turbolift/pluto/third_deck
+		/area/turbolift/pluto/first_deck,
 	)
