@@ -19,7 +19,7 @@
 	var/max_transfer_rate = 0							// Maximal input/output rate. Determined by used capacitors when building the device.
 	var/mode = PSU_OFFLINE								// Current inputting/outputting mode
 	var/list/internal_cells = list()					// Cells stored in this PSU
-	var/max_cells = 3									// Maximal amount of stored cells at once. Capped at 9.
+	var/max_cells = PSU_MAXCELLS						// Maximal amount of stored cells at once. Capped at 9.
 	var/previous_charge = 0								// Charge previous tick.
 	var/equalise = 0									// If true try to equalise charge between cells
 	var/icon_update = 0									// Timer in ticks for icon update.
@@ -37,8 +37,6 @@
 	component_parts += new /obj/item/weapon/stock_parts/capacitor/				// Capacitors: Maximal I/O
 	component_parts += new /obj/item/weapon/stock_parts/capacitor/
 	component_parts += new /obj/item/weapon/stock_parts/capacitor/
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin/				// Matter Bin: Max. amount of cells.
-
 
 /obj/machinery/power/smes/batteryrack/RefreshParts()
 	var/capacitor_efficiency = 0
@@ -46,11 +44,7 @@
 	for(var/obj/item/weapon/stock_parts/capacitor/CP in component_parts)
 		capacitor_efficiency += CP.rating
 
-	for(var/obj/item/weapon/stock_parts/matter_bin/MB in component_parts)
-		maxcells += MB.rating * 3
-
 	max_transfer_rate = 10000 * capacitor_efficiency // 30kw - 90kw depending on used capacitors.
-	max_cells = min(PSU_MAXCELLS, maxcells)
 	input_level = max_transfer_rate
 	output_level = max_transfer_rate
 
@@ -206,39 +200,63 @@
 /obj/machinery/power/smes/batteryrack/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "PowerBatteryRack")
+		ui = new(user, src, "power/PowerBatteryRack", src.name)
 		ui.open()
 
 /obj/machinery/power/smes/batteryrack/ui_data(mob/user)
-	var/data[0]
+	. = list()
 
-	data["mode"] = mode
-	data["transfer_max"] = max_transfer_rate
-	data["output_load"] = round(output_used)
-	data["input_load"] = round(input_available)
-	data["equalise"] = equalise
-	data["blink_tick"] = ui_tick
-	data["cells_max"] = max_cells
-	data["cells_cur"] = internal_cells.len
-	var/list/cells = list()
-	var/cell_index = 0
-	for(var/obj/item/weapon/cell/C in internal_cells)
-		var/list/cell[0]
-		cell["slot"] = cell_index + 1
-		cell["used"] = 1
-		cell["percentage"] = round(C.percent(), 0.01)
-		cell["id"] = C.c_uid
-		cell_index++
-		cells += list(cell)
-	while(cell_index < PSU_MAXCELLS)
-		var/list/cell[0]
-		cell["slot"] = cell_index + 1
-		cell["used"] = 0
-		cell_index++
-		cells += list(cell)
-	data["cells_list"] = cells
+	.["mode"] = mode
+	.["transfer_max"] = max_transfer_rate
+	.["output_load"] = round(output_used)
+	.["input_load"] = round(input_available)
+	.["equalise"] = equalise
+	.["blink_tick"] = ui_tick
 
-	return data
+	.["cells"] = list()
+	for(var/cell_index in 1 to max_cells)
+		if (cell_index <= length(internal_cells))
+			var/obj/item/weapon/cell/C = internal_cells[cell_index]
+			.["cells"] += list(list(
+				"slot" = cell_index,
+				"used" = TRUE,
+				"charge" = C.charge,
+				"capacity" = C.maxcharge,
+				"id" = C.c_uid,
+			))
+		else
+			.["cells"] += list(list(
+				"slot" = cell_index,
+				"used" = FALSE
+			))
+
+/obj/machinery/power/smes/batteryrack/ui_act(action, list/params)
+	switch(action)
+		if("disable")
+			update_io(0)
+			return TRUE
+		if("enable")
+			update_io(between(1, text2num(params["mode"]), 3))
+			return TRUE
+		if("equalise")
+			equalise = !equalise
+			return TRUE
+		if("ejectcell")
+			var/obj/item/weapon/cell/C
+			for(var/obj/item/weapon/cell/CL in internal_cells)
+				if(CL.c_uid == text2num(params["eject"]))
+					C = CL
+					break
+
+			if(!istype(C))
+				return TRUE
+
+			C.forceMove(get_turf(src))
+			internal_cells -= C
+			update_icon()
+			RefreshParts()
+			update_maxcharge()
+			return TRUE
 
 /obj/machinery/power/smes/batteryrack/dismantle()
 	for(var/obj/item/weapon/cell/C in internal_cells)
@@ -259,49 +277,8 @@
 		else
 			to_chat(user, "\The [src] has no empty slot for \the [W]")
 
-/obj/machinery/power/smes/batteryrack/attack_hand(var/mob/user)
-	ui_interact(user)
-
 /obj/machinery/power/smes/batteryrack/inputting()
 	return
 
 /obj/machinery/power/smes/batteryrack/outputting()
 	return
-
-/obj/machinery/power/smes/batteryrack/Topic(href, href_list)
-	// ..() would respond to those topic calls, but we don't want to use them at all.
-	// Calls to these shouldn't occur anyway, due to usage of different nanoUI, but
-	// it's here in case someone decides to try hrefhacking/modified templates.
-	if(href_list["input"] || href_list["output"])
-		return 1
-
-	if(..())
-		return 1
-	if( href_list["disable"] )
-		update_io(0)
-		return 1
-	else if( href_list["enable"] )
-		update_io(between(1, text2num(href_list["enable"]), 3))
-		return 1
-	else if( href_list["equaliseon"] )
-		equalise = 1
-		return 1
-	else if( href_list["equaliseoff"] )
-		equalise = 0
-		return 1
-	else if( href_list["ejectcell"] )
-		var/obj/item/weapon/cell/C
-		for(var/obj/item/weapon/cell/CL in internal_cells)
-			if(CL.c_uid == text2num(href_list["ejectcell"]))
-				C = CL
-				break
-
-		if(!istype(C))
-			return 1
-
-		C.forceMove(get_turf(src))
-		internal_cells -= C
-		update_icon()
-		RefreshParts()
-		update_maxcharge()
-		return 1
