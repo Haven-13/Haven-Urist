@@ -12,7 +12,13 @@
 	for (var/datum/turbolift/lift in turbolifts)
 		for (var/i in 1 to length(lift.floors))
 			var/datum/turbolift_floor/floor = lift.floors[i]
-			var/area/turbolift/A = floor.area_ref
+			var/area/turbolift/A = locate(floor.area_ref)
+			if (!A)
+				log_bad("Lift [lift.creator_type]: Could not locate the area for Option [i] ([floor.label] - [floor.name])!")
+				failures += 1
+				failed[lift.creator_type] = TRUE
+				continue
+
 			var/consistent = (\
 				A.lift_floor_label == floor.label\
 				&& (A.lift_floor_name == floor.name || A.name == floor.name)\

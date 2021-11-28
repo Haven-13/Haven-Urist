@@ -21,7 +21,7 @@
 	turbolifts += src
 	. = ..()
 
-/datum/turbolift/Del()
+/datum/turbolift/Destroy()
 	turbolifts -= src
 	. = ..()
 
