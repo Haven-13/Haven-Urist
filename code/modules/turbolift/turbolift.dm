@@ -14,6 +14,17 @@
 	var/busy_state                                      // Used for controller processing.
 	var/next_process
 
+	var/creator_type
+
+/datum/turbolift/New(creator_type)
+	src.creator_type = creator_type
+	turbolifts += src
+	. = ..()
+
+/datum/turbolift/Del()
+	turbolifts -= src
+	. = ..()
+
 /datum/turbolift/proc/emergency_stop()
 	queued_floors.Cut()
 	target_floor = null
