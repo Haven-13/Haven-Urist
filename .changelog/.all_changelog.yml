@@ -402,3 +402,9 @@
       when dragging the knob
   - bugfix: Fixed the missing interface for tgUI
   - bugfix: Fixed names being missing from the old plain HTML manifests
+2021-11-29:
+  martinlyra:
+  - tweak: Converted the elevator panel from hardcoded popup to tgUI
+  - tweak: The elevator panel now shows its current floor
+  - tweak: Elevators are now unit-tested
+  - bugfix: Fixed improper consistency with the world in elevator panels
