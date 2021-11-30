@@ -68,8 +68,10 @@ GLOBAL_VAR(restart_counter)
 
 	return match
 
-#define RECOMMENDED_VERSION 513
 /world/New()
+
+	SSmetrics.world_init_time = REALTIMEOFDAY
+
 	//set window title
 	if (config.server_name)
 		name = config.server_name
@@ -120,7 +122,7 @@ var/world_topic_spam_protect_time = world.timeofday
 /world/Topic(T, addr, master, key)
 	TGS_TOPIC	//redirect to server tools if necessary
 
-	game_log("TOPIC", "\"[T]\", from:[addr], master:[master], key:[key][log_end]")
+	game_log("TOPIC", "\"[T]\", from:[addr], master:[master], key:[key]")
 
 	if (T == "ping")
 		var/x = 1

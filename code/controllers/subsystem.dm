@@ -1,6 +1,8 @@
 /datum/controller/subsystem
 	// Metadata; you should define these.
 	name = "fire coderbus"               //name of the subsystem
+	/// Subsystem ID. Used for when we need a technical name for the SS
+	var/ss_id = "fire_codertrain_again"
 	var/init_order = SS_INIT_DEFAULT  //order of initialization. Higher numbers are initialized first, lower numbers later. Use defines in __DEFINES/subsystems.dm for easy understanding of order.
 	var/wait = 20                        //time to wait (in deciseconds) between each call to fire(). Must be a positive integer.
 	var/priority = SS_PRIORITY_DEFAULT //When mutiple subsystems need to run in the same tick, higher priority subsystems will run first and be given a higher share of the tick before MC_TICK_CHECK triggers a sleep
@@ -201,6 +203,20 @@
 			. = "S"
 		if (SS_IDLE)
 			. = "  "
+
+/**
+  * Returns the metrics for the subsystem.
+  *
+  * This can be overriden on subtypes for variables that could affect tick usage
+  * Example: ATs on SSair
+  */
+/datum/controller/subsystem/proc/get_metrics()
+	SHOULD_CALL_PARENT(TRUE)
+	var/list/out = list()
+	out["cost"] = cost
+	out["tick_usage"] = tick_usage
+	out["custom"] = list() // Override as needed on child
+	return out
 
 //could be used to postpone a costly subsystem for (default one) var/cycles, cycles
 //for instance, during cpu intensive operations like explosions

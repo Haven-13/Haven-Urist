@@ -16,6 +16,12 @@ SUBSYSTEM_DEF(processing)
 /datum/controller/subsystem/processing/stat_entry(msg)
 	..("P:[processing.len][msg]")
 
+/datum/controller/subsystem/processing/get_metrics()
+	. = ..()
+	var/list/cust = list()
+	cust["processing"] = length(processing)
+	.["custom"] = cust
+
 /datum/controller/subsystem/processing/fire(resumed = 0)
 	if (!resumed)
 		src.current_run = processing.Copy()

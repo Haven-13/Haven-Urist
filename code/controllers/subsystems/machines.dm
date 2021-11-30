@@ -137,6 +137,12 @@ if(current_step == this_step || (check_resumed && !resumed)) {\
 	msg += "MC/MS:[round((cost ? machinery.len/cost : 0),0.1)]"
 	..(jointext(msg, null))
 
+/datum/controller/subsystem/machines/get_metrics()
+	. = ..()
+	var/list/cust = list()
+	cust["processing"] = length(processing)
+	.["custom"] = cust
+
 /datum/controller/subsystem/machines/proc/process_pipenets(resumed = 0)
 	if (!resumed)
 		src.current_run = pipenets.Copy()
