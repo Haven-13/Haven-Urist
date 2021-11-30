@@ -18,11 +18,11 @@ SUBSYSTEM_DEF(http)
 /datum/controller/subsystem/http/PreInit()
 	. = ..()
 	/*
-	 * A cargo-cult holdover from Paradise because this requires
-	 * Paradise's own rust-g
-	 * The difference is Paradise has a persistent HTTP client while
-	 * tgstation's creates a new one every time a HTTP request is made
-	 */
+	* A cargo-cult holdover from Paradise because this requires
+	* Paradise's own rust-g
+	* The difference is Paradise has a persistent HTTP client while
+	* tgstation's creates a new one every time a HTTP request is made
+	*/
 	// rustg_create_async_http_client() // Open the door
 
 /datum/controller/subsystem/http/Initialize(start_timeofday)
