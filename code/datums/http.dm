@@ -92,7 +92,7 @@ THE METHODS IN THIS FILE ARE TO BE USED BY THE SUBSYSTEM AS A MANGEMENT HUB
 /datum/http_request/proc/build_options()
 	if(output_file)
 		return json_encode(list("output_filename" = output_file, "body_filename" = null))
-	return null
+	return "{}"
 
 /**
   * Async completion checker

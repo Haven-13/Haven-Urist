@@ -49,7 +49,7 @@ GLOBAL_PROTECT(log_end)
 	game_log("TESTING", msg)
 
 /proc/game_log(category, text)
-	WRITE_FILE(GLOB.world_diary_log, "\[[time_stamp()]] [game_id] [category]: [text][GLOB.log_end]")
+	WRITE_FILE(GLOB.world_diary_log, "\[[iso_time_stamp()]] [game_id] [category]: [text][GLOB.log_end]")
 
 /proc/log_admin(text)
 	GLOB.admin_log.Add(text)
@@ -137,7 +137,7 @@ GLOBAL_PROTECT(log_end)
 	WRITE_FILE(GLOB.world_href_log, "HREF: [text]")
 
 /proc/log_qdel(text)
-	WRITE_FILE(GLOB.world_qdel_log, "\[[time_stamp()]]QDEL: [text]")
+	WRITE_FILE(GLOB.world_qdel_log, "\[[iso_time_stamp()]]QDEL: [text]")
 
 /**
  * Appends a tgui-related log entry. All arguments are optional.

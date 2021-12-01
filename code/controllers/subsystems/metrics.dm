@@ -25,7 +25,7 @@ SUBSYSTEM_DEF(metrics)
 
 /datum/controller/subsystem/metrics/proc/get_metrics_json()
 	var/list/out = list()
-	out["@timestamp"] = time_stamp() // This is required by ElasticSearch, complete with this name. DO NOT REMOVE THIS.
+	out["@timestamp"] = iso_time_stamp() // This is required by ElasticSearch, complete with this name. DO NOT REMOVE THIS.
 	out["cpu"] = world.cpu
 	out["maptick"] = world.map_cpu
 	out["elapsed_processed"] = world.time
