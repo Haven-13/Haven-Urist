@@ -25,7 +25,12 @@ SUBSYSTEM_DEF(metrics)
 
 /datum/controller/subsystem/metrics/proc/get_metrics_json()
 	var/list/out = list()
-	out["@timestamp"] = iso_time_stamp() // This is required by ElasticSearch, complete with this name. DO NOT REMOVE THIS.
+	// This is required by ElasticSearch, complete with this name. DO NOT REMOVE THIS.
+	// Also, the timestamp has to be UTC+0 because it is defined as such by default in ES.
+	// Kibana & ES are configured for UTC+0 by default. It adjusts the time by browser timezone.
+	// See https://discuss.elastic.co/t/kibana-timezone/29270
+	out["@timestamp"] = iso_time_stamp(0)
+
 	out["cpu"] = world.cpu
 	out["maptick"] = world.map_cpu
 	out["elapsed_processed"] = world.time

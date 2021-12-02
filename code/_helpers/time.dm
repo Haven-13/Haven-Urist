@@ -54,9 +54,11 @@ var/next_station_date_change = 1 DAY
 // This is ISO-8601
 // If anything that uses this proc shouldn't be ISO-8601, change that thing, not this proc.
 // This is important for logging.
-/proc/iso_time_stamp()
-	var/date_portion = time2text(world.timeofday, "YYYY-MM-DD")
-	var/time_portion = time2text(world.timeofday, "hh:mm:ss")
+// For UTC+0 stamp, use timezone = 0.
+// For other offsets, use an integer as offset, consult doc on time2text proc for more.
+/proc/iso_time_stamp(timezone=world.timezone)
+	var/date_portion = time2text(world.timeofday, "YYYY-MM-DD", timezone)
+	var/time_portion = time2text(world.timeofday, "hh:mm:ss", timezone)
 	return "[date_portion]T[time_portion]"
 
 /proc/time_stamp(format = "hh:mm:ss")
