@@ -2,7 +2,7 @@
 	// Metadata; you should define these.
 	name = "fire coderbus"               //name of the subsystem
 	/// Subsystem ID. Used for when we need a technical name for the SS
-	var/ss_id = "fire_codertrain_again"
+	var/ss_id = "fire_coderbus_again"
 	var/init_order = SS_INIT_DEFAULT  //order of initialization. Higher numbers are initialized first, lower numbers later. Use defines in __DEFINES/subsystems.dm for easy understanding of order.
 	var/wait = 20                        //time to wait (in deciseconds) between each call to fire(). Must be a positive integer.
 	var/priority = SS_PRIORITY_DEFAULT //When mutiple subsystems need to run in the same tick, higher priority subsystems will run first and be given a higher share of the tick before MC_TICK_CHECK triggers a sleep
