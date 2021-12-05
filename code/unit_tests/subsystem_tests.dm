@@ -59,3 +59,38 @@
 	else
 		pass("All subsystems have valid JSON")
 	return 1
+
+/datum/unit_test/subsystem_uniqueness
+	name = "SUBSYSTEM - METRICS: Shall have unique IDs"
+
+/datum/unit_test/subsystem_uniqueness/start_test()
+	var/datum/controller/subsystem/S = new()
+	var/bad_id = S.ss_id
+	qdel(S)
+
+	var/list/used_ids = list()
+	var/failures = list()
+
+	for(var/datum/controller/subsystem/SS in Master.subsystems)
+		var/this_id = SS.ss_id
+		if(this_id == bad_id)
+			log_bad("[SS.type] uses the uninitialized ID '[bad_id]'!")
+			failures[SS.type] = TRUE
+		else if(this_id in used_ids)
+			var/used_type = used_ids[this_id]
+			var/this_type = SS.type
+			if(this_type == used_type)
+				log_bad("There are a duplicate of [this_type]!")
+				failures[this_type] = TRUE
+			else
+				log_bad("[this_type] tried to take ID '[this_id]', already used by [used_type]!")
+				failures[used_type] = TRUE
+				failures[this_type] = TRUE
+		else
+			used_ids[this_id] = SS.type
+
+	if(length(failures))
+		fail("#[length(failures)] subsystem(s) are not unique")
+	else
+		pass("All subsystems are unique")
+	return 1
