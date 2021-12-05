@@ -427,6 +427,6 @@ RADIATION_LOWER_LIMIT 0.15
 # Do we want to enable metrics sending, uncomment to enable it
 # ENABLE_METRICS
 # Metrics endpoint. Include protocol, host and ingest path
-METRICS_ENDPOINT "http://elastic-host:9200/your_index/_doc"
+METRICS_ENDPOINT http://elastic-host:9200/your_index/_doc
 # Metrics API token. Placed into the auth header
-METRICS_API_TOKEN "your_base64_encoded_thingy=="
+METRICS_API_TOKEN your_base64_encoded_thingy==
