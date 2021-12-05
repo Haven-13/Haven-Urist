@@ -141,6 +141,10 @@ if(current_step == this_step || (check_resumed && !resumed)) {\
 	. = ..()
 	var/list/cust = list()
 	cust["processing"] = length(processing)
+	cust["cost_pipenets"] = cost_pipenets
+	cust["cost_powernets"] = cost_powernets
+	cust["cost_machinery"] = cost_machinery
+	cust["cost_power_objects"] = cost_power_objects
 	.["custom"] = cust
 
 /datum/controller/subsystem/machines/proc/process_pipenets(resumed = 0)
