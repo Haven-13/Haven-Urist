@@ -12,8 +12,6 @@
 	var/template_flags = TEMPLATE_FLAG_ALLOW_DUPLICATES
 
 /datum/map_template/New(var/path = null, var/list/paths = null, var/rename = null)
-	SHOULD_CALL_PARENT(TRUE)
-
 	if(path)
 		paths = list()
 		paths += path
