@@ -87,7 +87,6 @@
 		SSshuttle.initialise_shuttle(shuttle_type)
 
 /datum/map_template/proc/load_new_z()
-
 	var/x = round((world.maxx - width)/2)
 	var/y = round((world.maxy - height)/2)
 	var/initial_z = world.maxz + 1
@@ -97,6 +96,15 @@
 
 	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
 	var/list/atoms_to_initialise = list()
+
+	var/err = 0
+	for (var/mappath in mappaths)
+		if(!isfile(mappath))
+			error("Map Templates: \[[src.name]\] Could not find the map file '[mappath]'!")
+			err += 1
+	if (err)
+		. = FALSE
+		CRASH("Map template \[[src.name]\] has invalid or missing map, and won't be loaded")
 
 	for (var/mappath in mappaths)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, no_changeturf=TRUE)
