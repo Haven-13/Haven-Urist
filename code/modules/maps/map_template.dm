@@ -1,5 +1,6 @@
 /datum/map_template
 	var/name = "Default Template Name"
+	var/init_error = 0
 	var/width = 0
 	var/height = 0
 	var/tallness = 0
@@ -11,13 +12,23 @@
 	var/template_flags = TEMPLATE_FLAG_ALLOW_DUPLICATES
 
 /datum/map_template/New(var/path = null, var/list/paths = null, var/rename = null)
+	SHOULD_CALL_PARENT(TRUE)
+
 	if(path)
 		paths = list()
 		paths += path
 	if(paths && !islist(paths))
-		crash_with("Non-list paths passed into map template constructor.")
+		CRASH("Non-list paths passed into map template constructor.")
 	if(paths)
 		mappaths = paths
+
+	for (var/mappath in mappaths)
+		if(!isfile(mappath))
+			error("Map Templates: \[[src.name]\] Could not find the map file '[mappath]'!")
+			init_error += 1
+	if (init_error)
+		CRASH("Map template \[[src.name]\] has invalid or missing map(s) and will not be loaded")
+
 	if(mappaths)
 		preload_size(mappaths)
 //	if(path)
@@ -29,6 +40,9 @@
 		name = rename
 
 /datum/map_template/proc/preload_size()
+	if(init_error)
+		return FALSE
+
 	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
 	var/z_offset = 1 // needed to calculate z-bounds correctly
 	for (var/mappath in mappaths)
@@ -87,6 +101,9 @@
 		SSshuttle.initialise_shuttle(shuttle_type)
 
 /datum/map_template/proc/load_new_z()
+	if(init_error)
+		return FALSE
+
 	var/x = round((world.maxx - width)/2)
 	var/y = round((world.maxy - height)/2)
 	var/initial_z = world.maxz + 1
@@ -96,15 +113,6 @@
 
 	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
 	var/list/atoms_to_initialise = list()
-
-	var/err = 0
-	for (var/mappath in mappaths)
-		if(!isfile(mappath))
-			error("Map Templates: \[[src.name]\] Could not find the map file '[mappath]'!")
-			err += 1
-	if (err)
-		. = FALSE
-		CRASH("Map template \[[src.name]\] has invalid or missing map, and won't be loaded")
 
 	for (var/mappath in mappaths)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, no_changeturf=TRUE)
