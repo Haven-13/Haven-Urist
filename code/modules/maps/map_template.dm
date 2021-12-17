@@ -12,6 +12,8 @@
 	var/template_flags = TEMPLATE_FLAG_ALLOW_DUPLICATES
 
 /datum/map_template/New(var/path = null, var/list/paths = null, var/rename = null)
+	if(rename)
+		name = rename
 	if(path)
 		paths = list()
 		paths += path
@@ -22,10 +24,10 @@
 
 	for (var/mappath in mappaths)
 		if(!isfile(mappath))
-			error("Map Templates: \[[src.name]\] Could not find the map file '[mappath]'!")
+			error("Map Templates: \["[src.name]"\] Could not find the map file '[mappath]'!")
 			init_error += 1
 	if (init_error)
-		CRASH("Map template \[[src.name]\] has invalid or missing map(s) and will not be loaded")
+		CRASH("Map template \["[src.name]"\] has invalid or missing map(s) and will not be loaded")
 
 	if(mappaths)
 		preload_size(mappaths)
@@ -34,8 +36,6 @@
 //		preload_size(mappath)
 //	if(map)
 //		mapfile = map
-	if(rename)
-		name = rename
 
 /datum/map_template/proc/preload_size()
 	if(init_error)
