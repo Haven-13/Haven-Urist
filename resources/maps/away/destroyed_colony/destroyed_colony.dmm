@@ -7,8 +7,8 @@
 /area/planet/destroyed_colony)
 "ac" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innerpavement";
-	dir = 2
+	dir = 2;
+	icon_state = "innerpavement"
 	},
 /area/planet/destroyed_colony)
 "ad" = (
@@ -23,8 +23,8 @@
 /area/planet/destroyed_colony)
 "af" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
-	icon_state = "horizontalinnermain1"
+	icon_state = "horizontalinnermain1";
+	tag = "icon-horizontalinnermain1"
 	},
 /area/planet/destroyed_colony)
 "ag" = (
@@ -39,8 +39,8 @@
 /area/planet/destroyed_colony)
 "ai" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermaincornerinner";
-	dir = 8
+	dir = 8;
+	icon_state = "innermaincornerinner"
 	},
 /area/planet/destroyed_colony)
 "aj" = (
@@ -66,8 +66,8 @@
 /area/planet/destroyed_colony)
 "an" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermaincornerinner";
-	dir = 4
+	dir = 4;
+	icon_state = "innermaincornerinner"
 	},
 /area/planet/destroyed_colony)
 "ao" = (
@@ -77,8 +77,8 @@
 /area/planet/destroyed_colony)
 "ap" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermaincornerinner";
-	dir = 1
+	dir = 1;
+	icon_state = "innermaincornerinner"
 	},
 /area/planet/destroyed_colony)
 "aq" = (
@@ -86,8 +86,8 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontalleft";
-	icon_state = "doublehorizontalleft"
+	icon_state = "doublehorizontalleft";
+	tag = "icon-doublehorizontalleft"
 	},
 /area/planet/destroyed_colony)
 "ar" = (
@@ -95,8 +95,8 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontalcorroded";
-	icon_state = "doublehorizontalcorroded"
+	icon_state = "doublehorizontalcorroded";
+	tag = "icon-doublehorizontalcorroded"
 	},
 /area/planet/destroyed_colony)
 "as" = (
@@ -104,8 +104,8 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontaldegraded";
-	icon_state = "doublehorizontaldegraded"
+	icon_state = "doublehorizontaldegraded";
+	tag = "icon-doublehorizontaldegraded"
 	},
 /area/planet/destroyed_colony)
 "at" = (
@@ -113,18 +113,18 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontal";
-	icon_state = "doublehorizontal"
+	icon_state = "doublehorizontal";
+	tag = "icon-doublehorizontal"
 	},
 /area/planet/destroyed_colony)
 "au" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
-	icon_state = "horizontalinnermain1"
+	icon_state = "horizontalinnermain1";
+	tag = "icon-horizontalinnermain1"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontalcorroded";
-	icon_state = "doublehorizontalcorroded"
+	icon_state = "doublehorizontalcorroded";
+	tag = "icon-doublehorizontalcorroded"
 	},
 /area/planet/destroyed_colony)
 "av" = (
@@ -132,8 +132,8 @@
 	icon_state = "verticalinnermain2"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontalcorroded";
-	icon_state = "doublehorizontalcorroded"
+	icon_state = "doublehorizontalcorroded";
+	tag = "icon-doublehorizontalcorroded"
 	},
 /area/planet/destroyed_colony)
 "aw" = (
@@ -141,8 +141,8 @@
 	icon_state = "verticalinnermain2"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontaldegraded";
-	icon_state = "doublehorizontaldegraded"
+	icon_state = "doublehorizontaldegraded";
+	tag = "icon-doublehorizontaldegraded"
 	},
 /area/planet/destroyed_colony)
 "ax" = (
@@ -150,8 +150,8 @@
 	icon_state = "verticalinnermain2"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontalright";
-	icon_state = "doublehorizontalright"
+	icon_state = "doublehorizontalright";
+	tag = "icon-doublehorizontalright"
 	},
 /area/planet/destroyed_colony)
 "ay" = (
@@ -159,8 +159,8 @@
 	icon_state = "verticalinnermain2"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontalleft";
-	icon_state = "doublehorizontalleft"
+	icon_state = "doublehorizontalleft";
+	tag = "icon-doublehorizontalleft"
 	},
 /area/planet/destroyed_colony)
 "az" = (
@@ -171,48 +171,48 @@
 /area/planet/destroyed_colony)
 "aA" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innerpavement";
-	dir = 1
+	dir = 1;
+	icon_state = "innerpavement"
 	},
 /area/planet/destroyed_colony)
 "aB" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-innerpavement (NORTHEAST)";
+	dir = 5;
 	icon_state = "innerpavement";
-	dir = 5
+	tag = "icon-innerpavement (NORTHEAST)"
 	},
 /area/planet/destroyed_colony)
 "aC" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-innerpavement (NORTHWEST)";
+	dir = 9;
 	icon_state = "innerpavement";
-	dir = 9
+	tag = "icon-innerpavement (NORTHWEST)"
 	},
 /area/planet/destroyed_colony)
 "aD" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "outerturn";
-	dir = 1
+	dir = 1;
+	icon_state = "outerturn"
 	},
 /area/planet/destroyed_colony)
 "aE" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "outerturn";
-	dir = 4
+	dir = 4;
+	icon_state = "outerturn"
 	},
 /area/planet/destroyed_colony)
 "aF" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-innerpavement (EAST)";
+	dir = 4;
 	icon_state = "innerpavement";
-	dir = 4
+	tag = "icon-innerpavement (EAST)"
 	},
 /area/planet/destroyed_colony)
 "aG" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-innerpavement (WEST)";
+	dir = 8;
 	icon_state = "innerpavement";
-	dir = 8
+	tag = "icon-innerpavement (WEST)"
 	},
 /area/planet/destroyed_colony)
 "aH" = (
@@ -230,8 +230,8 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedvertical";
-	icon_state = "dottedvertical"
+	icon_state = "dottedvertical";
+	tag = "icon-dottedvertical"
 	},
 /area/planet/destroyed_colony)
 "aK" = (
@@ -248,8 +248,8 @@
 	icon_state = "verticalinnermain2"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedverticaldegraded";
-	icon_state = "dottedverticaldegraded"
+	icon_state = "dottedverticaldegraded";
+	tag = "icon-dottedverticaldegraded"
 	},
 /area/planet/destroyed_colony)
 "aN" = (
@@ -257,8 +257,8 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedverticaldegraded";
-	icon_state = "dottedverticaldegraded"
+	icon_state = "dottedverticaldegraded";
+	tag = "icon-dottedverticaldegraded"
 	},
 /area/planet/destroyed_colony)
 "aO" = (
@@ -267,19 +267,19 @@
 /area/planet/destroyed_colony)
 "aP" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-innermaincornerouter (EAST)";
+	dir = 4;
 	icon_state = "innermaincornerouter";
-	dir = 4
+	tag = "icon-innermaincornerouter (EAST)"
 	},
 /area/planet/destroyed_colony)
 "aQ" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
-	icon_state = "horizontalinnermain1"
+	icon_state = "horizontalinnermain1";
+	tag = "icon-horizontalinnermain1"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedverticaldegraded";
-	icon_state = "dottedverticaldegraded"
+	icon_state = "dottedverticaldegraded";
+	tag = "icon-dottedverticaldegraded"
 	},
 /area/planet/destroyed_colony)
 "aR" = (
@@ -287,8 +287,8 @@
 	icon_state = "verticalinnermain2"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedverticalcorroded";
-	icon_state = "dottedverticalcorroded"
+	icon_state = "dottedverticalcorroded";
+	tag = "icon-dottedverticalcorroded"
 	},
 /area/planet/destroyed_colony)
 "aS" = (
@@ -309,8 +309,8 @@
 /area/planet/destroyed_colony)
 "aW" = (
 /obj/structure/hygiene/sink{
-	icon_state = "sink";
 	dir = 8;
+	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -319,9 +319,9 @@
 /area/planet/destroyed_colony)
 "aX" = (
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (NORTH)";
+	dir = 1;
 	icon_state = "green1";
-	dir = 1
+	tag = "icon-green1 (NORTH)"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
@@ -350,9 +350,9 @@
 /area/planet/destroyed_colony)
 "bc" = (
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (NORTH)";
+	dir = 1;
 	icon_state = "green1";
-	dir = 1
+	tag = "icon-green1 (NORTH)"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
@@ -372,16 +372,16 @@
 /area/planet/destroyed_colony)
 "bf" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-innerpavementcorner (EAST)";
+	dir = 4;
 	icon_state = "innerpavementcorner";
-	dir = 4
+	tag = "icon-innerpavementcorner (EAST)"
 	},
 /area/planet/destroyed_colony)
 "bg" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-innerpavementcorner (NORTH)";
+	dir = 1;
 	icon_state = "innerpavementcorner";
-	dir = 1
+	tag = "icon-innerpavementcorner (NORTH)"
 	},
 /area/planet/destroyed_colony)
 "bh" = (
@@ -471,17 +471,17 @@
 /area/planet/destroyed_colony)
 "by" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (NORTH)";
+	dir = 1;
 	icon_state = "yellow1";
-	dir = 1
+	tag = "icon-yellow1 (NORTH)"
 	},
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
 "bz" = (
 /obj/structure/crematorium{
-	tag = "icon-crema1 (WEST)";
+	dir = 8;
 	icon_state = "crema1";
-	dir = 8
+	tag = "icon-crema1 (WEST)"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
@@ -491,9 +491,9 @@
 /area/planet/destroyed_colony)
 "bB" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (NORTH)";
+	dir = 1;
 	icon_state = "yellow1";
-	dir = 1
+	tag = "icon-yellow1 (NORTH)"
 	},
 /turf/simulated/floor/lino,
 /area/planet/destroyed_colony)
@@ -561,17 +561,17 @@
 /area/planet/destroyed_colony)
 "bR" = (
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (WEST)";
+	dir = 8;
 	icon_state = "green1";
-	dir = 8
+	tag = "icon-green1 (WEST)"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "bS" = (
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (EAST)";
+	dir = 4;
 	icon_state = "green1";
-	dir = 4
+	tag = "icon-green1 (EAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
@@ -579,36 +579,9 @@
 /obj/machinery/door/airlock,
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
-"bU" = (
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
-	},
-/area/planet/destroyed_colony)
-"bV" = (
-/obj/structure/table/standard,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
-	},
-/area/planet/destroyed_colony)
-"bW" = (
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
-	},
-/area/planet/destroyed_colony)
 "bX" = (
-/obj/structure/table/standard/flipped/e,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
-	},
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/tiled/old_tile,
 /area/planet/destroyed_colony)
 "bY" = (
 /turf/simulated/floor/fixed/destroyedroad{
@@ -616,32 +589,14 @@
 	},
 /obj/effect/decal/mecha_wreckage/smallfighter,
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedvertical";
-	icon_state = "dottedvertical"
+	icon_state = "dottedvertical";
+	tag = "icon-dottedvertical"
 	},
 /area/planet/destroyed_colony)
 "bZ" = (
 /obj/item/weapon/mine/frag,
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "horizontaloutermain0"
-	},
-/area/planet/destroyed_colony)
-"ca" = (
-/obj/structure/table/standard/flipped/w,
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
-	},
-/area/planet/destroyed_colony)
-"cb" = (
-/obj/structure/table/standard,
-/obj/item/weapon/gun/projectile/td10_pistol,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
 	},
 /area/planet/destroyed_colony)
 "cc" = (
@@ -660,17 +615,17 @@
 /area/planet/destroyed_colony)
 "cf" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (NORTH)";
+	dir = 1;
 	icon_state = "yellow1";
-	dir = 1
+	tag = "icon-yellow1 (NORTH)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cg" = (
 /obj/machinery/door/morgue{
-	tag = "icon-door1";
+	dir = 2;
 	icon_state = "door1";
-	dir = 2
+	tag = "icon-door1"
 	},
 /turf/simulated/floor/lino,
 /area/planet/destroyed_colony)
@@ -686,63 +641,6 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/lino,
-/area/planet/destroyed_colony)
-"cj" = (
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
-	},
-/area/planet/destroyed_colony)
-"ck" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 8;
-	icon_state = "closed";
-	name = "Apartments 1";
-	pixel_x = 0;
-	tag = "icon-closed (WEST)"
-	},
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
-	},
-/area/planet/destroyed_colony)
-"cl" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 8;
-	icon_state = "closed";
-	name = "Apartments 2";
-	pixel_x = 0;
-	tag = "icon-closed (WEST)"
-	},
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
-	},
-/area/planet/destroyed_colony)
-"cm" = (
-/obj/structure/table/standard/flipped/w,
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
-	},
-/area/planet/destroyed_colony)
-"cn" = (
-/obj/item/remains/human,
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
-	},
 /area/planet/destroyed_colony)
 "co" = (
 /obj/item/remains/human,
@@ -784,17 +682,17 @@
 /area/planet/destroyed_colony)
 "cw" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
+	dir = 1;
 	icon_state = "chapel";
-	dir = 1
+	tag = "icon-chapel (NORTH)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cx" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
+	dir = 4;
 	icon_state = "chapel";
-	dir = 4
+	tag = "icon-chapel (EAST)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
@@ -831,9 +729,9 @@
 /obj/structure/bed,
 /obj/item/weapon/bedsheet/blue,
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (EAST)";
+	dir = 4;
 	icon_state = "green1";
-	dir = 4
+	tag = "icon-green1 (EAST)"
 	},
 /obj/random/plushie,
 /turf/simulated/floor/tiled/dark,
@@ -842,16 +740,16 @@
 /obj/structure/bed,
 /obj/item/weapon/bedsheet/blue,
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (WEST)";
+	dir = 8;
 	icon_state = "green1";
-	dir = 8
+	tag = "icon-green1 (WEST)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cF" = (
 /obj/structure/hygiene/sink{
-	icon_state = "sink";
 	dir = 8;
+	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -859,18 +757,18 @@
 /area/planet/destroyed_colony)
 "cG" = (
 /obj/structure/hygiene/shower{
-	tag = "icon-shower (WEST)";
-	icon_state = "shower";
 	dir = 8;
-	pixel_x = 5
+	icon_state = "shower";
+	pixel_x = 5;
+	tag = "icon-shower (WEST)"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "cH" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (WEST)";
+	dir = 8;
 	icon_state = "chapel";
-	dir = 8
+	tag = "icon-chapel (WEST)"
 	},
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/tiled/dark,
@@ -892,9 +790,9 @@
 /area/planet/destroyed_colony)
 "cL" = (
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (WEST)";
+	dir = 8;
 	icon_state = "green1";
-	dir = 8
+	tag = "icon-green1 (WEST)"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
@@ -908,9 +806,9 @@
 /area/planet/destroyed_colony)
 "cO" = (
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (EAST)";
+	dir = 4;
 	icon_state = "green1";
-	dir = 4
+	tag = "icon-green1 (EAST)"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
@@ -932,9 +830,9 @@
 /area/planet/destroyed_colony)
 "cS" = (
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (NORTH)";
+	dir = 1;
 	icon_state = "green1";
-	dir = 1
+	tag = "icon-green1 (NORTH)"
 	},
 /obj/item/remains/human,
 /turf/simulated/floor/tiled,
@@ -964,23 +862,23 @@
 /area/planet/destroyed_colony)
 "cX" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
+	dir = 1;
 	icon_state = "chapel";
-	dir = 1
+	tag = "icon-chapel (NORTH)"
 	},
 /obj/item/weapon/stool/padded,
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (EAST)";
+	dir = 4;
 	icon_state = "yellow1";
-	dir = 4
+	tag = "icon-yellow1 (EAST)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cY" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
+	dir = 4;
 	icon_state = "chapel";
-	dir = 4
+	tag = "icon-chapel (EAST)"
 	},
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/tiled/dark,
@@ -996,32 +894,32 @@
 /area/planet/destroyed_colony)
 "db" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
+	dir = 1;
 	icon_state = "chapel";
-	dir = 1
+	tag = "icon-chapel (NORTH)"
 	},
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "dc" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
+	dir = 4;
 	icon_state = "chapel";
-	dir = 4
+	tag = "icon-chapel (EAST)"
 	},
 /obj/item/weapon/stool/padded,
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (WEST)";
+	dir = 8;
 	icon_state = "yellow1";
-	dir = 8
+	tag = "icon-yellow1 (WEST)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "dd" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticaloutermain2top (NORTH)";
+	dir = 1;
 	icon_state = "verticaloutermain2top";
-	dir = 1
+	tag = "icon-verticaloutermain2top (NORTH)"
 	},
 /area/planet/destroyed_colony)
 "de" = (
@@ -1035,9 +933,9 @@
 /area/planet/destroyed_colony)
 "dg" = (
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (NORTH)";
+	dir = 1;
 	icon_state = "green1";
-	dir = 1
+	tag = "icon-green1 (NORTH)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
@@ -1052,16 +950,16 @@
 /area/planet/destroyed_colony)
 "dj" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-outermaincornerinner";
+	dir = 2;
 	icon_state = "outermaincornerinner";
-	dir = 2
+	tag = "icon-outermaincornerinner"
 	},
 /area/planet/destroyed_colony)
 "dk" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-outermaincornerinner (WEST)";
+	dir = 8;
 	icon_state = "outermaincornerinner";
-	dir = 8
+	tag = "icon-outermaincornerinner (WEST)"
 	},
 /area/planet/destroyed_colony)
 "dl" = (
@@ -1093,16 +991,16 @@
 /area/planet/destroyed_colony)
 "dr" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-outermaincornerinner (EAST)";
+	dir = 4;
 	icon_state = "outermaincornerinner";
-	dir = 4
+	tag = "icon-outermaincornerinner (EAST)"
 	},
 /area/planet/destroyed_colony)
 "ds" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-outermaincornerinner (NORTH)";
+	dir = 1;
 	icon_state = "outermaincornerinner";
-	dir = 1
+	tag = "icon-outermaincornerinner (NORTH)"
 	},
 /area/planet/destroyed_colony)
 "dt" = (
@@ -1173,8 +1071,8 @@
 /area/planet/destroyed_colony)
 "dF" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticaloutermain2bottom";
-	icon_state = "verticaloutermain2bottom"
+	icon_state = "verticaloutermain2bottom";
+	tag = "icon-verticaloutermain2bottom"
 	},
 /area/planet/destroyed_colony)
 "dG" = (
@@ -1194,8 +1092,8 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaloutermainleft";
-	icon_state = "horizontaloutermainleft"
+	icon_state = "horizontaloutermainleft";
+	tag = "icon-horizontaloutermainleft"
 	},
 /area/planet/destroyed_colony)
 "dJ" = (
@@ -1214,8 +1112,8 @@
 /area/planet/destroyed_colony)
 "dL" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "outerpavement";
-	dir = 10
+	dir = 10;
+	icon_state = "outerpavement"
 	},
 /area/planet/destroyed_colony)
 "dM" = (
@@ -1225,15 +1123,15 @@
 /area/planet/destroyed_colony)
 "dN" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-outermaincornerouter (WEST)";
+	dir = 8;
 	icon_state = "outermaincornerouter";
-	dir = 8
+	tag = "icon-outermaincornerouter (WEST)"
 	},
 /area/planet/destroyed_colony)
 "dO" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaltopbordertopleft";
-	icon_state = "horizontaltopbordertopleft"
+	icon_state = "horizontaltopbordertopleft";
+	tag = "icon-horizontaltopbordertopleft"
 	},
 /area/planet/destroyed_colony)
 "dP" = (
@@ -1248,38 +1146,38 @@
 /area/planet/destroyed_colony)
 "dR" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "outerturn";
-	dir = 8
+	dir = 8;
+	icon_state = "outerturn"
 	},
 /area/planet/destroyed_colony)
 "dS" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaltopbordertop2left";
-	icon_state = "horizontaltopbordertop2left"
+	icon_state = "horizontaltopbordertop2left";
+	tag = "icon-horizontaltopbordertop2left"
 	},
 /area/planet/destroyed_colony)
 "dT" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaltopbordertop2";
-	icon_state = "horizontaltopbordertop2"
+	icon_state = "horizontaltopbordertop2";
+	tag = "icon-horizontaltopbordertop2"
 	},
 /area/planet/destroyed_colony)
 "dU" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaltopbordertop3";
-	icon_state = "horizontaltopbordertop3"
+	icon_state = "horizontaltopbordertop3";
+	tag = "icon-horizontaltopbordertop3"
 	},
 /area/planet/destroyed_colony)
 "dV" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaltopbordertopright";
-	icon_state = "horizontaltopbordertopright"
+	icon_state = "horizontaltopbordertopright";
+	tag = "icon-horizontaltopbordertopright"
 	},
 /area/planet/destroyed_colony)
 "dW" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaltopborderbottomleft";
-	icon_state = "horizontaltopborderbottomleft"
+	icon_state = "horizontaltopborderbottomleft";
+	tag = "icon-horizontaltopborderbottomleft"
 	},
 /area/planet/destroyed_colony)
 "dX" = (
@@ -1289,33 +1187,33 @@
 /area/planet/destroyed_colony)
 "dY" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaltopborderbottom1";
-	icon_state = "horizontaltopborderbottom1"
+	icon_state = "horizontaltopborderbottom1";
+	tag = "icon-horizontaltopborderbottom1"
 	},
 /area/planet/destroyed_colony)
 "dZ" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaltopborderbottom2left";
-	icon_state = "horizontaltopborderbottom2left"
+	icon_state = "horizontaltopborderbottom2left";
+	tag = "icon-horizontaltopborderbottom2left"
 	},
 /area/planet/destroyed_colony)
 "ea" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaltopborderbottom2";
-	icon_state = "horizontaltopborderbottom2"
+	icon_state = "horizontaltopborderbottom2";
+	tag = "icon-horizontaltopborderbottom2"
 	},
 /area/planet/destroyed_colony)
 "eb" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaltopborderbottom2right";
-	icon_state = "horizontaltopborderbottom2right"
+	icon_state = "horizontaltopborderbottom2right";
+	tag = "icon-horizontaltopborderbottom2right"
 	},
 /area/planet/destroyed_colony)
 "ec" = (
 /obj/item/remains/human,
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaltopborderbottom1";
-	icon_state = "horizontaltopborderbottom1"
+	icon_state = "horizontaltopborderbottom1";
+	tag = "icon-horizontaltopborderbottom1"
 	},
 /area/planet/destroyed_colony)
 "ed" = (
@@ -1325,8 +1223,8 @@
 /area/planet/destroyed_colony)
 "ee" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innercornerpieceleft";
-	dir = 8
+	dir = 8;
+	icon_state = "innercornerpieceleft"
 	},
 /area/planet/destroyed_colony)
 "ef" = (
@@ -1334,9 +1232,9 @@
 	icon_state = "horizontaltopborderbottom0"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-hatch (NORTH)";
+	dir = 1;
 	icon_state = "hatch";
-	dir = 1
+	tag = "icon-hatch (NORTH)"
 	},
 /area/planet/destroyed_colony)
 "eg" = (
@@ -1353,14 +1251,14 @@
 /area/planet/destroyed_colony)
 "ei" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaltopborderbottom3";
-	icon_state = "horizontaltopborderbottom3"
+	icon_state = "horizontaltopborderbottom3";
+	tag = "icon-horizontaltopborderbottom3"
 	},
 /area/planet/destroyed_colony)
 "ej" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaltopborderbottomright";
-	icon_state = "horizontaltopborderbottomright"
+	icon_state = "horizontaltopborderbottomright";
+	tag = "icon-horizontaltopborderbottomright"
 	},
 /area/planet/destroyed_colony)
 "ek" = (
@@ -1368,8 +1266,8 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontalcorroded";
-	icon_state = "dottedhorizontalcorroded"
+	icon_state = "dottedhorizontalcorroded";
+	tag = "icon-dottedhorizontalcorroded"
 	},
 /area/planet/destroyed_colony)
 "el" = (
@@ -1377,18 +1275,18 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontaldegraded";
-	icon_state = "dottedhorizontaldegraded"
+	icon_state = "dottedhorizontaldegraded";
+	tag = "icon-dottedhorizontaldegraded"
 	},
 /area/planet/destroyed_colony)
 "em" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
-	icon_state = "horizontalinnermain1"
+	icon_state = "horizontalinnermain1";
+	tag = "icon-horizontalinnermain1"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontaldegraded";
-	icon_state = "dottedhorizontaldegraded"
+	icon_state = "dottedhorizontaldegraded";
+	tag = "icon-dottedhorizontaldegraded"
 	},
 /area/planet/destroyed_colony)
 "en" = (
@@ -1396,28 +1294,28 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontal";
-	icon_state = "dottedhorizontal"
+	icon_state = "dottedhorizontal";
+	tag = "icon-dottedhorizontal"
 	},
 /area/planet/destroyed_colony)
 "eo" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain2left";
-	icon_state = "horizontalinnermain2left"
+	icon_state = "horizontalinnermain2left";
+	tag = "icon-horizontalinnermain2left"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontalcorroded";
-	icon_state = "dottedhorizontalcorroded"
+	icon_state = "dottedhorizontalcorroded";
+	tag = "icon-dottedhorizontalcorroded"
 	},
 /area/planet/destroyed_colony)
 "ep" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain2right";
-	icon_state = "horizontalinnermain2right"
+	icon_state = "horizontalinnermain2right";
+	tag = "icon-horizontalinnermain2right"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontalcorroded";
-	icon_state = "dottedhorizontalcorroded"
+	icon_state = "dottedhorizontalcorroded";
+	tag = "icon-dottedhorizontalcorroded"
 	},
 /area/planet/destroyed_colony)
 "eq" = (
@@ -1425,8 +1323,8 @@
 	icon_state = "verticalinnermain2"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontalcorroded";
-	icon_state = "dottedhorizontalcorroded"
+	icon_state = "dottedhorizontalcorroded";
+	tag = "icon-dottedhorizontalcorroded"
 	},
 /area/planet/destroyed_colony)
 "er" = (
@@ -1435,30 +1333,30 @@
 	},
 /obj/effect/decal/mecha_wreckage/smallfighter,
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontaldegraded";
-	icon_state = "dottedhorizontaldegraded"
+	icon_state = "dottedhorizontaldegraded";
+	tag = "icon-dottedhorizontaldegraded"
 	},
 /area/planet/destroyed_colony)
 "es" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
-	icon_state = "horizontalinnermain1"
+	icon_state = "horizontalinnermain1";
+	tag = "icon-horizontalinnermain1"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontaldegraded (NORTH)";
+	dir = 1;
 	icon_state = "dottedhorizontaldegraded";
-	dir = 1
+	tag = "icon-dottedhorizontaldegraded (NORTH)"
 	},
 /area/planet/destroyed_colony)
 "et" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
-	icon_state = "horizontalinnermain1"
+	icon_state = "horizontalinnermain1";
+	tag = "icon-horizontalinnermain1"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontalcorroded (NORTH)";
+	dir = 1;
 	icon_state = "dottedhorizontalcorroded";
-	dir = 1
+	tag = "icon-dottedhorizontalcorroded (NORTH)"
 	},
 /area/planet/destroyed_colony)
 "eu" = (
@@ -1466,9 +1364,9 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontaldegraded (NORTH)";
+	dir = 1;
 	icon_state = "dottedhorizontaldegraded";
-	dir = 1
+	tag = "icon-dottedhorizontaldegraded (NORTH)"
 	},
 /area/planet/destroyed_colony)
 "ev" = (
@@ -1476,40 +1374,40 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontalcorroded (NORTH)";
+	dir = 1;
 	icon_state = "dottedhorizontalcorroded";
-	dir = 1
+	tag = "icon-dottedhorizontalcorroded (NORTH)"
 	},
 /area/planet/destroyed_colony)
 "ew" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain3";
-	icon_state = "horizontalinnermain3"
+	icon_state = "horizontalinnermain3";
+	tag = "icon-horizontalinnermain3"
 	},
 /area/planet/destroyed_colony)
 "ex" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-innermaincornerouter";
-	icon_state = "innermaincornerouter"
+	icon_state = "innermaincornerouter";
+	tag = "icon-innermaincornerouter"
 	},
 /area/planet/destroyed_colony)
 "ey" = (
 /obj/effect/decal/mecha_wreckage/smallfighter,
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
-	icon_state = "horizontalinnermain1"
+	icon_state = "horizontalinnermain1";
+	tag = "icon-horizontalinnermain1"
 	},
 /area/planet/destroyed_colony)
 "ez" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain2left";
-	icon_state = "horizontalinnermain2left"
+	icon_state = "horizontalinnermain2left";
+	tag = "icon-horizontalinnermain2left"
 	},
 /area/planet/destroyed_colony)
 "eA" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain2right";
-	icon_state = "horizontalinnermain2right"
+	icon_state = "horizontalinnermain2right";
+	tag = "icon-horizontalinnermain2right"
 	},
 /area/planet/destroyed_colony)
 "eB" = (
@@ -1517,161 +1415,136 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-hatchbroken";
-	icon_state = "hatchbroken"
+	icon_state = "hatchbroken";
+	tag = "icon-hatchbroken"
 	},
 /area/planet/destroyed_colony)
 "eC" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalbottombordertop3";
-	icon_state = "horizontalbottombordertop3"
+	icon_state = "horizontalbottombordertop3";
+	tag = "icon-horizontalbottombordertop3"
 	},
 /area/planet/destroyed_colony)
 "eD" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalbottomborderbottomleft";
-	icon_state = "horizontalbottomborderbottomleft"
+	icon_state = "horizontalbottomborderbottomleft";
+	tag = "icon-horizontalbottomborderbottomleft"
 	},
 /area/planet/destroyed_colony)
 "eE" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalbottomborderbottom2left";
-	icon_state = "horizontalbottomborderbottom2left"
+	icon_state = "horizontalbottomborderbottom2left";
+	tag = "icon-horizontalbottomborderbottom2left"
 	},
 /area/planet/destroyed_colony)
 "eF" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalbottomborderbottom2";
-	icon_state = "horizontalbottomborderbottom2"
+	icon_state = "horizontalbottomborderbottom2";
+	tag = "icon-horizontalbottomborderbottom2"
 	},
 /area/planet/destroyed_colony)
 "eG" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalbottomborderbottom3";
-	icon_state = "horizontalbottomborderbottom3"
+	icon_state = "horizontalbottomborderbottom3";
+	tag = "icon-horizontalbottomborderbottom3"
 	},
 /area/planet/destroyed_colony)
 "eH" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalbottomborderbottomright";
-	icon_state = "horizontalbottomborderbottomright"
+	icon_state = "horizontalbottomborderbottomright";
+	tag = "icon-horizontalbottomborderbottomright"
 	},
 /area/planet/destroyed_colony)
 "eI" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-outermaincornerouter (EAST)";
+	dir = 4;
 	icon_state = "outermaincornerouter";
-	dir = 4
+	tag = "icon-outermaincornerouter (EAST)"
 	},
 /area/planet/destroyed_colony)
 "eJ" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticaloutermainbottom";
-	icon_state = "verticaloutermainbottom"
+	icon_state = "verticaloutermainbottom";
+	tag = "icon-verticaloutermainbottom"
 	},
 /area/planet/destroyed_colony)
 "eK" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "tinycornerhorizontal";
-	dir = 2
+	dir = 2;
+	icon_state = "tinycornerhorizontal"
 	},
 /area/planet/destroyed_colony)
 "eL" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "tinycornerhorizontal";
-	dir = 8
+	dir = 8;
+	icon_state = "tinycornerhorizontal"
 	},
 /area/planet/destroyed_colony)
 "eM" = (
 /obj/effect/urist/spawn_bomb,
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaloutermain2left";
-	icon_state = "horizontaloutermain2left"
+	icon_state = "horizontaloutermain2left";
+	tag = "icon-horizontaloutermain2left"
 	},
 /area/planet/destroyed_colony)
 "eN" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaloutermain2";
-	icon_state = "horizontaloutermain2"
+	icon_state = "horizontaloutermain2";
+	tag = "icon-horizontaloutermain2"
 	},
 /area/planet/destroyed_colony)
 "eO" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-outermaincornerouter (NORTH)";
+	dir = 1;
 	icon_state = "outermaincornerouter";
-	dir = 1
+	tag = "icon-outermaincornerouter (NORTH)"
 	},
 /area/planet/destroyed_colony)
 "eP" = (
 /obj/structure/sign/poster,
 /turf/simulated/wall,
 /area/planet/destroyed_colony)
-"eQ" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/floor/fixed/uristturf/geminus,
-/area/planet/destroyed_colony)
-"eR" = (
-/obj/machinery/door/airlock/multi_tile/glass,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
-	},
-/area/planet/destroyed_colony)
-"eS" = (
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
-	},
-/area/planet/destroyed_colony)
 "eT" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "tinycornervertical";
-	dir = 2
+	dir = 2;
+	icon_state = "tinycornervertical"
 	},
 /area/planet/destroyed_colony)
 "eU" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innerturn";
-	dir = 1
+	dir = 1;
+	icon_state = "innerturn"
 	},
 /area/planet/destroyed_colony)
 "eV" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innerturn";
-	dir = 4
+	dir = 4;
+	icon_state = "innerturn"
 	},
 /area/planet/destroyed_colony)
 "eW" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "tinycornervertical";
-	dir = 8
+	dir = 8;
+	icon_state = "tinycornervertical"
 	},
 /area/planet/destroyed_colony)
 "eX" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticalrightborderrighttop";
-	icon_state = "verticalrightborderrighttop"
+	icon_state = "verticalrightborderrighttop";
+	tag = "icon-verticalrightborderrighttop"
 	},
 /area/planet/destroyed_colony)
 "eY" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticalleftborderlefttop";
-	icon_state = "verticalleftborderlefttop"
+	icon_state = "verticalleftborderlefttop";
+	tag = "icon-verticalleftborderlefttop"
 	},
 /area/planet/destroyed_colony)
 "eZ" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-innermaincornerouter (WEST)";
+	dir = 8;
 	icon_state = "innermaincornerouter";
-	dir = 8
-	},
-/area/planet/destroyed_colony)
-"fa" = (
-/obj/structure/table/woodentable,
-/obj/random/handgun,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	tag = "icon-innermaincornerouter (WEST)"
 	},
 /area/planet/destroyed_colony)
 "fb" = (
@@ -1701,8 +1574,8 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontal";
-	icon_state = "doublehorizontal"
+	icon_state = "doublehorizontal";
+	tag = "icon-doublehorizontal"
 	},
 /area/planet/destroyed_colony)
 "ff" = (
@@ -1733,59 +1606,14 @@
 /area/planet/destroyed_colony)
 "fl" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticalrightborderright3";
-	icon_state = "verticalrightborderright3"
+	icon_state = "verticalrightborderright3";
+	tag = "icon-verticalrightborderright3"
 	},
 /area/planet/destroyed_colony)
 "fm" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticalleftborderleft3";
-	icon_state = "verticalleftborderleft3"
-	},
-/area/planet/destroyed_colony)
-"fn" = (
-/obj/machinery/door/airlock,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
-	},
-/area/planet/destroyed_colony)
-"fo" = (
-/obj/machinery/light/small{
-	dir = 4;
-	pixel_y = 8
-	},
-/obj/structure/reagent_dispensers/beerkeg,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
-	},
-/area/planet/destroyed_colony)
-"fp" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
-	},
-/area/planet/destroyed_colony)
-"fq" = (
-/obj/item/weapon/stool/bar/padded,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
-	},
-/area/planet/destroyed_colony)
-"fr" = (
-/obj/machinery/light/small{
-	dir = 4;
-	pixel_y = 8
-	},
-/obj/item/weapon/stool/bar/padded,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
+	icon_state = "verticalleftborderleft3";
+	tag = "icon-verticalleftborderleft3"
 	},
 /area/planet/destroyed_colony)
 "fs" = (
@@ -1834,29 +1662,14 @@
 /area/planet/destroyed_colony)
 "fz" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticalrightborderright2";
-	icon_state = "verticalrightborderright2"
+	icon_state = "verticalrightborderright2";
+	tag = "icon-verticalrightborderright2"
 	},
 /area/planet/destroyed_colony)
 "fA" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticalleftborderleft2";
-	icon_state = "verticalleftborderleft2"
-	},
-/area/planet/destroyed_colony)
-"fB" = (
-/obj/structure/table/standard,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
-	},
-/area/planet/destroyed_colony)
-"fC" = (
-/obj/structure/table/standard,
-/obj/random/drinkbottle,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
+	icon_state = "verticalleftborderleft2";
+	tag = "icon-verticalleftborderleft2"
 	},
 /area/planet/destroyed_colony)
 "fD" = (
@@ -1875,9 +1688,9 @@
 /area/planet/destroyed_colony)
 "fG" = (
 /obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair (EAST)";
+	dir = 4;
 	icon_state = "wooden_chair";
-	dir = 4
+	tag = "icon-wooden_chair (EAST)"
 	},
 /obj/item/weapon/storage/firstaid/o2{
 	layer = 2.8;
@@ -1915,24 +1728,8 @@
 /area/planet/destroyed_colony)
 "fL" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticalrightborderright0";
-	icon_state = "verticalrightborderright0"
-	},
-/area/planet/destroyed_colony)
-"fM" = (
-/obj/machinery/door/airlock{
-	name = "Bar Backroom"
-	},
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
-	},
-/area/planet/destroyed_colony)
-"fN" = (
-/mob/living/simple_animal/hostile/alien,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
+	icon_state = "verticalrightborderright0";
+	tag = "icon-verticalrightborderright0"
 	},
 /area/planet/destroyed_colony)
 "fO" = (
@@ -1957,9 +1754,9 @@
 /area/planet/destroyed_colony)
 "fT" = (
 /obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair (EAST)";
+	dir = 4;
 	icon_state = "wooden_chair";
-	dir = 4
+	tag = "icon-wooden_chair (EAST)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
@@ -1981,82 +1778,12 @@
 /area/planet/destroyed_colony)
 "fW" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
-	icon_state = "horizontalinnermain1"
+	icon_state = "horizontalinnermain1";
+	tag = "icon-horizontalinnermain1"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedverticalcorroded";
-	icon_state = "dottedverticalcorroded"
-	},
-/area/planet/destroyed_colony)
-"fX" = (
-/obj/effect/landmark/costume/butler,
-/obj/effect/landmark/costume/maid,
-/obj/effect/landmark/costume/waiter,
-/obj/structure/closet/cabinet,
-/obj/item/clothing/under/sl_suit,
-/obj/item/clothing/under/waiter,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
-	},
-/area/planet/destroyed_colony)
-"fY" = (
-/obj/item/weapon/reagent_containers/food/drinks/bottle/patron,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/goldschlager,
-/obj/structure/table/woodentable,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
-	},
-/area/planet/destroyed_colony)
-"fZ" = (
-/obj/machinery/vending/boozeomat,
-/obj/machinery/light/small,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
-	},
-/area/planet/destroyed_colony)
-"ga" = (
-/obj/machinery/smartfridge/drinks,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
-	},
-/area/planet/destroyed_colony)
-"gb" = (
-/obj/structure/table/woodentable,
-/obj/machinery/chemical_dispenser/bar_alc/full,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
-	},
-/area/planet/destroyed_colony)
-"gc" = (
-/obj/structure/table/woodentable,
-/obj/machinery/chemical_dispenser/bar_coffee/full,
-/obj/machinery/light/colored/orange,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
-	},
-/area/planet/destroyed_colony)
-"gd" = (
-/obj/machinery/chemical_dispenser/bar_soft/full,
-/obj/structure/table/woodentable,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
-	},
-/area/planet/destroyed_colony)
-"ge" = (
-/obj/machinery/light/small,
-/obj/structure/table/woodentable,
-/obj/machinery/reagentgrinder,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
-	icon_state = "old_tile_black_dirt"
+	icon_state = "dottedverticalcorroded";
+	tag = "icon-dottedverticalcorroded"
 	},
 /area/planet/destroyed_colony)
 "gf" = (
@@ -2145,21 +1872,21 @@
 "gv" = (
 /obj/effect/urist/spawn_bomb,
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticalrightborderright0";
-	icon_state = "verticalrightborderright0"
+	icon_state = "verticalrightborderright0";
+	tag = "icon-verticalrightborderright0"
 	},
 /area/planet/destroyed_colony)
 "gw" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaloutermain0";
-	icon_state = "horizontaloutermain0"
+	icon_state = "horizontaloutermain0";
+	tag = "icon-horizontaloutermain0"
 	},
 /area/planet/destroyed_colony)
 "gx" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticaloutermain2";
+	dir = 2;
 	icon_state = "verticaloutermain2";
-	dir = 2
+	tag = "icon-verticaloutermain2"
 	},
 /area/planet/destroyed_colony)
 "gy" = (
@@ -2194,9 +1921,9 @@
 "gE" = (
 /obj/structure/holohoop,
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticaloutermain2top (NORTH)";
+	dir = 1;
 	icon_state = "verticaloutermain2top";
-	dir = 1
+	tag = "icon-verticaloutermain2top (NORTH)"
 	},
 /area/planet/destroyed_colony)
 "gF" = (
@@ -2225,27 +1952,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
-"gL" = (
-/obj/structure/window/reinforced/full,
-/obj/structure/grille,
-/turf/simulated/floor/pavement/empty,
-/area/planet/destroyed_colony)
-"gM" = (
-/obj/structure/window/reinforced/full,
-/turf/simulated/floor/pavement/empty,
-/area/planet/destroyed_colony)
 "gN" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticaloutermain2 (NORTH)";
+	dir = 1;
 	icon_state = "verticaloutermain2";
-	dir = 1
+	tag = "icon-verticaloutermain2 (NORTH)"
 	},
 /area/planet/destroyed_colony)
 "gO" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaloutermain3 (NORTH)";
+	dir = 1;
 	icon_state = "horizontaloutermain3";
-	dir = 1
+	tag = "icon-horizontaloutermain3 (NORTH)"
 	},
 /area/planet/destroyed_colony)
 "gP" = (
@@ -2254,8 +1972,8 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontaldegraded";
-	icon_state = "doublehorizontaldegraded"
+	icon_state = "doublehorizontaldegraded";
+	tag = "icon-doublehorizontaldegraded"
 	},
 /area/planet/destroyed_colony)
 "gQ" = (
@@ -2265,8 +1983,8 @@
 	},
 /obj/item/remains/xeno,
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontal";
-	icon_state = "doublehorizontal"
+	icon_state = "doublehorizontal";
+	tag = "icon-doublehorizontal"
 	},
 /area/planet/destroyed_colony)
 "gR" = (
@@ -2298,40 +2016,40 @@
 /area/planet/destroyed_colony)
 "gX" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticaloutermain1 (NORTH)";
+	dir = 1;
 	icon_state = "verticaloutermain1";
-	dir = 1
+	tag = "icon-verticaloutermain1 (NORTH)"
 	},
 /area/planet/destroyed_colony)
 "gY" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticaloutermainbottom (NORTH)";
+	dir = 1;
 	icon_state = "verticaloutermainbottom";
-	dir = 1
+	tag = "icon-verticaloutermainbottom (NORTH)"
 	},
 /area/planet/destroyed_colony)
 "gZ" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "tinycornervertical";
-	dir = 4
+	dir = 4;
+	icon_state = "tinycornervertical"
 	},
 /area/planet/destroyed_colony)
 "ha" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innerturn";
-	dir = 8
+	dir = 8;
+	icon_state = "innerturn"
 	},
 /area/planet/destroyed_colony)
 "hb" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innerturn";
-	dir = 2
+	dir = 2;
+	icon_state = "innerturn"
 	},
 /area/planet/destroyed_colony)
 "hc" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "tinycornervertical";
-	dir = 1
+	dir = 1;
+	icon_state = "tinycornervertical"
 	},
 /area/planet/destroyed_colony)
 "hd" = (
@@ -2354,15 +2072,15 @@
 /area/planet/destroyed_colony)
 "hh" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-outermaincornerouter";
+	dir = 2;
 	icon_state = "outermaincornerouter";
-	dir = 2
+	tag = "icon-outermaincornerouter"
 	},
 /area/planet/destroyed_colony)
 "hi" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "tinycornerhorizontal";
-	dir = 4
+	dir = 4;
+	icon_state = "tinycornerhorizontal"
 	},
 /area/planet/destroyed_colony)
 "hj" = (
@@ -2386,8 +2104,8 @@
 "hm" = (
 /obj/item/remains/xeno,
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "tinycornerhorizontal";
-	dir = 1
+	dir = 1;
+	icon_state = "tinycornerhorizontal"
 	},
 /area/planet/destroyed_colony)
 "hn" = (
@@ -2400,17 +2118,17 @@
 /area/planet/destroyed_colony)
 "hp" = (
 /obj/machinery/bodyscanner{
-	tag = "icon-body_scanner_0 (EAST)";
+	dir = 4;
 	icon_state = "body_scanner_0";
-	dir = 4
+	tag = "icon-body_scanner_0 (EAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "hq" = (
 /obj/machinery/body_scanconsole{
-	tag = "icon-body_scannerconsole (WEST)";
+	dir = 8;
 	icon_state = "body_scannerconsole";
-	dir = 8
+	tag = "icon-body_scannerconsole (WEST)"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
@@ -2493,9 +2211,9 @@
 /area/planet/destroyed_colony)
 "hF" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-verticaloutermain1";
+	dir = 2;
 	icon_state = "verticaloutermain1";
-	dir = 2
+	tag = "icon-verticaloutermain1"
 	},
 /area/planet/destroyed_colony)
 "hG" = (
@@ -2631,8 +2349,8 @@
 /area/planet/destroyed_colony)
 "ic" = (
 /obj/structure/curtain{
-	tag = "icon-open";
-	icon_state = "open"
+	icon_state = "open";
+	tag = "icon-open"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
@@ -2671,13 +2389,13 @@
 /area/planet/destroyed_colony)
 "ij" = (
 /obj/structure/holohoop{
-	tag = "icon-hoop (NORTH)";
+	dir = 1;
 	icon_state = "hoop";
-	dir = 1
+	tag = "icon-hoop (NORTH)"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaloutermain0";
-	icon_state = "horizontaloutermain0"
+	icon_state = "horizontaloutermain0";
+	tag = "icon-horizontaloutermain0"
 	},
 /area/planet/destroyed_colony)
 "ik" = (
@@ -2715,27 +2433,14 @@
 /obj/structure/closet/crate/paper_refill,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
-"iq" = (
-/obj/structure/window/reinforced/full,
-/obj/structure/grille,
-/obj/effect/urist/spawn_bomb,
-/turf/simulated/floor/pavement/empty,
-/area/planet/destroyed_colony)
-"ir" = (
-/obj/structure/curtain{
-	color = "#4c0000";
-	name = "burgandy curtain"
-	},
-/turf/simulated/floor/pavement/empty,
-/area/planet/destroyed_colony)
 "is" = (
 /obj/effect/urist/spawn_bomb,
 /turf/simulated/wall,
 /area/planet/destroyed_colony)
 "it" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "outerpavement";
-	dir = 6
+	dir = 6;
+	icon_state = "outerpavement"
 	},
 /area/planet/destroyed_colony)
 "iu" = (
@@ -2750,8 +2455,8 @@
 	},
 /obj/effect/decal/mecha_wreckage/bigfighter,
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontal";
-	icon_state = "dottedhorizontal"
+	icon_state = "dottedhorizontal";
+	tag = "icon-dottedhorizontal"
 	},
 /area/planet/destroyed_colony)
 "iw" = (
@@ -2762,14 +2467,14 @@
 /area/planet/destroyed_colony)
 "ix" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "outerpavement";
-	dir = 1
+	dir = 1;
+	icon_state = "outerpavement"
 	},
 /area/planet/destroyed_colony)
 "iy" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "outerpavement";
-	dir = 5
+	dir = 5;
+	icon_state = "outerpavement"
 	},
 /area/planet/destroyed_colony)
 "iz" = (
@@ -2888,8 +2593,8 @@
 	icon_state = "innermaincornerinner"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedverticalcorroded";
-	icon_state = "dottedverticalcorroded"
+	icon_state = "dottedverticalcorroded";
+	tag = "icon-dottedverticalcorroded"
 	},
 /area/planet/destroyed_colony)
 "iT" = (
@@ -2931,12 +2636,12 @@
 /area/planet/destroyed_colony)
 "ja" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermaincornerinner";
-	dir = 4
+	dir = 4;
+	icon_state = "innermaincornerinner"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedverticalcorroded";
-	icon_state = "dottedverticalcorroded"
+	icon_state = "dottedverticalcorroded";
+	tag = "icon-dottedverticalcorroded"
 	},
 /area/planet/destroyed_colony)
 "jb" = (
@@ -3055,17 +2760,17 @@
 /area/planet/destroyed_colony)
 "jv" = (
 /obj/structure/bed/chair/office/dark{
-	tag = "icon-officechair_preview (EAST)";
+	dir = 4;
 	icon_state = "officechair_preview";
-	dir = 4
+	tag = "icon-officechair_preview (EAST)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "jw" = (
 /obj/structure/bed/chair/office/dark{
-	tag = "icon-officechair_preview (WEST)";
+	dir = 8;
 	icon_state = "officechair_preview";
-	dir = 8
+	tag = "icon-officechair_preview (WEST)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
@@ -3087,8 +2792,8 @@
 /area/planet/destroyed_colony)
 "jB" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontaltopbordertop0";
-	icon_state = "horizontaltopbordertop0"
+	icon_state = "horizontaltopbordertop0";
+	tag = "icon-horizontaltopbordertop0"
 	},
 /area/planet/destroyed_colony)
 "jC" = (
@@ -3123,15 +2828,203 @@
 /area/planet/destroyed_colony)
 "jI" = (
 /obj/structure/hygiene/toilet{
-	tag = "icon-toilet00 (NORTH)";
+	dir = 1;
 	icon_state = "toilet00";
-	dir = 1
+	tag = "icon-toilet00 (NORTH)"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "jJ" = (
 /obj/effect/overmap/sector/destroyed_colony,
 /turf/simulated/floor/planet/ariddirt/low,
+/area/planet/destroyed_colony)
+"lr" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"nh" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 8;
+	icon_state = "closed";
+	name = "Apartments 1";
+	pixel_x = 0;
+	tag = "icon-closed (WEST)"
+	},
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"nP" = (
+/obj/item/weapon/stool/bar/padded,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"rp" = (
+/obj/structure/table/standard,
+/obj/random/drinkbottle,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"rI" = (
+/obj/item/ammo_casing/a556/used,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"sk" = (
+/obj/machinery/door/airlock{
+	name = "Bar Backroom"
+	},
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"sE" = (
+/obj/machinery/door/airlock/multi_tile/glass,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"td" = (
+/obj/item/weapon/reagent_containers/food/drinks/bottle/patron,
+/obj/item/weapon/reagent_containers/food/drinks/bottle/goldschlager,
+/obj/structure/table/woodentable,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"uV" = (
+/obj/item/ammo_casing/a556/used,
+/obj/item/ammo_casing/a556/used,
+/obj/item/ammo_casing/a556/used,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"zB" = (
+/mob/living/simple_animal/hostile/alien,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"AH" = (
+/obj/effect/landmark/costume/butler,
+/obj/effect/landmark/costume/maid,
+/obj/effect/landmark/costume/waiter,
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/sl_suit,
+/obj/item/clothing/under/waiter,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"Bx" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 8;
+	icon_state = "closed";
+	name = "Apartments 2";
+	pixel_x = 0;
+	tag = "icon-closed (WEST)"
+	},
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"FO" = (
+/obj/structure/table/woodentable,
+/obj/machinery/chemical_dispenser/bar_coffee/full,
+/obj/machinery/light/colored/orange,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"FS" = (
+/obj/machinery/smartfridge/drinks,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"HJ" = (
+/obj/machinery/vending/boozeomat,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"HR" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"Il" = (
+/obj/structure/window/reinforced/full,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/planet/destroyed_colony)
+"Im" = (
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 8
+	},
+/obj/item/weapon/stool/bar/padded,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"IN" = (
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"Kr" = (
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 8
+	},
+/obj/structure/reagent_dispensers/beerkeg,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"Ln" = (
+/obj/item/remains/human,
+/obj/item/ammo_casing/a556/used,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"Lp" = (
+/obj/structure/table/standard/flipped/w,
+/obj/item/ammo_casing/a556/used,
+/obj/item/ammo_casing/a556/used,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"LV" = (
+/obj/machinery/door/airlock,
+/turf/simulated/floor/plating,
+/area/planet/destroyed_colony)
+"Mb" = (
+/obj/structure/curtain{
+	color = "#4c0000";
+	name = "burgandy curtain"
+	},
+/turf/simulated/floor/plating,
+/area/planet/destroyed_colony)
+"Np" = (
+/obj/structure/table/woodentable,
+/obj/machinery/chemical_dispenser/bar_alc/full,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"NZ" = (
+/obj/structure/table/standard,
+/obj/item/weapon/gun/projectile/td10_pistol,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"Pt" = (
+/obj/structure/table/woodentable,
+/obj/random/handgun,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"RX" = (
+/obj/structure/table/standard/flipped/e,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"UN" = (
+/obj/machinery/light/small,
+/obj/structure/table/woodentable,
+/obj/machinery/reagentgrinder,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"Vt" = (
+/obj/structure/table/standard/flipped/w,
+/obj/item/ammo_casing/a556/used,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"VH" = (
+/obj/machinery/chemical_dispenser/bar_soft/full,
+/obj/structure/table/woodentable,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"WC" = (
+/obj/structure/window/reinforced/full,
+/obj/structure/grille,
+/obj/effect/urist/spawn_bomb,
+/turf/simulated/floor/plating,
+/area/planet/destroyed_colony)
+"Xr" = (
+/obj/machinery/door/airlock,
+/turf/simulated/floor/tiled/old_tile,
+/area/planet/destroyed_colony)
+"Zv" = (
+/obj/structure/window/reinforced/full,
+/turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
 
 (1,1,1) = {"
@@ -3470,7 +3363,7 @@ aK
 aK
 aS
 aS
-fn
+Xr
 aS
 aS
 aS
@@ -3478,18 +3371,18 @@ aS
 aK
 aK
 aK
-gL
-gL
-gM
-gM
-gM
-gL
-gL
-gM
-gM
-gM
-gL
-gL
+Il
+Il
+Zv
+Zv
+Zv
+Il
+Il
+Zv
+Zv
+Zv
+Il
+Il
 it
 dP
 dX
@@ -3564,16 +3457,16 @@ ex
 eD
 eI
 eP
-eS
-eS
-eS
-eS
-fX
+IN
+IN
+IN
+IN
+AH
 aS
 aK
 aK
 aK
-gL
+Il
 gU
 hg
 gU
@@ -3584,7 +3477,7 @@ gU
 gU
 gU
 gU
-iq
+WC
 bD
 dP
 dX
@@ -3659,16 +3552,16 @@ ap
 bs
 eJ
 aS
-fa
-fo
-eS
-eS
-fY
+Pt
+Kr
+IN
+IN
+td
 aS
 aK
 aK
 aK
-gM
+Zv
 gU
 hg
 hg
@@ -3679,7 +3572,7 @@ hg
 hg
 hg
 hg
-gM
+Zv
 bD
 dP
 dZ
@@ -3757,13 +3650,13 @@ aS
 aS
 aS
 aS
-fM
+sk
 aS
 aS
 aK
 aK
 aK
-gM
+Zv
 gV
 hg
 hn
@@ -3774,7 +3667,7 @@ hg
 hg
 hn
 hg
-ir
+Mb
 bD
 dP
 ea
@@ -3848,17 +3741,17 @@ el
 ad
 bs
 bD
-eQ
-eS
-fp
-eS
-eS
-fZ
+bX
+IN
+lr
+IN
+IN
+HJ
 aS
 aK
 aK
 aK
-gM
+Zv
 gU
 hg
 hg
@@ -3869,7 +3762,7 @@ hg
 hg
 hg
 hg
-gM
+Zv
 bD
 dP
 ea
@@ -3943,17 +3836,17 @@ em
 ad
 bs
 bZ
-eQ
-eS
-fq
-fB
-eS
-ga
+bX
+IN
+nP
+HR
+IN
+FS
 aS
 aK
 aK
 aK
-gL
+Il
 gU
 hg
 gU
@@ -3964,7 +3857,7 @@ gU
 gU
 gU
 gU
-gL
+Il
 bD
 dP
 eb
@@ -4038,28 +3931,28 @@ en
 ad
 bs
 bD
-eR
-eS
-fq
-fC
-eS
-gb
+sE
+IN
+nP
+rp
+IN
+Np
 aS
 aK
 aK
 aK
-gL
-gL
-gM
-gM
-gM
-gL
-gL
-gM
-gM
-gM
-gL
-gL
+Il
+Il
+Zv
+Zv
+Zv
+Il
+Il
+Zv
+Zv
+Zv
+Il
+Il
 bD
 dP
 dX
@@ -4133,17 +4026,17 @@ en
 ey
 bs
 bD
-eS
-eS
-fq
-fB
-fN
-gc
+IN
+IN
+nP
+HR
+zB
+FO
 aS
 aK
 aK
 aK
-gL
+Il
 gU
 hg
 gU
@@ -4154,7 +4047,7 @@ gU
 gU
 gU
 gU
-gL
+Il
 bD
 dP
 dY
@@ -4228,17 +4121,17 @@ en
 ad
 bs
 bD
-eQ
-eS
-fq
-fB
-eS
-gd
+bX
+IN
+nP
+HR
+IN
+VH
 aS
 aK
 aK
 aK
-gM
+Zv
 gU
 hg
 hg
@@ -4249,7 +4142,7 @@ hg
 hg
 hg
 hg
-gM
+Zv
 bD
 dP
 dX
@@ -4323,17 +4216,17 @@ el
 ad
 bs
 dJ
-eQ
-eS
-fr
-fB
-eS
-ge
+bX
+IN
+Im
+HR
+IN
+UN
 aS
 aK
 aK
 aK
-gM
+Zv
 gV
 hg
 hn
@@ -4344,7 +4237,7 @@ hg
 hg
 hn
 hg
-ir
+Mb
 bD
 dP
 dX
@@ -4428,7 +4321,7 @@ aS
 aK
 aK
 aK
-gM
+Zv
 gU
 hg
 hg
@@ -4439,7 +4332,7 @@ hg
 hg
 hg
 hg
-gM
+Zv
 bD
 dP
 dX
@@ -4523,7 +4416,7 @@ dP
 aK
 aK
 aK
-gL
+Il
 gU
 hg
 gU
@@ -4534,7 +4427,7 @@ gU
 gU
 gU
 gU
-gL
+Il
 bD
 dP
 dX
@@ -4618,18 +4511,18 @@ dP
 aK
 aK
 aK
-gL
-gL
-gM
-gM
-gM
-gL
-gL
-gM
-gM
-gM
-gL
-gL
+Il
+Il
+Zv
+Zv
+Zv
+Il
+Il
+Zv
+Zv
+Zv
+Il
+Il
 bD
 dP
 dX
@@ -4713,7 +4606,7 @@ aS
 aS
 aK
 aK
-gL
+Il
 gW
 hg
 gU
@@ -4724,7 +4617,7 @@ gU
 gU
 gU
 gU
-gL
+Il
 bD
 dP
 dX
@@ -4808,7 +4701,7 @@ gi
 aS
 aK
 aK
-gM
+Zv
 gU
 hg
 hg
@@ -4819,7 +4712,7 @@ hg
 hg
 hg
 hg
-gM
+Zv
 bD
 dP
 dX
@@ -4903,7 +4796,7 @@ gj
 aS
 aK
 aK
-gM
+Zv
 gV
 hg
 hn
@@ -4914,7 +4807,7 @@ hg
 hg
 hn
 hg
-ir
+Mb
 bD
 dP
 dX
@@ -4970,8 +4863,8 @@ aS
 bE
 bE
 aV
-bU
-bU
+IN
+IN
 aV
 bE
 bE
@@ -4998,7 +4891,7 @@ gj
 aS
 aK
 aK
-gM
+Zv
 gU
 hg
 hg
@@ -5009,7 +4902,7 @@ hg
 hg
 hg
 hg
-gM
+Zv
 bD
 dP
 dX
@@ -5065,8 +4958,8 @@ aS
 bE
 bE
 aV
-bU
-bU
+IN
+IN
 aV
 bE
 bE
@@ -5093,7 +4986,7 @@ aS
 aS
 aK
 aK
-gL
+Il
 gU
 hg
 gU
@@ -5104,7 +4997,7 @@ gU
 gU
 gU
 gU
-iq
+WC
 bD
 dP
 dX
@@ -5160,8 +5053,8 @@ aS
 aS
 aS
 bo
-bV
-bV
+HR
+HR
 cp
 aS
 aS
@@ -5188,18 +5081,18 @@ gk
 aS
 aK
 aK
-gL
-gL
-gM
-gM
-gM
-gL
-gL
-gM
-gM
-gM
-gL
-gL
+Il
+Il
+Zv
+Zv
+Zv
+Il
+Il
+Zv
+Zv
+Zv
+Il
+Il
 bD
 dP
 dY
@@ -5255,8 +5148,8 @@ aS
 bE
 bE
 aV
-bW
-cj
+rI
+uV
 cq
 bE
 bE
@@ -5350,8 +5243,8 @@ aS
 bE
 bE
 bQ
-bX
-bX
+RX
+RX
 cr
 bN
 bE
@@ -5445,8 +5338,8 @@ aS
 bE
 bE
 aV
-bU
-bU
+IN
+IN
 aV
 bE
 bE
@@ -5540,8 +5433,8 @@ bt
 bE
 bE
 aV
-bU
-bU
+IN
+IN
 aV
 bE
 bE
@@ -5635,8 +5528,8 @@ aS
 bE
 bE
 bR
-bU
-bU
+IN
+IN
 bR
 bE
 bE
@@ -5653,7 +5546,7 @@ en
 ad
 bs
 bD
-bK
+LV
 aV
 aV
 aV
@@ -5730,8 +5623,8 @@ aS
 bF
 bF
 aS
-bU
-ck
+IN
+nh
 aS
 bF
 bF
@@ -5748,7 +5641,7 @@ en
 ad
 bs
 bD
-bK
+LV
 aV
 aV
 aV
@@ -6870,8 +6763,8 @@ aS
 bG
 bG
 aS
-bU
-cl
+IN
+Bx
 aS
 bG
 bG
@@ -6965,8 +6858,8 @@ aS
 bE
 bN
 bS
-bU
-bU
+IN
+IN
 bS
 bE
 bE
@@ -7060,8 +6953,8 @@ bt
 bE
 bE
 aV
-bU
-bU
+IN
+IN
 aV
 bE
 bE
@@ -7155,8 +7048,8 @@ aS
 bH
 bH
 aV
-bU
-bU
+IN
+IN
 aV
 cv
 bH
@@ -7250,8 +7143,8 @@ aS
 bE
 bN
 aV
-ca
-cm
+Vt
+Lp
 aV
 bN
 cA
@@ -7345,8 +7238,8 @@ aS
 bE
 bE
 aV
-bU
-cn
+IN
+Ln
 aV
 bN
 bN
@@ -7440,8 +7333,8 @@ aS
 aS
 aS
 bo
-cb
-bV
+NZ
+HR
 cp
 aS
 aS
@@ -7535,8 +7428,8 @@ aS
 bE
 bE
 aV
-bU
-bU
+IN
+IN
 aV
 bE
 bE
@@ -7630,8 +7523,8 @@ aS
 bE
 bE
 aV
-bU
-bU
+IN
+IN
 aV
 bE
 bE
