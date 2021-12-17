@@ -24,10 +24,10 @@
 
 	for (var/mappath in mappaths)
 		if(!isfile(mappath))
-			error("Map Templates: \["[src.name]"\] Could not find the map file '[mappath]'!")
+			error("Map Templates: \[\"[src.name]\"\] Could not find the map file '[mappath]'!")
 			init_error += 1
 	if (init_error)
-		CRASH("Map template \["[src.name]"\] has invalid or missing map(s) and will not be loaded")
+		CRASH("Map template \[\"[src.name]\"\] has invalid or missing map(s) and will not be loaded")
 
 	if(mappaths)
 		preload_size(mappaths)
