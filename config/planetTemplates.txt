@@ -3,8 +3,8 @@
 #Templates should be 35x35 at max. Anymore than that will break the game.
 #SPECIFYING AN INVALID MAP WILL RESULT IN RUNTIMES ON GAME START
 
-maps/templates/planet_clearing1.dmm
-maps/templates/planet_j_pen_ruins.dmm
-maps/templates/planet_cultchapel1.dmm
-maps/templates/planet_cave1.dmm
-maps/templates/planet_crashed_pod.dmm
+resources/maps/templates/planet_clearing1.dmm
+resources/maps/templates/planet_j_pen_ruins.dmm
+resources/maps/templates/planet_cultchapel1.dmm
+resources/maps/templates/planet_cave1.dmm
+resources/maps/templates/planet_crashed_pod.dmm

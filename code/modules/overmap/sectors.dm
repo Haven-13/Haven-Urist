@@ -5,6 +5,7 @@
 	name = "map object"
 	icon = 'resources/icons/obj/overmap.dmi'
 	icon_state = "object"
+	plane = EFFECTS_PLANE
 	var/list/map_z = list()
 
 	var/list/initial_generic_waypoints //store landmark_tag of landmarks that should be added to the actual lists below on init.
@@ -78,7 +79,6 @@
 /obj/effect/overmap/sector/Initialize()
 	. = ..()
 	if(known)
-		layer = ABOVE_LIGHTING_LAYER
 		add_overlay(list(mutable_appearance(
 			icon,
 			icon_state,

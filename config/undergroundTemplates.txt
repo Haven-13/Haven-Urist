@@ -3,8 +3,8 @@
 #Templates should be 35x35 at max. Anymore than that will break the game.
 #SPECIFYING AN INVALID MAP WILL RESULT IN RUNTIMES ON GAME START
 
-maps/templates/underground_cave.dmm
-maps/templates/underground_sunkenchapel.dmm
-maps/templates/underground_skrelloristbase.dmm
-maps/templates/underground_divebar.dmm
-maps/templates/underground_blacksite.dmm
+resources/maps/templates/underground_cave.dmm
+resources/maps/templates/underground_sunkenchapel.dmm
+resources/maps/templates/underground_skrelloristbase.dmm
+resources/maps/templates/underground_divebar.dmm
+resources/maps/templates/underground_blacksite.dmm
