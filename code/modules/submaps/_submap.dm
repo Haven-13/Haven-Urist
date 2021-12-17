@@ -13,7 +13,6 @@
 	. = ..()
 
 /datum/submap/proc/setup_submap(var/decl/submap_archetype/_archetype)
-
 	if(!istype(_archetype))
 		to_chat(world.log, "Submap error - [name] - null or invalid archetype supplied ([_archetype]).")
 		qdel(src)
@@ -53,7 +52,7 @@
 			for(var/obj/effect/submap_landmark/spawnpoint/landmark in thing)
 				var/datum/job/submap/job = jobs[landmark.name]
 				if(istype(job))
-					job.spawnpoints += landmark
+					LAZY_ADD(job.spawnpoints, landmark)
 					added_spawnpoint = TRUE
 
 	if(!added_spawnpoint)
