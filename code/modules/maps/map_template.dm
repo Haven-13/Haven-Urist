@@ -23,7 +23,7 @@
 		mappaths = paths
 
 	for (var/mappath in mappaths)
-		if(!isfile(mappath))
+		if(!rustg_file_exists(mappath)) // Do not use byond's isfile because it only checks for cached files
 			error("Map Templates: \[\"[src.name]\"\] Could not find the map file '[mappath]'!")
 			init_error += 1
 	if (init_error)
