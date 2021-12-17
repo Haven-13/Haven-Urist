@@ -86,7 +86,7 @@ var/list/organ_cache = list()
 		blood_DNA[dna.unique_enzymes] = dna.b_type
 		species = all_species[dna.species]
 		if (!species)
-			crash_with("Invalid DNA species. Expected a valid species name as string, was: [log_info_line(dna.species)]")
+			CRASH("Invalid DNA species. Expected a valid species name as string, was: [log_info_line(dna.species)]")
 
 /obj/item/organ/proc/die()
 	damage = max_damage

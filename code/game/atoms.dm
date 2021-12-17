@@ -56,7 +56,7 @@
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(atom_flags & ATOM_FLAG_INITIALIZED)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
+		CRASH("Warning: [src]([type]) initialized multiple times!")
 	atom_flags |= ATOM_FLAG_INITIALIZED
 
 	if(light_max_bright && light_outer_range)

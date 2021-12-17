@@ -57,7 +57,7 @@
 /obj/machinery/door/Initialize()
 	. = ..()
 	if(iswall(src.loc))
-		crash_with("Invalid turf for door, is a wall, not floor as expected '[log_info_line(loc)]'")
+		CRASH("Invalid turf for door, is a wall, not floor as expected '[log_info_line(loc)]'")
 		return INITIALIZE_HINT_QDEL
 
 	if(density)

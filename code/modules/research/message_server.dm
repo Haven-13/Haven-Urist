@@ -243,7 +243,7 @@ var/obj/machinery/blackbox_recorder/blackbox
 	. = ..()
 	if(blackbox)
 		if(istype(blackbox,/obj/machinery/blackbox_recorder))
-			crash_with("There already exists one [name] at [blackbox.loc]! Duplicate at [src.loc]")
+			CRASH("There already exists one [name] at [blackbox.loc]! Duplicate at [src.loc]")
 			qdel(src)
 			return 0
 	blackbox = src

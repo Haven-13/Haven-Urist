@@ -17,7 +17,7 @@
 		return INITIALIZE_HINT_QDEL
 	for(var/obj/structure/lattice/LAT in loc)
 		if(LAT != src)
-			crash_with("Found multiple lattices at '[log_info_line(loc)]'")
+			CRASH("Found multiple lattices at '[log_info_line(loc)]'")
 			return INITIALIZE_HINT_QDEL
 	icon = 'resources/icons/obj/smoothlattice.dmi'
 	icon_state = "latticeblank"

@@ -26,7 +26,7 @@ GLOBAL_REAL(GLOB, /datum/controller/global_vars)
 		if(global_vars == global_procs)
 			Initialize()
 		else
-			crash_with("Expected [global_vars] global init procs, were [global_procs].")
+			CRASH("Expected [global_vars] global init procs, were [global_procs].")
 	catch(var/exception/e)
 		to_world_log("Vars to be initialized: [json_encode((vars - gvars_datum_in_built_vars))]")
 		to_world_log("Procs used to initialize: [json_encode(typesof(/datum/controller/global_vars/proc))]")
@@ -34,7 +34,7 @@ GLOBAL_REAL(GLOB, /datum/controller/global_vars)
 
 
 /datum/controller/global_vars/Destroy(force)
-	crash_with("There was an attempt to qdel the global vars holder!")
+	CRASH("There was an attempt to qdel the global vars holder!")
 	if(!force)
 		return QDEL_HINT_LETMELIVE
 

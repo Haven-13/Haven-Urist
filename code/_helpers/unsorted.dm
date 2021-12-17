@@ -1024,7 +1024,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 	virtual_mob = null
 
 /mob/dview/Destroy()
-	crash_with("Prevented attempt to delete dview mob: [log_info_line(src)]")
+	CRASH("Prevented attempt to delete dview mob: [log_info_line(src)]")
 	return QDEL_HINT_LETMELIVE // Prevents destruction
 
 /atom/proc/get_light_and_color(var/atom/origin)
@@ -1036,10 +1036,6 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 	. = ..()
 	// We don't want to be in any mob lists; we're a dummy not a mob.
 	STOP_PROCESSING(SSmobs, src)
-
-// call to generate a stack trace and print to runtime logs
-/proc/crash_with(msg)
-	CRASH(msg)
 
 /proc/pass()
 	return

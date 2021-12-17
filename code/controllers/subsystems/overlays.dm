@@ -45,7 +45,7 @@ SUBSYSTEM_DEF(overlays)
 			var/atom/A = thing
 			if(A.overlays.len >= MAX_ATOM_OVERLAYS)
 				//Break it real GOOD
-				crash_with("Too many overlays on [A.type] - [A.overlays.len], refusing to update and cutting")
+				CRASH("Too many overlays on [A.type] - [A.overlays.len], refusing to update and cutting")
 				A.overlays.Cut()
 				continue
 			STAT_START_STOPWATCH
@@ -87,7 +87,7 @@ SUBSYSTEM_DEF(overlays)
 			var/list/icon_states_available = icon_states(icon)
 			if(!(overlay in icon_states_available))
 				var/icon_file = "[icon]" || "Unknown Generated Icon"
-				crash_with("Invalid overlay: Icon object '[icon_file]' [REF(icon)] used in '[src]' [type] is missing icon state [overlay].")
+				CRASH("Invalid overlay: Icon object '[icon_file]' [REF(icon)] used in '[src]' [type] is missing icon state [overlay].")
 				continue
 #endif
 			new_overlays += iconstate2appearance(icon, overlay)

@@ -15,7 +15,7 @@
 		paths = list()
 		paths += path
 	if(paths && !islist(paths))
-		crash_with("Non-list paths passed into map template constructor.")
+		CRASH("Non-list paths passed into map template constructor.")
 	if(paths)
 		mappaths = paths
 	if(mappaths)

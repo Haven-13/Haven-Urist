@@ -19,7 +19,7 @@
 	var/SMD = (locate(/obj/effect/landmark/submap_data) in loc)
 	if (SMD && src != SMD)
 		is_bad = 1
-		crash_with("Another Submap Object already exists at [loc]!")
+		CRASH("Another Submap Object already exists at [loc]!")
 		return INITIALIZE_HINT_QDEL
 
 /obj/effect/landmark/submap_data/proc/register_link_above(obj/effect/landmark/submap_data/other)

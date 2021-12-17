@@ -773,7 +773,7 @@
 	cell = null
 
 /obj/item/device/radio/announcer/Destroy()
-	crash_with("attempt to delete a [src.type] detected, and prevented.")
+	CRASH("attempt to delete a [src.type] detected, and prevented.")
 	return 1
 
 /obj/item/device/radio/announcer/Initialize()

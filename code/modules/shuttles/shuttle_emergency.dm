@@ -7,10 +7,10 @@
 	. = ..()
 	emergency_controller = evacuation_controller
 	if(!istype(emergency_controller))
-		crash_with("Escape shuttle created without the appropriate controller type.")
+		CRASH("Escape shuttle created without the appropriate controller type.")
 		return
 	if(emergency_controller.shuttle)
-		crash_with("An emergency shuttle has already been created.")
+		CRASH("An emergency shuttle has already been created.")
 		return
 	emergency_controller.shuttle = src
 
