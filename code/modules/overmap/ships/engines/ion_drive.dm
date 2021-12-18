@@ -14,10 +14,10 @@
 	drive = null
 	. = ..()
 
-/datum/ship_engine/proc/set_thrust_limit(new_limit)
+/datum/ship_engine/ion_drive/set_thrust_limit(new_limit)
 	drive.thrust_limit = new_limit
 
-/datum/ship_engine/proc/get_thrust_limit()
+/datum/ship_engine/ion_drive/get_thrust_limit()
 	return drive.thrust_limit
 
 /datum/ship_engine/ion_drive/get_thrust()
