@@ -1,7 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Fixed "Destroyed Colony" not loading proper
-  - bugfix: Fixed "Derelict Station" not loading proper
-  - bugfix: Fixed "Noctis" ship not loading proper
-  - bugfix: Fixed broken geometry of Lost Supply Station
