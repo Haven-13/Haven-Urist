@@ -1,13 +1,13 @@
 import { Fragment } from 'inferno';
 import { useBackend, useLocalState } from "tgui/backend";
-import { Box, Button, Flex, Input, NoticeBox, Section, Tabs } from "tgui/components";
+import { Box, Button, Flex, Input, LabeledList, NoticeBox, Section, Tabs } from "tgui/components";
 import { NtosWindow } from "tgui/layouts";
 import { AccessList } from 'tgui/interfaces/common/AccessList';
 
 export const NtosCard = (props, context) => {
   return (
     <NtosWindow
-      width={450}
+      width={475}
       height={520}
       resizable>
       <NtosWindow.Content scrollable>
@@ -22,8 +22,7 @@ export const NtosCardContent = (props, context) => {
   const [tab, setTab] = useLocalState(context, 'tab', 1);
   const {
     authenticated,
-    regions = [],
-    access_on_card = [],
+    regions = {},
     jobs = {},
     id_rank,
     id_owner,
@@ -44,6 +43,11 @@ export const NtosCardContent = (props, context) => {
     );
   }
   const departmentJobs = jobs[selectedDepartment] || [];
+  const accessOnCard = regions
+    ?.map(region => region.accesses)
+    .reduce((previous, current) =>
+      previous.concat(current.filter(area => area.allowed)), [])
+    .map(area => area.ref);
   return (
     <Fragment>
       <Section
@@ -51,27 +55,18 @@ export const NtosCardContent = (props, context) => {
           ? (
             <Input
               value={id_owner}
-              width="250px"
+              width="350px"
               onInput={(e, value) => act('PRG_edit', {
                 name: value,
               })} />
           )
           : (id_owner || 'No Card Inserted')}
         buttons={(
-          <Fragment>
-            <Button
-              icon="print"
-              content="Print"
-              disabled={!have_printer || !has_id}
-              onClick={() => act('PRG_print')} />
-            <Button
-              icon={authenticated ? "sign-out-alt" : "sign-in-alt"}
-              content={authenticated ? "Log Out" : "Log In"}
-              color={authenticated ? "bad" : "good"}
-              onClick={() => {
-                act(authenticated ? 'PRG_logout' : 'PRG_authenticate');
-              }} />
-          </Fragment>
+          <Button
+            icon="print"
+            content="Print"
+            disabled={!have_printer || !has_id}
+            onClick={() => act('PRG_print')} />
         )}>
         <Button
           fluid
@@ -92,16 +87,19 @@ export const NtosCardContent = (props, context) => {
               onClick={() => setTab(2)}>
               Jobs
             </Tabs.Tab>
+            <Tabs.Tab
+              selected={tab === 3}
+              onClick={() => setTab(3)}>
+              Details
+            </Tabs.Tab>
           </Tabs>
           {tab === 1 && (
             <AccessList
               accesses={regions}
-              selectedList={access_on_card}
+              selectedList={accessOnCard}
               accessMod={ref => act('PRG_access', {
                 access_target: ref,
               })}
-              grantAll={() => act('PRG_grantall')}
-              denyAll={() => act('PRG_denyall')}
               grantDep={dep => act('PRG_grantregion', {
                 region: dep,
               })}
@@ -126,8 +124,8 @@ export const NtosCardContent = (props, context) => {
                   assign_target: 'Custom',
                   custom_name: value,
                 })} />
-              <Flex>
-                <Flex.Item>
+              <Flex mt={2}>
+                <Flex.Item mr={2}>
                   <Tabs vertical>
                     {Object.keys(jobs).map(department => (
                       <Tabs.Tab
@@ -139,7 +137,7 @@ export const NtosCardContent = (props, context) => {
                     ))}
                   </Tabs>
                 </Flex.Item>
-                <Flex.Item grow={1}>
+                <Flex.Item grow>
                   {departmentJobs.map(job => (
                     <Button
                       fluid
@@ -151,6 +149,36 @@ export const NtosCardContent = (props, context) => {
                   ))}
                 </Flex.Item>
               </Flex>
+            </Section>
+          )}
+          {tab === 3 && (
+            <Section>
+              <LabeledList>
+                <LabeledList.Item label="Account Number">
+                  <Input
+                    value={data.id_account_number}
+                    fluid
+                    onInput={(e, value) => act('PRG_edit', {
+                      account: value,
+                    })} />
+                </LabeledList.Item>
+                <LabeledList.Item label="Email Login">
+                  <Input
+                    value={data.id_email_login}
+                    fluid
+                    onInput={(e, value) => act('PRG_edit', {
+                      login: value,
+                    })} />
+                </LabeledList.Item>
+                <LabeledList.Item label="Email Pass">
+                  <Input
+                    value={data.id_email_password}
+                    fluid
+                    onInput={(e, value) => act('PRG_edit', {
+                      pass: value,
+                    })} />
+                </LabeledList.Item>
+              </LabeledList>
             </Section>
           )}
         </Box>

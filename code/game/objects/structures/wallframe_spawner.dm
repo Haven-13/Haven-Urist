@@ -33,7 +33,7 @@
 /obj/effect/wallframe_spawn/proc/activate()
 	if(activated) return
 
-	if(locate(/turf/simulated/wall) in loc || locate(/turf/unsimulated/wall))
+	if(iswall(src.loc))
 		error("Window Spawner: A wall turf exists at [loc.x]-[loc.y]-[loc.z]")
 
 	if(locate(/obj/structure/wall_frame) in loc)

@@ -17,18 +17,10 @@
 
 	var/list/areas_to_use = list()
 
-/obj/turbolift_map_holder/Destroy()
-	turbolifts -= src
-	return ..()
-
-/obj/turbolift_map_holder/New()
-	turbolifts += src
-	..()
-
 /obj/turbolift_map_holder/Initialize()
 	. = ..()
 	// Create our system controller.
-	var/datum/turbolift/lift = new()
+	var/datum/turbolift/lift = new(src.type)
 
 	var/make_walls = !isnull(wall_type)
 	var/make_lights = !isnull(light_type)
@@ -250,18 +242,10 @@
 	var/floor_type = /turf/simulated/floor/tiled/dark
 	var/list/areas_to_use = list()
 
-/obj/freight_elevator_map_holder/Destroy()
-	turbolifts -= src
-	return ..()
-
-/obj/freight_elevator_map_holder/New()
-	turbolifts += src
-	..()
-
 /obj/freight_elevator_map_holder/Initialize()
 	. = ..()
 	// Create our system controller.
-	var/datum/turbolift/lift = new()
+	var/datum/turbolift/lift = new(src.type)
 
 	// Holder values since we're moving this object to null ASAP.
 	var/ux = x

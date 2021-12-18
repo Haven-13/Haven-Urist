@@ -5,6 +5,7 @@
 	name = "map object"
 	icon = 'resources/icons/obj/overmap.dmi'
 	icon_state = "object"
+	plane = EFFECTS_PLANE
 	var/moving_state
 	var/list/map_z = list()
 
@@ -97,7 +98,6 @@
 /obj/effect/overmap/sector/Initialize()
 	. = ..()
 	if(known)
-		layer = ABOVE_LIGHTING_LAYER
 		add_overlay(list(mutable_appearance(
 			icon,
 			icon_state,

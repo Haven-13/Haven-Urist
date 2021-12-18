@@ -3,7 +3,7 @@
 /datum/map_template/ruin/away_site
 	var/spawn_weight = 1
 	var/list/generate_mining_by_z
-	prefix = "maps/away/"
+	prefix = "resources/maps/away/"
 
 /datum/map_template/ruin/away_site/after_load(z)
 	if(islist(generate_mining_by_z))

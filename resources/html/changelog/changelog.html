@@ -41,6 +41,58 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">18 December 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed aways not spawning properly</li>
+				<li class="bugfix">Fixed "Destroyed Colony" not loading proper</li>
+				<li class="bugfix">Fixed "Derelict Station" not loading proper</li>
+				<li class="bugfix">Fixed "Noctis" ship not loading proper</li>
+				<li class="bugfix">Fixed broken geometry of Lost Supply Station</li>
+			</ul>
+
+			<h2 class="date">29 November 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Converted the elevator panel from hardcoded popup to tgUI</li>
+				<li class="tweak">The elevator panel now shows its current floor</li>
+				<li class="tweak">Elevators are now unit-tested</li>
+				<li class="bugfix">Fixed improper consistency with the world in elevator panels</li>
+			</ul>
+
+			<h2 class="date">28 November 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added tgUI interface for the Power Cell Rack PSU</li>
+				<li class="tweak">Power Cell PSUs no longer require matter bins and always will have capacity for 9 cells.</li>
+				<li class="tweak">Added property to Knob component in tgUI for positioning the tooltip appearing when dragging the knob</li>
+				<li class="bugfix">Fixed the missing interface for tgUI</li>
+				<li class="bugfix">Fixed names being missing from the old plain HTML manifests</li>
+			</ul>
+
+			<h2 class="date">17 November 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the UI for the card modification program</li>
+			</ul>
+
+			<h2 class="date">15 November 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changed how the server is listed on the public BYOND Hub</li>
+				<li class="bugfix">Fixed wall sanity checks for window and window-wallframe spawners not functioning properly.</li>
+				<li class="bugfix">Fixed two instances of walls in place where windows should spawn and allow obstructed vision on the Pluto.</li>
+				<li class="tweak">For future mapping and propserity, airlocks and doors now sanity-check their turf locations for illegal turfs like walls.</li>
+				<li class="bugfix">Fixed invalid turfs for airlocks at the Pluto map</li>
+			</ul>
+
+			<h2 class="date">14 November 2021</h2>
+			<h3 class="author">martinlyra updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the time display being broken on all UIs that use it</li>
+				<li class="bugfix">Fixed the ship helm being unable to be used</li>
+			</ul>
+
 			<h2 class="date">07 November 2021</h2>
 			<h3 class="author">martinlyra updated:</h3>
 			<ul class="changes bgimages16">
@@ -72,81 +124,6 @@
 				<li class="tweak">Updated rust_g from 0.4.8 to 0.5.0</li>
 				<li class="tweak">Changed power cells in APCs for critical rooms on Pluto; Atmospherics, Aft First Deck Hallway, Armoury, Bridge, Engineering, Medical, and Security.</li>
 				<li class="bugfix">Fix how some errors and warnings would end up getting ignored because they were not properly flushed to the master log.</li>
-			</ul>
-
-			<h2 class="date">10 October 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="bugfix">Fixed emissives showing through machinery</li>
-				<li class="bugfix">Fixed emissives showing through structures</li>
-				<li class="bugfix">Fixed lighting switches not showing through darkness properly</li>
-				<li class="bugfix">Fixed air alarms not responding in most cases</li>
-				<li class="bugfix">Fixed vent pumps never changing mode</li>
-				<li class="bugfix">Fixed interface garbage for air alarms</li>
-			</ul>
-
-			<h2 class="date">08 October 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="refactor">Graphical layering has been compressed to improve performance and reliability. From 23 to 6 planes in total.</li>
-			</ul>
-
-			<h2 class="date">07 October 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="refactor">Relative type pathing has been changed to absolute</li>
-			</ul>
-
-			<h2 class="date">04 October 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscdel">Removed the fountain of youth</li>
-				<li class="rscdel">Removed the temple from the orb asteroid</li>
-				<li class="spellcheck">AWAIT changed to AWAITING in nuclear bomb UI</li>
-				<li class="tweak">Blocking procs and calls have been forbidden from garbage collection procs</li>
-			</ul>
-
-			<h2 class="date">02 October 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Added tgUI for portable generators</li>
-				<li class="bugfix">Fixed runtimes caused by improper garbage collection of unused map-views.</li>
-				<li class="tweak">The stationary self-destruct terminal accepts, and requires the nuclear authorization disk.</li>
-				<li class="bugfix">Fixed the nuclear bomb and self-destruct UI</li>
-			</ul>
-
-			<h2 class="date">26 September 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="tweak">The preview is now tgstation-based instead of using a static image. Using a map for easy, clean, and reliable updating.</li>
-				<li class="tweak">There are now three different backgrounds to select for the preview instead of four.</li>
-				<li class="bugfix">The shadow-people have been sent back to the shadow realm from the character creator preview.</li>
-				<li class="bugfix">As of the above tweak, the delay that causes a discrepancy between client and server has been removed.</li>
-				<li class="bugfix">Fixed a runtime preventing the old HTML UIs from responding properly to input</li>
-				<li class="rscadd">Added the Synthmorph culture, the default culture for the Machine/IPC species on the Pluto map</li>
-			</ul>
-			<h3 class="author">retlaw34 updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="imageadd">Redoes the fuel port and oxygen wall locker</li>
-			</ul>
-
-			<h2 class="date">15 September 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">A popup text at top of screen will appear when howevering over an atom</li>
-				<li class="rscadd">Preference (in Global category) allowing players to show or hide the popup text. It is turned on by default.</li>
-				<li class="rscadd">Preference (in Global category) controlling whether the hover-over should display in either the stylic or the San Serif font.</li>
-				<li class="tweak">Byond interface CSS is now compiled and loaded at runtime instead of compile-time</li>
-			</ul>
-
-			<h2 class="date">13 September 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Added potential bugs related to map UI elements</li>
-				<li class="refactor">Renamned typepaths for UI elements to a special atom/movable instead for technical imporvements</li>
-				<li class="tweak">Localhosts now will be automatically given a total-control rank, it is enabled by default in the config, but false in code</li>
-				<li class="tweak">Localhosts now can bypass guest-key checks as long the automatic rank is enabled</li>
-				<li class="tweak">Admins now bypass guest and whitelist checks for jobs</li>
 			</ul>
 		</div>
 

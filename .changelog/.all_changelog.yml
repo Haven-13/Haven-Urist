@@ -376,3 +376,42 @@
   - bugfix: Fixed issues with rounding in the UI for Gas Heaters/Freezers
   - bugfix: Fixed the temperature bar not being colour-coded properly
   - config: Added a VSCode task for quickly testing code on the example map
+2021-11-14:
+  martinlyra:
+  - bugfix: Fixed the time display being broken on all UIs that use it
+  - bugfix: Fixed the ship helm being unable to be used
+2021-11-15:
+  martinlyra:
+  - tweak: Changed how the server is listed on the public BYOND Hub
+  - bugfix: Fixed wall sanity checks for window and window-wallframe spawners not
+      functioning properly.
+  - bugfix: Fixed two instances of walls in place where windows should spawn and allow
+      obstructed vision on the Pluto.
+  - tweak: For future mapping and propserity, airlocks and doors now sanity-check
+      their turf locations for illegal turfs like walls.
+  - bugfix: Fixed invalid turfs for airlocks at the Pluto map
+2021-11-17:
+  martinlyra:
+  - bugfix: Fixed the UI for the card modification program
+2021-11-28:
+  martinlyra:
+  - rscadd: Added tgUI interface for the Power Cell Rack PSU
+  - tweak: Power Cell PSUs no longer require matter bins and always will have capacity
+      for 9 cells.
+  - tweak: Added property to Knob component in tgUI for positioning the tooltip appearing
+      when dragging the knob
+  - bugfix: Fixed the missing interface for tgUI
+  - bugfix: Fixed names being missing from the old plain HTML manifests
+2021-11-29:
+  martinlyra:
+  - tweak: Converted the elevator panel from hardcoded popup to tgUI
+  - tweak: The elevator panel now shows its current floor
+  - tweak: Elevators are now unit-tested
+  - bugfix: Fixed improper consistency with the world in elevator panels
+2021-12-18:
+  martinlyra:
+  - bugfix: Fixed aways not spawning properly
+  - bugfix: Fixed "Destroyed Colony" not loading proper
+  - bugfix: Fixed "Derelict Station" not loading proper
+  - bugfix: Fixed "Noctis" ship not loading proper
+  - bugfix: Fixed broken geometry of Lost Supply Station

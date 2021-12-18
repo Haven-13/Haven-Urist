@@ -68,8 +68,6 @@ $inner-padding: 0.1em;
 
 .Knob__popupValue {
   position: absolute;
-  top: -2rem;
-  right: 50%;
   font-size: 1rem;
   text-align: center;
   padding: 0.25rem 0.5rem;
@@ -77,6 +75,28 @@ $inner-padding: 0.1em;
   background-color: $popup-background-color;
   transform: translateX(50%);
   white-space: nowrap;
+
+  &.top {
+    top: -2rem;
+    right: 50%;
+  }
+
+  &.left {
+    top: 0.5rem;
+    left: -0.5rem;
+    transform: translateX(-100%);
+  }
+
+  &.right {
+    top: 0.5rem;
+    right: -0.5rem;
+    transform: translateX(100%);
+  }
+
+  &.bottom {
+    top: 2.5rem;
+    right: 50%;
+  }
 }
 
 .Knob__ring {
