@@ -36,3 +36,4 @@
 #include "ships/computers/shuttle.dm"
 #include "ships/engines/engine.dm"
 #include "ships/engines/gas_thruster.dm"
+#include "ships/engines/ion_drive.dm"
