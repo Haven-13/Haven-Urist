@@ -6,7 +6,7 @@
 /datum/shuttle/autodock/overmap/courier_shuttle/pluto
 	name = "Eris"
 	warmup_time = 5
-	move_time = 30
+	move_time = 5
 	shuttle_area = list(
 		/area/courier_shuttle/pluto/cockpit,
 		/area/courier_shuttle/pluto/utility
@@ -17,7 +17,7 @@
 	sound_takeoff = 'resources/sound/effects/rocket.ogg'
 	sound_landing = 'resources/sound/effects/rocket_backwards.ogg'
 	range = 1
-	fuel_consumption = 2
+	fuel_consumption = 1
 	logging_home_tag = "nav_hangar_eris"
 	//logging_access = access_courier_shuttle_helm
 
