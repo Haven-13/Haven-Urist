@@ -25,6 +25,7 @@
 	name = "Eris"
 	shuttle = "Eris"
 	fore_dir = EAST
+	vessel_mass = 5
 
 /obj/machinery/computer/shuttle_control/explore/eris
 	name = "Eris Control Console"

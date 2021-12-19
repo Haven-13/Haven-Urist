@@ -27,6 +27,7 @@
 	name = "Styx"
 	shuttle = "Styx"
 	fore_dir = EAST
+	vessel_mass = 20
 
 /obj/machinery/computer/shuttle_control/explore/styx
 	name = "Styx Control Console"
