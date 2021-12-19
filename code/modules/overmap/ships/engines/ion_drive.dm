@@ -18,22 +18,22 @@
 	drive.thrust_limit = new_limit
 
 /datum/ship_engine/ion_drive/get_thrust_limit()
-	return drive.thrust_limit
+	. = drive.thrust_limit
 
 /datum/ship_engine/ion_drive/get_thrust()
-	drive.get_thrust()
+	. = drive.get_thrust()
 
 /datum/ship_engine/ion_drive/burn()
-	return drive.burn()
+	. = drive.burn()
 
 /datum/ship_engine/ion_drive/is_on()
-	return drive.powered()
+	. = drive.powered()
 
 /datum/ship_engine/ion_drive/toggle()
 	drive.use_power = !drive.use_power
 
 /datum/ship_engine/ion_drive/can_burn()
-	return src.is_on()
+	. = src.is_on()
 
 /datum/ship_engine/ion_drive/get_status()
 	. = list()
@@ -71,7 +71,7 @@
 	. = ..()
 
 /obj/machinery/ion_drive/proc/get_thrust()
-	return thrust_limit * generated_thrust
+	. = thrust_limit * generated_thrust
 
 /obj/machinery/ion_drive/proc/burn()
 	if(!use_power || !powered())
