@@ -60,7 +60,7 @@
 
 	var/thrust_limit = 1
 	var/burn_cost = 750
-	var/generated_thrust = 5
+	var/generated_thrust = 3
 
 /obj/machinery/ion_drive/Initialize()
 	. = ..()
