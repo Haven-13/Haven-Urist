@@ -11,9 +11,6 @@
 	nozzle = null
 	. = ..()
 
-/datum/ship_engine/get_area_name()
-	return null
-
 /datum/ship_engine/gas_thruster/get_status()
 	return nozzle.get_status()
 
