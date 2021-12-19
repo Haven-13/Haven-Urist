@@ -84,7 +84,7 @@
 	layer = 2.4;
 	level = 2
 	},
-/obj/machinery/computer/engines{
+/obj/machinery/computer/ship/engines{
 	dir = 4;
 	icon_state = "computer"
 	},
@@ -4749,7 +4749,7 @@
 	dir = 10;
 	icon_state = "corner_white"
 	},
-/obj/machinery/computer/engines{
+/obj/machinery/computer/ship/engines{
 	dir = 1;
 	icon_state = "computer"
 	},
