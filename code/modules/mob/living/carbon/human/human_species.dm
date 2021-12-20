@@ -7,7 +7,6 @@
 	. = ..()
 	STOP_PROCESSING(SSmobs, src)
 	GLOB.human_mob_list -= src
-	delete_inventory()
 
 /mob/living/carbon/human/dummy/mannequin/update_plane()
 	return FALSE
