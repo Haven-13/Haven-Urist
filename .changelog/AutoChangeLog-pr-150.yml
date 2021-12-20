@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - imageadd: Replaced the old ship sprite with Pawn's ship sprite for overmap
+  - imageadd: Added Pawn's shuttle sprite for overmap
