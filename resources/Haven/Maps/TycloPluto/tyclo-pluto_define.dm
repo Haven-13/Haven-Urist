@@ -11,7 +11,6 @@
 	use_overmap = 1
 	overmap_size = 35
 	overmap_event_areas = 18
-	away_site_budget = 6
 
 	allowed_spawns = list(
 		"Cryogenic Storage",

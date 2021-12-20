@@ -22,6 +22,11 @@
 	//If set, will set base area and turf type to same as where it was spawned at
 	var/autoset
 
+	//Will be moved by the shuttle when it moves
+	var/mobile
+	//Name of the shuttle, null for generic waypoint
+	var/shuttle_restricted
+
 /obj/effect/shuttle_landmark/Initialize()
 	. = ..()
 	if(autoset)
@@ -45,6 +50,16 @@
 				docking_controller.docking_codes = location.docking_codes
 
 	SSshuttle.register_landmark(landmark_tag, src)
+
+/obj/effect/shuttle_landmark/forceMove()
+	var/obj/effect/overmap/map_origin = map_sectors["[z]"]
+	. = ..()
+	var/obj/effect/overmap/map_destination = map_sectors["[z]"]
+	if(map_origin != map_destination)
+		if(map_origin)
+			map_origin.remove_landmark(src, shuttle_restricted)
+		if(map_destination)
+			map_destination.add_landmark(src, shuttle_restricted)
 
 //Called when the landmark is added to an overmap sector.
 /obj/effect/shuttle_landmark/proc/sector_set(var/obj/effect/overmap/O)
@@ -74,7 +89,6 @@
 	name = "Navpoint"
 	landmark_tag = "navpoint"
 	autoset = 1
-	var/shuttle_restricted //name of the shuttle, null for generic waypoint
 
 /obj/effect/shuttle_landmark/automatic/Initialize()
 	landmark_tag += "-[x]-[y]-[z]"

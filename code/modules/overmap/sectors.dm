@@ -6,6 +6,7 @@
 	icon = 'resources/icons/obj/overmap.dmi'
 	icon_state = "object"
 	plane = EFFECTS_PLANE
+	var/moving_state
 	var/list/map_z = list()
 
 	var/list/initial_generic_waypoints //store landmark_tag of landmarks that should be added to the actual lists below on init.
@@ -30,9 +31,8 @@
 	if(!IS_OVERMAP_INITIALIZED)
 		overmap_initialize()
 
-	map_z = GetConnectedZlevels(z)
-	for(var/zlevel in map_z)
-		map_sectors["[zlevel]"] = src
+	find_z_levels()     // This populates map_z and assigns z levels to the ship.
+	register_z_levels() // This makes external calls to update global z level information.
 
 	docking_codes = "[ascii2text(rand(65,90))][ascii2text(rand(65,90))][ascii2text(rand(65,90))][ascii2text(rand(65,90))]"
 
@@ -42,8 +42,21 @@
 		GLOB.overmap_generator.place_overmap_item(src)
 	testing("Located sector \"[name]\" at [src.x],[src.y], containing Z [english_list(map_z)]")
 
-	GLOB.using_map.player_levels |= map_z
+	// Queued for further init. Will populate the waypoint lists;
+	// waypoints not spawned yet will be added in as they spawn.
+	LAZY_ADD(SSshuttle.sectors_to_initialize, src)
 
+//This is called later in the init order by SSshuttle to populate sector objects. Importantly for subtypes, shuttles will be created by then.
+/obj/effect/overmap/proc/populate_sector_objects()
+
+/obj/effect/overmap/proc/find_z_levels()
+	map_z = GetConnectedZlevels(z)
+
+/obj/effect/overmap/proc/register_z_levels()
+	for(var/zlevel in map_z)
+		map_sectors["[zlevel]"] = src
+
+	GLOB.using_map.player_levels |= map_z
 	if(!in_space)
 		GLOB.using_map.sealed_levels |= map_z
 
@@ -51,11 +64,10 @@
 		GLOB.using_map.station_levels |= map_z
 		GLOB.using_map.contact_levels |= map_z
 
-	SSshuttle.initialize_sector(src) //Will populate the waypoint lists; waypoints not spawned yet will be added in as they spawn.
-
-	for(var/obj/machinery/computer/sensors/S in SSmachines.machinery)
-		if (S.z in map_z)
-			S.linked = src
+// Helper for initialization
+/obj/effect/overmap/proc/check_ownership(obj/object)
+	if((object.z in map_z) && !(get_area(object) in SSshuttle.shuttle_areas))
+		return 1
 
 //If shuttle_name is false, will add to generic waypoints; otherwise will add to restricted. Does not do checks.
 /obj/effect/overmap/proc/add_landmark(obj/effect/shuttle_landmark/landmark, shuttle_name)
@@ -64,6 +76,13 @@
 		LAZY_ADD(restricted_waypoints[shuttle_name], landmark)
 	else
 		generic_waypoints += landmark
+
+/obj/effect/overmap/proc/remove_landmark(obj/effect/shuttle_landmark/landmark, shuttle_name)
+	if(shuttle_name)
+		var/list/shuttles = restricted_waypoints[shuttle_name]
+		LAZY_REMOVE(shuttles, landmark)
+	else
+		generic_waypoints -= landmark
 
 /obj/effect/overmap/proc/get_waypoints(var/shuttle_name)
 	. = generic_waypoints.Copy()

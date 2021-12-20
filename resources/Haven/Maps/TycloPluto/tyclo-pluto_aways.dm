@@ -1,3 +1,7 @@
+/datum/map/tyclo_pluto
+	num_exoplanets = 0
+	away_site_budget = 0
+
 /*
  * Copy of Nerva's aways in nerva.dm
 */
