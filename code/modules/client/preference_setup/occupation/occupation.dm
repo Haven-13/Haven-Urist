@@ -185,15 +185,20 @@
 		if(SetJob(user, href_list["set_job"], text2num(href_list["set_level"]))) return (pref.equip_preview_mob ? UPDATE_PREVIEW : TRUE)
 
 	else if(href_list["job_info"])
-		var/rank = href_list["job_info"]
-		var/datum/job/job = job_master.GetJob(rank)
+		var/title = href_list["job_info"]
+		var/datum/job/job = job_master.GetJob(title)
 		var/dat = list()
+
+		var/preview_filename = "job[ckey(title)].png"
+		var/icon/preview = job.get_job_icon()
+		if (preview)
+			send_rsc(user, preview, preview_filename)
 
 		dat += "<p style='background-color: [job.selection_color]'><br><br><p>"
 		if(job.alt_titles)
 			dat += "<i><b>Alternative titles:</b> [english_list(job.alt_titles)].</i>"
-		send_rsc(user, job.get_job_icon(), "job[ckey(rank)].png")
-		dat += "<img src=job[ckey(rank)].png width=96 height=96 style='float:left;'>"
+		if(preview)
+			dat += "<img src=\"[preview_filename]\" width=96 height=96 style='float:left;' \\>"
 		if(job.department)
 			dat += "<b>Department:</b> [job.department]."
 			if(job.head_position)
@@ -203,11 +208,11 @@
 
 		dat += "<hr style='clear:left;'>"
 		if(config.wikiurl)
-			dat += "<a href='?src=[REF(src)];job_wiki=[rank]'>Open wiki page in browser</a>"
+			dat += "<a href='?src=[REF(src)];job_wiki=[title]'>Open wiki page in browser</a>"
 		var/description = job.get_description_blurb()
 		if(description)
 			dat += html_encode(description)
-		var/datum/browser/popup = new(user, "Job Info", "[capitalize(rank)]", 430, 520, src)
+		var/datum/browser/popup = new(user, "Job Info", "[capitalize(title)]", 430, 520, src)
 		popup.set_content(jointext(dat,"<br>"))
 		popup.open()
 

@@ -182,7 +182,7 @@
 	if(wire_rate)
 		desc += "<br>It is capable of repairing burn damage."
 
-/obj/machinery/recharge_station/proc/build_overlays()
+/obj/machinery/recharge_station/proc/update_overlays()
 	overlays.Cut()
 	switch(round(chargepercentage()))
 		if(1 to 20)
@@ -213,7 +213,7 @@
 		icon_state = "borgcharger0"
 
 	if(icon_update_tick == 0)
-		build_overlays()
+		update_overlays()
 
 /obj/machinery/recharge_station/Bumped(var/mob/living/silicon/robot/R)
 	go_in(R)
