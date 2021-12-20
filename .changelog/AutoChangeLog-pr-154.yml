@@ -1,0 +1,6 @@
+author: martinlyra
+delete-after: true
+changes:
+  - tweak: Modular computers' UI-state changed from physical-only to default
+  - bugfix: 'Fixed AI being unable to interact with all physical objects that can
+      be accessible by the AI:'
