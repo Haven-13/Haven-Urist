@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Fixed some mob icon updates getting deferred too late instead of being
+      done immediately, should see less blank images now.
