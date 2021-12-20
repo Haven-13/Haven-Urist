@@ -5,7 +5,7 @@
 	name = "IDSS Nevastapol"
 	id = "awaysite_station_nevastapol"
 	description = "An independent deep-space colony, one can find opportunities for contracts and trading when visiting there."
-	prefix = "Haven/Maps/CommonAways/"
+	prefix = "resources/Haven/Maps/CommonAways/"
 	suffixes = list("StationNevastapol/Maps/station_nevastapol_main.dmm")
 	cost = 0
 	accessibility_weight = 0

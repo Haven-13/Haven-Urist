@@ -1,5 +1,5 @@
 /obj/item/modular_computer/ui_state(mob/user)
-	return ui_physical_state()
+	return ui_default_state()
 
 /obj/item/modular_computer/ui_status(mob/user, datum/ui_state/state)
 	if(!screen_on || !enabled || bsod)

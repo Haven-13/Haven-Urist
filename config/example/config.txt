@@ -419,3 +419,14 @@ RADIATION_LOWER_LIMIT 0.15
 
 ## Uncomment this to prevent players from printing copy/pasted circuits
 #DISABLE_CIRCUIT_PRINTING
+
+# This section contains values for all metrics storing.
+# This is designed for ElasticSearch but you might be able to make it work with other things.
+# Metrics form a JSON body which is sent by POST to a HTTP/HTTPS endpoint with API key authentication
+
+# Do we want to enable metrics sending, uncomment to enable it
+# ENABLE_METRICS
+# Metrics endpoint. Include protocol, host and ingest path
+METRICS_ENDPOINT http://elastic-host:9200/your_index/_doc
+# Metrics API token. Placed into the auth header
+METRICS_API_TOKEN your_base64_encoded_thingy==

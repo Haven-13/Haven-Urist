@@ -1,24 +1,23 @@
 
-/obj/machinery/computer/navigation
+/obj/machinery/computer/ship/navigation
 	name = "navigation console"
 	circuit = /obj/item/weapon/circuitboard/nav
 	var/viewing = 0
-	var/obj/effect/overmap/ship/linked
 	icon_keyboard = "generic_key"
 	icon_screen = "helm"
 
-/obj/machinery/computer/navigation/ui_status(mob/user, datum/ui_state/state)
+/obj/machinery/computer/ship/navigation/ui_status(mob/user, datum/ui_state/state)
 	if(!linked)
 		return UI_CLOSE
 	return ..()
 
-/obj/machinery/computer/navigation/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/computer/ship/navigation/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "spacecraft/ShipNavigation")
 		ui.open()
 
-/obj/machinery/computer/navigation/ui_data(mob/user)
+/obj/machinery/computer/ship/navigation/ui_data(mob/user)
 	var/turf/T = get_turf(linked)
 	var/obj/effect/overmap/sector/current_sector = locate() in T
 
@@ -34,7 +33,7 @@
 		"etaNext" = linked.get_speed() ? round(linked.ETA()/10) : "N/A"
 	)
 
-/obj/machinery/computer/navigation/check_eye(var/mob/user as mob)
+/obj/machinery/computer/ship/navigation/check_eye(var/mob/user as mob)
 	if (!viewing)
 		return -1
 	if (!get_dist(user, src) > 1 || user.blinded || !linked )
@@ -42,7 +41,7 @@
 		return -1
 	return 0
 
-/obj/machinery/computer/navigation/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/ship/navigation/attack_hand(var/mob/user as mob)
 	if(..())
 		user.unset_machine()
 		viewing = 0
@@ -54,7 +53,7 @@
 
 	ui_interact(user)
 
-/obj/machinery/computer/navigation/ui_act(action, list/params)
+/obj/machinery/computer/ship/navigation/ui_act(action, list/params)
 	switch(action)
 		if("view")
 			viewing = !viewing

@@ -408,3 +408,10 @@
   - tweak: The elevator panel now shows its current floor
   - tweak: Elevators are now unit-tested
   - bugfix: Fixed improper consistency with the world in elevator panels
+2021-12-18:
+  martinlyra:
+  - bugfix: Fixed aways not spawning properly
+  - bugfix: Fixed "Destroyed Colony" not loading proper
+  - bugfix: Fixed "Derelict Station" not loading proper
+  - bugfix: Fixed "Noctis" ship not loading proper
+  - bugfix: Fixed broken geometry of Lost Supply Station

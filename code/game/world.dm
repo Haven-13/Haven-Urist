@@ -68,8 +68,10 @@ GLOBAL_VAR(restart_counter)
 
 	return match
 
-#define RECOMMENDED_VERSION 513
 /world/New()
+
+	SSmetrics.world_init_time = REALTIMEOFDAY
+
 	//set window title
 	if (config.server_name)
 		name = config.server_name
@@ -120,7 +122,7 @@ var/world_topic_spam_protect_time = world.timeofday
 /world/Topic(T, addr, master, key)
 	TGS_TOPIC	//redirect to server tools if necessary
 
-	game_log("TOPIC", "\"[T]\", from:[addr], master:[master], key:[key][log_end]")
+	game_log("TOPIC", "\"[T]\", from:[addr], master:[master], key:[key]")
 
 	if (T == "ping")
 		var/x = 1
@@ -497,7 +499,7 @@ var/world_topic_spam_protect_time = world.timeofday
 					do_hard_reboot = FALSE
 
 		if(do_hard_reboot)
-			log_world("World hard rebooted at [time_stamp()]")
+			log_world("World hard rebooted at [iso_time_stamp()]")
 			TgsEndProcess()
 
 	..(reason)
@@ -564,7 +566,7 @@ var/world_topic_spam_protect_time = world.timeofday
 	if (src.status != s)
 		src.status = s
 
-#define WORLD_LOG_START(X) WRITE_FILE(GLOB.world_##X##_log, "\n\nStarting up round ID [game_id]. [time_stamp()]\n---------------------")
+#define WORLD_LOG_START(X) WRITE_FILE(GLOB.world_##X##_log, "\n\nStarting up round ID [game_id]. [iso_time_stamp()]\n---------------------")
 #define WORLD_SETUP_LOG(X) GLOB.world_##X##_log = file("[GLOB.log_directory]/[#X].log") ; WORLD_LOG_START(X)
 /world/proc/setup_logs()
 	var/override_dir = params[OVERRIDE_LOG_DIRECTORY_PARAMETER]
@@ -573,7 +575,7 @@ var/world_topic_spam_protect_time = world.timeofday
 		if(game_id)
 			GLOB.log_directory += "[game_id]"
 		else
-			GLOB.log_directory += "[replacetext(time_stamp(), ":", ".")]"
+			GLOB.log_directory += "[replacetext(iso_time_stamp(), ":", ".")]"
 	else
 		GLOB.log_directory = "data/logs/[override_dir]"
 

@@ -295,13 +295,17 @@ GLOBAL_LIST_EMPTY(all_maps)
 	return pick(empty_levels)
 
 /datum/map/proc/create_new_empty_zlevel()
+	var/start = REALTIMEOFDAY
+
 	world.maxz++
 	for(var/turf/T in block(
 		locate(1,1,world.maxz),
 		locate(world.maxx, world.maxy, world.maxz))
 	)
 		T.ChangeTurf(/turf/space)
-	testing("Created new empty space z-level at Z=[world.maxz]")
+
+	var/time = (REALTIMEOFDAY - start) / 10
+	testing("Created new empty [world.maxx]x[world.maxy] space z-level at Z=[world.maxz], took [time] seconds.")
 
 /datum/map/proc/setup_economy()
 	news_network.CreateFeedChannel("Nyx Daily", "SolGov Minister of Information", 1, 1)

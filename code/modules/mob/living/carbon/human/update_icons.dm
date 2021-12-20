@@ -148,7 +148,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
 
 //UPDATES OVERLAYS FROM OVERLAYS_LYING/OVERLAYS_STANDING
-/mob/living/carbon/human/update_icons()
+/mob/living/carbon/human/update_icons(immediately=FALSE)
 	lying_prev = lying	//so we don't update overlays for lying/standing unless our stance changes again
 	update_hud()		//TODO: remove the need for this
 	cut_overlays()
@@ -156,12 +156,14 @@ Please contact me on #coderbus IRC. ~Carn x
 	var/list/overlays_to_apply = list()
 	var/image/I
 	if (icon_update)
-
 		var/list/visible_overlays
 		if(is_cloaked())
 			icon = 'resources/icons/mob/human.dmi'
 			icon_state = "blank"
-			visible_overlays = list(visible_overlays[HUMAN_OVERLAYS_R_HAND_INDEX], visible_overlays[HUMAN_OVERLAYS_L_HAND_INDEX])
+			visible_overlays = list(
+				visible_overlays[HUMAN_OVERLAYS_R_HAND_INDEX],
+				visible_overlays[HUMAN_OVERLAYS_L_HAND_INDEX]
+			)
 		else
 			icon = stand_icon
 			icon_state = null
@@ -209,6 +211,9 @@ Please contact me on #coderbus IRC. ~Carn x
 		M.Scale(size_multiplier)
 		M.Translate(0, 16*(size_multiplier-1))
 	transform = M
+
+	if (immediately)
+		build_overlays()
 
 var/global/list/damage_icon_parts = list()
 
@@ -458,35 +463,34 @@ var/global/list/damage_icon_parts = list()
 //For legacy support.
 /mob/living/carbon/human/regenerate_icons()
 	..()
-	if(HasMovementHandler(/datum/movement_handler/mob/transformation) || QDELETED(src))		return
+	if(HasMovementHandler(/datum/movement_handler/mob/transformation) || QDELETED(src))
+		return
 
-	update_mutations(0)
-	update_body(0)
-	update_skin(0)
-	update_underwear(0)
-	update_hair(0)
-	update_inv_w_uniform(0)
-	update_inv_wear_id(0)
-	update_inv_gloves(0)
-	update_inv_glasses(0)
-	update_inv_ears(0)
-	update_inv_shoes(0)
-	update_inv_s_store(0)
-	update_inv_wear_mask(0)
-	update_inv_head(0)
-	update_inv_belt(0)
-	update_inv_back(0)
-	update_inv_wear_suit(0)
-	update_inv_r_hand(0)
-	update_inv_l_hand(0)
-	update_inv_handcuffed(0)
-	update_inv_pockets(0)
-	update_fire(0)
-	update_surgery(0)
+	update_mutations(FALSE)
+	update_body(FALSE)
+	update_skin(FALSE)
+	update_underwear(FALSE)
+	update_hair(FALSE)
+	update_inv_w_uniform(FALSE)
+	update_inv_wear_id(FALSE)
+	update_inv_gloves(FALSE)
+	update_inv_glasses(FALSE)
+	update_inv_ears(FALSE)
+	update_inv_shoes(FALSE)
+	update_inv_s_store(FALSE)
+	update_inv_wear_mask(FALSE)
+	update_inv_head(FALSE)
+	update_inv_belt(FALSE)
+	update_inv_back(FALSE)
+	update_inv_wear_suit(FALSE)
+	update_inv_r_hand(FALSE)
+	update_inv_l_hand(FALSE)
+	update_inv_handcuffed(FALSE)
+	update_inv_pockets(FALSE)
+	update_fire(FALSE)
+	update_surgery(FALSE)
 	UpdateDamageIcon()
-	queue_icon_update()
-	//Hud Stuff
-	update_hud()
+	update_icons(TRUE)
 
 /* --------------------------------------- */
 //vvvvvv UPDATE_INV PROCS vvvvvv

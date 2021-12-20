@@ -1055,7 +1055,7 @@
 	icon_state = "emerg";
 	dir = 1
 	},
-/obj/machinery/computer/engines{
+/obj/machinery/computer/ship/engines{
 	tag = "icon-computer (NORTH)";
 	icon_state = "computer";
 	dir = 1
@@ -1269,7 +1269,7 @@
 /area/boarding_ship)
 "cX" = (
 /obj/structure/closet/walllocker/emerglocker/west,
-/obj/machinery/computer/helm{
+/obj/machinery/computer/ship/helm{
 	tag = "icon-computer (EAST)";
 	icon_state = "computer";
 	dir = 4
@@ -1296,7 +1296,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/computer/navigation{
+/obj/machinery/computer/ship/navigation{
 	tag = "icon-computer (NORTH)";
 	icon_state = "computer";
 	dir = 1

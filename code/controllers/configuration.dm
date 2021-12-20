@@ -235,6 +235,10 @@ var/list/gamemode_cache = list()
 
 	var/enable_localhost_rank = FALSE
 
+	var/enable_metrics = FALSE
+	var/metrics_endpoint = ""
+	var/metrics_api_token = ""
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -783,6 +787,13 @@ var/list/gamemode_cache = list()
 				if("rounds_until_hard_restart")
 					rounds_until_hard_restart = text2num(value)
 
+				if("enable_metrics")
+					config.enable_metrics = TRUE
+				if("metrics_endpoint")
+					config.metrics_endpoint = value
+				if("metrics_api_token")
+					config.metrics_api_token = value
+
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 
@@ -832,11 +843,8 @@ var/list/gamemode_cache = list()
 					config.animal_delay = value
 				if("maximum_mushrooms")
 					config.maximum_mushrooms = value
-
-
 				if("use_loyalty_implants")
 					config.use_loyalty_implants = 1
-
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 

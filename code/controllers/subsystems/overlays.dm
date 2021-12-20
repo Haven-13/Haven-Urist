@@ -1,3 +1,8 @@
+#define BUILD_OVERLAYS_NOW(X) \
+COMPILE_OVERLAYS(X);\
+UNSET_EMPTY(X.add_overlays);\
+UNSET_EMPTY(X.remove_overlays)
+
 SUBSYSTEM_DEF(overlays)
 	name = "Overlay"
 	flags = SS_TICKER
@@ -17,19 +22,15 @@ SUBSYSTEM_DEF(overlays)
 	fire(mc_check = FALSE)
 	return ..()
 
-
 /datum/controller/subsystem/overlays/stat_entry(msg)
 	msg = "Ov:[length(queue)]"
 	return ..()
 
-
 /datum/controller/subsystem/overlays/Shutdown()
 	text2file(render_stats(stats), "[GLOB.log_directory]/overlay.log")
 
-
 /datum/controller/subsystem/overlays/Recover()
 	queue = SSoverlays.queue
-
 
 /datum/controller/subsystem/overlays/fire(resumed = FALSE, mc_check = TRUE)
 	var/list/queue = src.queue
@@ -48,10 +49,10 @@ SUBSYSTEM_DEF(overlays)
 				crash_with("Too many overlays on [A.type] - [A.overlays.len], refusing to update and cutting")
 				A.overlays.Cut()
 				continue
+			if(!(A.atom_flags & ATOM_FLAG_OVERLAY_QUEUED))
+				continue
 			STAT_START_STOPWATCH
-			COMPILE_OVERLAYS(A)
-			UNSET_EMPTY(A.add_overlays)
-			UNSET_EMPTY(A.remove_overlays)
+			BUILD_OVERLAYS_NOW(A)
 			STAT_STOP_STOPWATCH
 			STAT_LOG_ENTRY(stats, A.type)
 	if (count)
@@ -165,6 +166,12 @@ SUBSYSTEM_DEF(overlays)
 	else if(cut_old)
 		cut_overlays()
 
+/atom/proc/build_overlays()
+	if (NOT_QUEUED_ALREADY)
+		return FALSE
+	BUILD_OVERLAYS_NOW(src)
+	return TRUE
+
 #undef NOT_QUEUED_ALREADY
 #undef QUEUE_FOR_COMPILE
 
@@ -192,3 +199,5 @@ SUBSYSTEM_DEF(overlays)
 			overlays |= cached_other
 	else if(cut_old)
 		cut_overlays()
+
+#undef BUILD_OVERLAYS_NOW

@@ -1,0 +1,10 @@
+author: martinlyra
+delete-after: true
+changes:
+  - rscadd: Added Ion Drives for use with overmap-capable shuttles
+  - rscadd: Added overmap flight for Pluto's shuttles and future ones
+  - tweak: Readjusted the vessel mass of Styx and Eris shuttles
+  - bugfix: Fixed a bug where shuttles would act as control and helms for the mothership
+  - bugfix: Pluto's Eris and Styx shuttles are overmap capable, finally
+  - imageadd: Added premliminary art for shuttles on the overmap
+  - imageadd: Added sprites for the Ion Drives
