@@ -273,7 +273,7 @@
 /turf/simulated/floor/tiled,
 /area/constructionsite)
 "zU" = (
-/mob/living/silicon/ai,
+/obj/structure/AIcore/deactivated,
 /turf/simulated/floor/tiled,
 /area/constructionsite)
 "Gx" = (
