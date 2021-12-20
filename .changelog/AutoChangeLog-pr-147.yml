@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - server: Added metrics from Paradise for profiling and analysing performance without
+      interfering the server itself
