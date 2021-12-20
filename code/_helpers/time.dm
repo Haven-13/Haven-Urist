@@ -51,8 +51,18 @@ var/next_station_date_change = 1 DAY
 		station_date = num2text((text2num(time2text(timeofday, "YYYY"))+GLOB.using_map.date_offset)) + "-" + time2text(timeofday, "MM-DD")
 	return station_date
 
-/proc/time_stamp()
-	return time2text(station_time_in_ticks, "hh:mm:ss")
+// This is ISO-8601
+// If anything that uses this proc shouldn't be ISO-8601, change that thing, not this proc.
+// This is important for logging.
+// For UTC+0 stamp, use timezone = 0.
+// For other offsets, use an integer as offset, consult doc on time2text proc for more.
+/proc/iso_time_stamp(timezone=world.timezone)
+	var/date_portion = time2text(world.timeofday, "YYYY-MM-DD", timezone)
+	var/time_portion = time2text(world.timeofday, "hh:mm:ss", timezone)
+	return "[date_portion]T[time_portion]"
+
+/proc/time_stamp(format = "hh:mm:ss")
+	return time2text(station_time_in_ticks, format)
 
 /proc/time_point(offset)
 	return world.time + offset
@@ -114,7 +124,8 @@ GLOBAL_VAR_INIT(midnight_rollovers, 0)
 GLOBAL_VAR_INIT(rollovercheck_last_timeofday, 0)
 /proc/update_midnight_rollover()
 	if (world.timeofday < GLOB.rollovercheck_last_timeofday) //TIME IS GOING BACKWARDS!
-		return GLOB.midnight_rollovers++
+		GLOB.midnight_rollovers++
+	GLOB.rollovercheck_last_timeofday = world.timeofday
 	return GLOB.midnight_rollovers
 
 //Increases delay as the server gets more overloaded,

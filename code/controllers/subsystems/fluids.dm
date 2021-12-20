@@ -30,9 +30,6 @@ SUBSYSTEM_DEF(fluids)
 		'resources/sound/effects/gurgle4.ogg'
 		)
 
-/datum/controller/subsystem/fluids/New()
-	NEW_SS_GLOBAL(SSfluids)
-
 /datum/controller/subsystem/fluids/stat_entry()
 	..("A:[active_fluids.len] S:[water_sources.len]")
 
