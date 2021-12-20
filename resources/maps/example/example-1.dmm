@@ -272,6 +272,10 @@
 /obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/tiled,
 /area/constructionsite)
+"zU" = (
+/mob/living/silicon/ai,
+/turf/simulated/floor/tiled,
+/area/constructionsite)
 "Gx" = (
 /obj/machinery/camera/autoname,
 /turf/simulated/floor/tiled,
@@ -999,7 +1003,7 @@ al
 al
 ac
 ac
-ac
+zU
 ac
 ac
 at
