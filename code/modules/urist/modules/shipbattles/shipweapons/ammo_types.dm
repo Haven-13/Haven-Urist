@@ -58,7 +58,6 @@
 				"<span class='notice'>[user] removes the torpedo warhead from \the [src].</span>",
 				"<span class='notice'>You remove the torpedo warhead.</span>"
 			)
-			to_chat(user, "<span class='notice'>You remove the torpedo warhead.</span>")
 			name = initial(name)
 			desc = initial(desc)
 			warhead = null
