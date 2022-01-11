@@ -45,7 +45,7 @@
 			desc = "A large torpedo used in ship-to-ship weaponry. It is loaded with a [warhead.name]."
 
 			user.visible_message(
-				"<span class='notice'>[user] inserts the torpedo warhead into the torpedo casing, arming the torpedo.</span>"
+				"<span class='notice'>[user] inserts the torpedo warhead into the torpedo casing, arming the torpedo.</span>",
 				"<span class='notice'>You insert the torpedo warhead into the torpedo casing, arming the torpedo.</span>"
 			)
 		else
@@ -55,7 +55,7 @@
 		if(warhead)
 			warhead.dropInto(loc)
 			user.visible_message(
-				"<span class='notice'>[user] removes the torpedo warhead from \the [src].</span>"
+				"<span class='notice'>[user] removes the torpedo warhead from \the [src].</span>",
 				"<span class='notice'>You remove the torpedo warhead.</span>"
 			)
 			to_chat(user, "<span class='notice'>You remove the torpedo warhead.</span>")
