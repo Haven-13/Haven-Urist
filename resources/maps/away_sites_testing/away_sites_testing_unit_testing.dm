@@ -28,9 +28,9 @@
 		/area/slavers_base/hangar = NO_SCRUBBER,
 		/area/map_template/hydrobase = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/map_template/hydrobase/station = NO_SCRUBBER,
-		/area/map_template/marooned = NO_SCRUBBER|NO_VENT|NO_APC
-//		/area/icarus/vessel = NO_APC,
-//		/area/icarus/open = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/map_template/marooned = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/spacestations/pirate/asteroid = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/spacestations/pirate/exterior = NO_SCRUBBER|NO_VENT|NO_APC,
 	)
 
 	area_coherency_test_exempt_areas = list(
