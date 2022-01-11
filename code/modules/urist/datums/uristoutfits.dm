@@ -364,7 +364,7 @@
 /decl/hierarchy/outfit/newpirate
 	name = "New Pirate - Laser"
 	uniform = /obj/item/clothing/under/syndicate
-	suit = /obj/item/clothing/suit/armor/pcarrier/light/hijacker
+	suit = /obj/item/clothing/suit/armor/pcarrier/light
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/mask/bandana/red
 	l_hand = /obj/item/weapon/gun/energy/laser
