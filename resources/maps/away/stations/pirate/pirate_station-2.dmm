@@ -1,6 +1,3 @@
-"aa" = (/turf/space,/area/space)
-"ab" = (/turf/unsimulated/wall/urist/other/border,/area/space)
-"ac" = (/turf/unsimulated/mineral,/area/space)
 "ad" = (/turf/unsimulated/mask,/area/mine/unexplored)
 "ae" = (/turf/unsimulated/mineral,/area/mine/unexplored)
 "af" = (/turf/simulated/open,/area/spacestations/pirate/exterior)
@@ -14,7 +11,7 @@
 "an" = (/obj/effect/wallframe_spawn/reinforced/hull,/turf/simulated/floor,/area/spacestations/pirate/station)
 "ao" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 2; frequency = 1379; id_tag = "pirate_station_3_pump3"},/turf/simulated/floor,/area/spacestations/pirate/station)
 "ap" = (/obj/machinery/atmospherics/pipe/manifold/visible{dir = 8},/obj/machinery/embedded_controller/radio/airlock/airlock_controller{frequency = 1379; id_tag = "pirate_station_3_airlock3"; pixel_x = -25; req_access = list("ACCESS_EXTERNAL"); tag_airpump = "pirate_station_3_pump3"; tag_chamber_sensor = "pirate_station_3_sensor3"; tag_exterior_door = "pirate_station_3_outer3"; tag_interior_door = "pirate_station_3_inner3"},/obj/machinery/airlock_sensor{frequency = 1379; id_tag = "pirate_station_3_sensor3"; pixel_x = -25; pixel_y = 12},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
-"aq" = (/obj/machinery/atmospherics/pipe/simple/visible{icon_state = "intact"; dir = 9},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"aq" = (/obj/machinery/atmospherics/pipe/simple/visible{dir = 9; icon_state = "intact"},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "ar" = (/obj/machinery/atmospherics/pipe/simple/visible,/obj/machinery/door/airlock/external{frequency = 1379; icon_state = "door_locked"; id_tag = "pirate_station_3_inner3"; locked = 1; name = "Engineering External Access"; req_access = list("ACCESS_EXTERNAL")},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "as" = (/obj/machinery/door/airlock/external{frequency = 1379; icon_state = "door_locked"; id_tag = "pirate_station_3_inner3"; locked = 1; name = "Engineering External Access"; req_access = list("ACCESS_EXTERNAL")},/obj/random/trash,/turf/simulated/floor,/area/spacestations/pirate/station)
 "at" = (/obj/random/trash,/obj/machinery/atmospherics/pipe/simple/visible,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
@@ -24,7 +21,7 @@
 "ax" = (/obj/structure/closet/crate,/obj/random/smokes,/turf/simulated/floor,/area/spacestations/pirate/station)
 "ay" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/turf/simulated/floor,/area/spacestations/pirate/station)
 "az" = (/obj/structure/closet/crate,/obj/random/tool,/obj/random/tool,/obj/random/toolbox,/obj/random/tech_supply,/obj/random/medical,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
-"aA" = (/obj/structure/largecrate,/obj/random/junk,/obj/random/junk,/obj/random/junk,/obj/random/storage,/obj/random/medical,/obj/random/ammo_magazine_smug,/obj/item/ammo_casing/musket/flintlock,/obj/machinery/light/small/red{icon_state = "firelight1"; dir = 4},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"aA" = (/obj/structure/largecrate,/obj/random/junk,/obj/random/junk,/obj/random/junk,/obj/random/storage,/obj/random/medical,/obj/random/ammo_magazine_smug,/obj/item/ammo_casing/musket/flintlock,/obj/machinery/light/small/red{dir = 4; icon_state = "firelight1"},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "aB" = (/obj/machinery/portable_atmospherics/canister/air,/obj/machinery/atmospherics/portables_connector,/turf/simulated/floor,/area/spacestations/pirate/station)
 "aC" = (/turf/simulated/floor,/area/spacestations/pirate/station)
 "aD" = (/obj/structure/bed/nice,/turf/simulated/floor,/area/spacestations/pirate/station)
@@ -34,36 +31,36 @@
 "aH" = (/obj/random/trash,/turf/simulated/floor,/area/spacestations/pirate/station)
 "aI" = (/obj/machinery/atmospherics/pipe/simple/visible{dir = 5},/turf/simulated/floor,/area/spacestations/pirate/station)
 "aJ" = (/obj/item/weapon/table_parts,/obj/machinery/atmospherics/pipe/manifold/visible,/turf/simulated/floor,/area/spacestations/pirate/station)
-"aK" = (/obj/machinery/door/airlock/engineering{icon_state = "closed"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible{dir = 4},/turf/simulated/floor,/area/spacestations/pirate/station)
+"aK" = (/obj/machinery/door/airlock/engineering{dir = 1; icon_state = "closed"},/obj/machinery/atmospherics/pipe/simple/visible{dir = 4},/turf/simulated/floor,/area/spacestations/pirate/station)
 "aL" = (/obj/item/stack/tile/floor,/turf/simulated/floor,/area/spacestations/pirate/station)
 "aM" = (/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
-"aN" = (/obj/machinery/door/airlock/engineering{icon_state = "closed"; dir = 1},/turf/simulated/floor,/area/spacestations/pirate/station)
+"aN" = (/obj/machinery/door/airlock/engineering{dir = 1; icon_state = "closed"},/turf/simulated/floor,/area/spacestations/pirate/station)
 "aO" = (/obj/effect/urist/triggers/away_ai_landmark/pirate,/turf/simulated/floor,/area/spacestations/pirate/station)
 "aP" = (/obj/structure/hygiene/sink{dir = 1; pixel_y = 16},/obj/item/weapon/storage/mirror{pixel_x = 0; pixel_y = 30},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "aQ" = (/obj/structure/hygiene/shower{dir = 4; icon_state = "shower"; pixel_x = 0},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
-"aR" = (/obj/structure/hygiene/shower{icon_state = "shower"; dir = 8},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
+"aR" = (/obj/structure/hygiene/shower{dir = 8; icon_state = "shower"},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "aS" = (/obj/random/smokes,/turf/simulated/floor,/area/spacestations/pirate/station)
-"aT" = (/obj/structure/bed/nice,/obj/machinery/light/small/red{icon_state = "firelight1"; dir = 4},/obj/item/weapon/bedsheet,/obj/structure/curtain/open/bed,/turf/simulated/floor,/area/spacestations/pirate/station)
+"aT" = (/obj/structure/bed/nice,/obj/machinery/light/small/red{dir = 4; icon_state = "firelight1"},/obj/item/weapon/bedsheet,/obj/structure/curtain/open/bed,/turf/simulated/floor,/area/spacestations/pirate/station)
 "aU" = (/obj/machinery/atmospherics/pipe/simple/visible,/obj/item/stack/tile/floor,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "aV" = (/obj/structure/hygiene/shower{dir = 4; icon_state = "shower"; pixel_x = 0},/obj/random/trash,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
-"aW" = (/obj/machinery/cryopod{icon_state = "body_scanner_0"; dir = 2},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
+"aW" = (/obj/machinery/cryopod{dir = 2; icon_state = "body_scanner_0"},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "aX" = (/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
-"aY" = (/obj/machinery/cryopod{icon_state = "body_scanner_0"; dir = 2},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
+"aY" = (/obj/machinery/cryopod{dir = 2; icon_state = "body_scanner_0"},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "aZ" = (/obj/machinery/door/airlock,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "ba" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "bb" = (/obj/item/weapon/towel,/obj/machinery/light/small{dir = 4; pixel_y = 0},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
-"bc" = (/obj/machinery/light{icon_state = "tube1"; dir = 4},/turf/simulated/floor,/area/spacestations/pirate/station)
+"bc" = (/obj/machinery/light{dir = 4; icon_state = "tube1"},/turf/simulated/floor,/area/spacestations/pirate/station)
 "bd" = (/obj/random/trash,/obj/effect/urist/triggers/away_ai_landmark/pirate,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
-"be" = (/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
+"be" = (/obj/structure/extinguisher_cabinet{dir = 8; icon_state = "extinguisher_closed"; pixel_x = 30},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "bf" = (/obj/random/trash,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bg" = (/obj/item/weapon/table_parts,/turf/simulated/floor,/area/spacestations/pirate/station)
-"bh" = (/obj/structure/catwalk,/obj/machinery/power/port_gen/pacman/super,/obj/structure/cable{icon_state = "0-4"; d2 = 4},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
-"bi" = (/obj/structure/catwalk,/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"; tag = ""},/obj/machinery/light/small/red{icon_state = "firelight1"; dir = 4},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"bh" = (/obj/structure/catwalk,/obj/machinery/power/port_gen/pacman/super,/obj/structure/cable{d2 = 4; icon_state = "0-4"},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"bi" = (/obj/structure/catwalk,/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"; tag = ""},/obj/machinery/light/small/red{dir = 4; icon_state = "firelight1"},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "bj" = (/obj/structure/hygiene/sink{dir = 4; icon_state = "sink"; pixel_x = 11; pixel_y = 0},/obj/item/weapon/storage/mirror{pixel_x = 30},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "bk" = (/obj/structure/hygiene/shower{dir = 4; icon_state = "shower"; pixel_x = 0},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
-"bl" = (/obj/structure/hygiene/shower{icon_state = "shower"; dir = 8},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
-"bm" = (/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/obj/random/junk,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
-"bn" = (/obj/machinery/cryopod{icon_state = "body_scanner_0"; dir = 4},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
+"bl" = (/obj/structure/hygiene/shower{dir = 8; icon_state = "shower"},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
+"bm" = (/obj/structure/extinguisher_cabinet{dir = 8; icon_state = "extinguisher_closed"; pixel_x = 30},/obj/random/junk,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
+"bn" = (/obj/machinery/cryopod{dir = 4; icon_state = "body_scanner_0"},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "bo" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "bp" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6; icon_state = "intact-supply"; tag = "icon-intact-supply (SOUTHEAST)"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 10},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "bq" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
@@ -71,16 +68,16 @@
 "bs" = (/obj/machinery/light/small{dir = 4; pixel_y = 0},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bt" = (/obj/structure/catwalk,/obj/machinery/power/apc{cell_type = /obj/item/weapon/cell/infinite; dir = 8; icon_state = "apc0"; pixel_x = -9},/obj/structure/cable{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "bu" = (/obj/structure/closet/emcloset,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
-"bv" = (/obj/machinery/door/airlock/engineering{icon_state = "closed"; dir = 1},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
+"bv" = (/obj/machinery/door/airlock/engineering{dir = 1; icon_state = "closed"},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bw" = (/obj/random/junk,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
-"bx" = (/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor,/area/spacestations/pirate/station)
+"bx" = (/obj/structure/extinguisher_cabinet{dir = 8; icon_state = "extinguisher_closed"; pixel_x = 30},/turf/simulated/floor,/area/spacestations/pirate/station)
 "by" = (/obj/item/device/radio/intercom{dir = 8; pixel_x = 22},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bz" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "bA" = (/obj/item/weapon/broken_bottle,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "bB" = (/obj/machinery/cryopod,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
-"bC" = (/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
+"bC" = (/obj/structure/extinguisher_cabinet{dir = 8; icon_state = "extinguisher_closed"; pixel_x = 30},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bD" = (/obj/machinery/power/smes/buildable,/obj/structure/cable,/turf/simulated/floor/tiled/dark,/area/spacestations/pirate/station)
-"bE" = (/obj/structure/catwalk,/obj/machinery/power/terminal{icon_state = "term"; dir = 8},/obj/structure/cable,/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"bE" = (/obj/structure/catwalk,/obj/machinery/power/terminal{dir = 8; icon_state = "term"},/obj/structure/cable,/obj/structure/extinguisher_cabinet{dir = 8; icon_state = "extinguisher_closed"; pixel_x = 30},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "bF" = (/obj/machinery/light/small{dir = 4; pixel_y = 0},/turf/simulated/floor,/area/spacestations/pirate/station)
 "bG" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open/bed,/turf/simulated/floor,/area/spacestations/pirate/station)
 "bH" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
@@ -97,20 +94,18 @@
 "bS" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open/bed,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bT" = (/obj/machinery/door/airlock/glass/civilian,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bU" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
-"bV" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/machinery/door/airlock,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"bV" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/door/airlock,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "bW" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9; icon_state = "intact-supply"; tag = "icon-intact-supply (NORTHWEST)"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 10},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "bX" = (/obj/item/device/radio/intercom{dir = 8; pixel_x = 22},/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open/bed,/turf/simulated/floor,/area/spacestations/pirate/station)
 "bY" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
-"bZ" = (/obj/machinery/sleeper{dir = 8},/obj/effect/floor_decal/industrial/outline/blue,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
+"bZ" = (/obj/machinery/sleeper{dir = 8},/obj/effect/floor_decal/industrial/outline/blue,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/obj/structure/extinguisher_cabinet{dir = 8; icon_state = "extinguisher_closed"; pixel_x = 30},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "ca" = (/obj/random/junk,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
-"cb" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
-"cc" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/effect/wallframe_spawn/reinforced/hull,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"cb" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "cd" = (/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
-"ce" = (/obj/random/trash,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
-"cf" = (/obj/random/junk,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"ce" = (/obj/random/trash,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"cf" = (/obj/random/junk,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "cg" = (/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 1},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 1; icon_state = "map-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
-"ch" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/structure/catwalk,/obj/structure/closet/emcloset,/turf/simulated/floor,/area/spacestations/pirate/station)
-"ci" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/effect/wallframe_spawn/reinforced/hull,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"ch" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/obj/structure/closet/emcloset,/turf/simulated/floor,/area/spacestations/pirate/station)
 "cj" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9; icon_state = "intact-supply"; tag = "icon-intact-supply (NORTHWEST)"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "ck" = (/obj/structure/closet/crate,/obj/random/smokes,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cl" = (/obj/machinery/microwave{pixel_x = -3; pixel_y = 6},/obj/structure/table/reinforced,/obj/effect/floor_decal/corner/blue/three_quarters{dir = 8},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
@@ -122,7 +117,7 @@
 "cr" = (/obj/machinery/light,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cs" = (/obj/structure/closet/crate,/obj/random/smokes,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "ct" = (/obj/structure/closet/emcloset,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
-"cu" = (/obj/machinery/atmospherics/pipe/manifold/hidden/supply{icon_state = "map-supply"; dir = 8},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 4; icon_state = "map-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"cu" = (/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 8; icon_state = "map-supply"},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 4; icon_state = "map-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "cv" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cw" = (/obj/machinery/light,/turf/simulated/floor,/area/spacestations/pirate/station)
 "cx" = (/obj/random/junk,/obj/machinery/door/airlock/glass/civilian,/turf/simulated/floor,/area/spacestations/pirate/station)
@@ -130,15 +125,14 @@
 "cz" = (/obj/item/weapon/broken_bottle,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cA" = (/obj/effect/landmark/scom/bomb/boarding/pirate_station,/turf/simulated/wall,/area/spacestations/pirate/station)
 "cB" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/random/junk,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
-"cC" = (/obj/machinery/light{icon_state = "tube1"; dir = 4},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
+"cC" = (/obj/machinery/light{dir = 4; icon_state = "tube1"},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cD" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/door/airlock,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
-"cE" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/door/airlock/engineering{icon_state = "closed"; dir = 1},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
-"cF" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/door/airlock/engineering{icon_state = "closed"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
-"cG" = (/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/obj/structure/closet/crate,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
-"cH" = (/obj/effect/step_trigger/teleporter{affect_ghosts = 1; teleport_z = 6},/turf/unsimulated/mineral,/area/space)
+"cE" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/door/airlock/engineering{dir = 1; icon_state = "closed"},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"cF" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/door/airlock/engineering{dir = 1; icon_state = "closed"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"cG" = (/obj/structure/extinguisher_cabinet{dir = 8; icon_state = "extinguisher_closed"; pixel_x = 30},/obj/structure/closet/crate,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cI" = (/obj/effect/floor_decal/corner/blue{dir = 9},/obj/machinery/computer,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cJ" = (/obj/effect/floor_decal/corner/blue{dir = 4},/obj/machinery/atmospherics/unary/vent_pump/on,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
-"cK" = (/obj/machinery/light{icon_state = "tube1"; dir = 4},/obj/machinery/papershredder,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
+"cK" = (/obj/machinery/light{dir = 4; icon_state = "tube1"},/obj/machinery/papershredder,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cL" = (/obj/structure/table/rack,/obj/random/toolbox,/obj/random/material,/obj/random/tool,/turf/simulated/floor/tiled/steel_grid,/area/spacestations/pirate/station)
 "cM" = (/obj/random/material,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/spacestations/pirate/station)
 "cN" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9; pixel_y = 0},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
@@ -153,13 +147,13 @@
 "cW" = (/obj/structure/bed/chair/office/dark,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cX" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/obj/structure/catwalk,/obj/effect/urist/triggers/away_ai_landmark/pirate,/turf/simulated/floor,/area/spacestations/pirate/station)
 "cY" = (/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 1},/obj/machinery/atmospherics/pipe/manifold/hidden/supply,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
-"cZ" = (/obj/structure/bed/chair/office/dark,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"cZ" = (/obj/structure/bed/chair/office/dark,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "da" = (/obj/structure/table/rack,/obj/random/tool,/obj/random/tool,/obj/random/tool,/obj/random/smokes,/turf/simulated/floor/tiled/steel_grid,/area/spacestations/pirate/station)
 "db" = (/obj/random/junk,/turf/simulated/floor/tiled/steel_grid,/area/spacestations/pirate/station)
 "dc" = (/turf/simulated/floor/tiled/steel_grid,/area/spacestations/pirate/station)
 "dd" = (/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
 "de" = (/obj/random/material,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
-"df" = (/obj/machinery/atmospherics/pipe/manifold/hidden/supply{icon_state = "map-supply"; dir = 8},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 4; icon_state = "map-scrubbers"},/obj/structure/catwalk,/obj/effect/urist/triggers/away_ai_landmark/pirate,/turf/simulated/floor,/area/spacestations/pirate/station)
+"df" = (/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 8; icon_state = "map-supply"},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 4; icon_state = "map-scrubbers"},/obj/structure/catwalk,/obj/effect/urist/triggers/away_ai_landmark/pirate,/turf/simulated/floor,/area/spacestations/pirate/station)
 "dg" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
 "dh" = (/obj/machinery/atmospherics/valve,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
 "di" = (/obj/machinery/atmospherics/valve,/obj/item/device/radio/intercom{dir = 8; pixel_x = 22},/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
@@ -175,7 +169,7 @@
 "ds" = (/obj/random/junk,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
 "dt" = (/obj/random/material,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
 "du" = (/obj/machinery/atmospherics/trinary/mixer/m_mixer,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
-"dv" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/green{icon_state = "intact"; dir = 9},/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"dv" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/green{dir = 9; icon_state = "intact"},/obj/structure/extinguisher_cabinet{dir = 8; icon_state = "extinguisher_closed"; pixel_x = 30},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "dw" = (/obj/item/weapon/material/shard,/turf/simulated/floor,/area/spacestations/pirate/station)
 "dx" = (/obj/random/tank,/turf/simulated/floor,/area/spacestations/pirate/station)
 "dy" = (/obj/random/tank,/obj/structure/closet/crate,/obj/item/weapon/material/shard{icon_state = "small"},/obj/item/weapon/material/shard{icon_state = "small"},/obj/random/junk,/turf/simulated/floor,/area/spacestations/pirate/station)
@@ -188,17 +182,15 @@
 "dF" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "dG" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9; pixel_y = 0},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "dH" = (/obj/structure/catwalk,/obj/machinery/alarm{dir = 8; pixel_x = 25; pixel_y = 0},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
-"dI" = (/obj/machinery/door/airlock/engineering{icon_state = "closed"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/universal,/turf/simulated/floor,/area/spacestations/pirate/station)
-"dJ" = (/obj/machinery/light/small/red{icon_state = "firelight1"; dir = 4},/turf/simulated/floor,/area/spacestations/pirate/station)
+"dI" = (/obj/machinery/door/airlock/engineering{dir = 1; icon_state = "closed"},/obj/machinery/atmospherics/pipe/simple/visible/universal,/turf/simulated/floor,/area/spacestations/pirate/station)
+"dJ" = (/obj/machinery/light/small/red{dir = 4; icon_state = "firelight1"},/turf/simulated/floor,/area/spacestations/pirate/station)
 "dK" = (/obj/item/weapon/broken_bottle,/turf/simulated/floor,/area/spacestations/pirate/station)
 "dL" = (/obj/machinery/atmospherics/pipe/simple/visible/green,/turf/simulated/floor,/area/spacestations/pirate/station)
 "dM" = (/obj/machinery/atmospherics/pipe/simple/visible/green,/turf/simulated/wall,/area/spacestations/pirate/station)
 "dN" = (/obj/machinery/atmospherics/unary/outlet_injector{dir = 1; injecting = 1; use_power = 1},/turf/simulated/floor/reinforced/airless,/area/spacestations/pirate/exterior)
-"dO" = (/obj/effect/landmark/random_gen/asteroid,/turf/unsimulated/wall/urist/other/border,/area/space)
-"dP" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/structure/catwalk,/obj/effect/overmap/sector/station/hostile/pirate,/turf/simulated/floor,/area/spacestations/pirate/station)
-"dQ" = (/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/obj/structure/ladder,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
+"dP" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/obj/effect/overmap/sector/station/hostile/pirate,/turf/simulated/floor,/area/spacestations/pirate/station)
+"dQ" = (/obj/structure/extinguisher_cabinet{dir = 8; icon_state = "extinguisher_closed"; pixel_x = 30},/obj/structure/ladder,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "dR" = (/turf/simulated/open,/area/spacestations/pirate/station)
-"dS" = (/obj/effect/landmark/map_data{height = 2},/turf/space,/area/space)
 "dT" = (/obj/structure/shipweapons/hardpoint/attached,/obj/machinery/shipweapons/beam/heavylaser,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
 "dU" = (/obj/machinery/atmospherics/pipe/simple/visible,/obj/structure/catwalk,/obj/random/junk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "dV" = (/obj/structure/table/rack,/obj/random/tool,/obj/random/material,/obj/random/toolbox,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
@@ -215,106 +207,113 @@
 "eg" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/catwalk,/obj/effect/landmark/scom/bomb/boarding/pirate_station,/turf/simulated/floor,/area/spacestations/pirate/station)
 "eh" = (/obj/effect/landmark/scom/bomb/boarding/pirate_station,/turf/simulated/floor,/area/spacestations/pirate/station)
 "ei" = (/obj/effect/floor_decal/corner/blue{dir = 9},/obj/structure/boarding/self_destruct/station/pirate,/obj/effect/landmark/scom/bomb/boarding/pirate_station,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
+"fm" = (/turf/null,/area/space)
+"mk" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/effect/wallframe_spawn/reinforced/hull,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/turf/simulated/floor,/area/spacestations/pirate/station)
+"zi" = (/obj/effect/landmark/random_gen/asteroid,/turf/unsimulated/wall/urist/other/border,/area/mine/unexplored)
+"Bg" = (/obj/effect/step_trigger/teleporter{affect_ghosts = 1; teleport_z = 6},/turf/unsimulated/mineral,/area/mine/unexplored)
+"EM" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/effect/wallframe_spawn/reinforced/hull,/turf/simulated/floor,/area/spacestations/pirate/station)
+"Fc" = (/turf/unsimulated/wall/urist/other/border,/area/mine/unexplored)
+"Yd" = (/obj/effect/landmark/map_data{height = 2},/turf/null,/area/space)
 
 (1,1,1) = {"
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafagafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadafafafafafafafafafafafafafafakananakahafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadafafafafafafafafafafafafafafanaoaoaialafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadadadafafafafafafafafafafafafafafakapaqaiahafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadadafafafafafafafafafafafafafafafakarasakajafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafakatauakafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafakavaLakafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafakavaMakafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafakavaMakafafakakakanananakamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafakaUaMakafafakbuddbKddddanamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafakavaCakakakakddawaCdTddanamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadafafafafafafafafafamamamamamamamamakdUaLcAdVdWdXdYdZddddddanamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadafafafafafafafafamamamamamamamamakavaMbvdZaCddddaLddeaddanamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadafafafafafafafamakakakakakakakakakavbwakakakakakakakakakakakamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadafafafafafafafakakaxayazaAakaBaBakaUbJakaDaEaFaGakakaCcAakakakakakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadafafafafafafafakaCaCaCaHaCaCaIaJaKaqaMaNaCaHaOaCaCaCawakaPakaQaRakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadafafafafafakakakaNakakakakaNakakakebaMakaCawaSaTakaNakakecakaVaRakamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadafafafafamakaMaMaMaMakaWaWaXaYaWcAebaLakaCakakakakaMaMaZbaaZbabbakamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadafafafafamakaMaCbJbcakaXaXbdaXbeakebbfakbgakbhbiakaCaCakbjakbkblakamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadafafafafamakaMbfaMdQakbnbobpbqbrakebbsakaCakbtedbvbwbxakakakakakakamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadamamamamamakaMaCbwbyakbnaXegbAbBakebbCakaCakbDbEakaMbFakbGbHbGbIakamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadamakakakakakdRdRaMaMakakakbzakakakeeaMakaNakakakakbJaMakbLaMbwaGakamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadamamamakbMbNbOakdRdRaMaCbPaMbfbzbQbRbSebaCaMaMbJaMaMbTaCbUbVbWaMaMbXakamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadamamakakbMbYbZakcacbcbcbcccbcbcdcbcbcbcedPcfcgcbcbchcicbcjakckbJbfaxakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadamamanclcmcncoakbzaMaMaMbTcpaCcqcrbJehaMcsctcucvaMcwcxbfbmakcyaMczbGakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadamamaneiaMcBcCakcDakakaNakakakcEakakakakakakcFakakakakaMaMakbIaCaMcGakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadamamancIbfcqcJaMbzcKakaCakcLcMcNcOcPakcQcRcSbzcTcUcVakaMctakcyaMcrbGakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadamamancIcWcXcYcZcjaMaNaCakdaaCdbaCdcdcddaCdedfdgdhdiakaNakakakaNakakakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadamamandjdkdldmdndodpakaCakdqdcaOdrdcefdddddddsdtdudvakaCaCdwaCaCdxdyakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadamamakananananakcAakakaHakdzaCdcdAdBakdCdCdDdEdFdGdHakaCakakakakakakakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadamamamamamamamamamamakaCakakakaNakakakakakakdIakakakakdJakamamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadamamamamamamamamamamakaCaCdKdwaCaCaCawaHaCaCdLaCaOawaHaCakamadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadamamamamamamamamamamakakakakakakakcAakakakakdMakakakakakakamadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadamamamamamamamamamamamamamamamamamamamamamamdNamamamamamamamadadadadadadadadadadadadadadadadafafafafafafafafafafadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadamamamamamamamamamamadadadadadamamamamamamamamadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadamamamamamamamamamamadadadadadamamamamamamamamadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadamamamamamamamamamamadadadadadamamamamamamamamadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaadOababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-dSaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafagafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadafafafafafafafafafafafafafafakananakahafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadafafafafafafafafafafafafafafanaoaoaialafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadadafafafafafafafafafafafafafafakapaqaiahafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadadafafafafafafafafafafafafafafafakarasakajafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadafafafafafafafafafafafafafafafafafakatauakafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadafafafafafafafafafafafafafafafafafakavaLakafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadafafafafafafafafafafafafafafafafafakavaMakafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadafafafafafafafafafafafafafafafafafakavaMakafafakakakanananakamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadafafafafafafafafafafafafafafafafafakaUaMakafafakbuddbKddddanamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadafafafafafafafafafafafafafafafafafakavaCakakakakddawaCdTddanamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadafafafafafafafafafamamamamamamamamakdUaLcAdVdWdXdYdZddddddanamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadafafafafafafafafamamamamamamamamakavaMbvdZaCddddaLddeaddanamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadafafafafafafafamakakakakakakakakakavbwakakakakakakakakakakakamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadafafafafafafafakakaxayazaAakaBaBakaUbJakaDaEaFaGakakaCcAakakakakakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadafafafafafafafakaCaCaCaHaCaCaIaJaKaqaMaNaCaHaOaCaCaCawakaPakaQaRakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadafafafafafakakakaNakakakakaNakakakebaMakaCawaSaTakaNakakecakaVaRakamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadafafafafamakaMaMaMaMakaWaWaXaYaWcAebaLakaCakakakakaMaMaZbaaZbabbakamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadafafafafamakaMaCbJbcakaXaXbdaXbeakebbfakbgakbhbiakaCaCakbjakbkblakamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadafafafafamakaMbfaMdQakbnbobpbqbrakebbsakaCakbtedbvbwbxakakakakakakamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadamamamamamakaMaCbwbyakbnaXegbAbBakebbCakaCakbDbEakaMbFakbGbHbGbIakamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadadadamakakakakakdRdRaMaMakakakbzakakakeeaMakaNakakakakbJaMakbLaMbwaGakamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadamamamakbMbNbOakdRdRaMaCbPaMbfbzbQbRbSebaCaMaMbJaMaMbTaCbUbVbWaMaMbXakamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadamamakakbMbYbZakcacbcbcbEMcbcbcdcbcbcbcedPcfcgcbcbchmkcbcjakckbJbfaxakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadamamanclcmcncoakbzaMaMaMbTcpaCcqcrbJehaMcsctcucvaMcwcxbfbmakcyaMczbGakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcaeadadadadadadadamamaneiaMcBcCakcDakakaNakakakcEakakakakakakcFakakakakaMaMakbIaCaMcGakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadamamancIbfcqcJaMbzcKakaCakcLcMcNcOcPakcQcRcSbzcTcUcVakaMctakcyaMcrbGakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadamamancIcWcXcYcZcjaMaNaCakdaaCdbaCdcdcddaCdedfdgdhdiakaNakakakaNakakakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadamamandjdkdldmdndodpakaCakdqdcaOdrdcefdddddddsdtdudvakaCaCdwaCaCdxdyakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadamamakananananakcAakakaHakdzaCdcdAdBakdCdCdDdEdFdGdHakaCakakakakakakakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadamamamamamamamamamamakaCakakakaNakakakakakakdIakakakakdJakamamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadamamamamamamamamamamakaCaCdKdwaCaCaCawaHaCaCdLaCaOawaHaCakamadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadamamamamamamamamamamakakakakakakakcAakakakakdMakakakakakakamadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadamamamamamamamamamamamamamamamamamamamamamamdNamamamamamamamadadadadadadadadadadadadadadadadafafafafafafafafafafadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadamamamamamamamamamamadadadadadamamamamamamamamadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadamamamamamamamamamamadadadadadamamamamamamamamadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadamamamamamamamamamamadadadadadamamamamamamamamadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmFcBgaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmziFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcFcfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+fmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
+Ydfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfmfm
 "}
