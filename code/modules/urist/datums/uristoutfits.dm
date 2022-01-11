@@ -97,19 +97,6 @@
 	id_slot = slot_wear_id
 	id_type = /obj/item/weapon/card/id/centcom/station
 
-/decl/hierarchy/outfit/wizard/dresden
-	name = "Wizard - PI"
-	uniform = /obj/item/clothing/under/urist/dresden
-	head = /obj/item/clothing/head/wizard/urist/dresdendora
-	suit = /obj/item/clothing/suit/wizrobe/urist/dresden
-	shoes = /obj/item/clothing/shoes/sandal/marisa
-
-/decl/hierarchy/outfit/wizard/necro
-	name = "Wizard - Necromancer"
-	uniform = /obj/item/clothing/under/color/black
-	head = /obj/item/clothing/head/wizard/urist/necro
-	suit = /obj/item/clothing/suit/wizrobe/urist/necro
-	shoes = /obj/item/clothing/shoes/sandal/marisa
 
 //electrician
 

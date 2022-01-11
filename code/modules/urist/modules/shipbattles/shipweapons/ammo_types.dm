@@ -49,7 +49,7 @@
 				"<span class='notice'>You insert the torpedo warhead into the torpedo casing, arming the torpedo.</span>"
 			)
 		else
-			to_chat("<span class='notice'>This torpedo already has a warhead in it!</span>")
+			to_chat(user, "<span class='notice'>This torpedo already has a warhead in it!</span>")
 
 	else if(isCrowbar(I))
 		if(warhead)
