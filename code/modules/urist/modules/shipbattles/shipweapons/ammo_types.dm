@@ -1,5 +1,4 @@
 //shipweapon ammo, moved from ammo_weapons.dm
-
 /obj/structure/shipammo
 	var/load_amount = 1 //how much ammo do we give
 	var/shield_damage = 0 //we transfer these damage values to the weapon we're using
@@ -9,8 +8,7 @@
 	density = 0
 	anchored = 0
 
-.//torpedo ammo
-
+//torpedo ammo
 /obj/structure/shipammo/torpedo //torpedos are slightly different for now because of the building process. so the damage stats are stored in the warhead and transferred to the ammo once it's put together.
 	name = "torpedo casing" //future ammo types will be more simple, thankfully
 	icon = 'resources/icons/urist/items/ship_projectiles48x48.dmi' //but for now torpedos are special little guys
@@ -46,14 +44,20 @@
 			name = "[warhead.ammo_name] torpedo"
 			desc = "A large torpedo used in ship-to-ship weaponry. It is loaded with a [warhead.name]."
 
-			user << "<span class='notice'>You insert the torpedo warhead into the torpedo casing, arming the torpedo.</span>" //torpedo
-
+			user.visible_message(
+				"<span class='notice'>[user] inserts the torpedo warhead into the torpedo casing, arming the torpedo.</span>"
+				"<span class='notice'>You insert the torpedo warhead into the torpedo casing, arming the torpedo.</span>"
+			)
 		else
-			user << "<span class='notice'>This torpedo already has a warhead in it!</span>" //torpedo
+			to_chat("<span class='notice'>This torpedo already has a warhead in it!</span>")
 
 	else if(isCrowbar(I))
 		if(warhead)
 			warhead.dropInto(loc)
+			user.visible_message(
+				"<span class='notice'>[user] removes the torpedo warhead from \the [src].</span>"
+				"<span class='notice'>You remove the torpedo warhead.</span>"
+			)
 			to_chat(user, "<span class='notice'>You remove the torpedo warhead.</span>")
 			name = initial(name)
 			desc = initial(desc)

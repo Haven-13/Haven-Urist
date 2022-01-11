@@ -1,5 +1,9 @@
 GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768))
 
+#define HAS_FLAG(f, v) (f & (v))
+#define HAS_ALL_FLAGS(f, v) ((f & (v)) == (v))
+#define IS_FLAG(f, v) (f == (v))
+
 #define ALL (~0)
 #define NONE 0
 

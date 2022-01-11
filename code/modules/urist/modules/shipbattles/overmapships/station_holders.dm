@@ -1,7 +1,5 @@
 //holder objects for station battles, and other stuff for stations
 
-/
-
 /mob/living/simple_animal/hostile/overmapship/station_holder
 	wander = 0
 	icon_state = null

@@ -1,8 +1,3 @@
-#define RECHARGING	0x1
-#define CHARGED		0x2
-#define FIRING		0x4
-#define NO_AMMO		0x8
-
 /obj/machinery/shipweapons
 	name = "shipweapon"
 	idle_power_usage = 10
@@ -36,15 +31,15 @@
 	update_icon()
 
 /obj/machinery/shipweapons/Process()
-	if(!status & (CHARGED|RECHARGING))
+	if(!(HAS_FLAG(status, (CHARGED|RECHARGING))))
 		Charging()
 
 	..()
 
 /obj/machinery/shipweapons/proc/Charging() //maybe do this with powercells
-	if(stat & (BROKEN|NOPOWER))
+	if(HAS_FLAG(stat, (BROKEN|NOPOWER)))
 		return
-	if(status & FIRING)	//If we're firing, we shouldn't recharge until it's done.
+	if(HAS_FLAG(status, FIRING))	//If we're firing, we shouldn't recharge until it's done.
 		return
 
 	status |= RECHARGING
@@ -65,7 +60,7 @@
 
 	status &= ~FIRING	//If power was lost mid-fire, let's reset the flag so status updates correctly
 
-	if(!status & (CHARGED|RECHARGING)) //if we're not charged, we'll try charging when the power changes. that way, if the power is off, and we didn't charge, we'll try again when it comes on
+	if(!(HAS_FLAG(status, (CHARGED|RECHARGING)))) //if we're not charged, we'll try charging when the power changes. that way, if the power is off, and we didn't charge, we'll try again when it comes on
 		Charging()
 
 /obj/machinery/shipweapons/attack_hand(mob/user as mob) //we can fire it by hand in a pinch
@@ -79,7 +74,7 @@
 					if(status == CHARGED) //just in case, we check again
 						user << "<span class='warning'>You fire the [src.name].</span>"
 						Fire()
-					else if(!status & CHARGED)
+					else if(!(HAS_FLAG(status, CHARGED)))
 						user << "<span class='warning'>The [src.name] needs to charge!</span>"
 
 
@@ -90,7 +85,7 @@
 		else
 			user << "<span class='warning'>There is nothing to shoot at...</span>"
 
-	else if(!status & CHARGED)
+	else if(!HAS_FLAG(status, CHARGED))
 		user << "<span class='warning'>The [src.name] needs to charge!</span>"
 
 	else if(!target)
@@ -105,7 +100,7 @@
 		ConnectWeapons()
 		return FALSE
 
-	if(status == CHARGED && !(stat & BROKEN))		//If any flags other than CHARGED is set, we shouldn't be able to fire.
+	if(status == CHARGED && !(HAS_FLAG(stat, BROKEN)))		//If any flags other than CHARGED is set, we shouldn't be able to fire.
 		status |= FIRING
 
 		playsound(src, fire_sound, 40, 1)
@@ -264,13 +259,13 @@
 
 /obj/machinery/shipweapons/update_icon()
 	..()
-	if(status & CHARGED)
+	if(HAS_FLAG(status, CHARGED))
 		icon_state = "[initial(icon_state)]-charged"
 
-	if(status & RECHARGING)
+	if(HAS_FLAG(status, RECHARGING))
 		icon_state = "[initial(icon_state)]-charging"
 
-	if(!status & (CHARGED|RECHARGING))
+	if(!HAS_FLAG(status, (CHARGED|RECHARGING)))
 		icon_state = "[initial(icon_state)]-empty"
 
 /obj/machinery/shipweapons/proc/MapFire()
@@ -299,15 +294,15 @@
 				homeship = C
 
 /obj/machinery/shipweapons/proc/getStatusString()
-	if(status & FIRING)
+	if(HAS_FLAG(status, FIRING))
 		return "Firing"
-	if(stat & BROKEN)
+	if(HAS_FLAG(stat, BROKEN))
 		return "Destroyed"
-	if(status & RECHARGING)
+	if(HAS_FLAG(status, RECHARGING))
 		return "Recharging"
-	if(!status & (CHARGED|RECHARGING))
+	if(!HAS_FLAG(status, (CHARGED|RECHARGING)))
 		return "Unable to Fire"
-	if(status & NO_AMMO)	//Let the crew know when we're running dry so we can yell at cargo
+	if(HAS_FLAG(status, NO_AMMO))	//Let the crew know when we're running dry so we can yell at cargo
 		return "Out of Ammo"
 
 	return "Ready to Fire"
@@ -338,8 +333,3 @@
 
 /obj/machinery/shipweapons/emp_act()
 	return
-
-#undef RECHARGING
-#undef CHARGED
-#undef FIRING
-#undef NO_AMMO

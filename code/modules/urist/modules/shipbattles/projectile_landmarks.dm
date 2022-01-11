@@ -30,18 +30,13 @@
 
 	var/target_x = rand(mothership.target_x_bounds[1],mothership.target_x_bounds[2])
 	var/target_y = rand(mothership.target_y_bounds[1],mothership.target_y_bounds[2])
-//	var/turf/T = get_turf(src)
-
-//	message_admins("An enemy ship has fired a [P.name] at the ship targeting <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target_x];Y=[target_y];Z=[src.z]'>(JMP)</a>.", 1)
+	//message_admins("An enemy ship has fired a [P.name] at the ship targeting <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target_x];Y=[target_y];Z=[src.z]'>(JMP)</a>.", 1)
 
 	P.loc = (get_turf(src.loc))
 
 	var/turf/target = locate(target_x, target_y, src.z)
 
 	P.launch(target)
-
-//	P.redirect(target_x, target_y, T)
-	//world << "\red \b Projectile fired."
 
 /obj/effect/urist/projectile_landmark/target
 	fire_type = 2
