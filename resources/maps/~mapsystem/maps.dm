@@ -188,16 +188,16 @@ GLOBAL_LIST_EMPTY(all_maps)
 	var/obj/machinery/emergency_beacon/active_beacon
 	var/list/blacklisted_programs = list()
 
-//below this is all Nerva stuff
+//below this is all Urist stuff for Nerva
 
-	var/date_offset = 0 //default date offset
-	var/using_new_cargo = FALSE //for nerva
-	var/new_cargo_inflation = 1 //used to calculate how much points are now. this needs balancing
-	var/nanotrasen_relations = 100 //used to determine if nt hates you
-	var/terran_confederacy_relations = 50 //used to determine if the tc hates you
-	var/list/contracts = list()
-	var/obj/effect/overmap/ship/combat/overmap_ship = null
-	var/completed_contracts = 0
+	var/date_offset = 0 //date offset from the present. if you don't change this, the game year will default to 2556
+	var/using_new_cargo = FALSE //for nerva //this var inits the stuff related to the contract system, the new trading system, and other misc things including the endround station profit report.
+	var/new_cargo_inflation = 1 //used to calculate how much points are now (original point value multiplied by this number). this needs balancing
+	var/list/contracts = list() //the current active contracts
+	var/obj/effect/overmap/ship/combat/overmap_ship = null //this is for space combat, it is the overmap object used by the main map
+	var/completed_contracts = 0 //this and destroyed_ships are used for endround stats
+	var/destroyed_ships = 0
+	var/datum/factions/trading_faction = null //this is used to determine rep points/bonuses from trading and certain contracts
 
 /datum/map/New()
 	if(!map_levels)

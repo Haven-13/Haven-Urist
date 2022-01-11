@@ -3,9 +3,14 @@
 	desc = "Space faring vessel."
 	icon_state = "ship"
 	moving_state = "ship_moving"
+
+	var/classification = "Ship"			//Let's allow for more detail on comms/consoles
+	var/ship_name = "generic ship"		//So we don't have the descriptor in the ship name
+
 	var/vessel_mass = 100 				//tonnes, arbitrary number, affects acceleration provided by engines
 	var/default_delay = 6 SECONDS 		//time it takes to move to next tile on overmap
 	var/speed_mod = 10					//multiplier for how much ship's speed reduces above time
+
 	var/list/speed = list(0,0)			//speed in x,y direction
 	var/last_burn = 0					//worldtime when ship last acceleated
 	var/burn_delay = 10					//how often ship can do burns

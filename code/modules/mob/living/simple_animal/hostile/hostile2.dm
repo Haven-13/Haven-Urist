@@ -31,6 +31,18 @@
 
 	var/break_stuff_probability = 100
 
+	var/datum/factions/hiddenfaction = null
+
+/mob/living/simple_animal/hostile/Initialize()
+	. = ..()
+
+	if(hiddenfaction)
+		for(var/datum/factions/F in SSfactions.factions)
+			if(F.type == hiddenfaction)
+				hiddenfaction = F
+				if(F.hostile)
+					faction = F.factionid
+
 /mob/living/simple_animal/hostile/Life()
 
 	. = ..()
