@@ -573,9 +573,6 @@
 /turf/simulated/floor/planet/ariddirt/path,
 /area/planet/destroyed_colony)
 "ce" = (
-/obj/structure/synthesized_instrument/synthesizer/piano{
-	anchored = 0
-	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cf" = (
@@ -1022,9 +1019,6 @@
 	},
 /area/planet/destroyed_colony)
 "dK" = (
-/obj/machinery/light/floor{
-	pixel_y = 32
-	},
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "horizontaloutermain0"
 	},
@@ -1924,7 +1918,6 @@
 /area/planet/destroyed_colony)
 "gV" = (
 /obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/light/overhead_blue,
 /turf/simulated/floor/planet/dirt/clear,
 /area/planet/destroyed_colony)
 "gW" = (
@@ -2027,7 +2020,6 @@
 	},
 /area/planet/destroyed_colony)
 "hn" = (
-/obj/machinery/light/overhead_blue,
 /turf/simulated/floor/planet/dirt/clear,
 /area/planet/destroyed_colony)
 "ho" = (

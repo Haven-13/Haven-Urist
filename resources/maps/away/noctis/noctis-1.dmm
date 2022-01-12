@@ -166,7 +166,7 @@
 /obj/structure/table/standard,
 /obj/item/device/multitool,
 /obj/item/weapon/crowbar/prybar,
-/obj/item/weapon/weldingtool/crystal,
+/obj/item/weapon/weldingtool,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/noctis/battery)
@@ -3943,7 +3943,6 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/noctis/combust)
 "he" = (
-/obj/item/clothing/under/carp,
 /turf/simulated/floor/plating,
 /area/noctis/combust)
 "hf" = (
@@ -5058,7 +5057,7 @@
 	dir = 1
 	},
 /obj/structure/bed/chair/padded/blue,
-/obj/item/clothing/suit/storage/toggle/labcoat/corp/veymed,
+/obj/item/clothing/suit/storage/toggle/labcoat,
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
 "jh" = (

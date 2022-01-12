@@ -94,6 +94,7 @@
 	var/_low = 0
 
 /obj/effect/spawner/bomb_simulator/Initialize()
+	..()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/spawner/bomb_simulator/LateInitialize()

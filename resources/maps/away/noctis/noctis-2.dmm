@@ -3162,7 +3162,6 @@
 /area/noctis/asm)
 "gJ" = (
 /obj/structure/closet/crate,
-/obj/item/weapon/circuitboard/prisoner,
 /obj/item/weapon/circuitboard/rdconsole,
 /obj/item/weapon/circuitboard/operating,
 /obj/item/weapon/circuitboard/circuit_imprinter,
@@ -3742,7 +3741,6 @@
 /turf/simulated/wall/titanium,
 /area/noctis/asm)
 "hN" = (
-/obj/item/device/integrated_circuit_printer/upgraded,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/asm)
