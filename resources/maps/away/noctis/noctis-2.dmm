@@ -249,7 +249,6 @@
 /turf/simulated/floor/plating,
 /area/space)
 "aI" = (
-/obj/structure/reagent_dispensers/coolanttank,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/fpm)
 "aJ" = (
