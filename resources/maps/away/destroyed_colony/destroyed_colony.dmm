@@ -244,7 +244,11 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "bM" = (
-/obj/effect/urist/spawn_bomb,
+/obj/effect/spawner/explosion{
+	_high = 1;
+	_med = 3;
+	_low = 5
+},
 /turf/simulated/floor/planet/ariddirt/high,
 /area/planet/destroyed_colony)
 "bO" = (
@@ -272,7 +276,11 @@
 /turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "cc" = (
-/obj/effect/urist/spawn_bomb,
+/obj/effect/spawner/explosion{
+	_high = 1;
+	_med = 3;
+	_low = 5
+},
 /turf/simulated/floor/planet/ariddirt/low,
 /area/planet/destroyed_colony)
 "cd" = (
@@ -526,7 +534,11 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "du" = (
-/obj/effect/urist/spawn_bomb,
+/obj/effect/spawner/explosion{
+	_high = 1;
+	_med = 3;
+	_low = 5
+},
 /turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "dw" = (
@@ -934,7 +946,11 @@
 /area/planet/destroyed_colony)
 "gW" = (
 /obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/urist/spawn_bomb,
+/obj/effect/spawner/explosion{
+	_high = 1;
+	_med = 3;
+	_low = 5
+},
 /turf/simulated/floor/planet/dirt/clear,
 /area/planet/destroyed_colony)
 "hd" = (
@@ -1247,7 +1263,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "is" = (
-/obj/effect/urist/spawn_bomb,
+/obj/effect/spawner/explosion{
+	_high = 1;
+	_med = 3;
+	_low = 5
+},
 /turf/simulated/wall,
 /area/planet/destroyed_colony)
 "it" = (
@@ -1264,7 +1284,11 @@
 /turf/simulated/wall/r_wall,
 /area/planet/destroyed_colony)
 "iA" = (
-/obj/effect/urist/spawn_bomb,
+/obj/effect/spawner/explosion{
+	_high = 1;
+	_med = 3;
+	_low = 5
+},
 /turf/simulated/wall/r_wall,
 /area/planet/destroyed_colony)
 "iB" = (
@@ -1460,7 +1484,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "jj" = (
-/obj/effect/urist/spawn_bomb,
+/obj/effect/spawner/explosion{
+	_high = 1;
+	_med = 3;
+	_low = 5
+},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "jk" = (
@@ -1655,7 +1683,11 @@
 "xU" = (
 /obj/structure/window/reinforced/full,
 /obj/structure/grille,
-/obj/effect/urist/spawn_bomb,
+/obj/effect/spawner/explosion{
+	_high = 1;
+	_med = 3;
+	_low = 5
+},
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
 "yA" = (

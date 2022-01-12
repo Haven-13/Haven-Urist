@@ -88,15 +88,18 @@
 	return INITIALIZE_HINT_QDEL
 
 //the other type of bomb spawner for use in mapping to make more accurate destroyed places
-/obj/effect/spawner/bomb_simulator
+/obj/effect/spawner/explosion
+	name = "Explosion simulator"
+	icon = 'resources/icons/misc/landmark_effect.dmi'
+	icon_state = "explosive"
 	var/_high = 0
 	var/_med = 0
 	var/_low = 0
 
-/obj/effect/spawner/bomb_simulator/Initialize()
+/obj/effect/spawner/explosion/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/effect/spawner/bomb_simulator/LateInitialize()
+/obj/effect/spawner/explosion/LateInitialize()
 	explosion(loc,_high,_med,_low,adminlog = FALSE)
 	qdel_self()
