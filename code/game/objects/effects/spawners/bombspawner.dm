@@ -1,110 +1,3 @@
-/* The old single tank bombs that dont really work anymore
-/obj/effect/spawner/bomb
-	name = "bomb"
-	icon = 'resources/icons/mob/screen1.dmi'
-	icon_state = "x"
-	var/btype = 0  //0 = radio, 1= prox, 2=time
-	var/explosive = 1	// 0= firebomb
-	var/btemp = 500	// bomb temperature (degC)
-	var/active = 0
-
-/obj/effect/spawner/bomb/radio
-	btype = 0
-
-/obj/effect/spawner/bomb/proximity
-	btype = 1
-
-/obj/effect/spawner/bomb/timer
-	btype = 2
-
-/obj/effect/spawner/bomb/timer/syndicate
-	btemp = 450
-
-/obj/effect/spawner/bomb/suicide
-	btype = 3
-
-/obj/effect/spawner/bomb/New()
-	..()
-
-	switch (src.btype)
-		// radio
-		if (0)
-			var/obj/item/assembly/r_i_ptank/R = new /obj/item/assembly/r_i_ptank(src.loc)
-			var/obj/item/weapon/tank/phoron/p3 = new /obj/item/weapon/tank/phoron(R)
-			var/obj/item/device/radio/signaler/p1 = new /obj/item/device/radio/signaler(R)
-			var/obj/item/device/igniter/p2 = new /obj/item/device/igniter(R)
-			R.part1 = p1
-			R.part2 = p2
-			R.part3 = p3
-			p1.master = R
-			p2.master = R
-			p3.master = R
-			R.status = explosive
-			p1.b_stat = 0
-			p2.secured = 1
-			p3.air_contents.temperature = btemp + T0C
-
-		// proximity
-		if (1)
-			var/obj/item/assembly/m_i_ptank/R = new /obj/item/assembly/m_i_ptank(src.loc)
-			var/obj/item/weapon/tank/phoron/p3 = new /obj/item/weapon/tank/phoron(R)
-			var/obj/item/device/prox_sensor/p1 = new /obj/item/device/prox_sensor(R)
-			var/obj/item/device/igniter/p2 = new /obj/item/device/igniter(R)
-			R.part1 = p1
-			R.part2 = p2
-			R.part3 = p3
-			p1.master = R
-			p2.master = R
-			p3.master = R
-			R.status = explosive
-
-			p3.air_contents.temperature = btemp + T0C
-			p2.secured = 1
-
-			if(src.active)
-				R.part1.secured = 1
-				R.part1.icon_state = text("motion[]", 1)
-				R.c_state(1, src)
-
-		// timer
-		if (2)
-			var/obj/item/assembly/t_i_ptank/R = new /obj/item/assembly/t_i_ptank(src.loc)
-			var/obj/item/weapon/tank/phoron/p3 = new /obj/item/weapon/tank/phoron(R)
-			var/obj/item/device/timer/p1 = new /obj/item/device/timer(R)
-			var/obj/item/device/igniter/p2 = new /obj/item/device/igniter(R)
-			R.part1 = p1
-			R.part2 = p2
-			R.part3 = p3
-			p1.master = R
-			p2.master = R
-			p3.master = R
-			R.status = explosive
-
-			p3.air_contents.temperature = btemp + T0C
-			p2.secured = 1
-		//bombvest
-		if(3)
-			var/obj/item/clothing/suit/armor/a_i_a_ptank/R = new /obj/item/clothing/suit/armor/a_i_a_ptank(src.loc)
-			var/obj/item/weapon/tank/phoron/p4 = new /obj/item/weapon/tank/phoron(R)
-			var/obj/item/device/healthanalyzer/p1 = new /obj/item/device/healthanalyzer(R)
-			var/obj/item/device/igniter/p2 = new /obj/item/device/igniter(R)
-			var/obj/item/clothing/suit/armor/vest/p3 = new /obj/item/clothing/suit/armor/vest(R)
-			R.part1 = p1
-			R.part2 = p2
-			R.part3 = p3
-			R.part4 = p4
-			p1.master = R
-			p2.master = R
-			p3.master = R
-			p4.master = R
-			R.status = explosive
-
-			p4.air_contents.temperature = btemp + T0C
-			p2.secured = 1
-
-	qdel(src)
-*/
-
 /client/proc/spawn_tanktransferbomb()
 	set category = "Debug"
 	set desc = "Spawn a tank transfer valve bomb"
@@ -194,41 +87,19 @@
 	V.update_icon()
 	return INITIALIZE_HINT_QDEL
 
-///////////////////////
-//One Tank Bombs, WOOOOOOO! -Luke
-///////////////////////
-
-/obj/effect/spawner/onetankbomb
-	name = "Single-tank bomb"
-	icon = 'resources/icons/mob/screen1.dmi'
-	icon_state = "x"
-
-//	var/assembly_type = /obj/item/device/assembly/signaler
-
-	//Note that the maximum amount of gas you can put in a 70L air tank at 1013.25 kPa and 519K is 16.44 mol.
-	var/phoron_amt = 0
-	var/oxygen_amt = 0
-
-/obj/effect/spawner/onetankbomb/New(newloc) //just needs an assembly.
-	..(newloc)
-
-	var/type = pick(/obj/item/weapon/tank/phoron/onetankbomb, /obj/item/weapon/tank/oxygen/onetankbomb)
-	new type(src.loc)
-
-	qdel(src)
-
-/obj/effect/spawner/welderbomb/New()
-	var/obj/structure/reagent_dispensers/fueltank/F = new(loc)
-	var/obj/item/device/assembly_holder/prox_igniter/I = new(F)
-	F.modded = TRUE
-	F.rig = I
-
 //the other type of bomb spawner for use in mapping to make more accurate destroyed places
-/obj/effect/spawner/bomb_simulator
+/obj/effect/spawner/explosion
+	name = "Explosion simulator"
+	icon = 'resources/icons/misc/landmark_effect.dmi'
+	icon_state = "explosive"
 	var/_high = 0
 	var/_med = 0
 	var/_low = 0
 
-/obj/effect/spawner/bomb_simulator/Initialize()
-	. = ..()
+/obj/effect/spawner/explosion/Initialize()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/spawner/explosion/LateInitialize()
 	explosion(loc,_high,_med,_low,adminlog = FALSE)
+	qdel_self()

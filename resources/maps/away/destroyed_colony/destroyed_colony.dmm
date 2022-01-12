@@ -7,289 +7,55 @@
 /area/planet/destroyed_colony)
 "ac" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 2;
-	icon_state = "innerpavement"
+	dir = 2
 	},
 /area/planet/destroyed_colony)
 "ad" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/area/planet/destroyed_colony)
-"ae" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalinnermain2"
-	},
-/area/planet/destroyed_colony)
-"af" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalinnermain1";
-	tag = "icon-horizontalinnermain1"
-	},
-/area/planet/destroyed_colony)
-"ag" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermaincornerinner"
-	},
-/area/planet/destroyed_colony)
-"ah" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalinnermainbottom"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "ai" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 8;
-	icon_state = "innermaincornerinner"
-	},
-/area/planet/destroyed_colony)
-"aj" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "hole"
-	},
-/area/planet/destroyed_colony)
-"ak" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalinnermainright"
-	},
-/area/planet/destroyed_colony)
-"al" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalbottombordertopleft"
+	dir = 8
 	},
 /area/planet/destroyed_colony)
 "am" = (
 /obj/effect/decal/mecha_wreckage/smallfighter,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "an" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 4;
-	icon_state = "innermaincornerinner"
-	},
-/area/planet/destroyed_colony)
-"ao" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalinnermaintop"
+	dir = 4
 	},
 /area/planet/destroyed_colony)
 "ap" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "innermaincornerinner"
+	dir = 1
 	},
 /area/planet/destroyed_colony)
 "aq" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "doublehorizontalleft";
-	tag = "icon-doublehorizontalleft"
-	},
-/area/planet/destroyed_colony)
-"ar" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "doublehorizontalcorroded";
-	tag = "icon-doublehorizontalcorroded"
-	},
-/area/planet/destroyed_colony)
-"as" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "doublehorizontaldegraded";
-	tag = "icon-doublehorizontaldegraded"
-	},
-/area/planet/destroyed_colony)
-"at" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "doublehorizontal";
-	tag = "icon-doublehorizontal"
-	},
-/area/planet/destroyed_colony)
-"au" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalinnermain1";
-	tag = "icon-horizontalinnermain1"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "doublehorizontalcorroded";
-	tag = "icon-doublehorizontalcorroded"
-	},
-/area/planet/destroyed_colony)
-"av" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalinnermain2"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "doublehorizontalcorroded";
-	tag = "icon-doublehorizontalcorroded"
-	},
-/area/planet/destroyed_colony)
-"aw" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalinnermain2"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "doublehorizontaldegraded";
-	tag = "icon-doublehorizontaldegraded"
-	},
-/area/planet/destroyed_colony)
-"ax" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalinnermain2"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "doublehorizontalright";
-	tag = "icon-doublehorizontalright"
-	},
-/area/planet/destroyed_colony)
-"ay" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalinnermain2"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "doublehorizontalleft";
-	tag = "icon-doublehorizontalleft"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
+/turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "az" = (
 /obj/effect/decal/mecha_wreckage/bigfighter,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/area/planet/destroyed_colony)
-"aA" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "innerpavement"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "aB" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 5;
-	icon_state = "innerpavement";
-	tag = "icon-innerpavement (NORTHEAST)"
+	dir = 5
 	},
 /area/planet/destroyed_colony)
 "aC" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 9;
-	icon_state = "innerpavement";
-	tag = "icon-innerpavement (NORTHWEST)"
-	},
-/area/planet/destroyed_colony)
-"aD" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "outerturn"
-	},
-/area/planet/destroyed_colony)
-"aE" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 4;
-	icon_state = "outerturn"
-	},
-/area/planet/destroyed_colony)
-"aF" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 4;
-	icon_state = "innerpavement";
-	tag = "icon-innerpavement (EAST)"
-	},
-/area/planet/destroyed_colony)
-"aG" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 8;
-	icon_state = "innerpavement";
-	tag = "icon-innerpavement (WEST)"
-	},
-/area/planet/destroyed_colony)
-"aH" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalrightborderright0"
-	},
-/area/planet/destroyed_colony)
-"aI" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalleftborderleft0"
-	},
-/area/planet/destroyed_colony)
-"aJ" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedvertical";
-	tag = "icon-dottedvertical"
+	dir = 9
 	},
 /area/planet/destroyed_colony)
 "aK" = (
 /turf/simulated/floor/planet/ariddirt/low,
 /area/planet/destroyed_colony)
-"aL" = (
-/obj/effect/decal/mecha_wreckage/bigfighter,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalrightborderright0"
-	},
-/area/planet/destroyed_colony)
-"aM" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalinnermain2"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedverticaldegraded";
-	tag = "icon-dottedverticaldegraded"
-	},
-/area/planet/destroyed_colony)
-"aN" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedverticaldegraded";
-	tag = "icon-dottedverticaldegraded"
-	},
-/area/planet/destroyed_colony)
 "aO" = (
 /obj/structure/pit/closed/grave/random,
 /turf/simulated/floor/planet/ariddirt/low,
-/area/planet/destroyed_colony)
-"aP" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 4;
-	icon_state = "innermaincornerouter";
-	tag = "icon-innermaincornerouter (EAST)"
-	},
-/area/planet/destroyed_colony)
-"aQ" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalinnermain1";
-	tag = "icon-horizontalinnermain1"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedverticaldegraded";
-	tag = "icon-dottedverticaldegraded"
-	},
-/area/planet/destroyed_colony)
-"aR" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalinnermain2"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedverticalcorroded";
-	tag = "icon-dottedverticalcorroded"
-	},
 /area/planet/destroyed_colony)
 "aS" = (
 /turf/simulated/wall,
@@ -310,19 +76,10 @@
 "aW" = (
 /obj/structure/hygiene/sink{
 	dir = 8;
-	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
 /obj/structure/hygiene/shower,
-/turf/simulated/floor/tiled,
-/area/planet/destroyed_colony)
-"aX" = (
-/obj/machinery/light/colored/green{
-	dir = 1;
-	icon_state = "green1";
-	tag = "icon-green1 (NORTH)"
-	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "aY" = (
@@ -349,18 +106,12 @@
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "bc" = (
-/obj/machinery/light/colored/green{
-	dir = 1;
-	icon_state = "green1";
-	tag = "icon-green1 (NORTH)"
-	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "bd" = (
 /obj/structure/hygiene/shower,
 /obj/structure/hygiene/sink{
 	dir = 4;
-	icon_state = "sink";
 	pixel_x = 11;
 	pixel_y = 0
 	},
@@ -369,20 +120,6 @@
 "be" = (
 /obj/effect/shuttle_landmark/nav_destroyed_colony/nav2,
 /turf/simulated/floor/planet/ariddirt/path,
-/area/planet/destroyed_colony)
-"bf" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 4;
-	icon_state = "innerpavementcorner";
-	tag = "icon-innerpavementcorner (EAST)"
-	},
-/area/planet/destroyed_colony)
-"bg" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "innerpavementcorner";
-	tag = "icon-innerpavementcorner (NORTH)"
-	},
 /area/planet/destroyed_colony)
 "bh" = (
 /obj/random/shoes,
@@ -437,11 +174,6 @@
 /obj/random/suit,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
-"bs" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalbottomborderbottom0"
-	},
-/area/planet/destroyed_colony)
 "bt" = (
 /obj/machinery/door/airlock/diamond{
 	name = "Apartment 2"
@@ -453,9 +185,7 @@
 /area/planet/destroyed_colony)
 "bv" = (
 /obj/item/weapon/mine/frag,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "hole"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "bw" = (
 /turf/simulated/floor/wood,
@@ -469,19 +199,9 @@
 	},
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
-"by" = (
-/obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1";
-	tag = "icon-yellow1 (NORTH)"
-	},
-/turf/simulated/floor/wood,
-/area/planet/destroyed_colony)
 "bz" = (
 /obj/structure/crematorium{
-	dir = 8;
-	icon_state = "crema1";
-	tag = "icon-crema1 (WEST)"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
@@ -490,21 +210,11 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "bB" = (
-/obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1";
-	tag = "icon-yellow1 (NORTH)"
-	},
 /turf/simulated/floor/lino,
 /area/planet/destroyed_colony)
 "bC" = (
 /obj/structure/closet/coffin,
 /turf/simulated/floor/lino,
-/area/planet/destroyed_colony)
-"bD" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaloutermain0"
-	},
 /area/planet/destroyed_colony)
 "bE" = (
 /turf/simulated/floor/tiled/dark,
@@ -533,16 +243,13 @@
 /obj/machinery/door/airlock,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
-"bL" = (
-/turf/simulated/floor/lino,
-/area/planet/destroyed_colony)
 "bM" = (
-/obj/effect/urist/spawn_bomb,
+/obj/effect/spawner/explosion{
+	_high = 1;
+	_low = 5;
+	_med = 3
+	},
 /turf/simulated/floor/planet/ariddirt/high,
-/area/planet/destroyed_colony)
-"bN" = (
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "bO" = (
 /obj/structure/bookcase{
@@ -559,69 +266,30 @@
 /obj/structure/table/standard/flipped/e,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
-"bR" = (
-/obj/machinery/light/colored/green{
-	dir = 8;
-	icon_state = "green1";
-	tag = "icon-green1 (WEST)"
-	},
-/turf/simulated/floor/tiled,
-/area/planet/destroyed_colony)
-"bS" = (
-/obj/machinery/light/colored/green{
-	dir = 4;
-	icon_state = "green1";
-	tag = "icon-green1 (EAST)"
-	},
-/turf/simulated/floor/tiled,
-/area/planet/destroyed_colony)
 "bT" = (
 /obj/machinery/door/airlock,
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
 "bY" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
 /obj/effect/decal/mecha_wreckage/smallfighter,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedvertical";
-	tag = "icon-dottedvertical"
-	},
-/area/planet/destroyed_colony)
-"bZ" = (
-/obj/item/weapon/mine/frag,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaloutermain0"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "cc" = (
-/obj/effect/urist/spawn_bomb,
+/obj/effect/spawner/explosion{
+	_high = 1;
+	_low = 5;
+	_med = 3
+	},
 /turf/simulated/floor/planet/ariddirt/low,
 /area/planet/destroyed_colony)
 "cd" = (
 /obj/effect/shuttle_landmark/nav_destroyed_colony/nav1,
 /turf/simulated/floor/planet/ariddirt/path,
 /area/planet/destroyed_colony)
-"ce" = (
-/obj/structure/synthesized_instrument/synthesizer/piano{
-	anchored = 0
-	},
-/turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
-"cf" = (
-/obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1";
-	tag = "icon-yellow1 (NORTH)"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
 "cg" = (
 /obj/machinery/door/morgue{
-	dir = 2;
-	icon_state = "door1";
-	tag = "icon-door1"
+	dir = 2
 	},
 /turf/simulated/floor/lino,
 /area/planet/destroyed_colony)
@@ -651,14 +319,6 @@
 /obj/item/remains/human,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
-"cp" = (
-/obj/machinery/light/colored/green,
-/turf/simulated/floor/tiled,
-/area/planet/destroyed_colony)
-"cq" = (
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/tiled,
-/area/planet/destroyed_colony)
 "cr" = (
 /obj/structure/table/standard/flipped/e,
 /obj/item/remains/human,
@@ -680,43 +340,24 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/lino,
 /area/planet/destroyed_colony)
-"cv" = (
-/obj/structure/table/standard/flipped/w,
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
 "cw" = (
 /obj/effect/floor_decal/chapel{
-	dir = 1;
-	icon_state = "chapel";
-	tag = "icon-chapel (NORTH)"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cx" = (
 /obj/effect/floor_decal/chapel{
-	dir = 4;
-	icon_state = "chapel";
-	tag = "icon-chapel (EAST)"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cy" = (
 /turf/simulated/floor/carpet,
 /area/planet/destroyed_colony)
-"cz" = (
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/carpet,
-/area/planet/destroyed_colony)
-"cA" = (
-/obj/item/remains/human,
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
 "cB" = (
 /obj/structure/hygiene/shower{
 	dir = 4;
-	icon_state = "shower";
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -724,7 +365,6 @@
 "cC" = (
 /obj/structure/hygiene/sink{
 	dir = 4;
-	icon_state = "sink";
 	pixel_x = 11;
 	pixel_y = 0
 	},
@@ -733,28 +373,17 @@
 "cD" = (
 /obj/structure/bed,
 /obj/item/weapon/bedsheet/blue,
-/obj/machinery/light/colored/green{
-	dir = 4;
-	icon_state = "green1";
-	tag = "icon-green1 (EAST)"
-	},
 /obj/random/plushie,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cE" = (
 /obj/structure/bed,
 /obj/item/weapon/bedsheet/blue,
-/obj/machinery/light/colored/green{
-	dir = 8;
-	icon_state = "green1";
-	tag = "icon-green1 (WEST)"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cF" = (
 /obj/structure/hygiene/sink{
 	dir = 8;
-	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -763,17 +392,13 @@
 "cG" = (
 /obj/structure/hygiene/shower{
 	dir = 8;
-	icon_state = "shower";
-	pixel_x = 5;
-	tag = "icon-shower (WEST)"
+	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "cH" = (
 /obj/effect/floor_decal/chapel{
-	dir = 8;
-	icon_state = "chapel";
-	tag = "icon-chapel (WEST)"
+	dir = 8
 	},
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/tiled/dark,
@@ -793,14 +418,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
-"cL" = (
-/obj/machinery/light/colored/green{
-	dir = 8;
-	icon_state = "green1";
-	tag = "icon-green1 (WEST)"
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/planet/destroyed_colony)
 "cM" = (
 /obj/structure/closet/secure_closet,
 /turf/simulated/floor/tiled/dark,
@@ -808,14 +425,6 @@
 "cN" = (
 /obj/random/shoes,
 /turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
-"cO" = (
-/obj/machinery/light/colored/green{
-	dir = 4;
-	icon_state = "green1";
-	tag = "icon-green1 (EAST)"
-	},
-/turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "cP" = (
 /obj/structure/hygiene/toilet{
@@ -831,15 +440,6 @@
 /obj/structure/table/standard,
 /obj/random/drinkbottle,
 /obj/random/drinkbottle,
-/turf/simulated/floor/tiled,
-/area/planet/destroyed_colony)
-"cS" = (
-/obj/machinery/light/colored/green{
-	dir = 1;
-	icon_state = "green1";
-	tag = "icon-green1 (NORTH)"
-	},
-/obj/item/remains/human,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "cT" = (
@@ -867,23 +467,14 @@
 /area/planet/destroyed_colony)
 "cX" = (
 /obj/effect/floor_decal/chapel{
-	dir = 1;
-	icon_state = "chapel";
-	tag = "icon-chapel (NORTH)"
+	dir = 1
 	},
 /obj/item/weapon/stool/padded,
-/obj/machinery/light/colored{
-	dir = 4;
-	icon_state = "yellow1";
-	tag = "icon-yellow1 (EAST)"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cY" = (
 /obj/effect/floor_decal/chapel{
-	dir = 4;
-	icon_state = "chapel";
-	tag = "icon-chapel (EAST)"
+	dir = 4
 	},
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/tiled/dark,
@@ -891,41 +482,6 @@
 "cZ" = (
 /obj/structure/table/standard/flipped/s,
 /turf/simulated/floor/carpet,
-/area/planet/destroyed_colony)
-"da" = (
-/obj/structure/table/standard/flipped/s,
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/carpet,
-/area/planet/destroyed_colony)
-"db" = (
-/obj/effect/floor_decal/chapel{
-	dir = 1;
-	icon_state = "chapel";
-	tag = "icon-chapel (NORTH)"
-	},
-/obj/item/weapon/stool/padded,
-/turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
-"dc" = (
-/obj/effect/floor_decal/chapel{
-	dir = 4;
-	icon_state = "chapel";
-	tag = "icon-chapel (EAST)"
-	},
-/obj/item/weapon/stool/padded,
-/obj/machinery/light/colored{
-	dir = 8;
-	icon_state = "yellow1";
-	tag = "icon-yellow1 (WEST)"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
-"dd" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "verticaloutermain2top";
-	tag = "icon-verticaloutermain2top (NORTH)"
-	},
 /area/planet/destroyed_colony)
 "de" = (
 /mob/living/simple_animal/hostile/alien/drone,
@@ -936,14 +492,6 @@
 /obj/item/weapon/spacecash/bundle/c100,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
-"dg" = (
-/obj/machinery/light/colored/green{
-	dir = 1;
-	icon_state = "green1";
-	tag = "icon-green1 (NORTH)"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
 "dh" = (
 /mob/living/simple_animal/hostile/alien/sentinel,
 /turf/simulated/floor/tiled/dark,
@@ -952,20 +500,6 @@
 /obj/structure/table/standard,
 /obj/random/coin,
 /turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
-"dj" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 2;
-	icon_state = "outermaincornerinner";
-	tag = "icon-outermaincornerinner"
-	},
-/area/planet/destroyed_colony)
-"dk" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 8;
-	icon_state = "outermaincornerinner";
-	tag = "icon-outermaincornerinner (WEST)"
-	},
 /area/planet/destroyed_colony)
 "dl" = (
 /mob/living/simple_animal/hostile/alien/sentinel,
@@ -994,39 +528,22 @@
 /obj/structure/table/woodentable,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
-"dr" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 4;
-	icon_state = "outermaincornerinner";
-	tag = "icon-outermaincornerinner (EAST)"
-	},
-/area/planet/destroyed_colony)
-"ds" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "outermaincornerinner";
-	tag = "icon-outermaincornerinner (NORTH)"
-	},
-/area/planet/destroyed_colony)
 "dt" = (
 /obj/structure/table/standard,
 /obj/random/firstaid,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "du" = (
-/obj/effect/urist/spawn_bomb,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalleftborderleft0"
+/obj/effect/spawner/explosion{
+	_high = 1;
+	_low = 5;
+	_med = 3
 	},
-/area/planet/destroyed_colony)
-"dv" = (
-/obj/machinery/light/colored/green,
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "dw" = (
 /obj/structure/hygiene/sink{
 	dir = 4;
-	icon_state = "sink";
 	pixel_x = 11;
 	pixel_y = 0
 	},
@@ -1074,12 +591,6 @@
 /obj/machinery/door/unpowered/simple/wood,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
-"dF" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticaloutermain2bottom";
-	tag = "icon-verticaloutermain2bottom"
-	},
-/area/planet/destroyed_colony)
 "dG" = (
 /obj/machinery/door/airlock/diamond{
 	name = "Apartment 1"
@@ -1092,465 +603,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
-"dI" = (
-/obj/machinery/light/floor{
-	pixel_y = 32
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaloutermainleft";
-	tag = "icon-horizontaloutermainleft"
-	},
-/area/planet/destroyed_colony)
-"dJ" = (
-/obj/effect/urist/spawn_bomb,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaloutermain0"
-	},
-/area/planet/destroyed_colony)
-"dK" = (
-/obj/machinery/light/floor{
-	pixel_y = 32
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaloutermain0"
-	},
-/area/planet/destroyed_colony)
 "dL" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 10;
-	icon_state = "outerpavement"
-	},
-/area/planet/destroyed_colony)
-"dM" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "outerpavement"
-	},
-/area/planet/destroyed_colony)
-"dN" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 8;
-	icon_state = "outermaincornerouter";
-	tag = "icon-outermaincornerouter (WEST)"
-	},
-/area/planet/destroyed_colony)
-"dO" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopbordertopleft";
-	tag = "icon-horizontaltopbordertopleft"
-	},
-/area/planet/destroyed_colony)
-"dP" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopbordertop0"
-	},
-/area/planet/destroyed_colony)
-"dQ" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "outerturn"
-	},
-/area/planet/destroyed_colony)
-"dR" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 8;
-	icon_state = "outerturn"
-	},
-/area/planet/destroyed_colony)
-"dS" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopbordertop2left";
-	tag = "icon-horizontaltopbordertop2left"
-	},
-/area/planet/destroyed_colony)
-"dT" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopbordertop2";
-	tag = "icon-horizontaltopbordertop2"
-	},
-/area/planet/destroyed_colony)
-"dU" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopbordertop3";
-	tag = "icon-horizontaltopbordertop3"
-	},
-/area/planet/destroyed_colony)
-"dV" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopbordertopright";
-	tag = "icon-horizontaltopbordertopright"
-	},
-/area/planet/destroyed_colony)
-"dW" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopborderbottomleft";
-	tag = "icon-horizontaltopborderbottomleft"
-	},
-/area/planet/destroyed_colony)
-"dX" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopborderbottom0"
-	},
-/area/planet/destroyed_colony)
-"dY" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopborderbottom1";
-	tag = "icon-horizontaltopborderbottom1"
-	},
-/area/planet/destroyed_colony)
-"dZ" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopborderbottom2left";
-	tag = "icon-horizontaltopborderbottom2left"
-	},
-/area/planet/destroyed_colony)
-"ea" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopborderbottom2";
-	tag = "icon-horizontaltopborderbottom2"
-	},
-/area/planet/destroyed_colony)
-"eb" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopborderbottom2right";
-	tag = "icon-horizontaltopborderbottom2right"
+	dir = 10
 	},
 /area/planet/destroyed_colony)
 "ec" = (
 /obj/item/remains/human,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopborderbottom1";
-	tag = "icon-horizontaltopborderbottom1"
-	},
-/area/planet/destroyed_colony)
-"ed" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innercornerpieceright"
-	},
-/area/planet/destroyed_colony)
-"ee" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 8;
-	icon_state = "innercornerpieceleft"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "ef" = (
+/turf/simulated/floor/fixed/destroyedroad,
 /turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopborderbottom0"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "hatch";
-	tag = "icon-hatch (NORTH)"
-	},
-/area/planet/destroyed_colony)
-"eg" = (
-/obj/item/weapon/mine/frag,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopborderbottom0"
-	},
-/area/planet/destroyed_colony)
-"eh" = (
-/obj/effect/decal/mecha_wreckage/smallfighter,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopborderbottom0"
-	},
-/area/planet/destroyed_colony)
-"ei" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopborderbottom3";
-	tag = "icon-horizontaltopborderbottom3"
-	},
-/area/planet/destroyed_colony)
-"ej" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopborderbottomright";
-	tag = "icon-horizontaltopborderbottomright"
-	},
-/area/planet/destroyed_colony)
-"ek" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedhorizontalcorroded";
-	tag = "icon-dottedhorizontalcorroded"
-	},
-/area/planet/destroyed_colony)
-"el" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedhorizontaldegraded";
-	tag = "icon-dottedhorizontaldegraded"
-	},
-/area/planet/destroyed_colony)
-"em" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalinnermain1";
-	tag = "icon-horizontalinnermain1"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedhorizontaldegraded";
-	tag = "icon-dottedhorizontaldegraded"
-	},
-/area/planet/destroyed_colony)
-"en" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedhorizontal";
-	tag = "icon-dottedhorizontal"
-	},
-/area/planet/destroyed_colony)
-"eo" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalinnermain2left";
-	tag = "icon-horizontalinnermain2left"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedhorizontalcorroded";
-	tag = "icon-dottedhorizontalcorroded"
-	},
-/area/planet/destroyed_colony)
-"ep" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalinnermain2right";
-	tag = "icon-horizontalinnermain2right"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedhorizontalcorroded";
-	tag = "icon-dottedhorizontalcorroded"
-	},
-/area/planet/destroyed_colony)
-"eq" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalinnermain2"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedhorizontalcorroded";
-	tag = "icon-dottedhorizontalcorroded"
-	},
-/area/planet/destroyed_colony)
-"er" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/obj/effect/decal/mecha_wreckage/smallfighter,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedhorizontaldegraded";
-	tag = "icon-dottedhorizontaldegraded"
-	},
-/area/planet/destroyed_colony)
-"es" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalinnermain1";
-	tag = "icon-horizontalinnermain1"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "dottedhorizontaldegraded";
-	tag = "icon-dottedhorizontaldegraded (NORTH)"
-	},
-/area/planet/destroyed_colony)
-"et" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalinnermain1";
-	tag = "icon-horizontalinnermain1"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "dottedhorizontalcorroded";
-	tag = "icon-dottedhorizontalcorroded (NORTH)"
-	},
-/area/planet/destroyed_colony)
-"eu" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "dottedhorizontaldegraded";
-	tag = "icon-dottedhorizontaldegraded (NORTH)"
-	},
-/area/planet/destroyed_colony)
-"ev" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "dottedhorizontalcorroded";
-	tag = "icon-dottedhorizontalcorroded (NORTH)"
-	},
-/area/planet/destroyed_colony)
-"ew" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalinnermain3";
-	tag = "icon-horizontalinnermain3"
-	},
-/area/planet/destroyed_colony)
-"ex" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermaincornerouter";
-	tag = "icon-innermaincornerouter"
-	},
-/area/planet/destroyed_colony)
-"ey" = (
-/obj/effect/decal/mecha_wreckage/smallfighter,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalinnermain1";
-	tag = "icon-horizontalinnermain1"
-	},
-/area/planet/destroyed_colony)
-"ez" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalinnermain2left";
-	tag = "icon-horizontalinnermain2left"
-	},
-/area/planet/destroyed_colony)
-"eA" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalinnermain2right";
-	tag = "icon-horizontalinnermain2right"
-	},
-/area/planet/destroyed_colony)
-"eB" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "hatchbroken";
-	tag = "icon-hatchbroken"
-	},
-/area/planet/destroyed_colony)
-"eC" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalbottombordertop3";
-	tag = "icon-horizontalbottombordertop3"
-	},
-/area/planet/destroyed_colony)
-"eD" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalbottomborderbottomleft";
-	tag = "icon-horizontalbottomborderbottomleft"
-	},
-/area/planet/destroyed_colony)
-"eE" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalbottomborderbottom2left";
-	tag = "icon-horizontalbottomborderbottom2left"
-	},
-/area/planet/destroyed_colony)
-"eF" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalbottomborderbottom2";
-	tag = "icon-horizontalbottomborderbottom2"
-	},
-/area/planet/destroyed_colony)
-"eG" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalbottomborderbottom3";
-	tag = "icon-horizontalbottomborderbottom3"
-	},
-/area/planet/destroyed_colony)
-"eH" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalbottomborderbottomright";
-	tag = "icon-horizontalbottomborderbottomright"
-	},
-/area/planet/destroyed_colony)
-"eI" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 4;
-	icon_state = "outermaincornerouter";
-	tag = "icon-outermaincornerouter (EAST)"
-	},
-/area/planet/destroyed_colony)
-"eJ" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticaloutermainbottom";
-	tag = "icon-verticaloutermainbottom"
-	},
-/area/planet/destroyed_colony)
-"eK" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 2;
-	icon_state = "tinycornerhorizontal"
-	},
-/area/planet/destroyed_colony)
-"eL" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 8;
-	icon_state = "tinycornerhorizontal"
-	},
-/area/planet/destroyed_colony)
-"eM" = (
-/obj/effect/urist/spawn_bomb,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaloutermain2left";
-	tag = "icon-horizontaloutermain2left"
-	},
-/area/planet/destroyed_colony)
-"eN" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaloutermain2";
-	tag = "icon-horizontaloutermain2"
-	},
-/area/planet/destroyed_colony)
-"eO" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "outermaincornerouter";
-	tag = "icon-outermaincornerouter (NORTH)"
+	dir = 1
 	},
 /area/planet/destroyed_colony)
 "eP" = (
 /obj/structure/sign/poster,
 /turf/simulated/wall,
-/area/planet/destroyed_colony)
-"eT" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 2;
-	icon_state = "tinycornervertical"
-	},
-/area/planet/destroyed_colony)
-"eU" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "innerturn"
-	},
-/area/planet/destroyed_colony)
-"eV" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 4;
-	icon_state = "innerturn"
-	},
-/area/planet/destroyed_colony)
-"eW" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 8;
-	icon_state = "tinycornervertical"
-	},
-/area/planet/destroyed_colony)
-"eX" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalrightborderrighttop";
-	tag = "icon-verticalrightborderrighttop"
-	},
-/area/planet/destroyed_colony)
-"eY" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalleftborderlefttop";
-	tag = "icon-verticalleftborderlefttop"
-	},
-/area/planet/destroyed_colony)
-"eZ" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 8;
-	icon_state = "innermaincornerouter";
-	tag = "icon-innermaincornerouter (WEST)"
-	},
 /area/planet/destroyed_colony)
 "fb" = (
 /obj/structure/closet/crate,
@@ -1575,13 +645,8 @@
 /area/planet/destroyed_colony)
 "fe" = (
 /turf/simulated/floor/fixed/destroyedroad,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "doublehorizontal";
-	tag = "icon-doublehorizontal"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
+/turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "ff" = (
 /obj/structure/computerframe,
@@ -1609,18 +674,6 @@
 /obj/structure/table/standard/flipped/n,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
-"fl" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalrightborderright3";
-	tag = "icon-verticalrightborderright3"
-	},
-/area/planet/destroyed_colony)
-"fm" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalleftborderleft3";
-	tag = "icon-verticalleftborderleft3"
-	},
-/area/planet/destroyed_colony)
 "fs" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1634,12 +687,6 @@
 /obj/random/suit,
 /obj/random/suit,
 /turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
-"fu" = (
-/obj/item/remains/human,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
 /area/planet/destroyed_colony)
 "fv" = (
 /obj/structure/bed/chair/office/dark{
@@ -1665,27 +712,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
-"fz" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalrightborderright2";
-	tag = "icon-verticalrightborderright2"
-	},
-/area/planet/destroyed_colony)
-"fA" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalleftborderleft2";
-	tag = "icon-verticalleftborderleft2"
-	},
-/area/planet/destroyed_colony)
 "fD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
-"fE" = (
-/obj/effect/urist/spawn_bomb,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalrightborderright0"
-	},
 /area/planet/destroyed_colony)
 "fF" = (
 /obj/machinery/door/airlock,
@@ -1693,9 +722,7 @@
 /area/planet/destroyed_colony)
 "fG" = (
 /obj/structure/bed/chair/wood{
-	dir = 4;
-	icon_state = "wooden_chair";
-	tag = "icon-wooden_chair (EAST)"
+	dir = 4
 	},
 /obj/item/weapon/storage/firstaid/o2{
 	layer = 2.8;
@@ -1731,12 +758,6 @@
 /obj/structure/table/standard/flipped/e,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
-"fL" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalrightborderright0";
-	tag = "icon-verticalrightborderright0"
-	},
-/area/planet/destroyed_colony)
 "fO" = (
 /obj/random/junk,
 /turf/simulated/floor/tiled,
@@ -1759,9 +780,7 @@
 /area/planet/destroyed_colony)
 "fT" = (
 /obj/structure/bed/chair/wood{
-	dir = 4;
-	icon_state = "wooden_chair";
-	tag = "icon-wooden_chair (EAST)"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
@@ -1781,21 +800,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
-"fW" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalinnermain1";
-	tag = "icon-horizontalinnermain1"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedverticalcorroded";
-	tag = "icon-dottedverticalcorroded"
-	},
-/area/planet/destroyed_colony)
 "gf" = (
 /obj/item/remains/robot,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "gg" = (
 /obj/structure/bed/chair/office/dark,
@@ -1822,9 +829,7 @@
 /area/planet/destroyed_colony)
 "gl" = (
 /obj/effect/decal/mecha_wreckage/gygax,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "gm" = (
 /obj/structure/table/standard,
@@ -1860,9 +865,7 @@
 /area/planet/destroyed_colony)
 "gs" = (
 /obj/item/remains/xeno,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "gt" = (
 /obj/item/weapon/table_parts,
@@ -1873,32 +876,6 @@
 	amount = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
-"gv" = (
-/obj/effect/urist/spawn_bomb,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "verticalrightborderright0";
-	tag = "icon-verticalrightborderright0"
-	},
-/area/planet/destroyed_colony)
-"gw" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaloutermain0";
-	tag = "icon-horizontaloutermain0"
-	},
-/area/planet/destroyed_colony)
-"gx" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 2;
-	icon_state = "verticaloutermain2";
-	tag = "icon-verticaloutermain2"
-	},
-/area/planet/destroyed_colony)
-"gy" = (
-/obj/item/remains/xeno,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaloutermain0"
-	},
 /area/planet/destroyed_colony)
 "gz" = (
 /obj/structure/table/standard,
@@ -1926,15 +903,7 @@
 "gE" = (
 /obj/structure/holohoop,
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "verticaloutermain2top";
-	tag = "icon-verticaloutermain2top (NORTH)"
-	},
-/area/planet/destroyed_colony)
-"gF" = (
-/obj/item/weapon/mine/frag,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
+	dir = 1
 	},
 /area/planet/destroyed_colony)
 "gG" = (
@@ -1957,48 +926,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
-"gN" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "verticaloutermain2";
-	tag = "icon-verticaloutermain2 (NORTH)"
-	},
-/area/planet/destroyed_colony)
-"gO" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "horizontaloutermain3";
-	tag = "icon-horizontaloutermain3 (NORTH)"
-	},
-/area/planet/destroyed_colony)
-"gP" = (
-/turf/simulated/floor/fixed/destroyedroad,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "doublehorizontaldegraded";
-	tag = "icon-doublehorizontaldegraded"
-	},
-/area/planet/destroyed_colony)
 "gQ" = (
 /turf/simulated/floor/fixed/destroyedroad,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
 /obj/item/remains/xeno,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "doublehorizontal";
-	tag = "icon-doublehorizontal"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "gR" = (
 /obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/tiled,
-/area/planet/destroyed_colony)
-"gS" = (
-/obj/item/ammo_casing/a556/used,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "gT" = (
@@ -2009,53 +944,14 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/planet/dirt/clear,
 /area/planet/destroyed_colony)
-"gV" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/light/overhead_blue,
-/turf/simulated/floor/planet/dirt/clear,
-/area/planet/destroyed_colony)
 "gW" = (
 /obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/urist/spawn_bomb,
+/obj/effect/spawner/explosion{
+	_high = 1;
+	_low = 5;
+	_med = 3
+	},
 /turf/simulated/floor/planet/dirt/clear,
-/area/planet/destroyed_colony)
-"gX" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "verticaloutermain1";
-	tag = "icon-verticaloutermain1 (NORTH)"
-	},
-/area/planet/destroyed_colony)
-"gY" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "verticaloutermainbottom";
-	tag = "icon-verticaloutermainbottom (NORTH)"
-	},
-/area/planet/destroyed_colony)
-"gZ" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 4;
-	icon_state = "tinycornervertical"
-	},
-/area/planet/destroyed_colony)
-"ha" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 8;
-	icon_state = "innerturn"
-	},
-/area/planet/destroyed_colony)
-"hb" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 2;
-	icon_state = "innerturn"
-	},
-/area/planet/destroyed_colony)
-"hc" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "tinycornervertical"
-	},
 /area/planet/destroyed_colony)
 "hd" = (
 /obj/item/stack/material/steel{
@@ -2075,47 +971,11 @@
 "hg" = (
 /turf/simulated/floor/planet/dirt/clear,
 /area/planet/destroyed_colony)
-"hh" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 2;
-	icon_state = "outermaincornerouter";
-	tag = "icon-outermaincornerouter"
-	},
-/area/planet/destroyed_colony)
-"hi" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 4;
-	icon_state = "tinycornerhorizontal"
-	},
-/area/planet/destroyed_colony)
-"hj" = (
-/obj/item/remains/robot,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalbottomborderbottom0"
-	},
-/area/planet/destroyed_colony)
-"hk" = (
-/obj/item/remains/xeno,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalbottomborderbottom0"
-	},
-/area/planet/destroyed_colony)
-"hl" = (
-/obj/effect/decal/mecha_wreckage/smallfighter,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontalbottomborderbottom0"
-	},
-/area/planet/destroyed_colony)
 "hm" = (
 /obj/item/remains/xeno,
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "tinycornerhorizontal"
+	dir = 1
 	},
-/area/planet/destroyed_colony)
-"hn" = (
-/obj/machinery/light/overhead_blue,
-/turf/simulated/floor/planet/dirt/clear,
 /area/planet/destroyed_colony)
 "ho" = (
 /obj/item/scom/aliengun/a1,
@@ -2123,17 +983,13 @@
 /area/planet/destroyed_colony)
 "hp" = (
 /obj/machinery/bodyscanner{
-	dir = 4;
-	icon_state = "body_scanner_0";
-	tag = "icon-body_scanner_0 (EAST)"
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "hq" = (
 /obj/machinery/body_scanconsole{
-	dir = 8;
-	icon_state = "body_scannerconsole";
-	tag = "icon-body_scannerconsole (WEST)"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
@@ -2205,17 +1061,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "hE" = (
-/obj/machinery/sleeper{
-	icon_state = "sleeper_0-r"
-	},
+/obj/machinery/sleeper,
 /turf/simulated/floor/tiled,
-/area/planet/destroyed_colony)
-"hF" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 2;
-	icon_state = "verticaloutermain1";
-	tag = "icon-verticaloutermain1"
-	},
 /area/planet/destroyed_colony)
 "hG" = (
 /obj/structure/closet/crate,
@@ -2224,7 +1071,6 @@
 /area/planet/destroyed_colony)
 "hH" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
 	opened = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2295,12 +1141,8 @@
 /obj/item/weapon/circular_saw,
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
-"hS" = (
-/turf/simulated/floor/tiled/freezer,
-/area/planet/destroyed_colony)
 "hT" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
 	opened = 1
 	},
 /obj/item/ammo_magazine/c10mm/TD10,
@@ -2348,13 +1190,6 @@
 /obj/effect/decal/cleanable/vomit,
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
-"ic" = (
-/obj/structure/curtain{
-	icon_state = "open";
-	tag = "icon-open"
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/planet/destroyed_colony)
 "id" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/glass/fifty,
@@ -2375,7 +1210,6 @@
 "ig" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
 	opened = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2390,14 +1224,9 @@
 /area/planet/destroyed_colony)
 "ij" = (
 /obj/structure/holohoop{
-	dir = 1;
-	icon_state = "hoop";
-	tag = "icon-hoop (NORTH)"
+	dir = 1
 	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaloutermain0";
-	tag = "icon-horizontaloutermain0"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "ik" = (
 /obj/machinery/carpentry/planer,
@@ -2414,7 +1243,6 @@
 /area/planet/destroyed_colony)
 "in" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
 	opened = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2435,54 +1263,32 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "is" = (
-/obj/effect/urist/spawn_bomb,
+/obj/effect/spawner/explosion{
+	_high = 1;
+	_low = 5;
+	_med = 3
+	},
 /turf/simulated/wall,
 /area/planet/destroyed_colony)
 "it" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 6;
-	icon_state = "outerpavement"
-	},
-/area/planet/destroyed_colony)
-"iu" = (
-/obj/effect/decal/mecha_wreckage/smallfighter,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "hole"
+	dir = 6
 	},
 /area/planet/destroyed_colony)
 "iv" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
 /obj/effect/decal/mecha_wreckage/bigfighter,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedhorizontal";
-	tag = "icon-dottedhorizontal"
-	},
-/area/planet/destroyed_colony)
-"iw" = (
-/obj/effect/urist/spawn_bomb,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/area/planet/destroyed_colony)
-"ix" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "outerpavement"
-	},
-/area/planet/destroyed_colony)
-"iy" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	dir = 5;
-	icon_state = "outerpavement"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "iz" = (
 /turf/simulated/wall/r_wall,
 /area/planet/destroyed_colony)
 "iA" = (
-/obj/effect/urist/spawn_bomb,
+/obj/effect/spawner/explosion{
+	_high = 1;
+	_low = 5;
+	_med = 3
+	},
 /turf/simulated/wall/r_wall,
 /area/planet/destroyed_colony)
 "iB" = (
@@ -2535,10 +1341,8 @@
 "iI" = (
 /obj/structure/hygiene/sink{
 	dir = 1;
-	icon_state = "sink";
 	pixel_x = 0;
-	pixel_y = 20;
-	tag = "icon-sink (NORTH)"
+	pixel_y = 20
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
@@ -2572,7 +1376,6 @@
 "iQ" = (
 /obj/structure/hygiene/sink{
 	dir = 4;
-	icon_state = "sink";
 	pixel_x = 11;
 	pixel_y = 0
 	},
@@ -2581,15 +1384,6 @@
 "iR" = (
 /mob/living/simple_animal/hostile/alien,
 /turf/simulated/floor/tiled/freezer,
-/area/planet/destroyed_colony)
-"iS" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermaincornerinner"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedverticalcorroded";
-	tag = "icon-dottedverticalcorroded"
-	},
 /area/planet/destroyed_colony)
 "iT" = (
 /obj/structure/table/standard,
@@ -2630,13 +1424,9 @@
 /area/planet/destroyed_colony)
 "ja" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 4;
-	icon_state = "innermaincornerinner"
+	dir = 4
 	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedverticalcorroded";
-	tag = "icon-dottedverticalcorroded"
-	},
+/turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "jb" = (
 /obj/structure/table/woodentable,
@@ -2694,7 +1484,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "jj" = (
-/obj/effect/urist/spawn_bomb,
+/obj/effect/spawner/explosion{
+	_high = 1;
+	_low = 5;
+	_med = 3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "jk" = (
@@ -2754,17 +1548,13 @@
 /area/planet/destroyed_colony)
 "jv" = (
 /obj/structure/bed/chair/office/dark{
-	dir = 4;
-	icon_state = "officechair_preview";
-	tag = "icon-officechair_preview (EAST)"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "jw" = (
 /obj/structure/bed/chair/office/dark{
-	dir = 8;
-	icon_state = "officechair_preview";
-	tag = "icon-officechair_preview (WEST)"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
@@ -2783,12 +1573,6 @@
 "jA" = (
 /mob/living/simple_animal/hostile/alien,
 /turf/simulated/floor/plating,
-/area/planet/destroyed_colony)
-"jB" = (
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaltopbordertop0";
-	tag = "icon-horizontaltopbordertop0"
-	},
 /area/planet/destroyed_colony)
 "jC" = (
 /obj/structure/table/woodentable,
@@ -2822,9 +1606,7 @@
 /area/planet/destroyed_colony)
 "jI" = (
 /obj/structure/hygiene/toilet{
-	dir = 1;
-	icon_state = "toilet00";
-	tag = "icon-toilet00 (NORTH)"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
@@ -2872,14 +1654,9 @@
 /area/planet/destroyed_colony)
 "pv" = (
 /obj/structure/table/standard/flipped/w,
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled/old_tile,
 /area/planet/destroyed_colony)
 "sc" = (
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled/old_tile,
 /area/planet/destroyed_colony)
 "uM" = (
@@ -2893,7 +1670,6 @@
 /area/planet/destroyed_colony)
 "vx" = (
 /obj/item/remains/human,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled/old_tile,
 /area/planet/destroyed_colony)
 "vX" = (
@@ -2907,7 +1683,11 @@
 "xU" = (
 /obj/structure/window/reinforced/full,
 /obj/structure/grille,
-/obj/effect/urist/spawn_bomb,
+/obj/effect/spawner/explosion{
+	_high = 1;
+	_low = 5;
+	_med = 3
+	},
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
 "yA" = (
@@ -2938,10 +1718,8 @@
 "Io" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
-	icon_state = "closed";
 	name = "Apartments 1";
-	pixel_x = 0;
-	tag = "icon-closed (WEST)"
+	pixel_x = 0
 	},
 /turf/simulated/floor/tiled/old_tile,
 /area/planet/destroyed_colony)
@@ -2949,9 +1727,6 @@
 /obj/machinery/light/small,
 /obj/structure/table/woodentable,
 /obj/machinery/reagentgrinder,
-/turf/simulated/floor/tiled/old_tile,
-/area/planet/destroyed_colony)
-"LK" = (
 /turf/simulated/floor/tiled/old_tile,
 /area/planet/destroyed_colony)
 "MY" = (
@@ -2968,10 +1743,8 @@
 "Ol" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
-	icon_state = "closed";
 	name = "Apartments 2";
-	pixel_x = 0;
-	tag = "icon-closed (WEST)"
+	pixel_x = 0
 	},
 /turf/simulated/floor/tiled/old_tile,
 /area/planet/destroyed_colony)
@@ -2991,24 +1764,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
-"Vc" = (
-/obj/structure/table/standard/flipped/w,
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/tiled/old_tile,
-/area/planet/destroyed_colony)
 "WL" = (
 /obj/structure/window/reinforced/full,
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
-"XI" = (
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/tiled/old_tile,
-/area/planet/destroyed_colony)
 "Yl" = (
 /obj/structure/table/woodentable,
 /obj/machinery/chemical_dispenser/bar_coffee/full,
-/obj/machinery/light/colored/orange,
 /turf/simulated/floor/tiled/old_tile,
 /area/planet/destroyed_colony)
 "YY" = (
@@ -3124,7 +1887,7 @@ ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -3182,13 +1945,13 @@ aK
 aK
 aK
 aK
-dM
-dP
-dX
-en
 ad
-bs
-ix
+ad
+ad
+aq
+ad
+ad
+ap
 aK
 aK
 aK
@@ -3214,12 +1977,12 @@ ad
 ad
 ad
 ad
-ar
+aq
 ad
 ad
-ae
 ad
-aA
+ad
+ap
 ab
 aK
 aK
@@ -3277,13 +2040,13 @@ aK
 aK
 aK
 aK
-dM
-dP
-dX
-en
 ad
-bs
-ix
+ad
+ad
+aq
+ad
+ad
+ap
 aK
 aK
 aK
@@ -3309,12 +2072,12 @@ ad
 ad
 ad
 ad
-as
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -3373,12 +2136,12 @@ ku
 WL
 WL
 it
-dP
-dX
-el
 ad
-bs
-iy
+ad
+aq
+ad
+ad
+aB
 iz
 iz
 iz
@@ -3404,12 +2167,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -3442,14 +2205,14 @@ aK
 aK
 aK
 aK
-ex
-eD
-eI
+ad
+ad
+an
 eP
-LK
-LK
-LK
-LK
+sc
+sc
+sc
+sc
 PS
 aS
 aK
@@ -3467,13 +2230,13 @@ gU
 gU
 gU
 xU
-bD
-dP
-dX
-eo
-ez
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 iz
 iD
 iN
@@ -3499,12 +2262,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -3523,7 +2286,7 @@ bw
 bI
 bO
 aS
-ce
+bE
 bE
 bE
 cw
@@ -3533,18 +2296,18 @@ cX
 cH
 do
 aS
-dI
-dO
-dW
-al
+ad
+ad
+ad
+ad
 ap
-bs
-eJ
+ad
+ad
 aS
 vd
 An
-LK
-LK
+sc
+sc
 MY
 aS
 aK
@@ -3562,13 +2325,13 @@ hg
 hg
 hg
 ku
-bD
-dP
-dZ
-eq
-ae
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 iz
 bE
 bE
@@ -3594,12 +2357,12 @@ ad
 ad
 ad
 ad
-at
-aj
+aq
 ad
 ad
 ad
-aA
+ad
+ap
 ab
 aK
 aK
@@ -3618,7 +2381,7 @@ bx
 bw
 bw
 aS
-cf
+bE
 bE
 bE
 cx
@@ -3628,13 +2391,13 @@ cY
 cI
 bE
 dD
-bD
-dP
-dX
-ek
 ad
-bs
-dk
+ad
+ad
+aq
+ad
+ad
+ai
 aS
 aS
 aS
@@ -3646,24 +2409,24 @@ aK
 aK
 aK
 ku
-gV
-hg
-hn
+gU
 hg
 hg
-hn
 hg
 hg
-hn
+hg
+hg
+hg
+hg
 hg
 UL
-bD
-dP
-ea
-ag
+ad
+ad
+ad
+ad
 an
-bs
-bD
+ad
+ad
 iz
 iE
 bE
@@ -3689,12 +2452,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -3709,7 +2472,7 @@ aK
 aK
 aK
 aS
-by
+bw
 bw
 bw
 bT
@@ -3718,23 +2481,23 @@ bE
 cs
 cy
 cy
-cz
+cy
 cZ
 cy
 cy
 aS
-bZ
-dP
-dX
-el
+bv
 ad
-bs
-bD
+ad
+aq
+ad
+ad
+ad
 wW
-LK
+sc
 kM
-LK
-LK
+sc
+sc
 cj
 aS
 aK
@@ -3752,13 +2515,13 @@ hg
 hg
 hg
 ku
-bD
-dP
-ea
+ad
+ad
+ad
 ai
 ap
-bs
-bD
+ad
+ad
 iz
 bE
 bE
@@ -3784,23 +2547,23 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 az
 ad
 ad
 aB
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-bf
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
+an
 aK
 aK
 aS
@@ -3811,25 +2574,25 @@ aS
 bE
 co
 ct
-cz
+cy
 cJ
-cz
-da
+cy
+cZ
 cy
 cy
 dE
-bD
-dP
-dX
-em
 ad
-bs
-bZ
+ad
+ad
+aq
+ad
+ad
+bv
 wW
-LK
+sc
 YY
 uM
-LK
+sc
 vX
 aS
 aK
@@ -3847,13 +2610,13 @@ gU
 gU
 gU
 WL
-bD
-dP
-eb
-eq
-ae
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 iz
 iF
 iO
@@ -3879,23 +2642,23 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-af
-af
-af
-af
-ag
-ak
-ak
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 an
-ae
-ae
 ad
-aA
+ad
+ad
+ap
 aK
 aK
 aS
@@ -3913,18 +2676,18 @@ cZ
 cy
 cy
 aS
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 ow
-LK
+sc
 YY
 lV
-LK
+sc
 EM
 aS
 aK
@@ -3942,13 +2705,13 @@ ku
 ku
 WL
 WL
-bD
-dP
-dX
-ep
-eA
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 iz
 iz
 iz
@@ -3972,25 +2735,25 @@ ab
 ac
 ad
 ad
-ae
-ad
-at
 ad
 ad
+aq
 ad
-af
-af
-af
-af
-af
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 ai
-al
-aP
-ao
-ae
-af
 ad
-aA
+an
+ad
+ad
+ad
+ad
+ap
 aK
 aK
 aS
@@ -3998,25 +2761,25 @@ bz
 aV
 aV
 aS
-cf
+bE
 bE
 bE
 cw
 cH
 cQ
-db
+cX
 cH
 bE
 dD
-dJ
-dP
-dX
-en
-ey
-bs
-bD
-LK
-LK
+du
+ad
+ad
+aq
+am
+ad
+ad
+sc
+sc
 YY
 uM
 cm
@@ -4037,13 +2800,13 @@ gU
 gU
 gU
 WL
-bD
-dP
-dY
-el
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 iz
 iG
 iP
@@ -4069,23 +2832,23 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
-af
-ae
-af
 ad
 ad
-af
-af
-af
+ad
+ad
+ad
+ad
+ad
+ad
 ai
 ap
-ae
-af
-ae
-aA
+ad
+ad
+ad
+ap
 aK
 aK
 aS
@@ -4099,22 +2862,22 @@ bE
 cx
 cI
 cQ
-dc
+cY
 cI
 do
 aS
-dK
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 wW
-LK
+sc
 YY
 uM
-LK
+sc
 Oc
 aS
 aK
@@ -4132,13 +2895,13 @@ hg
 hg
 hg
 ku
-bD
-dP
-dX
-el
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 iz
 iH
 iQ
@@ -4164,23 +2927,23 @@ ad
 ad
 ad
 ad
-as
-af
-af
-ae
-ae
+aq
+ad
+ad
+ad
+ad
 aC
-aG
-aG
-aG
-aG
-aG
-aG
-aG
-aG
-aG
-aG
-bg
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ap
 aK
 aK
 aS
@@ -4198,42 +2961,42 @@ aS
 cg
 aS
 aS
-bD
-dP
-dY
-el
 ad
-bs
-dJ
+ad
+ad
+aq
+ad
+ad
+du
 wW
-LK
+sc
 lE
 uM
-LK
+sc
 Jk
 aS
 aK
 aK
 aK
 ku
-gV
-hg
-hn
+gU
 hg
 hg
-hn
 hg
 hg
-hn
+hg
+hg
+hg
+hg
 hg
 UL
-bD
-dP
-dX
-el
-af
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 iA
 aS
 aS
@@ -4258,13 +3021,13 @@ ac
 ad
 ad
 ad
-aj
-au
-ag
-ak
+ad
+aq
+ad
+ad
 an
-ae
-aA
+ad
+ap
 ab
 aK
 aK
@@ -4280,12 +3043,12 @@ aK
 aK
 aS
 bB
-bL
-bL
+bB
+bB
 aS
-bL
+bB
 aS
-bL
+bB
 aS
 bE
 bE
@@ -4293,13 +3056,13 @@ bE
 bE
 dp
 aS
-bD
-dP
-dX
-el
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 aS
 aS
@@ -4322,13 +3085,13 @@ hg
 hg
 hg
 ku
-bD
-dP
-dX
-ek
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 bG
 bE
 bE
@@ -4353,13 +3116,13 @@ ac
 ad
 ad
 ad
-af
-av
-ah
+ad
+aq
+ad
 ab
-ao
-af
-aA
+ad
+ad
+ap
 ab
 aK
 aK
@@ -4388,20 +3151,20 @@ bE
 bE
 dq
 aS
-bD
-dP
-dY
-eo
-ez
-bs
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-dP
+ad
+ad
+ad
+aq
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 aK
 aK
 aK
@@ -4417,13 +3180,13 @@ gU
 gU
 gU
 WL
-bD
-dP
-dX
-iu
 ad
-bs
-bD
+ad
+ad
+am
+ad
+ad
+ad
 fF
 bE
 bE
@@ -4449,12 +3212,12 @@ ad
 ad
 ad
 ad
-au
+aq
 ai
-al
+ad
 ap
-af
-aA
+ad
+ap
 ab
 aK
 aK
@@ -4483,42 +3246,42 @@ bE
 bE
 dq
 aS
-bD
-dP
-dZ
-ag
-an
-bs
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-dP
-aK
-aK
-aK
-WL
-WL
-ku
-ku
-ku
-WL
-WL
-ku
-ku
-ku
-WL
-WL
-bD
-dP
-dX
-ek
 ad
-bs
-bD
+ad
+ad
+ad
+an
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aK
+aK
+aK
+WL
+WL
+ku
+ku
+ku
+WL
+WL
+ku
+ku
+ku
+WL
+WL
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 fF
 bE
 bE
@@ -4544,12 +3307,12 @@ ad
 ad
 ad
 ad
-ar
-af
-ae
-ae
-af
-aA
+aq
+ad
+ad
+ad
+ad
+ap
 ab
 aK
 aK
@@ -4578,13 +3341,13 @@ aS
 aS
 aS
 aS
-bD
-dP
-ea
-ah
-ao
-bs
-bD
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 aS
 aS
 aS
@@ -4607,13 +3370,13 @@ gU
 gU
 gU
 WL
-bD
-dP
-dX
-el
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 bG
 bE
 bE
@@ -4639,12 +3402,12 @@ ad
 ad
 ad
 ad
-aj
-af
-af
-ae
-ae
-aA
+ad
+ad
+ad
+ad
+ad
+ap
 ab
 aK
 aK
@@ -4658,28 +3421,28 @@ aK
 aK
 aK
 aK
-bs
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-dd
-dj
-dr
-dF
-bD
-dP
-eb
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ap
+ac
+an
+ad
+ad
+ad
+ad
 ai
 ap
-bs
-bD
+ad
+ad
 aS
 fb
 fs
@@ -4702,13 +3465,13 @@ hg
 hg
 hg
 ku
-bD
-dP
-dX
-eq
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 fF
 bE
 bE
@@ -4732,14 +3495,14 @@ ab
 ac
 ad
 ad
-ae
 ad
-ar
-af
-af
-af
-af
-aA
+ad
+aq
+ad
+ad
+ad
+ad
+ap
 ab
 aK
 aK
@@ -4763,18 +3526,18 @@ bP
 aS
 aS
 aS
-bD
-dd
-dk
-ds
-dF
-bD
-dP
-dX
-ep
-eA
-bs
-bD
+ad
+ap
+ai
+ap
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 fc
 ft
@@ -4786,24 +3549,24 @@ aS
 aK
 aK
 ku
-gV
-hg
-hn
+gU
 hg
 hg
-hn
 hg
 hg
-hn
+hg
+hg
+hg
+hg
 hg
 UL
-bD
-dP
-dX
-el
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 fF
 bE
 bE
@@ -4829,12 +3592,12 @@ ad
 ad
 ad
 ad
-as
+aq
 ad
-af
-af
-ae
-aA
+ad
+ad
+ad
+ap
 ab
 aK
 aK
@@ -4852,8 +3615,8 @@ aS
 bE
 bE
 aV
-LK
-LK
+sc
+sc
 aV
 bE
 bE
@@ -4863,13 +3626,13 @@ aS
 aT
 aT
 aS
-bD
-dP
-dX
-el
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 fd
 fd
@@ -4892,13 +3655,13 @@ hg
 hg
 hg
 ku
-bD
-dP
-dX
+ad
+ad
+ad
 iv
 ad
-bs
-bD
+ad
+ad
 bG
 bE
 bE
@@ -4924,12 +3687,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
-af
-af
-aA
+ad
+ad
+ap
 ab
 aK
 aK
@@ -4947,8 +3710,8 @@ aS
 bE
 bE
 aV
-LK
-LK
+sc
+sc
 aV
 bE
 bE
@@ -4958,13 +3721,13 @@ aV
 dl
 dt
 aT
-bD
-dP
-dX
-en
 ad
-bs
-bZ
+ad
+ad
+aq
+ad
+ad
+bv
 aS
 aS
 aS
@@ -4987,13 +3750,13 @@ gU
 gU
 gU
 xU
-bD
-dP
-dX
-en
-af
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 iz
 aS
 iJ
@@ -5017,14 +3780,14 @@ ab
 ac
 ad
 ad
-aj
-ad
-at
 ad
 ad
+aq
 ad
-af
-aA
+ad
+ad
+ad
+ap
 ab
 aK
 aK
@@ -5044,22 +3807,22 @@ aS
 bo
 uM
 uM
-cp
+aV
 aS
 aS
 aS
 bp
 aV
-bR
+aV
 aV
 aT
-bD
-dP
-ec
-en
 ad
-bs
-bD
+ad
+ec
+aq
+ad
+ad
+ad
 aS
 bo
 bo
@@ -5082,16 +3845,16 @@ ku
 ku
 WL
 WL
-bD
-dP
-dY
-en
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 iz
 iI
-hS
+bc
 iZ
 aS
 jl
@@ -5114,12 +3877,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -5137,24 +3900,24 @@ aS
 bE
 bE
 aV
-XI
 sc
-cq
+sc
+aV
 bE
 bE
 aS
-cq
-cq
+aV
+aV
 aS
 aS
 aS
-bD
-dP
-dX
-em
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 aV
 aV
@@ -5163,27 +3926,27 @@ aV
 aV
 gk
 aS
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 iz
 iI
 iR
@@ -5206,15 +3969,15 @@ aa
 ab
 ac
 ad
-ae
-ad
-ad
-aw
 ad
 ad
 ad
+aq
 ad
-aA
+ad
+ad
+ad
+ap
 ab
 aK
 aK
@@ -5235,21 +3998,21 @@ bQ
 BR
 BR
 cr
-bN
+bE
 bE
 aS
-cS
+bn
 aV
 aS
 aW
 aS
-bD
-dP
-dX
-en
 ad
-bs
-dJ
+ad
+ad
+aq
+ad
+ad
+du
 aS
 aV
 aV
@@ -5258,31 +4021,31 @@ aV
 aV
 gk
 aS
-gw
-gw
-gw
-gX
-gX
-gX
-gw
-gw
-gw
-gw
-gw
-gw
-gw
-gw
-bs
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+ap
+ap
+ap
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 iz
 iI
-hS
-hS
+bc
+bc
 iJ
 jl
 iP
@@ -5304,12 +4067,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
-ae
-aA
+ad
+ap
 ab
 aK
 aK
@@ -5319,7 +4082,7 @@ aK
 aK
 aK
 aS
-aX
+aV
 bj
 aV
 bq
@@ -5327,8 +4090,8 @@ aS
 bE
 bE
 aV
-LK
-LK
+sc
+sc
 aV
 bE
 bE
@@ -5336,15 +4099,15 @@ aS
 cT
 aV
 bj
-cp
+aV
 aS
-bD
-dP
-dX
-en
-af
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 bo
 bo
@@ -5353,31 +4116,31 @@ bo
 aV
 aS
 aS
-gx
-gw
-dd
-gN
-gN
-gN
-gN
-gx
-gx
-gw
-gw
-gw
-gx
-gw
-bs
-dP
-dX
-en
+ac
 ad
-bs
-bD
+ap
+ap
+ap
+ap
+ap
+ac
+ac
+ad
+ad
+ad
+ac
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 iz
-hS
-hS
-hS
+bc
+bc
+bc
 aS
 jl
 jq
@@ -5399,12 +4162,12 @@ ad
 ad
 ad
 ad
-at
-ad
-ae
+aq
 ad
 ad
-aA
+ad
+ad
+ap
 ab
 aK
 aK
@@ -5422,8 +4185,8 @@ bt
 bE
 bE
 aV
-LK
-LK
+sc
+sc
 aV
 bE
 bE
@@ -5433,13 +4196,13 @@ aV
 aS
 aY
 aS
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 bG
 aV
 aV
@@ -5448,27 +4211,27 @@ aV
 aV
 cT
 aS
-gw
-dd
-gN
-dj
-dr
-gN
-dF
-dj
-dr
-dF
-gw
-gw
-gw
-gw
-bs
-dP
-dX
-en
 ad
-bs
-bD
+ap
+ap
+ac
+an
+ap
+ad
+ac
+an
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 iz
 iJ
 aS
@@ -5494,12 +4257,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -5516,10 +4279,10 @@ aS
 aS
 bE
 bE
-bR
-LK
-LK
-bR
+aV
+sc
+sc
+aV
 bE
 bE
 aS
@@ -5528,13 +4291,13 @@ bl
 aS
 aS
 aS
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 yA
 aV
 aV
@@ -5543,31 +4306,31 @@ fO
 aV
 cT
 aS
-gw
+ad
 gE
-gO
-eJ
-dN
-dr
-gx
-dk
-ds
-dF
-gw
-gw
+ap
+ad
+ai
+an
+ac
+ai
+ap
+ad
+ad
+ad
 ij
-gw
-bs
-dP
-dY
-en
+ad
+ad
+ad
+ad
+aq
 bv
-bs
-bD
+ad
+ad
 iz
-hS
+bc
 aS
-hS
+bc
 aS
 jl
 iP
@@ -5587,14 +4350,14 @@ ab
 ac
 ad
 ad
-af
-ad
-at
 ad
 ad
-ae
+aq
 ad
-aA
+ad
+ad
+ad
+ap
 ab
 aK
 aK
@@ -5612,7 +4375,7 @@ aS
 bF
 bF
 aS
-LK
+sc
 Io
 aS
 bF
@@ -5620,16 +4383,16 @@ bF
 aS
 aV
 aV
-bS
+aV
 ba
 aT
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 yA
 aV
 aV
@@ -5638,27 +4401,27 @@ aV
 aV
 cT
 aS
-gw
-dd
-gN
-gY
-hh
-ds
-dF
-gx
-gx
-dF
-gw
-gw
-gw
-gw
-bs
-dP
-dX
-en
 ad
-bs
-bD
+ap
+ap
+ap
+ac
+ap
+ad
+ac
+ac
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 iz
 cP
 aS
@@ -5684,12 +4447,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
-ae
 ad
-aA
+ad
+ap
 ab
 aK
 aK
@@ -5707,8 +4470,8 @@ aS
 bu
 bu
 bu
-bD
-bD
+ad
+ad
 bu
 bu
 bM
@@ -5718,13 +4481,13 @@ bm
 aV
 aV
 aT
-bD
-dP
-dX
-en
-af
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 bG
 cT
 cT
@@ -5733,27 +4496,27 @@ cT
 cT
 cT
 aS
-gw
-dd
-gN
-dk
-ds
-gN
-dF
-gw
-hF
-gw
-gX
-gX
-gX
-gw
-bs
-dP
-dX
-en
 ad
-bs
-bD
+ap
+ap
+ai
+ap
+ap
+ad
+ad
+ac
+ad
+ap
+ap
+ap
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 iz
 iz
 iz
@@ -5777,14 +4540,14 @@ ab
 ac
 ad
 ad
-af
-ad
-at
 ad
 ad
+aq
 ad
 ad
-aA
+ad
+ad
+ap
 ab
 aK
 aK
@@ -5802,8 +4565,8 @@ bu
 bu
 bu
 bu
-bD
-bD
+ad
+ad
 bu
 bu
 bu
@@ -5813,13 +4576,13 @@ aS
 aT
 aT
 aS
-bD
-dP
-dX
-el
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 bG
 bG
@@ -5828,42 +4591,42 @@ bG
 bG
 bG
 aS
-gw
-gw
-dd
-gN
-gN
-gX
-gw
-gw
-gw
-gw
-dd
-gx
-dF
-gw
-bs
-dP
-dX
-en
 ad
-bs
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-dJ
-bD
-bD
-bD
-bD
-bD
-bD
+ad
+ap
+ap
+ap
+ap
+ad
+ad
+ad
+ad
+ap
+ac
+ad
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+du
+ad
+ad
+ad
+ad
+ad
+ad
 aa
 "}
 (31,1,1) = {"
@@ -5874,91 +4637,91 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aD
-aH
-aL
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-bD
-bD
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-bD
-dP
-dX
-el
+ap
 ad
-bs
-bD
-aH
-aH
-aH
-fE
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-bD
-dP
-dX
-el
+az
 ad
-bs
-bD
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
+ad
+ad
+ad
+du
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 aa
 "}
 (32,1,1) = {"
@@ -5969,128 +4732,102 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aE
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-dQ
-ed
+an
 ad
 ad
-aE
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-dQ
-ed
 ad
-iw
-aE
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+an
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+du
+an
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 aa
 "}
 (33,1,1) = {"
 aa
 ab
 ac
-ae
-ad
-ad
-ad
-at
 ad
 ad
 ad
 ad
-ad
-ad
-ad
-ad
-ad
-af
-af
-af
-af
-af
-af
-af
-af
-ad
-bv
-ad
-ad
-af
-ad
-ad
-ad
-aj
+aq
 ad
 ad
 ad
@@ -6098,7 +4835,14 @@ ad
 ad
 ad
 ad
-af
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 ad
 ad
 ad
@@ -6121,32 +4865,51 @@ ad
 ad
 ad
 ad
-af
-ad
-ad
-aj
+bv
 ad
 ad
 ad
 ad
-aj
-af
-af
-af
-af
-af
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-af
-af
-af
-af
-af
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 ad
 ad
 aa
@@ -6158,92 +4921,92 @@ ac
 ad
 ad
 ad
-af
-at
+ad
+aq
 ad
 ad
-ae
 ad
 ad
-aJ
-aM
-aJ
-aJ
-aN
-aQ
-aQ
-aR
-aR
-aR
-aR
-aQ
-aN
-aJ
-aJ
-aJ
-aJ
+ad
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
 bY
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aN
-aJ
-aJ
-aJ
-aN
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
 ad
 ad
 ad
 ad
 ad
-aR
-aN
-aN
-aR
-aR
-aR
-aR
-aN
-aJ
-aJ
-aJ
-aJ
-aN
-aM
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aM
-aN
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
 ad
-af
-ae
-af
-ae
-aR
-fW
-aR
-iS
+ad
+ad
+ad
+ad
+aq
+aq
+aq
+aq
 ja
-aR
-aQ
-aQ
-aQ
-aQ
-aR
-aR
-aR
-aQ
-aN
-aN
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
 aa
 "}
 (35,1,1) = {"
@@ -6254,7 +5017,7 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
@@ -6266,39 +5029,6 @@ ad
 ad
 ad
 ad
-af
-af
-ae
-af
-af
-af
-af
-af
-ad
-ad
-ad
-ad
-af
-ad
-ad
-ad
-ad
-ad
-ad
-af
-ad
-ad
-ad
-ad
-ad
-aj
-ad
-ad
-ad
-ad
-ad
-fu
-ae
 ad
 ad
 ad
@@ -6310,7 +5040,6 @@ ad
 ad
 ad
 ad
-af
 ad
 ad
 ad
@@ -6319,25 +5048,59 @@ ad
 ad
 ad
 ad
-af
-af
-af
-af
-af
-af
-ae
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ec
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 ai
 ap
-ae
-af
-af
-ae
-ae
-ae
-aj
-ae
-af
-af
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 ad
 aa
 "}
@@ -6346,94 +5109,94 @@ aa
 ab
 ac
 ad
-af
-af
-ad
-at
 ad
 ad
 ad
-ad
-aD
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-dR
-ee
+aq
 ad
 ad
-aD
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-dR
-ee
-ad
-aD
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-dR
-ee
 ad
 ad
-aD
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
+ap
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ai
+ai
+ad
+ad
+ap
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ai
+ai
+ad
+ap
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ai
+ai
+ad
+ad
+ap
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 aa
 "}
 (37,1,1) = {"
@@ -6442,93 +5205,93 @@ ab
 ac
 ad
 ad
-af
-ad
-at
 ad
 ad
+aq
 ad
 ad
-aE
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-bZ
-bD
-aI
-aI
-aI
-aI
-aI
-aI
-aI
+ad
+ad
+an
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+bv
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 du
-aI
-bD
-dP
-dX
-en
 ad
-bs
-bD
-eT
-aI
-aI
-aI
-aI
-aI
-dQ
-ed
 ad
-aE
-aI
-gZ
-bD
-gx
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-dP
-dX
-en
 ad
-bs
-bD
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
+ad
+aq
+ad
+ad
+ad
+ac
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+an
+ad
+an
+ad
+ac
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 aa
 "}
 (38,1,1) = {"
@@ -6539,12 +5302,12 @@ ad
 ad
 ad
 ad
-as
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -6562,8 +5325,8 @@ bu
 bu
 bu
 bu
-bD
-bD
+ad
+ad
 bu
 bu
 bu
@@ -6573,14 +5336,14 @@ aS
 aU
 aU
 aS
-bD
-dP
-dX
-en
 ad
-bs
-eK
-eU
+ad
+ad
+aq
+ad
+ad
+ac
+ap
 fe
 ad
 fe
@@ -6591,9 +5354,9 @@ ad
 ad
 ad
 fe
-ha
-hi
-dF
+ai
+an
+ad
 aS
 aS
 aS
@@ -6602,28 +5365,28 @@ bK
 aS
 aS
 aS
-bD
-dP
-dX
-el
 ad
-bs
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
+ad
+ad
+aq
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 aa
 "}
 (39,1,1) = {"
@@ -6634,12 +5397,12 @@ ad
 ad
 ad
 ad
-ar
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -6657,8 +5420,8 @@ aS
 bu
 bM
 bu
-bD
-bD
+ad
+ad
 bu
 bu
 bu
@@ -6668,27 +5431,27 @@ bm
 aV
 aV
 aU
-bD
-dP
-dY
-em
-af
-bs
-dP
-dX
-fe
 ad
-fe
 ad
-fe
+ad
+aq
 ad
 ad
 ad
 ad
 fe
 ad
-bs
-dF
+fe
+ad
+fe
+ad
+ad
+ad
+ad
+fe
+ad
+ad
+ad
 bG
 hy
 hy
@@ -6697,13 +5460,13 @@ aV
 aV
 ik
 aS
-bD
-dP
-dX
-eq
-af
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 aS
 aS
@@ -6729,12 +5492,12 @@ ad
 ad
 ad
 ad
-aj
 ad
 ad
 ad
 ad
-aA
+ad
+ap
 ab
 aK
 aK
@@ -6752,7 +5515,7 @@ aS
 bG
 bG
 aS
-LK
+sc
 Ol
 aS
 bG
@@ -6760,30 +5523,30 @@ bG
 aS
 aV
 aV
-bR
+aV
 ba
 aU
-bD
-dP
-dY
-em
+ad
+ad
+ad
+aq
 bv
-bs
-dP
-dX
-fe
-ad
-fe
-ad
-fe
-ad
 ad
 ad
 ad
 fe
 ad
-bs
-bD
+fe
+ad
+fe
+ad
+ad
+ad
+ad
+fe
+ad
+ad
+ad
 bG
 aV
 aV
@@ -6792,13 +5555,13 @@ aV
 aV
 il
 aS
-bD
-dP
-dY
-et
-af
-bs
-bD
+ad
+ad
+ad
+ef
+ad
+ad
+ad
 aS
 bb
 aS
@@ -6822,14 +5585,14 @@ ab
 ac
 ad
 ad
-ae
-ad
-ar
 ad
 ad
+aq
 ad
 ad
-aA
+ad
+ad
+ap
 ab
 aK
 aK
@@ -6845,11 +5608,11 @@ bl
 aS
 aS
 bE
-bN
-bS
-LK
-LK
-bS
+bE
+aV
+sc
+sc
+aV
 bE
 bE
 aS
@@ -6858,14 +5621,14 @@ bl
 aS
 aS
 aS
-bD
-dP
-dY
-eq
-af
-bs
-dP
-dX
+ad
+ad
+ad
+aq
+ad
+ad
+ad
+ad
 fe
 ad
 fe
@@ -6875,10 +5638,10 @@ ad
 ad
 ad
 ad
-gP
+fe
 ad
-hj
-bD
+gf
+ad
 bG
 hz
 hz
@@ -6887,13 +5650,13 @@ hz
 aV
 ik
 aS
-bD
-dP
-dY
-eq
-af
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 iJ
 aS
@@ -6919,12 +5682,12 @@ ad
 ad
 ad
 ad
-as
+aq
 ad
 ad
 ad
-ae
-aA
+ad
+ap
 ab
 aK
 aK
@@ -6942,8 +5705,8 @@ bt
 bE
 bE
 aV
-LK
-LK
+sc
+sc
 aV
 bE
 bE
@@ -6953,14 +5716,14 @@ aV
 aS
 bb
 aS
-bD
-dP
-dY
-em
-af
-bs
-dP
-dX
+ad
+ad
+ad
+aq
+ad
+ad
+ad
+ad
 ad
 ad
 ad
@@ -6970,10 +5733,10 @@ ad
 ad
 az
 ad
-aj
 ad
-bs
-bD
+ad
+ad
+ad
 bG
 hz
 hz
@@ -6982,18 +5745,18 @@ hz
 aV
 il
 aS
-bD
-dP
-dY
-aj
 ad
-bs
-bD
+ad
+ad
+ad
+ad
+ad
+ad
 aS
-hS
-hS
-hS
-hS
+bc
+bc
+bc
+bc
 bE
 bE
 fh
@@ -7014,12 +5777,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -7037,25 +5800,21 @@ aS
 bH
 bH
 aV
-LK
-LK
+sc
+sc
 aV
-cv
+bH
 bH
 aS
 br
 aV
 bj
-dv
+bc
 aS
-bD
-dP
-dX
-el
 ad
-bs
-dP
-dX
+ad
+ad
+aq
 ad
 ad
 ad
@@ -7067,23 +5826,27 @@ ad
 ad
 ad
 ad
-bs
-bD
-aS
-aS
+ad
+ad
+ad
+ad
+ad
+ad
 aS
 aS
 aS
 aS
 aS
 aS
-bD
-dP
-dY
-ek
+aS
+aS
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 cC
 cC
@@ -7109,12 +5872,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -7130,27 +5893,23 @@ bn
 aV
 aS
 bE
-bN
+bE
 aV
-Vc
+pv
 pv
 aV
-bN
-cA
+bE
+co
 aS
-aX
+aV
 de
 aS
 dw
 aS
-bD
-dP
-dX
-el
 ad
-bs
-dP
-dX
+ad
+ad
+aq
 ad
 ad
 ad
@@ -7162,8 +5921,12 @@ ad
 ad
 ad
 ad
-bs
-bD
+ad
+ad
+ad
+ad
+ad
+ad
 aS
 hA
 hG
@@ -7172,13 +5935,13 @@ fD
 id
 im
 aS
-bD
-dP
-dX
-el
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 aS
 aS
@@ -7204,12 +5967,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -7227,25 +5990,25 @@ aS
 bE
 bE
 aV
-LK
+sc
 vx
 aV
-bN
-bN
+bE
+bE
 aS
 aV
 aV
 aS
 aS
 aS
-bD
-dP
-dX
-el
 ad
-bs
-dP
-dX
+ad
+ad
+aq
+ad
+ad
+ad
+ad
 ad
 ad
 ad
@@ -7255,10 +6018,10 @@ ad
 gs
 ad
 ad
-gF
+bv
 ad
-hk
-bD
+gs
+ad
 aS
 fD
 fD
@@ -7267,13 +6030,13 @@ hT
 ie
 in
 aS
-bD
-dP
-dX
-eu
 ad
-bs
-bD
+ad
+ad
+ef
+ad
+ad
+ad
 bG
 gg
 iT
@@ -7299,12 +6062,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -7324,23 +6087,19 @@ aS
 bo
 le
 uM
-cp
+aV
 aS
 aS
 aS
 bp
 aV
-bS
+aV
 aV
 aU
-bD
-dP
-dX
-er
 ad
-bs
-dP
-dX
+ad
+ad
+bY
 ad
 ad
 ad
@@ -7352,8 +6111,12 @@ ad
 ad
 ad
 ad
-bs
-bD
+ad
+ad
+ad
+ad
+ad
+ad
 fF
 bE
 gn
@@ -7362,13 +6125,13 @@ bE
 bE
 bE
 aS
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 bG
 bE
 fh
@@ -7390,16 +6153,16 @@ aa
 aa
 ab
 ac
-af
-af
-af
-af
-as
 ad
 ad
 ad
 ad
-aA
+aq
+ad
+ad
+ad
+ad
+ap
 ab
 aK
 aK
@@ -7417,8 +6180,8 @@ aS
 bE
 bE
 aV
-LK
-LK
+sc
+sc
 aV
 bE
 bE
@@ -7428,27 +6191,27 @@ aV
 bn
 dx
 aU
-bD
-dP
-dX
-el
 ad
-bs
-dP
-dX
-fe
 ad
-fe
 ad
-fe
+aq
 ad
 ad
 ad
 ad
 fe
-gF
-hl
-bD
+ad
+fe
+ad
+fe
+ad
+ad
+ad
+ad
+fe
+bv
+am
+ad
 aS
 bE
 fD
@@ -7457,13 +6220,13 @@ hU
 if
 bE
 is
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 is
 bE
 bE
@@ -7485,16 +6248,16 @@ aa
 aa
 ab
 ac
-af
-ae
-ae
-af
-ar
 ad
 ad
-af
 ad
-aA
+ad
+aq
+ad
+ad
+ad
+ad
+ap
 ab
 aK
 aK
@@ -7512,8 +6275,8 @@ aS
 bE
 bE
 aV
-LK
-LK
+sc
+sc
 aV
 bE
 bE
@@ -7523,14 +6286,14 @@ aS
 aU
 aU
 aS
-bD
-dP
-dX
-el
 ad
-bs
-dP
-dX
+ad
+ad
+aq
+ad
+ad
+ad
+ad
 fe
 ad
 fe
@@ -7542,8 +6305,8 @@ ad
 ad
 fe
 gs
-bs
-bD
+ad
+ad
 fF
 bE
 hH
@@ -7552,13 +6315,13 @@ fS
 bE
 bE
 aS
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 bG
 gg
 iU
@@ -7580,16 +6343,16 @@ aa
 aa
 ab
 ac
-ae
-ag
-ak
+ad
+ad
+ad
 an
-ax
-af
+aq
 ad
-af
 ad
-aA
+ad
+ad
+ap
 ab
 aK
 aK
@@ -7613,19 +6376,19 @@ bP
 aS
 aS
 aS
-bD
-bD
-bD
-bD
-bD
-bD
-dP
-dX
-el
 ad
-bs
-dP
-dX
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
+ad
 fe
 ad
 fe
@@ -7634,11 +6397,11 @@ fe
 gl
 ad
 ad
-gF
+bv
 fe
 ad
-bs
-bD
+ad
+ad
 aS
 hB
 hI
@@ -7647,13 +6410,13 @@ fD
 fD
 io
 aS
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 bG
 bE
 fh
@@ -7675,16 +6438,16 @@ aa
 aa
 ab
 ac
-ae
-ah
+ad
+ad
 ab
-ao
-ae
-af
 ad
 ad
 ad
-aA
+ad
+ad
+ad
+ap
 ab
 aK
 aK
@@ -7705,22 +6468,22 @@ aK
 cc
 aK
 aK
-bs
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-dP
-dX
-es
-af
-bs
-eL
-eV
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ef
+ad
+ad
+ai
+an
 fe
 ad
 fe
@@ -7731,9 +6494,9 @@ ad
 ad
 ad
 gQ
-hb
+ac
 hm
-bD
+ad
 aS
 hC
 hJ
@@ -7742,13 +6505,13 @@ hV
 ig
 ip
 aS
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 aS
 aS
@@ -7770,16 +6533,16 @@ aa
 aa
 ab
 ac
-ae
+ad
 ai
-al
+ad
 ap
-aj
-af
 ad
 ad
-af
-aA
+ad
+ad
+ad
+ap
 ab
 aK
 aK
@@ -7808,42 +6571,42 @@ bP
 bP
 bP
 aS
-bD
-dP
-dX
-et
-ae
-bs
-bD
-eW
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-hc
-bD
-bD
-aS
-aS
-aS
-aS
-aS
-aS
-aS
-aS
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+ef
+ad
+ad
+ad
+ai
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ap
+ad
+ad
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 bG
 bE
 bE
@@ -7865,16 +6628,16 @@ aa
 aa
 ab
 ac
-af
-ae
-ae
-ae
-ae
-af
 ad
 ad
 ad
-aA
+ad
+ad
+ad
+ad
+ad
+ad
+ap
 ab
 aK
 aK
@@ -7903,42 +6666,42 @@ df
 dm
 dy
 aS
-bD
-dP
-dX
-es
-af
-bs
-bD
-bD
-bD
-bD
-dJ
-bD
-bD
-bD
-bD
-gy
-bD
-bD
-bZ
-bD
-bD
-bD
-bD
-dJ
-bD
-bD
-bD
-bD
-bD
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+ef
+ad
+ad
+ad
+ad
+ad
+ad
+du
+ad
+ad
+ad
+ad
+gs
+ad
+ad
+bv
+ad
+ad
+ad
+ad
+du
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 bG
 iK
 dq
@@ -7960,16 +6723,16 @@ aa
 aa
 ab
 ac
-af
-af
-af
-ae
-ay
-af
 ad
 ad
 ad
-aA
+ad
+aq
+ad
+ad
+ad
+ad
+ap
 ab
 ab
 ab
@@ -7992,19 +6755,19 @@ ab
 aK
 aS
 cC
-cL
+bc
 cV
 bE
 bE
 bE
 aS
-bZ
-dP
-dX
-eu
+bv
 ad
-bs
-bD
+ad
+ef
+ad
+ad
+ad
 aS
 aS
 aS
@@ -8026,14 +6789,14 @@ bG
 aS
 aS
 aS
-bD
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 aS
 aS
@@ -8057,14 +6820,14 @@ ab
 ac
 ad
 ad
-af
-af
-ar
-af
+ad
+ad
+aq
 ad
 ad
 ad
-aA
+ad
+ap
 ab
 ab
 ab
@@ -8089,17 +6852,17 @@ aS
 aS
 aS
 aS
-dg
+bE
 bE
 bE
 dG
-bD
-dP
-dX
-el
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 ff
 fv
@@ -8121,25 +6884,25 @@ bH
 bE
 fv
 aS
-bD
-bD
-dP
-dX
-en
 ad
-bs
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-jB
+ad
+ad
+ad
+aq
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 aK
 aK
 aK
@@ -8153,13 +6916,13 @@ ac
 ad
 ad
 ad
-af
-as
-af
+ad
+aq
 ad
 ad
 ad
-aA
+ad
+ap
 ab
 ab
 ab
@@ -8188,20 +6951,20 @@ dh
 co
 dz
 aS
-dJ
-dP
-dX
-ev
+du
 ad
-bs
-bD
+ad
+ef
+ad
+ad
+ad
 aS
 fg
 bE
-bN
 bE
 bE
-bN
+bE
+bE
 bE
 gn
 aV
@@ -8216,25 +6979,25 @@ bE
 gn
 fv
 aS
-bD
-bD
-dP
-dX
-es
-af
-bs
-bD
-bD
-bD
-bZ
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-jB
+ad
+ad
+ad
+ad
+ef
+ad
+ad
+ad
+ad
+ad
+bv
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 aK
 aK
 aK
@@ -8249,12 +7012,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 ab
 ab
@@ -8283,13 +7046,13 @@ bE
 bE
 dA
 bP
-bD
-dP
-dX
-eu
 ad
-bs
-bD
+ad
+ad
+ef
+ad
+ad
+ad
 aS
 ff
 fv
@@ -8307,26 +7070,26 @@ bE
 bE
 gn
 gR
-bN
+bE
 bE
 ih
 aS
-bD
-bD
-dP
-dY
-eq
-ae
-bs
-bD
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 aS
 aS
 aS
 aS
 aS
-bD
-bD
+ad
+ad
 aS
 aS
 aS
@@ -8344,12 +7107,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
-af
 ad
-aA
+ad
+ap
 ab
 ab
 ab
@@ -8378,19 +7141,19 @@ aS
 aS
 aS
 aS
-bD
-dP
-dX
-eu
 ad
-bs
-bD
+ad
+ad
+ef
+ad
+ad
+ad
 aS
 fh
 bE
 bE
 bE
-bN
+bE
 bE
 gg
 fi
@@ -8406,14 +7169,14 @@ gg
 fh
 bE
 aS
-bD
-bD
-dP
-dY
-eq
+ad
+ad
+ad
+ad
+aq
 bv
-bs
-bD
+ad
+ad
 aS
 iL
 iV
@@ -8439,12 +7202,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 ab
 ab
@@ -8473,13 +7236,13 @@ bE
 bE
 dz
 bP
-bD
-dP
-dX
-eu
 ad
-bs
-bD
+ad
+ad
+ef
+ad
+ad
+ad
 aS
 ff
 fv
@@ -8501,14 +7264,14 @@ bE
 hW
 fv
 aS
-bD
-bD
-dP
-dY
-eq
-ae
-bs
-bD
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 bG
 cy
 iW
@@ -8534,12 +7297,12 @@ ad
 ad
 ad
 ad
-at
-ad
-af
+aq
 ad
 ad
-aA
+ad
+ad
+ap
 ab
 ab
 ab
@@ -8568,42 +7331,42 @@ bE
 bE
 dB
 aS
-bD
-dP
+ad
+ad
 ef
-en
-eB
-bs
-bD
+aq
+aq
+ad
+ad
 aS
 fh
 bE
 bE
-bN
+bE
 gg
 gm
 gt
 gt
 de
-cq
+aV
 gK
 bK
 ho
 hv
 aV
-cq
+aV
 aV
 aV
 aV
 aS
-bD
-bD
-dP
-dX
-es
-af
-bs
-bD
+ad
+ad
+ad
+ad
+ef
+ad
+ad
+ad
 bG
 cy
 iV
@@ -8629,12 +7392,12 @@ ad
 ad
 am
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 ab
 ab
@@ -8659,17 +7422,17 @@ aS
 aS
 aS
 aS
-dg
+bE
 bE
 bE
 dH
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 ff
 fv
@@ -8691,14 +7454,14 @@ gg
 hX
 bE
 aS
-bD
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 bw
 bw
@@ -8724,12 +7487,12 @@ ad
 ad
 ad
 ad
-at
-af
+aq
 ad
 ad
-aj
-aA
+ad
+ad
+ap
 ab
 ab
 ab
@@ -8752,19 +7515,19 @@ ab
 aK
 aS
 cF
-cO
+bc
 cV
 bE
 bE
 bE
 aS
-bD
-dP
-dX
-eu
 ad
-bs
-bD
+ad
+ad
+ef
+ad
+ad
+ad
 aS
 fh
 bE
@@ -8772,11 +7535,11 @@ bE
 co
 gg
 go
-cq
+aV
 aV
 gI
 gJ
-cq
+aV
 aS
 bE
 gm
@@ -8786,14 +7549,14 @@ bE
 hY
 fv
 aS
-bD
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 is
 aS
 aS
@@ -8819,12 +7582,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 ab
 ab
@@ -8854,12 +7617,12 @@ dn
 dC
 aS
 dL
-dP
-eg
-eu
 ad
-bs
-bD
+bv
+ef
+ad
+ad
+ad
 aS
 ff
 fv
@@ -8881,14 +7644,14 @@ bE
 bE
 bE
 aS
-bD
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 iL
 iV
@@ -8914,12 +7677,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 ab
 ab
@@ -8948,13 +7711,13 @@ bP
 bP
 bP
 aS
-dM
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 fi
 bE
@@ -8976,14 +7739,14 @@ gg
 fh
 bE
 aS
-bD
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 bG
 cy
 iW
@@ -9009,56 +7772,56 @@ ad
 ad
 ad
 ad
-at
-ad
-ae
+aq
 ad
 ad
-aA
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aK
-aK
-aK
-aK
-aK
-aK
-aK
-aK
-aK
-dM
-dP
-eh
-el
 ad
-bs
-bD
+ad
+ap
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aK
+aK
+aK
+aK
+aK
+aK
+aK
+aK
+aK
+ad
+ad
+am
+aq
+ad
+ad
+ad
 aS
 ff
 fv
 bE
-bN
+bE
 bE
 aS
 bn
-cq
+aV
 gJ
 aV
 he
@@ -9071,14 +7834,14 @@ bE
 fg
 fv
 aS
-bD
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 bG
 cy
 iV
@@ -9103,13 +7866,13 @@ ac
 ad
 ad
 ad
-ae
-at
+ad
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -9138,13 +7901,13 @@ aK
 aK
 aK
 aK
-dM
-dP
-dX
-el
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 fh
 bE
@@ -9155,7 +7918,7 @@ fF
 aV
 gA
 aV
-gS
+gK
 hf
 aS
 aS
@@ -9166,14 +7929,14 @@ aS
 aS
 aS
 aS
-bD
-bD
-dP
-dX
-en
 ad
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 bw
 bw
@@ -9199,12 +7962,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -9233,42 +7996,42 @@ aK
 aK
 aK
 aK
-dM
-dP
-dX
-el
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 fj
 bE
 bE
-bN
+bE
 bE
 fF
 aV
 gB
 gK
 aV
-cq
+aV
 aS
 hp
 aV
 aV
 aS
 hM
-hS
+bc
 hP
 aS
-bD
-bD
-dP
-dX
-el
 ad
-bs
-bD
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 aS
 aS
@@ -9292,14 +8055,14 @@ ab
 ac
 ad
 ad
-af
-ad
-at
 ad
 ad
+aq
 ad
-af
-aA
+ad
+ad
+ad
+ap
 ab
 aK
 aK
@@ -9328,13 +8091,13 @@ aK
 aK
 aK
 aK
-dM
-dP
-dX
-eo
 ad
-bs
-bD
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 aS
 aS
@@ -9356,14 +8119,14 @@ hN
 hZ
 hN
 aS
-bD
-bD
-dP
-dX
-eo
-ez
-bs
-bD
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 fj
 dB
@@ -9387,14 +8150,14 @@ ab
 ac
 ad
 ad
-aj
-af
-at
+ad
+ad
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -9423,13 +8186,13 @@ aK
 aK
 aK
 aK
-dM
-dS
-dZ
-eq
-ez
-eE
-eM
+ad
+ad
+ad
+aq
+ad
+ad
+du
 aS
 bE
 bE
@@ -9451,14 +8214,14 @@ hO
 ia
 hZ
 aS
-bD
-bD
-dP
-dZ
-eq
-ae
-bs
-bD
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 aS
 bE
 bE
@@ -9482,14 +8245,14 @@ ab
 ac
 ad
 ad
-af
-ad
-at
-ad
-af
 ad
 ad
-aA
+aq
+ad
+ad
+ad
+ad
+ap
 ab
 aK
 aK
@@ -9518,13 +8281,13 @@ ab
 ab
 ab
 aK
-dM
-dT
-ea
-eq
-ae
-eF
-eN
+ad
+ad
+ad
+aq
+ad
+ad
+ad
 bG
 fk
 bE
@@ -9537,7 +8300,7 @@ bE
 aS
 bn
 aV
-gS
+gK
 hr
 gJ
 fO
@@ -9546,13 +8309,13 @@ hP
 ib
 ii
 aS
-bD
-bD
-dP
-ea
-ag
+ad
+ad
+ad
+ad
+ad
 an
-bs
+ad
 aS
 aS
 jo
@@ -9576,15 +8339,15 @@ aa
 ab
 ac
 ad
-ae
-ad
-ad
-aw
 ad
 ad
 ad
+aq
 ad
-aA
+ad
+ad
+ad
+ap
 ab
 aK
 aK
@@ -9613,13 +8376,13 @@ ab
 ab
 ab
 aK
-dM
-dU
-ei
-ew
-eC
-eG
-dj
+ad
+ad
+ad
+ad
+ad
+ad
+ac
 bG
 fk
 fw
@@ -9641,13 +8404,13 @@ hQ
 hZ
 hN
 aS
-bD
-bD
-dP
-ea
+ad
+ad
+ad
+ad
 ai
 ap
-bs
+ad
 aS
 bE
 bE
@@ -9674,12 +8437,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
-ae
-aA
+ad
+ap
 ab
 aK
 aK
@@ -9708,13 +8471,13 @@ ab
 ab
 ab
 aK
-dN
-dV
-ej
-ak
-dV
-eH
-eO
+ai
+ad
+ad
+ad
+ad
+ad
+ap
 bG
 fk
 fw
@@ -9726,23 +8489,23 @@ co
 bE
 fF
 aV
-cq
+aV
 gK
 gI
-cq
+aV
 aV
 aS
 hR
-ic
-ic
+hM
+hM
 aS
-bD
-bD
-dP
-eb
-eq
-ae
-bs
+ad
+ad
+ad
+ad
+aq
+ad
+ad
 aS
 bE
 bE
@@ -9769,12 +8532,12 @@ ad
 ad
 ad
 ad
-at
-ad
-ae
+aq
 ad
 ad
-aA
+ad
+ad
+ap
 ab
 aK
 aK
@@ -9829,15 +8592,15 @@ aV
 bK
 hN
 hN
-hS
+bc
 aS
-bD
-bD
-dP
-dX
-ep
-eA
-bs
+ad
+ad
+ad
+ad
+aq
+ad
+ad
 aS
 bE
 bE
@@ -9862,14 +8625,14 @@ ab
 ac
 ad
 ad
-af
-ad
-at
 ad
 ad
+aq
 ad
 ad
-aA
+ad
+ad
+ap
 ab
 aK
 aK
@@ -9922,17 +8685,17 @@ bQ
 bQ
 bQ
 aS
-hS
-hS
+bc
+bc
 hN
 aS
-bD
-bD
-dP
-dX
-el
 ad
-bs
+ad
+ad
+ad
+aq
+ad
+ad
 aS
 aS
 aS
@@ -9959,12 +8722,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -10021,13 +8784,13 @@ aS
 aS
 aS
 aS
-bD
-bD
-dP
-dX
-en
 ad
-bs
+ad
+ad
+ad
+aq
+ad
+ad
 is
 iB
 bE
@@ -10054,12 +8817,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
-af
-af
-aA
+ad
+ad
+ap
 ab
 aK
 aK
@@ -10095,34 +8858,34 @@ aK
 aK
 aK
 aK
-eX
-fl
-fz
-fL
-fL
-fL
-fL
-gv
-fL
-fL
-fL
-fL
-fL
-fL
-fL
-fL
-fL
-fL
-fL
-fL
-fL
-bD
-bD
-dP
-dX
-el
 ad
-bs
+ad
+ad
+ad
+ad
+ad
+ad
+du
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aq
+ad
+ad
 bG
 iC
 bE
@@ -10146,78 +8909,78 @@ aa
 ab
 ac
 ad
-ae
 ad
 ad
-at
+ad
+aq
 ad
 ad
-af
-aj
-aA
-ab
-aK
-aK
-aK
-aK
-aK
-aK
-aK
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aK
-aK
-aK
-aK
-aK
-aK
-aK
-aK
-eY
-fm
-fA
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-dQ
-ed
 ad
 ad
-bs
+ap
+ab
+aK
+aK
+aK
+aK
+aK
+aK
+aK
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aK
+aK
+aK
+aK
+aK
+aK
+aK
+aK
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 bG
 bE
 bE
@@ -10244,12 +9007,12 @@ ad
 ad
 ad
 ad
-at
-ae
+aq
 ad
-af
-af
-aA
+ad
+ad
+ad
+ap
 ab
 aK
 aK
@@ -10285,34 +9048,34 @@ aK
 aK
 aK
 aK
-eZ
+ai
 an
-eC
-ae
-af
-ae
-bv
-ae
-af
 ad
-ad
-ad
-af
-ae
-ag
-an
-ae
-af
-af
-ad
-af
 ad
 ad
 ad
 bv
-af
-af
-bs
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+an
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+bv
+ad
+ad
+ad
 bG
 iB
 bE
@@ -10323,8 +9086,8 @@ bE
 bE
 bE
 iJ
-hS
-hS
+bc
+bc
 iJ
 jI
 aS
@@ -10339,12 +9102,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -10381,33 +9144,33 @@ aK
 aK
 aK
 aK
-ao
-ew
-aR
-fW
-fW
-aR
-fW
-aQ
-aN
-aN
-fW
-fW
-aR
-ah
-ao
-aR
-fW
-fW
-aN
-aQ
-aN
-aN
 ad
-af
-ae
-af
-bs
+ad
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+ad
+ad
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+ad
+ad
+ad
+ad
+ad
 aS
 iC
 bE
@@ -10432,77 +9195,77 @@ ab
 ac
 ad
 ad
-af
-ad
-at
 ad
 ad
+aq
 ad
 ad
-aA
-ab
-aK
-aK
-aK
-aK
-aK
-aK
-aK
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aK
-aK
-aK
-aK
-aK
-aK
-aK
-aK
-ex
+ad
+ad
 ap
-eC
-ae
-af
+ab
+aK
+aK
+aK
+aK
+aK
+aK
+aK
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aK
+aK
+aK
+aK
+aK
+aK
+aK
+aK
 ad
-af
-af
-ad
-af
+ap
 ad
 ad
-af
-ae
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 ai
 ap
-ae
-af
 ad
 ad
 ad
 ad
 ad
 ad
-af
-af
-af
-bs
+ad
+ad
+ad
+ad
+ad
+ad
 aS
 aS
 aS
@@ -10514,7 +9277,7 @@ fF
 fF
 aS
 iI
-hS
+bc
 iJ
 jI
 aS
@@ -10529,84 +9292,84 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
-ae
-ad
-aA
-ab
-aK
-aK
-aK
-aK
-aK
-aK
-aK
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aK
-aK
-aK
-aK
-aK
-aK
-aK
-aK
-eX
-fl
-fz
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
-dR
-ee
 ad
 ad
-bs
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
+ap
+ab
+aK
+aK
+aK
+aK
+aK
+aK
+aK
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aK
+aK
+aK
+aK
+aK
+aK
+aK
+aK
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ai
+ai
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 aS
 aS
 aS
@@ -10624,12 +9387,12 @@ ad
 ad
 ad
 ad
-at
+aq
 ad
 ad
 ad
 ad
-aA
+ap
 ab
 aK
 aK
@@ -10665,49 +9428,49 @@ aK
 aK
 aK
 aK
-eY
-fm
-fA
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-bD
-dP
-dX
-el
 ad
-bs
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-bD
-jB
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aq
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 aK
 aa
 "}

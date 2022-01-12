@@ -349,3 +349,35 @@
 
 /obj/structure/closet/crate/uranium/WillContain()
 	return list(/obj/item/stack/material/uranium/ten = 5)
+
+/obj/structure/closet/crate/plastic_smug_ammo
+	name = "dirty plastic crate"
+	desc = "Dirty and scrtached plastic crate."
+	icon_state = "plasticcrate"
+	icon_opened = "plasticcrateopen"
+	icon_closed = "plasticcrate"
+
+/obj/structure/closet/crate/plastic_smug_ammo/WillContain()
+	return list(
+		/obj/random/ammo_magazine,
+		/obj/random/ammo_magazine,
+		/obj/random/ammo_magazine,
+		/obj/random/ammo_magazine,
+		/obj/random/ammo_magazine
+	)
+
+/obj/structure/closet/crate/plastic_smug_weapons
+	name = "dirty plastic crate"
+	desc = "Dirty and scrtached plastic crate."
+	icon_state = "plasticcrate"
+	icon_opened = "plasticcrateopen"
+	icon_closed = "plasticcrate"
+
+/obj/structure/closet/crate/plastic_smug_weapons/WillContain()
+	return list(
+		/obj/random/handgun,
+		/obj/random/handgun,
+		/obj/random/handgun,
+		/obj/random/projectile,
+		/obj/random/projectile)
+

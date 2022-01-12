@@ -29,6 +29,23 @@
 		/area/map_template/hydrobase = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/map_template/hydrobase/station = NO_SCRUBBER,
 		/area/map_template/marooned = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/jungleoutpost/medbay = NO_SCRUBBER|NO_VENT,
+		/area/jungleoutpost/comms = NO_SCRUBBER,
+		/area/planet/jungle/away = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/planet/destroyed_colony = NO_SCRUBBER|NO_VENT|NO_APC,
+
+		/area/noctis/exteriorl = NO_SCRUBBER|NO_VENT,
+		/area/noctis/apm = NO_SCRUBBER|NO_VENT,
+		/area/noctis/disposal = NO_SCRUBBER|NO_VENT,
+		/area/noctis/reactorch = NO_SCRUBBER|NO_VENT,
+		/area/noctis/raptor = NO_SCRUBBER,
+		/area/noctis/fm = NO_SCRUBBER|NO_VENT,
+		/area/noctis/combint = NO_SCRUBBER|NO_VENT,
+		/area/noctis/atmosc = NO_SCRUBBER|NO_VENT,
+		/area/noctis/atmos = NO_SCRUBBER|NO_VENT,
+		/area/noctis/reactorov = NO_SCRUBBER|NO_VENT,
+		/area/noctis/extconn = NO_SCRUBBER,
+		/area/noctis/fpm = NO_SCRUBBER|NO_VENT,
 		/area/spacestations/pirate/asteroid = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/spacestations/pirate/exterior = NO_SCRUBBER|NO_VENT|NO_APC,
 	)
@@ -37,8 +54,6 @@
 		/area/space,
 		/area/mine/explored,
 		/area/mine/unexplored,
-//		/area/icarus/open,
-//		/area/icarus/vessel,
 	)
 
 	area_coherency_test_subarea_count = list(

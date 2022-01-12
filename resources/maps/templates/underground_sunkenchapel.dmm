@@ -503,7 +503,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/mine/unexplored)
 "bt" = (
-/obj/structure/synthesized_instrument/synthesizer/piano,
 /obj/item/weapon/paper/crumpled,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
