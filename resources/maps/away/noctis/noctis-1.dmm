@@ -4667,14 +4667,6 @@
 /obj/machinery/door/window/northleft,
 /turf/simulated/floor/plating,
 /area/noctis/disposal)
-"jv" = (
-/obj/structure/disposalpipe/segment,
-/obj/random/closet,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/noctis/disposal)
 "jw" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "piratedisposal"
@@ -5031,6 +5023,16 @@
 	dir = 10
 	},
 /obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/noctis/disposal)
+"KE" = (
+/obj/structure/disposalpipe/segment{
+	icon_state = "pipe-c"
+	},
+/obj/random/closet,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/noctis/disposal)
 "NG" = (
@@ -7888,7 +7890,7 @@ hC
 ib
 ib
 ja
-jv
+KE
 jK
 aa
 aa
