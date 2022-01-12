@@ -17,9 +17,9 @@
 /area/planet/jungle/away)
 "ae" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (EAST)";
+	dir = 4;
 	icon_state = "test";
-	dir = 4
+	tag = "icon-test (EAST)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
@@ -31,9 +31,9 @@
 /area/planet/jungle/away)
 "ah" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test2 (WEST)";
+	dir = 8;
 	icon_state = "test2";
-	dir = 8
+	tag = "icon-test2 (WEST)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
@@ -43,17 +43,17 @@
 /area/planet/jungle/away)
 "aj" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test2 (EAST)";
+	dir = 4;
 	icon_state = "test2";
-	dir = 4
+	tag = "icon-test2 (EAST)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "ak" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (WEST)";
+	dir = 8;
 	icon_state = "test";
-	dir = 8
+	tag = "icon-test (WEST)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
@@ -62,49 +62,49 @@
 /area/planet/jungle/away)
 "am" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTHEAST)";
+	dir = 5;
 	icon_state = "test";
-	dir = 5
+	tag = "icon-test (NORTHEAST)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "an" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (SOUTHEAST)";
+	dir = 6;
 	icon_state = "test";
-	dir = 6
+	tag = "icon-test (SOUTHEAST)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "ao" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (SOUTHWEST)";
+	dir = 10;
 	icon_state = "test";
-	dir = 10
+	tag = "icon-test (SOUTHWEST)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "ap" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTHWEST)";
+	dir = 9;
 	icon_state = "test";
-	dir = 9
+	tag = "icon-test (NORTHWEST)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "aq" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test2";
+	dir = 2;
 	icon_state = "test2";
-	dir = 2
+	tag = "icon-test2"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "ar" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test2 (NORTH)";
+	dir = 1;
 	icon_state = "test2";
-	dir = 1
+	tag = "icon-test2 (NORTH)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
@@ -113,9 +113,9 @@
 /area/planet/jungle/away)
 "at" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTH)";
+	dir = 1;
 	icon_state = "test";
-	dir = 1
+	tag = "icon-test (NORTH)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
@@ -130,8 +130,8 @@
 "aw" = (
 /obj/structure/bed/nice,
 /turf/simulated/floor/wood{
-	tag = "icon-wood_broken6";
-	icon_state = "wood_broken6"
+	icon_state = "wood_broken6";
+	tag = "icon-wood_broken6"
 	},
 /area/planet/jungle/away)
 "ax" = (
@@ -140,8 +140,8 @@
 "ay" = (
 /obj/structure/closet,
 /turf/simulated/floor/wood{
-	tag = "icon-wood_broken2";
-	icon_state = "wood_broken2"
+	icon_state = "wood_broken2";
+	tag = "icon-wood_broken2"
 	},
 /area/planet/jungle/away)
 "az" = (
@@ -156,26 +156,23 @@
 /area/planet/jungle/away)
 "aB" = (
 /turf/simulated/floor/wood{
-	tag = "icon-wood_broken1";
-	icon_state = "wood_broken1"
+	icon_state = "wood_broken1";
+	tag = "icon-wood_broken1"
 	},
 /area/planet/jungle/away)
 "aC" = (
 /turf/simulated/floor/wood{
-	tag = "icon-wood_broken5";
-	icon_state = "wood_broken5"
+	icon_state = "wood_broken5";
+	tag = "icon-wood_broken5"
 	},
 /area/planet/jungle/away)
 "aD" = (
 /obj/structure/anvil,
 /turf/simulated/floor/wood{
-	tag = "icon-wood_broken6";
-	icon_state = "wood_broken6"
+	icon_state = "wood_broken6";
+	tag = "icon-wood_broken6"
 	},
 /area/planet/jungle/away)
-"aE" = (
-/turf/simulated/floor/planet/plains,
-/area/space)
 "aF" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
@@ -203,9 +200,9 @@
 /area/planet/jungle/away)
 "aL" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (EAST)";
+	dir = 4;
 	icon_state = "test";
-	dir = 4
+	tag = "icon-test (EAST)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
@@ -214,9 +211,9 @@
 /area/planet/jungle/away)
 "aN" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (WEST)";
+	dir = 8;
 	icon_state = "test";
-	dir = 8
+	tag = "icon-test (WEST)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
@@ -228,73 +225,73 @@
 /area/planet/jungle/away)
 "aQ" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (SOUTHEAST)";
+	dir = 6;
 	icon_state = "test";
-	dir = 6
+	tag = "icon-test (SOUTHEAST)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aR" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test2";
+	dir = 2;
 	icon_state = "test2";
-	dir = 2
+	tag = "icon-test2"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aS" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test2 (WEST)";
+	dir = 8;
 	icon_state = "test2";
-	dir = 8
+	tag = "icon-test2 (WEST)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aT" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTHWEST)";
+	dir = 9;
 	icon_state = "test";
-	dir = 9
+	tag = "icon-test (NORTHWEST)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aU" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTHEAST)";
+	dir = 5;
 	icon_state = "test";
-	dir = 5
+	tag = "icon-test (NORTHEAST)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aV" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test2 (EAST)";
+	dir = 4;
 	icon_state = "test2";
-	dir = 4
+	tag = "icon-test2 (EAST)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aW" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test2 (NORTH)";
+	dir = 1;
 	icon_state = "test2";
-	dir = 1
+	tag = "icon-test2 (NORTH)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aX" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (SOUTHWEST)";
+	dir = 10;
 	icon_state = "test";
-	dir = 10
+	tag = "icon-test (SOUTHWEST)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aY" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTH)";
+	dir = 1;
 	icon_state = "test";
-	dir = 1
+	tag = "icon-test (NORTH)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
@@ -312,131 +309,6 @@
 /obj/effect/shuttle_landmark/nav_glloyd_jungle/nav2,
 /turf/simulated/floor/planet/jungle/clear,
 /area/planet/jungle/away)
-"bd" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-3,15 (NORTHWEST)";
-	icon_state = "3,15";
-	dir = 9
-	},
-/area/planet/jungle/away)
-"be" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-3,15";
-	icon_state = "3,15";
-	dir = 2
-	},
-/area/planet/jungle/away)
-"bf" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-3,15 (SOUTHEAST)";
-	icon_state = "3,15";
-	dir = 6
-	},
-/area/planet/jungle/away)
-"bg" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-3,15 (EAST)";
-	icon_state = "3,15";
-	dir = 4
-	},
-/area/planet/jungle/away)
-"bh" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-4,14";
-	icon_state = "4,14"
-	},
-/area/planet/jungle/away)
-"bi" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-0,14";
-	icon_state = "0,14"
-	},
-/area/planet/jungle/away)
-"bj" = (
-/turf/unsimulated/floor/uristturf/other/scom/destructable{
-	tag = "icon-0,15";
-	icon_state = "0,15"
-	},
-/area/planet/jungle/away)
-"bk" = (
-/turf/unsimulated/floor/uristturf/other/scom/destructable{
-	tag = "icon-0,15.1";
-	icon_state = "0,15.1"
-	},
-/area/planet/jungle/away)
-"bl" = (
-/turf/unsimulated/floor/uristturf/other/scom/destructable{
-	tag = "icon-1,15";
-	icon_state = "1,15"
-	},
-/area/planet/jungle/away)
-"bm" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-1,14";
-	icon_state = "1,14"
-	},
-/area/planet/jungle/away)
-"bn" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-5,14";
-	icon_state = "5,14"
-	},
-/area/planet/jungle/away)
-"bo" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-3,15 (WEST)";
-	icon_state = "3,15";
-	dir = 8
-	},
-/area/planet/jungle/away)
-"bp" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-2,11";
-	icon_state = "2,11"
-	},
-/area/planet/jungle/away)
-"bq" = (
-/turf/unsimulated/floor/uristturf/other/scom/destructable{
-	tag = "icon-0,13";
-	icon_state = "0,13"
-	},
-/area/planet/jungle/away)
-"br" = (
-/turf/unsimulated/floor/uristturf/other/scom/destructable{
-	tag = "icon-1,13";
-	icon_state = "1,13"
-	},
-/area/planet/jungle/away)
-"bs" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-0,12";
-	icon_state = "0,12"
-	},
-/area/planet/jungle/away)
-"bt" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-0,11";
-	icon_state = "0,11"
-	},
-/area/planet/jungle/away)
-"bu" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-2,13";
-	icon_state = "2,13"
-	},
-/area/planet/jungle/away)
-"bv" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-3,13";
-	icon_state = "3,13"
-	},
-/area/planet/jungle/away)
-"bw" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-1,10";
-	icon_state = "1,10"
-	},
-/area/planet/jungle/away)
 "bx" = (
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/jungle/away)
@@ -449,60 +321,6 @@
 "bA" = (
 /obj/structure/scrap,
 /turf/simulated/floor/planet/jungle/clear/underground,
-/area/planet/jungle/away)
-"bB" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-2,12";
-	icon_state = "2,12"
-	},
-/area/planet/jungle/away)
-"bC" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-3,15 (NORTHEAST)";
-	icon_state = "3,15";
-	dir = 5
-	},
-/area/planet/jungle/away)
-"bD" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-3,15 (NORTH)";
-	icon_state = "3,15";
-	dir = 1
-	},
-/area/planet/jungle/away)
-"bE" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-123456 (WEST)";
-	icon_state = "123456";
-	dir = 8
-	},
-/area/planet/jungle/away)
-"bF" = (
-/turf/unsimulated/floor/uristturf/other/scom/destructable{
-	tag = "icon-2,14";
-	icon_state = "2,14"
-	},
-/area/planet/jungle/away)
-"bG" = (
-/turf/unsimulated/floor/uristturf/other/scom/destructable{
-	tag = "icon-2,14 (SOUTHEAST)";
-	icon_state = "2,14";
-	dir = 6
-	},
-/area/planet/jungle/away)
-"bH" = (
-/turf/unsimulated/floor/uristturf/other/scom/destructable{
-	tag = "icon-2,14 (NORTH)";
-	icon_state = "2,14";
-	dir = 1
-	},
-/area/planet/jungle/away)
-"bI" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-3,15 (SOUTHWEST)";
-	icon_state = "3,15";
-	dir = 10
-	},
 /area/planet/jungle/away)
 "bJ" = (
 /obj/effect/template_loader/planet,
@@ -735,15 +553,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
-"cw" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/jungleoutpost/main)
 "cx" = (
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
@@ -801,13 +610,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
-"cG" = (
-/turf/simulated/floor/tiled,
-/area/jungleoutpost/main)
 "cH" = (
 /obj/structure/hygiene/sink{
-	icon_state = "sink";
 	dir = 8;
+	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -878,12 +684,9 @@
 /area/jungleoutpost/main)
 "cR" = (
 /turf/simulated/floor/plating{
-	tag = "icon-dmg3";
-	icon_state = "dmg3"
+	icon_state = "dmg3";
+	tag = "icon-dmg3"
 	},
-/area/jungleoutpost/main)
-"cS" = (
-/turf/simulated/floor/tiled/white,
 /area/jungleoutpost/main)
 "cT" = (
 /obj/structure/table/standard,
@@ -1078,8 +881,8 @@
 /area/planet/jungle/away)
 "dy" = (
 /turf/simulated/floor/plating{
-	tag = "icon-dmg2";
-	icon_state = "dmg2"
+	icon_state = "dmg2";
+	tag = "icon-dmg2"
 	},
 /area/jungleoutpost/main)
 "dz" = (
@@ -1258,8 +1061,8 @@
 /area/jungleoutpost/main)
 "dU" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
@@ -1310,8 +1113,8 @@
 	pixel_y = 24
 	},
 /turf/simulated/floor/plating{
-	tag = "icon-dmg4";
-	icon_state = "dmg4"
+	icon_state = "dmg4";
+	tag = "icon-dmg4"
 	},
 /area/jungleoutpost/main)
 "eb" = (
@@ -1320,9 +1123,9 @@
 	pixel_y = 30
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
+	dir = 1;
 	icon_state = "corner_white";
-	dir = 1
+	tag = "icon-corner_white (NORTH)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
@@ -1331,25 +1134,25 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
+	dir = 1;
 	icon_state = "corner_white";
-	dir = 1
+	tag = "icon-corner_white (NORTH)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "ed" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
+	dir = 1;
 	icon_state = "corner_white";
-	dir = 1
+	tag = "icon-corner_white (NORTH)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "ee" = (
 /obj/structure/table/standard/flipped/e,
 /obj/item/weapon/material/shard{
-	tag = "icon-medium";
-	icon_state = "medium"
+	icon_state = "medium";
+	tag = "icon-medium"
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/main)
@@ -1371,8 +1174,8 @@
 /area/jungleoutpost/main)
 "ei" = (
 /obj/item/weapon/material/shard{
-	tag = "icon-medium";
-	icon_state = "medium"
+	icon_state = "medium";
+	tag = "icon-medium"
 	},
 /turf/simulated/floor/planet/jungle,
 /area/planet/jungle/away)
@@ -1449,8 +1252,8 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	tag = "icon-dmg2";
-	icon_state = "dmg2"
+	icon_state = "dmg2";
+	tag = "icon-dmg2"
 	},
 /area/jungleoutpost/main)
 "er" = (
@@ -1461,8 +1264,8 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	tag = "icon-dmg1";
-	icon_state = "dmg1"
+	icon_state = "dmg1";
+	tag = "icon-dmg1"
 	},
 /area/jungleoutpost/main)
 "es" = (
@@ -1479,8 +1282,8 @@
 	tag = ""
 	},
 /turf/simulated/floor/plating{
-	tag = "icon-dmg3";
-	icon_state = "dmg3"
+	icon_state = "dmg3";
+	tag = "icon-dmg3"
 	},
 /area/jungleoutpost/main)
 "et" = (
@@ -1500,21 +1303,6 @@
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "eu" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/jungleoutpost/main)
-"ev" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -1607,22 +1395,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
-"eB" = (
-/obj/structure/table/standard/flipped/e,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled,
-/area/jungleoutpost/main)
 "eC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1682,21 +1454,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/jungleoutpost/main)
-"eG" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/jungleoutpost/main)
 "eH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1729,9 +1486,9 @@
 /area/jungleoutpost/main)
 "eJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	tag = "icon-intact-supply (SOUTHWEST)";
+	dir = 10;
 	icon_state = "intact-supply";
-	dir = 10
+	tag = "icon-intact-supply (SOUTHWEST)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1767,8 +1524,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
-	tag = "icon-dmg4";
-	icon_state = "dmg4"
+	icon_state = "dmg4";
+	tag = "icon-dmg4"
 	},
 /area/jungleoutpost/main)
 "eP" = (
@@ -1779,8 +1536,8 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	tag = "icon-dmg1";
-	icon_state = "dmg1"
+	icon_state = "dmg1";
+	tag = "icon-dmg1"
 	},
 /area/jungleoutpost/main)
 "eQ" = (
@@ -1799,9 +1556,9 @@
 /area/jungleoutpost/main)
 "eS" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHWEST)";
+	dir = 10;
 	icon_state = "corner_white";
-	dir = 10
+	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1809,9 +1566,9 @@
 /area/jungleoutpost/main)
 "eT" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (WEST)";
+	dir = 8;
 	icon_state = "corner_white";
-	dir = 8
+	tag = "icon-corner_white (WEST)"
 	},
 /obj/structure/table/standard/flipped/e,
 /obj/item/remains/human,
@@ -1819,26 +1576,26 @@
 /area/jungleoutpost/main)
 "eU" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
+	dir = 8;
 	icon_state = "corner_white";
-	dir = 8
+	tag = "icon-corner_white (WEST)"
 	},
 /obj/item/stack/cable_coil/single,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "eV" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
+	dir = 8;
 	icon_state = "corner_white";
-	dir = 8
+	tag = "icon-corner_white (WEST)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "eW" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
+	dir = 8;
 	icon_state = "corner_white";
-	dir = 8
+	tag = "icon-corner_white (WEST)"
 	},
 /obj/machinery/camera/network/mining{
 	c_tag = "Outpost Hallway 2";
@@ -1850,9 +1607,9 @@
 "eX" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
+	dir = 8;
 	icon_state = "corner_white";
-	dir = 8
+	tag = "icon-corner_white (WEST)"
 	},
 /obj/item/weapon/material/shard,
 /turf/simulated/floor/tiled,
@@ -1873,18 +1630,18 @@
 /area/jungleoutpost/main)
 "fb" = (
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHWEST)";
+	dir = 10;
 	icon_state = "corner_white";
-	dir = 10
+	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "fc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHWEST)";
+	dir = 10;
 	icon_state = "corner_white";
-	dir = 10
+	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -1903,8 +1660,8 @@
 /area/jungleoutpost/main)
 "fe" = (
 /obj/item/weapon/material/shard{
-	tag = "icon-medium";
-	icon_state = "medium"
+	icon_state = "medium";
+	tag = "icon-medium"
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/main)
@@ -2012,9 +1769,9 @@
 /area/jungleoutpost/medbay)
 "ft" = (
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
+	dir = 8;
 	icon_state = "corner_white_three_quarters";
-	dir = 8
+	tag = "icon-corner_white_three_quarters (WEST)"
 	},
 /obj/effect/floor_decal/corner/paleblue,
 /obj/structure/table/rack,
@@ -2043,18 +1800,18 @@
 /area/jungleoutpost/medbay)
 "fw" = (
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (NORTHEAST)";
+	dir = 5;
 	icon_state = "corner_white";
-	dir = 5
+	tag = "icon-corner_white (NORTHEAST)"
 	},
 /obj/effect/floor_decal/corner/paleblue,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "fx" = (
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
+	dir = 1;
 	icon_state = "corner_white_three_quarters";
-	dir = 1
+	tag = "icon-corner_white_three_quarters (NORTH)"
 	},
 /obj/structure/table/standard,
 /obj/item/weapon/storage/pill_bottle/bloodloss,
@@ -2133,13 +1890,10 @@
 	amount = 50
 	},
 /obj/effect/floor_decal/corner/yellow/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
+	dir = 8;
 	icon_state = "corner_white_three_quarters";
-	dir = 8
+	tag = "icon-corner_white_three_quarters (WEST)"
 	},
-/turf/simulated/floor/tiled,
-/area/jungleoutpost/engi)
-"fG" = (
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
 "fH" = (
@@ -2157,9 +1911,9 @@
 	amount = 50
 	},
 /obj/effect/floor_decal/corner/yellow/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
+	dir = 1;
 	icon_state = "corner_white_three_quarters";
-	dir = 1
+	tag = "icon-corner_white_three_quarters (NORTH)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
@@ -2196,35 +1950,35 @@
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/glass/beaker/painkiller,
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
+	dir = 8;
 	icon_state = "corner_white_three_quarters";
-	dir = 8
+	tag = "icon-corner_white_three_quarters (WEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "fO" = (
 /obj/machinery/optable,
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (NORTHEAST)";
+	dir = 5;
 	icon_state = "corner_white";
-	dir = 5
+	tag = "icon-corner_white (NORTHEAST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "fP" = (
 /obj/structure/iv_drip,
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (NORTHEAST)";
+	dir = 5;
 	icon_state = "corner_white";
-	dir = 5
+	tag = "icon-corner_white (NORTHEAST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "fQ" = (
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (NORTHEAST)";
+	dir = 5;
 	icon_state = "corner_white";
-	dir = 5
+	tag = "icon-corner_white (NORTHEAST)"
 	},
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/ivbag/blood/OMinus,
@@ -2236,9 +1990,9 @@
 /area/jungleoutpost/medbay)
 "fR" = (
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
+	dir = 1;
 	icon_state = "corner_white_three_quarters";
-	dir = 1
+	tag = "icon-corner_white_three_quarters (NORTH)"
 	},
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/gloves,
@@ -2252,9 +2006,9 @@
 /area/jungleoutpost/medbay)
 "fS" = (
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (WEST)";
+	dir = 8;
 	icon_state = "corner_white";
-	dir = 8
+	tag = "icon-corner_white (WEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -2278,9 +2032,9 @@
 /area/jungleoutpost/medbay)
 "fX" = (
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (NORTHEAST)";
+	dir = 5;
 	icon_state = "corner_white";
-	dir = 5
+	tag = "icon-corner_white (NORTHEAST)"
 	},
 /obj/structure/table/standard,
 /obj/item/weapon/storage/pill_bottle/peridaxon,
@@ -2296,9 +2050,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (NORTHEAST)";
+	dir = 5;
 	icon_state = "corner_white";
-	dir = 5
+	tag = "icon-corner_white (NORTHEAST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -2310,8 +2064,8 @@
 /area/jungleoutpost/medbay)
 "gb" = (
 /obj/item/weapon/material/shard{
-	tag = "icon-medium";
-	icon_state = "medium"
+	icon_state = "medium";
+	tag = "icon-medium"
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/medbay)
@@ -2329,20 +2083,15 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
+	dir = 8;
 	icon_state = "corner_white_three_quarters";
-	dir = 8
+	tag = "icon-corner_white_three_quarters (WEST)"
 	},
 /obj/effect/floor_decal/corner/paleblue,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "ge" = (
 /obj/item/weapon/material/shard,
-/turf/simulated/floor/tiled,
-/area/jungleoutpost/engi)
-"gf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
 "gg" = (
@@ -2402,9 +2151,9 @@
 	tag = ""
 	},
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHEAST)";
+	dir = 6;
 	icon_state = "corner_white";
-	dir = 6
+	tag = "icon-corner_white (SOUTHEAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
@@ -2414,9 +2163,9 @@
 	external_pressure_bound = 140;
 	external_pressure_bound_default = 140;
 	icon_state = "map_vent_out";
-	use_power = 1;
 	pressure_checks = 0;
-	pressure_checks_default = 0
+	pressure_checks_default = 0;
+	use_power = 1
 	},
 /turf/simulated/floor/planet/jungle,
 /area/jungleoutpost/engi)
@@ -2441,9 +2190,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
-"gr" = (
-/turf/simulated/floor/plating,
-/area/jungleoutpost/medbay)
 "gs" = (
 /obj/item/remains/human,
 /turf/simulated/floor/tiled/white,
@@ -2461,9 +2207,9 @@
 	},
 /obj/effect/floor_decal/corner/blue/three_quarters,
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (EAST)";
+	dir = 4;
 	icon_state = "corner_white";
-	dir = 4
+	tag = "icon-corner_white (EAST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -2494,9 +2240,9 @@
 	tag = ""
 	},
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHEAST)";
+	dir = 6;
 	icon_state = "corner_white";
-	dir = 6
+	tag = "icon-corner_white (SOUTHEAST)"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -2565,19 +2311,11 @@
 /obj/effect/overmap/sector/glloyd_jungle,
 /turf/simulated/floor/planet/jungle,
 /area/planet/jungle/away)
-"gI" = (
-/obj/item/remains/human,
-/turf/simulated/floor/tiled/white,
-/area/jungleoutpost/medbay)
 "gJ" = (
 /obj/machinery/door/airlock/medical,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "gK" = (
-/obj/effect/floor_decal/corner/green/full,
-/turf/simulated/floor/tiled/white,
-/area/jungleoutpost/medbay)
-"gL" = (
 /obj/effect/floor_decal/corner/green/full,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -2587,9 +2325,9 @@
 /area/jungleoutpost/medbay)
 "gN" = (
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (SOUTHWEST)";
+	dir = 10;
 	icon_state = "corner_white";
-	dir = 10
+	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
@@ -2601,9 +2339,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (SOUTHWEST)";
+	dir = 10;
 	icon_state = "corner_white";
-	dir = 10
+	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /obj/machinery/power/apc{
 	cell_type = /obj/item/weapon/cell/apc/empty;
@@ -2619,9 +2357,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (SOUTHWEST)";
+	dir = 10;
 	icon_state = "corner_white";
-	dir = 10
+	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -2630,9 +2368,9 @@
 	req_access = newlist()
 	},
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
+	dir = 4;
 	icon_state = "corner_white_three_quarters";
-	dir = 4
+	tag = "icon-corner_white_three_quarters (EAST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -2823,9 +2561,9 @@
 	tag = ""
 	},
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHEAST)";
+	dir = 6;
 	icon_state = "corner_white";
-	dir = 6
+	tag = "icon-corner_white (SOUTHEAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
@@ -2843,22 +2581,22 @@
 	use_power = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	tag = "icon-intact (SOUTHEAST)";
+	dir = 6;
 	icon_state = "intact";
-	dir = 6
+	tag = "icon-intact (SOUTHEAST)"
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
 "hq" = (
 /obj/machinery/atmospherics/omni/mixer{
-	use_power = 1;
 	tag_east = 2;
 	tag_north = 0;
 	tag_north_con = null;
 	tag_south = 1;
 	tag_south_con = 0.8;
 	tag_west = 1;
-	tag_west_con = 0.2
+	tag_west_con = 0.2;
+	use_power = 1
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
@@ -2881,9 +2619,9 @@
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (SOUTHWEST)";
+	dir = 10;
 	icon_state = "corner_white";
-	dir = 10
+	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -2891,9 +2629,9 @@
 /obj/item/weapon/storage/firstaid/tactical,
 /obj/item/weapon/storage/firstaid/tactical,
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (SOUTHWEST)";
+	dir = 10;
 	icon_state = "corner_white";
-	dir = 10
+	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/white,
@@ -2903,9 +2641,9 @@
 /obj/item/weapon/storage/firstaid/combat,
 /obj/item/weapon/storage/firstaid/combat,
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
+	dir = 4;
 	icon_state = "corner_white_three_quarters";
-	dir = 4
+	tag = "icon-corner_white_three_quarters (EAST)"
 	},
 /obj/structure/table/rack,
 /obj/item/weapon/storage/firstaid/adv,
@@ -2915,9 +2653,9 @@
 /area/jungleoutpost/medbay)
 "hw" = (
 /obj/machinery/bodyscanner{
-	tag = "icon-body_scanner_0 (NORTH)";
+	dir = 1;
 	icon_state = "body_scanner_0";
-	dir = 1
+	tag = "icon-body_scanner_0 (NORTH)"
 	},
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/white,
@@ -2931,15 +2669,15 @@
 /area/jungleoutpost/medbay)
 "hz" = (
 /obj/machinery/resleever{
-	tag = "icon-body_scanner_0 (WEST)";
+	dir = 8;
 	icon_state = "body_scanner_0";
-	dir = 8
+	tag = "icon-body_scanner_0 (WEST)"
 	},
 /obj/effect/floor_decal/corner/lime,
 /obj/effect/floor_decal/corner/green/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
+	dir = 8;
 	icon_state = "corner_white_three_quarters";
-	dir = 8
+	tag = "icon-corner_white_three_quarters (WEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -2948,9 +2686,9 @@
 /area/jungleoutpost/engi)
 "hB" = (
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
+	dir = 1;
 	icon_state = "corner_white_three_quarters";
-	dir = 1
+	tag = "icon-corner_white_three_quarters (NORTH)"
 	},
 /obj/structure/filingcabinet,
 /turf/simulated/floor/plating,
@@ -3054,9 +2792,9 @@
 	tag = ""
 	},
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHEAST)";
+	dir = 6;
 	icon_state = "corner_white";
-	dir = 6
+	tag = "icon-corner_white (SOUTHEAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
@@ -3070,10 +2808,10 @@
 	initialize_directions = 1;
 	internal_pressure_bound = 4000;
 	internal_pressure_bound_default = 4000;
-	use_power = 1;
 	pressure_checks = 2;
 	pressure_checks_default = 2;
-	pump_direction = 0
+	pump_direction = 0;
+	use_power = 1
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 4;
@@ -3123,10 +2861,10 @@
 	initialize_directions = 1;
 	internal_pressure_bound = 4000;
 	internal_pressure_bound_default = 4000;
-	use_power = 1;
 	pressure_checks = 2;
 	pressure_checks_default = 2;
-	pump_direction = 0
+	pump_direction = 0;
+	use_power = 1
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
@@ -3149,33 +2887,33 @@
 /area/planet/jungle/away)
 "hS" = (
 /obj/item/weapon/material/shard{
-	tag = "icon-medium";
-	icon_state = "medium"
+	icon_state = "medium";
+	tag = "icon-medium"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/jungle/away)
 "hT" = (
 /obj/machinery/body_scanconsole{
-	tag = "icon-body_scannerconsole (NORTH)";
+	dir = 1;
 	icon_state = "body_scannerconsole";
-	dir = 1
+	tag = "icon-body_scannerconsole (NORTH)"
 	},
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "hU" = (
 /obj/machinery/resleever{
-	tag = "icon-body_scanner_0 (WEST)";
+	dir = 8;
 	icon_state = "body_scanner_0";
-	dir = 8
+	tag = "icon-body_scanner_0 (WEST)"
 	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/green{
-	tag = "icon-corner_white (NORTHWEST)";
+	dir = 9;
 	icon_state = "corner_white";
-	dir = 9
+	tag = "icon-corner_white (NORTHWEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -3241,11 +2979,11 @@
 /area/jungleoutpost/engi)
 "ie" = (
 /obj/machinery/atmospherics/omni/filter{
-	use_power = 1;
 	tag_east = 4;
 	tag_north = 2;
 	tag_south = 1;
-	tag_west = 3
+	tag_west = 3;
+	use_power = 1
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
@@ -3292,9 +3030,9 @@
 "ij" = (
 /obj/machinery/optable,
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (SOUTHWEST)";
+	dir = 10;
 	icon_state = "corner_white";
-	dir = 10
+	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -3304,9 +3042,9 @@
 /area/jungleoutpost/medbay)
 "il" = (
 /obj/effect/floor_decal/corner/lime{
-	tag = "icon-corner_white (EAST)";
+	dir = 4;
 	icon_state = "corner_white";
-	dir = 4
+	tag = "icon-corner_white (EAST)"
 	},
 /obj/effect/floor_decal/corner/green/three_quarters,
 /obj/machinery/organ_printer/flesh/mapped,
@@ -3333,8 +3071,8 @@
 	anchored = 1
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/machinery/light/small{
 	dir = 1
@@ -3354,8 +3092,8 @@
 	icon_state = "0-8"
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/structure/sign/warning/nosmoking_1{
 	pixel_y = 32
@@ -3384,10 +3122,11 @@
 	pixel_x = 32
 	},
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /obj/machinery/power/smes/buildable{
+	RCon_tag = "Research Outpost";
 	capacity = 1e+007;
 	charge = 0;
 	cur_coils = 2;
@@ -3396,8 +3135,7 @@
 	inputting = 1;
 	output_attempt = 1;
 	output_level = 500000;
-	outputting = 2;
-	RCon_tag = "Research Outpost"
+	outputting = 2
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
@@ -3428,9 +3166,9 @@
 	tag = ""
 	},
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHEAST)";
+	dir = 6;
 	icon_state = "corner_white";
-	dir = 6
+	tag = "icon-corner_white (SOUTHEAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
@@ -3517,8 +3255,8 @@
 	name_tag = "Planetary Outpost Grid"
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -3593,6 +3331,10 @@
 	bridge = 1;
 	density = 1
 	},
+/area/planet/jungle/away)
+"ja" = (
+/obj/effect/template_loader/planet,
+/turf/simulated/floor/planet/plains,
 /area/planet/jungle/away)
 
 (1,1,1) = {"
@@ -7461,7 +7203,7 @@ by
 fk
 fQ
 fT
-gI
+gs
 fT
 hu
 fs
@@ -8746,7 +8488,7 @@ cD
 cI
 cQ
 cZ
-cS
+cI
 cI
 cq
 dR
@@ -8941,7 +8683,7 @@ ch
 fs
 fX
 fT
-gL
+gK
 fh
 by
 by
@@ -9157,8 +8899,8 @@ ag
 ag
 ag
 ag
-aE
-aE
+ag
+ag
 ag
 ag
 ag
@@ -9299,7 +9041,7 @@ by
 ck
 ce
 cJ
-cS
+cI
 dc
 di
 dA
@@ -9342,8 +9084,8 @@ ag
 ag
 ag
 ag
-aE
-aE
+ag
+ag
 ag
 ag
 ag
@@ -9527,8 +9269,8 @@ ag
 ag
 ag
 ag
-aE
-aE
+ag
+ag
 ag
 ag
 ag
@@ -9680,7 +9422,7 @@ eN
 fh
 fu
 fh
-gr
+fh
 gN
 hf
 hz
@@ -9712,11 +9454,11 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -9897,15 +9639,15 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -10082,15 +9824,15 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -10221,7 +9963,7 @@ ci
 ci
 cp
 cs
-cw
+ci
 cF
 cM
 ci
@@ -10267,16 +10009,16 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -10407,7 +10149,7 @@ cj
 cj
 ct
 cx
-cG
+cx
 cN
 cx
 cx
@@ -10416,7 +10158,7 @@ cx
 dK
 cx
 eu
-cG
+cx
 fg
 fx
 gd
@@ -10452,16 +10194,16 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -10600,7 +10342,7 @@ ch
 dE
 ch
 dZ
-ev
+eu
 eR
 fk
 fk
@@ -10637,16 +10379,16 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -10790,8 +10532,8 @@ cx
 fl
 fy
 ge
-fG
-fG
+fy
+fy
 gl
 hA
 hA
@@ -10822,14 +10564,14 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -10974,7 +10716,7 @@ ex
 eS
 fm
 fz
-gf
+fz
 fz
 fz
 hh
@@ -11007,14 +10749,14 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -11192,14 +10934,14 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ja
+ag
+ag
 ag
 ag
 ag
@@ -11377,15 +11119,15 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -11562,15 +11304,15 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -11710,7 +11452,7 @@ ca
 cj
 cq
 ee
-eB
+ey
 eW
 fn
 fC
@@ -11747,15 +11489,15 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -11821,20 +11563,20 @@ aI
 aO
 aO
 aO
-bd
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bC
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -11932,11 +11674,11 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -12006,20 +11748,20 @@ aI
 aO
 aO
 aO
-be
-bh
-bp
-bt
-bp
-bt
-bp
-bt
-bp
-bt
-bp
-bt
-bt
-bD
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -12117,10 +11859,10 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -12191,21 +11933,21 @@ aI
 aO
 aO
 aO
-be
-bi
-bq
-bu
-bq
-bu
-bq
-bu
-bq
-bu
-bq
-bu
-bi
-bE
-bg
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -12266,7 +12008,7 @@ aI
 ca
 cj
 eE
-cG
+cx
 fn
 fn
 fn
@@ -12302,10 +12044,10 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -12338,10 +12080,10 @@ af
 af
 af
 af
-af
-af
-af
-af
+ah
+ak
+ak
+ar
 af
 af
 af
@@ -12376,21 +12118,21 @@ aI
 aO
 aO
 aO
-be
-bj
-bj
-bj
-bj
-bj
-bj
-bj
-bj
-bj
-bj
-bj
-bj
-bF
-bF
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -12487,10 +12229,10 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -12522,12 +12264,12 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
+ah
+ap
+al
+al
+ao
+ar
 af
 af
 af
@@ -12561,21 +12303,21 @@ aO
 aO
 aO
 aO
-be
-bk
-bk
-bk
-bk
-bk
-bk
-bk
-bk
-bk
-bk
-bk
-bk
-bG
-bG
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -12635,13 +12377,13 @@ aI
 aI
 ca
 ca
-eG
+eE
 eZ
 fo
-fG
-fG
-fG
-fG
+fy
+fy
+fy
+fy
 hl
 hG
 hZ
@@ -12672,14 +12414,14 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -12705,15 +12447,15 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ah
+ak
+ap
+al
+al
+al
+al
+ao
+ar
 af
 af
 af
@@ -12746,21 +12488,21 @@ aO
 aO
 aO
 aO
-be
-bl
-bl
-bl
-bl
-bl
-bl
-bl
-bl
-bl
-bl
-bl
-bl
-bH
-bH
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+bJ
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -12824,9 +12566,9 @@ eH
 cj
 fo
 fH
-fG
-fG
-fG
+fy
+fy
+fy
 hm
 hH
 hA
@@ -12857,13 +12599,13 @@ ag
 an
 am
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -12890,16 +12632,16 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ai
+al
+al
+al
+al
+al
+al
+al
+ao
+ar
 af
 af
 af
@@ -12931,21 +12673,21 @@ aO
 aO
 aO
 aO
-be
-bm
-br
-bv
-br
-bv
-br
-bv
-br
-bv
-br
-bv
-bm
-bE
-bo
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -13042,13 +12784,13 @@ ag
 at
 ai
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -13075,16 +12817,16 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ai
+al
+al
+al
+av
+az
+al
+al
+al
+at
 af
 af
 af
@@ -13116,20 +12858,20 @@ aO
 aO
 aO
 aO
-be
-bn
-bs
-bw
-bs
-bw
-bs
-bw
-bs
-bw
-bs
-bw
-bB
-bD
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -13199,7 +12941,7 @@ fJ
 fJ
 fo
 hJ
-fG
+fy
 hA
 hZ
 hZ
@@ -13227,13 +12969,13 @@ an
 aq
 aj
 am
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -13260,16 +13002,16 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+aj
+am
+al
+al
+al
+al
+al
+al
+al
+at
 af
 af
 af
@@ -13301,20 +13043,20 @@ aO
 aO
 aO
 aO
-bf
-bo
-bo
-bo
-bo
-bo
-bo
-bo
-bo
-bo
-bo
-bo
-bo
-bI
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -13378,11 +13120,11 @@ eh
 eI
 fb
 fp
-fG
+fy
 gl
-fG
+fy
 gX
-fG
+fy
 hK
 ia
 hA
@@ -13412,19 +13154,19 @@ aq
 af
 af
 ai
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -13446,15 +13188,15 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+aj
+am
+al
+al
+al
+al
+al
+an
+aq
 af
 af
 af
@@ -13597,19 +13339,19 @@ ar
 af
 ah
 ap
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -13632,13 +13374,13 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
+aj
+ae
+ae
+ae
+ae
+ae
+aq
 af
 af
 af
@@ -13782,19 +13524,19 @@ ao
 ak
 ap
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -13967,19 +13709,19 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -14152,19 +13894,19 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -14337,19 +14079,19 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -14522,19 +14264,19 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -14707,19 +14449,19 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -14892,19 +14634,19 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -15077,19 +14819,19 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -15262,19 +15004,19 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -15447,19 +15189,19 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -15632,19 +15374,19 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -15817,14 +15559,14 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -16002,14 +15744,14 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -16187,14 +15929,14 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -16372,12 +16114,12 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -16557,12 +16299,12 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -16742,12 +16484,12 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -16927,12 +16669,12 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -17112,12 +16854,12 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -17297,9 +17039,9 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
+ag
+ag
+ag
 ag
 ag
 ag
@@ -17482,9 +17224,9 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
+ag
+ag
+ag
 ag
 ag
 ag
@@ -17667,9 +17409,9 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
+ag
+ag
+ag
 ag
 ag
 ag
@@ -17852,9 +17594,9 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
+ag
+ag
+ag
 ag
 ag
 ag
@@ -18037,9 +17779,9 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
+ag
+ag
+ag
 ag
 ag
 ag
@@ -20515,7 +20257,7 @@ aO
 aO
 aO
 aO
-aO
+bJ
 aO
 aO
 aO
@@ -20734,7 +20476,7 @@ aO
 aO
 aO
 aO
-aO
+bJ
 aO
 aO
 aO
@@ -27728,7 +27470,7 @@ aP
 aP
 aP
 aP
-aP
+bL
 aP
 aP
 aP
@@ -33018,10 +32760,10 @@ af
 af
 af
 af
-ah
-ak
-ak
-ar
+af
+af
+af
+af
 af
 af
 af
@@ -33202,12 +32944,12 @@ ad
 af
 af
 af
-ah
-ap
-al
-al
-ao
-ar
+af
+af
+af
+af
+af
+af
 af
 af
 af
@@ -33385,15 +33127,15 @@ aa
 ab
 ad
 af
-ah
-ak
-ap
-al
-al
-al
-al
-ao
-ar
+af
+af
+af
+af
+af
+af
+af
+af
+af
 af
 af
 af
@@ -33570,16 +33312,16 @@ aa
 ab
 ad
 af
-ai
-al
-al
-al
-al
-al
-al
-al
-ao
-ar
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 af
 af
 af
@@ -33755,16 +33497,16 @@ aa
 ab
 ad
 af
-ai
-al
-al
-al
-av
-az
-al
-al
-al
-at
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 af
 af
 af
@@ -33940,16 +33682,16 @@ aa
 ab
 ad
 af
-aj
-am
-al
-al
-al
-al
-al
-al
-al
-at
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 af
 af
 af
@@ -34126,15 +33868,15 @@ ab
 ad
 af
 af
-aj
-am
-al
-al
-al
-al
-al
-an
-aq
+af
+af
+af
+af
+af
+af
+af
+af
+af
 af
 af
 af
@@ -34312,13 +34054,13 @@ ad
 af
 af
 af
-aj
-ae
-ae
-ae
-ae
-ae
-aq
+af
+af
+af
+af
+af
+af
+af
 af
 af
 af

@@ -317,9 +317,6 @@
 /obj/structure/hygiene/shower,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
-"aX" = (
-/turf/simulated/floor/tiled,
-/area/planet/destroyed_colony)
 "aY" = (
 /obj/structure/hygiene/toilet{
 	dir = 8
@@ -459,9 +456,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
-"by" = (
-/turf/simulated/floor/wood,
-/area/planet/destroyed_colony)
 "bz" = (
 /obj/structure/crematorium{
 	dir = 8;
@@ -513,15 +507,9 @@
 /obj/machinery/door/airlock,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
-"bL" = (
-/turf/simulated/floor/lino,
-/area/planet/destroyed_colony)
 "bM" = (
 /obj/effect/urist/spawn_bomb,
 /turf/simulated/floor/planet/ariddirt/high,
-/area/planet/destroyed_colony)
-"bN" = (
-/turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "bO" = (
 /obj/structure/bookcase{
@@ -536,12 +524,6 @@
 /area/planet/destroyed_colony)
 "bQ" = (
 /obj/structure/table/standard/flipped/e,
-/turf/simulated/floor/tiled,
-/area/planet/destroyed_colony)
-"bR" = (
-/turf/simulated/floor/tiled,
-/area/planet/destroyed_colony)
-"bS" = (
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "bT" = (
@@ -571,12 +553,6 @@
 "cd" = (
 /obj/effect/shuttle_landmark/nav_destroyed_colony/nav1,
 /turf/simulated/floor/planet/ariddirt/path,
-/area/planet/destroyed_colony)
-"ce" = (
-/turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
-"cf" = (
-/turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cg" = (
 /obj/machinery/door/morgue{
@@ -612,12 +588,6 @@
 /obj/item/remains/human,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
-"cp" = (
-/turf/simulated/floor/tiled,
-/area/planet/destroyed_colony)
-"cq" = (
-/turf/simulated/floor/tiled,
-/area/planet/destroyed_colony)
 "cr" = (
 /obj/structure/table/standard/flipped/e,
 /obj/item/remains/human,
@@ -639,10 +609,6 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/lino,
 /area/planet/destroyed_colony)
-"cv" = (
-/obj/structure/table/standard/flipped/w,
-/turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
 "cw" = (
 /obj/effect/floor_decal/chapel{
 	dir = 1;
@@ -661,13 +627,6 @@
 /area/planet/destroyed_colony)
 "cy" = (
 /turf/simulated/floor/carpet,
-/area/planet/destroyed_colony)
-"cz" = (
-/turf/simulated/floor/carpet,
-/area/planet/destroyed_colony)
-"cA" = (
-/obj/item/remains/human,
-/turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cB" = (
 /obj/structure/hygiene/shower{
@@ -739,9 +698,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
-"cL" = (
-/turf/simulated/floor/tiled/freezer,
-/area/planet/destroyed_colony)
 "cM" = (
 /obj/structure/closet/secure_closet,
 /turf/simulated/floor/tiled/dark,
@@ -749,9 +705,6 @@
 "cN" = (
 /obj/random/shoes,
 /turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
-"cO" = (
-/turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "cP" = (
 /obj/structure/hygiene/toilet{
@@ -767,10 +720,6 @@
 /obj/structure/table/standard,
 /obj/random/drinkbottle,
 /obj/random/drinkbottle,
-/turf/simulated/floor/tiled,
-/area/planet/destroyed_colony)
-"cS" = (
-/obj/item/remains/human,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "cT" = (
@@ -818,28 +767,6 @@
 /obj/structure/table/standard/flipped/s,
 /turf/simulated/floor/carpet,
 /area/planet/destroyed_colony)
-"da" = (
-/obj/structure/table/standard/flipped/s,
-/turf/simulated/floor/carpet,
-/area/planet/destroyed_colony)
-"db" = (
-/obj/effect/floor_decal/chapel{
-	dir = 1;
-	icon_state = "chapel";
-	tag = "icon-chapel (NORTH)"
-	},
-/obj/item/weapon/stool/padded,
-/turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
-"dc" = (
-/obj/effect/floor_decal/chapel{
-	dir = 4;
-	icon_state = "chapel";
-	tag = "icon-chapel (EAST)"
-	},
-/obj/item/weapon/stool/padded,
-/turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
 "dd" = (
 /turf/simulated/floor/fixed/destroyedroad{
 	dir = 1;
@@ -854,9 +781,6 @@
 "df" = (
 /obj/structure/table/standard,
 /obj/item/weapon/spacecash/bundle/c100,
-/turf/simulated/floor/tiled/dark,
-/area/planet/destroyed_colony)
-"dg" = (
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "dh" = (
@@ -933,9 +857,6 @@
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "verticalleftborderleft0"
 	},
-/area/planet/destroyed_colony)
-"dv" = (
-/turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "dw" = (
 /obj/structure/hygiene/sink{
@@ -1014,11 +935,6 @@
 /area/planet/destroyed_colony)
 "dJ" = (
 /obj/effect/urist/spawn_bomb,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "horizontaloutermain0"
-	},
-/area/planet/destroyed_colony)
-"dK" = (
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "horizontaloutermain0"
 	},
@@ -1904,19 +1820,11 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
-"gS" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/planet/destroyed_colony)
 "gT" = (
 /obj/structure/alien/resin/membrane,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "gU" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/planet/dirt/clear,
-/area/planet/destroyed_colony)
-"gV" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/planet/dirt/clear,
 /area/planet/destroyed_colony)
@@ -2018,9 +1926,6 @@
 	dir = 1;
 	icon_state = "tinycornerhorizontal"
 	},
-/area/planet/destroyed_colony)
-"hn" = (
-/turf/simulated/floor/planet/dirt/clear,
 /area/planet/destroyed_colony)
 "ho" = (
 /obj/item/scom/aliengun/a1,
@@ -2198,9 +2103,6 @@
 /obj/structure/table/standard,
 /obj/item/weapon/surgicaldrill,
 /obj/item/weapon/circular_saw,
-/turf/simulated/floor/tiled/freezer,
-/area/planet/destroyed_colony)
-"hS" = (
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "hT" = (
@@ -2850,9 +2752,6 @@
 /obj/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/old_tile,
 /area/planet/destroyed_colony)
-"LK" = (
-/turf/simulated/floor/tiled/old_tile,
-/area/planet/destroyed_colony)
 "MY" = (
 /obj/item/weapon/reagent_containers/food/drinks/bottle/patron,
 /obj/item/weapon/reagent_containers/food/drinks/bottle/goldschlager,
@@ -2890,17 +2789,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
-"Vc" = (
-/obj/structure/table/standard/flipped/w,
-/turf/simulated/floor/tiled/old_tile,
-/area/planet/destroyed_colony)
 "WL" = (
 /obj/structure/window/reinforced/full,
 /obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/planet/destroyed_colony)
-"XI" = (
-/turf/simulated/floor/tiled/old_tile,
 /area/planet/destroyed_colony)
 "Yl" = (
 /obj/structure/table/woodentable,
@@ -3342,10 +3234,10 @@ ex
 eD
 eI
 eP
-LK
-LK
-LK
-LK
+sc
+sc
+sc
+sc
 PS
 aS
 aK
@@ -3419,7 +3311,7 @@ bw
 bI
 bO
 aS
-ce
+bE
 bE
 bE
 cw
@@ -3439,8 +3331,8 @@ eJ
 aS
 vd
 An
-LK
-LK
+sc
+sc
 MY
 aS
 aK
@@ -3514,7 +3406,7 @@ bx
 bw
 bw
 aS
-cf
+bE
 bE
 bE
 cx
@@ -3542,15 +3434,15 @@ aK
 aK
 aK
 ku
-gV
-hg
-hn
+gU
 hg
 hg
-hn
 hg
 hg
-hn
+hg
+hg
+hg
+hg
 hg
 UL
 bD
@@ -3605,7 +3497,7 @@ aK
 aK
 aK
 aS
-by
+bw
 bw
 bw
 bT
@@ -3614,7 +3506,7 @@ bE
 cs
 cy
 cy
-cz
+cy
 cZ
 cy
 cy
@@ -3627,10 +3519,10 @@ ad
 bs
 bD
 wW
-LK
+sc
 kM
-LK
-LK
+sc
+sc
 cj
 aS
 aK
@@ -3707,10 +3599,10 @@ aS
 bE
 co
 ct
-cz
+cy
 cJ
-cz
-da
+cy
+cZ
 cy
 cy
 dE
@@ -3722,10 +3614,10 @@ ad
 bs
 bZ
 wW
-LK
+sc
 YY
 uM
-LK
+sc
 vX
 aS
 aK
@@ -3817,10 +3709,10 @@ ad
 bs
 bD
 ow
-LK
+sc
 YY
 lV
-LK
+sc
 EM
 aS
 aK
@@ -3894,13 +3786,13 @@ bz
 aV
 aV
 aS
-cf
+bE
 bE
 bE
 cw
 cH
 cQ
-db
+cX
 cH
 bE
 dD
@@ -3911,8 +3803,8 @@ en
 ey
 bs
 bD
-LK
-LK
+sc
+sc
 YY
 uM
 cm
@@ -3995,11 +3887,11 @@ bE
 cx
 cI
 cQ
-dc
+cY
 cI
 do
 aS
-dK
+bD
 dP
 dX
 en
@@ -4007,10 +3899,10 @@ ad
 bs
 bD
 wW
-LK
+sc
 YY
 uM
-LK
+sc
 Oc
 aS
 aK
@@ -4102,25 +3994,25 @@ ad
 bs
 dJ
 wW
-LK
+sc
 lE
 uM
-LK
+sc
 Jk
 aS
 aK
 aK
 aK
 ku
-gV
-hg
-hn
+gU
 hg
 hg
-hn
 hg
 hg
-hn
+hg
+hg
+hg
+hg
 hg
 UL
 bD
@@ -4176,12 +4068,12 @@ aK
 aK
 aS
 bB
-bL
-bL
+bB
+bB
 aS
-bL
+bB
 aS
-bL
+bB
 aS
 bE
 bE
@@ -4682,15 +4574,15 @@ aS
 aK
 aK
 ku
-gV
-hg
-hn
+gU
 hg
 hg
-hn
 hg
 hg
-hn
+hg
+hg
+hg
+hg
 hg
 UL
 bD
@@ -4748,8 +4640,8 @@ aS
 bE
 bE
 aV
-LK
-LK
+sc
+sc
 aV
 bE
 bE
@@ -4843,8 +4735,8 @@ aS
 bE
 bE
 aV
-LK
-LK
+sc
+sc
 aV
 bE
 bE
@@ -4940,13 +4832,13 @@ aS
 bo
 uM
 uM
-cp
+aV
 aS
 aS
 aS
 bp
 aV
-bR
+aV
 aV
 aT
 bD
@@ -4987,7 +4879,7 @@ bs
 bD
 iz
 iI
-hS
+bc
 iZ
 aS
 jl
@@ -5033,14 +4925,14 @@ aS
 bE
 bE
 aV
-XI
 sc
-cq
+sc
+aV
 bE
 bE
 aS
-cq
-cq
+aV
+aV
 aS
 aS
 aS
@@ -5131,10 +5023,10 @@ bQ
 BR
 BR
 cr
-bN
+bE
 bE
 aS
-cS
+bn
 aV
 aS
 aW
@@ -5177,8 +5069,8 @@ bs
 bD
 iz
 iI
-hS
-hS
+bc
+bc
 iJ
 jl
 iP
@@ -5215,7 +5107,7 @@ aK
 aK
 aK
 aS
-aX
+aV
 bj
 aV
 bq
@@ -5223,8 +5115,8 @@ aS
 bE
 bE
 aV
-LK
-LK
+sc
+sc
 aV
 bE
 bE
@@ -5232,7 +5124,7 @@ aS
 cT
 aV
 bj
-cp
+aV
 aS
 bD
 dP
@@ -5271,9 +5163,9 @@ ad
 bs
 bD
 iz
-hS
-hS
-hS
+bc
+bc
+bc
 aS
 jl
 jq
@@ -5318,8 +5210,8 @@ bt
 bE
 bE
 aV
-LK
-LK
+sc
+sc
 aV
 bE
 bE
@@ -5412,10 +5304,10 @@ aS
 aS
 bE
 bE
-bR
-LK
-LK
-bR
+aV
+sc
+sc
+aV
 bE
 bE
 aS
@@ -5461,9 +5353,9 @@ bv
 bs
 bD
 iz
-hS
+bc
 aS
-hS
+bc
 aS
 jl
 iP
@@ -5508,7 +5400,7 @@ aS
 bF
 bF
 aS
-LK
+sc
 Io
 aS
 bF
@@ -5516,7 +5408,7 @@ bF
 aS
 aV
 aV
-bS
+aV
 ba
 aT
 bD
@@ -6648,7 +6540,7 @@ aS
 bG
 bG
 aS
-LK
+sc
 Ol
 aS
 bG
@@ -6656,7 +6548,7 @@ bG
 aS
 aV
 aV
-bR
+aV
 ba
 aU
 bD
@@ -6741,11 +6633,11 @@ bl
 aS
 aS
 bE
-bN
-bS
-LK
-LK
-bS
+bE
+aV
+sc
+sc
+aV
 bE
 bE
 aS
@@ -6838,8 +6730,8 @@ bt
 bE
 bE
 aV
-LK
-LK
+sc
+sc
 aV
 bE
 bE
@@ -6886,10 +6778,10 @@ ad
 bs
 bD
 aS
-hS
-hS
-hS
-hS
+bc
+bc
+bc
+bc
 bE
 bE
 fh
@@ -6933,16 +6825,16 @@ aS
 bH
 bH
 aV
-LK
-LK
+sc
+sc
 aV
-cv
+bH
 bH
 aS
 br
 aV
 bj
-dv
+bc
 aS
 bD
 dP
@@ -7026,15 +6918,15 @@ bn
 aV
 aS
 bE
-bN
+bE
 aV
-Vc
+pv
 pv
 aV
-bN
-cA
+bE
+co
 aS
-aX
+aV
 de
 aS
 dw
@@ -7123,11 +7015,11 @@ aS
 bE
 bE
 aV
-LK
+sc
 vx
 aV
-bN
-bN
+bE
+bE
 aS
 aV
 aV
@@ -7220,13 +7112,13 @@ aS
 bo
 le
 uM
-cp
+aV
 aS
 aS
 aS
 bp
 aV
-bS
+aV
 aV
 aU
 bD
@@ -7313,8 +7205,8 @@ aS
 bE
 bE
 aV
-LK
-LK
+sc
+sc
 aV
 bE
 bE
@@ -7408,8 +7300,8 @@ aS
 bE
 bE
 aV
-LK
-LK
+sc
+sc
 aV
 bE
 bE
@@ -7888,7 +7780,7 @@ ab
 aK
 aS
 cC
-cL
+bc
 cV
 bE
 bE
@@ -7985,7 +7877,7 @@ aS
 aS
 aS
 aS
-dg
+bE
 bE
 bE
 dG
@@ -8094,10 +7986,10 @@ bD
 aS
 fg
 bE
-bN
 bE
 bE
-bN
+bE
+bE
 bE
 gn
 aV
@@ -8203,7 +8095,7 @@ bE
 bE
 gn
 gR
-bN
+bE
 bE
 ih
 aS
@@ -8286,7 +8178,7 @@ fh
 bE
 bE
 bE
-bN
+bE
 bE
 gg
 fi
@@ -8475,19 +8367,19 @@ aS
 fh
 bE
 bE
-bN
+bE
 gg
 gm
 gt
 gt
 de
-cq
+aV
 gK
 bK
 ho
 hv
 aV
-cq
+aV
 aV
 aV
 aV
@@ -8555,7 +8447,7 @@ aS
 aS
 aS
 aS
-dg
+bE
 bE
 bE
 dH
@@ -8648,7 +8540,7 @@ ab
 aK
 aS
 cF
-cO
+bc
 cV
 bE
 bE
@@ -8668,11 +8560,11 @@ bE
 co
 gg
 go
-cq
+aV
 aV
 gI
 gJ
-cq
+aV
 aS
 bE
 gm
@@ -8950,11 +8842,11 @@ aS
 ff
 fv
 bE
-bN
+bE
 bE
 aS
 bn
-cq
+aV
 gJ
 aV
 he
@@ -9051,7 +8943,7 @@ fF
 aV
 gA
 aV
-gS
+gK
 hf
 aS
 aS
@@ -9140,21 +9032,21 @@ aS
 fj
 bE
 bE
-bN
+bE
 bE
 fF
 aV
 gB
 gK
 aV
-cq
+aV
 aS
 hp
 aV
 aV
 aS
 hM
-hS
+bc
 hP
 aS
 bD
@@ -9433,7 +9325,7 @@ bE
 aS
 bn
 aV
-gS
+gK
 hr
 gJ
 fO
@@ -9622,10 +9514,10 @@ co
 bE
 fF
 aV
-cq
+aV
 gK
 gI
-cq
+aV
 aV
 aS
 hR
@@ -9725,7 +9617,7 @@ aV
 bK
 hN
 hN
-hS
+bc
 aS
 bD
 bD
@@ -9818,8 +9710,8 @@ bQ
 bQ
 bQ
 aS
-hS
-hS
+bc
+bc
 hN
 aS
 bD
@@ -10219,8 +10111,8 @@ bE
 bE
 bE
 iJ
-hS
-hS
+bc
+bc
 iJ
 jI
 aS
@@ -10410,7 +10302,7 @@ fF
 fF
 aS
 iI
-hS
+bc
 iJ
 jI
 aS
