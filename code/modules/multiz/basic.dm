@@ -1,6 +1,3 @@
-// If you add a more comprehensive system, just untick this file.
-var/list/z_levels = list()// Each bit re... haha just kidding this is a list of bools now
-
 // If the height is more than 1, we mark all contained levels as connected.
 /obj/effect/landmark/map_data/New()
 	..()
@@ -9,10 +6,6 @@ var/list/z_levels = list()// Each bit re... haha just kidding this is a list of 
 	var/obj/effect/landmark/submap_data/current
 
 	for(var/i = (z - height + 1) to (z))
-		if (z_levels.len <i)
-			z_levels.len = i
-		z_levels[i] = TRUE
-
 		// Generate submap chunks
 		current = new/obj/effect/landmark/submap_data(locate(1,1,i))
 		if (previous)
@@ -35,14 +28,14 @@ var/list/z_levels = list()// Each bit re... haha just kidding this is a list of 
 	return (z - bottom_z) + 1
 
 /proc/HasAbove(var/z)
-	if(z >= world.maxz || z < 1 || z > z_levels.len)
+	if(z >= world.maxz || z < 1)
 		return FALSE
 	if (HasSubmapData(z))
 		return GetSubmapData(z).has_above()
 	return FALSE
 
 /proc/HasBelow(var/z)
-	if(z > world.maxz || z < 2 || (z-1) > z_levels.len)
+	if(z > world.maxz || z < 2)
 		return FALSE
 	if (HasSubmapData(z))
 		return GetSubmapData(z).has_below()

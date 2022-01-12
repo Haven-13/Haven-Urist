@@ -953,8 +953,8 @@
 			return global.worths;
 		if("wrapped_species_by_ref")
 			return global.wrapped_species_by_ref;
-		if("z_levels")
-			return global.z_levels;
+		if("zone_blocked")
+			return global.zone_blocked;
 
 /proc/writeglobal(which, newval)
 	switch(which)
@@ -1910,8 +1910,8 @@
 			global.worths=newval;
 		if("wrapped_species_by_ref")
 			global.wrapped_species_by_ref=newval;
-		if("z_levels")
-			global.z_levels=newval;
+		if("zone_blocked")
+			global.zone_blocked=newval;
 
 /var/list/_all_globals=list(
 	"ANTAG_FREQS",
@@ -2390,5 +2390,5 @@
 	"world_uplinks",
 	"worths",
 	"wrapped_species_by_ref",
-	"z_levels"
+	"zone_blocked"
 )
