@@ -798,10 +798,6 @@
 /turf/simulated/floor/plating,
 /area/noctis/fpm)
 "bU" = (
-/obj/effect/spawner/bomb_simulator{
-	_low = 3;
-	_med = 2
-	},
 /turf/space,
 /area/space)
 "bV" = (

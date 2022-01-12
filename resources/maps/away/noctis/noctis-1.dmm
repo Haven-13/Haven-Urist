@@ -2599,10 +2599,6 @@
 /turf/simulated/floor/plating,
 /area/noctis/lounge)
 "fy" = (
-/obj/effect/spawner/bomb_simulator{
-	_low = 3;
-	_med = 2
-	},
 /turf/space,
 /area/space)
 "fz" = (
@@ -3137,10 +3133,6 @@
 	color = "#b95a00";
 	dir = 1
 	},
-/obj/effect/spawner/bomb_simulator{
-	_low = 3;
-	_med = 2
-	},
 /turf/space,
 /area/space)
 "gx" = (
@@ -3152,10 +3144,6 @@
 /obj/structure/cable/blue{
 	d2 = 4;
 	icon_state = "0-4"
-	},
-/obj/effect/spawner/bomb_simulator{
-	_low = 3;
-	_med = 2
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -3186,10 +3174,6 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4
-	},
-/obj/effect/spawner/bomb_simulator{
-	_low = 3;
-	_med = 2
 	},
 /turf/space,
 /area/space)
