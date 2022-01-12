@@ -1,0 +1,6 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Cleaned up away maps that were causing errors for the game.
+  - bugfix: Fixed a layering issue with disposal pipes.
+  - bugfix: Fixed initialization issues related to explosions spawned in map init.
