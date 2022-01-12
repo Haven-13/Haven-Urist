@@ -16,7 +16,7 @@
 		src.render_target = "[initial(src.render_target)]-[z_level]z"
 	else
 		src.render_target = "[src.plane]-[z_level]z"
-	src.plane = calculate_plane(z_level, src.plane)
+	src.plane = calculate_plane_by_depth(z_level - 1, src.plane)
 
 /atom/movable/screen/plane_master/proc/Show(override)
 	alpha = override || show_alpha
@@ -35,7 +35,7 @@
  *
  *  For multi_z rendering, take a look in _onclick/hud/hud.dm and _onclick/hud/map_view.dm
  *  For a list of what planes are included, take a look in
- *  __defines/_planes+layers.dm
+ *  __defines/_layering.dm
  */
 
 #define EMISSIVE_RENDER_TARGET "*emissive_render_target"
