@@ -132,8 +132,8 @@
 /area/slavers_base/mort)
 "aE" = (
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /obj/machinery/power/apc{
 	dir = 4;
@@ -824,8 +824,8 @@
 /obj/effect/decal/cleanable/blood,
 /obj/structure/cable,
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/airless,
@@ -1039,12 +1039,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2281,7 +2281,7 @@
 /area/slavers_base/maint)
 "fG" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 4;
+	dir = 4
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/slavers_base/maint)
@@ -2403,8 +2403,8 @@
 	icon_state = "0-8"
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/machinery/power/smes/buildable,
 /turf/simulated/floor/airless/ceiling,
@@ -2711,12 +2711,12 @@
 	},
 /obj/structure/cable,
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/slavers_base/maint)
@@ -3499,8 +3499,8 @@
 /area/slavers_base/demo)
 "iM" = (
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/machinery/power/apc{
 	dir = 2;
@@ -3509,9 +3509,9 @@
 	pixel_y = -24
 	},
 /obj/structure/cable{
+	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 1;
-	d2 = 2
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled,
 /area/slavers_base/dorms)
@@ -3809,8 +3809,8 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/apc{
@@ -4136,8 +4136,8 @@
 /area/slavers_base/demo)
 "ks" = (
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/machinery/power/apc{
 	dir = 2;
