@@ -318,11 +318,6 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "aX" = (
-/obj/machinery/light/colored/green{
-	dir = 1;
-	icon_state = "green1";
-	tag = "icon-green1 (NORTH)"
-	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "aY" = (
@@ -349,11 +344,6 @@
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "bc" = (
-/obj/machinery/light/colored/green{
-	dir = 1;
-	icon_state = "green1";
-	tag = "icon-green1 (NORTH)"
-	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "bd" = (
@@ -470,11 +460,6 @@
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
 "by" = (
-/obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1";
-	tag = "icon-yellow1 (NORTH)"
-	},
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
 "bz" = (
@@ -490,11 +475,6 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "bB" = (
-/obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1";
-	tag = "icon-yellow1 (NORTH)"
-	},
 /turf/simulated/floor/lino,
 /area/planet/destroyed_colony)
 "bC" = (
@@ -541,7 +521,6 @@
 /turf/simulated/floor/planet/ariddirt/high,
 /area/planet/destroyed_colony)
 "bN" = (
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "bO" = (
@@ -560,19 +539,9 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "bR" = (
-/obj/machinery/light/colored/green{
-	dir = 8;
-	icon_state = "green1";
-	tag = "icon-green1 (WEST)"
-	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "bS" = (
-/obj/machinery/light/colored/green{
-	dir = 4;
-	icon_state = "green1";
-	tag = "icon-green1 (EAST)"
-	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "bT" = (
@@ -610,11 +579,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cf" = (
-/obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1";
-	tag = "icon-yellow1 (NORTH)"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cg" = (
@@ -652,11 +616,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cp" = (
-/obj/machinery/light/colored/green,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "cq" = (
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "cr" = (
@@ -682,7 +644,6 @@
 /area/planet/destroyed_colony)
 "cv" = (
 /obj/structure/table/standard/flipped/w,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cw" = (
@@ -705,12 +666,10 @@
 /turf/simulated/floor/carpet,
 /area/planet/destroyed_colony)
 "cz" = (
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/carpet,
 /area/planet/destroyed_colony)
 "cA" = (
 /obj/item/remains/human,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cB" = (
@@ -733,22 +692,12 @@
 "cD" = (
 /obj/structure/bed,
 /obj/item/weapon/bedsheet/blue,
-/obj/machinery/light/colored/green{
-	dir = 4;
-	icon_state = "green1";
-	tag = "icon-green1 (EAST)"
-	},
 /obj/random/plushie,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cE" = (
 /obj/structure/bed,
 /obj/item/weapon/bedsheet/blue,
-/obj/machinery/light/colored/green{
-	dir = 8;
-	icon_state = "green1";
-	tag = "icon-green1 (WEST)"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cF" = (
@@ -794,11 +743,6 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "cL" = (
-/obj/machinery/light/colored/green{
-	dir = 8;
-	icon_state = "green1";
-	tag = "icon-green1 (WEST)"
-	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "cM" = (
@@ -810,11 +754,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cO" = (
-/obj/machinery/light/colored/green{
-	dir = 4;
-	icon_state = "green1";
-	tag = "icon-green1 (EAST)"
-	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "cP" = (
@@ -834,11 +773,6 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "cS" = (
-/obj/machinery/light/colored/green{
-	dir = 1;
-	icon_state = "green1";
-	tag = "icon-green1 (NORTH)"
-	},
 /obj/item/remains/human,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
@@ -872,11 +806,6 @@
 	tag = "icon-chapel (NORTH)"
 	},
 /obj/item/weapon/stool/padded,
-/obj/machinery/light/colored{
-	dir = 4;
-	icon_state = "yellow1";
-	tag = "icon-yellow1 (EAST)"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cY" = (
@@ -894,7 +823,6 @@
 /area/planet/destroyed_colony)
 "da" = (
 /obj/structure/table/standard/flipped/s,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/carpet,
 /area/planet/destroyed_colony)
 "db" = (
@@ -913,11 +841,6 @@
 	tag = "icon-chapel (EAST)"
 	},
 /obj/item/weapon/stool/padded,
-/obj/machinery/light/colored{
-	dir = 8;
-	icon_state = "yellow1";
-	tag = "icon-yellow1 (WEST)"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "dd" = (
@@ -937,11 +860,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "dg" = (
-/obj/machinery/light/colored/green{
-	dir = 1;
-	icon_state = "green1";
-	tag = "icon-green1 (NORTH)"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "dh" = (
@@ -1020,7 +938,6 @@
 	},
 /area/planet/destroyed_colony)
 "dv" = (
-/obj/machinery/light/colored/green,
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "dw" = (
@@ -1093,9 +1010,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "dI" = (
-/obj/machinery/light/floor{
-	pixel_y = 32
-	},
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "horizontaloutermainleft";
 	tag = "icon-horizontaloutermainleft"
@@ -1997,7 +1911,6 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "gS" = (
-/obj/item/ammo_casing/a556/used,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
@@ -2872,14 +2785,9 @@
 /area/planet/destroyed_colony)
 "pv" = (
 /obj/structure/table/standard/flipped/w,
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled/old_tile,
 /area/planet/destroyed_colony)
 "sc" = (
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled/old_tile,
 /area/planet/destroyed_colony)
 "uM" = (
@@ -2893,7 +2801,6 @@
 /area/planet/destroyed_colony)
 "vx" = (
 /obj/item/remains/human,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled/old_tile,
 /area/planet/destroyed_colony)
 "vX" = (
@@ -2993,7 +2900,6 @@
 /area/planet/destroyed_colony)
 "Vc" = (
 /obj/structure/table/standard/flipped/w,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled/old_tile,
 /area/planet/destroyed_colony)
 "WL" = (
@@ -3002,13 +2908,11 @@
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
 "XI" = (
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled/old_tile,
 /area/planet/destroyed_colony)
 "Yl" = (
 /obj/structure/table/woodentable,
 /obj/machinery/chemical_dispenser/bar_coffee/full,
-/obj/machinery/light/colored/orange,
 /turf/simulated/floor/tiled/old_tile,
 /area/planet/destroyed_colony)
 "YY" = (

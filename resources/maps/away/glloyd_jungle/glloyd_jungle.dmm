@@ -742,7 +742,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "cx" = (
@@ -803,7 +802,6 @@
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "cG" = (
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "cH" = (
@@ -858,7 +856,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "cO" = (
@@ -886,7 +883,6 @@
 	},
 /area/jungleoutpost/main)
 "cS" = (
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/main)
 "cT" = (
@@ -1011,7 +1007,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "do" = (
@@ -1372,7 +1367,6 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "ei" = (
@@ -1518,7 +1512,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "ev" = (
@@ -1563,8 +1556,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "ey" = (
@@ -1630,9 +1621,6 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "eC" = (
@@ -1679,7 +1667,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/plating,
 /area/jungleoutpost/main)
 "eF" = (
@@ -1828,7 +1815,6 @@
 	},
 /obj/structure/table/standard/flipped/e,
 /obj/item/remains/human,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "eU" = (
@@ -1907,7 +1893,6 @@
 	icon_state = "1-2";
 	tag = ""
 	},
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "fd" = (
@@ -2081,7 +2066,6 @@
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "fy" = (
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
 "fz" = (
@@ -2359,7 +2343,6 @@
 "gf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
 "gg" = (
@@ -2459,13 +2442,10 @@
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "gr" = (
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/plating,
 /area/jungleoutpost/medbay)
 "gs" = (
 /obj/item/remains/human,
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "gt" = (
@@ -2599,7 +2579,6 @@
 /area/jungleoutpost/medbay)
 "gL" = (
 /obj/effect/floor_decal/corner/green/full,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "gM" = (

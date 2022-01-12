@@ -1972,10 +1972,6 @@
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "dS" = (
-/obj/machinery/light/colored/blue{
-	icon_state = "blue1";
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "dT" = (
@@ -2176,10 +2172,6 @@
 /turf/simulated/floor/reinforced/airless,
 /area/noctis/combust)
 "ek" = (
-/obj/machinery/light/colored/blue{
-	icon_state = "blue1";
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "el" = (
@@ -3038,7 +3030,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light/colored/blue,
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "fJ" = (
