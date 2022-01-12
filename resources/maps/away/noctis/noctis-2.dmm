@@ -797,9 +797,6 @@
 /obj/effect/paint/green_grey,
 /turf/simulated/floor/plating,
 /area/noctis/fpm)
-"bU" = (
-/turf/space,
-/area/space)
 "bV" = (
 /obj/structure/wall_frame/titanium,
 /obj/effect/paint/green_grey,
@@ -8917,7 +8914,7 @@ aa
 aa
 aa
 au
-bU
+aa
 aV
 aa
 aa
@@ -11987,7 +11984,7 @@ aa
 aa
 aa
 aa
-bU
+aa
 aa
 aa
 aa
