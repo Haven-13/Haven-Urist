@@ -7,7 +7,11 @@
 	icon_state = "yellow"
 
 /area/spacestations/pirate/station
-	name = "Pirate Station"
+	name = "Pirate Station - Lower Floor"
+
+/area/spacestations/pirate/station/upper
+	name = "Pirate Station - Upper Floor"
+	base_turf = /turf/simulated/open
 
 /area/spacestations/pirate/exterior
 	base_turf = /turf/simulated/open
