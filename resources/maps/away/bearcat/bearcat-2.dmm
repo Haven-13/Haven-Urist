@@ -6,6 +6,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -18,6 +19,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -31,6 +33,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -197,6 +200,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -320,6 +324,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -425,6 +430,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -518,6 +524,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -548,6 +555,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -604,6 +612,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -774,6 +783,7 @@
 "bx" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -893,6 +903,7 @@
 "bF" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -979,6 +990,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -995,6 +1007,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -1064,6 +1077,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -1079,6 +1093,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -1099,6 +1114,7 @@
 /obj/structure/lattice,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -1123,6 +1139,7 @@
 "bZ" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -1136,6 +1153,7 @@
 "cc" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -1146,6 +1164,7 @@
 "ce" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -1242,6 +1261,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -1317,6 +1337,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -1465,6 +1486,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -1696,6 +1718,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -2049,6 +2072,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -2214,6 +2238,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -2516,6 +2541,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -3166,6 +3192,7 @@
 "fE" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -3176,6 +3203,7 @@
 /obj/structure/lattice,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -3193,6 +3221,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -3315,6 +3344,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -3592,6 +3622,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -4626,6 +4657,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -4693,6 +4725,7 @@
 "ik" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "engwindow";
 	name = "blast door";
 	opacity = 0
@@ -4933,6 +4966,7 @@
 /obj/machinery/door/window/northleft,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
+	icon_state = "pdoor0";
 	id = "radaway";
 	layer = 5;
 	opacity = 0
@@ -5092,6 +5126,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
+	icon_state = "pdoor0";
 	id = "radaway";
 	layer = 5;
 	opacity = 0
@@ -5415,6 +5450,7 @@
 "jY" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
@@ -5427,6 +5463,7 @@
 "jZ" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	icon_state = "pdoor0";
 	id = "scraplock";
 	name = "External Blast Doors";
 	opacity = 0
