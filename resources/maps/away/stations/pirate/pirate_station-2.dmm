@@ -408,10 +408,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
 /area/spacestations/pirate/station/upper)
-"mA" = (
-/obj/effect/landmark/random_gen/asteroid,
-/turf/unsimulated/wall/urist/other/border,
-/area/mine/unexplored)
 "mF" = (
 /obj/structure/hygiene/shower{
 	dir = 8;
@@ -1960,7 +1956,7 @@ Av
 Av
 Av
 Av
-mA
+Av
 VI
 VI
 "}
