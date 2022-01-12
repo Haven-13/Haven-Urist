@@ -46,6 +46,7 @@
 		/area/noctis/reactorov = NO_SCRUBBER|NO_VENT,
 		/area/noctis/extconn = NO_SCRUBBER,
 		/area/noctis/fpm = NO_SCRUBBER|NO_VENT,
+
 		/area/spacestations/pirate/asteroid = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/spacestations/pirate/exterior = NO_SCRUBBER|NO_VENT|NO_APC,
 	)
