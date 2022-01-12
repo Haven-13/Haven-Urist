@@ -18,7 +18,6 @@
 	var/assignment           // Outfit assignment
 	var/killed               // Brain dead on spawn
 	var/list/damage          // Use BP defines = damage
-	var/post_setup           // Do everything except qdel self
 
 	var/mob/living/carbon/human/H
 
@@ -105,8 +104,7 @@
 	if(B in T.contents)
 		B.buckle_mob(H)
 
-	if(!post_setup)
-		qdel(src)
+	return INITIALIZE_HINT_QDEL
 
 //Humans
 
@@ -121,15 +119,14 @@
 	damage = list("r_arm" = 35)
 
 /obj/effect/spawner/carbon/human/virus
-	post_setup = TRUE
 	var/severity = 3
 
 /obj/effect/spawner/carbon/human/virus/Initialize()
-	. = ..()
+	..()
 	var/datum/disease2/disease/V = new /datum/disease2/disease
 	V.makerandom(severity)
 	infect_virus2(H,V,1)
-	qdel(src)
+	return INITIALIZE_HINT_QDEL
 
 /obj/effect/spawner/carbon/human/pcrc
 	clothing = /decl/hierarchy/outfit/pcrc

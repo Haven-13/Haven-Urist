@@ -17,8 +17,6 @@
 /area/planet/jungle/away)
 "ae" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (EAST)";
-	icon_state = "test";
 	dir = 4
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
@@ -31,8 +29,6 @@
 /area/planet/jungle/away)
 "ah" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test2 (WEST)";
-	icon_state = "test2";
 	dir = 8
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
@@ -41,83 +37,47 @@
 /obj/effect/floor_decal/water_edge,
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
-"aj" = (
-/obj/effect/floor_decal/water_edge{
-	tag = "icon-test2 (EAST)";
-	icon_state = "test2";
-	dir = 4
-	},
-/turf/simulated/floor/planet/jungle/water/deep,
-/area/planet/jungle/away)
-"ak" = (
-/obj/effect/floor_decal/water_edge{
-	tag = "icon-test (WEST)";
-	icon_state = "test";
-	dir = 8
-	},
-/turf/simulated/floor/planet/jungle/water/deep,
-/area/planet/jungle/away)
 "al" = (
 /turf/simulated/floor/planet/plains/clear,
 /area/planet/jungle/away)
 "am" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTHEAST)";
-	icon_state = "test";
 	dir = 5
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "an" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (SOUTHEAST)";
-	icon_state = "test";
 	dir = 6
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "ao" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (SOUTHWEST)";
-	icon_state = "test";
 	dir = 10
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "ap" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTHWEST)";
-	icon_state = "test";
 	dir = 9
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "aq" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test2";
-	icon_state = "test2";
 	dir = 2
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "ar" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test2 (NORTH)";
-	icon_state = "test2";
 	dir = 1
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "as" = (
 /turf/simulated/wall/wood,
-/area/planet/jungle/away)
-"at" = (
-/obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTH)";
-	icon_state = "test";
-	dir = 1
-	},
-/turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "au" = (
 /obj/structure/blacksmithingfurnace/furnace,
@@ -129,53 +89,30 @@
 /area/planet/jungle/away)
 "aw" = (
 /obj/structure/bed/nice,
-/turf/simulated/floor/wood{
-	tag = "icon-wood_broken6";
-	icon_state = "wood_broken6"
-	},
+/turf/simulated/floor/wood,
 /area/planet/jungle/away)
 "ax" = (
 /turf/simulated/floor/plating,
 /area/planet/jungle/away)
 "ay" = (
 /obj/structure/closet,
-/turf/simulated/floor/wood{
-	tag = "icon-wood_broken2";
-	icon_state = "wood_broken2"
-	},
+/turf/simulated/floor/wood,
 /area/planet/jungle/away)
 "az" = (
 /obj/structure/pit/closed/grave/spaghettiwestern,
 /turf/simulated/floor/planet/plains/clear,
 /area/planet/jungle/away)
 "aA" = (
-/obj/item/weapon/material/shard{
-	icon_state = "small"
-	},
+/obj/item/weapon/material/shard,
 /turf/simulated/floor/planet/plains/clear,
 /area/planet/jungle/away)
 "aB" = (
-/turf/simulated/floor/wood{
-	tag = "icon-wood_broken1";
-	icon_state = "wood_broken1"
-	},
-/area/planet/jungle/away)
-"aC" = (
-/turf/simulated/floor/wood{
-	tag = "icon-wood_broken5";
-	icon_state = "wood_broken5"
-	},
+/turf/simulated/floor/wood,
 /area/planet/jungle/away)
 "aD" = (
 /obj/structure/anvil,
-/turf/simulated/floor/wood{
-	tag = "icon-wood_broken6";
-	icon_state = "wood_broken6"
-	},
+/turf/simulated/floor/wood,
 /area/planet/jungle/away)
-"aE" = (
-/turf/simulated/floor/planet/plains,
-/area/space)
 "aF" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
@@ -203,8 +140,6 @@
 /area/planet/jungle/away)
 "aL" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (EAST)";
-	icon_state = "test";
 	dir = 4
 	},
 /turf/simulated/floor/planet/jungle/water,
@@ -214,8 +149,6 @@
 /area/planet/jungle/away)
 "aN" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (WEST)";
-	icon_state = "test";
 	dir = 8
 	},
 /turf/simulated/floor/planet/jungle/water,
@@ -228,73 +161,37 @@
 /area/planet/jungle/away)
 "aQ" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (SOUTHEAST)";
-	icon_state = "test";
 	dir = 6
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aR" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test2";
-	icon_state = "test2";
 	dir = 2
-	},
-/turf/simulated/floor/planet/jungle/water,
-/area/planet/jungle/away)
-"aS" = (
-/obj/effect/floor_decal/water_edge{
-	tag = "icon-test2 (WEST)";
-	icon_state = "test2";
-	dir = 8
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aT" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTHWEST)";
-	icon_state = "test";
 	dir = 9
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aU" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTHEAST)";
-	icon_state = "test";
 	dir = 5
-	},
-/turf/simulated/floor/planet/jungle/water,
-/area/planet/jungle/away)
-"aV" = (
-/obj/effect/floor_decal/water_edge{
-	tag = "icon-test2 (EAST)";
-	icon_state = "test2";
-	dir = 4
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aW" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test2 (NORTH)";
-	icon_state = "test2";
 	dir = 1
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aX" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (SOUTHWEST)";
-	icon_state = "test";
 	dir = 10
-	},
-/turf/simulated/floor/planet/jungle/water,
-/area/planet/jungle/away)
-"aY" = (
-/obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTH)";
-	icon_state = "test";
-	dir = 1
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
@@ -312,131 +209,6 @@
 /obj/effect/shuttle_landmark/nav_glloyd_jungle/nav2,
 /turf/simulated/floor/planet/jungle/clear,
 /area/planet/jungle/away)
-"bd" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-3,15 (NORTHWEST)";
-	icon_state = "3,15";
-	dir = 9
-	},
-/area/planet/jungle/away)
-"be" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-3,15";
-	icon_state = "3,15";
-	dir = 2
-	},
-/area/planet/jungle/away)
-"bf" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-3,15 (SOUTHEAST)";
-	icon_state = "3,15";
-	dir = 6
-	},
-/area/planet/jungle/away)
-"bg" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-3,15 (EAST)";
-	icon_state = "3,15";
-	dir = 4
-	},
-/area/planet/jungle/away)
-"bh" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-4,14";
-	icon_state = "4,14"
-	},
-/area/planet/jungle/away)
-"bi" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-0,14";
-	icon_state = "0,14"
-	},
-/area/planet/jungle/away)
-"bj" = (
-/turf/unsimulated/floor/uristturf/other/scom/destructable{
-	tag = "icon-0,15";
-	icon_state = "0,15"
-	},
-/area/planet/jungle/away)
-"bk" = (
-/turf/unsimulated/floor/uristturf/other/scom/destructable{
-	tag = "icon-0,15.1";
-	icon_state = "0,15.1"
-	},
-/area/planet/jungle/away)
-"bl" = (
-/turf/unsimulated/floor/uristturf/other/scom/destructable{
-	tag = "icon-1,15";
-	icon_state = "1,15"
-	},
-/area/planet/jungle/away)
-"bm" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-1,14";
-	icon_state = "1,14"
-	},
-/area/planet/jungle/away)
-"bn" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-5,14";
-	icon_state = "5,14"
-	},
-/area/planet/jungle/away)
-"bo" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-3,15 (WEST)";
-	icon_state = "3,15";
-	dir = 8
-	},
-/area/planet/jungle/away)
-"bp" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-2,11";
-	icon_state = "2,11"
-	},
-/area/planet/jungle/away)
-"bq" = (
-/turf/unsimulated/floor/uristturf/other/scom/destructable{
-	tag = "icon-0,13";
-	icon_state = "0,13"
-	},
-/area/planet/jungle/away)
-"br" = (
-/turf/unsimulated/floor/uristturf/other/scom/destructable{
-	tag = "icon-1,13";
-	icon_state = "1,13"
-	},
-/area/planet/jungle/away)
-"bs" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-0,12";
-	icon_state = "0,12"
-	},
-/area/planet/jungle/away)
-"bt" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-0,11";
-	icon_state = "0,11"
-	},
-/area/planet/jungle/away)
-"bu" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-2,13";
-	icon_state = "2,13"
-	},
-/area/planet/jungle/away)
-"bv" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-3,13";
-	icon_state = "3,13"
-	},
-/area/planet/jungle/away)
-"bw" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-1,10";
-	icon_state = "1,10"
-	},
-/area/planet/jungle/away)
 "bx" = (
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/jungle/away)
@@ -449,60 +221,6 @@
 "bA" = (
 /obj/structure/scrap,
 /turf/simulated/floor/planet/jungle/clear/underground,
-/area/planet/jungle/away)
-"bB" = (
-/turf/unsimulated/wall/urist/other/see/destructable{
-	tag = "icon-2,12";
-	icon_state = "2,12"
-	},
-/area/planet/jungle/away)
-"bC" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-3,15 (NORTHEAST)";
-	icon_state = "3,15";
-	dir = 5
-	},
-/area/planet/jungle/away)
-"bD" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-3,15 (NORTH)";
-	icon_state = "3,15";
-	dir = 1
-	},
-/area/planet/jungle/away)
-"bE" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-123456 (WEST)";
-	icon_state = "123456";
-	dir = 8
-	},
-/area/planet/jungle/away)
-"bF" = (
-/turf/unsimulated/floor/uristturf/other/scom/destructable{
-	tag = "icon-2,14";
-	icon_state = "2,14"
-	},
-/area/planet/jungle/away)
-"bG" = (
-/turf/unsimulated/floor/uristturf/other/scom/destructable{
-	tag = "icon-2,14 (SOUTHEAST)";
-	icon_state = "2,14";
-	dir = 6
-	},
-/area/planet/jungle/away)
-"bH" = (
-/turf/unsimulated/floor/uristturf/other/scom/destructable{
-	tag = "icon-2,14 (NORTH)";
-	icon_state = "2,14";
-	dir = 1
-	},
-/area/planet/jungle/away)
-"bI" = (
-/turf/unsimulated/wall/urist/other/destructable{
-	tag = "icon-3,15 (SOUTHWEST)";
-	icon_state = "3,15";
-	dir = 10
-	},
 /area/planet/jungle/away)
 "bJ" = (
 /obj/effect/template_loader/planet,
@@ -735,16 +453,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
-"cw" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/tiled,
-/area/jungleoutpost/main)
 "cx" = (
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
@@ -797,18 +505,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/camera/network/mining{
 	c_tag = "Outpost Dorms";
-	dir = 4;
-	icon_state = "camera"
+	dir = 4
 	},
-/turf/simulated/floor/tiled,
-/area/jungleoutpost/main)
-"cG" = (
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "cH" = (
 /obj/structure/hygiene/sink{
-	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
 	pixel_y = 2
@@ -858,7 +560,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "cO" = (
@@ -878,16 +579,6 @@
 "cQ" = (
 /obj/structure/bed/chair,
 /turf/simulated/floor/plating,
-/area/jungleoutpost/main)
-"cR" = (
-/turf/simulated/floor/plating{
-	tag = "icon-dmg3";
-	icon_state = "dmg3"
-	},
-/area/jungleoutpost/main)
-"cS" = (
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/tiled/white,
 /area/jungleoutpost/main)
 "cT" = (
 /obj/structure/table/standard,
@@ -1011,7 +702,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "do" = (
@@ -1050,9 +740,7 @@
 /turf/simulated/floor/plating,
 /area/jungleoutpost/main)
 "ds" = (
-/obj/item/weapon/material/shard{
-	icon_state = "small"
-	},
+/obj/item/weapon/material/shard,
 /turf/simulated/floor/plating,
 /area/planet/jungle/away)
 "dt" = (
@@ -1081,12 +769,6 @@
 /obj/item/weapon/carpentry/axe,
 /turf/simulated/floor/plating,
 /area/planet/jungle/away)
-"dy" = (
-/turf/simulated/floor/plating{
-	tag = "icon-dmg2";
-	icon_state = "dmg2"
-	},
-/area/jungleoutpost/main)
 "dz" = (
 /obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled/white,
@@ -1222,7 +904,6 @@
 "dQ" = (
 /obj/structure/hygiene/shower{
 	dir = 4;
-	icon_state = "shower";
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -1233,10 +914,8 @@
 "dS" = (
 /obj/structure/hygiene/sink{
 	dir = 1;
-	icon_state = "sink";
 	pixel_x = 0;
-	pixel_y = 20;
-	tag = "icon-sink (NORTH)"
+	pixel_y = 20
 	},
 /obj/item/weapon/storage/mirror{
 	dir = 4;
@@ -1249,10 +928,8 @@
 "dT" = (
 /obj/structure/hygiene/sink{
 	dir = 1;
-	icon_state = "sink";
 	pixel_x = 0;
-	pixel_y = 20;
-	tag = "icon-sink (NORTH)"
+	pixel_y = 20
 	},
 /obj/item/weapon/storage/mirror{
 	dir = 4;
@@ -1263,7 +940,6 @@
 /area/jungleoutpost/main)
 "dU" = (
 /obj/machinery/light{
-	icon_state = "tube1";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1273,9 +949,7 @@
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "dW" = (
-/obj/item/weapon/material/shard{
-	icon_state = "small"
-	},
+/obj/item/weapon/material/shard,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "dX" = (
@@ -1314,10 +988,7 @@
 	pixel_x = 0;
 	pixel_y = 24
 	},
-/turf/simulated/floor/plating{
-	tag = "icon-dmg4";
-	icon_state = "dmg4"
-	},
+/turf/simulated/floor/plating,
 /area/jungleoutpost/main)
 "eb" = (
 /obj/structure/extinguisher_cabinet{
@@ -1325,8 +996,6 @@
 	pixel_y = 30
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
-	icon_state = "corner_white";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1336,26 +1005,19 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
-	icon_state = "corner_white";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "ed" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
-	icon_state = "corner_white";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "ee" = (
 /obj/structure/table/standard/flipped/e,
-/obj/item/weapon/material/shard{
-	tag = "icon-medium";
-	icon_state = "medium"
-	},
+/obj/item/weapon/material/shard,
 /turf/simulated/floor/plating,
 /area/jungleoutpost/main)
 "ef" = (
@@ -1372,14 +1034,10 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "ei" = (
-/obj/item/weapon/material/shard{
-	tag = "icon-medium";
-	icon_state = "medium"
-	},
+/obj/item/weapon/material/shard,
 /turf/simulated/floor/planet/jungle,
 /area/planet/jungle/away)
 "ej" = (
@@ -1398,7 +1056,6 @@
 "ek" = (
 /obj/structure/hygiene/shower{
 	dir = 4;
-	icon_state = "shower";
 	pixel_x = 5
 	},
 /obj/structure/curtain/open/shower,
@@ -1454,10 +1111,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/turf/simulated/floor/plating{
-	tag = "icon-dmg2";
-	icon_state = "dmg2"
-	},
+/turf/simulated/floor/plating,
 /area/jungleoutpost/main)
 "er" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -1466,10 +1120,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/turf/simulated/floor/plating{
-	tag = "icon-dmg1";
-	icon_state = "dmg1"
-	},
+/turf/simulated/floor/plating,
 /area/jungleoutpost/main)
 "es" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1484,10 +1135,7 @@
 	icon_state = "2-4";
 	tag = ""
 	},
-/turf/simulated/floor/plating{
-	tag = "icon-dmg3";
-	icon_state = "dmg3"
-	},
+/turf/simulated/floor/plating,
 /area/jungleoutpost/main)
 "et" = (
 /obj/structure/cable{
@@ -1506,22 +1154,6 @@
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "eu" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/tiled,
-/area/jungleoutpost/main)
-"ev" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -1563,8 +1195,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "ey" = (
@@ -1616,25 +1246,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
-"eB" = (
-/obj/structure/table/standard/flipped/e,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/tiled,
-/area/jungleoutpost/main)
 "eC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1679,7 +1290,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/plating,
 /area/jungleoutpost/main)
 "eF" = (
@@ -1693,21 +1303,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/jungleoutpost/main)
-"eG" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/main)
 "eH" = (
@@ -1742,8 +1337,6 @@
 /area/jungleoutpost/main)
 "eJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	tag = "icon-intact-supply (SOUTHWEST)";
-	icon_state = "intact-supply";
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1779,10 +1372,7 @@
 "eO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating{
-	tag = "icon-dmg4";
-	icon_state = "dmg4"
-	},
+/turf/simulated/floor/plating,
 /area/jungleoutpost/main)
 "eP" = (
 /obj/item/stack/rods,
@@ -1791,10 +1381,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating{
-	tag = "icon-dmg1";
-	icon_state = "dmg1"
-	},
+/turf/simulated/floor/plating,
 /area/jungleoutpost/main)
 "eQ" = (
 /obj/item/weapon/reagent_containers/glass/bucket{
@@ -1812,8 +1399,6 @@
 /area/jungleoutpost/main)
 "eS" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHWEST)";
-	icon_state = "corner_white";
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1822,19 +1407,14 @@
 /area/jungleoutpost/main)
 "eT" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (WEST)";
-	icon_state = "corner_white";
 	dir = 8
 	},
 /obj/structure/table/standard/flipped/e,
 /obj/item/remains/human,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "eU" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
-	icon_state = "corner_white";
 	dir = 8
 	},
 /obj/item/stack/cable_coil/single,
@@ -1842,30 +1422,23 @@
 /area/jungleoutpost/main)
 "eV" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
-	icon_state = "corner_white";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "eW" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
-	icon_state = "corner_white";
 	dir = 8
 	},
 /obj/machinery/camera/network/mining{
 	c_tag = "Outpost Hallway 2";
-	dir = 1;
-	icon_state = "camera"
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "eX" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
-	icon_state = "corner_white";
 	dir = 8
 	},
 /obj/item/weapon/material/shard,
@@ -1887,8 +1460,6 @@
 /area/jungleoutpost/main)
 "fb" = (
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHWEST)";
-	icon_state = "corner_white";
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -1896,8 +1467,6 @@
 "fc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHWEST)";
-	icon_state = "corner_white";
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1907,7 +1476,6 @@
 	icon_state = "1-2";
 	tag = ""
 	},
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "fd" = (
@@ -1915,13 +1483,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/jungleoutpost/main)
-"fe" = (
-/obj/item/weapon/material/shard{
-	tag = "icon-medium";
-	icon_state = "medium"
-	},
-/turf/simulated/floor/plating,
 /area/jungleoutpost/main)
 "ff" = (
 /obj/structure/hygiene/toilet{
@@ -2027,8 +1588,6 @@
 /area/jungleoutpost/medbay)
 "ft" = (
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
-	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/paleblue,
@@ -2058,8 +1617,6 @@
 /area/jungleoutpost/medbay)
 "fw" = (
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (NORTHEAST)";
-	icon_state = "corner_white";
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/paleblue,
@@ -2067,8 +1624,6 @@
 /area/jungleoutpost/medbay)
 "fx" = (
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
-	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
 /obj/structure/table/standard,
@@ -2081,7 +1636,6 @@
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "fy" = (
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
 "fz" = (
@@ -2125,7 +1679,6 @@
 	},
 /obj/machinery/alarm{
 	dir = 2;
-	icon_state = "alarm0";
 	pixel_y = 22
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2149,13 +1702,8 @@
 	amount = 50
 	},
 /obj/effect/floor_decal/corner/yellow/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
-	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
-/area/jungleoutpost/engi)
-"fG" = (
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
 "fH" = (
@@ -2173,8 +1721,6 @@
 	amount = 50
 	},
 /obj/effect/floor_decal/corner/yellow/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
-	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -2201,19 +1747,11 @@
 /obj/effect/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
-"fM" = (
-/obj/item/weapon/material/shard{
-	icon_state = "small"
-	},
-/turf/simulated/floor/planet/jungle,
-/area/planet/jungle/away)
 "fN" = (
 /obj/item/weapon/storage/firstaid/surgery,
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/glass/beaker/painkiller,
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
-	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -2221,8 +1759,6 @@
 "fO" = (
 /obj/machinery/optable,
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (NORTHEAST)";
-	icon_state = "corner_white";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
@@ -2230,16 +1766,12 @@
 "fP" = (
 /obj/structure/iv_drip,
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (NORTHEAST)";
-	icon_state = "corner_white";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "fQ" = (
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (NORTHEAST)";
-	icon_state = "corner_white";
 	dir = 5
 	},
 /obj/structure/table/standard,
@@ -2252,8 +1784,6 @@
 /area/jungleoutpost/medbay)
 "fR" = (
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
-	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
 /obj/structure/table/standard,
@@ -2268,8 +1798,6 @@
 /area/jungleoutpost/medbay)
 "fS" = (
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (WEST)";
-	icon_state = "corner_white";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -2294,8 +1822,6 @@
 /area/jungleoutpost/medbay)
 "fX" = (
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (NORTHEAST)";
-	icon_state = "corner_white";
 	dir = 5
 	},
 /obj/structure/table/standard,
@@ -2312,23 +1838,12 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (NORTHEAST)";
-	icon_state = "corner_white";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "ga" = (
-/obj/item/weapon/material/shard{
-	icon_state = "small"
-	},
-/turf/simulated/floor/plating,
-/area/jungleoutpost/medbay)
-"gb" = (
-/obj/item/weapon/material/shard{
-	tag = "icon-medium";
-	icon_state = "medium"
-	},
+/obj/item/weapon/material/shard,
 /turf/simulated/floor/plating,
 /area/jungleoutpost/medbay)
 "gc" = (
@@ -2345,8 +1860,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
-	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/paleblue,
@@ -2354,12 +1867,6 @@
 /area/jungleoutpost/medbay)
 "ge" = (
 /obj/item/weapon/material/shard,
-/turf/simulated/floor/tiled,
-/area/jungleoutpost/engi)
-"gf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
 "gg" = (
@@ -2419,8 +1926,6 @@
 	tag = ""
 	},
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHEAST)";
-	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -2430,10 +1935,9 @@
 	dir = 2;
 	external_pressure_bound = 140;
 	external_pressure_bound_default = 140;
-	icon_state = "map_vent_out";
-	use_power = 1;
 	pressure_checks = 0;
-	pressure_checks_default = 0
+	pressure_checks_default = 0;
+	use_power = 1
 	},
 /turf/simulated/floor/planet/jungle,
 /area/jungleoutpost/engi)
@@ -2458,14 +1962,8 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
-"gr" = (
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/plating,
-/area/jungleoutpost/medbay)
 "gs" = (
 /obj/item/remains/human,
-/obj/item/ammo_casing/a556/used,
-/obj/item/ammo_casing/a556/used,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "gt" = (
@@ -2481,8 +1979,6 @@
 	},
 /obj/effect/floor_decal/corner/blue/three_quarters,
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (EAST)";
-	icon_state = "corner_white";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -2514,8 +2010,6 @@
 	tag = ""
 	},
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHEAST)";
-	icon_state = "corner_white";
 	dir = 6
 	},
 /obj/machinery/light{
@@ -2585,10 +2079,6 @@
 /obj/effect/overmap/sector/glloyd_jungle,
 /turf/simulated/floor/planet/jungle,
 /area/planet/jungle/away)
-"gI" = (
-/obj/item/remains/human,
-/turf/simulated/floor/tiled/white,
-/area/jungleoutpost/medbay)
 "gJ" = (
 /obj/machinery/door/airlock/medical,
 /turf/simulated/floor/tiled/white,
@@ -2597,19 +2087,12 @@
 /obj/effect/floor_decal/corner/green/full,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
-"gL" = (
-/obj/effect/floor_decal/corner/green/full,
-/obj/item/ammo_casing/a556/used,
-/turf/simulated/floor/tiled/white,
-/area/jungleoutpost/medbay)
 "gM" = (
 /obj/effect/floor_decal/corner/paleblue/three_quarters,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "gN" = (
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (SOUTHWEST)";
-	icon_state = "corner_white";
 	dir = 10
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -2622,8 +2105,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (SOUTHWEST)";
-	icon_state = "corner_white";
 	dir = 10
 	},
 /obj/machinery/power/apc{
@@ -2640,8 +2121,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (SOUTHWEST)";
-	icon_state = "corner_white";
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -2651,8 +2130,6 @@
 	req_access = newlist()
 	},
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
-	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -2695,8 +2172,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/camera/network/mining{
 	c_tag = "Outpost Engineering Storage";
-	dir = 4;
-	icon_state = "camera"
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
@@ -2711,9 +2187,7 @@
 /area/jungleoutpost/engi)
 "gY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8;
-	icon_state = "map-supply";
-	tag = "icon-manifold (WEST)"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -2751,9 +2225,7 @@
 /area/jungleoutpost/engi)
 "hc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 4;
-	icon_state = "intact";
-	tag = "icon-intact (EAST)"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
@@ -2773,8 +2245,7 @@
 	},
 /obj/machinery/camera/network/mining{
 	c_tag = "Outpost Atmospherics";
-	dir = 8;
-	icon_state = "camera"
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
@@ -2844,8 +2315,6 @@
 	tag = ""
 	},
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHEAST)";
-	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -2859,27 +2328,24 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 1;
-	icon_state = "map_vent_out";
 	level = 2;
 	use_power = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	tag = "icon-intact (SOUTHEAST)";
-	icon_state = "intact";
 	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
 "hq" = (
 /obj/machinery/atmospherics/omni/mixer{
-	use_power = 1;
 	tag_east = 2;
 	tag_north = 0;
 	tag_north_con = null;
 	tag_south = 1;
 	tag_south_con = 0.8;
 	tag_west = 1;
-	tag_west_con = 0.2
+	tag_west_con = 0.2;
+	use_power = 1
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
@@ -2891,7 +2357,6 @@
 "hs" = (
 /obj/machinery/atmospherics/unary/freezer{
 	dir = 8;
-	icon_state = "freezer_1";
 	use_power = 1
 	},
 /turf/simulated/floor/plating,
@@ -2902,8 +2367,6 @@
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (SOUTHWEST)";
-	icon_state = "corner_white";
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -2912,8 +2375,6 @@
 /obj/item/weapon/storage/firstaid/tactical,
 /obj/item/weapon/storage/firstaid/tactical,
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (SOUTHWEST)";
-	icon_state = "corner_white";
 	dir = 10
 	},
 /obj/structure/table/rack,
@@ -2924,8 +2385,6 @@
 /obj/item/weapon/storage/firstaid/combat,
 /obj/item/weapon/storage/firstaid/combat,
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
-	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
 /obj/structure/table/rack,
@@ -2936,8 +2395,6 @@
 /area/jungleoutpost/medbay)
 "hw" = (
 /obj/machinery/bodyscanner{
-	tag = "icon-body_scanner_0 (NORTH)";
-	icon_state = "body_scanner_0";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red/full,
@@ -2952,14 +2409,10 @@
 /area/jungleoutpost/medbay)
 "hz" = (
 /obj/machinery/resleever{
-	tag = "icon-body_scanner_0 (WEST)";
-	icon_state = "body_scanner_0";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime,
 /obj/effect/floor_decal/corner/green/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
-	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -2969,8 +2422,6 @@
 /area/jungleoutpost/engi)
 "hB" = (
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
-	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
 /obj/structure/filingcabinet,
@@ -3075,8 +2526,6 @@
 	tag = ""
 	},
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHEAST)";
-	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -3087,26 +2536,23 @@
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
 	frequency = 1441;
-	icon_state = "map_vent_in";
 	initialize_directions = 1;
 	internal_pressure_bound = 4000;
 	internal_pressure_bound_default = 4000;
-	use_power = 1;
 	pressure_checks = 2;
 	pressure_checks_default = 2;
-	pump_direction = 0
+	pump_direction = 0;
+	use_power = 1
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 4;
 	health = 1000;
-	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 1;
 	health = 1000;
-	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
 	},
@@ -3140,26 +2586,23 @@
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
 	frequency = 1441;
-	icon_state = "map_vent_in";
 	initialize_directions = 1;
 	internal_pressure_bound = 4000;
 	internal_pressure_bound_default = 4000;
-	use_power = 1;
 	pressure_checks = 2;
 	pressure_checks_default = 2;
-	pump_direction = 0
+	pump_direction = 0;
+	use_power = 1
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
 	health = 1000;
-	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 1;
 	health = 1000;
-	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
 	},
@@ -3169,16 +2612,11 @@
 /turf/simulated/floor,
 /area/planet/jungle/away)
 "hS" = (
-/obj/item/weapon/material/shard{
-	tag = "icon-medium";
-	icon_state = "medium"
-	},
+/obj/item/weapon/material/shard,
 /turf/simulated/floor/tiled,
 /area/planet/jungle/away)
 "hT" = (
 /obj/machinery/body_scanconsole{
-	tag = "icon-body_scannerconsole (NORTH)";
-	icon_state = "body_scannerconsole";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red/full,
@@ -3186,16 +2624,12 @@
 /area/jungleoutpost/medbay)
 "hU" = (
 /obj/machinery/resleever{
-	tag = "icon-body_scanner_0 (WEST)";
-	icon_state = "body_scanner_0";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/green{
-	tag = "icon-corner_white (NORTHWEST)";
-	icon_state = "corner_white";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -3238,13 +2672,11 @@
 "ic" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 4;
-	icon_state = "map_injector";
 	use_power = 1
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 4;
 	health = 1000;
-	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
 	},
@@ -3254,19 +2686,17 @@
 /obj/machinery/meter,
 /obj/machinery/light/small,
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 4;
-	icon_state = "intact";
-	tag = "icon-intact (EAST)"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
 "ie" = (
 /obj/machinery/atmospherics/omni/filter{
-	use_power = 1;
 	tag_east = 4;
 	tag_north = 2;
 	tag_south = 1;
-	tag_west = 3
+	tag_west = 3;
+	use_power = 1
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
@@ -3284,13 +2714,11 @@
 "ig" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
-	icon_state = "map_injector";
 	use_power = 1
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
 	health = 1000;
-	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
 	},
@@ -3313,8 +2741,6 @@
 "ij" = (
 /obj/machinery/optable,
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (SOUTHWEST)";
-	icon_state = "corner_white";
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -3325,8 +2751,6 @@
 /area/jungleoutpost/medbay)
 "il" = (
 /obj/effect/floor_decal/corner/lime{
-	tag = "icon-corner_white (EAST)";
-	icon_state = "corner_white";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/green/three_quarters,
@@ -3354,15 +2778,14 @@
 	anchored = 1
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/machinery/light/small{
 	dir = 1
 	},
 /obj/machinery/alarm{
 	dir = 4;
-	icon_state = "alarm0";
 	pixel_x = -22;
 	pixel_y = 0
 	},
@@ -3375,8 +2798,8 @@
 	icon_state = "0-8"
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/structure/sign/warning/nosmoking_1{
 	pixel_y = 32
@@ -3405,10 +2828,11 @@
 	pixel_x = 32
 	},
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /obj/machinery/power/smes/buildable{
+	RCon_tag = "Research Outpost";
 	capacity = 1e+007;
 	charge = 0;
 	cur_coils = 2;
@@ -3417,15 +2841,12 @@
 	inputting = 1;
 	output_attempt = 1;
 	output_level = 500000;
-	outputting = 2;
-	RCon_tag = "Research Outpost"
+	outputting = 2
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
 "it" = (
-/obj/item/weapon/material/shard{
-	icon_state = "small"
-	},
+/obj/item/weapon/material/shard,
 /turf/simulated/floor,
 /area/planet/jungle/away)
 "iu" = (
@@ -3449,8 +2870,6 @@
 	tag = ""
 	},
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHEAST)";
-	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -3538,8 +2957,8 @@
 	name_tag = "Planetary Outpost Grid"
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -3568,8 +2987,7 @@
 	},
 /obj/machinery/camera/network/mining{
 	c_tag = "Outpost Power Distribution";
-	dir = 8;
-	icon_state = "camera"
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
@@ -3614,6 +3032,10 @@
 	bridge = 1;
 	density = 1
 	},
+/area/planet/jungle/away)
+"ja" = (
+/obj/effect/template_loader/planet,
+/turf/simulated/floor/planet/plains,
 /area/planet/jungle/away)
 
 (1,1,1) = {"
@@ -7482,7 +6904,7 @@ by
 fk
 fQ
 fT
-gI
+gs
 fT
 hu
 fs
@@ -8213,7 +7635,7 @@ cj
 ce
 ce
 dh
-dy
+cj
 cj
 dP
 ej
@@ -8456,7 +7878,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -8584,7 +8006,7 @@ cI
 cI
 cI
 cj
-dy
+cj
 dQ
 ek
 ch
@@ -8641,7 +8063,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -8661,7 +8083,7 @@ af
 af
 af
 af
-aj
+ae
 am
 aI
 aI
@@ -8767,7 +8189,7 @@ cD
 cI
 cQ
 cZ
-cS
+cI
 cI
 cq
 dR
@@ -8826,7 +8248,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -8847,7 +8269,7 @@ af
 af
 af
 af
-aj
+ae
 ae
 am
 aI
@@ -8962,7 +8384,7 @@ ch
 fs
 fX
 fT
-gL
+gK
 fh
 by
 by
@@ -9011,7 +8433,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -9034,7 +8456,7 @@ af
 af
 af
 af
-aj
+ae
 ae
 am
 aI
@@ -9135,7 +8557,7 @@ by
 ce
 ce
 cj
-cR
+cj
 db
 cI
 dz
@@ -9178,8 +8600,6 @@ ag
 ag
 ag
 ag
-aE
-aE
 ag
 ag
 ag
@@ -9196,7 +8616,9 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ar
 af
 af
 af
@@ -9221,7 +8643,7 @@ af
 af
 af
 af
-aj
+ae
 ae
 ae
 ae
@@ -9320,7 +8742,7 @@ by
 ck
 ce
 cJ
-cS
+cI
 dc
 di
 dA
@@ -9363,8 +8785,6 @@ ag
 ag
 ag
 ag
-aE
-aE
 ag
 ag
 ag
@@ -9381,7 +8801,9 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ar
 af
 af
 af
@@ -9414,7 +8836,7 @@ af
 af
 af
 af
-aj
+ae
 ae
 ae
 ae
@@ -9548,8 +8970,6 @@ ag
 ag
 ag
 ag
-aE
-aE
 ag
 ag
 ag
@@ -9566,7 +8986,9 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ar
 af
 af
 af
@@ -9701,7 +9123,7 @@ eN
 fh
 fu
 fh
-gr
+fh
 gN
 hf
 hz
@@ -9733,11 +9155,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -9751,7 +9168,12 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -9885,7 +9307,7 @@ er
 eO
 fi
 fh
-gb
+ga
 gs
 fT
 fk
@@ -9918,15 +9340,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -9936,7 +9349,16 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -9977,7 +9399,7 @@ af
 af
 af
 af
-aj
+ae
 am
 aI
 aI
@@ -10103,15 +9525,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -10121,7 +9534,16 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -10242,7 +9664,7 @@ ci
 ci
 cp
 cs
-cw
+ci
 cF
 cM
 ci
@@ -10288,16 +9710,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -10306,7 +9718,17 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -10428,7 +9850,7 @@ cj
 cj
 ct
 cx
-cG
+cx
 cN
 cx
 cx
@@ -10437,7 +9859,7 @@ cx
 dK
 cx
 eu
-cG
+cx
 fg
 fx
 gd
@@ -10473,16 +9895,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -10491,7 +9903,17 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -10621,7 +10043,7 @@ ch
 dE
 ch
 dZ
-ev
+eu
 eR
 fk
 fk
@@ -10658,16 +10080,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -10676,7 +10088,17 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -10811,8 +10233,8 @@ cx
 fl
 fy
 ge
-fG
-fG
+fy
+fy
 gl
 hA
 hA
@@ -10843,14 +10265,14 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -10995,7 +10417,7 @@ ex
 eS
 fm
 fz
-gf
+fz
 fz
 fz
 hh
@@ -11028,14 +10450,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -11045,7 +10459,15 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -11213,14 +10635,12 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ja
 ag
 ag
 ag
@@ -11230,7 +10650,9 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ar
 af
 af
 af
@@ -11398,15 +10820,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -11415,7 +10828,16 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -11583,15 +11005,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -11600,7 +11013,16 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -11731,7 +11153,7 @@ ca
 cj
 cq
 ee
-eB
+ey
 eW
 fn
 fC
@@ -11768,15 +11190,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -11785,7 +11198,16 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -11842,20 +11264,20 @@ aI
 aO
 aO
 aO
-bd
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bg
-bC
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -11953,11 +11375,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -11970,7 +11387,12 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -12027,20 +11449,20 @@ aI
 aO
 aO
 aO
-be
-bh
-bp
-bt
-bp
-bt
-bp
-bt
-bp
-bt
-bp
-bt
-bt
-bD
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -12138,10 +11560,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -12155,7 +11573,11 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -12212,21 +11634,21 @@ aI
 aO
 aO
 aO
-be
-bi
-bq
-bu
-bq
-bu
-bq
-bu
-bq
-bu
-bq
-bu
-bi
-bE
-bg
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -12287,7 +11709,7 @@ aI
 ca
 cj
 eE
-cG
+cx
 fn
 fn
 fn
@@ -12323,10 +11745,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -12340,7 +11758,11 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -12359,10 +11781,10 @@ af
 af
 af
 af
-af
-af
-af
-af
+ah
+ah
+ah
+ar
 af
 af
 af
@@ -12397,21 +11819,21 @@ aI
 aO
 aO
 aO
-be
-bj
-bj
-bj
-bj
-bj
-bj
-bj
-bj
-bj
-bj
-bj
-bj
-bF
-bF
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -12508,10 +11930,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -12525,7 +11943,11 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -12543,12 +11965,12 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
+ah
+ap
+al
+al
+ao
+ar
 af
 af
 af
@@ -12582,21 +12004,21 @@ aO
 aO
 aO
 aO
-be
-bk
-bk
-bk
-bk
-bk
-bk
-bk
-bk
-bk
-bk
-bk
-bk
-bG
-bG
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -12656,13 +12078,13 @@ aI
 aI
 ca
 ca
-eG
+eE
 eZ
 fo
-fG
-fG
-fG
-fG
+fy
+fy
+fy
+fy
 hl
 hG
 hZ
@@ -12693,14 +12115,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -12710,7 +12124,15 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -12726,15 +12148,15 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ah
+ah
+ap
+al
+al
+al
+al
+ao
+ar
 af
 af
 af
@@ -12767,21 +12189,21 @@ aO
 aO
 aO
 aO
-be
-bl
-bl
-bl
-bl
-bl
-bl
-bl
-bl
-bl
-bl
-bl
-bl
-bH
-bH
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+bJ
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -12845,9 +12267,9 @@ eH
 cj
 fo
 fH
-fG
-fG
-fG
+fy
+fy
+fy
 hm
 hH
 hA
@@ -12878,13 +12300,6 @@ ag
 an
 am
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -12895,7 +12310,14 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -12911,16 +12333,16 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ai
+al
+al
+al
+al
+al
+al
+al
+ao
+ar
 af
 af
 af
@@ -12952,21 +12374,21 @@ aO
 aO
 aO
 aO
-be
-bm
-br
-bv
-br
-bv
-br
-bv
-br
-bv
-br
-bv
-bm
-bE
-bo
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -13060,16 +12482,9 @@ ag
 ag
 ag
 ag
-at
+ar
 ai
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -13080,33 +12495,14 @@ ag
 ag
 ag
 ag
-at
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -13123,6 +12519,32 @@ af
 af
 af
 ai
+al
+al
+al
+av
+az
+al
+al
+al
+ar
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+ai
 aI
 aI
 aI
@@ -13137,20 +12559,20 @@ aO
 aO
 aO
 aO
-be
-bn
-bs
-bw
-bs
-bw
-bs
-bw
-bs
-bw
-bs
-bw
-bB
-bD
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -13220,7 +12642,7 @@ fJ
 fJ
 fo
 hJ
-fG
+fy
 hA
 hZ
 hZ
@@ -13246,15 +12668,8 @@ ag
 ag
 an
 aq
-aj
+ae
 am
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -13265,7 +12680,14 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -13281,16 +12703,16 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ae
+am
+al
+al
+al
+al
+al
+al
+al
+ar
 af
 af
 af
@@ -13322,20 +12744,20 @@ aO
 aO
 aO
 aO
-bf
-bo
-bo
-bo
-bo
-bo
-bo
-bo
-bo
-bo
-bo
-bo
-bo
-bI
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
 aO
 aO
 aO
@@ -13399,11 +12821,11 @@ eh
 eI
 fb
 fp
-fG
+fy
 gl
-fG
+fy
 gX
-fG
+fy
 hK
 ia
 hA
@@ -13433,24 +12855,24 @@ aq
 af
 af
 ai
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -13467,6 +12889,15 @@ af
 af
 af
 af
+ae
+am
+al
+al
+al
+al
+al
+an
+aq
 af
 af
 af
@@ -13483,16 +12914,7 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-aj
+ae
 ae
 ae
 ae
@@ -13618,24 +13040,24 @@ ar
 af
 ah
 ap
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -13653,13 +13075,13 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
+ae
+ae
+ae
+ae
+ae
+ae
+aq
 af
 af
 af
@@ -13800,27 +13222,27 @@ ag
 ag
 ag
 ao
-ak
+ah
 ap
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -13952,7 +13374,7 @@ df
 cj
 cj
 cn
-fe
+ct
 fo
 fo
 fn
@@ -13988,24 +13410,24 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -14173,24 +13595,24 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -14358,24 +13780,24 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -14543,24 +13965,24 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -14728,24 +14150,24 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -14913,19 +14335,19 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -15098,23 +14520,23 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -15283,23 +14705,23 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -15468,23 +14890,23 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -15653,23 +15075,23 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -15838,14 +15260,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -15854,7 +15268,15 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -16023,14 +15445,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -16039,7 +15453,15 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -16208,14 +15630,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -16224,7 +15638,15 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -16270,7 +15692,7 @@ af
 af
 af
 ah
-ak
+ah
 ap
 aI
 aI
@@ -16393,12 +15815,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -16409,7 +15825,13 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -16578,12 +16000,12 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
+ag
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -16763,12 +16185,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -16778,7 +16194,13 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -16823,7 +16245,7 @@ af
 af
 af
 ah
-ak
+ah
 ap
 aI
 aI
@@ -16948,12 +16370,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -16963,7 +16379,13 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -16981,11 +16403,11 @@ af
 af
 af
 ah
-ak
-ak
-ak
-ak
-ak
+ah
+ah
+ah
+ah
+ah
 ar
 af
 af
@@ -17133,12 +16555,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
-aE
-aE
-aE
 ag
 ag
 ag
@@ -17148,7 +16564,13 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -17172,8 +16594,8 @@ aI
 aI
 aI
 ao
-ak
-ak
+ah
+ah
 ar
 af
 af
@@ -17284,7 +16706,7 @@ aI
 aI
 aI
 aI
-fM
+ei
 aI
 aI
 aI
@@ -17318,9 +16740,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
 ag
 ag
 ag
@@ -17333,7 +16752,10 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -17360,7 +16782,7 @@ aI
 aI
 aI
 ao
-ak
+ah
 ar
 af
 af
@@ -17503,9 +16925,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
 ag
 ag
 ag
@@ -17518,7 +16937,10 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -17546,7 +16968,7 @@ aI
 aI
 aI
 aI
-at
+ar
 af
 af
 af
@@ -17688,9 +17110,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
 ag
 ag
 ag
@@ -17703,7 +17122,10 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -17873,9 +17295,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
 ag
 ag
 ag
@@ -17888,7 +17307,10 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -18058,9 +17480,6 @@ ag
 ag
 ag
 ag
-aE
-aE
-aE
 ag
 ag
 ag
@@ -18073,7 +17492,10 @@ ag
 ag
 ag
 ag
-at
+ag
+ag
+ag
+ar
 af
 af
 af
@@ -18114,8 +17536,8 @@ af
 af
 af
 ah
-ak
-ak
+ah
+ah
 ap
 aO
 aO
@@ -18209,7 +17631,7 @@ ax
 ax
 aI
 aI
-at
+ar
 af
 af
 af
@@ -18258,7 +17680,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -18290,14 +17712,14 @@ aI
 aI
 aI
 ao
-ak
-ak
-ak
-ak
-ak
-ak
-ak
-ak
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
 ap
 aI
 aI
@@ -18394,7 +17816,7 @@ ax
 ax
 ax
 ax
-at
+ar
 af
 af
 af
@@ -18443,7 +17865,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -18628,7 +18050,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -18813,7 +18235,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -18998,7 +18420,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -19183,7 +18605,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -19368,7 +18790,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -19553,7 +18975,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -19682,7 +19104,7 @@ aI
 aI
 aI
 aI
-at
+ar
 af
 af
 af
@@ -19738,7 +19160,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -19876,7 +19298,7 @@ af
 af
 af
 ah
-ak
+ah
 ar
 af
 af
@@ -19923,7 +19345,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -19939,7 +19361,7 @@ af
 af
 af
 af
-aj
+ae
 am
 aI
 aO
@@ -20062,11 +19484,11 @@ af
 af
 ai
 aI
-at
+ar
 ah
-ak
-ak
-ak
+ah
+ah
+ah
 ar
 ai
 aI
@@ -20108,7 +19530,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -20234,7 +19656,7 @@ aI
 aI
 aI
 aI
-at
+ar
 af
 af
 af
@@ -20247,7 +19669,7 @@ af
 ah
 ap
 aI
-aY
+aW
 aZ
 aI
 aI
@@ -20293,7 +19715,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -20419,7 +19841,7 @@ aI
 aI
 aI
 aI
-at
+ar
 af
 af
 af
@@ -20432,7 +19854,7 @@ af
 ai
 aI
 aI
-aY
+aW
 aZ
 aI
 aI
@@ -20478,7 +19900,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -20536,7 +19958,7 @@ aO
 aO
 aO
 aO
-aO
+bJ
 aO
 aO
 aO
@@ -20604,7 +20026,7 @@ aI
 aI
 aI
 aI
-at
+ar
 af
 af
 af
@@ -20617,7 +20039,7 @@ af
 ai
 aI
 aI
-aY
+aW
 aZ
 aI
 aI
@@ -20663,7 +20085,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -20755,7 +20177,7 @@ aO
 aO
 aO
 aO
-aO
+bJ
 aO
 aO
 aO
@@ -20789,7 +20211,7 @@ aI
 aI
 aI
 aI
-at
+ar
 af
 af
 af
@@ -20798,11 +20220,11 @@ af
 af
 af
 ah
-ak
+ah
 ap
 aI
 aI
-aY
+aW
 aZ
 aI
 aI
@@ -20848,7 +20270,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -20978,7 +20400,7 @@ ao
 ar
 af
 ah
-ak
+ah
 ar
 af
 ah
@@ -20987,7 +20409,7 @@ aI
 aI
 aI
 aI
-aY
+aW
 aZ
 aI
 aI
@@ -21033,7 +20455,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -21160,19 +20582,19 @@ aI
 aI
 aI
 aI
-at
+ar
 af
 ai
 aI
 ao
-ak
+ah
 ap
 aI
 aI
 aI
 aI
 aI
-aY
+aW
 aZ
 aI
 aI
@@ -21346,7 +20768,7 @@ aI
 aI
 aI
 ao
-ak
+ah
 ap
 aI
 aI
@@ -21357,8 +20779,8 @@ aI
 aI
 aI
 aI
-aY
-aV
+aW
+aL
 aU
 aI
 aI
@@ -21590,7 +21012,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -21728,8 +21150,8 @@ aO
 aO
 aO
 aO
-aY
-aV
+aW
+aL
 aU
 aI
 ac
@@ -21775,7 +21197,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -21915,7 +21337,7 @@ aO
 aO
 aX
 aW
-aV
+aL
 aU
 ac
 ac
@@ -21960,7 +21382,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -22145,7 +21567,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -22285,7 +21707,7 @@ aO
 aO
 aO
 aO
-aY
+aW
 aZ
 ac
 ac
@@ -22330,7 +21752,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -22345,12 +21767,12 @@ af
 af
 af
 af
-aj
+ae
 aL
 aL
 aL
 aR
-aV
+aL
 aL
 aU
 aO
@@ -22470,7 +21892,7 @@ aO
 aO
 aO
 aO
-aY
+aW
 aZ
 ac
 ac
@@ -22537,7 +21959,7 @@ aM
 aM
 aM
 aM
-aV
+aL
 aL
 aU
 aO
@@ -22655,8 +22077,8 @@ aO
 aO
 aO
 aO
-aY
-aV
+aW
+aL
 aU
 ac
 ac
@@ -22701,7 +22123,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -22886,7 +22308,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -22909,7 +22331,7 @@ aX
 aW
 aM
 aM
-aV
+aL
 aU
 aO
 aO
@@ -23026,7 +22448,7 @@ aO
 aO
 ac
 ac
-aY
+aW
 aZ
 ac
 ac
@@ -23071,7 +22493,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -23211,8 +22633,8 @@ aO
 aO
 ac
 ac
-aY
-aV
+aW
+aL
 aU
 ac
 ac
@@ -23256,7 +22678,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -23280,7 +22702,7 @@ aO
 aX
 aW
 aM
-aV
+aL
 aU
 aO
 aQ
@@ -23297,7 +22719,7 @@ aM
 aM
 aM
 aM
-aV
+aL
 aL
 aL
 aL
@@ -23441,7 +22863,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -23463,17 +22885,17 @@ aO
 aO
 aO
 aO
-aY
+aW
 aM
 aM
-aV
+aL
 aL
 aR
 aM
 aM
 aM
 aM
-aS
+aN
 aN
 aN
 aN
@@ -23486,7 +22908,7 @@ aW
 aM
 aM
 aM
-aV
+aL
 aL
 aL
 aL
@@ -23582,7 +23004,7 @@ aO
 ac
 ac
 ac
-aY
+aW
 aZ
 ac
 ac
@@ -23626,7 +23048,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -23654,7 +23076,7 @@ aM
 aM
 aM
 aM
-aS
+aN
 aN
 aN
 aN
@@ -23676,99 +23098,99 @@ aM
 aM
 aM
 aM
-aV
 aL
 aL
 aL
+aL
+aL
+aL
+aU
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+aW
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
 aL
 aL
 aU
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aY
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aV
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+ac
+ac
+ac
+aW
 aL
-aU
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-ac
-ac
-ac
-aY
-aV
 aL
 aU
 ac
@@ -23811,7 +23233,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -23835,7 +23257,7 @@ aR
 aM
 aM
 aM
-aS
+aN
 aN
 aN
 aN
@@ -23854,9 +23276,9 @@ aO
 aO
 aO
 aO
-aY
+aW
 aM
-aS
+aN
 aN
 aN
 aW
@@ -23867,7 +23289,7 @@ aM
 aM
 aM
 aM
-aV
+aL
 aL
 aL
 aU
@@ -23910,9 +23332,9 @@ aI
 aI
 aI
 aI
-aY
+aW
 aM
-aS
+aN
 aN
 aN
 aN
@@ -23926,7 +23348,7 @@ aW
 aM
 aM
 aM
-aV
+aL
 aL
 aL
 aL
@@ -23952,7 +23374,7 @@ aO
 ac
 ac
 ac
-aY
+aW
 aM
 aM
 aZ
@@ -23996,7 +23418,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -24009,14 +23431,14 @@ af
 af
 af
 af
-aj
+ae
 aL
 aL
 aL
 aR
 aM
 aM
-aS
+aN
 aN
 aN
 aN
@@ -24039,7 +23461,7 @@ aO
 aO
 aO
 aO
-aY
+aW
 aM
 aZ
 aO
@@ -24055,7 +23477,7 @@ aM
 aM
 aM
 aM
-aV
+aL
 aL
 aL
 aU
@@ -24107,7 +23529,7 @@ aI
 aI
 aI
 aI
-aY
+aW
 aM
 aM
 aM
@@ -24140,7 +23562,7 @@ ac
 aX
 aW
 aM
-aV
+aL
 aL
 aU
 ac
@@ -24181,7 +23603,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -24198,7 +23620,7 @@ af
 aM
 aM
 aM
-aS
+aN
 aN
 aN
 aT
@@ -24243,7 +23665,7 @@ aM
 aM
 aM
 aM
-aV
+aL
 aL
 aL
 aU
@@ -24279,9 +23701,9 @@ aI
 aI
 aI
 aI
-aY
+aW
 aM
-aS
+aN
 aT
 aI
 aI
@@ -24302,7 +23724,7 @@ aN
 aN
 aW
 aM
-aV
+aL
 aL
 aU
 aO
@@ -24323,7 +23745,7 @@ ac
 ac
 ac
 ac
-aY
+aW
 aM
 aM
 aM
@@ -24366,7 +23788,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -24408,7 +23830,7 @@ aO
 aO
 aO
 aO
-aY
+aW
 aM
 aM
 aZ
@@ -24431,7 +23853,7 @@ aM
 aM
 aM
 aM
-aV
+aL
 aL
 aL
 aL
@@ -24485,7 +23907,7 @@ aI
 aI
 aO
 aO
-aY
+aW
 aM
 aM
 aM
@@ -24593,9 +24015,9 @@ aO
 aO
 aO
 aO
-aY
+aW
 aM
-aS
+aN
 aT
 aO
 aO
@@ -24620,7 +24042,7 @@ aM
 aM
 aM
 aM
-aV
+aL
 aL
 aL
 aL
@@ -24650,7 +24072,7 @@ aL
 aL
 aR
 aM
-aS
+aN
 aT
 aI
 aI
@@ -24695,7 +24117,7 @@ ac
 ac
 ac
 ac
-aY
+aW
 aM
 aZ
 ac
@@ -24779,7 +24201,7 @@ aO
 aO
 aQ
 aR
-aS
+aN
 aT
 aO
 aO
@@ -24857,9 +24279,9 @@ aO
 aO
 aO
 aO
-aY
+aW
 aM
-aV
+aL
 aL
 aL
 aL
@@ -24882,7 +24304,7 @@ aL
 aL
 aR
 aM
-aV
+aL
 aL
 aL
 aL
@@ -24902,7 +24324,7 @@ ag
 as
 au
 ax
-aC
+aB
 al
 aG
 ag
@@ -24919,7 +24341,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -25042,7 +24464,7 @@ aO
 aO
 aO
 aO
-aY
+aW
 aM
 aM
 aM
@@ -25104,7 +24526,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -25146,9 +24568,9 @@ aP
 aP
 aO
 aO
-aY
+aW
 aM
-aS
+aN
 aT
 aO
 aO
@@ -25289,7 +24711,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -25331,7 +24753,7 @@ aP
 aP
 aO
 aO
-aY
+aW
 aM
 aZ
 aO
@@ -25516,7 +24938,7 @@ aP
 aP
 aO
 aO
-aY
+aW
 aM
 aZ
 aO
@@ -25658,7 +25080,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -25701,7 +25123,7 @@ aP
 aP
 aO
 aO
-aY
+aW
 aM
 aZ
 aO
@@ -25843,7 +25265,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -25886,7 +25308,7 @@ aO
 aO
 aO
 aO
-aY
+aW
 aM
 aZ
 aO
@@ -26028,7 +25450,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -26071,7 +25493,7 @@ aO
 aO
 aO
 aO
-aY
+aW
 aM
 aZ
 aO
@@ -26213,7 +25635,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -26256,7 +25678,7 @@ aO
 aO
 aO
 aO
-aY
+aW
 aM
 aZ
 aO
@@ -26398,7 +25820,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -26627,7 +26049,7 @@ aL
 aL
 aR
 aM
-aS
+aN
 aT
 aO
 aO
@@ -26767,7 +26189,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -26784,7 +26206,7 @@ af
 af
 af
 af
-aj
+ae
 aL
 aL
 aL
@@ -26797,7 +26219,7 @@ aM
 aM
 aM
 aM
-aV
+aL
 aL
 aL
 aL
@@ -26947,12 +26369,12 @@ an
 aq
 af
 af
-aj
+ae
 ae
 am
 ag
 ag
-at
+ar
 af
 af
 af
@@ -26977,7 +26399,7 @@ aM
 aM
 aM
 aM
-aS
+aN
 aN
 aN
 aW
@@ -26988,7 +26410,7 @@ aM
 aM
 aM
 aM
-aS
+aN
 aN
 aN
 aN
@@ -27128,7 +26550,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -27137,7 +26559,7 @@ af
 ai
 ag
 ag
-at
+ar
 af
 af
 af
@@ -27154,7 +26576,7 @@ af
 af
 af
 ah
-ak
+ah
 aN
 aN
 aN
@@ -27313,13 +26735,13 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
 af
 af
-aj
+ae
 ae
 ae
 aq
@@ -27684,7 +27106,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -27749,7 +27171,7 @@ aP
 aP
 aP
 aP
-aP
+bL
 aP
 aP
 aP
@@ -27870,8 +27292,8 @@ ag
 ag
 ag
 ao
-ak
-ak
+ah
+ah
 ar
 af
 af
@@ -28057,7 +27479,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -28428,7 +27850,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -28799,7 +28221,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -29170,7 +28592,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -29356,8 +28778,8 @@ ag
 ag
 ag
 ao
-ak
-ak
+ah
+ah
 ar
 af
 af
@@ -29543,7 +28965,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -30111,7 +29533,7 @@ af
 af
 af
 af
-aj
+ae
 am
 aI
 aI
@@ -30280,7 +29702,7 @@ ag
 ag
 ag
 ao
-ak
+ah
 ar
 af
 af
@@ -30466,7 +29888,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -30651,7 +30073,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -30836,7 +30258,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -31205,7 +30627,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -31390,7 +30812,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -31575,7 +30997,7 @@ ae
 am
 ag
 ag
-at
+ar
 af
 af
 af
@@ -31757,7 +31179,7 @@ ae
 aq
 af
 af
-aj
+ae
 ae
 ae
 aq
@@ -31937,7 +31359,7 @@ ag
 ag
 ag
 ag
-at
+ar
 af
 af
 af
@@ -33039,10 +32461,10 @@ af
 af
 af
 af
-ah
-ak
-ak
-ar
+af
+af
+af
+af
 af
 af
 af
@@ -33223,12 +32645,12 @@ ad
 af
 af
 af
-ah
-ap
-al
-al
-ao
-ar
+af
+af
+af
+af
+af
+af
 af
 af
 af
@@ -33406,15 +32828,15 @@ aa
 ab
 ad
 af
-ah
-ak
-ap
-al
-al
-al
-al
-ao
-ar
+af
+af
+af
+af
+af
+af
+af
+af
+af
 af
 af
 af
@@ -33591,16 +33013,16 @@ aa
 ab
 ad
 af
-ai
-al
-al
-al
-al
-al
-al
-al
-ao
-ar
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 af
 af
 af
@@ -33776,16 +33198,16 @@ aa
 ab
 ad
 af
-ai
-al
-al
-al
-av
-az
-al
-al
-al
-at
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 af
 af
 af
@@ -33961,16 +33383,16 @@ aa
 ab
 ad
 af
-aj
-am
-al
-al
-al
-al
-al
-al
-al
-at
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 af
 af
 af
@@ -34147,15 +33569,15 @@ ab
 ad
 af
 af
-aj
-am
-al
-al
-al
-al
-al
-an
-aq
+af
+af
+af
+af
+af
+af
+af
+af
+af
 af
 af
 af
@@ -34333,13 +33755,13 @@ ad
 af
 af
 af
-aj
-ae
-ae
-ae
-ae
-ae
-aq
+af
+af
+af
+af
+af
+af
+af
 af
 af
 af
