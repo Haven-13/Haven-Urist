@@ -396,7 +396,7 @@
 /area/djstation)
 "Ab" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 6;
+	dir = 6
 	},
 /turf/simulated/floor/airless,
 /area/djstation)
