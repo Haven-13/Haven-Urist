@@ -1048,7 +1048,7 @@
 /turf/simulated/floor/plating,
 /area/spacestations/pirate/station/upper)
 "Hd" = (
-/obj/structure/engineeringcart,
+/obj/structure/tool_cart/engineering,
 /obj/machinery/light/small{
 	dir = 4;
 	pixel_y = 0
@@ -1287,7 +1287,7 @@
 /obj/random/junk,
 /obj/random/storage,
 /obj/random/medical,
-/obj/random/ammo_magazine_smug,
+/obj/random/ammo_magazine,
 /obj/item/ammo_casing/musket/flintlock,
 /obj/machinery/light/small/red{
 	dir = 4;
@@ -1485,7 +1485,7 @@
 /turf/simulated/floor/tiled/white,
 /area/spacestations/pirate/station/upper)
 "Wp" = (
-/obj/machinery/suit_storage_unit/pilot,
+/obj/machinery/suit_storage_unit/merc,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/spacestations/pirate/station/upper)
 "Wy" = (

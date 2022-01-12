@@ -22,7 +22,7 @@
 /turf/simulated/floor,
 /area/spacestations/pirate/asteroid)
 "ak" = (
-/obj/item/stack/material/rods/ten,
+/obj/item/stack/rods/ten,
 /turf/simulated/floor,
 /area/spacestations/pirate/asteroid)
 "al" = (
@@ -255,7 +255,7 @@
 /turf/simulated/floor/plating,
 /area/spacestations/pirate/station)
 "bh" = (
-/obj/structure/janitorialcart,
+/obj/structure/tool_cart/janitorial,
 /obj/item/weapon/mop,
 /turf/simulated/floor/plating,
 /area/spacestations/pirate/station)
@@ -486,7 +486,7 @@
 /turf/simulated/floor,
 /area/spacestations/pirate/station)
 "bP" = (
-/obj/item/stack/material/rods/ten,
+/obj/item/stack/rods/ten,
 /turf/simulated/floor/asteroid,
 /area/spacestations/pirate/asteroid)
 "bQ" = (
@@ -994,7 +994,7 @@
 "dj" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/largecrate,
-/obj/item/weapon/material/clipboard,
+/obj/item/weapon/clipboard,
 /obj/random/material,
 /obj/random/material,
 /obj/random/toolbox,
@@ -1257,7 +1257,7 @@
 	pixel_y = 9
 	},
 /obj/item/weapon/pen,
-/obj/item/weapon/material/clipboard,
+/obj/item/weapon/clipboard,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/pirate/station)
 "dV" = (
@@ -1415,17 +1415,17 @@
 /obj/structure/table/rack/dark,
 /obj/random/ammo,
 /obj/random/ammo,
-/obj/random/ammo_magazine_smug,
+/obj/random/ammo_magazine,
 /obj/random/ammo,
 /obj/random/ammo,
 /turf/simulated/floor/tiled/steel_grid,
 /area/spacestations/pirate/station)
 "er" = (
 /obj/structure/table/rack/dark,
-/obj/random/ammo_magazine_smug,
+/obj/random/ammo_magazine,
 /obj/random/ammo,
 /obj/random/ammo,
-/obj/random/ammo_magazine_smug,
+/obj/random/ammo_magazine,
 /obj/random/ammo,
 /turf/simulated/floor/tiled/steel_grid,
 /area/spacestations/pirate/station)
@@ -1473,7 +1473,7 @@
 /obj/random/junk,
 /obj/random/storage,
 /obj/random/medical,
-/obj/random/ammo_magazine_smug,
+/obj/random/ammo_magazine,
 /obj/machinery/light/small/red{
 	dir = 4;
 	icon_state = "firelight1"
