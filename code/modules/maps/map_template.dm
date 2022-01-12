@@ -101,23 +101,31 @@
 		LAZY_ADD(SSshuttle.shuttles_to_initialize, shuttle_type)
 	SSshuttle.wake()
 
-/datum/map_template/proc/load_new_z()
+/datum/map_template/proc/load_new_z(put_in_center=TRUE)
 	if(init_error)
 		return FALSE
 
-	var/x = round((world.maxx - width)/2)
-	var/y = round((world.maxy - height)/2)
+	var/x = 0
+	var/y = 0
 	var/initial_z = world.maxz + 1
+
+	if (put_in_center)
+		x = round((world.maxx - width)/2)
+		y = round((world.maxy - height)/2)
 
 	if (x < 1) x = 1
 	if (y < 1) y = 1
 
 	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
+	var/list/z_mapping = list()
 	var/list/atoms_to_initialise = list()
 
 	for (var/mappath in mappaths)
+		var/short_name = get_file_name(mappath)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, no_changeturf=TRUE)
 		if (M)
+			for(var/z = M.bounds[MAP_MINZ] to M.bounds[MAP_MAXZ])
+				z_mapping["[z]"] = short_name
 			bounds = extend_bounds_if_needed(bounds, M.bounds)
 			atoms_to_initialise += M.atoms_to_initialise
 		else
@@ -130,12 +138,14 @@
 			GLOB.using_map.base_turf_by_z[num2text(z_index)] = base_turf_for_zs
 		GLOB.using_map.player_levels |= z_index
 
+		testing("Z-level [z_index] <-- '[z_mapping[num2text(z_index)]]'")
+
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
 	init_shuttles()
 	after_load(initial_z)
-	for(var/light_z = initial_z to world.maxz)
-		create_lighting_overlays_zlevel(light_z)
+	for(var/z_level = initial_z to world.maxz)
+		create_lighting_overlays_zlevel(z_level)
 	log_game("Z-level [name] loaded at [x],[y],[world.maxz]")
 	loaded++
 
