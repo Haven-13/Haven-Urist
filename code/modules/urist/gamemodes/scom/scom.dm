@@ -209,7 +209,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 	set category = "Fun"
 	set desc = "Delay the S-COM Missions for some fun."
 	if(!check_rights(R_FUN))
-		to_world(src, "<span class='danger'> You do not have the required admin rights.</span>")
+		to_chat(src, "<span class='danger'> You do not have the required admin rights.</span>")
 		return
 
 	for(var/datum/shuttle/autodock/ferry/scom/s1/C in SSshuttle.process_shuttles)
@@ -234,7 +234,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 
 	if(config.SCOM_dynamic_difficulty == 1)
 		config.SCOM_dynamic_difficulty = 0
-		to_world(src, "<span class='danger'> Dynamic Difficulty disabled.</span>")
+		to_chat(src, "<span class='danger'> Dynamic Difficulty disabled.</span>")
 	else
 		config.SCOM_dynamic_difficulty = 1
-		to_world(src, "<span class='danger'> Dynamic Difficulty enabled.</span>")
+		to_chat(src, "<span class='danger'> Dynamic Difficulty enabled.</span>")
