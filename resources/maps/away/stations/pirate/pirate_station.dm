@@ -41,7 +41,10 @@
 	name = "Pirate Station"
 	id = "awaysite_piratestation"
 	description = "A hidden pirate station, tucked away on an asteroid."
-	suffixes = list("stations/pirate/pirate_station-1.dmm", "stations/pirate/pirate_station-2.dmm")
+	suffixes = list(
+		"stations/pirate/pirate_station-1.dmm",
+		"stations/pirate/pirate_station-2.dmm"
+	)
 	cost = 0
 	accessibility_weight = 10
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
