@@ -18,8 +18,6 @@
 "ae" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 4;
-	icon_state = "test";
-	tag = "icon-test (EAST)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
@@ -32,8 +30,6 @@
 "ah" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 8;
-	icon_state = "test2";
-	tag = "icon-test2 (WEST)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
@@ -44,16 +40,12 @@
 "aj" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 4;
-	icon_state = "test2";
-	tag = "icon-test2 (EAST)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "ak" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 8;
-	icon_state = "test";
-	tag = "icon-test (WEST)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
@@ -63,48 +55,36 @@
 "am" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 5;
-	icon_state = "test";
-	tag = "icon-test (NORTHEAST)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "an" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 6;
-	icon_state = "test";
-	tag = "icon-test (SOUTHEAST)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "ao" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 10;
-	icon_state = "test";
-	tag = "icon-test (SOUTHWEST)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "ap" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 9;
-	icon_state = "test";
-	tag = "icon-test (NORTHWEST)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "aq" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 2;
-	icon_state = "test2";
-	tag = "icon-test2"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "ar" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 1;
-	icon_state = "test2";
-	tag = "icon-test2 (NORTH)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
@@ -114,8 +94,6 @@
 "at" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 1;
-	icon_state = "test";
-	tag = "icon-test (NORTH)"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
@@ -130,8 +108,6 @@
 "aw" = (
 /obj/structure/bed/nice,
 /turf/simulated/floor/wood{
-	icon_state = "wood_broken6";
-	tag = "icon-wood_broken6"
 	},
 /area/planet/jungle/away)
 "ax" = (
@@ -140,8 +116,6 @@
 "ay" = (
 /obj/structure/closet,
 /turf/simulated/floor/wood{
-	icon_state = "wood_broken2";
-	tag = "icon-wood_broken2"
 	},
 /area/planet/jungle/away)
 "az" = (
@@ -150,27 +124,20 @@
 /area/planet/jungle/away)
 "aA" = (
 /obj/item/weapon/material/shard{
-	icon_state = "small"
 	},
 /turf/simulated/floor/planet/plains/clear,
 /area/planet/jungle/away)
 "aB" = (
 /turf/simulated/floor/wood{
-	icon_state = "wood_broken1";
-	tag = "icon-wood_broken1"
 	},
 /area/planet/jungle/away)
 "aC" = (
 /turf/simulated/floor/wood{
-	icon_state = "wood_broken5";
-	tag = "icon-wood_broken5"
 	},
 /area/planet/jungle/away)
 "aD" = (
 /obj/structure/anvil,
 /turf/simulated/floor/wood{
-	icon_state = "wood_broken6";
-	tag = "icon-wood_broken6"
 	},
 /area/planet/jungle/away)
 "aF" = (
@@ -201,8 +168,6 @@
 "aL" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 4;
-	icon_state = "test";
-	tag = "icon-test (EAST)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
@@ -212,8 +177,6 @@
 "aN" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 8;
-	icon_state = "test";
-	tag = "icon-test (WEST)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
@@ -226,72 +189,54 @@
 "aQ" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 6;
-	icon_state = "test";
-	tag = "icon-test (SOUTHEAST)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aR" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 2;
-	icon_state = "test2";
-	tag = "icon-test2"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aS" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 8;
-	icon_state = "test2";
-	tag = "icon-test2 (WEST)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aT" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 9;
-	icon_state = "test";
-	tag = "icon-test (NORTHWEST)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aU" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 5;
-	icon_state = "test";
-	tag = "icon-test (NORTHEAST)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aV" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 4;
-	icon_state = "test2";
-	tag = "icon-test2 (EAST)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aW" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 1;
-	icon_state = "test2";
-	tag = "icon-test2 (NORTH)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aX" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 10;
-	icon_state = "test";
-	tag = "icon-test (SOUTHWEST)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aY" = (
 /obj/effect/floor_decal/water_edge{
 	dir = 1;
-	icon_state = "test";
-	tag = "icon-test (NORTH)"
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
@@ -606,14 +551,12 @@
 /obj/machinery/camera/network/mining{
 	c_tag = "Outpost Dorms";
 	dir = 4;
-	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "cH" = (
 /obj/structure/hygiene/sink{
 	dir = 8;
-	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -684,8 +627,6 @@
 /area/jungleoutpost/main)
 "cR" = (
 /turf/simulated/floor/plating{
-	icon_state = "dmg3";
-	tag = "icon-dmg3"
 	},
 /area/jungleoutpost/main)
 "cT" = (
@@ -849,7 +790,6 @@
 /area/jungleoutpost/main)
 "ds" = (
 /obj/item/weapon/material/shard{
-	icon_state = "small"
 	},
 /turf/simulated/floor/plating,
 /area/planet/jungle/away)
@@ -881,8 +821,6 @@
 /area/planet/jungle/away)
 "dy" = (
 /turf/simulated/floor/plating{
-	icon_state = "dmg2";
-	tag = "icon-dmg2"
 	},
 /area/jungleoutpost/main)
 "dz" = (
@@ -1020,7 +958,6 @@
 "dQ" = (
 /obj/structure/hygiene/shower{
 	dir = 4;
-	icon_state = "shower";
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -1031,10 +968,8 @@
 "dS" = (
 /obj/structure/hygiene/sink{
 	dir = 1;
-	icon_state = "sink";
 	pixel_x = 0;
 	pixel_y = 20;
-	tag = "icon-sink (NORTH)"
 	},
 /obj/item/weapon/storage/mirror{
 	dir = 4;
@@ -1047,10 +982,8 @@
 "dT" = (
 /obj/structure/hygiene/sink{
 	dir = 1;
-	icon_state = "sink";
 	pixel_x = 0;
 	pixel_y = 20;
-	tag = "icon-sink (NORTH)"
 	},
 /obj/item/weapon/storage/mirror{
 	dir = 4;
@@ -1062,7 +995,6 @@
 "dU" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
@@ -1072,7 +1004,6 @@
 /area/jungleoutpost/main)
 "dW" = (
 /obj/item/weapon/material/shard{
-	icon_state = "small"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
@@ -1113,8 +1044,6 @@
 	pixel_y = 24
 	},
 /turf/simulated/floor/plating{
-	icon_state = "dmg4";
-	tag = "icon-dmg4"
 	},
 /area/jungleoutpost/main)
 "eb" = (
@@ -1124,8 +1053,6 @@
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 1;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (NORTH)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
@@ -1135,24 +1062,18 @@
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 1;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (NORTH)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "ed" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 1;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (NORTH)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "ee" = (
 /obj/structure/table/standard/flipped/e,
 /obj/item/weapon/material/shard{
-	icon_state = "medium";
-	tag = "icon-medium"
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/main)
@@ -1174,8 +1095,6 @@
 /area/jungleoutpost/main)
 "ei" = (
 /obj/item/weapon/material/shard{
-	icon_state = "medium";
-	tag = "icon-medium"
 	},
 /turf/simulated/floor/planet/jungle,
 /area/planet/jungle/away)
@@ -1195,7 +1114,6 @@
 "ek" = (
 /obj/structure/hygiene/shower{
 	dir = 4;
-	icon_state = "shower";
 	pixel_x = 5
 	},
 /obj/structure/curtain/open/shower,
@@ -1252,8 +1170,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	icon_state = "dmg2";
-	tag = "icon-dmg2"
 	},
 /area/jungleoutpost/main)
 "er" = (
@@ -1264,8 +1180,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	icon_state = "dmg1";
-	tag = "icon-dmg1"
 	},
 /area/jungleoutpost/main)
 "es" = (
@@ -1282,8 +1196,6 @@
 	tag = ""
 	},
 /turf/simulated/floor/plating{
-	icon_state = "dmg3";
-	tag = "icon-dmg3"
 	},
 /area/jungleoutpost/main)
 "et" = (
@@ -1487,8 +1399,6 @@
 "eJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10;
-	icon_state = "intact-supply";
-	tag = "icon-intact-supply (SOUTHWEST)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1524,8 +1434,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
-	icon_state = "dmg4";
-	tag = "icon-dmg4"
 	},
 /area/jungleoutpost/main)
 "eP" = (
@@ -1536,8 +1444,6 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	icon_state = "dmg1";
-	tag = "icon-dmg1"
 	},
 /area/jungleoutpost/main)
 "eQ" = (
@@ -1557,8 +1463,6 @@
 "eS" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1567,8 +1471,6 @@
 "eT" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 8;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (WEST)"
 	},
 /obj/structure/table/standard/flipped/e,
 /obj/item/remains/human,
@@ -1577,8 +1479,6 @@
 "eU" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 8;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (WEST)"
 	},
 /obj/item/stack/cable_coil/single,
 /turf/simulated/floor/tiled,
@@ -1586,21 +1486,16 @@
 "eV" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 8;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (WEST)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "eW" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 8;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (WEST)"
 	},
 /obj/machinery/camera/network/mining{
 	c_tag = "Outpost Hallway 2";
 	dir = 1;
-	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
@@ -1608,8 +1503,6 @@
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/beige{
 	dir = 8;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (WEST)"
 	},
 /obj/item/weapon/material/shard,
 /turf/simulated/floor/tiled,
@@ -1631,8 +1524,6 @@
 "fb" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
@@ -1640,8 +1531,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -1660,8 +1549,6 @@
 /area/jungleoutpost/main)
 "fe" = (
 /obj/item/weapon/material/shard{
-	icon_state = "medium";
-	tag = "icon-medium"
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/main)
@@ -1770,8 +1657,6 @@
 "ft" = (
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
 	dir = 8;
-	icon_state = "corner_white_three_quarters";
-	tag = "icon-corner_white_three_quarters (WEST)"
 	},
 /obj/effect/floor_decal/corner/paleblue,
 /obj/structure/table/rack,
@@ -1801,8 +1686,6 @@
 "fw" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (NORTHEAST)"
 	},
 /obj/effect/floor_decal/corner/paleblue,
 /turf/simulated/floor/tiled/white,
@@ -1810,8 +1693,6 @@
 "fx" = (
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
 	dir = 1;
-	icon_state = "corner_white_three_quarters";
-	tag = "icon-corner_white_three_quarters (NORTH)"
 	},
 /obj/structure/table/standard,
 /obj/item/weapon/storage/pill_bottle/bloodloss,
@@ -1866,7 +1747,6 @@
 	},
 /obj/machinery/alarm{
 	dir = 2;
-	icon_state = "alarm0";
 	pixel_y = 22
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1891,8 +1771,6 @@
 	},
 /obj/effect/floor_decal/corner/yellow/three_quarters{
 	dir = 8;
-	icon_state = "corner_white_three_quarters";
-	tag = "icon-corner_white_three_quarters (WEST)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
@@ -1912,8 +1790,6 @@
 	},
 /obj/effect/floor_decal/corner/yellow/three_quarters{
 	dir = 1;
-	icon_state = "corner_white_three_quarters";
-	tag = "icon-corner_white_three_quarters (NORTH)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
@@ -1941,7 +1817,6 @@
 /area/jungleoutpost/engi)
 "fM" = (
 /obj/item/weapon/material/shard{
-	icon_state = "small"
 	},
 /turf/simulated/floor/planet/jungle,
 /area/planet/jungle/away)
@@ -1951,8 +1826,6 @@
 /obj/item/weapon/reagent_containers/glass/beaker/painkiller,
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
 	dir = 8;
-	icon_state = "corner_white_three_quarters";
-	tag = "icon-corner_white_three_quarters (WEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -1960,8 +1833,6 @@
 /obj/machinery/optable,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (NORTHEAST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -1969,16 +1840,12 @@
 /obj/structure/iv_drip,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (NORTHEAST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "fQ" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (NORTHEAST)"
 	},
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/ivbag/blood/OMinus,
@@ -1991,8 +1858,6 @@
 "fR" = (
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
 	dir = 1;
-	icon_state = "corner_white_three_quarters";
-	tag = "icon-corner_white_three_quarters (NORTH)"
 	},
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/gloves,
@@ -2007,8 +1872,6 @@
 "fS" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 8;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (WEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -2033,8 +1896,6 @@
 "fX" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (NORTHEAST)"
 	},
 /obj/structure/table/standard,
 /obj/item/weapon/storage/pill_bottle/peridaxon,
@@ -2051,21 +1912,16 @@
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (NORTHEAST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "ga" = (
 /obj/item/weapon/material/shard{
-	icon_state = "small"
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/medbay)
 "gb" = (
 /obj/item/weapon/material/shard{
-	icon_state = "medium";
-	tag = "icon-medium"
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/medbay)
@@ -2084,8 +1940,6 @@
 	},
 /obj/effect/floor_decal/corner/blue/three_quarters{
 	dir = 8;
-	icon_state = "corner_white_three_quarters";
-	tag = "icon-corner_white_three_quarters (WEST)"
 	},
 /obj/effect/floor_decal/corner/paleblue,
 /turf/simulated/floor/tiled/white,
@@ -2152,8 +2006,6 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHEAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
@@ -2162,7 +2014,6 @@
 	dir = 2;
 	external_pressure_bound = 140;
 	external_pressure_bound_default = 140;
-	icon_state = "map_vent_out";
 	pressure_checks = 0;
 	pressure_checks_default = 0;
 	use_power = 1
@@ -2208,8 +2059,6 @@
 /obj/effect/floor_decal/corner/blue/three_quarters,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 4;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (EAST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -2241,8 +2090,6 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHEAST)"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -2326,8 +2173,6 @@
 "gN" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
@@ -2340,8 +2185,6 @@
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /obj/machinery/power/apc{
 	cell_type = /obj/item/weapon/cell/apc/empty;
@@ -2358,8 +2201,6 @@
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -2369,8 +2210,6 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
 	dir = 4;
-	icon_state = "corner_white_three_quarters";
-	tag = "icon-corner_white_three_quarters (EAST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -2413,7 +2252,6 @@
 /obj/machinery/camera/network/mining{
 	c_tag = "Outpost Engineering Storage";
 	dir = 4;
-	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
@@ -2429,8 +2267,6 @@
 "gY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8;
-	icon_state = "map-supply";
-	tag = "icon-manifold (WEST)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -2469,8 +2305,6 @@
 "hc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4;
-	icon_state = "intact";
-	tag = "icon-intact (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
@@ -2491,7 +2325,6 @@
 /obj/machinery/camera/network/mining{
 	c_tag = "Outpost Atmospherics";
 	dir = 8;
-	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
@@ -2562,8 +2395,6 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHEAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
@@ -2576,14 +2407,11 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 1;
-	icon_state = "map_vent_out";
 	level = 2;
 	use_power = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 6;
-	icon_state = "intact";
-	tag = "icon-intact (SOUTHEAST)"
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
@@ -2608,7 +2436,6 @@
 "hs" = (
 /obj/machinery/atmospherics/unary/freezer{
 	dir = 8;
-	icon_state = "freezer_1";
 	use_power = 1
 	},
 /turf/simulated/floor/plating,
@@ -2620,8 +2447,6 @@
 /obj/item/bodybag/cryobag,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -2630,8 +2455,6 @@
 /obj/item/weapon/storage/firstaid/tactical,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/white,
@@ -2642,8 +2465,6 @@
 /obj/item/weapon/storage/firstaid/combat,
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
 	dir = 4;
-	icon_state = "corner_white_three_quarters";
-	tag = "icon-corner_white_three_quarters (EAST)"
 	},
 /obj/structure/table/rack,
 /obj/item/weapon/storage/firstaid/adv,
@@ -2654,8 +2475,6 @@
 "hw" = (
 /obj/machinery/bodyscanner{
 	dir = 1;
-	icon_state = "body_scanner_0";
-	tag = "icon-body_scanner_0 (NORTH)"
 	},
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/white,
@@ -2670,14 +2489,10 @@
 "hz" = (
 /obj/machinery/resleever{
 	dir = 8;
-	icon_state = "body_scanner_0";
-	tag = "icon-body_scanner_0 (WEST)"
 	},
 /obj/effect/floor_decal/corner/lime,
 /obj/effect/floor_decal/corner/green/three_quarters{
 	dir = 8;
-	icon_state = "corner_white_three_quarters";
-	tag = "icon-corner_white_three_quarters (WEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -2687,8 +2502,6 @@
 "hB" = (
 /obj/effect/floor_decal/corner/red/three_quarters{
 	dir = 1;
-	icon_state = "corner_white_three_quarters";
-	tag = "icon-corner_white_three_quarters (NORTH)"
 	},
 /obj/structure/filingcabinet,
 /turf/simulated/floor/plating,
@@ -2793,8 +2606,6 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHEAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
@@ -2804,7 +2615,6 @@
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
 	frequency = 1441;
-	icon_state = "map_vent_in";
 	initialize_directions = 1;
 	internal_pressure_bound = 4000;
 	internal_pressure_bound_default = 4000;
@@ -2816,14 +2626,12 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 4;
 	health = 1000;
-	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 1;
 	health = 1000;
-	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
 	},
@@ -2857,7 +2665,6 @@
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
 	frequency = 1441;
-	icon_state = "map_vent_in";
 	initialize_directions = 1;
 	internal_pressure_bound = 4000;
 	internal_pressure_bound_default = 4000;
@@ -2869,14 +2676,12 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
 	health = 1000;
-	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 1;
 	health = 1000;
-	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
 	},
@@ -2887,16 +2692,12 @@
 /area/planet/jungle/away)
 "hS" = (
 /obj/item/weapon/material/shard{
-	icon_state = "medium";
-	tag = "icon-medium"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/jungle/away)
 "hT" = (
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	icon_state = "body_scannerconsole";
-	tag = "icon-body_scannerconsole (NORTH)"
 	},
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/white,
@@ -2904,16 +2705,12 @@
 "hU" = (
 /obj/machinery/resleever{
 	dir = 8;
-	icon_state = "body_scanner_0";
-	tag = "icon-body_scanner_0 (WEST)"
 	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 9;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (NORTHWEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -2955,13 +2752,11 @@
 "ic" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 4;
-	icon_state = "map_injector";
 	use_power = 1
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 4;
 	health = 1000;
-	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
 	},
@@ -2972,8 +2767,6 @@
 /obj/machinery/light/small,
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4;
-	icon_state = "intact";
-	tag = "icon-intact (EAST)"
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
@@ -3001,13 +2794,11 @@
 "ig" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
-	icon_state = "map_injector";
 	use_power = 1
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
 	health = 1000;
-	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
 	},
@@ -3031,8 +2822,6 @@
 /obj/machinery/optable,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -3043,8 +2832,6 @@
 "il" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 4;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (EAST)"
 	},
 /obj/effect/floor_decal/corner/green/three_quarters,
 /obj/machinery/organ_printer/flesh/mapped,
@@ -3079,7 +2866,6 @@
 	},
 /obj/machinery/alarm{
 	dir = 4;
-	icon_state = "alarm0";
 	pixel_x = -22;
 	pixel_y = 0
 	},
@@ -3141,7 +2927,6 @@
 /area/jungleoutpost/engi)
 "it" = (
 /obj/item/weapon/material/shard{
-	icon_state = "small"
 	},
 /turf/simulated/floor,
 /area/planet/jungle/away)
@@ -3167,8 +2952,6 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHEAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
@@ -3286,7 +3069,6 @@
 /obj/machinery/camera/network/mining{
 	c_tag = "Outpost Power Distribution";
 	dir = 8;
-	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)

@@ -251,7 +251,6 @@
 "aX" = (
 /obj/structure/hygiene/shower{
 	dir = 4;
-	icon_state = "shower";
 	pixel_x = 0;
 	pixel_y = 0
 	},
@@ -643,7 +642,6 @@
 /area/slavers_base/cells)
 "bR" = (
 /obj/machinery/light{
-	icon_state = "tube1";
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1077,21 +1075,18 @@
 /area/slavers_base/cells)
 "cC" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 9
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/slavers_base/hangar)
 "cD" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 1
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/slavers_base/hangar)
 "cE" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 5
 	},
 /turf/simulated/floor/airless/ceiling,
@@ -1112,7 +1107,6 @@
 /area/slavers_base/hangar)
 "cI" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 4
 	},
 /turf/simulated/floor/airless/ceiling,
@@ -1520,7 +1514,6 @@
 /area/slavers_base/secwing)
 "dP" = (
 /obj/machinery/power/terminal{
-	icon_state = "term";
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1549,7 +1542,6 @@
 /obj/item/weapon/storage/box/stunshells,
 /obj/item/weapon/melee/baton,
 /obj/machinery/power/terminal{
-	icon_state = "term";
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1628,7 +1620,6 @@
 /area/slavers_base/med)
 "eb" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 10
 	},
 /turf/simulated/floor/airless/ceiling,
@@ -1819,7 +1810,6 @@
 /area/slavers_base/powatm)
 "eI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	icon_state = "map_universal";
 	dir = 4
 	},
 /turf/simulated/floor/airless/ceiling,
@@ -2017,14 +2007,12 @@
 /area/slavers_base/med)
 "fh" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
-	icon_state = "map";
 	dir = 8
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/slavers_base/hangar)
 "fi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	icon_state = "intact";
 	dir = 9
 	},
 /obj/structure/cable{
@@ -2294,13 +2282,11 @@
 "fG" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4;
-	icon_state = "intact"
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/slavers_base/maint)
 "fH" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	icon_state = "intact";
 	dir = 9
 	},
 /turf/simulated/floor/airless/ceiling,
@@ -2464,7 +2450,6 @@
 /area/slavers_base/powatm)
 "gf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	icon_state = "map_universal";
 	dir = 4
 	},
 /obj/effect/decal/cleanable/generic,
@@ -3120,7 +3105,6 @@
 /obj/structure/table/reinforced,
 /obj/random/coin,
 /obj/machinery/door/blast/regular/open{
-	icon_state = "pdoor0";
 	id = "SC BD"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -3152,7 +3136,6 @@
 /area/slavers_base/demo)
 "hR" = (
 /obj/machinery/power/terminal{
-	icon_state = "term";
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -4029,7 +4012,6 @@
 "jX" = (
 /obj/structure/hygiene/shower{
 	dir = 4;
-	icon_state = "shower";
 	pixel_x = 0;
 	pixel_y = 0
 	},
