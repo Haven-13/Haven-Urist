@@ -124,9 +124,9 @@
 		var/short_name = get_file_name(mappath)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, no_changeturf=TRUE)
 		if (M)
-			bounds = extend_bounds_if_needed(bounds, M.bounds)
-			for(var/z = bounds[MAP_MINZ] to bounds[MAP_MAXZ])
+			for(var/z = M.bounds[MAP_MINZ] to M.bounds[MAP_MAXZ])
 				z_mapping["[z]"] = short_name
+			bounds = extend_bounds_if_needed(bounds, M.bounds)
 			atoms_to_initialise += M.atoms_to_initialise
 		else
 			return FALSE
