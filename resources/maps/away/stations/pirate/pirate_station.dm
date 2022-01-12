@@ -51,6 +51,7 @@
 	)
 	cost = 0
 	accessibility_weight = 10
+	generate_mining_by_z = list(1,2)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /obj/effect/shuttle_landmark/nav_piratestation
