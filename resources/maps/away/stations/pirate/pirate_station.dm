@@ -90,3 +90,13 @@
 		icon = 'resources/icons/urist/misc/overmap.dmi'
 		icon_state = "station_asteroid_0"
 		color = "#660000"
+
+/obj/structure/boarding/self_destruct/station/pirate
+	shipid = "pirate_station"
+
+/obj/effect/landmark/scom/bomb/boarding/pirate_station
+	shipid = "pirate_station"
+	delay_lower = 0
+	delay_upper = 100
+	dmg_hvy = 3
+	dmg_lgt = 6

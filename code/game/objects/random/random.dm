@@ -1060,13 +1060,12 @@ something, make sure it's not in one of the other lists.*/
 /obj/random/ammo_magazine
 	name = "Random Ammo Magazine"
 	desc = "This is random ammo magazine."
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'resources/icons/obj/ammo.dmi'
 	icon_state = "45-10"
 
 /obj/random/ammo_magazine/spawn_choices()
 	return list(
 		/obj/item/ammo_magazine/a10mm,
-		/obj/item/ammo_magazine/a44,
 		/obj/item/ammo_magazine/c45m,
 		/obj/item/ammo_magazine/c556,
 		/obj/item/ammo_magazine/a762
