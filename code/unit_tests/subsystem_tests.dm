@@ -3,7 +3,7 @@
 
 /datum/unit_test/subsystem_atom_shall_have_no_bad_init_calls/start_test()
 	if(SSatoms.BadInitializeCalls.len)
-		for(var/line in SSatoms.InitLog())
+		for(var/line in splittext_char(SSatoms.InitLog(), "\n"))
 			log_bad(line)
 		fail("[SSatoms] had bad initialization calls.")
 	else
