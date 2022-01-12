@@ -34,7 +34,7 @@
 		/area/planet/jungle/away = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/planet/destroyed_colony = NO_SCRUBBER|NO_VENT|NO_APC,
 
-		/area/noctis/exterior1 = NO_SCRUBBER|NO_VENT,
+		/area/noctis/exteriorl = NO_SCRUBBER|NO_VENT,
 		/area/noctis/apm = NO_SCRUBBER|NO_VENT,
 		/area/noctis/disposal = NO_SCRUBBER|NO_VENT,
 		/area/noctis/reactorch = NO_SCRUBBER|NO_VENT,
