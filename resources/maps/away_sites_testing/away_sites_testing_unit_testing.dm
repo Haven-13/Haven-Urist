@@ -44,7 +44,7 @@
 		/area/noctis/atmosc = NO_SCRUBBER|NO_VENT,
 		/area/noctis/atmos = NO_SCRUBBER|NO_VENT,
 		/area/noctis/reactorov = NO_SCRUBBER|NO_VENT,
-		/area/noctis/extconn = NO_SCRUBBER|NO_VENT,
+		/area/noctis/extconn = NO_SCRUBBER,
 		/area/noctis/fpm = NO_SCRUBBER|NO_VENT,
 	)
 
