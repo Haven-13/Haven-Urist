@@ -183,7 +183,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 						if(M.z != 2 && !M.stat)
 							explosion(M.loc, 2, 4, 6, 6)
 		//				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL
-		//				M << ("<span class='warning'> The explosion tears you apart!</span>")
+		//				to_chat(M, "<span class='warning'> The explosion tears you apart!</span>")
 		//				M.gib()
 		//			sleep(2000)
 					to_world("<span class='danger'> The mothership has been destroyed!</span>")
@@ -209,7 +209,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 	set category = "Fun"
 	set desc = "Delay the S-COM Missions for some fun."
 	if(!check_rights(R_FUN))
-		src <<"<span class='danger'> You do not have the required admin rights.</span>"
+		to_world(src, "<span class='danger'> You do not have the required admin rights.</span>")
 		return
 
 	for(var/datum/shuttle/autodock/ferry/scom/s1/C in SSshuttle.process_shuttles)
@@ -225,17 +225,16 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 				C.launch()
 
 /client/proc/toggle_dyndiff()
-
 	set name = "Toggle Dynamic Difficulty"
 	set category = "Fun"
 	set desc = "Make SCOM use DynDifficulty again or disable it."
 	if(!check_rights(R_FUN))
-		src <<"<span class='danger'> You do not have the required admin rights.</span>"
+		to_chat(src, "<span class='danger'> You do not have the required admin rights.</span>")
 		return
 
 	if(config.SCOM_dynamic_difficulty == 1)
 		config.SCOM_dynamic_difficulty = 0
-		src <<"<span class='danger'> Dynamic Difficulty disabled.</span>"
+		to_world(src, "<span class='danger'> Dynamic Difficulty disabled.</span>")
 	else
 		config.SCOM_dynamic_difficulty = 1
-		src <<"<span class='danger'> Dynamic Difficulty enabled.</span>"
+		to_world(src, "<span class='danger'> Dynamic Difficulty enabled.</span>")
