@@ -246,9 +246,9 @@
 "bM" = (
 /obj/effect/spawner/explosion{
 	_high = 1;
-	_med = 3;
-	_low = 5
-},
+	_low = 5;
+	_med = 3
+	},
 /turf/simulated/floor/planet/ariddirt/high,
 /area/planet/destroyed_colony)
 "bO" = (
@@ -278,9 +278,9 @@
 "cc" = (
 /obj/effect/spawner/explosion{
 	_high = 1;
-	_med = 3;
-	_low = 5
-},
+	_low = 5;
+	_med = 3
+	},
 /turf/simulated/floor/planet/ariddirt/low,
 /area/planet/destroyed_colony)
 "cd" = (
@@ -536,9 +536,9 @@
 "du" = (
 /obj/effect/spawner/explosion{
 	_high = 1;
-	_med = 3;
-	_low = 5
-},
+	_low = 5;
+	_med = 3
+	},
 /turf/simulated/floor/fixed/destroyedroad,
 /area/planet/destroyed_colony)
 "dw" = (
@@ -948,9 +948,9 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/spawner/explosion{
 	_high = 1;
-	_med = 3;
-	_low = 5
-},
+	_low = 5;
+	_med = 3
+	},
 /turf/simulated/floor/planet/dirt/clear,
 /area/planet/destroyed_colony)
 "hd" = (
@@ -1265,9 +1265,9 @@
 "is" = (
 /obj/effect/spawner/explosion{
 	_high = 1;
-	_med = 3;
-	_low = 5
-},
+	_low = 5;
+	_med = 3
+	},
 /turf/simulated/wall,
 /area/planet/destroyed_colony)
 "it" = (
@@ -1286,9 +1286,9 @@
 "iA" = (
 /obj/effect/spawner/explosion{
 	_high = 1;
-	_med = 3;
-	_low = 5
-},
+	_low = 5;
+	_med = 3
+	},
 /turf/simulated/wall/r_wall,
 /area/planet/destroyed_colony)
 "iB" = (
@@ -1486,9 +1486,9 @@
 "jj" = (
 /obj/effect/spawner/explosion{
 	_high = 1;
-	_med = 3;
-	_low = 5
-},
+	_low = 5;
+	_med = 3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "jk" = (
@@ -1685,9 +1685,9 @@
 /obj/structure/grille,
 /obj/effect/spawner/explosion{
 	_high = 1;
-	_med = 3;
-	_low = 5
-},
+	_low = 5;
+	_med = 3
+	},
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
 "yA" = (
