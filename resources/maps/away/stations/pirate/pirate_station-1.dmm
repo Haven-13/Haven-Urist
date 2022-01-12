@@ -1738,10 +1738,6 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor,
 /area/spacestations/pirate/station)
-"Hg" = (
-/obj/effect/landmark/random_gen/asteroid,
-/turf/unsimulated/wall/urist/other/border,
-/area/mine/unexplored)
 "JT" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2118,7 +2114,7 @@ Yl
 Yl
 Yl
 Yl
-Hg
+Yl
 SE
 SE
 "}
