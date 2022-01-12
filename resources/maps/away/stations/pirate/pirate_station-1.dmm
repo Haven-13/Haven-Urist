@@ -1,8 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"ac" = (
-/obj/structure/ladder/up,
-/turf/simulated/floor,
-/area/spacestations/pirate/station)
 "ae" = (
 /turf/simulated/floor/asteroid,
 /area/spacestations/pirate/asteroid)
@@ -846,25 +842,12 @@
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/tiled,
 /area/spacestations/pirate/station)
-"cH" = (
-/obj/item/weapon/stool/padded,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station)
 "cI" = (
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
 /area/spacestations/pirate/station)
 "cJ" = (
 /obj/effect/urist/triggers/away_ai_landmark/pirate,
-/turf/simulated/floor,
-/area/spacestations/pirate/station)
-"cK" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /turf/simulated/floor,
 /area/spacestations/pirate/station)
 "cL" = (
@@ -1636,6 +1619,62 @@
 /obj/effect/landmark/scom/bomb/boarding/pirate_station,
 /turf/simulated/wall,
 /area/spacestations/pirate/station)
+"fI" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station)
+"gA" = (
+/obj/effect/urist/triggers/away_ai_landmark/pirate,
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station)
+"mR" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station)
+"os" = (
+/obj/effect/landmark/scom/bomb/boarding/pirate_station,
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 16
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station)
+"rd" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor,
+/area/spacestations/pirate/station)
+"rE" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/spacestations/pirate/station)
 "vE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
@@ -1648,16 +1687,106 @@
 	},
 /turf/simulated/floor,
 /area/spacestations/pirate/station)
+"vP" = (
+/obj/machinery/atmospherics/pipe/zpipe/up/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor,
+/area/spacestations/pirate/station)
+"yF" = (
+/obj/random/tool,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor,
+/area/spacestations/pirate/station)
 "zn" = (
 /turf/unsimulated/mineral,
 /area/mine/unexplored)
+"Cq" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station)
+"Ey" = (
+/obj/machinery/door/airlock/engineering{
+	dir = 1;
+	icon_state = "closed"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
+/area/spacestations/pirate/station)
+"EA" = (
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/cable{
+	icon_state = "16-0"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor,
+/area/spacestations/pirate/station)
 "Hg" = (
 /obj/effect/landmark/random_gen/asteroid,
 /turf/unsimulated/wall/urist/other/border,
 /area/mine/unexplored)
+"JT" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (SOUTHEAST)"
+	},
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station)
+"KR" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station)
+"Ns" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station)
+"PI" = (
+/obj/structure/ladder/up,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor,
+/area/spacestations/pirate/station)
 "SE" = (
 /turf/null,
 /area/space)
+"Th" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor,
+/area/spacestations/pirate/station)
 "TM" = (
 /obj/effect/step_trigger/teleporter{
 	affect_ghosts = 1;
@@ -1665,6 +1794,24 @@
 	},
 /turf/unsimulated/mineral,
 /area/mine/unexplored)
+"Wq" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station)
+"Xl" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station)
 "Yl" = (
 /turf/unsimulated/wall/urist/other/border,
 /area/mine/unexplored)
@@ -3980,7 +4127,7 @@ au
 ba
 bo
 aP
-ac
+PI
 ce
 ax
 cf
@@ -4289,9 +4436,9 @@ aP
 aP
 ax
 au
-cH
-cn
-ax
+KR
+JT
+rE
 au
 au
 au
@@ -4391,9 +4538,9 @@ bC
 bR
 ax
 au
+cG
+Ns
 aP
-cn
-ax
 au
 dw
 ax
@@ -4494,8 +4641,8 @@ aP
 cf
 ct
 cI
-eN
-aP
+gA
+ax
 au
 dx
 ax
@@ -4596,8 +4743,8 @@ br
 aP
 au
 ax
-cn
-cf
+Xl
+vP
 au
 au
 dP
@@ -4698,7 +4845,7 @@ bS
 cg
 au
 aP
-cn
+Ns
 cn
 eP
 dy
@@ -4800,7 +4947,7 @@ bE
 aP
 au
 aP
-cn
+Ns
 dc
 au
 dz
@@ -4892,17 +5039,17 @@ ae
 ae
 au
 au
-au
 ax
-aI
-aP
+rd
+Ey
+fI
 aP
 bF
 aP
 cn
 eM
 cn
-cn
+Ns
 cf
 au
 au
@@ -4993,18 +5140,18 @@ ae
 ae
 ae
 ae
-ae
 au
-aD
+ax
+yF
 au
-aP
+Wq
 br
 bG
 bT
 aP
 au
 aR
-cn
+Ns
 aP
 au
 dA
@@ -5095,18 +5242,18 @@ ae
 ae
 ae
 ae
-ae
 au
 ax
+EA
 au
-bz
+os
 bs
 bH
 bU
 aP
 au
 cJ
-cn
+Ns
 aP
 au
 dB
@@ -5197,8 +5344,8 @@ ae
 ae
 ae
 ae
-ae
 au
+ax
 aR
 au
 aP
@@ -5208,7 +5355,7 @@ bS
 aP
 au
 cG
-cn
+Ns
 eT
 eP
 cn
@@ -5309,9 +5456,9 @@ bE
 bE
 cg
 au
-cK
-cn
-aP
+Th
+mR
+Cq
 au
 dC
 dS

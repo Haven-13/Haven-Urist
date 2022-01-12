@@ -15,7 +15,7 @@
 "am" = (
 /turf/simulated/floor/reinforced/airless,
 /area/spacestations/pirate/exterior)
-"az" = (
+"aE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
 	icon_state = "intact-supply"
@@ -25,536 +25,42 @@
 	icon_state = "intact-scrubbers"
 	},
 /obj/structure/catwalk,
+/obj/structure/closet/emcloset,
 /turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"aB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/structure/catwalk,
-/obj/effect/overmap/sector/station/hostile/pirate,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"aM" = (
-/obj/machinery/cryopod{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/white,
 /area/spacestations/pirate/station/upper)
 "aR" = (
-/obj/structure/table/rack,
-/obj/random/tool,
-/obj/random/material,
-/obj/random/toolbox,
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 22
+	},
+/obj/structure/bed/nice,
+/obj/item/weapon/bedsheet,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"aT" = (
+/obj/structure/shipweapons/hardpoint/attached,
+/obj/machinery/shipweapons/beam/heavylaser,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/spacestations/pirate/station/upper)
-"be" = (
+"bg" = (
+/obj/structure/catwalk,
+/obj/random/junk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"bF" = (
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station/upper)
+"cb" = (
 /obj/structure/extinguisher_cabinet{
 	dir = 8;
 	icon_state = "extinguisher_closed";
 	pixel_x = 30
 	},
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"bl" = (
-/obj/machinery/cryopod{
-	dir = 2;
-	icon_state = "body_scanner_0"
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"bp" = (
-/obj/random/tank,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"bu" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8;
-	icon_state = "map-supply"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"bx" = (
-/obj/item/weapon/table_parts,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"bO" = (
-/obj/structure/hygiene/sink{
-	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
-	},
-/obj/item/weapon/storage/mirror{
-	pixel_x = 30
-	},
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"bQ" = (
-/obj/effect/wallframe_spawn/reinforced/hull,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"cc" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/spacestations/pirate/station/upper)
-"ce" = (
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/airless,
-/area/spacestations/pirate/station/upper)
-"cr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/structure/catwalk,
-/obj/effect/urist/triggers/away_ai_landmark/pirate,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"cI" = (
-/obj/structure/closet/secure_closet/engineering_electrical,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"db" = (
-/obj/structure/catwalk,
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/spacestations/pirate/station/upper)
-"dk" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"dq" = (
-/obj/machinery/suit_storage_unit/engineering,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"dv" = (
-/obj/machinery/light/small/red{
-	dir = 4;
-	icon_state = "firelight1"
-	},
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"dN" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 1;
-	injecting = 1;
-	use_power = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/spacestations/pirate/exterior)
-"dQ" = (
-/obj/structure/hygiene/shower{
-	dir = 4;
-	icon_state = "shower";
-	pixel_x = 0
-	},
-/obj/random/trash,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"dX" = (
-/obj/random/junk,
-/turf/simulated/floor/tiled/steel_grid,
-/area/spacestations/pirate/station/upper)
-"ed" = (
-/obj/structure/shipweapons/hardpoint/attached,
-/obj/machinery/shipweapons/beam/heavylaser,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"ek" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 8
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/machinery/computer,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"el" = (
-/obj/structure/hygiene/shower{
-	dir = 4;
-	icon_state = "shower";
-	pixel_x = 0
-	},
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"ey" = (
-/obj/random/trash,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"eU" = (
-/obj/structure/bed/nice,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"fb" = (
-/obj/structure/closet/crate,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"fc" = (
-/obj/structure/closet/secure_closet/engineering_welding,
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel_grid,
-/area/spacestations/pirate/station/upper)
-"fh" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1;
-	icon_state = "map-scrubbers"
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"fx" = (
-/obj/structure/table/rack,
-/obj/random/material,
-/obj/random/powercell,
-/obj/random/powercell,
-/obj/random/material,
-/obj/random/contraband,
-/turf/simulated/floor/tiled/steel_grid,
-/area/spacestations/pirate/station/upper)
-"fX" = (
-/obj/effect/landmark/map_data{
-	height = 2
-	},
-/turf/null,
-/area/space)
-"gj" = (
-/obj/item/weapon/towel,
-/obj/machinery/light/small{
-	dir = 4;
-	pixel_y = 0
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"hw" = (
-/obj/random/junk,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"hE" = (
-/obj/structure/closet/crate,
-/obj/item/weapon/broken_bottle,
-/obj/random/smokes,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"hT" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"hV" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"ib" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/bed/nice,
-/obj/item/weapon/bedsheet,
-/obj/structure/curtain/open/bed,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"iv" = (
-/obj/structure/table/reinforced,
-/obj/random/smokes,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"iw" = (
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"iy" = (
-/obj/effect/urist/triggers/away_ai_landmark/pirate,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"iC" = (
-/obj/structure/closet/secure_closet/engineering_electrical,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 22
-	},
-/turf/simulated/floor/tiled/steel_grid,
-/area/spacestations/pirate/station/upper)
-"iH" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/bed/nice,
-/obj/item/weapon/bedsheet,
-/obj/structure/curtain/open/bed,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"iM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	icon_state = "intact-supply";
-	tag = "icon-intact-supply (NORTHWEST)"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"iN" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"jB" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"jF" = (
-/obj/random/trash,
-/obj/structure/closet/crate,
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"jJ" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"jO" = (
-/obj/effect/step_trigger/teleporter{
-	affect_ghosts = 1;
-	teleport_z = 6
-	},
-/turf/unsimulated/mineral,
-/area/mine/unexplored)
-"jP" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9;
-	icon_state = "intact"
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"ki" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 8
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	frequency = 1379;
-	id_tag = "pirate_station_3_airlock3";
-	pixel_x = -25;
-	req_access = list("ACCESS_EXTERNAL");
-	tag_airpump = "pirate_station_3_pump3";
-	tag_chamber_sensor = "pirate_station_3_sensor3";
-	tag_exterior_door = "pirate_station_3_outer3";
-	tag_interior_door = "pirate_station_3_inner3"
-	},
-/obj/machinery/airlock_sensor{
-	frequency = 1379;
-	id_tag = "pirate_station_3_sensor3";
-	pixel_x = -25;
-	pixel_y = 12
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"kv" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 22
-	},
-/obj/structure/bed/nice,
-/obj/item/weapon/bedsheet,
-/obj/structure/curtain/open/bed,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"kI" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "pirate_station_3_inner3";
-	locked = 1;
-	name = "Engineering External Access";
-	req_access = list("ACCESS_EXTERNAL")
-	},
-/obj/random/trash,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"kN" = (
-/obj/effect/urist/triggers/away_ai_landmark/pirate,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"kQ" = (
-/obj/structure/catwalk,
-/obj/machinery/light/small{
-	dir = 8;
-	luminosity = 3
-	},
-/turf/simulated/floor/plating/airless,
-/area/spacestations/pirate/station/upper)
-"li" = (
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8";
-	tag = ""
-	},
-/obj/machinery/light/small/red{
-	dir = 4;
-	icon_state = "firelight1"
-	},
-/turf/simulated/floor/plating,
-/area/spacestations/pirate/station/upper)
-"lk" = (
-/obj/machinery/photocopier,
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"mb" = (
-/obj/machinery/cryopod,
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"mn" = (
-/obj/machinery/atmospherics/trinary/mixer/m_mixer,
-/turf/simulated/floor/plating,
-/area/spacestations/pirate/station/upper)
-"mr" = (
-/obj/structure/largecrate,
-/obj/random/firstaid,
-/obj/random/maintenance,
-/obj/random/maintenance,
-/obj/random/maintenance/clean,
-/obj/random/maintenance/clean,
-/obj/random/medical,
-/turf/simulated/floor/plating,
-/area/spacestations/pirate/station/upper)
-"mA" = (
-/obj/effect/landmark/random_gen/asteroid,
-/turf/unsimulated/wall/urist/other/border,
-/area/mine/unexplored)
-"mF" = (
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"mH" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"mU" = (
-/obj/structure/bed/nice,
-/obj/item/weapon/bedsheet,
-/obj/structure/curtain/open/bed,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"nz" = (
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1379;
-	master_tag = "pirate_station_3_airlock3";
-	name = "interior access button";
-	pixel_x = 25;
-	pixel_y = 25;
-	req_access = list("ACCESS_EXTERNAL")
-	},
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"nI" = (
-/obj/machinery/atmospherics/valve,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"nT" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	frequency = 1379;
-	id_tag = "pirate_station_3_pump3"
-	},
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"oV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/catwalk,
-/obj/effect/landmark/scom/bomb/boarding/pirate_station,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"pg" = (
-/obj/machinery/atmospherics/pipe/tank/air,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"pk" = (
-/obj/machinery/cryopod,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 22
-	},
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"ps" = (
+/obj/structure/ladder,
 /turf/simulated/open,
 /area/spacestations/pirate/station/upper)
-"pu" = (
+"cN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
 	icon_state = "intact-supply";
@@ -566,108 +72,16 @@
 /obj/structure/catwalk,
 /turf/simulated/floor,
 /area/spacestations/pirate/station/upper)
-"pB" = (
-/obj/effect/urist/triggers/away_ai_landmark/pirate,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"pD" = (
+"cR" = (
 /obj/effect/landmark/scom/bomb/boarding/pirate_station,
-/turf/simulated/floor,
+/turf/simulated/wall,
 /area/spacestations/pirate/station/upper)
-"pL" = (
+"cX" = (
 /obj/structure/closet/crate,
 /obj/random/smokes,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"pN" = (
-/obj/random/trash,
 /turf/simulated/floor,
 /area/spacestations/pirate/station/upper)
-"pU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	icon_state = "intact-supply";
-	tag = "icon-intact-supply (SOUTHEAST)"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"qN" = (
-/obj/structure/bed/chair/office/dark,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"qO" = (
-/obj/structure/bed/nice,
-/obj/machinery/light/small/red{
-	dir = 4;
-	icon_state = "firelight1"
-	},
-/obj/item/weapon/bedsheet,
-/obj/structure/curtain/open/bed,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"qP" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"rf" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 9
-	},
-/obj/structure/boarding/self_destruct/station/pirate,
-/obj/effect/landmark/scom/bomb/boarding/pirate_station,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"rh" = (
-/obj/random/junk,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	icon_state = "intact-supply"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"rA" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"rS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/machinery/door/airlock,
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"sb" = (
-/obj/structure/bed/chair/office/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"sl" = (
+"de" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
@@ -679,689 +93,15 @@
 /obj/structure/catwalk,
 /turf/simulated/floor,
 /area/spacestations/pirate/station/upper)
-"sQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/structure/catwalk,
-/obj/structure/closet/emcloset,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"tk" = (
-/obj/item/weapon/broken_bottle,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"tv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"tW" = (
-/obj/machinery/door/airlock/engineering{
+"dN" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
-	icon_state = "closed"
+	injecting = 1;
+	use_power = 1
 	},
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"tY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5;
-	icon_state = "intact-scrubbers"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"uo" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"ur" = (
-/obj/random/smokes,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"uH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/random/junk,
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"uR" = (
-/obj/structure/hygiene/shower{
-	dir = 8;
-	icon_state = "shower"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"vm" = (
-/obj/random/trash,
-/obj/machinery/door/airlock/glass/civilian,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"vJ" = (
-/obj/structure/catwalk,
-/obj/machinery/power/terminal{
-	dir = 8;
-	icon_state = "term"
-	},
-/obj/structure/cable,
-/obj/structure/extinguisher_cabinet{
-	dir = 8;
-	icon_state = "extinguisher_closed";
-	pixel_x = 30
-	},
-/turf/simulated/floor/plating,
-/area/spacestations/pirate/station/upper)
-"vM" = (
-/obj/item/stack/tile/floor,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"vS" = (
-/obj/structure/extinguisher_cabinet{
-	dir = 8;
-	icon_state = "extinguisher_closed";
-	pixel_x = 30
-	},
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"wc" = (
-/obj/random/material,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"wJ" = (
-/obj/structure/extinguisher_cabinet{
-	dir = 8;
-	icon_state = "extinguisher_closed";
-	pixel_x = 30
-	},
-/obj/random/junk,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"xf" = (
-/obj/random/junk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"xk" = (
-/obj/structure/catwalk,
-/obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/infinite;
-	dir = 8;
-	icon_state = "apc0";
-	pixel_x = -9
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/plating,
-/area/spacestations/pirate/station/upper)
-"xt" = (
-/obj/structure/table/rack,
-/obj/random/toolbox,
-/obj/random/material,
-/obj/random/tool,
-/turf/simulated/floor/tiled/steel_grid,
-/area/spacestations/pirate/station/upper)
-"yu" = (
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"yF" = (
-/obj/machinery/door/airlock/engineering{
-	dir = 1;
-	icon_state = "closed"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/universal,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"yH" = (
-/obj/random/trash,
-/turf/simulated/floor/tiled/steel_grid,
-/area/spacestations/pirate/station/upper)
-"yK" = (
-/obj/random/trash,
-/obj/machinery/atmospherics/pipe/simple/visible,
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"yN" = (
-/obj/item/weapon/broken_bottle,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"zq" = (
-/obj/machinery/door/window/northright,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"zt" = (
-/obj/random/material,
-/turf/simulated/floor/tiled/steel_grid,
-/area/spacestations/pirate/station/upper)
-"zx" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"zF" = (
-/obj/machinery/sleeper{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/structure/extinguisher_cabinet{
-	dir = 8;
-	icon_state = "extinguisher_closed";
-	pixel_x = 30
-	},
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"zG" = (
-/obj/random/trash,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"Aa" = (
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"Av" = (
-/turf/unsimulated/wall/urist/other/border,
-/area/mine/unexplored)
-"AU" = (
-/obj/structure/closet/secure_closet/engineering_welding,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"Bu" = (
-/obj/structure/closet/crate,
-/obj/random/smokes,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"Ce" = (
-/obj/random/junk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"CD" = (
-/obj/random/tank,
-/obj/structure/closet/crate,
-/obj/item/weapon/material/shard{
-	icon_state = "small"
-	},
-/obj/item/weapon/material/shard{
-	icon_state = "small"
-	},
-/obj/random/junk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"CJ" = (
-/obj/structure/shipweapons/hardpoint/attached,
-/obj/machinery/shipweapons/beam/ion,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"CR" = (
-/obj/structure/filingcabinet/chestdrawer,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 22
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/blue,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"Dh" = (
-/obj/machinery/vending/engivend,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"Do" = (
-/obj/item/weapon/storage/box/donkpockets,
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"Dy" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "pirate_station_3_inner3";
-	locked = 1;
-	name = "Engineering External Access";
-	req_access = list("ACCESS_EXTERNAL")
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"DF" = (
-/obj/machinery/door/airlock/multi_tile,
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"DN" = (
-/obj/structure/table/reinforced,
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
-/obj/random/handgun,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"DT" = (
-/turf/simulated/wall,
-/area/spacestations/pirate/station/upper)
-"DU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"DX" = (
-/obj/structure/closet/crate,
-/obj/random/coin,
-/obj/random/contraband,
-/obj/random/storage,
-/turf/simulated/floor/plating,
-/area/spacestations/pirate/station/upper)
-"Fd" = (
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"Fk" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/obj/machinery/papershredder,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"Fp" = (
-/obj/machinery/microwave{
-	pixel_x = -3;
-	pixel_y = 6
-	},
-/obj/structure/table/reinforced,
-/obj/effect/floor_decal/corner/blue/three_quarters{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"Fs" = (
-/obj/machinery/suit_storage_unit/pilot,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"FE" = (
-/obj/machinery/cryopod{
-	dir = 2;
-	icon_state = "body_scanner_0"
-	},
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"FU" = (
-/obj/structure/closet/crate,
-/obj/random/tool,
-/obj/random/tool,
-/obj/random/toolbox,
-/obj/random/tech_supply,
-/obj/random/medical,
-/turf/simulated/floor/plating,
-/area/spacestations/pirate/station/upper)
-"Gq" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8;
-	icon_state = "map-supply"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
-	},
-/obj/structure/catwalk,
-/obj/effect/urist/triggers/away_ai_landmark/pirate,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"Ha" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"Ho" = (
-/obj/machinery/atmospherics/valve,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 22
-	},
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"HK" = (
-/obj/structure/extinguisher_cabinet{
-	dir = 8;
-	icon_state = "extinguisher_closed";
-	pixel_x = 30
-	},
-/obj/structure/ladder,
-/turf/simulated/open,
-/area/spacestations/pirate/station/upper)
-"IB" = (
-/obj/machinery/power/smes/buildable,
-/obj/structure/cable,
-/turf/simulated/floor/tiled/dark,
-/area/spacestations/pirate/station/upper)
-"IO" = (
-/obj/item/weapon/broken_bottle,
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"Jg" = (
-/obj/structure/hygiene/shower{
-	dir = 8;
-	icon_state = "shower"
-	},
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"Jj" = (
-/obj/machinery/light/small{
-	dir = 4;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"Jo" = (
-/obj/structure/table/rack,
-/obj/random/tool,
-/obj/random/tool,
-/obj/random/tool,
-/obj/random/smokes,
-/turf/simulated/floor/tiled/steel_grid,
-/area/spacestations/pirate/station/upper)
-"JZ" = (
-/obj/machinery/light/small{
-	dir = 4;
-	pixel_y = 0
-	},
-/obj/machinery/atmospherics/pipe/tank/air,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"Ki" = (
-/obj/machinery/vending/engineering,
-/obj/machinery/vending/tool,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"Km" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 22
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"Ko" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/obj/structure/catwalk,
-/obj/random/junk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"Kt" = (
-/obj/structure/bed/nice,
-/obj/item/weapon/bedsheet,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"Kz" = (
-/obj/item/weapon/material/shard,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"KF" = (
-/obj/structure/table/reinforced,
-/obj/random/loot,
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"KR" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"KW" = (
-/obj/machinery/door/airlock/engineering{
-	dir = 1;
-	icon_state = "closed"
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"LA" = (
-/obj/structure/hygiene/sink{
-	dir = 1;
-	pixel_y = 16
-	},
-/obj/item/weapon/storage/mirror{
-	pixel_x = 0;
-	pixel_y = 30
-	},
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"LK" = (
-/obj/structure/closet/crate,
-/obj/random/smokes,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"Me" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/obj/item/stack/tile/floor,
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"Mh" = (
-/obj/item/weapon/table_parts,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"Mk" = (
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/random/junk,
-/turf/simulated/floor/plating,
-/area/spacestations/pirate/station/upper)
-"Mo" = (
-/obj/machinery/vending/tool,
-/obj/machinery/vending/engineering,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"Mv" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin{
-	pixel_x = 1;
-	pixel_y = 9
-	},
-/obj/item/weapon/pen,
-/obj/effect/floor_decal/corner/blue/three_quarters,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"ME" = (
-/obj/machinery/door/airlock,
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"Nx" = (
-/obj/random/junk,
-/obj/machinery/door/airlock/glass/civilian,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"Nz" = (
-/obj/machinery/door/airlock/engineering{
-	dir = 1;
-	icon_state = "closed"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"NC" = (
-/obj/structure/table/rack,
-/obj/random/powercell,
-/obj/random/powercell,
-/obj/random/contraband,
-/turf/simulated/floor/tiled/steel_grid,
-/area/spacestations/pirate/station/upper)
-"Oa" = (
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"Ow" = (
-/obj/machinery/light/small{
-	dir = 4;
-	pixel_y = 0
-	},
-/obj/random/junk,
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"OI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/engineering{
-	dir = 1;
-	icon_state = "closed"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"OQ" = (
-/obj/item/weapon/table_parts,
-/obj/machinery/atmospherics/pipe/manifold/visible,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"Pl" = (
-/obj/structure/hygiene/shower{
-	dir = 4;
-	icon_state = "shower";
-	pixel_x = 0
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"PB" = (
-/obj/structure/largecrate,
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/storage,
-/obj/random/medical,
-/obj/random/ammo_magazine_smug,
-/obj/item/ammo_casing/musket/flintlock,
-/obj/machinery/light/small/red{
-	dir = 4;
-	icon_state = "firelight1"
-	},
-/turf/simulated/floor/plating,
-/area/spacestations/pirate/station/upper)
-"Qa" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"Qm" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 9
-	},
-/obj/machinery/computer,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"QS" = (
-/obj/structure/bed/nice,
-/obj/item/weapon/bedsheet,
-/obj/structure/curtain/open/bed,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"Rl" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"RB" = (
-/obj/structure/closet/crate,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"RE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"RW" = (
-/obj/item/weapon/material/shard,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"Sf" = (
-/obj/machinery/light,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"Sm" = (
-/obj/structure/engineeringcart,
-/obj/machinery/light/small{
-	dir = 4;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/steel_grid,
-/area/spacestations/pirate/station/upper)
-"Sx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/engineering{
-	dir = 1;
-	icon_state = "closed"
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"Sy" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"ST" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green,
-/turf/simulated/wall,
-/area/spacestations/pirate/station/upper)
-"SW" = (
-/obj/effect/landmark/scom/bomb/boarding/pirate_station,
-/turf/simulated/wall,
-/area/spacestations/pirate/station/upper)
-"TA" = (
+/turf/simulated/floor/reinforced/airless,
+/area/spacestations/pirate/exterior)
+"dU" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -1373,43 +113,167 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/spacestations/pirate/station/upper)
-"TM" = (
+"dW" = (
+/obj/structure/largecrate,
+/obj/random/medical,
+/obj/random/maintenance/clean,
+/obj/random/maintenance/clean,
+/obj/random/maintenance,
+/obj/random/maintenance,
+/obj/random/firstaid,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"ea" = (
+/obj/structure/closet/crate,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/toolbox,
+/obj/random/tech_supply,
+/obj/random/medical,
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station/upper)
+"ep" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5;
-	icon_state = "intact-supply"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"er" = (
+/obj/structure/table/reinforced,
+/obj/random/loot,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"es" = (
+/obj/machinery/atmospherics/valve,
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 22
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/spacestations/pirate/station/upper)
-"UO" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/visible/green{
-	dir = 9;
-	icon_state = "intact"
-	},
-/obj/structure/extinguisher_cabinet{
-	dir = 8;
-	icon_state = "extinguisher_closed";
-	pixel_x = 30
-	},
-/turf/simulated/floor/plating,
-/area/spacestations/pirate/station/upper)
-"UU" = (
-/obj/structure/table/reinforced,
+"eu" = (
+/obj/random/trash,
+/obj/structure/closet/crate,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/spacestations/pirate/station/upper)
-"UY" = (
-/obj/machinery/light/small{
-	dir = 4;
-	pixel_y = 0
+"eT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/engineering{
+	dir = 1;
+	icon_state = "closed"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor,
 /area/spacestations/pirate/station/upper)
-"UZ" = (
-/obj/machinery/door/airlock/glass/civilian,
+"fm" = (
+/obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/spacestations/pirate/station/upper)
-"Vc" = (
+"fL" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8;
+	icon_state = "map-supply"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"fX" = (
+/obj/effect/landmark/map_data{
+	height = 2
+	},
+/turf/null,
+/area/space)
+"fY" = (
+/obj/machinery/door/airlock/multi_tile,
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"gf" = (
+/obj/random/junk,
+/obj/machinery/door/airlock/glass/civilian,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"gl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"gM" = (
+/obj/structure/hygiene/sink{
+	dir = 4;
+	icon_state = "sink";
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/obj/item/weapon/storage/mirror{
+	pixel_x = 30
+	},
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"hm" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/computer,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"hn" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"hH" = (
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"hK" = (
+/obj/structure/bed/nice,
+/obj/item/weapon/bedsheet,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"ia" = (
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"ig" = (
+/obj/machinery/vending/engineering,
+/obj/machinery/vending/tool,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"iD" = (
+/obj/machinery/atmospherics/trinary/mixer/m_mixer,
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station/upper)
+"iM" = (
+/obj/item/weapon/table_parts,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"iY" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1;
+	icon_state = "map-scrubbers"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"jb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
 	icon_state = "intact-supply"
@@ -1418,10 +282,102 @@
 	dir = 4;
 	icon_state = "intact-scrubbers"
 	},
+/obj/machinery/door/airlock,
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"jm" = (
+/obj/item/weapon/material/shard,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"jp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (SOUTHEAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"js" = (
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 22
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"jO" = (
+/obj/effect/step_trigger/teleporter{
+	affect_ghosts = 1;
+	teleport_z = 6
+	},
+/turf/unsimulated/mineral,
+/area/mine/unexplored)
+"ka" = (
+/obj/structure/table/rack,
+/obj/random/toolbox,
+/obj/random/material,
+/obj/random/tool,
+/turf/simulated/floor/tiled/steel_grid,
+/area/spacestations/pirate/station/upper)
+"kv" = (
+/turf/simulated/floor/tiled/steel_grid,
+/area/spacestations/pirate/station/upper)
+"kG" = (
+/obj/machinery/door/airlock/glass/civilian,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"kH" = (
 /obj/effect/wallframe_spawn/reinforced/hull,
 /turf/simulated/floor,
 /area/spacestations/pirate/station/upper)
-"Vy" = (
+"kR" = (
+/obj/structure/bed/chair/office/dark,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"ld" = (
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"lf" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"lo" = (
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/random/handgun,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"lq" = (
+/obj/effect/landmark/scom/bomb/boarding/pirate_station,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"lQ" = (
+/obj/effect/urist/triggers/away_ai_landmark/pirate,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"mb" = (
+/obj/machinery/cryopod,
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 22
+	},
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"my" = (
 /obj/item/device/radio/intercom{
 	dir = 2;
 	pixel_y = 22
@@ -1452,23 +408,1193 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
 /area/spacestations/pirate/station/upper)
-"VI" = (
-/turf/null,
-/area/space)
-"VJ" = (
-/turf/simulated/floor/tiled/steel_grid,
+"mA" = (
+/obj/effect/landmark/random_gen/asteroid,
+/turf/unsimulated/wall/urist/other/border,
+/area/mine/unexplored)
+"mF" = (
+/obj/structure/hygiene/shower{
+	dir = 8;
+	icon_state = "shower"
+	},
+/turf/simulated/floor/tiled/white,
 /area/spacestations/pirate/station/upper)
-"VR" = (
+"mJ" = (
+/turf/simulated/open,
+/area/spacestations/pirate/station/upper)
+"mW" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 9;
+	icon_state = "intact"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"mX" = (
+/obj/machinery/door/airlock/engineering{
+	dir = 1;
+	icon_state = "closed"
+	},
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"no" = (
+/obj/structure/table/reinforced,
+/obj/random/smokes,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"np" = (
+/obj/structure/closet/secure_closet/engineering_welding,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"nL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"nP" = (
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 30
+	},
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"nZ" = (
+/obj/random/trash,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"oc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/catwalk,
+/obj/effect/overmap/sector/station/hostile/pirate,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"oq" = (
+/obj/machinery/door/window/northright,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/catwalk,
 /turf/simulated/floor,
 /area/spacestations/pirate/station/upper)
-"VW" = (
+"oC" = (
+/obj/random/material,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/spacestations/pirate/station/upper)
+"oD" = (
+/obj/random/material,
+/turf/simulated/floor/tiled/steel_grid,
+/area/spacestations/pirate/station/upper)
+"oH" = (
+/obj/random/junk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"po" = (
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"pt" = (
+/obj/machinery/light/small/red{
+	dir = 4;
+	icon_state = "firelight1"
+	},
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"pK" = (
+/obj/structure/bed/nice,
+/obj/item/weapon/bedsheet,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"pM" = (
+/obj/item/weapon/towel,
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"qi" = (
+/obj/structure/shipweapons/hardpoint/attached,
+/obj/machinery/shipweapons/beam/ion,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"qB" = (
+/obj/machinery/door/airlock,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"qM" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"qS" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"rw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"rL" = (
+/obj/random/trash,
+/turf/simulated/floor/tiled/steel_grid,
+/area/spacestations/pirate/station/upper)
+"rS" = (
+/obj/random/trash,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"sf" = (
+/obj/structure/closet/crate,
+/obj/random/coin,
+/obj/random/contraband,
+/obj/random/storage,
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station/upper)
+"sD" = (
+/obj/random/junk,
+/turf/simulated/floor/tiled/steel_grid,
+/area/spacestations/pirate/station/upper)
+"te" = (
+/obj/machinery/light,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"tj" = (
+/obj/machinery/vending/tool,
+/obj/machinery/vending/engineering,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"tn" = (
+/obj/machinery/door/airlock/engineering{
+	dir = 1;
+	icon_state = "closed"
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"tW" = (
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"ud" = (
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1379;
+	master_tag = "pirate_station_3_airlock3";
+	name = "interior access button";
+	pixel_x = 25;
+	pixel_y = 25;
+	req_access = list("ACCESS_EXTERNAL")
+	},
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"uh" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"uu" = (
+/obj/structure/closet/crate,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"uF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/catwalk,
+/obj/effect/urist/triggers/away_ai_landmark/pirate,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"va" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/machinery/computer,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"vn" = (
+/turf/simulated/wall,
+/area/spacestations/pirate/station/upper)
+"vy" = (
+/obj/structure/table/rack,
+/obj/random/tool,
+/obj/random/material,
+/obj/random/toolbox,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"vD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"vF" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/bed/nice,
+/obj/item/weapon/bedsheet,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"vS" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2;
+	frequency = 1379;
+	id_tag = "pirate_station_3_pump3"
+	},
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"wc" = (
+/obj/structure/railing/mapped{
+	dir = 2
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "32-2"
+	},
+/turf/simulated/open,
+/area/spacestations/pirate/station/upper)
+"we" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"wY" = (
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"xb" = (
+/obj/random/trash,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"xh" = (
+/obj/item/weapon/broken_bottle,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"xx" = (
+/obj/random/tank,
+/obj/structure/closet/crate,
+/obj/item/weapon/material/shard{
+	icon_state = "small"
+	},
+/obj/item/weapon/material/shard{
+	icon_state = "small"
+	},
+/obj/random/junk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"xC" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station/upper)
+"xD" = (
+/obj/machinery/sleeper{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 30
+	},
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"xI" = (
+/obj/structure/hygiene/shower{
+	dir = 8;
+	icon_state = "shower"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"xZ" = (
+/obj/structure/bed/nice,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"yH" = (
+/obj/random/tank,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"yO" = (
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"yR" = (
+/obj/machinery/cryopod{
+	dir = 4;
+	icon_state = "body_scanner_0"
+	},
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"yZ" = (
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 30
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"zB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"zG" = (
+/obj/machinery/photocopier,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"zJ" = (
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 30
+	},
+/obj/item/weapon/wrench,
+/obj/structure/closet/crate/uranium,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"zX" = (
+/obj/machinery/power/port_gen/pacman/super,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/light/small/red{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station/upper)
+"Aq" = (
+/obj/effect/urist/triggers/away_ai_landmark/pirate,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"Av" = (
+/turf/unsimulated/wall/urist/other/border,
+/area/mine/unexplored)
+"Bg" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station/upper)
+"Bi" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 9;
+	icon_state = "intact"
+	},
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 30
+	},
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station/upper)
+"BF" = (
+/obj/random/material,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"Ca" = (
+/obj/structure/closet/crate,
+/obj/random/smokes,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"Cf" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/turf/simulated/wall,
+/area/spacestations/pirate/station/upper)
+"Ck" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"Co" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"CK" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/structure/boarding/self_destruct/station/pirate,
+/obj/effect/landmark/scom/bomb/boarding/pirate_station,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"Dy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/engineering{
+	dir = 1;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"DI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"DJ" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "pirate_station_3_inner3";
+	locked = 1;
+	name = "Engineering External Access";
+	req_access = list("ACCESS_EXTERNAL")
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"DL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"DM" = (
+/obj/structure/hygiene/sink{
+	dir = 1;
+	pixel_y = 16
+	},
+/obj/item/weapon/storage/mirror{
+	pixel_x = 0;
+	pixel_y = 30
+	},
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"Ei" = (
+/obj/item/weapon/table_parts,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"En" = (
+/obj/structure/bed/chair/office/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"Et" = (
+/obj/machinery/suit_storage_unit/engineering,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"Ev" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"EO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"ES" = (
+/obj/structure/table/rack,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/smokes,
+/turf/simulated/floor/tiled/steel_grid,
+/area/spacestations/pirate/station/upper)
+"ET" = (
+/obj/structure/table/rack,
+/obj/random/powercell,
+/obj/random/powercell,
+/obj/random/contraband,
+/turf/simulated/floor/tiled/steel_grid,
+/area/spacestations/pirate/station/upper)
+"EY" = (
+/obj/structure/closet/walllocker/emerglocker/south,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/steel_grid,
+/area/spacestations/pirate/station/upper)
+"Fs" = (
+/obj/random/material,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"Ft" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"FZ" = (
+/obj/structure/closet/secure_closet/engineering_welding,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/spacestations/pirate/station/upper)
+"Gl" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/spacestations/pirate/station/upper)
+"Gz" = (
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/tank/air,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"GD" = (
+/obj/structure/catwalk,
+/obj/machinery/power/terminal{
+	dir = 8;
+	icon_state = "term"
+	},
+/obj/structure/cable,
+/obj/machinery/light/small/red{
+	dir = 2
+	},
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station/upper)
+"Hd" = (
+/obj/structure/engineeringcart,
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/spacestations/pirate/station/upper)
+"Hl" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/structure/catwalk,
+/obj/random/junk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"Hw" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8;
+	icon_state = "map-supply"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/obj/structure/catwalk,
+/obj/effect/urist/triggers/away_ai_landmark/pirate,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"Hy" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "pirate_station_3_inner3";
+	locked = 1;
+	name = "Engineering External Access";
+	req_access = list("ACCESS_EXTERNAL")
+	},
+/obj/random/trash,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"Hz" = (
+/obj/structure/catwalk,
+/obj/machinery/power/apc{
+	cell_type = /obj/item/weapon/cell/infinite;
+	dir = 8;
+	icon_state = "apc0";
+	pixel_x = -9
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station/upper)
+"HP" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/machinery/papershredder,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"HY" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"Ia" = (
+/obj/item/weapon/storage/box/donkpockets,
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"Id" = (
+/obj/structure/catwalk,
+/obj/machinery/light/small{
+	dir = 8;
+	luminosity = 3
+	},
+/turf/simulated/floor/plating/airless,
+/area/spacestations/pirate/station/upper)
+"Is" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/railing/mapped{
+	dir = 2
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/spacestations/pirate/station/upper)
+"Jx" = (
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"JE" = (
+/obj/structure/hygiene/shower{
+	dir = 4;
+	icon_state = "shower";
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"JS" = (
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"JT" = (
 /obj/random/trash,
 /turf/simulated/floor/tiled,
 /area/spacestations/pirate/station/upper)
+"JV" = (
+/obj/structure/bed/nice,
+/obj/machinery/light/small/red{
+	dir = 4;
+	icon_state = "firelight1"
+	},
+/obj/item/weapon/bedsheet,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"Kb" = (
+/obj/machinery/door/airlock/engineering{
+	dir = 1;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"Ky" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"KD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/railing/mapped{
+	dir = 2
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/spacestations/pirate/station/upper)
+"Lb" = (
+/obj/structure/closet/crate,
+/obj/random/smokes,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"Le" = (
+/obj/machinery/cryopod{
+	dir = 2;
+	icon_state = "body_scanner_0"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"Lo" = (
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"LL" = (
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 0
+	},
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"LN" = (
+/obj/random/trash,
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"LP" = (
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"Mj" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"Mw" = (
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 30
+	},
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"ML" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/effect/urist/triggers/away_ai_landmark/pirate,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"NO" = (
+/obj/structure/largecrate,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/storage,
+/obj/random/medical,
+/obj/random/ammo_magazine_smug,
+/obj/item/ammo_casing/musket/flintlock,
+/obj/machinery/light/small/red{
+	dir = 4;
+	icon_state = "firelight1"
+	},
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station/upper)
+"Os" = (
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 30
+	},
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"PJ" = (
+/obj/random/smokes,
+/obj/structure/closet/crate,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"PK" = (
+/obj/machinery/atmospherics/pipe/tank/air,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"PR" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	frequency = 1379;
+	id_tag = "pirate_station_3_airlock3";
+	pixel_x = -25;
+	req_access = list("ACCESS_EXTERNAL");
+	tag_airpump = "pirate_station_3_pump3";
+	tag_chamber_sensor = "pirate_station_3_sensor3";
+	tag_exterior_door = "pirate_station_3_outer3";
+	tag_interior_door = "pirate_station_3_inner3"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1379;
+	id_tag = "pirate_station_3_sensor3";
+	pixel_x = -25;
+	pixel_y = 12
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"PU" = (
+/obj/machinery/microwave{
+	pixel_x = -3;
+	pixel_y = 6
+	},
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/corner/blue/three_quarters{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"Qa" = (
+/obj/structure/catwalk,
+/turf/simulated/floor/plating/airless,
+/area/spacestations/pirate/station/upper)
+"Qn" = (
+/obj/item/weapon/broken_bottle,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"QM" = (
+/obj/item/weapon/broken_bottle,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"Rn" = (
+/obj/machinery/atmospherics/valve,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"Ru" = (
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 30
+	},
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"RA" = (
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"RY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (NORTHWEST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"SO" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 22
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/blue,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"SX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/effect/wallframe_spawn/reinforced/hull,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"Ti" = (
+/obj/machinery/vending/engivend,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"Tn" = (
+/obj/random/trash,
+/obj/effect/urist/triggers/away_ai_landmark/pirate,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"Tv" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"TM" = (
+/obj/structure/hygiene/shower{
+	dir = 4;
+	icon_state = "shower";
+	pixel_x = 0
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"UI" = (
+/obj/item/weapon/material/shard,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"Ve" = (
+/obj/item/stack/tile/floor,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"Vo" = (
+/obj/item/weapon/table_parts,
+/obj/machinery/atmospherics/pipe/manifold/visible,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"VI" = (
+/turf/null,
+/area/space)
+"VN" = (
+/obj/machinery/cryopod{
+	dir = 2;
+	icon_state = "body_scanner_0"
+	},
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"VP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/effect/wallframe_spawn/reinforced/hull,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
 "Wo" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"Wp" = (
+/obj/machinery/suit_storage_unit/pilot,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"Wy" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"WI" = (
+/obj/machinery/cryopod,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"Xc" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/paper_bin{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/item/weapon/pen,
+/obj/effect/floor_decal/corner/blue/three_quarters,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"Xo" = (
+/obj/structure/closet/secure_closet/engineering_electrical,
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 22
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/spacestations/pirate/station/upper)
+"Xp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/catwalk,
+/obj/effect/landmark/scom/bomb/boarding/pirate_station,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"Xq" = (
+/obj/machinery/power/smes/buildable,
+/obj/structure/cable,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/pirate/station/upper)
+"Xw" = (
+/obj/structure/catwalk,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station/upper)
+"XE" = (
+/obj/machinery/door/airlock/engineering{
+	dir = 1;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"XG" = (
+/obj/random/trash,
+/obj/machinery/door/airlock/glass/civilian,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"XS" = (
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/random/junk,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"XV" = (
+/obj/structure/closet/crate,
+/obj/item/weapon/broken_bottle,
+/obj/random/smokes,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"Yv" = (
+/obj/structure/hygiene/shower{
+	dir = 4;
+	icon_state = "shower";
+	pixel_x = 0
+	},
+/obj/random/trash,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/pirate/station/upper)
+"Yw" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"YW" = (
+/obj/effect/urist/triggers/away_ai_landmark/pirate,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"Zc" = (
+/obj/structure/closet/secure_closet/engineering_electrical,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/spacestations/pirate/station/upper)
+"Zh" = (
+/obj/structure/bed/nice,
+/obj/item/weapon/bedsheet,
+/turf/simulated/floor,
+/area/spacestations/pirate/station/upper)
+"Zk" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1379;
@@ -1481,104 +1607,55 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/airless,
 /area/spacestations/pirate/station/upper)
-"Wq" = (
-/obj/structure/catwalk,
-/obj/machinery/power/port_gen/pacman/super,
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/plating,
-/area/spacestations/pirate/station/upper)
-"Wr" = (
-/obj/structure/extinguisher_cabinet{
-	dir = 8;
-	icon_state = "extinguisher_closed";
-	pixel_x = 30
-	},
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"Wy" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 5
-	},
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"WY" = (
-/obj/structure/closet/walllocker/emerglocker/south,
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/tiled/steel_grid,
-/area/spacestations/pirate/station/upper)
-"Xu" = (
-/obj/random/material,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel_grid,
-/area/spacestations/pirate/station/upper)
-"XG" = (
-/obj/random/trash,
-/obj/effect/urist/triggers/away_ai_landmark/pirate,
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"XV" = (
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"YK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
-/obj/effect/wallframe_spawn/reinforced/hull,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/turf/simulated/floor,
-/area/spacestations/pirate/station/upper)
-"YL" = (
-/obj/random/junk,
-/turf/simulated/floor/tiled,
-/area/spacestations/pirate/station/upper)
-"YN" = (
-/obj/random/material,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/spacestations/pirate/station/upper)
-"YX" = (
-/obj/machinery/cryopod{
-	dir = 4;
-	icon_state = "body_scanner_0"
-	},
-/turf/simulated/floor/tiled/white,
-/area/spacestations/pirate/station/upper)
-"Zf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	icon_state = "intact-supply"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
+"Zs" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/item/stack/tile/floor,
 /obj/structure/catwalk,
 /turf/simulated/floor,
 /area/spacestations/pirate/station/upper)
-"Zj" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+"Zz" = (
+/obj/structure/table/rack,
+/obj/random/material,
+/obj/random/powercell,
+/obj/random/powercell,
+/obj/random/material,
+/obj/random/contraband,
+/turf/simulated/floor/tiled/steel_grid,
+/area/spacestations/pirate/station/upper)
+"ZA" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/bed/nice,
+/obj/item/weapon/bedsheet,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"ZG" = (
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/spacestations/pirate/station/upper)
+"ZI" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/pirate/station/upper)
+"ZT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/junk,
 /obj/structure/catwalk,
 /turf/simulated/floor,
 /area/spacestations/pirate/station/upper)
-"ZF" = (
-/obj/structure/extinguisher_cabinet{
-	dir = 8;
-	icon_state = "extinguisher_closed";
-	pixel_x = 30
-	},
-/obj/structure/closet/crate,
-/turf/simulated/floor/tiled,
+"ZW" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
 /area/spacestations/pirate/station/upper)
 
 (1,1,1) = {"
@@ -2978,13 +3055,13 @@ af
 am
 am
 am
-DT
-bQ
-bQ
-bQ
-bQ
-bQ
-DT
+vn
+kH
+kH
+kH
+kH
+kH
+vn
 am
 am
 am
@@ -3078,15 +3155,15 @@ af
 af
 af
 am
-DT
-DT
-DT
-Fp
-rf
-Qm
-Qm
-Mv
-bQ
+vn
+vn
+vn
+PU
+CK
+va
+va
+Xc
+kH
 am
 am
 am
@@ -3180,15 +3257,15 @@ af
 af
 af
 am
-DT
-aM
-aM
-Do
-mF
-VW
-qN
-DN
-bQ
+vn
+qS
+qS
+Ia
+hH
+JT
+kR
+lo
+kH
 am
 am
 am
@@ -3282,15 +3359,15 @@ af
 af
 af
 am
-DT
-TA
-RE
-zq
-uH
-VR
-cr
-KF
-bQ
+vn
+dU
+DI
+oq
+ZT
+ep
+uF
+er
+kH
 am
 am
 am
@@ -3384,15 +3461,15 @@ am
 am
 am
 am
-DT
-Vy
-zF
-CR
-qP
-Rl
-Zj
-ek
-bQ
+vn
+my
+xD
+SO
+Ft
+Wy
+uh
+hm
+kH
 am
 am
 am
@@ -3481,20 +3558,20 @@ af
 af
 af
 af
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-mF
-sb
-iv
-DT
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+hH
+En
+no
+vn
 am
 am
 am
@@ -3583,20 +3660,20 @@ af
 af
 af
 af
-DT
-mF
-mF
-mF
-mF
-ps
-ps
-rh
-Ha
-tv
-Ha
-iM
-UU
-SW
+vn
+hH
+hH
+hH
+hH
+mJ
+mJ
+Is
+gl
+nL
+gl
+RY
+Lo
+cR
 am
 am
 am
@@ -3683,22 +3760,22 @@ af
 af
 af
 am
-DT
-DT
-DT
-mF
-yu
-VW
-yu
-ps
-ps
-az
-mF
-DT
-Fk
-mF
-lk
-DT
+vn
+vn
+vn
+hH
+tW
+JT
+hH
+Gl
+Gl
+KD
+hH
+vn
+HP
+hH
+zG
+vn
 am
 am
 am
@@ -3784,26 +3861,26 @@ af
 af
 am
 am
-DT
-DT
-yu
+vn
+vn
 tW
-mF
-pB
-mF
-YL
-mF
-mF
-az
-mF
-DT
-DT
-tW
-DT
-DT
-DT
-DT
-DT
+mX
+hH
+lQ
+hH
+fm
+hH
+fm
+DL
+hH
+vn
+vn
+mX
+vn
+vn
+vn
+vn
+vn
 am
 ad
 ad
@@ -3886,26 +3963,26 @@ af
 af
 am
 am
-DT
-Bu
-yu
-DT
-mF
-jJ
-HK
-Km
-mF
-yu
-az
-mF
+vn
+cX
 tW
-yu
-yu
-yu
-pN
-yu
-yu
-DT
+vn
+hH
+Ev
+cb
+js
+hH
+tW
+DL
+hH
+mX
+tW
+tW
+tW
+xb
+tW
+tW
+vn
 am
 ad
 ad
@@ -3988,26 +4065,26 @@ af
 af
 am
 am
-DT
-Kt
-yu
-DT
-DT
-DT
-DT
-DT
-DT
-vm
-Vc
-UZ
-DT
-DT
-DT
-DT
-DT
-DT
-yu
-DT
+vn
+Zh
+tW
+vn
+vn
+vn
+vn
+vn
+vn
+XG
+VP
+kG
+vn
+vn
+vn
+vn
+vn
+vn
+tW
+vn
 am
 ad
 ad
@@ -4090,26 +4167,26 @@ af
 af
 am
 am
-DT
-FU
-pN
-DT
-FE
-Oa
-YX
-YX
-DT
-mF
-az
-Mh
-DT
-xt
-Jo
-fx
-NC
-DT
-yN
-DT
+vn
+ea
+xb
+vn
+VN
+Jx
+yR
+yR
+vn
+hH
+DL
+Ei
+vn
+ka
+ES
+Zz
+ET
+vn
+QM
+vn
 am
 ad
 ad
@@ -4192,26 +4269,26 @@ af
 af
 am
 am
-DT
-PB
-yu
-DT
-FE
-Oa
-Sy
-Oa
-DT
-VW
-az
-yu
-DT
-Xu
-yu
-VJ
-yu
-DT
-RW
-DT
+vn
+NO
+tW
+vn
+VN
+Jx
+HY
+Jx
+vn
+JT
+DL
+tW
+vn
+oC
+tW
+kv
+tW
+vn
+jm
+vn
 am
 ad
 ad
@@ -4294,26 +4371,26 @@ af
 af
 am
 am
-DT
-DT
-yu
+vn
+vn
 tW
-Oa
-XG
-pU
-oV
-Ha
-Ha
-jB
-VR
-Sx
-tY
-dX
-iy
-VJ
+mX
+Jx
+Tn
+jp
+Xp
+gl
+gl
+lf
+ep
+eT
+EO
+sD
+Aq
+kv
+mX
 tW
-yu
-DT
+vn
 am
 am
 am
@@ -4396,26 +4473,26 @@ af
 af
 am
 am
-DT
-rA
-Wy
-DT
-bl
-Oa
-mH
-IO
-DT
-ib
-az
-hV
-DT
-fc
-yu
-zt
-WY
-DT
-yu
-DT
+vn
+Tv
+Yw
+vn
+Le
+Jx
+Wo
+Qn
+vn
+ZA
+DL
+hn
+vn
+FZ
+tW
+oD
+EY
+vn
+tW
+vn
 am
 am
 am
@@ -4498,26 +4575,26 @@ af
 af
 am
 am
-DT
-rA
-OQ
-DT
-FE
-Wr
-pk
+vn
+Tv
+Vo
+vn
+VN
+Mw
 mb
-DT
-hE
-az
-pB
-DT
-iC
-VJ
-VJ
-Sm
-DT
-yu
-SW
+WI
+vn
+XV
+ML
+ZG
+vn
+Xo
+kv
+kv
+Hd
+vn
+tW
+cR
 am
 am
 am
@@ -4588,38 +4665,38 @@ af
 af
 af
 af
-DT
-bQ
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-Nz
-DT
-SW
-DT
-DT
-DT
-DT
-iH
-az
-pD
-DT
-DT
-VJ
-yH
-DT
-DT
-Ce
-DT
+vn
+kH
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+Kb
+vn
+cR
+vn
+vn
+vn
+vn
+vF
+DL
+lq
+vn
+vn
+kv
+rL
+vn
+vn
+oH
+vn
 am
 am
 am
@@ -4690,38 +4767,38 @@ af
 af
 af
 af
-bQ
-nT
-ki
-Dy
-yK
-dk
-dk
-dk
-Me
-dk
-Ko
-dk
-dk
-Me
-jP
-iw
-iw
-iw
-iw
-iw
-DF
-iw
-ey
-mF
-DT
-Ki
-Fd
-Fd
-dq
-DT
-pN
-DT
+kH
+vS
+PR
+DJ
+LN
+qM
+qM
+qM
+Zs
+qM
+Hl
+qM
+qM
+Zs
+mW
+LP
+LP
+LP
+LP
+LP
+fY
+LP
+nZ
+hH
+vn
+ig
+ia
+ia
+Et
+vn
+xb
+vn
 am
 am
 am
@@ -4792,38 +4869,38 @@ af
 af
 af
 af
-bQ
-nT
-jP
-kI
-nz
-vM
-mF
-mF
-mF
-yu
-vM
-mF
-YL
-pB
-mF
-mF
-vM
-VW
-Jj
-be
-mF
-yu
-aB
-pL
-DT
-AU
-yu
-Fd
-dq
-DT
-yu
-DT
+kH
+vS
+mW
+Hy
+ud
+Ve
+hH
+hH
+hH
+tW
+Ve
+hH
+fm
+lQ
+hH
+hH
+Ve
+JT
+JS
+yZ
+hH
+tW
+oc
+Ca
+vn
+np
+tW
+ia
+Et
+vn
+tW
+vn
 am
 am
 am
@@ -4894,38 +4971,38 @@ af
 af
 af
 af
-DT
-sl
-sl
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-SW
-KW
-DT
-DT
+vn
+de
+de
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+cR
+tn
+vn
+vn
+vn
+vn
+vn
+vn
+mX
+vn
+vn
+hH
+RA
+wY
+vn
+tj
+BF
+ia
+Wp
+vn
 tW
-DT
-DT
-DT
-DT
-DT
-DT
-mF
-hw
-XV
-DT
-Mo
-wc
-Fd
-Fs
-DT
-yu
-DT
+vn
 am
 am
 am
@@ -4996,38 +5073,38 @@ af
 af
 af
 af
-ce
-Wo
-ce
-kQ
-af
-af
-af
-af
-af
-DT
-aR
-kN
-DT
-eU
-yu
-yu
-yu
-bx
-yu
-yu
-tW
-mF
-fh
-bu
-OI
-Ha
-Gq
-xf
-TM
-yF
 Qa
-ST
+Zk
+Qa
+Id
+af
+af
+af
+af
+af
+vn
+vy
+YW
+vn
+wc
+Hz
+Xq
+vn
+xZ
+tW
+iM
+mX
+hH
+iY
+fL
+Dy
+gl
+Hw
+ld
+vD
+XE
+we
+Cf
 dN
 am
 am
@@ -5107,29 +5184,29 @@ af
 af
 af
 af
-DT
-zx
-yu
-DT
-DX
-pN
-Ce
-DT
-DT
-DT
-DT
-DT
-pB
-az
-hT
-DT
-Dh
-KR
-YN
-DU
-DT
-yu
-DT
+vn
+Mj
+tW
+vn
+zX
+Bg
+GD
+vn
+sf
+xb
+oH
+vn
+lQ
+DL
+ZI
+vn
+Ti
+Ck
+Fs
+rw
+vn
+tW
+vn
 am
 ad
 ad
@@ -5207,31 +5284,31 @@ af
 af
 af
 af
-DT
-DT
-DT
-cI
-Fd
-DT
-mr
-iy
-ur
-DT
-Wq
-xk
-IB
-DT
-mF
-az
-mF
-DT
-pg
-nI
-mn
-cc
-DT
-iy
-DT
+vn
+vn
+vn
+Zc
+ia
+vn
+LP
+LP
+LP
+mX
+bF
+Aq
+PJ
+vn
+hH
+DL
+hH
+vn
+PK
+Rn
+iD
+xC
+vn
+Aq
+vn
 am
 ad
 ad
@@ -5309,31 +5386,31 @@ af
 af
 af
 af
-DT
-Aa
-Fd
-zG
-Fd
-DT
-RB
-yu
-qO
-DT
-li
-Mk
-vJ
-DT
-mF
-sQ
-Sf
-DT
-JZ
-Ho
-UO
-db
-DT
-Ce
-DT
+vn
+yO
+ia
+rS
+ia
+vn
+LP
+oH
+zJ
+vn
+dW
+tW
+JV
+vn
+hH
+aE
+te
+vn
+Gz
+es
+Bi
+Xw
+vn
+oH
+vn
 am
 ad
 ad
@@ -5405,37 +5482,37 @@ af
 af
 af
 af
+VI
+VI
+VI
+VI
+VI
 af
-af
-af
-af
-af
-af
-DT
-Fd
-Ce
-kN
-vM
-DT
-DT
-yu
-DT
-DT
-DT
-KW
-DT
-DT
-UZ
-YK
-Nx
-DT
-DT
-DT
-DT
-DT
-DT
-pN
-DT
+vn
+ia
+oH
+YW
+Ve
+vn
+LP
+hH
+vn
+vn
+vn
+vn
+vn
+vn
+kG
+SX
+gf
+vn
+vn
+vn
+vn
+vn
+vn
+xb
+vn
 am
 ad
 ad
@@ -5507,37 +5584,37 @@ af
 af
 af
 af
+VI
+VI
+VI
+VI
+VI
 af
-af
-af
-af
-af
-af
-bQ
-Kz
-yu
-Fd
-Fd
-DT
-DT
-yu
+kH
+UI
 tW
-mF
-yu
-YL
-mF
-pB
-yu
-az
-VW
-mF
-mF
+ia
+ia
+vn
+bg
+LP
+mX
+hH
 tW
-yu
-yu
-dv
-yu
-DT
+fm
+hH
+lQ
+tW
+DL
+JT
+hH
+hH
+mX
+tW
+tW
+pt
+tW
+vn
 am
 ad
 ad
@@ -5609,37 +5686,37 @@ af
 af
 af
 af
+VI
+VI
+VI
+VI
+VI
 af
-af
-af
-af
-af
-af
-bQ
-Fd
-ed
-Fd
-CJ
-DT
-yu
-Ce
-DT
-mF
-yu
-vS
-UY
-mF
-Zf
-iM
-wJ
-mF
-XV
-DT
-yu
-DT
-DT
-DT
-DT
+kH
+ia
+aT
+ia
+qi
+vn
+tW
+oH
+vn
+hH
+tW
+Ru
+LL
+hH
+zB
+RY
+Os
+hH
+wY
+vn
+tW
+vn
+vn
+vn
+vn
 am
 ad
 ad
@@ -5711,34 +5788,34 @@ af
 af
 af
 af
+VI
+VI
+VI
+VI
+VI
 af
-af
-af
-af
-af
-af
-bQ
-Fd
-Fd
-Fd
-Fd
-DT
-SW
-DT
-DT
-ME
-DT
-DT
-DT
-DT
-rS
-DT
-DT
-DT
-DT
-DT
-RW
-DT
+kH
+ia
+ia
+ia
+ia
+vn
+cR
+vn
+vn
+qB
+vn
+vn
+vn
+vn
+jb
+vn
+vn
+vn
+vn
+vn
+jm
+vn
 am
 am
 am
@@ -5819,28 +5896,28 @@ af
 af
 af
 af
-DT
-bQ
-bQ
-bQ
-bQ
-DT
-DT
-LA
-Ow
-uo
-bO
-DT
-mU
-jF
-pu
-LK
-QS
-fb
-QS
-DT
-yu
-DT
+vn
+kH
+kH
+kH
+kH
+vn
+vn
+DM
+XS
+ZW
+gM
+vn
+hK
+eu
+cN
+Lb
+pK
+po
+pK
+vn
+tW
+vn
 am
 ad
 ad
@@ -5926,23 +6003,23 @@ am
 am
 am
 am
-DT
-DT
-DT
-DT
-ME
-DT
-DT
-iN
-mF
-mF
-pB
-mF
-yu
-mF
+vn
+vn
+vn
+vn
+qB
+vn
+vn
+Ky
+hH
+hH
+lQ
+hH
 tW
-yu
-DT
+hH
+mX
+tW
+vn
 am
 ad
 ad
@@ -6029,22 +6106,22 @@ am
 am
 am
 am
-DT
-Pl
-dQ
-uo
-el
-DT
-mU
-YL
-mF
-VW
-tk
-mF
-hV
-DT
-bp
-DT
+vn
+TM
+Yv
+ZW
+JE
+vn
+hK
+fm
+hH
+JT
+xh
+hH
+Co
+vn
+yH
+vn
 am
 ad
 ad
@@ -6131,22 +6208,22 @@ am
 am
 am
 am
-DT
-uR
-uR
-gj
-Jg
-DT
-fb
-RB
-kv
-Bu
-mU
-ZF
-mU
-DT
-CD
-DT
+vn
+xI
+xI
+pM
+mF
+vn
+po
+uu
+aR
+cX
+hK
+nP
+hK
+vn
+xx
+vn
 am
 ad
 ad
@@ -6233,22 +6310,22 @@ am
 am
 am
 am
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
-DT
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
+vn
 am
 ad
 ad
