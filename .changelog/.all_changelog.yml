@@ -434,3 +434,10 @@
   - bugfix: Fixed AI-vision obfuscation layering issue
   - server: Added metrics from Paradise for profiling and analysing performance without
       interfering the server itself
+2022-01-13:
+  martinlyra:
+  - bugfix: Cleaned up away maps that were causing errors for the game.
+  - bugfix: Fixed a layering issue with disposal pipes.
+  - bugfix: Fixed initialization issues related to explosions spawned in map init.
+  - bugfix: Fixes the multi-z rendering issue, in which it would be permanently broken
+      for a player the moment they enter a submap with incorrect Z ordering.
