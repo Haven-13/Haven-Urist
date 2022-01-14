@@ -27,6 +27,8 @@
 
 // Ships
 #include "ships/ship.dm"
+#include "ships/landable.dm"
+#include "ships/computers/ship.dm"
 #include "ships/computers/engine_control.dm"
 #include "ships/computers/helm.dm"
 #include "ships/computers/navigation.dm"
@@ -34,3 +36,4 @@
 #include "ships/computers/shuttle.dm"
 #include "ships/engines/engine.dm"
 #include "ships/engines/gas_thruster.dm"
+#include "ships/engines/ion_drive.dm"

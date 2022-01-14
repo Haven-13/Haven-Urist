@@ -1,3 +1,10 @@
+/proc/get_file_name(path)
+	var/l = splittext_char(path, "/")
+	var/n = length(l)
+	if (n)
+		return l[n]
+	return path
+
 //checks if a file exists and contains text
 //returns text as a string if these conditions are met
 /proc/return_file_text(filename)

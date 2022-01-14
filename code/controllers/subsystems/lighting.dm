@@ -39,6 +39,15 @@ SUBSYSTEM_DEF(lighting)
 
 	..(out.Join("\n"))
 
+
+/datum/controller/subsystem/lighting/get_metrics()
+	. = ..()
+	var/list/cust = list()
+	cust["sources_queue"] = length(light_queue)
+	cust["corners_queue"] = length(corner_queue)
+	cust["overlays_queue"] = length(overlay_queue)
+	.["custom"] = cust
+
 /datum/controller/subsystem/lighting/Initialize()
 	InitializeTurfs()
 	lighting_overlays_initialised = TRUE

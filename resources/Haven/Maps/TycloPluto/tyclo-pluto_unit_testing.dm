@@ -36,5 +36,4 @@
 		/area/pluto/maintenance/centralstar/third = NO_SCRUBBER|NO_VENT,
 		/area/pluto/maintenance/centralport/third = NO_SCRUBBER,
 		/area/pluto/maintenance/fore/third = NO_SCRUBBER|NO_VENT
-
 	)

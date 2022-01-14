@@ -127,6 +127,16 @@ SUBSYSTEM_DEF(air)
 	)
 	..(out.Join())
 
+/datum/controller/subsystem/air/get_metrics()
+	. = ..()
+	var/list/cust = list()
+	cust["active_fires"] = length(active_fire_zones)
+	cust["active_hotspots"] = length(active_hotspots)
+	cust["active_edges"] = length(active_edges)
+	cust["tiles_to_update"] = length(tiles_to_update)
+	cust["zones_to_update"] = length(zones_to_update)
+	.["custom"] = cust
+
 /datum/controller/subsystem/air/Initialize(timeofday, simulate = TRUE)
 
 	var/starttime = REALTIMEOFDAY

@@ -1,5 +1,6 @@
 /datum/map_template
 	var/name = "Default Template Name"
+	var/init_error = 0
 	var/width = 0
 	var/height = 0
 	var/tallness = 0
@@ -11,13 +12,23 @@
 	var/template_flags = TEMPLATE_FLAG_ALLOW_DUPLICATES
 
 /datum/map_template/New(var/path = null, var/list/paths = null, var/rename = null)
+	if(rename)
+		name = rename
 	if(path)
 		paths = list()
 		paths += path
 	if(paths && !islist(paths))
-		crash_with("Non-list paths passed into map template constructor.")
+		CRASH("Non-list paths passed into map template constructor.")
 	if(paths)
 		mappaths = paths
+
+	for (var/mappath in mappaths)
+		if(!rustg_file_exists(mappath)) // Do not use byond's isfile because it only checks for cached files
+			error("Map Templates: \[\"[src.name]\"\] Could not find the map file '[mappath]'!")
+			init_error += 1
+	if (init_error)
+		CRASH("Map template \[\"[src.name]\"\] has invalid or missing map(s) and will not be loaded")
+
 	if(mappaths)
 		preload_size(mappaths)
 //	if(path)
@@ -25,10 +36,11 @@
 //		preload_size(mappath)
 //	if(map)
 //		mapfile = map
-	if(rename)
-		name = rename
 
 /datum/map_template/proc/preload_size()
+	if(init_error)
+		return FALSE
+
 	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
 	var/z_offset = 1 // needed to calculate z-bounds correctly
 	for (var/mappath in mappaths)
@@ -47,7 +59,8 @@
 	if (SSatoms.initialized == INITIALIZATION_INSSATOMS)
 		return // let proper initialisation handle it later
 	if(length(shuttles_to_initialise))
-		SSshuttle.suspend() // For proper shuttle init behavior, we wait until done with init here.
+		// For proper shuttle init behavior, we wait until done with init here.
+		SSshuttle.suspend()
 	atoms = atoms.Copy()
 
 	var/list/turf/turfs = list()
@@ -84,23 +97,35 @@
 
 /datum/map_template/proc/init_shuttles()
 	for (var/shuttle_type in shuttles_to_initialise)
-		SSshuttle.initialise_shuttle(shuttle_type)
+		// queue up for init.
+		LAZY_ADD(SSshuttle.shuttles_to_initialize, shuttle_type)
+	SSshuttle.wake()
 
-/datum/map_template/proc/load_new_z()
+/datum/map_template/proc/load_new_z(put_in_center=TRUE)
+	if(init_error)
+		return FALSE
 
-	var/x = round((world.maxx - width)/2)
-	var/y = round((world.maxy - height)/2)
+	var/x = 0
+	var/y = 0
 	var/initial_z = world.maxz + 1
+
+	if (put_in_center)
+		x = round((world.maxx - width)/2)
+		y = round((world.maxy - height)/2)
 
 	if (x < 1) x = 1
 	if (y < 1) y = 1
 
 	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
+	var/list/z_mapping = list()
 	var/list/atoms_to_initialise = list()
 
 	for (var/mappath in mappaths)
+		var/short_name = get_file_name(mappath)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, no_changeturf=TRUE)
 		if (M)
+			for(var/z = M.bounds[MAP_MINZ] to M.bounds[MAP_MAXZ])
+				z_mapping["[z]"] = short_name
 			bounds = extend_bounds_if_needed(bounds, M.bounds)
 			atoms_to_initialise += M.atoms_to_initialise
 		else
@@ -113,12 +138,14 @@
 			GLOB.using_map.base_turf_by_z[num2text(z_index)] = base_turf_for_zs
 		GLOB.using_map.player_levels |= z_index
 
+		testing("Z-level [z_index] <-- '[z_mapping[num2text(z_index)]]'")
+
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
 	init_shuttles()
 	after_load(initial_z)
-	for(var/light_z = initial_z to world.maxz)
-		create_lighting_overlays_zlevel(light_z)
+	for(var/z_level = initial_z to world.maxz)
+		create_lighting_overlays_zlevel(z_level)
 	log_game("Z-level [name] loaded at [x],[y],[world.maxz]")
 	loaded++
 

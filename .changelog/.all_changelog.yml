@@ -393,3 +393,51 @@
 2021-11-17:
   martinlyra:
   - bugfix: Fixed the UI for the card modification program
+2021-11-28:
+  martinlyra:
+  - rscadd: Added tgUI interface for the Power Cell Rack PSU
+  - tweak: Power Cell PSUs no longer require matter bins and always will have capacity
+      for 9 cells.
+  - tweak: Added property to Knob component in tgUI for positioning the tooltip appearing
+      when dragging the knob
+  - bugfix: Fixed the missing interface for tgUI
+  - bugfix: Fixed names being missing from the old plain HTML manifests
+2021-11-29:
+  martinlyra:
+  - tweak: Converted the elevator panel from hardcoded popup to tgUI
+  - tweak: The elevator panel now shows its current floor
+  - tweak: Elevators are now unit-tested
+  - bugfix: Fixed improper consistency with the world in elevator panels
+2021-12-18:
+  martinlyra:
+  - bugfix: Fixed aways not spawning properly
+  - bugfix: Fixed "Destroyed Colony" not loading proper
+  - bugfix: Fixed "Derelict Station" not loading proper
+  - bugfix: Fixed "Noctis" ship not loading proper
+  - bugfix: Fixed broken geometry of Lost Supply Station
+2021-12-21:
+  martinlyra:
+  - tweak: Modular computers' UI-state changed from physical-only to default
+  - bugfix: 'Fixed AI being unable to interact with all physical objects that can
+      be accessible by the AI:'
+  - bugfix: Fixed some mob icon updates getting deferred too late instead of being
+      done immediately, should see less blank images now.
+  - imageadd: Replaced the old ship sprite with Pawn's ship sprite for overmap
+  - imageadd: Added Pawn's shuttle sprite for overmap
+  - rscadd: Added Ion Drives for use with overmap-capable shuttles
+  - rscadd: Added overmap flight for Pluto's shuttles and future ones
+  - tweak: Readjusted the vessel mass of Styx and Eris shuttles
+  - bugfix: Fixed a bug where shuttles would act as control and helms for the mothership
+  - bugfix: Pluto's Eris and Styx shuttles are overmap capable, finally
+  - imageadd: Added premliminary art for shuttles on the overmap
+  - imageadd: Added sprites for the Ion Drives
+  - bugfix: Fixed AI-vision obfuscation layering issue
+  - server: Added metrics from Paradise for profiling and analysing performance without
+      interfering the server itself
+2022-01-13:
+  martinlyra:
+  - bugfix: Cleaned up away maps that were causing errors for the game.
+  - bugfix: Fixed a layering issue with disposal pipes.
+  - bugfix: Fixed initialization issues related to explosions spawned in map init.
+  - bugfix: Fixes the multi-z rendering issue, in which it would be permanently broken
+      for a player the moment they enter a submap with incorrect Z ordering.

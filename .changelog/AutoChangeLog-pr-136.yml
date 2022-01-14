@@ -1,9 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - rscadd: Added tgUI interface for the Power Cell Rack PSU
-  - tweak: Power Cell PSUs no longer require matter bins and always will have capacity
-      for 9 cells.
-  - tweak: Added property to Knob component in tgUI for positioning the tooltip appearing
-      when dragging the knob
-  - bugfix: Fixed the missing interface for tgUI

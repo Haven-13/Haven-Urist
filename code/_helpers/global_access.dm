@@ -97,6 +97,8 @@
 			return global.SSfluids;
 		if("SSgarbage")
 			return global.SSgarbage;
+		if("SShttp")
+			return global.SShttp;
 		if("SSicon_update")
 			return global.SSicon_update;
 		if("SSinactivity")
@@ -109,6 +111,8 @@
 			return global.SSmapping;
 		if("SSmaterials")
 			return global.SSmaterials;
+		if("SSmetrics")
+			return global.SSmetrics;
 		if("SSmisc")
 			return global.SSmisc;
 		if("SSmisc_late")
@@ -573,8 +577,6 @@
 			return global.limb_icon_cache;
 		if("loadout_categories")
 			return global.loadout_categories;
-		if("log_end")
-			return global.log_end;
 		if("lunchables_drink_reagents_")
 			return global.lunchables_drink_reagents_;
 		if("lunchables_drinks_")
@@ -945,6 +947,8 @@
 			return global.total_unit_tests;
 		if("transfer_controller")
 			return global.transfer_controller;
+		if("turbolift_areas")
+			return global.turbolift_areas;
 		if("turbolifts")
 			return global.turbolifts;
 		if("turret_icons")
@@ -1001,8 +1005,6 @@
 			return global.worths;
 		if("wrapped_species_by_ref")
 			return global.wrapped_species_by_ref;
-		if("z_levels")
-			return global.z_levels;
 		if("zone_blocked")
 			return global.zone_blocked;
 
@@ -1104,6 +1106,8 @@
 			global.SSfluids=newval;
 		if("SSgarbage")
 			global.SSgarbage=newval;
+		if("SShttp")
+			global.SShttp=newval;
 		if("SSicon_update")
 			global.SSicon_update=newval;
 		if("SSinactivity")
@@ -1116,6 +1120,8 @@
 			global.SSmapping=newval;
 		if("SSmaterials")
 			global.SSmaterials=newval;
+		if("SSmetrics")
+			global.SSmetrics=newval;
 		if("SSmisc")
 			global.SSmisc=newval;
 		if("SSmisc_late")
@@ -1580,8 +1586,6 @@
 			global.limb_icon_cache=newval;
 		if("loadout_categories")
 			global.loadout_categories=newval;
-		if("log_end")
-			global.log_end=newval;
 		if("lunchables_drink_reagents_")
 			global.lunchables_drink_reagents_=newval;
 		if("lunchables_drinks_")
@@ -1952,6 +1956,8 @@
 			global.total_unit_tests=newval;
 		if("transfer_controller")
 			global.transfer_controller=newval;
+		if("turbolift_areas")
+			global.turbolift_areas=newval;
 		if("turbolifts")
 			global.turbolifts=newval;
 		if("turret_icons")
@@ -2008,8 +2014,6 @@
 			global.worths=newval;
 		if("wrapped_species_by_ref")
 			global.wrapped_species_by_ref=newval;
-		if("z_levels")
-			global.z_levels=newval;
 		if("zone_blocked")
 			global.zone_blocked=newval;
 
@@ -2062,12 +2066,14 @@
 	"SSfastprocess",
 	"SSfluids",
 	"SSgarbage",
+	"SShttp",
 	"SSicon_update",
 	"SSinactivity",
 	"SSlighting",
 	"SSmachines",
 	"SSmapping",
 	"SSmaterials",
+	"SSmetrics",
 	"SSmisc",
 	"SSmisc_late",
 	"SSmobs",
@@ -2300,7 +2306,6 @@
 	"lighting_overlays_initialised",
 	"limb_icon_cache",
 	"loadout_categories",
-	"log_end",
 	"lunchables_drink_reagents_",
 	"lunchables_drinks_",
 	"lunchables_ethanol_reagents_",
@@ -2486,6 +2491,7 @@
 	"total_lighting_sources",
 	"total_unit_tests",
 	"transfer_controller",
+	"turbolift_areas",
 	"turbolifts",
 	"turret_icons",
 	"underground_templates",
@@ -2514,6 +2520,5 @@
 	"world_uplinks",
 	"worths",
 	"wrapped_species_by_ref",
-	"z_levels",
 	"zone_blocked"
 )

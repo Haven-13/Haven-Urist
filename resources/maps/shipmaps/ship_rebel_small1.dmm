@@ -2522,7 +2522,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "fn" = (
-/obj/machinery/computer/navigation,
+/obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "fo" = (
@@ -2629,21 +2629,21 @@
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "fz" = (
-/obj/machinery/computer/sensors{
+/obj/machinery/computer/ship/sensors{
 	icon_state = "computer";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "fA" = (
-/obj/machinery/computer/engines{
+/obj/machinery/computer/ship/engines{
 	icon_state = "computer";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "fB" = (
-/obj/machinery/computer/helm{
+/obj/machinery/computer/ship/helm{
 	icon_state = "computer";
 	dir = 1
 	},

@@ -12,7 +12,6 @@
 /area/noctis/hangar)
 "ad" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -42,15 +41,12 @@
 /obj/item/weapon/scalpel,
 /obj/item/weapon/hemostat,
 /obj/effect/floor_decal/borderfloorwhite{
-	icon_state = "borderfloor_white";
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/paleblue/border{
-	icon_state = "bordercolor";
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/blue/bordercorner{
-	icon_state = "bordercolorcorner";
 	dir = 1
 	},
 /obj/item/clothing/accessory/stethoscope,
@@ -99,7 +95,6 @@
 /area/noctis/afth)
 "at" = (
 /obj/machinery/atmospherics/unary/engine{
-	icon_state = "nozzle";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -133,7 +128,6 @@
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/atmos/cold,
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/monotile,
@@ -166,7 +160,7 @@
 /obj/structure/table/standard,
 /obj/item/device/multitool,
 /obj/item/weapon/crowbar/prybar,
-/obj/item/weapon/weldingtool/crystal,
+/obj/item/weapon/weldingtool,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/noctis/battery)
@@ -181,7 +175,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -194,7 +187,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 5
 	},
 /obj/structure/cable/blue{
@@ -207,7 +199,6 @@
 /area/noctis/battery)
 "aH" = (
 /obj/item/device/radio/intercom{
-	icon_state = "intercom";
 	dir = 8
 	},
 /obj/structure/closet/crate/internals/fuel,
@@ -221,7 +212,6 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 10
 	},
 /obj/item/weapon/tank/phoron,
@@ -230,7 +220,6 @@
 /area/noctis/battery)
 "aI" = (
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 8
 	},
 /obj/random/maintenance/clean,
@@ -242,12 +231,10 @@
 /area/noctis/afth)
 "aK" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/table/standard,
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/random/snack,
@@ -255,11 +242,9 @@
 /area/noctis/hangar)
 "aL" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 4
 	},
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -271,11 +256,9 @@
 /area/space)
 "aN" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 8
 	},
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -292,7 +275,6 @@
 	},
 /obj/machinery/power/apc{
 	dir = 1;
-	icon_state = "apc0";
 	req_access = list(850)
 	},
 /turf/simulated/floor/plating,
@@ -311,7 +293,6 @@
 /area/noctis/fairlock)
 "aT" = (
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 1
 	},
 /mob/living/simple_animal/hostile/viscerator,
@@ -320,7 +301,6 @@
 "aU" = (
 /obj/structure/catwalk,
 /obj/structure/handrai{
-	icon_state = "handrail";
 	dir = 1
 	},
 /obj/machinery/access_button/airlock_exterior{
@@ -340,7 +320,6 @@
 "aW" = (
 /obj/effect/paint/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 9
 	},
 /turf/simulated/wall/titanium,
@@ -351,7 +330,6 @@
 /area/noctis/hards)
 "aY" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 9
 	},
 /obj/structure/closet,
@@ -362,7 +340,6 @@
 /obj/item/weapon/extinguisher/mini,
 /obj/effect/floor_decal/rust,
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -370,7 +347,6 @@
 "aZ" = (
 /obj/structure/catwalk,
 /obj/structure/handrai{
-	icon_state = "handrail";
 	dir = 1
 	},
 /turf/space,
@@ -387,9 +363,8 @@
 /area/noctis/apm)
 "bc" = (
 /obj/effect/floor_decal/borderfloor{
-	tag = "icon-borderfloor_white (NORTH)";
-	icon_state = "borderfloor_white";
-	dir = 1
+	dir = 1;
+	tag = "icon-borderfloor_white (NORTH)"
 	},
 /obj/structure/cable/blue{
 	d2 = 4;
@@ -397,7 +372,6 @@
 	},
 /obj/machinery/power/apc{
 	dir = 1;
-	icon_state = "apc0";
 	req_access = list(850)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -405,9 +379,8 @@
 /area/noctis/hards)
 "bd" = (
 /obj/effect/floor_decal/borderfloor{
-	tag = "icon-borderfloor_white (NORTH)";
-	icon_state = "borderfloor_white";
-	dir = 1
+	dir = 1;
+	tag = "icon-borderfloor_white (NORTH)"
 	},
 /obj/structure/cable/blue{
 	d1 = 4;
@@ -420,11 +393,9 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -432,7 +403,6 @@
 "be" = (
 /obj/effect/paint/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 4
 	},
 /obj/machinery/meter,
@@ -440,9 +410,8 @@
 /area/noctis/hards)
 "bf" = (
 /obj/effect/floor_decal/borderfloor{
-	tag = "icon-borderfloor_white (NORTH)";
-	icon_state = "borderfloor_white";
-	dir = 1
+	dir = 1;
+	tag = "icon-borderfloor_white (NORTH)"
 	},
 /obj/structure/cable/blue{
 	d1 = 4;
@@ -450,18 +419,15 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
 "bg" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 5
 	},
 /obj/structure/cable/blue{
@@ -470,11 +436,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -487,22 +451,18 @@
 	},
 /obj/machinery/door/airlock/engineering,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/noctis/battery)
 "bi" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -519,11 +479,9 @@
 	},
 /obj/effect/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -536,11 +494,9 @@
 	},
 /obj/effect/catwalk_plated,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -552,7 +508,6 @@
 "bn" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 6
 	},
 /obj/structure/railing/mapped{
@@ -562,7 +517,6 @@
 /area/space)
 "bo" = (
 /obj/item/device/radio/intercom{
-	icon_state = "intercom";
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -570,12 +524,10 @@
 /area/noctis/hangar)
 "bp" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/table/standard,
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/item/device/radio,
@@ -583,14 +535,12 @@
 /area/noctis/hangar)
 "bq" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "br" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -610,18 +560,15 @@
 /area/noctis/brdgst)
 "bv" = (
 /obj/effect/floor_decal/borderfloorblack{
-	icon_state = "borderfloor_white";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/noctis/brdgst)
 "bw" = (
 /obj/effect/floor_decal/borderfloorblack{
-	icon_state = "borderfloor_white";
 	dir = 1
 	},
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -633,11 +580,9 @@
 	},
 /obj/machinery/power/apc{
 	dir = 1;
-	icon_state = "apc0";
 	req_access = list(850)
 	},
 /obj/effect/floor_decal/borderfloorblack{
-	icon_state = "borderfloor_white";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -648,7 +593,6 @@
 /area/noctis/brdgst)
 "bz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 6
 	},
 /obj/effect/floor_decal/rust,
@@ -657,14 +601,12 @@
 "bA" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/atmospherics/portables_connector{
-	icon_state = "map_connector";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/noctis/fm)
 "bB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 10
 	},
 /turf/simulated/floor/plating,
@@ -682,24 +624,20 @@
 /area/noctis/fairlock)
 "bE" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	icon_state = "map";
 	dir = 1
 	},
 /obj/effect/floor_decal/techfloor{
-	icon_state = "techfloor_edges";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/noctis/fairlock)
 "bF" = (
 /obj/effect/floor_decal/techfloor{
-	icon_state = "techfloor_edges";
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 4;
 	frequency = 1379;
-	icon_state = "map_vent";
 	id_tag = "pirate_fp_vent"
 	},
 /turf/simulated/floor/plating,
@@ -720,7 +658,6 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -743,7 +680,6 @@
 /area/noctis/exteriorl)
 "bK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -759,7 +695,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	frequency = 1379;
-	icon_state = "map_vent";
 	id_tag = "pirate_ap_vent"
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -784,7 +719,6 @@
 	id_tag = "pirate_ap_int"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -792,18 +726,15 @@
 "bO" = (
 /obj/effect/floor_decal/borderfloor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 9
 	},
 /obj/item/device/radio/intercom{
-	icon_state = "intercom";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
 "bP" = (
 /obj/effect/floor_decal/borderfloor/corner{
-	icon_state = "borderfloorcorner_white";
 	dir = 8
 	},
 /obj/structure/cable/blue{
@@ -812,11 +743,9 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -829,11 +758,9 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -841,19 +768,16 @@
 "bR" = (
 /obj/effect/floor_decal/borderfloor,
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	icon_state = "map_vent_out";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
 "bS" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 6
 	},
 /obj/machinery/alarm{
 	dir = 8;
-	icon_state = "alarm0";
 	pixel_x = 24;
 	req_access = list(850);
 	req_one_access = newlist()
@@ -872,16 +796,13 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/terminal{
-	icon_state = "term";
 	dir = 8
 	},
 /obj/machinery/light/small/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 5
 	},
 /turf/simulated/floor/plating,
@@ -894,16 +815,13 @@
 	},
 /obj/item/stack/tile/floor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/machinery/alarm{
 	dir = 1;
-	icon_state = "alarm0";
 	pixel_y = -22;
 	req_access = list(850);
 	req_one_access = newlist()
@@ -930,18 +848,15 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/noctis/battery)
 "bY" = (
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 1
 	},
 /obj/structure/cable/blue{
@@ -953,18 +868,15 @@
 	color = "#b95a00"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/afth)
 "bZ" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 9
 	},
 /obj/structure/cable/blue{
@@ -974,23 +886,19 @@
 	},
 /obj/effect/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "ca" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 5
 	},
 /obj/machinery/alarm{
 	dir = 8;
-	icon_state = "alarm0";
 	pixel_x = 24;
 	req_access = list(850);
 	req_one_access = newlist()
@@ -999,17 +907,14 @@
 /area/noctis/afth)
 "cb" = (
 /obj/structure/bed/chair/comfy/blue{
-	icon_state = "comfychair_preview";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/alarm{
 	dir = 4;
-	icon_state = "alarm0";
 	pixel_x = -24;
 	req_access = list(850);
 	req_one_access = newlist()
@@ -1018,19 +923,15 @@
 /area/noctis/hangar)
 "cc" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/machinery/computer/navigation{
-	icon_state = "computer";
+/obj/machinery/computer/ship/navigation{
 	dir = 8
 	},
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	icon_state = "map_vent_out";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1047,7 +948,6 @@
 "cg" = (
 /obj/structure/catwalk,
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1055,7 +955,6 @@
 "ch" = (
 /obj/machinery/alarm{
 	dir = 8;
-	icon_state = "alarm0";
 	pixel_x = 24;
 	req_access = list(850);
 	req_one_access = newlist()
@@ -1067,14 +966,12 @@
 	icon_state = "2-8"
 	},
 /obj/effect/floor_decal/borderfloorblack{
-	icon_state = "borderfloor_white";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/noctis/brdgst)
 "ci" = (
 /obj/effect/floor_decal/borderfloorblack{
-	icon_state = "borderfloor_white";
 	dir = 10
 	},
 /obj/structure/table/standard/flipped/s,
@@ -1082,7 +979,6 @@
 /area/noctis/brdgst)
 "cj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -1108,7 +1004,6 @@
 /area/noctis/fm)
 "cn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -1127,12 +1022,10 @@
 "cp" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 4;
-	frequency = 1379;
-	icon_state = "map_vent"
+	frequency = 1379
 	},
 /obj/effect/floor_decal/techfloor,
 /obj/machinery/light/small/d_green{
-	icon_state = "bulb_map";
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1144,17 +1037,14 @@
 /area/noctis/fairlock)
 "cr" = (
 /obj/effect/floor_decal/techfloor{
-	icon_state = "techfloor_edges";
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8;
 	frequency = 1379;
-	icon_state = "map_vent";
 	id_tag = "pirate_fp_vent"
 	},
 /obj/machinery/light/small/d_green{
-	icon_state = "bulb_map";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1165,7 +1055,6 @@
 /area/noctis/combust)
 "ct" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/danger,
@@ -1180,7 +1069,6 @@
 /area/noctis/hards)
 "cu" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 6
 	},
 /obj/structure/table/standard,
@@ -1206,7 +1094,6 @@
 /area/noctis/afth)
 "cy" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 8
 	},
 /obj/structure/cable/blue{
@@ -1225,7 +1112,6 @@
 /area/noctis/afth)
 "cz" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -1234,21 +1120,18 @@
 	},
 /obj/machinery/power/apc{
 	dir = 4;
-	icon_state = "apc0";
 	req_access = list(850)
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "cA" = (
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/noctis/exteriorl)
 "cB" = (
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 4
 	},
 /mob/living/simple_animal/hostile/carp,
@@ -1264,11 +1147,9 @@
 "cD" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -1300,11 +1181,9 @@
 /area/noctis/hangar)
 "cI" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 4
 	},
 /obj/effect/floor_decal/rust,
@@ -1317,7 +1196,6 @@
 /area/noctis/hards)
 "cJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	icon_state = "map_vent_out";
 	dir = 4
 	},
 /obj/effect/floor_decal/borderfloorblack,
@@ -1353,12 +1231,10 @@
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 4;
 	frequency = 1379;
-	icon_state = "map_vent";
 	id_tag = "pirate_fp_vent"
 	},
 /obj/effect/floor_decal/techfloor,
 /obj/machinery/light/small/d_green{
-	icon_state = "bulb_map";
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1366,11 +1242,9 @@
 "cP" = (
 /obj/structure/lattice,
 /obj/machinery/light/small/d_green{
-	icon_state = "bulb_map";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/fuel{
-	icon_state = "up";
 	dir = 4
 	},
 /turf/space,
@@ -1379,12 +1253,10 @@
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /obj/effect/paint/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
 	dir = 8;
-	icon_state = "pdoor1";
 	id = "p_com_obs"
 	},
 /turf/simulated/floor/plating,
@@ -1407,7 +1279,6 @@
 /area/space)
 "cU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
@@ -1437,7 +1308,6 @@
 /area/noctis/afth)
 "cY" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 8
 	},
 /obj/structure/cable/blue{
@@ -1447,18 +1317,15 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "cZ" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	icon_state = "map_vent_out";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1478,7 +1345,6 @@
 /area/noctis/reactorch)
 "dc" = (
 /obj/effect/floor_decal/borderfloor/corner{
-	icon_state = "borderfloorcorner_white";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1486,7 +1352,6 @@
 "dd" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1499,11 +1364,9 @@
 /area/space)
 "df" = (
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	icon_state = "map_vent_out";
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1514,22 +1377,18 @@
 /area/noctis/raptor)
 "dh" = (
 /obj/structure/handrai{
-	icon_state = "handrail";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/noctis/raptor)
 "di" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 5
 	},
 /obj/structure/cable/blue{
@@ -1541,15 +1400,12 @@
 /area/noctis/lounge)
 "dj" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 10
 	},
 /obj/structure/cable/blue{
@@ -1566,19 +1422,15 @@
 /area/noctis/fm)
 "dl" = (
 /obj/effect/floor_decal/techfloor{
-	icon_state = "techfloor_edges";
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 6
 	},
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -1587,11 +1439,9 @@
 /obj/effect/floor_decal/techfloor,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 10
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -1609,7 +1459,6 @@
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8;
 	frequency = 1379;
-	icon_state = "map_vent";
 	id_tag = "pirate_fp_vent"
 	},
 /obj/machinery/airlock_sensor{
@@ -1655,11 +1504,9 @@
 "ds" = (
 /obj/effect/floor_decal/borderfloorgrey/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 10
 	},
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 4
 	},
 /obj/item/device/radio/intercom,
@@ -1667,33 +1514,27 @@
 /area/noctis/fairlock)
 "dt" = (
 /obj/machinery/atmospherics/unary/engine{
-	icon_state = "nozzle";
 	dir = 4
 	},
 /obj/structure/window/phoronreinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/noctis/combust)
 "du" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 10
 	},
 /obj/effect/floor_decal/borderfloorblack{
-	icon_state = "borderfloor_white";
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 9
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/noctis/combust)
 "dv" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	icon_state = "map_vent_in";
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -1704,11 +1545,9 @@
 /area/noctis/combust)
 "dx" = (
 /obj/effect/floor_decal/borderfloorblack{
-	icon_state = "borderfloor_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -1734,18 +1573,15 @@
 /area/noctis/combust)
 "dA" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/closet/crate/paper_refill,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/rust,
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 10
 	},
 /turf/simulated/floor/tiled/steel_ridged,
@@ -1769,7 +1605,6 @@
 /area/noctis/reactorch)
 "dD" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 8
 	},
 /obj/structure/cable/blue{
@@ -1778,30 +1613,24 @@
 	icon_state = "1-2"
 	},
 /obj/item/device/radio/intercom{
-	icon_state = "intercom";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "dE" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1810,79 +1639,64 @@
 /obj/machinery/door/airlock/glass,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "dG" = (
 /obj/effect/floor_decal/borderfloor{
-	tag = "icon-borderfloor_white (NORTH)";
-	icon_state = "borderfloor_white";
-	dir = 1
+	dir = 1;
+	tag = "icon-borderfloor_white (NORTH)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/connect)
 "dH" = (
 /obj/structure/bed/chair/comfy/beige{
-	icon_state = "comfychair_preview";
 	dir = 1
 	},
 /obj/effect/floor_decal/borderfloor{
-	tag = "icon-borderfloor_white (NORTH)";
-	icon_state = "borderfloor_white";
-	dir = 1
+	dir = 1;
+	tag = "icon-borderfloor_white (NORTH)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/connect)
 "dI" = (
 /obj/structure/bed/chair/comfy/beige{
-	icon_state = "comfychair_preview";
 	dir = 1
 	},
 /obj/effect/floor_decal/borderfloor{
-	tag = "icon-borderfloor_white (NORTH)";
-	icon_state = "borderfloor_white";
-	dir = 1
+	dir = 1;
+	tag = "icon-borderfloor_white (NORTH)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/connect)
 "dJ" = (
 /obj/effect/floor_decal/borderfloor{
-	tag = "icon-borderfloor_white (NORTH)";
-	icon_state = "borderfloor_white";
-	dir = 1
+	dir = 1;
+	tag = "icon-borderfloor_white (NORTH)"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -1891,26 +1705,21 @@
 /obj/machinery/door/airlock/glass,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/hangar)
 "dL" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/oil,
@@ -1919,11 +1728,9 @@
 "dM" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1940,7 +1747,6 @@
 "dP" = (
 /obj/structure/window/reinforced,
 /obj/structure/bed/chair/shuttle/blue{
-	icon_state = "shuttle_chair_preview";
 	dir = 1
 	},
 /obj/machinery/access_button/airlock_interior{
@@ -1952,11 +1758,9 @@
 "dQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1379;
-	icon_state = "map_vent"
+	frequency = 1379
 	},
 /obj/structure/handrai{
-	icon_state = "handrail";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1972,10 +1776,6 @@
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "dS" = (
-/obj/machinery/light/colored/blue{
-	icon_state = "blue1";
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "dT" = (
@@ -1991,7 +1791,6 @@
 	},
 /obj/machinery/power/apc{
 	dir = 1;
-	icon_state = "apc0";
 	req_access = list(850)
 	},
 /obj/item/clothing/head/urist/cowboy,
@@ -2011,7 +1810,6 @@
 /obj/item/weapon/reagent_containers/food/snacks/fish,
 /obj/item/weapon/storage/box/donkpockets,
 /obj/machinery/light{
-	icon_state = "tube_map";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/monotile,
@@ -2022,14 +1820,12 @@
 /area/noctis/lounge)
 "dY" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "dZ" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2040,7 +1836,6 @@
 	icon_state = "1-2"
 	},
 /obj/item/device/radio/intercom{
-	icon_state = "intercom";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -2048,11 +1843,9 @@
 "ea" = (
 /obj/machinery/power/apc{
 	dir = 8;
-	icon_state = "apc0";
 	req_access = list(850)
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	icon_state = "map";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2065,35 +1858,28 @@
 /area/noctis/fairlock)
 "eb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/fairlock)
 "ec" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/item/weapon/material/shard/shrapnel,
@@ -2110,23 +1896,18 @@
 /area/space)
 "ee" = (
 /obj/effect/floor_decal/borderfloorgrey{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/cap/hidden{
-	icon_state = "cap";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 10
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -2138,11 +1919,9 @@
 /area/noctis/fairlock)
 "eg" = (
 /obj/effect/floor_decal/borderfloorblack{
-	icon_state = "borderfloor_white";
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 5
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -2150,7 +1929,6 @@
 "eh" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 4;
-	icon_state = "map_injector";
 	use_power = 1
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -2158,7 +1936,6 @@
 /area/noctis/combust)
 "ei" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -2166,32 +1943,21 @@
 "ej" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
 /obj/effect/floor_decal/borderfloorblack{
-	icon_state = "borderfloor_white";
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/noctis/combust)
-"ek" = (
-/obj/machinery/light/colored/blue{
-	icon_state = "blue1";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/noctis/reactorch)
 "el" = (
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /obj/effect/paint/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
 	dir = 8;
-	icon_state = "pdoor1";
 	id = "p_com_obs"
 	},
 /turf/simulated/floor/plating,
@@ -2204,11 +1970,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	icon_state = "map_vent_out";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -2218,29 +1982,12 @@
 /obj/structure/grille,
 /turf/space,
 /area/space)
-"eo" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/solar_assembly,
-/obj/item/weapon/tracker_electronics,
-/obj/effect/floor_decal/rust,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/steel_ridged,
-/area/noctis/combust)
 "eq" = (
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/afth)
 "er" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 8
 	},
 /obj/structure/cable/blue{
@@ -2249,7 +1996,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2257,33 +2003,27 @@
 /area/noctis/afth)
 "es" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "et" = (
 /obj/item/device/radio/intercom{
-	icon_state = "intercom";
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	icon_state = "map_vent_out";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/connect)
 "eu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 5
 	},
 /obj/effect/catwalk_plated,
@@ -2291,7 +2031,6 @@
 /area/noctis/connect)
 "ev" = (
 /obj/machinery/atmospherics/valve/shutoff{
-	icon_state = "map_vclamp0";
 	dir = 4
 	},
 /obj/effect/catwalk_plated,
@@ -2300,24 +2039,20 @@
 "ew" = (
 /obj/machinery/alarm{
 	dir = 8;
-	icon_state = "alarm0";
 	pixel_x = 24;
 	req_access = list(850);
 	req_one_access = newlist()
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/connect)
 "ex" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -2334,11 +2069,9 @@
 /area/noctis/hangar)
 "eA" = (
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
 	dir = 1
 	},
 /obj/effect/shuttle_landmark/nav_noctis/raptor,
@@ -2347,7 +2080,6 @@
 "eB" = (
 /obj/machinery/power/apc{
 	dir = 1;
-	icon_state = "apc0";
 	req_access = list(850)
 	},
 /obj/structure/cable{
@@ -2358,7 +2090,6 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -2366,8 +2097,7 @@
 "eC" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1379;
-	icon_state = "map_vent"
+	frequency = 1379
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_x = -24
@@ -2376,11 +2106,9 @@
 /area/noctis/raptor)
 "eD" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -2394,14 +2122,12 @@
 	},
 /obj/machinery/power/apc{
 	dir = 4;
-	icon_state = "apc0";
 	req_access = list(850)
 	},
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "eF" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 9
 	},
 /obj/structure/cable/blue{
@@ -2413,30 +2139,25 @@
 /area/noctis/lounge)
 "eG" = (
 /obj/effect/floor_decal/borderfloor{
-	tag = "icon-borderfloor_white (NORTH)";
-	icon_state = "borderfloor_white";
-	dir = 1
+	dir = 1;
+	tag = "icon-borderfloor_white (NORTH)"
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "eH" = (
 /obj/effect/floor_decal/borderfloor/corner{
-	icon_state = "borderfloorcorner_white";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "eI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 6
 	},
 /obj/structure/cable/blue{
@@ -2449,15 +2170,12 @@
 "eJ" = (
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -2469,19 +2187,15 @@
 /area/noctis/fairlock)
 "eK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	icon_state = "map";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/cap/hidden{
-	icon_state = "cap";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2495,31 +2209,25 @@
 /area/noctis/fairlock)
 "eL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/cap/hidden,
 /obj/machinery/atmospherics/pipe/cap/hidden{
-	icon_state = "cap";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/fairlock)
 "eM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 10
 	},
 /obj/structure/grille,
@@ -2528,42 +2236,34 @@
 "eN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/cap/hidden{
-	icon_state = "cap";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/cap/hidden{
-	icon_state = "cap";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/fairlock)
 "eO" = (
 /obj/effect/floor_decal/borderfloorgrey{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	icon_state = "map";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/fairlock)
 "eP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/structure/closet/crate,
@@ -2598,22 +2298,18 @@
 /area/noctis/fairlock)
 "eT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 6
 	},
 /obj/effect/floor_decal/borderfloorblack{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/noctis/combust)
 "eU" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
-	icon_state = "map";
 	dir = 4
 	},
 /obj/structure/grille,
@@ -2624,11 +2320,9 @@
 /obj/effect/paint/black,
 /obj/machinery/door/blast/regular{
 	dir = 8;
-	icon_state = "pdoor1";
 	id = "p_com_obs"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -2654,15 +2348,12 @@
 "eX" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/fuel{
-	icon_state = "up";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 6
 	},
 /obj/structure/cable/blue{
@@ -2675,11 +2366,9 @@
 "eY" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 9
 	},
 /turf/simulated/floor/plating,
@@ -2699,7 +2388,6 @@
 /area/noctis/afth)
 "fc" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -2721,9 +2409,8 @@
 "fe" = (
 /obj/structure/lattice,
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 4;
-	color = "#b95a00"
+	color = "#b95a00";
+	dir = 4
 	},
 /turf/space,
 /area/space)
@@ -2739,15 +2426,12 @@
 /area/noctis/afth)
 "fg" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
-	icon_state = "map";
 	dir = 4
 	},
 /obj/effect/floor_decal/borderfloorblack{
-	icon_state = "borderfloor_white";
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -2755,7 +2439,6 @@
 "fh" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 6
 	},
 /turf/simulated/floor/plating,
@@ -2771,9 +2454,8 @@
 /area/noctis/connect)
 "fj" = (
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 4;
-	color = "#b95a00"
+	color = "#b95a00";
+	dir = 4
 	},
 /turf/space,
 /area/space)
@@ -2804,7 +2486,6 @@
 /area/noctis/hangar)
 "fm" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 8
 	},
 /obj/structure/cable/blue{
@@ -2831,7 +2512,6 @@
 /area/noctis/hangar)
 "fp" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -2847,7 +2527,6 @@
 /area/noctis/hangar)
 "fq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -2874,18 +2553,15 @@
 "ft" = (
 /obj/effect/catwalk_plated,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/noctis/raptor)
 "fu" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -2902,7 +2578,6 @@
 /area/noctis/hangar)
 "fw" = (
 /obj/machinery/atmospherics/valve{
-	icon_state = "map_valve0";
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2911,11 +2586,9 @@
 "fx" = (
 /obj/machinery/door/airlock/glass,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -2925,16 +2598,8 @@
 	},
 /turf/simulated/floor/plating,
 /area/noctis/lounge)
-"fy" = (
-/obj/effect/spawner/bomb_simulator{
-	_low = 3;
-	_med = 2
-	},
-/turf/space,
-/area/space)
 "fz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 9
 	},
 /obj/structure/grille,
@@ -2942,7 +2607,6 @@
 /area/noctis/disposal)
 "fA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2951,18 +2615,15 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/borderfloorblack{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/noctis/combust)
 "fB" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 8
 	},
 /obj/structure/cable/blue{
@@ -2981,14 +2642,12 @@
 /area/noctis/lounge)
 "fE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "fF" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -3001,7 +2660,6 @@
 	},
 /obj/machinery/power/apc{
 	dir = 8;
-	icon_state = "apc0";
 	req_access = list(850)
 	},
 /obj/effect/floor_decal/rust,
@@ -3009,15 +2667,12 @@
 /area/noctis/reactorch)
 "fH" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
 	dir = 8
 	},
 /obj/structure/cable/blue{
@@ -3038,7 +2693,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light/colored/blue,
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "fJ" = (
@@ -3064,7 +2718,6 @@
 	pixel_y = 6
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
 	dir = 1
 	},
 /obj/machinery/button/ignition{
@@ -3088,7 +2741,6 @@
 "fL" = (
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -3103,11 +2755,9 @@
 /area/noctis/lounge)
 "fM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 9
 	},
 /obj/structure/cable/blue{
@@ -3124,11 +2774,9 @@
 /area/noctis/fm)
 "fN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 5
 	},
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3138,42 +2786,34 @@
 "fO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/fairlock)
 "fP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/fairlock)
 "fQ" = (
 /obj/effect/floor_decal/borderfloorgrey{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -3185,9 +2825,8 @@
 /area/space)
 "fS" = (
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 8;
-	color = "#b95a00"
+	color = "#b95a00";
+	dir = 8
 	},
 /turf/space,
 /area/space)
@@ -3200,14 +2839,12 @@
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/light/small/d_green{
-	icon_state = "bulb_map";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/space)
 "fV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 5
 	},
 /obj/structure/catwalk,
@@ -3216,7 +2853,6 @@
 "fW" = (
 /obj/structure/catwalk,
 /obj/machinery/power/solar_control{
-	icon_state = "solar";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -3253,24 +2889,20 @@
 /area/space)
 "fZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 5
 	},
 /obj/effect/floor_decal/borderfloorblack{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/noctis/combust)
 "ga" = (
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 1;
-	color = "#b95a00"
+	color = "#b95a00";
+	dir = 1
 	},
 /turf/space,
 /area/space)
@@ -3410,15 +3042,12 @@
 /area/space)
 "gp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 9
 	},
 /obj/effect/floor_decal/borderfloorblack{
-	icon_state = "borderfloor_white";
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 10
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -3472,9 +3101,8 @@
 /area/space)
 "gt" = (
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 1;
-	color = "#b95a00"
+	color = "#b95a00";
+	dir = 1
 	},
 /obj/structure/lattice,
 /turf/space,
@@ -3495,34 +3123,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/space)
-"gw" = (
-/obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 1;
-	color = "#b95a00"
-	},
-/obj/effect/spawner/bomb_simulator{
-	_low = 3;
-	_med = 2
-	},
-/turf/space,
-/area/space)
-"gx" = (
-/obj/machinery/power/solar,
-/obj/structure/cable/blue{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/cable/blue{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/effect/spawner/bomb_simulator{
-	_low = 3;
-	_med = 2
-	},
 /turf/simulated/floor/plating,
 /area/space)
 "gy" = (
@@ -3548,18 +3148,6 @@
 /obj/structure/cable/blue,
 /turf/simulated/floor/plating,
 /area/space)
-"gB" = (
-/obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 4;
-	color = "#b95a00"
-	},
-/obj/effect/spawner/bomb_simulator{
-	_low = 3;
-	_med = 2
-	},
-/turf/space,
-/area/space)
 "gC" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable/blue{
@@ -3576,7 +3164,6 @@
 	},
 /obj/item/weapon/gun/projectile/heavysniper/ant,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/oil,
@@ -3585,7 +3172,6 @@
 /area/noctis/combust)
 "gE" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 10
 	},
 /obj/structure/cable/blue{
@@ -3599,7 +3185,6 @@
 /area/noctis/afth)
 "gF" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 6
 	},
 /obj/effect/floor_decal/rust,
@@ -3611,7 +3196,6 @@
 /area/noctis/connect)
 "gH" = (
 /obj/effect/floor_decal/borderfloor/corner{
-	icon_state = "borderfloorcorner_white";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -3624,11 +3208,9 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 5
 	},
 /turf/simulated/floor/plating,
@@ -3646,22 +3228,18 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "gK" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -3675,7 +3253,6 @@
 "gL" = (
 /obj/effect/catwalk_plated,
 /obj/machinery/power/terminal{
-	icon_state = "term";
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3683,7 +3260,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3693,7 +3269,6 @@
 /obj/machinery/power/smes/buildable/outpost_substation,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 9
 	},
 /turf/simulated/floor/plating,
@@ -3715,7 +3290,6 @@
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 10
 	},
 /obj/structure/cable/blue{
@@ -3727,15 +3301,12 @@
 /area/noctis/hangar)
 "gQ" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -3752,7 +3323,6 @@
 /area/noctis/lounge)
 "gR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -3765,15 +3335,12 @@
 /area/noctis/lounge)
 "gS" = (
 /obj/structure/bed/chair/padded/black{
-	icon_state = "chair_preview";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -3787,11 +3354,9 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/borderfloor/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -3810,7 +3375,6 @@
 /obj/item/weapon/material/kitchen/utensil/fork,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -3823,7 +3387,6 @@
 /area/noctis/lounge)
 "gV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 4
 	},
 /obj/machinery/meter,
@@ -3832,19 +3395,15 @@
 /area/noctis/exteriorl)
 "gW" = (
 /obj/structure/bed/chair/padded/black{
-	icon_state = "chair_preview";
 	dir = 8
 	},
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 9
 	},
 /obj/structure/cable/blue{
@@ -3865,57 +3424,46 @@
 /area/noctis/fm)
 "gY" = (
 /obj/effect/floor_decal/techfloor{
-	icon_state = "techfloor_edges";
 	dir = 9
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	icon_state = "map_vent_out";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/fairlock)
 "gZ" = (
 /obj/effect/floor_decal/techfloor{
-	icon_state = "techfloor_edges";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	icon_state = "map";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/fairlock)
 "ha" = (
 /obj/effect/floor_decal/techfloor{
-	icon_state = "techfloor_edges";
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/fairlock)
 "hb" = (
 /obj/effect/floor_decal/borderfloorgrey/corner{
-	icon_state = "borderfloorcorner_white";
 	dir = 4
 	},
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
 	dir = 8
 	},
 /obj/machinery/alarm{
 	dir = 1;
-	icon_state = "alarm0";
 	pixel_y = -22;
 	req_access = list(850);
 	req_one_access = newlist()
@@ -3926,7 +3474,6 @@
 /obj/structure/catwalk,
 /obj/machinery/power/apc{
 	dir = 8;
-	icon_state = "apc0";
 	req_access = list(850)
 	},
 /obj/structure/cable/blue,
@@ -3946,13 +3493,11 @@
 	},
 /obj/machinery/light/small/red,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/noctis/combust)
 "he" = (
-/obj/item/clothing/under/carp,
 /turf/simulated/floor/plating,
 /area/noctis/combust)
 "hf" = (
@@ -3964,7 +3509,6 @@
 "hg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 10
 	},
 /obj/structure/cable/blue{
@@ -3973,7 +3517,6 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/borderfloorblack{
-	icon_state = "borderfloor_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4000,14 +3543,12 @@
 /area/noctis/medbay)
 "hk" = (
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/noctis/exteriorl)
 "hl" = (
 /obj/machinery/floodlight{
-	icon_state = "flood00";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -4026,7 +3567,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4039,18 +3579,15 @@
 /area/noctis/combust)
 "hp" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "hq" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	icon_state = "map_off";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -4069,7 +3606,6 @@
 /area/noctis/hangar)
 "ht" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -4092,7 +3628,6 @@
 "hv" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 10
 	},
 /obj/random/snack,
@@ -4102,7 +3637,6 @@
 "hw" = (
 /obj/machinery/alarm{
 	dir = 1;
-	icon_state = "alarm0";
 	pixel_y = -22;
 	req_access = list(850);
 	req_one_access = newlist()
@@ -4120,18 +3654,15 @@
 "hy" = (
 /obj/effect/floor_decal/borderfloor,
 /obj/structure/bed/chair/couch/left/brown{
-	icon_state = "couch_left";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "hz" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 6
 	},
 /obj/structure/bed/chair/couch/right/brown{
-	icon_state = "couch_right";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -4139,7 +3670,6 @@
 "hA" = (
 /obj/machinery/power/apc{
 	dir = 4;
-	icon_state = "apc0";
 	req_access = list(850)
 	},
 /obj/structure/cable/blue,
@@ -4206,11 +3736,9 @@
 "hK" = (
 /obj/structure/ladder/up,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white/monotile,
@@ -4222,23 +3750,19 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
 "hM" = (
 /obj/structure/bed/chair/padded/blue{
-	icon_state = "chair_preview";
 	dir = 8
 	},
 /obj/machinery/alarm{
 	dir = 8;
-	icon_state = "alarm0";
 	pixel_x = 24;
 	req_access = list(850);
 	req_one_access = newlist()
@@ -4248,7 +3772,6 @@
 "hN" = (
 /obj/machinery/alarm{
 	dir = 4;
-	icon_state = "alarm0";
 	pixel_x = -24;
 	req_access = list(850);
 	req_one_access = newlist()
@@ -4272,14 +3795,12 @@
 /area/noctis/hangar)
 "hP" = (
 /obj/effect/floor_decal/industrial/danger/corner{
-	icon_state = "dangercorner";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "hQ" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -4291,7 +3812,6 @@
 /area/noctis/hangar)
 "hR" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -4304,23 +3824,19 @@
 /area/noctis/hangar)
 "hS" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "hT" = (
 /obj/effect/floor_decal/industrial/danger/corner{
-	icon_state = "dangercorner";
 	dir = 8
 	},
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
 	dir = 8
 	},
 /obj/structure/cable/blue{
@@ -4333,11 +3849,9 @@
 "hU" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 9
 	},
 /obj/structure/cable/blue{
@@ -4353,7 +3867,6 @@
 /area/noctis/fm)
 "hW" = (
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -4361,11 +3874,9 @@
 "hX" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 4;
-	frequency = 1379;
-	icon_state = "map_vent"
+	frequency = 1379
 	},
 /obj/effect/floor_decal/techfloor{
-	icon_state = "techfloor_edges";
 	dir = 1
 	},
 /obj/item/stack/material/glass{
@@ -4376,7 +3887,6 @@
 "hY" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/floor_decal/techfloor{
-	icon_state = "techfloor_edges";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -4385,15 +3895,12 @@
 /obj/item/weapon/tank/nitrogen,
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8;
-	frequency = 1379;
-	icon_state = "map_vent"
+	frequency = 1379
 	},
 /obj/effect/floor_decal/techfloor{
-	icon_state = "techfloor_edges";
 	dir = 1
 	},
 /obj/machinery/light/small/d_green{
-	icon_state = "bulb_map";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -4407,7 +3914,6 @@
 /area/noctis/disposal)
 "ic" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 1
 	},
 /obj/structure/cable/blue{
@@ -4416,14 +3922,12 @@
 	},
 /obj/machinery/power/apc{
 	dir = 4;
-	icon_state = "apc0";
 	req_access = list(850)
 	},
 /turf/simulated/floor/plating,
 /area/noctis/disposal)
 "id" = (
 /obj/machinery/cryopod{
-	icon_state = "body_scanner_0";
 	dir = 2
 	},
 /obj/machinery/computer/cryopod{
@@ -4433,7 +3937,6 @@
 /area/noctis/cryo)
 "ie" = (
 /obj/machinery/light/coldtint{
-	icon_state = "tube_map";
 	dir = 1
 	},
 /obj/structure/table/standard,
@@ -4449,11 +3952,9 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 6
 	},
 /obj/item/weapon/storage/mirror{
@@ -4469,11 +3970,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/monotile,
@@ -4487,11 +3986,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -4506,7 +4003,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -4514,11 +4010,9 @@
 /area/noctis/medbay)
 "ij" = (
 /obj/effect/floor_decal/borderfloorwhite/corner{
-	icon_state = "borderfloorcorner_white";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue/bordercorner{
-	icon_state = "bordercolorcorner";
 	dir = 8
 	},
 /obj/structure/cable/blue{
@@ -4532,11 +4026,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -4549,7 +4041,6 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -4586,7 +4077,6 @@
 "in" = (
 /obj/structure/catwalk,
 /obj/item/device/radio/intercom{
-	icon_state = "intercom";
 	dir = 1
 	},
 /obj/structure/cable/blue{
@@ -4595,18 +4085,15 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "io" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/structure/barricade/wooden,
@@ -4630,11 +4117,9 @@
 	},
 /obj/structure/cable/green,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -4648,11 +4133,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -4664,7 +4147,6 @@
 /area/noctis/hangar)
 "ir" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 10
 	},
 /obj/structure/cable/blue{
@@ -4677,11 +4159,9 @@
 "is" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -4694,11 +4174,9 @@
 "it" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -4712,11 +4190,9 @@
 /obj/structure/catwalk,
 /obj/machinery/light/small/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -4728,7 +4204,6 @@
 /area/noctis/hangar)
 "iv" = (
 /obj/structure/bed/chair{
-	icon_state = "chair_preview";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -4736,7 +4211,6 @@
 "iw" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/random/maintenance,
@@ -4751,7 +4225,6 @@
 /obj/random/maintenance,
 /obj/random/trash,
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -4768,23 +4241,20 @@
 /area/noctis/fairlock)
 "iB" = (
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 1;
-	color = "#b95a00"
+	color = "#b95a00";
+	dir = 1
 	},
 /obj/structure/catwalk,
 /turf/space,
 /area/space)
 "iC" = (
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 1;
-	color = "#b95a00"
+	color = "#b95a00";
+	dir = 1
 	},
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 4;
-	color = "#b95a00"
+	color = "#b95a00";
+	dir = 4
 	},
 /turf/space,
 /area/space)
@@ -4804,7 +4274,6 @@
 /area/noctis/reactorch)
 "iG" = (
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 4
 	},
 /obj/random/maintenance,
@@ -4812,7 +4281,6 @@
 /area/noctis/apm)
 "iH" = (
 /obj/machinery/atmospherics/portables_connector{
-	icon_state = "map_connector";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -4820,7 +4288,6 @@
 /obj/random/maintenance/clean,
 /obj/effect/floor_decal/rust,
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -4830,7 +4297,6 @@
 /obj/effect/floor_decal/techfloor,
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
-	icon_state = "map_injector";
 	use_power = 1
 	},
 /turf/simulated/floor/plating,
@@ -4841,7 +4307,6 @@
 	id = "piratedisposal"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -4865,7 +4330,6 @@
 /area/noctis/cryo)
 "iM" = (
 /obj/effect/floor_decal/borderfloorwhite{
-	icon_state = "borderfloor_white";
 	dir = 9
 	},
 /obj/structure/cable/blue{
@@ -4881,7 +4345,6 @@
 /area/noctis/cryo)
 "iN" = (
 /obj/effect/floor_decal/borderfloorwhite{
-	icon_state = "borderfloor_white";
 	dir = 1
 	},
 /obj/structure/cable/blue{
@@ -4890,18 +4353,15 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/noctis/cryo)
 "iO" = (
 /obj/effect/floor_decal/borderfloorwhite{
-	icon_state = "borderfloor_white";
 	dir = 5
 	},
 /obj/structure/cable/blue{
@@ -4910,11 +4370,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -4933,24 +4391,20 @@
 /area/noctis/medbay)
 "iS" = (
 /obj/effect/floor_decal/borderfloorwhite{
-	icon_state = "borderfloor_white";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/paleblue/border{
-	icon_state = "bordercolor";
 	dir = 8
 	},
 /obj/structure/cable/blue,
 /obj/machinery/power/apc{
 	dir = 8;
-	icon_state = "apc0";
 	req_access = list(850)
 	},
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
 "iT" = (
 /obj/machinery/sleeper{
-	icon_state = "sleeper_0";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/paleblue/full,
@@ -4998,19 +4452,16 @@
 /area/noctis/disposal)
 "jb" = (
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/noctis/disposal)
 "jc" = (
 /obj/effect/floor_decal/borderfloorwhite{
-	icon_state = "borderfloor_white";
 	dir = 8
 	},
 /obj/machinery/power/apc{
 	dir = 8;
-	icon_state = "apc0";
 	req_access = list(850)
 	},
 /obj/structure/cable/blue{
@@ -5035,11 +4486,9 @@
 /area/noctis/cryo)
 "je" = (
 /obj/effect/floor_decal/borderfloorwhite{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
-	icon_state = "intercom";
 	dir = 8
 	},
 /obj/structure/cable/blue{
@@ -5051,7 +4500,6 @@
 /area/noctis/cryo)
 "jf" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/oil,
@@ -5059,28 +4507,23 @@
 /area/noctis/hangar)
 "jg" = (
 /obj/effect/floor_decal/borderfloorwhite{
-	icon_state = "borderfloor_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue/border{
-	icon_state = "bordercolor";
 	dir = 1
 	},
 /obj/structure/bed/chair/padded/blue,
-/obj/item/clothing/suit/storage/toggle/labcoat/corp/veymed,
+/obj/item/clothing/suit/storage/toggle/labcoat,
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
 "jh" = (
 /obj/effect/floor_decal/borderfloorwhite{
-	icon_state = "borderfloor_white";
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/paleblue/border{
-	icon_state = "bordercolor";
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/blue/bordercorner{
-	icon_state = "bordercolorcorner";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -5091,11 +4534,9 @@
 /area/noctis/medbay)
 "jj" = (
 /obj/effect/floor_decal/borderfloorwhite{
-	icon_state = "borderfloor_white";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/paleblue/border{
-	icon_state = "bordercolor";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -5103,14 +4544,12 @@
 "jk" = (
 /obj/structure/catwalk,
 /obj/machinery/light/small/d_green{
-	icon_state = "bulb_map";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/noctis/exteriorl)
 "jl" = (
 /obj/machinery/atmospherics/portables_connector{
-	icon_state = "map_connector";
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air,
@@ -5118,16 +4557,13 @@
 /area/noctis/equips)
 "jm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 4
 	},
 /obj/effect/floor_decal/techfloor{
-	icon_state = "techfloor_edges";
 	dir = 8
 	},
 /obj/structure/closet/crate/plastic_smug_ammo,
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -5150,7 +4586,6 @@
 /area/noctis/equips)
 "jp" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/oil,
@@ -5158,14 +4593,12 @@
 /area/noctis/hangar)
 "jq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/equips)
 "jr" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	icon_state = "map_vent_out";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -5180,26 +4613,13 @@
 /area/noctis/fm)
 "ju" = (
 /obj/structure/disposalpipe/trunk{
-	icon_state = "pipe-t";
 	dir = 4
 	},
 /obj/machinery/disposal/deliveryChute{
 	dir = 1;
-	icon_state = "intake";
 	name = "disposal chute"
 	},
 /obj/machinery/door/window/northleft,
-/turf/simulated/floor/plating,
-/area/noctis/disposal)
-"jv" = (
-/obj/structure/disposalpipe/segment{
-	icon_state = "pipe-c"
-	},
-/obj/random/closet,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/noctis/disposal)
 "jw" = (
@@ -5210,7 +4630,6 @@
 /area/noctis/disposal)
 "jx" = (
 /obj/effect/floor_decal/borderfloorwhite{
-	icon_state = "borderfloor_white";
 	dir = 10
 	},
 /obj/effect/submap_landmark/spawnpoint/hijacker,
@@ -5219,7 +4638,6 @@
 "jy" = (
 /obj/effect/floor_decal/borderfloorwhite,
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	icon_state = "map_vent_out";
 	dir = 1
 	},
 /obj/effect/submap_landmark/spawnpoint/hijacker,
@@ -5227,12 +4645,10 @@
 /area/noctis/cryo)
 "jz" = (
 /obj/effect/floor_decal/borderfloorwhite{
-	icon_state = "borderfloor_white";
 	dir = 6
 	},
 /obj/machinery/alarm{
 	dir = 8;
-	icon_state = "alarm0";
 	pixel_x = 24;
 	req_access = list(850);
 	req_one_access = newlist()
@@ -5245,11 +4661,9 @@
 /obj/item/weapon/retractor,
 /obj/item/weapon/circular_saw,
 /obj/effect/floor_decal/borderfloorwhite{
-	icon_state = "borderfloor_white";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/paleblue/border{
-	icon_state = "bordercolor";
 	dir = 8
 	},
 /obj/item/device/flashlight/pen,
@@ -5265,15 +4679,12 @@
 /obj/item/organ/internal/kidneys,
 /obj/item/organ/internal/lungs,
 /obj/effect/floor_decal/borderfloorwhite{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue/border{
-	icon_state = "bordercolor";
 	dir = 4
 	},
 /obj/machinery/light/coldtint{
-	icon_state = "tube_map";
 	dir = 4
 	},
 /obj/item/organ/internal/liver,
@@ -5282,11 +4693,9 @@
 "jD" = (
 /obj/item/weapon/gun/energy/plasmacutter,
 /obj/effect/floor_decal/corner_techfloor_grid{
-	icon_state = "corner_techfloor_grid";
 	dir = 1
 	},
 /obj/effect/floor_decal/techfloor/corner{
-	icon_state = "techfloor_corners";
 	dir = 1
 	},
 /obj/structure/table/steel,
@@ -5294,7 +4703,6 @@
 /area/noctis/equips)
 "jE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 5
 	},
 /obj/structure/table/steel,
@@ -5308,7 +4716,6 @@
 /area/noctis/equips)
 "jF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 9
 	},
 /obj/structure/closet/crate/plastic_smug_weapons,
@@ -5322,7 +4729,6 @@
 /obj/item/weapon/cell,
 /obj/item/weapon/cell/crap,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -5346,7 +4752,6 @@
 /obj/effect/paint/green_grey,
 /obj/structure/disposaloutlet,
 /obj/structure/disposalpipe/trunk{
-	icon_state = "pipe-t";
 	dir = 1
 	},
 /turf/simulated/wall/titanium,
@@ -5357,7 +4762,6 @@
 /area/noctis/cryo)
 "jM" = (
 /obj/machinery/cryopod{
-	icon_state = "body_scanner_0";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white/monotile,
@@ -5370,7 +4774,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light/small/d_green{
-	icon_state = "bulb_map";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -5378,7 +4781,6 @@
 "jO" = (
 /obj/machinery/atmospherics/tvalve/mirrored{
 	dir = 1;
-	icon_state = "map_tvalvem0";
 	initialize_directions = 11
 	},
 /obj/effect/floor_decal/rust,
@@ -5400,18 +4802,15 @@
 /area/noctis/combust)
 "jR" = (
 /obj/effect/floor_decal/borderfloorblack{
-	icon_state = "borderfloor_white";
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 6
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/noctis/combust)
 "jS" = (
 /obj/effect/floor_decal/borderfloor{
-	icon_state = "borderfloor_white";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5426,7 +4825,6 @@
 /area/noctis/lounge)
 "jT" = (
 /obj/effect/floor_decal/industrial/danger{
-	icon_state = "danger";
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/oil,
@@ -5436,7 +4834,6 @@
 "jU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 5
 	},
 /obj/effect/decal/cleanable/blood/oil,
@@ -5473,11 +4870,9 @@
 /area/noctis/fairlock)
 "jY" = (
 /obj/effect/floor_decal/techfloor{
-	icon_state = "techfloor_edges";
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	icon_state = "map";
 	dir = 1
 	},
 /obj/machinery/access_button/airlock_interior{
@@ -5495,11 +4890,9 @@
 "ka" = (
 /obj/structure/catwalk,
 /obj/machinery/light/small/red{
-	icon_state = "firelight1";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5513,11 +4906,9 @@
 "kb" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
 	dir = 8
 	},
 /obj/structure/cable/blue{
@@ -5534,7 +4925,6 @@
 /area/noctis/hangar)
 "mN" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
-	icon_state = "map";
 	dir = 4
 	},
 /obj/structure/grille,
@@ -5546,7 +4936,6 @@
 /area/space)
 "AB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/structure/grille,
@@ -5586,15 +4975,36 @@
 /area/space)
 "JD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
 	dir = 10
 	},
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/noctis/disposal)
+"KE" = (
+/obj/structure/disposalpipe/segment{
+	icon_state = "pipe-c"
+	},
+/obj/random/closet,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/noctis/disposal)
+"NG" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/solar_assembly,
+/obj/effect/floor_decal/rust,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/noctis/combust)
 "PN" = (
 /obj/machinery/atmospherics/unary/engine{
-	icon_state = "nozzle";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -5604,11 +5014,9 @@
 /area/space)
 "WV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 9
 	},
 /obj/structure/cable/blue{
@@ -7826,7 +7234,7 @@ gb
 aa
 aa
 aa
-fy
+aa
 aa
 ai
 aa
@@ -7931,7 +7339,7 @@ aa
 aa
 aa
 gb
-fy
+aa
 aa
 aa
 aa
@@ -8437,7 +7845,7 @@ hC
 ib
 ib
 ja
-jv
+KE
 jK
 aa
 aa
@@ -8633,7 +8041,7 @@ bQ
 cu
 cW
 dA
-eo
+NG
 eY
 gD
 hd
@@ -9347,7 +8755,7 @@ bW
 ab
 ab
 db
-ek
+dS
 cK
 ab
 ab
@@ -9567,7 +8975,7 @@ gg
 gk
 gb
 gt
-gx
+gg
 aa
 aa
 aa
@@ -10078,7 +9486,7 @@ en
 jN
 ai
 fj
-gB
+fj
 aa
 aa
 aa
@@ -10688,7 +10096,7 @@ aa
 gg
 aa
 an
-gw
+ga
 gg
 aa
 aa
@@ -13027,7 +12435,7 @@ bG
 bG
 aa
 aa
-fy
+aa
 aa
 aa
 aa

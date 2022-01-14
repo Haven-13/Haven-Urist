@@ -664,7 +664,7 @@
 	dir = 0				// dir will contain dominant direction for junction pipes
 	health = 10 	// health points 0-10
 	alpha = 192 // Plane and alpha modified for mapping, reset to normal on spawn.
-	layer = DISPOSALS_PIPE_LAYER
+	layer = ABOVE_TURF_LAYER
 	var/base_icon_state	// initial icon state on map
 	var/sortType = ""
 	var/subtype = 0
@@ -673,7 +673,7 @@
 /obj/structure/disposalpipe/New()
 	..()
 	alpha = 255
-	plane = DEFAULT_PLANE
+	layer = DISPOSALS_PIPE_LAYER
 	base_icon_state = icon_state
 	return
 

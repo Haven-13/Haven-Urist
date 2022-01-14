@@ -39,19 +39,6 @@
 	accessibility_weight = 10
 //	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
-/obj/effect/urist/spawn_bomb
-	icon = 'resources/icons/mob/screen1.dmi'
-	icon_state = "grabbed1"
-	invisibility = 101
-	var/dmg_dev = 1
-	var/dmg_hvy = 2
-	var/dmg_lgt = 5
-
-/obj/effect/urist/spawn_bomb/Initialize()
-	.=..()
-	explosion(src.loc, dmg_dev, dmg_hvy, dmg_lgt, 1)
-	qdel(src)
-
 /turf/simulated/floor/fixed/destroyedroad
 	name = "road"
 	desc = "It's a road. It's seen better days."

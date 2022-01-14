@@ -1,20 +1,19 @@
-/obj/machinery/computer/sensors
+/obj/machinery/computer/ship/sensors
 	name = "sensors console"
 	icon_keyboard = "teleport_key"
 	icon_screen = "teleport"
 	light_color = "#77fff8"
 	//circuit = /obj/item/weapon/circuitboard/sensors
-	var/obj/effect/overmap/ship/linked
 	var/obj/machinery/shipsensors/sensors
 	var/viewing = 0
 	var/list/viewers
 
-/obj/machinery/computer/sensors/Initialize()
+/obj/machinery/computer/ship/sensors/Initialize()
 	. = ..()
 	linked = map_sectors["[z]"]
 	find_sensors()
 
-/obj/machinery/computer/sensors/Destroy()
+/obj/machinery/computer/ship/sensors/Destroy()
 	sensors = null
 	if(LAZY_LENGTH(viewers))
 		for(var/weakref/W in viewers)
@@ -23,19 +22,26 @@
 				unlook(M)
 	. = ..()
 
-/obj/machinery/computer/sensors/proc/find_sensors()
+/obj/machinery/computer/ship/sensors/attempt_hook_up(obj/effect/overmap/ship/sector)
+	if(!(. = ..()))
+		return
+	find_sensors()
+
+/obj/machinery/computer/ship/sensors/proc/find_sensors()
+	if(!linked)
+		return
 	for(var/obj/machinery/shipsensors/S in SSmachines.machinery)
-		if (S.z in GetConnectedZlevels(z))
+		if (linked.check_ownership(S))
 			sensors = S
 			break
 
-/obj/machinery/computer/sensors/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/computer/ship/sensors/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "spacecraft/ShipSensors", name)
 		ui.open()
 
-/obj/machinery/computer/sensors/ui_static_data(mob/user)
+/obj/machinery/computer/ship/sensors/ui_static_data(mob/user)
 	. = list(
 		"minRange" = 1,
 		"maxRange" = world.view,
@@ -43,7 +49,7 @@
 		"criticalHeat" = sensors.critical_heat
 	)
 
-/obj/machinery/computer/sensors/ui_data(mob/user)
+/obj/machinery/computer/ship/sensors/ui_data(mob/user)
 	var/data[0]
 
 	data["viewing"] = viewing
@@ -67,7 +73,7 @@
 
 	return data
 
-/obj/machinery/computer/sensors/ui_act(action, list/params)
+/obj/machinery/computer/ship/sensors/ui_act(action, list/params)
 	switch(action)
 		if("view")
 			viewing = !viewing
@@ -86,7 +92,7 @@
 				sensors.toggle()
 				. = TRUE
 
-/obj/machinery/computer/sensors/check_eye(var/mob/user as mob)
+/obj/machinery/computer/ship/sensors/check_eye(var/mob/user as mob)
 	if (!get_dist(user, src) > 1 || user.blinded || !linked )
 		viewing = 0
 	if (!viewing)
@@ -94,7 +100,7 @@
 	else
 		return 0
 
-/obj/machinery/computer/sensors/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/ship/sensors/attack_hand(var/mob/user as mob)
 	if(..())
 		user.unset_machine()
 		viewing = 0
@@ -107,24 +113,24 @@
 			look(user)
 	ui_interact(user)
 
-/obj/machinery/computer/sensors/proc/look(var/mob/user)
+/obj/machinery/computer/ship/sensors/proc/look(var/mob/user)
 	if(linked)
 		user.reset_view(linked)
 	if(user.client)
 		user.client.view = world.view + 4
-	GLOB.moved_event.register(user, src, /obj/machinery/computer/sensors/proc/unlook)
-	GLOB.stat_set_event.register(user, src, /obj/machinery/computer/sensors/proc/unlook)
+	GLOB.moved_event.register(user, src, /obj/machinery/computer/ship/sensors/proc/unlook)
+	GLOB.stat_set_event.register(user, src, /obj/machinery/computer/ship/sensors/proc/unlook)
 	LAZY_ADD_UNIQUE(viewers, weakref(user))
 
-/obj/machinery/computer/sensors/proc/unlook(var/mob/user)
+/obj/machinery/computer/ship/sensors/proc/unlook(var/mob/user)
 	user.reset_view()
 	if(user.client)
 		user.client.view = world.view
-	GLOB.moved_event.unregister(user, src, /obj/machinery/computer/sensors/proc/unlook)
-	GLOB.stat_set_event.unregister(user, src, /obj/machinery/computer/sensors/proc/unlook)
+	GLOB.moved_event.unregister(user, src, /obj/machinery/computer/ship/sensors/proc/unlook)
+	GLOB.stat_set_event.unregister(user, src, /obj/machinery/computer/ship/sensors/proc/unlook)
 	LAZY_REMOVE(viewers, weakref(user))
 
-/obj/machinery/computer/sensors/Process()
+/obj/machinery/computer/ship/sensors/Process()
 	..()
 	if(!linked)
 		return

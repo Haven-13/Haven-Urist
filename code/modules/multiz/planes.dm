@@ -7,16 +7,19 @@
 	if(!original_plane)
 		original_plane = plane
 
-/atom/proc/set_plane(var/new_plane)	//Changes plane
+/atom/proc/set_plane(new_plane)	//Changes plane
 	original_plane = new_plane
 	update_plane()
 
-/proc/calculate_plane(var/z,var/original_plane)
-	if(z <= 0 || z_levels.len < z)
+/proc/calculate_plane(z, original_plane)
+	if(z <= 0 || z > world.maxz)
 		return original_plane
 
 	var/bottom_most_z = HasSubmapData(z) ? GetSubmapData(z).get_bottommost_z() : z
-	return min(MAX_PLANE,((z - bottom_most_z)*PLANES_PER_Z_LEVEL) + original_plane)
+	return calculate_plane_by_depth(z - bottom_most_z, original_plane)
+
+/proc/calculate_plane_by_depth(z_depth, original)
+	return min(MAX_PLANE,(max(0, z_depth)*PLANES_PER_Z_LEVEL) + original)
 
 /atom/proc/update_plane(override_z = 0)	//Updates plane using local z-coordinate
 	var/_z = (override_z || z)
@@ -27,10 +30,10 @@
 
 // Should be used for objects and base icons
 // For non-absolute or cached overlays, use get_float_plane
-/atom/proc/get_relative_plane(var/plane)
+/atom/proc/get_relative_plane(plane)
 	return calculate_plane(z,plane)
 
 // Should be used for overlays, specially cached ones
 // For atoms, use get_relative_plane
-/atom/proc/get_float_plane(var/plane)
+/atom/proc/get_float_plane(plane)
 	return FLOAT_PLANE + (plane - original_plane)

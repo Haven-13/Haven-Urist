@@ -33,6 +33,12 @@ SUBSYSTEM_DEF(timer)
 /datum/controller/subsystem/timer/stat_entry(msg)
 	..("B:[bucket_count] P:[length(processing)] H:[length(hashes)] C:[length(clienttime_timers)][times_crashed ? " F:[times_crashed]" : ""]")
 
+/datum/controller/subsystem/timer/get_metrics()
+	. = ..()
+	var/list/cust = list()
+	cust["bucket_count"] = bucket_count
+	.["custom"] = cust
+
 /datum/controller/subsystem/timer/fire(resumed = FALSE)
 	var/lit = last_invoke_tick
 	var/last_check = world.time - TIMER_NO_INVOKE_WARNING
