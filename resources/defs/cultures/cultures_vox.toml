@@ -1,6 +1,6 @@
 [culture_vox]
 language = "language_vox_basic"
-secondary_langs = ["language_basic_common", "language_spacer"]
+secondary_langs = ["language_spacer_basic"]
 category = ["culture"]
 
 [culture_vox_old]

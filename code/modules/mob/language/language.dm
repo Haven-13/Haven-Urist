@@ -5,12 +5,12 @@
 */
 
 /datum/language
-	var/name = "an unknown language"  // Fluff name of language if any.
-	var/description = "A language."   // Short description for 'Check Languages'.
-	var/speech_verb = "says"          // 'says', 'hisses', 'farts'.
-	var/ask_verb = "asks"             // Used when sentence ends in a ?
-	var/exclaim_verb = "exclaims"     // Used when sentence ends in a !
-	var/whisper_verb                  // Optional. When not specified speech_verb + quietly/softly is used instead.
+	var/name = "an unknown language"        // Fluff name of language if any.
+	var/description = "A language."         // Short description for 'Check Languages'.
+	var/speech_verb = list("says")          // 'says', 'hisses', 'farts'.
+	var/ask_verb = list("asks")             // Used when sentence ends in a ?
+	var/exclaim_verb = list("exclaims")     // Used when sentence ends in a !
+	var/whisper_verb                        // Optional. When not specified speech_verb + quietly/softly is used instead.
 	var/signlang_verb = list("signs", "gestures") // list of emotes that might be displayed if this language has NONVERBAL or SIGNLANG flags
 	var/colour = "body"               // CSS style to use for strings in this language.
 	var/key = "x"                     // Character used to speak in language eg. :o for Unathi.
@@ -19,7 +19,7 @@
 	var/list/syllables                // Used when scrambling text for a non-speaker.
 	var/list/space_chance = 55        // Likelihood of getting a space in the random scramble string
 	var/machine_understands = 1       // Whether machines can parse and understand this language
-	var/shorthand = "UL"             // Shorthand that shows up in chat for this language.
+	var/shorthand = "UL"              // Shorthand that shows up in chat for this language.
 
 /datum/language/proc/get_random_name(var/gender, name_count=2, syllable_count=4, syllable_divisor=2)
 	if(!syllables || !syllables.len)
@@ -128,20 +128,20 @@
 /datum/language/proc/get_spoken_verb(var/msg_end)
 	switch(msg_end)
 		if("!")
-			return exclaim_verb
+			return pick(exclaim_verb)
 		if("?")
-			return ask_verb
-	return speech_verb
+			return pick(ask_verb)
+	return pick(speech_verb)
 
 /datum/language/proc/can_speak_special(var/mob/speaker)
 	return 1
 
 // Language handling.
 /mob/proc/add_language(var/language)
-
 	var/datum/language/new_language = SSculture.get_language(language)
 
 	if(!istype(new_language) || (new_language in languages))
+		crash_with("Could not find language '[language]' in database")
 		return 0
 
 	languages.Add(new_language)

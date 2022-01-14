@@ -1,6 +1,6 @@
 [culture_teshari]
 language = "language_teshari_basic"
-secondary_langs = ["language_skrell_basic", "language_spacer"]
+secondary_langs = ["language_skrell_basic", "language_spacer_basic"]
 category = ["culture"]
 
 [culture_teshari_qerr]

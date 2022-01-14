@@ -13,7 +13,8 @@ SUBSYSTEM_DEF(culture)
 
 /datum/controller/subsystem/culture/Initialize()
 	initialize_name_lists()
-	initialize_language_infos()
+	initialize_builtin_languages()
+	initialize_languages()
 	initialize_culture_infos()
 	. = ..()
 
@@ -36,12 +37,22 @@ SUBSYSTEM_DEF(culture)
 
 		SSstrings.create_list(key, contents)
 
-/datum/controller/subsystem/culture/proc/initialize_language_infos()
+/datum/controller/subsystem/culture/proc/initialize_builtin_languages()
+	var/list/types = subtypesof(/datum/language)
+	for(var/type in types)
+		var/datum/language/lang = new type
+
+		language_by_id["[lang.type]"] = lang
+		language_by_name[lang.name] = lang
+		if(!(lang.flags & NONGLOBAL) && length(lang.key))
+			language_by_key[lowertext(lang.key)] = lang
+
+/datum/controller/subsystem/culture/proc/initialize_languages()
 	var/files = GLOB.using_map.get_language_files()
 	var/list/raw = list()
 	for (var/file in files)
 		if(!rustg_file_exists(file))
-			error("SSculture: File [file] does not exist")
+			log_error("SSculture: File [file] does not exist")
 			continue
 		var/list/data = rustg_read_toml_file(file)
 		for(var/key in data)
@@ -55,9 +66,9 @@ SUBSYSTEM_DEF(culture)
 		if(!lang.name)
 			continue
 		if(language_by_id[key])
-			error("Duplicate language ID: \[[key]\] from [toml_def["@source"]]")
+			log_error("Duplicate language ID: \[[key]\] from [toml_def["@source"]]")
 		if(language_by_name[lang.name])
-			error("Duplicate language name: '[lang.name]' by \[[key]\] from [toml_def["@source"]]")
+			log_error("Duplicate language name: '[lang.name]' by \[[key]\] from [toml_def["@source"]]")
 
 		language_by_id[key] = lang
 		language_by_name[lang.name] = lang
@@ -68,7 +79,7 @@ SUBSYSTEM_DEF(culture)
 	var/list/raw = list()
 	for (var/file in files)
 		if(!rustg_file_exists(file))
-			error("SSculture: File [file] does not exist")
+			log_error("SSculture: File [file] does not exist")
 			continue
 		var/list/data = rustg_read_toml_file(file)
 		for(var/key in data)
@@ -78,12 +89,14 @@ SUBSYSTEM_DEF(culture)
 	for (var/key in raw)
 		var/toml_def = resolve(key, raw)
 		var/decl/cultural_info/culture = try_build_culture_decl(key, toml_def)
+
 		if(!culture.name)
 			continue
 		if(cultural_info_by_id[key])
-			error("Duplicate cultural ID: \[[key]\] from [toml_def["@source"]]")
+			log_error("Duplicate cultural ID: \[[key]\] from [toml_def["@source"]]")
 		if(cultural_info_by_name[culture.name])
-			error("Duplicate cultural name: '[culture.name]' by \[[key]\] from [toml_def["@source"]]")
+			log_error("Duplicate cultural name: '[culture.name]' by \[[key]\] from [toml_def["@source"]]")
+
 		cultural_info_by_id[key] = culture
 		cultural_info_by_name[culture.name] = culture
 		if(culture.category && !culture.hidden)
@@ -114,6 +127,33 @@ SUBSYSTEM_DEF(culture)
 			log_error("Culture: Language id '[k]' is undefined! -- Used by '[who]'")
 	return languages
 
+/datum/controller/subsystem/culture/proc/parse_language_flags(list/flags, who)
+	. = 0
+	for(var/flag in flags)
+		switch(lowertext(flag))
+			if ("whitelisted")
+				. |= WHITELISTED
+			if ("restricted")
+				. |= RESTRICTED
+			if ("nonverbal")
+				. |= NONVERBAL
+			if ("signlang")
+				. |= SIGNLANG
+			if ("hivemind")
+				. |= HIVEMIND
+			if ("nonglobal")
+				. |= NONGLOBAL
+			if ("innate")
+				. |= INNATE
+			if ("no_talk_msg")
+				. |= NO_TALK_MSG
+			if ("no_stutter")
+				. |= NO_STUTTER
+			if ("alt_transmit")
+				. |= ALT_TRANSMIT
+			else
+				log_error("'[who]''s '[flag]' flag is unknown")
+
 /datum/controller/subsystem/culture/proc/try_build_language_decl(key, list/data)
 	var/datum/language/language = new
 	language.name = data["name"]
@@ -122,6 +162,15 @@ SUBSYSTEM_DEF(culture)
 	language.colour = data["colour"]
 	language.shorthand = data["short_hand"]
 	language.key = lowertext(data["key"])
+	language.flags = parse_language_flags(data["flags"], key)
+
+	var/list/verbs = data["verbs"]
+	if(!!verbs && length(verbs))
+		if(verbs["speech"])  language.speech_verb = verbs["speech"]
+		if(verbs["ask"])     language.ask_verb = verbs["ask"]
+		if(verbs["exclaim"]) language.speech_verb = verbs["exclaim"]
+		if(verbs["sign"])    language.signlang_verb = verbs["sign"]
+
 	return language
 
 /datum/controller/subsystem/culture/proc/try_build_culture_decl(key, list/data)

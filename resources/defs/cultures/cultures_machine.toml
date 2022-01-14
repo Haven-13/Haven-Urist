@@ -7,7 +7,7 @@ description = """
 	and have the freedom to identify yourself to a culture of choice or other. Or just
 	simply take pride in being a synthmorph."""
 
-language = "language_eal"
-additional_language = ["language_basic_common"]
+language = "language_spacer_basic"
+additional_language = ["language_machine"]
 
 category = ["culture"]

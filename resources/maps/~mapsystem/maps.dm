@@ -379,6 +379,8 @@ GLOBAL_LIST_EMPTY(all_maps)
 /datum/map/proc/get_language_files()
 	return list(
 		"resources/defs/languages/languages_common.toml",
+		"resources/defs/languages/languages_human.toml",
+		"resources/defs/languages/languages_other.toml",
 	)
 
 /datum/map/proc/get_culture_files()

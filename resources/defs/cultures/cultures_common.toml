@@ -1,6 +1,6 @@
 [culture_common]
-language = "language_spacer"
-secondary_languages = ["language_sol_common", "language_sign", "language_basic_common"]
+language = "language_spacer_basic"
+secondary_languages = ["language_orion_common", "language_sign"]
 category = ["culture"]
 
 [culture_common_spacer]

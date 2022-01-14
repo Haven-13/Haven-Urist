@@ -141,11 +141,11 @@
 	var/list/languages = S.speech_synthesizer_langs.Copy()
 	for(var/datum/language/L in languages)
 		// Removing GalCom from the random selection. If you want to be more generic you may instead want to use S.default_language
-		if(L.type == /datum/language/common)
+		if(L.type == LANGUAGE_GALCOM)
 			languages -= L
 		// Also removing any languages that won't work well over radio.
 		// A synth is unlikely to have any besides Binary, but we're playing it safe
-		else if(L.flags & (HIVEMIND|NONVERBAL|SIGNLANG))
+		else if(L.flags & (HIVEMIND|NONVERBAL|SIGNLANG|INNATE))
 			languages -= L
 
 	if(languages.len)

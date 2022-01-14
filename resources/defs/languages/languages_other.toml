@@ -1,0 +1,104 @@
+[language_unathi_basic]
+name = "Sinta'unathi"
+shorthand = "UT"
+description = """
+	The common language of Moghes, composed of sibilant hisses and rattles. Spoken natively by Unathi.
+"""
+colour = "soghun"
+key = "o"
+flags = ["whitelisted"]
+syllables = [
+	"za", "az", "ze", "ez", "zi", "iz", "zo", "oz", "zu", "uz", "zs", "sz",
+	"ha", "ah", "he", "eh", "hi", "ih", "ho", "oh", "hu", "uh", "hs", "sh",
+	"la", "al", "le", "el", "li", "il", "lo", "ol", "lu", "ul", "ls", "sl",
+	"ka", "ak", "ke", "ek", "ki", "ik", "ko", "ok", "ku", "uk", "ks", "sk",
+	"sa", "as", "se", "es", "si", "is", "so", "os", "su", "us", "ss", "ss",
+	"ra", "ar", "re", "er", "ri", "ir", "ro", "or", "ru", "ur", "rs", "sr",
+	"a",  "a",  "e",  "e",  "i",  "i",  "o",  "o",  "u",  "u",  "s",  "s"
+]
+[language_unathi_basic.verb]
+speech = "hisses"
+ask = "quizes"
+exclaim = "roars"
+
+[language_skrell_basic]
+name = "Qerr Pidign"
+shorthand = "SK"
+description = """
+	A melodic and complex language spoken by the Skrell of Qerrbalak. Some of the notes are inaudible to humans.
+"""
+colour = "skrell"
+key = "k"
+flags = ["whitelisted"]
+syllables = [
+	"qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!"
+]
+[language_skrell_basic.verb]
+speech = "warbles"
+ask = "warbles"
+exclaim = "warbles"
+
+[language_teshari_basic]
+name = "Schechi"
+shorthand = "SCH"
+description = "A trilling language spoken by the diminutive Teshari."
+colour = "alien"
+key = "v"
+flags = ["whitelisted"]
+syllables = [
+	"ca", "ra", "ma", "sa", "na", "ta", "la", "sha", "scha", "a", "a",
+	"ce", "re", "me", "se", "ne", "te", "le", "she", "sche", "e", "e",
+	"ci", "ri", "mi", "si", "ni", "ti", "li", "shi", "schi", "i", "i"
+]
+[language_teshari_basic.verbs]
+speech = ["chirps"]
+ask = ["chirrups"]
+exclaim = ["trills"]
+
+[language_machine]
+name = "Encoded Audio Language"
+shorthand = "EAL"
+description = "An efficient language of encoded tones developed by synthetics and cyborgs."
+speech_verb = "whistles"
+ask_verb = "chirps"
+exclaim_verb = "whistles loudly"
+colour = "changeling"
+key = "6"
+flags = ["no_stutter"]
+syllables = [
+	"beep","beep","beep","beep","beep","boop","boop","boop",
+	"bop","bop","dee","dee","doo","doo","hiss","hss","buzz",
+	"buzz","bzz","ksssh","keey","wurr","wahh","tzzz"
+]
+[language_machine.verbs]
+speech= ["whistles"]
+ask = ["chirps"]
+exclaim = ["screeches"]
+
+[language_nabber]
+name = "Serpentid Phonetics"
+shorthand = "SP"
+description = "A strange language that can be understood both by the sounds made and by the movement needed to create those sounds."
+key = "n"
+flags = ["restricted", "signlang", "no_stutter", "nonverbal"]
+colour = "nabber_lang"
+[language_nabber.verbs]
+sign = ["chitters", "grinds its mouthparts", "chitters and grinds its mouthparts"]
+
+[language_vox_basic]
+name = "Vox Pidgin"
+shorthand = "Vox"
+desc = """
+	The common tongue of the various Vox ships making up the Shoal. It sounds like chaotic shrieking to everyone else.
+"""
+colour = "vox"
+key = "5"
+flags = ["restricted"]
+syllables = [
+	"ti","ti","ti","hi","hi","ki","ki","ki","ki","ya","ta","ha","ka","ya","chi","cha","kah",
+	"SKRE","AHK","EHK","RAWK","KRA","AAA","EEE","KI","II","KRI","KA"
+]
+[language_vox_basic.verbs]
+speech = ["squeals"]
+ask = ["creels"]
+exclaim = ["shrieks"]

@@ -76,7 +76,7 @@
 
 	for(var/thing in SSculture.language_by_name)
 		var/datum/language/lang = SSculture.language_by_name[thing]
-		if(user.has_admin_rights() || (!(lang.flags & RESTRICTED) && (lang.flags & WHITELISTED) && is_alien_whitelisted(user, lang)))
+		if(!(lang.flags & RESTRICTED) || ((lang.flags & WHITELISTED) && is_alien_whitelisted(user, lang)))
 			allowed_languages[thing] = TRUE
 
 /datum/category_item/player_setup_item/background/languages/proc/is_allowed_language(var/mob/user, var/datum/language/lang)

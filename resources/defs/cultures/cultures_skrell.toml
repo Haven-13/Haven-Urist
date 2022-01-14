@@ -1,6 +1,6 @@
 [culture_skrell]
 language = "language_skrell_basic"
-secondary_languages = ["language_basic_common"]
+secondary_languages = ["language_spacer_basic"]
 category = ["culture"]
 
 [culture_skrell_qerr]

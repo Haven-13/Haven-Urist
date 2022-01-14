@@ -48,14 +48,6 @@
 
 	//syllables are at the bottom of the file
 
-/datum/language/human/get_spoken_verb(var/msg_end)
-	switch(msg_end)
-		if("!")
-			return pick("exclaims","shouts","yells") //TODO: make the basic proc handle lists of verbs.
-		if("?")
-			return ask_verb
-	return speech_verb
-
 /datum/language/human/get_random_name(var/gender)
 	if (prob(80))
 		if(gender==FEMALE)
@@ -185,7 +177,7 @@
 	signlang_verb = list("chitters", "grinds its mouthparts", "chitters and grinds its mouthparts")
 	key = "n"
 	flags = RESTRICTED | SIGNLANG | NO_STUTTER | NONVERBAL
-	colour = ".nabber_lang"
+	colour = "nabber_lang"
 	shorthand = "SD"
 
 /datum/language/nabber/get_random_name(var/gender)

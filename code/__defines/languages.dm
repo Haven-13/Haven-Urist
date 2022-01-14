@@ -1,5 +1,5 @@
 // Languages.
-#define LANGUAGE_GALCOM         "Santiago Basic"
+#define LANGUAGE_GALCOM         "Santiago Básico"
 #define LANGUAGE_EAL            "Encoded Audio Language"
 #define LANGUAGE_SOL_COMMON     "Sol Standard"
 #define LANGUAGE_UNATHI         "Sinta'unathi"
@@ -7,7 +7,7 @@
 #define LANGUAGE_LUNAR          "Selenian"
 #define LANGUAGE_GUTTER         "Gutter"
 #define LANGUAGE_CULT           "Cult"
-#define LANGUAGE_SIGN           "Sign Language"
+#define LANGUAGE_SIGN           "Hand Sign Language"
 #define LANGUAGE_INDEPENDENT    "Independent"
 #define LANGUAGE_NABBER         "Serpentid"
 #define LANGUAGE_SPACER         "Spacer Creole"
