@@ -39,7 +39,7 @@
 		silicon_camera = new silicon_camera(src)
 
 	add_language(LANGUAGE_GALCOM)
-	default_language = all_languages[LANGUAGE_GALCOM]
+	default_language = SSculture.get_language(LANGUAGE_GALCOM)
 	init_id()
 	init_subsystems()
 
@@ -180,7 +180,7 @@
 	return universal_speak || (speaking in src.speech_synthesizer_langs)	//need speech synthesizer support to vocalize a language
 
 /mob/living/silicon/add_language(var/language, var/can_speak=1)
-	var/datum/language/added_language = all_languages[language]
+	var/datum/language/added_language = SSculture.get_language(language)
 	if(!added_language)
 		return
 
@@ -190,7 +190,7 @@
 		return 1
 
 /mob/living/silicon/remove_language(var/rem_language)
-	var/datum/language/removed_language = all_languages[rem_language]
+	var/datum/language/removed_language = SSculture.get_language(rem_language)
 	if(!removed_language)
 		return
 
@@ -216,7 +216,7 @@
 				default_str = " - <a href='byond://?src=[REF(src)];default_lang=[REF(L)]'>set default</a>"
 
 			var/synth = (L in speech_synthesizer_langs)
-			dat += "<b>[L.name] ([get_language_prefix()][L.key])</b>[synth ? default_str : null]<br/>Speech Synthesizer: <i>[synth ? "YES" : "NOT SUPPORTED"]</i><br/>[L.desc]<br/><br/>"
+			dat += "<b>[L.name] ([get_language_prefix()][L.key])</b>[synth ? default_str : null]<br/>Speech Synthesizer: <i>[synth ? "YES" : "NOT SUPPORTED"]</i><br/>[L.description]<br/><br/>"
 
 	show_browser(src, dat, "window=checklanguage")
 	return

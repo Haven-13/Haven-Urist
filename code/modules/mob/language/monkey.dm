@@ -1,6 +1,6 @@
 /datum/language/human/monkey
 	name = "Chimpanzee"
-	desc = "Ook ook ook."
+	description = "Ook ook ook."
 	speech_verb = "chimpers"
 	ask_verb = "chimpers"
 	exclaim_verb = "screeches"
@@ -10,20 +10,20 @@
 
 /datum/language/unathi/monkey
 	name = "Stok"
-	desc = "Hiss hiss hiss."
+	description = "Hiss hiss hiss."
 	flags = RESTRICTED
 	key = "7"
 	shorthand = "UM"
 
 /datum/language/skrell/monkey
 	name = "Neaera"
-	desc = "Squik squik squik."
+	description = "Squik squik squik."
 	flags = RESTRICTED
 	key = "8"
 	shorthand = "SM"
 
 /datum/language/xenos/monkey
 	name = "Farwa"
-	desc = "Meow meow meow."
+	description = "Meow meow meow."
 	key = "9"
 	shorthand = "TM"

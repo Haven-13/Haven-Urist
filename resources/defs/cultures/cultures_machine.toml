@@ -9,3 +9,5 @@ description = """
 
 language = "language_eal"
 additional_language = ["language_basic_common"]
+
+category = ["culture"]

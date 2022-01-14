@@ -1,7 +1,7 @@
 /datum/language/xenocommon
 	name = LANGUAGE_XENOPHAGE
 	colour = "alien"
-	desc = "The common tongue of the xenophages."
+	description = "The common tongue of the xenophages."
 	speech_verb = "hisses"
 	ask_verb = "hisses"
 	exclaim_verb = "hisses"
@@ -13,7 +13,7 @@
 
 /datum/language/xenos
 	name = LANGUAGE_XENOPHAGE_HIVE
-	desc = "Xenophages have the strange ability to commune over a psychic hivemind."
+	description = "Xenophages have the strange ability to commune over a psychic hivemind."
 	speech_verb = "hisses"
 	ask_verb = "hisses"
 	exclaim_verb = "hisses"
@@ -34,7 +34,7 @@
 
 /datum/language/vox
 	name = LANGUAGE_VOX
-	desc = "The common tongue of the various Vox ships making up the Shoal. It sounds like chaotic shrieking to everyone else."
+	description = "The common tongue of the various Vox ships making up the Shoal. It sounds like chaotic shrieking to everyone else."
 	speech_verb = "shrieks"
 	ask_verb = "creels"
 	exclaim_verb = "SHRIEKS"
@@ -51,7 +51,7 @@
 
 /datum/language/cultcommon
 	name = LANGUAGE_CULT
-	desc = "The chants of the occult, the incomprehensible."
+	description = "The chants of the occult, the incomprehensible."
 	speech_verb = "intones"
 	ask_verb = "intones"
 	exclaim_verb = "chants"
@@ -71,7 +71,7 @@
 
 /datum/language/cult
 	name = LANGUAGE_OCCULT
-	desc = "The initiated can share their thoughts by means defying all reason."
+	description = "The initiated can share their thoughts by means defying all reason."
 	speech_verb = "intones"
 	ask_verb = "intones"
 	exclaim_verb = "chants"

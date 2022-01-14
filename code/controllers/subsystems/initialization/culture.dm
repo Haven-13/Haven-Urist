@@ -3,12 +3,13 @@ SUBSYSTEM_DEF(culture)
 	init_order = SS_INIT_CULTURE
 	flags = SS_NO_FIRE
 
-	var/list/language_info_by_name = list()
-	var/list/language_info_by_id = list()
+	var/list/language_by_name = list()
+	var/list/language_by_id = list()
+	var/list/language_by_key = list()
 
 	var/list/cultural_info_by_name = list()
 	var/list/cultural_info_by_id = list()
-	var/list/tagged_info = list()
+	var/list/cultural_info_by_tag = list()
 
 /datum/controller/subsystem/culture/Initialize()
 	initialize_name_lists()
@@ -50,14 +51,17 @@ SUBSYSTEM_DEF(culture)
 	for (var/key in raw)
 		var/toml_def = resolve(key, raw)
 		var/datum/language/lang = try_build_language_decl(key, toml_def)
+
 		if(!lang.name)
 			continue
-		if(language_info_by_id[key])
+		if(language_by_id[key])
 			error("Duplicate language ID: \[[key]\] from [toml_def["@source"]]")
-		if(language_info_by_name[lang.name])
+		if(language_by_name[lang.name])
 			error("Duplicate language name: '[lang.name]' by \[[key]\] from [toml_def["@source"]]")
-		language_info_by_id[key] = lang
-		language_info_by_name[lang.name] = lang
+
+		language_by_id[key] = lang
+		language_by_name[lang.name] = lang
+		language_by_key[lang.key] = lang
 
 /datum/controller/subsystem/culture/proc/initialize_culture_infos()
 	var/files = GLOB.using_map.get_culture_files()
@@ -83,9 +87,9 @@ SUBSYSTEM_DEF(culture)
 		cultural_info_by_id[key] = culture
 		cultural_info_by_name[culture.name] = culture
 		if(culture.category && !culture.hidden)
-			if(!tagged_info[culture.category])
-				tagged_info[culture.category] = list()
-			var/list/tag_list = tagged_info[culture.category]
+			if(!cultural_info_by_tag[culture.category])
+				cultural_info_by_tag[culture.category] = list()
+			var/list/tag_list = cultural_info_by_tag[culture.category]
 			tag_list[culture.name] = culture
 
 /datum/controller/subsystem/culture/proc/resolve(key, list/raw_toml_data)
@@ -96,49 +100,51 @@ SUBSYSTEM_DEF(culture)
 		def["@full"] = def + (def["@extension"] || list())
 	return def["@full"]
 
-/datum/controller/subsystem/culture/proc/resolve_language(key, who)
+/datum/controller/subsystem/culture/proc/resolve_languages(keys, who)
 	var/datum/language/L
-	if(islist(key))
-		var/list/languages = list()
-		for (var/k in key)
-			if (!(k in language_info_by_id))
-				log_error("Culture: Language id '[k]' is undefined! -- Used by '[who]'")
-			else
-				L = language_info_by_id[k]
-				languages.Add(L.name)
-		return languages
-	else
-		if (!(key in language_info_by_id))
-			log_error("Culture: Language id '[key]' is undefined! -- Used by '[who]'")
-			return FALSE
-		L = language_info_by_id[key]
-		return L.name
+	var/list/languages = list()
+	if(!islist(keys))
+		keys = list(keys)
+
+	for (var/k in keys)
+		if (k in language_by_id)
+			L = language_by_id[k]
+			languages.Add(L.name)
+		else
+			log_error("Culture: Language id '[k]' is undefined! -- Used by '[who]'")
+	return languages
 
 /datum/controller/subsystem/culture/proc/try_build_language_decl(key, list/data)
 	var/datum/language/language = new
 	language.name = data["name"]
-	language.desc = data["description"]
-	language.syllables = data["syallables"]
+	language.description = data["description"]
+	language.syllables = data["syllables"]
 	language.colour = data["colour"]
 	language.shorthand = data["short_hand"]
-	language.key = data["key"]
+	language.key = lowertext(data["key"])
 	return language
 
 /datum/controller/subsystem/culture/proc/try_build_culture_decl(key, list/data)
 	var/decl/cultural_info/culture = new
 	culture.name = data["name"]
 	culture.description = data["description"]
-	culture.language = resolve_language(data["language"], key)
-	culture.secondary_langs = resolve_language(data["secondary_languages"] || list(), key)
-	culture.additional_langs = resolve_language(data["additional_languages"] || list(), key)
 	culture.hidden = data["hidden"] || FALSE
+	culture.category = data["category"]
+
+	var/list/langs = resolve_languages(data["language"], key)
+	culture.language = LAZY_ACCESS(langs, 1)
+	culture.secondary_langs = resolve_languages(data["secondary_languages"] || list(), key)
+	culture.additional_langs = resolve_languages(data["additional_languages"] || list(), key)
 	return culture
 
-/datum/controller/subsystem/culture/proc/get_culture(var/identifer)
-	return cultural_info_by_id[identifer] || cultural_info_by_name[identifer]
+/datum/controller/subsystem/culture/proc/get_language(var/identifier)
+	return language_by_id[identifier] || language_by_name[identifier]
+
+/datum/controller/subsystem/culture/proc/get_culture(var/identifier)
+	return cultural_info_by_id[identifier] || cultural_info_by_name[identifier]
 
 /datum/controller/subsystem/culture/proc/pick_random_culture()
 	return cultural_info_by_id[pick(cultural_info_by_id)]
 
 /datum/controller/subsystem/culture/proc/get_all_entries_tagged_with(var/token)
-	return tagged_info[token]
+	return cultural_info_by_tag[token]

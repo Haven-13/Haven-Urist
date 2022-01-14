@@ -6,7 +6,7 @@
 	reagents = bloodstr
 
 	if (!default_language && species_language)
-		default_language = all_languages[species_language]
+		default_language = SSculture.get_language(species_language)
 	..()
 
 /mob/living/carbon/Destroy()

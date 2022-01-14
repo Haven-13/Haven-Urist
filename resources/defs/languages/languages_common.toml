@@ -1,6 +1,6 @@
 [language_basic_common]
 name = "Santiago Basic"
-short_hand = "GC"
+shorthand = "GC"
 description = "The common galactic tongue."
 syllables = [
 	"blah","blah","blah","bleh","meh","neh","nah","wah"
@@ -9,7 +9,7 @@ key = "0"
 
 [language_spacer]
 name = "Spacer Croele"
-short_hand = "SP"
+shorthand = "SP"
 description = """
 	A pidgin language spoken by haulers, merchants, traders, travellers, and cocky fly-boys across the galaxy.
 	"""

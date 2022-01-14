@@ -56,7 +56,6 @@
 	. = ..()
 
 /datum/category_item/player_setup_item/background/languages/proc/rebuild_language_cache(var/mob/user)
-
 	allowed_languages = list()
 	free_languages = list()
 
@@ -75,8 +74,8 @@
 				for(var/checklang in culture.secondary_langs)
 					allowed_languages[checklang] = TRUE
 
-	for(var/thing in all_languages)
-		var/datum/language/lang = all_languages[thing]
+	for(var/thing in SSculture.language_by_name)
+		var/datum/language/lang = SSculture.language_by_name[thing]
 		if(user.has_admin_rights() || (!(lang.flags & RESTRICTED) && (lang.flags & WHITELISTED) && is_alien_whitelisted(user, lang)))
 			allowed_languages[thing] = TRUE
 
@@ -93,7 +92,7 @@
 	var/preference_mob = preference_mob()
 	rebuild_language_cache(preference_mob)
 	for(var/L in pref.alternate_languages)
-		var/datum/language/lang = all_languages[L]
+		var/datum/language/lang = SSculture.get_language(L)
 		if(!lang || !is_allowed_language(preference_mob, lang))
 			pref.alternate_languages -= L
 	if(LAZY_LENGTH(free_languages))

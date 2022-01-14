@@ -1,6 +1,7 @@
 [culture_human]
 language = "language_sol_common"
 secondary_languages = ["language_spacer", "language_sign"]
+category = ["culture"]
 
 [culture_human_aursian]
 __extends = 'culture_human'

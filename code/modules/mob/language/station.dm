@@ -1,6 +1,6 @@
 /datum/language/unathi
 	name = LANGUAGE_UNATHI
-	desc = "The common language of Moghes, composed of sibilant hisses and rattles. Spoken natively by Unathi."
+	description = "The common language of Moghes, composed of sibilant hisses and rattles. Spoken natively by Unathi."
 	speech_verb = "hisses"
 	ask_verb = "hisses"
 	exclaim_verb = "roars"
@@ -21,7 +21,7 @@
 
 /datum/language/skrell
 	name = LANGUAGE_SKRELLIAN
-	desc = "A melodic and complex language spoken by the Skrell of Qerrbalak. Some of the notes are inaudible to humans."
+	description = "A melodic and complex language spoken by the Skrell of Qerrbalak. Some of the notes are inaudible to humans."
 	speech_verb = "warbles"
 	ask_verb = "warbles"
 	exclaim_verb = "warbles"
@@ -38,7 +38,7 @@
 
 /datum/language/human
 	name = LANGUAGE_SOL_COMMON
-	desc = "A bastardized hybrid of informal English and elements of Mandarin Chinese; the common language of the Sol system."
+	description = "A bastardized hybrid of informal English and elements of Mandarin Chinese; the common language of the Sol system."
 	speech_verb = "says"
 	whisper_verb = "whispers"
 	colour = "solcom"
@@ -67,7 +67,7 @@
 
 /datum/language/machine
 	name = LANGUAGE_EAL
-	desc = "An efficient language of encoded tones developed by synthetics and cyborgs."
+	description = "An efficient language of encoded tones developed by synthetics and cyborgs."
 	speech_verb = "whistles"
 	ask_verb = "chirps"
 	exclaim_verb = "whistles loudly"
@@ -88,7 +88,7 @@
 
 /datum/language/resomi
 	name = LANGUAGE_RESOMI
-	desc = "A trilling language spoken by the diminutive Teshari."
+	description = "A trilling language spoken by the diminutive Teshari."
 	speech_verb = "chirps"
 	ask_verb = "chirrups"
 	exclaim_verb = "trills"
@@ -169,7 +169,7 @@
 
 /datum/language/confederate
 	name = LANGUAGE_INDEPENDENT
-	desc = "The official language of the Terran Colonial Confederation, evolved from a pidgin of Eastern European languages and English."
+	description = "The official language of the Terran Colonial Confederation, evolved from a pidgin of Eastern European languages and English."
 	speech_verb = "speaks"
 	colour = "terran"
 	flags = RESTRICTED
@@ -181,7 +181,7 @@
 
 /datum/language/nabber
 	name = LANGUAGE_NABBER
-	desc = "A strange language that can be understood both by the sounds made and by the movement needed to create those sounds."
+	description = "A strange language that can be understood both by the sounds made and by the movement needed to create those sounds."
 	signlang_verb = list("chitters", "grinds its mouthparts", "chitters and grinds its mouthparts")
 	key = "n"
 	flags = RESTRICTED | SIGNLANG | NO_STUTTER | NONVERBAL
@@ -196,7 +196,7 @@
 
 /datum/language/spacer
 	name = LANGUAGE_SPACER
-	desc = "A pidgin language spoken by haulers, merchants, traders, travellers, and cocky fly-boys across the galaxy."
+	description = "A pidgin language spoken by haulers, merchants, traders, travellers, and cocky fly-boys across the galaxy."
 	flags = RESTRICTED
 	colour = "spacer"
 	key = "e"

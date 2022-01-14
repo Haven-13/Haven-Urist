@@ -1,6 +1,7 @@
 [culture_unathi]
 language = "language_unathi_basic"
 secondary_langs = ["language_basic_common", "language_spacer"]
+category = ["culture"]
 
 [culture_unathi_old]
 __extends = 'culture_unathi'

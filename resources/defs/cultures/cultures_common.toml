@@ -1,6 +1,7 @@
 [culture_common]
 language = "language_spacer"
 secondary_languages = ["language_sol_common", "language_sign", "language_basic_common"]
+category = ["culture"]
 
 [culture_common_spacer]
 __extends = 'culture_common'

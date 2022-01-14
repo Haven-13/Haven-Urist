@@ -6,7 +6,7 @@
 
 /datum/language
 	var/name = "an unknown language"  // Fluff name of language if any.
-	var/desc = "A language."          // Short description for 'Check Languages'.
+	var/description = "A language."   // Short description for 'Check Languages'.
 	var/speech_verb = "says"          // 'says', 'hisses', 'farts'.
 	var/ask_verb = "asks"             // Used when sentence ends in a ?
 	var/exclaim_verb = "exclaims"     // Used when sentence ends in a !
@@ -19,7 +19,7 @@
 	var/list/syllables                // Used when scrambling text for a non-speaker.
 	var/list/space_chance = 55        // Likelihood of getting a space in the random scramble string
 	var/machine_understands = 1       // Whether machines can parse and understand this language
-	var/shorthand = "UL"			  // Shorthand that shows up in chat for this language.
+	var/shorthand = "UL"             // Shorthand that shows up in chat for this language.
 
 /datum/language/proc/get_random_name(var/gender, name_count=2, syllable_count=4, syllable_divisor=2)
 	if(!syllables || !syllables.len)
@@ -139,7 +139,7 @@
 // Language handling.
 /mob/proc/add_language(var/language)
 
-	var/datum/language/new_language = all_languages[language]
+	var/datum/language/new_language = SSculture.get_language(language)
 
 	if(!istype(new_language) || (new_language in languages))
 		return 0
@@ -148,12 +148,12 @@
 	return 1
 
 /mob/proc/remove_language(var/rem_language)
-	var/datum/language/L = all_languages[rem_language]
+	var/datum/language/L = SSculture.get_language(rem_language)
 	. = (L in languages)
 	languages.Remove(L)
 
 /mob/living/remove_language(rem_language)
-	var/datum/language/L = all_languages[rem_language]
+	var/datum/language/L = SSculture.get_language(rem_language)
 	if(default_language == L)
 		default_language = null
 	return ..()
@@ -163,7 +163,7 @@
 	if(!speaking)
 		return 0
 
-	if (only_species_language && speaking != all_languages[species_language])
+	if (only_species_language && speaking != SSculture.get_language(species_language))
 		return 0
 
 	return (speaking.can_speak_special(src) && (universal_speak || (speaking && speaking.flags & INNATE) || (speaking in src.languages)))
@@ -184,7 +184,7 @@
 
 	for(var/datum/language/L in languages)
 		if(!(L.flags & NONGLOBAL))
-			dat += "<b>[L.name]([L.shorthand]) ([get_language_prefix()][L.key])</b><br/>[L.desc]<br/><br/>"
+			dat += "<b>[L.name]([L.shorthand]) ([get_language_prefix()][L.key])</b><br/>[L.description]<br/><br/>"
 
 	show_browser(src, dat, "window=checklanguage")
 	return
@@ -198,11 +198,11 @@
 	for(var/datum/language/L in languages)
 		if(!(L.flags & NONGLOBAL))
 			if(L == default_language)
-				dat += "<b>[L.name]([L.shorthand]) ([get_language_prefix()][L.key])</b> - default - <a href='byond://?src=[REF(src)];default_lang=reset'>reset</a><br/>[L.desc]<br/><br/>"
+				dat += "<b>[L.name]([L.shorthand]) ([get_language_prefix()][L.key])</b> - default - <a href='byond://?src=[REF(src)];default_lang=reset'>reset</a><br/>[L.description]<br/><br/>"
 			else if (can_speak(L))
-				dat += "<b>[L.name]([L.shorthand]) ([get_language_prefix()][L.key])</b> - <a href='byond://?src=[REF(src)];default_lang=[REF(L)]'>set default</a><br/>[L.desc]<br/><br/>"
+				dat += "<b>[L.name]([L.shorthand]) ([get_language_prefix()][L.key])</b> - <a href='byond://?src=[REF(src)];default_lang=[REF(L)]'>set default</a><br/>[L.description]<br/><br/>"
 			else
-				dat += "<b>[L.name]([L.shorthand]) ([get_language_prefix()][L.key])</b> - cannot speak!<br/>[L.desc]<br/><br/>"
+				dat += "<b>[L.name]([L.shorthand]) ([get_language_prefix()][L.key])</b> - cannot speak!<br/>[L.description]<br/><br/>"
 
 	show_browser(src, dat, "window=checklanguage")
 
@@ -211,7 +211,7 @@
 		if(href_list["default_lang"] == "reset")
 
 			if (species_language)
-				set_default_language(all_languages[species_language])
+				set_default_language(SSculture.get_language(species_language))
 			else
 				set_default_language(null)
 

@@ -14,8 +14,6 @@ var/global/list/joblist = list()					//list of all jobstypes, minus borg and AI
 
 //Languages/species/whitelist.
 var/global/list/all_species[0]
-var/global/list/all_languages[0]
-var/global/list/language_keys[0]					// Table of say codes for all languages
 var/global/list/whitelisted_species = list(SPECIES_HUMAN) // Species that require a whitelist check.
 var/global/list/playable_species = list(SPECIES_HUMAN)    // A list of ALL playable species, whitelisted, latejoin or otherwise.
 
@@ -128,17 +126,7 @@ var/global/list/string_slot_flags = list(
 		var/datum/job/J = new T
 		joblist[J.title] = J
 
-	//Languages and species.
-	paths = typesof(/datum/language)-/datum/language
-	for(var/T in paths)
-		var/datum/language/L = new T
-		all_languages[L.name] = L
-
-	for (var/language_name in all_languages)
-		var/datum/language/L = all_languages[language_name]
-		if(!(L.flags & NONGLOBAL))
-			language_keys[lowertext(L.key)] = L
-
+	//Species.
 	var/rkey = 0
 	paths = typesof(/datum/species)
 	for(var/T in paths)

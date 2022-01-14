@@ -1,7 +1,7 @@
 // Noise "language", for audible emotes.
 /datum/language/noise
 	name = "Noise"
-	desc = "Noises"
+	description = "Noises"
 	key = ""
 	flags = RESTRICTED|NONGLOBAL|INNATE|NO_TALK_MSG|NO_STUTTER
 
@@ -21,7 +21,7 @@
 // 'basic' language; spoken by default.
 /datum/language/common
 	name = LANGUAGE_GALCOM
-	desc = "The common galactic tongue."
+	description = "The common galactic tongue."
 	speech_verb = "says"
 	whisper_verb = "whispers"
 	key = "0"
@@ -45,7 +45,7 @@
 // Galactic common languages (systemwide accepted standards).
 /datum/language/lunar
 	name = LANGUAGE_LUNAR
-	desc = "Maintained by the various trading cartels in major systems, this elegant, structured language is used for bartering and bargaining."
+	description = "Maintained by the various trading cartels in major systems, this elegant, structured language is used for bartering and bargaining."
 	speech_verb = "enunciates"
 	colour = "moon"
 	key = "2"
@@ -65,7 +65,7 @@
 // Criminal language.
 /datum/language/gutter
 	name = "Gutter"
-	desc = "Much like Common, this crude pidgin tongue descended from numerous languages and serves as a trade language for criminal elements."
+	description = "Much like Common, this crude pidgin tongue descended from numerous languages and serves as a trade language for criminal elements."
 	speech_verb = "growls"
 	colour = "rough"
 	key = "3"
@@ -74,7 +74,7 @@
 
 /datum/language/sign
 	name = LANGUAGE_SIGN
-	desc = "A sign language commonly used for those who are deaf or mute."
+	description = "A sign language commonly used for those who are deaf or mute."
 	signlang_verb = list("gestures")
 	colour = "say_quote"
 	key = "s"

@@ -3,7 +3,7 @@
 //Totally-not-kobaian, because why not? It's a conlang and I'm a massive nerd.
 /datum/language/mekanik
 	name = "Sol-Divergent"
-	desc = "A strange, militaristic-sounding amalgamation of Germanic and Slavic languages contaminated with French and long isolation from mainstream humanity."
+	description = "A strange, militaristic-sounding amalgamation of Germanic and Slavic languages contaminated with French and long isolation from mainstream humanity."
 	speech_verb = "says"
 	whisper_verb = "whispers"
 	colour = "rough"
