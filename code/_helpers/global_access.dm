@@ -245,8 +245,6 @@
 			return global.all_grabobjects;
 		if("all_grabstates")
 			return global.all_grabstates;
-		if("all_languages")
-			return global.all_languages;
 		if("all_money_accounts")
 			return global.all_money_accounts;
 		if("all_objectives")
@@ -533,6 +531,8 @@
 			return global.href_logfile;
 		if("human_icon_cache")
 			return global.human_icon_cache;
+		if("icon_state_cache")
+			return global.icon_state_cache;
 		if("id_card_states")
 			return global.id_card_states;
 		if("image_repository")
@@ -563,8 +563,6 @@
 			return global.jungle_plants_init;
 		if("landmarks_list")
 			return global.landmarks_list;
-		if("language_keys")
-			return global.language_keys;
 		if("last_chew")
 			return global.last_chew;
 		if("last_round_duration")
@@ -1254,8 +1252,6 @@
 			global.all_grabobjects=newval;
 		if("all_grabstates")
 			global.all_grabstates=newval;
-		if("all_languages")
-			global.all_languages=newval;
 		if("all_money_accounts")
 			global.all_money_accounts=newval;
 		if("all_objectives")
@@ -1542,6 +1538,8 @@
 			global.href_logfile=newval;
 		if("human_icon_cache")
 			global.human_icon_cache=newval;
+		if("icon_state_cache")
+			global.icon_state_cache=newval;
 		if("id_card_states")
 			global.id_card_states=newval;
 		if("image_repository")
@@ -1572,8 +1570,6 @@
 			global.jungle_plants_init=newval;
 		if("landmarks_list")
 			global.landmarks_list=newval;
-		if("language_keys")
-			global.language_keys=newval;
 		if("last_chew")
 			global.last_chew=newval;
 		if("last_round_duration")
@@ -2140,7 +2136,6 @@
 	"allConsoles",
 	"all_grabobjects",
 	"all_grabstates",
-	"all_languages",
 	"all_money_accounts",
 	"all_objectives",
 	"all_robolimbs",
@@ -2284,6 +2279,7 @@
 	"host",
 	"href_logfile",
 	"human_icon_cache",
+	"icon_state_cache",
 	"id_card_states",
 	"image_repository",
 	"inactive_keys",
@@ -2299,7 +2295,6 @@
 	"join_motd",
 	"jungle_plants_init",
 	"landmarks_list",
-	"language_keys",
 	"last_chew",
 	"last_round_duration",
 	"light_overlay_cache",
