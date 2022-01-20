@@ -27,9 +27,12 @@
 	var/list/connected
 	var/halted = 0 //Nax, I know this is going to conflict when we merge Bay. If it's you merging it, just take Bay's version of this whole file. What I'm adding is just temporary, for combat.
 
+/obj/effect/overmap/ship/New()
+	GLOB.overmap_ships += src
+	. = ..()
+
 /obj/effect/overmap/ship/Initialize()
 	. = ..()
-	GLOB.overmap_ships += src
 	START_PROCESSING(SSobj, src)
 
 /obj/effect/overmap/ship/Destroy()
