@@ -3,7 +3,7 @@
 	var/static/list/obj/effect/overmap/ship/combat/ships
 	if(!ships)
 		ships = list()
-		for (var/obj/effect/overmap/ship/ship in SSobj.processing)
+		for (var/obj/effect/overmap/ship/ship in GLOB.overmap_ships)
 			if(!istype(ship))
 				continue
 			if(istype(ship, /obj/effect/overmap/ship/combat))
@@ -20,7 +20,7 @@
 
 
 /datum/unit_test/has_projectile_landmarks
-	name = "MAP SHIP COMBAT SUPPORT: Has projectile landmarks"
+	name = "SHIP COMBAT SUPPORT: Has projectile landmarks"
 
 /datum/unit_test/has_projectile_landmarks/start_test()
 	var/list/fails = list()
@@ -36,7 +36,7 @@
 		if(length(C.landmarks))
 			passes[C.shipid] = TRUE
 		else
-			fails += "[C.shipid] ([C.ship_name]: [C]) has no projectile landmarks in its list"
+			fails += "'[C.shipid]' ([C.ship_name]: [C]) has no projectile landmarks in its list"
 
 	if(fails)
 		for(var/f in fails)

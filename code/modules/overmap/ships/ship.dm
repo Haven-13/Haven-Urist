@@ -29,10 +29,12 @@
 
 /obj/effect/overmap/ship/Initialize()
 	. = ..()
+	GLOB.overmap_ships += src
 	START_PROCESSING(SSobj, src)
 
 /obj/effect/overmap/ship/Destroy()
 	STOP_PROCESSING(SSobj, src)
+	GLOB.overmap_ships -= src
 	. = ..()
 
 /obj/effect/overmap/ship/relaymove(mob/user, direction)

@@ -28,10 +28,6 @@
 
 	..()
 
-/obj/effect/overmap/ship/combat/New()
-	GLOB.overmap_ships += src	//Fallback connect uses this. Let's populate it
-	..()
-
 /obj/effect/overmap/ship/combat/Initialize()
 	for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we assign ourself to the combat computer
 		if(CC.shipid == src.shipid) //having things tied to shipid means that in the future we might be able to have pvp ship combat, if i change a couple things with attacking
