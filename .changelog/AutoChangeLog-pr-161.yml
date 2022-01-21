@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Fixes the multi-z rendering issue, in which it would be permanently broken
-      for a player the moment they enter a submap with incorrect Z ordering.
