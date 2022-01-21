@@ -127,7 +127,10 @@
 		var/evaded = FALSE
 		for(var/datum/shipcomponents/engines/E in OM.components)
 			if(!E.broken && prob(E.evasion_chance))
-				homeship.autoannounce("<b>The [src.name] has missed the [OM.ship_category].</b>", "private")
+				homeship.autoannounce(
+					"<b>The [src.name] has missed the [OM.ship_category].</b>",
+					COMBAT_CHANNEL_PRIVATE
+				)
 				evaded = TRUE
 				break
 
@@ -138,7 +141,11 @@
 					for(var/datum/shipcomponents/point_defence/PD in OM.components)	//Roll through each PD unit. Only one needs to hit to stop the projectile.
 						if(!PD.broken && prob(PD.intercept_chance))
 							intercepted = TRUE
-							homeship.autoannounce("<b>The [src.name] was intercepted by the [OM.ship_category]'s [PD.name].</b>", "private")	//Let the firing ship know PD is annoying.
+							//Let the firing ship know PD is annoying.
+							homeship.autoannounce(
+								"<b>The [src.name] was intercepted by the [OM.ship_category]'s [PD.name].</b>",
+								COMBAT_CHANNEL_PRIVATE
+							)
 							break
 
 				if(!intercepted)
@@ -169,7 +176,10 @@
 								HitComponents(OM)
 								MapFire()
 
-					homeship.autoannounce("<b>The [src.name] has hit the [OM.ship_category].</b>", "private")
+					homeship.autoannounce(
+						"<b>The [src.name] has hit the [OM.ship_category].</b>",
+						COMBAT_CHANNEL_PRIVATE
+					)
 
 			else //do we pass through the shield? let's do our damage
 						//not so fast, we've got point defence now
@@ -179,7 +189,11 @@
 					for(var/datum/shipcomponents/point_defence/PD in OM.components)	//Roll through each PD unit. Only one needs to hit to stop the projectile.
 						if(!PD.broken && prob(PD.intercept_chance))
 							intercepted = TRUE
-							homeship.autoannounce("<b>The [src.name] was intercepted by the [OM.ship_category]'s [PD.name].</b>", "private")	//Let the firing ship know PD is annoying.
+							//Let the firing ship know PD is annoying.
+							homeship.autoannounce(
+								"<b>The [src.name] was intercepted by the [OM.ship_category]'s [PD.name].</b>",
+								COMBAT_CHANNEL_PRIVATE
+							)
 							break
 
 				if(!intercepted)	//Let's take the damage outside the for loop to stop dupe damages if multiple PD's failed
@@ -208,13 +222,19 @@
 						HitComponents(OM)
 						MapFire()
 
-					homeship.autoannounce("<b>The [src.name] has hit the [OM.ship_category].</b>", "private")
+					homeship.autoannounce(
+						"<b>The [src.name] has hit the [OM.ship_category].</b>",
+						COMBAT_CHANNEL_PRIVATE
+					)
 
 			if(OM.health <= (OM.maxHealth * 0.5))
 
 				if(OM.health <= (OM.maxHealth * 0.25) && homeship.dam_announced == 1)
 					homeship.dam_announced = 2
-					homeship.autoannounce("<b>The attacking [OM.ship_category]'s hull integrity is below 25%.</b>", "private")
+					homeship.autoannounce(
+						"<b>The attacking [OM.ship_category]'s hull integrity is below 25%.</b>",
+						COMBAT_CHANNEL_PRIVATE
+					)
 
 				if(OM.health <= 0)
 					homeship.dam_announced = 0
@@ -222,7 +242,10 @@
 
 				if(!homeship.dam_announced && !OM.dying)
 					homeship.dam_announced = 1
-					homeship.autoannounce("<b>The attacking [OM.ship_category]'s hull integrity is below 50%.</b>", "private")
+					homeship.autoannounce(
+						"<b>The attacking [OM.ship_category]'s hull integrity is below 50%.</b>",
+						COMBAT_CHANNEL_PRIVATE
+					)
 
 			if(!OM.boarding && OM.can_board && !OM.shields)
 				if(homeship.can_board)

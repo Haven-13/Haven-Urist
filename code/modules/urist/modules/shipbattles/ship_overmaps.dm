@@ -12,7 +12,11 @@
 	var/list/boarding_landmarks = list()
 	var/list/target_x_bounds = list()
 	var/list/target_y_bounds = list()
-	var/list/announcement_channel = list("public" = null, "private" = null, "technical" = null)
+	var/list/announcement_channel = list(
+		COMBAT_CHANNEL_PUBLIC = null,
+		COMBAT_CHANNEL_PRIVATE = null,
+		COMBAT_CHANNEL_TECHNICAL = null
+	)
 	var/fleeing = FALSE
 	var/flee_timer = 0
 	var/can_escape = TRUE
@@ -49,7 +53,11 @@
 /obj/effect/overmap/ship/combat/proc/enter_combat()
 	src.incombat = 1
 	target.incombat = 1
-	autoannounce("<b>A hostile [target.ship_category] has engaged the [ship_name]</b>", "public")	//Because it's weird to be told there's a ship -after- you've been shot at
+	//Because it's weird to be told there's a ship -after- you've been shot at
+	autoannounce(
+		"<b>A hostile [target.ship_category] has engaged the [ship_name]</b>",
+		COMBAT_CHANNEL_PUBLIC
+	)
 	if(!target.map_spawned)
 		target.spawnmap()
 
@@ -112,8 +120,14 @@
 		var/obj/effect/overmap/ship/combat/OM = O
 		contacts += OM
 		OM.contacts += src
-		autoannounce("<b>The [OM.ship_name], \a [OM.classification], has entered the [ship_name]'s defensive proximity</b>", "public")
-		OM.autoannounce("<b>The [ship_name], \a [classification], has entered the [OM.ship_name]'s defensive proximity</b>", "public")
+		autoannounce(
+			"<b>The [OM.ship_name], \a [OM.classification], has entered the [ship_name]'s defensive proximity</b>",
+			COMBAT_CHANNEL_PUBLIC
+		)
+		OM.autoannounce(
+			"<b>The [ship_name], \a [classification], has entered the [OM.ship_name]'s defensive proximity</b>",
+			COMBAT_CHANNEL_PUBLIC
+		)
 
 	else if(src.canfight)	//AI ships are still handled the same as before
 		if(!src.incombat && !crossed)
@@ -180,8 +194,14 @@
 	var/obj/effect/overmap/ship/combat/OM = target
 	fleeing = 1
 	flee_timer = Clamp((600 + round(2*((vessel_mass - OM.vessel_mass)/100))), 300, 900)	//Temp formula for now. Smaller ships escape faster for balancing.
-	autoannounce("<b>Restabilizing engines - ETA [flee_timer] seconds</b>", "private")
-	OM.autoannounce("<b>[ship_name] engine restabilization in progress - ETA [flee_timer] seconds</b>", "private")
+	autoannounce(
+		"<b>Restabilizing engines - ETA [flee_timer] seconds</b>",
+		COMBAT_CHANNEL_PRIVATE
+	)
+	OM.autoannounce(
+		"<b>[ship_name] engine restabilization in progress - ETA [flee_timer] seconds</b>",
+		COMBAT_CHANNEL_PRIVATE
+	)
 
 /obj/effect/overmap/ship/combat/proc/cancel_restabilize_engines(var/announce = FALSE)
 	if(!fleeing)	return
@@ -190,15 +210,24 @@
 	flee_timer = 0
 
 	if(announce)
-		autoannounce("<b>Engine restabilization aborted</b>", "private")
+		autoannounce(
+			"<b>Engine restabilization aborted</b>",
+			COMBAT_CHANNEL_PRIVATE
+		)
 
 /obj/effect/overmap/ship/combat/proc/flee()	//Let's give the other ship/any boarders a quick minute chance to act.
 	if(!can_escape || fleeing == 2)	return
 	var/obj/effect/overmap/ship/combat/OM = target
 	if(!OM)	return
 	fleeing = 2
-	autoannounce("<b>Thrusters engaged - ETA 1 minute to disengage</b>", "private")
-	OM.autoannounce("<b>[ship_name] thrusters engaged - ETA 1 minute until weapons range exceeded</b>", "private")
+	autoannounce(
+		"<b>Thrusters engaged - ETA 1 minute to disengage</b>",
+		COMBAT_CHANNEL_PRIVATE
+	)
+	OM.autoannounce(
+		"<b>[ship_name] thrusters engaged - ETA 1 minute until weapons range exceeded</b>",
+		COMBAT_CHANNEL_PRIVATE
+	)
 	spawn(60 SECONDS)
 		leave_pvp_combat(TRUE)
 
@@ -211,8 +240,14 @@
 			if(!OM)	return
 			fleeing = 0
 			can_escape = TRUE
-			autoannounce("<b>Engines restabilized - Escape is now possible</b>", "private")
-			OM.autoannounce("<b>[ship_name] engines restabilized - Escape is now possible</b>", "private")
+			autoannounce(
+				"<b>Engines restabilized - Escape is now possible</b>",
+				COMBAT_CHANNEL_PRIVATE
+			)
+			OM.autoannounce(
+				"<b>[ship_name] engines restabilized - Escape is now possible</b>",
+				COMBAT_CHANNEL_PRIVATE
+			)
 
 	if(pvp_cooldown)
 		pvp_cooldown = max(pvp_cooldown - (wait / 10), 0)
@@ -223,9 +258,15 @@
 	incombat = 1
 
 	if(attacker)
-		autoannounce("<b>[OM.ship_name] intercepted - Entering combat</b>", "public")
+		autoannounce(
+			"<b>[OM.ship_name] intercepted - Entering combat</b>",
+			COMBAT_CHANNEL_PUBLIC
+		)
 	else
-		autoannounce("<b>Engines destabilized - [OM.ship_name] weapon systems online</b>", "public")
+		autoannounce(
+			"<b>Engines destabilized - [OM.ship_name] weapon systems online</b>",
+			COMBAT_CHANNEL_PUBLIC
+		)
 
 	if(src == GLOB.using_map.overmap_ship)	//If the Nerva is involved, let's put it on Red Alert.
 		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
@@ -245,9 +286,15 @@
 	pvp_cooldown = 600	//10 minute cooldown after pvp combat to prevent spam to each ship
 
 	if(fled)
-		autoannounce("<b>[T.ship_name] weapons range exceeded - Escape successful.</b>", "public")
+		autoannounce(
+			"<b>[T.ship_name] weapons range exceeded - Escape successful.</b>",
+			COMBAT_CHANNEL_PUBLIC
+		)
 	else
-		autoannounce("<b>[T.ship_name] has exceeded weapons range - Exiting combat.</b>", "public")
+		autoannounce(
+			"<b>[T.ship_name] has exceeded weapons range - Exiting combat.</b>",
+			COMBAT_CHANNEL_PUBLIC
+		)
 
 	if(src == GLOB.using_map.overmap_ship)	//If the Nerva is involved, put the alert level back where it was
 		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
@@ -259,4 +306,9 @@
 	if(!message || !channel)
 		return
 	if(announcement_channel[channel])	//Stops any player ships without their own freq using the Nerva's, which would be wierd.
-		GLOB.global_announcer.autosay(message, "[ship_name] Automated Defence Computer", announcement_channel[channel]) //Current presets are "public" - Common on Nerva, "private" - Command on Nerva, and "technical" - Engineering on Nerva. Defined on overmap ship.
+		//Current presets are COMBAT_CHANNEL_PUBLIC - Common on Nerva, COMBAT_CHANNEL_PRIVATE - Command on Nerva, and COMBAT_CHANNEL_TECHNICAL - Engineering on Nerva. Defined on overmap ship.
+		GLOB.global_announcer.autosay(
+			message,
+			"[ship_name] Automated Defence Computer",
+			announcement_channel[channel]
+		)

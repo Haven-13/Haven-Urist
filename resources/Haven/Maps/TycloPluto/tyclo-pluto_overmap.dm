@@ -7,6 +7,15 @@
 	start_y = 17
 	can_board = TRUE
 
+	target_x_bounds = list()
+	target_y_bounds = list()
+
+	/*announcement_channel = list(
+		COMBAT_CHANNEL_PUBLIC = "Common",
+		COMBAT_CHANNEL_PRIVATE = "Command",
+		COMBAT_CHANNEL_TECHNICAL = "Engineering"
+	)*/
+
 	initial_restricted_waypoints = list(
 		"Styx" = list("nav_hangar_styx"),
 		"Eris" = list("nav_hangar_eris")

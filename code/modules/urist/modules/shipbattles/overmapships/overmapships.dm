@@ -140,7 +140,10 @@
 
 		despawnmap()
 
-		target_ship.autoannounce("<b>The attacking [src.ship_category] has been destroyed.</b>", "public")
+		target_ship.autoannounce(
+			"<b>The attacking [src.ship_category] has been destroyed.</b>",
+			COMBAT_CHANNEL_PUBLIC
+		)
 		target_ship.leave_combat()
 
 		spawn(30)
@@ -152,7 +155,10 @@
 		boarding = TRUE
 
 		if(target_ship == GLOB.using_map.overmap_ship) //currently only the main ship can board, pending a rewrite of boarding code
-			target_ship.autoannounce("<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>", "public") //add name+designation if I get lists for that stuff
+			target_ship.autoannounce(
+				"<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>",
+				COMBAT_CHANNEL_PUBLIC
+			) //add name+designation if I get lists for that stuff
 
 			for(var/obj/effect/urist/triggers/boarding_landmark/L in GLOB.trigger_landmarks)
 				new /obj/item/device/radio/beacon(L.loc)

@@ -44,10 +44,10 @@
 			fails |= fails_this_ship
 		fails_this_ship = null
 
-	if(length(fails))
+	if(length(failed))
 		for(var/f in fails)
 			log_bad(f)
-		fail("[length(fails)] vessels out of [length(vessels_to_test)] did not pass.")
+		fail("[length(failed)] vessels out of [length(vessels_to_test)] did not pass.")
 	else
 		pass("All [length(vessels_to_test)] vessels passed.")
 	return TRUE
@@ -67,6 +67,9 @@
 	for(var/obj/effect/overmap/ship/combat/C in vessels_to_test)
 		if(!istype(C))
 			continue
+		//
+		// Check target X,Y boundaries
+		//
 		// These two make me feel disgusting, but just get the job done, alright
 		if(!C.target_x_bounds\
 			|| (length(C.target_x_bounds) != 2)\
@@ -81,15 +84,32 @@
 			LAZY_ADD(fails_this_ship,\
 			"'[C.shipid]' ([C.ship_name]: [C]) requires a list with 2 integers for 'target_y_bounds'")
 
+		//
+		// Check announcement channel list validity
+		//
+		if(!C.announcement_channel || !length(C.announcement_channel))
+			LAZY_ADD(fails_this_ship,\
+			"'[C.shipid]' ([C.ship_name]: [C]) has no 'announcement_channel' defined")
+		else
+			for (var/chan in ALL_COMBAT_CHANNELS)
+				if(!LAZY_IS_IN(C.announcement_channel, chan))
+					LAZY_ADD(fails_this_ship,\
+					"'[C.shipid]' ([C.ship_name]: [C]) has no '[chan]' defined")
+				else
+					var/val = LAZY_ACCESS_ASSOC(C.announcement_channel, chan)
+					if(!length(val))
+						LAZY_ADD(fails_this_ship,\
+						"'[C.shipid]' ([C.ship_name]: [C]) has invalid value defined for '[chan]'")
+
 		if(length(fails_this_ship))
 			failed[C.shipid] = TRUE
 			fails |= fails_this_ship
 		fails_this_ship = null
 
-	if(length(fails))
+	if(length(failed))
 		for(var/f in fails)
 			log_bad(f)
-		fail("[length(fails)] vessels out of [length(vessels_to_test)] did not pass.")
+		fail("[length(failed)] vessels out of [length(vessels_to_test)] did not pass.")
 	else
 		pass("All [length(vessels_to_test)] vessels passed.")
 	return TRUE

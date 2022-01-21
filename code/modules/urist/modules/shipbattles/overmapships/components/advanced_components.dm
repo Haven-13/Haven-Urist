@@ -19,7 +19,10 @@
 		return //they have better things to do than board the Nerva right now.
 
 	if(initial_delay)
-		mastership.target_ship.autoannounce("<b>Hostile [name] detected powering up. Expected time until ready: [(boarding_delay/600)] minutes.</b>", "public")
+		mastership.target_ship.autoannounce(
+			"<b>Hostile [name] detected powering up. Expected time until ready: [(boarding_delay/600)] minutes.</b>",
+			COMBAT_CHANNEL_PUBLIC
+		)
 		last_boarding = world.time + boarding_delay
 		return
 
@@ -42,7 +45,10 @@
 		var/obj/effect/urist/boarding_hint/B = pick(boarding_hints)
 		boarding_turf = get_turf(B)
 		var/area/boarding_area = boarding_turf.loc
-		mastership.target_ship.autoannounce("<b>[boarding_message] [boarding_area.name].</b>", "public")
+		mastership.target_ship.autoannounce(
+			"<b>[boarding_message] [boarding_area.name].</b>",
+			COMBAT_CHANNEL_PUBLIC
+		)
 
 	if(prob(boarding_failure_chance))
 		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery) //Calculate our failure chance.
@@ -51,7 +57,10 @@
 				if(S.hacked) //if it's hacked, the engineers get a small surprise
 					var/EMP_turf = get_turf(S)
 					empulse(EMP_turf, 0, 2, 0)
-		mastership.target_ship.autoannounce("<b>Alert! Tachyon flux detected against shield membrane - shield instability likely.</b>", "technical")
+		mastership.target_ship.autoannounce(
+			"<b>Alert! Tachyon flux detected against shield membrane - shield instability likely.</b>",
+			COMBAT_CHANNEL_TECHNICAL
+		)
 		last_boarding = world.time + boarding_delay
 		return //Stop here, the boarding failed.
 
@@ -141,7 +150,10 @@
 					var/EMP_turf = get_turf(S)
 					empulse(EMP_turf, 1, empulse_range, 0)
 
-	mastership.target_ship.autoannounce("<b>Tachyonic energy surge detected, shields may fluctuate.</b>", "technical")
+	mastership.target_ship.autoannounce(
+		"<b>Tachyonic energy surge detected, shields may fluctuate.</b>",
+		COMBAT_CHANNEL_TECHNICAL
+	)
 	last_activation = world.time + disruption_delay
 
 /datum/shipcomponents/shield_disruptor/overcharge //For when someone's shields are SERIOUSLY persistent.
@@ -156,14 +168,20 @@
 
 	if(!first_activate) //they have a few minutes to win, or suffer terribly.
 
-		mastership.target_ship.autoannounce("<b>Massive electromagnetic energy buildup detected in hostile [mastership.ship_category]! T-[(disruption_delay/600)] minutes until buildup is complete.</b>", "public")
+		mastership.target_ship.autoannounce(
+			"<b>Massive electromagnetic energy buildup detected in hostile [mastership.ship_category]! T-[(disruption_delay/600)] minutes until buildup is complete.</b>",
+			COMBAT_CHANNEL_PUBLIC
+		)
 		first_activate = 1
 		last_activation = world.time + disruption_delay
 		return
 	//Warn them.
 
 	if(!broken)
-		mastership.target_ship.autoannounce("<b>Massive electromagnetic power surge detected! Brace for electromagnetic disruption, T-15 seconds.</b>", "public")
+		mastership.target_ship.autoannounce(
+			"<b>Massive electromagnetic power surge detected! Brace for electromagnetic disruption, T-15 seconds.</b>",
+			COMBAT_CHANNEL_PUBLIC
+		)
 
 		spawn(15 SECONDS)
 			for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery)
