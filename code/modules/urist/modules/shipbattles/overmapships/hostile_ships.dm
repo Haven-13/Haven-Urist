@@ -7,7 +7,7 @@
 
 /mob/living/simple_animal/hostile/overmapship/pirate/small
 //	shipdatum = /datum/ships/piratesmall
-	shields = 800
+	shields = 750
 	health = 800
 	maxHealth = 800
 	name = "small pirate vessel"
