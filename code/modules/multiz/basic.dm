@@ -55,9 +55,10 @@
 	return HasBelow(turf.z) ? get_step(turf, DOWN) : null
 
 /proc/GetConnectedZlevels(z)
-	. = list(z)
+	. = list()
 	for(var/level = z, HasBelow(level), level--)
 		. |= level-1
+	. |= z
 	for(var/level = z, HasAbove(level), level++)
 		. |= level+1
 

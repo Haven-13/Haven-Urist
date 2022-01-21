@@ -3322,7 +3322,7 @@
 "jRG" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 2; frequency = 1300; id_tag = "pluto_d3_aft_pump"},/obj/effect/floor_decal/industrial/hatch/orange,/obj/machinery/light/coldtint{dir = 1},/turf/simulated/floor/tiled/old_cargo,/area/pluto/maintenance/aftstar/third)
 "jRV" = (/obj/structure/reagent_dispensers/fueltank,/turf/simulated/floor/plating,/area/pluto/maintenance/foreport/bottom)
 "jSd" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 1; frequency = 1300; id_tag = "pluto_d1_ap_pump"},/obj/effect/floor_decal/industrial/hatch/orange,/obj/machinery/light/coldtint,/obj/machinery/airlock_sensor{frequency = 1300; id_tag = "pluto_d1_ap_sensor"; pixel_x = -26},/turf/simulated/floor/tiled/old_cargo,/area/pluto/maintenance/aftport/bottom)
-"jSe" = (/obj/effect/urist/projectile_landmark/ship,/turf/space,/area/space)
+"jSe" = (/obj/effect/urist/projectile_landmark/ship{shipid = "pluto"},/turf/space,/area/space)
 "jSg" = (/obj/structure/table/standard,/obj/machinery/alarm{dir = 8; pixel_x = 24},/obj/effect/floor_decal/borderfloorwhite{dir = 9},/obj/item/weapon/reagent_containers/spray/cleaner,/turf/simulated/floor/tiled/steel_grid,/area/medical/surgery/a)
 "jSm" = (/obj/structure/disposalpipe/segment,/obj/effect/floor_decal/corner/white{dir = 6},/turf/simulated/floor/tiled/old_tile,/area/medical/lobby)
 "jSs" = (/obj/machinery/atmospherics/unary/outlet_injector{dir = 2; frequency = 1441; id = "in_fuel"; injecting = 1},/turf/simulated/floor/reinforced/hydrogen/fuel,/area/engineering/fuelbay)

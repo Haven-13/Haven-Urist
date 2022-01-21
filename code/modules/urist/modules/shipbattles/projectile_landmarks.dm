@@ -5,27 +5,17 @@
 	anchored = 1
 	var/shipid = null
 	var/obj/effect/overmap/ship/combat/mothership = null
-//	var/fire_dir = 0
-//	var/obj/item/projectile/projectile_type
-	var/fire_type = 0
-
-/obj/effect/urist/projectile_landmark/New()
-	if(fire_type == 1)
-		GLOB.ship_projectile_landmarks += src
-
-	if(fire_type == 2)
-		GLOB.target_projectile_landmarks += src
-
-	..()
 
 /obj/effect/urist/projectile_landmark/proc/Fire()
 	return
 
 /obj/effect/urist/projectile_landmark/ship
-	fire_type = 1
+
+/obj/effect/urist/projectile_landmark/ship/New()
+	GLOB.ship_projectile_landmarks += src
+	. = ..()
 
 /obj/effect/urist/projectile_landmark/ship/Fire(var/obj/projectile_type = null)
-
 	var/obj/item/projectile/P = new projectile_type
 
 	var/target_x = rand(mothership.target_x_bounds[1],mothership.target_x_bounds[2])
@@ -39,7 +29,10 @@
 	P.launch(target)
 
 /obj/effect/urist/projectile_landmark/target
-	fire_type = 2
+
+/obj/effect/urist/projectile_landmark/target/New()
+	GLOB.target_projectile_landmarks += src
+	. = ..()
 
 /obj/effect/urist/projectile_landmark/target/Fire(var/projectile_type)
 	var/obj/item/projectile/P = new projectile_type
