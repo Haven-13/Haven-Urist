@@ -8,7 +8,8 @@ SUBSYSTEM_DEF(atoms)
 	init_order = SS_INIT_ATOMS
 	flags = SS_NO_FIRE
 
-	var/old_initialized
+	var/old_initialization_mode
+	var/initialization_mode = INITIALIZATION_INSSATOMS
 
 	var/list/late_loaders
 	var/list/created_atoms
@@ -16,20 +17,22 @@ SUBSYSTEM_DEF(atoms)
 	var/list/BadInitializeCalls = list()
 
 /datum/controller/subsystem/atoms/Initialize(timeofday)
-	initialized = INITIALIZATION_INNEW_MAPLOAD
+	initialization_mode = INITIALIZATION_INNEW_MAPLOAD
 	InitializeAtoms()
 	return ..()
 
 /datum/controller/subsystem/atoms/proc/InitializeAtoms(list/atoms)
-	if(initialized == INITIALIZATION_INSSATOMS)
+	if(initialization_mode == INITIALIZATION_INSSATOMS)
 		return
 
-	initialized = INITIALIZATION_INNEW_MAPLOAD
+	initialization_mode = INITIALIZATION_INNEW_MAPLOAD
 
 	LAZY_INIT(late_loaders)
 
 	var/count
-	var/list/init_args = list()
+	var/list/mapload_arg = list(
+		mapload = TRUE
+	)
 	if(atoms)
 		created_atoms = list()
 		count = atoms.len
@@ -50,7 +53,7 @@ SUBSYSTEM_DEF(atoms)
 	report_progress("Initialized [count] atom\s")
 	pass(count)
 
-	initialized = INITIALIZATION_INNEW_REGULAR
+	initialization_mode = INITIALIZATION_INNEW_REGULAR
 
 	if(late_loaders.len)
 		for(var/I in late_loaders)
@@ -102,17 +105,18 @@ SUBSYSTEM_DEF(atoms)
 	..("Bad Initialize Calls:[BadInitializeCalls.len]")
 
 /datum/controller/subsystem/atoms/proc/map_loader_begin()
-	old_initialized = initialized
-	initialized = INITIALIZATION_INSSATOMS
+	old_initialization_mode = initialization_mode
+	initialization_mode = INITIALIZATION_INSSATOMS
 
 /datum/controller/subsystem/atoms/proc/map_loader_stop()
-	initialized = old_initialized
+	initialization_mode = old_initialization_mode
 
 /datum/controller/subsystem/atoms/Recover()
 	initialized = SSatoms.initialized
-	if(initialized == INITIALIZATION_INNEW_MAPLOAD)
+	initialization_mode = SSatoms.initialization_mode
+	if(initialization_mode == INITIALIZATION_INNEW_MAPLOAD)
 		InitializeAtoms()
-	old_initialized = SSatoms.old_initialized
+	old_initialization_mode = SSatoms.old_initialization_mode
 	BadInitializeCalls = SSatoms.BadInitializeCalls
 
 /datum/controller/subsystem/atoms/proc/InitLog()
