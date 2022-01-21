@@ -56,7 +56,7 @@
 	return TRUE
 
 /datum/map_template/proc/init_atoms(var/list/atoms)
-	if (SSatoms.initialized == INITIALIZATION_INSSATOMS)
+	if (SSatoms.initialization_mode == INITIALIZATION_INSSATOMS)
 		return // let proper initialisation handle it later
 	if(length(shuttles_to_initialise))
 		// For proper shuttle init behavior, we wait until done with init here.
