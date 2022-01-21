@@ -5,7 +5,8 @@
 
 /mob/living/simple_animal/hostile/overmapship //maybe do components as objects instead of datums
 //	var/shipdatum = /datum/ships
-	var/shields = 0
+	var/shields
+	var/max_shields
 	var/firedelay = 100
 	var/designation = "FFS"
 	var/ship_category = "debug ship"
@@ -38,6 +39,16 @@
 /mob/living/simple_animal/hostile/overmapship/Initialize()
 	.=..()
 
+	update_ship_components()
+
+	name = ship_category //once i get names, flesh this out
+	faction = "neutral" //come back to this
+	shields = max_shields
+
+/mob/living/simple_animal/hostile/overmapship/proc/update_ship_components()
+	max_shields = 0
+	turns_per_move = 0
+
 	for(var/datum/shipcomponents/C in src.components)
 		C.mastership = src
 
@@ -46,15 +57,11 @@
 
 		if(istype(C, /datum/shipcomponents/shield))
 			var/datum/shipcomponents/shield/S = C
-			shields = S.strength
+			max_shields += S.strength
 
 		if(istype(C, /datum/shipcomponents/engines))
 			var/datum/shipcomponents/engines/E = C
 			turns_per_move = E.turns_per_move
-
-	name = ship_category //once i get names, flesh this out
-	faction = "neutral" //come back to this
-
 
 /mob/living/simple_animal/hostile/overmapship/Allow_Spacemove(var/check_drift = 0)
 	return 1	//No drifting in space for space carp!	//original comments do not steal

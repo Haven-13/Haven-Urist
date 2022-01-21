@@ -35,19 +35,23 @@
 
 /datum/shipcomponents/shield/DoActivate()
 	if(!broken && !recharging)
-		if(mastership.shields <= strength)
-			mastership.shields += recharge_rate
-			if(mastership.shields >= strength)
-				mastership.shields = strength
+		if(mastership.shields <= mastership.max_shields)
+			mastership.shields = clamp(
+				mastership.shields + recharge_rate,
+				0,
+				mastership.max_shields
+			)
 
 			recharging = 1
 			spawn(recharge_delay)
 				recharging = 0
 
 /datum/shipcomponents/shield/BlowUp()
+	mastership.max_shields -= strength
+	mastership.shields = between(0, mastership.shields, mastership.max_shields)
+
 	strength = 0
 	recharge_rate = 0
-	mastership.shields = src.strength
 	..()
 
 /datum/shipcomponents/shield/debug

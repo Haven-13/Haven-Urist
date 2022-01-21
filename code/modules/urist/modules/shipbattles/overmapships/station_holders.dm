@@ -15,7 +15,6 @@
 /mob/living/simple_animal/hostile/overmapship/station_holder/pirate
 	hiddenfaction = /datum/factions/pirate
 	aggressive = 1
-	shields = 1500
 	health = 100
 	maxHealth = 100
 	name = "pirate station external defences"

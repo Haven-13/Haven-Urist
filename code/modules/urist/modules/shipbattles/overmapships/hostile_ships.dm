@@ -7,7 +7,6 @@
 
 /mob/living/simple_animal/hostile/overmapship/pirate/small
 //	shipdatum = /datum/ships/piratesmall
-	shields = 800
 	health = 800
 	maxHealth = 800
 	name = "small pirate vessel"
@@ -37,7 +36,6 @@
 
 /mob/living/simple_animal/hostile/overmapship/pirate/med
 //	shipdatum = /datum/ships/piratesmall
-	shields = 2000
 	health = 1000
 	maxHealth = 1000
 	name = "pirate vessel"
@@ -81,7 +79,6 @@
 	designation = ""
 
 /mob/living/simple_animal/hostile/overmapship/alien/small
-	shields = 250 //really weak, but fast charging shields
 	health = 1200 //and beefy hulls
 	maxHealth = 1200
 	ship_category = "Lactera fast attack craft"
@@ -138,7 +135,6 @@
 	wander = 1
 	color = "#f65026" //a reddish orange
 	can_board = FALSE //i've got some things in mind for this
-	shields = 1000 //the intention for the map is a freighter or something taken over by drones/hivebots. Are hivebots the end result of a successful drone uprising? idk, but it'll be a neat away.
 	maxHealth = 1000 //not an overly beefy hull, but the main thing is going to be the repair module
 	health = 1000
 

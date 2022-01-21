@@ -3,7 +3,6 @@
 
 /mob/living/simple_animal/hostile/overmapship/debug
 //	shipdatum = /datum/ships/debug
-	shields = 800
 	maxHealth = 800
 	health = 800
 	wander = 1
@@ -31,7 +30,6 @@
 /mob/living/simple_animal/hostile/overmapship/nanotrasen/ntmerchant
 //	shipdatum = /datum/ships/nanotrasen/ntmerchant
 	name = "NanoTrasen merchant ship"
-	shields = 1000
 	health = 800
 	maxHealth = 800
 	ship_category = "NanoTrasen merchant ship"
@@ -46,18 +44,8 @@
 
 	..()
 
-/*
-/mob/living/simple_animal/hostile/overmapship/nanotrasen/patrol
-	name = "NanoTrasen patrol ship"
-	shields = 3000
-	health = 1600
-	maxHealth = 1600
-	ship_category = "NanoTrasen patrol ship"
-*/
-
 /mob/living/simple_animal/hostile/overmapship/nanotrasen/fast_attack
 	name = "NanoTrasen fast attack craft"
-	shields = 3000
 	health = 500
 	maxHealth = 1000
 	ship_category = "NanoTrasen fast attack craft"
@@ -85,7 +73,6 @@
 /mob/living/simple_animal/hostile/overmapship/terran/tcmerchant
 //	shipdatum = /datum/ships/nanotrasen/ntmerchant
 	name = "Terran Confederacy merchant ship"
-	shields = 1000
 	health = 800
 	maxHealth = 800
 	ship_category = "Terran Confederacy merchant ship"
@@ -100,15 +87,6 @@
 	)
 
 	..()
-
-/*
-/mob/living/simple_animal/hostile/overmapship/terran/patrol
-	name = "Terran Confederacy patrol ship"
-	shields = 3000
-	health = 1600
-	maxHealth = 1600
-	ship_category = "Terran Confederacy patrol ship"
-*/
 
 /mob/living/simple_animal/hostile/overmapship/terran/fast_attack
 	name = "Terran Confederacy fast attack craft"
@@ -166,7 +144,6 @@
 
 /mob/living/simple_animal/hostile/overmapship/rebel/fast_attack
 	name = "rebel fast attack craft"
-	shields = 3000
 	health = 500
 	maxHealth = 1000
 	ship_category = "rebel fast attack craft"

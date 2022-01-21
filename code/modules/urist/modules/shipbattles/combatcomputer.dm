@@ -82,7 +82,7 @@
 			"health" = OM.health,
 			"maxHealth" = OM.maxHealth,
 			"shields" = OM.shields,
-			"maxShields" = initial(OM.shields),
+			"maxShields" = OM.max_shields,
 			"components" = targetcomponents
 		)
 	else
