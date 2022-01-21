@@ -30,7 +30,8 @@
 
 	var/do_initialize = SSatoms.initialized
 	if(do_initialize != INITIALIZATION_INSSATOMS)
-		if(SSatoms.InitAtom(src, do_initialize == INITIALIZATION_INNEW_MAPLOAD, args))
+		args[1] = do_initialize == INITIALIZATION_INNEW_MAPLOAD
+		if(SSatoms.InitAtom(src, args))
 			//we were deleted
 			return
 
@@ -67,7 +68,7 @@
 	return INITIALIZE_HINT_NORMAL
 
 //called if Initialize returns INITIALIZE_HINT_LATELOAD
-/atom/proc/LateInitialize(mapload, ...)
+/atom/proc/LateInitialize()
 	return
 
 /atom/Destroy()
