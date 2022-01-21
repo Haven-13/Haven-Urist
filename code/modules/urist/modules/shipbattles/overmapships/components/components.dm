@@ -8,6 +8,10 @@
 	var/targeted = FALSE
 	var/last_activation = null
 
+/datum/shipcomponents/Destroy()
+	mastership = null
+	. = ..()
+
 /datum/shipcomponents/proc/BlowUp()
 //	qdel(src)
 	mastership.health -= 100

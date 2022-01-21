@@ -178,7 +178,7 @@
 	hiddenfaction = /datum/factions/terran
 
 /mob/living/simple_animal/hostile/urist/terran/death(gibbed, deathmessage, show_dead_message)
-	..(gibbed, deathmessage, show_dead_message)
+	. = ..(gibbed, deathmessage, show_dead_message)
 	if(corpse)
 		new corpse (src.loc)
 	qdel(src)
@@ -332,7 +332,7 @@
 	retreat_distance = 2
 
 /mob/living/simple_animal/hostile/urist/newpirate/death(gibbed, deathmessage, show_dead_message)
-	..(gibbed, deathmessage, show_dead_message)
+	. = ..(gibbed, deathmessage, show_dead_message)
 	if(corpse)
 		new corpse (src.loc)
 	qdel(src)

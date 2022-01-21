@@ -265,11 +265,10 @@
 /mob/living/simple_animal/hostile/death(gibbed, deathmessage, show_dead_message)
 	LoseAggro()
 	mouse_opacity = 1
-	..(gibbed, deathmessage, show_dead_message)
+	. = ..(gibbed, deathmessage, show_dead_message)
 	walk(src, 0)
 
 /mob/living/simple_animal/hostile/proc/OpenFire(var/atom/the_target)
-
 	var/atom/target = the_target
 	var/atom/targloc = target.loc
 	var/shottimer = -2 //so that first shot is at spawn(1) like it used to

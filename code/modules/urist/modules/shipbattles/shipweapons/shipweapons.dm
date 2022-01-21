@@ -315,7 +315,7 @@
 			if(C.shipid == src.shipid)
 				homeship = C
 
-/obj/machinery/shipweapons/proc/getStatusString()
+/obj/machinery/shipweapons/proc/get_status_string()
 	if(HAS_FLAG(status, FIRING))
 		return "Firing"
 	if(HAS_FLAG(stat, BROKEN))

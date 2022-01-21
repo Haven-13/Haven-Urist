@@ -36,6 +36,13 @@
 	var/potential_weapons = list()
 	var/boarders_amount = 0 //how many human boarders can we have?
 
+/mob/living/simple_animal/hostile/overmapship/Destroy()
+	QDEL_NULL_LIST(components)
+	QDEL_NULL_LIST(weapons)
+	home_station = null
+	target_ship = null
+	. = ..()
+
 /mob/living/simple_animal/hostile/overmapship/Initialize()
 	.=..()
 

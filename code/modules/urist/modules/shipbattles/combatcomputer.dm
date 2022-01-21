@@ -48,7 +48,7 @@
 		for(var/obj/machinery/shipweapons/S in linkedweapons)
 			weapons.Add(list(list(
 			"name" = S.name,
-			"status" = S.status,
+			"status" = S.get_status_string(),
 			"strengthHull" = S.hull_damage,
 			"strengthShield" = S.shield_damage,
 			"shieldPass" = S.pass_shield,
