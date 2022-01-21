@@ -28,7 +28,7 @@
 	init_plane()
 	update_plane()
 
-	var/do_initialize = SSatoms.initialized
+	var/do_initialize = SSatoms.initialization_mode
 	if(do_initialize != INITIALIZATION_INSSATOMS)
 		args[1] = do_initialize == INITIALIZATION_INNEW_MAPLOAD
 		if(SSatoms.InitAtom(src, args))
@@ -68,7 +68,7 @@
 	return INITIALIZE_HINT_NORMAL
 
 //called if Initialize returns INITIALIZE_HINT_LATELOAD
-/atom/proc/LateInitialize()
+/atom/proc/LateInitialize(mapload, ...)
 	return
 
 /atom/Destroy()
