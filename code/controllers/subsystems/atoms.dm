@@ -30,23 +30,21 @@ SUBSYSTEM_DEF(atoms)
 	LAZY_INIT(late_loaders)
 
 	var/count
-	var/list/mapload_arg = list(
-		mapload = TRUE
-	)
+	var/list/mapload_arg = list(TRUE)
 	if(atoms)
 		created_atoms = list()
 		count = atoms.len
 		for(var/I in atoms)
 			var/atom/A = I
 			if(!(A.atom_flags & ATOM_FLAG_INITIALIZED))
-				if(InitAtom(I, TRUE, arglist(init_args)))
+				if(InitAtom(I, mapload_arg))
 					atoms -= I
 				CHECK_TICK
 	else
 		count = 0
 		for(var/atom/A in world)
 			if(!(A.atom_flags & ATOM_FLAG_INITIALIZED))
-				InitAtom(A, TRUE, arglist(init_args))
+				InitAtom(A, mapload_arg)
 				++count
 				CHECK_TICK
 
@@ -58,7 +56,7 @@ SUBSYSTEM_DEF(atoms)
 	if(late_loaders.len)
 		for(var/I in late_loaders)
 			var/atom/A = I
-			A.LateInitialize(TRUE, arglist(init_args))
+			A.LateInitialize(arglist(mapload_arg))
 		report_progress("Late initialized [late_loaders.len] atom\s")
 		late_loaders.Cut()
 
@@ -66,7 +64,7 @@ SUBSYSTEM_DEF(atoms)
 		. = created_atoms + atoms
 		created_atoms = null
 
-/datum/controller/subsystem/atoms/proc/InitAtom(atom/A, mapload, list/arguments)
+/datum/controller/subsystem/atoms/proc/InitAtom(atom/A, list/arguments)
 	var/the_type = A.type
 	if(QDELING(A))
 		BadInitializeCalls[the_type] |= BAD_INIT_QDEL_BEFORE
@@ -74,12 +72,13 @@ SUBSYSTEM_DEF(atoms)
 
 	var/start_tick = world.time
 
-	var/result = A.Initialize(mapload, arglist(arguments))
+	var/result = A.Initialize(arglist(arguments))
 
 	if(start_tick != world.time)
 		BadInitializeCalls[the_type] |= BAD_INIT_SLEPT
 
 	var/qdeleted = FALSE
+	var/mapload = arguments[1]
 
 	if(result != INITIALIZE_HINT_NORMAL)
 		switch(result)
@@ -87,7 +86,7 @@ SUBSYSTEM_DEF(atoms)
 				if(mapload)	//mapload
 					late_loaders += A
 				else
-					A.LateInitialize(FALSE, arglist(arguments))
+					A.LateInitialize(arglist(arguments))
 			if(INITIALIZE_HINT_QDEL)
 				qdel(A)
 				qdeleted = TRUE

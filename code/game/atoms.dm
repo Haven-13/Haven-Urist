@@ -30,8 +30,7 @@
 
 	var/do_initialize = SSatoms.initialization_mode
 	if(do_initialize != INITIALIZATION_INSSATOMS)
-		var/mapload = do_initialize == INITIALIZATION_INNEW_MAPLOAD
-		args[1] = mapload
+		args[1] = do_initialize == INITIALIZATION_INNEW_MAPLOAD
 		if(SSatoms.InitAtom(src, args))
 			//we were deleted
 			return
