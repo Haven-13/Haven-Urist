@@ -1,5 +1,6 @@
 GLOBAL_LIST_EMPTY(trigger_landmarks)
 GLOBAL_LIST_EMPTY(ship_projectile_landmarks)
 GLOBAL_LIST_EMPTY(target_projectile_landmarks)
+GLOBAL_LIST_EMPTY(boarding_hint_landmarks)
 
 GLOBAL_LIST_EMPTY(overmap_ships)

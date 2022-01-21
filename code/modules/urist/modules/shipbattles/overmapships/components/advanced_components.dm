@@ -5,7 +5,7 @@
 	var/list/boarding_mobs = list(/mob/living/simple_animal/hostile/russian, /mob/living/simple_animal/hostile/russian/ranged) //What mobs do we spawn on boarding?
 	var/boarding_number = 4 //We'll spawn this many every time we board.
 	var/last_boarding = 0 //How long since we boarded last?
-	var/boarding_turf = null//Where do we spawn our mobs?
+	var/turf/boarding_turf = null//Where do we spawn our mobs?
 	var/boarding_failure_chance = 0 //more shields = more chance of preventing teleportation.
 	var/boarded_max = 3 //how many times do we board?
 	var/boarded_amount = 0 //how many times have we boarded
@@ -38,14 +38,10 @@
 					boarding_failure_chance += 25 // four shield generators to TOTALLY block boarding.
 
 	if(!boarding_turf) //Locate where we're boarding, give them a warning.
-		var/obj/item/device/radio/beacon/active_beacon //what beacon are we locking onto?
-		var/list/beacon_list = list()
-		for(var/obj/item/device/radio/beacon/B in GLOB.listening_objects)
-			if(B.z in mastership.target_ship.map_z)
-				beacon_list += B
-		active_beacon = pick(beacon_list)
-		boarding_turf = get_turf(active_beacon)
-		var/area/boarding_area = get_area(active_beacon)
+		var/list/boarding_hints = mastership.target_ship.boarding_landmarks
+		var/obj/effect/urist/boarding_hint/B = pick(boarding_hints)
+		boarding_turf = get_turf(B)
+		var/area/boarding_area = boarding_turf.loc
 		mastership.target_ship.autoannounce("<b>[boarding_message] [boarding_area.name].</b>", "public")
 
 	if(prob(boarding_failure_chance))

@@ -270,7 +270,7 @@
 /obj/machinery/shipweapons/proc/MapFire()
 	if(istype(target, /obj/effect/overmap/ship/combat))
 		var/obj/effect/overmap/ship/combat/T = target
-		var/obj/effect/urist/projectile_landmark/ship/P = pick(T.landmarks)
+		var/obj/effect/urist/projectile_landmark/ship/P = pick(T.projectile_landmarks)
 		P.Fire(projectile_type)
 	else
 		var/obj/effect/urist/projectile_landmark/target/P = pick(GLOB.target_projectile_landmarks)

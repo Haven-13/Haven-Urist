@@ -7,10 +7,11 @@
 	var/docked = 0 //are we docked?
 	var/mob/living/simple_animal/hostile/overmapship/target
 	var/can_board = FALSE //can we board? non-nerva ships won't be able to board to avoid weirdness
-	var/contacts = list()
-	var/landmarks = list()
-	var/target_x_bounds = list()
-	var/target_y_bounds = list()
+	var/list/contacts = list()
+	var/list/projectile_landmarks = list()
+	var/list/boarding_landmarks = list()
+	var/list/target_x_bounds = list()
+	var/list/target_y_bounds = list()
 	var/list/announcement_channel = list("public" = null, "private" = null, "technical" = null)
 	var/fleeing = FALSE
 	var/flee_timer = 0
@@ -29,17 +30,21 @@
 	..()
 
 /obj/effect/overmap/ship/combat/Initialize()
+	. = ..()
 	for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we assign ourself to the combat computer
 		if(CC.shipid == src.shipid) //having things tied to shipid means that in the future we might be able to have pvp ship combat, if i change a couple things with attacking
 			CC.homeship = src
 	for(var/obj/machinery/shipweapons/SW in SSmachines.machinery)
 		if(SW.shipid == src.shipid)
 			SW.homeship = src
-	for(var/obj/effect/urist/projectile_landmark/ship/L in GLOB.ship_projectile_landmarks)
+	for(var/obj/effect/urist/projectile_landmark/ship/L as anything in GLOB.ship_projectile_landmarks)
 		if(shipid == L.shipid)
-			landmarks += L
+			projectile_landmarks += L
 			L.mothership = src
-	.=..()
+	for(var/obj/effect/urist/boarding_hint/L as anything in GLOB.boarding_hint_landmarks)
+		if(shipid == L.shipid)
+			boarding_landmarks += L
+			L.mothership = src
 
 /obj/effect/overmap/ship/combat/proc/enter_combat()
 	src.incombat = 1

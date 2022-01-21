@@ -23,7 +23,7 @@
 	else
 		if(!map_landmark)
 			var/obj/effect/overmap/ship/combat/T = mastership.target_ship
-			map_landmark = pick(T.landmarks)
+			map_landmark = pick(T.projectile_landmarks)
 
 		if(burst)
 			if(map_landmark)
