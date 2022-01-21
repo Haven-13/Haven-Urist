@@ -38,7 +38,7 @@
 		else
 			fails += "'[C.shipid]' ([C.ship_name]: [C]) has no projectile landmarks in its list"
 
-	if(fails)
+	if(length(fails))
 		for(var/f in fails)
 			log_bad(f)
 		fail("[length(fails)] vessels out of [length(vessels_to_test)] have no landmarks as required.")
