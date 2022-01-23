@@ -74,10 +74,15 @@
 
 	var/simplify_dead_icon
 
+	var/autonomous = FALSE //we don't need anyone
+
 /mob/living/simple_animal/Life()
-	..()
-	if(!living_observers_present(GetConnectedZlevels(z)))
+	. = ..()
+	if(!.)
 		return
+	if(!autonomous && !living_observers_present(GetConnectedZlevels(z)))
+		return
+
 	//Health
 	if(stat == DEAD)
 		if(health > 0)
@@ -120,12 +125,7 @@
 
 	//Movement
 	if(!client && !stop_automated_movement && wander && !anchored)
-		if(isturf(src.loc) && !resting)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
-			turns_since_move++
-			if(turns_since_move >= turns_per_move)
-				if(!(stop_automated_movement_when_pulled && pulledby)) //Some animals don't move when pulled
-					SelfMove(pick(GLOB.cardinal))
-					turns_since_move = 0
+		handle_automated_movement()
 
 	//Speaking
 	if(!client && speak_chance)
@@ -441,3 +441,19 @@
 	var/obj/effect/decal/cleanable/blood/drip/drip = new(get_turf(src))
 	drip.basecolor = bleed_colour
 	drip.update_icon()
+
+/mob/living/simple_animal/proc/handle_automated_movement()
+	if(isturf(src.loc) && !resting)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
+		turns_since_move++
+		if(turns_since_move >= turns_per_move)
+			if(!(stop_automated_movement_when_pulled && pulledby)) //Some animals don't move when pulled
+				SelfMove(pick(GLOB.cardinal))
+				turns_since_move = 0
+
+/mob/living/simple_animal/New()
+	GLOB.simple_mob_list.Add(src)
+	..()
+
+/mob/living/simple_animal/Destroy()
+	GLOB.simple_mob_list.Remove(src)
+	..()

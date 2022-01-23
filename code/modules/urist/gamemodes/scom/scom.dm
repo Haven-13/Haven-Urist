@@ -52,8 +52,8 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 
 	update_dyndifficulty()
 
-	//SSshuttle.initialize_shuttle(/datum/shuttle/autodock/ferry/scom/s1)
-	//SSshuttle.initialize_shuttle(/datum/shuttle/autodock/ferry/scom/s2)
+	SSshuttle.initialize_shuttle(/datum/shuttle/autodock/ferry/scom/s1)
+	SSshuttle.initialize_shuttle(/datum/shuttle/autodock/ferry/scom/s2)
 
 	return 1 //ever get that feeling you're talking to yourself?
 
@@ -117,7 +117,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	if(onmission == 1)
 //		to_world("<span class='warning'> onmission</span>")
 		aliencount = 0
-		for(var/mob/living/simple_animal/hostile/M in SSmobs.mob_list)
+		for(var/mob/living/simple_animal/hostile/M in GLOB.simple_mob_list)
 			if(M.health > 0 && M.faction != "neutral")
 				aliencount += 1
 //				to_world("<span class='warning'> aliens: [aliencount]</span>")
@@ -182,7 +182,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 					for(var/mob/living/M in SSmobs.mob_list)
 						if(M.z != 2 && !M.stat)
 							explosion(M.loc, 2, 4, 6, 6)
-		//				M.apply_damage(rand(1000,2000), DAMAGE_TYPE_BRUTE) //KILL THEM ALL
+		//				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL
 		//				to_chat(M, "<span class='warning'> The explosion tears you apart!</span>")
 		//				M.gib()
 		//			sleep(2000)
@@ -195,10 +195,13 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	invisibility = 101
 	var/bombdelay = 0
 	var/shipid = null //touching scom code again was a mistake. everything here is vomit inducing.
+	var/dmg_dev = 1
+	var/dmg_hvy = 2
+	var/dmg_lgt = 3
 
 /obj/effect/landmark/scom/bomb/proc/incomprehensibleprocname()
 	spawn(bombdelay)
-		explosion(src.loc, 1, 2, 3, 4)
+		explosion(src.loc, dmg_dev, dmg_hvy, dmg_lgt, 0, 0)
 
 /client/proc/delaymissions()
 
@@ -222,7 +225,6 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 				C.launch()
 
 /client/proc/toggle_dyndiff()
-
 	set name = "Toggle Dynamic Difficulty"
 	set category = "Fun"
 	set desc = "Make SCOM use DynDifficulty again or disable it."

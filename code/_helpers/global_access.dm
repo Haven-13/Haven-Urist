@@ -1,8 +1,6 @@
 // THIS FILE IS AUTOMATICALLY CREATED BY tools/gen_globals.py
 /proc/readglobal(which)
 	switch(which)
-		if("ALL_ANTIGENS")
-			return global.ALL_ANTIGENS;
 		if("ANTAG_FREQS")
 			return global.ANTAG_FREQS;
 		if("BNews")
@@ -91,6 +89,8 @@
 			return global.SSevac;
 		if("SSevent")
 			return global.SSevent;
+		if("SSfactions")
+			return global.SSfactions;
 		if("SSfastprocess")
 			return global.SSfastprocess;
 		if("SSfluids")
@@ -155,8 +155,6 @@
 			return global.SSvote;
 		if("SSweather")
 			return global.SSweather;
-		if("SSwebhooks")
-			return global.SSwebhooks;
 		if("SSwireless")
 			return global.SSwireless;
 		if("SWEDEBLOCK")
@@ -229,8 +227,6 @@
 			return global.ai_status_emotions;
 		if("ai_verbs_default")
 			return global.ai_verbs_default;
-		if("air_blocked")
-			return global.air_blocked;
 		if("alien_whitelist")
 			return global.alien_whitelist;
 		if("aliuminatis")
@@ -255,8 +251,6 @@
 			return global.all_species;
 		if("all_ui_styles")
 			return global.all_ui_styles;
-		if("all_unit_tests_passed")
-			return global.all_unit_tests_passed;
 		if("all_virtual_listeners")
 			return global.all_virtual_listeners;
 		if("already_completed")
@@ -269,18 +263,6 @@
 			return global.appearance_manager;
 		if("area_repository")
 			return global.area_repository;
-		if("ascii_esc")
-			return global.ascii_esc;
-		if("ascii_green")
-			return global.ascii_green;
-		if("ascii_red")
-			return global.ascii_red;
-		if("ascii_reset")
-			return global.ascii_reset;
-		if("ascii_yellow")
-			return global.ascii_yellow;
-		if("assigned")
-			return global.assigned;
 		if("assigned_blocks")
 			return global.assigned_blocks;
 		if("atmosphere_alarm")
@@ -299,8 +281,6 @@
 			return global.basic_robolimb;
 		if("blackbox")
 			return global.blackbox;
-		if("blocked")
-			return global.blocked;
 		if("bomb_set")
 			return global.bomb_set;
 		if("buildaborgs")
@@ -353,24 +333,18 @@
 			return global.client_repository;
 		if("combatlog")
 			return global.combatlog;
-		if("command_announcement")
-			return global.command_announcement;
 		if("command_name")
 			return global.command_name;
 		if("common_tools")
 			return global.common_tools;
 		if("config")
 			return global.config;
-		if("contamination_overlay")
-			return global.contamination_overlay;
 		if("create_mob_html")
 			return global.create_mob_html;
 		if("create_object_html")
 			return global.create_object_html;
 		if("create_turf_html")
 			return global.create_turf_html;
-		if("created")
-			return global.created;
 		if("crew_repository")
 			return global.crew_repository;
 		if("csrfz_check")
@@ -389,8 +363,6 @@
 			return global.decls_repository;
 		if("default_material_composition")
 			return global.default_material_composition;
-		if("default_mobloc")
-			return global.default_mobloc;
 		if("default_onmob_icons")
 			return global.default_onmob_icons;
 		if("default_pai_software")
@@ -447,8 +419,6 @@
 			return global.failed_db_connections;
 		if("failed_old_db_connections")
 			return global.failed_old_db_connections;
-		if("failed_unit_tests")
-			return global.failed_unit_tests;
 		if("file_uid")
 			return global.file_uid;
 		if("fileaccess_timer")
@@ -495,8 +465,6 @@
 			return global.gamemode_cache;
 		if("gamemode_endstate")
 			return global.gamemode_endstate;
-		if("gas_data")
-			return global.gas_data;
 		if("gear_datums")
 			return global.gear_datums;
 		if("gear_tweak_free_color_choice_")
@@ -531,6 +499,8 @@
 			return global.href_logfile;
 		if("human_icon_cache")
 			return global.human_icon_cache;
+		if("icon_state_cache")
+			return global.icon_state_cache;
 		if("id_card_states")
 			return global.id_card_states;
 		if("image_repository")
@@ -543,8 +513,6 @@
 			return global.intents;
 		if("intercom_range_display_status")
 			return global.intercom_range_display_status;
-		if("invalid_zone")
-			return global.invalid_zone;
 		if("jobMax")
 			return global.jobMax;
 		if("job_master")
@@ -601,8 +569,6 @@
 			return global.map_templates;
 		if("maploader")
 			return global.maploader;
-		if("mark")
-			return global.mark;
 		if("markup_bold")
 			return global.markup_bold;
 		if("markup_italics")
@@ -621,8 +587,6 @@
 			return global.maze_cell_count;
 		if("mechas_list")
 			return global.mechas_list;
-		if("merged")
-			return global.merged;
 		if("message_delay")
 			return global.message_delay;
 		if("message_servers")
@@ -651,8 +615,6 @@
 			return global.mining_walls;
 		if("minor_air_alarms")
 			return global.minor_air_alarms;
-		if("minor_announcement")
-			return global.minor_announcement;
 		if("missiondiff")
 			return global.missiondiff;
 		if("mob_hat_cache")
@@ -735,8 +697,6 @@
 			return global.preferences_datums;
 		if("priority_air_alarms")
 			return global.priority_air_alarms;
-		if("priority_announcement")
-			return global.priority_announcement;
 		if("priv_all_access")
 			return global.priv_all_access;
 		if("priv_all_access_datums")
@@ -835,8 +795,6 @@
 			return global.side_effects;
 		if("skin_styles_female_list")
 			return global.skin_styles_female_list;
-		if("skipped_unit_tests")
-			return global.skipped_unit_tests;
 		if("slot_equipment_priority")
 			return global.slot_equipment_priority;
 		if("slot_flags_enumeration")
@@ -941,8 +899,6 @@
 			return global.total_lighting_overlays;
 		if("total_lighting_sources")
 			return global.total_lighting_sources;
-		if("total_unit_tests")
-			return global.total_unit_tests;
 		if("transfer_controller")
 			return global.transfer_controller;
 		if("turbolift_areas")
@@ -967,18 +923,12 @@
 			return global.valid_bloodtypes;
 		if("vendor_account")
 			return global.vendor_account;
-		if("ventcrawl_machinery")
-			return global.ventcrawl_machinery;
 		if("view_variables_dont_expand")
 			return global.view_variables_dont_expand;
 		if("view_variables_no_assoc")
 			return global.view_variables_no_assoc;
-		if("virusDB")
-			return global.virusDB;
 		if("visual_nets")
 			return global.visual_nets;
-		if("vsc")
-			return global.vsc;
 		if("wax_recipes")
 			return global.wax_recipes;
 		if("weighted_mundaneevent_locations")
@@ -1008,8 +958,6 @@
 
 /proc/writeglobal(which, newval)
 	switch(which)
-		if("ALL_ANTIGENS")
-			global.ALL_ANTIGENS=newval;
 		if("ANTAG_FREQS")
 			global.ANTAG_FREQS=newval;
 		if("BNews")
@@ -1098,6 +1046,8 @@
 			global.SSevac=newval;
 		if("SSevent")
 			global.SSevent=newval;
+		if("SSfactions")
+			global.SSfactions=newval;
 		if("SSfastprocess")
 			global.SSfastprocess=newval;
 		if("SSfluids")
@@ -1162,8 +1112,6 @@
 			global.SSvote=newval;
 		if("SSweather")
 			global.SSweather=newval;
-		if("SSwebhooks")
-			global.SSwebhooks=newval;
 		if("SSwireless")
 			global.SSwireless=newval;
 		if("SWEDEBLOCK")
@@ -1236,8 +1184,6 @@
 			global.ai_status_emotions=newval;
 		if("ai_verbs_default")
 			global.ai_verbs_default=newval;
-		if("air_blocked")
-			global.air_blocked=newval;
 		if("alien_whitelist")
 			global.alien_whitelist=newval;
 		if("aliuminatis")
@@ -1262,8 +1208,6 @@
 			global.all_species=newval;
 		if("all_ui_styles")
 			global.all_ui_styles=newval;
-		if("all_unit_tests_passed")
-			global.all_unit_tests_passed=newval;
 		if("all_virtual_listeners")
 			global.all_virtual_listeners=newval;
 		if("already_completed")
@@ -1276,18 +1220,6 @@
 			global.appearance_manager=newval;
 		if("area_repository")
 			global.area_repository=newval;
-		if("ascii_esc")
-			global.ascii_esc=newval;
-		if("ascii_green")
-			global.ascii_green=newval;
-		if("ascii_red")
-			global.ascii_red=newval;
-		if("ascii_reset")
-			global.ascii_reset=newval;
-		if("ascii_yellow")
-			global.ascii_yellow=newval;
-		if("assigned")
-			global.assigned=newval;
 		if("assigned_blocks")
 			global.assigned_blocks=newval;
 		if("atmosphere_alarm")
@@ -1306,8 +1238,6 @@
 			global.basic_robolimb=newval;
 		if("blackbox")
 			global.blackbox=newval;
-		if("blocked")
-			global.blocked=newval;
 		if("bomb_set")
 			global.bomb_set=newval;
 		if("buildaborgs")
@@ -1360,24 +1290,18 @@
 			global.client_repository=newval;
 		if("combatlog")
 			global.combatlog=newval;
-		if("command_announcement")
-			global.command_announcement=newval;
 		if("command_name")
 			global.command_name=newval;
 		if("common_tools")
 			global.common_tools=newval;
 		if("config")
 			global.config=newval;
-		if("contamination_overlay")
-			global.contamination_overlay=newval;
 		if("create_mob_html")
 			global.create_mob_html=newval;
 		if("create_object_html")
 			global.create_object_html=newval;
 		if("create_turf_html")
 			global.create_turf_html=newval;
-		if("created")
-			global.created=newval;
 		if("crew_repository")
 			global.crew_repository=newval;
 		if("csrfz_check")
@@ -1396,8 +1320,6 @@
 			global.decls_repository=newval;
 		if("default_material_composition")
 			global.default_material_composition=newval;
-		if("default_mobloc")
-			global.default_mobloc=newval;
 		if("default_onmob_icons")
 			global.default_onmob_icons=newval;
 		if("default_pai_software")
@@ -1454,8 +1376,6 @@
 			global.failed_db_connections=newval;
 		if("failed_old_db_connections")
 			global.failed_old_db_connections=newval;
-		if("failed_unit_tests")
-			global.failed_unit_tests=newval;
 		if("file_uid")
 			global.file_uid=newval;
 		if("fileaccess_timer")
@@ -1502,8 +1422,6 @@
 			global.gamemode_cache=newval;
 		if("gamemode_endstate")
 			global.gamemode_endstate=newval;
-		if("gas_data")
-			global.gas_data=newval;
 		if("gear_datums")
 			global.gear_datums=newval;
 		if("gear_tweak_free_color_choice_")
@@ -1538,6 +1456,8 @@
 			global.href_logfile=newval;
 		if("human_icon_cache")
 			global.human_icon_cache=newval;
+		if("icon_state_cache")
+			global.icon_state_cache=newval;
 		if("id_card_states")
 			global.id_card_states=newval;
 		if("image_repository")
@@ -1550,8 +1470,6 @@
 			global.intents=newval;
 		if("intercom_range_display_status")
 			global.intercom_range_display_status=newval;
-		if("invalid_zone")
-			global.invalid_zone=newval;
 		if("jobMax")
 			global.jobMax=newval;
 		if("job_master")
@@ -1608,8 +1526,6 @@
 			global.map_templates=newval;
 		if("maploader")
 			global.maploader=newval;
-		if("mark")
-			global.mark=newval;
 		if("markup_bold")
 			global.markup_bold=newval;
 		if("markup_italics")
@@ -1628,8 +1544,6 @@
 			global.maze_cell_count=newval;
 		if("mechas_list")
 			global.mechas_list=newval;
-		if("merged")
-			global.merged=newval;
 		if("message_delay")
 			global.message_delay=newval;
 		if("message_servers")
@@ -1658,8 +1572,6 @@
 			global.mining_walls=newval;
 		if("minor_air_alarms")
 			global.minor_air_alarms=newval;
-		if("minor_announcement")
-			global.minor_announcement=newval;
 		if("missiondiff")
 			global.missiondiff=newval;
 		if("mob_hat_cache")
@@ -1742,8 +1654,6 @@
 			global.preferences_datums=newval;
 		if("priority_air_alarms")
 			global.priority_air_alarms=newval;
-		if("priority_announcement")
-			global.priority_announcement=newval;
 		if("priv_all_access")
 			global.priv_all_access=newval;
 		if("priv_all_access_datums")
@@ -1842,8 +1752,6 @@
 			global.side_effects=newval;
 		if("skin_styles_female_list")
 			global.skin_styles_female_list=newval;
-		if("skipped_unit_tests")
-			global.skipped_unit_tests=newval;
 		if("slot_equipment_priority")
 			global.slot_equipment_priority=newval;
 		if("slot_flags_enumeration")
@@ -1948,8 +1856,6 @@
 			global.total_lighting_overlays=newval;
 		if("total_lighting_sources")
 			global.total_lighting_sources=newval;
-		if("total_unit_tests")
-			global.total_unit_tests=newval;
 		if("transfer_controller")
 			global.transfer_controller=newval;
 		if("turbolift_areas")
@@ -1974,18 +1880,12 @@
 			global.valid_bloodtypes=newval;
 		if("vendor_account")
 			global.vendor_account=newval;
-		if("ventcrawl_machinery")
-			global.ventcrawl_machinery=newval;
 		if("view_variables_dont_expand")
 			global.view_variables_dont_expand=newval;
 		if("view_variables_no_assoc")
 			global.view_variables_no_assoc=newval;
-		if("virusDB")
-			global.virusDB=newval;
 		if("visual_nets")
 			global.visual_nets=newval;
-		if("vsc")
-			global.vsc=newval;
 		if("wax_recipes")
 			global.wax_recipes=newval;
 		if("weighted_mundaneevent_locations")
@@ -2014,7 +1914,6 @@
 			global.zone_blocked=newval;
 
 /var/list/_all_globals=list(
-	"ALL_ANTIGENS",
 	"ANTAG_FREQS",
 	"BNews",
 	"BSACooldown",
@@ -2059,6 +1958,7 @@
 	"SSculture",
 	"SSevac",
 	"SSevent",
+	"SSfactions",
 	"SSfastprocess",
 	"SSfluids",
 	"SSgarbage",
@@ -2091,7 +1991,6 @@
 	"SSvines",
 	"SSvote",
 	"SSweather",
-	"SSwebhooks",
 	"SSwireless",
 	"SWEDEBLOCK",
 	"WALLITEMS",
@@ -2128,7 +2027,6 @@
 	"ai_list",
 	"ai_status_emotions",
 	"ai_verbs_default",
-	"air_blocked",
 	"alien_whitelist",
 	"aliuminatis",
 	"allCasters",
@@ -2141,19 +2039,12 @@
 	"all_robolimbs",
 	"all_species",
 	"all_ui_styles",
-	"all_unit_tests_passed",
 	"all_virtual_listeners",
 	"already_completed",
 	"announced_news_types",
 	"antag_add_finished",
 	"appearance_manager",
 	"area_repository",
-	"ascii_esc",
-	"ascii_green",
-	"ascii_red",
-	"ascii_reset",
-	"ascii_yellow",
-	"assigned",
 	"assigned_blocks",
 	"atmosphere_alarm",
 	"attack_log_repository",
@@ -2163,7 +2054,6 @@
 	"base_miss_chance",
 	"basic_robolimb",
 	"blackbox",
-	"blocked",
 	"bomb_set",
 	"buildaborgs",
 	"cable_list",
@@ -2190,15 +2080,12 @@
 	"client_preference_stats_",
 	"client_repository",
 	"combatlog",
-	"command_announcement",
 	"command_name",
 	"common_tools",
 	"config",
-	"contamination_overlay",
 	"create_mob_html",
 	"create_object_html",
 	"create_turf_html",
-	"created",
 	"crew_repository",
 	"csrfz_check",
 	"custom_event_msg",
@@ -2208,7 +2095,6 @@
 	"debug_verbs",
 	"decls_repository",
 	"default_material_composition",
-	"default_mobloc",
 	"default_onmob_icons",
 	"default_pai_software",
 	"default_server_name",
@@ -2237,7 +2123,6 @@
 	"explosion_turfs",
 	"failed_db_connections",
 	"failed_old_db_connections",
-	"failed_unit_tests",
 	"file_uid",
 	"fileaccess_timer",
 	"fire_alarm",
@@ -2261,7 +2146,6 @@
 	"game_year",
 	"gamemode_cache",
 	"gamemode_endstate",
-	"gas_data",
 	"gear_datums",
 	"gear_tweak_free_color_choice_",
 	"gender_datums",
@@ -2279,13 +2163,13 @@
 	"host",
 	"href_logfile",
 	"human_icon_cache",
+	"icon_state_cache",
 	"id_card_states",
 	"image_repository",
 	"inactive_keys",
 	"init",
 	"intents",
 	"intercom_range_display_status",
-	"invalid_zone",
 	"jobMax",
 	"job_master",
 	"jobban_keylist",
@@ -2314,7 +2198,6 @@
 	"map_sectors",
 	"map_templates",
 	"maploader",
-	"mark",
 	"markup_bold",
 	"markup_italics",
 	"markup_regex",
@@ -2324,7 +2207,6 @@
 	"masterdatumPool",
 	"maze_cell_count",
 	"mechas_list",
-	"merged",
 	"message_delay",
 	"message_servers",
 	"meteors_armageddon",
@@ -2339,7 +2221,6 @@
 	"mining_floors",
 	"mining_walls",
 	"minor_air_alarms",
-	"minor_announcement",
 	"missiondiff",
 	"mob_hat_cache",
 	"mob_repository",
@@ -2381,7 +2262,6 @@
 	"power_alarm",
 	"preferences_datums",
 	"priority_air_alarms",
-	"priority_announcement",
 	"priv_all_access",
 	"priv_all_access_datums",
 	"priv_all_access_datums_id",
@@ -2431,7 +2311,6 @@
 	"ship_templates",
 	"side_effects",
 	"skin_styles_female_list",
-	"skipped_unit_tests",
 	"slot_equipment_priority",
 	"slot_flags_enumeration",
 	"solar_gen_rate",
@@ -2484,7 +2363,6 @@
 	"total_lighting_corners",
 	"total_lighting_overlays",
 	"total_lighting_sources",
-	"total_unit_tests",
 	"transfer_controller",
 	"turbolift_areas",
 	"turbolifts",
@@ -2497,12 +2375,9 @@
 	"url_find_lazy",
 	"valid_bloodtypes",
 	"vendor_account",
-	"ventcrawl_machinery",
 	"view_variables_dont_expand",
 	"view_variables_no_assoc",
-	"virusDB",
 	"visual_nets",
-	"vsc",
 	"wax_recipes",
 	"weighted_mundaneevent_locations",
 	"weighted_randomevent_locations",

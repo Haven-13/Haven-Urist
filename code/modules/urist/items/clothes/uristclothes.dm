@@ -1281,6 +1281,12 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "terran_uniform"
 	item_state = "terran_uniform"
 
+/obj/item/weapon/card/id/terran/marine
+	name = "\improper Terran Marine ID"
+	desc = "An ID worn by someone in the Terran Confederacy Marines, the land service branch of the powerful Terran Navy, and the primary land service branch of the Terran Confederacy Armed Forces."
+	registered_name = "Terran Confederacy Marine Corps."
+	assignment = "Marine"
+
 // Biohazard Stuff, and Big Bulky Dumb Suits.
 
 // Grey Version of the biosuit.
@@ -1399,3 +1405,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	item_flags = ITEM_FLAG_THICKMATERIAL
 	siemens_coefficient = 0.3
+
+/obj/item/clothing/under/syndicate/pirate
+	starting_accessories = list(/obj/item/clothing/accessory/armband, /obj/item/clothing/accessory/kneepads, /obj/item/clothing/accessory/storage/bandolier)

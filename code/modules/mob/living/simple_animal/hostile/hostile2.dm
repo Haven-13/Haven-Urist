@@ -31,6 +31,18 @@
 
 	var/break_stuff_probability = 100
 
+	var/datum/factions/hiddenfaction = null
+
+/mob/living/simple_animal/hostile/Initialize()
+	. = ..()
+
+	if(hiddenfaction)
+		for(var/datum/factions/F in SSfactions.factions)
+			if(F.type == hiddenfaction)
+				hiddenfaction = F
+				if(F.hostile)
+					faction = F.factionid
+
 /mob/living/simple_animal/hostile/Life()
 
 	. = ..()
@@ -253,11 +265,10 @@
 /mob/living/simple_animal/hostile/death(gibbed, deathmessage, show_dead_message)
 	LoseAggro()
 	mouse_opacity = 1
-	..(gibbed, deathmessage, show_dead_message)
+	. = ..(gibbed, deathmessage, show_dead_message)
 	walk(src, 0)
 
 /mob/living/simple_animal/hostile/proc/OpenFire(var/atom/the_target)
-
 	var/atom/target = the_target
 	var/atom/targloc = target.loc
 	var/shottimer = -2 //so that first shot is at spawn(1) like it used to
