@@ -1,0 +1,15 @@
+author: Glloyd, martinlyra, Naxodile
+delete-after: true
+changes:
+  - rscadd: Added a pirate station that periodically spawns pirate vessels to fight
+  - rscadd: Added more features to ship combat against NPC vessels
+  - rscadd: Added the datumized faction system from Urist
+  - rscadd: Added factions reputation and relation from Urist
+  - rscadd: Ghosts should be able to spawn as defenders on the pirate station upon
+      the first breach
+  - tweak: Datumized ship weapon ammunition
+  - tweak: Player-controlled vessels should be able to engage in PvP ship combat,
+      untested
+  - tweak: Most Urist content now uses the datumized faction system
+  - tweak: Ports revised burst firing mechanic for ship weapons
+  - balance: NPC ship shields are now generally tougher
