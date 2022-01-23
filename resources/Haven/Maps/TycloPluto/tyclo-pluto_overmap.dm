@@ -1,5 +1,7 @@
 /obj/effect/overmap/ship/combat/pluto
 	name = "AFCUV Pluto"
+	ship_name = "AFCUV Pluto"
+	classification = "Tyclo-class Utility Frigate"
 	shipid = "pluto"
 	vessel_mass = 125
 	fore_dir = SOUTH
