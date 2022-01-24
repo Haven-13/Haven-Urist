@@ -9,6 +9,7 @@ Thumbs.db
 *.before
 data/
 cfg/
+tmp/
 build_log.txt
 use_map
 stopserver
