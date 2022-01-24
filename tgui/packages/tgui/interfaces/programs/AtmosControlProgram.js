@@ -1,55 +1,88 @@
-import { filter, sortBy } from 'common/collections';
-import { flow } from 'common/fp';
-import { toFixed } from 'common/math';
-import { useBackend } from "tgui/backend";
-import { LabeledList, ProgressBar, Section } from "tgui/components";
-import { getGasColor, getGasLabel } from "tgui/constants";
+import { filter, sortBy } from "common/collections";
+import { flow } from "common/fp";
+import { createSearch } from "common/string";
+import { useBackend, useSharedState } from "tgui/backend";
+import { Button, Input, Section, Stack, Tabs } from "tgui/components";
 import { NtosWindow } from "tgui/layouts";
+import { AirAlarmContent } from "../terminals/AirAlarm";
 
-export const NtosAtmos = (props, context) => {
+export const AtmosControlProgram = (props, context) => {
   const { act, data } = useBackend(context);
   const {
-    AirTemp,
-    AirPressure,
+    alarms,
+    selected,
   } = data;
-  const gases = flow([
-    filter(gas => gas.percentage >= 0.01),
-    sortBy(gas => -gas.percentage),
-  ])(data.AirData || []);
-  const gasMaxPercentage = Math.max(1, ...gases.map(gas => gas.percentage));
+
+  const [
+    filterAlarmsToggle,
+    setFilterAlarmsToggle,
+  ] = useSharedState(context, "filterAlarmsToggle", false);
+
+  const [
+    filterInput,
+    setFilterInput,
+  ] = useSharedState(context, "filterInput", "");
+
+  const selectAlarms = (alarms, alarmSelectText = "") => {
+    const testSearch = createSearch(alarmSelectText, alarm => alarm.name);
+    return flow([
+      filter(alarm => alarm?.name),
+      filterInput && filter(testSearch),
+      filterAlarmsToggle && filter(alarm => !!alarm.alarm),
+      sortBy(alarm => alarm.name),
+    ])(alarms);
+  };
+
+  const displayableAlarms = selectAlarms(alarms, filterInput);
+
   return (
     <NtosWindow
-      width={300}
-      height={350}
+      width={750}
+      height={750}
       resizable>
       <NtosWindow.Content scrollable>
-        <Section>
-          <LabeledList>
-            <LabeledList.Item label="Temperature">
-              {AirTemp}°C
-            </LabeledList.Item>
-            <LabeledList.Item label="Pressure">
-              {AirPressure} kPa
-            </LabeledList.Item>
-          </LabeledList>
-        </Section>
-        <Section>
-          <LabeledList>
-            {gases.map(gas => (
-              <LabeledList.Item
-                key={gas.name}
-                label={getGasLabel(gas.name)}>
-                <ProgressBar
-                  color={getGasColor(gas.name)}
-                  value={gas.percentage}
-                  minValue={0}
-                  maxValue={gasMaxPercentage}>
-                  {toFixed(gas.percentage, 2) + '%'}
-                </ProgressBar>
-              </LabeledList.Item>
-            ))}
-          </LabeledList>
-        </Section>
+        <Stack fill>
+          <Stack.Item width={25}>
+            <Section fill>
+              <Stack vertical fill>
+                <Stack.Item>
+                  <Input
+                    fluid
+                    value={filterInput}
+                    onInput={(_, value) => setFilterInput(value)}
+                  />
+                  <Button.Checkbox
+                    mt={1}
+                    fluid
+                    checked={filterAlarmsToggle}
+                    onClick={() => setFilterAlarmsToggle(!filterAlarmsToggle)}
+                    content="Show Active Alarms Only"
+                  />
+                </Stack.Item>
+                <Stack.Item grow={1}>
+                  <Section fill scrollable>
+                    <Tabs vertical>
+                      {displayableAlarms.map((alarm, index) => (
+                        <Tabs.Tab
+                          key={index}
+                          selected={alarm.ref === selected.ref}
+                          onClick={() => act("select", { ref: alarm.ref })}
+                        >
+                          {alarm.name}
+                        </Tabs.Tab>
+                      ))}
+                    </Tabs>
+                  </Section>
+                </Stack.Item>
+              </Stack>
+            </Section>
+          </Stack.Item>
+          <Stack.Item grow={1}>
+            <Section fill scrollable title={selected.name || "Disconnected"}>
+              {!!selected.ref && (<AirAlarmContent />)}
+            </Section>
+          </Stack.Item>
+        </Stack>
       </NtosWindow.Content>
     </NtosWindow>
   );

@@ -8,21 +8,31 @@ import { InterfaceLockNoticeBox } from 'tgui/interfaces/common/InterfaceLockNoti
 import { Vent, Scrubber } from 'tgui/interfaces/common/AtmosControls';
 
 export const AirAlarm = (props, context) => {
-  const { act, data } = useBackend(context);
-  const locked = data.locked && !data.siliconUser;
   return (
     <Window
       width={440}
       height={650}
       resizable>
       <Window.Content scrollable>
-        <InterfaceLockNoticeBox />
-        <AirAlarmStatus />
-        {!locked && (
-          <AirAlarmControl />
-        )}
+        <AirAlarmContent />
       </Window.Content>
     </Window>
+  );
+};
+
+export const AirAlarmContent = (props, context) => {
+  const { act, data } = useBackend(context);
+  const unlocked
+    = !(data.locked && !data.siliconUser)
+    || (data.remoteConnection && data.remoteAccess);
+  return (
+    <Fragment>
+      <InterfaceLockNoticeBox />
+      <AirAlarmStatus />
+      {unlocked && (
+        <AirAlarmControl />
+      )}
+    </Fragment>
   );
 };
 
