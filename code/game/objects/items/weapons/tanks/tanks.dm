@@ -215,9 +215,13 @@ var/list/global/tank_gauge_cache = list()
 /obj/item/weapon/tank/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "GasTank")
+		ui = new(user, src, "GasTank", name)
 		ui.open()
 
+/obj/item/weapon/tank/ui_static_data(mob/user)
+	. = ..()
+	.["maxTankPressure"] = 10.*ONE_ATMOSPHERE
+	.["badTankPressure"] = TANK_LEAK_PRESSURE
 
 /obj/item/weapon/tank/ui_data(mob/user)
 	var/mob/living/carbon/location = null
@@ -234,13 +238,13 @@ var/list/global/tank_gauge_cache = list()
 			using_internal = 1
 
 	// this is the data which will be sent to the ui
-	var/data[0]
-	data["tankPressure"] = round(air_contents.return_pressure() || 0)
-	data["releasePressure"] = round(distribute_pressure || 0)
-	data["defaultReleasePressure"] = round(TANK_DEFAULT_RELEASE_PRESSURE)
-	data["maxReleasePressure"] = round(TANK_MAX_RELEASE_PRESSURE)
-	data["valveOpen"] = using_internal ? 1 : 0
-	data["maskConnected"] = 0
+	. = ..()
+	.["tankPressure"] = air_contents.return_pressure() || 0
+	.["releasePressure"] = distribute_pressure || 0
+	.["defaultReleasePressure"] = TANK_DEFAULT_RELEASE_PRESSURE
+	.["maxReleasePressure"] = TANK_MAX_RELEASE_PRESSURE
+	.["valveOpen"] = using_internal ? 1 : 0
+	.["maskConnected"] = 0
 
 	if(istype(location))
 		var/mask_check = 0
@@ -256,32 +260,33 @@ var/list/global/tank_gauge_cache = list()
 
 		if(mask_check)
 			if(location.wear_mask && (location.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
-				data["maskConnected"] = 1
+				.["maskConnected"] = 1
 			else if(istype(location, /mob/living/carbon/human))
 				var/mob/living/carbon/human/H = location
 				if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
-					data["maskConnected"] = 1
+					.["maskConnected"] = 1
 
-	return data
+/obj/item/weapon/tank/ui_state(mob/user)
+	return ui_inventory_state()
 
-/obj/item/weapon/tank/Topic(user, href_list, state = ui_inventory_state())
-	..()
-
-/obj/item/weapon/tank/OnTopic(user, href_list)
-	if (href_list["dist_p"])
-		if (href_list["dist_p"] == "reset")
-			distribute_pressure = TANK_DEFAULT_RELEASE_PRESSURE
-		else if (href_list["dist_p"] == "max")
-			distribute_pressure = TANK_MAX_RELEASE_PRESSURE
-		else
-			var/cp = text2num(href_list["dist_p"])
-			distribute_pressure += cp
-		distribute_pressure = min(max(round(distribute_pressure), 0), TANK_MAX_RELEASE_PRESSURE)
+/obj/item/weapon/tank/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	if(..())
 		return TRUE
-
-	if (href_list["stat"])
-		toggle_valve(usr)
-		return TRUE
+	switch(action)
+		if ("set_release")
+			switch(params["value"])
+				if ("reset")
+					distribute_pressure = TANK_DEFAULT_RELEASE_PRESSURE
+				if ( "max")
+					distribute_pressure = TANK_MAX_RELEASE_PRESSURE
+				else
+					var/cp = text2num(params["value"])
+					distribute_pressure = cp
+			distribute_pressure = clamp(distribute_pressure, 0, TANK_MAX_RELEASE_PRESSURE)
+			return TRUE
+		if ("toggle_valve")
+			toggle_valve(usr)
+			return TRUE
 
 /obj/item/weapon/tank/proc/toggle_valve(var/mob/user)
 	if(istype(loc,/mob/living/carbon))
