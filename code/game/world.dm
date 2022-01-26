@@ -80,6 +80,7 @@ GLOBAL_VAR(restart_counter)
 	name += " - [GLOB.using_map.full_name]"
 
 	TgsNew(minimum_required_security_level = TGS_SECURITY_TRUSTED)
+	global.revdata.load_tgs_info()
 
 	//logs
 	setup_logs()
