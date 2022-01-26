@@ -25,4 +25,5 @@
 #include "states/observer.dm"
 #include "states/physical.dm"
 #include "states/self.dm"
+#include "states/silicon_only.dm"
 #include "states/zlevel.dm"
