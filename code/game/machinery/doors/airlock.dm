@@ -569,10 +569,10 @@ About the new airlock wires panel:
 	var/message = ""
 	if(src.isWireCut(AIRLOCK_WIRE_IDSCAN))
 		message = "The IdScan wire is cut - IdScan feature permanently disabled."
-	else if(activate && src.aiDisabledIdScanner)
+	else if(!activate && src.aiDisabledIdScanner)
 		src.aiDisabledIdScanner = 0
 		message = "IdScan feature has been enabled."
-	else if(!activate && !src.aiDisabledIdScanner)
+	else if(activate && !src.aiDisabledIdScanner)
 		src.aiDisabledIdScanner = 1
 		message = "IdScan feature has been disabled."
 

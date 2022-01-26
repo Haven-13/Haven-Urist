@@ -28,9 +28,12 @@
 
 	.["power"] = list(
 		"main" = !main_power_lost_until,
-		"backup" = !backup_power_lost_until
+		"main_time_left" = main_power_lost_until,
+		"backup" = !backup_power_lost_until,
+		"backup_time_left" = backup_power_lost_until
 	)
-	.["shock"] = electrified_until
+	.["shock"] = isElectrified()
+	.["shocked_until"] = electrified_until
 	.["opened"] = !density
 	.["locked"] = locked
 	.["welded"] = welded
@@ -68,11 +71,11 @@
 			if(src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS))
 				to_chat(usr, "The door bolt control wire is cut - Door bolts permanently dropped.")
 			else if(locked)
-				if(src.lock())
-					to_chat(usr, "The door bolts have been dropped.")
-			else
 				if(src.unlock())
 					to_chat(usr, "The door bolts have been raised.")
+			else
+				if(src.lock())
+					to_chat(usr, "The door bolts have been dropped.")
 		if("shock_restore")
 			electrify(0, 1)
 		if("shock_temporary")

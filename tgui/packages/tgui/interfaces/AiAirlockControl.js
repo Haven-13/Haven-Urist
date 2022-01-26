@@ -22,10 +22,10 @@ export const AiAirlockControl = (props, context) => {
   const { act, data } = useBackend(context);
   const statusMain = dangerMap[data.power.main] || dangerMap[0];
   const statusBackup = dangerMap[data.power.backup] || dangerMap[0];
-  const statusElectrify = dangerMap[data.shock] || dangerMap[0];
+  const statusElectrify = dangerMap[(!data.shock && 2) || 0] || dangerMap[0];
   return (
     <Window
-      width={500}
+      width={450}
       height={390}>
       <Window.Content>
         <Section title="Power Status">
@@ -71,7 +71,7 @@ export const AiAirlockControl = (props, context) => {
                 <Fragment>
                   <Button
                     icon="wrench"
-                    disabled={!(data.wires.shock && data.shock === 0)}
+                    disabled={!(data.wires.shock && data.shock)}
                     content="Restore"
                     onClick={() => act('shock_restore')} />
                   <Button
@@ -86,7 +86,7 @@ export const AiAirlockControl = (props, context) => {
                     onClick={() => act('shock_perm')} />
                 </Fragment>
               )}>
-              {data.shock === 2 ? 'Safe' : 'Electrified'}
+              {!data.shock ? 'Safe' : 'Electrified'}
               {' '}
               {!data.wires.shock
                 && '[Wires have been cut!]'
@@ -166,9 +166,9 @@ export const AiAirlockControl = (props, context) => {
               color="bad"
               buttons={(
                 <Button
-                  icon={data.speed ? 'power-off' : 'times'}
-                  content={data.speed ? 'Enabled' : 'Disabled'}
-                  selected={data.speed}
+                  icon={data.timing ? 'power-off' : 'times'}
+                  content={data.timing ? 'Enabled' : 'Disabled'}
+                  selected={data.timing}
                   disabled={!data.wires.timing}
                   onClick={() => act('speed_toggle')} />
               )}>
