@@ -52,7 +52,7 @@ var/global/datum/getrev/revdata = new()
 	if(!testmerge.len)
 		return ""
 	. = header ? "The following pull requests are currently test merged:<br>" : ""
-	- += "<ul>"
+	. += "<ul>"
 	for(var/line in testmerge)
 		var/datum/tgs_revision_information/test_merge/tm = line
 		var/cm = tm.head_commit
