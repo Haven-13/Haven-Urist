@@ -81,7 +81,7 @@ var/global/datum/getrev/revdata = new()
 	else
 		to_chat(src, "<b>Server Revision:</b> Revision Unknown")
 	if(revdata.testmerge.len)
-		to_chat(src, revdata.GetTestMergeInfo())
+		to_chat(src, revdata.get_test_merge_info())
 	if(world.TgsAvailable())
 		var/datum/tgs_version/version = world.TgsVersion()
 		to_chat(src, "Server tools version: [version.raw_parameter]")

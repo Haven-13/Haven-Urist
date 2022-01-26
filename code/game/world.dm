@@ -534,7 +534,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 /world/proc/load_motd()
 	join_motd = file2text("config/motd.txt")
-	var/tm_info = revdata.GetTestMergeInfo()
+	var/tm_info = revdata.get_test_merge_info()
 	if(join_motd || tm_info)
 		join_motd = join_motd ? "[join_motd]<br>[tm_info]" : tm_info
 
