@@ -48,6 +48,20 @@ var/global/datum/getrev/revdata = new()
 
 	return msg.Join("\n")
 
+/datum/getrev/proc/get_test_merge_info(header = TRUE)
+	if(!testmerge.len)
+		return ""
+	. = header ? "The following pull requests are currently test merged:<br>" : ""
+	- += "<ul>"
+	for(var/line in testmerge)
+		var/datum/tgs_revision_information/test_merge/tm = line
+		var/cm = tm.head_commit
+		var/details = ": '" + html_encode(tm.title) + "' by " + html_encode(tm.author) + " @ " + html_encode(copytext_char(cm, 1, 6))
+		if(details && findtext(details, "\[s\]") && (!usr || !usr.client.holder))
+			continue
+		. += "<li><a href=\"[config.githuburl]/pull/[tm.number]\">#[tm.number][details]</a></li>"
+	. += "</ul>"
+
 /client/verb/showrevinfo()
 	set category = "OOC"
 	set name = "Show Server Revision"
@@ -57,10 +71,12 @@ var/global/datum/getrev/revdata = new()
 	to_chat(src, "<b>Server Version:</b> [world.byond_version].[world.byond_build]")
 	var/server_revision = revdata.revision_origin || revdata.revision
 	if(server_revision)
-		if(config.githuburl)
+		if(config.githuburl && server_revision == revdata.revision_origin)
 			server_revision = "<a href='[config.githuburl]/commit/[server_revision]'>[server_revision]</a>"
-		if(revdata.branch && revdata.date)
-			server_revision = "[server_revision] `[revdata.branch]` [revdata.date]"
+		if(revdata.branch)
+			server_revision = "[server_revision] `[revdata.branch]`"
+		if(revdata.date)
+			server_revision = "[server_revision] [revdata.date]"
 		to_chat(src, "<b>Server Revision:</b> [server_revision]")
 	else
 		to_chat(src, "<b>Server Revision:</b> Revision Unknown")
@@ -71,15 +87,3 @@ var/global/datum/getrev/revdata = new()
 		to_chat(src, "Server tools version: [version.raw_parameter]")
 	to_chat(src, "Game ID: <b>[game_id]</b>")
 	to_chat(src, "Current map: [GLOB.using_map.full_name]")
-
-/datum/getrev/proc/GetTestMergeInfo(header = TRUE)
-	if(!testmerge.len)
-		return ""
-	. = header ? "The following pull requests are currently test merged:<br>" : ""
-	for(var/line in testmerge)
-		var/datum/tgs_revision_information/test_merge/tm = line
-		var/cm = tm.head_commit
-		var/details = ": '" + html_encode(tm.title) + "' by " + html_encode(tm.author) + " at commit " + html_encode(copytext_char(cm, 1, 11))
-		if(details && findtext(details, "\[s\]") && (!usr || !usr.client.holder))
-			continue
-		. += "<a href=\"[config.githuburl]/pull/[tm.number]\">#[tm.number][details]</a><br>"
