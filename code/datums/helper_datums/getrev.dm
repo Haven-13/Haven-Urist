@@ -56,10 +56,10 @@ var/global/datum/getrev/revdata = new()
 	for(var/line in testmerge)
 		var/datum/tgs_revision_information/test_merge/tm = line
 		var/cm = tm.head_commit
-		var/details = ": '" + html_encode(tm.title) + "' by " + html_encode(tm.author) + " @ " + html_encode(copytext_char(cm, 1, 6))
+		var/details = ": '[html_encode(tm.title)]' by [html_encode(tm.author)] @ [html_encode(copytext_char(cm, 1, 8))]"
 		if(details && findtext(details, "\[s\]") && (!usr || !usr.client.holder))
 			continue
-		. += "<li><a href=\"[config.githuburl]/pull/[tm.number]\">#[tm.number][details]</a></li>"
+		. += "<li>&gt;<a href=\"[config.githuburl]/pull/[tm.number]\">#[tm.number][details]</a></li>"
 	. += "</ul>"
 
 /client/verb/showrevinfo()
