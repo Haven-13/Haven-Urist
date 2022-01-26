@@ -320,16 +320,20 @@
 		var/layer = FLOAT_LAYER,
 		var/icon_plane = src.original_plane,
 		var/alpha = src.alpha,
-		var/no_block = FALSE
+		var/no_block = FALSE,
+		var/no_base = FALSE
 	)
-	var/_plane = get_float_plane(icon_plane)
-	var/mutable_appearance/base = mutable_appearance(
-		icon,
-		state,
-		plane = _plane,
-		layer = layer,
-		alpha = alpha
-	)
+	. = list()
+	if (!no_base)
+		var/_plane = get_float_plane(icon_plane)
+		var/mutable_appearance/base = mutable_appearance(
+			icon,
+			state,
+			plane = _plane,
+			layer = layer,
+			alpha = alpha
+		)
+		. |= base
 
 	var/_em_plane = get_float_plane(EMISSIVE_PLANE)
 	var/_em_layer = (no_block && EMISSIVE_UNBLOCKABLE_LAYER) || FLOAT_LAYER
@@ -341,8 +345,7 @@
 		alpha = alpha
 	)
 	mask.color = GLOB.emissive_color
-
-	return list(base, mask)
+	. |= mask
 
 
 //Overlays
