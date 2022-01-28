@@ -12,7 +12,7 @@
 	idle_power_usage = 5
 	active_power_usage = 100
 	atom_flags = ATOM_FLAG_NO_REACT
-	var/global/max_n_of_items = 999 // Sorry but the BYOND infinite loop detector doesn't look things over 1000.
+
 	var/icon_on = "smartfridge"
 	var/icon_off = "smartfridge-off"
 	var/icon_panel = "smartfridge-panel"

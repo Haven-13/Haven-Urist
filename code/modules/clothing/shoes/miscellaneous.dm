@@ -6,7 +6,6 @@
 	permeability_coefficient = 0.05
 	item_flags = ITEM_FLAG_NOSLIP
 	origin_tech = list(TECH_ILLEGAL = 3)
-	var/list/clothing_choices = list()
 	siemens_coefficient = 0.8
 	species_restricted = null
 

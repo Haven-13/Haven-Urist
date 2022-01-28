@@ -1,8 +1,6 @@
 /datum/wires/explosive
 	wire_count = 1
 
-var/const/WIRE_EXPLODE = 1
-
 /datum/wires/explosive/proc/explode()
 	return
 

@@ -1,3 +1,5 @@
+#define UPLINK_MAX_ATTEMPTS 50
+
 /datum/uplink_random_item
 	var/uplink_item				// The uplink item
 	var/keep_probability		// The probability we'll decide to keep this item if selected
@@ -18,9 +20,7 @@
 	items = list()
 
 /datum/uplink_random_selection/proc/get_random_item(var/telecrystals, obj/item/device/uplink/U, var/list/bought_items)
-	var/const/attempts = 50
-
-	for(var/i = 0; i < attempts; i++)
+	for(var/i = 0; i < UPLINK_MAX_ATTEMPTS; i++)
 		var/datum/uplink_random_item/RI = pick(items)
 		if(!prob(RI.keep_probability))
 			continue
@@ -122,8 +122,7 @@ var/list/uplink_random_selections_
 		items += new_thing
 
 /datum/uplink_random_selection/blacklist/get_random_item(var/telecrystals, obj/item/device/uplink/U, var/list/bought_items)
-	var/const/attempts = 50
-	for(var/i = 0; i < attempts; i++)
+	for(var/i = 0; i < UPLINK_MAX_ATTEMPTS; i++)
 		var/datum/uplink_random_item/RI = pick(items)
 		if(!prob(RI.keep_probability))
 			continue
@@ -146,3 +145,5 @@ var/list/uplink_random_selections_
 		log_debug("[key] - [uplink.items_assoc[key]]")
 
 #endif
+
+#undef UPLINK_MAX_ATTEMPTS

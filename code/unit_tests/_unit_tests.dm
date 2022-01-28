@@ -11,6 +11,7 @@
 #include "extension_tests.dm"
 #include "food_tests.dm"
 #include "foundation_tests.dm"
+#include "globals_tests.dm"
 #include "icon_tests.dm"
 #include "job_tests.dm"
 #include "loadout_tests.dm"
