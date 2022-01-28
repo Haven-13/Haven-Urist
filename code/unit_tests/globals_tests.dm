@@ -20,7 +20,7 @@
 		total += count
 
 	if(fails)
-		fail("[fails] out of [total] variables ([length(variable_name_count)] unique) have duplicates. Please address these or the debugger and View-Variables will shit the bed.")
+		fail("[fails] out of [length(variable_name_count)] unique variables (total [total]) have duplicates. Please address these or the debugger and View-Variables will shit the bed.")
 	else
 		pass("All [length(variable_name_count)] passed the test.")
 	return TRUE
