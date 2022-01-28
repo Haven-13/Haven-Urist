@@ -15,7 +15,7 @@
 	for(var/variable in variable_name_count)
 		var/count = variable_name_count[variable]
 		if(count > 1)
-			log_bad("Global/Static variable '[variable]' has [count] duplications!")
+			log_bad("Variable '[variable]' has [count] duplications!")
 			fails += 1
 		total += count
 
