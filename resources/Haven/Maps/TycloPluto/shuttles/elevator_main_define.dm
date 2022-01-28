@@ -12,7 +12,6 @@
 	name = "\improper first deck"
 	lift_floor_label = "1st Deck"
 	lift_floor_name = "Habitation"
-	base_turf = /turf/simulated/floor/plating
 
 /area/turbolift/pluto/second_deck
 	name = "\improper second deck"
@@ -23,6 +22,7 @@
 	name = "\improper third deck"
 	lift_floor_label = "3rd Deck"
 	lift_floor_name = "Expedition"
+	base_turf = /turf/simulated/floor/plating
 
 /obj/turbolift_map_holder/pluto
 	name = "Pluto turbolift map placeholder"
