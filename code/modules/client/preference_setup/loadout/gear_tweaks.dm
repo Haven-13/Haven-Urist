@@ -19,7 +19,6 @@
 /*
 * Color adjustment
 */
-
 /datum/gear_tweak/color
 	var/list/valid_colors
 
@@ -43,10 +42,14 @@
 		return
 	I.color = metadata
 
+/proc/gear_tweak_free_color_choice()
+	var/static/datum/gear_tweak/color/singleton
+	if(!singleton) singleton = new()
+	return singleton
+
 /*
 * Path adjustment
 */
-
 /datum/gear_tweak/path
 	var/list/valid_paths
 
@@ -102,7 +105,6 @@
 /*
 * Content adjustment
 */
-
 /datum/gear_tweak/contents
 	var/list/valid_contents
 
@@ -150,7 +152,6 @@
 /*
 * Ragent adjustment
 */
-
 /datum/gear_tweak/reagents
 	var/list/valid_reagents
 

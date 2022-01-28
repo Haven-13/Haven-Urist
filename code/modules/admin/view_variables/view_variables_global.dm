@@ -7,7 +7,7 @@
 	return "" // Ensuring changes to the base proc never affect us
 
 /decl/global_vars/get_variables()
-	. = _all_globals - VV_hidden()
+	. = global.vars - VV_hidden()
 	if(!usr || !check_rights(R_ADMIN|R_DEBUG, FALSE))
 		. -= VV_secluded()
 
