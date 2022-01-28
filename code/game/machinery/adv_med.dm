@@ -381,7 +381,7 @@
 				table += " [capitalize(get_wound_severity(E.burn_ratio))] burns ([E.burn_dam])"
 			if(E.brute_dam + E.burn_dam == 0)
 				table += "None"
-			table += "</td><td>[english_list(E.get_scan_results(), nothing_text = "", and_text = ", ")]</td></tr>"
+			table += "</td><td>[english_list(E.get_scan_results(), "", ", ", ", ", "")]</td></tr>"
 
 	table += "<tr><td>---</td><td><b>INTERNAL ORGANS</b></td><td>---</td></tr>"
 	for(var/obj/item/organ/internal/I in H.internal_organs)
@@ -395,7 +395,7 @@
 			table += "Minor"
 		else
 			table += "None"
-		table += "</td><td>[english_list(I.get_scan_results(), nothing_text = "", and_text = ", ")]</td></tr>"
+		table += "</td><td>[english_list(I.get_scan_results(), "", ", ", ", ", "")]</td></tr>"
 	table += "</table>"
 	dat += jointext(table,null)
 	table.Cut()

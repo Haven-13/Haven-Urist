@@ -216,7 +216,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 	. = list()
 	for(var/datum/reagent/current in reagent_list)
 		. += "[current.name] ([current.volume])"
-	return english_list(., "EMPTY", "", ", ", ", ")
+	return english_list(., "EMPTY", ", ", ", ", "")
 
 /* Holder-to-holder and similar procs */
 

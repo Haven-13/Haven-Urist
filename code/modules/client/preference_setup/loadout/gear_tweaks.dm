@@ -113,7 +113,7 @@
 	..()
 
 /datum/gear_tweak/contents/get_contents(var/metadata)
-	return "Contents: [english_list(metadata, and_text = ", ")]"
+	return "Contents: [english_list(metadata)]"
 
 /datum/gear_tweak/contents/get_default()
 	. = list()
@@ -211,7 +211,7 @@
 	O = ValidTeslaLinks[metadata[7]]
 	if(O)
 		names += initial(O.name)
-	return "[english_list(names, and_text = ", ")]"
+	return "[english_list(names)]"
 
 /datum/gear_tweak/tablet/get_metadata(var/user, var/metadata, var/title)
 	. = list()

@@ -96,7 +96,7 @@
 					"origin_lost" = A.origin == null,
 					"has_cameras" = cameras.len,
 					"cameras" = cameras,
-					"lost_sources" = lost_sources.len ? sanitize(english_list(lost_sources, nothing_text = "", and_text = ", ")) : ""))
+					"lost_sources" = lost_sources.len ? sanitize(english_list(lost_sources, "", ", ", ", ", "")) : ""))
 	data["categories"] = categories
 
 	return data
