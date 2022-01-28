@@ -85,6 +85,7 @@
 			else
 				lighting_clear_overlay()
 
+	if(!W.original_plane) W.init_plane()
 	W.update_plane()
 	W.update_openspace()
 

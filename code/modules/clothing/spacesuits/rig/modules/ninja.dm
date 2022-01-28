@@ -147,10 +147,9 @@
 	origin_tech = list(TECH_MATERIAL = 5, TECH_POWER = 6, TECH_MAGNET = 5, TECH_ILLEGAL = 4, TECH_ENGINEERING = 6)
 
 /obj/item/rig_module/fabricator/energy_net/engage(atom/target)
-
 	if(holder && holder.wearer)
-		if(..(target) && target)
-			holder.wearer.Beam(target,"n_beam",,10)
+		//if(..(target) && target)
+		//	holder.wearer.Beam(target,"n_beam",,10)
 		return 1
 	return 0
 
