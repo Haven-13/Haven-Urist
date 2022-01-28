@@ -1,0 +1,6 @@
+author: martinlyra
+delete-after: true
+changes:
+  - rscadd: Added the missing UI for gas tanks
+  - bugfix: Fixed the UI being missing for all gas tanks that can be activated in
+      hand
