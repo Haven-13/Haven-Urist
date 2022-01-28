@@ -43,9 +43,9 @@
 	I.color = metadata
 
 /proc/gear_tweak_free_color_choice()
-	var/static/datum/gear_tweak/color/singleton
-	if(!singleton) singleton = new()
-	return singleton
+	var/static/datum/gear_tweak/color/gear_tweak_free_color_
+	if(!gear_tweak_free_color_) gear_tweak_free_color_ = new()
+	return gear_tweak_free_color_
 
 /*
 * Path adjustment
