@@ -16,6 +16,8 @@
 	--Lists can be done through [], so say UPDATE /mob SET client.color = [1, 0.75, ...].
 */
 
+var/list/sdql_exclude_vars = list("usr", "src", "marked", "global")
+
 // Used by update statements, this is to handle shit like preventing editing the /datum/admins though SDQL but WITHOUT +PERMISSIONS.
 // Assumes the variable actually exists.
 /datum/proc/SDQL_update(var/const/var_name, var/new_value)
@@ -372,10 +374,9 @@
 
 /proc/SDQL_var(datum/object, list/expression, start = 1, source)
 	var/v
-	var/static/list/exclude = list("usr", "src", "marked", "global")
 	var/long = start < expression.len
 
-	if (object == world && (!long || expression[start + 1] == ".") && !(expression[start] in exclude))
+	if (object == world && (!long || expression[start + 1] == ".") && !(expression[start] in sdql_exclude_vars))
 		v = read_global(expression[start])
 
 	else if (expression [start] == "{" && long)

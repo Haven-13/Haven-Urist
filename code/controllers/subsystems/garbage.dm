@@ -17,6 +17,9 @@ SUBSYSTEM_DEF(garbage)
 	var/highest_del_time = 0
 	var/highest_del_tickusage = 0
 
+	var/prequeue_count = 0
+	var/handled_count = 0
+
 	var/list/pass_counts
 	var/list/fail_counts
 
@@ -122,20 +125,20 @@ SUBSYSTEM_DEF(garbage)
 //Don't attempt to optimize, not worth the effort.
 /datum/controller/subsystem/garbage/proc/HandlePreQueue()
 	var/list/tobequeued = queues[GC_QUEUE_PREQUEUE]
-	var/static/count = 0
-	if (count)
-		var/c = count
-		count = 0 //so if we runtime on the Cut, we don't try again.
+	if (prequeue_count)
+		var/c = prequeue_count
+		prequeue_count = 0 //so if we runtime on the Cut, we don't try again.
 		tobequeued.Cut(1,c+1)
 
 	for (var/ref in tobequeued)
-		count++
+		prequeue_count++
 		Queue(ref, GC_QUEUE_PREQUEUE+1)
 		if (MC_TICK_CHECK)
 			break
-	if (count)
-		tobequeued.Cut(1,count+1)
-		count = 0
+
+	if (prequeue_count)
+		tobequeued.Cut(1,prequeue_count+1)
+		prequeue_count = 0
 
 /datum/controller/subsystem/garbage/proc/HandleQueue(level = GC_QUEUE_CHECK)
 	if (level == GC_QUEUE_CHECK)
@@ -144,10 +147,10 @@ SUBSYSTEM_DEF(garbage)
 	var/cut_off_time = world.time - collection_timeout[level] //ignore entries newer then this
 	var/list/queue = queues[level]
 	var/static/lastlevel
-	var/static/count = 0
-	if (count) //runtime last run before we could do this.
-		var/c = count
-		count = 0 //so if we runtime on the Cut, we don't try again.
+
+	if (handled_count) //runtime last run before we could do this.
+		var/c = handled_count
+		handled_count = 0 //so if we runtime on the Cut, we don't try again.
 		var/list/lastqueue = queues[lastlevel]
 		lastqueue.Cut(1, c+1)
 
@@ -155,7 +158,7 @@ SUBSYSTEM_DEF(garbage)
 
 	for (var/refID in queue)
 		if (!refID)
-			count++
+			handled_count++
 			if (MC_TICK_CHECK)
 				break
 			continue
@@ -163,7 +166,7 @@ SUBSYSTEM_DEF(garbage)
 		var/GCd_at_time = queue[refID]
 		if(GCd_at_time > cut_off_time)
 			break // Everything else is newer, skip them
-		count++
+		handled_count++
 
 		var/datum/D
 		D = locate(refID)
@@ -207,9 +210,10 @@ SUBSYSTEM_DEF(garbage)
 
 		if (MC_TICK_CHECK)
 			break
-	if (count)
-		queue.Cut(1,count+1)
-		count = 0
+
+	if (handled_count)
+		queue.Cut(1,handled_count+1)
+		handled_count = 0
 
 /datum/controller/subsystem/garbage/proc/PreQueue(datum/D)
 	if (D.gc_destroyed == GC_CURRENTLY_BEING_QDELETED)

@@ -5,12 +5,23 @@
 
 #define MAX_FLAG 65535
 
+// Copied from modules/assembly/assembly.dm
+//             datums/wires/radio.dm
+//             datums/wires/explosives.dm
+var/const/WIRE_SIGNAL = (1<<0)
+var/const/WIRE_RECEIVE = (1<<1)         //Allows Pulsed(0) to call Activate()
+var/const/WIRE_TRANSMIT = (1<<2)
+var/const/WIRE_PULSE = (1<<3)           //Allows Pulse(0) to act on the holder
+var/const/WIRE_PULSE_SPECIAL = (1<<4)   //Allows Pulse(0) to act on the holders special assembly
+var/const/WIRE_RADIO_RECEIVE = (1<<5)   //Allows Pulsed(1) to call Activate()
+var/const/WIRE_RADIO_PULSE = (1<<6)     //Allows Pulse(1) to send a radio message
+var/const/WIRE_EXPLODE = (1<<7)
+
 var/list/same_wires = list()
 // 14 colours, if you're adding more than 14 wires then add more colours here
 var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown", "gold", "gray", "cyan", "navy", "purple", "pink", "black", "yellow")
 
 /datum/wires
-
 	var/random = 0 // Will the wires be different for every single instance.
 	var/atom/holder = null // The holder
 	var/holder_type = null // The holder type; used to make sure that the holder is the correct type.
@@ -70,7 +81,6 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 
 
 /datum/wires/proc/Interact(var/mob/living/user)
-
 	var/html = null
 	if(holder && CanUse(user))
 		html = GetInteractWindow()
@@ -192,7 +202,6 @@ var/const/POWER = 8
 //
 // Helper Procs
 //
-
 /datum/wires/proc/PulseColour(var/colour)
 	PulseIndex(GetIndex(colour))
 
@@ -216,7 +225,6 @@ var/const/POWER = 8
 //
 // Is Index/Colour Cut procs
 //
-
 /datum/wires/proc/IsColourCut(var/colour)
 	var/index = GetIndex(colour)
 	return IsIndexCut(index)
@@ -227,7 +235,6 @@ var/const/POWER = 8
 //
 // Signaller Procs
 //
-
 /datum/wires/proc/IsAttached(var/colour)
 	if(signallers[colour])
 		return 1
@@ -266,7 +273,6 @@ var/const/POWER = 8
 //
 // Cut Wire Colour/Index procs
 //
-
 /datum/wires/proc/CutWireColour(var/colour)
 	var/index = GetIndex(colour)
 	CutWireIndex(index)
@@ -305,7 +311,6 @@ var/const/POWER = 8
 //
 //Shuffle and Mend
 //
-
 /datum/wires/proc/Shuffle()
 	wires_status = 0
 	GenerateWires()
