@@ -90,8 +90,13 @@
 		queue_node_priority = queue_node.queued_priority
 		queue_node_flags = queue_node.flags
 
+<<<<<<< HEAD
 		if ((queue_node_flags & (SS_TICKER|SS_BACKGROUND)) == SS_TICKER)
 			if ((SS_flags & (SS_TICKER|SS_BACKGROUND)) != SS_TICKER)
+=======
+		if (queue_node_flags & (SS_TICKER|SS_BACKGROUND) == SS_TICKER)
+			if (!(SS_flags & SS_TICKER))
+>>>>>>> 1995263a5b (Subsystems code improvement/refactor)
 				continue
 			if (queue_node_priority < SS_priority)
 				break
@@ -171,11 +176,44 @@
 	log_world(msg)
 	return time
 
+<<<<<<< HEAD
 //hook for printing stats to the "MC" statuspanel for admins to see performance and related stats etc.
 /datum/controller/subsystem/stat_entry(msg)
 	if(!statclick)
 		statclick = new/obj/effect/statclick/debug(null, "Initializing...", src)
 
+=======
+/datum/controller/subsystem/stat_entry(text)
+	if (!stat_line)
+		stat_line = new (null, src)
+	if (Master.initializing)
+		text = "[stat_entry_init()]\t[text]"
+		var/letter = init_state_letter()
+		if (letter)
+			text = "\[[letter]] [text]"
+	else
+		text = "[stat_entry_run()]\t[text]"
+		if (can_fire && !suspended && !(flags & SS_NO_FIRE))
+			text = "\[[state_letter()]] [text]"
+	stat_line.name = text
+	stat(name, stat_line)
+
+/datum/controller/subsystem/proc/stat_entry_init()
+	if (init_state == SS_INITSTATE_DONE)
+		. = "DONE ([init_time]s)"
+	else if (flags & SS_NO_INIT)
+		. = "NO INIT"
+	else if (init_state == SS_INITSTATE_STARTED)
+		if (init_start)
+			. = "LOAD ([(REALTIMEOFDAY - init_start)/10]s)"
+		else
+			. = "LOAD"
+	else
+		. = "WAIT"
+
+// Generates the message shown before a subsystem during normal MC operation.
+/datum/controller/subsystem/proc/stat_entry_run()
+>>>>>>> 1995263a5b (Subsystems code improvement/refactor)
 	if (flags & SS_NO_FIRE)
 		. = "NO FIRE"
 	else if (can_fire && !suspended)
