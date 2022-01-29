@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - spellcheck: Oxford Comma is now default for text from `english_list`, expect to
-      see them in plenty of places

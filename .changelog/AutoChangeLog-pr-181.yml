@@ -1,7 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - tweak: Due to outdated code, the projectile effect for the ninja net thrower has
-      been disabled
-  - bugfix: Fixed mining turfs showing up as bright when they should not
-  - bugfix: Fixed projectiles not showing up properly

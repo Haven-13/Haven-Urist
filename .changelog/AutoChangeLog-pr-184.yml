@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - tweak: Optimized how global variables and information are handled by the game.
-  - tweak: Globals, statics, and constants are now unit-tested for sanity

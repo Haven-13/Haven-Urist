@@ -1,8 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - tweak: Show Server Revision now shows both the client's and server's full version
-  - tweak: Updated the TGS host to attempt fix withstanding issues with the version
-      information and more features.
-  - bugfix: Fixed test-merge information not showing up properly
-  - bugfix: Fixed sever-revision info not showing up properly

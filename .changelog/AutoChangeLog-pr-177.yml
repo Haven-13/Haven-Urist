@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Fixed a runtime error related to vis_locs when viewed in View-Variables
-      debug tool

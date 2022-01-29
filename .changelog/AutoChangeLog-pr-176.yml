@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Fixed the main elevator using the wrong turf for the bottommost deck on
-      Pluto
