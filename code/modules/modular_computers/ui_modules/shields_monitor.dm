@@ -30,27 +30,7 @@
 
 	.["active"] = active ? REF(active) : 0
 	if (active)
-		.["running"] = active.running
-		.["modes"] = active.get_flag_descriptions()
-		.["overloaded"] = active.overloaded
-		.["mitigation_max"] = active.mitigation_max
-		.["mitigation_physical"] = active.mitigation_physical
-		.["mitigation_em"] = active.mitigation_em
-		.["mitigation_heat"] = active.mitigation_heat
-		.["field_integrity"] = active.field_integrity()
-		.["max_energy"] = active.max_energy
-		.["current_energy"] = active.current_energy
-		.["total_segments"] = active.field_segments ? active.field_segments.len : 0
-		.["functional_segments"] = active.damaged_segments ? .["total_segments"] - active.damaged_segments.len : .["total_segments"]
-		.["field_radius"] = active.field_radius
-		.["input_cap_kw"] = active.input_cap
-		.["upkeep_power_usage"] = active.upkeep_power_usage
-		.["power_usage"] = active.power_usage
-		.["hacked"] = active.hacked
-		.["offline_for"] = active.offline_for * 2
-		.["pos_x"] = active.x
-		.["pos_y"] = active.y
-		.["pos_z"] = active.z
+		. |= active.ui_data(user)
 
 	var/list/shields = get_shields()
 	var/list/shields_info = list()
@@ -67,12 +47,13 @@
 	if(..())
 		return TRUE
 
+	// Unchecked and unvalidated ui interaction, weeeeeeeeee
+	if(active && active.ui_act(action, params))
+		return TRUE
+
 	switch(action)
 		if("refresh")
 			get_shields()
-			. = TRUE
-		if("return")
-			deselect_shield()
 			. = TRUE
 		if("ref")
 			select_shield(params["ref"])
