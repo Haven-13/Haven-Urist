@@ -168,12 +168,10 @@
 		icon_state = "laptop"
 		light_outer_range = 3
 		if(uploading)
-			var/global/image/screen = image('resources/icons/obj/computer.dmi',icon_state="command")
-			overlays = list(screen)
+			overlays += image('resources/icons/obj/computer.dmi',icon_state="command")
 			desc = "A clamshell portable computer. It is open. It seems that some kind of files are being transmitted."
 		else
-			var/global/image/screen = image('resources/icons/obj/computer.dmi',icon_state="generic")
-			overlays = list(screen)
+			overlays += image('resources/icons/obj/computer.dmi',icon_state="generic")
 			desc = "A clamshell portable computer. It is open."
 	else
 		light_outer_range = 0

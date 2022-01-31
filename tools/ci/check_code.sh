@@ -177,9 +177,6 @@ function run_code_quality_tests {
     run_test "check tags" "python3 ./tools/TagMatcher/tag-matcher.py ."
     run_test "check color hex" "python3 ./tools/ColorHexChecker/color-hex-checker.py ."
     run_test "check punctuation" "python3 ./tools/PunctuationChecker/punctuation-checker.py ."
-
-    run_test_ci "check globals build" "python3 ./tools/GenerateGlobalVarAccess/gen_globals.py $TARGET_PROJECT_NAME.dme code/_helpers/global_access.dm"
-#   run_test "check globals unchanged" "md5sum -c - <<< '5eaa581969e84a62c292a7015fee8960 *code/_helpers/global_access.dm'"
 }
 
 if [ "${BASH_SOURCE[0]}" -ef "$0" ]

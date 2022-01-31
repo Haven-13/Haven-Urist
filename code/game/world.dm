@@ -80,6 +80,7 @@ GLOBAL_VAR(restart_counter)
 	name += " - [GLOB.using_map.full_name]"
 
 	TgsNew(minimum_required_security_level = TGS_SECURITY_TRUSTED)
+	global.revdata.load_tgs_info()
 
 	//logs
 	setup_logs()
@@ -533,7 +534,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 /world/proc/load_motd()
 	join_motd = file2text("config/motd.txt")
-	var/tm_info = revdata.GetTestMergeInfo()
+	var/tm_info = revdata.get_test_merge_info()
 	if(join_motd || tm_info)
 		join_motd = join_motd ? "[join_motd]<br>[tm_info]" : tm_info
 

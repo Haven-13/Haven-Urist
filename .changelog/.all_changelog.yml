@@ -458,3 +458,25 @@
   - tweak: Most Urist content now uses the datumized faction system
   - tweak: Ports revised burst firing mechanic for ship weapons
   - balance: NPC ship shields are now generally tougher
+2022-01-29:
+  martinlyra:
+  - bugfix: Fixed the main elevator using the wrong turf for the bottommost deck on
+      Pluto
+  - tweak: Due to outdated code, the projectile effect for the ninja net thrower has
+      been disabled
+  - bugfix: Fixed mining turfs showing up as bright when they should not
+  - bugfix: Fixed projectiles not showing up properly
+  - tweak: Optimized how global variables and information are handled by the game.
+  - tweak: Globals, statics, and constants are now unit-tested for sanity
+  - rscadd: Added the missing UI for gas tanks
+  - bugfix: Fixed the UI being missing for all gas tanks that can be activated in
+      hand
+  - tweak: Show Server Revision now shows both the client's and server's full version
+  - tweak: Updated the TGS host to attempt fix withstanding issues with the version
+      information and more features.
+  - bugfix: Fixed test-merge information not showing up properly
+  - bugfix: Fixed sever-revision info not showing up properly
+  - spellcheck: Oxford Comma is now default for text from `english_list`, expect to
+      see them in plenty of places
+  - bugfix: Fixed a runtime error related to vis_locs when viewed in View-Variables
+      debug tool

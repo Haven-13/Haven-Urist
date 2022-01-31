@@ -7,7 +7,20 @@
 #define MAINTAINING_OBJECT_POOL_COUNT 500
 
 // Read-only or compile-time vars and special exceptions.
-/var/list/exclude = list("inhand_states", "loc", "locs", "parent_type", "vars", "verbs", "type", "x", "y", "z","group", "animate_movement")
+/var/list/variable_exclusions = list(
+	"animate_movement",
+	"group",
+	"inhand_states",
+	"loc",
+	"locs",
+	"parent_type",
+	"vars",
+	"verbs",
+	"type",
+	"x",
+	"y",
+	"z",
+)
 
 /var/global/list/masterdatumPool = new
 /var/global/list/pooledvariables = new
@@ -97,7 +110,7 @@
 
 /datum/proc/createVariables()
 	pooledvariables[type] = new/list()
-	var/list/exclude = global.exclude + args
+	var/list/exclude = global.variable_exclusions + args
 
 	for(var/key in vars)
 		if(key in exclude)

@@ -1,14 +1,18 @@
 /obj/effect/projectile
 	icon = 'resources/icons/effects/projectiles.dmi'
 	icon_state = "bolt"
-	plane = EMISSIVE_PLANE
-	layer = EMISSIVE_UNBLOCKABLE_LAYER //Muzzle flashes would be above the lighting plane anyways.
+	plane = EFFECTS_PLANE
+	layer = PROJECTILE_LAYER
 	//Standard compiletime light vars aren't working here, so we've made some of our own.
 	light_outer_range = 2
 	light_max_bright = 0.75
 	light_color = "#ff00dc"
 
 	mouse_opacity = 0
+
+/obj/effect/projectile/New()
+	. = ..()
+	overlays |= get_emissive_overlay(no_block=TRUE, no_base=TRUE)
 
 /obj/effect/projectile/proc/set_transform(var/matrix/M)
 	if(istype(M))

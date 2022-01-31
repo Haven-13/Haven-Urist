@@ -19,7 +19,6 @@
 /*
 * Color adjustment
 */
-
 /datum/gear_tweak/color
 	var/list/valid_colors
 
@@ -43,10 +42,14 @@
 		return
 	I.color = metadata
 
+/proc/gear_tweak_free_color_choice()
+	var/static/datum/gear_tweak/color/gear_tweak_free_color_
+	if(!gear_tweak_free_color_) gear_tweak_free_color_ = new()
+	return gear_tweak_free_color_
+
 /*
 * Path adjustment
 */
-
 /datum/gear_tweak/path
 	var/list/valid_paths
 
@@ -102,7 +105,6 @@
 /*
 * Content adjustment
 */
-
 /datum/gear_tweak/contents
 	var/list/valid_contents
 
@@ -111,7 +113,7 @@
 	..()
 
 /datum/gear_tweak/contents/get_contents(var/metadata)
-	return "Contents: [english_list(metadata, and_text = ", ")]"
+	return "Contents: [english_list(metadata)]"
 
 /datum/gear_tweak/contents/get_default()
 	. = list()
@@ -150,7 +152,6 @@
 /*
 * Ragent adjustment
 */
-
 /datum/gear_tweak/reagents
 	var/list/valid_reagents
 
@@ -210,7 +211,7 @@
 	O = ValidTeslaLinks[metadata[7]]
 	if(O)
 		names += initial(O.name)
-	return "[english_list(names, and_text = ", ")]"
+	return "[english_list(names)]"
 
 /datum/gear_tweak/tablet/get_metadata(var/user, var/metadata, var/title)
 	. = list()

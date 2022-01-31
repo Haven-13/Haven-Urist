@@ -7,19 +7,11 @@
 	opacity = 0
 	anchored = 1
 	unacidable = 1
-	var/const/max_health = 200
-	var/health = max_health //The shield can only take so much beating (prevents perma-prisons)
+
+	var/health
+	var/max_health = 200
 	var/shield_generate_power = 7500	//how much power we use when regenerating
 	var/shield_idle_power = 1500		//how much power we use when just being sustained.
-
-/obj/machinery/shield/malfai
-	name = "emergency forcefield"
-	desc = "A weak forcefield which seems to be projected by the emergency atmosphere containment field."
-	health = max_health/2 // Half health, it's not suposed to resist much.
-
-/obj/machinery/shield/malfai/Process()
-	health -= 0.5 // Slowly lose integrity over time
-	check_failure()
 
 /obj/machinery/shield/proc/check_failure()
 	if (src.health <= 0)
@@ -28,15 +20,16 @@
 		return
 
 /obj/machinery/shield/New()
+	health = max_health
 	src.set_dir(pick(1,2,3,4))
-	..()
+	. = ..()
 	update_nearby_tiles(need_rebuild=1)
 
 /obj/machinery/shield/Destroy()
 	set_opacity(0)
 	set_density(0)
 	update_nearby_tiles()
-	..()
+	. = ..()
 
 /obj/machinery/shield/CanPass(atom/movable/mover, turf/target, height, air_group)
 	if(!height || air_group) return 0
@@ -112,6 +105,16 @@
 	spawn(20) if(!QDELETED(src)) set_opacity(0)
 
 	..()
+
+/obj/machinery/shield/malfai
+	name = "emergency forcefield"
+	desc = "A weak forcefield which seems to be projected by the emergency atmosphere containment field."
+	max_health = 100
+
+/obj/machinery/shield/malfai/Process()
+	health -= 0.5 // Slowly lose integrity over time
+	check_failure()
+
 /obj/machinery/shieldgen
 	name = "Emergency shield projector"
 	desc = "Used to seal minor hull breaches."
@@ -121,8 +124,9 @@
 	opacity = 0
 	anchored = 0
 	req_access = list(access_engine)
-	var/const/max_health = 100
-	var/health = max_health
+
+	var/max_health = 100
+	var/health = 0
 	var/active = 0
 	var/malfunction = 0 //Malfunction causes parts of the shield to slowly dissapate
 	var/list/deployed_shields = list()
@@ -133,9 +137,13 @@
 	use_power = 0
 	idle_power_usage = 0
 
+/obj/machinery/shieldgen/New()
+	. = ..()
+	health = max_health
+
 /obj/machinery/shieldgen/Destroy()
 	collapse_shields()
-	..()
+	. = ..()
 
 /obj/machinery/shieldgen/proc/shields_up()
 	if(active) return 0 //If it's already turned on, how did this get called?
