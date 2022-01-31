@@ -78,12 +78,12 @@ export const AiAirlockControl = (props, context) => {
                     icon="bolt"
                     disabled={!data.wires.shock}
                     content="Temporary"
-                    onClick={() => act('shock_temp')} />
+                    onClick={() => act('shock_temporary')} />
                   <Button
                     icon="bolt"
                     disabled={!data.wires.shock}
                     content="Permanent"
-                    onClick={() => act('shock_perm')} />
+                    onClick={() => act('shock_permanently')} />
                 </Fragment>
               )}>
               {!data.shock ? 'Safe' : 'Electrified'}
