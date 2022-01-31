@@ -20,9 +20,9 @@
 	var/update_locked = 0
 
 /obj/machinery/power/breakerbox/Destroy()
-	..()
+	. = ..()
 	for(var/datum/ui_module/program/rcon/R in world)
-		R.FindDevices()
+		R.find_devices()
 
 /obj/machinery/power/breakerbox/activated
 	icon_state = "bbox_on"
