@@ -366,25 +366,22 @@
 		ui.open()
 
 /obj/machinery/power/smes/ui_data(mob/user)
-	// this is the data which will be sent to the ui
-	var/data[0]
-	data["nameTag"] = name_tag
-	data["storedCapacity"] = round(100.0*charge/capacity, 0.1)
-	data["storedCapacityAbs"] = charge
-	data["storedCapacityMax"] = capacity
-	data["inputting"] = inputting
-	data["inputAttempt"] = input_attempt
-	data["inputLevel"] = input_level
-	data["inputLevelMax"] = input_level_max
-	data["inputAvailable"] = input_available
-	data["outputting"] = outputting
-	data["outputAttempt"] = output_attempt
-	data["outputLevel"] = output_level
-	data["outputLevelMax"] = output_level_max
-	data["outputUsed"] = output_used
-	data["failureTimer"] = failure_timer * 2
-
-	return data
+	. = ..()
+	.["nameTag"] = name_tag
+	.["storedCapacity"] = round(100.0*charge/capacity, 0.1)
+	.["storedCapacityAbs"] = charge
+	.["storedCapacityMax"] = capacity
+	.["inputting"] = inputting
+	.["inputAttempt"] = input_attempt
+	.["inputLevel"] = input_level
+	.["inputLevelMax"] = input_level_max
+	.["inputAvailable"] = input_available
+	.["outputting"] = outputting
+	.["outputAttempt"] = output_attempt
+	.["outputLevel"] = output_level
+	.["outputLevelMax"] = output_level_max
+	.["outputUsed"] = output_used
+	.["failureTimer"] = failure_timer * 2
 
 /obj/machinery/power/smes/ui_act(action, list/params)
 	switch(action)
