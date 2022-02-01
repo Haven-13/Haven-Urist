@@ -74,6 +74,8 @@
 	return data
 
 /obj/machinery/computer/ship/sensors/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("view")
 			viewing = !viewing

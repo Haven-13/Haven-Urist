@@ -190,8 +190,7 @@
 	return check_access(user, access_security) || check_access(user, network_access)
 
 /datum/ui_module/program/camera_monitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	switch(action)
 		if("switch_camera")

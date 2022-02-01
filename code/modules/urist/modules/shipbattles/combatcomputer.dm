@@ -89,8 +89,7 @@
 		.["target"] = null
 
 /obj/machinery/computer/combatcomputer/ui_act(action, list/params)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	switch(action)
 		if("fire")

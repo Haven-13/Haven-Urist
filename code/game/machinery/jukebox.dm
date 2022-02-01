@@ -126,8 +126,7 @@
 	return data
 
 /obj/machinery/media/jukebox/ui_act(action, params)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 	switch(action)
 		if("change_track")
 			for(var/datum/track/T in tracks)

@@ -83,8 +83,7 @@
 		.["supermatters"] = SMS
 
 /datum/ui_module/program/supermatter_monitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	switch(action)
 		if("clear_active")

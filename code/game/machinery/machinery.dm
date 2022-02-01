@@ -216,9 +216,10 @@
 	user.set_machine(src)
 	. = ..()
 
-/obj/machinery/ui_act(action, list/params)
-	add_fingerprint(usr)
-	return ..()
+/obj/machinery/ui_act(action, list/params, datum/tgui/ui)
+	if(usr && Adjacent(usr))
+		add_fingerprint(usr)
+	. = ..(action, params, ui)
 
 /obj/machinery/Topic(href, href_list)
 	..()

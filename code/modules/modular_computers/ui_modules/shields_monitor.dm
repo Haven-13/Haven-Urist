@@ -43,12 +43,11 @@
 		shields_info.Add(temp)
 	.["shields"] = shields_info
 
-/datum/ui_module/program/shields_monitor/ui_act(action, list/params)
-	if(..())
-		return TRUE
+/datum/ui_module/program/shields_monitor/ui_act(action, list/params, datum/tgui/ui)
+	UI_ACT_CHECK
 
 	// Unchecked and unvalidated ui interaction, weeeeeeeeee
-	if(active && active.ui_act(action, params))
+	if(active && active.ui_act(action, params, ui))
 		return TRUE
 
 	switch(action)

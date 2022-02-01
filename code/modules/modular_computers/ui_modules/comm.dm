@@ -106,8 +106,7 @@
 	return GLOB.global_message_listener
 
 /datum/ui_module/program/comm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 	var/mob/user = usr
 	var/ntn_comm = program ? !!program.get_signal(NTNET_COMMUNICATION) : 1
 	var/ntn_cont = program ? !!program.get_signal(NTNET_SYSTEMCONTROL) : 1

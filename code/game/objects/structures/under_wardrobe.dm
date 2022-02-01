@@ -69,8 +69,7 @@
 	return ..()
 
 /obj/structure/undies_wardrobe/Topic(href, href_list, state)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	var/mob/living/carbon/human/H = usr
 	if(href_list["select_underwear"])

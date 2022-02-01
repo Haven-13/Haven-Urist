@@ -235,7 +235,9 @@
 		"offlineFor" = offline_for * 2
 	)
 
-/obj/machinery/power/shield_generator/ui_act(action, list/params)
+/obj/machinery/power/shield_generator/ui_act(action, list/params, datum/tgui/ui)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("begin_shutdown")
 			if(running != SHIELD_RUNNING)

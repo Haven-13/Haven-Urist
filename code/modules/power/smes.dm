@@ -384,6 +384,8 @@
 	.["failureTimer"] = failure_timer * 2
 
 /obj/machinery/power/smes/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("try_input")
 			inputting(!input_attempt)

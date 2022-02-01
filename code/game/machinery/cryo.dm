@@ -152,6 +152,8 @@
 	return data
 
 /obj/machinery/atmospherics/unary/cryo_cell/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("power")
 			on = !on
