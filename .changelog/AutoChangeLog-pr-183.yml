@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - rscadd: Added the missing UI for airlocks being controlled by silicons
-  - bugfix: Fixed AI not being able to "see" objects despite player vision

@@ -1,8 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - rscadd: Added UI for the Shield Monitoring program
-  - tweak: Changed the toggle button on the shields' mode settings to larger checkbox
-      buttons
-  - bugfix: Fixed the Shield Monitoring program's UI being missing among with few
-      immediate fixes to the UI data and interaction

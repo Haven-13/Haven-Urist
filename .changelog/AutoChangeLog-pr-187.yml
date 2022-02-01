@@ -1,4 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Addressed a security issue related to dependency in tgUI
