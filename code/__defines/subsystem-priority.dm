@@ -35,7 +35,7 @@
 #define SS_PRIORITY_TURF          20	// Radioactive walls/blob.
 #define SS_PRIORITY_EVAC          20	// Processes the evac controller.
 #define SS_PRIORITY_WIRELESS      10	// Wireless connection setup.
-#define SS_PRIORITY_INACTIVITY    10   // Idle kicking.
+#define SS_PRIORITY_INACTIVITY    10	// Idle kicking.
 
 =======
 #define SS_PRIORITY_TICKER         100 // Gameticker.
