@@ -1026,7 +1026,7 @@ FIRE ALARM
 
 	add_fingerprint(user)
 
-	if(!fire_alarm.alarms_assoc[src.loc.get_alarm_origin()]) // fuck you bay
+	if(!GLOB.fire_alarm.alarms_assoc[src.loc.get_alarm_origin()]) // fuck you bay
 		alarm()
 	else
 		reset()

@@ -1091,7 +1091,7 @@
 		equipment = autoset(equipment, 0)
 		lighting = autoset(lighting, 0)
 		environ = autoset(environ, 0)
-		power_alarm.triggerAlarm(loc, src)
+		GLOB.power_alarm.triggerAlarm(loc, src)
 		autoflag = 0
 
 	// update icon & area power if anything changed
@@ -1109,13 +1109,14 @@
 	else if(longtermpower > -10)
 		longtermpower -= 2
 
+	var/percent = cell?.percent()
+
 	if(!cell || shorted || (stat & NOPOWER) || !operating)
 		if(autoflag != 0)
 			equipment = autoset(equipment, 0)
 			lighting = autoset(lighting, 0)
 			environ = autoset(environ, 0)
-			if(!suppress_alarms)
-				GLOB.power_alarm.triggerAlarm(loc, src)
+			GLOB.power_alarm.triggerAlarm(loc, src)
 			autoflag = 0
 	else if((percent > AUTO_THRESHOLD_LIGHTING) || longtermpower >= 0)              // Put most likely at the top so we don't check it last, effeciency 101
 		if(autoflag != 3)
@@ -1129,23 +1130,21 @@
 			equipment = autoset(equipment, 1)
 			lighting = autoset(lighting, 2)
 			environ = autoset(environ, 1)
-			if(!suppress_alarms)
-				GLOB.power_alarm.triggerAlarm(loc, src)
+			GLOB.power_alarm.triggerAlarm(loc, src)
 			autoflag = 2
 	else if(cell.percent() <= AUTO_THRESHOLD_EQUIPMENT)        // <25%, turn off lighting & equipment
 		if((autoflag > 1 && longtermpower < 0) || (autoflag > 1 && longtermpower >= 0))
 			equipment = autoset(equipment, 2)
 			lighting = autoset(lighting, 2)
 			environ = autoset(environ, 1)
-			if(!suppress_alarms)
-				GLOB.power_alarm.triggerAlarm(loc, src)
+			GLOB.power_alarm.triggerAlarm(loc, src)
 			autoflag = 1
 	else                                   // zero charge, turn all off
 		if(autoflag != 0)
 			equipment = autoset(equipment, 0)
 			lighting = autoset(lighting, 0)
 			environ = autoset(environ, 0)
-			power_alarm.triggerAlarm(loc, src)
+			GLOB.power_alarm.triggerAlarm(loc, src)
 			autoflag = 0
 
 // val 0=off, 1=off(auto) 2=on 3=on(auto)
@@ -1219,7 +1218,6 @@
 /obj/machinery/power/apc/proc/set_broken()
 	// Aesthetically much better!
 	src.visible_message("<span class='notice'>[src]'s screen flickers with warnings briefly!</span>")
-	power_alarm.triggerAlarm(loc, src)
 	GLOB.power_alarm.triggerAlarm(loc, src)
 	spawn(rand(2,5))
 		src.visible_message("<span class='notice'>[src]'s screen suddenly explodes in rain of sparks and small debris!</span>")

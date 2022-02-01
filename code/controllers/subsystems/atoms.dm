@@ -29,7 +29,7 @@ SUBSYSTEM_DEF(atoms)
 		text2file(initlog, "[GLOB.log_directory]/initialize.log")
 
 /datum/controller/subsystem/atoms/Initialize(timeofday)
-	initialization_mode = INITIALIZATION_INNEW_MAPLOAD
+	atom_init_stage = INITIALIZATION_INNEW_MAPLOAD
 	InitializeAtoms()
 
 /datum/controller/subsystem/atoms/Recover()
@@ -77,17 +77,15 @@ SUBSYSTEM_DEF(atoms)
 	var/result = A.Initialize(arglist(arguments))
 	if(start_tick != world.time)
 		BadInitializeCalls[atom_type] |= BAD_INIT_SLEPT
+
 	var/qdeleted = FALSE
 <<<<<<< HEAD
 	var/mapload = arguments[1]
-
-=======
->>>>>>> 1995263a5b (Subsystems code improvement/refactor)
 	if(result != INITIALIZE_HINT_NORMAL)
 		switch(result)
 			if(INITIALIZE_HINT_LATELOAD)
 				if(mapload)	//mapload
-					late_loaders += A
+					late_loaders[A] = arguments
 				else
 					A.LateInitialize(arglist(arguments))
 			if(INITIALIZE_HINT_QDEL)
@@ -103,11 +101,11 @@ SUBSYSTEM_DEF(atoms)
 
 
 /datum/controller/subsystem/atoms/proc/map_loader_begin()
-	old_initialization_mode = initialization_mode
-	initialization_mode = INITIALIZATION_INSSATOMS
+	old_init_stage = atom_init_stage
+	atom_init_stage = INITIALIZATION_INSSATOMS_LATE
 
 /datum/controller/subsystem/atoms/proc/map_loader_stop()
-	initialization_mode = old_initialization_mode
+	atom_init_stage = old_init_stage
 
 /datum/controller/subsystem/atoms/proc/InitLog()
 	. = ""
@@ -122,7 +120,6 @@ SUBSYSTEM_DEF(atoms)
 			. += "- Qdel'd in New()\n"
 		if(fails & BAD_INIT_SLEPT)
 			. += "- Slept during Initialize()\n"
-
 
 #undef BAD_INIT_QDEL_BEFORE
 #undef BAD_INIT_DIDNT_INIT
