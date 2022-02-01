@@ -68,6 +68,8 @@
 			))
 
 /obj/structure/tool_cart/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("take")
 			var/target = params["take"]

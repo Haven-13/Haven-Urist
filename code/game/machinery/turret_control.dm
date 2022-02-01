@@ -140,6 +140,8 @@
 	return data
 
 /obj/machinery/turretid/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("command")
 			var/log_action = null

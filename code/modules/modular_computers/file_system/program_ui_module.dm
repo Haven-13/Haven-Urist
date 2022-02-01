@@ -26,6 +26,7 @@
 		ui.open()
 
 /datum/ui_module/program/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	UI_ACT_CHECK
 	return program && program.ui_act(action, params, ui, state)
 
 /datum/computer_file/program/apply_visual(mob/M)

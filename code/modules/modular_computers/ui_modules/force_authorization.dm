@@ -50,8 +50,7 @@
 	return data
 
 /datum/ui_module/program/forceauthorization/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	switch(action)
 		if("authorize")

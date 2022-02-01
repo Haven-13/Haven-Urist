@@ -270,8 +270,7 @@ var/list/global/tank_gauge_cache = list()
 	return ui_inventory_state()
 
 /obj/item/weapon/tank/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 	switch(action)
 		if ("set_release")
 			switch(params["value"])

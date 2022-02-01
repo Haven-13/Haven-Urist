@@ -254,8 +254,7 @@
 
 
 /datum/ui_module/program/email_client/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 	var/mob/living/user = usr
 
 	check_for_new_messages(1)		// Any actual interaction (button pressing) is considered as acknowledging received message, for the purpose of notification icons.

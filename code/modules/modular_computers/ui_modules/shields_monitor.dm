@@ -44,8 +44,7 @@
 	.["shields"] = shields_info
 
 /datum/ui_module/program/shields_monitor/ui_act(action, list/params)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	// Unchecked and unvalidated ui interaction, weeeeeeeeee
 	if(active && active.ui_act(action, params))

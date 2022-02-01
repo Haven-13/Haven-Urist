@@ -122,8 +122,7 @@
 	return data
 
 /obj/machinery/resleever/ui_act(action, params)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 	switch(action)
 		if("begin")
 			sleeve()

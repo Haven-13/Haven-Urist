@@ -230,6 +230,8 @@
 			))
 
 /obj/machinery/power/smes/batteryrack/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("disable")
 			update_io(0)

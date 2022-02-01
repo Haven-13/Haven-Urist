@@ -236,6 +236,8 @@
 	)
 
 /obj/machinery/power/shield_generator/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("begin_shutdown")
 			if(running != SHIELD_RUNNING)

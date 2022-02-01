@@ -54,6 +54,8 @@
 	ui_interact(user)
 
 /obj/machinery/computer/ship/navigation/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("view")
 			viewing = !viewing

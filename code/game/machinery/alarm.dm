@@ -646,6 +646,8 @@
 	return min(..(), .)
 
 /obj/machinery/alarm/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("rcon")
 			var/attempted_rcon_setting = text2num(params["rcon"])

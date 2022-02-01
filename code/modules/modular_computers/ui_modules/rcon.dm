@@ -31,8 +31,7 @@
 	.["breakers"] = breakerlist
 
 /datum/ui_module/program/rcon/ui_act(action, list/params)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	var/tag = params["tag"]
 	switch(action)

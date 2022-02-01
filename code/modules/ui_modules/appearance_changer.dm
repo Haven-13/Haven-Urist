@@ -19,8 +19,7 @@
 	src.blacklist = species_blacklist
 
 /datum/ui_module/appearance_changer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	switch(action)
 		if("race")

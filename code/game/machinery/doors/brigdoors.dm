@@ -182,8 +182,7 @@
 
 
 /obj/machinery/door_timer/ui_act(action, params)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	if(!src.allowed(usr))
 		return TRUE

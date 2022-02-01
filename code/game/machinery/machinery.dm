@@ -216,7 +216,7 @@
 	user.set_machine(src)
 	. = ..()
 
-/obj/machinery/ui_act(action, list/params)
+/obj/machinery/ui_act(action, list/params, datum/tgui/ui)
 	add_fingerprint(usr)
 	return ..()
 

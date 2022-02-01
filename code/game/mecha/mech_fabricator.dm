@@ -125,6 +125,8 @@
 	)
 
 /obj/machinery/mecha_part_fabricator/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if ("add_queue_part")
 			add_to_queue(params["id"])
