@@ -78,7 +78,6 @@ SUBSYSTEM_DEF(atoms)
 		BadInitializeCalls[atom_type] |= BAD_INIT_SLEPT
 
 	var/qdeleted = FALSE
-<<<<<<< HEAD
 	var/mapload = arguments[1]
 	if(result != INITIALIZE_HINT_NORMAL)
 		switch(result)
