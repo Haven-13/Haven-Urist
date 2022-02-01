@@ -217,8 +217,9 @@
 	. = ..()
 
 /obj/machinery/ui_act(action, list/params, datum/tgui/ui)
-	add_fingerprint(usr)
-	return ..()
+	if(usr && Adjacent(usr))
+		add_fingerprint(usr)
+	. = ..(action, params, ui)
 
 /obj/machinery/Topic(href, href_list)
 	..()
