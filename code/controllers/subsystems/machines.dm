@@ -141,6 +141,15 @@ SUBSYSTEM_DEF(machines)
 	msg += "MC/MS:[round((cost ? machinery.len/cost : 0),0.1)]"
 	..(jointext(msg, null))
 
+/datum/controller/subsystem/machines/get_metrics()
+	. = ..()
+	var/list/cust = list()
+	cust["processing"] = length(processing)
+	cust["cost_pipenets"] = cost_pipenets
+	cust["cost_powernets"] = cost_powernets
+	cust["cost_machinery"] = cost_machinery
+	cust["cost_power_objects"] = cost_power_objects
+	.["custom"] = cust
 /datum/controller/subsystem/machines/proc/process_pipenets(resumed, no_mc_tick)
 	if(!resumed)
 		queue = pipenets.Copy()

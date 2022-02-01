@@ -176,13 +176,6 @@
 	log_world(msg)
 	return time
 
-<<<<<<< HEAD
-//hook for printing stats to the "MC" statuspanel for admins to see performance and related stats etc.
-/datum/controller/subsystem/stat_entry(msg)
-	if(!statclick)
-		statclick = new/obj/effect/statclick/debug(null, "Initializing...", src)
-
-=======
 /datum/controller/subsystem/stat_entry(text)
 	if (!stat_line)
 		stat_line = new (null, src)
@@ -213,7 +206,6 @@
 
 // Generates the message shown before a subsystem during normal MC operation.
 /datum/controller/subsystem/proc/stat_entry_run()
->>>>>>> 1995263a5b (Subsystems code improvement/refactor)
 	if (flags & SS_NO_FIRE)
 		. = "NO FIRE"
 	else if (can_fire && !suspended)

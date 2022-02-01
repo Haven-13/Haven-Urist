@@ -430,3 +430,7 @@ RADIATION_LOWER_LIMIT 0.15
 METRICS_ENDPOINT http://elastic-host:9200/your_index/_doc
 # Metrics API token. Placed into the auth header
 METRICS_API_TOKEN your_base64_encoded_thingy==
+
+## The delay in deciseconds between stat() updates.
+## Lower can be more responsive to scene changes and updates but has a higher client/server overhead.
+# STAT_DELAY 5
