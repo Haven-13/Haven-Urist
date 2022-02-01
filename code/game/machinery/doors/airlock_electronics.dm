@@ -81,6 +81,8 @@
 	return data
 
 /obj/item/weapon/airlock_electronics/ui_act(action, params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("clear")
 			if(!locked)

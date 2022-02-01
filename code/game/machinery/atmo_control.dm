@@ -192,6 +192,8 @@
 	return data
 
 /obj/machinery/computer/general_air_control/large_tank_control/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if ("out_set_value")
 			var/change = text2num(params["new_value"])
@@ -455,6 +457,8 @@ Rate: [volume_rate] L/sec<BR>"}
 	return data
 
 /obj/machinery/computer/general_air_control/fuel_injection/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch (action)
 		if ("refresh_status")
 			device_info = null

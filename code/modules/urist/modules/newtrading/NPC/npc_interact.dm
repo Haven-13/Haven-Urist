@@ -82,6 +82,8 @@
 	return data
 
 /mob/living/simple_animal/hostile/npc/ui_act(action, list/params, datum/tgui/ui)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("sell_item_l")
 			var/mob/living/carbon/M = locate(params["user"])

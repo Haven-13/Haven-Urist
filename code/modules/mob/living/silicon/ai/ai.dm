@@ -676,5 +676,16 @@ var/list/ai_verbs_default = list(
 	if(rig)
 		rig.force_rest(src)
 
+/// AI exclusive replacement of global.can_see(...) to account for the camera-nets
+/// Implementation stolen from /tg/station
+/mob/living/silicon/ai/proc/can_see(atom/A)
+	if(isturf(loc)) //AI in core, check if on cameras
+		//get_turf_pixel() is because APCs in maint aren't actually in view of the inner camera
+		return cameranet && cameranet.is_turf_visible(get_turf_pixel(A))
+	//AI is carded/shunted
+	//view(src) returns nothing for carded/shunted AIs and they have X-ray vision so just use get_dist
+	var/list/viewscale = get_view_size(client.view)
+	return get_dist(src, A) <= max(viewscale[1]*0.5,viewscale[2]*0.5)
+
 #undef AI_CHECK_WIRELESS
 #undef AI_CHECK_RADIO

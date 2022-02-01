@@ -105,6 +105,8 @@
 	. = ..()
 
 /obj/machinery/sleeper/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("eject")
 			go_out()

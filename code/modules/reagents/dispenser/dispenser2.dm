@@ -141,6 +141,8 @@
 	return data
 
 /obj/machinery/chemical_dispenser/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("amount")
 			amount = round(text2num(params["amount"]), 1) // round to nearest 1

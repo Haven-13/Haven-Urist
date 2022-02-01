@@ -47,6 +47,8 @@
 	return data
 
 /obj/machinery/computer/ship/engines/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("global_set_state")
 			linked.engines_state = params["state"]

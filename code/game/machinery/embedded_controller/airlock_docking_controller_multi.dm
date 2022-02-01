@@ -79,6 +79,8 @@
 	)
 
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_act(action, list/params)
+	UI_ACT_CHECK_NO_ACTION
+
 	switch(action)
 		if("command")
 			if(params["command"] in list(

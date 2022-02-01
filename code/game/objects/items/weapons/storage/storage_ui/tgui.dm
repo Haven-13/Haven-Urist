@@ -53,8 +53,7 @@
 	return cached_ui_data
 
 /datum/storage_ui/tgui/ui_act(action, params)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	if(action == "remove_item")
 		var/item_type = locate(params["type"])

@@ -144,8 +144,7 @@
 	return data
 
 /obj/item/device/suit_sensor_jammer/ui_act(action, params)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 	switch(action)
 		if("enable_jammer")
 			enable()

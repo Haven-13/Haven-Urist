@@ -480,3 +480,14 @@
       see them in plenty of places
   - bugfix: Fixed a runtime error related to vis_locs when viewed in View-Variables
       debug tool
+2022-02-01:
+  martinlyra:
+  - rscadd: Added the missing RCON program UI
+  - bugfix: Addressed a security issue related to dependency in tgUI
+  - rscadd: Added the missing UI for airlocks being controlled by silicons
+  - bugfix: Fixed AI not being able to "see" objects despite player vision
+  - rscadd: Added UI for the Shield Monitoring program
+  - tweak: Changed the toggle button on the shields' mode settings to larger checkbox
+      buttons
+  - bugfix: Fixed the Shield Monitoring program's UI being missing among with few
+      immediate fixes to the UI data and interaction

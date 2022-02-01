@@ -104,8 +104,8 @@
 		T.master = null
 	terminals = null
 	for(var/datum/ui_module/program/rcon/R in world)
-		R.FindDevices()
-	return ..()
+		R.find_devices()
+	. = ..()
 
 // Proc: process()
 // Parameters: None
@@ -325,6 +325,11 @@
 		add_overlay(get_emissive_overlay(icon, "failing"))
 	else
 		..()
+
+/obj/machinery/power/smes/buildable/ui_data(mob/user)
+	. = ..()
+	.["rcon"] = RCon
+	.["rconTag"] = RCon_tag
 
 // Proc: attackby()
 // Parameters: 2 (W - object that was used on this machine, user - person which used the object)

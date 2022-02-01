@@ -29,8 +29,7 @@
 	return data
 
 /obj/machinery/embedded_controller/radio/simple_docking_controller/ui_act(action, list/params)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	switch(action)
 		if("command")

@@ -1,0 +1,7 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Fixed permission check issues with UI where ghosts would be able to interact
+      UI unrestricted
+  - bugfix: Fixed users never leaving fingerprints on objects they interact with via
+      UI due to improper use of the interaction proc

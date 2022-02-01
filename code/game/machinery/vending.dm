@@ -387,6 +387,8 @@
 	return data
 
 /obj/machinery/vending/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("remove_coin")
 			if(!istype(usr, /mob/living/silicon))

@@ -147,6 +147,8 @@ Thus, the two variables affect pump operation are set in New():
 	return data
 
 /obj/machinery/atmospherics/binary/pump/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("power")
 			use_power = !use_power

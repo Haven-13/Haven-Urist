@@ -97,6 +97,7 @@
 		ui.open()
 
 /obj/machinery/computer/shuttle_control/ui_act(action, list/params)
+	UI_ACT_CHECK
 	return handle_ui_act(SSshuttle.shuttles[shuttle_tag], action, params, usr)
 
 /obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user)

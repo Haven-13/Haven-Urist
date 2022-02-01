@@ -58,8 +58,7 @@
 	return data
 
 /datum/ui_module/program/supply/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	var/mob/living/user = usr
 	switch(action)

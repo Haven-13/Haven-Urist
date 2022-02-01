@@ -304,6 +304,8 @@
 	return data
 
 /obj/machinery/smartfridge/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("vend")
 			var/index = params["vend"]
