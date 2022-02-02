@@ -82,7 +82,7 @@ if(Datum.is_processing) {\
 #define TIMER_OVERRIDE (1 << 1)
 
 /// Timing should be based on how timing progresses on clients, not the server - this is more expensive, so should only be used with things that need to progress client-side (like animate or sound)
-#define TIMER_CLIENT_TIME 1 << 2)
+#define TIMER_CLIENT_TIME (1 << 2)
 
 /// Timer can be stopped using deltimer()
 #define TIMER_STOPPABLE (1 << 3)
