@@ -35,12 +35,12 @@ standards:
 
   - exactly: [0, 'world<< uses', 'world[ \t]*<<']
   - exactly: [0, 'world.log<< uses', 'world.log[ \t]*<<']
-  - no_more: [207, 'to_world() uses', 'to_world\(']
-  - no_more: [71, 'to_world_log() uses', 'to_world_log\(']
+  - no_more: [206, 'to_world() uses', 'to_world\(']
+  - no_more: [66, 'to_world_log() uses', 'to_world_log\(']
 
   - exactly: [14, 'non-bitwise << uses', '(?<!\d)(?<!\d\s)(?<!<)<<(?!=|\s\d|\d|<|\/)']
   - exactly: [0, 'incorrect indentations', '^(?:  +)(?!\*)']
   - exactly: [0, 'superflous whitespace', '[ \t]+$']
   - exactly: [8, 'mixed indentation', '^( +\t+|\t+ +)']
 
-  - no_more: [1422, 'indentions inside defines', '^(\s*)#define (\w*)( {2,}| ?\t+)(?!(\/\/|\/\*))']
+  - no_more: [1418, 'indentions inside defines', '^(\s*)#define (\w*)( {2,}| ?\t+)(?!(\/\/|\/\*))']
