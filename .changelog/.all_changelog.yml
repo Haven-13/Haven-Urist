@@ -498,3 +498,8 @@
       UI unrestricted
   - bugfix: Fixed users never leaving fingerprints on objects they interact with via
       UI due to improper use of the interaction proc
+2022-02-04:
+  Lohikar, Semoro, and azizonkg:
+  - tweak: Updated the timer subsystem to latest critical Baystation12 code.
+  - tweak: Optimized the timer performance
+  - tweak: Improved the reliability of the timer subsystem and its logic

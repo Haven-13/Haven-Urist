@@ -1,6 +1,0 @@
-author: Lohikar, Semoro, and azizonkg
-delete-after: true
-changes:
-  - tweak: Updated the timer subsystem to latest critical Baystation12 code.
-  - tweak: Optimized the timer performance
-  - tweak: Improved the reliability of the timer subsystem and its logic
