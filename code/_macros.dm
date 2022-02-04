@@ -116,40 +116,9 @@
 
 #define ARGS_DEBUG log_debug("[__FILE__] - [__LINE__]") ; for(var/arg in args) { log_debug("\t[log_info_line(arg)]") }
 
-// Helper macros to aid in optimizing lazy instantiation of lists.
-// All of these are null-safe, you can use them without knowing if the list var is initialized yet
-
-//Picks from the list, with some safeties, and returns the "default" arg if it fails
-#define DEFAULT_PICK(L, default) ((istype(L, /list) && L:len) ? pick(L) : default)
-// Ensures L is initailized after this point
-#define LAZY_INIT(L) if (!L) L = list()
-// Sets a L back to null iff it is empty
-#define UNSET_EMPTY(L) if (L && !L.len) L = null
-// Reads the length of L, returning 0 if null
-#define LAZY_LENGTH(L) (length(L))
-// Safely checks if I is in L
-#define LAZY_IS_IN(L, I) (L && (I in L))
-// Null-safe L.Cut()
-#define LAZY_CLEAR(L) if(L) L.Cut()
-// Removes I from list L, and sets I to null if it is now empty
-#define LAZY_REMOVE(L, I) if(L) { L -= I; if(!L.len) { L = null; } }
-// Adds I to L, initalizing L if necessary
-#define LAZY_ADD(L, I) if(!L) { L = list(); } L += I;
-// Insert I into L at position X, initalizing L if necessary
-#define LAZY_INSERT(L, I, X) if(!L) { L = list(); } L.Insert(X, I);
-// Adds I to L, initalizing L if necessary, if I is not already in L
-#define LAZY_ADD_UNIQUE(L, I) if(!L) { L = list(); } L |= I;
-// Sets L[A] to I, initalizing L if necessary
-#define LAZY_SET(L, A, I) if(!L) { L = list(); } L[A] = I;
-// Reads I from L safely - numerical lists only.
-#define LAZY_ACCESS(L, I) (!!L && ((I > 0 && I <= L.len) && L[I]) || null)
-// Reads K from L safely - associative lists only.
-#define LAZY_ACCESS_ASSOC(L, K) ((!!LAZY_IS_IN(L, K) && L[K]) || null)
-// Reads L or an empty list if L is not a list.  Note: Does NOT assign, L may be an expression.
-#define SANITIZE_LIST(L) ( islist(L) ? L : list() )
-
 // Insert an object A into a sorted list using cmp_proc (/code/_helpers/cmp.dm) for comparison.
-#define ADD_SORTED(list, A, cmp_proc) if(!list.len) {list.Add(A)} else {list.Insert(FindElementIndex(A, list, cmp_proc), A)}
+#define ADD_SORTED(list, A, cmp_proc) \
+	if(!list.len) {list.Add(A)} else {list.Insert(FindElementIndex(A, list, cmp_proc), A)}
 
 //Currently used in SDQL2 stuff
 /proc/send_output(target, msg, control)
