@@ -123,7 +123,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: tools/bootstrap/.cache
-          key: ${{ runner.os }}-bootstrap
+          key: ${{ runner.os }}-bootstrap-${{ hashFiles('./dependencies.sh', 'tools/bootstrap/node', 'tools/bootstrap/python') }}
 
       - name: Setup Yarn cache
         uses: actions/cache@v2
@@ -160,7 +160,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: tools/bootstrap/.cache
-          key: ${{ runner.os }}-bootstrap
+          key: ${{ runner.os }}-bootstrap-${{ hashFiles('./dependencies.sh', 'tools/bootstrap/node', 'tools/bootstrap/python') }}
 
       - name: Setup Yarn cache
         uses: actions/cache@v2
