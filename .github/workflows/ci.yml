@@ -23,18 +23,29 @@ jobs:
           path: $HOME/SpacemanDMM
           key: ${{ runner.os }}-spacemandmm
       - name: Install Tools
+        id: deps
         run: |
           pip3 install setuptools
           bash tools/ci/install_node.sh
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
           tools/bootstrap/python -c ''
-      - name: Run linters
-        run: |
-          bash tools/ci/check_changelogs.sh
-          tools/bootstrap/python -m dmi.test
-          tools/bootstrap/python -m ci.check_regex --log-changes-only
-          tools/build/build --ci tgui-lint
-          ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
+
+      - name: Check changelog
+        if: steps.deps.outcome == 'success'
+        run: bash tools/ci/check_changelogs.sh
+      - name: Check DMIs
+        if: steps.deps.outcome == 'success'
+        run: tools/bootstrap/python -m dmi.test
+      - name: Code regex-linting
+        if: steps.deps.outcome == 'success'
+        run: tools/bootstrap/python -m ci.check_regex --log-changes-only
+      - name: tgUI linting
+        if: steps.deps.outcome == 'success'
+        run: tools/build/build --ci tgui-lint
+      - name: Dreamchecker
+        if: steps.deps.outcome == 'success'
+        run: ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
+
       - name: Annotate Regex
         if: always()
         run: |
