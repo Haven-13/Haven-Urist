@@ -4,7 +4,8 @@
 
 GLOBAL_VAR(restart_counter)
 
-/var/game_id = null
+/var/global/game_id = null
+/var/global/world_init_time = -1
 /hook/global_init/proc/generate_gameid()
 	if(game_id != null)
 		return
@@ -69,8 +70,12 @@ GLOBAL_VAR(restart_counter)
 	return match
 
 /world/New()
+	global.world_init_time = REALTIMEOFDAY
 
-	SSmetrics.world_init_time = REALTIMEOFDAY
+	if(config.start_byond_profiling)
+		Profile(PROFILE_START)
+
+	SSmetrics.world_init_time = global.world_init_time
 
 	//set window title
 	if (config.server_name)
@@ -114,8 +119,8 @@ GLOBAL_VAR(restart_counter)
 #endif
 	Master.Initialize(10, FALSE)
 
-#undef RECOMMENDED_VERSION
 	TgsInitializationComplete()
+#undef RECOMMENDED_VERSION
 
 var/world_topic_spam_protect_ip = "0.0.0.0"
 var/world_topic_spam_protect_time = world.timeofday
