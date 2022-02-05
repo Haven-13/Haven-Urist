@@ -35,6 +35,12 @@
 	var/datum/controller/subsystem/queue_next
 	var/datum/controller/subsystem/queue_prev
 
+	// Subsystem startup accounting - these variables cannot be trusted if the subsystem has crashed and been Recover()'d.
+	var/init_state = SS_INITSTATE_NONE // The current initialization state of this SS - this might be invalid if the subsystem has been Recover()'d.
+	var/init_time = 0                  // How long the subsystem took to initialize, in seconds.
+	var/init_start = 0                 // What timeofday did we start initializing?
+	var/init_finish                    // What timeofday did we finish initializing?
+
 	var/runlevels = RUNLEVELS_DEFAULT	//points of the game at which the SS can fire
 
 	var/static/list/failure_strikes //How many times we suspect a subsystem type has crashed the MC, 3 strikes and you're out!
@@ -162,20 +168,54 @@
 /// Called after the config has been loaded or reloaded.
 /datum/controller/subsystem/proc/OnConfigLoad()
 
-//used to initialize the subsystem AFTER the map has loaded
-/datum/controller/subsystem/Initialize(start_timeofday)
-	initialized = TRUE
-	var/time = (REALTIMEOFDAY - start_timeofday) / 10
-	var/msg = "Initialized [name] subsystem within [time] second[time == 1 ? "" : "s"]!"
+/// Wrapper so things continue to work even in the case of a SS that doesn't call parent.
+/datum/controller/subsystem/proc/DoInitialize(timeofday)
+	init_state = SS_INITSTATE_STARTED
+	init_start = timeofday
+	Initialize(timeofday)
+	init_finish = REALTIMEOFDAY
+	. = (REALTIMEOFDAY - timeofday)/10
+	var/msg = "Initialized [name] subsystem within [.] second[. == 1 ? "" : "s"]!"
 	to_chat(world, "<span class='boldannounce'>[msg]</span>")
 	log_world(msg)
-	return time
 
-//hook for printing stats to the "MC" statuspanel for admins to see performance and related stats etc.
-/datum/controller/subsystem/stat_entry(msg)
-	if(!statclick)
-		statclick = new/obj/effect/statclick/debug(null, "Initializing...", src)
+	init_state = SS_INITSTATE_DONE
+	initialized = TRUE	// Legacy.
 
+/// Used to initialize the subsystem AFTER the map has loaded
+/datum/controller/subsystem/Initialize(start_timeofday)
+	// Stub, no default behavior here please.
+
+/datum/controller/subsystem/stat_entry(text)
+	if (!stat_line)
+		stat_line = new (null, src)
+	if (Master.initializing)
+		text = "[stat_entry_init()]\t[text]"
+		var/letter = init_state_letter()
+		if (letter)
+			text = "\[[letter]] [text]"
+	else
+		text = "[stat_entry_run()]\t[text]"
+		if (can_fire && !suspended && !(flags & SS_NO_FIRE))
+			text = "\[[state_letter()]] [text]"
+	stat_line.name = text
+	stat(name, stat_line)
+
+/datum/controller/subsystem/proc/stat_entry_init()
+	if (init_state == SS_INITSTATE_DONE)
+		. = "DONE ([init_time]s)"
+	else if (flags & SS_NO_INIT)
+		. = "NO INIT"
+	else if (init_state == SS_INITSTATE_STARTED)
+		if (init_start)
+			. = "LOAD ([(REALTIMEOFDAY - init_start)/10]s)"
+		else
+			. = "LOAD"
+	else
+		. = "WAIT"
+
+/// Generates the message shown before a subsystem during normal MC operation.
+/datum/controller/subsystem/proc/stat_entry_run()
 	if (flags & SS_NO_FIRE)
 		. = "NO FIRE"
 	else if (can_fire && !suspended)
@@ -185,11 +225,16 @@
 	else
 		. = "SUSPEND"
 
-	var/title = name
-	if (can_fire)
-		title = "\[[state_letter()]][title]"
-
-	stat(title, statclick.update(msg))
+/datum/controller/subsystem/proc/init_state_letter()
+	if (flags & SS_NO_INIT)
+		return
+	switch (init_state)
+		if (SS_INITSTATE_NONE)
+			. = "W"
+		if (SS_INITSTATE_STARTED)
+			. = "L"
+		if (SS_INITSTATE_DONE)
+			. = "D"
 
 /datum/controller/subsystem/proc/state_letter()
 	switch (state)

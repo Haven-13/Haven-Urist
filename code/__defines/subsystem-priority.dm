@@ -23,7 +23,6 @@
 #define SS_PRIORITY_RADIATION     20	// Radiation processing and cache updates.
 #define SS_PRIORITY_AIRFLOW       15	// Object movement from ZAS airflow.
 #define SS_PRIORITY_VOTE          10	// Vote management.
-#define SS_PRIORITY_INACTIVITY    10	// Idle kicking.
 #define SS_PRIORITY_SUPPLY        10	// Supply point accumulation.
 #define SS_PRIORITY_TRADE         10	// Adds/removes traders.
 
@@ -36,7 +35,7 @@
 #define SS_PRIORITY_TURF          20	// Radioactive walls/blob.
 #define SS_PRIORITY_EVAC          20	// Processes the evac controller.
 #define SS_PRIORITY_WIRELESS      10	// Wireless connection setup.
-
+#define SS_PRIORITY_INACTIVITY    10	// Idle kicking.
 
 // Subsystem fire priority, from lowest to highest priority
 // If the subsystem isn't listed here it's either DEFAULT or PROCESS (if it's a processing subsystem child)

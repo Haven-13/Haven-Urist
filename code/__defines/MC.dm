@@ -18,7 +18,7 @@
 #define MC_AVG_FAST_UP_SLOW_DOWN(average, current) (average > current ? MC_AVERAGE_SLOW(average, current) : MC_AVERAGE_FAST(average, current))
 #define MC_AVG_SLOW_UP_FAST_DOWN(average, current) (average < current ? MC_AVERAGE_SLOW(average, current) : MC_AVERAGE_FAST(average, current))
 
-#define NEW_SS_GLOBAL(varname) if(varname != src){if(istype(varname)){Recover();qdel(varname);}varname = src;}
+#define NEW_SS_GLOBAL(varname) if(varname != src){if(istype(varname)){Recover(varname);qdel(varname);}varname = src;}
 
 #define START_PROCESSING(Processor, Datum) \
 if (Datum.is_processing) {\
@@ -73,6 +73,9 @@ if(Datum.is_processing) {\
 //	This flag overrides SS_KEEP_TIMING
 #define SS_POST_FIRE_TIMING 64
 
+// Run Shutdown() on server shutdown so the SS can finalize state.
+#define SS_NEEDS_SHUTDOWN 128
+
 // -- SStimer stuff --
 
 /// Don't run if there is an identical unique timer active
@@ -102,6 +105,11 @@ if(Datum.is_processing) {\
 #define SS_PAUSED 3		//paused by mc_tick_check
 #define SS_SLEEPING 4	//fire() slept.
 #define SS_PAUSING 5 	//in the middle of pausing
+
+// Subsystem init-states, used for the initialization MC panel.
+#define SS_INITSTATE_NONE 0
+#define SS_INITSTATE_STARTED 1
+#define SS_INITSTATE_DONE 2
 
 #define SUBSYSTEM_DEF(X) GLOBAL_REAL(SS##X, /datum/controller/subsystem/##X);\
 /datum/controller/subsystem/##X/New(){\

@@ -28,16 +28,19 @@
 	init_plane()
 	update_plane()
 
-	var/do_initialize = SSatoms.initialization_mode
-	if(do_initialize != INITIALIZATION_INSSATOMS)
+	var/do_initialize = SSatoms.atom_init_stage
+	var/list/created = SSatoms.created_atoms
+	if(do_initialize > INITIALIZATION_INSSATOMS_LATE)
 		args[1] = do_initialize == INITIALIZATION_INNEW_MAPLOAD
 		if(SSatoms.InitAtom(src, args))
 			//we were deleted
 			return
-
-	var/list/created = SSatoms.created_atoms
-	if(created)
-		created += src
+	else if(created)
+		var/list/argument_list
+		if(length(args) > 1)
+			argument_list = args.Copy(2)
+		if(argument_list || do_initialize == INITIALIZATION_INSSATOMS_LATE)
+			created[src] = argument_list
 
 	if(atom_flags & ATOM_FLAG_CLIMBABLE)
 		verbs += /atom/proc/climb_on
