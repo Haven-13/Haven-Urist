@@ -26,7 +26,6 @@ jobs:
         id: deps
         run: |
           pip3 install setuptools
-          bash tools/ci/install_node.sh
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
           tools/bootstrap/python -c ''
 
@@ -39,9 +38,6 @@ jobs:
       - name: Code regex-linting
         if: steps.deps.outcome == 'success'
         run: tools/bootstrap/python -m ci.check_regex --log-changes-only
-      - name: tgUI linting
-        if: steps.deps.outcome == 'success'
-        run: tools/build/build --ci tgui-lint
       - name: Dreamchecker
         if: steps.deps.outcome == 'success'
         run: ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
@@ -55,6 +51,24 @@ jobs:
         if: always()
         with:
           outputFile: output-annotations.txt
+
+  tgui_check:
+    name: tgUI Check
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Yarn cache
+        uses: actions/cache@v2
+        with:
+          path: tgui/.yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('tgui/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Install dependencies
+        run: bash tools/ci/install_node.sh
+      - name: tgUI linting
+        run: tools/build/build --ci tgui-lint
 
   code_check:
     name: Baycode Check
