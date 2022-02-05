@@ -7,8 +7,8 @@ on:
     branches:
     - latest
 jobs:
-  run_linters:
-    name: Run Linters
+  lint_code:
+    name: Lint code
     runs-on: ubuntu-20.04
     steps:
       - name: Fetch latest
@@ -52,8 +52,8 @@ jobs:
         with:
           outputFile: output-annotations.txt
 
-  tgui_check:
-    name: tgUI Check
+  lint_tgui:
+    name: Lint tgUI
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -70,8 +70,8 @@ jobs:
       - name: tgUI linting
         run: tools/build/build --ci tgui-lint
 
-  code_check:
-    name: Baycode Check
+  lint_legacy:
+    name: Lint legacy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -88,7 +88,7 @@ jobs:
           key: ${{ runner.os }}-code
       - name: Install dependencies
         run: sudo apt-get install -y uchardet
-      - name: Run tests
+      - name: Run legacy tests
         env:
           TARGET_PROJECT_NAME: baystation12
         run: |
