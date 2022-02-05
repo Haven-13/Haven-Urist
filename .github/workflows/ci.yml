@@ -6,54 +6,27 @@ on:
   pull_request:
     branches:
     - latest
+
 jobs:
-  lint_code:
-    name: Lint code
+  run_linters:
+    name: Run linters
     runs-on: ubuntu-20.04
     steps:
+      # Fetch
       - name: Fetch latest
         uses: actions/checkout@v2
         with:
           ref: latest
       - name: Fetch PR commits
         uses: actions/checkout@v2
-      - name: Setup cache
+
+      # Setup caches
+      - name: Setup SpacemanDMM cache
         uses: actions/cache@v2
         with:
           path: $HOME/SpacemanDMM
           key: ${{ runner.os }}-spacemandmm
-      - name: Install Tools
-        id: deps
-        run: |
-          pip3 install setuptools
-          bash tools/ci/install_spaceman_dmm.sh dreamchecker
-          tools/bootstrap/python -c ''
 
-      - name: Check DMIs
-        if: steps.deps.outcome == 'success'
-        run: tools/bootstrap/python -m dmi.test
-      - name: Code regex-linting
-        if: steps.deps.outcome == 'success'
-        run: tools/bootstrap/python -m ci.check_regex --log-changes-only
-      - name: Dreamchecker
-        if: steps.deps.outcome == 'success'
-        run: ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
-
-      - name: Annotate Regex
-        if: always()
-        run: |
-          cat check_regex_output.txt
-      - name: Annotate lints
-        uses: yogstation13/DreamAnnotate@v1
-        if: always()
-        with:
-          outputFile: output-annotations.txt
-
-  lint_tgui:
-    name: Lint tgUI
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
       - name: Setup Yarn cache
         uses: actions/cache@v2
         with:
@@ -62,36 +35,69 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: Install dependencies
-        run: bash tools/ci/install_node.sh
-      - name: tgUI linting
-        run: tools/build/build --ci tgui-lint
 
-  lint_legacy:
-    name: Lint legacy
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
       - name: Setup Byond cache
         uses: actions/cache@v2
         with:
           path: $HOME/BYOND
           key: ${{ runner.os }}-byond
-      - uses: actions/checkout@v2
+
       - name: Setup code cache
         uses: actions/cache@v2
         with:
           path: $HOME/CODE
           key: ${{ runner.os }}-code
+
+      # Dependencies & tools
       - name: Install dependencies
-        run: sudo apt-get install -y uchardet
-      - name: Run legacy tests
+        id: deps
+        run: |
+          sudo apt-get install -y uchardet
+          pip3 install setuptools
+          bash tools/ci/install_node.sh
+          bash tools/ci/install_spaceman_dmm.sh dreamchecker
+          tools/bootstrap/python -c ''
+
+      # Actual checks
+      - name: Check changelog
+        if: steps.deps.outcome == 'success'
+        run: bash tools/ci/check_changelogs.sh
+
+      - name: Check DMIs
+        if: steps.deps.outcome == 'success'
+        run: tools/bootstrap/python -m dmi.test
+
+      - name: Check tgUI linting
+        if: steps.deps.outcome == 'success'
+        run: tools/build/build --ci tgui-lint
+
+      - name: Check regex-linting
+        if: steps.deps.outcome == 'success'
+        run: tools/bootstrap/python -m ci.check_regex --log-changes-only
+
+      - name: Check Dreamchecker
+        if: steps.deps.outcome == 'success'
+        run: ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
+
+      - name: Check legacy Baystation12 tests
+        if: steps.deps.outcome == 'success'
         env:
           TARGET_PROJECT_NAME: baystation12
         run: |
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/check_code.sh
+
+      # Annotations
+      - name: Annotate regex-lints
+        if: always()
+        run: |
+          cat check_regex_output.txt
+      - name: Annotate Dreamchecker lints
+        uses: yogstation13/DreamAnnotate@v1
+        if: always()
+        with:
+          outputFile: output-annotations.txt
 
   test_compile:
     name: Test Compile
