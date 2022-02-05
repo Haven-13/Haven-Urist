@@ -5,7 +5,7 @@ on:
     - latest
 jobs:
   lint_cl:
-    name: Lint PR changelog
+    name: Changelog
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
