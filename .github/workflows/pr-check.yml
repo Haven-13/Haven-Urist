@@ -1,0 +1,16 @@
+name: PR Check
+on:
+  pull_request:
+    branches:
+    - latest
+jobs:
+  lint_cl:
+    name: Lint PR changelog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Tools
+        run: |
+          pip3 install setuptools
+          tools/bootstrap/python -c ''
+      - name: Check changelog
+        run: bash tools/ci/check_changelogs.sh

@@ -29,9 +29,6 @@ jobs:
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
           tools/bootstrap/python -c ''
 
-      - name: Check changelog
-        if: steps.deps.outcome == 'success'
-        run: bash tools/ci/check_changelogs.sh
       - name: Check DMIs
         if: steps.deps.outcome == 'success'
         run: tools/bootstrap/python -m dmi.test
