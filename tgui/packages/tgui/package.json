@@ -5,7 +5,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.2",
     "common": "workspace:*",
-    "dateformat": "^4.6.3",
+    "dateformat": "^5.0.2",
     "dompurify": "^2.3.5",
     "inferno": "^7.4.11",
     "inferno-vnode-flags": "^7.4.11",
