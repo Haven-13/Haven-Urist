@@ -29,6 +29,7 @@ jobs:
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
           tools/bootstrap/python -c ''
       - name: Run linters
+        continue-on-error: true
         run: |
           bash tools/ci/check_changelogs.sh
           tools/bootstrap/python -m dmi.test
