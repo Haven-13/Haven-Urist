@@ -1087,6 +1087,7 @@
 #include "code\game\verbs\ignore.dm"
 #include "code\game\verbs\ooc.dm"
 #include "code\game\verbs\who.dm"
+#include "code\interface\css_parser.dm"
 #include "code\interface\interface.dm"
 #include "code\interface\stylesheet.dm"
 #include "code\interface\skin.dmf"
