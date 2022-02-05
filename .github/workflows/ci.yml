@@ -43,23 +43,10 @@ jobs:
           path: tools/bootstrap/.cache
           key: ${{ runner.os }}-bootstrap-${{ hashFiles('./dependencies.sh', 'tools/bootstrap/node', 'tools/bootstrap/python') }}
 
-      - name: Setup Byond cache
-        uses: actions/cache@v2
-        with:
-          path: $HOME/BYOND
-          key: ${{ runner.os }}-byond
-
-      - name: Setup code cache
-        uses: actions/cache@v2
-        with:
-          path: $HOME/CODE
-          key: ${{ runner.os }}-code
-
       # Dependencies & tools
       - name: Install dependencies
         id: deps
         run: |
-          sudo apt-get install -y uchardet
           pip3 install setuptools
           bash tools/ci/install_node.sh
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
@@ -85,15 +72,6 @@ jobs:
       - name: Check Dreamchecker
         if: steps.deps.outcome == 'success'
         run: ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
-
-      - name: Check legacy Baystation12 tests
-        if: steps.deps.outcome == 'success'
-        env:
-          TARGET_PROJECT_NAME: baystation12
-        run: |
-          bash tools/ci/install_byond.sh
-          source $HOME/BYOND/byond/bin/byondsetup
-          bash tools/ci/check_code.sh
 
       # Annotations
       - name: Annotate regex-lints
