@@ -13,6 +13,7 @@
 //	invisibility = 101
 
 /obj/effect/landmark/scom/enemyspawn/New()
+	..()
 	invisibility = 101
 	return
 

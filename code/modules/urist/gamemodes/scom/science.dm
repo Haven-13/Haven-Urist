@@ -4,6 +4,7 @@
 	w_class = 2
 
 /obj/item/scom/science/New()
+	..()
 	icon_state = pick("capacitor", "micro_laser", "micro_mani", "matter_bin", "scan_module")
 
 /obj/structure/scom

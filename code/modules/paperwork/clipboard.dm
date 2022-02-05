@@ -13,6 +13,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 70)
 
 /obj/item/weapon/clipboard/New()
+	..()
 	update_icon()
 
 /obj/item/weapon/clipboard/MouseDrop(obj/over_object as obj) //Quick clipboard fix. -Agouri

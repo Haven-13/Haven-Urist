@@ -6,14 +6,14 @@
 	var/spread = 0 //will the seam spread?
 	var/spreadChance = 0 //the percentual chance of an ore spreading to the neighbouring tiles
 
-/turf/simulated/mineral/ore/New()
+/turf/simulated/mineral/ore/Initialize()
+	. = ..()
 	if (mineralName && mineralAmt && spread && spreadChance)
 		for(var/dir in GLOB.cardinal)
 			if(prob(spreadChance))
 				var/turf/T = get_step(src, dir)
 				if(istype(T, /turf/simulated/mineral/random))
 					Spread(T)
-	return
 
 /turf/simulated/mineral/ore/proc/Spread(var/turf/T)
 	new src.type(T)

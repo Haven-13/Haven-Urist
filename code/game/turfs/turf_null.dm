@@ -9,6 +9,8 @@
 	dynamic_lighting = FALSE
 
 /turf/null/New()
+	SHOULD_CALL_PARENT(FALSE)
+	SHOULD_NOT_OVERRIDE(TRUE)
 	return
 
 /turf/null/Initialize(mapload, ...)

@@ -116,6 +116,7 @@
 		deactivate(user)
 
 /obj/item/weapon/melee/energy/sword/New()
+	..()
 	if (!blade_color)
 		blade_color = pick("red","blue","green","purple")
 

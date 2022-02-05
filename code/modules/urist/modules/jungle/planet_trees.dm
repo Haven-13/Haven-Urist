@@ -58,7 +58,8 @@
 	pixel_x = -32
 	size = 3
 
-/obj/structure/flora/tree/planet/jungle/large/New()
+/obj/structure/flora/tree/planet/jungle/large/Initialize()
+	. = ..()
 	icon_state = "tree[rand(1,4)]"
 
 /obj/structure/flora/tree/planet/jungle/small
@@ -68,7 +69,8 @@
 	icon_state = "tree1"
 	size = 1
 
-/obj/structure/flora/tree/planet/jungle/small/New()
+/obj/structure/flora/tree/planet/jungle/small/Initialize()
+	. = ..()
 	icon_state = "tree[rand(1,10)]"
 
 //logs
@@ -103,9 +105,9 @@
 	icon_state = "deadtree_1"
 	size = 1
 
-/obj/structure/flora/tree/planet/arid/small/New()
+/obj/structure/flora/tree/planet/arid/small/Initialize()
+	. = ..()
 	icon_state = "deadtree_[rand(1,6)]"
-	..()
 
 /obj/structure/flora/tree/planet/arid/large
 	name = "large dead tree"
@@ -114,6 +116,6 @@
 	icon_state = "tree_1"
 	size = 2
 
-/obj/structure/flora/tree/planet/arid/large/New()
+/obj/structure/flora/tree/planet/arid/large/Initialize()
+	. = ..()
 	icon_state = "tree_[rand(1,3)]"
-	..()

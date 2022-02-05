@@ -30,6 +30,7 @@ var/list/mining_floors = list()
 	has_resources = 1
 
 /turf/simulated/mineral/New()
+	..()
 	if (!mining_walls["[src.z]"])
 		mining_walls["[src.z]"] = list()
 	mining_walls["[src.z]"] += src
@@ -274,6 +275,7 @@ var/list/mining_floors = list()
 	var/mapped = FALSE
 
 /turf/simulated/floor/asteroid/New()
+	..()
 	if (!mining_floors["[src.z]"])
 		mining_floors["[src.z]"] = list()
 	mining_floors["[src.z]"] += src

@@ -126,6 +126,7 @@
 	desc = "It's an emergency storage closet for repairs."
 
 /obj/structure/closet/syndicate/resources/everything/New()
+	..()
 	var/list/resources = list(
 	/obj/item/stack/material/steel,
 	/obj/item/stack/material/glass,
@@ -138,10 +139,7 @@
 	/obj/item/stack/rods
 	)
 
-
 	for(var/i = 0, i<2, i++)
 		for(var/res in resources)
 			var/obj/item/stack/R = new res(src)
 			R.amount = R.max_amount
-
-	return
