@@ -17,6 +17,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: latest
+
       - name: Fetch PR commits
         uses: actions/checkout@v2
 
@@ -35,6 +36,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+
+      - name: Setup bootstrap cache
+        uses: actions/cache@v2
+        with:
+          path: tools/bootstrap/.cache
+          key: ${{ runner.os }}-bootstrap-${{ hashFiles('./dependencies.sh', 'tools/bootstrap/node', 'tools/bootstrap/python') }}
 
       - name: Setup Byond cache
         uses: actions/cache@v2
@@ -93,6 +100,7 @@ jobs:
         if: always()
         run: |
           cat check_regex_output.txt
+
       - name: Annotate Dreamchecker lints
         uses: yogstation13/DreamAnnotate@v1
         if: always()
@@ -104,11 +112,19 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
+
       - name: Setup Byond cache
         uses: actions/cache@v2
         with:
           path: $HOME/BYOND
           key: ${{ runner.os }}-byond
+
+      - name: Setup bootstrap cache
+        uses: actions/cache@v2
+        with:
+          path: tools/bootstrap/.cache
+          key: ${{ runner.os }}-bootstrap
+
       - name: Setup Yarn cache
         uses: actions/cache@v2
         with:
@@ -117,6 +133,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+
       - name: Run compile
         run: |
           bash tools/ci/install_byond.sh
@@ -132,11 +149,19 @@ jobs:
       fail-fast: false
     steps:
       - uses: actions/checkout@v2
+
       - name: Setup Byond cache
         uses: actions/cache@v2
         with:
           path: $HOME/BYOND
           key: ${{ runner.os }}-byond
+
+      - name: Setup bootstrap cache
+        uses: actions/cache@v2
+        with:
+          path: tools/bootstrap/.cache
+          key: ${{ runner.os }}-bootstrap
+
       - name: Setup Yarn cache
         uses: actions/cache@v2
         with:
@@ -145,15 +170,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+
       - name: Install rust-g
         run: |
           sudo dpkg --add-architecture i386
           sudo apt update || true
           sudo apt install -o APT::Immediate-Configure=false libssl1.1:i386
           bash tools/ci/install_rust_g.sh
+
       - name: Copy example config
         run: |
           cp -p config/example/* config/
+
       - name: Run tests
         env:
           MAP_PATH: ${{matrix.maps}}
@@ -161,6 +189,7 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           tools/build/build --map-override=${MAP_PATH} test
+
       - name: Log post-processing
         run: |
           bash tools/ci/check_log.sh data/logs/ci/diary.log
