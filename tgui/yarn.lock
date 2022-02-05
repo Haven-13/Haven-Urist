@@ -3517,15 +3517,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-radar@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "eslint-plugin-radar@npm:0.2.1"
-  peerDependencies:
-    eslint: ">= 3.0.0 <= 7.x.x"
-  checksum: dece5c02506ab40a4e231c813f1a8ecd7a57c0a4d177cd35dbfcf56222333d5434a8c06901e8b06409d919b7beeea870428a3574315419252a3698b3766d1a91
-  languageName: node
-  linkType: hard
-
 "eslint-plugin-react@npm:^7.28.0":
   version: 7.28.0
   resolution: "eslint-plugin-react@npm:7.28.0"
@@ -3547,6 +3538,15 @@ __metadata:
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
   checksum: 90293d0fd53bb1f735ffd32141cdd211fb1120c9f7bbe5342f9e923261a39e52a2b2575d4e46c9cd77d257f42db4a99b8b339689fc5b5c1c26048929f69b1784
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-sonarjs@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "eslint-plugin-sonarjs@npm:0.11.0"
+  peerDependencies:
+    eslint: ^5.0.0 || ^6.0.0 || ^7.0.0|| ^8.0.0
+  checksum: ef9633e518f6d8365b7370bf48f70fb837124c68318e14146c13ffa8f4c5a747b5f776956124549f81252131ebb8c139d071b9c66e2af77889d0eada725d6d25
   languageName: node
   linkType: hard
 
@@ -7531,8 +7531,8 @@ resolve@^2.0.0-next.3:
     common: "workspace:*"
     css-loader: ^6.6.0
     eslint: ^8.8.0
-    eslint-plugin-radar: ^0.2.1
     eslint-plugin-react: ^7.28.0
+    eslint-plugin-sonarjs: ^0.11.0
     eslint-plugin-unused-imports: ^2.0.0
     file-loader: ^6.2.0
     inferno: ^7.4.11
