@@ -69,6 +69,10 @@ jobs:
         if: steps.deps.outcome == 'success'
         run: tools/bootstrap/python -m ci.check_regex --log-changes-only
 
+      - name: Check HTML tags
+        if: steps.deps.outcome == 'success'
+        run: tools/bootstrap/python -m ci.tag_matcher
+
       - name: Check Dreamchecker
         if: steps.deps.outcome == 'success'
         run: ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
