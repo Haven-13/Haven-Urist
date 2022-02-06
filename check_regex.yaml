@@ -39,8 +39,8 @@ standards:
   - exactly: [0, 'world<< uses', 'world[ \t]*<<']
   - exactly: [0, 'world.log<< uses', 'world.log[ \t]*<<']
   - exactly: [0, 'to_chat() on world(.log) uses' 'to_chat\(\s*world(.log)?']
-  - no_more: [214, 'to_world() uses', 'to_world\(']
-  - no_more: [73, 'to_world_log() uses', 'to_world_log\(']
+  - exactly: [214, 'to_world() uses', 'to_world\(']
+  - exactly: [73, 'to_world_log() uses', 'to_world_log\(']
 
   - exactly: [14, 'non-bitwise << uses', '(?<!\d)(?<!\d\s)(?<!<)<<(?!=|\s\d|\d|<|\/)']
   - exactly: [0, 'incorrect indentations', '^(?:  +)(?!\*)']
