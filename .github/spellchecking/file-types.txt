@@ -1,10 +1,28 @@
 ogg
 
 dm
-dmm
+dme
 dmi
+dmm
+dmb
+rsc
 
+json
+toml
 txt
+yaml
+yml
 
 css
 html
+js
+ts
+tsx
+
+tff
+woff
+
+jpeg
+jpg
+png
+svg
