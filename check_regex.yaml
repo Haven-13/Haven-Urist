@@ -38,7 +38,7 @@ standards:
 
   - exactly: [0, 'world<< uses', 'world[ \t]*<<']
   - exactly: [0, 'world.log<< uses', 'world.log[ \t]*<<']
-  - exactly: [0, 'to_chat() on world(.log) uses' 'to_chat\(\s*world(.log)?']
+  - exactly: [0, 'to_chat() on world(.log) uses', 'to_chat\(\s*world(.log)?']
   - exactly: [214, 'to_world() uses', 'to_world\(']
   - exactly: [73, 'to_world_log() uses', 'to_world_log\(']
 
