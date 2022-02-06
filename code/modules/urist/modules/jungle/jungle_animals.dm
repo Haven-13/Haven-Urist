@@ -8,11 +8,12 @@
 	var/spawn_time_high = 2400
 	var/spawn_time_low = 1200
 
-/obj/effect/landmark/animal_spawner/New()
+/obj/effect/landmark/animal_spawner/Initialize()
+	. = ..()
 	if(!spawn_type)
-		var/new_type = pick(typesof(/obj/effect/landmark/animal_spawner) - /obj/effect/landmark/animal_spawner)
+		var/new_type = pick(subtypesof(/obj/effect/landmark/animal_spawner))
 		new new_type(get_turf(src))
-		qdel(src)
+		return INITIALIZE_HINT_QDEL
 
 	START_PROCESSING(SSobj, src)
 	spawned_animal = new spawn_type(get_turf(src))
@@ -45,31 +46,38 @@
 	name = "snake spawner"
 	spawn_type = /mob/living/simple_animal/hostile/snake
 
-/obj/effect/landmark/animal_spawner/random
-	var/spawn_list
+/obj/effect/landmark/random_animal_spawner
+	icon_state = "x3"
+	invisibility = 101
+
+	var/mob/living/spawned_animal
+	var/spawn_time_high = 2400
+	var/spawn_time_low = 1200
+
+	var/list/spawn_list
 	var/crosstrigger = 0
 	var/x_offset = 0
 	var/y_offset = 0
 
-/obj/effect/landmark/animal_spawner/random/New()
+/obj/effect/landmark/random_animal_spawner/Initialize()
+	. = ..()
 	if(crosstrigger)
 		return
-
 	else
 		START_PROCESSING(SSobj, src)
-		spawn_type = pick(spawn_list)
+		var/spawn_type = pick(spawn_list)
 		spawned_animal = new spawn_type(get_turf(src))
 
-/obj/effect/landmark/animal_spawner/random/Process()
+/obj/effect/landmark/random_animal_spawner/Process()
 	//if any of our animals are killed, spawn new ones
 	if(!spawned_animal || spawned_animal.stat == DEAD)
-		spawn_type = pick(spawn_list)
+		var/spawn_type = pick(spawn_list)
 		spawned_animal = new spawn_type(src)
 		//after a random timeout, and in a random position (6-30 seconds)
 		spawn(rand(spawn_time_low,spawn_time_high))
 			spawned_animal.loc = locate(src.x + x_offset, src.y + x_offset, src.z)
 
-/obj/effect/landmark/animal_spawner/random/Crossed(mob/living/M)
+/obj/effect/landmark/random_animal_spawner/Crossed(mob/living/M)
 	if(crosstrigger) //if an animal crosses this thing, they "leave" the map, and then this landmark starts spawning animals
 		if (istype(M, /mob/living/simple_animal) || istype(M, /mob/living/carbon/human/monkey))
 			qdel(M)
@@ -79,7 +87,7 @@
 	else
 		..()
 
-/obj/effect/landmark/animal_spawner/random/jungle
+/obj/effect/landmark/random_animal_spawner/jungle
 	name = "jungle animal spawner"
 	x_offset = -8
 	crosstrigger = 1
@@ -88,21 +96,21 @@
 		/mob/living/carbon/human/monkey/jungle,
 		/mob/living/simple_animal/parrot/jungle,
 		/mob/living/simple_animal/hostile/huntable/deer
-		)
+	)
 
-/obj/effect/landmark/animal_spawner/random/plains
+/obj/effect/landmark/random_animal_spawner/plains
 	name = "plains animal spawner"
 	y_offset = -2
 	spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/bear,
 		/mob/living/simple_animal/hostile/snake/randvenom/green
-		)
+	)
 
-/obj/effect/landmark/animal_spawner/random/jungle/crosstrigger
+/obj/effect/landmark/random_animal_spawner/jungle/crosstrigger
 	crosstrigger = 1
 	icon_state = "x2"
 
-/obj/effect/landmark/animal_spawner/random/plains/crosstrigger
+/obj/effect/landmark/random_animal_spawner/plains/crosstrigger
 	crosstrigger = 1
 	icon_state = "x2"
 

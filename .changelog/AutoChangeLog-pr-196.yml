@@ -1,0 +1,4 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Fixed few oddities with few items and objectes due to improper initalization

@@ -187,29 +187,29 @@
 /obj/item/weapon/storage/internal/updating/update_icon()
 	master_item.update_icon()
 
-/obj/item/stack/rods/scrap/New(var/newloc)
+/obj/item/stack/rods/scrap/New(newloc)
 	..(newloc, rand(1,8))
 
-/obj/item/stack/material/plastic/scrap/New(var/newloc)
+/obj/item/stack/material/plastic/scrap/New(newloc)
 	..(newloc, rand(1,10))
 
-/obj/item/stack/material/steel/scrap/New(var/newloc)
+/obj/item/stack/material/steel/scrap/New(newloc)
 	..(newloc, rand(1,10))
 
-/obj/item/stack/material/glass/scrap/New(var/newloc)
+/obj/item/stack/material/glass/scrap/New(newloc)
 	..(newloc, rand(1,10))
 
-/obj/item/stack/material/plasteel/scrap/New(var/newloc)
+/obj/item/stack/material/plasteel/scrap/New(newloc)
 	..(newloc, rand(1,3))
 
-/obj/item/stack/material/wood/scrap/New(var/newloc)
+/obj/item/stack/material/wood/scrap/New(newloc)
 	..(newloc, rand(1,6))
 
-/obj/item/stack/cable_coil/scrap/New()
-	amount = rand(1,6)
+/obj/item/stack/cable_coil/scrap/New(newloc)
+	..(newloc, rand(1,6))
 
-/obj/item/stack/material/r_wood/scrap/New()
-	amount = rand(1,8)
+/obj/item/stack/material/r_wood/scrap/New(newloc)
+	..(newloc, rand(1,8))
 
 /obj/item/vehicle_part
 	name = "vehicle part"

@@ -26,14 +26,13 @@
 
 
 /obj/effect/accelerated_particle/New(loc, dir = 2)
+	..()
 	src.loc = loc
 	src.set_dir(dir)
 	if(movement_range > 20)
 		movement_range = 20
 	spawn(0)
 		move(1)
-	return
-
 
 /obj/effect/accelerated_particle/Bump(atom/A)
 	if (A)

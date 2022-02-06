@@ -58,6 +58,7 @@
 		..()
 
 /obj/item/weapon/mine/New()
+	..()
 	if(armed)
 		anchored = TRUE
 		icon_state = "uglyminearmed"

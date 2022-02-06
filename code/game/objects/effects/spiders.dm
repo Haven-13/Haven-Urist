@@ -57,7 +57,8 @@
 /obj/effect/spider/stickyweb
 	icon_state = "stickyweb1"
 
-/obj/effect/spider/stickyweb/New()
+/obj/effect/spider/stickyweb/Initialize()
+	. = ..()
 	if(prob(50))
 		icon_state = "stickyweb2"
 
@@ -306,7 +307,8 @@
 	icon_state = "cocoon1"
 	health = 60
 
-/obj/effect/spider/cocoon/New()
+/obj/effect/spider/cocoon/Initialize()
+	. = ..()
 	icon_state = pick("cocoon1","cocoon2","cocoon3")
 
 /obj/effect/spider/cocoon/Destroy()

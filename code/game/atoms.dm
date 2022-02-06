@@ -21,6 +21,8 @@
 	var/list/climbers = list()
 
 /atom/New(loc, ...)
+	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
 	//atom creation method that preloads variables at creation
 	if(GLOB.use_preloader && (src.type == GLOB._preloader.target_path))//in case the instanciated atom is creating other atoms in New()
 		GLOB._preloader.load(src)

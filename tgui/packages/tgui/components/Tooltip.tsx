@@ -19,14 +19,7 @@ const DEFAULT_OPTIONS = {
   }],
 };
 
-const NULL_RECT = {
-  width: 0,
-  height: 0,
-  top: 0,
-  right: 0,
-  bottom: 0,
-  left: 0,
-};
+const NULL_RECT = {} as DOMRect;
 
 export class Tooltip extends Component<TooltipProps, TooltipState> {
   // Mounting poppers is really laggy because popper.js is very slow.

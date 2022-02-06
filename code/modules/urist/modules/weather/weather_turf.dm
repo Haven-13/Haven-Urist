@@ -86,8 +86,9 @@ use area procs or whatever, or you'll break the map */
 /obj/effect/weather_enabler
 	icon_state = "splash"
 
-/obj/effect/weather_enabler/New()
+/obj/effect/weather_enabler/Initialize()
+	..()
 	if(istype(src.loc, /turf))
 		var/turf/WT = src.loc
 		WT.weather_enable()
-	qdel(src)
+	return INITIALIZE_HINT_QDEL

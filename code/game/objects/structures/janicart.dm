@@ -13,8 +13,8 @@
 
 
 /obj/structure/bed/chair/janicart/New()
+	..()
 	create_reagents(100)
-
 
 /obj/structure/bed/chair/janicart/examine(mob/user)
 	if(!..(user, 1))

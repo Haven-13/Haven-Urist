@@ -89,7 +89,6 @@
 		/obj/machinery/suit_storage_unit,
 		/obj/structure/showcase,
 		/obj/item/modular_computer/console,
-		/obj/structure/fountain
 	)
 
 	//Parrots are kleptomaniacs. This variable ... stores the item a parrot is holding.
