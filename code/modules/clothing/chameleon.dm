@@ -212,7 +212,7 @@ var/global/datum/chameleon_choice_cache/chameleon_cache = new
 	disguise(chameleon_cache.backpacks[picked], usr)
 
 	//so our overlays update.
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_back()
 
@@ -354,7 +354,7 @@ var/global/datum/chameleon_choice_cache/chameleon_cache = new
 	disguise(gun_choices[picked], usr)
 
 	//so our overlays update.
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_r_hand()
 		M.update_inv_l_hand()

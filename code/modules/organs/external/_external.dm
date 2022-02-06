@@ -1171,7 +1171,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	owner.embedded_flag = 1
 	owner.verbs += /mob/proc/yank_out_object
 	W.add_blood(owner)
-	if(ismob(W.loc))
+	if(is_mob(W.loc))
 		var/mob/living/H = W.loc
 		H.drop_from_inventory(W)
 	W.loc = owner

@@ -67,7 +67,7 @@
 		..()
 
 /obj/item/weapon/defibrillator/MouseDrop()
-	if(ismob(src.loc))
+	if(is_mob(src.loc))
 		if(!CanMouseDrop(src))
 			return
 		var/mob/M = src.loc
@@ -148,7 +148,7 @@
 /obj/item/weapon/defibrillator/proc/reattach_paddles(mob/user)
 	if(!paddles) return
 
-	if(ismob(paddles.loc))
+	if(is_mob(paddles.loc))
 		var/mob/M = paddles.loc
 		if(M.drop_from_inventory(paddles, src))
 			to_chat(user, "<span class='notice'>\The [paddles] snap back into the main unit.</span>")
@@ -566,7 +566,7 @@
 			visible_message("\The [src]'s reactor overloads!")
 		if(2)
 			new_fail = max(fail_counter, 8)
-			if(ismob(loc))
+			if(is_mob(loc))
 				to_chat(loc, "<span class='warning'>\The [src] feel pleasantly warm.</span>")
 
 	if(new_fail && !fail_counter)

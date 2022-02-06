@@ -41,7 +41,7 @@
 	if(istype(A, /obj/mecha))
 		return 1 //mecha have their own penetration handling
 
-	if(ismob(A))
+	if(is_mob(A))
 		if(!mob_passthrough_check)
 			return 0
 		return 1

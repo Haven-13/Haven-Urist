@@ -205,7 +205,7 @@
 	emote_message_3p = "USER signals."
 
 /decl/emote/visible/signal/check_user(var/atom/user)
-	return ismob(user)
+	return is_mob(user)
 
 /decl/emote/visible/bounce
 	key = "bounce"

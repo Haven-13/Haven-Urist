@@ -38,4 +38,4 @@
 	return 0
 
 /obj/effect/fusion_particle_catcher/CanPass(var/atom/movable/mover, var/turf/target, var/height=0, var/air_group=0)
-	return ismob(mover)
+	return is_mob(mover)

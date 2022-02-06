@@ -175,7 +175,7 @@
 
 /obj/structure/inflatable/door/proc/TryToSwitchState(atom/user)
 	if(isSwitchingStates) return
-	if(ismob(user))
+	if(is_mob(user))
 		var/mob/M = user
 		if(M.client)
 			if(is_carbon_mob(M))

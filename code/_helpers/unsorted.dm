@@ -1046,7 +1046,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 
 //clicking to move pulled objects onto assignee's turf/loc
 /proc/do_pull_click(mob/user, atom/A)
-	if(ismob(user.pulling))
+	if(is_mob(user.pulling))
 		var/mob/M = user.pulling
 		var/atom/movable/t = M.pulling
 		M.stop_pulling()

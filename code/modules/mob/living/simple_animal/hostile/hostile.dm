@@ -36,7 +36,7 @@
 	if(A == src)
 		return FALSE
 
-	if(ismob(A))
+	if(is_mob(A))
 		var/mob/M = A
 		if(M.faction == src.faction && !attack_same)
 			return FALSE

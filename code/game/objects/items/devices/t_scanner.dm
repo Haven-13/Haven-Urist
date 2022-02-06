@@ -52,7 +52,7 @@
 
 	//handle clients changing
 	var/client/loc_client = null
-	if(ismob(src.loc))
+	if(is_mob(src.loc))
 		var/mob/M = src.loc
 		loc_client = M.client
 	set_user_client(loc_client)
@@ -95,7 +95,7 @@
 			I.overlays += P.overlays
 			I.underlays += P.underlays
 
-		if(ismob(scanned))
+		if(is_mob(scanned))
 			if(is_human_mob(scanned))
 				var/mob/living/carbon/human/H = scanned
 				if(H.species.appearance_flags & HAS_SKIN_COLOR)

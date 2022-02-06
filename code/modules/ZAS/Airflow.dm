@@ -33,7 +33,7 @@ Contains helper procs for airflow, handled in /connection_group.
 
 /atom/movable/proc/check_airflow_movable(n)
 
-	if(anchored && !ismob(src)) return 0
+	if(anchored && !is_mob(src)) return 0
 
 	if(!is_obj(src) && n < vsc.airflow_dense_pressure) return 0
 

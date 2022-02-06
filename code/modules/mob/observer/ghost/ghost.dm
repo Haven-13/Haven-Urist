@@ -38,7 +38,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 	verbs += /mob/proc/toggle_antag_pool
 
 	var/turf/T
-	if(ismob(body))
+	if(is_mob(body))
 		T = get_turf(body)               //Where is the body located?
 		attack_logs_ = body.attack_logs_ //preserve our attack logs by copying them to our ghost
 

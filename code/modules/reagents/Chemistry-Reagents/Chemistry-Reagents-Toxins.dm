@@ -185,7 +185,7 @@
 	M.add_chemical_effect(CE_NOPULSE, 1)
 
 /datum/reagent/toxin/zombiepowder/Destroy()
-	if(holder && holder.my_atom && ismob(holder.my_atom))
+	if(holder && holder.my_atom && is_mob(holder.my_atom))
 		var/mob/M = holder.my_atom
 		M.status_flags &= ~FAKEDEATH
 	. = ..()

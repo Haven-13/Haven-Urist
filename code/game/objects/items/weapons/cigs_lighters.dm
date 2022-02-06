@@ -147,7 +147,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	else
 		icon_state = initial(icon_state)
 		item_state = initial(item_state)
-	if(ismob(loc))
+	if(is_mob(loc))
 		var/mob/living/M = loc
 		M.update_inv_wear_mask(0)
 		M.update_inv_l_hand(0)
@@ -265,7 +265,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		butt.color = color
 		if(brand)
 			butt.desc += " This one is \a [brand]."
-		if(ismob(loc))
+		if(is_mob(loc))
 			var/mob/living/M = loc
 			if (!no_message)
 				to_chat(M, "<span class='notice'>Your [name] goes out.</span>")
@@ -740,7 +740,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/turf/T = get_turf(src)
 		T.visible_message(flavor_text)
 		START_PROCESSING(SSobj, src)
-		if(ismob(loc))
+		if(is_mob(loc))
 			var/mob/living/M = loc
 			M.update_inv_wear_mask(0)
 			M.update_inv_l_hand(0)
@@ -749,7 +749,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/pipe/extinguish(var/mob/user, var/no_message)
 	..()
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
-	if(ismob(loc))
+	if(is_mob(loc))
 		var/mob/living/M = loc
 		if (!no_message)
 			to_chat(M, "<span class='notice'>Your [name] goes out, and you empty the ash.</span>")
@@ -891,7 +891,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		butt.color = color
 		if(brand)
 			butt.desc += " This one is \a [brand]."
-		if(ismob(loc))
+		if(is_mob(loc))
 			var/mob/living/M = loc
 			if (!no_message)
 				to_chat(M, "<span class='notice'>You spit out the [name].</span>")
@@ -1136,7 +1136,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/weapon/flame/lighter/Process()
 	if(!submerged() && reagents.has_reagent(/datum/reagent/fuel))
-		if(ismob(loc) && prob(10) && reagents.get_reagent_amount(/datum/reagent/fuel) < 1)
+		if(is_mob(loc) && prob(10) && reagents.get_reagent_amount(/datum/reagent/fuel) < 1)
 			to_chat(loc, "<span class='warning'>[src]'s flame flickers.</span>")
 			set_light(0)
 			spawn(4)

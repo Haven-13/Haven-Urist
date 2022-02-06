@@ -967,7 +967,7 @@ var/global/floorIsLava = 0
 	if(!SSticker.mode)
 		return 0
 	var/datum/mind/M
-	if (ismob(character))
+	if (is_mob(character))
 		var/mob/C = character
 		M = C.mind
 	else if(istype(character, /datum/mind))

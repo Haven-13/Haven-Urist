@@ -164,7 +164,7 @@
 	A.add_fingerprint(user)
 
 /obj/item/weapon/forensics/sample_kit/MouseDrop(atom/over)
-	if(ismob(src.loc) && CanMouseDrop(over))
+	if(is_mob(src.loc) && CanMouseDrop(over))
 		afterattack(over, usr, TRUE)
 
 /obj/item/weapon/forensics/sample_kit/powder

@@ -41,7 +41,7 @@
 		if(AM in T.affecting)
 			return
 
-	if(ismob(AM))
+	if(is_mob(AM))
 		var/mob/M = AM
 		if(immobilize)
 			M.AddMovementHandler(/datum/movement_handler/no_move/toss)
@@ -78,7 +78,7 @@
 
 	affecting.Remove(AM)
 
-	if(ismob(AM))
+	if(is_mob(AM))
 		var/mob/M = AM
 		if(immobilize)
 			M.RemoveMovementHandler(/datum/movement_handler/no_move/toss)

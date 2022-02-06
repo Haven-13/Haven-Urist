@@ -251,7 +251,7 @@
 	var/distance = get_dist(starting,loc)
 
 	bumped = 1
-	if(ismob(A))
+	if(is_mob(A))
 		var/mob/M = A
 		if(istype(A, /mob/living))
 			//if they have a neck grab on someone, that person gets hit instead

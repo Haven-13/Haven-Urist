@@ -103,7 +103,7 @@ Class Procs:
 		if(M.airflow_speed) continue
 
 		//Check for knocking people over
-		if(ismob(M) && differential > vsc.airflow_stun_pressure)
+		if(is_mob(M) && differential > vsc.airflow_stun_pressure)
 			if(M:status_flags & GODMODE) continue
 			M:airflow_stun()
 

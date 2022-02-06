@@ -546,7 +546,7 @@
 		return
 	if(istype(I, /obj/item/grab) )
 		var/obj/item/grab/G = I
-		if( !(ismob(G.affecting)) )
+		if( !(is_mob(G.affecting)) )
 			return
 		if (!isopen)
 			to_chat(user, "<span class='warning'>The unit's doors are shut.</span>")
@@ -722,7 +722,7 @@
 	if(istype(I, /obj/item/grab))
 		var/obj/item/grab/G = I
 
-		if(!(ismob(G.affecting)))
+		if(!(is_mob(G.affecting)))
 			return
 
 		if(locked)

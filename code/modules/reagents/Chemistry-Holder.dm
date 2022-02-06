@@ -267,7 +267,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 /datum/reagents/proc/trans_to(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
 	touch(target) //First, handle mere touch effects
 
-	if(ismob(target))
+	if(is_mob(target))
 		return splash_mob(target, amount, copy)
 	if(is_turf(target))
 		return trans_to_turf(target, amount, multiplier, copy)
@@ -309,7 +309,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 // For example, splashing someone with water will get them wet and extinguish them if they are on fire,
 // even if they are wearing an impermeable suit that prevents the reagents from contacting the skin.
 /datum/reagents/proc/touch(var/atom/target)
-	if(ismob(target))
+	if(is_mob(target))
 		touch_mob(target)
 	if(is_turf(target))
 		touch_turf(target)

@@ -138,7 +138,7 @@
 
 /obj/machinery/door/Bumped(atom/AM)
 	if(p_open || operating) return
-	if(ismob(AM))
+	if(is_mob(AM))
 		var/mob/M = AM
 		if(world.time - M.last_bumped <= 1 SECOND) return	//Can bump-open one airlock per second. This is to prevent shock spam.
 		M.last_bumped = world.time
@@ -220,7 +220,7 @@
 	..()
 	visible_message("<span class='danger'>[src.name] was hit by [AM].</span>")
 	var/tforce = 0
-	if(ismob(AM))
+	if(is_mob(AM))
 		tforce = 15 * (speed/5)
 	else
 		tforce = AM:throwforce * (speed/5)

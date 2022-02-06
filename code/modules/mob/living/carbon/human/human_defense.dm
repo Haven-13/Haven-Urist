@@ -354,7 +354,7 @@ meteor_act
 				damage_flags &= ~(DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE)
 			created_wound = apply_damage(throw_damage, dtype, zone, armor, damage_flags, O)
 
-		if(ismob(O.thrower))
+		if(is_mob(O.thrower))
 			var/mob/M = O.thrower
 			var/client/assailant = M.client
 			if(assailant)

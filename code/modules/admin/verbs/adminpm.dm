@@ -5,7 +5,7 @@
 	if(!holder)
 		to_chat(src, "<span class='warning'>Error: Admin-PM-Context: Only administrators may use this command.</span>")
 		return
-	if( !ismob(M) || !M.client )	return
+	if( !is_mob(M) || !M.client )	return
 	cmd_admin_pm(M.client,null)
 	feedback_add_details("admin_verb","APMM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 

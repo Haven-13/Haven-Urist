@@ -74,7 +74,7 @@
 /// Returns TRUE if any assets were sent.
 /datum/asset_transport/proc/send_assets(client/client, list/asset_list)
 	if (!istype(client))
-		if (ismob(client))
+		if (is_mob(client))
 			var/mob/M = client
 			if (M.client)
 				client = M.client

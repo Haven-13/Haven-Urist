@@ -110,7 +110,7 @@
 
 	var/obj/item/grab/G = I
 	if(istype(G))	// handle grabbed mob
-		if(ismob(G.affecting))
+		if(is_mob(G.affecting))
 			var/mob/GM = G.affecting
 			for (var/mob/V in viewers(usr))
 				V.show_message("[usr] starts putting [GM.name] into the disposal.", 3)
@@ -202,7 +202,7 @@
 			"<span class='[is_dangerous ? "danger" : "notice"]'>[user] stuffs [AM] into [src][is_dangerous ? "!" : "."]</span>",
 			"<span class='notice'>You stuff [AM] into [src].</span>"
 		)
-		if(ismob(M))
+		if(is_mob(M))
 			admin_attack_log(user, M, "Placed the victim into \the [src].", "Was placed into \the [src] by the attacker.", "stuffed \the [src] with")
 			if (M.client)
 				M.client.perspective = EYE_PERSPECTIVE
@@ -604,7 +604,7 @@
 /obj/structure/disposalholder/proc/merge(var/obj/structure/disposalholder/other)
 	for(var/atom/movable/AM in other)
 		AM.forceMove(src)		// move everything in other holder to this one
-		if(ismob(AM))
+		if(is_mob(AM))
 			var/mob/M = AM
 			if(M.client)	// if a client mob, update eye to follow this holder
 				M.client.eye = src

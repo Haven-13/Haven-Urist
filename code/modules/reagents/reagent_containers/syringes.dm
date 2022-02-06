@@ -75,7 +75,7 @@
 	if(!target.reagents)
 		return
 
-	if(user.a_intent == I_HURT && ismob(target))
+	if(user.a_intent == I_HURT && is_mob(target))
 		syringestab(target, user)
 		return
 
@@ -89,7 +89,7 @@
 		return
 
 	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / 3))
-	if(ismob(loc))
+	if(is_mob(loc))
 		var/injoverlay
 		switch(mode)
 			if (SYRINGE_DRAW)
@@ -122,7 +122,7 @@
 		mode = SYRINGE_INJECT
 		return
 
-	if(ismob(target))//Blood!
+	if(is_mob(target))//Blood!
 		if(reagents.has_reagent(/datum/reagent/blood))
 			to_chat(user, "<span class='notice'>There is already a blood sample in this syringe.</span>")
 			return
@@ -187,7 +187,7 @@
 	if(istype(target, /obj/item/weapon/implantcase/chem))
 		return
 
-	if(!target.is_open_container() && !ismob(target) && !istype(target, /obj/item/weapon/reagent_containers/food) && !istype(target, /obj/item/slime_extract) && !istype(target, /obj/item/clothing/mask/smokable/cigarette) && !istype(target, /obj/item/weapon/storage/fancy/cigarettes))
+	if(!target.is_open_container() && !is_mob(target) && !istype(target, /obj/item/weapon/reagent_containers/food) && !istype(target, /obj/item/slime_extract) && !istype(target, /obj/item/clothing/mask/smokable/cigarette) && !istype(target, /obj/item/weapon/storage/fancy/cigarettes))
 		to_chat(user, "<span class='notice'>You cannot directly fill this object.</span>")
 		return
 	if(!target.reagents.get_free_space())
@@ -308,7 +308,7 @@
 	return // No instant injecting
 
 /obj/item/weapon/reagent_containers/syringe/ld50_syringe/drawReagents(var/target, var/mob/user)
-	if(ismob(target)) // No drawing 60 units of blood at once
+	if(is_mob(target)) // No drawing 60 units of blood at once
 		to_chat(user, "<span class='notice'>This needle isn't designed for drawing blood.</span>")
 		return
 	..()

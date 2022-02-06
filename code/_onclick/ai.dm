@@ -12,7 +12,7 @@
 /mob/living/silicon/ai/DblClickOn(var/atom/A, params)
 	if(control_disabled || stat) return
 
-	if(ismob(A))
+	if(is_mob(A))
 		ai_actual_track(A)
 	else
 		A.move_camera_by_click()

@@ -219,7 +219,7 @@
 		if(!check_rights(R_SPAWN))	return
 
 		var/mob/M = locate(href_list["mob"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 
@@ -318,7 +318,7 @@
 //		if(!check_rights(R_BAN))	return
 
 		var/mob/M = locate(href_list["jobban2"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 
@@ -635,7 +635,7 @@
 			return
 
 		var/mob/M = locate(href_list["jobban4"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 
@@ -829,7 +829,7 @@
 
 	else if(href_list["boot2"])
 		var/mob/M = locate(href_list["boot2"])
-		if (ismob(M))
+		if (is_mob(M))
 			if(!check_if_greater_rights_than(M.client))
 				return
 			var/reason = sanitize(input("Please enter reason"))
@@ -865,7 +865,7 @@
 			return
 
 		var/mob/M = locate(href_list["newban"])
-		if(!ismob(M)) return
+		if(!is_mob(M)) return
 
 		if(M.client && M.client.holder)	return	//admins cannot be banned. Even if they could, the ban doesn't affect them anyway
 
@@ -929,7 +929,7 @@
 		if(!check_rights(R_MOD,0) && !check_rights(R_ADMIN))  return
 
 		var/mob/M = locate(href_list["mute"])
-		if(!ismob(M))	return
+		if(!is_mob(M))	return
 		if(!M.client)	return
 
 		var/mute_type = href_list["mute_type"]
@@ -1002,7 +1002,7 @@
 		if(!check_rights(R_FUN))	return
 
 		var/mob/M = locate(href_list["forcespeech"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "this can only be used on instances of type /mob")
 
 		var/speech = input("What will [key_name(M)] say?.", "Force speech", "")// Don't need to sanitize, since it does that in say(), we also trust our admins.
@@ -1018,7 +1018,7 @@
 			return
 
 		var/mob/M = locate(href_list["sendtoprison"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 		if(istype(M, /mob/living/silicon/ai))
@@ -1058,7 +1058,7 @@
 			return
 
 		var/mob/M = locate(href_list["tdome1"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 		if(istype(M, /mob/living/silicon/ai))
@@ -1083,7 +1083,7 @@
 			return
 
 		var/mob/M = locate(href_list["tdome2"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 		if(istype(M, /mob/living/silicon/ai))
@@ -1108,7 +1108,7 @@
 			return
 
 		var/mob/M = locate(href_list["tdomeadmin"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 		if(istype(M, /mob/living/silicon/ai))
@@ -1130,7 +1130,7 @@
 			return
 
 		var/mob/M = locate(href_list["tdomeobserve"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 		if(istype(M, /mob/living/silicon/ai))
@@ -1225,7 +1225,7 @@
 	else if(href_list["take_ic"])
 
 		var/mob/M = locate(href_list["take_question"])
-		if(ismob(M))
+		if(is_mob(M))
 			var/take_msg = "<span class='notice'><b>[key_name(usr.client)]</b> is attending to <b>[key_name(M)]'s</b> message.</span>"
 			for(var/client/X in GLOB.admins)
 				if((R_ADMIN|R_MOD|R_MENTOR) & X.holder.rights)
@@ -1259,7 +1259,7 @@
 
 	else if(href_list["adminmoreinfo"])
 		var/mob/M = locate(href_list["adminmoreinfo"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 
@@ -1502,7 +1502,7 @@
 			return
 
 		var/mob/M = locate(href_list["traitor"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob.")
 			return
 		show_traitor_panel(M)
@@ -1892,7 +1892,7 @@
 			var/ckey = href_list["ckey"]
 			if(!ckey)
 				var/mob/M = locate(href_list["mob"])
-				if(ismob(M))
+				if(is_mob(M))
 					ckey = M.ckey
 			show_player_info(ckey)
 
@@ -1984,7 +1984,7 @@
 		return
 	if(href_list["setstaffwarn"])
 		var/mob/M = locate(href_list["setstaffwarn"])
-		if(!ismob(M)) return
+		if(!is_mob(M)) return
 
 		if(M.client && M.client.holder) return // admins don't get staffnotify'd about
 
@@ -2005,7 +2005,7 @@
 				return
 	if(href_list["removestaffwarn"])
 		var/mob/M = locate(href_list["removestaffwarn"])
-		if(!ismob(M)) return
+		if(!is_mob(M)) return
 
 		switch(alert("Really remove staff warn?",,"Yes","No"))
 			if("Yes")

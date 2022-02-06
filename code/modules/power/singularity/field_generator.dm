@@ -262,7 +262,7 @@ field_generator power level display
 		if(T.density)//We cant shoot a field though this
 			return 0
 		for(var/atom/A in T.contents)
-			if(ismob(A))
+			if(is_mob(A))
 				continue
 			if(!istype(A,/obj/machinery/field_generator))
 				if((istype(A,/obj/machinery/door)||istype(A,/obj/machinery/the_singularitygen))&&(A.density))

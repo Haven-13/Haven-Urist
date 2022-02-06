@@ -22,7 +22,7 @@
 	if(!holder)
 		to_chat(src, "Only administrators may use this command.")
 		return
-	if (ismob(M))
+	if (is_mob(M))
 		if(istype(M, /mob/living/silicon/ai))
 			alert("The AI can't be sent to prison you jerk!", null, null, null, null, null)
 			return
@@ -46,7 +46,7 @@
 	set category = "Special Verbs"
 	set name = "Subtle Message"
 
-	if(!ismob(M))	return
+	if(!is_mob(M))	return
 	if (!holder)
 		to_chat(src, "Only administrators may use this command.")
 		return

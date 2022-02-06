@@ -198,7 +198,7 @@
 /obj/structure/particle_accelerator/proc/process_tool_hit(var/obj/O, var/mob/user)
 	if(!(O) || !(user))
 		return 0
-	if(!ismob(user) || !is_obj(O))
+	if(!is_mob(user) || !is_obj(O))
 		return 0
 	var/temp_state = src.construction_state
 
@@ -337,7 +337,7 @@
 /obj/machinery/particle_accelerator/proc/process_tool_hit(var/obj/O, var/mob/user)
 	if(!(O) || !(user))
 		return 0
-	if(!ismob(user) || !is_obj(O))
+	if(!is_mob(user) || !is_obj(O))
 		return 0
 	var/temp_state = src.construction_state
 	switch(src.construction_state)//TODO:Might be more interesting to have it need several parts rather than a single list of steps

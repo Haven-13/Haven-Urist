@@ -185,7 +185,7 @@
 			to_chat(user, "<span class='notice'>\The [src] is in use.</span>")
 			return
 
-		if(!ismob(grab.affecting))
+		if(!is_mob(grab.affecting))
 			return
 
 		if(!check_occupant_allowed(grab.affecting))

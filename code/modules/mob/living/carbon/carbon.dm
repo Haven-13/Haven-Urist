@@ -286,7 +286,7 @@
 	if (istype(item, /obj/item/grab))
 		var/obj/item/grab/G = item
 		item = G.throw_held() //throw the person instead of the grab
-		if(ismob(item))
+		if(is_mob(item))
 			var/mob/M = item
 
 			//limit throw range by relative mob size

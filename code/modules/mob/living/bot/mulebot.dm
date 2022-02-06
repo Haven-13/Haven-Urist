@@ -286,7 +286,7 @@
 	C.plane = plane
 	overlays += C
 
-	if(ismob(C))
+	if(is_mob(C))
 		var/mob/M = C
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
@@ -304,7 +304,7 @@
 	load.forceMove(loc)
 	load.pixel_y -= 9
 	load.reset_plane_and_layer()
-	if(ismob(load))
+	if(is_mob(load))
 		var/mob/M = load
 		if(M.client)
 			M.client.perspective = MOB_PERSPECTIVE
@@ -321,7 +321,7 @@
 		AM.forceMove(loc)
 		AM.reset_plane_and_layer()
 		AM.pixel_y = initial(AM.pixel_y)
-		if(ismob(AM))
+		if(is_mob(AM))
 			var/mob/M = AM
 			if(M.client)
 				M.client.perspective = MOB_PERSPECTIVE

@@ -561,7 +561,7 @@
 		return
 
 	var/mob/M = AM
-	if(ismob(AM))
+	if(is_mob(AM))
 
 		if(!can_pull_mobs || !can_pull_size)
 			to_chat(src, "<span class='warning'>It won't budge!</span>")
@@ -613,7 +613,7 @@
 			C.leave_evidence(src)
 
 	//Attempted fix for people flying away through space when cuffed and dragged.
-	if(ismob(AM))
+	if(is_mob(AM))
 		var/mob/pulled = AM
 		pulled.inertia_dir = 0
 

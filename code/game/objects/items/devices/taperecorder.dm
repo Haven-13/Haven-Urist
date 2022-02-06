@@ -129,7 +129,7 @@
 
 /obj/item/device/taperecorder/proc/explode()
 	var/turf/T = get_turf(loc)
-	if(ismob(loc))
+	if(is_mob(loc))
 		var/mob/M = loc
 		to_chat(M, "<span class='danger'>\The [src] explodes!</span>")
 	if(T)
@@ -168,7 +168,7 @@
 			sleep(10)
 			mytape.used_capacity++
 			if(mytape.used_capacity >= mytape.max_capacity)
-				if(ismob(loc))
+				if(is_mob(loc))
 					var/mob/M = loc
 					to_chat(M, "<span class='notice'>The tape is full.</span>")
 				stop_recording()
@@ -185,7 +185,7 @@
 	recording = 0
 	update_icon()
 	mytape.record_speech("Recording stopped.")
-	if(ismob(loc))
+	if(is_mob(loc))
 		var/mob/M = loc
 		to_chat(M, "<span class='notice'>Recording stopped.</span>")
 

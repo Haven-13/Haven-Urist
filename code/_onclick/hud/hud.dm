@@ -190,7 +190,7 @@
 
 
 /datum/hud/proc/instantiate()
-	if(!ismob(mymob)) return 0
+	if(!is_mob(mymob)) return 0
 	if(!mymob.client) return 0
 	var/ui_style = ui_style2icon(mymob.client.prefs.UI_style)
 	var/ui_color = mymob.client.prefs.UI_style_color

@@ -199,7 +199,7 @@
 
 // If you adjust any of the values below, please also update /proc/unit_test_weight_of_path(var/path)
 /obj/structure/closet/proc/content_size(atom/movable/AM)
-	if(ismob(AM))
+	if(is_mob(AM))
 		var/mob/M = AM
 		return M.mob_size
 	if(istype(AM, /obj/item))
@@ -330,7 +330,7 @@
 		return
 	if(O.loc == user)
 		return
-	if(ismob(O) && src.large)
+	if(is_mob(O) && src.large)
 		return
 	if(user.restrained() || user.stat || user.weakened || user.stunned || user.paralysis)
 		return

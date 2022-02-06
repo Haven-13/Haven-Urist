@@ -171,7 +171,7 @@
 
 	for(var/I in O.contents)
 
-		if(ismob(I))
+		if(is_mob(I))
 			if(!sight_check || isInSight(I, O))
 				L |= recursive_content_check(I, L, recursion_limit - 1, client_check, sight_check, include_mobs, include_objects)
 				if(include_mobs)
@@ -203,7 +203,7 @@
 	var/list/range = hear(R, T)
 
 	for(var/I in range)
-		if(ismob(I))
+		if(is_mob(I))
 			hear |= recursive_content_check(I, hear, 3, 1, 0, include_mobs, include_objects)
 			if(include_mobs)
 				var/mob/M = I
@@ -259,7 +259,7 @@
 	var/list/hearturfs = list()
 
 	for(var/atom/movable/AM in hear)
-		if(ismob(AM))
+		if(is_mob(AM))
 			mobs += AM
 			hearturfs += get_turf(AM)
 		else if(is_obj(AM))

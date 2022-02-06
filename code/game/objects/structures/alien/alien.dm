@@ -35,7 +35,7 @@
 	..()
 	visible_message("<span class='danger'>\The [src] was hit by \the [AM].</span>")
 	var/tforce = 0
-	if(ismob(AM))
+	if(is_mob(AM))
 		tforce = 10
 	else
 		tforce = AM:throwforce

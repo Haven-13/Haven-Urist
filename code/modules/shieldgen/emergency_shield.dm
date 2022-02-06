@@ -88,7 +88,7 @@
 
 	//Super realistic, resource-intensive, real-time damage calculations.
 	var/tforce = 0
-	if(ismob(AM))
+	if(is_mob(AM))
 		tforce = 40
 	else
 		tforce = AM:throwforce

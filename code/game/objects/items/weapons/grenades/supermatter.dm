@@ -25,7 +25,7 @@
 
 /obj/item/weapon/grenade/supermatter/Process()
 	if(!is_turf(loc))
-		if(ismob(loc))
+		if(is_mob(loc))
 			var/mob/M = loc
 			M.drop_from_inventory(src)
 		forceMove(get_turf(src))

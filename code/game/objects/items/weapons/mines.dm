@@ -130,7 +130,7 @@
 	icon_state = "uglymine"
 
 /obj/item/weapon/mine/stun/on_trigger(atom/movable/A)
-	if(ismob(A))
+	if(is_mob(A))
 		var/mob/M = A
 		M.Stun(30)
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread()

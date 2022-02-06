@@ -63,7 +63,7 @@ var/list/holder_mob_icon_cache = list()
 	last_holder = loc
 
 /obj/item/weapon/holder/onDropInto(var/atom/movable/AM)
-	if(ismob(loc))   // Bypass our holding mob and drop directly to its loc
+	if(is_mob(loc))   // Bypass our holding mob and drop directly to its loc
 		return loc.loc
 	return ..()
 

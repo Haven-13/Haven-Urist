@@ -48,7 +48,7 @@
 	if(istype(host, /obj/item/modular_computer))
 		var/obj/item/modular_computer/computer = host
 		var/obj/item/weapon/card/id/id = computer.GetIdCard()
-		if(!id && ismob(computer.loc))
+		if(!id && is_mob(computer.loc))
 			var/mob/M = computer.loc
 			id = M.GetIdCard()
 		if(id)
@@ -380,7 +380,7 @@
 			msg_title = "Re: [M.title]"
 			var/atom/movable/AM = host
 			if(istype(AM))
-				if(ismob(AM.loc))
+				if(is_mob(AM.loc))
 					ui_interact(AM.loc)
 			return TRUE
 

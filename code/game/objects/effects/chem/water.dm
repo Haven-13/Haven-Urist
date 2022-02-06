@@ -25,7 +25,7 @@
 			var/list/splash_others = list(T)
 			for(var/atom/A in T)
 				if(A.simulated)
-					if(!ismob(A))
+					if(!is_mob(A))
 						splash_others += A
 					else if(is_living_mob(A))
 						splash_mobs += A

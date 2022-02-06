@@ -1380,7 +1380,7 @@
 		return FALSE
 	var/total = 0
 	for(var/a in stomach_contents + victim)
-		if(ismob(a))
+		if(is_mob(a))
 			var/mob/M = a
 			total += M.mob_size
 		else if(is_obj(a))

@@ -107,7 +107,7 @@
 		return
 	if(!secured || !on || cooldown > 0)
 		return 0
-	if((ismob(enterer) && !is_living_mob(enterer))) // Observers and their ilk don't count even if visible
+	if((is_mob(enterer) && !is_living_mob(enterer))) // Observers and their ilk don't count even if visible
 		return
 
 	pulse(0)

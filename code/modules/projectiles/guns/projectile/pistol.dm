@@ -279,7 +279,7 @@
 		playsound(loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 		var/obj/item/weapon/gun/projectile/pirate/zipgun
 		zipgun = new/obj/item/weapon/gun/projectile/pirate { starts_loaded = 0 } (loc)
-		if(ismob(loc))
+		if(is_mob(loc))
 			var/mob/M = loc
 			M.drop_from_inventory(src)
 			M.put_in_hands(zipgun)

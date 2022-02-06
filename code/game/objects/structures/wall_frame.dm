@@ -157,7 +157,7 @@
 
 /obj/structure/wall_frame/hitby(AM as mob|obj, var/speed=THROWFORCE_SPEED_DIVISOR)
 	..()
-	if(ismob(AM))
+	if(is_mob(AM))
 		return
 	var/obj/O = AM
 	var/tforce = O.throwforce * (speed/THROWFORCE_SPEED_DIVISOR)

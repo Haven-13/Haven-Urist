@@ -118,7 +118,7 @@
 					if (is_adult || prob(5))
 						UnarmedAttack(AM)
 
-	if(ismob(AM))
+	if(is_mob(AM))
 		var/mob/tmob = AM
 
 		if(is_adult)

@@ -66,7 +66,7 @@
 	return ..()
 
 /obj/machinery/door/window/Bumped(atom/movable/AM as mob|obj)
-	if (!( ismob(AM) ))
+	if (!( is_mob(AM) ))
 		var/mob/living/bot/bot = AM
 		if(istype(bot))
 			if(density && src.check_access(bot.botcard))

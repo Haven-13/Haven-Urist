@@ -45,7 +45,7 @@
 /obj/item/weapon/reagent_containers/ivbag/MouseDrop(over_object, src_location, over_location)
 	if(!CanMouseDrop(over_object))
 		return
-	if(!ismob(loc))
+	if(!is_mob(loc))
 		return
 	if(attached)
 		visible_message("\The [attached] is taken off \the [src]")
@@ -59,7 +59,7 @@
 	update_icon()
 
 /obj/item/weapon/reagent_containers/ivbag/Process()
-	if(!ismob(loc))
+	if(!is_mob(loc))
 		return PROCESS_KILL
 
 	if(attached)

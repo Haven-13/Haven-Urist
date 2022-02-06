@@ -122,7 +122,7 @@
 	else if (!istype(item, /obj/item/grab))
 		return
 	var/obj/item/grab/G = item
-	if (!ismob(G.affecting))
+	if (!is_mob(G.affecting))
 		return
 	if (src.occupant)
 		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")

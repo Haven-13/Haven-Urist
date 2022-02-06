@@ -35,7 +35,7 @@
 
 /obj/item/weapon/material/butterfly/attack(mob/living/M, mob/user, var/target_zone)
 	..()
-	if(ismob(M))
+	if(is_mob(M))
 		backstab(M, user, 60, DAMAGE_TYPE_BRUTE, DAMAGE_FLAGS_SHARP, target_zone, TRUE)
 
 

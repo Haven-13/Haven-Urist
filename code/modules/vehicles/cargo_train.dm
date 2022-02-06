@@ -261,7 +261,7 @@
 // Loading/unloading procs
 //-------------------------------------------
 /obj/vehicle/train/cargo/trolley/load(var/atom/movable/C)
-	if(ismob(C) && !passenger_allowed)
+	if(is_mob(C) && !passenger_allowed)
 		return 0
 	if(!istype(C,/obj/machinery) && !istype(C,/obj/structure/closet) && !istype(C,/obj/structure/largecrate) && !istype(C,/obj/structure/reagent_dispensers) && !istype(C,/obj/structure/ore_box) && !istype(C, /mob/living/carbon/human))
 		return 0

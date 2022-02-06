@@ -163,7 +163,7 @@
 	if(!deadman)
 		STOP_PROCESSING(SSobj, src)
 	var/mob/M = src.loc
-	if(!M || !ismob(M))
+	if(!M || !is_mob(M))
 		if(prob(5))
 			signal()
 		deadman = 0

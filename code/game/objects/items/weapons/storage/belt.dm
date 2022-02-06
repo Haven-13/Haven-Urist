@@ -23,7 +23,7 @@
 	update_icon()
 
 /obj/item/weapon/storage/belt/update_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_belt()
 
@@ -85,7 +85,7 @@
 	H.examine_holster(user)
 
 /obj/item/weapon/storage/belt/holster/update_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_belt()
 

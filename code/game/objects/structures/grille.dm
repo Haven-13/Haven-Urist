@@ -52,7 +52,7 @@
 				overlays += I
 
 /obj/structure/grille/Bumped(atom/user)
-	if(ismob(user)) shock(user, 70)
+	if(is_mob(user)) shock(user, 70)
 
 /obj/structure/grille/attack_hand(mob/user as mob)
 

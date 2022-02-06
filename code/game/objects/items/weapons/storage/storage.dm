@@ -215,9 +215,9 @@
 	if(storage_ui)
 		storage_ui.on_pre_remove(usr, W)
 
-	if(ismob(loc))
+	if(is_mob(loc))
 		W.dropped(usr)
-	if(ismob(new_location))
+	if(is_mob(new_location))
 		W.hud_layerise()
 	else
 		W.reset_plane_and_layer()

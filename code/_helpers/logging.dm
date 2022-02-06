@@ -203,7 +203,7 @@ GLOBAL_PROTECT(log_end)
 		C = whom
 		M = C.mob
 		key = C.key
-	else if(ismob(whom))
+	else if(is_mob(whom))
 		M = whom
 		C = M.client
 		key = M.key

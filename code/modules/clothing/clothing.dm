@@ -174,7 +174,7 @@
 	sprite_sheets = list(SPECIES_RESOMI = 'resources/icons/mob/species/resomi/ears.dmi')
 
 /obj/item/clothing/ears/update_clothing_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_ears()
 
@@ -284,7 +284,7 @@
 		return icon_state
 
 /obj/item/clothing/glasses/update_clothing_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_glasses()
 
@@ -320,7 +320,7 @@
 	. = ..()
 
 /obj/item/clothing/gloves/update_clothing_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_gloves()
 
@@ -505,7 +505,7 @@
 		H.update_inv_head()
 
 /obj/item/clothing/head/update_clothing_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_head()
 
@@ -544,7 +544,7 @@
 	..()
 
 /obj/item/clothing/mask/update_clothing_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_wear_mask()
 
@@ -665,7 +665,7 @@
 	return
 
 /obj/item/clothing/shoes/update_clothing_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_shoes()
 
@@ -691,7 +691,7 @@
 		)
 
 /obj/item/clothing/suit/update_clothing_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_wear_suit()
 
@@ -833,7 +833,7 @@
 	if(H) update_clothing_icon()
 
 /obj/item/clothing/under/update_clothing_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_w_uniform(0)
 		M.update_inv_wear_id()
@@ -880,7 +880,7 @@
 			if(3)
 				user.visible_message("[user] adjusts the tracking sensor on \his [src.name].", "Your suit will now report your vital lifesigns as well as your coordinate position.")
 
-	else if (ismob(src.loc))
+	else if (is_mob(src.loc))
 		if(sensor_mode == 0)
 			user.visible_message("<span class='warning'>[user] disables [src.loc]'s remote sensing equipment.</span>", "You disable [src.loc]'s remote sensing equipment.")
 		else

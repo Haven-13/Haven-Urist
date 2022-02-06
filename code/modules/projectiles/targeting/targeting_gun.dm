@@ -15,7 +15,7 @@
 	if(!user.aiming)
 		user.aiming = new(user)
 	user.face_atom(A)
-	if(ismob(A) && user.aiming)
+	if(is_mob(A) && user.aiming)
 		user.aiming.aim_at(A, src)
 		return 1
 	return 0

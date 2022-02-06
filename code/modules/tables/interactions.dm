@@ -28,7 +28,7 @@
 		return 1
 
 	var/chance = 20
-	if(ismob(P.original) && get_turf(P.original) == cover)
+	if(is_mob(P.original) && get_turf(P.original) == cover)
 		var/mob/M = P.original
 		if (M.lying)
 			chance += 20				//Lying down lets you catch less bullets

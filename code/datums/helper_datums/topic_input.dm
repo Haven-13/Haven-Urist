@@ -28,7 +28,7 @@
 
 /datum/topic_input/proc/getMob(i)
 	var/t = getAndLocate(i)
-	return ismob(t) ? t : null
+	return is_mob(t) ? t : null
 
 /datum/topic_input/proc/getTurf(i)
 	var/t = getAndLocate(i)

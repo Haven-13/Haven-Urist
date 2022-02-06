@@ -147,7 +147,7 @@ var/const/enterloopsanity = 100
 
 	var/atom/movable/A = atom
 
-	if(ismob(A))
+	if(is_mob(A))
 		var/mob/M = A
 		if(!M.check_solid_ground())
 			inertial_drift(M)

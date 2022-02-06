@@ -71,7 +71,7 @@
 			visible_message("\The [src]'s reactor overloads!")
 		if(2)
 			fail_counter = max(fail_counter, 10)
-			if(ismob(loc))
+			if(is_mob(loc))
 				to_chat(loc, "<span class='warning'>\The [src] feels pleasantly warm.</span>")
 
 /obj/item/weapon/gun/energy/gun/nuclear/proc/get_charge_overlay()

@@ -190,7 +190,7 @@
 		beaker =  G
 		user.visible_message("[user] adds \a [G] to \the [src]!", "You add \a [G] to \the [src]!")
 	else if(istype(G, /obj/item/grab))
-		if(!ismob(G:affecting))
+		if(!is_mob(G:affecting))
 			return
 		for(var/mob/living/carbon/slime/M in range(1,G:affecting))
 			if(M.Victim == G:affecting)

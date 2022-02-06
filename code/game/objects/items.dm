@@ -101,7 +101,7 @@
 /obj/item/Destroy()
 	qdel(hidden_uplink)
 	hidden_uplink = null
-	if(ismob(loc))
+	if(is_mob(loc))
 		var/mob/m = loc
 		m.drop_from_inventory(src)
 		m.update_inv_r_hand()
@@ -117,7 +117,7 @@
 	update_held_icon()
 
 /obj/item/proc/update_held_icon()
-	if(ismob(src.loc))
+	if(is_mob(src.loc))
 		var/mob/M = src.loc
 		if(M.l_hand == src)
 			M.update_inv_l_hand()

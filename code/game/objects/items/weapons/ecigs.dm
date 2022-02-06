@@ -141,7 +141,7 @@
 		icon_state = icon_empty
 		item_state = icon_empty
 		set_light(0)
-	if(ismob(loc))
+	if(is_mob(loc))
 		var/mob/living/M = loc
 		M.update_inv_wear_mask(0)
 		M.update_inv_l_hand(0)
