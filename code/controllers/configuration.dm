@@ -5,6 +5,8 @@ var/list/gamemode_cache = list()
 	var/server_suffix = 0				// generate numeric suffix based on server port
 	var/server_tag_line = null
 
+	var/start_byond_profiling = FALSE   // start the profiling soon as world/New() or not
+
 	var/log_ooc = 0						// log OOC channel
 	var/log_access = 0					// log login/logout
 	var/log_say = 0						// log client say
@@ -459,6 +461,9 @@ var/list/gamemode_cache = list()
 
 				if ("server")
 					config.server = value
+
+				if ("start_byond_profiling")
+					config.start_byond_profiling = TRUE
 
 				if ("banappeals")
 					config.banappeals = value

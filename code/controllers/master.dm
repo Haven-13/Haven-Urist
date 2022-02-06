@@ -166,7 +166,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	if(init_sss)
 		init_subtypes(/datum/controller/subsystem, subsystems)
 
-	report_progress("Initializing subsystems...")
+	announce_progress("Initializing subsystems...", "warning bold")
 
 	// Sort subsystems by init_order, so they initialize in the correct order.
 	sortTim(subsystems, /proc/cmp_subsystem_init)
@@ -180,11 +180,18 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		SS.Initialize(REALTIMEOFDAY)
 		CHECK_TICK
 	current_ticklimit = TICK_LIMIT_RUNNING
-	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
-	var/msg = "Initializations complete within [time] second\s!"
-	report_progress(msg)
-	log_world(msg)
+	var/time = (REALTIMEOFDAY - start_timeofday) / 10
+	announce_progress(
+		"Initializations complete within [time] second\s!",
+		"warning bold"
+	)
+
+	var/time_taken = (REALTIMEOFDAY - global.world_init_time) / 10
+	announce_progress(
+		"Server initializtion completed in [time_taken] second\s!",
+		"warning bold"
+	)
 
 	if (!current_runlevel)
 		SetRunLevel(RUNLEVEL_LOBBY)
