@@ -157,7 +157,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				if(isnull(last_descriptors[entry]))
 					pref.body_descriptors[entry] = descriptor.default_value // Species datums have initial default value.
 				else
-					pref.body_descriptors[entry] = Clamp(last_descriptors[entry], 1, LAZY_LENGTH(descriptor.standalone_value_descriptors))
+					pref.body_descriptors[entry] = clamp(last_descriptors[entry], 1, LAZY_LENGTH(descriptor.standalone_value_descriptors))
 
 	if(!pref.background_state || !(pref.background_state in pref.background_options))
 		pref.background_state = "Void"

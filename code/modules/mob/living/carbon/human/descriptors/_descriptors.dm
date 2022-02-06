@@ -98,10 +98,10 @@
 
 /datum/mob_descriptor/proc/get_comparative_value_string_smaller(var/value, var/datum/gender/my_gender, var/datum/gender/other_gender)
 	var/maxval = LAZY_LENGTH(comparative_value_descriptors_smaller)
-	value = Clamp(Ceiling(value * maxval), 1, maxval)
+	value = clamp(Ceiling(value * maxval), 1, maxval)
 	return comparative_value_descriptors_smaller[value]
 
 /datum/mob_descriptor/proc/get_comparative_value_string_larger(var/value, var/datum/gender/my_gender, var/datum/gender/other_gender)
 	var/maxval = LAZY_LENGTH(comparative_value_descriptors_larger)
-	value = Clamp(Ceiling(value * maxval), 1, maxval)
+	value = clamp(Ceiling(value * maxval), 1, maxval)
 	return comparative_value_descriptors_larger[value]

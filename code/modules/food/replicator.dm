@@ -38,7 +38,7 @@
 	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks))
 		var/obj/item/weapon/reagent_containers/food/snacks/S = O
 		for(var/datum/reagent/nutriment/N in S.reagents.reagent_list)
-			biomass = Clamp(biomass + round(N.volume*deconstruct_eff),1,biomass_max)
+			biomass = clamp(biomass + round(N.volume*deconstruct_eff),1,biomass_max)
 		qdel(O)
 	else if(istype(O, /obj/item/weapon/storage/plants))
 		if(!O.contents || !O.contents.len)
@@ -48,7 +48,7 @@
 			var/obj/item/weapon/storage/S = O
 			S.remove_from_storage(G, null)
 			for(var/datum/reagent/nutriment/N in G.reagents.reagent_list)
-				biomass = Clamp(biomass + round(N.volume*deconstruct_eff),1,biomass_max)
+				biomass = clamp(biomass + round(N.volume*deconstruct_eff),1,biomass_max)
 			qdel(G)
 
 	if(default_deconstruction_screwdriver(user, O))

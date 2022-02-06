@@ -62,7 +62,7 @@
 		if(!new_val)
 			to_chat(user, "<span class='warning'>That's not a valid number.</span>")
 			return TRUE
-		G.mega_energy = Clamp(new_val, 1, 50)
+		G.mega_energy = clamp(new_val, 1, 50)
 		G.active_power_usage = G.mega_energy * 1500
 		updateUsrDialog()
 		return TRUE
@@ -72,7 +72,7 @@
 		if(!new_val)
 			to_chat(user, "<span class='warning'>That's not a valid number.</span>")
 			return 1
-		G.rate = Clamp(new_val, 1, 10)
+		G.rate = clamp(new_val, 1, 10)
 		updateUsrDialog()
 		return TRUE
 

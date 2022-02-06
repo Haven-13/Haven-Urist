@@ -224,6 +224,6 @@
 	update_icon()
 
 /obj/machinery/media/jukebox/proc/AdjustVolume(var/new_volume)
-	volume = Clamp(new_volume, 0, 50)
+	volume = clamp(new_volume, 0, 50)
 	if(sound_token)
 		sound_token.SetVolume(volume)

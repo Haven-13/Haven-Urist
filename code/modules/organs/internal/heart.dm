@@ -55,7 +55,7 @@
 		pulse_mod++
 
 	if(owner.status_flags & FAKEDEATH || owner.chem_effects[CE_NOPULSE])
-		pulse = Clamp(PULSE_NONE + pulse_mod, PULSE_NONE, PULSE_2FAST) //pretend that we're dead. unlike actual death, can be inflienced by meds
+		pulse = clamp(PULSE_NONE + pulse_mod, PULSE_NONE, PULSE_2FAST) //pretend that we're dead. unlike actual death, can be inflienced by meds
 		return
 
 	//If heart is stopped, it isn't going to restart itself randomly.
@@ -73,7 +73,7 @@
 		pulse = PULSE_THREADY
 		return
 
-	pulse = Clamp(PULSE_NORM + pulse_mod, PULSE_SLOW, PULSE_2FAST)
+	pulse = clamp(PULSE_NORM + pulse_mod, PULSE_SLOW, PULSE_2FAST)
 	if(pulse != PULSE_NORM && owner.chem_effects[CE_STABLE])
 		if(pulse > PULSE_NORM)
 			pulse--
