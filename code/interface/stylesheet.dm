@@ -8,9 +8,6 @@
 #define COLOUR_DARK_GITHUB_BUTTON_BG "#a3a3a3"
 #define COLOUR_DARK_ISSUE_BUTTON_BG "#492020"
 
-#define COLOUR_DARK_TEXT_BODY "#eeeeee"
-#define COLOUR_DARK_TEXT_MOTD "#eeeeee"
-
 /proc/byond_map_theme()
 	var/static/map_theme_cache = null
 	if(!map_theme_cache)
