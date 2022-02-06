@@ -26,6 +26,7 @@ maxz
 arglist
 cmptext
 cmptextEx
+copytext
 del
 fexists
 jointext

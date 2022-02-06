@@ -1,4 +1,5 @@
 ogg
+wav
 
 dm
 dme
@@ -6,6 +7,11 @@ dmi
 dmm
 dmb
 rsc
+
+exe
+dll
+so
+zip
 
 json
 toml
@@ -22,6 +28,7 @@ tsx
 tff
 woff
 
+gif
 jpeg
 jpg
 png
