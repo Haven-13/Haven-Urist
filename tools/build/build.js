@@ -156,11 +156,6 @@ export const TguiEslintTarget = new Juke.Target({
   executes: ({ get }) => yarn('tgui:lint', !get(CiParameter) && '--fix'),
 });
 
-export const TguiSonarTarget = new Juke.Target({
-  dependsOn: [YarnTarget],
-  executes: () => yarn('tgui:sonar'),
-});
-
 export const TguiTscTarget = new Juke.Target({
   dependsOn: [YarnTarget],
   executes: () => yarn('tgui:tsc'),
