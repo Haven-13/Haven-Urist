@@ -212,7 +212,7 @@
 
 
 /mob/living/proc/near_camera()
-	if (!isturf(loc))
+	if (!is_turf(loc))
 		return 0
 	else if(!cameranet.is_visible(src))
 		return 0

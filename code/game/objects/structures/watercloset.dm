@@ -267,7 +267,7 @@
 /obj/structure/hygiene/shower/proc/wash(var/atom/movable/washing)
 	if(on)
 		wash_mob(washing)
-		if(isturf(loc))
+		if(is_turf(loc))
 			var/turf/tile = loc
 			for(var/obj/effect/E in tile)
 				if(istype(E,/obj/effect/decal/cleanable) || istype(E,/obj/effect/overlay))
@@ -414,7 +414,7 @@
 		return
 
 	var/turf/location = user.loc
-	if(!isturf(location)) return
+	if(!is_turf(location)) return
 
 	var/obj/item/I = O
 	if(!I || !istype(I,/obj/item)) return

@@ -271,7 +271,7 @@
 /obj/vehicle/proc/load(var/atom/movable/C)
 	//This loads objects onto the vehicle so they can still be interacted with.
 	//Define allowed items for loading in specific vehicle definitions.
-	if(!isturf(C.loc)) //To prevent loading things from someone's inventory, which wouldn't get handled properly.
+	if(!is_turf(C.loc)) //To prevent loading things from someone's inventory, which wouldn't get handled properly.
 		return 0
 	if(load || C.anchored)
 		return 0
@@ -332,7 +332,7 @@
 		else
 			dest = get_turf(src)	//otherwise just dump it on the same turf as the vehicle
 
-	if(!isturf(dest))	//if there still is nowhere to unload, cancel out since the vehicle is probably in nullspace
+	if(!is_turf(dest))	//if there still is nowhere to unload, cancel out since the vehicle is probably in nullspace
 		return 0
 
 	load.forceMove(dest)

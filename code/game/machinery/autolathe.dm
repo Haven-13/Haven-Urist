@@ -290,7 +290,7 @@
 	..()
 	if(!is_living_mob(usr))
 		return
-	if(!isturf(over_location))
+	if(!is_turf(over_location))
 		over_location = get_turf(over_location)
 	if(Adjacent(over_location) && Adjacent(usr))
 		for(var/obj/item/O in over_location)

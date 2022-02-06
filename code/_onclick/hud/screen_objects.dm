@@ -343,7 +343,7 @@
 		if("pull")
 			usr.stop_pulling()
 		if("throw")
-			if(!usr.stat && isturf(usr.loc) && !usr.restrained())
+			if(!usr.stat && is_turf(usr.loc) && !usr.restrained())
 				usr:toggle_throw_mode()
 		if("drop")
 			if(usr.client)

@@ -29,7 +29,7 @@
 
 		if(0)
 			// State 0
-			if(is_wrench(W) && isturf(src.loc))
+			if(is_wrench(W) && is_turf(src.loc))
 				playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 				to_chat(user, "You wrench the assembly into place.")
 				anchored = 1

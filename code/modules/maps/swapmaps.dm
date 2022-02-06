@@ -142,7 +142,7 @@
 	if(isnull(_id)) return
 	id=_id
 	mode=swapmaps_mode
-	if(isturf(x) && isturf(y))
+	if(is_turf(x) && is_turf(y))
 		/*
 			Special format: Defines a map as an existing set of turfs;
 			this is useful for saving a compiled map in swapmap format.

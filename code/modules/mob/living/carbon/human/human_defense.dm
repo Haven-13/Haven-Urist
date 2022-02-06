@@ -306,7 +306,7 @@ meteor_act
 
 		if(in_throw_mode && !get_active_hand() && speed <= THROWFORCE_SPEED_DIVISOR)	//empty active hand and we're in throw mode
 			if(!incapacitated())
-				if(isturf(O.loc))
+				if(is_turf(O.loc))
 					put_in_active_hand(O)
 					visible_message("<span class='warning'>[src] catches [O]!</span>")
 					throw_mode_off()

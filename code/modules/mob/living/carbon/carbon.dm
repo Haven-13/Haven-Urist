@@ -305,7 +305,7 @@
 
 	if(!unEquip(item))
 		return
-	if(!item || !isturf(item.loc))
+	if(!item || !is_turf(item.loc))
 		return
 
 	//actually throw it!

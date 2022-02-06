@@ -137,7 +137,7 @@
 		return 0
 	if(client)
 		return 0
-	if(isturf(src.loc) && !src.buckled)
+	if(is_turf(src.loc) && !src.buckled)
 		if(!stat)
 			switch(stance)
 				if(HOSTILE_STANCE_IDLE)

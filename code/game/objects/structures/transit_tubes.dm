@@ -350,7 +350,7 @@
 				if(last_delay > 10)
 					break
 
-			while(isturf(loc) && Move(get_step(loc, dir)))
+			while(is_turf(loc) && Move(get_step(loc, dir)))
 
 		moving = 0
 

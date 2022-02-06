@@ -37,7 +37,7 @@
 		var/mob/M = location
 		if(M.l_hand == src || M.r_hand == src)
 			location = M.loc
-	if(isturf(location)) //start a fire if possible
+	if(is_turf(location)) //start a fire if possible
 		location.hotspot_expose(700, 2)
 	return
 

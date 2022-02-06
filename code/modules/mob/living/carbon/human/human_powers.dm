@@ -101,7 +101,7 @@
 
 	var/mob/living/T = input(src,"Who do you wish to leap at?") as null|anything in choices
 
-	if(!T || !isturf(T.loc) || !src || !isturf(loc)) return
+	if(!T || !is_turf(T.loc) || !src || !is_turf(loc)) return
 
 	if(get_dist(get_turf(T), get_turf(src)) > 4) return
 

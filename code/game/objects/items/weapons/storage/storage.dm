@@ -393,7 +393,7 @@
 	var/depth = 0
 	var/atom/cur_atom = src
 
-	while (cur_atom && !isturf(cur_atom))
+	while (cur_atom && !is_turf(cur_atom))
 		if (isarea(cur_atom))
 			return -1
 		if (istype(cur_atom.loc, /obj/item/weapon/storage))

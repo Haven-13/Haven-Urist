@@ -77,7 +77,7 @@
 	return ..()
 
 /obj/item/inducer/proc/recharge(atom/A, mob/user)
-	if(!isturf(A) && user.loc == A)
+	if(!is_turf(A) && user.loc == A)
 		return FALSE
 	if(recharging)
 		return TRUE

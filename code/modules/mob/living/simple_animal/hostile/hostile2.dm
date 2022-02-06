@@ -179,7 +179,7 @@
 			//Otherwise, get to our minimum distance so we chase them
 			Goto(target,move_to_delay,minimum_distance)
 
-		if(isturf(loc) && target.Adjacent(src))	//If they're next to us, attack
+		if(is_turf(loc) && target.Adjacent(src))	//If they're next to us, attack
 			AttackingTarget()
 
 		return 1
@@ -229,7 +229,7 @@
 	if(!(target in ListTargets()))
 		LostTarget()
 		return 0
-	if(isturf(loc) && target.Adjacent(src))
+	if(is_turf(loc) && target.Adjacent(src))
 		AttackingTarget()
 		return 1
 
@@ -353,7 +353,7 @@
 	if(buckled)
 		src.UnarmedAttack(buckled, 1)
 
-	if(!isturf(src.loc) && src.loc != null)//Did someone put us in something?
+	if(!is_turf(src.loc) && src.loc != null)//Did someone put us in something?
 		var/atom/A = src.loc
 		src.UnarmedAttack(A, 1)//Bang on it till we get out
 

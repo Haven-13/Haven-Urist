@@ -30,7 +30,7 @@
 	for(var/obj/item/I in carrying)
 		I.loc = M.loc
 		carrying.Remove(I)
-		if(isturf(I.loc))
+		if(is_turf(I.loc))
 			spawn()
 				for(var/i = 1, i <= rand(1,2), i++)
 					if(I)
@@ -167,7 +167,7 @@
 
 /obj/item/weapon/tray/pickup(mob/user)
 
-	if(!isturf(loc))
+	if(!is_turf(loc))
 		return
 
 	for(var/obj/item/I in loc)
@@ -183,7 +183,7 @@
 /obj/item/weapon/tray/dropped(mob/user)
 	..()
 	spawn(1) //why sleep 1? Because forceMove first drops us on the ground.
-		if(!isturf(loc)) //to handle hand switching
+		if(!is_turf(loc)) //to handle hand switching
 			return
 
 		var/foundtable = 0
@@ -196,7 +196,7 @@
 		for(var/obj/item/I in carrying)
 			I.loc = loc
 			carrying.Remove(I)
-			if(!foundtable && isturf(loc))
+			if(!foundtable && is_turf(loc))
 			// if no table, presume that the person just shittily dropped the tray on the ground and made a mess everywhere!
 				spawn()
 					for(var/i = 1, i <= rand(1,2), i++)

@@ -169,7 +169,7 @@
 
 	if(iscloaking)
 		var/light_amount = 0
-		if(isturf(src.loc))
+		if(is_turf(src.loc))
 			light_amount = get_light_amount(src.loc)
 
 		//	if(!istype(T))

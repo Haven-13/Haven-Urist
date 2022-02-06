@@ -261,7 +261,7 @@
 		L -= mob
 		for(var/mob/M in L)
 			if ((get_dist(mob, M) <= 2 || M.loc == mob.loc))
-				if (isturf(M.loc))
+				if (is_turf(M.loc))
 					var/diag = get_dir(mob, M)
 					if ((diag - 1) & diag)
 					else

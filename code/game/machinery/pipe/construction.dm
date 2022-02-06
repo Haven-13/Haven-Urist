@@ -430,7 +430,7 @@ Buildable meters
 	//*
 	if(!is_wrench(W))
 		return ..()
-	if (!isturf(src.loc))
+	if (!is_turf(src.loc))
 		return 1
 	if (pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SUPPLY_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_HE_STRAIGHT, PIPE_MVALVE, PIPE_DVALVE, PIPE_SVALVE, PIPE_FUEL_STRAIGHT))
 		if(dir==2)

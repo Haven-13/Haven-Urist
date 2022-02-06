@@ -74,19 +74,19 @@
 		if (Leader)
 			if (holding_still)
 				holding_still = max(holding_still - 1, 0)
-			else if(isturf(loc))
+			else if(is_turf(loc))
 				step_to(src, get_dir(src, Leader))
 
 		else if(hungry)
 			if (holding_still)
 				holding_still = max(holding_still - 1 - hungry, 0)
-			else if(isturf(loc) && prob(50))
+			else if(is_turf(loc) && prob(50))
 				SelfMove(pick(GLOB.cardinal))
 
 		else
 			if (holding_still)
 				holding_still = max(holding_still - 1, 0)
-			else if(isturf(loc) && prob(33))
+			else if(is_turf(loc) && prob(33))
 				SelfMove(pick(GLOB.cardinal))
 
 /mob/living/carbon/slime/proc/AssessTarget(var/mob/living/M)

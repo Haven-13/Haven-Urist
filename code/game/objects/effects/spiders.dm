@@ -244,7 +244,7 @@
 				entry_vent = null
 	//=================
 
-	if(isturf(loc))
+	if(is_turf(loc))
 		if(prob(25))
 			var/list/nearby = trange(5, src) - loc
 			if(nearby.len)

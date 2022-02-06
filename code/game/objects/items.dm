@@ -94,7 +94,7 @@
 
 /obj/item/New()
 	..()
-	if(randpixel && !(pixel_x || pixel_y) && isturf(loc)) //hopefully this will prevent us from messing with mapper-set pixel_x/y
+	if(randpixel && !(pixel_x || pixel_y) && is_turf(loc)) //hopefully this will prevent us from messing with mapper-set pixel_x/y
 		pixel_x = rand(-randpixel, randpixel)
 		pixel_y = rand(-randpixel, randpixel)
 
@@ -224,7 +224,7 @@
 			return
 
 	if(user.put_in_active_hand(src))
-		if (isturf(old_loc))
+		if (is_turf(old_loc))
 			var/obj/effect/temporary/item_pickup_ghost/ghost = new(old_loc, src)
 			ghost.animate_towards(user)
 		if(randpixel)
@@ -250,7 +250,7 @@
 		var/obj/item/weapon/storage/S = W
 		if(S.use_to_pickup)
 			if(S.collection_mode) //Mode is set to collect all items
-				if(isturf(src.loc))
+				if(is_turf(src.loc))
 					S.gather_all(src.loc, user)
 			else if(S.can_be_inserted(src, user))
 				S.handle_item_insertion(src)

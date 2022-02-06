@@ -31,7 +31,7 @@
 	if(!..() || incapacitated() || client)
 		return
 	//MICE!
-	if((src.loc) && isturf(src.loc))
+	if((src.loc) && is_turf(src.loc))
 		if(!resting && !buckled)
 			for(var/mob/living/simple_animal/mouse/M in loc)
 				if(!M.stat)
@@ -74,7 +74,7 @@
 
 /mob/living/simple_animal/cat/proc/handle_movement_target()
 	//if our target is neither inside a turf or inside a human(???), stop
-	if((movement_target) && !(isturf(movement_target.loc) || is_human_mob(movement_target.loc) ))
+	if((movement_target) && !(is_turf(movement_target.loc) || is_human_mob(movement_target.loc) ))
 		movement_target = null
 		stop_automated_movement = 0
 	//if we have no target or our current one is out of sight/too far away
@@ -82,7 +82,7 @@
 		movement_target = null
 		stop_automated_movement = 0
 		for(var/mob/living/simple_animal/mouse/snack in oview(src)) //search for a new target
-			if(isturf(snack.loc) && !snack.stat)
+			if(is_turf(snack.loc) && !snack.stat)
 				movement_target = snack
 				break
 

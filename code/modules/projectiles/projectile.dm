@@ -266,7 +266,7 @@
 			passthrough = 1 //so ghosts don't stop bullets
 	else
 		passthrough = (A.bullet_act(src, def_zone) == PROJECTILE_CONTINUE) //backwards compatibility
-		if(isturf(A))
+		if(is_turf(A))
 			for(var/obj/O in A)
 				O.bullet_act(src)
 			for(var/mob/living/M in A)
@@ -333,7 +333,7 @@
 		before_move()
 		Move(location.return_turf())
 
-		if(!bumped && !isturf(original))
+		if(!bumped && !is_turf(original))
 			if(loc == get_turf(original))
 				if(!(original in permutated))
 					if(Bump(original))

@@ -84,7 +84,7 @@ PROCESSING_SUBSYSTEM_DEF(airflow)
 				return
 			continue
 
-		if (!isturf(target.loc))
+		if (!is_turf(target.loc))
 			CLEAR_OBJECT(target)
 			if (MC_TICK_CHECK)
 				return

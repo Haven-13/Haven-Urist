@@ -1270,7 +1270,7 @@
 		var/turf/T = get_turf(M)
 
 		//Location
-		if(isturf(T))
+		if(is_turf(T))
 			if(isarea(T.loc))
 				location_description = "([M.loc == T ? "at coordinates " : "in [M.loc] at coordinates "] [T.x], [T.y], [T.z] in area <b>[T.loc]</b>)"
 			else

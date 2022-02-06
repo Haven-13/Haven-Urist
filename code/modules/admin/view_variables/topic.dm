@@ -218,7 +218,7 @@
 		if(!check_rights(R_DEBUG|R_FUN))	return
 
 		var/atom/A = locate(href_list["explode"])
-		if(!is_obj(A) && !ismob(A) && !isturf(A))
+		if(!is_obj(A) && !ismob(A) && !is_turf(A))
 			to_chat(usr, "This can only be done to instances of type /obj, /mob and /turf")
 			return
 
@@ -229,7 +229,7 @@
 		if(!check_rights(R_DEBUG|R_FUN))	return
 
 		var/atom/A = locate(href_list["emp"])
-		if(!is_obj(A) && !ismob(A) && !isturf(A))
+		if(!is_obj(A) && !ismob(A) && !is_turf(A))
 			to_chat(usr, "This can only be done to instances of type /obj, /mob and /turf")
 			return
 

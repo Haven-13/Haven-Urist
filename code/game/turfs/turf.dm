@@ -76,7 +76,7 @@
 
 	if(user.restrained())
 		return 0
-	if(isnull(user.pulling) || user.pulling.anchored || !isturf(user.pulling.loc))
+	if(isnull(user.pulling) || user.pulling.anchored || !is_turf(user.pulling.loc))
 		return 0
 	if(user.pulling.loc != user.loc && get_dist(user, user.pulling) > 1)
 		return 0
@@ -100,7 +100,7 @@
 
 	..()
 
-	if (!mover || !isturf(mover.loc) || is_observer(mover))
+	if (!mover || !is_turf(mover.loc) || is_observer(mover))
 		return 1
 
 	//First, check objects to block exit that are not on the border

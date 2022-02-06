@@ -336,7 +336,7 @@
 		return
 	if((!( istype(O, /atom/movable) ) || O.anchored || !Adjacent(user) || !Adjacent(O) || !user.Adjacent(O) || user.contents.Find(src)))
 		return
-	if(!isturf(user.loc)) // are you in a container/closet/pod/etc?
+	if(!is_turf(user.loc)) // are you in a container/closet/pod/etc?
 		return
 	if(!src.opened)
 		return
@@ -353,7 +353,7 @@
 		attack_hand(user)
 
 /obj/structure/closet/relaymove(mob/user as mob)
-	if(user.stat || !isturf(src.loc))
+	if(user.stat || !is_turf(src.loc))
 		return
 
 	if(!src.open())

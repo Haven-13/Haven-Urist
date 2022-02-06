@@ -95,7 +95,7 @@
 	set hidden = 1
 	if(!istype(mob, /mob/living/carbon))
 		return
-	if (!mob.stat && isturf(mob.loc) && !mob.restrained())
+	if (!mob.stat && is_turf(mob.loc) && !mob.restrained())
 		mob:toggle_throw_mode()
 	else
 		return
@@ -103,7 +103,7 @@
 
 /client/verb/drop_item()
 	set hidden = 1
-	if(!is_robot(mob) && mob.stat == CONSCIOUS && isturf(mob.loc))
+	if(!is_robot(mob) && mob.stat == CONSCIOUS && is_turf(mob.loc))
 		return mob.unequip_item()
 	return
 

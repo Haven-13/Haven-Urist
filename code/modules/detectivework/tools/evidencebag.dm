@@ -18,7 +18,7 @@
 	if (!(user.l_hand == src || user.r_hand == src))
 		return //bag must be in your hands to use
 
-	if (isturf(I.loc))
+	if (is_turf(I.loc))
 		if (!user.Adjacent(I))
 			return
 	else

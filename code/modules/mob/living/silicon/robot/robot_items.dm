@@ -82,7 +82,7 @@
 		return
 	if(!proximity)
 		return
-	if(!isturf(target.loc)) // Don't load up stuff if it's inside a container or mob!
+	if(!is_turf(target.loc)) // Don't load up stuff if it's inside a container or mob!
 		return
 	if(istype(target,/obj/item))
 		if(loaded_item)
@@ -204,7 +204,7 @@
 	// pick up items, mostly copied from base tray pickup proc
 	// see code/game/objects/items/weapons/kitchen.dm line 241
 	if ( istype(target,/obj/item))
-		if ( !isturf(target.loc) ) // Don't load up stuff if it's inside a container or mob!
+		if ( !is_turf(target.loc) ) // Don't load up stuff if it's inside a container or mob!
 			return
 		var turf/pickup = target.loc
 
@@ -230,7 +230,7 @@
 	// Unloads the tray, copied from base item's proc dropped() and altered
 	// see code/game/objects/items/weapons/kitchen.dm line 263
 
-	if ( isturf(target) || istype(target,/obj/structure/table) )
+	if ( is_turf(target) || istype(target,/obj/structure/table) )
 		var foundtable = istype(target,/obj/structure/table/)
 		if ( !foundtable ) //it must be a turf!
 			for(var/obj/structure/table/T in target)
@@ -240,7 +240,7 @@
 		var turf/dropspot
 		if ( !foundtable ) // don't unload things onto walls or other silly places.
 			dropspot = user.loc
-		else if ( isturf(target) ) // they clicked on a turf with a table in it
+		else if ( is_turf(target) ) // they clicked on a turf with a table in it
 			dropspot = target
 		else					// they clicked on a table
 			dropspot = target.loc
@@ -254,7 +254,7 @@
 			I.loc = dropspot
 			carrying.Remove(I)
 			droppedSomething = 1
-			if(!foundtable && isturf(dropspot))
+			if(!foundtable && is_turf(dropspot))
 				// if no table, presume that the person just shittily dropped the tray on the ground and made a mess everywhere!
 				spawn()
 					for(var/i = 1, i <= rand(1,2), i++)

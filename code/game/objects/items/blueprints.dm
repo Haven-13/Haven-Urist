@@ -266,7 +266,7 @@
 			if (skip) continue
 
 			var/turf/NT = get_step(T,dir)
-			if (!isturf(NT) || (NT in found) || (NT in pending))
+			if (!is_turf(NT) || (NT in found) || (NT in pending))
 				continue
 
 			switch(check_tile_is_border(NT,dir))

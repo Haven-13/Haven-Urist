@@ -20,7 +20,7 @@
 		return
 
 	var/mob/M
-	if(isturf(location))
+	if(is_turf(location))
 		M = new new_type( location )
 	else
 		M = new new_type( src.loc )

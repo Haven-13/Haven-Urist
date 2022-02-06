@@ -473,7 +473,7 @@
 		if(2)
 			if(!action_checks(target)) return
 			var/list/atoms = list()
-			if(isturf(target))
+			if(is_turf(target))
 				atoms = range(target,3)
 			else
 				atoms = orange(target,3)
@@ -1096,7 +1096,7 @@
 	if (!usr.Adjacent(src))
 		return
 
-	if (!isturf(usr.loc))
+	if (!is_turf(usr.loc))
 		to_chat(usr, "<span class='danger'>You can't reach the passenger compartment from here.</span>")
 		return
 

@@ -671,7 +671,7 @@
 	if(destinations.len)
 		var/turf/picked = pick(destinations)
 
-		if(!picked || !isturf(picked))
+		if(!picked || !is_turf(picked))
 			return
 
 		if(tele_effect)
@@ -682,7 +682,7 @@
 
 	if(flickerlights)
 		if(stalkee)
-			if(isturf(stalkee.loc))
+			if(is_turf(stalkee.loc))
 				var/turf/stalkeeturf = stalkee.loc
 				for(var/datum/light_source/LS in stalkeeturf.affecting_lights)
 					if(istype(LS.source_atom, /obj/machinery/light))

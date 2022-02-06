@@ -30,7 +30,7 @@
 		set_light(0)
 
 /obj/item/device/flashlight/attack_self(mob/user)
-	if(!isturf(user.loc))
+	if(!is_turf(user.loc))
 		to_chat(user, "You cannot turn the light on while in this [user.loc].")//To prevent some lighting anomalities.
 
 		return 0

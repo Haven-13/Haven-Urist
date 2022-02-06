@@ -51,7 +51,7 @@
 
 /mob/living/proc/check_shadow()
 	var/mob/M = src
-	if(isturf(M.loc))
+	if(is_turf(M.loc))
 		for(var/turf/simulated/open/OS = GetAbove(src); OS && istype(OS); OS = GetAbove(OS))
 			//Check above
 			if(!M.shadow)

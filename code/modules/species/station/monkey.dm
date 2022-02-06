@@ -63,7 +63,7 @@
 /datum/species/monkey/handle_npc(var/mob/living/carbon/human/H)
 	if(H.stat != CONSCIOUS)
 		return
-	if(prob(33) && isturf(H.loc) && !H.pulledby) //won't move if being pulled
+	if(prob(33) && is_turf(H.loc) && !H.pulledby) //won't move if being pulled
 		H.SelfMove(pick(GLOB.cardinal))
 	if(prob(1))
 		H.emote(pick("scratch","jump","roll","tail"))

@@ -43,7 +43,7 @@
 		log_and_message_admins("jumped to [key_name(M)]")
 		if(mob)
 			var/turf/T = get_turf(M)
-			if(T && isturf(T))
+			if(T && is_turf(T))
 				feedback_add_details("admin_verb","JM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 				mob.jumpTo(T)
 			else

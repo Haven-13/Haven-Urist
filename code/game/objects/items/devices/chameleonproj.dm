@@ -140,7 +140,7 @@
 				spawn(20) can_move = 1
 			else
 				spawn(25) can_move = 1
-		if(isturf(loc))
+		if(is_turf(loc))
 			step(src, direction)
 	return
 

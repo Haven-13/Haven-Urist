@@ -212,7 +212,7 @@ var/list/solars_list = list()
 	var/glass_type = null
 
 /obj/item/solar_assembly/attack_hand(var/mob/user)
-	if(!anchored && isturf(loc)) // You can't pick it up
+	if(!anchored && is_turf(loc)) // You can't pick it up
 		..()
 
 // Give back the glass type we were supplied with
@@ -225,7 +225,7 @@ var/list/solars_list = list()
 
 /obj/item/solar_assembly/attackby(var/obj/item/weapon/W, var/mob/user)
 
-	if(!anchored && isturf(loc))
+	if(!anchored && is_turf(loc))
 		if(is_wrench(W))
 			anchored = 1
 			pixel_x = 0

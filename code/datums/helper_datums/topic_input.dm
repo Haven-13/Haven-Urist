@@ -32,7 +32,7 @@
 
 /datum/topic_input/proc/getTurf(i)
 	var/t = getAndLocate(i)
-	return isturf(t) ? t : null
+	return is_turf(t) ? t : null
 
 /datum/topic_input/proc/getAtom(i)
 	return getType(i,/atom)

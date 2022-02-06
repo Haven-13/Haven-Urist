@@ -493,7 +493,7 @@ default behaviour is:
 		. = ..()
 
 		if (pulling && pulling.loc)
-			if(!( isturf(pulling.loc) ))
+			if(!( is_turf(pulling.loc) ))
 				stop_pulling()
 				return
 

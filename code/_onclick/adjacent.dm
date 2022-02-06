@@ -82,7 +82,7 @@ Quick adjacency (to turf):
 */
 /atom/movable/Adjacent(var/atom/neighbor)
 	if(neighbor == loc) return 1
-	if(!isturf(loc)) return 0
+	if(!is_turf(loc)) return 0
 	for(var/turf/T in locs)
 		if(isnull(T)) continue
 		if(T.Adjacent(neighbor,src)) return 1

@@ -77,11 +77,11 @@
 			W.afterattack(A, src, 1, params) // 1 indicates adjacency
 		return
 
-	if(!isturf(loc))
+	if(!is_turf(loc))
 		return
 
 	var/sdepth = A.storage_depth_turf()
-	if(isturf(A) || isturf(A.loc) || (sdepth != -1 && sdepth <= 1))
+	if(is_turf(A) || is_turf(A.loc) || (sdepth != -1 && sdepth <= 1))
 		if(A.Adjacent(src)) // see adjacent.dm
 
 			var/resolved = W.resolve_attackby(A, src, params)

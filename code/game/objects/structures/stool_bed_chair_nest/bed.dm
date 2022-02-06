@@ -145,7 +145,7 @@
 /obj/structure/bed/forceMove()
 	. = ..()
 	if(buckled_mob)
-		if(isturf(src.loc))
+		if(is_turf(src.loc))
 			buckled_mob.forceMove(src.loc)
 		else
 			unbuckle_mob()

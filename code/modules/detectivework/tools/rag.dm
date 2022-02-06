@@ -101,7 +101,7 @@
 		update_name()
 		if(do_after(user,30, progress = 1))
 			user.visible_message("\The [user] finishes wiping off the [A]!")
-			if(isturf(A))
+			if(is_turf(A))
 				var/turf/T = A
 				T.clean(src, user)
 			else

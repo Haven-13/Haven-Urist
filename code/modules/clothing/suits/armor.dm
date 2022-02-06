@@ -88,7 +88,7 @@
 			turfs += T
 		if(!turfs.len) turfs += pick(/turf in orange(6))
 		var/turf/picked = pick(turfs)
-		if(!isturf(picked)) return
+		if(!is_turf(picked)) return
 
 		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 		spark_system.set_up(5, 0, user.loc)

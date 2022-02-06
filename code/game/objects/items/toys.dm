@@ -169,7 +169,7 @@
 
 
 /obj/item/toy/crossbow/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
-	if(!isturf(target.loc) || target == user) return
+	if(!is_turf(target.loc) || target == user) return
 	if(flag) return
 
 	if (locate (/obj/structure/table, src.loc))

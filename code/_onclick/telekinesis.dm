@@ -38,7 +38,7 @@ var/const/tk_maxrange = 15
 	return
 
 /obj/item/attack_tk(mob/user)
-	if(user.stat || !isturf(loc)) return
+	if(user.stat || !is_turf(loc)) return
 	if((TK in user.mutations) && !user.get_active_hand()) // both should already be true to get here
 		var/obj/item/tk_grab/O = new(src)
 		user.put_in_active_hand(O)
@@ -102,7 +102,7 @@ var/const/tk_maxrange = 15
 	if(!(TK in host.mutations))
 		qdel(src)
 		return
-	if(is_obj(target) && !isturf(target.loc))
+	if(is_obj(target) && !is_turf(target.loc))
 		return
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -139,7 +139,7 @@ var/const/tk_maxrange = 15
 
 /obj/item/tk_grab/proc/focus_object(var/obj/target, var/mob/living/user)
 	if(!istype(target,/obj))	return//Cant throw non objects atm might let it do mobs later
-	if(target.anchored || !isturf(target.loc))
+	if(target.anchored || !is_turf(target.loc))
 		qdel(src)
 		return
 	focus = target

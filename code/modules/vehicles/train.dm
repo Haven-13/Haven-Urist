@@ -44,7 +44,7 @@
 
 	if(!A.anchored)
 		var/turf/T = get_step(A, dir)
-		if(isturf(T))
+		if(is_turf(T))
 			A.Move(T)	//bump things away when hit
 
 	if(emagged)
