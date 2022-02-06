@@ -15,7 +15,8 @@
 	var/obj/effect/landmark/submap_data/below
 	var/obj/effect/landmark/submap_data/above
 
-/obj/effect/landmark/submap_data/New()
+/obj/effect/landmark/submap_data/Initialize()
+	. = ..()
 	var/SMD = (locate(/obj/effect/landmark/submap_data) in loc)
 	if (SMD && src != SMD)
 		is_bad = 1

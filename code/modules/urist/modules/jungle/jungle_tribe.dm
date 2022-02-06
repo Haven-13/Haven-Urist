@@ -16,6 +16,7 @@
 	var/tribe_type = 1
 
 /obj/effect/jungle_tribe_spawn/New()
+	..()
 	START_PROCESSING(SSobj, src)
 	tribe_type = rand(1,5)
 
@@ -29,7 +30,7 @@
 
 /obj/effect/jungle_tribe_spawn/Destroy()
 	STOP_PROCESSING(SSobj, src)
-	..()
+	. = ..()
 
 /obj/effect/jungle_tribe_spawn/Process()
 	set background = 1
@@ -63,6 +64,7 @@
 	var/my_type = 1
 
 /mob/living/simple_animal/hostile/tribesman/New()
+	..()
 	if(prob(33))
 		ranged = 1
 

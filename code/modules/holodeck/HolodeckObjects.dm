@@ -88,6 +88,7 @@
 	icon_state = "reinforced"
 
 /turf/simulated/floor/holofloor/space/New()
+	..()
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
 
 /turf/simulated/floor/holofloor/beach
@@ -266,6 +267,7 @@
 	return active ? ..() : 0
 
 /obj/item/weapon/holo/esword/New()
+	..()
 	if (blade_color)
 		blade_color = pick("red","blue","green","purple")
 

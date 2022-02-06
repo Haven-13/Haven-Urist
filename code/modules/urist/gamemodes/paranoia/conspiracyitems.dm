@@ -280,5 +280,5 @@
 	var/probability = 50 //so that it can be tweaked for areas with various amounts of traffic
 
 /obj/effect/landmark/intelspawn/New()
+	..()
 	invisibility = 101
-	return

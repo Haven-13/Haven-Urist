@@ -14,8 +14,8 @@
 	var/stump = 0
 	atom_flags = ATOM_FLAG_CLIMBABLE
 
-/obj/structure/bush/New()
-
+/obj/structure/bush/Initialize()
+	. = ..()
 	icon_state = "bushnew[rand(1,4)]"
 
 	if(prob(20))
@@ -137,6 +137,7 @@ var/jungle_plants_init = 0
 
 
 /obj/structure/jungle_plant/New()
+	..()
 	if(!jungle_plants_init)
 		init_jungle_plants()
 
@@ -192,6 +193,7 @@ var/jungle_plants_init = 0
 	anchored = 1
 
 /obj/structure/flora/reeds/New()
+	..()
 	if(prob(25))
 		icon_state = "reedbush_1"
 	if(prob(25))

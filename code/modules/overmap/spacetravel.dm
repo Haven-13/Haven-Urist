@@ -9,6 +9,7 @@ var/list/cached_space = list()
 	known = 0
 
 /obj/effect/overmap/sector/temporary/New(var/nx, var/ny, var/nz)
+	..()
 	loc = locate(nx, ny, GLOB.using_map.overmap_z)
 	x = nx
 	y = ny
