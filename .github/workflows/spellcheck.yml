@@ -1,20 +1,19 @@
+# This is workflow for spell checking using PySpelling lib (https://pypi.org/project/pyspelling/)
 name: Typo CI
 
 on:
   push:
-    branches-ignore:
-      - latest
+    branches:
+    - latest
+  pull_request:
+    branches:
+    - latest
+  workflow_dispatch:
 
 jobs:
-  spellcheck:
-    name: Typo CI (GitHub Action)
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 4
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
-    permissions:
-      checks: write
     steps:
-    - name: TypoCheck
-      uses: typoci/spellcheck-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+      - uses: igsekor/pyspelling-any@v0.0.2
+        name: Run spellchecker

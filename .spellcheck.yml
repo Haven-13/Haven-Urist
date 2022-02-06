@@ -1,0 +1,10 @@
+matrix:
+- name: DM
+  sources:
+  - code/**/*.dm
+  - resources/**/*.dm
+  aspell:
+    lang: en
+    d: en_GB
+  dictionary:
+    encoding: utf-8
