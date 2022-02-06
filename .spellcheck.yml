@@ -5,8 +5,8 @@ matrix:
   - resources/**/*.dm
   aspell:
     lang: en
-    d: en_GB
   dictionary:
     wordlists:
+    - .github/spellchecking/dm-builtins.txt
     - .github/spellchecking/file-types.txt
     encoding: utf-8
