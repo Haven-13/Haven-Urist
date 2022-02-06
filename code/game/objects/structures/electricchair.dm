@@ -52,7 +52,7 @@
 
 	// special power handling
 	var/area/A = get_area(src)
-	if(!isarea(A))
+	if(!is_area(A))
 		return
 	if(!A.powered(EQUIP))
 		return

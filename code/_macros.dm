@@ -8,6 +8,7 @@
 #define is_type(A, P) istype(A, P)
 #define is_null(A) isnull(A)
 #define is_num(A) isnum(A)
+#define is_area(A) isarea(A)
 #define is_mob(A) ismob(A)
 #define is_turf(A) isturf(A)
 

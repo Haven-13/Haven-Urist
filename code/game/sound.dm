@@ -57,7 +57,7 @@ GLOBAL_LIST_INIT(chop_sound,list('resources/sound/weapons/chop1.ogg','resources/
 
 	soundin = get_sfx(soundin) // same sound for everyone
 
-	if(isarea(source))
+	if(is_area(source))
 		error("[source] is an area and is trying to make the sound: [soundin]")
 		return
 	frequency = vary && isnull(frequency) ? get_rand_frequency() : frequency // Same frequency for everybody

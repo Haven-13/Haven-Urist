@@ -1103,7 +1103,7 @@ Just a object used in constructing fire alarms
 
 	user.machine = src
 	var/area/A = get_area(src)
-	ASSERT(isarea(A))
+	ASSERT(is_area(A))
 	var/d1
 	var/d2
 	if (istype(user, /mob/living/carbon/human) || istype(user, /mob/living/silicon/ai))
@@ -1141,7 +1141,7 @@ Just a object used in constructing fire alarms
 	if (!( working ))
 		return
 	var/area/A = get_area(src)
-	ASSERT(isarea(A))
+	ASSERT(is_area(A))
 	A.partyreset()
 	return
 
@@ -1149,7 +1149,7 @@ Just a object used in constructing fire alarms
 	if (!( working ))
 		return
 	var/area/A = get_area(src)
-	ASSERT(isarea(A))
+	ASSERT(is_area(A))
 	A.partyalert()
 	return
 

@@ -39,7 +39,7 @@
 
 /datum/topic_input/proc/getArea(i)
 	var/t = getAndLocate(i)
-	return isarea(t) ? t : null
+	return is_area(t) ? t : null
 
 /datum/topic_input/proc/getStr(i)//params should always be text, but...
 	var/t = get(i)

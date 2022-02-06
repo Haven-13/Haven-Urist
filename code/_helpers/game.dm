@@ -45,7 +45,7 @@
 
 /proc/get_area_master(const/O)
 	var/area/A = get_area(O)
-	if (isarea(A))
+	if (is_area(A))
 		return A
 
 /proc/in_range(source, user)

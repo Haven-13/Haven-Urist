@@ -376,7 +376,7 @@
 	var/atom/cur_atom = src
 
 	while (cur_atom && !(cur_atom in container.contents))
-		if (isarea(cur_atom))
+		if (is_area(cur_atom))
 			return -1
 		if (istype(cur_atom.loc, /obj/item/weapon/storage))
 			depth++
@@ -394,7 +394,7 @@
 	var/atom/cur_atom = src
 
 	while (cur_atom && !is_turf(cur_atom))
-		if (isarea(cur_atom))
+		if (is_area(cur_atom))
 			return -1
 		if (istype(cur_atom.loc, /obj/item/weapon/storage))
 			depth++

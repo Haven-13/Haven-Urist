@@ -473,7 +473,7 @@ map
 		to_file(S["overlays"], overlays)
 	if(underlays.len)
 		to_file(S["underlays"], underlays)
-	if(contents.len && !isarea(src))
+	if(contents.len && !is_area(src))
 		var/list/l=contents
 		if(M)
 			l=l.Copy()

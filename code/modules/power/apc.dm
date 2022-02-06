@@ -239,7 +239,7 @@
 	var/area/A = src.loc.loc
 
 	//if area isn't specified use current
-	if(isarea(A) && src.areastring == null)
+	if(is_area(A) && src.areastring == null)
 		src.area = A
 		SetName("\improper [area.name] APC")
 	else

@@ -1271,7 +1271,7 @@
 
 		//Location
 		if(is_turf(T))
-			if(isarea(T.loc))
+			if(is_area(T.loc))
 				location_description = "([M.loc == T ? "at coordinates " : "in [M.loc] at coordinates "] [T.x], [T.y], [T.z] in area <b>[T.loc]</b>)"
 			else
 				location_description = "([M.loc == T ? "at coordinates " : "in [M.loc] at coordinates "] [T.x], [T.y], [T.z])"
