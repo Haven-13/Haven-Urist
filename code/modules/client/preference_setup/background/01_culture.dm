@@ -27,7 +27,7 @@
 	..()
 
 /datum/category_item/player_setup_item/background/culture/sanitize_character()
-	if(!islist(pref.cultural_info))
+	if(!is_list(pref.cultural_info))
 		pref.cultural_info = list()
 	for(var/token in tokens)
 		var/list/_cultures

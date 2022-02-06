@@ -377,12 +377,12 @@
 	return
 
 /obj/machinery/computer/cloning/proc/scan_mob(mob/living/carbon/human/subject as mob)
-	if ((isnull(subject)) || (!(ishuman(subject))) || (!subject.dna))
+	if ((isnull(subject)) || (!(is_human_mob(subject))) || (!subject.dna))
 		scantemp = "Error: Unable to locate valid genetic data."
 		return
 	if(!config.use_cortical_stacks)
 		if (!subject.has_brain())
-			if(ishuman(subject))
+			if(is_human_mob(subject))
 				var/mob/living/carbon/human/H = subject
 				if(H.should_have_organ(BP_BRAIN))
 					scantemp = "Error: No signs of intelligence detected."

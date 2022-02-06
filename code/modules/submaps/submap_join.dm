@@ -59,7 +59,7 @@
 	if(istype(character))
 
 		var/mob/living/carbon/human/user_human
-		if(ishuman(character))
+		if(is_human_mob(character))
 			user_human = character
 			job.equip(character, "")
 			job.apply_fingerprints(character)

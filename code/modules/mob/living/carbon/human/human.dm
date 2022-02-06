@@ -925,7 +925,7 @@
 	set src in view(1)
 	var/self = 0
 
-	if(usr.stat || usr.restrained() || !isliving(usr)) return
+	if(usr.stat || usr.restrained() || !is_living_mob(usr)) return
 
 	if(usr == src)
 		self = 1
@@ -1276,7 +1276,7 @@
 	set desc = "Pop a joint back into place. Extremely painful."
 	set src in view(1)
 
-	if(!isliving(usr) || !usr.canClick())
+	if(!is_living_mob(usr) || !usr.canClick())
 		return
 
 	usr.setClickCooldown(20)
@@ -1383,15 +1383,15 @@
 		if(ismob(a))
 			var/mob/M = a
 			total += M.mob_size
-		else if(isobj(a))
+		else if(is_obj(a))
 			var/obj/item/I = a
 			total += I.get_storage_cost()
 	if(total > src.species.stomach_capacity)
 		return FALSE
 
-	if(iscarbon(victim) || isanimal(victim))
+	if(is_carbon_mob(victim) || is_animal(victim))
 		var/mob/living/L = victim
-		if((src.species.gluttonous & GLUT_TINY) && (L.mob_size <= MOB_TINY) && !ishuman(victim)) // Anything MOB_TINY or smaller
+		if((src.species.gluttonous & GLUT_TINY) && (L.mob_size <= MOB_TINY) && !is_human_mob(victim)) // Anything MOB_TINY or smaller
 			return DEVOUR_SLOW
 		else if((src.species.gluttonous & GLUT_SMALLER) && (src.mob_size > L.mob_size)) // Anything we're larger than
 			return DEVOUR_SLOW

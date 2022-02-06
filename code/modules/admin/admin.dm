@@ -112,28 +112,28 @@ var/global/floorIsLava = 0
 				body += "<A href='?src=[REF(src)];monkeyone=[REF(M)]'>Monkeyize</A> | "
 
 			//Corgi
-			if(iscorgi(M))
+			if(is_corgi(M))
 				body += "<B>Corgized</B> | "
 			else
 				body += "<A href='?src=[REF(src)];corgione=[REF(M)]'>Corgize</A> | "
 
 			//AI / Cyborg
-			if(isAI(M))
+			if(is_ai(M))
 				body += "<B>Is an AI</B> "
-			else if(ishuman(M))
+			else if(is_human_mob(M))
 				body += {"<A href='?src=[REF(src)];makeai=[REF(M)]'>Make AI</A> |
 					<A href='?src=[REF(src)];makerobot=[REF(M)]'>Make Robot</A> |
 					<A href='?src=[REF(src)];makeslime=[REF(M)]'>Make slime</A>
 				"}
 
 			//Simple Animals
-			if(isanimal(M))
+			if(is_animal(M))
 				body += "<A href='?src=[REF(src)];makeanimal=[REF(M)]'>Re-Animalize</A> | "
 			else
 				body += "<A href='?src=[REF(src)];makeanimal=[REF(M)]'>Animalize</A> | "
 
 			// DNA2 - Admin Hax
-			if(M.dna && iscarbon(M))
+			if(M.dna && is_carbon_mob(M))
 				body += "<br><br>"
 				body += "<b>DNA Blocks:</b><br><table border='0'><tr><th>&nbsp;</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>"
 				var/bname
@@ -981,7 +981,7 @@ var/global/floorIsLava = 0
 		if(M.special_role)
 			return 1
 
-	if(isrobot(character))
+	if(is_robot(character))
 		var/mob/living/silicon/robot/R = character
 		if(R.emagged)
 			return 1
@@ -1166,12 +1166,12 @@ var/global/floorIsLava = 0
 	var/ai_number = 0
 	for(var/mob/living/silicon/S in SSmobs.mob_list)
 		ai_number++
-		if(isAI(S))
+		if(is_ai(S))
 			to_chat(usr, "<b>AI [key_name(S, usr)]'s laws:</b>")
-		else if(isrobot(S))
+		else if(is_robot(S))
 			var/mob/living/silicon/robot/R = S
 			to_chat(usr, "<b>CYBORG [key_name(S, usr)] [R.connected_ai?"(Slaved to: [R.connected_ai])":"(Independant)"]: laws:</b>")
-		else if (ispAI(S))
+		else if (is_pai(S))
 			to_chat(usr, "<b>pAI [key_name(S, usr)]'s laws:</b>")
 		else
 			to_chat(usr, "<b>SOMETHING SILICON [key_name(S, usr)]'s laws:</b>")
@@ -1334,7 +1334,7 @@ var/global/floorIsLava = 0
 
 	var/msg
 
-	if(!isliving(H))
+	if(!is_living_mob(H))
 		return
 
 	if(check_rights(R_INVESTIGATE))

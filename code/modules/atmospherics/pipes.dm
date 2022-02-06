@@ -105,7 +105,7 @@
 	if(istype(W,/obj/item/device/pipe_painter))
 		return 0
 
-	if(!isWrench(W))
+	if(!is_wrench(W))
 		return ..()
 	var/turf/T = src.loc
 	if (level==1 && isturf(T) && !T.is_plating())

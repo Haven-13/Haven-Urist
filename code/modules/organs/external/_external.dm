@@ -194,7 +194,7 @@
 
 /obj/item/organ/external/examine()
 	. = ..()
-	if(in_range(usr, src) || isghost(usr))
+	if(in_range(usr, src) || is_ghost(usr))
 		for(var/obj/item/I in contents)
 			if(istype(I, /obj/item/organ))
 				continue
@@ -223,7 +223,7 @@
 				stage++
 				return
 		if(2)
-			if(W.sharp || istype(W,/obj/item/weapon/hemostat) || isWirecutter(W))
+			if(W.sharp || istype(W,/obj/item/weapon/hemostat) || is_wirecutter(W))
 				var/list/organs = get_contents_recursive()
 				if(organs.len)
 					var/obj/item/removing = pick(organs)

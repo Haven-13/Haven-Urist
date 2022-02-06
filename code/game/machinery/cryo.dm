@@ -167,7 +167,7 @@
 			return TRUE
 
 		if("ejectOccupant")
-			if(!occupant || isslime(usr) || ispAI(usr))
+			if(!occupant || is_slime(usr) || is_pai(usr))
 				return FALSE // don't update UIs attached to this object
 			go_out()
 			return TRUE

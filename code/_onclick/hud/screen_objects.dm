@@ -219,12 +219,12 @@
 		if("equip")
 			if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
 				return 1
-			if(ishuman(usr))
+			if(is_human_mob(usr))
 				var/mob/living/carbon/human/H = usr
 				H.quick_equip()
 
 		if("resist")
-			if(isliving(usr))
+			if(is_living_mob(usr))
 				var/mob/living/L = usr
 				L.resist()
 
@@ -236,7 +236,7 @@
 		if("Reset Machine")
 			usr.unset_machine()
 		if("internal")
-			if(iscarbon(usr))
+			if(is_carbon_mob(usr))
 				var/mob/living/carbon/C = usr
 				if(!C.stat && !C.stunned && !C.paralysis && !C.restrained())
 					if(C.internal)
@@ -262,7 +262,7 @@
 							var/list/contents = list()
 							var/from = "on"
 
-							if(ishuman(C))
+							if(is_human_mob(C))
 								var/mob/living/carbon/human/H = C
 								breathes = H.species.breath_type
 								nicename = list ("suit", "back", "belt", "right hand", "left hand", "left pocket", "right pocket")
@@ -350,7 +350,7 @@
 				usr.client.drop_item()
 
 		if("module")
-			if(isrobot(usr))
+			if(is_robot(usr))
 				var/mob/living/silicon/robot/R = usr
 //				if(R.module)
 //					R.hud_used.toggle_show_robot_modules()
@@ -358,7 +358,7 @@
 				R.pick_module()
 
 		if("inventory")
-			if(isrobot(usr))
+			if(is_robot(usr))
 				var/mob/living/silicon/robot/R = usr
 				if(R.module)
 					R.hud_used.toggle_show_robot_modules()
@@ -367,14 +367,14 @@
 					to_chat(R, "You haven't selected a module yet.")
 
 		if("radio")
-			if(issilicon(usr))
+			if(is_silicon(usr))
 				usr:radio_menu()
 		if("panel")
-			if(issilicon(usr))
+			if(is_silicon(usr))
 				usr:installed_modules()
 
 		if("store")
-			if(isrobot(usr))
+			if(is_robot(usr))
 				var/mob/living/silicon/robot/R = usr
 				if(R.module)
 					R.uneq_active()
@@ -408,11 +408,11 @@
 		return 1
 	switch(name)
 		if("r_hand")
-			if(iscarbon(usr))
+			if(is_carbon_mob(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("r")
 		if("l_hand")
-			if(iscarbon(usr))
+			if(is_carbon_mob(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("l")
 		if("swap")

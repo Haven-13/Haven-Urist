@@ -22,7 +22,7 @@
 
 /mob/observer/eye/aiEye/setLoc(var/T, var/cancel_tracking = 1)
 	. = ..()
-	if(. && isAI(owner))
+	if(. && is_ai(owner))
 		var/mob/living/silicon/ai/ai = owner
 		if(cancel_tracking)
 			ai.ai_cancel_tracking()
@@ -34,7 +34,7 @@
 
 /mob/observer/eye/aiEye/set_dir(new_dir)
 	. = ..()
-	if(. && isAI(owner))
+	if(. && is_ai(owner))
 		var/mob/living/silicon/ai/ai = owner
 
 		//Holopad

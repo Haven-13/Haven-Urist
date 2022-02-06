@@ -13,7 +13,7 @@
 	has_extinguisher = new/obj/item/weapon/extinguisher(src)
 
 /obj/structure/extinguisher_cabinet/attackby(obj/item/O, mob/user)
-	if(isrobot(user))
+	if(is_robot(user))
 		return
 	if(istype(O, /obj/item/weapon/extinguisher))
 		if(!has_extinguisher && opened && user.unEquip(O, src))
@@ -28,9 +28,9 @@
 
 
 /obj/structure/extinguisher_cabinet/attack_hand(mob/user)
-	if(isrobot(user))
+	if(is_robot(user))
 		return
-	if (ishuman(user))
+	if (is_human_mob(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 		if (user.hand)

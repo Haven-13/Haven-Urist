@@ -44,7 +44,7 @@
 		return 0
 	charge_tick = 0
 
-	if(isrobot(loc))
+	if(is_robot(loc))
 		var/mob/living/silicon/robot/R = loc
 		if(R && R.cell)
 			for(var/T in reagent_ids)

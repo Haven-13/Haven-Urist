@@ -135,7 +135,7 @@
 
 	//would check is_broken() and is_malfunctioning() here too but is_malfunctioning()
 	//is probabilistic so we can't do that and it would be unfair to just check one.
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/hand = H.organs_by_name[check_hand]
 		if(istype(hand) && hand.is_usable())
@@ -220,7 +220,7 @@
 		if(!user.unEquip(src))
 			return
 	else
-		if(isliving(src.loc))
+		if(is_living_mob(src.loc))
 			return
 
 	if(user.put_in_active_hand(src))
@@ -239,7 +239,7 @@
 /obj/item/attack_ai(mob/user as mob)
 	if (istype(src.loc, /obj/item/weapon/robot_module))
 		//If the item is part of a cyborg module, equip it
-		if(!isrobot(user))
+		if(!is_robot(user))
 			return
 		var/mob/living/silicon/robot/R = user
 		R.activate_module(src)
@@ -334,7 +334,7 @@ var/list/global/slot_flags_enumeration = list(
 	if(!slot) return 0
 	if(!M) return 0
 
-	if(!ishuman(M)) return 0
+	if(!is_human_mob(M)) return 0
 
 	var/mob/living/carbon/human/H = M
 	var/list/mob_equip = list()
@@ -746,7 +746,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/get_mob_overlay(mob/user_mob, slot)
 	var/bodytype = "Default"
 	var/mob/living/carbon/human/user_human
-	if(ishuman(user_mob))
+	if(is_human_mob(user_mob))
 		user_human = user_mob
 		bodytype = user_human.species.get_bodytype(user_human)
 

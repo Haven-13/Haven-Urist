@@ -194,7 +194,7 @@
 		to_chat(user, "<span class='notice'>[target] is full.</span>")
 		return
 
-	if(isliving(target))
+	if(is_living_mob(target))
 		injectMob(target, user)
 		return
 

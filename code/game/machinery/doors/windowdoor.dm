@@ -84,7 +84,7 @@
 	var/mob/M = AM // we've returned by here if M is not a mob
 	if (src.operating)
 		return
-	if (src.density && (!issmall(M) || ishuman(M)) && src.allowed(AM))
+	if (src.density && (!issmall(M) || is_human_mob(M)) && src.allowed(AM))
 		open()
 		if(src.check_access(null))
 			sleep(50)
@@ -199,7 +199,7 @@
 		return 1
 
 	//If it's emagged, crowbar can pry electronics out.
-	if (src.operating == -1 && isCrowbar(I))
+	if (src.operating == -1 && is_crowbar(I))
 		playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 100, 1)
 		user.visible_message("[user] removes the electronics from the windoor.", "You start to remove electronics from the windoor.")
 		if (do_after(user,40,src))

@@ -46,7 +46,7 @@
 		alpha = 255
 
 /obj/item/weapon/material/shard/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isWelder(W) && material.shard_can_repair)
+	if(is_welder(W) && material.shard_can_repair)
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.remove_fuel(0, user))
 			material.place_sheet(loc)
@@ -56,14 +56,14 @@
 
 /obj/item/weapon/material/shard/Crossed(AM as mob|obj)
 	..()
-	if(isliving(AM))
+	if(is_living_mob(AM))
 		var/mob/M = AM
 
 		if(M.buckled) //wheelchairs, office chairs, rollerbeds
 			return
 
 		playsound(src.loc, 'resources/sound/effects/glass_step.ogg', 50, 1) // not sure how to handle metal shards with sounds
-		if(ishuman(M))
+		if(is_human_mob(M))
 			var/mob/living/carbon/human/H = M
 
 			if(H.species.siemens_coefficient<0.5 || (H.species.species_flags & (SPECIES_FLAG_NO_EMBED|SPECIES_FLAG_NO_MINOR_CUT))) //Thick skin.

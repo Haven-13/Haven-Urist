@@ -91,7 +91,7 @@
 			to_chat(user, "<span class='notice'>You install a cell in \the [src].</span>")
 			update_icon()
 
-	else if(isScrewdriver(W))
+	else if(is_screwdriver(W))
 		if(bcell)
 			bcell.update_icon()
 			bcell.forceMove(get_turf(src.loc))
@@ -247,7 +247,7 @@
 	if(!check_charge(chargecost))
 		to_chat(user, "<span class='warning'>\The [src] doesn't have enough charge left to do that.</span>")
 		return 0
-	if(!wielded && !isrobot(user))
+	if(!wielded && !is_robot(user))
 		to_chat(user, "<span class='warning'>You need to wield the paddles with both hands before you can use them on someone!</span>")
 		return 0
 	if(cooldown)
@@ -306,7 +306,7 @@
 
 //Since harm-intent now skips the delay for deliberate placement, you have to be able to hit them in combat in order to shock people.
 /obj/item/weapon/shockpaddles/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
-	if(ishuman(target) && can_use(user, target))
+	if(is_human_mob(target) && can_use(user, target))
 		busy = 1
 		update_icon()
 
@@ -489,12 +489,12 @@
 	cooldowntime = (3 SECONDS)
 
 /obj/item/weapon/shockpaddles/robot/check_charge(var/charge_amt)
-	if(isrobot(src.loc))
+	if(is_robot(src.loc))
 		var/mob/living/silicon/robot/R = src.loc
 		return (R.cell && R.cell.check_charge(charge_amt))
 
 /obj/item/weapon/shockpaddles/robot/checked_use(var/charge_amt)
-	if(isrobot(src.loc))
+	if(is_robot(src.loc))
 		var/mob/living/silicon/robot/R = src.loc
 		return (R.cell && R.cell.checked_use(charge_amt))
 

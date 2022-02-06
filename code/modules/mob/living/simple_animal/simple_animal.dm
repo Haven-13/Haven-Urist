@@ -229,7 +229,7 @@
 		if(I_HURT)
 			var/dealt_damage = harm_intent_damage
 			var/harm_verb = response_harm
-			if(ishuman(M) && M.species)
+			if(is_human_mob(M) && M.species)
 				var/datum/unarmed_attack/attack = M.get_unarmed_attack(src)
 				dealt_damage = attack.damage <= dealt_damage ? dealt_damage : attack.damage
 				harm_verb = pick(attack.attack_verb)
@@ -366,7 +366,7 @@
 	updatehealth()
 
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
-	if (isliving(target_mob))
+	if (is_living_mob(target_mob))
 		var/mob/living/L = target_mob
 		if(!L.stat && L.health >= 0)
 			return (0)

@@ -25,7 +25,7 @@
 	density = 1
 
 /obj/machinery/acting/changer/attack_hand(var/mob/user as mob)
-	if(ishuman(user))
+	if(is_human_mob(user))
 		var/mob/living/carbon/human/H = user
 		H.change_appearance(APPEARANCE_ALL, H.loc, H, H.generate_valid_species(), state = ui_z_state())
 		var/getName = sanitize(input(H, "Would you like to change your name to something else?", "Name change") as null|text, MAX_NAME_LEN)

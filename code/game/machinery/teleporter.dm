@@ -100,7 +100,7 @@
 	if(..()) return
 
 	/* Ghosts can't use this one because it's a direct selection */
-	if(isobserver(user)) return
+	if(is_observer(user)) return
 
 	var/list/L = list()
 	var/list/areaindex = list()
@@ -141,7 +141,7 @@
 	var/desc = input("Please select a location to lock in.", "Locking Computer") in L|null
 	if(!desc)
 		return
-	if(get_dist(src, usr) > 1 && !issilicon(usr))
+	if(get_dist(src, usr) > 1 && !is_silicon(usr))
 		return
 	set_target(L[desc])
 	for(var/mob/O in hearers(src, null))

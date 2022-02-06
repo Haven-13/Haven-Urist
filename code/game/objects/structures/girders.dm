@@ -62,7 +62,7 @@
 		reinforce_girder()
 
 /obj/structure/girder/attackby(obj/item/W as obj, mob/user as mob)
-	if(isWrench(W) && state == 0)
+	if(is_wrench(W) && state == 0)
 		if(anchored && !reinf_material)
 			playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 100, 1)
 			to_chat(user, "<span class='notice'>Now disassembling the girder...</span>")
@@ -88,7 +88,7 @@
 		to_chat(user, "<span class='notice'>You drill through the girder!</span>")
 		dismantle()
 
-	else if(isScrewdriver(W))
+	else if(is_screwdriver(W))
 		if(state == 2)
 			playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 100, 1)
 			to_chat(user, "<span class='notice'>Now unsecuring support struts...</span>")
@@ -101,7 +101,7 @@
 			reinforcing = !reinforcing
 			to_chat(user, "<span class='notice'>\The [src] can now be [reinforcing? "reinforced" : "constructed"]!</span>")
 
-	else if(isWirecutter(W) && state == 1)
+	else if(is_wirecutter(W) && state == 1)
 		playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now removing support struts...</span>")
 		if(do_after(user, 40,src))
@@ -114,7 +114,7 @@
 
 			reset_girder()
 
-	else if(isCrowbar(W) && state == 0 && anchored)
+	else if(is_crowbar(W) && state == 0 && anchored)
 		playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now dislodging the girder...</span>")
 		if(do_after(user, 40,src))
@@ -241,7 +241,7 @@
 	qdel(src)
 
 /obj/structure/girder/cult/attackby(obj/item/W as obj, mob/user as mob)
-	if(isWrench(W))
+	if(is_wrench(W))
 		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now disassembling the girder...</span>")
 		if(do_after(user,40,src))

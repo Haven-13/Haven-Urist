@@ -37,7 +37,7 @@
 	return TRUE
 
 /obj/item/weapon/implant/proc/implant_in_mob(mob/M, var/target_zone)
-	if (ishuman(M))
+	if (is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affected = H.get_organ(target_zone)
 		if(affected)

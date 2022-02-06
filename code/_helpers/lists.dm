@@ -29,7 +29,7 @@
 
 //Return either pick(list) or null if list is not of type /list or is empty
 /proc/safepick(list/list)
-	if(!islist(list) || !list.len)
+	if(!is_list(list) || !list.len)
 		return
 	return pick(list)
 
@@ -62,7 +62,7 @@
 
 //Empties the list by .Cut(). Setting lenght = 0 has been confirmed to leak references.
 /proc/clearlist(var/list/L)
-	if(islist(L))
+	if(is_list(L))
 		L.Cut()
 
 //Removes any null entries from the list
@@ -78,7 +78,7 @@
  * If either of arguments is not a list, returns null
  */
 /proc/difflist(var/list/first, var/list/second, var/skiprep=0)
-	if(!islist(first) || !islist(second))
+	if(!is_list(first) || !is_list(second))
 		return
 	var/list/result = new
 	if(skiprep)
@@ -94,7 +94,7 @@ Two lists may be different (A!=B) even if they have the same elements.
 This actually tests if they have the same entries and values.
 */
 /proc/same_entries(var/list/first, var/list/second)
-	if(!islist(first) || !islist(second))
+	if(!is_list(first) || !is_list(second))
 		return 0
 	if(length(first) != length(second))
 		return 0
@@ -106,7 +106,7 @@ This actually tests if they have the same entries and values.
 Checks if a list has the same entries and values as an element of big.
 */
 /proc/in_as_list(var/list/little, var/list/big)
-	if(!islist(big))
+	if(!is_list(big))
 		return 0
 	for(var/element in big)
 		if(same_entries(little, element))
@@ -118,7 +118,7 @@ Checks if a list has the same entries and values as an element of big.
  * If either of arguments is not a list, returns null
  */
 /proc/uniquemergelist(var/list/first, var/list/second, var/skiprep=0)
-	if(!islist(first) || !islist(second))
+	if(!is_list(first) || !is_list(second))
 		return
 	var/list/result = new
 	if(skiprep)
@@ -671,11 +671,11 @@ Checks if a list has the same entries and values as an element of big.
 //Copies a list, and all lists inside it recusively
 //Does not copy any other reference type
 /proc/deepCopyList(list/l)
-	if(!islist(l))
+	if(!is_list(l))
 		return l
 	. = l.Copy()
 	for(var/i = 1 to l.len)
-		if(islist(.[i]))
+		if(is_list(.[i]))
 			.[i] = .(.[i])
 
 #define IS_VALID_INDEX(list, index) (list.len && index > 0 && index <= list.len)

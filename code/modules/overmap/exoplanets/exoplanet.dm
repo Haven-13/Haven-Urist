@@ -446,7 +446,7 @@
 	..()
 
 /turf/simulated/floor/exoplanet/attackby(obj/item/C, mob/user)
-	if(isWelder(C))
+	if(is_welder(C))
 		return
 	if(diggable && istype(C,/obj/item/weapon/shovel))
 		visible_message("<span class='notice'>\The [user] starts digging \the [src]</span>")

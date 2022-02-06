@@ -46,7 +46,7 @@
 			attack_self()
 			return
 		if(SOUTHWEST)
-			if(iscarbon(usr))
+			if(is_carbon_mob(usr))
 				var/mob/living/carbon/C = usr
 				C.toggle_throw_mode()
 			else
@@ -103,7 +103,7 @@
 
 /client/verb/drop_item()
 	set hidden = 1
-	if(!isrobot(mob) && mob.stat == CONSCIOUS && isturf(mob.loc))
+	if(!is_robot(mob) && mob.stat == CONSCIOUS && isturf(mob.loc))
 		return mob.unequip_item()
 	return
 

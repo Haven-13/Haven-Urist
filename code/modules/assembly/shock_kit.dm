@@ -15,7 +15,7 @@
 	return
 
 /obj/item/assembly/shock_kit/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isWrench(W) && !status)
+	if(is_wrench(W) && !status)
 		var/turf/T = loc
 		if(ismob(T))
 			T = T.loc
@@ -27,7 +27,7 @@
 		part2 = null
 		qdel(src)
 		return
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		status = !status
 		to_chat(user, "<span class='notice'>[src] is now [status ? "secured" : "unsecured"]!</span>")
 	add_fingerprint(user)

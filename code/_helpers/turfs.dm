@@ -152,7 +152,7 @@
 				L.forceMove(new_turf)
 
 	for(var/mob/M in source)
-		if(isEye(M)) continue // If we need to check for more mobs, I'll add a variable
+		if(is_eye(M)) continue // If we need to check for more mobs, I'll add a variable
 		M.forceMove(new_turf)
 
 	return new_turf

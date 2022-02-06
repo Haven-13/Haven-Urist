@@ -12,7 +12,7 @@
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
 
-	if(!islist(newdata) || !newdata.len)
+	if(!is_list(newdata) || !newdata.len)
 		return
 
 	//add the new taste data
@@ -331,7 +331,7 @@
 	M.adjustToxLoss(0.5 * removed)
 
 /datum/reagent/capsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		if(!H.can_feel_pain())
 			return
@@ -414,7 +414,7 @@
 		M.Stun(6)
 
 /datum/reagent/capsaicin/condensed/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		if(!H.can_feel_pain())
 			return
@@ -1860,7 +1860,7 @@
 	..()
 	if(M.chem_doses[type] > 30)
 		M.adjustToxLoss(2 * removed)
-	if(M.chem_doses[type] > 60 && ishuman(M) && prob(5))
+	if(M.chem_doses[type] > 60 && is_human_mob(M) && prob(5))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/heart/L = H.internal_organs_by_name[BP_HEART]
 		if (L && istype(L))

@@ -70,7 +70,7 @@
 /datum/report_field/people/list_from_manifest/set_value(given_value)
 	var/list/full_manifest = flat_nano_crew_manifest()
 	var/list/new_value = list()
-	if(!islist(given_value))
+	if(!is_list(given_value))
 		return
 	for(var/entry in given_value)
 		if(!in_as_list(entry, full_manifest))

@@ -43,12 +43,12 @@
 	return ..()
 
 /obj/structure/closet/body_bag/cryobag/Entered(atom/movable/AM)
-	if(ishuman(AM))
+	if(is_human_mob(AM))
 		START_PROCESSING(SSobj, src)
 	..()
 
 /obj/structure/closet/body_bag/cryobag/Exited(atom/movable/AM)
-	if(ishuman(AM))
+	if(is_human_mob(AM))
 		STOP_PROCESSING(SSobj, src)
 	. = ..()
 

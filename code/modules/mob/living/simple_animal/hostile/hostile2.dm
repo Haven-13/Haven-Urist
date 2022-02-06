@@ -125,7 +125,7 @@
 	if(see_invisible < the_target.invisibility)//Target's invisible to us, forget it
 		return 0
 
-	if(isliving(the_target) && search_objects < 2)
+	if(is_living_mob(the_target) && search_objects < 2)
 		var/mob/living/L = the_target
 
 		if(L.stat > stat_attack || L.stat != stat_attack && stat_exclusive == 1)
@@ -139,7 +139,7 @@
 
 		return 1
 
-	if(isobj(the_target))
+	if(is_obj(the_target))
 		//if(the_target.type in wanted_objects)
 		if(is_type_in_list(the_target,wanted_objects))
 			return 1

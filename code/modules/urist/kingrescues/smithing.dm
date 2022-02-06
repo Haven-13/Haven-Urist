@@ -90,7 +90,7 @@
 	var/technique = input("Select an item to forge..","Techniques") as null|anything in techniques
 
 	var/list/build_data = techniques[technique]
-	if(!islist(build_data) || !ispath(build_data["path"]))
+	if(!is_list(build_data) || !ispath(build_data["path"]))
 		return
 
 	if(get_amount() < build_data["cost"])

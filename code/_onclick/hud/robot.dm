@@ -146,7 +146,7 @@ var/atom/movable/screen/robot_inventory
 	mymob.client.screen += src.adding + src.other
 
 /datum/hud/proc/toggle_show_robot_modules()
-	if(!isrobot(mymob))
+	if(!is_robot(mymob))
 		return
 
 	var/mob/living/silicon/robot/r = mymob
@@ -156,7 +156,7 @@ var/atom/movable/screen/robot_inventory
 
 
 /datum/hud/proc/update_robot_modules_display()
-	if(!isrobot(mymob))
+	if(!is_robot(mymob))
 		return
 
 	var/mob/living/silicon/robot/r = mymob

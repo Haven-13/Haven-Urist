@@ -217,7 +217,7 @@
 	. = ..()
 
 	if(plague)
-		if(ishuman(A))
+		if(is_human_mob(A))
 			var/mob/living/carbon/human/victim = A
 
 			if(victim.reagents)
@@ -244,7 +244,7 @@
 	var/munch_msg_ext = "<span class = 'warning'> <b>[src]</b> chomps at [infectee]'s brain!</span>"
 	var/munch_msg_self = "<span class = 'warning'>You chomps at [infectee]'s brain!</span>"
 
-	if(ishuman(infectee))
+	if(is_human_mob(infectee))
 		var/mob/living/carbon/human/victim = infectee
 		if(victim)
 			src.visible_message(munch_msg_ext, munch_msg_self)
@@ -621,7 +621,7 @@
 		attempts--
 		var/recheck = 0
 		if(stalkee)
-			if(!(isliving(stalkee))) //for some reason new_players *were* being picked
+			if(!(is_living_mob(stalkee))) //for some reason new_players *were* being picked
 				recheck = 1
 			if((!(stalkee.mind)) && mindplease) //not much fun if they can't fight back
 				recheck = 1

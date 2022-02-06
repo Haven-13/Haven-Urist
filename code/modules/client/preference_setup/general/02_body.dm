@@ -146,7 +146,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.body_markings &= GLOB.body_marking_styles_list
 
 	var/list/last_descriptors = list()
-	if(islist(pref.body_descriptors))
+	if(is_list(pref.body_descriptors))
 		last_descriptors = pref.body_descriptors.Copy()
 	pref.body_descriptors = list()
 

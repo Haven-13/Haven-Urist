@@ -119,20 +119,20 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 
 /datum/wires/Topic(href, href_list)
 	..()
-	if(in_range(holder, usr) && isliving(usr))
+	if(in_range(holder, usr) && is_living_mob(usr))
 
 		var/mob/living/L = usr
 		if(CanUse(L) && href_list["action"])
 			var/obj/item/I = L.get_active_hand()
 			holder.add_hiddenprint(L)
 			if(href_list["cut"]) // Toggles the cut/mend status
-				if(isWirecutter(I))
+				if(is_wirecutter(I))
 					var/colour = href_list["cut"]
 					CutWireColour(colour)
 				else
 					to_chat(L, "<span class='error'>You need wirecutters!</span>")
 			else if(href_list["pulse"])
-				if(isMultitool(I))
+				if(is_multitool(I))
 					var/colour = href_list["pulse"]
 					PulseColour(colour)
 				else

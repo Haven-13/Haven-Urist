@@ -5,7 +5,7 @@
 // flags: See below, bitfield.
 #define MUTCHK_FORCED        1
 /proc/domutcheck(var/mob/living/M, var/connected=null, var/flags=0)
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		if(!H.should_have_organ(BP_HEART))
 			return

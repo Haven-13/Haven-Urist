@@ -107,7 +107,7 @@
 			update_material()
 		return 1
 
-	if(carpeted && isCrowbar(W))
+	if(carpeted && is_crowbar(W))
 		user.visible_message(
 			"<span class='notice'>\The [user] removes the carpet from \the [src].</span>",
 			"<span class='notice'>You remove the carpet from \the [src].</span>"
@@ -144,7 +144,7 @@
 		dismantle(W, user)
 		return 1
 
-	if(health < maxhealth && isWelder(W))
+	if(health < maxhealth && is_welder(W))
 		var/obj/item/weapon/weldingtool/F = W
 		if(F.welding)
 			to_chat(user, "<span class='notice'>You begin reparing damage to \the [src].</span>")
@@ -170,7 +170,7 @@
 	return ..()
 
 /obj/structure/table/MouseDrop_T(obj/item/stack/material/what)
-	if(can_reinforce && isliving(usr) && (!usr.stat) && istype(what) && usr.get_active_hand() == what && Adjacent(usr))
+	if(can_reinforce && is_living_mob(usr) && (!usr.stat) && istype(what) && usr.get_active_hand() == what && Adjacent(usr))
 		reinforce_table(what, usr)
 	else
 		return ..()

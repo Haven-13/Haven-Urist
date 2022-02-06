@@ -272,7 +272,7 @@ GLOBAL_PROTECT(log_end)
 /proc/log_info_line(var/datum/d)
 	if(isnull(d))
 		return "*null*"
-	if(islist(d))
+	if(is_list(d))
 		var/list/L = list()
 		for(var/e in d)
 			L += log_info_line(e)

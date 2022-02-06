@@ -189,7 +189,7 @@
 	qdel(src)
 
 /obj/machinery/media/jukebox/attackby(obj/item/W as obj, mob/user as mob)
-	if(isWrench(W))
+	if(is_wrench(W))
 		add_fingerprint(user)
 		wrench_floor_bolts(user, 0)
 		power_change()

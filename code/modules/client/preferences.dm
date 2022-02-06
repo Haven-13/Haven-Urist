@@ -100,7 +100,7 @@ var/list/preferences_datums = list()
 /datum/preferences/proc/process_link(mob/user, list/href_list)
 
 	if(!user)	return
-	if(isliving(user)) return
+	if(is_living_mob(user)) return
 
 	if(href_list["preference"] == "open_whitelist_forum")
 		if(config.forumurl)
@@ -193,7 +193,7 @@ var/list/preferences_datums = list()
 		var/obj/item/organ/external/O = character.organs_by_name[name]
 		if(!O && organ_data[name] != "amputated")
 			var/list/organ_data = character.species.has_limbs[name]
-			if(!islist(organ_data)) continue
+			if(!is_list(organ_data)) continue
 			var/limb_path = organ_data["path"]
 			O = new limb_path(character)
 

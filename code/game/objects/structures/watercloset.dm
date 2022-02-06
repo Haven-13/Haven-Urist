@@ -101,7 +101,7 @@
 			return
 		else
 			var/obj/item/I = pick(contents)
-			if(ishuman(user))
+			if(is_human_mob(user))
 				user.put_in_hands(I)
 			else
 				I.loc = get_turf(src)
@@ -116,7 +116,7 @@
 	icon_state = "toilet[open][cistern]"
 
 /obj/structure/hygiene/toilet/attackby(obj/item/I as obj, var/mob/living/user)
-	if(isCrowbar(I))
+	if(is_crowbar(I))
 		to_chat(user, "<span class='notice'>You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"].</span>")
 		playsound(loc, 'resources/sound/effects/stonedoor_openclose.ogg', 50, 1)
 		if(do_after(user, 30, src))
@@ -128,7 +128,7 @@
 	if(istype(I, /obj/item/grab))
 		var/obj/item/grab/G = I
 
-		if(isliving(G.affecting))
+		if(is_living_mob(G.affecting))
 			var/mob/living/GM = G.affecting
 			if(!GM.loc == get_turf(src))
 				to_chat(user, "<span class='warning'>\The [GM] needs to be on the toilet.</span>")
@@ -170,7 +170,7 @@
 /obj/structure/hygiene/urinal/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/grab))
 		var/obj/item/grab/G = I
-		if(isliving(G.affecting))
+		if(is_living_mob(G.affecting))
 			var/mob/living/GM = G.affecting
 			if(!GM.loc == get_turf(src))
 				to_chat(user, "<span class='warning'>[GM.name] needs to be on the urinal.</span>")
@@ -225,7 +225,7 @@
 		to_chat(user, "<span class='notice'>The water temperature seems to be [watertemp].</span>")
 		return
 
-	if(isWrench(I))
+	if(is_wrench(I))
 		var/newtemp = input(user, "What setting would you like to set the temperature valve to?", "Water Temperature Valve") in temperature_settings
 		to_chat(user,"<span class='notice'>You begin to adjust the temperature valve with \the [I].</span>")
 		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
@@ -304,7 +304,7 @@
 	var/temp_adj = between(BODYTEMP_COOLING_MAX, temperature - M.bodytemperature, BODYTEMP_HEATING_MAX)
 	M.bodytemperature += temp_adj
 
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		if(temperature >= H.species.heat_level_1)
 			to_chat(H, "<span class='danger'>The water is searing hot!</span>")
@@ -341,7 +341,7 @@
 	thing.update_icon()
 
 /obj/structure/hygiene/sink/attack_hand(var/mob/user)
-	if (ishuman(user))
+	if (is_human_mob(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 		if (user.hand)
@@ -350,7 +350,7 @@
 			to_chat(user,"<span class='notice'>You try to move your [temp.name], but cannot!</span>")
 			return
 
-	if(isrobot(user) || isAI(user))
+	if(is_robot(user) || is_ai(user))
 		return
 
 	if(!Adjacent(user))
@@ -369,7 +369,7 @@
 	if(!Adjacent(user)) return		//Person has moved away from the sink
 
 	user.clean_blood()
-	if(ishuman(user))
+	if(is_human_mob(user))
 		user:update_inv_gloves()
 	for(var/mob/V in viewers(src, null))
 		V.show_message("<span class='notice'>[user] washes their hands using \the [src].</span>")
@@ -398,7 +398,7 @@
 				user.Stun(10)
 				user.stuttering = 10
 				user.Weaken(10)
-				if(isrobot(user))
+				if(is_robot(user))
 					var/mob/living/silicon/robot/R = user
 					R.cell.charge -= 20
 				else

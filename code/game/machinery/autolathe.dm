@@ -142,7 +142,7 @@
 
 	if(panel_open)
 		//Don't eat multitools or wirecutters used on an open lathe.
-		if(isMultitool(O) || isWirecutter(O))
+		if(is_multitool(O) || is_wirecutter(O))
 			attack_hand(user)
 			return
 
@@ -288,7 +288,7 @@
 
 /obj/machinery/autolathe/MouseDrop(var/over_location)
 	..()
-	if(!isliving(usr))
+	if(!is_living_mob(usr))
 		return
 	if(!isturf(over_location))
 		over_location = get_turf(over_location)

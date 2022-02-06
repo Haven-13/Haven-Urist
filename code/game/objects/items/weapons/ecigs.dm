@@ -110,7 +110,7 @@
 
 	idle ++
 
-	if(ishuman(loc))
+	if(is_human_mob(loc))
 		var/mob/living/carbon/human/C = loc
 
 		if (!active || !ec_cartridge || !ec_cartridge.reagents.total_volume)//no cartridge

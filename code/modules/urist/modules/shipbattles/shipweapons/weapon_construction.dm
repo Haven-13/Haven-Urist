@@ -44,7 +44,7 @@
 
 		if(0)
 			var/turf/T = get_turf(src)
-			if(isWrench(W) && locate(/obj/structure/shipweapons/hardpoint) in T)
+			if(is_wrench(W) && locate(/obj/structure/shipweapons/hardpoint) in T)
 				var/obj/structure/shipweapons/hardpoint/H = (locate(/obj/structure/shipweapons/hardpoint) in T)
 				//qdel(H)
 				if(!H.attached)
@@ -69,7 +69,7 @@
 					desc = "It's a ship-to-ship weapon assembly. It has some loose external sheeting."
 					return
 
-			else if(isWrench(W))
+			else if(is_wrench(W))
 				var/turf/T = get_turf(src)
 				var/obj/structure/shipweapons/hardpoint/H = (locate(/obj/structure/shipweapons/hardpoint) in T)
 				H.attached = FALSE
@@ -85,7 +85,7 @@
 
 		if(2)
 
-			if(isWelder(W))
+			if(is_welder(W))
 
 				var/obj/item/weapon/weldingtool/F = W
 				if(F.isOn())
@@ -98,7 +98,7 @@
 							desc = "It's a ship-to-ship weapon assembly with secured external plating. It is missing wiring."
 					return
 
-			if(isCrowbar(W))
+			if(is_crowbar(W))
 				playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 				to_chat(user, "You pry off the external sheeting.")
 				new /obj/item/stack/material/steel(get_turf(src), 2)
@@ -108,7 +108,7 @@
 				return
 
 		if(3)
-			if(isCoil(W))
+			if(is_coil(W))
 				var/obj/item/stack/cable_coil/C = W
 				if(C.use(2))
 					to_chat(user, "<span class='notice'>You add wires to the weapon assembly.</span>")
@@ -119,7 +119,7 @@
 					to_chat(user, "<span class='warning'>You need 2 coils of wire to wire the weapon assembly.</span>")
 				return
 
-			else if(isWelder(W))
+			else if(is_welder(W))
 
 				var/obj/item/weapon/weldingtool/F = W
 				if(F.isOn())
@@ -132,7 +132,7 @@
 					return
 
 		if(4)
-			if(isScrewdriver(W))
+			if(is_screwdriver(W))
 				playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "<span class='warning'>You secure the wires and screw down the external hatches: the weapon is ready to fire.</span>")
 				var/obj/machinery/shipweapons/S = new weapon_type(get_turf(src))
@@ -141,7 +141,7 @@
 					S.ConnectWeapons()
 				qdel(src)
 
-			else if(isWirecutter(W))
+			else if(is_wirecutter(W))
 
 				new /obj/item/stack/cable_coil(get_turf(src), 2)
 				playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 50, 1)

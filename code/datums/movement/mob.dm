@@ -116,7 +116,7 @@
 			mob.pulledby.DoMove(direction, mob)
 		else if(istype(mob.buckled, /obj/structure/bed/chair/wheelchair))
 			. = MOVEMENT_HANDLED
-			if(ishuman(mob))
+			if(is_human_mob(mob))
 				var/mob/living/carbon/human/driver = mob
 				var/obj/item/organ/external/l_hand = driver.get_organ(BP_L_HAND)
 				var/obj/item/organ/external/r_hand = driver.get_organ(BP_R_HAND)

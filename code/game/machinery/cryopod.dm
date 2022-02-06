@@ -295,7 +295,7 @@
 //Lifted from Unity stasis.dm and refactored. ~Zuhayr
 /obj/machinery/cryopod/Process()
 	if(occupant)
-		if(applies_stasis && iscarbon(occupant))
+		if(applies_stasis && is_carbon_mob(occupant))
 			var/mob/living/carbon/C = occupant
 			C.SetStasis(3)
 

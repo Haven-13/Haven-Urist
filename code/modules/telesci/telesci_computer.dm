@@ -194,7 +194,7 @@
 			for(var/atom/movable/ROI in source)
 				// if is anchored, don't let through
 				if(ROI.anchored)
-					if(isliving(ROI))
+					if(is_living_mob(ROI))
 						var/mob/living/L = ROI
 						if(L.buckled)
 							// TP people on office chairs
@@ -202,7 +202,7 @@
 								continue
 						else
 							continue
-					else if(!isobserver(ROI))
+					else if(!is_observer(ROI))
 						continue
 				do_teleport(ROI, dest)
 			updateDialog()

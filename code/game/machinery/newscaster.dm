@@ -747,7 +747,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	if(photo_data)
 		if(!photo_data.is_synth)
 			photo_data.photo.forceMove(get_turf(src))
-			if(!issilicon(user))
+			if(!is_silicon(user))
 				user.put_in_hands(photo_data.photo)
 		qdel(photo_data)
 		photo_data = null
@@ -787,7 +787,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/scribble_page = null
 
 /obj/item/weapon/newspaper/attack_self(mob/user as mob)
-	if(ishuman(user))
+	if(is_human_mob(user))
 		var/mob/living/carbon/human/human_user = user
 		var/dat
 		src.pages = 0

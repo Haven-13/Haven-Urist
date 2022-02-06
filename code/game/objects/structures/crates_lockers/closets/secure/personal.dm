@@ -54,7 +54,7 @@
 	set name = "Reset Lock"
 	if(!CanPhysicallyInteract(usr)) // Don't use it if you're not able to! Checks for stuns, ghost and restrain
 		return
-	if(ishuman(usr))
+	if(is_human_mob(usr))
 		src.add_fingerprint(usr)
 		if (src.locked || !src.registered_name)
 			to_chat(usr, "<span class='warning'>You need to unlock it first.</span>")

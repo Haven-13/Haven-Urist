@@ -140,8 +140,8 @@
 	to_chat(M, "<span class='danger'>You hear a loud roar.</span>")
 	var/ear_safety = 0
 	var/mob/living/carbon/human/H = M
-	if(iscarbon(M))
-		if(ishuman(M))
+	if(is_carbon_mob(M))
+		if(is_human_mob(M))
 			if(istype(H.l_ear, /obj/item/clothing/ears/earmuffs) || istype(H.r_ear, /obj/item/clothing/ears/earmuffs))
 				ear_safety += 2
 			if(HULK in M.mutations)

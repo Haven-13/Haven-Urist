@@ -42,7 +42,7 @@
 
 //Checks if the access (constant or list) is contained in one of the entries of access_patterns, a list of lists.
 /proc/has_access_pattern(list/access_patterns, access)
-	if(!islist(access))
+	if(!is_list(access))
 		access = list(access)
 	for(var/access_pattern in access_patterns)
 		if(has_access(access_pattern, list(), access))

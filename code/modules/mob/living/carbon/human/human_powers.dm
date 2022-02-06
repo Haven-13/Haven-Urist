@@ -158,7 +158,7 @@
 
 	var/mob/M = targets[target]
 
-	if(isghost(M) || M.stat == DEAD)
+	if(is_ghost(M) || M.stat == DEAD)
 		to_chat(src, "<span class='warning'>Not even a [src.species.name] can speak to the dead.</span>")
 		return
 

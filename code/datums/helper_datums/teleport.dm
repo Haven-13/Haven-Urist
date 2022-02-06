@@ -13,7 +13,7 @@
 	destination = safepick(possible_turfs)
 
 	target.forceMove(destination)
-	if(isliving(target))
+	if(is_living_mob(target))
 		var/mob/living/L = target
 		if(L.buckled)
 			var/atom/movable/buckled = L.buckled

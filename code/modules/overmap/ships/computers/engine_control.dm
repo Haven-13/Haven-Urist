@@ -11,7 +11,7 @@
 		user.unset_machine()
 		return
 
-	if(!isAI(user))
+	if(!is_ai(user))
 		user.set_machine(src)
 
 	ui_interact(user)

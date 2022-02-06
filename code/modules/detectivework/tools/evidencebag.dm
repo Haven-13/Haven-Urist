@@ -10,7 +10,7 @@
 	var/obj/item/stored_item = null
 
 /obj/item/weapon/evidencebag/MouseDrop(var/obj/item/I as obj)
-	if (!ishuman(usr))
+	if (!is_human_mob(usr))
 		return
 
 	var/mob/living/carbon/human/user = usr

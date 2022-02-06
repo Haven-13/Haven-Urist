@@ -26,7 +26,7 @@
 	create_reagents(50)
 
 /obj/item/weapon/implant/chem/activate(var/amount)
-	if((!amount) || (!iscarbon(imp_in)))	return 0
+	if((!amount) || (!is_carbon_mob(imp_in)))	return 0
 	var/mob/living/carbon/R = imp_in
 	reagents.trans_to_mob(R, amount, CHEM_BLOOD)
 	to_chat(R, "<span class='notice'>You hear a faint *beep*.</span>")

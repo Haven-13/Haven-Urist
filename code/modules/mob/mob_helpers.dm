@@ -43,13 +43,13 @@
 	return istype(species, /datum/species/monkey)
 
 /proc/isdeaf(A)
-	if(isliving(A))
+	if(is_living_mob(A))
 		var/mob/living/M = A
 		return (M.sdisabilities & DEAF) || M.ear_deaf
 	return 0
 
 /proc/hasorgans(A) // Fucking really??
-	return ishuman(A)
+	return is_human_mob(A)
 
 /proc/iscuffed(A)
 	if(istype(A, /mob/living/carbon))
@@ -315,7 +315,7 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 
 
 /proc/shake_camera(mob/M, duration, strength=1)
-	if(!M || !M.client || M.shakecamera || M.stat || isEye(M) || isAI(M))
+	if(!M || !M.client || M.shakecamera || M.stat || is_eye(M) || is_ai(M))
 		return
 	M.shakecamera = 1
 	spawn(1)
@@ -383,7 +383,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	set name = "a-intent"
 	set hidden = 1
 
-	if(ishuman(src) || isbrain(src) || isslime(src))
+	if(is_human_mob(src) || is_brain(src) || is_slime(src))
 		switch(input)
 			if(I_HELP,I_DISARM,I_GRAB,I_HURT)
 				a_intent = input
@@ -394,7 +394,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 		if(hud_used && hud_used.action_intent)
 			hud_used.action_intent.icon_state = "intent_[a_intent]"
 
-	else if(isrobot(src))
+	else if(is_robot(src))
 		switch(input)
 			if(I_HELP)
 				a_intent = I_HELP
@@ -686,7 +686,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	if(src.incapacitated() || (required_item && !ui_hands_state().can_use_topic(required_item,src)))
 		return null
 	var/choice
-	if(islist(choice_type))
+	if(is_list(choice_type))
 		choice = input(src, message, title, default) as null|anything in choice_type
 	else
 		switch(choice_type)

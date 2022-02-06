@@ -113,7 +113,7 @@
 	log_and_message_admins("assumed direct control of [M].")
 	var/mob/adminmob = src.mob
 	M.ckey = src.ckey
-	if(isghost(adminmob))
+	if(is_ghost(adminmob))
 		qdel(adminmob)
 	feedback_add_details("admin_verb","ADC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -365,7 +365,7 @@
 
 	if(!check_rights(R_DEBUG))
 		return
-	if(!ishuman(H))	return
+	if(!is_human_mob(H))	return
 	cmd_analyse_health(H)
 	feedback_add_details("admin_verb","ANLS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 

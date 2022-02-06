@@ -80,7 +80,7 @@
 		return
 	//window placing end
 
-	if(isWrench(W))
+	if(is_wrench(W))
 		for(var/obj/structure/S in loc)
 			if(istype(S, /obj/structure/window))
 				to_chat(user, "<span class='notice'>There is still a window on the low wall!</span>")

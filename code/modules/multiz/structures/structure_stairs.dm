@@ -32,7 +32,7 @@
 	var/turf/above = GetAbove(A)
 	if(above.CanZPass(source, UP) && target.Enter(A, src))
 		A.forceMove(target)
-		if(isliving(A))
+		if(is_living_mob(A))
 			var/mob/living/L = A
 			if(L.pulling)
 				L.pulling.forceMove(target)

@@ -118,7 +118,7 @@ default behaviour is:
 				now_pushing = 0
 				return
 			tmob.LAssailant = src
-		if(isobj(AM) && !AM.anchored)
+		if(is_obj(AM) && !AM.anchored)
 			var/obj/I = AM
 			if(!can_pull_size || can_pull_size < I.w_class)
 				to_chat(src, "<span class='warning'>It won't budge!</span>")
@@ -149,7 +149,7 @@ default behaviour is:
 					if(istype(tmob.buckled, /obj/structure/bed))
 						if(!tmob.buckled.anchored)
 							step(tmob.buckled, t)
-				if(ishuman(AM) && AM:grabbed_by)
+				if(is_human_mob(AM) && AM:grabbed_by)
 					for(var/obj/item/grab/G in AM:grabbed_by)
 						step(G:assailant, get_dir(G:assailant, AM))
 						G.adjust_position()
@@ -395,7 +395,7 @@ default behaviour is:
 	rejuvenate()
 	if(buckled)
 		buckled.unbuckle_mob()
-	if(iscarbon(src))
+	if(is_carbon_mob(src))
 		var/mob/living/carbon/C = src
 
 		if (C.handcuffed && !initial(C.handcuffed))
@@ -508,7 +508,7 @@ default behaviour is:
 			else
 				diag = null
 			if ((get_dist(src, pulling) > 1 || diag))
-				if (isliving(pulling))
+				if (is_living_mob(pulling))
 					var/mob/living/M = pulling
 					var/ok = 1
 					if (locate(/obj/item/grab, M.grabbed_by))
@@ -546,7 +546,7 @@ default behaviour is:
 										var/turf/location = M.loc
 										if (istype(location, /turf/simulated))
 											location.add_blood(M)
-											if(ishuman(M))
+											if(is_human_mob(M))
 												var/mob/living/carbon/human/H = M
 												var/blood_volume = round(H.vessel.get_reagent_amount(/datum/reagent/blood))
 												if(blood_volume > 0)

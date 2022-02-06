@@ -30,7 +30,7 @@
 // Reads K from L safely - associative lists only.
 #define LAZY_ACCESS_ASSOC(L, K) ((!!LAZY_IS_IN(L, K) && L[K]) || null)
 // Reads L or an empty list if L is not a list.  Note: Does NOT assign, L may be an expression.
-#define SANITIZE_LIST(L) ( islist(L) ? L : list() )
+#define SANITIZE_LIST(L) ( is_list(L) ? L : list() )
 
 /// Passed into BINARY_INSERT to compare keys
 #define COMPARE_KEY __BIN_LIST[__BIN_MID]

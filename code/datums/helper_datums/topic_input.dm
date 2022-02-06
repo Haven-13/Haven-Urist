@@ -24,7 +24,7 @@
 
 /datum/topic_input/proc/getObj(i)
 	var/t = getAndLocate(i)
-	return isobj(t) ? t : null
+	return is_obj(t) ? t : null
 
 /datum/topic_input/proc/getMob(i)
 	var/t = getAndLocate(i)
@@ -57,4 +57,4 @@
 
 /datum/topic_input/proc/getList(i)
 	var/t = getAndLocate(i)
-	return islist(t) ? t : null
+	return is_list(t) ? t : null

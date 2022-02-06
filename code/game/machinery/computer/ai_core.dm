@@ -24,13 +24,13 @@
 			authorized = 1
 	switch(state)
 		if(0)
-			if(isWrench(P))
+			if(is_wrench(P))
 				playsound(loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 				if(do_after(user, 20, src))
 					to_chat(user, "<span class='notice'>You wrench the frame into place.</span>")
 					anchored = 1
 					state = 1
-			if(isWelder(P))
+			if(is_welder(P))
 				var/obj/item/weapon/weldingtool/WT = P
 				if(!WT.isOn())
 					to_chat(user, "The welder must be on for this task.")
@@ -43,7 +43,7 @@
 					qdel(src)
 					return
 		if(1)
-			if(isWrench(P))
+			if(is_wrench(P))
 				playsound(loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 				if(do_after(user, 20, src))
 					to_chat(user, "<span class='notice'>You unfasten the frame.</span>")
@@ -54,12 +54,12 @@
 				to_chat(user, "<span class='notice'>You place the circuit board inside the frame.</span>")
 				icon_state = "1"
 				circuit = P
-			if(isScrewdriver(P) && circuit)
+			if(is_screwdriver(P) && circuit)
 				playsound(loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You screw the circuit board into place.</span>")
 				state = 2
 				icon_state = "2"
-			if(isCrowbar(P) && circuit)
+			if(is_crowbar(P) && circuit)
 				playsound(loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You remove the circuit board.</span>")
 				state = 1
@@ -67,12 +67,12 @@
 				circuit.loc = loc
 				circuit = null
 		if(2)
-			if(isScrewdriver(P) && circuit)
+			if(is_screwdriver(P) && circuit)
 				playsound(loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You unfasten the circuit board.</span>")
 				state = 1
 				icon_state = "1"
-			if(isCoil(P))
+			if(is_coil(P))
 				var/obj/item/stack/cable_coil/C = P
 				if (C.get_amount() < 5)
 					to_chat(user, "<span class='warning'>You need five coils of wire to add them to the frame.</span>")
@@ -86,7 +86,7 @@
 						to_chat(user, "<span class='notice'>You add cables to the frame.</span>")
 				return
 		if(3)
-			if(isWirecutter(P))
+			if(is_wirecutter(P))
 				if (brain)
 					to_chat(user, "Get that brain out of there first")
 				else
@@ -159,7 +159,7 @@
 				to_chat(usr, "Added [P].")
 				icon_state = "3b"
 
-			if(isCrowbar(P) && brain)
+			if(is_crowbar(P) && brain)
 				playsound(loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You remove the brain.</span>")
 				brain.loc = loc
@@ -167,7 +167,7 @@
 				icon_state = "3"
 
 		if(4)
-			if(isCrowbar(P))
+			if(is_crowbar(P))
 				playsound(loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You remove the glass panel.</span>")
 				state = 3
@@ -178,7 +178,7 @@
 				new /obj/item/stack/material/glass/reinforced( loc, 2 )
 				return
 
-			if(isScrewdriver(P))
+			if(is_screwdriver(P))
 				if(!authorized)
 					to_chat(user, "<span class='warning'>Core fails to connect to the systems of [GLOB.using_map.full_name]!</span>")
 					return

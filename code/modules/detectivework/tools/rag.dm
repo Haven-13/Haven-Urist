@@ -108,7 +108,7 @@
 				A.clean_blood()
 
 /obj/item/weapon/reagent_containers/glass/rag/attack(atom/target as obj|turf|area, mob/user as mob , flag)
-	if(isliving(target))
+	if(is_living_mob(target))
 		var/mob/living/M = target
 		if(on_fire)
 			user.visible_message("<span class='danger'>\The [user] hits [target] with [src]!</span>",)
@@ -207,7 +207,7 @@
 		extinguish()
 
 	//copied from matches
-	if(isliving(loc))
+	if(is_living_mob(loc))
 		var/mob/living/M = loc
 		M.IgniteMob()
 	var/turf/location = get_turf(src)

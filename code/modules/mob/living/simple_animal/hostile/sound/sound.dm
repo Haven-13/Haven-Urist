@@ -38,11 +38,11 @@
 	last_saw = list()
 
 /mob/living/simple_animal/hostile/sound/proc/alerted(var/mob/detected)
-	if(islist(alert_message) && alert_message.len)
+	if(is_list(alert_message) && alert_message.len)
 		if(next_alert > world.time)
 			var/message = pick(alert_message)
 			visible_message("<span class = 'danger'><font size = 3>[src] [message] [detected]!</font></span>")
 			next_alert = world.time + 15 SECONDS
-	if(islist(alert_sound) && alert_sound.len)
+	if(is_list(alert_sound) && alert_sound.len)
 		var/sound = pick(alert_sound)
 		playsound(src, sound, 100, 1)

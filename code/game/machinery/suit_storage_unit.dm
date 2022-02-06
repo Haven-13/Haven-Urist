@@ -527,14 +527,14 @@
 
 
 /obj/machinery/suit_storage_unit/attackby(obj/item/I as obj, mob/user as mob)
-	if(isScrewdriver(I))
+	if(is_screwdriver(I))
 		panelopen = !panelopen
 		playsound(loc, 'resources/sound/items/Screwdriver.ogg', 100, 1)
 		to_chat(user, text("<span class='notice'>You [panelopen ? "open" : "close"] the unit's maintenance panel.</span>"))
 		updateUsrDialog()
 		update_icon()
 		return
-	if(isCrowbar(I))
+	if(is_crowbar(I))
 		if((stat & NOPOWER) && !islocked && !isopen)
 			to_chat(user, "<span class='warning'>You begin prying the unit open.</span>")
 			if(do_after(user, 50, src))
@@ -714,7 +714,7 @@
 			return
 
 	//Hacking init.
-	if(isMultitool(I) || isWirecutter(I))
+	if(is_multitool(I) || is_wirecutter(I))
 		if(panel_open)
 			attack_hand(user)
 		return
@@ -750,7 +750,7 @@
 			updateUsrDialog()
 
 			return
-	else if(isScrewdriver(I))
+	else if(is_screwdriver(I))
 
 		panel_open = !panel_open
 		to_chat(user, "You [panel_open ?  "open" : "close"] the maintenance panel.")

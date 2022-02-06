@@ -33,7 +33,7 @@
 /datum/ui_module/proc/check_access(var/mob/user, var/access)
 	if(!access)
 		return 1
-	if(!islist(access))
+	if(!is_list(access))
 		access = list(access) //listify a single access code.
 	if(has_access(access, list(), using_access))
 		return 1 //This is faster, and often enough.

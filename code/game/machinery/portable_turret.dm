@@ -185,10 +185,10 @@ var/list/turret_icons
 		icon_state = "turretCover"
 
 /obj/machinery/porta_turret/proc/isLocked(mob/user)
-	if(ailock && issilicon(user))
+	if(ailock && is_silicon(user))
 		return 1
 
-	if(locked && !issilicon(user))
+	if(locked && !is_silicon(user))
 		return 1
 
 	return 0
@@ -288,7 +288,7 @@ var/list/turret_icons
 
 /obj/machinery/porta_turret/attackby(obj/item/I, mob/user)
 	if(stat & BROKEN)
-		if(isCrowbar(I))
+		if(is_crowbar(I))
 			//If the turret is destroyed, you can remove it with a crowbar to
 			//try and salvage its components
 			to_chat(user, "<span class='notice'>You begin prying the metal coverings off.</span>")
@@ -307,7 +307,7 @@ var/list/turret_icons
 					to_chat(user, "<span class='notice'>You remove the turret but did not manage to salvage anything.</span>")
 				qdel(src) // qdel
 
-	else if(isWrench(I))
+	else if(is_wrench(I))
 		if(enabled || raised)
 			to_chat(user, "<span class='warning'>You cannot unsecure an active turret!</span>")
 			return
@@ -485,7 +485,7 @@ var/list/turret_icons
 	if(!L)
 		return TURRET_NOT_TARGET
 
-	if(!emagged && issilicon(L))	// Don't target silica
+	if(!emagged && is_silicon(L))	// Don't target silica
 		return TURRET_NOT_TARGET
 
 	if(L.stat && !emagged)		//if the perp is dead/dying, no need to bother really
@@ -511,8 +511,8 @@ var/list/turret_icons
 	if(iscuffed(L)) // If the target is handcuffed, leave it alone
 		return TURRET_NOT_TARGET
 
-	if(!ishuman(L)) // Animals are not so dangerous
-		if(isxenomorph(L) || isalien(L)) // Xenos are dangerous
+	if(!is_human_mob(L)) // Animals are not so dangerous
+		if(isxenomorph(L) || is_alien(L)) // Xenos are dangerous
 			return check_anomalies ? TURRET_PRIORITY_TARGET	: TURRET_NOT_TARGET
 		else
 			return check_anomalies ? TURRET_SECONDARY_TARGET : TURRET_NOT_TARGET
@@ -688,14 +688,14 @@ var/list/turret_icons
 	//this is a bit unwieldy but self-explanatory
 	switch(build_step)
 		if(0)	//first step
-			if(isWrench(I) && !anchored)
+			if(is_wrench(I) && !anchored)
 				playsound(loc, 'resources/sound/items/Ratchet.ogg', 100, 1)
 				to_chat(user, "<span class='notice'>You secure the external bolts.</span>")
 				anchored = 1
 				build_step = 1
 				return
 
-			else if(isCrowbar(I) && !anchored)
+			else if(is_crowbar(I) && !anchored)
 				playsound(loc, 'resources/sound/items/Crowbar.ogg', 75, 1)
 				to_chat(user, "<span class='notice'>You dismantle the turret construction.</span>")
 				new /obj/item/stack/material/steel( loc, 5)
@@ -728,7 +728,7 @@ var/list/turret_icons
 				build_step = 3
 				return
 
-			else if(isWelder(I))
+			else if(is_welder(I))
 				var/obj/item/weapon/weldingtool/WT = I
 				if(!WT.isOn())
 					return
@@ -748,7 +748,7 @@ var/list/turret_icons
 		if(3)
 			if(istype(I, /obj/item/weapon/gun/energy)) //the gun installation part
 
-				if(isrobot(user))
+				if(is_robot(user))
 					return
 				var/obj/item/weapon/gun/energy/E = I //typecasts the item to an energy gun
 				if(!user.unEquip(I))
@@ -782,7 +782,7 @@ var/list/turret_icons
 			//attack_hand() removes the gun
 
 		if(5)
-			if(isScrewdriver(I))
+			if(is_screwdriver(I))
 				playsound(loc, 'resources/sound/items/Screwdriver.ogg', 100, 1)
 				build_step = 6
 				to_chat(user, "<span class='notice'>You close the internal access hatch.</span>")
@@ -807,7 +807,7 @@ var/list/turret_icons
 				return
 
 		if(7)
-			if(isWelder(I))
+			if(is_welder(I))
 				var/obj/item/weapon/weldingtool/WT = I
 				if(!WT.isOn()) return
 				if(WT.get_fuel() < 5)
@@ -830,7 +830,7 @@ var/list/turret_icons
 
 					qdel(src) // qdel
 
-			else if(isCrowbar(I))
+			else if(is_crowbar(I))
 				playsound(loc, 'resources/sound/items/Crowbar.ogg', 75, 1)
 				to_chat(user, "<span class='notice'>You pry off the turret's exterior armor.</span>")
 				new /obj/item/stack/material/steel(loc, 2)

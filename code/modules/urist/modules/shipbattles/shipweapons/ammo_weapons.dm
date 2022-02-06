@@ -73,7 +73,7 @@
 		DoLoading(ammo)
 
 /obj/machinery/shipweapons/ammo/attackby(obj/item/W as obj, mob/living/user as mob)
-	if(isCrowbar(W) && loaded_ammo)
+	if(is_crowbar(W) && loaded_ammo)
 		to_chat(user, "<span class='warning'>You pry the [loaded_ammo] out of the [src]. It will need to be reloaded before firing again.</span>")
 		playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 		loaded_ammo.dropInto(user.loc) //drop the ammo

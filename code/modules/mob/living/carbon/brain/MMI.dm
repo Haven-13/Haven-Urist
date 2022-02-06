@@ -133,7 +133,7 @@
 		rig.forced_move(direction, user)
 
 /obj/item/device/mmi/Destroy()
-	if(isrobot(loc))
+	if(is_robot(loc))
 		var/mob/living/silicon/robot/borg = loc
 		borg.mmi = null
 	QDEL_NULL(brainmob)

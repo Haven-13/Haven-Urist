@@ -12,7 +12,7 @@
 		eat_speed = 30
 	src.visible_message("<span class='danger'>\The [src] is attempting to devour \the [victim]!</span>")
 	var/mob/target = victim
-	if(isobj(victim))
+	if(is_obj(victim))
 		target = src
 	if(!do_mob(src,target,eat_speed))
 		return FALSE

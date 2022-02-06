@@ -347,7 +347,7 @@
 
 	if(usr.incapacitated())
 		return
-	if(ishuman(usr) || istype(usr, /mob/living/silicon/robot))
+	if(is_human_mob(usr) || istype(usr, /mob/living/silicon/robot))
 		var/new_light = input("Specify a light level.") as null|anything in list(0,1,2,3,4,5,6,7,8,9,10)
 		if(new_light)
 			tray_light = new_light
@@ -396,7 +396,7 @@
 	if (O.is_open_container())
 		return 0
 
-	if(isWirecutter(O) || istype(O, /obj/item/weapon/scalpel))
+	if(is_wirecutter(O) || istype(O, /obj/item/weapon/scalpel))
 
 		if(!seed)
 			to_chat(user, "There is nothing to take a sample from in \the [src].")
@@ -476,7 +476,7 @@
 		qdel(O)
 		check_health()
 
-	else if(mechanical && isWrench(O))
+	else if(mechanical && is_wrench(O))
 
 		//If there's a connector here, the portable_atmospherics setup can handle it.
 		if(locate(/obj/machinery/atmospherics/portables_connector/) in loc)
@@ -591,7 +591,7 @@
 	if(usr.incapacitated())
 		return
 
-	if(ishuman(usr) || istype(usr, /mob/living/silicon/robot))
+	if(is_human_mob(usr) || istype(usr, /mob/living/silicon/robot))
 		close_lid(usr)
 	return
 

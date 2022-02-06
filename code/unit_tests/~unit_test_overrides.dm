@@ -30,7 +30,7 @@ GLOBAL_DATUM(unit_test_last_obj_random_creation, /atom/movable)
 /proc/unit_test_select_heaviest(var/list/choices)
 	if(ispath(choices) || istype(choices, /datum))
 		return choices
-	if(!islist(choices))
+	if(!is_list(choices))
 		CRASH("Unhandled input: [log_info_line(choices)]")
 
 	var/heaviest_weight = -1

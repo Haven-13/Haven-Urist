@@ -23,7 +23,7 @@
 // Give Random Bad Mutation to M
 /proc/randmutb(var/mob/living/M)
 	if(!M) return
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		if(!H.should_have_organ(BP_HEART))
 			return
@@ -34,7 +34,7 @@
 // Give Random Good Mutation to M
 /proc/randmutg(var/mob/living/M)
 	if(!M) return
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		if(!H.should_have_organ(BP_HEART))
 			return

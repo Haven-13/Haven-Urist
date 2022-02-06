@@ -13,7 +13,7 @@
 		user.unset_machine()
 		return
 
-	if(!isAI(user))
+	if(!is_ai(user))
 		user.set_machine(src)
 
 	if(!fallback_connect) //sometimes connecting is fucky, so this is a fallback in case something fucks up somewhere along the line

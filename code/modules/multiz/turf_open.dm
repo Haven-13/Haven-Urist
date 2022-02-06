@@ -59,7 +59,7 @@
 /turf/simulated/open/examine(mob/user, distance, infix, suffix)
 	if(..(user, 2))
 		var/depth = 1
-		for(var/T = GetBelow(src); isopenspace(T); T = GetBelow(T))
+		for(var/T = GetBelow(src); is_open_space(T); T = GetBelow(T))
 			depth += 1
 		to_chat(user, "It is about [depth] level\s deep.")
 
@@ -90,7 +90,7 @@
 			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
 
 	//To lay cable.
-	if(isCoil(C))
+	if(is_coil(C))
 		var/obj/item/stack/cable_coil/coil = C
 		coil.turf_place(src, user)
 		return
@@ -111,7 +111,7 @@
 
 /turf/simulated/open/proc/handle_move(var/atom/current_loc, var/atom/movable/am, var/atom/changed_loc)
 	//Check for mobs and create/destroy their shadows
-	if(isliving(am))
+	if(is_living_mob(am))
 		var/mob/living/M = am
 		M.check_shadow()
 

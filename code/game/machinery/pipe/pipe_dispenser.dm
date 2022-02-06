@@ -108,7 +108,7 @@
 		add_fingerprint(usr)
 		qdel(W)
 		return
-	else if(isWrench(W))
+	else if(is_wrench(W))
 		add_fingerprint(usr)
 		if (unwrenched==0)
 			playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)

@@ -74,7 +74,7 @@
 			var/log_str = "[key_name(usr)]<A HREF='?_src_=holder;adminmoreinfo=[REF(usr)]'>?</A> has primed a [name] for detonation at <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[bombturf.x];Y=[bombturf.y];Z=[bombturf.z]'>[A.name] (JMP)</a>."
 			message_admins(log_str)
 			log_game(log_str)
-			if(iscarbon(user))
+			if(is_carbon_mob(user))
 				var/mob/living/carbon/C = user
 				C.throw_mode_on()
 			spawn(det_time)

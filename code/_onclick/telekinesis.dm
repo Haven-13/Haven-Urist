@@ -102,7 +102,7 @@ var/const/tk_maxrange = 15
 	if(!(TK in host.mutations))
 		qdel(src)
 		return
-	if(isobj(target) && !isturf(target.loc))
+	if(is_obj(target) && !isturf(target.loc))
 		return
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

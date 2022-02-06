@@ -59,7 +59,7 @@ meteor_act
 	var/total = 0
 
 	if(def_zone)
-		if(isorgan(def_zone))
+		if(is_organ(def_zone))
 			return getarmor_organ(def_zone, type)
 		var/obj/item/organ/external/affecting = get_organ(def_zone)
 		if(affecting)
@@ -229,7 +229,7 @@ meteor_act
 		var/turf/location = loc
 		if(istype(location, /turf/simulated))
 			location.add_blood(src)
-		if(ishuman(attacker))
+		if(is_human_mob(attacker))
 			var/mob/living/carbon/human/H = attacker
 			if(get_dist(H, src) <= 1) //people with TK won't get smeared with blood
 				H.bloody_body(src)

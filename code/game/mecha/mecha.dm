@@ -419,7 +419,7 @@
 ///////////////////////////////////
 
 /obj/mecha/proc/check_for_internal_damage(var/list/possible_int_damage,var/ignore_threshold=null)
-	if(!islist(possible_int_damage) || isemptylist(possible_int_damage)) return
+	if(!is_list(possible_int_damage) || isemptylist(possible_int_damage)) return
 	if(prob(20))
 		if(ignore_threshold || src.health*100/initial(src.health)<src.internal_damage_threshold)
 			for(var/T in possible_int_damage)
@@ -725,7 +725,7 @@
 				to_chat(user, "<span class='warning'>Invalid ID: Access denied.</span>")
 		else
 			to_chat(user, "<span class='warning'>Maintenance protocols disabled by operator.</span>")
-	else if(isWrench(W))
+	else if(is_wrench(W))
 		if(state==1)
 			state = 2
 			to_chat(user, "You undo the securing bolts.")
@@ -733,7 +733,7 @@
 			state = 1
 			to_chat(user, "You tighten the securing bolts.")
 		return
-	else if(isCrowbar(W))
+	else if(is_crowbar(W))
 		if(state==2)
 			state = 3
 			to_chat(user, "You open the hatch to the power unit")
@@ -741,7 +741,7 @@
 			state=2
 			to_chat(user, "You close the hatch to the power unit")
 		return
-	else if(isCoil(W))
+	else if(is_coil(W))
 		if(state == 3 && hasInternalDamage(MECHA_INT_SHORT_CIRCUIT))
 			var/obj/item/stack/cable_coil/CC = W
 			if(CC.use(2))
@@ -750,7 +750,7 @@
 			else
 				to_chat(user, "There's not enough wire to finish the task.")
 		return
-	else if(isScrewdriver(W))
+	else if(is_screwdriver(W))
 		if(hasInternalDamage(MECHA_INT_TEMP_CONTROL))
 			clearInternalDamage(MECHA_INT_TEMP_CONTROL)
 			to_chat(user, "You repair the damaged temperature controller.")
@@ -765,7 +765,7 @@
 			to_chat(user, "You screw the cell in place.")
 		return
 
-	else if(isMultitool(W))
+	else if(is_multitool(W))
 		if(state>=3 && src.occupant)
 			to_chat(user, "You attempt to eject the pilot using the maintenance controls.")
 			if(src.occupant.stat)
@@ -789,7 +789,7 @@
 				to_chat(user, "There's already a powercell installed.")
 		return
 
-	else if(isWelder(W) && user.a_intent != I_HURT)
+	else if(is_welder(W) && user.a_intent != I_HURT)
 		var/obj/item/weapon/weldingtool/WT = W
 		if (WT.remove_fuel(0,user))
 			if (hasInternalDamage(MECHA_INT_TANK_BREACH))
@@ -990,7 +990,7 @@
 	set name = "Enter Exosuit"
 	set src in oview(1)
 
-	if (usr.stat || !ishuman(usr))
+	if (usr.stat || !is_human_mob(usr))
 		return
 
 	if (usr.buckled)
@@ -998,7 +998,7 @@
 		return
 
 	src.log_message("[usr] tries to move in.")
-	if(iscarbon(usr))
+	if(is_carbon_mob(usr))
 		var/mob/living/carbon/C = usr
 		if(C.handcuffed)
 			to_chat(usr, "<span class='danger'>Kinda hard to climb in while handcuffed don't you think?</span>")
@@ -1096,7 +1096,7 @@
 /obj/mecha/proc/go_out()
 	if(!src.occupant) return
 	var/atom/movable/mob_container
-	if(ishuman(occupant))
+	if(is_human_mob(occupant))
 		mob_container = src.occupant
 	else if(istype(occupant, /mob/living/carbon/brain))
 		var/mob/living/carbon/brain/brain = occupant
@@ -1109,7 +1109,7 @@
 	dropped_items.Cut()
 	if(mob_container.forceMove(src.loc))//ejecting mob container
 	/*
-		if(ishuman(occupant) && (return_pressure() > HAZARD_HIGH_PRESSURE))
+		if(is_human_mob(occupant) && (return_pressure() > HAZARD_HIGH_PRESSURE))
 			use_internal_tank = 0
 			var/datum/gas_mixture/environment = get_turf_air()
 			if(environment)

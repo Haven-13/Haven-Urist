@@ -29,7 +29,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			extinguish(no_message = TRUE)
 
 /proc/isflamesource(A)
-	if(isWelder(A))
+	if(is_welder(A))
 		var/obj/item/weapon/weldingtool/WT = A
 		return (WT.isOn())
 	else if(istype(A, /obj/item/weapon/flame))
@@ -58,7 +58,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	attack_verb = list("burnt", "singed")
 
 /obj/item/weapon/flame/match/Process()
-	if(isliving(loc))
+	if(is_living_mob(loc))
 		var/mob/living/M = loc
 		M.IgniteMob()
 	var/turf/location = get_turf(src)
@@ -123,7 +123,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/proc/smoke(amount)
 	smoketime -= amount
 	if(reagents && reagents.total_volume) // check if it has any reagents at all
-		if(ishuman(loc))
+		if(is_human_mob(loc))
 			var/mob/living/carbon/human/C = loc
 			if (src == C.wear_mask && C.check_has_mouth()) // if it's in the human/monkey mouth, transfer reagents to the mob
 				reagents.trans_to_mob(C, REM, CHEM_INGEST, 0.2) // Most of it is not inhaled... balance reasons.
@@ -203,7 +203,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			text = zippomes
 		else if(istype(W, /obj/item/weapon/flame/lighter))
 			text = lightermes
-		else if(isWelder(W))
+		else if(is_welder(W))
 			text = weldermes
 		else if(istype(W, /obj/item/device/assembly/igniter))
 			text = ignitermes
@@ -851,7 +851,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/chewable/proc/chew(amount)
 	chewtime -= amount
 	if(reagents && reagents.total_volume) // check if it has any reagents at all
-		if(ishuman(loc))
+		if(is_human_mob(loc))
 			var/mob/living/carbon/human/C = loc
 			if (src == C.wear_mask && C.check_has_mouth()) // if it's in the human/monkey mouth, transfer reagents to the mob
 				reagents.trans_to_mob(C, REM, CHEM_INGEST, 0.2) // I am keeping this one because gum is not a replacement for real food. Fuck off Wonka.

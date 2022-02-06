@@ -168,7 +168,7 @@ SUBSYSTEM_DEF(fluids)
 
 			F.set_dir(setting_dir)
 
-			if(islist(F.equalizing_fluids) && F.equalizing_fluids.len > 1)
+			if(is_list(F.equalizing_fluids) && F.equalizing_fluids.len > 1)
 				F.equalize_avg_depth = Floor(F.equalize_avg_depth/F.equalizing_fluids.len)
 				F.equalize_avg_temp = Floor(F.equalize_avg_temp/F.equalizing_fluids.len)
 				for(var/thing in F.equalizing_fluids)

@@ -61,7 +61,7 @@
 
 
 /obj/item/weapon/board/interact(mob/user as mob)
-	if(user.is_physically_disabled() || (!isAI(user) && !user.Adjacent(src))) //can't see if you arent conscious. If you are not an AI you can't see it unless you are next to it, either.
+	if(user.is_physically_disabled() || (!is_ai(user) && !user.Adjacent(src))) //can't see if you arent conscious. If you are not an AI you can't see it unless you are next to it, either.
 		close_browser(user, "window=boardgame")
 		user.unset_machine()
 		return
@@ -90,13 +90,13 @@
 			dat += " style='background-image:url([I.icon_state].png)'>"
 		else
 			dat+= ">"
-		if(!isobserver(user))
+		if(!is_observer(user))
 			dat += "<a href='?src=[REF(src)];select=[i];person=[REF(user)]'></a>"
 		dat += "</td>"
 
 	dat += "</table>"
 
-	if(selected >= 0 && !isobserver(user))
+	if(selected >= 0 && !is_observer(user))
 		dat += "<br><A href='?src=[REF(src)];remove=0'>Remove Selected Piece</A>"
 	show_browser(user, jointext(dat, null),"window=boardgame;size=430x500") // 50px * 8 squares + 30 margin
 	onclose(usr, "boardgame")

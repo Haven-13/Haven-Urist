@@ -51,7 +51,7 @@
 		else
 			to_chat(user, "<span class='notice'>This torpedo already has a warhead in it!</span>")
 
-	else if(isCrowbar(I))
+	else if(is_crowbar(I))
 		if(warhead)
 			warhead.dropInto(loc)
 			user.visible_message(

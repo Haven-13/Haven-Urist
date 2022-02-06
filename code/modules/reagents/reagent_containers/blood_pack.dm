@@ -50,7 +50,7 @@
 	if(attached)
 		visible_message("\The [attached] is taken off \the [src]")
 		attached = null
-	else if(ishuman(over_object))
+	else if(is_human_mob(over_object))
 		visible_message("<span class = 'warning'>\The [usr] starts hooking \the [over_object] up to \the [src].</span>")
 		if(do_after(usr, 30))
 			to_chat(usr, "You hook \the [over_object] up to \the [src].")

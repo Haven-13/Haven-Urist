@@ -81,7 +81,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/tool/drill/action(atom/target)
 	if(!action_checks(target)) return
-	if(isobj(target))
+	if(is_obj(target))
 		var/obj/target_obj = target
 		if(!target_obj.vars.Find("unacidable") || target_obj.unacidable)	return
 	set_ready_state(0)
@@ -90,7 +90,7 @@
 	occupant_message("<span class='danger'>You start to drill \the [target]</span>")
 	var/T = chassis.loc
 	var/C = target.loc	//why are these backwards? we may never know -Pete
-	if(ishuman(target))
+	if(is_human_mob(target))
 		var/mob/living/carbon/human/H = target
 		var/obj/item/organ/external/E = H.organs_by_name[BP_CHEST]
 		E.take_external_damage(25)
@@ -141,7 +141,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill/action(atom/target)
 	if(!action_checks(target)) return
-	if(isobj(target))
+	if(is_obj(target))
 		var/obj/target_obj = target
 		if(target_obj.unacidable)	return
 	set_ready_state(0)
@@ -1090,7 +1090,7 @@
 	set src in oview(1)
 
 	//check that usr can climb in
-	if (usr.stat || !ishuman(usr))
+	if (usr.stat || !is_human_mob(usr))
 		return
 
 	if (!usr.Adjacent(src))
@@ -1100,7 +1100,7 @@
 		to_chat(usr, "<span class='danger'>You can't reach the passenger compartment from here.</span>")
 		return
 
-	if(iscarbon(usr))
+	if(is_carbon_mob(usr))
 		var/mob/living/carbon/C = usr
 		if(C.handcuffed)
 			to_chat(usr, "<span class='danger'>Kinda hard to climb in while handcuffed don't you think?</span>")

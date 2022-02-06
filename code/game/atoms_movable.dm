@@ -110,7 +110,7 @@
 		var/mob/living/M = hit_atom
 		M.hitby(src,speed)
 
-	else if(isobj(hit_atom))
+	else if(is_obj(hit_atom))
 		var/obj/O = hit_atom
 		if(!O.anchored)
 			step(O, src.last_move)
@@ -129,7 +129,7 @@
 			if(istype(A,/mob/living))
 				if(A:lying) continue
 				src.throw_impact(A,speed)
-			if(isobj(A))
+			if(is_obj(A))
 				if(A.density && !A.throwpass)	// **TODO: Better behaviour for windows which are dense, but shouldn't always stop movement
 					src.throw_impact(A,speed)
 
@@ -255,7 +255,7 @@
 		// end of while loop
 
 	//done throwing, either because it hit something or it finished moving
-	if(isobj(src)) src.throw_impact(get_turf(src),speed)
+	if(is_obj(src)) src.throw_impact(get_turf(src),speed)
 	src.throwing = 0
 	src.thrower = null
 	src.throw_source = null

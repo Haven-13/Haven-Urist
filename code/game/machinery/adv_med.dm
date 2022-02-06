@@ -289,13 +289,13 @@
 		dat = stored_scan
 		dat += "<br><HR><A href='?src=[REF(src)];print=1'>Print Scan</A>"
 		dat += "<br><HR><A href='?src=[REF(src)];erase=1'>Erase Scan</A>"
-		if(ishuman(connected.occupant))
+		if(is_human_mob(connected.occupant))
 			dat += "<br><HR><A href='?src=[REF(src)];scan=1'>Rescan Occupant</A>"
 	else
 		dat = "<b>Scan Menu</b>"
 		if (!connected.occupant)
 			dat += "<br><HR><span class='warning'>The body scanner is empty.</span>"
-		else if(!ishuman(connected.occupant))
+		else if(!is_human_mob(connected.occupant))
 			dat += "<br><HR><span class='warning'>This device can only scan compatible lifeforms.</span>"
 		else
 			dat += "<br><HR><A href='?src=[REF(src)];scan=1'>Scan Occupant</A>"

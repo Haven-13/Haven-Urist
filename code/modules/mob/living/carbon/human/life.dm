@@ -841,7 +841,7 @@
 			if(!(a in contents) || isnull(a))
 				stomach_contents.Remove(a)
 				continue
-			if(iscarbon(a)|| isanimal(a))
+			if(is_carbon_mob(a)|| is_animal(a))
 				var/mob/living/M = a
 				if(M.stat == DEAD)
 					M.death(1)

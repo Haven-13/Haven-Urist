@@ -64,7 +64,7 @@
 		cell.emp_act(severity)
 
 /obj/item/organ/internal/cell/attackby(obj/item/weapon/W, mob/user)
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		if(open)
 			open = 0
 			to_chat(user, "<span class='notice'>You screw the battery panel in place.</span>")
@@ -72,7 +72,7 @@
 			open = 1
 			to_chat(user, "<span class='notice'>You unscrew the battery panel.</span>")
 
-	if(isCrowbar(W))
+	if(is_crowbar(W))
 		if(open)
 			if(cell)
 				user.put_in_hands(cell)

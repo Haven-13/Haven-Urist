@@ -77,7 +77,7 @@
 
 /obj/machinery/drone_fabricator/examine(mob/user)
 	. = ..(user)
-	if(produce_drones && drone_progress >= 100 && isghost(user) && config.allow_drone_spawn && count_drones() < config.max_maint_drones)
+	if(produce_drones && drone_progress >= 100 && is_ghost(user) && config.allow_drone_spawn && count_drones() < config.max_maint_drones)
 		to_chat(user, "<BR><B>A drone is prepared. Select 'Join As Drone' from the Ghost tab to spawn as a maintenance drone.</B>")
 
 /obj/machinery/drone_fabricator/proc/create_drone(var/client/player)
@@ -88,7 +88,7 @@
 	if(!produce_drones || !config.allow_drone_spawn || count_drones() >= config.max_maint_drones)
 		return
 
-	if(player && !isghost(player.mob))
+	if(player && !is_ghost(player.mob))
 		return
 
 	visible_message("\The [src] churns and grinds as it lurches into motion, disgorging a shiny new drone after a few moments.")

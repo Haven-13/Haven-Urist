@@ -181,7 +181,7 @@ var/global/list/string_slot_flags = list(
 
 	for (var/reaction in chemical_reactions_list)
 		. += "chemical_reactions_list\[\"[reaction]\"\] = \"[chemical_reactions_list[reaction]]\"\n"
-		if(islist(chemical_reactions_list[reaction]))
+		if(is_list(chemical_reactions_list[reaction]))
 			var/list/L = chemical_reactions_list[reaction]
 			for(var/t in L)
 				. += "    has: [t]\n"

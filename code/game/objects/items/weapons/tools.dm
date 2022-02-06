@@ -229,7 +229,7 @@
 		to_chat(user, "<span class='danger'>Stop welding first!</span>")
 		return
 
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		status = !status
 		if(status)
 			to_chat(user, "<span class='notice'>You secure the welder.</span>")
@@ -305,7 +305,7 @@
 	if (src.welding)
 		remove_fuel(1)
 		var/turf/location = get_turf(user)
-		if(isliving(O))
+		if(is_living_mob(O))
 			var/mob/living/L = O
 			L.IgniteMob()
 		if (istype(location, /turf))
@@ -341,7 +341,7 @@
 	var/mob/living/in_mob = null
 
 	//consider ourselves in a mob if we are in the mob's contents and not in their hands
-	if(isliving(src.loc))
+	if(is_living_mob(src.loc))
 		var/mob/living/L = src.loc
 		if(!(L.l_hand == src || L.r_hand == src))
 			in_mob = L
@@ -438,7 +438,7 @@
 //Decides whether or not to damage a player's eyes based on what they're wearing as protection
 //Note: This should probably be moved to mob
 /obj/item/weapon/weldingtool/proc/eyecheck(mob/user as mob)
-	if(!iscarbon(user))	return 1
+	if(!is_carbon_mob(user))	return 1
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/internal/eyes/E = H.internal_organs_by_name[BP_EYES]
@@ -588,7 +588,7 @@
 
 /obj/item/weapon/weldingtool/attack(mob/living/M, mob/living/user, target_zone)
 
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/S = H.organs_by_name[target_zone]
 

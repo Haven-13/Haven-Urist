@@ -87,7 +87,7 @@
 		return FALSE
 
 /obj/item/device/boombox/attackby(var/obj/item/W, var/mob/user)
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		if(!panel)
 			user.visible_message(SPAN_NOTICE("\The [user] re-attaches \the [src]'s front panel with \the [W]."), SPAN_NOTICE("You re-attach \the [src]'s front panel."))
 			playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)

@@ -249,7 +249,7 @@
 			var/turf/ear = get_turf(M)
 			if(ear)
 				// Ghostship is magic: Ghosts can hear radio chatter from anywhere
-				if(speaker_coverage[ear] || (isghost(M) && M.get_preference_value(/datum/client_preference/ghost_radio) == GLOB.PREF_ALL_CHATTER))
+				if(speaker_coverage[ear] || (is_ghost(M) && M.get_preference_value(/datum/client_preference/ghost_radio) == GLOB.PREF_ALL_CHATTER))
 					. |= M		// Since we're already looping through mobs, why bother using |= ? This only slows things down.
 	return .
 
@@ -262,7 +262,7 @@
 		if(ismob(AM))
 			mobs += AM
 			hearturfs += get_turf(AM)
-		else if(isobj(AM))
+		else if(is_obj(AM))
 			objs += AM
 			hearturfs += get_turf(AM)
 
@@ -369,7 +369,7 @@
 	return candidates
 
 /proc/ScreenText(obj/O, maptext="", screen_loc="CENTER-7,CENTER-7", maptext_height=480, maptext_width=480)
-	if(!isobj(O))	O = new /atom/movable/screen/text()
+	if(!is_obj(O))	O = new /atom/movable/screen/text()
 	O.maptext = maptext
 	O.maptext_height = maptext_height
 	O.maptext_width = maptext_width
@@ -377,7 +377,7 @@
 	return O
 
 /proc/Show2Group4Delay(obj/O, list/group, delay=0)
-	if(!isobj(O))	return
+	if(!is_obj(O))	return
 	if(!group)	group = GLOB.clients
 	for(var/client/C in group)
 		C.screen += O

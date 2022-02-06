@@ -25,7 +25,7 @@
 //BS12 EDIT
  // All cult functionality moved to Null Rod
 /obj/item/weapon/storage/bible/proc/bless(mob/living/carbon/M as mob)
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		var/heal_amt = 10
 		for(var/obj/item/organ/external/affecting in H.organs)

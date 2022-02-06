@@ -470,7 +470,7 @@
 /mob/living/silicon/robot/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	if(istype(W, /obj/item/inducer)) return // inducer.dm afterattack handles this
-	if (istype(W, /obj/item/weapon/handcuffs)) // fuck i don't even know why isrobot() in handcuff code isn't working so this will have to do
+	if (istype(W, /obj/item/weapon/handcuffs)) // fuck i don't even know why is_robot() in handcuff code isn't working so this will have to do
 		return
 
 	if(opened) // Are they trying to insert something?
@@ -492,7 +492,7 @@
 				to_chat(usr, "<span class='notice'>You install the [W.name].</span>")
 				return
 
-	if(isWelder(W))
+	if(is_welder(W))
 		if (src == user)
 			to_chat(user, "<span class='warning'>You lack the reach to be able to repair yourself.</span>")
 			return
@@ -524,7 +524,7 @@
 			for(var/mob/O in viewers(user, null))
 				O.show_message(text("<span class='warning'>[user] has fixed some of the burnt wires on [src]!</span>"), 1)
 
-	else if(isCrowbar(W))	// crowbar means open or close the cover - we all know what a crowbar is by now
+	else if(is_crowbar(W))	// crowbar means open or close the cover - we all know what a crowbar is by now
 		if(opened)
 			if(cell)
 				user.visible_message("<span class='notice'>\The [user] begins clasping shut \the [src]'s maintenance hatch.</span>", "<span class='notice'>You begin closing up \the [src].</span>")
@@ -619,12 +619,12 @@
 			C.brute_damage = 0
 			C.electronics_damage = 0
 
-	else if(isWirecutter(W) || isMultitool(W))
+	else if(is_wirecutter(W) || is_multitool(W))
 		if (wiresexposed)
 			wires.Interact(user)
 		else
 			to_chat(user, "You can't reach the wiring.")
-	else if(isScrewdriver(W) && opened && !cell)	// haxing
+	else if(is_screwdriver(W) && opened && !cell)	// haxing
 		wiresexposed = !wiresexposed
 		to_chat(user, "The wires have been [wiresexposed ? "exposed" : "unexposed"].")
 		update_icon()

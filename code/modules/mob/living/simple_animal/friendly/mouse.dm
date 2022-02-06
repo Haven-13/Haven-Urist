@@ -82,7 +82,7 @@
 	src.death()
 
 /mob/living/simple_animal/mouse/Crossed(AM as mob|obj)
-	if( ishuman(AM) )
+	if( is_human_mob(AM) )
 		if(!stat)
 			var/mob/M = AM
 			to_chat(M, "<span class='warning'>\icon[src] Squeek!</span>")

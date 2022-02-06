@@ -1198,7 +1198,7 @@
 			to_chat(C, "<span class='warning'>Unable to locate mob.</span>")
 			return
 
-		if(!isghost(usr))	C.admin_ghost()
+		if(!is_ghost(usr))	C.admin_ghost()
 		sleep(2)
 		C.jumptomob(M)
 
@@ -1212,7 +1212,7 @@
 			to_chat(C, "<span class='warning'>Unable to locate mob.</span>")
 			return
 
-		if(!isobserver(usr))	C.admin_ghost()
+		if(!is_observer(usr))	C.admin_ghost()
 		var/mob/observer/ghost/G = C.mob
 		if(istype(G))
 			sleep(2)
@@ -1250,7 +1250,7 @@
 		var/z = text2num(href_list["Z"])
 
 		var/client/C = usr.client
-		if(!isghost(usr))	C.admin_ghost()
+		if(!is_ghost(usr))	C.admin_ghost()
 		sleep(2)
 		C.jumptocoord(x,y,z)
 
@@ -1283,7 +1283,7 @@
 			special_role_description = "Role: <i>Mind datum missing</i> Antagonist: <i>Mind datum missing</i>; Has been rev: <i>Mind datum missing</i>;"
 
 		//Health
-		if(isliving(M))
+		if(is_living_mob(M))
 			var/mob/living/L = M
 			var/status
 			switch (M.stat)
@@ -1311,7 +1311,7 @@
 		if(!check_rights(R_ADMIN|R_FUN))	return
 
 		var/mob/living/carbon/human/H = locate(href_list["adminspawncookie"])
-		if(!ishuman(H))
+		if(!is_human_mob(H))
 			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
 			return
 
@@ -1335,7 +1335,7 @@
 		if(!check_rights(R_ADMIN|R_FUN))	return
 
 		var/mob/living/M = locate(href_list["BlueSpaceArtillery"])
-		if(!isliving(M))
+		if(!is_living_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob/living")
 			return
 
@@ -1386,7 +1386,7 @@
 			to_chat(src.owner, "You sent [input] to [L] via a secure channel.")
 			log_admin("[src.owner] replied to [key_name(L)]'s Centcomm message with the message [input].")
 			message_admins("[src.owner] replied to [key_name(L)]'s Centcom message with: \"[input]\"")
-			if(!isAI(L))
+			if(!is_ai(L))
 				to_chat(L, "<span class='info'>You hear something crackle in your headset for a moment before a voice speaks.</span>")
 			to_chat(L, "<span class='info'>Please stand by for a message from Central Command.</span>")
 			to_chat(L, "<span class='info'>Message as follows.</span>")
@@ -1587,7 +1587,7 @@
 			where = "onfloor"
 
 		if ( where == "inhand" )	//Can only give when human or monkey
-			if ( !( ishuman(usr) || issmall(usr) ) )
+			if ( !( is_human_mob(usr) || issmall(usr) ) )
 				to_chat(usr, "Can only spawn in hand when you're a human or a monkey.")
 				where = "onfloor"
 			else if ( usr.get_active_hand() )
@@ -2045,7 +2045,7 @@
 
 /mob/observer/ghost/extra_admin_link(var/source, var/prefix, var/sufix, var/short_links)
 	. = ..()
-	if(mind && (mind.current && !isghost(mind.current)))
+	if(mind && (mind.current && !is_ghost(mind.current)))
 		. += "<A HREF='?[source];adminplayerobservefollow=\ref[mind.current]'>[prefix][short_links ? "B" : "BDY"][sufix]</A>"
 
 /proc/admin_jump_link(var/datum/target, var/source, var/delimiter = "|", var/prefix, var/sufix, var/short_links)

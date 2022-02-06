@@ -28,7 +28,7 @@
 			return
 		stored_card = W
 		update_power_usage()
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		to_chat(user, "You manually remove \the [stored_card] from \the [src].")
 		stored_card.forceMove(get_turf(src))
 		stored_card = null

@@ -282,7 +282,7 @@
 		return 1
 
 /atom/proc/get_global_map_pos()
-	if(!islist(GLOB.global_map) || isemptylist(GLOB.global_map)) return
+	if(!is_list(GLOB.global_map) || isemptylist(GLOB.global_map)) return
 	var/cur_x = null
 	var/cur_y = null
 	var/list/y_arr = null
@@ -407,7 +407,7 @@
 		return 0
 	if (user.incapacitated())
 		return 0
-	if (issilicon(user))
+	if (is_silicon(user))
 		to_chat(user, "<span class='notice'>You need hands for this.</span>")
 		return 0
 	return 1

@@ -74,7 +74,7 @@
 		var/distance = get_dist(M, src.loc)
 		var/safety = 1
 		to_chat(M, "<span class='warning'><font size='3'><b>You hear a tremendous bang!</font></b></span>")
-		if(ishuman(M))
+		if(is_human_mob(M))
 			if(M:is_on_ears(/obj/item/clothing/ears/earmuffs))
 				safety = 2
 

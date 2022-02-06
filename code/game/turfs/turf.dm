@@ -100,7 +100,7 @@
 
 	..()
 
-	if (!mover || !isturf(mover.loc) || isobserver(mover))
+	if (!mover || !isturf(mover.loc) || is_observer(mover))
 		return 1
 
 	//First, check objects to block exit that are not on the border
@@ -269,7 +269,7 @@ var/const/enterloopsanity = 100
 	if(src.density)
 		spawn(2)
 			step(AM, turn(AM.last_move, 180))
-		if(isliving(AM))
+		if(is_living_mob(AM))
 			var/mob/living/M = AM
 			M.turf_collision(src, speed)
 

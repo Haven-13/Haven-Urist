@@ -35,7 +35,7 @@
 	if(!canremove)
 		return
 
-	if ((ishuman(usr) || isrobot(usr) || issmall(usr)) && !usr.incapacitated())
+	if ((is_human_mob(usr) || is_robot(usr) || issmall(usr)) && !usr.incapacitated())
 		if(over_object == usr && Adjacent(usr)) // this must come before the screen objects only block
 			src.open(usr)
 			return TRUE
@@ -81,7 +81,7 @@
 /obj/item/weapon/storage/proc/open(mob/user as mob)
 	if (src.use_sound)
 		playsound(src.loc, src.use_sound, 50, 0, -5)
-	if (isrobot(user) && user.hud_used)
+	if (is_robot(user) && user.hud_used)
 		var/mob/living/silicon/robot/robot = user
 		if(robot.shown_robot_modules) //The robot's inventory is open, need to close it first.
 			robot.hud_used.toggle_show_robot_modules()
@@ -241,7 +241,7 @@
 /obj/item/weapon/storage/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 
-	if(isrobot(user) && (W == user.get_active_hand()))
+	if(is_robot(user) && (W == user.get_active_hand()))
 		return //Robots can't store their modules.
 
 	if(!can_be_inserted(W, user))
@@ -251,7 +251,7 @@
 	return handle_item_insertion(W)
 
 /obj/item/weapon/storage/attack_hand(mob/user as mob)
-	if(ishuman(user))
+	if(is_human_mob(user))
 		var/mob/living/carbon/human/H = user
 		if(H.l_store == src && !H.get_active_hand())	//Prevents opening if it's in a pocket.
 			H.put_in_hands(src)
@@ -304,7 +304,7 @@
 	set name = "Empty Contents"
 	set category = "Object"
 
-	if((!ishuman(usr) && (src.loc != usr)) || usr.stat || usr.restrained())
+	if((!is_human_mob(usr) && (src.loc != usr)) || usr.stat || usr.restrained())
 		return
 
 	var/turf/T = get_turf(src)
@@ -334,7 +334,7 @@
 	if(startswith)
 		for(var/item_path in startswith)
 			var/list/data = startswith[item_path]
-			if(islist(data))
+			if(is_list(data))
 				var/qty = data[1]
 				var/list/argsl = data.Copy()
 				argsl[1] = src

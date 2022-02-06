@@ -13,7 +13,7 @@
 	..()
 	if(!H)
 		return
-	if(isobserver(H) && !(isghost(H) && affect_ghosts))
+	if(is_observer(H) && !(is_ghost(H) && affect_ghosts))
 		return
 	Trigger(H)
 

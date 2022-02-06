@@ -158,7 +158,7 @@
 		msg += "[T.He] [T.is] small halfling!\n"
 
 	var/distance = 0
-	if(isghost(user) || user.stat == DEAD) // ghosts can see anything
+	if(is_ghost(user) || user.stat == DEAD) // ghosts can see anything
 		distance = 1
 	else
 		distance = get_dist(user,src)
@@ -166,7 +166,7 @@
 		msg += "<span class='warning'>[T.He] [T.is]n't responding to anything around [T.him] and seems to be unconscious.</span>\n"
 		if((stat == DEAD || is_asystole() || src.losebreath) && distance <= 3)
 			msg += "<span class='warning'>[T.He] [T.does] not appear to be breathing.</span>\n"
-		if(ishuman(user) && !user.incapacitated() && Adjacent(user))
+		if(is_human_mob(user) && !user.incapacitated() && Adjacent(user))
 			spawn(0)
 				user.visible_message("<b>\The [user]</b> checks \the [src]'s pulse.", "You check \the [src]'s pulse.")
 				if(do_after(user, 15, src))

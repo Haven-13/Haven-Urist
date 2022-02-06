@@ -57,11 +57,11 @@
 					Target = targets[1] // I am attacked and am fighting back or so hungry I don't even care
 				else
 					for(var/mob/living/carbon/C in targets)
-						if(ishuman(C) && prob(5))
+						if(is_human_mob(C) && prob(5))
 							Target = C
 							break
 
-						if(isalien(C) || issmall(C) || isanimal(C))
+						if(is_alien(C) || issmall(C) || is_animal(C))
 							Target = C
 							break
 
@@ -90,7 +90,7 @@
 				SelfMove(pick(GLOB.cardinal))
 
 /mob/living/carbon/slime/proc/AssessTarget(var/mob/living/M)
-	if(isslime(M)) // Ignore other slimes
+	if(is_slime(M)) // Ignore other slimes
 		return 0
 
 	if(M in Friends) // Ignore friends
@@ -285,7 +285,7 @@
 		var/dead_slimes = 0
 		var/friends_near = list()
 		for (var/mob/living/carbon/M in view(7,src))
-			if (isslime(M))
+			if (is_slime(M))
 				++slimes_near
 				if (M.stat == DEAD)
 					++dead_slimes

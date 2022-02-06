@@ -271,7 +271,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 		return splash_mob(target, amount, copy)
 	if(isturf(target))
 		return trans_to_turf(target, amount, multiplier, copy)
-	if(isobj(target) && target.is_open_container())
+	if(is_obj(target) && target.is_open_container())
 		return trans_to_obj(target, amount, multiplier, copy)
 	return 0
 
@@ -313,7 +313,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 		touch_mob(target)
 	if(isturf(target))
 		touch_turf(target)
-	if(isobj(target))
+	if(is_obj(target))
 		touch_obj(target)
 	return
 
@@ -349,7 +349,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 // Do not call this directly, call trans_to() instead.
 /datum/reagents/proc/splash_mob(var/mob/target, var/amount = 1, var/copy = 0)
 	var/perm = 1
-	if(isliving(target)) //will we ever even need to tranfer reagents to non-living mobs?
+	if(is_living_mob(target)) //will we ever even need to tranfer reagents to non-living mobs?
 		var/mob/living/L = target
 		perm = L.reagent_permeability()
 	return trans_to_mob(target, amount * perm, CHEM_TOUCH, 1, copy)
@@ -357,7 +357,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 /datum/reagents/proc/trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_BLOOD, var/multiplier = 1, var/copy = 0) // Transfer after checking into which holder...
 	if(!target || !istype(target) || !target.simulated)
 		return
-	if(iscarbon(target))
+	if(is_carbon_mob(target))
 		var/mob/living/carbon/C = target
 		if(type == CHEM_BLOOD)
 			var/datum/reagents/R = C.reagents

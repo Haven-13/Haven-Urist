@@ -135,7 +135,7 @@
 //almost never called, overwritten by all power machines but terminal and generator
 /obj/machinery/power/attackby(obj/item/weapon/W, mob/user)
 
-	if(isCoil(W))
+	if(is_coil(W))
 
 		var/obj/item/stack/cable_coil/coil = W
 

@@ -35,11 +35,11 @@ If the override option is set to 0, the access supplied will instead be added as
 */
 /datum/computer_file/report/proc/set_access(access, access_edit, recursive = 1, override = 1)
 	if(access)
-		if(!islist(access))
+		if(!is_list(access))
 			access = list(access)
 		override ? (src.access = list(access)) : (src.access += list(access))  //Note that this is a list of lists.
 	if(access_edit)
-		if(!islist(access_edit))
+		if(!is_list(access_edit))
 			access_edit = list(access_edit)
 		override ? (src.access_edit = list(access_edit)) : (src.access_edit += list(access_edit))
 	if(recursive)

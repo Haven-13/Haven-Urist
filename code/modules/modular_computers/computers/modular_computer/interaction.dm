@@ -98,7 +98,7 @@
 	if(istype(stored_pen))
 		to_chat(usr, "<span class='notice'>You remove [stored_pen] from [src].</span>")
 		stored_pen.forceMove(get_turf(src))
-		if(!issilicon(usr))
+		if(!is_silicon(usr))
 			usr.put_in_hands(stored_pen)
 		stored_pen = null
 		update_verbs()
@@ -122,7 +122,7 @@
 		P.event_idremoved(1)
 
 	card_slot.stored_card.forceMove(get_turf(src))
-	if(!issilicon(user))
+	if(!is_silicon(user))
 		user.put_in_hands(card_slot.stored_card)
 	to_chat(user, "You remove [card_slot.stored_card] from [src].")
 	card_slot.stored_card = null
@@ -227,7 +227,7 @@
 			try_install_component(user, C)
 		else
 			to_chat(user, "This component is too large for \the [src].")
-	if(isWrench(W))
+	if(is_wrench(W))
 		var/list/components = get_all_components()
 		if(components.len)
 			to_chat(user, "Remove all components from \the [src] before disassembling it.")
@@ -236,7 +236,7 @@
 		src.visible_message("\The [src] has been disassembled by [user].")
 		qdel(src)
 		return
-	if(isWelder(W))
+	if(is_welder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(!WT.isOn())
 			to_chat(user, "\The [W] is off.")
@@ -252,7 +252,7 @@
 			to_chat(user, "You repair \the [src].")
 		return
 
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		var/list/all_components = get_all_components()
 		if(!all_components.len)
 			to_chat(user, "This device doesn't have any components installed.")

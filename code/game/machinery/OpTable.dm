@@ -60,7 +60,7 @@
 		return
 	if (istype(O, /obj/item/grab))
 		var/obj/item/grab/G = O
-		if(iscarbon(G.affecting) && check_table(G.affecting))
+		if(is_carbon_mob(G.affecting) && check_table(G.affecting))
 			take_victim(G.affecting,usr)
 			qdel(O)
 			return
@@ -144,7 +144,7 @@
 	C.resting = 1
 	C.dropInto(loc)
 	src.add_fingerprint(user)
-	if(ishuman(C))
+	if(is_human_mob(C))
 		var/mob/living/carbon/human/H = C
 		src.victim = H
 		icon_state = H.pulse() ? "table2-active" : "table2-idle"
@@ -153,7 +153,7 @@
 
 /obj/machinery/optable/MouseDrop_T(mob/target, mob/user)
 	var/mob/living/M = user
-	if(user.stat || user.restrained() || !check_table(user) || !iscarbon(target))
+	if(user.stat || user.restrained() || !check_table(user) || !is_carbon_mob(target))
 		return
 	if(istype(M))
 		take_victim(target,user)
@@ -161,7 +161,7 @@
 		return ..()
 
 /obj/machinery/optable/climb_on()
-	if(usr.stat || !ishuman(usr) || usr.restrained() || !check_table(usr))
+	if(usr.stat || !is_human_mob(usr) || usr.restrained() || !check_table(usr))
 		return
 
 	take_victim(usr,usr)

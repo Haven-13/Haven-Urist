@@ -202,7 +202,7 @@
 ********************/
 
 /obj/machinery/smartfridge/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(isScrewdriver(O))
+	if(is_screwdriver(O))
 		panel_open = !panel_open
 		user.visible_message("[user] [panel_open ? "opens" : "closes"] the maintenance panel of \the [src].", "You [panel_open ? "open" : "close"] the maintenance panel of \the [src].")
 		overlays.Cut()
@@ -211,7 +211,7 @@
 		SStgui.update_uis(src)
 		return
 
-	if(isMultitool(O) || isWirecutter(O))
+	if(is_multitool(O) || is_wirecutter(O))
 		if(panel_open)
 			attack_hand(user)
 		return

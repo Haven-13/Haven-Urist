@@ -82,7 +82,7 @@
 				return
 		else
 			CRASH("Invalid argument: client: `[client]`")
-	if (!islist(asset_list))
+	if (!is_list(asset_list))
 		asset_list = list(asset_list)
 	var/list/unreceived = list()
 

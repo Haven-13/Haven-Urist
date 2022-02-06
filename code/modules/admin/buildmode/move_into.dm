@@ -20,7 +20,7 @@
 	if(parameters["right"])
 		if(!destination)
 			to_chat(user, "<span class='warning'>No target destination.</span>")
-		else if(!ismovable(A))
+		else if(!is_movable(A))
 			to_chat(user, "<span class='warning'>\The [A] must be of type /atom/movable.</span>")
 		else
 			to_chat(user, "<span class='notice'>Moved \the [A] into \the [destination].</span>")

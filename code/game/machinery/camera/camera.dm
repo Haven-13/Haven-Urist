@@ -178,7 +178,7 @@
 /obj/machinery/camera/attackby(obj/item/W as obj, mob/living/user as mob)
 	update_coverage()
 	// DECONSTRUCTION
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 //		to_chat(user, "<span class='notice'>You start to [panel_open ? "close" : "open"] the camera's panel.</span>")
 		//if(toggle_panel(user)) // No delay because no one likes screwdrivers trying to be hip and have a duration cooldown
 		panel_open = !panel_open
@@ -186,10 +186,10 @@
 		"<span class='notice'>You screw the camera's panel [panel_open ? "open" : "closed"].</span>")
 		playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 
-	else if((isWirecutter(W) || isMultitool(W)) && panel_open)
+	else if((is_wirecutter(W) || is_multitool(W)) && panel_open)
 		interact(user)
 
-	else if(isWelder(W) && (wires.CanDeconstruct() || (stat & BROKEN)))
+	else if(is_welder(W) && (wires.CanDeconstruct() || (stat & BROKEN)))
 		if(weld(W, user))
 			if(assembly)
 				assembly.dropInto(loc)
@@ -211,7 +211,7 @@
 			return
 
 	// OTHER
-	else if (can_use() && istype(W, /obj/item/weapon/paper) && isliving(user))
+	else if (can_use() && istype(W, /obj/item/weapon/paper) && is_living_mob(user))
 		var/mob/living/U = user
 		var/obj/item/weapon/paper/X = W
 		var/itemname = X.name

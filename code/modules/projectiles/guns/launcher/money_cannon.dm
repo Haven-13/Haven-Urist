@@ -140,7 +140,7 @@
 		to_chat(user, "<span class='notice'>Its motors are severely overloaded.</span>")
 
 /obj/item/weapon/gun/launcher/money/handle_suicide(mob/living/user)
-	if(!ishuman(user))
+	if(!is_human_mob(user))
 		return
 
 	var/mob/living/carbon/human/M = user

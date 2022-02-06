@@ -18,7 +18,7 @@ var/jobban_keylist[0]		//to store the keys & ranks
 	if(M && rank)
 		// WHY THE FUCK CAN M BE A client OBJECT WHEN IT IS SPECIFIED AS A mob VARIABLE???
 		// GOD DO I LOVE BYOND AND SS13 SHITCODE
-		var/client/C = (isclient(M) && M) || M.client
+		var/client/C = (is_client(M) && M) || M.client
 		if (guest_jobbans(rank) && isnull(C.holder))
 			if(config.guest_jobban && IsGuestKey(C.key))
 				return "Guest Job-ban"

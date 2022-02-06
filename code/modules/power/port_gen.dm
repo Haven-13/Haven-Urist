@@ -278,7 +278,7 @@
 		updateUsrDialog()
 		return
 	else if(!active)
-		if(isWrench(O))
+		if(is_wrench(O))
 
 			if(!anchored)
 				connect_to_network()

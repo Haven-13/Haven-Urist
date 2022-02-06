@@ -71,7 +71,7 @@
 
 	if ((!( istype(O, /obj/item/weapon) ) || user.get_active_hand() != O))
 		return ..()
-	if(isrobot(user))
+	if(is_robot(user))
 		return
 	user.unequip_item()
 	if (O.loc != src.loc)
@@ -101,7 +101,7 @@
 			return
 
 	// Handle dismantling or placing things on the table from here on.
-	if(isrobot(user))
+	if(is_robot(user))
 		return
 
 	if(W.loc != user) // This should stop mounted modules ending up outside the module.

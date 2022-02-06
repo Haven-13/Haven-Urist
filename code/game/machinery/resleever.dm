@@ -167,7 +167,7 @@
 		else
 			to_chat(user, "<span class='warning'>\The [src] already has a neural lace inside it!</span>")
 			return
-	else if(isWrench(W))
+	else if(is_wrench(W))
 		if(isnull(occupant))
 			if(anchored)
 				anchored = 0

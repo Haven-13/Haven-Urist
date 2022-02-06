@@ -266,7 +266,7 @@
 			return 0
 		if(istype(W,/obj/item/tk_grab))
 			return 0
-		if(isWelder(W))
+		if(is_welder(W))
 			var/obj/item/weapon/weldingtool/WT = W
 			if(WT.isOn())
 				slice_into_parts(WT, user)
@@ -298,7 +298,7 @@
 			open()
 	else if(istype(W, /obj/item/stack/package_wrap))
 		return
-	else if(isWelder(W) && (setup & CLOSET_CAN_BE_WELDED))
+	else if(is_welder(W) && (setup & CLOSET_CAN_BE_WELDED))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(!WT.remove_fuel(0,user))
 			if(!WT.isOn())
@@ -383,7 +383,7 @@
 	if(!CanPhysicallyInteract(usr))
 		return
 
-	if(ishuman(usr))
+	if(is_human_mob(usr))
 		src.add_fingerprint(usr)
 		src.toggle(usr)
 	else

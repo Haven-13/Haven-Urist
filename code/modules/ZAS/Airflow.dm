@@ -35,7 +35,7 @@ Contains helper procs for airflow, handled in /connection_group.
 
 	if(anchored && !ismob(src)) return 0
 
-	if(!isobj(src) && n < vsc.airflow_dense_pressure) return 0
+	if(!is_obj(src) && n < vsc.airflow_dense_pressure) return 0
 
 	return 1
 
@@ -150,6 +150,6 @@ Contains helper procs for airflow, handled in /connection_group.
 	. = list()
 	for(var/turf/T in contents)
 		for(var/atom/movable/A in T)
-			if(!A.simulated || A.anchored || istype(A, /obj/effect) || isobserver(A))
+			if(!A.simulated || A.anchored || istype(A, /obj/effect) || is_observer(A))
 				continue
 			. += A

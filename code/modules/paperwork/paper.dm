@@ -66,13 +66,13 @@
 	. = ..()
 	if(name != "sheet of paper")
 		to_chat(user, "It's titled '[name]'.")
-	if(in_range(user, src) || isghost(user))
+	if(in_range(user, src) || is_ghost(user))
 		show_content(usr)
 	else
 		to_chat(user, "<span class='notice'>You have to go closer if you want to read it.</span>")
 
 /obj/item/weapon/paper/proc/show_content(mob/user, forceshow)
-	var/can_read = (istype(user, /mob/living/carbon/human) || isghost(user) || istype(user, /mob/living/silicon)) || forceshow
+	var/can_read = (istype(user, /mob/living/carbon/human) || is_ghost(user) || istype(user, /mob/living/silicon)) || forceshow
 	if(!forceshow && istype(user,/mob/living/silicon/ai))
 		var/mob/living/silicon/ai/AI = user
 		can_read = get_dist(src, AI.camera) < 2
@@ -122,7 +122,7 @@
 		M.examinate(src)
 
 	else if(user.zone_sel.selecting == BP_MOUTH) // lipstick wiping
-		if(ishuman(M))
+		if(is_human_mob(M))
 			var/mob/living/carbon/human/H = M
 			if(H == user)
 				to_chat(user, "<span class='notice'>You wipe off the lipstick with [src].</span>")

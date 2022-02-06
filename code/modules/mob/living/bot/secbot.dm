@@ -235,7 +235,7 @@
 	qdel(src)
 
 /mob/living/bot/secbot/proc/target_name(mob/living/T)
-	if(ishuman(T))
+	if(is_human_mob(T))
 		var/mob/living/carbon/human/H = T
 		return H.get_id_name("unidentified person")
 	return "unidentified lifeform"
@@ -280,7 +280,7 @@
 
 /obj/item/weapon/secbot_assembly/attackby(var/obj/item/O, var/mob/user)
 	..()
-	if(isWelder(O) && !build_step)
+	if(is_welder(O) && !build_step)
 		var/obj/item/weapon/weldingtool/WT = O
 		if(WT.remove_fuel(0, user))
 			build_step = 1

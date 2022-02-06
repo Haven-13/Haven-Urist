@@ -74,7 +74,7 @@
 
 /mob/living/simple_animal/cat/proc/handle_movement_target()
 	//if our target is neither inside a turf or inside a human(???), stop
-	if((movement_target) && !(isturf(movement_target.loc) || ishuman(movement_target.loc) ))
+	if((movement_target) && !(isturf(movement_target.loc) || is_human_mob(movement_target.loc) ))
 		movement_target = null
 		stop_automated_movement = 0
 	//if we have no target or our current one is out of sight/too far away

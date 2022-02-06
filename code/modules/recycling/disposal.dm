@@ -57,7 +57,7 @@
 
 	add_fingerprint(user, 0, I)
 	if(mode<=0) // It's off
-		if(isScrewdriver(I))
+		if(is_screwdriver(I))
 			if(contents.len > 0)
 				to_chat(user, "Eject the items first!")
 				return
@@ -71,7 +71,7 @@
 				playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "You attach the screws around the power connection.")
 				return
-		else if(isWelder(I) && mode==-1)
+		else if(is_welder(I) && mode==-1)
 			if(contents.len > 0)
 				to_chat(user, "Eject the items first!")
 				return
@@ -125,7 +125,7 @@
 				admin_attack_log(usr, GM, "Placed the victim into \the [src].", "Was placed into \the [src] by the attacker.", "stuffed \the [src] with")
 		return
 
-	if(isrobot(user))
+	if(is_robot(user))
 		return
 	if(!I)
 		return
@@ -150,7 +150,7 @@
 		return
 
 	// Animals can only put themself in
-	if(isanimal(user) && AM != user)
+	if(is_animal(user) && AM != user)
 		return
 
 	// Determine object type and run necessary checks
@@ -292,7 +292,7 @@
 	if(usr.loc == src)
 		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
 		return UI_CLOSE
-	if(isAI(user) && (href_list["handle"] || href_list["eject"]))
+	if(is_ai(user) && (href_list["handle"] || href_list["eject"]))
 		return min(UI_UPDATE, ..())
 	if(mode==-1 && !href_list["eject"]) // only allow ejecting if mode is -1
 		to_chat(user, "<span class='warning'>The disposal units power is disabled.</span>")
@@ -1206,7 +1206,7 @@
 	return ..()
 
 /obj/machinery/disposal_switch/attackby(obj/item/I, mob/user, params)
-	if(isCrowbar(I))
+	if(is_crowbar(I))
 		var/obj/item/disposal_switch_construct/C = new/obj/item/disposal_switch_construct(src.loc, id_tag)
 		transfer_fingerprints_to(C)
 		user.visible_message("<span class='notice'>\The [user] deattaches \the [src]</span>")
@@ -1629,7 +1629,7 @@
 	if(!I || !user)
 		return
 	src.add_fingerprint(user, 0, I)
-	if(isScrewdriver(I))
+	if(is_screwdriver(I))
 		if(mode==0)
 			mode=1
 			playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)

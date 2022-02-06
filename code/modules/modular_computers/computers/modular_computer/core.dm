@@ -118,7 +118,7 @@
 		return
 	if(tesla_link)
 		tesla_link.enabled = 1
-	var/issynth = issilicon(user) // Robots and AIs get different activation messages.
+	var/issynth = is_silicon(user) // Robots and AIs get different activation messages.
 	if(damage > broken_damage)
 		if(issynth)
 			to_chat(user, "You send an activation signal to \the [src], but it responds with an error code. It must be damaged.")

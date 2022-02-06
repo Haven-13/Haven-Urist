@@ -60,7 +60,7 @@
 
 			activate(user)
 			add_fingerprint(user)
-			if(iscarbon(user))
+			if(is_carbon_mob(user))
 				var/mob/living/carbon/C = user
 				C.throw_mode_on()
 	return
@@ -90,7 +90,7 @@
 
 
 /obj/item/weapon/grenade/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		switch(det_time)
 			if (1)
 				det_time = 10

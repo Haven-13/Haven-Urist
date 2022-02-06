@@ -153,7 +153,7 @@
 	var/slab_count = 3
 	var/slab_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	var/slab_nutrition = 20
-	if(iscarbon(occupant))
+	if(is_carbon_mob(occupant))
 		var/mob/living/carbon/C = occupant
 		slab_nutrition = C.nutrition / 15
 

@@ -45,7 +45,7 @@
 
 /proc/get_antags(var/atype)
 	var/datum/antagonist/antag = GLOB.all_antag_types_[atype]
-	if(antag && islist(antag.current_antagonists))
+	if(antag && is_list(antag.current_antagonists))
 		return antag.current_antagonists
 	return list()
 

@@ -13,7 +13,7 @@
 		return
 
 	if(!C.holder)
-		if(isghost(C.mob))
+		if(is_ghost(C.mob))
 			to_chat(src, "<span class='warning'>You cannot use [name] while ghosting/observing!</span>")
 			return FALSE
 		if(!(C.mob && C.mob.mind && C.mob.mind.special_role))

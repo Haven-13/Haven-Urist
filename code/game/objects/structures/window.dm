@@ -158,7 +158,7 @@
 	if(ismob(AM)) // All mobs have a multiplier and a size according to mob_defines.dm
 		var/mob/I = AM
 		tforce = I.mob_size * 2 * I.throw_multiplier
-	else if(isobj(AM))
+	else if(is_obj(AM))
 		var/obj/item/I = AM
 		tforce = I.throwforce
 	if(reinf) tforce *= 0.25
@@ -220,7 +220,7 @@
 
 	if(W.item_flags & ITEM_FLAG_NO_BLUDGEON) return
 
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		if(reinf && state >= 1)
 			state = 3 - state
 			update_nearby_icons()
@@ -234,11 +234,11 @@
 			set_anchored(!anchored)
 			playsound(loc, 'resources/sound/items/Screwdriver.ogg', 75, 1)
 			to_chat(user, (anchored ? "<span class='notice'>You have fastened the window to the floor.</span>" : "<span class='notice'>You have unfastened the window.</span>"))
-	else if(isCrowbar(W) && reinf && state <= 1)
+	else if(is_crowbar(W) && reinf && state <= 1)
 		state = 1 - state
 		playsound(loc, 'resources/sound/items/Crowbar.ogg', 75, 1)
 		to_chat(user, (state ? "<span class='notice'>You have pried the window into the frame.</span>" : "<span class='notice'>You have pried the window out of the frame.</span>"))
-	else if(isWrench(W) && !anchored && (!state || !reinf))
+	else if(is_wrench(W) && !anchored && (!state || !reinf))
 		if(!glasstype)
 			to_chat(user, "<span class='notice'>You're not sure how to dismantle \the [src] properly.</span>")
 		else
@@ -250,7 +250,7 @@
 			else
 				new glasstype(loc)
 			qdel(src)
-	else if(isCoil(W) && reinf && !polarized)
+	else if(is_coil(W) && reinf && !polarized)
 		var/obj/item/stack/cable_coil/C = W
 		if (C.use(1))
 			playsound(src.loc, 'resources/sound/effects/sparks1.ogg', 75, 1)
@@ -546,7 +546,7 @@
 	icon_state = "rwindow_full"
 
 /obj/structure/window/reinforced/polarized/attackby(obj/item/W as obj, mob/user as mob)
-	if(isMultitool(W))
+	if(is_multitool(W))
 		var/t = sanitizeSafe(input(user, "Enter the ID for the window.", src.name, null), MAX_NAME_LEN)
 		if(user.incapacitated() && !user.Adjacent(src))
 			return
@@ -615,7 +615,7 @@
 	toggle_tint()
 
 /obj/machinery/button/windowtint/attackby(obj/item/device/W as obj, mob/user as mob)
-	if(isMultitool(W))
+	if(is_multitool(W))
 		var/t = sanitizeSafe(input(user, "Enter the ID for the button.", src.name, id), MAX_NAME_LEN)
 		if(user.incapacitated() && !user.Adjacent(src))
 			return

@@ -125,7 +125,7 @@
 	set category = "Object"
 	set src in oview(1)
 
-	if(isobserver(usr) || usr.restrained() || !usr.Adjacent(src))
+	if(is_observer(usr) || usr.restrained() || !usr.Adjacent(src))
 		return
 
 	verbs -= /obj/structure/inflatable/verb/hand_deflate
@@ -157,9 +157,9 @@
 	var/isSwitchingStates = 0
 
 /obj/structure/inflatable/door/attack_ai(mob/user as mob) //those aren't machinery, they're just big fucking slabs of a mineral
-	if(isAI(user)) //so the AI can't open it
+	if(is_ai(user)) //so the AI can't open it
 		return
-	else if(isrobot(user)) //but cyborgs can
+	else if(is_robot(user)) //but cyborgs can
 		if(get_dist(user,src) <= 1) //not remotely though
 			return TryToSwitchState(user)
 
@@ -178,7 +178,7 @@
 	if(ismob(user))
 		var/mob/M = user
 		if(M.client)
-			if(iscarbon(M))
+			if(is_carbon_mob(M))
 				var/mob/living/carbon/C = M
 				if(!C.handcuffed)
 					SwitchState()

@@ -148,7 +148,7 @@
 		return
 
 	//Is the usr's mob type able to do this?
-	if(ishuman(usr) || issmall(usr) || isrobot(usr))
+	if(is_human_mob(usr) || issmall(usr) || is_robot(usr))
 
 		//Removing from inventory
 		if(href_list["remove_inv"])
@@ -371,7 +371,7 @@
 		if(!held_item && !parrot_perch) //If we've got nothing to do.. look for something to do.
 			var/atom/movable/AM = search_for_perch_and_item() //This handles checking through lists so we know it's either a perch or stealable item
 			if(AM)
-				if((isitem(AM) && can_pick_up(AM)) || isliving(AM))	//If stealable item
+				if((is_item(AM) && can_pick_up(AM)) || is_living_mob(AM))	//If stealable item
 					parrot_interest = AM
 					visible_emote("turns and flies towards [parrot_interest]")
 					parrot_state = PARROT_SWOOP | PARROT_STEAL
@@ -408,10 +408,10 @@
 
 		if(in_range(src, parrot_interest))
 
-			if(isliving(parrot_interest))
+			if(is_living_mob(parrot_interest))
 				steal_from_mob()
 
-			if(isitem(parrot_interest) && can_pick_up(parrot_interest))//This should ensure that we only grab the item we want, and make sure it's not already collected on our perch, a correct size, and not bolted to the floor
+			if(is_item(parrot_interest) && can_pick_up(parrot_interest))//This should ensure that we only grab the item we want, and make sure it's not already collected on our perch, a correct size, and not bolted to the floor
 				if(!parrot_perch || parrot_interest.loc != parrot_perch.loc)
 					held_item = parrot_interest
 					parrot_interest.loc = src
@@ -445,7 +445,7 @@
 //-----FLEEING
 	else if(parrot_state == (PARROT_SWOOP | PARROT_FLEE))
 		walk(src,0)
-		if(!parrot_interest || !isliving(parrot_interest)) //Sanity
+		if(!parrot_interest || !is_living_mob(parrot_interest)) //Sanity
 			parrot_state = PARROT_WANDER
 
 		walk_away(src, parrot_interest, 1, parrot_speed-parrot_been_shot)
@@ -456,7 +456,7 @@
 	else if(parrot_state == (PARROT_SWOOP | PARROT_ATTACK))
 
 		//If we're attacking a nothing, an object, a turf or a ghost for some stupid reason, switch to wander
-		if(!parrot_interest || !isliving(parrot_interest))
+		if(!parrot_interest || !is_living_mob(parrot_interest))
 			parrot_interest = null
 			parrot_state = PARROT_WANDER
 			return
@@ -482,7 +482,7 @@
 			//Time for the hurt to begin!
 			var/damage = rand(melee_damage_lower, melee_damage_upper)
 
-			if(ishuman(parrot_interest))
+			if(is_human_mob(parrot_interest))
 				var/mob/living/carbon/human/H = parrot_interest
 				var/obj/item/organ/external/affecting = H.get_organ(ran_zone(pick(parrot_dam_zone)))
 
@@ -522,10 +522,10 @@
 		if(parrot_perch && AM.loc == parrot_perch.loc || AM.loc == src)
 			continue
 
-		if(isitem(AM) && can_pick_up(AM))
+		if(is_item(AM) && can_pick_up(AM))
 			return AM
 
-		if(iscarbon(AM))
+		if(is_carbon_mob(AM))
 			var/mob/living/carbon/C = AM
 			if((C.l_hand && can_pick_up(C.l_hand)) || (C.r_hand && can_pick_up(C.r_hand)))
 				return C
@@ -549,10 +549,10 @@
 		if(parrot_perch && AM.loc == parrot_perch.loc || AM.loc == src)
 			continue
 
-		if(isitem(AM) && can_pick_up(AM))
+		if(is_item(AM) && can_pick_up(AM))
 			return AM
 
-		if(iscarbon(AM))
+		if(is_carbon_mob(AM))
 			var/mob/living/carbon/C = AM
 			if((C.l_hand && can_pick_up(C.l_hand)) || (C.r_hand && can_pick_up(C.r_hand)))
 				return C

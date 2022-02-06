@@ -21,11 +21,11 @@
 		return "I cannot feed on other slimes..."
 	if (!Adjacent(M))
 		return "This subject is too far away..."
-	if (issilicon(M))
+	if (is_silicon(M))
 		return "This subject does not have an edible life energy..."
 	if (M.getarmor(null, "bio") >= 100)
 		return "This subject is protected..."
-	if (ishuman(M))
+	if (is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		if(H.species.species_flags & (SPECIES_FLAG_NO_POISON|SPECIES_FLAG_NO_SCAN))
 			//they can't take clone or tox damage, then for the most part they aren't affected by being fed on - and presumably feeding on them would not affect the slime either
@@ -69,7 +69,7 @@
 
 			if(prob(15) && M.client && istype(M, /mob/living/carbon))
 				var/painMes = pick("You can feel your body becoming weak!", "You feel like you're about to die!", "You feel every part of your body screaming in agony!", "A low, rolling pain passes through your body!", "Your body feels as if it's falling apart!", "You feel extremely weak!", "A sharp, deep pain bathes every inch of your body!")
-				if (ishuman(M))
+				if (is_human_mob(M))
 					var/mob/living/carbon/human/H = M
 					H.custom_pain(painMes,100)
 				else if (istype(M, /mob/living/carbon))

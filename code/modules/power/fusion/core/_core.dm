@@ -103,13 +103,13 @@ var/list/fusion_cores = list()
 		to_chat(user,"<span class='warning'>Shut \the [src] off first!</span>")
 		return
 
-	if(isMultitool(W))
+	if(is_multitool(W))
 		var/new_ident = input("Enter a new ident tag.", "Fusion Core", id_tag) as null|text
 		if(new_ident && user.Adjacent(src))
 			id_tag = new_ident
 		return
 
-	else if(isWrench(W))
+	else if(is_wrench(W))
 		anchored = !anchored
 		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 		if(anchored)

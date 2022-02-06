@@ -76,7 +76,7 @@
 /obj/item/weapon/sample/print/attack_self(var/mob/user)
 	if(evidence && evidence.len)
 		return
-	if(!ishuman(user))
+	if(!is_human_mob(user))
 		return
 	var/mob/living/carbon/human/H = user
 	if(H.gloves)
@@ -91,7 +91,7 @@
 
 /obj/item/weapon/sample/print/attack(var/mob/living/M, var/mob/user)
 
-	if(!ishuman(M))
+	if(!is_human_mob(M))
 		return ..()
 
 	if(evidence && evidence.len)

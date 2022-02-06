@@ -40,7 +40,7 @@ var/list/fuel_injectors = list()
 
 /obj/machinery/fusion_fuel_injector/attackby(obj/item/W, mob/user)
 
-	if(isMultitool(W))
+	if(is_multitool(W))
 		var/new_ident = input("Enter a new ident tag.", "Fuel Injector", id_tag) as null|text
 		if(new_ident && user.Adjacent(src))
 			id_tag = new_ident
@@ -63,7 +63,7 @@ var/list/fuel_injectors = list()
 		cur_assembly = W
 		return
 
-	if(isWrench(W))
+	if(is_wrench(W))
 		if(injecting)
 			to_chat(user, "<span class='warning'>Shut \the [src] off first!</span>")
 			return

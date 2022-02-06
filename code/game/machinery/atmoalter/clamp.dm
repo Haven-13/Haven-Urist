@@ -124,7 +124,7 @@
 			to_chat(usr, "<span class='notice'>You have removed \the [src].</span>")
 			var/obj/item/clamp/C = new/obj/item/clamp(src.loc)
 			C.forceMove(usr.loc)
-			if(ishuman(usr))
+			if(is_human_mob(usr))
 				usr.put_in_hands(C)
 			qdel(src)
 			return

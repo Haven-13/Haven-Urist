@@ -84,7 +84,7 @@
 		paste.use(1)
 		return
 
-	else if(isCoil(W))
+	else if(is_coil(W))
 
 		switch(damage)
 			if(0)

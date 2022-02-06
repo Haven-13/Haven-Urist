@@ -37,7 +37,7 @@
 			return
 		else
 			SetName("bookcase ([newname])")
-	else if(isScrewdriver(O))
+	else if(is_screwdriver(O))
 		playsound(loc, 'resources/sound/items/Screwdriver.ogg', 75, 1)
 		to_chat(user, "<span class='notice'>You begin dismantling \the [src].</span>")
 		if(do_after(user,25,src))
@@ -57,7 +57,7 @@
 		if(choice)
 			if(!CanPhysicallyInteract(user))
 				return
-			if(ishuman(user))
+			if(is_human_mob(user))
 				if(!user.get_active_hand())
 					user.put_in_hands(choice)
 			else
@@ -209,7 +209,7 @@
 					src.author = newauthor
 			else
 				return
-	else if(istype(W, /obj/item/weapon/material/knife) || isWirecutter(W))
+	else if(istype(W, /obj/item/weapon/material/knife) || is_wirecutter(W))
 		if(carved)	return
 		to_chat(user, "<span class='notice'>You begin to carve out [title].</span>")
 		if(do_after(user, 30, src))

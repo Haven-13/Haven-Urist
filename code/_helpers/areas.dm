@@ -5,7 +5,7 @@
 	. = list()
 	if(!predicates)
 		return
-	if(!islist(predicates))
+	if(!is_list(predicates))
 		predicates = list(predicates)
 	for(var/area/A)
 		if(all_predicates_true(list(A), predicates))

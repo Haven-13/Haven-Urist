@@ -12,7 +12,7 @@
 /datum/reagents/metabolism/proc/metabolize()
 
 	var/metabolism_type = 0 //non-human mobs
-	if(ishuman(parent))
+	if(is_human_mob(parent))
 		var/mob/living/carbon/human/H = parent
 		metabolism_type = H.species.reagent_tag
 

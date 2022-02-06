@@ -120,7 +120,7 @@ var/global/list/stool_cache = list() //haha stool
 	qdel(src)
 
 /obj/item/weapon/stool/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isWrench(W))
+	if(is_wrench(W))
 		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 		dismantle()
 		qdel(src)
@@ -149,7 +149,7 @@ var/global/list/stool_cache = list() //haha stool
 		to_chat(user, "You add padding to \the [src].")
 		add_padding(padding_type)
 		return
-	else if(isWirecutter(W))
+	else if(is_wirecutter(W))
 		if(!padding_material)
 			to_chat(user, "\The [src] has no padding to remove.")
 			return

@@ -26,7 +26,7 @@
 		mob_passthrough_check = 0
 	. = ..()
 
-	if(. == 1 && iscarbon(target_mob))
+	if(. == 1 && is_carbon_mob(target_mob))
 		damage *= 0.7 //squishy mobs absorb KE
 
 /obj/item/projectile/bullet/can_embed()

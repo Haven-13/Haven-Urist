@@ -12,7 +12,7 @@
 	if(..()) return 1
 
 	if(href_list["track"])
-		if(isAI(usr))
+		if(is_ai(usr))
 			var/mob/living/silicon/ai/AI = usr
 			var/mob/living/carbon/human/H = locate(href_list["track"]) in SSmobs.mob_list
 			if(hassensorlevel(H, SUIT_SENSOR_TRACKING))
@@ -22,7 +22,7 @@
 /datum/ui_module/program/crew_monitor/ui_data(mob/user)
 	var/list/data = host.initial_data()
 
-	data["isAI"] = isAI(user)
+	data["isAI"] = is_ai(user)
 	data["sensors"] = list()
 	for(var/z_level in GLOB.using_map.map_levels)
 		data["sensors"] += crew_repository.health_data(z_level)

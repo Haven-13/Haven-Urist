@@ -50,7 +50,7 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 		viewing = 0
 		return
 
-	if(!isAI(user))
+	if(!is_ai(user))
 		user.set_machine(src)
 		if(linked && viewing)
 			look(user)
@@ -112,7 +112,7 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 			linked.decelerate()
 		if ("view")
 			viewing = !viewing
-			if(usr && !isAI(usr))
+			if(usr && !is_ai(usr))
 				viewing ? look(usr) : unlook(usr)
 
 	return TRUE

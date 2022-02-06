@@ -12,7 +12,7 @@
 GLOBAL_DATUM_INIT(observer_state, /datum/ui_state/observer_state, new)
 
 /datum/ui_state/observer_state/can_use_topic(src_object, mob/user)
-	if(isobserver(user))
+	if(is_observer(user))
 		return UI_INTERACTIVE
 	return UI_CLOSE
 

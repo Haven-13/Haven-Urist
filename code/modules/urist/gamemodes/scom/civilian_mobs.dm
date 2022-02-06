@@ -23,7 +23,7 @@
 /mob/living/simple_animal/hostile/scom/civ/civvie/GiveTarget(var/new_target)
 	target = new_target
 	if(target != null)
-		if(isliving(target))
+		if(is_living_mob(target))
 			Aggro()
 			stance = HOSTILE_STANCE_ATTACK
 			visible_message("<span class='danger'>The [src.name] tries to flee from [target.name]!</span>")

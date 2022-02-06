@@ -624,7 +624,7 @@
 						chems[rid][i] = gene_chem[i]
 
 			var/list/new_gasses = gene.values["[TRAIT_EXUDE_GASSES]"]
-			if(islist(new_gasses))
+			if(is_list(new_gasses))
 				if(!exude_gasses) exude_gasses = list()
 				exude_gasses |= new_gasses
 				for(var/gas in exude_gasses)

@@ -15,7 +15,7 @@
 
 
 /datum/category_item/player_setup_item/player_global/ooc/sanitize_preferences()
-	if(!islist(pref.ignored_players))
+	if(!is_list(pref.ignored_players))
 		pref.ignored_players = list()
 
 /datum/category_item/player_setup_item/player_global/ooc/content(var/mob/user)
