@@ -54,27 +54,27 @@ jobs:
 
       # Actual checks
       - name: Check changelog
-        if: steps.deps.outcome == 'success'
+        if: always()
         run: bash tools/ci/check_changelogs.sh
 
       - name: Check DMIs
-        if: steps.deps.outcome == 'success'
+        if: always()
         run: tools/bootstrap/python -m dmi.test
 
       - name: Check tgUI linting
-        if: steps.deps.outcome == 'success'
+        if: always()
         run: tools/build/build --ci tgui-lint
 
       - name: Check regex-linting
-        if: steps.deps.outcome == 'success'
+        if: always()
         run: tools/bootstrap/python -m ci.check_regex --log-changes-only
 
       - name: Check HTML tags
-        if: steps.deps.outcome == 'success'
+        if: always()
         run: tools/bootstrap/python -m ci.tag_matcher
 
       - name: Check Dreamchecker
-        if: steps.deps.outcome == 'success'
+        if: always()
         run: ~/dreamchecker -c SpacemanDMM.toml > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
 
       # Annotations
