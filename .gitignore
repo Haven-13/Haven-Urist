@@ -51,4 +51,5 @@ dump.txt
 *.test.*
 
 # tool-generated files
+.cache/
 check_regex_output.txt
