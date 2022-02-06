@@ -9,7 +9,7 @@ on:
 
 jobs:
   run_linters:
-    name: Run linters
+    name: Run Linters
     runs-on: ubuntu-20.04
     steps:
       # Fetch
