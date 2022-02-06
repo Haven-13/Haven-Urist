@@ -7,4 +7,6 @@ matrix:
     lang: en
     d: en_GB
   dictionary:
+    wordlists:
+    - .github/spellchecking/file-types.txt
     encoding: utf-8
