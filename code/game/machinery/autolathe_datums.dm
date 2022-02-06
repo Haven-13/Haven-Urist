@@ -28,7 +28,6 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	var/hidden
 	var/category
 	var/power_use = 0
-	var/is_stack_item
 
 /datum/autolathe/recipe/bucket
 	name = "bucket"
@@ -163,28 +162,24 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	name = "steel sheets"
 	path = /obj/item/stack/material/steel
 	category = "General"
-	is_stack_item = 1
 	resources = list("steel" = SHEET_MATERIAL_AMOUNT * EXTRA_COST_FACTOR)
 
 /datum/autolathe/recipe/glass
 	name = "glass sheets"
 	path = /obj/item/stack/material/glass
 	category = "General"
-	is_stack_item = 1
 	resources = list("glass" = SHEET_MATERIAL_AMOUNT * EXTRA_COST_FACTOR)
 
 /datum/autolathe/recipe/rglass
 	name = "reinforced glass sheets"
 	path = /obj/item/stack/material/glass/reinforced
 	category = "General"
-	is_stack_item = 1
 	resources = list("glass" = (SHEET_MATERIAL_AMOUNT/2) * EXTRA_COST_FACTOR, "steel" = (SHEET_MATERIAL_AMOUNT/2) * EXTRA_COST_FACTOR)
 
 /datum/autolathe/recipe/rods
 	name = "metal rods"
 	path = /obj/item/stack/rods
 	category = "General"
-	is_stack_item = 1
 
 /datum/autolathe/recipe/knife
 	name = "kitchen knife"
@@ -388,7 +383,6 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	name = "cable coil"
 	path = /obj/item/stack/cable_coil/single
 	category = "Devices and Components"
-	is_stack_item = 1
 
 /datum/autolathe/recipe/tube/large
 	name = "spotlight tube"
