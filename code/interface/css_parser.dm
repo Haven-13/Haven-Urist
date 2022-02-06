@@ -33,7 +33,7 @@ var/global/list/css_parser_custom_properties = list()
 /// Parse a CSS string for all `--*` custom properties and replacing `var(--*)` uses with the
 /// value of the corresponding `--*` variable. Returns the same CSS string with all the properties
 /// replaced with their values.
-/css_parser/proc/parse(in_css)
+/css_parser/proc/substitute_custom_properties(in_css, replace=TRUE)
 	var/line
 	var/list/lines = splittext_char(in_css, "\n")
 	. = ""
@@ -41,10 +41,21 @@ var/global/list/css_parser_custom_properties = list()
 		line = lines[i]
 		if(root.Find(line))
 			global.css_parser_custom_properties |= parse_root(lines, i + 1)
-		. += variable_use.Replace(line, /css_parser/proc/replace_variable)
+
+		. += replace ? \
+			variable_use.Replace(line, /css_parser/proc/replace_variable) : \
+			variable_use.Replace(line, /css_parser/proc/insert_variable_fallback)
 
 /css_parser/proc/replace_variable(match, varname)
 	. = global.css_parser_custom_properties[trim(varname)]
+
+/css_parser/proc/insert_variable_fallback(match, varname)
+	. = jointext(list(
+			match,
+			global.css_parser_custom_properties[trim(varname)]
+		),
+		", "
+	)
 
 /css_parser/proc/parse_root(lines, start)
 	. = list()
@@ -55,4 +66,6 @@ var/global/list/css_parser_custom_properties = list()
 			break
 		if(variable.Find(line))
 			var/list/parts = splittext_char(line, ":")
-			.[trim(parts[1])] = trim(parts[2])
+			.[trim(parts[1])] = replacetext_char(
+				trim(parts[2]), ";", ""
+			)

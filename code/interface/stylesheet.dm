@@ -22,7 +22,7 @@
 	if (!output_theme_cache)
 		var/in_css = rustg_file_read("code/interface/dark-textbox.css")
 		var/css_parser/p = new()
-		output_theme_cache = p.parse(in_css)
+		output_theme_cache = p.substitute_custom_properties(in_css)
 	return output_theme_cache
 
 /*
