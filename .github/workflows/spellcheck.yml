@@ -4,6 +4,9 @@ on:
   push:
     branches-ignore:
       - latest
+  pull_request:
+    branches:
+    - latest
 
 jobs:
   spellcheck:
