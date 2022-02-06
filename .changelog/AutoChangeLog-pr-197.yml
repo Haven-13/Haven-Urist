@@ -1,0 +1,4 @@
+author: martinlyra
+delete-after: true
+changes:
+  - tweak: Some initialization reporting and metrics are now publicly visible
