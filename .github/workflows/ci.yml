@@ -71,7 +71,7 @@ jobs:
 
       - name: Check HTML tags
         if: always()
-        run: tools/bootstrap/python -m ci.tag_matcher
+        run: tools/bootstrap/python -m ci.tag_matcher .
 
       - name: Check Dreamchecker
         if: always()
