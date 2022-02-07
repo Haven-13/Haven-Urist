@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - tweak: Updated tgUI dependencies; hopefully improving its overall performance
-      or stability
