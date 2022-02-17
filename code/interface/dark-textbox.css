@@ -5,11 +5,14 @@
 	--colour-text-body: #eeeeee;
 	--colour-text-motd: #eeeeee;
 
-	--colour-text-critical: #aa19af;
+	--colour-text-critical: #bd2fc2;
 	--colour-text-danger: #e6353e;
 	--colour-text-warning: #e6bd24;
-	--colour-text-notice: #bad11f;
+	--colour-text-notice: #c1d637;
 	--colour-text-info: #1fa3d1;
+
+	--colour-text-bad: #e6353e;
+	--colour-text-good: #bad11f;
 
 	--colour-link-active: #23e47a;
 	--colour-link-visited: #206b4e;
@@ -60,10 +63,10 @@ a, a:visited {
 .ooc                {font-weight: bold;}
 .ooc img.text_tag   {width: 32px; height: 10px;}
 
-.ooc .everyone      {color:#174be6;}
+.ooc .everyone      {color:#275dff;}
 .ooc .looc          {color:#2bb1b1;}
 .ooc .elevated      {color:#2e78d9;}
-.ooc .moderator	    {color:#275b96;}
+.ooc .moderator	    {color:#3172bb;}
 .ooc .developer     {color:#2f8b35;}
 .ooc .admin         {color:#c54014;}
 .ooc .aooc          {color:#ca1b38;}
@@ -73,43 +76,45 @@ a, a:visited {
 .pm  .howto         {color:#ff0000;	font-weight: bold;		font-size: 200%;}
 .pm  .in            {color:#ff0000;}
 .pm  .out           {color:#ff0000;}
-.pm  .other         {color:#0000ff;}
+.pm  .other         {color:#4a4aff;}
 
 /* Admin: Channels */
-.mod_channel        {color:#9e6d39;	font-weight: bold;}
+.mod_channel        {color:#c58949;	font-weight: bold;}
 .mod_channel .admin {color:#c54014;	font-weight: bold;}
-.admin_channel      {color:#9e43c9;	font-weight: bold;}
+.admin_channel      {color:#ac48da;	font-weight: bold;}
 
 /* Radio: Misc */
-.deadsay            {color:#7334c5;}
-.radio              {color:#60a32d;}
-.deptradio          {color:#b334b3;}	/* when all other department colors fail */
-.newscaster         {color:#a12424;}
+.deadsay            {color:#a159ff;}
+.radio              {color:#4ad651;}
+.deptradio          {color:#da64da;}	/* when all other department colors fail */
+.newscaster         {color:#ff8d8d;}
 
 /* Radio Channels */
-.comradio           {color:#375dbd;}
-.syndradio          {color:#9c5d5e;}
-.centradio          {color:#7373a3;}
-.airadio            {color:#b334b3;}
+.comradio           {color:#4e78e2;}
+.syndradio          {color:#ce7b7d;}
+.centradio          {color:#9b9bda;}
+.airadio            {color:#d840d8;}
 .entradio           {color:#888888;}
 
-.secradio           {color:#ac1313;}
-.engradio           {color:#b97713;}
-.medradio           {color:#16aaaa;}
-.sciradio           {color:#993399;}
-.supradio           {color:#aa884d;}
-.srvradio           {color:#86b11b;}
-.expradio           {color:#b4bb27;}
+.secradio           {color:#d42b2b;}
+.engradio           {color:#da932a;}
+.medradio           {color:#2bd3d3;}
+.sciradio           {color:#c743c7;}
+.supradio           {color:#d3a961;}
+.srvradio           {color:#a6d431;}
+.expradio           {color:#d3d037;}
 
-/* Miscellaneous */
+/* Game Messages */
 .name               {font-weight: bold;}
-.say                {}
+.say                {font-weight: normal;}
+.say_quote          {font-family: Georgia, Verdana, sans-serif;}
+.emote              {font-style: italic;}
 .alert              {color: var(--colour-text-danger);}
 h1.alert, h2.alert  {color: var(--colour-text-body);}
 
-.emote              {font-style: italic;}
+.init-report        {color: var(--colour-text-notice); font-weight: bolder;}
+.init-major         {color: var(--colour-text-warning); font-weight: bolder;}
 
-/* Game Messages */
 .attack	            {color: var(--colour-text-critical);}
 .moderate           {color: var(--colour-text-danger);}
 .disarm             {color: var(--colour-text-warning);}
@@ -118,39 +123,37 @@ h1.alert, h2.alert  {color: var(--colour-text-body);}
 .critical           {color: var(--colour-text-critical); font-weight: bold;}
 .danger             {color: var(--colour-text-danger); font-weight: bold;}
 .warning            {color: var(--colour-text-warning); font-style: italic;}
-.boldannounce       {color: var(--colour-text-danger); font-weight: bold;}
-.sinister           {color:#800080; font-weight: bold;	font-style: italic;}
-.rose               {color:#ff5050;}
-.info               {color: var(--colour-text-info);}
 .notice             {color: var(--colour-text-notice);}
-.alium              {color:#00ff00;}
-.cult               {color:#800080; font-weight: bold; font-style: italic;}
-.fountain           {color:#800080; font-style: italic; font-size: 175%;}
+.info               {color: var(--colour-text-info);}
 
-.reflex_shoot       {color:#000099; font-style: italic;}
+.boldannounce       {color: var(--colour-text-danger); font-weight: bold;}
 
-.bold               {font-weight: bold}
-.italic             {font-style: italic}
+.sinister           {color:#c241c2; font-weight: bold;	font-style: italic;}
+.rose               {color:#ff5050;}
+.alium              {color:#77ff77;}
+.cult               {color:#c241c2; font-weight: bold; font-style: italic;}
+.fountain           {color:#c241c2; font-style: italic; font-size: 175%;}
+
+.good               {color: var(--colour-text-good); font-weight: bold;}
+.bad                {color: var(--colour-text-bad); font-weight: bold;}
+
+.reflex_shoot       {color: var(--colour-text-info); font-style: italic;}
+
+.b, .bold           {font-weight: bold}
+.i, .italic         {font-style: italic}
 
 /* Languages */
 
-.alien              {color:#543354;}
-.skrell             {color:#00ced1;}
-.soghun             {color:#228b22;}
-.nabber_lang        {color:#525252;}
-.solcom	            {color:#22228b;}
-.changeling         {color:#800080;}
-.vox                {color:#aa00aa;}
-.rough              {font-family: "Trebuchet MS", cursive, sans-serif;}
-.say_quote          {font-family: Georgia, Verdana, sans-serif;}
-.terran             {color:#9c250b;}
-.moon               {color:#422863;}
-.spacer             {color:#ff6600;}
-.adherent           {color:#526c7a;}
-
-.interface          {color:#330033;}
-
-.good               {color:#4f7529; font-weight: bold;}
-.bad                {color:#ee0000; font-weight: bold;}
+.alien              {color:#af6baf;}
+.skrell             {color:#55dee0;}
+.soghun             {color:#5fe45f;}
+.nabber_lang        {color:#dddddd;}
+.solcom	            {color:#5fa0eb;}
+.changeling         {color:#c700c7;}
+.vox                {color:#e95ce9;}
+.rough              {font-family: 'Trebuchet MS', cursive, sans-serif;}
+.terran             {color:#ff5a35;}
+.moon               {color:#bf8dff;}
+.spacer             {color:#ff9650;}
 
 BIG IMG.icon        {width: 32px; height: 32px;}

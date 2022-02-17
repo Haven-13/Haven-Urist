@@ -166,7 +166,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	if(init_sss)
 		init_subtypes(/datum/controller/subsystem, subsystems)
 
-	announce_progress("Initializing subsystems...", "warning bold")
+	announce_progress("Initializing subsystems...", "init-major")
 
 	// Sort subsystems by init_order, so they initialize in the correct order.
 	sortTim(subsystems, /proc/cmp_subsystem_init)
@@ -184,13 +184,13 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 	announce_progress(
 		"Initializations complete within [time] second\s!",
-		"warning bold"
+		"init-major"
 	)
 
-	var/time_taken = (REALTIMEOFDAY - global.world_init_time) / 10
+	time = (REALTIMEOFDAY - global.world_init_time) / 10
 	announce_progress(
-		"Server initializtion completed in [time_taken] second\s!",
-		"warning bold"
+		"Server initializtion completed in [time] second\s!",
+		"init-major"
 	)
 
 	if (!current_runlevel)
