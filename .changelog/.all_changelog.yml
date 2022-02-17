@@ -513,3 +513,9 @@
       dark background
   - tweak: Most CSS are now external, allowing them to be reloaded without the need
       of recompiling the game
+2022-02-17:
+  martinlyra:
+  - rscdel: Removed dreaming from mobs
+  - tweak: Changed how radio distortion change certain letters
+  - tweak: Changed how drunk slurring distort speech, adding few more different flavours
+      to it
