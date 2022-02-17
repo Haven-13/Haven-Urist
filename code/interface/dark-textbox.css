@@ -5,10 +5,13 @@
 	--colour-text-body: #eeeeee;
 	--colour-text-motd: #eeeeee;
 
-	--colour-text-critical: #bd2fc2;
+	--colour-text-important: #8e5de9;
+	--colour-text-critical: #d833a6;
 	--colour-text-danger: #e6353e;
+	--colour-text-warning-2: #e28d3e;
 	--colour-text-warning: #e6bd24;
-	--colour-text-notice: #c1d637;
+	--colour-text-notice-2: #a6d637;
+	--colour-text-notice: #7bd9e2;
 	--colour-text-info: #1fa3d1;
 
 	--colour-text-bad: #e6353e;
@@ -57,18 +60,20 @@ a, a:visited {
 }
 
 .prefix             {font-weight: bold;}
-.log_message        {color:#386aff;	font-weight: bold;}
+.log_message        {color:#446fee;	font-weight: bold;}
+
+.vote               {color: var(--colour-text-notice-2)}
 
 /* OOC */
 .ooc                {font-weight: bold;}
 .ooc img.text_tag   {width: 32px; height: 10px;}
 
-.ooc .everyone      {color:#275dff;}
-.ooc .looc          {color:#2bb1b1;}
-.ooc .elevated      {color:#2e78d9;}
-.ooc .moderator	    {color:#3172bb;}
-.ooc .developer     {color:#2f8b35;}
-.ooc .admin         {color:#c54014;}
+.ooc .everyone      {color:#4e7aff;}
+.ooc .looc          {color:#3ccccc;}
+.ooc .elevated      {color:#3e55d8;}
+.ooc .moderator	    {color:#4e86c5;}
+.ooc .developer     {color:#52b858;}
+.ooc .admin         {color:#d15b33;}
 .ooc .aooc          {color:#ca1b38;}
 
 /* Admin: Private Messages */
@@ -76,7 +81,7 @@ a, a:visited {
 .pm  .howto         {color:#ff0000;	font-weight: bold;		font-size: 200%;}
 .pm  .in            {color:#ff0000;}
 .pm  .out           {color:#ff0000;}
-.pm  .other         {color:#4a4aff;}
+.pm  .other         {color:#5858f8;}
 
 /* Admin: Channels */
 .mod_channel        {color:#c58949;	font-weight: bold;}
@@ -112,8 +117,8 @@ a, a:visited {
 .alert              {color: var(--colour-text-danger);}
 h1.alert, h2.alert  {color: var(--colour-text-body);}
 
-.init-report        {color: var(--colour-text-notice); font-weight: bolder;}
-.init-major         {color: var(--colour-text-warning); font-weight: bolder;}
+.init-report        {color: var(--colour-text-info); font-weight: bolder;}
+.init-major         {color: var(--colour-text-notice); font-weight: bolder;}
 
 .attack	            {color: var(--colour-text-critical);}
 .moderate           {color: var(--colour-text-danger);}
@@ -139,8 +144,8 @@ h1.alert, h2.alert  {color: var(--colour-text-body);}
 
 .reflex_shoot       {color: var(--colour-text-info); font-style: italic;}
 
-.b, .bold           {font-weight: bold}
-.i, .italic         {font-style: italic}
+.b, .bold           {font-weight: bold;}
+.i, .italic         {font-style: italic;}
 
 /* Languages */
 

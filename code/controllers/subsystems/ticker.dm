@@ -39,7 +39,7 @@ SUBSYSTEM_DEF(ticker)
 
 /datum/controller/subsystem/ticker/proc/pregame_tick()
 	if(!last_fire && round_progressing)
-		announce_server("Welcome to the pre-game lobby!", "notice b")
+		announce_server("\nWelcome to the pre-game lobby!", "notice b")
 		announce_server("Please, setup your character and select ready. Game will start in [round(pregame_timeleft/10)] seconds", "b")
 
 	if(round_progressing && last_fire)
