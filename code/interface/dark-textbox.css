@@ -62,7 +62,7 @@ a, a:visited {
 .prefix             {font-weight: bold;}
 .log_message        {color:#446fee;	font-weight: bold;}
 
-.vote               {color: var(--colour-text-notice-2)}
+.vote               {color: var(--colour-text-critical);}
 
 /* OOC */
 .ooc                {font-weight: bold;}
@@ -117,8 +117,8 @@ a, a:visited {
 .alert              {color: var(--colour-text-danger);}
 h1.alert, h2.alert  {color: var(--colour-text-body);}
 
-.init-report        {color: var(--colour-text-info); font-weight: bolder;}
-.init-major         {color: var(--colour-text-notice); font-weight: bolder;}
+.init-report        {color: var(--colour-text-danger); font-weight: bolder;}
+.init-major         {color: var(--colour-text-warning); font-weight: bolder;}
 
 .attack	            {color: var(--colour-text-critical);}
 .moderate           {color: var(--colour-text-danger);}
@@ -128,7 +128,7 @@ h1.alert, h2.alert  {color: var(--colour-text-body);}
 .critical           {color: var(--colour-text-critical); font-weight: bold;}
 .danger             {color: var(--colour-text-danger); font-weight: bold;}
 .warning            {color: var(--colour-text-warning); font-style: italic;}
-.notice             {color: var(--colour-text-notice);}
+.notice             {color: var(--colour-text-notice-2);}
 .info               {color: var(--colour-text-info);}
 
 .boldannounce       {color: var(--colour-text-danger); font-weight: bold;}
