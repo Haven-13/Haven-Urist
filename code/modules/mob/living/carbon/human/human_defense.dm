@@ -106,7 +106,7 @@ meteor_act
 			for(var/obj/item/clothing/accessory/bling in gear.accessories)
 				if(bling.body_parts_covered & def_zone.body_part)
 					protection = add_armor(protection, bling.armor[type])
-	return Clamp(protection,0,100)
+	return clamp(protection,0,100)
 
 /mob/living/carbon/human/proc/check_head_coverage()
 

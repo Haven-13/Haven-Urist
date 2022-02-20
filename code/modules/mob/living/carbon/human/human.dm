@@ -613,8 +613,8 @@
 	set waitfor = 0
 	if(!check_has_mouth() || isSynthetic() || !timevomit || !level)
 		return
-	level = Clamp(level, 1, 3)
-	timevomit = Clamp(timevomit, 1, 10)
+	level = clamp(level, 1, 3)
+	timevomit = clamp(timevomit, 1, 10)
 	if(stat == DEAD)
 		return
 	if(!lastpuke)

@@ -134,7 +134,7 @@
 
 /obj/machinery/computer/fusion_core_control/OnTopic(var/mob/user, var/href_list, var/datum/ui_state/state)
 	if(href_list["access_device"])
-		var/idx = Clamp(text2num(href_list["toggle_active"]), 1, connected_devices.len)
+		var/idx = clamp(text2num(href_list["toggle_active"]), 1, connected_devices.len)
 		cur_viewed_device = connected_devices[idx]
 		updateUsrDialog()
 		return TRUE

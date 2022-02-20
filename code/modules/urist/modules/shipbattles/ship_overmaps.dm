@@ -193,7 +193,7 @@
 	if(!target || fleeing)	return
 	var/obj/effect/overmap/ship/combat/OM = target
 	fleeing = 1
-	flee_timer = Clamp((600 + round(2*((vessel_mass - OM.vessel_mass)/100))), 300, 900)	//Temp formula for now. Smaller ships escape faster for balancing.
+	flee_timer = clamp((600 + round(2*((vessel_mass - OM.vessel_mass)/100))), 300, 900)	//Temp formula for now. Smaller ships escape faster for balancing.
 	autoannounce(
 		"<b>Restabilizing engines - ETA [flee_timer] seconds</b>",
 		COMBAT_CHANNEL_PRIVATE
