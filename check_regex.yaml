@@ -47,4 +47,4 @@ standards:
   - exactly: [0, 'superflous whitespace', '[ \t]+$']
   - exactly: [8, 'mixed indentation', '^( +\t+|\t+ +)']
 
-  - no_more: [1418, 'indentions inside defines', '^(\s*)#define (\w*)( {2,}| ?\t+)(?!(\/\/|\/\*))']
+  - no_more: [1419, 'indentions inside defines', '^(\s*)#define (\w*)( {2,}| ?\t+)(?!(\/\/|\/\*))']
