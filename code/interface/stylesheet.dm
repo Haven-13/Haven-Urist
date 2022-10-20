@@ -8,15 +8,15 @@
 #define COLOUR_DARK_GITHUB_BUTTON_BG "#a3a3a3"
 #define COLOUR_DARK_ISSUE_BUTTON_BG "#492020"
 
-/proc/byond_map_theme()
+/proc/byond_map_theme(force = FALSE)
 	var/static/map_theme_cache = null
-	if(!map_theme_cache)
+	if(!map_theme_cache || force)
 		map_theme_cache = rustg_file_read("code/interface/map-theme.css")
 	return map_theme_cache
 
-/proc/byond_output_theme()
+/proc/byond_output_theme(force = FALSE)
 	var/static/output_theme_cache = null
-	if (!output_theme_cache)
+	if (!output_theme_cache || force)
 		var/in_css = rustg_file_read("code/interface/dark-textbox.css")
 		var/css_parser/p = new()
 		output_theme_cache = p.substitute_custom_properties(in_css)

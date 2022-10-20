@@ -511,22 +511,18 @@
 	return data
 
 /obj/machinery/alarm/ui_data(mob/user)
-	var/data[0]
-	var/remote_connection = 0
-	var/remote_access = 0
+	. = ..()
 
-	data["locked"] = locked && !is_silicon(user)
-	data["remote_connection"] = remote_connection
-	data["remote_access"] = remote_access
-	data["rcon"] = rcon_setting
-	data["screen"] = screen
+	.["locked"] = locked
+	.["siliconUser"] = is_silicon(user)
+	.["rcon"] = rcon_setting
+	.["screen"] = screen
 
-	populate_status(data)
+	populate_status(.)
 
-	if(!(locked && !remote_connection) || remote_access || is_silicon(user))
-		populate_controls(data)
+	if(!locked || is_silicon(user))
+		populate_controls(.)
 
-	return data
 
 /obj/machinery/alarm/proc/populate_status(var/data)
 	var/turf/location = get_turf(src)
@@ -553,6 +549,8 @@
 	data["atmos_alarm"] = alarm_area.atmosalm
 	data["fire_alarm"] = alarm_area.fire != null
 	data["target_temperature"] = "[target_temperature - T0C]C"
+
+	data["controlsPopulated"] = TRUE
 
 /obj/machinery/alarm/proc/populate_controls(var/list/data)
 	data["mode"] = mode
@@ -638,10 +636,11 @@
 	. = shorted ? UI_DISABLED : UI_INTERACTIVE
 
 	if(. == UI_INTERACTIVE)
-		var/extra_href = list()
 		// Prevent remote users from altering RCON settings unless they already have access
-		if(href_list["rcon"] && extra_href["remote_connection"] && !extra_href["remote_access"])
+		if(href_list["remoteConnection"] && href_list["remoteAccess"])
 			. = UI_UPDATE
+		else
+			. = UI_DISABLED
 
 	return min(..(), .)
 

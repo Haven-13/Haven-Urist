@@ -188,7 +188,10 @@
 	if (can_fire)
 		title = "\[[state_letter()]][title]"
 
-	stat(title, statclick.update(msg))
+	if(length(msg))
+		. += " | [msg]"
+
+	stat(title, statclick.update(.))
 
 /datum/controller/subsystem/proc/state_letter()
 	switch (state)

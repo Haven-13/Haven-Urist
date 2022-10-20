@@ -174,6 +174,7 @@
 	if(config.enable_localhost_rank && !connecting_admin)
 		if(is_local_host())
 			holder = new /datum/admins("!localhost!", R_EVERYTHING, key)
+			GLOB.admins += src
 			holder.owner = src
 
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)

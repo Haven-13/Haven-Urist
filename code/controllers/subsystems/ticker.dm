@@ -26,11 +26,6 @@ SUBSYSTEM_DEF(ticker)
 	var/list/antag_pool = list()
 	var/looking_for_antags = 0
 
-/datum/controller/subsystem/ticker/Initialize()
-	to_world("<span class='notice bold'>Welcome to the pre-game lobby!</span>")
-	to_world("Please, setup your character and select ready. Game will start in [round(pregame_timeleft/10)] seconds")
-	return ..()
-
 /datum/controller/subsystem/ticker/fire(resumed = 0)
 	switch(GAME_STATE)
 		if(RUNLEVEL_LOBBY)
@@ -43,6 +38,10 @@ SUBSYSTEM_DEF(ticker)
 			post_game_tick()
 
 /datum/controller/subsystem/ticker/proc/pregame_tick()
+	if(!last_fire && round_progressing)
+		announce_server("\nWelcome to the pre-game lobby!", "notice b")
+		announce_server("Please, setup your character and select ready. Game will start in [round(pregame_timeleft/10)] seconds", "b")
+
 	if(round_progressing && last_fire)
 		pregame_timeleft -= world.time - last_fire
 	if(pregame_timeleft <= 0)
@@ -87,7 +86,7 @@ SUBSYSTEM_DEF(ticker)
 
 	spawn(0)//Forking here so we dont have to wait for this to finish
 		mode.post_setup()
-		to_world("<FONT color='blue'><B>Enjoy the game!</B></FONT>")
+		announce_server("Enjoy the game!", "info b")
 		sound_to(world, sound(GLOB.using_map.welcome_sound))
 
 		//Holiday Round-start stuff	~Carn
@@ -129,12 +128,15 @@ SUBSYSTEM_DEF(ticker)
 				else
 					feedback_set_details("end_proper","universe destroyed")
 				if(!delay_end)
-					to_world("<span class='notice'><b>Rebooting due to destruction of [station_name()] in [restart_timeout/10] seconds</b></span>")
+					announce_server(
+						"Rebooting due to destruction of [station_name()] in [restart_timeout/10] seconds",
+						"boldannounce"
+					)
 
 			else
 				feedback_set_details("end_proper","proper completion")
 				if(!delay_end)
-					to_world("<span class='notice'><b>Restarting in [restart_timeout/10] seconds</b></span>")
+					announce_server("Restarting in [restart_timeout/10] seconds", "boldannounce")
 
 			if(blackbox)
 				blackbox.save_all_data_to_sql()
