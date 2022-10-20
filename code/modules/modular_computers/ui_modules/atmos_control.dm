@@ -83,7 +83,7 @@
 	. = list(
 		"remoteConnection" = TRUE,
 		"remoteAccess" =\
-			isAI(user)\
+			is_ai(user)\
 			|| src.access.allowed(user)\
 			|| src.emagged\
 			|| alarm.rcon_setting == RCON_YES\
