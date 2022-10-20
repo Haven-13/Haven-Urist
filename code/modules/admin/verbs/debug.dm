@@ -402,3 +402,20 @@
 
 	images -= powernet_markers
 	QDEL_NULL_LIST(powernet_markers)
+
+/client/proc/reload_all_css()
+	set category = "Debug"
+	set name = "Reload All CSS"
+	if(!check_rights(R_DEBUG))	return
+
+	byond_map_theme(TRUE)
+	byond_output_theme(TRUE)
+
+	var/count = 0
+	for(var/mob/M in GLOB.player_list)
+		if(QDELETED(M.client)) continue
+		apply_global_theme(M.client)
+		count++;
+
+	message_admins("Admin [key_name_admin(usr)] has reloaded CSS for [count] client\s")
+	feedback_add_details("admin_verb","F5CSS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

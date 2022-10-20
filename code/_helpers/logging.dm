@@ -281,12 +281,15 @@ GLOBAL_PROTECT(log_end)
 		return json_encode(d)
 	return d.get_log_info_line()
 
+/proc/announce_server(message, span="body")
+	to_world("<span class='[span]'>[message]</span>")
+
 /// Publicly report progress to everyone, including the log
-/proc/announce_progress(progress_message, span="boldannounce")
-	to_world("<span class='[span]'>[progress_message]</span>")
+/proc/announce_progress(progress_message, span="init-report")
+	announce_server(progress_message, span)
 	log_world(progress_message)
 
 /// Report progress to R_DEBUG holders and log only
 /proc/report_progress(progress_message)
-	admin_notice("<span class='boldannounce'>[progress_message]</span>", R_DEBUG)
+	admin_notice("<span class='boldannounce'>[progress_message]</span>", R_DEBUG, "Server Debug")
 	log_world(progress_message)
