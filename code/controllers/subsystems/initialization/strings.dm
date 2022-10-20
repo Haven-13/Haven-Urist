@@ -38,13 +38,13 @@ SUBSYSTEM_DEF(strings)
 	LAZY_ADD_UNIQUE(already_loaded_files, strings_file)
 	return string_list_by_name[strings_name]
 
-/datum/controller/subsystem/strings/proc/create_list(strings_name, string_list, strings_source = "<<Runtime>>")
+/datum/controller/subsystem/strings/proc/create_list(strings_name, string_list, strings_source = "<Runtime>")
 	if(LAZY_IS_IN(string_list_by_name, strings_name))
 		. = FALSE
 		CRASH("Attempted to create string listing '[strings_name]', but it already exists!")
 	return append_list(strings_name, string_list, strings_source, FALSE)
 
-/datum/controller/subsystem/strings/proc/append_list(strings_name, string_list, strings_source = "<<Runtime>>", check_exists = TRUE)
+/datum/controller/subsystem/strings/proc/append_list(strings_name, string_list, strings_source = "<Runtime>", check_exists = TRUE)
 	if(!islist(string_list))
 		string_list = list(string_list)
 	if(!strings_source || !length(strings_source))
