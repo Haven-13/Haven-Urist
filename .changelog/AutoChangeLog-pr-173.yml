@@ -1,0 +1,6 @@
+author: martinlyra
+delete-after: true
+changes:
+  - rscadd: Added the missing tgUI for Atmospheric Control
+  - tweak: Instead of opening a new window, remoting into an air alarm using the Atmospheric
+      Control will show the interface on the same window.
