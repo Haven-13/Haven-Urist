@@ -519,7 +519,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 /dmm_suite/preloader/proc/load(atom/what)
 	for(var/attribute in attributes)
 		var/value = attributes[attribute]
-		if(islist(value))
+		if(is_list(value))
 			value = deepCopyList(value)
 		try
 			what.vars[attribute] = value

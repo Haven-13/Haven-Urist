@@ -240,12 +240,12 @@
 	return
 
 /obj/machinery/atmospherics/unary/vent_scrubber/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(isWrench(W))
+	if(is_wrench(W))
 		if (!(stat & NOPOWER) && use_power)
 			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>")
 			return 1
 		var/turf/T = src.loc
-		if (node && node.level==1 && isturf(T) && !T.is_plating())
+		if (node && node.level==1 && is_turf(T) && !T.is_plating())
 			to_chat(user, "<span class='warning'>You must remove the plating first.</span>")
 			return 1
 		var/datum/gas_mixture/int_air = return_air()

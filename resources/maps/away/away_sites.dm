@@ -7,7 +7,7 @@
 
 /datum/map_template/ruin/away_site/after_load(z)
 	var/current_z
-	if(!islist(generate_mining_by_z))
+	if(!is_list(generate_mining_by_z))
 		generate_mining_by_z = list(generate_mining_by_z)
 
 	for(var/i in generate_mining_by_z)

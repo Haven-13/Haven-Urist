@@ -51,7 +51,7 @@
 	block=SHADOWBLOCK
 
 /datum/dna/gene/basic/stealth/darkcloak/OnMobLife(var/mob/M)
-	if(isturf(M.loc))
+	if(is_turf(M.loc))
 		var/turf/T = M.loc
 		if(shadow_check(T, 2, 1))
 			M.alpha = 0

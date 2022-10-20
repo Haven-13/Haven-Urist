@@ -49,7 +49,7 @@
 	if(player in current_antagonists)
 		return 1
 
-/datum/antagonist/proc/is_type(var/antag_type)
+/datum/antagonist/proc/is_antag_type(var/antag_type)
 	if(antag_type == id || antag_type == role_text)
 		return 1
 	return 0

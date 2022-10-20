@@ -137,7 +137,7 @@
 		return
 	wrapped.forceMove(user.loc)
 	user.drop_item()
-	if(ishuman(user))
+	if(is_human_mob(user))
 		user.put_in_hands(wrapped)
 	else
 		wrapped.forceMove(get_turf(src))
@@ -464,7 +464,7 @@
 	if(!I || !user)
 		return
 
-	if(isScrewdriver(I))
+	if(is_screwdriver(I))
 		if(c_mode==0)
 			c_mode=1
 			playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
@@ -475,7 +475,7 @@
 			playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 			to_chat(user, "You attach the screws around the power connection.")
 			return
-	else if(isWelder(I) && c_mode==1)
+	else if(is_welder(I) && c_mode==1)
 		var/obj/item/weapon/weldingtool/W = I
 		if(W.remove_fuel(1,user))
 			to_chat(user, "You start slicing the floorweld off the delivery chute.")

@@ -203,7 +203,7 @@
 		return 0
 	else if(istype(card.loc,/mob))
 		var/mob/holder = card.loc
-		if(ishuman(holder))
+		if(is_human_mob(holder))
 			var/mob/living/carbon/human/H = holder
 			for(var/obj/item/organ/external/affecting in H.organs)
 				if(card in affecting.implants)

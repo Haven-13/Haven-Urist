@@ -54,7 +54,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if (can_infect && affected)
 		spread_germs_to_organ(affected, user)
-	if (ishuman(user) && prob(60))
+	if (is_human_mob(user) && prob(60))
 		var/mob/living/carbon/human/H = user
 		if (blood_level)
 			H.bloody_hands(target,0)
@@ -79,7 +79,7 @@
 	. = tool_quality(tool)
 	if(user == target)
 		. -= 10
-	if(ishuman(user))
+	if(is_human_mob(user))
 		var/mob/living/carbon/human/H = user
 		. -= round(H.shock_stage * 0.5)
 		if(H.eye_blurry)
@@ -136,7 +136,7 @@
 					to_chat(user, "<span class='warning'>You must remain close to your patient to conduct surgery.</span>")
 				if (M)
 					M.op_stage.in_progress -= zone 									// Clear the in-progress flag.
-				if (ishuman(M))
+				if (is_human_mob(M))
 					var/mob/living/carbon/human/H = M
 					H.update_surgery()
 				return	1	  												//don't want to do weapony things after surgery

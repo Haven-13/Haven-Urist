@@ -89,7 +89,7 @@
 //Processes the occupant, drawing from the internal power cell if needed.
 /obj/machinery/recharge_station/proc/process_occupant()
 	// Check whether the mob is compatible
-	if(!isrobot(occupant) && !ishuman(occupant))
+	if(!is_robot(occupant) && !is_human_mob(occupant))
 		return
 
 	// If we have repair capabilities, repair any damage.
@@ -99,7 +99,7 @@
 		occupant.adjustFireLoss(-wire_rate)
 
 	var/obj/item/weapon/cell/target
-	if(isrobot(occupant))
+	if(is_robot(occupant))
 		var/mob/living/silicon/robot/R = occupant
 		target = R.cell
 		if(R.module)
@@ -111,7 +111,7 @@
 				if((C.installed == -1) && cell.checked_use(100 KILOWATTS * CELLRATE))
 					C.repair()
 
-	if(ishuman(occupant))
+	if(is_human_mob(occupant))
 		var/mob/living/carbon/human/H = occupant
 		var/obj/item/organ/internal/cell/potato = H.internal_organs_by_name[BP_CELL]
 		if(potato)
@@ -235,10 +235,10 @@
 	return 1
 
 /obj/machinery/recharge_station/proc/hascell(var/mob/M)
-	if(isrobot(M))
+	if(is_robot(M))
 		var/mob/living/silicon/robot/R = M
 		return (R.cell)
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		if(H.isSynthetic()) // FBPs and IPCs
 			return 1

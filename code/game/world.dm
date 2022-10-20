@@ -48,7 +48,7 @@ GLOBAL_VAR(restart_counter)
 		if(M.mind)
 			strings += M.mind.assigned_role
 			strings += M.mind.special_role
-		if(ishuman(M))
+		if(is_human_mob(M))
 			var/mob/living/carbon/human/H = M
 			if(H.species)
 				strings += H.species.name
@@ -297,7 +297,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			info["hasbeenrev"] = M.mind ? M.mind.has_been_rev : "No mind"
 			info["stat"] = M.stat
 			info["type"] = M.type
-			if(isliving(M))
+			if(is_living_mob(M))
 				var/mob/living/L = M
 				info["damage"] = list2params(list(
 							oxy = L.getOxyLoss(),
@@ -307,7 +307,7 @@ var/world_topic_spam_protect_time = world.timeofday
 							clone = L.getCloneLoss(),
 							brain = L.getBrainLoss()
 						))
-				if(ishuman(M))
+				if(is_human_mob(M))
 					var/mob/living/carbon/human/H = M
 					info["species"] = H.species.name
 				else

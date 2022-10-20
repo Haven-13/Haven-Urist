@@ -36,7 +36,7 @@
 
 /obj/effect/accelerated_particle/Bump(atom/A)
 	if (A)
-		if(ismob(A))
+		if(is_mob(A))
 			toxmob(A)
 		if((istype(A,/obj/machinery/the_singularitygen))||(istype(A,/obj/singularity/)))
 			A:energy += energy
@@ -58,7 +58,7 @@
 
 
 /obj/effect/accelerated_particle/Bumped(atom/A)
-	if(ismob(A))
+	if(is_mob(A))
 		Bump(A)
 	return
 

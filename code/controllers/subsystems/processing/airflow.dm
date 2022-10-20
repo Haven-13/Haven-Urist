@@ -84,14 +84,14 @@ PROCESSING_SUBSYSTEM_DEF(airflow)
 				return
 			continue
 
-		if (!isturf(target.loc))
+		if (!is_turf(target.loc))
 			CLEAR_OBJECT(target)
 			if (MC_TICK_CHECK)
 				return
 			continue
 
 		step_towards(target, target.airflow_dest)
-		if (ismob(target))
+		if (is_mob(target))
 			var/mob/M = target
 			M.SetMoveCooldown(vsc.airflow_mob_slowdown)
 
@@ -120,7 +120,7 @@ PROCESSING_SUBSYSTEM_DEF(airflow)
 	if (!src.AirflowCanMove(n))
 		return FALSE
 
-	if (ismob(src))
+	if (is_mob(src))
 		to_chat(src,"<span class='danger'>You are pushed away by airflow!</span>")
 
 	last_airflow = world.time

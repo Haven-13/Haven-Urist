@@ -40,7 +40,7 @@
 	shake_range = 6
 
 /obj/item/projectile/bullet/ship/cannon/on_impact(var/atom/A)
-	if(isturf(A))
+	if(is_turf(A))
 		explosion(A, -1, 0, 2, 0, 0)
 
 	..()

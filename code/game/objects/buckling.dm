@@ -27,7 +27,7 @@
 		return 0
 	if(!istype(M) || (M.loc != loc) || M.buckled || M.pinned.len || (buckle_require_restraints && !M.restrained()))
 		return 0
-	if(ismob(src))
+	if(is_mob(src))
 		var/mob/living/carbon/C = src //Don't wanna forget the xenos.
 		if(M != src && C.incapacitated())
 			return 0

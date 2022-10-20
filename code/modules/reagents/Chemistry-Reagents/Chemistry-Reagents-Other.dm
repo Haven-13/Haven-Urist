@@ -58,7 +58,7 @@
 		O.color = color
 
 /datum/reagent/paint/touch_mob(var/mob/M)
-	if(istype(M) && !isobserver(M)) //painting observers: not allowed
+	if(istype(M) && !is_observer(M)) //painting observers: not allowed
 		M.color = color //maybe someday change this to paint only clothes and exposed body parts for human mobs.
 
 /datum/reagent/paint/get_data()
@@ -278,7 +278,7 @@
 	if(M.wear_mask)
 		if(M.wear_mask.clean_blood())
 			M.update_inv_wear_mask(0)
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		if(H.head)
 			if(H.head.clean_blood())

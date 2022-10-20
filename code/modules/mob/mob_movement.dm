@@ -8,7 +8,7 @@
 /mob/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1
 
-	if(ismob(mover))
+	if(is_mob(mover))
 		var/mob/moving_mob = mover
 		if ((other_mobs && moving_mob.other_mobs))
 			return 1
@@ -46,7 +46,7 @@
 			attack_self()
 			return
 		if(SOUTHWEST)
-			if(iscarbon(usr))
+			if(is_carbon_mob(usr))
 				var/mob/living/carbon/C = usr
 				C.toggle_throw_mode()
 			else
@@ -95,7 +95,7 @@
 	set hidden = 1
 	if(!istype(mob, /mob/living/carbon))
 		return
-	if (!mob.stat && isturf(mob.loc) && !mob.restrained())
+	if (!mob.stat && is_turf(mob.loc) && !mob.restrained())
 		mob:toggle_throw_mode()
 	else
 		return
@@ -103,7 +103,7 @@
 
 /client/verb/drop_item()
 	set hidden = 1
-	if(!isrobot(mob) && mob.stat == CONSCIOUS && isturf(mob.loc))
+	if(!is_robot(mob) && mob.stat == CONSCIOUS && is_turf(mob.loc))
 		return mob.unequip_item()
 	return
 

@@ -130,7 +130,7 @@ var/list/tape_roll_applications = list()
 	overlays.Cut()
 	var/image/overlay = image(icon = src.icon)
 	overlay.appearance_flags = RESET_COLOR
-	if(ismob(loc))
+	if(is_mob(loc))
 		if(!start)
 			overlay.icon_state = "start"
 		else
@@ -296,7 +296,7 @@ var/list/tape_roll_applications = list()
 		SetName("crumpled [name]")
 
 /obj/item/tape/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(!lifted && ismob(mover))
+	if(!lifted && is_mob(mover))
 		var/mob/M = mover
 		add_fingerprint(M)
 		if (!allowed(M))	//only select few learn art of not crumpling the tape

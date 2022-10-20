@@ -41,7 +41,7 @@
 
 /datum/universal_state/bluespace_jump/OnTouchMapEdge(var/atom/A)
 	if((A.z in affected_levels) && (A in bluespaced))
-		if(ismob(A))
+		if(is_mob(A))
 			to_chat(A,"<span class='warning'>You drift away into the shifting expanse, never to be seen again.</span>")
 		qdel(A) //lost in bluespace
 		return FALSE

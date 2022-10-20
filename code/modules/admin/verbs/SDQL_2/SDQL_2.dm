@@ -222,7 +222,7 @@ var/list/sdql_exclude_vars = list("usr", "src", "marked", "global")
 	var/list/out = list()
 
 	// If only a single object got returned, wrap it into a list so the for loops run on it.
-	if (!islist(location) && location != world)
+	if (!is_list(location) && location != world)
 		location = list(location)
 
 	type = text2path(type)
@@ -421,7 +421,7 @@ var/list/sdql_exclude_vars = list("usr", "src", "marked", "global")
 		else if (expression[start + 1] == ":")
 			return SDQL_function(object, v, expression[start + 2], source)
 
-		else if (expression[start + 1] == "\[" && islist(v))
+		else if (expression[start + 1] == "\[" && is_list(v))
 			var/list/L = v
 			var/index = SDQL_expression(source, expression[start + 2])
 			if (isnum(index) && (!IsInteger(index) || L.len < index))

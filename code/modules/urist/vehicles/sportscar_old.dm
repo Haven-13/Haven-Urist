@@ -36,7 +36,7 @@
 			src.mob_offset_x = 20
 			src.mob_offset_y = 23
 			src.overlays += I
-	if(ismob(C))
+	if(is_mob(C))
 		C.pixel_y = src.mob_offset_y
 		C.pixel_x = src.mob_offset_x
 

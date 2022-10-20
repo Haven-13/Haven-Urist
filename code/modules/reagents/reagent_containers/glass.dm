@@ -214,7 +214,7 @@
 /obj/item/weapon/reagent_containers/glass/beaker/vial/throw_impact(atom/hit_atom, var/speed)
 	var/obj/item/weapon/material/shard/S = new(get_turf(src))
 	reagents.trans_to(hit_atom,reagents.total_volume)
-	if(ismob(hit_atom))
+	if(is_mob(hit_atom))
 		S.throw_impact(hit_atom,speed)
 	visible_message("<span class='warning'>\The [src] shatters against \The [hit_atom]!</span>", blind_message = "<span class='warning'>You hear the sound of shattering glass!</span>")
 	qdel(src)

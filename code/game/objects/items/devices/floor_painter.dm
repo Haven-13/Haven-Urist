@@ -121,7 +121,7 @@
 
 	var/list/decal_data = decals[decal]
 	var/config_error
-	if(!islist(decal_data))
+	if(!is_list(decal_data))
 		config_error = 1
 	var/painting_decal
 	if(!config_error)

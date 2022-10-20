@@ -79,7 +79,7 @@
 /obj/item/device/chameleon/proc/eject_all()
 	for(var/atom/movable/A in active_dummy)
 		A.forceMove(active_dummy.loc)
-		if(ismob(A))
+		if(is_mob(A))
 			var/mob/M = A
 			M.reset_view(null)
 
@@ -140,7 +140,7 @@
 				spawn(20) can_move = 1
 			else
 				spawn(25) can_move = 1
-		if(isturf(loc))
+		if(is_turf(loc))
 			step(src, direction)
 	return
 

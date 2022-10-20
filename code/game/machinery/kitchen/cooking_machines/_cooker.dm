@@ -59,7 +59,7 @@
 			to_chat(user, "<span class='warning'>That's not going to fit.</span>")
 			return
 
-		if(!isliving(G.affecting))
+		if(!is_living_mob(G.affecting))
 			to_chat(user, "<span class='warning'>You can't cook that.</span>")
 			return
 
@@ -68,7 +68,7 @@
 
 	// We're trying to cook something else. Check if it's valid.
 	var/obj/item/weapon/reagent_containers/food/snacks/check = I
-	if(istype(check) && islist(check.cooked) && (cook_type in check.cooked))
+	if(istype(check) && is_list(check.cooked) && (cook_type in check.cooked))
 		to_chat(user, "<span class='warning'>\The [check] has already been [cook_type].</span>")
 		return 0
 	else if(istype(check, /obj/item/weapon/reagent_containers/glass))
@@ -128,7 +128,7 @@
 
 	// Set cooked data.
 	var/obj/item/weapon/reagent_containers/food/snacks/food_item = cooking_obj
-	if(istype(food_item) && islist(food_item.cooked))
+	if(istype(food_item) && is_list(food_item.cooked))
 		result.cooked = food_item.cooked.Copy()
 	else
 		result.cooked = list()

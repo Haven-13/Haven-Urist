@@ -59,7 +59,7 @@
 		buffer_object = null
 
 /obj/item/device/multitool/resolve_attackby(atom/A, mob/user)
-	if(!isobj(A))
+	if(!is_obj(A))
 		return ..(A, user)
 
 	var/obj/O = A

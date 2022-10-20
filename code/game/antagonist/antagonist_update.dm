@@ -35,7 +35,7 @@
 	if(src.uristantag)
 		return image('resources/icons/urist/uristicons.dmi', loc = other.current, icon_state = indicator)
 	var/image/I = image('resources/icons/mob/hud.dmi', loc = other.current, icon_state = indicator, layer = LIGHTING_LAYER+0.1)
-	if(ishuman(other.current))
+	if(is_human_mob(other.current))
 		var/mob/living/carbon/human/H = other.current
 		I.pixel_x = H.species.antaghud_offset_x
 		I.pixel_y = H.species.antaghud_offset_y

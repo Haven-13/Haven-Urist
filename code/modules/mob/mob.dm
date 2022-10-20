@@ -87,7 +87,7 @@
 		var/mob/M = m
 		var/mob_message = message
 
-		if(isghost(M))
+		if(is_ghost(M))
 			if(ghost_skip_message(M))
 				continue
 			mob_message = add_ghost_track(mob_message, M)
@@ -123,7 +123,7 @@
 		var/mob/M = m
 		var/mob_message = message
 
-		if(isghost(M))
+		if(is_ghost(M))
 			if(ghost_skip_message(M))
 				continue
 			mob_message = add_ghost_track(mob_message, M)
@@ -256,7 +256,7 @@
 			client.perspective = EYE_PERSPECTIVE
 			client.eye = A
 		else
-			if (isturf(loc))
+			if (is_turf(loc))
 				client.eye = client.mob
 				client.perspective = MOB_PERSPECTIVE
 			else
@@ -276,7 +276,7 @@
 	set name = "Examine"
 	set category = "IC"
 
-	if((is_blind(src) || usr.stat) && !isobserver(src))
+	if((is_blind(src) || usr.stat) && !is_observer(src))
 		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
 		return 1
 
@@ -287,7 +287,7 @@
 	set name = "Point To"
 	set category = "Object"
 
-	if(!src || !isturf(src.loc) || !(A in view(src.loc)))
+	if(!src || !is_turf(src.loc) || !(A in view(src.loc)))
 		return 0
 	if(istype(A, /obj/effect/decal/point))
 		return 0
@@ -553,7 +553,7 @@
 
 /mob/proc/start_pulling(var/atom/movable/AM)
 
-	if ( !AM || !usr || src==AM || !isturf(src.loc) )	//if there's no person pulling OR the person is pulling themself OR the object being pulled is inside something: abort!
+	if ( !AM || !usr || src==AM || !is_turf(src.loc) )	//if there's no person pulling OR the person is pulling themself OR the object being pulled is inside something: abort!
 		return
 
 	if (AM.anchored)
@@ -561,7 +561,7 @@
 		return
 
 	var/mob/M = AM
-	if(ismob(AM))
+	if(is_mob(AM))
 
 		if(!can_pull_mobs || !can_pull_size)
 			to_chat(src, "<span class='warning'>It won't budge!</span>")
@@ -579,12 +579,12 @@
 		// kind of mob pull value AT ALL, you will be able to pull
 		// them, so don't bother checking that explicitly.
 
-		if(!iscarbon(src))
+		if(!is_carbon_mob(src))
 			M.LAssailant = null
 		else
 			M.LAssailant = usr
 
-	else if(isobj(AM))
+	else if(is_obj(AM))
 		var/obj/I = AM
 		if(!can_pull_size || can_pull_size < I.w_class)
 			to_chat(src, "<span class='warning'>It won't budge!</span>")
@@ -603,7 +603,7 @@
 	if(pullin)
 		pullin.icon_state = "pull1"
 
-	if(ishuman(AM))
+	if(is_human_mob(AM))
 		var/mob/living/carbon/human/H = AM
 		if(H.pull_damage())
 			to_chat(src, "<span class='danger'>Pulling \the [H] in their current condition would probably be a bad idea.</span>")
@@ -613,7 +613,7 @@
 			C.leave_evidence(src)
 
 	//Attempted fix for people flying away through space when cuffed and dragged.
-	if(ismob(AM))
+	if(is_mob(AM))
 		var/mob/pulled = AM
 		pulled.inertia_dir = 0
 
@@ -660,7 +660,7 @@
 			stat("In-game Time", stationtime2text())
 			stat("In-game Date", stationdate2text())
 			stat("Round Duration", roundduration2text())
-		if(client.holder || isghost(client.mob))
+		if(client.holder || is_ghost(client.mob))
 			stat("Location:", "([x], [y], [z]) [loc]")
 
 	if(client.holder)
@@ -883,7 +883,7 @@
 	set desc = "Remove an embedded item at the cost of bleeding and pain."
 	set src in view(1)
 
-	if(!isliving(usr) || !usr.canClick())
+	if(!is_living_mob(usr) || !usr.canClick())
 		return
 	usr.setClickCooldown(20)
 
@@ -930,7 +930,7 @@
 	if(valid_objects.len == 1) //Yanking out last object - removing verb.
 		src.verbs -= /mob/proc/yank_out_object
 
-	if(ishuman(src))
+	if(is_human_mob(src))
 		var/mob/living/carbon/human/H = src
 		var/obj/item/organ/external/affected
 
@@ -949,11 +949,11 @@
 		if(prob(selection.w_class * 5) && affected.sever_artery()) //I'M SO ANEMIC I COULD JUST -DIE-.
 			H.custom_pain("Something tears wetly in your [affected] as [selection] is pulled free!", 50, affecting = affected)
 
-		if (ishuman(U))
+		if (is_human_mob(U))
 			var/mob/living/carbon/human/human_user = U
 			human_user.bloody_hands(H)
 
-	else if(issilicon(src))
+	else if(is_silicon(src))
 		var/mob/living/silicon/robot/R = src
 		R.embedded -= selection
 		R.adjustBruteLoss(5)
@@ -1057,7 +1057,7 @@
 	set name = "Toggle Add-Antag Candidacy"
 	set desc = "Toggles whether or not you will be considered a candidate by an add-antag vote."
 	set category = "OOC"
-	if(isghostmind(src.mind) || isnewplayer(src))
+	if(isghostmind(src.mind) || is_new_player(src))
 		if(SSticker.looking_for_antags)
 			if(src.mind in SSticker.antag_pool)
 				SSticker.antag_pool -= src.mind

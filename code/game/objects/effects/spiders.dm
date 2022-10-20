@@ -30,7 +30,7 @@
 
 	var/damage = W.force / 4.0
 
-	if(isWelder(W))
+	if(is_welder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 
 		if(WT.remove_fuel(0, user))
@@ -244,7 +244,7 @@
 				entry_vent = null
 	//=================
 
-	if(isturf(loc))
+	if(is_turf(loc))
 		if(prob(25))
 			var/list/nearby = trange(5, src) - loc
 			if(nearby.len)
@@ -271,7 +271,7 @@
 		if(amount_grown >= 100)
 			new greater_form(src.loc, src)
 			qdel(src)
-	else if(isorgan(loc))
+	else if(is_organ(loc))
 		if(!amount_grown) amount_grown = 1
 		var/obj/item/organ/external/O = loc
 		if(!O.owner || O.owner.stat == DEAD || amount_grown > 80)

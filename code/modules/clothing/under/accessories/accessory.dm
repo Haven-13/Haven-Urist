@@ -42,7 +42,7 @@
 	if(!istype(loc,/obj/item/clothing/))	//don't need special handling if it's worn as normal item.
 		return ..()
 	var/bodytype = "Default"
-	if(ishuman(user_mob))
+	if(is_human_mob(user_mob))
 		var/mob/living/carbon/human/user_human = user_mob
 		if(user_human.species.get_bodytype(user_human) in sprite_sheets)
 			bodytype = user_human.species.get_bodytype(user_human)

@@ -97,7 +97,7 @@
 
 /turf/simulated/wall/hitby(AM as mob|obj, var/speed=THROWFORCE_SPEED_DIVISOR)
 	..()
-	if(ismob(AM))
+	if(is_mob(AM))
 		return
 
 	var/obj/O = AM

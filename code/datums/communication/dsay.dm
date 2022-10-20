@@ -51,7 +51,7 @@
 		return TRUE
 	if(M.stat != DEAD)
 		return FALSE
-	if(isnewplayer(M))
+	if(is_new_player(M))
 		return FALSE
 	return TRUE
 
@@ -74,7 +74,7 @@
 
 	var/lname
 	var/mob/observer/ghost/DM
-	if(isghost(C.mob))
+	if(is_ghost(C.mob))
 		DM = C.mob
 	if(M.client.holder) 							// What admins see
 		lname = "[keyname][(DM && DM.anonsay) ? "*" : (DM ? "" : "^")] ([name])"

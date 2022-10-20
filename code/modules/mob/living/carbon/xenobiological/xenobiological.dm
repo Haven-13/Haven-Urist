@@ -103,7 +103,7 @@
 		return
 	now_pushing = 1
 
-	if(isobj(AM) && !client && powerlevel > 0)
+	if(is_obj(AM) && !client && powerlevel > 0)
 		var/probab = 10
 		switch(powerlevel)
 			if(1 to 2)	probab = 20
@@ -118,7 +118,7 @@
 					if (is_adult || prob(5))
 						UnarmedAttack(AM)
 
-	if(ismob(AM))
+	if(is_mob(AM))
 		var/mob/tmob = AM
 
 		if(is_adult)

@@ -474,10 +474,10 @@ SUBSYSTEM_DEF(garbage)
 			if(variable == src)
 				testing("Found [src.type] [REF(src)] in [D.type]'s [varname] var. [Xname]")
 
-			else if(islist(variable))
+			else if(is_list(variable))
 				DoSearchVar(variable, "[Xname] -> list", recursive_limit-1)
 
-	else if(islist(X))
+	else if(is_list(X))
 		var/normal = IS_NORMAL_LIST(X)
 		for(var/I in X)
 			if (I == src)
@@ -486,7 +486,7 @@ SUBSYSTEM_DEF(garbage)
 			else if (I && !isnum(I) && normal && X[I] == src)
 				testing("Found [src.type] [REF(src)] in list [Xname]\[[I]\]")
 
-			else if (islist(I))
+			else if (is_list(I))
 				DoSearchVar(I, "[Xname] -> list", recursive_limit-1)
 
 #ifndef FIND_REF_NO_CHECK_TICK

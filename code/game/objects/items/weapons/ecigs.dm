@@ -110,7 +110,7 @@
 
 	idle ++
 
-	if(ishuman(loc))
+	if(is_human_mob(loc))
 		var/mob/living/carbon/human/C = loc
 
 		if (!active || !ec_cartridge || !ec_cartridge.reagents.total_volume)//no cartridge
@@ -141,7 +141,7 @@
 		icon_state = icon_empty
 		item_state = icon_empty
 		set_light(0)
-	if(ismob(loc))
+	if(is_mob(loc))
 		var/mob/living/M = loc
 		M.update_inv_wear_mask(0)
 		M.update_inv_l_hand(0)

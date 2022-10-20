@@ -179,7 +179,7 @@
 	if(!usr || !over) return
 	if(!Adjacent(usr) || !over.Adjacent(usr)) return // should stop you from dragging through windows
 
-	if(!ishuman(over) || !(over in viewers(3))) return
+	if(!is_human_mob(over) || !(over in viewers(3))) return
 
 	if(!cards.len)
 		to_chat(usr, "There are no cards in the deck.")
@@ -336,7 +336,7 @@
 
 	var/list/deck_list = list()
 	for(var/obj/item/weapon/deck/D in world)
-		if(isturf(D.loc))		//Decks hiding in inventories are safe. Respect the sanctity of loadout items.
+		if(is_turf(D.loc))		//Decks hiding in inventories are safe. Respect the sanctity of loadout items.
 			deck_list += D
 
 	if(deck_list.len)

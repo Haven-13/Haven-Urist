@@ -52,7 +52,7 @@
 				overlays += I
 
 /obj/structure/grille/Bumped(atom/user)
-	if(ismob(user)) shock(user, 70)
+	if(is_mob(user)) shock(user, 70)
 
 /obj/structure/grille/attack_hand(mob/user as mob)
 
@@ -123,12 +123,12 @@
 	spawn(0) healthcheck() //spawn to make sure we return properly if the grille is deleted
 
 /obj/structure/grille/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isWirecutter(W))
+	if(is_wirecutter(W))
 		if(!shock(user, 100))
 			playsound(loc, 'resources/sound/items/Wirecutter.ogg', 100, 1)
 			new rodpath (list(get_turf(src), destroyed ? 1 : 2))
 			qdel(src)
-	else if((isScrewdriver(W)) && (istype(loc, /turf/simulated) || anchored))
+	else if((is_screwdriver(W)) && (istype(loc, /turf/simulated) || anchored))
 		if(!shock(user, 90))
 			playsound(loc, 'resources/sound/items/Screwdriver.ogg', 100, 1)
 			anchored = !anchored

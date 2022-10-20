@@ -63,7 +63,7 @@
 				if(!A.simulated)
 					continue
 
-				if(ishuman(A))
+				if(is_human_mob(A))
 					var/mob/living/carbon/human/H = A
 					if(!H.lying)
 						H.bloody_body(src)

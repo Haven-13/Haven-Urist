@@ -188,13 +188,13 @@
 	if(sum in list(1000,500,200,100,50,20,10,1))
 		var/cash_type = text2path("/obj/item/weapon/spacecash/bundle/c[sum]")
 		var/obj/cash = new cash_type (usr.loc)
-		if(ishuman(human_user) && !human_user.get_active_hand())
+		if(is_human_mob(human_user) && !human_user.get_active_hand())
 			human_user.put_in_hands(cash)
 	else
 		var/obj/item/weapon/spacecash/bundle/bundle = new (spawnloc)
 		bundle.worth = sum
 		bundle.update_icon()
-		if (ishuman(human_user) && !human_user.get_active_hand())
+		if (is_human_mob(human_user) && !human_user.get_active_hand())
 			human_user.put_in_hands(bundle)
 	return
 

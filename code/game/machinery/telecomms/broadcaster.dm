@@ -305,7 +305,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 			continue
 
 		// Ghosts hearing all radio chat don't want to hear syndicate intercepts, they're duplicates
-		if(data == 3 && isghost(R) && R.get_preference_value(/datum/client_preference/ghost_radio) == GLOB.PREF_ALL_CHATTER)
+		if(data == 3 && is_ghost(R) && R.get_preference_value(/datum/client_preference/ghost_radio) == GLOB.PREF_ALL_CHATTER)
 			continue
 
 		// --- Check for compression ---
@@ -318,7 +318,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		if (!M || R.say_understands(M))
 
 			// - Not human or wearing a voice mask -
-			if (!M || !ishuman(M) || vmask)
+			if (!M || !is_human_mob(M) || vmask)
 				heard_masked += R
 
 			// - Human and not wearing voice mask -

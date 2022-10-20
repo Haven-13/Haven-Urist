@@ -24,22 +24,22 @@
 
 /datum/topic_input/proc/getObj(i)
 	var/t = getAndLocate(i)
-	return isobj(t) ? t : null
+	return is_obj(t) ? t : null
 
 /datum/topic_input/proc/getMob(i)
 	var/t = getAndLocate(i)
-	return ismob(t) ? t : null
+	return is_mob(t) ? t : null
 
 /datum/topic_input/proc/getTurf(i)
 	var/t = getAndLocate(i)
-	return isturf(t) ? t : null
+	return is_turf(t) ? t : null
 
 /datum/topic_input/proc/getAtom(i)
 	return getType(i,/atom)
 
 /datum/topic_input/proc/getArea(i)
 	var/t = getAndLocate(i)
-	return isarea(t) ? t : null
+	return is_area(t) ? t : null
 
 /datum/topic_input/proc/getStr(i)//params should always be text, but...
 	var/t = get(i)
@@ -57,4 +57,4 @@
 
 /datum/topic_input/proc/getList(i)
 	var/t = getAndLocate(i)
-	return islist(t) ? t : null
+	return is_list(t) ? t : null

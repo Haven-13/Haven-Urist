@@ -84,7 +84,7 @@
 		overlays += image('resources/icons/obj/pipeturbine.dmi', "hi-turb")
 
 /obj/machinery/atmospherics/pipeturbine/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isWrench(W))
+	if(is_wrench(W))
 		anchored = !anchored
 		to_chat(user, "<span class='notice'>You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.</span>")
 

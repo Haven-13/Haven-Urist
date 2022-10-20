@@ -65,7 +65,7 @@
 	. = ..()
 
 /obj/machinery/turretid/proc/isLocked(mob/user)
-	if(ailock && issilicon(user))
+	if(ailock && is_silicon(user))
 		return 1
 
 	if(malf_upgraded && master_ai)
@@ -73,7 +73,7 @@
 			return 0
 		return 1
 
-	if(locked && !issilicon(user))
+	if(locked && !is_silicon(user))
 		return 1
 
 	return 0
@@ -124,7 +124,7 @@
 	var/data[0]
 	data["access"] = !isLocked(user)
 	data["locked"] = locked
-	data["siliconUser"] = issilicon(user)
+	data["siliconUser"] = is_silicon(user)
 	data["enabled"] = enabled
 	data["lethal"] = lethal
 

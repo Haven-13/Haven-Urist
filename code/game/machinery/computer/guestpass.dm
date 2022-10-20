@@ -141,7 +141,7 @@
 			if ("id")
 				if (giver)
 					giver.dropInto(user.loc)
-					if(ishuman(user))
+					if(is_human_mob(user))
 						user.put_in_hands(giver)
 					giver = null
 					accesses.Cut()

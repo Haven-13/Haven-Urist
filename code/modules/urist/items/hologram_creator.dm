@@ -64,7 +64,7 @@
 
 
 /obj/structure/hologramsign/barrier/walk/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(!ismob(mover))
+	if(!is_mob(mover))
 		return ..()
 	var/mob/M = mover
 	if(M.move_intent.flags & MOVE_INTENT_DELIBERATE)

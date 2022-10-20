@@ -82,7 +82,7 @@
 		created_name = t
 		return
 
-	if(isWelder(W) && ( (istext(glass)) || (glass == 1) || (!anchored) ))
+	if(is_welder(W) && ( (istext(glass)) || (glass == 1) || (!anchored) ))
 		var/obj/item/weapon/weldingtool/WT = W
 		if (WT.remove_fuel(0, user))
 			playsound(src.loc, 'resources/sound/items/Welder2.ogg', 50, 1)
@@ -112,7 +112,7 @@
 			to_chat(user, "<span class='notice'>You need more welding fuel.</span>")
 			return
 
-	else if(isWrench(W) && state == 0)
+	else if(is_wrench(W) && state == 0)
 		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 100, 1)
 		if(anchored)
 			user.visible_message("[user] begins unsecuring the airlock assembly from the floor.", "You starts unsecuring the airlock assembly from the floor.")
@@ -124,7 +124,7 @@
 			to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured the airlock assembly!</span>")
 			anchored = !anchored
 
-	else if(isCoil(W) && state == 0 && anchored)
+	else if(is_coil(W) && state == 0 && anchored)
 		var/obj/item/stack/cable_coil/C = W
 		if (C.get_amount() < 1)
 			to_chat(user, "<span class='warning'>You need one length of coil to wire the airlock assembly.</span>")
@@ -135,7 +135,7 @@
 				src.state = 1
 				to_chat(user, "<span class='notice'>You wire the airlock.</span>")
 
-	else if(isWirecutter(W) && state == 1 )
+	else if(is_wirecutter(W) && state == 1 )
 		playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 100, 1)
 		user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
 
@@ -158,7 +158,7 @@
 			src.SetName("Near finished Airlock Assembly")
 			src.electronics = W
 
-	else if(isCrowbar(W) && state == 2 )
+	else if(is_crowbar(W) && state == 2 )
 		//This should never happen, but just in case I guess
 		if (!electronics)
 			to_chat(user, "<span class='notice'>There was nothing to remove.</span>")
@@ -201,7 +201,7 @@
 								to_chat(user, "<span class='notice'>You installed [material_display_name(material_name)] plating into the airlock assembly.</span>")
 								glass = material_name
 
-	else if(isScrewdriver(W) && state == 2 )
+	else if(is_screwdriver(W) && state == 2 )
 		playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now finishing the airlock.</span>")
 

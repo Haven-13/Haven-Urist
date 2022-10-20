@@ -157,7 +157,7 @@
 //		log_debug("Spreading [vector] diseases from [victim] to [src]")
 		var/nudity = 1
 
-		if (ishuman(victim))
+		if (is_human_mob(victim))
 			var/mob/living/carbon/human/H = victim
 
 			//Allow for small chance of touching other zones.

@@ -146,17 +146,17 @@ By design, d1 is the smallest direction and d2 is the highest
 //
 
 /obj/structure/cable/attackby(obj/item/W, mob/user)
-	if(isWirecutter(W))
+	if(is_wirecutter(W))
 		cut_wire(W, user)
 
-	else if(isCoil(W))
+	else if(is_coil(W))
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.get_amount() < 1)
 			to_chat(user, "Not enough cable")
 			return
 		coil.cable_join(src, user)
 
-	else if(isMultitool(W))
+	else if(is_multitool(W))
 
 		if(powernet && (powernet.avail > 0))		// is it powered?
 			to_chat(user, "<span class='warning'>[get_wattage()] in power network.</span>")
@@ -521,7 +521,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 //you can use wires to heal robotics
 /obj/item/stack/cable_coil/attack(var/atom/A, var/mob/living/user, var/def_zone)
-	if(ishuman(A) && user.a_intent == I_HELP)
+	if(is_human_mob(A) && user.a_intent == I_HELP)
 		var/mob/living/carbon/human/H = A
 		var/obj/item/organ/external/S = H.organs_by_name[user.zone_sel.selecting]
 
@@ -589,7 +589,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	set category = "Object"
 	var/mob/M = usr
 
-	if(ishuman(M) && !M.incapacitated())
+	if(is_human_mob(M) && !M.incapacitated())
 		if(!istype(usr.loc,/turf)) return
 		if(src.amount <= 14)
 			to_chat(usr, "<span class='warning'>You need at least 15 lengths to make restraints!</span>")
@@ -641,7 +641,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 // called when cable_coil is clicked on a turf/simulated/floor
 /obj/item/stack/cable_coil/proc/turf_place(turf/simulated/F, mob/user)
-	if(!isturf(user.loc))
+	if(!is_turf(user.loc))
 		return
 
 	if(get_amount() < 1) // Out of cable
@@ -682,12 +682,12 @@ By design, d1 is the smallest direction and d2 is the highest
 // or click on a turf that already contains a "node" cable
 /obj/item/stack/cable_coil/proc/cable_join(obj/structure/cable/C, mob/user)
 	var/turf/U = user.loc
-	if(!isturf(U))
+	if(!is_turf(U))
 		return
 
 	var/turf/T = C.loc
 
-	if(!isturf(T) || !T.is_plating())		// sanity checks, also stop use interacting with T-scanner revealed cable
+	if(!is_turf(T) || !T.is_plating())		// sanity checks, also stop use interacting with T-scanner revealed cable
 		return
 
 	if(get_dist(C, user) > 1)		// make sure it's close enough

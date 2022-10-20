@@ -74,7 +74,7 @@
 /// Returns TRUE if any assets were sent.
 /datum/asset_transport/proc/send_assets(client/client, list/asset_list)
 	if (!istype(client))
-		if (ismob(client))
+		if (is_mob(client))
 			var/mob/M = client
 			if (M.client)
 				client = M.client
@@ -82,7 +82,7 @@
 				return
 		else
 			CRASH("Invalid argument: client: `[client]`")
-	if (!islist(asset_list))
+	if (!is_list(asset_list))
 		asset_list = list(asset_list)
 	var/list/unreceived = list()
 

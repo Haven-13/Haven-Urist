@@ -42,7 +42,7 @@
 /obj/machinery/igniter/Process()	//ugh why is this even in process()?
 	if (on && powered() )
 		var/turf/location = src.loc
-		if (isturf(location))
+		if (is_turf(location))
 			location.hotspot_expose(1000,500,1)
 	return 1
 
@@ -92,7 +92,7 @@
 //		src.sd_SetLuminosity(0)
 
 /obj/machinery/sparker/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		add_fingerprint(user)
 		disable = !disable
 		if(disable)
@@ -124,7 +124,7 @@
 	src.last_spark = world.time
 	use_power(1000)
 	var/turf/location = src.loc
-	if (isturf(location))
+	if (is_turf(location))
 		location.hotspot_expose(1000,500,1)
 	return 1
 

@@ -329,7 +329,7 @@
 
 /obj/machinery/scom/teleporter2/proc/teleport_to(var/atom/movable/A)
 	if(A && src.loc)
-		if(isturf(src.loc))
+		if(is_turf(src.loc))
 			var/turf/destination = src.loc
 			A.forceMove(destination)
 			var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()

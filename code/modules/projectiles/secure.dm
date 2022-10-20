@@ -55,7 +55,7 @@
 	set category = "Object"
 	set src in usr
 
-	if(issilicon(usr))
+	if(is_silicon(usr))
 		return
 
 	if(allowed(usr))

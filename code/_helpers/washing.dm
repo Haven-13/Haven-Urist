@@ -11,7 +11,7 @@
 
 	L.fire_stacks = -20 //Douse ourselves with water to avoid fire more easily
 
-	if(!iscarbon(washing))
+	if(!is_carbon_mob(washing))
 		washing.clean_blood()
 		return
 
@@ -28,7 +28,7 @@
 		var/remove_amount = M.touching.maximum_volume * M.reagent_permeability() //take off your suit first
 		M.touching.remove_any(remove_amount)
 
-	if(!ishuman(M))
+	if(!is_human_mob(M))
 		if(M.wear_mask && M.wear_mask.clean_blood())
 			M.update_inv_wear_mask(0)
 		M.clean_blood()

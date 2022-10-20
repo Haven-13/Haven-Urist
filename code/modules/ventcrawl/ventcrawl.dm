@@ -122,7 +122,7 @@ var/list/ventcrawl_machinery = list(
 		if(vent_found.network && (vent_found.network.normal_members.len || vent_found.network.line_members.len))
 
 			to_chat(src, "You begin climbing into the ventilation system...")
-			if(vent_found.air_contents && !issilicon(src))
+			if(vent_found.air_contents && !is_silicon(src))
 
 				switch(vent_found.air_contents.temperature)
 					if(0 to BODYTEMP_COLD_DAMAGE_LIMIT)

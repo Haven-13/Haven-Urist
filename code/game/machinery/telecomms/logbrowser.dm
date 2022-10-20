@@ -167,7 +167,7 @@
 
 		var/newnet = input(usr, "Which network do you want to view?", "Comm Monitor", network) as null|text
 
-		if(newnet && ((usr in range(1, src) || issilicon(usr))))
+		if(newnet && ((usr in range(1, src) || is_silicon(usr))))
 			if(length(newnet) > 15)
 				temp = "<font color = #d70b00>- FAILED: NETWORK TAG STRING TOO LENGHTLY -</font>"
 
@@ -182,7 +182,7 @@
 	return
 
 /obj/machinery/computer/telecomms/server/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
-	if(isScrewdriver(D))
+	if(is_screwdriver(D))
 		playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 20, src))
 			if (src.stat & BROKEN)

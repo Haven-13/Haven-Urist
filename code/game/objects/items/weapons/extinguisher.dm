@@ -110,7 +110,7 @@
 
 		var/direction = get_dir(src,target)
 
-		if(user.buckled && isobj(user.buckled))
+		if(user.buckled && is_obj(user.buckled))
 			addtimer(CALLBACK(src, .proc/propel_object, user.buckled, user, turn(direction,180)), 0)
 
 		addtimer(CALLBACK(src, .proc/do_spray, target), 0)

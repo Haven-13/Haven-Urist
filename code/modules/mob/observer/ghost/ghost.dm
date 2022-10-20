@@ -38,7 +38,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 	verbs += /mob/proc/toggle_antag_pool
 
 	var/turf/T
-	if(ismob(body))
+	if(is_mob(body))
 		T = get_turf(body)               //Where is the body located?
 		attack_logs_ = body.attack_logs_ //preserve our attack logs by copying them to our ghost
 
@@ -352,7 +352,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set category = "Ghost"
 	set desc = "Analyse whatever you are following."
 
-	if(ishuman(following))
+	if(is_human_mob(following))
 		to_chat(src, medical_scan_results(following, 1))
 
 	else to_chat(src, "<span class='notice'>Not a scannable target.</span>")
@@ -409,7 +409,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 //This is called when a ghost is drag clicked to something.
 /mob/observer/ghost/MouseDrop(atom/over)
 	if(!usr || !over) return
-	if(isghost(usr) && usr.client && isliving(over))
+	if(is_ghost(usr) && usr.client && is_living_mob(over))
 		var/mob/living/M = over
 		// If they an admin, see if control can be resolved.
 		if(usr.client.holder && usr.client.holder.cmd_ghost_drag(src,M))
@@ -526,7 +526,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	return 1
 
 /proc/isghostmind(var/datum/mind/player)
-	return player && !isnewplayer(player.current) && (!player.current || isghost(player.current) || (isliving(player.current) && player.current.stat == DEAD) || !player.current.client)
+	return player && !is_new_player(player.current) && (!player.current || is_ghost(player.current) || (is_living_mob(player.current) && player.current.stat == DEAD) || !player.current.client)
 
 /mob/proc/check_is_holy_turf(var/turf/T)
 	return 0

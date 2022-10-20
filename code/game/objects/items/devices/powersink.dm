@@ -32,10 +32,10 @@
 	. = ..()
 
 /obj/item/device/powersink/attackby(var/obj/item/I, var/mob/user)
-	if(isScrewdriver(I))
+	if(is_screwdriver(I))
 		if(mode == 0)
 			var/turf/T = loc
-			if(isturf(T) && !!T.is_plating())
+			if(is_turf(T) && !!T.is_plating())
 				attached = locate() in T
 				if(!attached)
 					to_chat(user, "No exposed cable here to attach to.")

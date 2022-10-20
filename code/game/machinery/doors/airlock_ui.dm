@@ -2,7 +2,7 @@
 	if(operating < 0) //emagged
 		to_chat(user, "<span class='warning'>Unable to interface: Internal error.</span>")
 		return UI_CLOSE
-	if(issilicon(user) && !src.canAIControl())
+	if(is_silicon(user) && !src.canAIControl())
 		if(src.canAIHack(user))
 			src.hack(user)
 		else

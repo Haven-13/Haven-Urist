@@ -305,20 +305,20 @@
 	var/jobname // the mob's "job"
 
 	// --- Human: use their actual job ---
-	if (ishuman(M))
+	if (is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		jobname = H.get_assignment()
 
 	// --- Carbon Nonhuman ---
-	else if (iscarbon(M)) // Nonhuman carbon mob
+	else if (is_carbon_mob(M)) // Nonhuman carbon mob
 		jobname = "No id"
 
 	// --- AI ---
-	else if (isAI(M))
+	else if (is_ai(M))
 		jobname = "AI"
 
 	// --- Cyborg ---
-	else if (isrobot(M))
+	else if (is_robot(M))
 		jobname = "Robot"
 
 	// --- Personal AI (pAI) ---
@@ -333,7 +333,7 @@
 	// --- Modifications to the mob's identity ---
 
 	// The mob is disguising their identity:
-	if (ishuman(M) && M.GetVoice() != real_name)
+	if (is_human_mob(M) && M.GetVoice() != real_name)
 		displayname = M.GetVoice()
 		jobname = "Unknown"
 		voicemask = 1
@@ -538,7 +538,7 @@
 /obj/item/device/radio/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 	user.set_machine(src)
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		b_stat = !b_stat
 		if(!istype(src, /obj/item/device/radio/beacon))
 			if (b_stat)
@@ -609,7 +609,7 @@
 
 /obj/item/device/radio/borg/talk_into()
 	. = ..()
-	if (isrobot(src.loc))
+	if (is_robot(src.loc))
 		var/mob/living/silicon/robot/R = src.loc
 		var/datum/robot_component/C = R.components["radio"]
 		R.cell_use_power(C.active_usage)
@@ -617,10 +617,10 @@
 /obj/item/device/radio/borg/attackby(obj/item/weapon/W as obj, mob/user as mob)
 //	..()
 	user.set_machine(src)
-	if (!( isScrewdriver(W) || (istype(W, /obj/item/device/encryptionkey/ ))))
+	if (!( is_screwdriver(W) || (istype(W, /obj/item/device/encryptionkey/ ))))
 		return
 
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		if(keyslot)
 
 
@@ -736,7 +736,7 @@
 	data["rawfreq"] = num2text(frequency)
 
 	var/list/chanlist = list_channels(user)
-	if(islist(chanlist) && chanlist.len)
+	if(is_list(chanlist) && chanlist.len)
 		data["chan_list"] = chanlist
 		data["chan_list_len"] = chanlist.len
 

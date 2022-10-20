@@ -182,7 +182,7 @@
 	else if(istype(value, /client))
 		var/client/C = value
 		vtext = "<a href='?_src_=vars;Vars=[REF(C)]'>[REF(C)]</a> - [C] ([C.type])"
-	else if(islist(value))
+	else if(is_list(value))
 		var/list/L = value
 		vtext = "/list ([L.len])"
 		if(!(varname in view_variables_dont_expand) && L.len > 0 && L.len < 100)

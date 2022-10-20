@@ -164,7 +164,7 @@
 		..()
 
 /obj/structure/quicksand/Crossed(AM)
-	if(isliving(AM))
+	if(is_living_mob(AM))
 		var/mob/living/L = AM
 		buckle_mob(L)
 		if(!exposed)

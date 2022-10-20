@@ -21,7 +21,7 @@
 		var/ilim_d
 		var/bottom_lim = ((limit_y - 1) * limit_x)
 
-		if (!islist(map))
+		if (!is_list(map))
 			set_map_size()
 
 		for (var/i in 1 to (limit_x * limit_y))

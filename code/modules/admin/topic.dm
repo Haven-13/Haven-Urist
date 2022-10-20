@@ -219,7 +219,7 @@
 		if(!check_rights(R_SPAWN))	return
 
 		var/mob/M = locate(href_list["mob"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 
@@ -318,7 +318,7 @@
 //		if(!check_rights(R_BAN))	return
 
 		var/mob/M = locate(href_list["jobban2"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 
@@ -635,7 +635,7 @@
 			return
 
 		var/mob/M = locate(href_list["jobban4"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 
@@ -829,7 +829,7 @@
 
 	else if(href_list["boot2"])
 		var/mob/M = locate(href_list["boot2"])
-		if (ismob(M))
+		if (is_mob(M))
 			if(!check_if_greater_rights_than(M.client))
 				return
 			var/reason = sanitize(input("Please enter reason"))
@@ -865,7 +865,7 @@
 			return
 
 		var/mob/M = locate(href_list["newban"])
-		if(!ismob(M)) return
+		if(!is_mob(M)) return
 
 		if(M.client && M.client.holder)	return	//admins cannot be banned. Even if they could, the ban doesn't affect them anyway
 
@@ -929,7 +929,7 @@
 		if(!check_rights(R_MOD,0) && !check_rights(R_ADMIN))  return
 
 		var/mob/M = locate(href_list["mute"])
-		if(!ismob(M))	return
+		if(!is_mob(M))	return
 		if(!M.client)	return
 
 		var/mute_type = href_list["mute_type"]
@@ -1002,7 +1002,7 @@
 		if(!check_rights(R_FUN))	return
 
 		var/mob/M = locate(href_list["forcespeech"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "this can only be used on instances of type /mob")
 
 		var/speech = input("What will [key_name(M)] say?.", "Force speech", "")// Don't need to sanitize, since it does that in say(), we also trust our admins.
@@ -1018,7 +1018,7 @@
 			return
 
 		var/mob/M = locate(href_list["sendtoprison"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 		if(istype(M, /mob/living/silicon/ai))
@@ -1058,7 +1058,7 @@
 			return
 
 		var/mob/M = locate(href_list["tdome1"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 		if(istype(M, /mob/living/silicon/ai))
@@ -1083,7 +1083,7 @@
 			return
 
 		var/mob/M = locate(href_list["tdome2"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 		if(istype(M, /mob/living/silicon/ai))
@@ -1108,7 +1108,7 @@
 			return
 
 		var/mob/M = locate(href_list["tdomeadmin"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 		if(istype(M, /mob/living/silicon/ai))
@@ -1130,7 +1130,7 @@
 			return
 
 		var/mob/M = locate(href_list["tdomeobserve"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 		if(istype(M, /mob/living/silicon/ai))
@@ -1198,7 +1198,7 @@
 			to_chat(C, "<span class='warning'>Unable to locate mob.</span>")
 			return
 
-		if(!isghost(usr))	C.admin_ghost()
+		if(!is_ghost(usr))	C.admin_ghost()
 		sleep(2)
 		C.jumptomob(M)
 
@@ -1212,7 +1212,7 @@
 			to_chat(C, "<span class='warning'>Unable to locate mob.</span>")
 			return
 
-		if(!isobserver(usr))	C.admin_ghost()
+		if(!is_observer(usr))	C.admin_ghost()
 		var/mob/observer/ghost/G = C.mob
 		if(istype(G))
 			sleep(2)
@@ -1225,7 +1225,7 @@
 	else if(href_list["take_ic"])
 
 		var/mob/M = locate(href_list["take_question"])
-		if(ismob(M))
+		if(is_mob(M))
 			var/take_msg = "<span class='notice'><b>[key_name(usr.client)]</b> is attending to <b>[key_name(M)]'s</b> message.</span>"
 			for(var/client/X in GLOB.admins)
 				if((R_ADMIN|R_MOD|R_MENTOR) & X.holder.rights)
@@ -1250,7 +1250,7 @@
 		var/z = text2num(href_list["Z"])
 
 		var/client/C = usr.client
-		if(!isghost(usr))	C.admin_ghost()
+		if(!is_ghost(usr))	C.admin_ghost()
 		sleep(2)
 		C.jumptocoord(x,y,z)
 
@@ -1259,7 +1259,7 @@
 
 	else if(href_list["adminmoreinfo"])
 		var/mob/M = locate(href_list["adminmoreinfo"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 
@@ -1270,8 +1270,8 @@
 		var/turf/T = get_turf(M)
 
 		//Location
-		if(isturf(T))
-			if(isarea(T.loc))
+		if(is_turf(T))
+			if(is_area(T.loc))
 				location_description = "([M.loc == T ? "at coordinates " : "in [M.loc] at coordinates "] [T.x], [T.y], [T.z] in area <b>[T.loc]</b>)"
 			else
 				location_description = "([M.loc == T ? "at coordinates " : "in [M.loc] at coordinates "] [T.x], [T.y], [T.z])"
@@ -1283,7 +1283,7 @@
 			special_role_description = "Role: <i>Mind datum missing</i> Antagonist: <i>Mind datum missing</i>; Has been rev: <i>Mind datum missing</i>;"
 
 		//Health
-		if(isliving(M))
+		if(is_living_mob(M))
 			var/mob/living/L = M
 			var/status
 			switch (M.stat)
@@ -1311,7 +1311,7 @@
 		if(!check_rights(R_ADMIN|R_FUN))	return
 
 		var/mob/living/carbon/human/H = locate(href_list["adminspawncookie"])
-		if(!ishuman(H))
+		if(!is_human_mob(H))
 			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
 			return
 
@@ -1335,7 +1335,7 @@
 		if(!check_rights(R_ADMIN|R_FUN))	return
 
 		var/mob/living/M = locate(href_list["BlueSpaceArtillery"])
-		if(!isliving(M))
+		if(!is_living_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob/living")
 			return
 
@@ -1386,7 +1386,7 @@
 			to_chat(src.owner, "You sent [input] to [L] via a secure channel.")
 			log_admin("[src.owner] replied to [key_name(L)]'s Centcomm message with the message [input].")
 			message_admins("[src.owner] replied to [key_name(L)]'s Centcom message with: \"[input]\"")
-			if(!isAI(L))
+			if(!is_ai(L))
 				to_chat(L, "<span class='info'>You hear something crackle in your headset for a moment before a voice speaks.</span>")
 			to_chat(L, "<span class='info'>Please stand by for a message from Central Command.</span>")
 			to_chat(L, "<span class='info'>Message as follows.</span>")
@@ -1502,7 +1502,7 @@
 			return
 
 		var/mob/M = locate(href_list["traitor"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be used on instances of type /mob.")
 			return
 		show_traitor_panel(M)
@@ -1587,7 +1587,7 @@
 			where = "onfloor"
 
 		if ( where == "inhand" )	//Can only give when human or monkey
-			if ( !( ishuman(usr) || issmall(usr) ) )
+			if ( !( is_human_mob(usr) || issmall(usr) ) )
 				to_chat(usr, "Can only spawn in hand when you're a human or a monkey.")
 				where = "onfloor"
 			else if ( usr.get_active_hand() )
@@ -1892,7 +1892,7 @@
 			var/ckey = href_list["ckey"]
 			if(!ckey)
 				var/mob/M = locate(href_list["mob"])
-				if(ismob(M))
+				if(is_mob(M))
 					ckey = M.ckey
 			show_player_info(ckey)
 
@@ -1984,7 +1984,7 @@
 		return
 	if(href_list["setstaffwarn"])
 		var/mob/M = locate(href_list["setstaffwarn"])
-		if(!ismob(M)) return
+		if(!is_mob(M)) return
 
 		if(M.client && M.client.holder) return // admins don't get staffnotify'd about
 
@@ -2005,7 +2005,7 @@
 				return
 	if(href_list["removestaffwarn"])
 		var/mob/M = locate(href_list["removestaffwarn"])
-		if(!ismob(M)) return
+		if(!is_mob(M)) return
 
 		switch(alert("Really remove staff warn?",,"Yes","No"))
 			if("Yes")
@@ -2045,7 +2045,7 @@
 
 /mob/observer/ghost/extra_admin_link(var/source, var/prefix, var/sufix, var/short_links)
 	. = ..()
-	if(mind && (mind.current && !isghost(mind.current)))
+	if(mind && (mind.current && !is_ghost(mind.current)))
 		. += "<A HREF='?[source];adminplayerobservefollow=\ref[mind.current]'>[prefix][short_links ? "B" : "BDY"][sufix]</A>"
 
 /proc/admin_jump_link(var/datum/target, var/source, var/delimiter = "|", var/prefix, var/sufix, var/short_links)

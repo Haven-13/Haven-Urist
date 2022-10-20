@@ -32,7 +32,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	if(istype(W, /obj/item/weapon/melee/energy/sword))
 		if(W == src)
 			to_chat(user, "<span class='notice'>You try to attach the end of the energy sword to... itself. You're not very smart, are you?</span>")
-			if(ishuman(user))
+			if(is_human_mob(user))
 				user.adjustBrainLoss(10)
 		else
 			to_chat(user, "<span class='notice'>You attach the ends of the two energy swords, making a single double-bladed weapon! You're cool.</span>")

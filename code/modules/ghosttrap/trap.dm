@@ -39,7 +39,7 @@ var/list/ghost_traps
 /datum/ghosttrap/proc/assess_candidate(var/mob/observer/ghost/candidate, var/mob/target, var/feedback = TRUE)
 	if(!candidate.MayRespawn(1, minutes_since_death))
 		return 0
-	if(islist(ban_checks))
+	if(is_list(ban_checks))
 		for(var/bantype in ban_checks)
 			if(jobban_isbanned(candidate, "[bantype]"))
 				if(feedback)

@@ -100,7 +100,7 @@
 
 /mob/observer/eye/proc/getLoc()
 	if(owner)
-		if(!isturf(owner.loc) || !owner.client)
+		if(!is_turf(owner.loc) || !owner.client)
 			return
 		return loc
 

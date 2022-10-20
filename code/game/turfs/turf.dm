@@ -76,7 +76,7 @@
 
 	if(user.restrained())
 		return 0
-	if(isnull(user.pulling) || user.pulling.anchored || !isturf(user.pulling.loc))
+	if(isnull(user.pulling) || user.pulling.anchored || !is_turf(user.pulling.loc))
 		return 0
 	if(user.pulling.loc != user.loc && get_dist(user, user.pulling) > 1)
 		return 0
@@ -100,7 +100,7 @@
 
 	..()
 
-	if (!mover || !isturf(mover.loc) || isobserver(mover))
+	if (!mover || !is_turf(mover.loc) || is_observer(mover))
 		return 1
 
 	//First, check objects to block exit that are not on the border
@@ -147,7 +147,7 @@ var/const/enterloopsanity = 100
 
 	var/atom/movable/A = atom
 
-	if(ismob(A))
+	if(is_mob(A))
 		var/mob/M = A
 		if(!M.check_solid_ground())
 			inertial_drift(M)
@@ -269,7 +269,7 @@ var/const/enterloopsanity = 100
 	if(src.density)
 		spawn(2)
 			step(AM, turn(AM.last_move, 180))
-		if(isliving(AM))
+		if(is_living_mob(AM))
 			var/mob/living/M = AM
 			M.turf_collision(src, speed)
 

@@ -182,7 +182,7 @@
 
 /obj/item/clothing/suit/straight_jacket/equipped(var/mob/user, var/slot)
 	if(slot == slot_wear_suit)
-		if(iscarbon(user))
+		if(is_carbon_mob(user))
 			var/mob/living/carbon/C = user
 			C.drop_from_inventory(C.handcuffed)
 		user.drop_l_hand()

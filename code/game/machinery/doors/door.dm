@@ -138,11 +138,11 @@
 
 /obj/machinery/door/Bumped(atom/AM)
 	if(p_open || operating) return
-	if(ismob(AM))
+	if(is_mob(AM))
 		var/mob/M = AM
 		if(world.time - M.last_bumped <= 1 SECOND) return	//Can bump-open one airlock per second. This is to prevent shock spam.
 		M.last_bumped = world.time
-		if(!M.restrained() && (!issmall(M) || ishuman(M)))
+		if(!M.restrained() && (!issmall(M) || is_human_mob(M)))
 			bumpopen(M)
 		return
 
@@ -220,7 +220,7 @@
 	..()
 	visible_message("<span class='danger'>[src.name] was hit by [AM].</span>")
 	var/tforce = 0
-	if(ismob(AM))
+	if(is_mob(AM))
 		tforce = 15 * (speed/5)
 	else
 		tforce = AM:throwforce * (speed/5)
@@ -275,7 +275,7 @@
 
 		return
 
-	if(repairing && isWelder(I))
+	if(repairing && is_welder(I))
 		if(!density)
 			to_chat(user, "<span class='warning'>\The [src] must be closed before you can repair it.</span>")
 			return
@@ -292,7 +292,7 @@
 				repairing = null
 		return
 
-	if(repairing && isCrowbar(I))
+	if(repairing && is_crowbar(I))
 		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
 		playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 100, 1)
 		repairing.loc = user.loc
@@ -301,7 +301,7 @@
 
 	check_force(I, user)
 
-	if(src.operating > 0 || isrobot(user))	return //borgs can't attack doors open because it conflicts with their AI-like interaction with them.
+	if(src.operating > 0 || is_robot(user))	return //borgs can't attack doors open because it conflicts with their AI-like interaction with them.
 
 	if(src.operating) return
 

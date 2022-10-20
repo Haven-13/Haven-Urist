@@ -70,11 +70,11 @@ var/global/list/rad_collectors = list()
 		src.P = W
 		update_icons()
 		return 1
-	else if(isCrowbar(W))
+	else if(is_crowbar(W))
 		if(P && !src.locked)
 			eject()
 			return 1
-	else if(isWrench(W))
+	else if(is_wrench(W))
 		if(P)
 			to_chat(user, "<span class='notice'>Remove the phoron tank first.</span>")
 			return 1
@@ -215,7 +215,7 @@ var/global/list/rad_collectors = list()
 
 
 /obj/machinery/power/rad_collector/pipenet/attackby(obj/item/W, mob/user)
-	if(isWrench(W))
+	if(is_wrench(W))
 		for(var/obj/machinery/power/rad_collector/R in get_turf(src))
 			if(R != src)
 				to_chat(user, "<span class='warning'>You cannot install more than one collector on the same spot.</span>")

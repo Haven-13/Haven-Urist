@@ -133,7 +133,7 @@
 		to_chat(user, "You relax your deathgrip on the flooring.")
 	else
 		//make sure these can only be used when equipped.
-		if(!ishuman(user))
+		if(!is_human_mob(user))
 			return
 		var/mob/living/carbon/human/H = user
 		if (H.shoes != src)

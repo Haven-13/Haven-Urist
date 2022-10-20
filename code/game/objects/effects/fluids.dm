@@ -41,7 +41,7 @@
 		if(istype(T))
 			T.wet_floor()
 		start_loc = null
-	if(islist(equalizing_fluids))
+	if(is_list(equalizing_fluids))
 		equalizing_fluids.Cut()
 	REMOVE_ACTIVE_FLUID(src)
 	. = ..()

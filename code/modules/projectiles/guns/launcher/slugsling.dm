@@ -18,7 +18,7 @@
 	squish()
 
 /obj/item/weapon/slugegg/HasProximity(var/atom/movable/AM)
-	if(isliving(AM))
+	if(is_living_mob(AM))
 		if(istype(AM,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = AM
 			if(H.species && H.species.get_bodytype() == SPECIES_VOX)

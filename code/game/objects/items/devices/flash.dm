@@ -66,13 +66,13 @@
 	playsound(src.loc, 'resources/sound/weapons/flash.ogg', 100, 1)
 	var/flashfail = 0
 
-	if(iscarbon(M))
+	if(is_carbon_mob(M))
 		if(M.stat!=DEAD)
 			var/mob/living/carbon/C = M
 			var/safety = C.eyecheck()
 			if(safety < FLASH_PROTECTION_MODERATE)
 				var/flash_strength = (rand(str_min,str_max))
-				if(ishuman(M))
+				if(is_human_mob(M))
 					var/mob/living/carbon/human/H = M
 					flash_strength = round(H.species.flash_mod * flash_strength)
 				if(flash_strength > 0)
@@ -88,12 +88,12 @@
 			else
 				flashfail = 1
 
-	else if(issilicon(M))
+	else if(is_silicon(M))
 		M.Weaken(rand(str_min,6))
 	else
 		flashfail = 1
 
-	if(isrobot(user))
+	if(is_robot(user))
 		spawn(0)
 			var/atom/movable/overlay/animation = new(user.loc)
 			animation.plane = user.plane
@@ -107,7 +107,7 @@
 
 	if(!flashfail)
 		flick("[initial(icon_state)]_on", src)
-		if(!issilicon(M))
+		if(!is_silicon(M))
 			user.visible_message("<span class='disarm'>[user] blinds [M] with \the [src]!</span>")
 		else
 			user.visible_message("<span class='notice'>[user] overloads [M]'s sensors with \the [src]!</span>")
@@ -143,7 +143,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	playsound(src.loc, 'resources/sound/weapons/flash.ogg', 100, 1)
 	flick("[initial(icon_state)]_on", src)
-	if(user && isrobot(user))
+	if(user && is_robot(user))
 		spawn(0)
 			var/atom/movable/overlay/animation = new(user.loc)
 			animation.plane = user.plane

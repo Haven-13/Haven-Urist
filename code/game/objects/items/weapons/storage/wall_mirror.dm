@@ -34,7 +34,7 @@
 		to_chat(user, "<spawn class='notice'>You enter the key combination for the style you want on the panel, but the nanomachines inside \the [src] refuse to come out.")
 		return
 
-	if(ishuman(user))
+	if(is_human_mob(user))
 		var/datum/ui_module/appearance_changer/AC = ui_users[user]
 		if(!AC)
 			AC = new(src, user)
@@ -122,7 +122,7 @@
 	var/list/ui_users = list()
 
 /obj/item/weapon/mirror/attack_self(mob/user as mob)
-	if(ishuman(user))
+	if(is_human_mob(user))
 		var/datum/ui_module/appearance_changer/AC = ui_users[user]
 		if(!AC)
 			AC = new(src, user)

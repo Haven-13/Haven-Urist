@@ -130,7 +130,7 @@
 	icon_state = "uglymine"
 
 /obj/item/weapon/mine/stun/on_trigger(atom/movable/A)
-	if(ismob(A))
+	if(is_mob(A))
 		var/mob/M = A
 		M.Stun(30)
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread()
@@ -166,7 +166,7 @@
 		for(var/mob/living/M in O)
 			//lying on a frag grenade while the grenade is on the ground causes you to absorb most of the shrapnel.
 			//you will most likely be dead, but others nearby will be spared the fragments that hit you instead.
-			if(M.lying && isturf(src.loc))
+			if(M.lying && is_turf(src.loc))
 				P.attack_mob(M, 0, 0)
 			else
 				P.attack_mob(M, 0, 100) //otherwise, allow a decent amount of fragments to pass

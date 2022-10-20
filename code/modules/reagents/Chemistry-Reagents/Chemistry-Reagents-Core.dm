@@ -45,7 +45,7 @@
 	color = data["blood_colour"]
 
 /datum/reagent/blood/mix_data(var/newdata, var/newamount)
-	if(!islist(newdata))
+	if(!is_list(newdata))
 		return
 	if(!data["virus2"])
 		data["virus2"] = list()
@@ -90,7 +90,7 @@
 					infect_virus2(M, V.getcopy())
 
 /datum/reagent/blood/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		if(H.isSynthetic())
 			return

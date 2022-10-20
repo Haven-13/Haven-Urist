@@ -38,9 +38,9 @@
 
 /obj/item/ammo_casing/proc/leave_residue()
 	var/mob/living/carbon/human/H
-	if(ishuman(loc))
+	if(is_human_mob(loc))
 		H = loc //in a human, somehow
-	else if(loc && ishuman(loc.loc))
+	else if(loc && is_human_mob(loc.loc))
 		H = loc.loc //more likely, we're in a gun being held by a human
 
 	if(H)
@@ -51,7 +51,7 @@
 			H.gunshot_residue = caliber
 
 /obj/item/ammo_casing/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		if(!BB)
 			to_chat(user, "<span class='notice'>There is no bullet in the casing to inscribe anything into.</span>")
 			return

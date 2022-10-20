@@ -78,7 +78,7 @@
 
 /mob/living/carbon/attack_hand(mob/M as mob)
 	if(!istype(M, /mob/living/carbon)) return
-	if (ishuman(M))
+	if (is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 		if (H.hand)
@@ -254,7 +254,7 @@
 
 /mob/living/carbon/clean_blood()
 	. = ..()
-	if(ishuman(src))
+	if(is_human_mob(src))
 		var/mob/living/carbon/human/H = src
 		if(H.gloves)
 			if(H.gloves.clean_blood())
@@ -286,7 +286,7 @@
 	if (istype(item, /obj/item/grab))
 		var/obj/item/grab/G = item
 		item = G.throw_held() //throw the person instead of the grab
-		if(ismob(item))
+		if(is_mob(item))
 			var/mob/M = item
 
 			//limit throw range by relative mob size
@@ -305,7 +305,7 @@
 
 	if(!unEquip(item))
 		return
-	if(!item || !isturf(item.loc))
+	if(!item || !is_turf(item.loc))
 		return
 
 	//actually throw it!

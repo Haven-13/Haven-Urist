@@ -61,7 +61,7 @@
 			return
 		else
 			var/obj/item/located_item = locate(slot_to_strip_text) in src
-			if(isunderwear(located_item))
+			if(is_underwear(located_item))
 				var/obj/item/underwear/UW = located_item
 				if(UW.DelayedRemoveUnderwear(user, src))
 					user.put_in_active_hand(UW)

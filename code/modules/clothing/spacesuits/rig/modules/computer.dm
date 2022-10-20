@@ -297,7 +297,7 @@
 
 /obj/item/rig_module/datajack/proc/load_data(var/incoming_data)
 
-	if(islist(incoming_data))
+	if(is_list(incoming_data))
 		for(var/entry in incoming_data)
 			load_data(entry)
 		return 1

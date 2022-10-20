@@ -88,7 +88,7 @@
 	return 1
 
 /obj/machinery/atmospherics/binary/circulator/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isWrench(W))
+	if(is_wrench(W))
 		var/air1pressure = air1.return_pressure()
 		var/air2pressure = air2.return_pressure()
 		if((air1pressure > ONE_ATMOSPHERE) || (air2pressure > ONE_ATMOSPHERE))

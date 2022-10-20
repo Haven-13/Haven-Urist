@@ -51,7 +51,7 @@
 	sleep(200)
 	for(var/atom/A in contents)
 		A.clean_blood()
-		if(isitem(A))
+		if(is_item(A))
 			var/obj/item/I = A
 			I.decontaminate()
 			if(crayon && iscolorablegloves(I))
@@ -114,7 +114,7 @@
 	else if(istype(W,/obj/item/grab))
 		if( (state == 1) && hacked)
 			var/obj/item/grab/G = W
-			if(ishuman(G.assailant) && iscorgi(G.affecting))
+			if(is_human_mob(G.assailant) && is_corgi(G.affecting))
 				G.affecting.loc = src
 				qdel(G)
 				state = 3

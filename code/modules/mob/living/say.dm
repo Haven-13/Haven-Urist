@@ -73,7 +73,7 @@ var/list/channel_to_radio_key = new
 	if (istype(src, /mob/living/silicon/pai))
 		return
 
-	if (!ishuman(src))
+	if (!is_human_mob(src))
 		return
 
 	var/mob/living/carbon/human/H = src

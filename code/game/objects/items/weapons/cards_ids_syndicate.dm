@@ -119,7 +119,7 @@
 					. = 1
 			if("Blood Type")
 				var/default = blood_type
-				if(default == initial(blood_type) && ishuman(user))
+				if(default == initial(blood_type) && is_human_mob(user))
 					var/mob/living/carbon/human/H = user
 					if(H.dna)
 						default = H.dna.b_type
@@ -130,7 +130,7 @@
 					. = 1
 			if("DNA Hash")
 				var/default = dna_hash
-				if(default == initial(dna_hash) && ishuman(user))
+				if(default == initial(dna_hash) && is_human_mob(user))
 					var/mob/living/carbon/human/H = user
 					if(H.dna)
 						default = H.dna.unique_enzymes
@@ -141,7 +141,7 @@
 					. = 1
 			if("Fingerprint Hash")
 				var/default = fingerprint_hash
-				if(default == initial(fingerprint_hash) && ishuman(user))
+				if(default == initial(fingerprint_hash) && is_human_mob(user))
 					var/mob/living/carbon/human/H = user
 					if(H.dna)
 						default = md5(H.dna.uni_identity)

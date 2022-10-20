@@ -21,7 +21,7 @@
 	. = ..()
 
 /obj/structure/drain/attackby(var/obj/item/thing, var/mob/user)
-	if(isWelder(thing))
+	if(is_welder(thing))
 		var/obj/item/weapon/weldingtool/WT = thing
 		if(WT.isOn())
 			welded = !welded

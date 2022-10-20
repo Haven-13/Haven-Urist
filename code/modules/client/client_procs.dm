@@ -62,7 +62,7 @@
 		var/client/C = locate(href_list["priv_msg"])
 		var/datum/ticket/ticket = locate(href_list["ticket"])
 
-		if(ismob(C)) 		//Old stuff can feed-in mobs instead of clients
+		if(is_mob(C)) 		//Old stuff can feed-in mobs instead of clients
 			var/mob/M = C
 			C = M.client
 		cmd_admin_pm(C, null, ticket)

@@ -4,89 +4,59 @@
 
 #define get_turf(A) get_step(A,0)
 
-#define isAI(A) istype(A, /mob/living/silicon/ai)
+#define is_null(A) isnull(A)
+#define is_num(A) isnum(A)
+#define is_area(A) isarea(A)
+#define is_mob(A) ismob(A)
+#define is_turf(A) isturf(A)
 
-#define isalien(A) istype(A, /mob/living/carbon/alien)
-
-#define isanimal(A) istype(A, /mob/living/simple_animal)
-
-#define isairlock(A) istype(A, /obj/machinery/door/airlock)
-
-#define isatom(A) istype(A, /atom)
-
-#define isbrain(A) istype(A, /mob/living/carbon/brain)
-
-#define iscarbon(A) istype(A, /mob/living/carbon)
+#define is_atom(A) istype(A, /atom)
+#define is_movable(A) istype(A, /atom/movable)
+#define is_client(A) istype(A, /client)
+#define is_list(A) istype(A, /list)
 
 #define iscolorablegloves(A) (istype(A, /obj/item/clothing/gloves/color)||istype(A, /obj/item/clothing/gloves/insulated)||istype(A, /obj/item/clothing/gloves/thick))
 
-#define isclient(A) istype(A, /client)
+#define is_obj(A) istype(A, /obj)
+#define is_item(A) istype(A, /obj/item)
+#define is_organ(A) istype(A, /obj/item/organ/external)
+#define is_stack(A) istype(A, /obj/item/stack)
+#define is_underwear(A) istype(A, /obj/item/underwear)
 
-#define iscorgi(A) istype(A, /mob/living/simple_animal/corgi)
+#define is_space(A) istype(A, /area/space)
+#define is_planet(A) istype(A, /area/planet)
 
+#define is_ai(A) istype(A, /mob/living/silicon/ai)
+#define is_alien(A) istype(A, /mob/living/carbon/alien)
+#define is_animal(A) istype(A, /mob/living/simple_animal)
+#define is_brain(A) istype(A, /mob/living/carbon/brain)
+#define is_carbon_mob(A) istype(A, /mob/living/carbon)
+#define is_corgi(A) istype(A, /mob/living/simple_animal/corgi)
 #define is_drone(A) istype(A, /mob/living/silicon/robot/drone)
+#define is_eye(A) istype(A, /mob/observer/eye)
+#define is_ghost(A) istype(A, /mob/observer/ghost)
+#define is_living_mob(A) istype(A, /mob/living)
+#define is_human_mob(A) istype(A, /mob/living/carbon/human)
+#define is_mouse(A) istype(A, /mob/living/simple_animal/mouse)
+#define is_new_player(A) istype(A, /mob/new_player)
+#define is_observer(A) istype(A, /mob/observer)
+#define is_pai(A) istype(A, /mob/living/silicon/pai)
+#define is_robot(A) istype(A, /mob/living/silicon/robot)
+#define is_silicon(A) istype(A, /mob/living/silicon)
+#define is_slime(A) istype(A, /mob/living/carbon/slime)
+#define is_virtual_mob(A) istype(A, /mob/observer/virtual)
 
-#define isEye(A) istype(A, /mob/observer/eye)
+#define is_open_space(A) istype(A, /turf/simulated/open)
 
-#define ishuman(A) istype(A, /mob/living/carbon/human)
-
-#define isitem(A) istype(A, /obj/item)
-
-#define islist(A) istype(A, /list)
-
-#define isliving(A) istype(A, /mob/living)
-
-#define ismouse(A) istype(A, /mob/living/simple_animal/mouse)
-
-#define ismovable(A) istype(A, /atom/movable)
-
-#define isnewplayer(A) istype(A, /mob/new_player)
-
-#define isobj(A) istype(A, /obj)
-
-#define isghost(A) istype(A, /mob/observer/ghost)
-
-#define isobserver(A) istype(A, /mob/observer)
-
-#define isorgan(A) istype(A, /obj/item/organ/external)
-
-#define isstack(A) istype(A, /obj/item/stack)
-
-#define isspace(A) istype(A, /area/space)
-
-#define isplanet(A) istype(A, /area/planet)
-
-#define ispAI(A) istype(A, /mob/living/silicon/pai)
-
-#define isrobot(A) istype(A, /mob/living/silicon/robot)
-
-#define issilicon(A) istype(A, /mob/living/silicon)
-
-#define isslime(A) istype(A, /mob/living/carbon/slime)
-
-#define isunderwear(A) istype(A, /obj/item/underwear)
-
-#define isvirtualmob(A) istype(A, /mob/observer/virtual)
-
-#define isweakref(A) istype(A, /weakref)
+#define is_wrench(A) istype(A, /obj/item/weapon/wrench)
+#define is_welder(A) istype(A, /obj/item/weapon/weldingtool)
+#define is_coil(A) istype(A, /obj/item/stack/cable_coil)
+#define is_wirecutter(A) istype(A, /obj/item/weapon/wirecutters)
+#define is_screwdriver(A) istype(A, /obj/item/weapon/screwdriver)
+#define is_multitool(A) istype(A, /obj/item/device/multitool)
+#define is_crowbar(A) istype(A, /obj/item/weapon/crowbar)
 
 #define attack_animation(A) if(istype(A)) A.do_attack_animation(src)
-
-#define isopenspace(A) istype(A, /turf/simulated/open)
-
-#define isWrench(A) istype(A, /obj/item/weapon/wrench)
-
-#define isWelder(A) istype(A, /obj/item/weapon/weldingtool)
-
-#define isCoil(A) istype(A, /obj/item/stack/cable_coil)
-
-#define isWirecutter(A) istype(A, /obj/item/weapon/wirecutters)
-
-#define isScrewdriver(A) istype(A, /obj/item/weapon/screwdriver)
-
-#define isMultitool(A) istype(A, /obj/item/device/multitool)
-
-#define isCrowbar(A) istype(A, /obj/item/weapon/crowbar)
 
 #define sequential_id(key) uniqueness_repository.Generate(/datum/uniqueness_generator/id_sequential, key)
 

@@ -147,7 +147,7 @@
 	set name = "Toggle Lid"
 	set src in oview(1)
 
-	if(usr.stat || !isliving(usr))
+	if(usr.stat || !is_living_mob(usr))
 		return
 
 	if(scanning)

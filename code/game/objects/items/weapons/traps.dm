@@ -15,7 +15,7 @@
 	var/deployed = 0
 
 /obj/item/weapon/beartrap/proc/can_use(mob/user)
-	return (user.IsAdvancedToolUser() && !issilicon(user) && !user.stat && !user.restrained())
+	return (user.IsAdvancedToolUser() && !is_silicon(user) && !user.stat && !user.restrained())
 
 /obj/item/weapon/beartrap/user_unbuckle_mob(mob/user as mob)
 	if(buckled_mob && can_use(user))
@@ -93,7 +93,7 @@
 	deployed = 0
 
 /obj/item/weapon/beartrap/Crossed(AM as mob|obj)
-	if(deployed && isliving(AM))
+	if(deployed && is_living_mob(AM))
 		var/mob/living/L = AM
 		if(!MOVING_DELIBERATELY(L))
 			L.visible_message(

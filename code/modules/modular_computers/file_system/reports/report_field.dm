@@ -21,11 +21,11 @@
 //Access stuff. Can be given access constants or lists. See report access procs for documentation.
 /datum/report_field/proc/set_access(access, access_edit, override = 1)
 	if(access)
-		if(!islist(access))
+		if(!is_list(access))
 			access = list(access)
 		override ? (src.access = list(access)) : (src.access += list(access))
 	if(access_edit)
-		if(!islist(access_edit))
+		if(!is_list(access_edit))
 			access_edit = list(access_edit)
 		override ? (src.access_edit = list(access_edit)) : (src.access_edit += list(access_edit))
 

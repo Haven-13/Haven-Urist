@@ -61,8 +61,8 @@
 /atom/movable/proc/forceMove(atom/destination)
 	if(loc == destination)
 		return 0
-	var/is_origin_turf = isturf(loc)
-	var/is_destination_turf = isturf(destination)
+	var/is_origin_turf = is_turf(loc)
+	var/is_destination_turf = is_turf(destination)
 	// It is a new area if:
 	//  Both the origin and destination are turfs with different areas.
 	//  When either origin or destination is a turf and the other is not.
@@ -99,9 +99,9 @@
 	var/atom/origin = loc
 	. = ..()
 	// Only update plane if we're located on map
-	if (isturf(src.loc))
+	if (is_turf(src.loc))
 		// if we wasn't on map OR our Z coord was changed
-		if (!isturf(origin) || (get_z(loc) != get_z(origin)))
+		if (!is_turf(origin) || (get_z(loc) != get_z(origin)))
 			update_plane()
 
 //called when src is thrown into hit_atom
@@ -110,13 +110,13 @@
 		var/mob/living/M = hit_atom
 		M.hitby(src,speed)
 
-	else if(isobj(hit_atom))
+	else if(is_obj(hit_atom))
 		var/obj/O = hit_atom
 		if(!O.anchored)
 			step(O, src.last_move)
 		O.hitby(src,speed)
 
-	else if(isturf(hit_atom))
+	else if(is_turf(hit_atom))
 		src.throwing = 0
 		var/turf/T = hit_atom
 		T.hitby(src,speed)
@@ -129,7 +129,7 @@
 			if(istype(A,/mob/living))
 				if(A:lying) continue
 				src.throw_impact(A,speed)
-			if(isobj(A))
+			if(is_obj(A))
 				if(A.density && !A.throwpass)	// **TODO: Better behaviour for windows which are dense, but shouldn't always stop movement
 					src.throw_impact(A,speed)
 
@@ -255,7 +255,7 @@
 		// end of while loop
 
 	//done throwing, either because it hit something or it finished moving
-	if(isobj(src)) src.throw_impact(get_turf(src),speed)
+	if(is_obj(src)) src.throw_impact(get_turf(src),speed)
 	src.throwing = 0
 	src.thrower = null
 	src.throw_source = null

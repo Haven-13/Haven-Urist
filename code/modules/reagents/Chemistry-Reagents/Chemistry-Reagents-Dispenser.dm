@@ -286,7 +286,7 @@
 	M.take_organ_damage(0, removed * power * 2)
 
 /datum/reagent/acid/affect_touch(var/mob/living/carbon/M, var/alien, var/removed) // This is the most interesting
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		if(H.head)
 			if(H.head.unacidable)
@@ -335,7 +335,7 @@
 		M.take_organ_damage(0, removed * power * 0.1) //burn damage, since it causes chemical burns. Acid doesn't make bones shatter, like brute trauma would.
 	else
 		M.take_organ_damage(0, removed * power * 0.2)
-		if(removed && ishuman(M) && prob(100 * removed / meltdose)) // Applies disfigurement
+		if(removed && is_human_mob(M) && prob(100 * removed / meltdose)) // Applies disfigurement
 			var/mob/living/carbon/human/H = M
 			var/screamed
 			for(var/obj/item/organ/external/affecting in H.organs)

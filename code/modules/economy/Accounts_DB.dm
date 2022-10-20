@@ -163,7 +163,7 @@
 				if(held_card)
 					held_card.loc = src.loc
 
-					if(ishuman(usr) && !usr.get_active_hand())
+					if(is_human_mob(usr) && !usr.get_active_hand())
 						usr.put_in_hands(held_card)
 					held_card = null
 

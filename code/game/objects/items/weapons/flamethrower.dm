@@ -37,7 +37,7 @@
 		var/mob/M = location
 		if(M.l_hand == src || M.r_hand == src)
 			location = M.loc
-	if(isturf(location)) //start a fire if possible
+	if(is_turf(location)) //start a fire if possible
 		location.hotspot_expose(700, 2)
 	return
 
@@ -68,7 +68,7 @@
 
 /obj/item/weapon/flamethrower/attackby(obj/item/W as obj, mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
-	if(isWrench(W) && !status)//Taking this apart
+	if(is_wrench(W) && !status)//Taking this apart
 		var/turf/T = get_turf(src)
 		if(weldtool)
 			weldtool.loc = T
@@ -83,7 +83,7 @@
 		qdel(src)
 		return
 
-	if(isScrewdriver(W) && igniter && !lit)
+	if(is_screwdriver(W) && igniter && !lit)
 		status = !status
 		to_chat(user, "<span class='notice'>[igniter] is now [status ? "secured" : "unsecured"]!</span>")
 		update_icon()

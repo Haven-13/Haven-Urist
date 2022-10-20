@@ -36,7 +36,7 @@
 		src.name = _name
 
 	var/list/areas = list()
-	if(!islist(shuttle_area))
+	if(!is_list(shuttle_area))
 		shuttle_area = list(shuttle_area)
 	for(var/T in shuttle_area)
 		var/area/A = locate(T)
@@ -170,7 +170,7 @@
 			for(var/atom/movable/AM in dst_turf)
 				if(!AM.simulated)
 					continue
-				if(isliving(AM))
+				if(is_living_mob(AM))
 					var/mob/living/bug = AM
 					bug.gib()
 				else

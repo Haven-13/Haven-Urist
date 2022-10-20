@@ -203,7 +203,7 @@ GLOBAL_PROTECT(log_end)
 		C = whom
 		M = C.mob
 		key = C.key
-	else if(ismob(whom))
+	else if(is_mob(whom))
 		M = whom
 		C = M.client
 		key = M.key
@@ -272,7 +272,7 @@ GLOBAL_PROTECT(log_end)
 /proc/log_info_line(var/datum/d)
 	if(isnull(d))
 		return "*null*"
-	if(islist(d))
+	if(is_list(d))
 		var/list/L = list()
 		for(var/e in d)
 			L += log_info_line(e)

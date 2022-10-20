@@ -823,7 +823,7 @@
 		spawn vomit(1, vomit_score, vomit_score/25)
 
 	//0.1% chance of playing a scary sound to someone who's in complete darkness
-	if(isturf(loc) && rand(1,1000) == 1)
+	if(is_turf(loc) && rand(1,1000) == 1)
 		var/turf/T = loc
 		if(T.get_lumcount() <= LIGHTING_SOFT_THRESHOLD)
 			playsound_local(src,pick(GLOB.scarySounds),50, 1, -1)
@@ -840,7 +840,7 @@
 			if(!(a in contents) || isnull(a))
 				stomach_contents.Remove(a)
 				continue
-			if(iscarbon(a)|| isanimal(a))
+			if(is_carbon_mob(a)|| is_animal(a))
 				var/mob/living/M = a
 				if(M.stat == DEAD)
 					M.death(1)

@@ -100,7 +100,7 @@ field_generator power level display
 	if(active)
 		to_chat(user, "The [src] needs to be off.")
 		return
-	else if(isWrench(W))
+	else if(is_wrench(W))
 		switch(state)
 			if(0)
 				state = 1
@@ -119,7 +119,7 @@ field_generator power level display
 			if(2)
 				to_chat(user, "<span class='warning'> The [src.name] needs to be unwelded from the floor.</span>")
 				return
-	else if(isWelder(W))
+	else if(is_welder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		switch(state)
 			if(0)
@@ -262,7 +262,7 @@ field_generator power level display
 		if(T.density)//We cant shoot a field though this
 			return 0
 		for(var/atom/A in T.contents)
-			if(ismob(A))
+			if(is_mob(A))
 				continue
 			if(!istype(A,/obj/machinery/field_generator))
 				if((istype(A,/obj/machinery/door)||istype(A,/obj/machinery/the_singularitygen))&&(A.density))

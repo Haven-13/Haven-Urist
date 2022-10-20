@@ -289,7 +289,7 @@
 		to_chat(user, "<span class='warning'>You need to open access hatch on [src] first!</span>")
 		return 0
 
-	if(isCoil(W) && !building_terminal)
+	if(is_coil(W) && !building_terminal)
 		building_terminal = 1
 		var/obj/item/stack/cable_coil/CC = W
 		if (CC.get_amount() < 10)
@@ -307,7 +307,7 @@
 		stat = 0
 		return 0
 
-	if(isWelder(W))
+	if(is_welder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(!WT.isOn())
 			to_chat(user, "Turn on \the [WT] first!")
@@ -319,7 +319,7 @@
 			to_chat(user, "You repair all structural damage to \the [src]")
 			damage = 0
 		return 0
-	else if(isWirecutter(W) && !building_terminal)
+	else if(is_wirecutter(W) && !building_terminal)
 		building_terminal = 1
 		var/obj/machinery/power/terminal/term
 		for(var/obj/machinery/power/terminal/T in get_turf(user))

@@ -24,8 +24,8 @@
 		overlays += image(icon = 'resources/icons/obj/machines/power/fusion.dmi', icon_state = "emfield_s1")
 
 /obj/item/weapon/grenade/supermatter/Process()
-	if(!isturf(loc))
-		if(ismob(loc))
+	if(!is_turf(loc))
+		if(is_mob(loc))
 			var/mob/M = loc
 			M.drop_from_inventory(src)
 		forceMove(get_turf(src))

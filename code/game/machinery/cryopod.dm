@@ -295,7 +295,7 @@
 //Lifted from Unity stasis.dm and refactored. ~Zuhayr
 /obj/machinery/cryopod/Process()
 	if(occupant)
-		if(applies_stasis && iscarbon(occupant))
+		if(applies_stasis && is_carbon_mob(occupant))
 			var/mob/living/carbon/C = occupant
 			C.SetStasis(3)
 
@@ -454,7 +454,7 @@
 			to_chat(user, "<span class='notice'>\The [src] is in use.</span>")
 			return
 
-		if(!ismob(grab.affecting))
+		if(!is_mob(grab.affecting))
 			return
 
 		if(!check_occupant_allowed(grab.affecting))

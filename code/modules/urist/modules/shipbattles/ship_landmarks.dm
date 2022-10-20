@@ -73,7 +73,7 @@
 		to_chat(usr, "<span class='warning'>You are not allowed to respawn yet, and thus cannot join as a hostile boarder at this time.</span>")
 		return
 
-	if(isghost(usr) || isnewplayer(usr))
+	if(is_ghost(usr) || is_new_player(usr))
 		var/mob/living/simple_animal/hostile/overmapship/homeship = GLOB.using_map.overmap_ship.target
 
 		if(!homeship)

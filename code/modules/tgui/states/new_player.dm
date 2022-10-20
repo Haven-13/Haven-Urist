@@ -7,7 +7,7 @@
 GLOBAL_DATUM_INIT(new_player_state, /datum/ui_state/new_player_state, new)
 
 /datum/ui_state/new_player_state/can_use_topic(src_object, mob/user)
-	if(isnewplayer(user) || check_rights(R_ADMIN, 0, user.client))
+	if(is_new_player(user) || check_rights(R_ADMIN, 0, user.client))
 		return UI_INTERACTIVE
 	return UI_CLOSE
 

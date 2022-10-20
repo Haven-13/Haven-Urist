@@ -129,7 +129,7 @@
 	update_icon()
 	START_PROCESSING(SSvines, src)
 	// Some plants eat through plating.
-	if(islist(seed.chems) && !isnull(seed.chems[/datum/reagent/acid/polyacid]))
+	if(is_list(seed.chems) && !isnull(seed.chems[/datum/reagent/acid/polyacid]))
 		var/turf/T = get_turf(src)
 		T.ex_act(prob(80) ? 3 : 2)
 
@@ -154,7 +154,7 @@
 		layer = (seed && seed.force_layer) ? seed.force_layer : ABOVE_OBJ_LAYER
 		if(growth_type in list(GROWTH_VINES,GROWTH_BIOMASS))
 			set_opacity(1)
-		if(islist(seed.chems) && !isnull(seed.chems[/datum/reagent/woodpulp]))
+		if(is_list(seed.chems) && !isnull(seed.chems[/datum/reagent/woodpulp]))
 			set_density(1)
 			set_opacity(1)
 
@@ -226,7 +226,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	START_PROCESSING(SSvines, src)
 
-	if(isWirecutter(W) || istype(W, /obj/item/weapon/scalpel))
+	if(is_wirecutter(W) || istype(W, /obj/item/weapon/scalpel))
 		if(sampled)
 			to_chat(user, "<span class='warning'>You cannot take another sample from \the [src].</span>")
 			return

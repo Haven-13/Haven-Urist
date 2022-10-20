@@ -167,7 +167,7 @@
 			return TRUE
 
 		if("ejectOccupant")
-			if(!occupant || isslime(usr) || ispAI(usr))
+			if(!occupant || is_slime(usr) || is_pai(usr))
 				return FALSE // don't update UIs attached to this object
 			go_out()
 			return TRUE
@@ -190,7 +190,7 @@
 		beaker =  G
 		user.visible_message("[user] adds \a [G] to \the [src]!", "You add \a [G] to \the [src]!")
 	else if(istype(G, /obj/item/grab))
-		if(!ismob(G:affecting))
+		if(!is_mob(G:affecting))
 			return
 		for(var/mob/living/carbon/slime/M in range(1,G:affecting))
 			if(M.Victim == G:affecting)

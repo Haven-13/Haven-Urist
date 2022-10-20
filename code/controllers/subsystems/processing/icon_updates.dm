@@ -26,7 +26,7 @@ PROCESSING_SUBSYSTEM_DEF(icon_update)
 		var/list/argv = curr[A]
 		curr.len--
 
-		if (islist(argv))
+		if (is_list(argv))
 			A.update_icon(arglist(argv))
 		else
 			A.update_icon()

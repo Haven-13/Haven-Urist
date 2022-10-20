@@ -189,11 +189,11 @@
 
 		SStgui.update_uis(src)  // Speaker switch is on the main UI, not wires UI
 		return
-	else if(isMultitool(W) || isWirecutter(W))
+	else if(is_multitool(W) || is_wirecutter(W))
 		if(src.panel_open)
 			attack_hand(user)
 		return
-	else if((obj_flags & OBJ_FLAG_ANCHORABLE) && isWrench(W))
+	else if((obj_flags & OBJ_FLAG_ANCHORABLE) && is_wrench(W))
 		wrench_floor_bolts(user)
 		power_change()
 		return

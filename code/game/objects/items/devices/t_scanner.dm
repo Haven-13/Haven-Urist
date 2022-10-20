@@ -52,7 +52,7 @@
 
 	//handle clients changing
 	var/client/loc_client = null
-	if(ismob(src.loc))
+	if(is_mob(src.loc))
 		var/mob/M = src.loc
 		loc_client = M.client
 	set_user_client(loc_client)
@@ -95,8 +95,8 @@
 			I.overlays += P.overlays
 			I.underlays += P.underlays
 
-		if(ismob(scanned))
-			if(ishuman(scanned))
+		if(is_mob(scanned))
+			if(is_human_mob(scanned))
 				var/mob/living/carbon/human/H = scanned
 				if(H.species.appearance_flags & HAS_SKIN_COLOR)
 					I.color = rgb(H.r_skin, H.g_skin, H.b_skin)
@@ -124,13 +124,13 @@
 
 	for(var/turf/T in range(scan_range, center))
 		for(var/mob/M in T.contents)
-			if(ishuman(M))
+			if(is_human_mob(M))
 				var/mob/living/carbon/human/H = M
 				if(H.is_cloaked())
 					. += M
 			else if(M.alpha < 255)
 				. += M
-			else if(round_is_spooky() && isobserver(M))
+			else if(round_is_spooky() && is_observer(M))
 				. += M
 
 		if(!!T.is_plating())

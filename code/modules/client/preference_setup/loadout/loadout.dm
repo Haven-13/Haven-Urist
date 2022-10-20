@@ -75,7 +75,7 @@ var/list/gear_datums = list()
 
 /datum/category_item/player_setup_item/loadout/sanitize_character()
 	pref.gear_slot = sanitize_integer(pref.gear_slot, 1, config.loadout_slots, initial(pref.gear_slot))
-	if(!islist(pref.gear_list)) pref.gear_list = list()
+	if(!is_list(pref.gear_list)) pref.gear_list = list()
 
 	if(pref.gear_list.len < config.loadout_slots)
 		pref.gear_list.len = config.loadout_slots
@@ -282,7 +282,7 @@ var/list/gear_datums = list()
 			// I.e. list("1" = loadout_data1, "2" = loadout_data2, "3" = loadout_data3) becomes list(loadout_data1, loadout_data2, loadaout_data3)
 			for(var/index = 1 to pref.gear_list.len)
 				var/key = pref.gear_list[index]
-				if(islist(key))
+				if(is_list(key))
 					continue
 				var/value = pref.gear_list[key]
 				pref.gear_list[index] = value

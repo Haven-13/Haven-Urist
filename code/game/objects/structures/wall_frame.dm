@@ -80,7 +80,7 @@
 		return
 	//window placing end
 
-	if(isWrench(W))
+	if(is_wrench(W))
 		for(var/obj/structure/S in loc)
 			if(istype(S, /obj/structure/window))
 				to_chat(user, "<span class='notice'>There is still a window on the low wall!</span>")
@@ -157,7 +157,7 @@
 
 /obj/structure/wall_frame/hitby(AM as mob|obj, var/speed=THROWFORCE_SPEED_DIVISOR)
 	..()
-	if(ismob(AM))
+	if(is_mob(AM))
 		return
 	var/obj/O = AM
 	var/tforce = O.throwforce * (speed/THROWFORCE_SPEED_DIVISOR)

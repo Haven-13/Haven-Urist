@@ -32,7 +32,7 @@
 				restoring = 1
 			. = TRUE
 		if("PRG_purgeAiLaws")
-			if (!issilicon(usr))
+			if (!is_silicon(usr))
 				A.laws.clear_zeroth_laws()
 				A.laws.clear_ion_laws()
 				A.laws.clear_inherent_laws()
@@ -40,18 +40,18 @@
 				to_chat(A, "<span class='danger'>All laws purged.</span>")
 				. = TRUE
 		if("PRG_resetLaws")
-			if (!issilicon(usr))
+			if (!is_silicon(usr))
 				A.laws.clear_ion_laws()
 				A.laws.clear_supplied_laws()
 				to_chat(A, "<span class='danger'>Non-core laws reset.</span>")
 				. = TRUE
 		if("PRG_uploadDefault")
-			if (!issilicon(usr))
+			if (!is_silicon(usr))
 				A.laws = new GLOB.using_map.default_law_type
 				to_chat(A, "<span class='danger'>All laws purged. Default lawset uploaded.</span>")
 				. = TRUE
 		if("PRG_addCustomSuppliedLaw")
-			if (!issilicon(usr))
+			if (!is_silicon(usr))
 				var/law_to_add = sanitize(params["text"])
 				var/sector = params["priority"]
 				sector = between(MIN_SUPPLIED_LAW_NUMBER, sector, MAX_SUPPLIED_LAW_NUMBER)

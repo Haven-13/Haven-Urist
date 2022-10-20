@@ -91,7 +91,7 @@
 
 	if (usr.stat != 0)
 		return
-	if (!ishuman(usr) && !issmall(usr)) //Make sure they're a mob that has dna
+	if (!is_human_mob(usr) && !issmall(usr)) //Make sure they're a mob that has dna
 		to_chat(usr, "<span class='notice'>Try as you might, you can not climb up into the scanner.</span>")
 		return
 	if (src.occupant)
@@ -122,7 +122,7 @@
 	else if (!istype(item, /obj/item/grab))
 		return
 	var/obj/item/grab/G = item
-	if (!ismob(G.affecting))
+	if (!is_mob(G.affecting))
 		return
 	if (src.occupant)
 		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")
@@ -255,7 +255,7 @@
 			to_chat(user, "You insert \the [I].")
 			SStgui.update_uis(src) // update all UIs attached to src
 			return
-	else if(isMultitool(I))
+	else if(is_multitool(I))
 		detect_scanner()
 		return
 	else
@@ -688,7 +688,7 @@
 				var/datum/dna2/record/databuf=new
 				databuf.types = DNA2_BUF_UE
 				databuf.dna = src.connected.occupant.dna.Clone()
-				if(ishuman(connected.occupant))
+				if(is_human_mob(connected.occupant))
 					databuf.dna.real_name=connected.occupant.dna.real_name
 				databuf.name = "Unique Identifier"
 				src.buffers[bufferId] = databuf
@@ -699,7 +699,7 @@
 				var/datum/dna2/record/databuf=new
 				databuf.types = DNA2_BUF_UI|DNA2_BUF_UE
 				databuf.dna = src.connected.occupant.dna.Clone()
-				if(ishuman(connected.occupant))
+				if(is_human_mob(connected.occupant))
 					databuf.dna.real_name=connected.occupant.dna.real_name
 				databuf.name = "Unique Identifier + Unique Enzymes"
 				src.buffers[bufferId] = databuf
@@ -710,7 +710,7 @@
 				var/datum/dna2/record/databuf=new
 				databuf.types = DNA2_BUF_SE
 				databuf.dna = src.connected.occupant.dna.Clone()
-				if(ishuman(connected.occupant))
+				if(is_human_mob(connected.occupant))
 					databuf.dna.real_name=connected.occupant.dna.real_name
 				databuf.name = "Structural Enzymes"
 				src.buffers[bufferId] = databuf

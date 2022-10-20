@@ -62,7 +62,7 @@
 /mob/living/simple_animal/crow/Topic(href, href_list)
 	. = ..()
 	if(!.)
-		if(!ishuman(usr) || usr.incapacitated() || !usr.Adjacent(src))
+		if(!is_human_mob(usr) || usr.incapacitated() || !usr.Adjacent(src))
 			return .
 		if(href_list["remove_inv"])
 			var/obj/item/removed

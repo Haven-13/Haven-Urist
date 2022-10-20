@@ -130,7 +130,7 @@
 //Holds fall checks that should not be overriden by children
 /atom/movable/proc/fall()
 	SHOULD_NOT_OVERRIDE(TRUE)
-	if(!isturf(loc))
+	if(!is_turf(loc))
 		return
 
 	var/turf/below = GetBelow(src)
@@ -154,7 +154,7 @@
 		// Entered() which is part of Move(), by spawn()ing we let that complete.  But we want to preserve if we were in client movement
 		// or normal movement so other move behavior can continue.
 		var/mob/M = src
-		var/is_client_moving = (ismob(M) && M.moving)
+		var/is_client_moving = (is_mob(M) && M.moving)
 		spawn(0)
 			if(is_client_moving) M.moving = 1
 			handle_fall(below)

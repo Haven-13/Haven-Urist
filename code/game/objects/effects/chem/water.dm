@@ -25,9 +25,9 @@
 			var/list/splash_others = list(T)
 			for(var/atom/A in T)
 				if(A.simulated)
-					if(!ismob(A))
+					if(!is_mob(A))
 						splash_others += A
-					else if(isliving(A))
+					else if(is_living_mob(A))
 						splash_mobs += A
 
 			//each step splash 1/5 of the reagents on non-mobs

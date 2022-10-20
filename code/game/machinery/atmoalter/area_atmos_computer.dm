@@ -114,7 +114,7 @@
 		scrubber.update_icon()
 
 /obj/machinery/computer/area_atmos/proc/validscrubber( var/obj/machinery/portable_atmospherics/powered/scrubber/huge/scrubber as obj )
-	if(!isobj(scrubber) || get_dist(scrubber.loc, src.loc) > src.range || scrubber.loc.z != src.loc.z)
+	if(!is_obj(scrubber) || get_dist(scrubber.loc, src.loc) > src.range || scrubber.loc.z != src.loc.z)
 		return 0
 
 	return 1
@@ -138,7 +138,7 @@
 	zone = "This computer is working in a wired network limited to this area."
 
 /obj/machinery/computer/area_atmos/area/validscrubber( var/obj/machinery/portable_atmospherics/powered/scrubber/huge/scrubber as obj )
-	if(!isobj(scrubber))
+	if(!is_obj(scrubber))
 		return 0
 
 	/*

@@ -16,7 +16,7 @@
 
 /mob/observer/ghost/extra_ghost_link(var/atom/ghost, var/prefix, var/sufix, var/short_links)
 	. = ..()
-	if(mind && (mind.current && !isghost(mind.current)))
+	if(mind && (mind.current && !is_ghost(mind.current)))
 		. += create_ghost_link(ghost, mind.current, short_links ? "B" : "Body", prefix, sufix)
 
 /proc/create_ghost_link(var/ghost, var/target, var/text, var/prefix, var/sufix)

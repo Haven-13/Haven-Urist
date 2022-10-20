@@ -79,7 +79,7 @@
 /obj/machinery/floodlight/attack_hand(mob/user as mob)
 	if(open && cell)
 		cell.dropInto(get_turf(src))
-		if(ishuman(user))
+		if(is_human_mob(user))
 			if(!user.get_active_hand())
 				user.put_in_hands(cell)
 
@@ -104,7 +104,7 @@
 
 
 /obj/machinery/floodlight/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		if (!open)
 			if(unlocked)
 				unlocked = 0
@@ -113,7 +113,7 @@
 				unlocked = 1
 				to_chat(user, "You unscrew the battery panel.")
 
-	if(isCrowbar(W))
+	if(is_crowbar(W))
 		if(unlocked)
 			if(open)
 				open = 0

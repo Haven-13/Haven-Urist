@@ -9,7 +9,7 @@
 
 /datum/event/ionstorm/announce()
 	for(var/mob/living/carbon/S in SSmobs.mob_list)
-		if (S.isSynthetic() && !issilicon(S))
+		if (S.isSynthetic() && !is_silicon(S))
 			var/area/A = get_area(S)
 			if(!A)
 				continue
@@ -20,9 +20,9 @@
 			S.confused += ionbug
 			S.eye_blurry += ionbug-1
 	for(var/mob/living/silicon/S in SSmobs.mob_list)
-		if(is_drone(S) || !(isAI(S) || isrobot(S)))
+		if(is_drone(S) || !(is_ai(S) || is_robot(S)))
 			continue
-		if(isrobot(S))
+		if(is_robot(S))
 			var/mob/living/silicon/robot/R = S
 			if(R.connected_ai)
 				continue

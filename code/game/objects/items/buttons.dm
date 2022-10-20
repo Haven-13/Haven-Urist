@@ -59,10 +59,10 @@ GLOBAL_LIST_INIT(possible_switch_offsets, list(
 	return 1
 
 /obj/item/frame/light_switch/attackby(obj/item/tool as obj, mob/user as mob)	//construction
-	if(isWrench(tool))
+	if(is_wrench(tool))
 		new /obj/item/stack/material/steel( get_turf(src.loc), 1 )
 		qdel(src)
-	else if(istype(tool, /obj/item/weapon/screwdriver) && isturf(user.loc))
+	else if(istype(tool, /obj/item/weapon/screwdriver) && is_turf(user.loc))
 		var/obj/machinery/light_switch/S = new (user.loc)
 		if(position_with_direction(S, user))
 			to_chat(user, "You fasten \the [S] with your [tool].")
@@ -72,10 +72,10 @@ GLOBAL_LIST_INIT(possible_switch_offsets, list(
 	else ..()
 
 /obj/item/frame/light_switch/windowtint/attackby(obj/item/tool as obj, mob/user as mob)
-	if(isWrench(tool))
+	if(is_wrench(tool))
 		new /obj/item/stack/material/steel( get_turf(src.loc), 1 )
 		qdel(src)
-	else if(istype(tool, /obj/item/weapon/screwdriver) && isturf(user.loc))
+	else if(istype(tool, /obj/item/weapon/screwdriver) && is_turf(user.loc))
 		var/obj/machinery/button/windowtint/S = new(user.loc)
 		if(position_with_direction(S, user))
 			to_chat(user, "You fasten \the [S] with your [tool].")

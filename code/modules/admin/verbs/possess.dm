@@ -29,7 +29,7 @@
 		usr.RemoveMovementHandler(/datum/movement_handler/mob/admin_possess)
 		usr.real_name = usr.name_archive
 		usr.SetName(usr.real_name)
-		if(ishuman(usr))
+		if(is_human_mob(usr))
 			var/mob/living/carbon/human/H = usr
 			H.SetName(H.get_visible_name())
 //		usr.regenerate_icons() //So the name is updated properly

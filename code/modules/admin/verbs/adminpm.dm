@@ -5,7 +5,7 @@
 	if(!holder)
 		to_chat(src, "<span class='warning'>Error: Admin-PM-Context: Only administrators may use this command.</span>")
 		return
-	if( !ismob(M) || !M.client )	return
+	if( !is_mob(M) || !M.client )	return
 	cmd_admin_pm(M.client,null)
 	feedback_add_details("admin_verb","APMM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -19,9 +19,9 @@
 	var/list/client/targets[0]
 	for(var/client/T)
 		if(T.mob)
-			if(isnewplayer(T.mob))
+			if(is_new_player(T.mob))
 				targets["(New Player) - [T]"] = T
-			else if(isghost(T.mob))
+			else if(is_ghost(T.mob))
 				targets["[T.mob.name](Ghost) - [T]"] = T
 			else
 				targets["[T.mob.real_name](as [T.mob.name]) - [T]"] = T

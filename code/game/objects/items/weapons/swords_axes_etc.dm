@@ -20,7 +20,7 @@
 	if ((CLUMSY in user.mutations) && prob(50))
 		to_chat(user, "<span class='warning'>You club yourself over the head.</span>")
 		user.Weaken(3 * force)
-		if(ishuman(user))
+		if(is_human_mob(user))
 			var/mob/living/carbon/human/H = user
 			H.apply_damage(2*force, DAMAGE_TYPE_BRUTE, BP_HEAD)
 		else
@@ -84,7 +84,7 @@
 		if ((CLUMSY in user.mutations) && prob(50))
 			to_chat(user, "<span class='warning'>You club yourself over the head.</span>")
 			user.Weaken(3 * force)
-			if(ishuman(user))
+			if(is_human_mob(user))
 				var/mob/living/carbon/human/H = user
 				H.apply_damage(2*force, DAMAGE_TYPE_BRUTE, BP_HEAD)
 			else

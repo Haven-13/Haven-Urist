@@ -142,7 +142,7 @@
 	if(isnull(_id)) return
 	id=_id
 	mode=swapmaps_mode
-	if(isturf(x) && isturf(y))
+	if(is_turf(x) && is_turf(y))
 		/*
 			Special format: Defines a map as an existing set of turfs;
 			this is useful for saving a compiled map in swapmap format.
@@ -473,7 +473,7 @@ map
 		to_file(S["overlays"], overlays)
 	if(underlays.len)
 		to_file(S["underlays"], underlays)
-	if(contents.len && !isarea(src))
+	if(contents.len && !is_area(src))
 		var/list/l=contents
 		if(M)
 			l=l.Copy()

@@ -22,7 +22,7 @@
 	if(!holder)
 		to_chat(src, "Only administrators may use this command.")
 		return
-	if (ismob(M))
+	if (is_mob(M))
 		if(istype(M, /mob/living/silicon/ai))
 			alert("The AI can't be sent to prison you jerk!", null, null, null, null, null)
 			return
@@ -46,7 +46,7 @@
 	set category = "Special Verbs"
 	set name = "Subtle Message"
 
-	if(!ismob(M))	return
+	if(!is_mob(M))	return
 	if (!holder)
 		to_chat(src, "Only administrators may use this command.")
 		return
@@ -482,7 +482,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		job_master.EquipRank(new_character, new_character.mind.assigned_role, 1)
 
 	//Announces the character on all the systems, based on the record.
-	if(!issilicon(new_character))//If they are not a cyborg/AI.
+	if(!is_silicon(new_character))//If they are not a cyborg/AI.
 		if(!record_found && !player_is_antag(new_character.mind, only_offstation_roles = 1)) //If there are no records for them. If they have a record, this info is already in there. MODE people are not announced anyway.
 			if(alert(new_character,"Would you like an active AI to announce this character?",,"No","Yes")=="Yes")
 				call(/proc/AnnounceArrival)(new_character, new_character.mind.assigned_role)
@@ -662,7 +662,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	log_admin("[key_name(usr)] has gibbed [key_name(M)]")
 	message_admins("[key_name_admin(usr)] has gibbed [key_name_admin(M)]", 1)
 
-	if(isobserver(M))
+	if(is_observer(M))
 		gibs(M.loc)
 		return
 
@@ -675,7 +675,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	var/confirm = alert(src, "You sure?", "Confirm", "Yes", "No")
 	if(confirm == "Yes")
-		if (isobserver(mob)) // so they don't spam gibs everywhere
+		if (is_observer(mob)) // so they don't spam gibs everywhere
 			return
 		else
 			mob.gib()

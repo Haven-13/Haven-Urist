@@ -368,7 +368,7 @@
 		if(do_after(user, 12 SECONDS))
 			// new /obj/structure/boulder(user.loc) // uses type in xenoarcheology that was removed, consider a replacement
 			to_chat(user, "Rocks fall, and you realize what a horrible idea this was as.")
-			if(ishuman(user))
+			if(is_human_mob(user))
 				var/mob/living/carbon/human/H = user
 				H.adjustBruteLoss(40, 0)
 			else

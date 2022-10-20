@@ -19,7 +19,7 @@
 			SetThrowable(A)
 	else if(parameters["right"])
 		if(to_throw)
-			if(!isturf(to_throw.loc))
+			if(!is_turf(to_throw.loc))
 				to_chat(user, "<span class='warning'>\The [to_throw] is currently not on a turf and cannot be thrown.</span>")
 			else
 				to_throw.throw_at(A, 10, 1)

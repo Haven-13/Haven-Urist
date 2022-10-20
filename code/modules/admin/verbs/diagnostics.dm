@@ -90,7 +90,7 @@
 				continue
 			output += "&nbsp;&nbsp;[filter]: [f.len]<br>"
 			for (var/device in f)
-				if (isobj(device))
+				if (is_obj(device))
 					output += "&nbsp;&nbsp;&nbsp;&nbsp;[device] ([device:x],[device:y],[device:z] in area [get_area(device:loc)])<br>"
 				else
 					output += "&nbsp;&nbsp;&nbsp;&nbsp;[device]<br>"

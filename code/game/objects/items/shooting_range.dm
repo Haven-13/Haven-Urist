@@ -16,7 +16,7 @@
 		stake.set_target(null)
 
 /obj/item/target/attackby(var/obj/item/W, var/mob/user)
-	if(isWelder(W))
+	if(is_welder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.remove_fuel(0, user))
 			overlays.Cut()

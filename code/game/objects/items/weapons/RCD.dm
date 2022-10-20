@@ -86,7 +86,7 @@
 
 /obj/item/weapon/rcd/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
-	if(disabled && !isrobot(user))
+	if(disabled && !is_robot(user))
 		return 0
 	if(istype(get_area(A),/area/shuttle)||istype(get_area(A),/turf/space/transit))
 		return 0
@@ -126,7 +126,7 @@
 	canRwall = 1
 
 /obj/item/weapon/rcd/borg/useResource(var/amount, var/mob/user)
-	if(isrobot(user))
+	if(is_robot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
 			var/cost = amount*30
@@ -241,7 +241,7 @@
 	work_type = /turf/simulated/floor/airless
 
 /decl/hierarchy/rcd_mode/floor_and_walls/base_turf/can_handle_work(var/rcd, var/turf/target)
-	return istype(target) && (isspace(target) || istype(target, get_base_turf_by_area(target)))
+	return istype(target) && (is_space(target) || istype(target, get_base_turf_by_area(target)))
 
 /decl/hierarchy/rcd_mode/floor_and_walls/floor_turf
 	cost = 3

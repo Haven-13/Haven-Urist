@@ -57,7 +57,7 @@ GLOBAL_LIST_INIT(chop_sound,list('resources/sound/weapons/chop1.ogg','resources/
 
 	soundin = get_sfx(soundin) // same sound for everyone
 
-	if(isarea(source))
+	if(is_area(source))
 		error("[source] is an area and is trying to make the sound: [soundin]")
 		return
 	frequency = vary && isnull(frequency) ? get_rand_frequency() : frequency // Same frequency for everybody
@@ -93,7 +93,7 @@ var/const/FALLOFF_SOUNDS = 0.5
 	//sound volume falloff with pressure
 	var/pressure_factor = 1.0
 
-	if(isturf(turf_source))
+	if(is_turf(turf_source))
 		// 3D sounds, the technology is here!
 		var/turf/T = get_turf(src)
 

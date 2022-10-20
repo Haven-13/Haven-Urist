@@ -195,7 +195,7 @@
 
 		O.throwing = 0		//it hit, so stop moving
 
-		if(ismob(O.thrower))
+		if(is_mob(O.thrower))
 			var/mob/M = O.thrower
 			var/client/assailant = M.client
 			if(assailant)

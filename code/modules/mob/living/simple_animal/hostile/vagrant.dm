@@ -98,7 +98,7 @@
 
 /mob/living/simple_animal/hostile/vagrant/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()
-	if(ishuman(A))
+	if(is_human_mob(A))
 		var/mob/living/carbon/human/H = A
 		if(gripping == H)
 			H.Weaken(3)

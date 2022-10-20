@@ -17,7 +17,7 @@
 	. = ..()
 
 /obj/structure/alien/egg/CanUseTopic(var/mob/user)
-	return isghost(user) ? UI_INTERACTIVE : UI_CLOSE
+	return is_ghost(user) ? UI_INTERACTIVE : UI_CLOSE
 
 /obj/structure/alien/egg/Topic(href, href_list)
 	if(..())

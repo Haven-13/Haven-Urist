@@ -35,9 +35,9 @@
 //Checking for protections
 	var/eye_safety = 0
 	var/ear_safety = 0
-	if(iscarbon(M))
+	if(is_carbon_mob(M))
 		eye_safety = M.eyecheck()
-		if(ishuman(M))
+		if(is_human_mob(M))
 			if(istype(M:l_ear, /obj/item/clothing/ears/earmuffs) || istype(M:r_ear, /obj/item/clothing/ears/earmuffs))
 				ear_safety += 2
 			if(HULK in M.mutations)
@@ -77,7 +77,7 @@
 		M.ear_deaf = max(M.ear_deaf,5)
 
 //This really should be in mob not every check
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/eyes/E = H.internal_organs_by_name[BP_EYES]
 		if (E && E.damage >= E.min_bruised_damage)

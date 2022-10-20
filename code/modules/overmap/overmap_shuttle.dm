@@ -145,7 +145,7 @@
 		icon_state = icon_closed
 
 /obj/structure/fuel_port/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isCrowbar(W))
+	if(is_crowbar(W))
 		if(opened)
 			to_chat(user, "<span class='notice'>You tightly shut \the [src] door.</span>")
 			playsound(src.loc, 'resources/sound/effects/locker_close.ogg', 25, 0, -3)

@@ -30,7 +30,7 @@
 		return
 	suittoggled = 0
 	update_icon()
-	if(ishuman(hood.loc))
+	if(is_human_mob(hood.loc))
 		var/mob/living/carbon/H = hood.loc
 		H.drop_from_inventory(hood)
 		H.update_inv_wear_suit()
@@ -41,7 +41,7 @@
 
 /obj/item/clothing/suit/storage/hooded/proc/ToggleHood()
 	if(!suittoggled)
-		if(ishuman(loc))
+		if(is_human_mob(loc))
 			var/mob/living/carbon/human/H = src.loc
 			if(H.wear_suit != src)
 				to_chat(H, "<span class='warning'>You must be wearing \the [src] to put up the hood!</span>")

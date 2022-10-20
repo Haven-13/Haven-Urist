@@ -90,7 +90,7 @@
 	adjust_speed(0, 0) // Resets star movement and icon.
 
 /obj/effect/overmap/ship/landable/proc/on_takeoff(obj/effect/shuttle_landmark/from, obj/effect/shuttle_landmark/into)
-	if(!isturf(loc))
+	if(!is_turf(loc))
 		forceMove(get_turf(loc))
 
 /obj/effect/overmap/ship/landable/get_landed_info()

@@ -24,7 +24,7 @@ var/const/FINGERPRINT_COMPLETE = 6
 	fingerprintslast = M.key
 	if(!fingerprintshidden)
 		fingerprintshidden = list()
-	if (ishuman(M))
+	if (is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		if (H.gloves)
 			src.fingerprintshidden += "\[[time_stamp()]\] (Wearing gloves). Real name: [H.real_name], Key: [H.key]"
@@ -35,7 +35,7 @@ var/const/FINGERPRINT_COMPLETE = 6
 
 /atom/proc/add_fingerprint(mob/M, ignoregloves, obj/item/tool)
 	if(isnull(M)) return
-	if(isAI(M)) return
+	if(is_ai(M)) return
 	if(!M || !M.key)
 		return
 	if(istype(tool) && (tool.item_flags & ITEM_FLAG_NO_PRINT))
@@ -57,7 +57,7 @@ var/const/FINGERPRINT_COMPLETE = 6
 		full_print = E.get_fingerprint()
 		ignoregloves = 1
 
-	if(!ignoregloves && ishuman(M))
+	if(!ignoregloves && is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		if (H.gloves && H.gloves.body_parts_covered & HANDS && H.gloves != src)
 			if(istype(H.gloves, /obj/item/clothing/gloves)) //Don't add prints if you are wearing gloves.

@@ -367,7 +367,7 @@ var/global/datum/controller/radio/radio_controller
 		. = "signal = {source = '[source]' ()\n"
 	for (var/i in data)
 		. += "data\[\"[i]\"\] = \"[data[i]]\"\n"
-		if(islist(data[i]))
+		if(is_list(data[i]))
 			var/list/L = data[i]
 			for(var/t in L)
 				. += "data\[\"[i]\"\] list has: [t]"

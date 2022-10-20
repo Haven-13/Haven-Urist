@@ -61,7 +61,7 @@ var/bomb_set
 		SStgui.update_uis(src)
 
 /obj/machinery/nuclearbomb/attackby(obj/item/weapon/O as obj, mob/user as mob, params)
-	if(isScrewdriver(O))
+	if(is_screwdriver(O))
 		add_fingerprint(user)
 		if(auth)
 			if(panel_open == 0)
@@ -85,7 +85,7 @@ var/bomb_set
 			flick("lock", src)
 		return
 
-	if(panel_open && isMultitool(O) || isWirecutter(O))
+	if(panel_open && is_multitool(O) || is_wirecutter(O))
 		return attack_hand(user)
 
 	if(extended)
@@ -99,7 +99,7 @@ var/bomb_set
 	if(anchored)
 		switch(removal_stage)
 			if(0)
-				if(isWelder(O))
+				if(is_welder(O))
 					var/obj/item/weapon/weldingtool/WT = O
 					if(!WT.isOn()) return
 					if(WT.get_fuel() < 5) // uses up 5 fuel.
@@ -115,7 +115,7 @@ var/bomb_set
 				return
 
 			if(1)
-				if(isCrowbar(O))
+				if(is_crowbar(O))
 					user.visible_message("[user] starts forcing open the bolt covers on [src].", "You start forcing open the anchoring bolt covers with [O]...")
 
 					if(do_after(user, 15, src))
@@ -125,7 +125,7 @@ var/bomb_set
 				return
 
 			if(2)
-				if(isWelder(O))
+				if(is_welder(O))
 					var/obj/item/weapon/weldingtool/WT = O
 					if(!WT.isOn()) return
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
@@ -141,7 +141,7 @@ var/bomb_set
 				return
 
 			if(3)
-				if(isWrench(O))
+				if(is_wrench(O))
 					user.visible_message("[user] begins unwrenching the anchoring bolts on [src].", "You begin unwrenching the anchoring bolts...")
 					if(do_after(user, 50, src))
 						if(!src || !user) return
@@ -150,7 +150,7 @@ var/bomb_set
 				return
 
 			if(4)
-				if(isCrowbar(O))
+				if(is_crowbar(O))
 					user.visible_message("[user] begins lifting [src] off of the anchors.", "You begin lifting the device off the anchors...")
 					if(do_after(user, 80, src))
 						if(!src || !user) return

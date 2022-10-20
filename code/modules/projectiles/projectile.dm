@@ -85,8 +85,8 @@
 //TODO: make it so this is called more reliably, instead of sometimes by bullet_act() and sometimes not
 /obj/item/projectile/proc/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
 	if(blocked >= 100)		return 0//Full block
-	if(!isliving(target))	return 0
-	if(isanimal(target))	return 0
+	if(!is_living_mob(target))	return 0
+	if(is_animal(target))	return 0
 
 	var/mob/living/L = target
 
@@ -251,7 +251,7 @@
 	var/distance = get_dist(starting,loc)
 
 	bumped = 1
-	if(ismob(A))
+	if(is_mob(A))
 		var/mob/M = A
 		if(istype(A, /mob/living))
 			//if they have a neck grab on someone, that person gets hit instead
@@ -266,7 +266,7 @@
 			passthrough = 1 //so ghosts don't stop bullets
 	else
 		passthrough = (A.bullet_act(src, def_zone) == PROJECTILE_CONTINUE) //backwards compatibility
-		if(isturf(A))
+		if(is_turf(A))
 			for(var/obj/O in A)
 				O.bullet_act(src)
 			for(var/mob/living/M in A)
@@ -333,7 +333,7 @@
 		before_move()
 		Move(location.return_turf())
 
-		if(!bumped && !isturf(original))
+		if(!bumped && !is_turf(original))
 			if(loc == get_turf(original))
 				if(!(original in permutated))
 					if(Bump(original))

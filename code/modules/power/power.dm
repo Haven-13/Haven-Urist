@@ -82,7 +82,7 @@
 
 	if(!check_area)
 		check_area = src.loc.loc		// make sure it's in an area
-	if(!check_area || !isarea(check_area))
+	if(!check_area || !is_area(check_area))
 		return 0					// if not, then not powered
 	if(chan == -1)
 		chan = power_channel
@@ -91,7 +91,7 @@
 // increment the power usage stats for an area
 /obj/machinery/proc/use_power(var/amount, var/chan = -1) // defaults to power_channel
 	var/area/A = get_area(src)		// make sure it's in an area
-	if(!A || !isarea(A))
+	if(!A || !is_area(A))
 		return
 	if(chan == -1)
 		chan = power_channel
@@ -135,7 +135,7 @@
 //almost never called, overwritten by all power machines but terminal and generator
 /obj/machinery/power/attackby(obj/item/weapon/W, mob/user)
 
-	if(isCoil(W))
+	if(is_coil(W))
 
 		var/obj/item/stack/cable_coil/coil = W
 

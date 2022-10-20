@@ -367,7 +367,7 @@ This function restores all organs.
 
 	var/obj/item/organ/external/organ = given_organ
 	if(!organ)
-		if(isorgan(def_zone))
+		if(is_organ(def_zone))
 			organ = def_zone
 		else
 			if(!def_zone)	def_zone = ran_zone(def_zone)

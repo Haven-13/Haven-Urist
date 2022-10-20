@@ -14,7 +14,7 @@
 	var/timer = 240 //eventually the person will be freed
 
 /obj/structure/closet/statue/New(loc, var/mob/living/L)
-	if(L && (ishuman(L) || L.isMonkey() || iscorgi(L)))
+	if(L && (is_human_mob(L) || L.isMonkey() || is_corgi(L)))
 		if(L.buckled)
 			L.buckled = 0
 			L.anchored = 0
@@ -28,14 +28,14 @@
 		intialFire = L.getFireLoss()
 		intialBrute = L.getBruteLoss()
 		intialOxy = L.getOxyLoss()
-		if(ishuman(L))
+		if(is_human_mob(L))
 			name = "statue of [L.name]"
 			if(L.gender == "female")
 				icon_state = "human_female"
 		else if(L.isMonkey())
 			name = "statue of a monkey"
 			icon_state = "monkey"
-		else if(iscorgi(L))
+		else if(is_corgi(L))
 			name = "statue of a corgi"
 			icon_state = "corgi"
 			desc = "If it takes forever, I will wait for you..."

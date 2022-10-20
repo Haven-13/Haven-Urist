@@ -75,7 +75,7 @@
 
 	my_client = client
 
-	if(loc && !isturf(loc))
+	if(loc && !is_turf(loc))
 		client.eye = loc
 		client.perspective = EYE_PERSPECTIVE
 	else

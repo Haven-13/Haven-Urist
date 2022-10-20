@@ -205,7 +205,7 @@
 		action = ""
 		update_icons()
 		visible_message("<span class='notice'>[src] finishes refilling its tank.</span>")
-	else if(emagged && ishuman(A))
+	else if(emagged && is_human_mob(A))
 		var/action = pick("weed", "water")
 		busy = 1
 		spawn(50) // Some delay
@@ -249,7 +249,7 @@
 	if(!..())
 		return 0
 
-	if(emagged && ishuman(targ))
+	if(emagged && is_human_mob(targ))
 		if(targ in view(world.view, src))
 			return 1
 		return 0

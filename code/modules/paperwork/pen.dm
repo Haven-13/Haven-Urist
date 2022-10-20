@@ -72,9 +72,9 @@
 
 
 /obj/item/weapon/pen/attack(atom/A, mob/user as mob, target_zone)
-	if(ismob(A))
+	if(is_mob(A))
 		var/mob/M = A
-		if(ishuman(A) && user.a_intent == I_HELP && target_zone == BP_HEAD)
+		if(is_human_mob(A) && user.a_intent == I_HELP && target_zone == BP_HEAD)
 			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/external/head/head = H.organs_by_name[BP_HEAD]
 			if(istype(head))

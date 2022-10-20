@@ -296,7 +296,7 @@
 	var/max_mult = 1.3
 
 	//determine multiplier due to the target being grabbed
-	if(ishuman(target))
+	if(is_human_mob(target))
 		var/mob/living/carbon/human/H = target
 		for(var/obj/item/grab/G in H.grabbed_by)
 			if(G.point_blank_mult() > max_mult)
@@ -372,7 +372,7 @@
 //Suicide handling.
 /obj/item/weapon/gun/var/mouthshoot = 0 //To stop people from suiciding twice... >.>
 /obj/item/weapon/gun/proc/handle_suicide(mob/living/user)
-	if(!ishuman(user))
+	if(!is_human_mob(user))
 		return
 	var/mob/living/carbon/human/M = user
 

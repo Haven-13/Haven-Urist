@@ -77,7 +77,7 @@
 	dat += "<BR>"
 	dat += "Please ensure that only holographic weapons are used in the holodeck if a combat simulation has been loaded.<BR>"
 
-	if(issilicon(user))
+	if(is_silicon(user))
 		dat += "<BR>"
 		if(safety_disabled)
 			if (emagged)
@@ -118,7 +118,7 @@
 				loadProgram(GLOB.using_map.holodeck_programs[prog])
 
 		else if(href_list["AIoverride"])
-			if(!issilicon(usr))
+			if(!is_silicon(usr))
 				return
 
 			if(safety_disabled && emagged)

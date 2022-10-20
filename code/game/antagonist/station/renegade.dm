@@ -61,7 +61,7 @@ GLOBAL_DATUM_INIT(renegades, /datum/antagonist/renegade, new)
 		return
 
 	var/gun_type = pick(spawn_guns)
-	if(islist(gun_type))
+	if(is_list(gun_type))
 		gun_type = pick(gun_type)
 	var/obj/item/gun = new gun_type(get_turf(player))
 

@@ -267,18 +267,18 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 /datum/reagents/proc/trans_to(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
 	touch(target) //First, handle mere touch effects
 
-	if(ismob(target))
+	if(is_mob(target))
 		return splash_mob(target, amount, copy)
-	if(isturf(target))
+	if(is_turf(target))
 		return trans_to_turf(target, amount, multiplier, copy)
-	if(isobj(target) && target.is_open_container())
+	if(is_obj(target) && target.is_open_container())
 		return trans_to_obj(target, amount, multiplier, copy)
 	return 0
 
 //Splashing reagents is messier than trans_to, the target's loc gets some of the reagents as well.
 /datum/reagents/proc/splash(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/min_spill=0, var/max_spill=60)
 	var/spill = 0
-	if(!isturf(target) && target.loc)
+	if(!is_turf(target) && target.loc)
 		spill = amount*(rand(min_spill, max_spill)/100)
 		amount -= spill
 	if(spill)
@@ -309,11 +309,11 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 // For example, splashing someone with water will get them wet and extinguish them if they are on fire,
 // even if they are wearing an impermeable suit that prevents the reagents from contacting the skin.
 /datum/reagents/proc/touch(var/atom/target)
-	if(ismob(target))
+	if(is_mob(target))
 		touch_mob(target)
-	if(isturf(target))
+	if(is_turf(target))
 		touch_turf(target)
-	if(isobj(target))
+	if(is_obj(target))
 		touch_obj(target)
 	return
 
@@ -349,7 +349,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 // Do not call this directly, call trans_to() instead.
 /datum/reagents/proc/splash_mob(var/mob/target, var/amount = 1, var/copy = 0)
 	var/perm = 1
-	if(isliving(target)) //will we ever even need to tranfer reagents to non-living mobs?
+	if(is_living_mob(target)) //will we ever even need to tranfer reagents to non-living mobs?
 		var/mob/living/L = target
 		perm = L.reagent_permeability()
 	return trans_to_mob(target, amount * perm, CHEM_TOUCH, 1, copy)
@@ -357,7 +357,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 /datum/reagents/proc/trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_BLOOD, var/multiplier = 1, var/copy = 0) // Transfer after checking into which holder...
 	if(!target || !istype(target) || !target.simulated)
 		return
-	if(iscarbon(target))
+	if(is_carbon_mob(target))
 		var/mob/living/carbon/C = target
 		if(type == CHEM_BLOOD)
 			var/datum/reagents/R = C.reagents

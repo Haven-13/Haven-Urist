@@ -29,7 +29,7 @@
 
 		if(0)
 			// State 0
-			if(isWrench(W) && isturf(src.loc))
+			if(is_wrench(W) && is_turf(src.loc))
 				playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 				to_chat(user, "You wrench the assembly into place.")
 				anchored = 1
@@ -40,14 +40,14 @@
 
 		if(1)
 			// State 1
-			if(isWelder(W))
+			if(is_welder(W))
 				if(weld(W, user))
 					to_chat(user, "You weld the assembly securely into place.")
 					anchored = 1
 					state = 2
 				return
 
-			else if(isWrench(W))
+			else if(is_wrench(W))
 				playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 				to_chat(user, "You unattach the assembly from its place.")
 				anchored = 0
@@ -57,7 +57,7 @@
 
 		if(2)
 			// State 2
-			if(isCoil(W))
+			if(is_coil(W))
 				var/obj/item/stack/cable_coil/C = W
 				if(C.use(2))
 					to_chat(user, "<span class='notice'>You add wires to the assembly.</span>")
@@ -66,7 +66,7 @@
 					to_chat(user, "<span class='warning'>You need 2 coils of wire to wire the assembly.</span>")
 				return
 
-			else if(isWelder(W))
+			else if(is_welder(W))
 
 				if(weld(W, user))
 					to_chat(user, "You unweld the assembly from its place.")
@@ -77,7 +77,7 @@
 
 		if(3)
 			// State 3
-			if(isScrewdriver(W))
+			if(is_screwdriver(W))
 				playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 
 				var/input = sanitize(input(usr, "Which networks would you like to connect this camera to? Separate networks with a comma. No Spaces!\nFor example: Exodus,Security,Secret", "Set Network", camera_network ? camera_network : NETWORK_EXODUS))
@@ -115,7 +115,7 @@
 							break
 				return
 
-			else if(isWirecutter(W))
+			else if(is_wirecutter(W))
 
 				new/obj/item/stack/cable_coil(get_turf(src), 2)
 				playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 50, 1)
@@ -130,7 +130,7 @@
 		return
 
 	// Taking out upgrades
-	else if(isCrowbar(W) && upgrades.len)
+	else if(is_crowbar(W) && upgrades.len)
 		var/obj/U = locate(/obj) in upgrades
 		if(U)
 			to_chat(user, "You unattach an upgrade from the assembly.")

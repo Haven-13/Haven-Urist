@@ -238,7 +238,7 @@ Buildable meters
 		"fuel pipe cap",\
 	)
 	SetName(nlist[pipe_type+1] + " fitting")
-	var/list/islist = list( \
+	var/list/is_list = list( \
 		"simple", \
 		"simple", \
 		"he", \
@@ -296,7 +296,7 @@ Buildable meters
 		"cap", \
 		"cap", \
 	)
-	icon_state = islist[pipe_type + 1]
+	icon_state = is_list[pipe_type + 1]
 
 //called when a turf is attacked with a pipe item
 /obj/item/pipe/afterattack(turf/simulated/floor/target, mob/user, proximity)
@@ -428,9 +428,9 @@ Buildable meters
 /obj/item/pipe/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	..()
 	//*
-	if(!isWrench(W))
+	if(!is_wrench(W))
 		return ..()
-	if (!isturf(src.loc))
+	if (!is_turf(src.loc))
 		return 1
 	if (pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SUPPLY_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_HE_STRAIGHT, PIPE_MVALVE, PIPE_DVALVE, PIPE_SVALVE, PIPE_FUEL_STRAIGHT))
 		if(dir==2)
@@ -1291,7 +1291,7 @@ Buildable meters
 /obj/item/pipe_meter/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	..()
 
-	if(!isWrench(W))
+	if(!is_wrench(W))
 		return ..()
 	if(!locate(/obj/machinery/atmospherics/pipe, src.loc))
 		to_chat(user, "<span class='warning'>You need to fasten it to a pipe</span>")

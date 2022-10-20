@@ -12,7 +12,7 @@
 
 			for(var/turf/t in c.can_see())
 				visible[t] = t
-		else if(isAI(source))
+		else if(is_ai(source))
 			var/mob/living/silicon/ai/AI = source
 			if(AI.stat == DEAD)
 				continue

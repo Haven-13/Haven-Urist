@@ -164,7 +164,7 @@ Any-Mode: (hotkey doesn't need to be on)
 \tCtrl + Alt + Click = electrify doors
 </font>"}
 
-	if(isrobot(src.mob))
+	if(is_robot(src.mob))
 		to_chat(src, robot_hotkey_mode)
 		to_chat(src, robot_other)
 	else

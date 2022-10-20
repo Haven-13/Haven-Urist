@@ -125,7 +125,7 @@
 	if(see_invisible < the_target.invisibility)//Target's invisible to us, forget it
 		return 0
 
-	if(isliving(the_target) && search_objects < 2)
+	if(is_living_mob(the_target) && search_objects < 2)
 		var/mob/living/L = the_target
 
 		if(L.stat > stat_attack || L.stat != stat_attack && stat_exclusive == 1)
@@ -139,7 +139,7 @@
 
 		return 1
 
-	if(isobj(the_target))
+	if(is_obj(the_target))
 		//if(the_target.type in wanted_objects)
 		if(is_type_in_list(the_target,wanted_objects))
 			return 1
@@ -179,7 +179,7 @@
 			//Otherwise, get to our minimum distance so we chase them
 			Goto(target,move_to_delay,minimum_distance)
 
-		if(isturf(loc) && target.Adjacent(src))	//If they're next to us, attack
+		if(is_turf(loc) && target.Adjacent(src))	//If they're next to us, attack
 			AttackingTarget()
 
 		return 1
@@ -229,7 +229,7 @@
 	if(!(target in ListTargets()))
 		LostTarget()
 		return 0
-	if(isturf(loc) && target.Adjacent(src))
+	if(is_turf(loc) && target.Adjacent(src))
 		AttackingTarget()
 		return 1
 
@@ -353,7 +353,7 @@
 	if(buckled)
 		src.UnarmedAttack(buckled, 1)
 
-	if(!isturf(src.loc) && src.loc != null)//Did someone put us in something?
+	if(!is_turf(src.loc) && src.loc != null)//Did someone put us in something?
 		var/atom/A = src.loc
 		src.UnarmedAttack(A, 1)//Bang on it till we get out
 

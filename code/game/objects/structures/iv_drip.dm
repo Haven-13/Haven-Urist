@@ -71,7 +71,7 @@
 		return
 	if(attached)
 		drip_detach()
-	else if(ishuman(over_object))
+	else if(is_human_mob(over_object))
 		hook_up(over_object, usr)
 
 /obj/structure/iv_drip/attackby(obj/item/weapon/W as obj, mob/user as mob)

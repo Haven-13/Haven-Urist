@@ -312,7 +312,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 		unarmed_attacks += new u_type()
 
 	// Modify organ lists if necessary.
-	if(islist(override_limb_types))
+	if(is_list(override_limb_types))
 		for(var/ltag in override_limb_types)
 			has_limbs[ltag] = list("path" = override_limb_types[ltag])
 

@@ -20,7 +20,7 @@
 	set category = "OOC"
 	set desc = "Configure your user interface"
 
-	if(!ishuman(usr))
+	if(!is_human_mob(usr))
 		to_chat(usr, "<span class='warning'>You must be human to use this verb.</span>")
 		return
 

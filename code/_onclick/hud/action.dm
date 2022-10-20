@@ -172,7 +172,7 @@
 
 
 /atom/movable/screen/movable/action_button/hide_toggle/proc/InitialiseIcon(var/mob/living/user)
-	if(isalien(user))
+	if(is_alien(user))
 		icon_state = "bg_alien"
 	else
 		icon_state = "bg_default"

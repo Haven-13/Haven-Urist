@@ -266,7 +266,7 @@ var/global/chicken_count = 0
 	. = ..()
 
 /obj/item/weapon/reagent_containers/food/snacks/egg/Process()
-	if(isturf(loc))
+	if(is_turf(loc))
 		amount_grown += rand(1,2)
 		if(amount_grown >= 100)
 			visible_message("[src] hatches with a quiet cracking sound.")

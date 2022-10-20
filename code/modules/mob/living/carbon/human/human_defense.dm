@@ -59,7 +59,7 @@ meteor_act
 	var/total = 0
 
 	if(def_zone)
-		if(isorgan(def_zone))
+		if(is_organ(def_zone))
 			return getarmor_organ(def_zone, type)
 		var/obj/item/organ/external/affecting = get_organ(def_zone)
 		if(affecting)
@@ -229,7 +229,7 @@ meteor_act
 		var/turf/location = loc
 		if(istype(location, /turf/simulated))
 			location.add_blood(src)
-		if(ishuman(attacker))
+		if(is_human_mob(attacker))
 			var/mob/living/carbon/human/H = attacker
 			if(get_dist(H, src) <= 1) //people with TK won't get smeared with blood
 				H.bloody_body(src)
@@ -306,7 +306,7 @@ meteor_act
 
 		if(in_throw_mode && !get_active_hand() && speed <= THROWFORCE_SPEED_DIVISOR)	//empty active hand and we're in throw mode
 			if(!incapacitated())
-				if(isturf(O.loc))
+				if(is_turf(O.loc))
 					put_in_active_hand(O)
 					visible_message("<span class='warning'>[src] catches [O]!</span>")
 					throw_mode_off()
@@ -354,7 +354,7 @@ meteor_act
 				damage_flags &= ~(DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE)
 			created_wound = apply_damage(throw_damage, dtype, zone, armor, damage_flags, O)
 
-		if(ismob(O.thrower))
+		if(is_mob(O.thrower))
 			var/mob/M = O.thrower
 			var/client/assailant = M.client
 			if(assailant)
