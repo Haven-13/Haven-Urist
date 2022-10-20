@@ -1,5 +1,8 @@
 {
 	// Settings necessary for development of tgUI
+	"eslint.packageManager": "yarn",
+	"npm.packageManager": "yarn",
+
 	"eslint.nodePath": "./tgui/.yarn/sdks",
 	"eslint.workingDirectories": [
 		"./tgui"
@@ -24,7 +27,7 @@
 	"editor.autoIndent": "keep",
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
-	"editor.renderIndentGuides": true,
+	"editor.guides.indentation": true,
 	"editor.wrappingIndent": "indent",
 	"editor.renderWhitespace": "all",
 	"editor.trimAutoWhitespace": true,
