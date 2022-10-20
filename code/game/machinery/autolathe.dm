@@ -364,7 +364,7 @@
 	var/mat_number = input(user, "How much do you want to extract? (Max: 60)", "Materials Extraction") as num
 	if(!mat_number)
 		return
-	mat_number = Clamp(mat_number, 0, 60)
+	mat_number = clamp(mat_number, 0, 60)
 	var/extraction_path
 	switch(material)
 		if("steel")
@@ -379,7 +379,7 @@
 	if(stored_materials < mat_cost) //Not enough material stored. Settle for the next best thing.
 		var/new_mat_number = stored_materials / SHEET_MATERIAL_AMOUNT
 		mat_number = new_mat_number
-	mat_number = Clamp(mat_number, 0, 60) // Clamp and round to prevent decimal issues.
+	mat_number = clamp(mat_number, 0, 60) // clamp and round to prevent decimal issues.
 	mat_number = Floor(mat_number)
 	mat_cost = mat_number * SHEET_MATERIAL_AMOUNT
 	if(SHEET_MATERIAL_AMOUNT > stored_materials)

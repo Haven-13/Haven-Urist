@@ -358,7 +358,7 @@
 
 		//Ok, 100% oxygen atmosphere = best reaction
 		//Maxes out at 100% oxygen pressure
-		oxygen = Clamp((removed.get_by_flag(XGM_GAS_OXIDIZER) - (removed.gas["nitrogen"] * nitrogen_retardation_factor)) / removed.total_moles, 0, 1)
+		oxygen = clamp((removed.get_by_flag(XGM_GAS_OXIDIZER) - (removed.gas["nitrogen"] * nitrogen_retardation_factor)) / removed.total_moles, 0, 1)
 
 		//calculate power gain for oxygen reaction
 		var/temp_factor
@@ -379,11 +379,11 @@
 
 		//Allow us to adjust the phoron release modifier.
 		//100% methyl bromide allows us to breed the most phoron. Add nitrogen to slow this process down a bit. Dunno why you would, but it keeps the math good.
-		methyl_bromide = Clamp((removed.get_gas("methyl_bromide") - (removed.gas["nitrogen"] * nitrogen_retardation_factor)) / removed.total_moles, 0, 1)
+		methyl_bromide = clamp((removed.get_gas("methyl_bromide") - (removed.gas["nitrogen"] * nitrogen_retardation_factor)) / removed.total_moles, 0, 1)
 		phoron_release_modifier =  max( (phoron_release_modifier - methyl_bromide * 100), 100) //Let's not go below 100.
 
 		//Allows us to adjust the radiation modifier.
-		phoron = Clamp((removed.get_gas("phoron") - (removed.gas["nitrogen"] * nitrogen_retardation_factor)) / removed.total_moles, 0, 1)
+		phoron = clamp((removed.get_gas("phoron") - (removed.gas["nitrogen"] * nitrogen_retardation_factor)) / removed.total_moles, 0, 1)
 		radiation_release_modifier =  max( (radiation_release_modifier + phoron), 5) //Let's not go above 5. It could get laggy..
 
 		//Release reaction gasses

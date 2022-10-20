@@ -110,7 +110,7 @@ var/list/channel_to_radio_key = new
 		verb = pick("slobbers","slurs")
 		. = 1
 	else if(stuttering)
-		message = NewStutter(message)
+		message = stutter(message)
 		verb = pick("stammers","stutters")
 		. = 1
 	else if(has_chem_effect(CE_SQUEAKY, 1))

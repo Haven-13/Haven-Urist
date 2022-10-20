@@ -1,7 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - tweak: Tweaked the textbox colours and fixed links being too dark against the
-      dark background
-  - tweak: Most CSS are now external, allowing them to be reloaded without the need
-      of recompiling the game

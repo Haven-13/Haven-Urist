@@ -41,110 +41,12 @@
 		-->
 		<div class="commit sansserif">
 
-			<h2 class="date">04 February 2022</h2>
-			<h3 class="author">Lohikar, Semoro, and azizonkg updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="tweak">Updated the timer subsystem to latest critical Baystation12 code.</li>
-				<li class="tweak">Optimized the timer performance</li>
-				<li class="tweak">Improved the reliability of the timer subsystem and its logic</li>
-			</ul>
-
-			<h2 class="date">02 February 2022</h2>
+			<h2 class="date">17 February 2022</h2>
 			<h3 class="author">martinlyra updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="bugfix">Fixed a priority issue with background ticker subsystems</li>
-				<li class="bugfix">Fixed permission check issues with UI where ghosts would be able to interact UI unrestricted</li>
-				<li class="bugfix">Fixed users never leaving fingerprints on objects they interact with via UI due to improper use of the interaction proc</li>
-			</ul>
-
-			<h2 class="date">01 February 2022</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Added the missing RCON program UI</li>
-				<li class="bugfix">Addressed a security issue related to dependency in tgUI</li>
-				<li class="rscadd">Added the missing UI for airlocks being controlled by silicons</li>
-				<li class="bugfix">Fixed AI not being able to "see" objects despite player vision</li>
-				<li class="rscadd">Added UI for the Shield Monitoring program</li>
-				<li class="tweak">Changed the toggle button on the shields' mode settings to larger checkbox buttons</li>
-				<li class="bugfix">Fixed the Shield Monitoring program's UI being missing among with few immediate fixes to the UI data and interaction</li>
-			</ul>
-
-			<h2 class="date">29 January 2022</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="bugfix">Fixed the main elevator using the wrong turf for the bottommost deck on Pluto</li>
-				<li class="tweak">Due to outdated code, the projectile effect for the ninja net thrower has been disabled</li>
-				<li class="bugfix">Fixed mining turfs showing up as bright when they should not</li>
-				<li class="bugfix">Fixed projectiles not showing up properly</li>
-				<li class="tweak">Optimized how global variables and information are handled by the game.</li>
-				<li class="tweak">Globals, statics, and constants are now unit-tested for sanity</li>
-				<li class="rscadd">Added the missing UI for gas tanks</li>
-				<li class="bugfix">Fixed the UI being missing for all gas tanks that can be activated in hand</li>
-				<li class="tweak">Show Server Revision now shows both the client's and server's full version</li>
-				<li class="tweak">Updated the TGS host to attempt fix withstanding issues with the version information and more features.</li>
-				<li class="bugfix">Fixed test-merge information not showing up properly</li>
-				<li class="bugfix">Fixed sever-revision info not showing up properly</li>
-				<li class="spellcheck">Oxford Comma is now default for text from `english_list`, expect to see them in plenty of places</li>
-				<li class="bugfix">Fixed a runtime error related to vis_locs when viewed in View-Variables debug tool</li>
-			</ul>
-
-			<h2 class="date">24 January 2022</h2>
-			<h3 class="author">Glloyd, martinlyra, Naxodile updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Added a pirate station that periodically spawns pirate vessels to fight</li>
-				<li class="rscadd">Added more features to ship combat against NPC vessels</li>
-				<li class="rscadd">Added the datumized faction system from Urist</li>
-				<li class="rscadd">Added factions reputation and relation from Urist</li>
-				<li class="rscadd">Ghosts should be able to spawn as defenders on the pirate station upon the first breach</li>
-				<li class="tweak">Datumized ship weapon ammunition</li>
-				<li class="tweak">Player-controlled vessels should be able to engage in PvP ship combat, untested</li>
-				<li class="tweak">Most Urist content now uses the datumized faction system</li>
-				<li class="tweak">Ports revised burst firing mechanic for ship weapons</li>
-				<li class="balance">NPC ship shields are now generally tougher</li>
-			</ul>
-
-			<h2 class="date">22 January 2022</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="bugfix">Fixed atoms not being loaded correctly when spawned midgame.</li>
-			</ul>
-
-			<h2 class="date">13 January 2022</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="bugfix">Cleaned up away maps that were causing errors for the game.</li>
-				<li class="bugfix">Fixed a layering issue with disposal pipes.</li>
-				<li class="bugfix">Fixed initialization issues related to explosions spawned in map init.</li>
-				<li class="bugfix">Fixes the multi-z rendering issue, in which it would be permanently broken for a player the moment they enter a submap with incorrect Z ordering.</li>
-			</ul>
-
-			<h2 class="date">21 December 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="tweak">Modular computers' UI-state changed from physical-only to default</li>
-				<li class="bugfix">Fixed AI being unable to interact with all physical objects that can be accessible by the AI:</li>
-				<li class="bugfix">Fixed some mob icon updates getting deferred too late instead of being done immediately, should see less blank images now.</li>
-				<li class="imageadd">Replaced the old ship sprite with Pawn's ship sprite for overmap</li>
-				<li class="imageadd">Added Pawn's shuttle sprite for overmap</li>
-				<li class="rscadd">Added Ion Drives for use with overmap-capable shuttles</li>
-				<li class="rscadd">Added overmap flight for Pluto's shuttles and future ones</li>
-				<li class="tweak">Readjusted the vessel mass of Styx and Eris shuttles</li>
-				<li class="bugfix">Fixed a bug where shuttles would act as control and helms for the mothership</li>
-				<li class="bugfix">Pluto's Eris and Styx shuttles are overmap capable, finally</li>
-				<li class="imageadd">Added premliminary art for shuttles on the overmap</li>
-				<li class="imageadd">Added sprites for the Ion Drives</li>
-				<li class="bugfix">Fixed AI-vision obfuscation layering issue</li>
-				<li class="server">Added metrics from Paradise for profiling and analysing performance without interfering the server itself</li>
-			</ul>
-
-			<h2 class="date">18 December 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="bugfix">Fixed aways not spawning properly</li>
-				<li class="bugfix">Fixed "Destroyed Colony" not loading proper</li>
-				<li class="bugfix">Fixed "Derelict Station" not loading proper</li>
-				<li class="bugfix">Fixed "Noctis" ship not loading proper</li>
-				<li class="bugfix">Fixed broken geometry of Lost Supply Station</li>
+				<li class="rscdel">Removed dreaming from mobs</li>
+				<li class="tweak">Changed how radio distortion change certain letters</li>
+				<li class="tweak">Changed how drunk slurring distort speech, adding few more different flavours to it</li>
 			</ul>
 		</div>
 

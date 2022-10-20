@@ -144,7 +144,7 @@
 			. = TRUE
 		if ("volume_adj")
 			var/diff = text2num(params["volume_adj"])
-			volume_rate = Clamp(volume_rate+diff, minrate, maxrate)
+			volume_rate = clamp(volume_rate+diff, minrate, maxrate)
 			. = TRUE
 
 	if(.)

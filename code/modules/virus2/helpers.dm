@@ -11,7 +11,7 @@
 	var/score = round(0.06*protection) 			//scales 100% protection to 6.
 
 	switch(vector)
-		if("Airborne" || "Proximity")
+		if("Airborne", "Proximity")
 			if(M.internal) //not breathing infected air helps greatly
 				return 0
 			var/obj/item/I = M.wear_mask

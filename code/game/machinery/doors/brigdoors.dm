@@ -199,7 +199,7 @@
 				F.flash()
 		if("time")
 			timetoset += text2num(params["adjust"])
-			timetoset = Clamp(timetoset, 0, 36000)
+			timetoset = clamp(timetoset, 0, 36000)
 
 	src.update_icon()
 	return TRUE
