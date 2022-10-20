@@ -9,5 +9,5 @@ SUBSYSTEM_DEF(antags)
 		antag.Initialize()
 	. = ..()
 
-/datum/controller/subsystem/antags/stat_entry(msg)
+/datum/controller/subsystem/antags/stat_entry()
 	..("[GLOB.all_antag_types_.len] antag datums")
