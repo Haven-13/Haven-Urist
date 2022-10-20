@@ -4,14 +4,15 @@
 
 // ===
 /area
+	plane = EFFECTS_PLANE
+	layer = ALARM_LAYER
+
 	var/global/global_uid = 0
 	var/uid
 	var/area_flags
 
 /area/New()
 	icon_state = ""
-	plane = EFFECTS_PLANE
-	layer = ALARM_LAYER
 	uid = ++global_uid
 
 	if(!requires_power)

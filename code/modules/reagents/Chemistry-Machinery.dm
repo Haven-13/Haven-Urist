@@ -291,11 +291,9 @@
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 /obj/machinery/reagentgrinder
-
 	name = "All-In-One Grinder"
 	icon = 'resources/icons/obj/kitchen.dmi'
 	icon_state = "juicer1"
-	layer = BELOW_OBJ_LAYER
 	density = 0
 	anchored = 0
 	use_power = 1
