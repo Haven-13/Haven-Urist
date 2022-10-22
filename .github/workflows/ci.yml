@@ -84,7 +84,7 @@ jobs:
           cat check_regex_output.txt
 
       - name: Annotate Dreamchecker lints
-        uses: yogstation13/DreamAnnotate@v1
+        uses: yogstation13/DreamAnnotate@v2
         if: always()
         with:
           outputFile: output-annotations.txt
