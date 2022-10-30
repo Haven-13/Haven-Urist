@@ -1,7 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - rscadd: Added a way to reload the CSS for the chatbox and map-view.
-  - tweak: Restyled some chat box messages
-  - tweak: Changed language style in the chat box to be more readable
-  - bugfix: Fixed the chat channel icons not showing up proper

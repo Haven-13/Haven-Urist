@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - tweak: AIs can no longer interact with portable generators
-  - bugfix: Fixed the Pacman generator reopening the UI when running

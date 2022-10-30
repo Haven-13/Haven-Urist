@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - tweak: Bulk strings are handled as resources rather than configuration objects
-      or hardcoded values

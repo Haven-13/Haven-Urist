@@ -1,5 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - bugfix: Fixed the all-around-grinders appearing under tables
-  - bugfix: Fixed areas appearing underneath the world in map editors
