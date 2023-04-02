@@ -253,20 +253,12 @@ var/global/datum/controller/occupations/job_master
 				if(age < job.minimum_character_age) // Nope.
 					continue
 
-				switch(age)
-					if(job.minimum_character_age to (job.minimum_character_age+10))
-						weightedCandidates[V] = 3 // Still a bit young.
-					if((job.minimum_character_age+10) to (job.ideal_character_age-10))
-						weightedCandidates[V] = 6 // Better.
-					if((job.ideal_character_age-10) to (job.ideal_character_age+10))
-						weightedCandidates[V] = 10 // Great.
-					if((job.ideal_character_age+10) to (job.ideal_character_age+20))
-						weightedCandidates[V] = 6 // Still good.
-					if((job.ideal_character_age+20) to INFINITY)
-						weightedCandidates[V] = 3 // Geezer.
-					else
-						// If there's ABSOLUTELY NOBODY ELSE
-						if(candidates.len == 1) weightedCandidates[V] = 1
+				var/weight = get_candidate_weight(age, job)
+				if(weight > 0)
+					weightedCandidates[V] = weight
+				else
+					// If there's ABSOLUTELY NOBODY ELSE
+					if(candidates.len == 1) weightedCandidates[V] = 1
 
 
 			var/mob/new_player/candidate = pickweight(weightedCandidates)
@@ -274,6 +266,18 @@ var/global/datum/controller/occupations/job_master
 				return 1
 	return 0
 
+/datum/controller/occupations/proc/get_candidate_weight(age, datum/job/job)
+	if(InRange(age, job.minimum_character_age, (job.minimum_character_age+10)))
+		return 3 // Still a bit young.
+	if(InRange(age, (job.minimum_character_age+10), (job.ideal_character_age-10)))
+		return 6 // Better.
+	if(InRange(age, (job.ideal_character_age-10), (job.ideal_character_age+10)))
+		return 10 // Great.
+	if(InRange(age, (job.ideal_character_age+10), (job.ideal_character_age+20)))
+		return 6 // Still good.
+	if(InRange(age, (job.ideal_character_age+20), INFINITY))
+		return 3 // Geezer.
+	return 0
 
 ///This proc is called at the start of the level loop of DivideOccupations() and will cause head jobs to be checked before any other jobs of the same level
 /datum/controller/occupations/proc/CheckHeadPositions(var/level)
