@@ -644,7 +644,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 				continue
 			if(!(get_bodytype() in S.species_allowed))
 				continue
-			ADD_SORTED(L, hairstyle, /proc/cmp_text_asc)
+			ADD_SORTED(L, hairstyle, GLOBAL_PROC_REF(cmp_text_asc))
 			L[hairstyle] = S
 	return L
 
@@ -662,7 +662,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 				continue
 			if(!(get_bodytype() in S.species_allowed))
 				continue
-			ADD_SORTED(L, facialhairstyle, /proc/cmp_text_asc)
+			ADD_SORTED(L, facialhairstyle, GLOBAL_PROC_REF(cmp_text_asc))
 			L[facialhairstyle] = S
 	return L
 

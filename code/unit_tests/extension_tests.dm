@@ -28,10 +28,10 @@
 		if(multi.host_predicates.len != 2)
 			log_unit_test("Unexpected interaction predicate length. Was [multi.host_predicates.len], expected 2.")
 			number_of_failures++
-		else if(multi.host_predicates[1] != /proc/is_operable)
+		else if(multi.host_predicates[1] != GLOBAL_PROC_REF(is_operable))
 			log_unit_test("Unexpected interaction predicate at index 1. Was [multi.host_predicates[1]], expected /proc/is_operable.")
 			number_of_failures++
-		else if(multi.host_predicates[2] != /proc/is_operable)
+		else if(multi.host_predicates[2] != GLOBAL_PROC_REF(is_operable))
 			log_unit_test("Unexpected interaction predicate at index 2. Was [multi.host_predicates[2]], expected /proc/is_operable.")
 			number_of_failures++
 
@@ -45,5 +45,5 @@
 
 /obj/test/extensions/New()
 	set_extension(src, /datum/extension, /datum/extension)
-	set_extension(src, /datum/extension/interactive/multitool, /datum/extension/interactive/multitool/items/cable, list(/proc/is_operable, /proc/is_operable))
+	set_extension(src, /datum/extension/interactive/multitool, /datum/extension/interactive/multitool/items/cable, list(GLOBAL_PROC_REF(is_operable), GLOBAL_PROC_REF(is_operable)))
 	..()

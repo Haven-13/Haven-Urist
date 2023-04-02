@@ -61,7 +61,7 @@ length to avoid portals or something i guess?? Not that they're counted right no
 	return a.estimated_cost - b.estimated_cost
 
 /proc/AStar(var/start, var/end, var/adjacent_proc, var/dist_proc, var/max_nodes, var/max_node_depth = 30, var/min_target_dist = 0, var/min_node_dist_proc, var/id, var/datum/exclude)
-	var/PriorityQueue/open = new /PriorityQueue(/proc/PathWeightCompare)
+	var/PriorityQueue/open = new /PriorityQueue(GLOBAL_PROC_REF(PathWeightCompare))
 	var/list/closed = list()
 	var/list/path
 	var/list/path_node_by_position = list()

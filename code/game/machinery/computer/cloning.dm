@@ -18,7 +18,7 @@
 
 /obj/machinery/computer/cloning/Initialize()
 	. = ..()
-	set_extension(src, /datum/extension/interactive/multitool, /datum/extension/interactive/multitool/cryo, list(/proc/is_operable))
+	set_extension(src, /datum/extension/interactive/multitool, /datum/extension/interactive/multitool/cryo, list(GLOBAL_PROC_REF(is_operable)))
 	updatemodules()
 
 /obj/machinery/computer/cloning/Destroy()
