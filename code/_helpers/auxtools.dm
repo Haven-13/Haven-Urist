@@ -11,11 +11,11 @@ GLOBAL_VAR_INIT(auxtools_debug_server, world.GetConfig("env", "AUXTOOLS_DEBUG_DL
 
 /hook/startup/proc/auxtools_init()
 	if (GLOB.auxtools_debug_server)
-		call(GLOB.auxtools_debug_server, "auxtools_init")()
+		LIBCALL(GLOB.auxtools_debug_server, "auxtools_init")()
 		enable_debugging()
 	return TRUE
 
 /hook/shutdown/proc/auxtools_shutdown()
 	if (GLOB.auxtools_debug_server)
-		call(GLOB.auxtools_debug_server, "auxtools_shutdown")()
+		LIBCALL(GLOB.auxtools_debug_server, "auxtools_shutdown")()
 	return TRUE
