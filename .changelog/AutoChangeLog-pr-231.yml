@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Fixed a critical bug regarding subsystem priority discovered by wixoaGit
+      and fix implemented @ tgstation
