@@ -57,7 +57,7 @@ var/bomb_set
 		time_left = max(time_left - (wait / 10), 0)
 		playsound(loc, 'resources/sound/items/timer.ogg', 50)
 		if(time_left <= 0)
-			addtimer(CALLBACK(src, .proc/explode), 0)
+			addtimer(CALLBACK(src, PROC_REF(explode)), 0)
 		SStgui.update_uis(src)
 
 /obj/machinery/nuclearbomb/attackby(obj/item/weapon/O as obj, mob/user as mob, params)

@@ -76,7 +76,7 @@
 
 	update_nearby_tiles(need_rebuild=1)
 
-	set_extension(src, /datum/extension/penetration, /datum/extension/penetration/proc_call, .proc/CheckPenetration)
+	set_extension(src, /datum/extension/penetration, /datum/extension/penetration/proc_call, PROC_REF(CheckPenetration))
 
 /obj/machinery/door/proc/SetBounds()
 	if(dir in list(EAST, WEST))

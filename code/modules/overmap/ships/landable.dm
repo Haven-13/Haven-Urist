@@ -48,7 +48,7 @@
 /obj/effect/overmap/ship/landable/populate_sector_objects()
 	..()
 	var/datum/shuttle/shuttle_datum = SSshuttle.shuttles[shuttle]
-	GLOB.shuttle_moved_event.register(shuttle_datum, src, .proc/on_shuttle_jump)
+	GLOB.shuttle_moved_event.register(shuttle_datum, src, PROC_REF(on_shuttle_jump))
 	on_landing(landmark, shuttle_datum.current_location) // We "land" at round start to properly place ourselves on the overmap.
 
 /obj/effect/shuttle_landmark/ship

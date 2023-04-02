@@ -11,7 +11,7 @@
 /datum/asset_transport/proc/Load()
 	if (config.asset_simple_preload)
 		for(var/client/C in GLOB.clients)
-			addtimer(CALLBACK(src, .proc/send_assets_slow, C, preload), 1 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(send_assets_slow), C, preload), 1 SECONDS)
 
 /// Initialize - Called when SSassets initializes.
 /datum/asset_transport/proc/Initialize(list/assets)
@@ -19,7 +19,7 @@
 	if (!config.asset_simple_preload)
 		return
 	for(var/client/C in GLOB.clients)
-		addtimer(CALLBACK(src, .proc/send_assets_slow, C, preload), 1 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(send_assets_slow), C, preload), 1 SECONDS)
 
 
 /// Register a browser asset with the asset cache system

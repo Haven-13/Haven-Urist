@@ -217,7 +217,7 @@
 
 		playsound(chassis, 'resources/sound/effects/extinguish.ogg', 75, 1, -3)
 
-		addtimer(CALLBACK(src, .proc/do_spray, target), 0)
+		addtimer(CALLBACK(src, PROC_REF(do_spray), target), 0)
 		return 1
 
 /obj/item/mecha_parts/mecha_equipment/tool/extinguisher/get_equip_info()
