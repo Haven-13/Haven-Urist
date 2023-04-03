@@ -45,7 +45,7 @@
 			else { CRASH("Invalid type delegate '[delegate]' given by [file_file],[source_line]"); } \
 		} \
 		else { \
-			e.name = "<<Callback of [file_name],[source_line]>> [e.name]"; \
+			e.name = "\<\<Callback of [file_name],[source_line]\>\> [e.name]"; \
 			throw e; \
 		} \
 	}
