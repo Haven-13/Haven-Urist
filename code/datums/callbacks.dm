@@ -35,11 +35,13 @@
 #define DO_INVOKE \
 	try { \
 		if (object == GLOBAL_PROC) { \
-			return call(delegate)(arglist(calling_arguments)) \
+			return call(delegate)(arglist(calling_arguments)); \
 		} \
-		return call(object, delegate)(arglist(calling_arguments)) \
+		return call(object, delegate)(arglist(calling_arguments)); \
 	} catch (var/exception/e) { \
-		CRASH("Exception '[e.name]' on callback for [object]/[delegate], by [source_file],[source_line]") \
+		if(findtextEx(e.desc, __PROC__) > 0) { \
+			CRASH("Exception '[e.name]' calling [object]/[delegate] added by [source_file],[source_line]"); \
+		} else { throw e; } \
 	}
 
 /datum/callback/proc/Invoke(...)
