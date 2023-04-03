@@ -10,6 +10,12 @@
 // If you think you need more, rethink it
 #define MAX_ATOM_OVERLAYS 100
 
+// Toggle whether the Baystation's callbacks system shall be wrapped in a try-catch block,
+// to suppliment more debug information to the runtime messages.
+//		1 will enable this feature
+//		0 will disable this feature
+#define TRY_CATCH_CALLBACKS 1
+
 #ifdef CIBUILDING
 #define UNIT_TEST
 #endif
@@ -20,8 +26,11 @@
 #endif
 
 #if defined(UNIT_TESTS)
-//Hard del testing defines
+// Hard del testing defines
 #define FIND_REF_NO_CHECK_TICK
+
+// The callbacks system is wrapped in try-catch to suppliment more debug information to messages
+#define TRY_CATCH_CALLBACKS 1
 #endif
 
 #if !defined(CBT) && !defined(SPACEMAN_DMM)
