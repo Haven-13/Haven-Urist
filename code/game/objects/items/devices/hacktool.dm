@@ -60,7 +60,7 @@
 	if(hack_result && in_hack_mode)
 		to_chat(user, "<span class='notice'>Your hacking attempt was succesful!</span>")
 		known_targets.Insert(1, target)	// Insert the newly hacked target first,
-		GLOB.destroyed_event.register(target, src, /obj/item/device/multitool/hacktool/proc/on_target_destroy)
+		GLOB.destroyed_event.register(target, src, TYPE_PROC_REF(/obj/item/device/multitool/hacktool, on_target_destroy))
 	else
 		to_chat(user, "<span class='warning'>Your hacking attempt failed!</span>")
 	return 1

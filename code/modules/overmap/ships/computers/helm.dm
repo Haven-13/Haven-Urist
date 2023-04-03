@@ -62,16 +62,16 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 		user.reset_view(linked)
 	if(user.client)
 		user.client.view = world.view + 4
-	GLOB.moved_event.register(user, src, /obj/machinery/computer/ship/helm/proc/unlook)
-	GLOB.stat_set_event.register(user, src, /obj/machinery/computer/ship/helm/proc/unlook)
+	GLOB.moved_event.register(user, src, TYPE_PROC_REF(/obj/machinery/computer/ship/helm, unlook))
+	GLOB.stat_set_event.register(user, src, TYPE_PROC_REF(/obj/machinery/computer/ship/helm, unlook))
 	LAZY_ADD_UNIQUE(viewers, weakref(user))
 
 /obj/machinery/computer/ship/helm/proc/unlook(var/mob/user)
 	user.reset_view()
 	if(user.client)
 		user.client.view = world.view
-	GLOB.moved_event.unregister(user, src, /obj/machinery/computer/ship/helm/proc/unlook)
-	GLOB.stat_set_event.unregister(user, src, /obj/machinery/computer/ship/helm/proc/unlook)
+	GLOB.moved_event.unregister(user, src, TYPE_PROC_REF(/obj/machinery/computer/ship/helm, unlook))
+	GLOB.stat_set_event.unregister(user, src, TYPE_PROC_REF(/obj/machinery/computer/ship/helm, unlook))
 	LAZY_REMOVE(viewers, weakref(user))
 
 /obj/machinery/computer/ship/helm/ui_status(mob/user, datum/ui_state/state)

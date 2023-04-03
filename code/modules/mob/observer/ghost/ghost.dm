@@ -298,9 +298,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	stop_following()
 	following = target
 	verbs |= /mob/observer/ghost/proc/scan_target
-	GLOB.moved_event.register(following, src, /atom/movable/proc/move_to_turf)
-	GLOB.dir_set_event.register(following, src, /atom/proc/recursive_dir_set)
-	GLOB.destroyed_event.register(following, src, /mob/observer/ghost/proc/stop_following)
+	GLOB.moved_event.register(following, src, TYPE_PROC_REF(/atom/movable, move_to_turf))
+	GLOB.dir_set_event.register(following, src, TYPE_PROC_REF(/atom, recursive_dir_set))
+	GLOB.destroyed_event.register(following, src, TYPE_PROC_REF(/mob/observer/ghost, stop_following))
 
 	to_chat(src, "<span class='notice'>Now following \the [following].</span>")
 	move_to_turf(following, loc, following.loc)

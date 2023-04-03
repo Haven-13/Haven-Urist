@@ -85,8 +85,8 @@
 					var/mob_type = pick(repopulate_types)
 					var/mob/S = new mob_type(T)
 					animals += S
-					GLOB.death_event.register(S, src, /obj/effect/overmap/sector/exoplanet/proc/remove_animal)
-					GLOB.destroyed_event.register(S, src, /obj/effect/overmap/sector/exoplanet/proc/remove_animal)
+					GLOB.death_event.register(S, src, TYPE_PROC_REF(/obj/effect/overmap/sector/exoplanet, remove_animal))
+					GLOB.destroyed_event.register(S, src, TYPE_PROC_REF(/obj/effect/overmap/sector/exoplanet, remove_animal))
 					adapt_animal(S)
 			if(animals.len >= max_animal_count)
 				repopulating = 0
@@ -123,8 +123,8 @@
 	for(var/mob/living/simple_animal/A in GLOB.living_mob_list_)
 		if(A.z in map_z)
 			animals += A
-			GLOB.death_event.register(A, src, /obj/effect/overmap/sector/exoplanet/proc/remove_animal)
-			GLOB.destroyed_event.register(A, src, /obj/effect/overmap/sector/exoplanet/proc/remove_animal)
+			GLOB.death_event.register(A, src, TYPE_PROC_REF(/obj/effect/overmap/sector/exoplanet, remove_animal))
+			GLOB.destroyed_event.register(A, src, TYPE_PROC_REF(/obj/effect/overmap/sector/exoplanet, remove_animal))
 	max_animal_count = animals.len
 
 /obj/effect/overmap/sector/exoplanet/proc/update_biome()

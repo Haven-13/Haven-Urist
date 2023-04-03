@@ -116,9 +116,9 @@
 	dummy = new //Only supports 2x2 walls atm.
 	dummy.set_opacity(opacity)
 	adjust_dummy()
-	GLOB.dir_set_event.register(src, src, /obj/machinery/door/proc/adjust_dummy)//This is a stupid way to do this, but it's cleaner.
-	GLOB.moved_event.register(src, src, /obj/machinery/door/proc/adjust_dummy)
-	GLOB.opacity_set_event.register(src, src, /obj/machinery/door/proc/set_dummy_opacity)
+	GLOB.dir_set_event.register(src, src, TYPE_PROC_REF(/obj/machinery/door, adjust_dummy))//This is a stupid way to do this, but it's cleaner.
+	GLOB.moved_event.register(src, src, TYPE_PROC_REF(/obj/machinery/door, adjust_dummy))
+	GLOB.opacity_set_event.register(src, src, TYPE_PROC_REF(/obj/machinery/door, set_dummy_opacity))
 
 #define ADJUSTIT(A) dummy.forceMove(get_step(src, A))
 /obj/machinery/door/proc/adjust_dummy()//Special proc because dir doesn't adjust the object's origin point.

@@ -58,7 +58,7 @@
 				warning("Powernet sensor with unset ID Tag! [S.x]X [S.y]Y [S.z]Z")
 			else
 				grid_sensors += S
-				GLOB.destroyed_event.register(S, src, /datum/ui_module/program/power_monitor/proc/remove_sensor)
+				GLOB.destroyed_event.register(S, src, TYPE_PROC_REF(/datum/ui_module/program/power_monitor, remove_sensor))
 
 /datum/ui_module/program/power_monitor/proc/remove_sensor(var/removed_sensor, var/update_ui = TRUE)
 	if(active_sensor == removed_sensor)
@@ -66,7 +66,7 @@
 		if(update_ui)
 			SStgui.update_uis(src)
 	grid_sensors -= removed_sensor
-	GLOB.destroyed_event.unregister(removed_sensor, src, /datum/ui_module/program/power_monitor/proc/remove_sensor)
+	GLOB.destroyed_event.unregister(removed_sensor, src, TYPE_PROC_REF(/datum/ui_module/program/power_monitor, remove_sensor))
 
 // Allows us to process UI clicks, which are relayed in form of hrefs.
 /datum/ui_module/program/power_monitor/Topic(href, href_list)
