@@ -41,8 +41,8 @@
 	} catch (var/exception/e) { \
 		var/file_name = splicetext(source_file, 1, findlasttext(source_file,"/") + 1); \
 		if (e.name == "bad proc") { \
-			if (object == GLOBAL_PROC) { CRASH("Invalid global delegate '[delegate]' given by [file_file],[source_line]"); } \
-			else { CRASH("Invalid type delegate '[delegate]' given by [file_file],[source_line]"); } \
+			if (object == GLOBAL_PROC) { CRASH("Invalid global delegate '[delegate]' given by [file_name],[source_line]"); } \
+			else { CRASH("Invalid type delegate '[delegate]' given by [file_name],[source_line]"); } \
 		} \
 		else { \
 			e.name = "\<\<Callback of [file_name],[source_line]\>\> [e.name]"; \
