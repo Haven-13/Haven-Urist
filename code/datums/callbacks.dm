@@ -8,14 +8,10 @@
 
 	var/source_file
 	var/source_line
-	var/source_type
-	var/source_proc
 
 /datum/callback/New(_file, _line, thingtocall, proctocall, ...)
 	source_file = _file
 	source_line = _line
-	// source_type = _type
-	// source_proc = _proc
 
 	if (thingtocall)
 		object = thingtocall
@@ -43,7 +39,7 @@
 		} \
 		return call(object, delegate)(arglist(calling_arguments)) \
 	} catch (var/exception/e) { \
-		EXCEPTION("Exception '[e.name]' on callback for [object]/[delegate], by [source_type]/proc/[source_proc] @ [source_file]:[source_line]") \
+		CRASH("Exception '[e.name]' on callback for [object]/[delegate], by [source_file],[source_line]") \
 	}
 
 /datum/callback/proc/Invoke(...)
