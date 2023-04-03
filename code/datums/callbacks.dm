@@ -11,11 +11,11 @@
 	var/source_type
 	var/source_proc
 
-/datum/callback/New(_file, _line, _type, _proc, thingtocall, proctocall, ...)
+/datum/callback/New(_file, _line, thingtocall, proctocall, ...)
 	source_file = _file
 	source_line = _line
-	source_type = _type
-	source_proc = _proc
+	// source_type = _type
+	// source_proc = _proc
 
 	if (thingtocall)
 		object = thingtocall
