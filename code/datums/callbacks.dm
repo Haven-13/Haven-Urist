@@ -16,8 +16,8 @@
 	if (thingtocall)
 		object = thingtocall
 	delegate = proctocall
-	if (length(args) > 2)
-		arguments = args.Copy(3)
+	if (length(args) > 4)
+		arguments = args.Copy(5)
 
 /proc/ImmediateInvokeAsync(thingtocall, proctocall, ...)
 	set waitfor = FALSE
@@ -39,9 +39,15 @@
 		} \
 		return call(object, delegate)(arglist(calling_arguments)); \
 	} catch (var/exception/e) { \
-		if(findtextEx(e.desc, __PROC__) > 0) { \
-			CRASH("Exception '[e.name]' calling [object]/[delegate] added by [source_file],[source_line]"); \
-		} else { throw e; } \
+		var/file_name = splicetext(source_file, 1, findlasttext(source_file,"/") + 1); \
+		if (e.name == "bad proc") { \
+			if (object == GLOBAL_PROC) { CRASH("Invalid global delegate '[delegate]' given by [file_file],[source_line]"); } \
+			else { CRASH("Invalid type delegate '[delegate]' given by [file_file],[source_line]"); } \
+		} \
+		else { \
+			e.name = "<<Callback of [file_name],[source_line]>> [e.name]"; \
+			throw e; \
+		} \
 	}
 
 /datum/callback/proc/Invoke(...)
@@ -50,7 +56,8 @@
 	var/list/calling_arguments = arguments
 	if (length(args))
 		if (length(arguments))
-			calling_arguments = calling_arguments + args //not += so that it creates a new list so the arguments list stays clean
+			//not += so that it creates a new list so the arguments list stays clean
+			calling_arguments = calling_arguments + args
 		else
 			calling_arguments = args
 	DO_INVOKE
@@ -63,7 +70,8 @@
 	var/list/calling_arguments = arguments
 	if (length(args))
 		if (length(arguments))
-			calling_arguments = calling_arguments + args //not += so that it creates a new list so the arguments list stays clean
+			//not += so that it creates a new list so the arguments list stays clean
+			calling_arguments = calling_arguments + args
 		else
 			calling_arguments = args
 	DO_INVOKE
