@@ -33,7 +33,7 @@
 
 	recipes = material.get_recipes()
 	stacktype = material.stack_type
-	if(islist(material.stack_origin_tech))
+	if(is_list(material.stack_origin_tech))
 		origin_tech = material.stack_origin_tech.Copy()
 
 	if(apply_colour)
@@ -89,7 +89,7 @@
 		..()
 
 /obj/item/stack/material/attackby(var/obj/item/W, var/mob/user)
-	if(isCoil(W))
+	if(is_coil(W))
 		material.build_wired_product(user, W, src)
 		return
 	else if(istype(W, /obj/item/stack/rods))

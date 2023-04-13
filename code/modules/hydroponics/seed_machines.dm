@@ -83,13 +83,13 @@
 			to_chat(user, "You load [W] into [src].")
 		return
 
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		open = !open
 		to_chat(user, "<span class='notice'>You [open ? "open" : "close"] the maintenance panel.</span>")
 		return
 
 	if(open)
-		if(isCrowbar(W))
+		if(is_crowbar(W))
 			dismantle()
 			return
 

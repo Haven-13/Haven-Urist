@@ -174,7 +174,7 @@
 
 
 /obj/machinery/power/shield_generator/attackby(obj/item/O as obj, mob/user as mob)
-	if(panel_open && isMultitool(O) || isWirecutter(O))
+	if(panel_open && is_multitool(O) || is_wirecutter(O))
 		attack_hand(user)
 		return
 
@@ -235,7 +235,9 @@
 		"offlineFor" = offline_for * 2
 	)
 
-/obj/machinery/power/shield_generator/ui_act(action, list/params)
+/obj/machinery/power/shield_generator/ui_act(action, list/params, datum/tgui/ui)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("begin_shutdown")
 			if(running != SHIELD_RUNNING)
@@ -302,7 +304,7 @@
 
 
 /obj/machinery/power/shield_generator/CanUseTopic(var/mob/user)
-	if(issilicon(user) && !Adjacent(user) && ai_control_disabled)
+	if(is_silicon(user) && !Adjacent(user) && ai_control_disabled)
 		return UI_UPDATE
 	return ..()
 

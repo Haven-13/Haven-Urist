@@ -39,7 +39,7 @@
 
 /client/proc/receive_looc(var/client/C, var/commkey, var/message, var/prefix)
 	var/mob/M = C.mob
-	var/display_name = isghost(M) ? commkey : M.name
+	var/display_name = is_ghost(M) ? commkey : M.name
 	var/admin_stuff = holder ? "/([commkey])" : ""
 	if(prefix)
 		prefix = "\[[prefix]\] "

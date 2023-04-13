@@ -13,12 +13,12 @@
 
 /obj/item/organ/internal/xeno/replaced(var/mob/living/carbon/human/target,var/obj/item/organ/external/affected)
 	. = ..()
-	if(ishuman(owner) && associated_power)
+	if(is_human_mob(owner) && associated_power)
 		owner.verbs |= associated_power
 
 /obj/item/organ/internal/xeno/removed(var/mob/living/user)
 	. = ..()
-	if(ishuman(owner) && associated_power && !(associated_power in owner.species.inherent_verbs))
+	if(is_human_mob(owner) && associated_power && !(associated_power in owner.species.inherent_verbs))
 		owner.verbs -= associated_power
 
 /obj/item/organ/internal/xeno/eggsac
@@ -80,7 +80,7 @@
 	..()
 
 /obj/item/organ/internal/xeno/hivenode/removed(var/mob/living/user)
-	if(owner && ishuman(owner))
+	if(owner && is_human_mob(owner))
 		var/mob/living/carbon/human/H = owner
 		to_chat(H, "<span class='alium'>You feel your connection to the hivemind fray and fade away...</span>")
 		H.remove_language("Hivemind")
@@ -91,7 +91,7 @@
 /obj/item/organ/internal/xeno/hivenode/replaced(var/mob/living/carbon/human/target,var/obj/item/organ/external/affected)
 	if(!..()) return 0
 
-	if(owner && ishuman(owner))
+	if(owner && is_human_mob(owner))
 		var/mob/living/carbon/human/H = owner
 		H.add_language("Hivemind")
 		if(H.mind && H.species.get_bodytype(H) != SPECIES_XENO)

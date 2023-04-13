@@ -26,7 +26,7 @@
 		mob_passthrough_check = 0
 	. = ..()
 
-	if(. == 1 && iscarbon(target_mob))
+	if(. == 1 && is_carbon_mob(target_mob))
 		damage *= 0.7 //squishy mobs absorb KE
 
 /obj/item/projectile/bullet/can_embed()
@@ -41,7 +41,7 @@
 	if(istype(A, /obj/mecha))
 		return 1 //mecha have their own penetration handling
 
-	if(ismob(A))
+	if(is_mob(A))
 		if(!mob_passthrough_check)
 			return 0
 		return 1
@@ -113,7 +113,7 @@
 	. = ..()
 
 	//If this is a shrapnel explosion, allow mobs that are prone to get hit, too
-	if(. && !base_spread && isturf(loc))
+	if(. && !base_spread && is_turf(loc))
 		for(var/mob/living/M in loc)
 			if(M.lying || !M.CanPass(src, loc, 0.5, 0)) //Bump if lying or if we would normally Bump.
 				if(Bump(M)) //Bump will make sure we don't hit a mob multiple times
@@ -233,7 +233,7 @@
 	fire_sound = 'resources/sound/effects/Explosion1.ogg'
 
 /obj/item/projectile/bullet/gyro/on_hit(var/atom/target, var/blocked = 0)
-	if(isturf(target))
+	if(is_turf(target))
 		explosion(target, -1, 0, 2)
 	..()
 

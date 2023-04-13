@@ -99,7 +99,7 @@ SUBSYSTEM_DEF(radiation)
 
 // Add a radiation source instance to the repository.  It will override any existing source on the same turf.
 /datum/controller/subsystem/radiation/proc/add_source(var/datum/radiation_source/S)
-	if(!isturf(S.source_turf))
+	if(!is_turf(S.source_turf))
 		return
 	var/datum/radiation_source/existing = sources_assoc[S.source_turf]
 	if(existing)

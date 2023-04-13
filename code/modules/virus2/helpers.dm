@@ -11,7 +11,7 @@
 	var/score = round(0.06*protection) 			//scales 100% protection to 6.
 
 	switch(vector)
-		if("Airborne" || "Proximity")
+		if("Airborne", "Proximity")
 			if(M.internal) //not breathing infected air helps greatly
 				return 0
 			var/obj/item/I = M.wear_mask
@@ -157,7 +157,7 @@
 //		log_debug("Spreading [vector] diseases from [victim] to [src]")
 		var/nudity = 1
 
-		if (ishuman(victim))
+		if (is_human_mob(victim))
 			var/mob/living/carbon/human/H = victim
 
 			//Allow for small chance of touching other zones.

@@ -47,17 +47,19 @@
 		viewing = 0
 		return
 
-	if(viewing && linked &&!isAI(user))
+	if(viewing && linked &&!is_ai(user))
 		user.set_machine(src)
 		user.reset_view(linked)
 
 	ui_interact(user)
 
 /obj/machinery/computer/ship/navigation/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("view")
 			viewing = !viewing
-			if(viewing && !isAI(usr))
+			if(viewing && !is_ai(usr))
 				var/mob/user = usr
 				user.reset_view(linked)
 			. = TRUE

@@ -25,7 +25,7 @@
 	return FALSE
 
 /proc/is_atom_predicate(var/value, var/feedback_receiver)
-	. = isatom(value)
+	. = is_atom(value)
 	if(!. && feedback_receiver)
 		to_chat(feedback_receiver, "<span class='warning'>Value must be an atom.</span>")
 

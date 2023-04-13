@@ -23,7 +23,7 @@
 	if(!armed)
 		return
 	var/obj/item/organ/external/affecting = null
-	if(ishuman(target))
+	if(is_human_mob(target))
 		var/mob/living/carbon/human/H = target
 		switch(type)
 			if("feet")
@@ -37,7 +37,7 @@
 		if(affecting)
 			affecting.take_external_damage(1, 0)
 			H.updatehealth()
-	else if(ismouse(target))
+	else if(is_mouse(target))
 		var/mob/living/simple_animal/mouse/M = target
 		visible_message("<span class='danger'>SPLAT!</span>")
 		M.splat()
@@ -85,7 +85,7 @@
 
 /obj/item/device/assembly/mousetrap/Crossed(AM as mob|obj)
 	if(armed)
-		if(ishuman(AM))
+		if(is_human_mob(AM))
 			var/mob/living/carbon/H = AM
 			if(!MOVING_DELIBERATELY(H))
 				triggered(H)
@@ -93,7 +93,7 @@
 					"<span class='warning'>[H] accidentally steps on [src].</span>",
 					"<span class='warning'>You accidentally step on [src]</span>"
 				)
-		if(ismouse(AM))
+		if(is_mouse(AM))
 			triggered(AM)
 	..()
 

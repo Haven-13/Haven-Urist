@@ -35,7 +35,7 @@ Small, little HP, poisonous.
 			var/mob/living/carbon/human/H = a
 			if(H.species.get_bodytype() == SPECIES_VOX)
 				continue
-		if(isliving(a))
+		if(is_living_mob(a))
 			var/mob/living/M = a
 			if(M.faction == faction)
 				continue
@@ -69,7 +69,7 @@ Small, little HP, poisonous.
 
 /mob/living/simple_animal/hostile/voxslug/Life()
 	. = ..()
-	if(. && istype(src.loc, /obj/item/weapon/holder) && isliving(src.loc.loc)) //We in somebody
+	if(. && istype(src.loc, /obj/item/weapon/holder) && is_living_mob(src.loc.loc)) //We in somebody
 		var/mob/living/L = src.loc.loc
 		if(src.loc in L.get_visible_implants(0))
 			if(prob(1))

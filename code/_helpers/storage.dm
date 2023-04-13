@@ -5,7 +5,7 @@
 	if(istype(atom_paths, /datum/atom_creator))
 		var/datum/atom_creator/atom_creator = atom_paths
 		atom_creator.create(loc)
-	else if(islist(atom_paths))
+	else if(is_list(atom_paths))
 		for(var/atom_path in atom_paths)
 			for(var/i = 1 to max(1, atom_paths[atom_path]))
 				create_objects_in_loc(loc, atom_path)

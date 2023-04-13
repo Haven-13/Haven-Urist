@@ -156,6 +156,8 @@
 	icon_off = "capsecureoff"
 
 /obj/structure/closet/secure_closet/personal/scom/commander/New()
+	..()
+	spawn(2)
 		new /obj/item/clothing/under/rank/centcom(src)
 		new /obj/item/clothing/suit/captunic(src)
 		new /obj/item/clothing/shoes/laceup(src)

@@ -93,7 +93,7 @@
 
 /obj/item/projectile/energy/floramut/on_hit(var/atom/target, var/blocked = 0)
 	var/mob/living/M = target
-	if(ishuman(target))
+	if(is_human_mob(target))
 		var/mob/living/carbon/human/H = M
 		if((H.species.species_flags & SPECIES_FLAG_IS_PLANT) && (H.nutrition < 500))
 			if(prob(15))
@@ -137,7 +137,7 @@
 
 /obj/item/projectile/energy/florayield/on_hit(var/atom/target, var/blocked = 0)
 	var/mob/M = target
-	if(ishuman(target)) //These rays make plantmen fat.
+	if(is_human_mob(target)) //These rays make plantmen fat.
 		var/mob/living/carbon/human/H = M
 		if((H.species.species_flags & SPECIES_FLAG_IS_PLANT) && (H.nutrition < 500))
 			H.nutrition += 30
@@ -151,7 +151,7 @@
 	name = "flayer ray"
 
 /obj/item/projectile/beam/mindflayer/on_hit(var/atom/target, var/blocked = 0)
-	if(ishuman(target))
+	if(is_human_mob(target))
 		var/mob/living/carbon/human/M = target
 		M.confused += rand(5,8)
 

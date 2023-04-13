@@ -265,7 +265,7 @@ update_flag
 	..()
 
 /obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(!isWrench(W) && !istype(W, /obj/item/weapon/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/modular_computer/pda))
+	if(!is_wrench(W) && !istype(W, /obj/item/weapon/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/modular_computer/pda))
 		visible_message("<span class='warning'>\The [user] hits \the [src] with \a [W]!</span>")
 		src.health -= W.force
 		healthcheck()
@@ -300,26 +300,25 @@ update_flag
 		ui.open()
 
 /obj/machinery/portable_atmospherics/canister/ui_data(mob/user)
-	// this is the data which will be sent to the ui
-	var/data[0]
-	data["name"] = name
-	data["canLabel"] = can_label ? 1 : 0
-	data["portConnected"] = connected_port ? 1 : 0
-	data["pressure"] = round(air_contents.return_pressure() || 0)
-	data["releasePressure"] = round(release_pressure || 0)
-	data["minReleasePressure"] = round(ONE_ATMOSPHERE/10)
-	data["maxReleasePressure"] = round(10*ONE_ATMOSPHERE)
-	data["defaultReleasePressure"] = round(initial(release_pressure))
-	data["valveOpen"] = valve_open ? 1 : 0
+	. = ..()
+	.["name"] = name
+	.["canLabel"] = can_label ? 1 : 0
+	.["portConnected"] = connected_port ? 1 : 0
+	.["pressure"] = round(air_contents.return_pressure() || 0)
+	.["releasePressure"] = round(release_pressure || 0)
+	.["minReleasePressure"] = round(ONE_ATMOSPHERE/10)
+	.["maxReleasePressure"] = round(10*ONE_ATMOSPHERE)
+	.["defaultReleasePressure"] = round(initial(release_pressure))
+	.["valveOpen"] = valve_open ? 1 : 0
 
-	data["holdingTank"] = holding ? list(
+	.["holdingTank"] = holding ? list(
 		"name" = holding.name,
 		"pressure" = round(holding.air_contents.return_pressure())
 	) : null
 
-	return data
-
 /obj/machinery/portable_atmospherics/canister/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("valve")
 			if (valve_open)
@@ -370,7 +369,7 @@ update_flag
 			if(.)
 				release_pressure = clamp(round(pressure), min_release_pressure, max_release_pressure)
 				//investigate_log("was set to [release_pressure] kPa by [key_name(usr)].", INVESTIGATE_ATMOS)
-			return . // This will always return 'null' if . is not included
+			return .
 
 		if ("relabel")
 			if (!can_label)

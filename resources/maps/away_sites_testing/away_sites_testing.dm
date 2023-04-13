@@ -14,6 +14,8 @@
 	#include "../away/noctis/noctis.dm"
 	#include "../away/slavers/slavers_base.dm"
 
+	#include "../away/stations/pirate/pirate_station.dm"
+
 	#define USING_MAP_DATUM /datum/map/away_sites_testing
 
 #elif !defined(MAP_OVERRIDE)

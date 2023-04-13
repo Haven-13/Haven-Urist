@@ -166,7 +166,7 @@
 		if(!check_rights(R_DEBUG|R_SERVER))	return
 
 		var/obj/O = locate(href_list["delthis"])
-		if(!isobj(O))
+		if(!is_obj(O))
 			to_chat(usr, "This can only be used on instances of type /obj")
 			return
 		cmd_admin_delete(O)
@@ -175,7 +175,7 @@
 		if(!check_rights(R_DEBUG|R_SERVER))	return
 
 		var/obj/O = locate(href_list["delall"])
-		if(!isobj(O))
+		if(!is_obj(O))
 			to_chat(usr, "This can only be used on instances of type /obj")
 			return
 
@@ -218,7 +218,7 @@
 		if(!check_rights(R_DEBUG|R_FUN))	return
 
 		var/atom/A = locate(href_list["explode"])
-		if(!isobj(A) && !ismob(A) && !isturf(A))
+		if(!is_obj(A) && !is_mob(A) && !is_turf(A))
 			to_chat(usr, "This can only be done to instances of type /obj, /mob and /turf")
 			return
 
@@ -229,7 +229,7 @@
 		if(!check_rights(R_DEBUG|R_FUN))	return
 
 		var/atom/A = locate(href_list["emp"])
-		if(!isobj(A) && !ismob(A) && !isturf(A))
+		if(!is_obj(A) && !is_mob(A) && !is_turf(A))
 			to_chat(usr, "This can only be done to instances of type /obj, /mob and /turf")
 			return
 
@@ -478,7 +478,7 @@
 		if(!check_rights(0))	return
 
 		var/mob/M = locate(href_list["regenerateicons"])
-		if(!ismob(M))
+		if(!is_mob(M))
 			to_chat(usr, "This can only be done to instances of type /mob")
 			return
 		M.regenerate_icons()

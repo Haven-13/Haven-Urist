@@ -68,7 +68,7 @@ generally it would be used like so:
 NOTE: It checks usr by default. Supply the "user" argument if you wish to check for a specific mob.
 */
 /proc/check_rights(rights_required, show_msg=1, var/client/C = usr)
-	if(ismob(C))
+	if(is_mob(C))
 		var/mob/M = C
 		C = M.client
 	if(!C)

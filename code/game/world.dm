@@ -4,7 +4,8 @@
 
 GLOBAL_VAR(restart_counter)
 
-/var/game_id = null
+/var/global/game_id = null
+/var/global/world_init_time = -1
 /hook/global_init/proc/generate_gameid()
 	if(game_id != null)
 		return
@@ -47,7 +48,7 @@ GLOBAL_VAR(restart_counter)
 		if(M.mind)
 			strings += M.mind.assigned_role
 			strings += M.mind.special_role
-		if(ishuman(M))
+		if(is_human_mob(M))
 			var/mob/living/carbon/human/H = M
 			if(H.species)
 				strings += H.species.name
@@ -69,8 +70,12 @@ GLOBAL_VAR(restart_counter)
 	return match
 
 /world/New()
+	global.world_init_time = REALTIMEOFDAY
 
-	SSmetrics.world_init_time = REALTIMEOFDAY
+	if(config.start_byond_profiling)
+		Profile(PROFILE_START)
+
+	SSmetrics.world_init_time = global.world_init_time
 
 	//set window title
 	if (config.server_name)
@@ -80,6 +85,7 @@ GLOBAL_VAR(restart_counter)
 	name += " - [GLOB.using_map.full_name]"
 
 	TgsNew(minimum_required_security_level = TGS_SECURITY_TRUSTED)
+	global.revdata.load_tgs_info()
 
 	//logs
 	setup_logs()
@@ -113,8 +119,8 @@ GLOBAL_VAR(restart_counter)
 #endif
 	Master.Initialize(10, FALSE)
 
-#undef RECOMMENDED_VERSION
 	TgsInitializationComplete()
+#undef RECOMMENDED_VERSION
 
 var/world_topic_spam_protect_ip = "0.0.0.0"
 var/world_topic_spam_protect_time = world.timeofday
@@ -291,7 +297,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			info["hasbeenrev"] = M.mind ? M.mind.has_been_rev : "No mind"
 			info["stat"] = M.stat
 			info["type"] = M.type
-			if(isliving(M))
+			if(is_living_mob(M))
 				var/mob/living/L = M
 				info["damage"] = list2params(list(
 							oxy = L.getOxyLoss(),
@@ -301,7 +307,7 @@ var/world_topic_spam_protect_time = world.timeofday
 							clone = L.getCloneLoss(),
 							brain = L.getBrainLoss()
 						))
-				if(ishuman(M))
+				if(is_human_mob(M))
 					var/mob/living/carbon/human/H = M
 					info["species"] = H.species.name
 				else
@@ -533,7 +539,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 /world/proc/load_motd()
 	join_motd = file2text("config/motd.txt")
-	var/tm_info = revdata.GetTestMergeInfo()
+	var/tm_info = revdata.get_test_merge_info()
 	if(join_motd || tm_info)
 		join_motd = join_motd ? "[join_motd]<br>[tm_info]" : tm_info
 

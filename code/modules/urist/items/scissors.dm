@@ -87,7 +87,7 @@
 	if(!(M in view(1))) //Adjacency test
 		..()
 		return
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		//see code/modules/mob/new_player/preferences.dm at approx line 545 for comments!
 		//this is largely copypasted from there.

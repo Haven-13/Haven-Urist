@@ -58,7 +58,7 @@
 	I.SwapColor(rgb(255, 0, 220, 255), rgb(0, 0, 0, 0))
 	B.icon = I
 
-	if(rag && rag.on_fire && isliving(against))
+	if(rag && rag.on_fire && is_living_mob(against))
 		rag.forceMove(loc)
 		var/mob/living/L = against
 		L.IgniteMob()

@@ -182,8 +182,7 @@
 
 
 /obj/machinery/door_timer/ui_act(action, params)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	if(!src.allowed(usr))
 		return TRUE
@@ -200,7 +199,7 @@
 				F.flash()
 		if("time")
 			timetoset += text2num(params["adjust"])
-			timetoset = Clamp(timetoset, 0, 36000)
+			timetoset = clamp(timetoset, 0, 36000)
 
 	src.update_icon()
 	return TRUE

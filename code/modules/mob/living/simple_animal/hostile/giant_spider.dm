@@ -74,7 +74,7 @@
 
 /mob/living/simple_animal/hostile/giant_spider/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()
-	if(isliving(A))
+	if(is_living_mob(A))
 		var/mob/living/L = A
 		if(L.reagents)
 			L.reagents.add_reagent(/datum/reagent/toxin, poison_per_bite)
@@ -84,7 +84,7 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()
-	if(ishuman(A))
+	if(is_human_mob(A))
 		var/mob/living/carbon/human/H = A
 		if(prob(poison_per_bite))
 			var/obj/item/organ/external/O = pick(H.organs)

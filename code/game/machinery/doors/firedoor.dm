@@ -109,7 +109,7 @@
 		o += "<span style='color:blue'>"
 		o += "[pressure]kPa</span></li>"
 		to_chat(user, o)
-	if(islist(users_to_open) && users_to_open.len)
+	if(is_list(users_to_open) && users_to_open.len)
 		var/users_to_open_string = users_to_open[1]
 		if(users_to_open.len >= 2)
 			for(var/i = 2 to users_to_open.len)
@@ -147,7 +147,7 @@
 	"\The [src]", "Yes, [density ? "open" : "close"]", "No")
 	if(answer == "No")
 		return
-	if(user.incapacitated() || (get_dist(src, user) > 1  && !issilicon(user)))
+	if(user.incapacitated() || (get_dist(src, user) > 1  && !is_silicon(user)))
 		to_chat(user, "Sorry, you must remain able bodied and close to \the [src] in order to use it.")
 		return
 	if(density && (stat & (BROKEN|NOPOWER))) //can still close without power
@@ -167,7 +167,7 @@
 		if(alarmed)
 			// Accountability!
 			users_to_open |= user.name
-			needs_to_close = !issilicon(user)
+			needs_to_close = !is_silicon(user)
 		spawn()
 			open()
 	else
@@ -188,7 +188,7 @@
 	add_fingerprint(user, 0, C)
 	if(operating)
 		return//Already doing something.
-	if(isWelder(C) && !repairing)
+	if(is_welder(C) && !repairing)
 		var/obj/item/weapon/weldingtool/W = C
 		if(W.remove_fuel(0, user))
 			blocked = !blocked
@@ -199,14 +199,14 @@
 			update_icon()
 			return
 
-	if(density && isScrewdriver(C))
+	if(density && is_screwdriver(C))
 		hatch_open = !hatch_open
 		user.visible_message("<span class='danger'>[user] has [hatch_open ? "opened" : "closed"] \the [src] maintenance hatch.</span>",
 									"You have [hatch_open ? "opened" : "closed"] the [src] maintenance hatch.")
 		update_icon()
 		return
 
-	if(blocked && isCrowbar(C) && !repairing)
+	if(blocked && is_crowbar(C) && !repairing)
 		if(!hatch_open)
 			to_chat(user, "<span class='danger'>You must open the maintenance hatch first!</span>")
 		else
@@ -226,11 +226,11 @@
 		to_chat(user, "<span class='danger'>\The [src] is welded shut!</span>")
 		return
 
-	if(isCrowbar(C) || istype(C,/obj/item/weapon/material/twohanded/fireaxe))
+	if(is_crowbar(C) || istype(C,/obj/item/weapon/material/twohanded/fireaxe))
 		if(operating)
 			return
 
-		if(blocked && isCrowbar(C))
+		if(blocked && is_crowbar(C))
 			user.visible_message("<span class='danger'>\The [user] pries at \the [src] with \a [C], but \the [src] is welded in place!</span>",\
 			"You try to pry \the [src] [density ? "open" : "closed"], but it is welded in place!",\
 			"You hear someone struggle and metal straining.")
@@ -245,7 +245,7 @@
 				"You start forcing \the [src] [density ? "open" : "closed"] with \the [C]!",\
 				"You hear metal strain.")
 		if(do_after(user,30,src))
-			if(isCrowbar(C))
+			if(is_crowbar(C))
 				if(stat & (BROKEN|NOPOWER) || !density)
 					user.visible_message("<span class='danger'>\The [user] forces \the [src] [density ? "open" : "closed"] with \a [C]!</span>",\
 					"You force \the [src] [density ? "open" : "closed"] with \the [C]!",\

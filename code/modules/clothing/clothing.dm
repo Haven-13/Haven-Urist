@@ -21,7 +21,7 @@
 
 // Updates the vision of the mob wearing the clothing item, if any
 /obj/item/clothing/proc/update_vision()
-	if(isliving(src.loc))
+	if(is_living_mob(src.loc))
 		var/mob/living/L = src.loc
 		L.handle_vision()
 
@@ -35,7 +35,7 @@
 	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
 		return ret
 
-	if(ishuman(user_mob))
+	if(is_human_mob(user_mob))
 		var/mob/living/carbon/human/user_human = user_mob
 		if(blood_DNA && user_human.species.blood_mask)
 			var/image/bloodsies	= overlay_image(user_human.species.blood_mask, blood_overlay_type, blood_color, RESET_COLOR)
@@ -174,7 +174,7 @@
 	sprite_sheets = list(SPECIES_RESOMI = 'resources/icons/mob/species/resomi/ears.dmi')
 
 /obj/item/clothing/ears/update_clothing_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_ears()
 
@@ -284,7 +284,7 @@
 		return icon_state
 
 /obj/item/clothing/glasses/update_clothing_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_glasses()
 
@@ -320,7 +320,7 @@
 	. = ..()
 
 /obj/item/clothing/gloves/update_clothing_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_gloves()
 
@@ -430,7 +430,7 @@
 	var/image/ret = ..()
 	// ret.overlays.Cut() -- URIST EDIT BY IRRA IN 2019-08-19 - Seriously, whose fucking idea was /this/? No wonder why Bay's shit's broke as fuck
 	if(on && slot == slot_head_str)
-		if(ishuman(user_mob))
+		if(is_human_mob(user_mob))
 			var/mob/living/carbon/human/user_human = user_mob
 			if(sprite_sheets)
 				var/use_icon = sprite_sheets[user_human.species.get_bodytype(user_human)]
@@ -444,7 +444,7 @@
 
 /obj/item/clothing/head/attack_self(mob/user)
 	if(brightness_on)
-		if(!isturf(user.loc))
+		if(!is_turf(user.loc))
 			to_chat(user, "You cannot turn the light on while in this [user.loc]")
 			return
 		on = !on
@@ -505,7 +505,7 @@
 		H.update_inv_head()
 
 /obj/item/clothing/head/update_clothing_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_head()
 
@@ -544,7 +544,7 @@
 	..()
 
 /obj/item/clothing/mask/update_clothing_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_wear_mask()
 
@@ -665,7 +665,7 @@
 	return
 
 /obj/item/clothing/shoes/update_clothing_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_shoes()
 
@@ -691,7 +691,7 @@
 		)
 
 /obj/item/clothing/suit/update_clothing_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_wear_suit()
 
@@ -767,7 +767,7 @@
 /obj/item/clothing/under/attack_hand(var/mob/user)
 	if(accessories && accessories.len)
 		..()
-	if ((ishuman(usr) || issmall(usr)) && src.loc == user)
+	if ((is_human_mob(usr) || issmall(usr)) && src.loc == user)
 		return
 	..()
 
@@ -833,7 +833,7 @@
 	if(H) update_clothing_icon()
 
 /obj/item/clothing/under/update_clothing_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_w_uniform(0)
 		M.update_inv_wear_id()
@@ -853,7 +853,7 @@
 
 /obj/item/clothing/under/proc/set_sensors(mob/user as mob)
 	var/mob/M = user
-	if (isobserver(M)) return
+	if (is_observer(M)) return
 	if (user.incapacitated()) return
 	if(has_sensor >= SUIT_LOCKED_SENSORS)
 		to_chat(user, "The controls are locked.")
@@ -880,7 +880,7 @@
 			if(3)
 				user.visible_message("[user] adjusts the tracking sensor on \his [src.name].", "Your suit will now report your vital lifesigns as well as your coordinate position.")
 
-	else if (ismob(src.loc))
+	else if (is_mob(src.loc))
 		if(sensor_mode == 0)
 			user.visible_message("<span class='warning'>[user] disables [src.loc]'s remote sensing equipment.</span>", "You disable [src.loc]'s remote sensing equipment.")
 		else

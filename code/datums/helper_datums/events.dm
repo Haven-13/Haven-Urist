@@ -11,7 +11,7 @@
 	events = new
 
 /datum/events/proc/addEventType(event_type as text)
-	if(!(event_type in events) || !islist(events[event_type]))
+	if(!(event_type in events) || !is_list(events[event_type]))
 		events[event_type] = list()
 		return 1
 	return

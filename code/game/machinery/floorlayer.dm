@@ -36,7 +36,7 @@
 
 /obj/machinery/floorlayer/attackby(var/obj/item/W as obj, var/mob/user as mob)
 
-	if(isWrench(W))
+	if(is_wrench(W))
 		var/m = input("Choose work mode", "Mode") as null|anything in mode
 		mode[m] = !mode[m]
 		var/O = mode[m]
@@ -50,7 +50,7 @@
 		TakeTile(T)
 		return
 
-	if(isCrowbar(W))
+	if(is_crowbar(W))
 		if(!length(contents))
 			to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 		else
@@ -61,7 +61,7 @@
 				T = null
 		return
 
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		T = input("Choose tile type.", "Tiles") as null|anything in contents
 		return
 	..()

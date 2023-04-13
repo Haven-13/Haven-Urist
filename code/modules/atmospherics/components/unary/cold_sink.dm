@@ -95,6 +95,8 @@
 	return data
 
 /obj/machinery/atmospherics/unary/freezer/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("toggleStatus")
 			use_power = !use_power

@@ -16,7 +16,7 @@
 
 /obj/item/weapon/computer_hardware/attackby(var/obj/item/W as obj, var/mob/living/user as mob)
 	// Multitool. Runs diagnostics
-	if(isMultitool(W))
+	if(is_multitool(W))
 		to_chat(user, "***** DIAGNOSTICS REPORT *****")
 		diagnostics(user)
 		to_chat(user, "******************************")
@@ -32,7 +32,7 @@
 			damage = 0
 		return 1
 	// Cable coil. Works as repair method, but will probably require multiple applications and more cable.
-	if(isCoil(S))
+	if(is_coil(S))
 		if(!damage)
 			to_chat(user, "\The [src] doesn't seem to require repairs.")
 			return 1
@@ -48,6 +48,7 @@
 	to_chat(user, "Hardware Integrity Test... (Corruption: [damage]/[max_damage]) [damage > damage_failure ? "FAIL" : damage > damage_malfunction ? "WARN" : "PASS"]")
 
 /obj/item/weapon/computer_hardware/New(var/obj/L)
+	..()
 	w_class = hardware_size
 	if(istype(L, /obj/item/modular_computer))
 		holder2 = L
@@ -84,4 +85,4 @@
 // Damages the component. Contains necessary checks. Negative damage "heals" the component.
 /obj/item/weapon/computer_hardware/proc/take_damage(var/amount)
 	damage += round(amount) 					// We want nice rounded numbers here.
-	damage = between(0, damage, max_damage)		// Clamp the value.
+	damage = between(0, damage, max_damage)		// clamp the value.

@@ -69,7 +69,7 @@
 	..()
 
 /obj/structure/catwalk/attackby(obj/item/C as obj, mob/user as mob)
-	if(isWelder(C))
+	if(is_welder(C))
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
 			playsound(src, 'resources/sound/items/Welder.ogg', 100, 1)
@@ -83,7 +83,7 @@
 				new plated_tile.build_type(src.loc)
 			qdel(src)
 		return
-	if(isCrowbar(C) && plated_tile)
+	if(is_crowbar(C) && plated_tile)
 		hatch_open = !hatch_open
 		if(hatch_open)
 			playsound(src, 'resources/sound/items/Crowbar.ogg', 100, 2)

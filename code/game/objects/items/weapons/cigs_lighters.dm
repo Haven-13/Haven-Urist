@@ -29,7 +29,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			extinguish(no_message = TRUE)
 
 /proc/isflamesource(A)
-	if(isWelder(A))
+	if(is_welder(A))
 		var/obj/item/weapon/weldingtool/WT = A
 		return (WT.isOn())
 	else if(istype(A, /obj/item/weapon/flame))
@@ -58,7 +58,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	attack_verb = list("burnt", "singed")
 
 /obj/item/weapon/flame/match/Process()
-	if(isliving(loc))
+	if(is_living_mob(loc))
 		var/mob/living/M = loc
 		M.IgniteMob()
 	var/turf/location = get_turf(src)
@@ -123,7 +123,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/proc/smoke(amount)
 	smoketime -= amount
 	if(reagents && reagents.total_volume) // check if it has any reagents at all
-		if(ishuman(loc))
+		if(is_human_mob(loc))
 			var/mob/living/carbon/human/C = loc
 			if (src == C.wear_mask && C.check_has_mouth()) // if it's in the human/monkey mouth, transfer reagents to the mob
 				reagents.trans_to_mob(C, REM, CHEM_INGEST, 0.2) // Most of it is not inhaled... balance reasons.
@@ -147,7 +147,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	else
 		icon_state = initial(icon_state)
 		item_state = initial(item_state)
-	if(ismob(loc))
+	if(is_mob(loc))
 		var/mob/living/M = loc
 		M.update_inv_wear_mask(0)
 		M.update_inv_l_hand(0)
@@ -203,7 +203,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			text = zippomes
 		else if(istype(W, /obj/item/weapon/flame/lighter))
 			text = lightermes
-		else if(isWelder(W))
+		else if(is_welder(W))
 			text = weldermes
 		else if(istype(W, /obj/item/device/assembly/igniter))
 			text = ignitermes
@@ -265,7 +265,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		butt.color = color
 		if(brand)
 			butt.desc += " This one is \a [brand]."
-		if(ismob(loc))
+		if(is_mob(loc))
 			var/mob/living/M = loc
 			if (!no_message)
 				to_chat(M, "<span class='notice'>Your [name] goes out.</span>")
@@ -740,7 +740,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/turf/T = get_turf(src)
 		T.visible_message(flavor_text)
 		START_PROCESSING(SSobj, src)
-		if(ismob(loc))
+		if(is_mob(loc))
 			var/mob/living/M = loc
 			M.update_inv_wear_mask(0)
 			M.update_inv_l_hand(0)
@@ -749,7 +749,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/pipe/extinguish(var/mob/user, var/no_message)
 	..()
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
-	if(ismob(loc))
+	if(is_mob(loc))
 		var/mob/living/M = loc
 		if (!no_message)
 			to_chat(M, "<span class='notice'>Your [name] goes out, and you empty the ash.</span>")
@@ -851,7 +851,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/chewable/proc/chew(amount)
 	chewtime -= amount
 	if(reagents && reagents.total_volume) // check if it has any reagents at all
-		if(ishuman(loc))
+		if(is_human_mob(loc))
 			var/mob/living/carbon/human/C = loc
 			if (src == C.wear_mask && C.check_has_mouth()) // if it's in the human/monkey mouth, transfer reagents to the mob
 				reagents.trans_to_mob(C, REM, CHEM_INGEST, 0.2) // I am keeping this one because gum is not a replacement for real food. Fuck off Wonka.
@@ -891,7 +891,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		butt.color = color
 		if(brand)
 			butt.desc += " This one is \a [brand]."
-		if(ismob(loc))
+		if(is_mob(loc))
 			var/mob/living/M = loc
 			if (!no_message)
 				to_chat(M, "<span class='notice'>You spit out the [name].</span>")
@@ -1136,7 +1136,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/weapon/flame/lighter/Process()
 	if(!submerged() && reagents.has_reagent(/datum/reagent/fuel))
-		if(ismob(loc) && prob(10) && reagents.get_reagent_amount(/datum/reagent/fuel) < 1)
+		if(is_mob(loc) && prob(10) && reagents.get_reagent_amount(/datum/reagent/fuel) < 1)
 			to_chat(loc, "<span class='warning'>[src]'s flame flickers.</span>")
 			set_light(0)
 			spawn(4)

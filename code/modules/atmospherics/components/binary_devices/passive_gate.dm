@@ -207,6 +207,8 @@
 	)
 
 /obj/machinery/atmospherics/binary/passive_gate/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("toggle_valve")
 			unlocked = !unlocked
@@ -239,7 +241,7 @@
 		src.update_icon()
 
 /obj/machinery/atmospherics/binary/passive_gate/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(!isWrench(W))
+	if(!is_wrench(W))
 		return ..()
 	if (unlocked)
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>")

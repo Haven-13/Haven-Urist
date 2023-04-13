@@ -136,7 +136,7 @@ var/global/list/globalBlankCanvases[AMT_OF_CANVASES]
 //Examine to enlarge
 /obj/item/weapon/canvas/examine(var/mob/user = usr)
 	..()
-	if(in_range(user, src) && get_turf(src) && user.client && ishuman(user)) //Let only humans be the robust zoominators. I'm too spooked other mobs trying to use it may get broken huds.
+	if(in_range(user, src) && get_turf(src) && user.client && is_human_mob(user)) //Let only humans be the robust zoominators. I'm too spooked other mobs trying to use it may get broken huds.
 		if(src.loc == user || get_turf(src) == get_turf(user))
 			to_chat(user, "<span class='notice'>[src] has to be on the ground to focus on it!</span>")
 			return

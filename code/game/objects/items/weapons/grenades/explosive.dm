@@ -57,7 +57,7 @@
 		for(var/mob/living/M in T)
 			//lying on a frag grenade while the grenade is on the ground causes you to absorb most of the shrapnel.
 			//you will most likely be dead, but others nearby will be spared the fragments that hit you instead.
-			if(M.lying && isturf(src.loc))
+			if(M.lying && is_turf(src.loc))
 				P.attack_mob(M, 0, 5)
 			else if(!M.lying && src.loc != get_turf(src)) //if it's not on the turf, it must be in the mob!
 				P.attack_mob(M, 0, 25) //you're holding a grenade, dude!

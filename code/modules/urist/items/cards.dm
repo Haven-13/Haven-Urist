@@ -21,7 +21,7 @@
 
 /obj/item/toy/card/verb/Flip()
 	var/comment = ""
-	if(!faceup && !ismob(loc)) //Does not show what card you got to your opponent if you flip it in your hand
+	if(!faceup && !is_mob(loc)) //Does not show what card you got to your opponent if you flip it in your hand
 		comment = " It's [rank] of [suit]!"
 	usr.visible_message("<span class='notice'>[usr] flips [src].[comment]</span>","<span class='notice'>You flip [src].[comment]</span>")
 	faceup = !faceup

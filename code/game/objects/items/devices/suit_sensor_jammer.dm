@@ -44,7 +44,7 @@
 	return bcell
 
 /obj/item/device/suit_sensor_jammer/attackby(obj/item/I as obj, mob/user as mob)
-	if(isCrowbar(I))
+	if(is_crowbar(I))
 		if(bcell)
 			to_chat(user, "<span class='notice'>You remove \the [bcell].</span>")
 			disable()
@@ -144,8 +144,7 @@
 	return data
 
 /obj/item/device/suit_sensor_jammer/ui_act(action, params)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 	switch(action)
 		if("enable_jammer")
 			enable()
@@ -195,7 +194,7 @@
 	return TRUE
 
 /obj/item/device/suit_sensor_jammer/proc/set_range(var/new_range)
-	range = Clamp(new_range, 0, JAMMER_MAX_RANGE) // 0 range still covers the current turf
+	range = clamp(new_range, 0, JAMMER_MAX_RANGE) // 0 range still covers the current turf
 	return range != new_range
 
 /obj/item/device/suit_sensor_jammer/proc/set_method(var/suit_sensor_jammer_method/sjm)

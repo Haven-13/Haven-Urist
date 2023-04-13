@@ -81,7 +81,7 @@
 
 // attack with item, place item on conveyor
 /obj/machinery/conveyor/attackby(var/obj/item/I, mob/user)
-	if(isCrowbar(I))
+	if(is_crowbar(I))
 		if(!(stat & BROKEN))
 			var/obj/item/conveyor_construct/C = new/obj/item/conveyor_construct(src.loc)
 			C.id = id
@@ -99,7 +99,7 @@
 		return
 	if ((user.pulling.loc != user.loc && get_dist(user, user.pulling) > 1))
 		return
-	if (ismob(user.pulling))
+	if (is_mob(user.pulling))
 		var/mob/M = user.pulling
 		M.stop_pulling()
 		step(user.pulling, get_dir(user.pulling.loc, src))
@@ -228,7 +228,7 @@
 
 
 /obj/machinery/conveyor_switch/attackby(obj/item/I, mob/user, params)
-	if(isCrowbar(I))
+	if(is_crowbar(I))
 		var/obj/item/conveyor_switch_construct/C = new/obj/item/conveyor_switch_construct(src.loc)
 		C.id = id
 		transfer_fingerprints_to(C)

@@ -135,7 +135,7 @@
 		top_atom = source_atom
 		. = 1
 
-	if(isturf(top_atom))
+	if(is_turf(top_atom))
 		if(source_turf != top_atom)
 			source_turf = top_atom
 			. = 1

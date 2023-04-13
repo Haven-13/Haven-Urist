@@ -108,7 +108,7 @@
 			update_icon()
 			return
 
-		if(isScrewdriver(thing))
+		if(is_screwdriver(thing))
 			if(!capacitor)
 				to_chat(user, "<span class='warning'>\The [src] has no capacitor installed.</span>")
 				return

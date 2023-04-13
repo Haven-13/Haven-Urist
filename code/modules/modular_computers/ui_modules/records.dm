@@ -67,8 +67,7 @@
 			return selection.img
 
 /datum/ui_module/program/records/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	switch(action)
 		if("open_record")

@@ -2,7 +2,7 @@
 	var/list/enemies = list()
 
 /mob/living/simple_animal/hostile/retaliate/Found(var/atom/A)
-	if(isliving(A))
+	if(is_living_mob(A))
 		var/mob/living/L = A
 		if(!L.stat)
 			stance = HOSTILE_STANCE_ATTACK
@@ -31,7 +31,7 @@
 	for(var/atom/movable/A in around)
 		if(A == src)
 			continue
-		if(isliving(A))
+		if(is_living_mob(A))
 			var/mob/living/M = A
 			if(!attack_same && M.faction != faction)
 				enemies |= weakref(M)

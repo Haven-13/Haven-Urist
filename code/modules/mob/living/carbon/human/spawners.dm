@@ -54,7 +54,7 @@
 	if(tone && !skin_color)
 		if(tone == "RAND")
 			H.change_skin_tone(random_skin_tone())
-		else if(islist(tone) && tone.len >= 1)
+		else if(is_list(tone) && tone.len >= 1)
 			var/rand_tone = pick(tone)
 			H.change_skin_tone(rand_tone)
 

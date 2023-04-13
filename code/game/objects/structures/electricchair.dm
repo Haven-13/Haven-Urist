@@ -12,7 +12,7 @@
 	return
 
 /obj/structure/bed/chair/e_chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isWrench(W))
+	if(is_wrench(W))
 		var/obj/structure/bed/chair/C = new /obj/structure/bed/chair(loc)
 		playsound(loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 		C.set_dir(dir)
@@ -52,7 +52,7 @@
 
 	// special power handling
 	var/area/A = get_area(src)
-	if(!isarea(A))
+	if(!is_area(A))
 		return
 	if(!A.powered(EQUIP))
 		return

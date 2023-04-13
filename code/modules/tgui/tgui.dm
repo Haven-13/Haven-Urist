@@ -222,7 +222,7 @@
 		),
 		"user" = list(
 			"name" = "[user]",
-			"observer" = isobserver(user),
+			"observer" = is_observer(user),
 		),
 	)
 	var/data = custom_data || with_data && src_object.ui_data(user)

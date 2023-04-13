@@ -35,7 +35,7 @@
 /obj/effect/spresent/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 
-	if(!isWirecutter(W))
+	if(!is_wirecutter(W))
 		to_chat(user, "<span class='warning'>I need wirecutters for that.</span>")
 		return
 
@@ -152,7 +152,7 @@
 	if (!( locate(/obj/structure/table, src.loc) ))
 		to_chat(user, "<span class='warning'>You MUST put the paper on a table!</span>")
 	if (W.w_class < ITEM_SIZE_HUGE)
-		if(isWirecutter(user.l_hand) || isWirecutter(user.r_hand))
+		if(is_wirecutter(user.l_hand) || is_wirecutter(user.r_hand))
 			var/a_used = W.get_storage_cost()
 			if (a_used == ITEM_SIZE_NO_CONTAINER)
 				to_chat(user, "<span class='warning'>You can't wrap that!</span>")//no gift-wrapping lit welders

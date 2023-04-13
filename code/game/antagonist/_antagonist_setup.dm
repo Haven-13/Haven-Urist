@@ -22,7 +22,7 @@
 		var/list/all_antag_types = GLOB.all_antag_types_
 		for(var/cur_antag_type in all_antag_types)
 			var/datum/antagonist/antag = all_antag_types[cur_antag_type]
-			if(antag && antag.is_type(antag_type))
+			if(antag && antag.is_antag_type(antag_type))
 				return antag
 
 /proc/clear_antag_roles(var/datum/mind/player, var/implanted)
@@ -45,7 +45,7 @@
 
 /proc/get_antags(var/atype)
 	var/datum/antagonist/antag = GLOB.all_antag_types_[atype]
-	if(antag && islist(antag.current_antagonists))
+	if(antag && is_list(antag.current_antagonists))
 		return antag.current_antagonists
 	return list()
 

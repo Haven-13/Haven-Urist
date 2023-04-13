@@ -40,7 +40,7 @@
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
 	..()
-	if(ishuman(M))
+	if(is_human_mob(M))
 		M.add_chemical_effect(CE_BLOCKAGE, (15 + volume - overdose)/100)
 		var/mob/living/carbon/human/H = M
 		for(var/obj/item/organ/external/E in H.organs)
@@ -335,7 +335,7 @@
 /datum/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 	M.add_chemical_effect(CE_BRAIN_REGEN, 1)
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		H.confused++
 		H.drowsyness++
@@ -354,7 +354,7 @@
 /datum/reagent/imidazoline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.eye_blurry = max(M.eye_blurry - 5, 0)
 	M.eye_blind = max(M.eye_blind - 5, 0)
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/eyes/E = H.internal_organs_by_name[BP_EYES]
 		if(E && istype(E))
@@ -372,7 +372,7 @@
 	flags = IGNORE_MOB_SIZE
 
 /datum/reagent/peridaxon/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		for(var/obj/item/organ/internal/I in H.internal_organs)
 			if(BP_IS_ROBOTIC(I))
@@ -405,7 +405,7 @@
 	M.sdisabilities = 0
 
 	// Might need to update appearance for hulk etc.
-	if(needs_update && ishuman(M))
+	if(needs_update && is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		H.update_mutations()
 
@@ -689,7 +689,7 @@
 	M.adjustOxyLoss(-2 * removed)
 	M.heal_organ_damage(20 * removed, 20 * removed)
 	M.adjustToxLoss(-20 * removed)
-	if(M.chem_doses[type] > 3 && ishuman(M))
+	if(M.chem_doses[type] > 3 && is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		for(var/obj/item/organ/external/E in H.organs)
 			E.status |= ORGAN_DISFIGURED //currently only matters for the head, but might as well disfigure them all.

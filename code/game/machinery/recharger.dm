@@ -45,7 +45,7 @@
 			G.forceMove(src)
 			charging = G
 			update_icon()
-	else if(portable && isWrench(G))
+	else if(portable && is_wrench(G))
 		if(charging)
 			to_chat(user, "<span class='warning'>Remove [charging] first!</span>")
 			return

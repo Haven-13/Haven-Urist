@@ -33,3 +33,12 @@
 		"type" = type, \
 		"payload" = payload, \
 	))))
+
+/// Standard super() call to make sure that the ui_act is sane
+#define UI_ACT_CHECK \
+	if(..()) {return TRUE}
+
+/// Standard super() call to make sure that the ui_act is sane
+/// Except do not trigger the action in the overriden ui_act of parent
+#define UI_ACT_CHECK_NO_ACTION \
+	if(..(null, null)) {return TRUE}

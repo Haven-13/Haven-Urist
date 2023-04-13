@@ -41,7 +41,7 @@
 	return ..()
 
 /obj/item/clothing/MouseDrop(var/obj/over_object)
-	if (!over_object || !(ishuman(usr) || issmall(usr)))
+	if (!over_object || !(is_human_mob(usr) || issmall(usr)))
 		return
 
 	//makes sure that the clothing is equipped so that we can't drag it into our hand from miles away.

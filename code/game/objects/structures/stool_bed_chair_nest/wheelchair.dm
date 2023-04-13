@@ -25,7 +25,7 @@
 		buckled_mob.set_dir(dir)
 
 /obj/structure/bed/chair/wheelchair/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isWrench(W) || istype(W,/obj/item/stack) || isWirecutter(W))
+	if(is_wrench(W) || istype(W,/obj/item/stack) || is_wirecutter(W))
 		return
 	..()
 
@@ -119,7 +119,7 @@
 
 /obj/structure/bed/chair/wheelchair/CtrlClick(var/mob/user)
 	if(in_range(src, user))
-		if(!ishuman(user))	return
+		if(!is_human_mob(user))	return
 		if(user == buckled_mob)
 			to_chat(user, "<span class='warning'>You realize you are unable to push the wheelchair you sit in.</span>")
 			return

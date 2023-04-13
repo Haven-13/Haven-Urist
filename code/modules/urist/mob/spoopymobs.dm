@@ -66,12 +66,12 @@
 		var/true_dose = H.chem_doses[type] + volume
 		var/idlemsg_proba = 10
 
-		if(true_dose > 10 && prob(Clamp(50*(true_dose-10)/(true_dose+15), 0, 100)))
+		if(true_dose > 10 && prob(clamp(50*(true_dose-10)/(true_dose+15), 0, 100)))
 			if(prob(1))
 				// psych!
 				to_chat(H, "<span class='warning'>[pick(transformation_msgs)]</span>")
 
-			else if(prob(Clamp(true_dose+0.1*H.getBrainLoss(), 0, 25)))
+			else if(prob(clamp(true_dose+0.1*H.getBrainLoss(), 0, 25)))
 				idlemsg_proba = 5 // symptom spam avoidance
 				var/organs = list(BP_R_ARM,BP_L_LEG,BP_L_ARM,BP_R_LEG,BP_GROIN,BP_CHEST)
 				var/undecayed_ctr = length(organs) // make your own immature joke here
@@ -100,7 +100,7 @@
 
 				H.update_body(1)
 
-				if(prob(Clamp(100-100*(undecayed_ctr/length(organs)), 0, 100)))
+				if(prob(clamp(100-100*(undecayed_ctr/length(organs)), 0, 100)))
 					// NOTE: this *deliberately* does not care if the mob lost the limb.
 					// So, reverse necromorph - less limbs => less tissue to infect.
 					var/obj/item/organ/external/Head = H.organs_by_name[BP_HEAD]
@@ -131,10 +131,10 @@
 			// endcopy
 
 		// custom sadism
-		if(prob(Clamp(idlemsg_proba, 0, 100)))
+		if(prob(clamp(idlemsg_proba, 0, 100)))
 			to_chat(H, "<span class='warning'>[pick(symptom_msgs)]</span>")
 
-		if(prob(Clamp(true_dose, 0, 100)))
+		if(prob(clamp(true_dose, 0, 100)))
 			H.reagents.add_reagent(src.type, rand(removed, 0.1*true_dose))
 
 		H.add_chemical_effect(CE_PAINKILLER, 40)
@@ -143,7 +143,7 @@
 		H.add_chemical_effect(CE_PULSE, 4)
 		H.nutrition -= min(H.nutrition, true_dose)
 		H.bodytemperature = max(H.bodytemperature, H.species.heat_discomfort_level + rand(5, 15))
-		if(prob(Clamp(5+true_dose, 0, 20)))
+		if(prob(clamp(5+true_dose, 0, 20)))
 			H.make_jittery(5)
 
 /mob/living/simple_animal/hostile/urist/zombie/Aggro()
@@ -217,12 +217,12 @@
 	. = ..()
 
 	if(plague)
-		if(ishuman(A))
+		if(is_human_mob(A))
 			var/mob/living/carbon/human/victim = A
 
 			if(victim.reagents)
 				var/biosafety = victim.getarmor(null, "bio")
-				if(!prob(Clamp(biosafety, 0, 100)))
+				if(!prob(clamp(biosafety, 0, 100)))
 					victim.reagents.add_reagent(/datum/reagent/xenomicrobes/uristzombie, rand(5, 10))
 
 			uZombieInfect(victim)
@@ -244,7 +244,7 @@
 	var/munch_msg_ext = "<span class = 'warning'> <b>[src]</b> chomps at [infectee]'s brain!</span>"
 	var/munch_msg_self = "<span class = 'warning'>You chomps at [infectee]'s brain!</span>"
 
-	if(ishuman(infectee))
+	if(is_human_mob(infectee))
 		var/mob/living/carbon/human/victim = infectee
 		if(victim)
 			src.visible_message(munch_msg_ext, munch_msg_self)
@@ -621,7 +621,7 @@
 		attempts--
 		var/recheck = 0
 		if(stalkee)
-			if(!(isliving(stalkee))) //for some reason new_players *were* being picked
+			if(!(is_living_mob(stalkee))) //for some reason new_players *were* being picked
 				recheck = 1
 			if((!(stalkee.mind)) && mindplease) //not much fun if they can't fight back
 				recheck = 1
@@ -671,7 +671,7 @@
 	if(destinations.len)
 		var/turf/picked = pick(destinations)
 
-		if(!picked || !isturf(picked))
+		if(!picked || !is_turf(picked))
 			return
 
 		if(tele_effect)
@@ -682,7 +682,7 @@
 
 	if(flickerlights)
 		if(stalkee)
-			if(isturf(stalkee.loc))
+			if(is_turf(stalkee.loc))
 				var/turf/stalkeeturf = stalkee.loc
 				for(var/datum/light_source/LS in stalkeeturf.affecting_lights)
 					if(istype(LS.source_atom, /obj/machinery/light))

@@ -24,7 +24,8 @@
 /obj/item/weapon/lipstick/random
 	name = "lipstick"
 
-/obj/item/weapon/lipstick/random/New()
+/obj/item/weapon/lipstick/random/Initialize()
+	. = ..()
 	colour = pick("red","purple","jade","black")
 	name = "[colour] lipstick"
 
@@ -39,7 +40,7 @@
 /obj/item/weapon/lipstick/attack(atom/A, mob/user as mob, target_zone)
 	if(!open)	return
 
-	if(ishuman(A))
+	if(is_human_mob(A))
 		var/mob/living/carbon/human/H = A
 		var/obj/item/organ/external/head/head = H.organs_by_name[BP_HEAD]
 

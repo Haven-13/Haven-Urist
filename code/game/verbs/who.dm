@@ -20,7 +20,7 @@
 				if(UNCONSCIOUS)
 					entry += " - <font color='darkgray'><b>Unconscious</b></font>"
 				if(DEAD)
-					if(isghost(C.mob))
+					if(is_ghost(C.mob))
 						var/mob/observer/ghost/O = C.mob
 						if(O.started_as_observer)
 							entry += " - <font color='gray'>Observing</font>"
@@ -82,7 +82,7 @@
 		if(can_investigate)
 			if(C.is_afk())
 				line += " (AFK - [C.inactivity2text()])"
-			if(isghost(C.mob))
+			if(is_ghost(C.mob))
 				line += " - Observing"
 			else if(istype(C.mob,/mob/new_player))
 				line += " - Lobby"

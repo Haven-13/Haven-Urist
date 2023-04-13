@@ -299,8 +299,8 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 
 /datum/controller/subsystem/air/proc/air_blocked(turf/A, turf/B)
 	#ifdef ZASDBG
-	ASSERT(isturf(A))
-	ASSERT(isturf(B))
+	ASSERT(is_turf(A))
+	ASSERT(is_turf(B))
 	#endif
 	var/ablock
 	ATMOS_CANPASS_TURF(ablock, A, B)
@@ -327,7 +327,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 /datum/controller/subsystem/air/proc/connect(turf/simulated/A, turf/simulated/B)
 	#ifdef ZASDBG
 	ASSERT(istype(A))
-	ASSERT(isturf(B))
+	ASSERT(is_turf(B))
 	ASSERT(A.zone)
 	ASSERT(!A.zone.invalid)
 	//ASSERT(B.zone)
@@ -368,7 +368,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 
 /datum/controller/subsystem/air/proc/mark_for_update(turf/T)
 	#ifdef ZASDBG
-	ASSERT(isturf(T))
+	ASSERT(is_turf(T))
 	#endif
 	if(T.needs_air_update)
 		return

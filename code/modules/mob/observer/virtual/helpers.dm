@@ -7,8 +7,8 @@
 // Procs are arranged by "in range/hearers/viewers()" usage, as opposed to virtual mob hear/see abilities.
 // Most of these procs can technically take any movable atom but unless they have a virtual mob the returned objects may not be the expected ones
 
-#define ACQUIRE_VIRTUAL_OR_TURF(A) A = (isvirtualmob(A) ? A : (((istype(A) && A.virtual_mob) ? A.virtual_mob : get_turf(A)))) ; if(!A) return
-#define ACQUIRE_VIRTUAL_OR_RETURN(A) A = (isvirtualmob(A) ? A : (((istype(A) && A.virtual_mob) ? A.virtual_mob : null))) ; if(!A) return
+#define ACQUIRE_VIRTUAL_OR_TURF(A) A = (is_virtual_mob(A) ? A : (((istype(A) && A.virtual_mob) ? A.virtual_mob : get_turf(A)))) ; if(!A) return
+#define ACQUIRE_VIRTUAL_OR_RETURN(A) A = (is_virtual_mob(A) ? A : (((istype(A) && A.virtual_mob) ? A.virtual_mob : null))) ; if(!A) return
 
 /****************
 * Range Helpers *

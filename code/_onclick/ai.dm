@@ -12,7 +12,7 @@
 /mob/living/silicon/ai/DblClickOn(var/atom/A, params)
 	if(control_disabled || stat) return
 
-	if(ismob(A))
+	if(is_mob(A))
 		ai_actual_track(A)
 	else
 		A.move_camera_by_click()
@@ -51,7 +51,7 @@
 	if(control_disabled || !canClick())
 		return
 
-	if(multitool_mode && isobj(A))
+	if(multitool_mode && is_obj(A))
 		var/obj/O = A
 		var/datum/extension/interactive/multitool/MT = get_extension(O, /datum/extension/interactive/multitool)
 		if(MT)

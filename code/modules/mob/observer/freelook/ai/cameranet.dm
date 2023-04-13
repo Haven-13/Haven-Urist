@@ -23,7 +23,7 @@
 		. = ..(c, c.can_use())
 		if(.)
 			ADD_SORTED(cameras, c, /proc/cmp_camera_ctag_asc)
-	else if(isAI(c))
+	else if(is_ai(c))
 		var/mob/living/silicon/AI = c
 		return ..(AI, AI.stat != DEAD)
 	else
@@ -34,7 +34,7 @@
 /datum/visualnet/camera/remove_source(obj/machinery/camera/c)
 	if(istype(c) && cameras.Remove(c))
 		. = ..(c, c.can_use())
-	if(isAI(c))
+	if(is_ai(c))
 		var/mob/living/silicon/AI = c
 		return ..(AI, AI.stat != DEAD)
 	else

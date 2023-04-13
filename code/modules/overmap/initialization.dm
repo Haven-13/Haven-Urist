@@ -18,5 +18,5 @@ GLOBAL_DATUM(overmap_generator, /datum/overmap_generator)
 
 	var/time = (REALTIMEOFDAY - start) / 10
 
-	testing("Overmap build completed within [time] seconds.")
+	testing("Overmap build completed within [time] second\s.")
 	return 1

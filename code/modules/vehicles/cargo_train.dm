@@ -66,7 +66,7 @@
 	return ..()
 
 /obj/vehicle/train/cargo/trolley/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(open && isWirecutter(W))
+	if(open && is_wirecutter(W))
 		passenger_allowed = !passenger_allowed
 		user.visible_message("<span class='notice'>[user] [passenger_allowed ? "cuts" : "mends"] a cable in [src].</span>","<span class='notice'>You [passenger_allowed ? "cut" : "mend"] the load limiter cable.</span>")
 	else
@@ -261,7 +261,7 @@
 // Loading/unloading procs
 //-------------------------------------------
 /obj/vehicle/train/cargo/trolley/load(var/atom/movable/C)
-	if(ismob(C) && !passenger_allowed)
+	if(is_mob(C) && !passenger_allowed)
 		return 0
 	if(!istype(C,/obj/machinery) && !istype(C,/obj/structure/closet) && !istype(C,/obj/structure/largecrate) && !istype(C,/obj/structure/reagent_dispensers) && !istype(C,/obj/structure/ore_box) && !istype(C, /mob/living/carbon/human))
 		return 0
@@ -287,7 +287,7 @@
 // been unloaded. A dummy object is loaded instead so the loading
 // code knows to handle it correctly.
 /obj/vehicle/train/cargo/trolley/proc/load_object(var/atom/movable/C)
-	if(!isturf(C.loc)) //To prevent loading things from someone's inventory, which wouldn't get handled properly.
+	if(!is_turf(C.loc)) //To prevent loading things from someone's inventory, which wouldn't get handled properly.
 		return 0
 	if(load || C.anchored)
 		return 0

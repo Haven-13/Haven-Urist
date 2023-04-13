@@ -121,7 +121,7 @@ var/global/list/additional_antag_types = list()
 			return
 		var/datum/antagonist/antag = GLOB.all_antag_types_[choice]
 		if(antag)
-			if(!islist(SSticker.mode.antag_templates))
+			if(!is_list(SSticker.mode.antag_templates))
 				SSticker.mode.antag_templates = list()
 			SSticker.mode.antag_templates |= antag
 			message_admins("Admin [key_name_admin(usr)] added [antag.role_text] template to game mode.")
@@ -181,7 +181,7 @@ var/global/list/additional_antag_types = list()
 					potential = antag.candidates
 			else
 				potential = antag.get_potential_candidates(src)
-			if(islist(potential))
+			if(is_list(potential))
 				if(require_all_templates && potential.len < antag.initial_spawn_req)
 					return "Not enough antagonists ([antag.role_text]), [antag.initial_spawn_req] required and [potential.len] available."
 				enemy_count += potential.len
@@ -339,14 +339,14 @@ var/global/list/additional_antag_types = list()
 			clients++
 			if(M.stat != DEAD)
 				surviving_total++
-				if(ishuman(M))
+				if(is_human_mob(M))
 					surviving_humans++
 				var/area/A = get_area(M)
 				if(A && is_type_in_list(A, GLOB.using_map.post_round_safe_areas))
 					escaped_total++
-					if(ishuman(M))
+					if(is_human_mob(M))
 						escaped_humans++
-			else if(isghost(M))
+			else if(is_ghost(M))
 				ghosts++
 
 	var/text = ""

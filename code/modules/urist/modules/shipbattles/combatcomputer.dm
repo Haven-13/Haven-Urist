@@ -13,7 +13,7 @@
 		user.unset_machine()
 		return
 
-	if(!isAI(user))
+	if(!is_ai(user))
 		user.set_machine(src)
 
 	if(!fallback_connect) //sometimes connecting is fucky, so this is a fallback in case something fucks up somewhere along the line
@@ -48,11 +48,13 @@
 		for(var/obj/machinery/shipweapons/S in linkedweapons)
 			weapons.Add(list(list(
 			"name" = S.name,
-			"status" = S.status,
-			"strengthHull" = S.hulldamage,
-			"strengthShield" = S.shielddamage,
-			"shieldPass" = S.passshield,
+			"status" = S.get_status_string(),
+			"strengthHull" = S.hull_damage,
+			"strengthShield" = S.shield_damage,
+			"shieldPass" = S.pass_shield,
 			"location" = S.loc.loc.name,
+			"recharge_end" = S.rechargerate,
+			"recharge_current" = world.time - S.recharge_init_time,
 			"ref" = REF(S)
 			)))
 			//maybe change passshield data to ammo?
@@ -80,26 +82,25 @@
 			"health" = OM.health,
 			"maxHealth" = OM.maxHealth,
 			"shields" = OM.shields,
-			"maxShields" = initial(OM.shields),
+			"maxShields" = OM.max_shields,
 			"components" = targetcomponents
 		)
 	else
 		.["target"] = null
 
 /obj/machinery/computer/combatcomputer/ui_act(action, list/params)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	switch(action)
 		if("fire")
 			if(homeship?.incombat)
 				var/obj/machinery/shipweapons/S = locate(params["fire"]) in linkedweapons
-				if(S?.canfire)
-					if(!istype(S))
-						return
-					if(S.charged && !S.firing)
-						S.Fire()
-						to_chat(usr, "<span class='warning'>You fire the [S.name].</span>")
+				if(!istype(S))
+					return FALSE
+
+				if(S.status == CHARGED)
+					to_chat(usr, "<span class='warning'>You fire the [S.name].</span>")
+					S.Fire()
 				else
 					to_chat(usr, "<span class='warning'>The [S.name] cannot be fired right now.</span>")
 			else

@@ -9,6 +9,7 @@ Thumbs.db
 *.before
 data/
 cfg/
+tmp/
 build_log.txt
 use_map
 stopserver
@@ -51,4 +52,5 @@ dump.txt
 *.test.*
 
 # tool-generated files
+.cache/
 check_regex_output.txt

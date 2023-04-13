@@ -31,7 +31,7 @@
 
 /decl/emote/proc/do_emote(var/atom/user, var/extra_params)
 
-	if(ismob(user) && check_restraints)
+	if(is_mob(user) && check_restraints)
 		var/mob/M = user
 		if(M.restrained())
 			to_chat(user, "<span class='warning'>You are restrained and cannot do that.</span>")

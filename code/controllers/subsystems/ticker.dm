@@ -26,11 +26,6 @@ SUBSYSTEM_DEF(ticker)
 	var/list/antag_pool = list()
 	var/looking_for_antags = 0
 
-/datum/controller/subsystem/ticker/Initialize()
-	to_world("<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>")
-	to_world("Please, setup your character and select ready. Game will start in [round(pregame_timeleft/10)] seconds")
-	return ..()
-
 /datum/controller/subsystem/ticker/fire(resumed = 0)
 	switch(GAME_STATE)
 		if(RUNLEVEL_LOBBY)
@@ -43,6 +38,10 @@ SUBSYSTEM_DEF(ticker)
 			post_game_tick()
 
 /datum/controller/subsystem/ticker/proc/pregame_tick()
+	if(!last_fire && round_progressing)
+		announce_server("\nWelcome to the pre-game lobby!", "notice b")
+		announce_server("Please, setup your character and select ready. Game will start in [round(pregame_timeleft/10)] seconds", "b")
+
 	if(round_progressing && last_fire)
 		pregame_timeleft -= world.time - last_fire
 	if(pregame_timeleft <= 0)
@@ -87,7 +86,7 @@ SUBSYSTEM_DEF(ticker)
 
 	spawn(0)//Forking here so we dont have to wait for this to finish
 		mode.post_setup()
-		to_world("<FONT color='blue'><B>Enjoy the game!</B></FONT>")
+		announce_server("Enjoy the game!", "info b")
 		sound_to(world, sound(GLOB.using_map.welcome_sound))
 
 		//Holiday Round-start stuff	~Carn
@@ -129,12 +128,15 @@ SUBSYSTEM_DEF(ticker)
 				else
 					feedback_set_details("end_proper","universe destroyed")
 				if(!delay_end)
-					to_world("<span class='notice'><b>Rebooting due to destruction of [station_name()] in [restart_timeout/10] seconds</b></span>")
+					announce_server(
+						"Rebooting due to destruction of [station_name()] in [restart_timeout/10] seconds",
+						"boldannounce"
+					)
 
 			else
 				feedback_set_details("end_proper","proper completion")
 				if(!delay_end)
-					to_world("<span class='notice'><b>Restarting in [restart_timeout/10] seconds</b></span>")
+					announce_server("Restarting in [restart_timeout/10] seconds", "boldannounce")
 
 			if(blackbox)
 				blackbox.save_all_data_to_sql()
@@ -370,7 +372,7 @@ Helpers
 		if(!C.credits)
 			C.RollCredits()
 	for(var/mob/Player in GLOB.player_list)
-		if(Player.mind && !isnewplayer(Player))
+		if(Player.mind && !is_new_player(Player))
 			if(Player.stat != DEAD)
 				var/turf/playerTurf = get_turf(Player)
 				if(evacuation_controller.round_over() && evacuation_controller.emergency_evacuation)
@@ -380,12 +382,12 @@ Helpers
 						to_chat(Player, "<font color='green'><b>You managed to survive the events on [station_name()] as [Player.real_name].</b></font>")
 				else if(isAdminLevel(playerTurf.z))
 					to_chat(Player, "<font color='green'><b>You successfully underwent crew transfer after events on [station_name()] as [Player.real_name].</b></font>")
-				else if(issilicon(Player))
+				else if(is_silicon(Player))
 					to_chat(Player, "<font color='green'><b>You remain operational after the events on [station_name()] as [Player.real_name].</b></font>")
 				else
 					to_chat(Player, "<font color='blue'><b>You got through just another workday on [station_name()] as [Player.real_name].</b></font>")
 			else
-				if(isghost(Player))
+				if(is_ghost(Player))
 					var/mob/observer/ghost/O = Player
 					if(!O.started_as_observer)
 						to_chat(Player, "<font color='red'><b>You did not survive the events on [station_name()]...</b></font>")

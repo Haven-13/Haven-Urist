@@ -16,6 +16,7 @@
 	var/affected_area = 3
 
 /obj/item/weapon/grenade/chem_grenade/New()
+	..()
 	create_reagents(1000)
 
 /obj/item/weapon/grenade/chem_grenade/attack_self(mob/user as mob)
@@ -41,7 +42,7 @@
 
 		activate()
 		add_fingerprint(user)
-		if(iscarbon(user))
+		if(is_carbon_mob(user))
 			var/mob/living/carbon/C = user
 			C.throw_mode_on()
 
@@ -71,7 +72,7 @@
 		icon_state = initial(icon_state) +"_ass"
 		SetName("unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]")
 		stage = 1
-	else if(isScrewdriver(W) && path != 2)
+	else if(is_screwdriver(W) && path != 2)
 		if(stage == 1)
 			path = 1
 			if(beakers.len)

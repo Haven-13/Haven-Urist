@@ -38,7 +38,7 @@
 	to_chat(user,  "It reads \"[message]\".")
 
 /obj/effect/decal/writing/attackby(var/obj/item/thing, var/mob/user)
-	if(isWelder(thing))
+	if(is_welder(thing))
 		var/obj/item/weapon/weldingtool/welder = thing
 		if(welder.isOn() && welder.remove_fuel(0,user) && do_after(user, 5, src) && !QDELETED(src))
 			playsound(src.loc, 'resources/sound/items/Welder2.ogg', 50, 1)

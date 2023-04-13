@@ -14,7 +14,7 @@
 	// applied, and if not, cause bad things to happen.
 
 /datum/genetics/side_effect/proc/trigger_side_effect(mob/living/carbon/human/H)
-	if(ishuman(H))
+	if(is_human_mob(H))
 		addtimer(CALLBACK(src, .proc/do_side_effect, H), 0)
 
 /datum/genetics/side_effect/proc/do_side_effect(mob/living/carbon/human/H)

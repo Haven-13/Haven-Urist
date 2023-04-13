@@ -63,7 +63,7 @@
 //Helper
 /obj/item/weapon/papercrafts/oragami/attack_self(mob/user as mob)
 
-	if(!ishuman(user)) //I don't want dogs or monkeys using the oragami
+	if(!is_human_mob(user)) //I don't want dogs or monkeys using the oragami
 		return
 
 	if(has_animate == 1) //If it has an animation

@@ -104,8 +104,8 @@
 		T.master = null
 	terminals = null
 	for(var/datum/ui_module/program/rcon/R in world)
-		R.FindDevices()
-	return ..()
+		R.find_devices()
+	. = ..()
 
 // Proc: process()
 // Parameters: None
@@ -326,6 +326,11 @@
 	else
 		..()
 
+/obj/machinery/power/smes/buildable/ui_data(mob/user)
+	. = ..()
+	.["rcon"] = RCon
+	.["rconTag"] = RCon_tag
+
 // Proc: attackby()
 // Parameters: 2 (W - object that was used on this machine, user - person which used the object)
 // Description: Handles tool interaction. Allows deconstruction/upgrading/fixing.
@@ -340,7 +345,7 @@
 	if (..())
 
 		// Multitool - change RCON tag
-		if(isMultitool(W))
+		if(is_multitool(W))
 			var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
 			if(newtag)
 				RCon_tag = newtag
@@ -363,7 +368,7 @@
 			failure_probability = 0
 
 		// Crowbar - Disassemble the SMES.
-		if(isCrowbar(W))
+		if(is_crowbar(W))
 			if (terminals.len)
 				to_chat(user, "<span class='warning'>You have to disassemble the terminal first!</span>")
 				return

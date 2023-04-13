@@ -174,7 +174,7 @@
 	data["selected_network"] = selected_network
 	data["networks"] = all_networks
 
-	data["user_is_AI"] = isAI(user)
+	data["user_is_AI"] = is_ai(user)
 
 	return data
 
@@ -190,8 +190,7 @@
 	return check_access(user, access_security) || check_access(user, network_access)
 
 /datum/ui_module/program/camera_monitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	switch(action)
 		if("switch_camera")
@@ -218,7 +217,7 @@
 			return TRUE
 
 		if("jump_to_camera")
-			if(isAI(usr))
+			if(is_ai(usr))
 				var/mob/living/silicon/ai/A = usr
 				// Only allow non-carded AIs to view because the interaction with the eye gets all wonky otherwise.
 				if(!A.is_in_chassis())
@@ -236,7 +235,7 @@
 		show_camera_static(index)
 		return TRUE
 
-	var/cam_location = (isliving(C.loc) && C.loc) || C
+	var/cam_location = (is_living_mob(C.loc) && C.loc) || C
 
 	var/turf/T = get_turf(cam_location)
 	var/last_z = last_camera_turf[index]?.z || 0

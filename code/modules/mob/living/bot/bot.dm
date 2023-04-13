@@ -93,7 +93,7 @@
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
 		return
-	else if(isScrewdriver(O))
+	else if(is_screwdriver(O))
 		if(!locked)
 			open = !open
 			to_chat(user, "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>")
@@ -101,7 +101,7 @@
 		else
 			to_chat(user, "<span class='notice'>You need to unlock the controls first.</span>")
 		return
-	else if(isWelder(O))
+	else if(is_welder(O))
 		if(health < maxHealth)
 			if(open)
 				health = min(maxHealth, health + 10)
@@ -166,7 +166,7 @@
 	if(..())
 		return 1
 
-	if(!issilicon(usr) && !Adjacent(usr))
+	if(!is_silicon(usr) && !Adjacent(usr))
 		return
 
 	if(usr.incapacitated())
@@ -200,13 +200,13 @@
 	return
 
 /mob/living/bot/proc/CanToggle(var/mob/user)
-	return (!RequiresAccessToToggle || access_scanner.allowed(user) || issilicon(user))
+	return (!RequiresAccessToToggle || access_scanner.allowed(user) || is_silicon(user))
 
 /mob/living/bot/proc/CanAccessPanel(var/mob/user)
-	return (!locked || issilicon(user))
+	return (!locked || is_silicon(user))
 
 /mob/living/bot/proc/CanAccessMaintenance(var/mob/user)
-	return (open || issilicon(user))
+	return (open || is_silicon(user))
 
 /mob/living/bot/say(var/message)
 	var/verb = "beeps"

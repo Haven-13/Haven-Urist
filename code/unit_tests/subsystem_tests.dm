@@ -52,7 +52,7 @@
 		if(isnull(data["custom"]))
 			log_fail("SS[SS.ss_id] has invalid metrics data! No 'custom' found in [json_encode(data)]")
 			continue
-		if(!islist(data["custom"]))
+		if(!is_list(data["custom"]))
 			log_fail("SS[SS.ss_id] has invalid metrics data! 'custom' is not a list in [json_encode(data)]")
 			continue
 	if(failures)

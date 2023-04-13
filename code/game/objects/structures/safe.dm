@@ -23,6 +23,7 @@ FLOOR SAFES
 
 
 /obj/structure/safe/New()
+	..()
 	tumbler_1_pos = rand(0, 72)
 	tumbler_1_open = rand(0, 72)
 
@@ -86,7 +87,7 @@ FLOOR SAFES
 
 
 /obj/structure/safe/Topic(href, href_list)
-	if(!ishuman(usr))	return
+	if(!is_human_mob(usr))	return
 	var/mob/living/carbon/human/user = usr
 
 	var/canhear = 0

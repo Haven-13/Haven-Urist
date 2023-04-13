@@ -12,7 +12,7 @@
 	var/obj/machinery/power/fusion_core/cur_viewed_device
 
 /obj/machinery/computer/fusion_core_control/attackby(var/obj/item/thing, var/mob/user)
-	if(isMultitool(thing))
+	if(is_multitool(thing))
 		var/new_ident = input("Enter a new ident tag.", "Core Control", id_tag) as null|text
 		if(new_ident && user.Adjacent(src))
 			id_tag = new_ident
@@ -134,7 +134,7 @@
 
 /obj/machinery/computer/fusion_core_control/OnTopic(var/mob/user, var/href_list, var/datum/ui_state/state)
 	if(href_list["access_device"])
-		var/idx = Clamp(text2num(href_list["toggle_active"]), 1, connected_devices.len)
+		var/idx = clamp(text2num(href_list["toggle_active"]), 1, connected_devices.len)
 		cur_viewed_device = connected_devices[idx]
 		updateUsrDialog()
 		return TRUE

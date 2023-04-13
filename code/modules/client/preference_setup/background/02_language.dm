@@ -16,7 +16,7 @@
 	to_file(S["language"],   pref.alternate_languages)
 
 /datum/category_item/player_setup_item/background/languages/sanitize_character()
-	if(!islist(pref.alternate_languages))
+	if(!is_list(pref.alternate_languages))
 		pref.alternate_languages = list()
 	sanitize_alt_languages()
 

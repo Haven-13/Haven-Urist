@@ -38,7 +38,7 @@
 				for(var/datum/reagent/x in occupant.reagents.reagent_list)
 					occupant.reagents.trans_to_obj(beaker, 3)
 					pumped++
-				if(ishuman(occupant))
+				if(is_human_mob(occupant))
 					occupant.vessel.trans_to_obj(beaker, pumped + 1)
 		else
 			toggle_filter()
@@ -50,7 +50,7 @@
 		else
 			toggle_pump()
 
-	if(iscarbon(occupant) && stasis > 1)
+	if(is_carbon_mob(occupant) && stasis > 1)
 		occupant.SetStasis(stasis)
 
 /obj/machinery/sleeper/update_icon()
@@ -105,6 +105,8 @@
 	. = ..()
 
 /obj/machinery/sleeper/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("eject")
 			go_out()

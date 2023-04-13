@@ -18,7 +18,7 @@ calculate text size per text.
 */
 /datum/reagents/proc/generate_taste_message(mob/living/carbon/taster = null)
 	var/minimum_percent = 15
-	if(ishuman(taster))
+	if(is_human_mob(taster))
 		var/mob/living/carbon/human/H = taster
 		minimum_percent = round(15/ (H.isSynthetic() ? TASTE_DULL : H.species.taste_sensitivity))
 

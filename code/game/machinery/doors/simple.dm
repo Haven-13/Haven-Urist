@@ -97,9 +97,9 @@
 	qdel(src)
 
 /obj/machinery/door/unpowered/simple/attack_ai(mob/user as mob) //those aren't machinery, they're just big fucking slabs of a mineral
-	if(isAI(user)) //so the AI can't open it
+	if(is_ai(user)) //so the AI can't open it
 		return
-	else if(isrobot(user)) //but cyborgs can
+	else if(is_robot(user)) //but cyborgs can
 		if(Adjacent(user)) //not remotely though
 			return attack_hand(user)
 

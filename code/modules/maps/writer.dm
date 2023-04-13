@@ -28,7 +28,7 @@ dmm_suite{
 			CRASH("Invalid text supplied to proc save_map, invalid characters or empty string.")
 			}
 		//Check for valid turfs.
-		if(!isturf(t1) || !isturf(t2)){
+		if(!is_turf(t1) || !is_turf(t2)){
 			CRASH("Invalid arguments supplied to proc save_map, arguments were not turfs.")
 			}
 		var/file_text = write_map(t1,t2,flags)
@@ -41,7 +41,7 @@ dmm_suite{
 		}
 	write_map(var/turf/t1 as turf, var/turf/t2 as turf, var/flags as num){
 		//Check for valid turfs.
-		if(!isturf(t1) || !isturf(t2)){
+		if(!is_turf(t1) || !is_turf(t2)){
 			CRASH("Invalid arguments supplied to proc write_map, arguments were not turfs.")
 			}
 		var/turf/nw = locate(min(t1.x,t2.x),max(t1.y,t2.y),min(t1.z,t2.z))

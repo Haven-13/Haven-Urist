@@ -74,10 +74,12 @@
 	return data
 
 /obj/machinery/computer/ship/sensors/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("view")
 			viewing = !viewing
-			if(usr && !isAI(usr))
+			if(usr && !is_ai(usr))
 				viewing ? look(usr) : unlook(usr)
 			. = TRUE
 		if("link")
@@ -107,7 +109,7 @@
 		unlook(user)
 		return
 
-	if(!isAI(user))
+	if(!is_ai(user))
 		user.set_machine(src)
 		if(viewing)
 			look(user)
@@ -155,7 +157,7 @@
 
 /obj/machinery/shipsensors/attackby(obj/item/weapon/W, mob/user)
 	var/damage = max_health - health
-	if(damage && isWelder(W))
+	if(damage && is_welder(W))
 
 		var/obj/item/weapon/weldingtool/WT = W
 

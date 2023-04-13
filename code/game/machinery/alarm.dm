@@ -511,22 +511,18 @@
 	return data
 
 /obj/machinery/alarm/ui_data(mob/user)
-	var/data[0]
-	var/remote_connection = 0
-	var/remote_access = 0
+	. = ..()
 
-	data["locked"] = locked && !issilicon(user)
-	data["remote_connection"] = remote_connection
-	data["remote_access"] = remote_access
-	data["rcon"] = rcon_setting
-	data["screen"] = screen
+	.["locked"] = locked
+	.["siliconUser"] = is_silicon(user)
+	.["rcon"] = rcon_setting
+	.["screen"] = screen
 
-	populate_status(data)
+	populate_status(.)
 
-	if(!(locked && !remote_connection) || remote_access || issilicon(user))
-		populate_controls(data)
+	if(!locked || is_silicon(user))
+		populate_controls(.)
 
-	return data
 
 /obj/machinery/alarm/proc/populate_status(var/data)
 	var/turf/location = get_turf(src)
@@ -553,6 +549,8 @@
 	data["atmos_alarm"] = alarm_area.atmosalm
 	data["fire_alarm"] = alarm_area.fire != null
 	data["target_temperature"] = "[target_temperature - T0C]C"
+
+	data["controlsPopulated"] = TRUE
 
 /obj/machinery/alarm/proc/populate_controls(var/list/data)
 	data["mode"] = mode
@@ -631,21 +629,24 @@
 	if(buildstage != 2)
 		return UI_CLOSE
 
-	if(aidisabled && isAI(user))
+	if(aidisabled && is_ai(user))
 		to_chat(user, "<span class='warning'>AI control for \the [src] interface has been disabled.</span>")
 		return UI_CLOSE
 
 	. = shorted ? UI_DISABLED : UI_INTERACTIVE
 
 	if(. == UI_INTERACTIVE)
-		var/extra_href = list()
 		// Prevent remote users from altering RCON settings unless they already have access
-		if(href_list["rcon"] && extra_href["remote_connection"] && !extra_href["remote_access"])
+		if(href_list["remoteConnection"] && href_list["remoteAccess"])
 			. = UI_UPDATE
+		else
+			. = UI_DISABLED
 
 	return min(..(), .)
 
 /obj/machinery/alarm/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("rcon")
 			var/attempted_rcon_setting = text2num(params["rcon"])
@@ -671,7 +672,7 @@
 			return TRUE
 
 	var/device_id = params["id_tag"]
-	if(!(locked && !params["remote_connection"]) || params["remote_access"] || issilicon(usr))
+	if(!(locked && !params["remote_connection"]) || params["remote_access"] || is_silicon(usr))
 		switch(action)
 			if("set_internal_pressure",
 				"set_external_pressure")
@@ -774,14 +775,14 @@
 /obj/machinery/alarm/attackby(obj/item/W as obj, mob/user as mob)
 	switch(buildstage)
 		if(2)
-			if(isScrewdriver(W))  // Opening that Air Alarm up.
+			if(is_screwdriver(W))  // Opening that Air Alarm up.
 //				to_chat(user, "You pop the Air Alarm's maintence panel open.")
 				wiresexposed = !wiresexposed
 				to_chat(user, "The wires have been [wiresexposed ? "exposed" : "unexposed"]")
 				update_icon()
 				return
 
-			if (wiresexposed && isWirecutter(W))
+			if (wiresexposed && is_wirecutter(W))
 				user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You have cut the wires inside \the [src].")
 				playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
@@ -802,7 +803,7 @@
 			return
 
 		if(1)
-			if(isCoil(W))
+			if(is_coil(W))
 				var/obj/item/stack/cable_coil/C = W
 				if (C.use(5))
 					to_chat(user, "<span class='notice'>You wire \the [src].</span>")
@@ -813,7 +814,7 @@
 					to_chat(user, "<span class='warning'>You need 5 pieces of cable to do wire \the [src].</span>")
 					return
 
-			else if(isCrowbar(W))
+			else if(is_crowbar(W))
 				to_chat(user, "You start prying out the circuit.")
 				playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 				if(do_after(user,20) && buildstage == 1)
@@ -831,7 +832,7 @@
 				update_icon()
 				return
 
-			else if(isWrench(W))
+			else if(is_wrench(W))
 				to_chat(user, "You remove the fire alarm assembly from the wall!")
 				new /obj/item/frame/air_alarm(get_turf(user))
 				playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
@@ -953,7 +954,7 @@ FIRE ALARM
 	..()
 
 /obj/machinery/firealarm/attackby(obj/item/W as obj, mob/user as mob)
-	if(isScrewdriver(W) && buildstage == 2)
+	if(is_screwdriver(W) && buildstage == 2)
 		wiresexposed = !wiresexposed
 		update_icon()
 		return
@@ -961,13 +962,13 @@ FIRE ALARM
 	if(wiresexposed)
 		switch(buildstage)
 			if(2)
-				if(isMultitool(W))
+				if(is_multitool(W))
 					src.detecting = !( src.detecting )
 					if (src.detecting)
 						user.visible_message("<span class='notice'>\The [user] has reconnected [src]'s detecting unit!</span>", "<span class='notice'>You have reconnected [src]'s detecting unit.</span>")
 					else
 						user.visible_message("<span class='notice'>\The [user] has disconnected [src]'s detecting unit!</span>", "<span class='notice'>You have disconnected [src]'s detecting unit.</span>")
-				else if(isWirecutter(W))
+				else if(is_wirecutter(W))
 					user.visible_message("<span class='notice'>\The [user] has cut the wires inside \the [src]!</span>", "<span class='notice'>You have cut the wires inside \the [src].</span>")
 					new/obj/item/stack/cable_coil(get_turf(src), 5)
 					playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 50, 1)
@@ -983,7 +984,7 @@ FIRE ALARM
 					else
 						to_chat(user, "<span class='warning'>You need 5 pieces of cable to wire \the [src].</span>")
 						return
-				else if(isCrowbar(W))
+				else if(is_crowbar(W))
 					to_chat(user, "You pry out the circuit!")
 					playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 					spawn(20)
@@ -998,7 +999,7 @@ FIRE ALARM
 					buildstage = 1
 					update_icon()
 
-				else if(isWrench(W))
+				else if(is_wrench(W))
 					to_chat(user, "You remove the fire alarm assembly from the wall!")
 					new /obj/item/frame/fire_alarm(get_turf(user))
 					playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
@@ -1101,7 +1102,7 @@ Just a object used in constructing fire alarms
 
 	user.machine = src
 	var/area/A = get_area(src)
-	ASSERT(isarea(A))
+	ASSERT(is_area(A))
 	var/d1
 	var/d2
 	if (istype(user, /mob/living/carbon/human) || istype(user, /mob/living/silicon/ai))
@@ -1139,7 +1140,7 @@ Just a object used in constructing fire alarms
 	if (!( working ))
 		return
 	var/area/A = get_area(src)
-	ASSERT(isarea(A))
+	ASSERT(is_area(A))
 	A.partyreset()
 	return
 
@@ -1147,7 +1148,7 @@ Just a object used in constructing fire alarms
 	if (!( working ))
 		return
 	var/area/A = get_area(src)
-	ASSERT(isarea(A))
+	ASSERT(is_area(A))
 	A.partyalert()
 	return
 

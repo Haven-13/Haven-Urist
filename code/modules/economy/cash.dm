@@ -98,7 +98,7 @@
 		return 0
 
 /obj/item/weapon/spacecash/bundle/proc/split_off(var/amount, var/mob/user)
-	amount = round(Clamp(amount, 0, src.worth))
+	amount = round(clamp(amount, 0, src.worth))
 	if(amount==0) return 0
 
 	src.worth -= amount
@@ -119,7 +119,7 @@
 
 /*/obj/item/weapon/spacecash/bundle/attack_self() //oldcode
 	var/amount = input(usr, "How many Thalers do you want to take? (0 to [src.worth])", "Take Money", 20) as num
-	amount = round(Clamp(amount, 0, src.worth))
+	amount = round(clamp(amount, 0, src.worth))
 	if(amount==0) return 0
 
 	src.worth -= amount
@@ -188,13 +188,13 @@
 	if(sum in list(1000,500,200,100,50,20,10,1))
 		var/cash_type = text2path("/obj/item/weapon/spacecash/bundle/c[sum]")
 		var/obj/cash = new cash_type (usr.loc)
-		if(ishuman(human_user) && !human_user.get_active_hand())
+		if(is_human_mob(human_user) && !human_user.get_active_hand())
 			human_user.put_in_hands(cash)
 	else
 		var/obj/item/weapon/spacecash/bundle/bundle = new (spawnloc)
 		bundle.worth = sum
 		bundle.update_icon()
-		if (ishuman(human_user) && !human_user.get_active_hand())
+		if (is_human_mob(human_user) && !human_user.get_active_hand())
 			human_user.put_in_hands(bundle)
 	return
 

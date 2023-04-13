@@ -151,7 +151,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		total_run_times = Master.total_run_times
 		StartProcessing(10)
 	else
-		to_chat(world, "<span class='boldannounce'>The Master Controller is having some issues, we will need to re-initialize EVERYTHING</span>")
+		to_world("<span class='boldannounce'>The Master Controller is having some issues, we will need to re-initialize EVERYTHING</span>")
 		Initialize(20, TRUE)
 
 
@@ -166,7 +166,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	if(init_sss)
 		init_subtypes(/datum/controller/subsystem, subsystems)
 
-	report_progress("Initializing subsystems...")
+	announce_progress("Initializing subsystems...", "init-major")
 
 	// Sort subsystems by init_order, so they initialize in the correct order.
 	sortTim(subsystems, /proc/cmp_subsystem_init)
@@ -180,11 +180,18 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		SS.Initialize(REALTIMEOFDAY)
 		CHECK_TICK
 	current_ticklimit = TICK_LIMIT_RUNNING
-	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
-	var/msg = "Initializations complete within [time] second\s!"
-	report_progress(msg)
-	log_world(msg)
+	var/time = (REALTIMEOFDAY - start_timeofday) / 10
+	announce_progress(
+		"Initializations complete within [time] second\s!",
+		"init-major"
+	)
+
+	time = (REALTIMEOFDAY - global.world_init_time) / 10
+	announce_progress(
+		"Server initializtion completed in [time] second\s!",
+		"init-major"
+	)
 
 	if (!current_runlevel)
 		SetRunLevel(RUNLEVEL_LOBBY)
@@ -273,7 +280,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	//(higher subsystems will be sooner in the queue, adding them later in the loop means we don't have to loop thru them next queue add)
 	sortTim(tickersubsystems, /proc/cmp_subsystem_priority)
 	for(var/I in runlevel_sorted_subsystems)
-		sortTim(runlevel_sorted_subsystems, /proc/cmp_subsystem_priority)
+		sortTim(I, /proc/cmp_subsystem_priority)
 		I += tickersubsystems
 
 	var/cached_runlevel = current_runlevel

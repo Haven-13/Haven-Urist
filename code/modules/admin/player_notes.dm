@@ -91,7 +91,7 @@
 	var/day_loc = findtext(full_date, time2text(world.timeofday, "DD"))
 
 	var/datum/player_info/P = new
-	if (ismob(user))
+	if (is_mob(user))
 		P.author = user.key
 		P.rank = user.client.holder.rank
 	else if (istext(user))

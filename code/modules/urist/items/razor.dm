@@ -6,13 +6,13 @@
 	var/covered_locations	= 0	//based on body_parts_covered
 	var/face_covered		= 0	//based on flags_inv
 	var/eyesmouth_covered	= 0	//based on flags
-	if(iscarbon(M))
+	if(is_carbon_mob(M))
 		var/mob/living/carbon/C = M
 		for(var/obj/item/clothing/I in list(C.back, C.wear_mask))
 			covered_locations |= I.body_parts_covered
 			face_covered |= I.flags_inv
 			eyesmouth_covered |= I.item_flags
-		if(ishuman(C))
+		if(is_human_mob(C))
 			var/mob/living/carbon/human/H = C
 			for(var/obj/item/I in list(H.wear_suit, H.w_uniform, H.shoes, H.belt, H.gloves, H.glasses, H.head, H.r_ear, H.l_ear))
 				covered_locations |= I.body_parts_covered
@@ -72,7 +72,7 @@
 	w_class = 1.0
 
 /obj/item/weapon/razor/attack(mob/living/carbon/M as mob, mob/user as mob)
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		if(user.zone_sel.selecting == "mouth")
 			if(!get_location_accessible(H, "mouth"))

@@ -190,7 +190,7 @@ GLOBAL_PROTECT(log_end)
 	if(dir & UP) comps += "UP"
 	if(dir & DOWN) comps += "DOWN"
 
-	return english_list(comps, nothing_text="0", and_text="|", comma_text="|")
+	return english_list(comps, "0", "|", "|", "")
 
 //more or less a logging utility
 /proc/key_name(var/whom, var/include_link = null, var/include_name = 1, var/highlight_special_characters = 1, var/datum/ticket/ticket = null)
@@ -203,7 +203,7 @@ GLOBAL_PROTECT(log_end)
 		C = whom
 		M = C.mob
 		key = C.key
-	else if(ismob(whom))
+	else if(is_mob(whom))
 		M = whom
 		C = M.client
 		key = M.key
@@ -272,7 +272,7 @@ GLOBAL_PROTECT(log_end)
 /proc/log_info_line(var/datum/d)
 	if(isnull(d))
 		return "*null*"
-	if(islist(d))
+	if(is_list(d))
 		var/list/L = list()
 		for(var/e in d)
 			L += log_info_line(e)
@@ -281,6 +281,15 @@ GLOBAL_PROTECT(log_end)
 		return json_encode(d)
 	return d.get_log_info_line()
 
-/proc/report_progress(var/progress_message)
-	admin_notice("<span class='boldannounce'>[progress_message]</span>", R_DEBUG)
-	to_world_log(progress_message)
+/proc/announce_server(message, span="body")
+	to_world("<span class='[span]'>[message]</span>")
+
+/// Publicly report progress to everyone, including the log
+/proc/announce_progress(progress_message, span="init-report")
+	announce_server(progress_message, span)
+	log_world(progress_message)
+
+/// Report progress to R_DEBUG holders and log only
+/proc/report_progress(progress_message)
+	admin_notice("<span class='boldannounce'>[progress_message]</span>", R_DEBUG, "Server Debug")
+	log_world(progress_message)

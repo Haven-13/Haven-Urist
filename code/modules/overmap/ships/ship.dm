@@ -3,9 +3,14 @@
 	desc = "Space faring vessel."
 	icon_state = "ship"
 	moving_state = "ship_moving"
+
+	var/classification = "Ship"			//Let's allow for more detail on comms/consoles
+	var/ship_name = "generic ship"		//So we don't have the descriptor in the ship name
+
 	var/vessel_mass = 100 				//tonnes, arbitrary number, affects acceleration provided by engines
 	var/default_delay = 6 SECONDS 		//time it takes to move to next tile on overmap
 	var/speed_mod = 10					//multiplier for how much ship's speed reduces above time
+
 	var/list/speed = list(0,0)			//speed in x,y direction
 	var/last_burn = 0					//worldtime when ship last acceleated
 	var/burn_delay = 10					//how often ship can do burns
@@ -22,12 +27,17 @@
 	var/list/connected
 	var/halted = 0 //Nax, I know this is going to conflict when we merge Bay. If it's you merging it, just take Bay's version of this whole file. What I'm adding is just temporary, for combat.
 
+/obj/effect/overmap/ship/New()
+	GLOB.overmap_ships += src
+	. = ..()
+
 /obj/effect/overmap/ship/Initialize()
 	. = ..()
 	START_PROCESSING(SSobj, src)
 
 /obj/effect/overmap/ship/Destroy()
 	STOP_PROCESSING(SSobj, src)
+	GLOB.overmap_ships -= src
 	. = ..()
 
 /obj/effect/overmap/ship/relaymove(mob/user, direction)
@@ -62,8 +72,8 @@
 	return res
 
 /obj/effect/overmap/ship/proc/adjust_speed(n_x, n_y)
-	speed[1] = round(Clamp(speed[1] + n_x, -default_delay, default_delay),0.1)
-	speed[2] = round(Clamp(speed[2] + n_y, -default_delay, default_delay),0.1)
+	speed[1] = round(clamp(speed[1] + n_x, -default_delay, default_delay),0.1)
+	speed[2] = round(clamp(speed[2] + n_y, -default_delay, default_delay),0.1)
 	for(var/zz in map_z)
 		if(is_still())
 			toggle_move_stars(zz)

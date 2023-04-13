@@ -19,6 +19,8 @@ export const InterfaceLockNoticeBox = (props, context) => {
   const { act, data } = useBackend(context);
   const {
     siliconUser = data.siliconUser,
+    remoteConnection = data.remoteConnection,
+    remoteAccess = data.remoteAccess,
     locked = data.locked,
     onLockStatusChange = () => act('lock'),
     accessText = 'an ID card',
@@ -48,11 +50,18 @@ export const InterfaceLockNoticeBox = (props, context) => {
       </NoticeBox>
     );
   }
+  if (remoteConnection) {
+    return (
+      <NoticeBox>
+        Remote Access: {(!!remoteAccess && "Full Access") || "Read-only"}
+      </NoticeBox>
+    );
+  }
   // For everyone else
-  return (
+  { return (
     <NoticeBox>
       Swipe {accessText}{' '}
       to {locked ? 'unlock' : 'lock'} this interface.
     </NoticeBox>
-  );
+  ); }
 };

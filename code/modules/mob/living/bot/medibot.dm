@@ -155,15 +155,15 @@
 	if(CanAccessPanel(user))
 		switch(command)
 			if("adj_threshold")
-				if(!locked || issilicon(user))
+				if(!locked || is_silicon(user))
 					var/adjust_num = text2num(href_list["amount"])
-					heal_threshold = Clamp(heal_threshold + adjust_num, 5, 75)
+					heal_threshold = clamp(heal_threshold + adjust_num, 5, 75)
 			if("adj_inject")
-				if(!locked || issilicon(user))
+				if(!locked || is_silicon(user))
 					var/adjust_num = text2num(href_list["amount"])
-					injection_amount = Clamp(injection_amount + adjust_num, 5, 15)
+					injection_amount = clamp(injection_amount + adjust_num, 5, 15)
 			if("use_beaker")
-				if(!locked || issilicon(user))
+				if(!locked || is_silicon(user))
 					use_beaker = !use_beaker
 			if("eject")
 				if(reagent_glass)
@@ -173,10 +173,10 @@
 					else
 						to_chat(user, "<span class='notice'>You cannot eject the beaker because the panel is locked.</span>")
 			if("togglevoice")
-				if(!locked || issilicon(user))
+				if(!locked || is_silicon(user))
 					vocal = !vocal
 			if("declaretreatment")
-				if(!locked || issilicon(user))
+				if(!locked || is_silicon(user))
 					declare_treatment = !declare_treatment
 
 	if(CanAccessMaintenance(user))

@@ -34,7 +34,7 @@
 			return
 		A.color = picked_color
 		to_chat(user, "<span class='notice'>You set \the [A]'s color to [lowertext(color_selection)].</span>")
-	else if(isCoil(A))
+	else if(is_coil(A))
 		var/obj/item/stack/cable_coil/c = A
 		c.set_cable_color(color_selection, user)
 	else

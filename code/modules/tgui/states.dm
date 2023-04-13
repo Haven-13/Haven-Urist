@@ -23,7 +23,7 @@
 	if(!state)
 		return
 
-	if(isobserver(user))
+	if(is_observer(user))
 		// If they turn on ghost AI control, admins can always interact.
 		if(is_admin(user))
 			. = max(., UI_INTERACTIVE)

@@ -58,7 +58,7 @@
 		if(3) to_chat(user, "The casing is closed.")
 /obj/machinery/light_construct/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
-	if(isWrench(W))
+	if(is_wrench(W))
 		if (src.stage == 1)
 			playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 			to_chat(usr, "You begin deconstructing \a [src].")
@@ -77,7 +77,7 @@
 			to_chat(usr, "You have to unscrew the case first.")
 			return
 
-	if(isWirecutter(W))
+	if(is_wirecutter(W))
 		if (src.stage != 2) return
 		src.stage = 1
 		src.update_icon()
@@ -97,7 +97,7 @@
 				"You add wires to [src].")
 		return
 
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		if (src.stage == 2)
 			src.stage = 3
 			src.update_icon()

@@ -46,7 +46,7 @@
 		icon_state = initial(icon_state)
 		ion_trail.stop()
 
-	if (ismob(usr))
+	if (is_mob(usr))
 		var/mob/M = usr
 		M.update_inv_back()
 		M.update_action_buttons()

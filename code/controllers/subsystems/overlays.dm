@@ -13,6 +13,8 @@ SUBSYSTEM_DEF(overlays)
 	var/list/queue
 	var/list/stats
 
+	var/handled_count = 0
+
 /datum/controller/subsystem/overlays/PreInit()
 	queue = list()
 	stats = list()
@@ -22,9 +24,8 @@ SUBSYSTEM_DEF(overlays)
 	fire(mc_check = FALSE)
 	return ..()
 
-/datum/controller/subsystem/overlays/stat_entry(msg)
-	msg = "Ov:[length(queue)]"
-	return ..()
+/datum/controller/subsystem/overlays/stat_entry()
+	return ..("Ov:[length(queue)]")
 
 /datum/controller/subsystem/overlays/Shutdown()
 	text2file(render_stats(stats), "[GLOB.log_directory]/overlay.log")
@@ -34,14 +35,13 @@ SUBSYSTEM_DEF(overlays)
 
 /datum/controller/subsystem/overlays/fire(resumed = FALSE, mc_check = TRUE)
 	var/list/queue = src.queue
-	var/static/count = 0
-	if (count)
-		var/c = count
-		count = 0 //so if we runtime on the Cut, we don't try again.
+	if (handled_count)
+		var/c = handled_count
+		handled_count = 0 //so if we runtime on the Cut, we don't try again.
 		queue.Cut(1,c+1)
 
 	for (var/thing in queue)
-		count++
+		handled_count++
 		if(thing)
 			var/atom/A = thing
 			if(A.overlays.len >= MAX_ATOM_OVERLAYS)
@@ -55,9 +55,10 @@ SUBSYSTEM_DEF(overlays)
 			BUILD_OVERLAYS_NOW(A)
 			STAT_STOP_STOPWATCH
 			STAT_LOG_ENTRY(stats, A.type)
-	if (count)
-		queue.Cut(1,count+1)
-		count = 0
+
+	if (handled_count)
+		queue.Cut(1,handled_count+1)
+		handled_count = 0
 
 
 /proc/iconstate2appearance(icon, iconstate)
@@ -77,7 +78,7 @@ SUBSYSTEM_DEF(overlays)
 /atom/proc/build_appearance_list(old_overlays)
 	var/static/image/appearance_bro = new()
 	var/list/new_overlays = list()
-	if (!islist(old_overlays))
+	if (!is_list(old_overlays))
 		old_overlays = list(old_overlays)
 	for (var/overlay in old_overlays)
 		if(!overlay)

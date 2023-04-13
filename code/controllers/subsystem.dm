@@ -90,8 +90,8 @@
 		queue_node_priority = queue_node.queued_priority
 		queue_node_flags = queue_node.flags
 
-		if (queue_node_flags & SS_TICKER)
-			if (!(SS_flags & SS_TICKER))
+		if ((queue_node_flags & (SS_TICKER|SS_BACKGROUND)) == SS_TICKER)
+			if ((SS_flags & (SS_TICKER|SS_BACKGROUND)) != SS_TICKER)
 				continue
 			if (queue_node_priority < SS_priority)
 				break
@@ -167,8 +167,7 @@
 	initialized = TRUE
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 	var/msg = "Initialized [name] subsystem within [time] second[time == 1 ? "" : "s"]!"
-	to_chat(world, "<span class='boldannounce'>[msg]</span>")
-	log_world(msg)
+	announce_progress(msg)
 	return time
 
 //hook for printing stats to the "MC" statuspanel for admins to see performance and related stats etc.
@@ -189,7 +188,10 @@
 	if (can_fire)
 		title = "\[[state_letter()]][title]"
 
-	stat(title, statclick.update(msg))
+	if(length(msg))
+		. += " | [msg]"
+
+	stat(title, statclick.update(.))
 
 /datum/controller/subsystem/proc/state_letter()
 	switch (state)

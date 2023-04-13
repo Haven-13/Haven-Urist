@@ -12,7 +12,7 @@
 
 /obj/item/weapon/forensics/swab/attack(var/mob/living/M, var/mob/user)
 
-	if(!ishuman(M))
+	if(!is_human_mob(M))
 		return ..()
 
 	if(is_used())

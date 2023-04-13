@@ -56,7 +56,7 @@
 /datum/asset_transport/webroot/send_assets(client/client, list/asset_list)
 	. = FALSE
 	var/list/legacy_assets = list()
-	if (!islist(asset_list))
+	if (!is_list(asset_list))
 		asset_list = list(asset_list)
 	for (var/asset_name in asset_list)
 		var/datum/asset_cache_item/ACI = asset_list[asset_name]

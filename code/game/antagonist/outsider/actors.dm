@@ -46,7 +46,7 @@ GLOBAL_DATUM_INIT(actor, /datum/antagonist/actor, new)
 	if(choice != "Yes")
 		return
 
-	if(isghostmind(usr.mind) || isnewplayer(usr))
+	if(isghostmind(usr.mind) || is_new_player(usr))
 		if(GLOB.actor.current_antagonists.len >= GLOB.actor.hard_cap)
 			to_chat(usr, "No more actors may spawn at the current time.")
 			return

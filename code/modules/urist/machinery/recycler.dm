@@ -79,7 +79,7 @@ var/const/SAFETY_COOLDOWN = 100
 
 	var/move_dir = get_dir(loc, AM.loc)
 	if(move_dir == eat_dir)
-		if(isliving(AM))
+		if(is_living_mob(AM))
 			if(emagged)
 				eat(AM)
 			else
@@ -121,20 +121,20 @@ var/const/SAFETY_COOLDOWN = 100
 
 	L.loc = src.loc
 
-	if(issilicon(L))
+	if(is_silicon(L))
 		playsound(src.loc, 'resources/sound/items/Welder.ogg', 50, 1)
 	else
 		playsound(src.loc, 'resources/sound/effects/splat.ogg', 50, 1)
 
 	var/gib = 1
 	// By default, the emagged recycler will gib all non-carbons. (human simple animal mobs don't count)
-	if(iscarbon(L))
+	if(is_carbon_mob(L))
 		gib = 0
 		if(L.stat == CONSCIOUS)
 			L.say("ARRRRRRRRRRRGH!!!")
 		add_blood(L)
 
-	if(!blood && !issilicon(L))
+	if(!blood && !is_silicon(L))
 		blood = 1
 		update_icon()
 

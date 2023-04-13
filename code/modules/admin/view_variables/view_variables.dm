@@ -1,7 +1,18 @@
 // Variables not to expand the lists of. Vars is pointless to expand, and overlays/underlays cannot be expanded.
-/var/list/view_variables_dont_expand = list("overlays", "underlays", "vars")
+/var/list/view_variables_dont_expand = list(
+	"overlays",
+	"underlays",
+	"vars"
+)
 // Variables that runtime if you try to test associativity of the lists they contain by indexing
-/var/list/view_variables_no_assoc = list("verbs", "contents", "screen", "images", "vis_contents")
+/var/list/view_variables_no_assoc = list(
+	"contents",
+	"images",
+	"screen",
+	"verbs",
+	"vis_contents",
+	"vis_locs"
+)
 
 // Acceptable 'in world', as VV would be incredibly hampered otherwise
 /client/proc/debug_variables(datum/D in world)
@@ -171,7 +182,7 @@
 	else if(istype(value, /client))
 		var/client/C = value
 		vtext = "<a href='?_src_=vars;Vars=[REF(C)]'>[REF(C)]</a> - [C] ([C.type])"
-	else if(islist(value))
+	else if(is_list(value))
 		var/list/L = value
 		vtext = "/list ([L.len])"
 		if(!(varname in view_variables_dont_expand) && L.len > 0 && L.len < 100)

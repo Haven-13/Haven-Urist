@@ -105,10 +105,10 @@
 	if(istype(W,/obj/item/device/pipe_painter))
 		return 0
 
-	if(!isWrench(W))
+	if(!is_wrench(W))
 		return ..()
 	var/turf/T = src.loc
-	if (level==1 && isturf(T) && !T.is_plating())
+	if (level==1 && is_turf(T) && !T.is_plating())
 		to_chat(user, "<span class='warning'>You must remove the plating first.</span>")
 		return 1
 	var/datum/gas_mixture/int_air = return_air()
@@ -198,9 +198,9 @@
 	alpha = 255
 
 	switch(dir)
-		if(SOUTH || NORTH)
+		if(SOUTH, NORTH)
 			initialize_directions = SOUTH|NORTH
-		if(EAST || WEST)
+		if(EAST, WEST)
 			initialize_directions = EAST|WEST
 		if(NORTHEAST)
 			initialize_directions = NORTH|EAST

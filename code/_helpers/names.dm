@@ -189,8 +189,13 @@ var/syndicate_code_response //Code response for traitors.
 	var/list/nouns = STRINGS(nouns)
 	var/list/adjectives = STRINGS(adjectives)
 	var/list/verbs = STRINGS(verbs)
-
-	var/list/drinks = list("vodka and tonic","gin fizz","bahama mama","manhattan","black Russian","whiskey soda","long island tea","margarita","Irish coffee"," manly dwarf","Irish cream","doctor's delight","Beepksy Smash","tequilla sunrise","brave bull","gargle blaster","bloody mary","whiskey cola","white Russian","vodka martini","martini","Cuba libre","kahlua","vodka","wine","moonshine")
+	var/list/drinks = list(
+		"vodka and tonic","gin fizz","bahama mama","manhattan","black Russian","whiskey soda",
+		"long island tea","margarita","Irish coffee"," manly dwarf","Irish cream",
+		"doctor's delight","Beepksy Smash","tequilla sunrise","brave bull","gargle blaster",
+		"bloody mary","whiskey cola","white Russian","vodka martini","martini","Cuba libre",
+		"kahlua","vodka","wine","moonshine"
+	)
 	var/list/locations = length(stationlocs) ? stationlocs : drinks//if null, defaults to drinks instead.
 
 	var/list/names = list()

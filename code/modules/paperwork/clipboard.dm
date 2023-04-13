@@ -13,10 +13,11 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 70)
 
 /obj/item/weapon/clipboard/New()
+	..()
 	update_icon()
 
 /obj/item/weapon/clipboard/MouseDrop(obj/over_object as obj) //Quick clipboard fix. -Agouri
-	if(ishuman(usr))
+	if(is_human_mob(usr))
 		var/mob/M = usr
 		if(!(istype(over_object, /atom/movable/screen) ))
 			return ..()
@@ -148,7 +149,7 @@
 
 			if(P && (P.loc == src) && istype(P, /obj/item/weapon/paper) )
 
-				if(!(istype(usr, /mob/living/carbon/human) || isghost(usr) || istype(usr, /mob/living/silicon)))
+				if(!(istype(usr, /mob/living/carbon/human) || is_ghost(usr) || istype(usr, /mob/living/silicon)))
 					show_browser(usr, "<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[stars(P.info)][P.stamps]</BODY></HTML>", "window=[P.name]")
 					onclose(usr, "[P.name]")
 				else

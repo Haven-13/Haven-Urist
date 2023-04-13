@@ -42,7 +42,7 @@
 		to_chat(user, "<span class='notice'>[I] is already modified.</span>")
 		return
 
-	if(!isturf(O.loc))
+	if(!is_turf(O.loc))
 		to_chat(user, "<span class='warning'>[O] must be safely placed on the ground for modification.</span>")
 		return
 

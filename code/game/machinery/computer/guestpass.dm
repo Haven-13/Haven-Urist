@@ -141,7 +141,7 @@
 			if ("id")
 				if (giver)
 					giver.dropInto(user.loc)
-					if(ishuman(user))
+					if(is_human_mob(user))
 						user.put_in_hands(giver)
 					giver = null
 					accesses.Cut()
@@ -170,7 +170,7 @@
 					for (var/A in accesses)
 						if (A in giver.access)
 							access_descriptors += get_access_desc(A)
-					entry += english_list(access_descriptors, and_text = ", ")
+					entry += english_list(access_descriptors, and_text = ", ", final_comma_text = "")
 					entry += ". Expires at [worldtime2stationtime(world.time + duration MINUTES)]."
 					internal_log.Add(entry)
 

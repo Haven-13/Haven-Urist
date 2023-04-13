@@ -338,27 +338,27 @@
 	var/turf/T = src.loc
 	for(var/i = 1 to steps)
 		T = get_step(T,direction)
-	if(!isturf(T))
+	if(!is_turf(T))
 		return 0
 	turfs.Add(T)
 	var/dir2 = 0
 	var/dir3 = 0
 	switch(direction)
-		if(NORTH||SOUTH)
+		if(NORTH, SOUTH)
 			dir2 = 4
 			dir3 = 8
-		if(EAST||WEST)
+		if(EAST, WEST)
 			dir2 = 1
 			dir3 = 2
 	var/turf/T2 = T
 	for(var/j = 1 to steps)
 		T2 = get_step(T2,dir2)
-		if(!isturf(T2))
+		if(!is_turf(T2))
 			return 0
 		turfs.Add(T2)
 	for(var/k = 1 to steps)
 		T = get_step(T,dir3)
-		if(!isturf(T))
+		if(!is_turf(T))
 			return 0
 		turfs.Add(T)
 	for(var/turf/T3 in turfs)
@@ -369,7 +369,7 @@
 	return 1
 
 /obj/singularity/proc/can_move(const/turf/T)
-	if (!isturf(T))
+	if (!is_turf(T))
 		return 0
 
 	if ((locate(/obj/machinery/containment_field) in T) || (locate(/obj/machinery/shieldwall) in T))

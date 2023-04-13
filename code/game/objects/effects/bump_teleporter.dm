@@ -20,7 +20,7 @@ var/list/obj/effect/bump_teleporter/BUMP_TELEPORTERS = list()
 	return ..()
 
 /obj/effect/bump_teleporter/Bumped(atom/user)
-	if(!ismob(user))
+	if(!is_mob(user))
 		//user.loc = src.loc	//Stop at teleporter location
 		return
 

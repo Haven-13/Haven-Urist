@@ -81,7 +81,7 @@
 			update_icon()
 		else
 			to_chat(user, "<span class='notice'>[src] already has a cell.</span>")
-	else if(isScrewdriver(W))
+	else if(is_screwdriver(W))
 		if(bcell)
 			bcell.update_icon()
 			bcell.dropInto(loc)
@@ -132,13 +132,13 @@
 	return ..()
 
 /obj/item/weapon/melee/baton/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
-	if(isrobot(target))
+	if(is_robot(target))
 		return ..()
 
 	var/agony = agonyforce
 	var/stun = stunforce
 	var/obj/item/organ/external/affecting = null
-	if(ishuman(target))
+	if(is_human_mob(target))
 		var/mob/living/carbon/human/H = target
 		affecting = H.get_organ(hit_zone)
 	var/abuser =  user ? "" : "by [user]"
@@ -173,7 +173,7 @@
 
 		deductcharge(hitcost)
 
-		if(ishuman(target))
+		if(is_human_mob(target))
 			var/mob/living/carbon/human/H = target
 			H.forcesay(GLOB.hit_appends)
 
@@ -198,7 +198,7 @@
 // usability without proper checks.
 // Also hard-coded to be unuseable outside their righteous synthetic owners.
 /obj/item/weapon/melee/baton/robot/attack_self(mob/user)
-	var/mob/living/silicon/robot/R = isrobot(user) ? user : null // null if the user is NOT a robot
+	var/mob/living/silicon/robot/R = is_robot(user) ? user : null // null if the user is NOT a robot
 	update_cell(R) // takes both robots and null
 	if (R)
 		return ..()
@@ -211,7 +211,7 @@
 	return
 
 /obj/item/weapon/melee/baton/robot/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
-	update_cell(isrobot(user) ? user : null) // update the status before we apply the effects
+	update_cell(is_robot(user) ? user : null) // update the status before we apply the effects
 	return ..()
 
 // Updates the baton's cell to use user's own cell

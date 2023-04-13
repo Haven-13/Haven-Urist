@@ -30,7 +30,7 @@
 
 	var/damage = W.force / 4.0
 
-	if(isWelder(W))
+	if(is_welder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 
 		if(WT.remove_fuel(0, user))
@@ -57,7 +57,8 @@
 /obj/effect/spider/stickyweb
 	icon_state = "stickyweb1"
 
-/obj/effect/spider/stickyweb/New()
+/obj/effect/spider/stickyweb/Initialize()
+	. = ..()
 	if(prob(50))
 		icon_state = "stickyweb2"
 
@@ -243,7 +244,7 @@
 				entry_vent = null
 	//=================
 
-	if(isturf(loc))
+	if(is_turf(loc))
 		if(prob(25))
 			var/list/nearby = trange(5, src) - loc
 			if(nearby.len)
@@ -257,8 +258,8 @@
 					var/min_y = pixel_y <= -shift_range ? 0 : -2
 					var/max_y = pixel_y >=  shift_range ? 0 :  2
 
-					pixel_x = Clamp(pixel_x + rand(min_x, max_x), -shift_range, shift_range)
-					pixel_y = Clamp(pixel_y + rand(min_y, max_y), -shift_range, shift_range)
+					pixel_x = clamp(pixel_x + rand(min_x, max_x), -shift_range, shift_range)
+					pixel_y = clamp(pixel_y + rand(min_y, max_y), -shift_range, shift_range)
 		else if(prob(5))
 			//vent crawl!
 			for(var/obj/machinery/atmospherics/unary/vent_pump/v in view(7,src))
@@ -270,7 +271,7 @@
 		if(amount_grown >= 100)
 			new greater_form(src.loc, src)
 			qdel(src)
-	else if(isorgan(loc))
+	else if(is_organ(loc))
 		if(!amount_grown) amount_grown = 1
 		var/obj/item/organ/external/O = loc
 		if(!O.owner || O.owner.stat == DEAD || amount_grown > 80)
@@ -306,7 +307,8 @@
 	icon_state = "cocoon1"
 	health = 60
 
-/obj/effect/spider/cocoon/New()
+/obj/effect/spider/cocoon/Initialize()
+	. = ..()
 	icon_state = pick("cocoon1","cocoon2","cocoon3")
 
 /obj/effect/spider/cocoon/Destroy()

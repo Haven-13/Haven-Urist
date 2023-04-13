@@ -14,13 +14,13 @@
 /obj/structure/computerframe/attackby(obj/item/P as obj, mob/user as mob)
 	switch(state)
 		if(0)
-			if(isWrench(P))
+			if(is_wrench(P))
 				playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 				if(do_after(user, 20, src))
 					to_chat(user, "<span class='notice'>You wrench the frame into place.</span>")
 					src.anchored = 1
 					src.state = 1
-			if(isWelder(P))
+			if(is_welder(P))
 				var/obj/item/weapon/weldingtool/WT = P
 				if(!WT.remove_fuel(0, user))
 					to_chat(user, "The welding tool must be on to complete this task.")
@@ -32,7 +32,7 @@
 					new /obj/item/stack/material/steel( src.loc, 5 )
 					qdel(src)
 		if(1)
-			if(isWrench(P))
+			if(is_wrench(P))
 				playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 				if(do_after(user, 20, src))
 					to_chat(user, "<span class='notice'>You unfasten the frame.</span>")
@@ -49,12 +49,12 @@
 					src.circuit = P
 				else
 					to_chat(user, "<span class='warning'>This frame does not accept circuit boards of this type!</span>")
-			if(isScrewdriver(P) && circuit)
+			if(is_screwdriver(P) && circuit)
 				playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You screw the circuit board into place.</span>")
 				src.state = 2
 				src.icon_state = "2"
-			if(isCrowbar(P) && circuit)
+			if(is_crowbar(P) && circuit)
 				playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You remove the circuit board.</span>")
 				src.state = 1
@@ -62,12 +62,12 @@
 				circuit.loc = src.loc
 				src.circuit = null
 		if(2)
-			if(isScrewdriver(P) && circuit)
+			if(is_screwdriver(P) && circuit)
 				playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You unfasten the circuit board.</span>")
 				src.state = 1
 				src.icon_state = "1"
-			if(isCoil(P))
+			if(is_coil(P))
 				var/obj/item/stack/cable_coil/C = P
 				if (C.get_amount() < 5)
 					to_chat(user, "<span class='warning'>You need five coils of wire to add them to the frame.</span>")
@@ -80,7 +80,7 @@
 						state = 3
 						icon_state = "3"
 		if(3)
-			if(isWirecutter(P))
+			if(is_wirecutter(P))
 				playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You remove the cables.</span>")
 				src.state = 2
@@ -101,13 +101,13 @@
 						src.state = 4
 						src.icon_state = "4"
 		if(4)
-			if(isCrowbar(P))
+			if(is_crowbar(P))
 				playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You remove the glass panel.</span>")
 				src.state = 3
 				src.icon_state = "3"
 				new /obj/item/stack/material/glass( src.loc, 2 )
-			if(isScrewdriver(P))
+			if(is_screwdriver(P))
 				playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You connect the monitor.</span>")
 				var/atom/B = new src.circuit.build_path ( src.loc )

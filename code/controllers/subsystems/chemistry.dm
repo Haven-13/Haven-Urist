@@ -18,9 +18,8 @@ SUBSYSTEM_DEF(chemistry)
 	initialized = TRUE
 	return ..()
 
-/datum/controller/subsystem/chemistry/stat_entry(msg)
-	msg = "Q:[length(queue)], P:[processing.len]"
-	return ..()
+/datum/controller/subsystem/chemistry/stat_entry()
+	return ..("Q:[length(queue)], P:[processing.len]")
 
 /datum/controller/subsystem/chemistry/Recover()
 	queue = SSchemistry.queue

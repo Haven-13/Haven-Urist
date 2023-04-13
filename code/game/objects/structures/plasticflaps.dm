@@ -41,7 +41,7 @@
 	return ..()
 
 /obj/structure/plasticflaps/attackby(obj/item/W, mob/user)
-	if(isScrewdriver(W) && !anchored)
+	if(is_screwdriver(W) && !anchored)
 		user.visible_message("<span class='notice'>\The [user] begins deconstructing \the [src].</span>", "<span class='notice'>You start deconstructing \the [src].</span>")
 		if(do_after(user, 3 SECONDS, src))
 			user.visible_message("<span class='warning'>\The [user] deconstructs \the [src].</span>", "<span class='warning'>You deconstruct \the [src].</span>")

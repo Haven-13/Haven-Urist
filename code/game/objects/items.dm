@@ -94,14 +94,14 @@
 
 /obj/item/New()
 	..()
-	if(randpixel && !(pixel_x || pixel_y) && isturf(loc)) //hopefully this will prevent us from messing with mapper-set pixel_x/y
+	if(randpixel && !(pixel_x || pixel_y) && is_turf(loc)) //hopefully this will prevent us from messing with mapper-set pixel_x/y
 		pixel_x = rand(-randpixel, randpixel)
 		pixel_y = rand(-randpixel, randpixel)
 
 /obj/item/Destroy()
 	qdel(hidden_uplink)
 	hidden_uplink = null
-	if(ismob(loc))
+	if(is_mob(loc))
 		var/mob/m = loc
 		m.drop_from_inventory(src)
 		m.update_inv_r_hand()
@@ -117,7 +117,7 @@
 	update_held_icon()
 
 /obj/item/proc/update_held_icon()
-	if(ismob(src.loc))
+	if(is_mob(src.loc))
 		var/mob/M = src.loc
 		if(M.l_hand == src)
 			M.update_inv_l_hand()
@@ -135,7 +135,7 @@
 
 	//would check is_broken() and is_malfunctioning() here too but is_malfunctioning()
 	//is probabilistic so we can't do that and it would be unfair to just check one.
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/hand = H.organs_by_name[check_hand]
 		if(istype(hand) && hand.is_usable())
@@ -220,11 +220,11 @@
 		if(!user.unEquip(src))
 			return
 	else
-		if(isliving(src.loc))
+		if(is_living_mob(src.loc))
 			return
 
 	if(user.put_in_active_hand(src))
-		if (isturf(old_loc))
+		if (is_turf(old_loc))
 			var/obj/effect/temporary/item_pickup_ghost/ghost = new(old_loc, src)
 			ghost.animate_towards(user)
 		if(randpixel)
@@ -239,7 +239,7 @@
 /obj/item/attack_ai(mob/user as mob)
 	if (istype(src.loc, /obj/item/weapon/robot_module))
 		//If the item is part of a cyborg module, equip it
-		if(!isrobot(user))
+		if(!is_robot(user))
 			return
 		var/mob/living/silicon/robot/R = user
 		R.activate_module(src)
@@ -250,7 +250,7 @@
 		var/obj/item/weapon/storage/S = W
 		if(S.use_to_pickup)
 			if(S.collection_mode) //Mode is set to collect all items
-				if(isturf(src.loc))
+				if(is_turf(src.loc))
 					S.gather_all(src.loc, user)
 			else if(S.can_be_inserted(src, user))
 				S.handle_item_insertion(src)
@@ -334,7 +334,7 @@ var/list/global/slot_flags_enumeration = list(
 	if(!slot) return 0
 	if(!M) return 0
 
-	if(!ishuman(M)) return 0
+	if(!is_human_mob(M)) return 0
 
 	var/mob/living/carbon/human/H = M
 	var/list/mob_equip = list()
@@ -746,7 +746,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/get_mob_overlay(mob/user_mob, slot)
 	var/bodytype = "Default"
 	var/mob/living/carbon/human/user_human
-	if(ishuman(user_mob))
+	if(is_human_mob(user_mob))
 		user_human = user_mob
 		bodytype = user_human.species.get_bodytype(user_human)
 

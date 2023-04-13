@@ -110,7 +110,7 @@
 
 		switch(AM.mag_type)
 			if(MAGAZINE)
-				if((ispath(allowed_magazines) && !istype(A, allowed_magazines)) || (islist(allowed_magazines) && !is_type_in_list(A, allowed_magazines)))
+				if((ispath(allowed_magazines) && !istype(A, allowed_magazines)) || (is_list(allowed_magazines) && !is_type_in_list(A, allowed_magazines)))
 					to_chat(user, "<span class='warning'>\The [A] won't fit into [src].</span>")
 					return
 				if(ammo_magazine)

@@ -200,7 +200,7 @@
 /datum/surgery_step/robotics/repair_brute/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		if(isWelder(tool))
+		if(is_welder(tool))
 			var/obj/item/weapon/weldingtool/welder = tool
 			if(!welder.isOn() || !welder.remove_fuel(1,user))
 				return SURGERY_FAILURE

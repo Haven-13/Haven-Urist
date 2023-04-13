@@ -10,7 +10,7 @@
 	var/damaged = 0
 
 /obj/machinery/self_destruct/attackby(obj/item/W as obj, mob/user as mob)
-	if(isWelder(W))
+	if(is_welder(W))
 		if(damaged)
 			user.visible_message("[user] begins to repair [src].", "You begin repairing [src].")
 			if(do_after(usr, 100, src))

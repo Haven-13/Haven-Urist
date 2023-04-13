@@ -135,7 +135,7 @@
 
 	// OBJ CHECK
 	var/cannot_melt
-	if(isobj(O))
+	if(is_obj(O))
 		var/obj/I = O
 		if(I.unacidable)
 			cannot_melt = 1

@@ -58,8 +58,7 @@
 	return data
 
 /datum/ui_module/program/supply/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	var/mob/living/user = usr
 	switch(action)
@@ -76,11 +75,11 @@
 
 			var/idname = "*None Provided*"
 			var/idjob = "*None Provided*"
-			if(ishuman(user))
+			if(is_human_mob(user))
 				var/mob/living/carbon/human/H = user
 				idname = H.get_authentification_name()
 				idjob = H.get_assignment()
-			else if(issilicon(user))
+			else if(is_silicon(user))
 				idname = user.real_name
 
 			SSsupply.ordernum++

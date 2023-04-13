@@ -349,7 +349,7 @@
 	return
 
 /obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/W, mob/user)
-	if(isWelder(W))
+	if(is_welder(W))
 
 		var/obj/item/weapon/weldingtool/WT = W
 
@@ -382,7 +382,7 @@
 			"You hear welding.")
 		return 1
 
-	if(isMultitool(W))
+	if(is_multitool(W))
 		broadcast_status()
 		to_chat(user, "<span class='notice'>A [name == "Air Vent" ? "red" : "green"] light appears on \the [src] as it broadcasts atmospheric data.</span>")
 		flick("broadcast", src)
@@ -398,13 +398,13 @@
 		to_chat(user, "It seems welded shut.")
 
 /obj/machinery/atmospherics/unary/vent_pump/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(!isWrench(W))
+	if(!is_wrench(W))
 		return ..()
 	if (!(stat & NOPOWER) && use_power)
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>")
 		return 1
 	var/turf/T = src.loc
-	if (node && node.level==1 && isturf(T) && !T.is_plating())
+	if (node && node.level==1 && is_turf(T) && !T.is_plating())
 		to_chat(user, "<span class='warning'>You must remove the plating first.</span>")
 		return 1
 	var/datum/gas_mixture/int_air = return_air()

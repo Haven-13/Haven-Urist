@@ -124,6 +124,7 @@
 	var/parent_shuttle
 
 /obj/structure/fuel_port/New()
+	..()
 	src.contents.Add(new/obj/item/weapon/tank/hydrogen)
 
 /obj/structure/fuel_port/attack_hand(mob/user as mob)
@@ -144,7 +145,7 @@
 		icon_state = icon_closed
 
 /obj/structure/fuel_port/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isCrowbar(W))
+	if(is_crowbar(W))
 		if(opened)
 			to_chat(user, "<span class='notice'>You tightly shut \the [src] door.</span>")
 			playsound(src.loc, 'resources/sound/effects/locker_close.ogg', 25, 0, -3)

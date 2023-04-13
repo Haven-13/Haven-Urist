@@ -60,7 +60,7 @@
 	onclose(usr, "blueprints")
 
 /obj/item/blueprints/proc/CheckArea(var/area/A)
-	if(isspace(A) || isplanet(A))
+	if(is_space(A) || is_planet(A))
 		return 1
 
 /obj/item/blueprints/proc/getArea(var/o)
@@ -176,7 +176,7 @@
 		var/turf/T = get_step(usr, dir)
 		var/area/area = getArea(T)
 		if(area && !area.apc && area != A && !istype(area, /area/turbolift))
-			if(n || !isspace(area) || !isplanet(area))
+			if(n || !is_space(area) || !is_planet(area))
 				areas.Add(area)
 	if(!areas.len)
 		return 0
@@ -185,7 +185,7 @@
 
 /obj/item/blueprints/proc/delete_area()
 	var/area/A = getArea(usr)
-	if (isspace(A) || isplanet(A) || A.apc) //let's just check this one last time, just in case
+	if (is_space(A) || is_planet(A) || A.apc) //let's just check this one last time, just in case
 		interact()
 		return
 	to_chat(usr, "<span class='notice'>You scrub [A.name] off the blueprint.</span>")
@@ -225,7 +225,7 @@
 		return BORDER_SPACE
 	if(istype(T2, /turf/simulated/floor/planet))
 		return BORDER_SPACE
-	if (!isspace(T2.loc) || !isplanet(T2.loc))
+	if (!is_space(T2.loc) || !is_planet(T2.loc))
 		return BORDER_BETWEEN
 	if (istype(T2, /turf/simulated/wall))
 		return BORDER_2NDTILE
@@ -266,7 +266,7 @@
 			if (skip) continue
 
 			var/turf/NT = get_step(T,dir)
-			if (!isturf(NT) || (NT in found) || (NT in pending))
+			if (!is_turf(NT) || (NT in found) || (NT in pending))
 				continue
 
 			switch(check_tile_is_border(NT,dir))

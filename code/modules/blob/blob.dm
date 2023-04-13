@@ -161,7 +161,7 @@
 	switch(W.damtype)
 		if("fire")
 			damage = (W.force / fire_resist)
-			if(isWelder(W))
+			if(is_welder(W))
 				playsound(loc, 'resources/sound/items/Welder.ogg', 100, 1)
 		if("brute")
 			damage = (W.force / brute_resist)

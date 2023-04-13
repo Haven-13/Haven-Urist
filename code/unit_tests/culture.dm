@@ -5,7 +5,7 @@
 	var/fails = 0
 	for(var/species_name in all_species)
 		var/datum/species/species = all_species[species_name]
-		if(!islist(species.default_cultural_info))
+		if(!is_list(species.default_cultural_info))
 			fails++
 			log_bad("Default cultural info for [species_name] is not a list.")
 		else
@@ -33,7 +33,7 @@
 							fails++
 							log_bad("Default cultural value '[val]' for [species_name] tag '[token]' does not have a description set.")
 
-		if(!islist(species.force_cultural_info))
+		if(!is_list(species.force_cultural_info))
 			fails++
 			log_bad("Forced cultural info for [species_name] is not a list.")
 		else
@@ -61,12 +61,12 @@
 							fails++
 							log_bad("Forced cultural value '[val]' for [species_name] tag '[token]' does not have a description set.")
 
-		if(!islist(species.available_cultural_info))
+		if(!is_list(species.available_cultural_info))
 			fails++
 			log_bad("Available cultural info for [species_name] is not a list.")
 		else
 			for(var/token in ALL_CULTURAL_TAGS)
-				if(!islist(species.available_cultural_info[token]))
+				if(!is_list(species.available_cultural_info[token]))
 					fails++
 					log_bad("Available cultural info for [species_name] tag '[token]' is invalid type, must be a list.")
 				else if(!LAZY_LENGTH(species.available_cultural_info[token]))

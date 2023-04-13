@@ -76,7 +76,7 @@
 /obj/item/weapon/sample/print/attack_self(var/mob/user)
 	if(evidence && evidence.len)
 		return
-	if(!ishuman(user))
+	if(!is_human_mob(user))
 		return
 	var/mob/living/carbon/human/H = user
 	if(H.gloves)
@@ -91,7 +91,7 @@
 
 /obj/item/weapon/sample/print/attack(var/mob/living/M, var/mob/user)
 
-	if(!ishuman(M))
+	if(!is_human_mob(M))
 		return ..()
 
 	if(evidence && evidence.len)
@@ -164,7 +164,7 @@
 	A.add_fingerprint(user)
 
 /obj/item/weapon/forensics/sample_kit/MouseDrop(atom/over)
-	if(ismob(src.loc) && CanMouseDrop(over))
+	if(is_mob(src.loc) && CanMouseDrop(over))
 		afterattack(over, usr, TRUE)
 
 /obj/item/weapon/forensics/sample_kit/powder

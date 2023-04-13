@@ -59,7 +59,7 @@
 			src.SetName("body bag")
 	//..() //Doesn't need to run the parent. Since when can fucking bodybags be welded shut? -Agouri
 		return
-	else if(isWirecutter(W))
+	else if(is_wirecutter(W))
 		src.SetName("body bag")
 		src.overlays.Cut()
 		to_chat(user, "You cut the tag off \the [src].")
@@ -76,7 +76,7 @@
 	return 0
 
 /obj/structure/closet/body_bag/proc/fold(var/user)
-	if(!(ishuman(user) || isrobot(user)))	return 0
+	if(!(is_human_mob(user) || is_robot(user)))	return 0
 	if(opened)	return 0
 	if(contents.len)	return 0
 	visible_message("[user] folds up the [name]")

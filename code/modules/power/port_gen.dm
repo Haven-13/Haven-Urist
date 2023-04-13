@@ -33,7 +33,6 @@
 	if(active && HasFuel() && !IsBroken() && anchored && powernet)
 		add_avail(power_gen * power_output)
 		UseFuel()
-		src.updateDialog()
 	else
 		active = 0
 		handleInactive()
@@ -213,7 +212,7 @@
 	var/average = (upper_limit + lower_limit)/2
 
 	//calculate the temperature increase
-	var/bias = Clamp(round((average - temperature)/TEMPERATURE_DIVISOR, 1),  -TEMPERATURE_CHANGE_MAX, TEMPERATURE_CHANGE_MAX)
+	var/bias = clamp(round((average - temperature)/TEMPERATURE_DIVISOR, 1),  -TEMPERATURE_CHANGE_MAX, TEMPERATURE_CHANGE_MAX)
 	temperature += bias + rand(-7, 7)
 
 	if (temperature > max_temperature)
@@ -234,7 +233,6 @@
 		var/temp_loss = (temperature - cooling_temperature)/TEMPERATURE_DIVISOR
 		temp_loss = between(2, round(temp_loss, 1), TEMPERATURE_CHANGE_MAX)
 		temperature = max(temperature - temp_loss, cooling_temperature)
-		src.updateDialog()
 
 	if(overheating)
 		overheating--
@@ -275,10 +273,9 @@
 		to_chat(user, "<span class='notice'>You add [amount] sheet\s to the [src.name].</span>")
 		sheets += amount
 		addstack.use(amount)
-		updateUsrDialog()
 		return
 	else if(!active)
-		if(isWrench(O))
+		if(is_wrench(O))
 
 			if(!anchored)
 				connect_to_network()
@@ -306,9 +303,6 @@
 	..()
 	if (!anchored)
 		return
-	ui_interact(user)
-
-/obj/machinery/power/port_gen/pacman/attack_ai(mob/user as mob)
 	ui_interact(user)
 
 /obj/machinery/power/port_gen/pacman/ui_status(mob/user, datum/ui_state/state)

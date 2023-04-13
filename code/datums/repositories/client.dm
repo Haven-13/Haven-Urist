@@ -11,7 +11,7 @@ var/repository/client/client_repository = new()
 
 // A lite client is unique per ckey and mob ref (save for ref conflicts.. oh well)
 /repository/client/proc/get_lite_client(var/mob/M)
-	if(isclient(M))
+	if(is_client(M))
 		var/client/C = M // BYOND is supposed to ensure clients always have a mob
 		M = C.mob
 	. = clients_[mob2unique(M)]

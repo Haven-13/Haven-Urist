@@ -289,7 +289,7 @@
 		to_chat(user, "<span class='warning'>You need to open access hatch on [src] first!</span>")
 		return 0
 
-	if(isCoil(W) && !building_terminal)
+	if(is_coil(W) && !building_terminal)
 		building_terminal = 1
 		var/obj/item/stack/cable_coil/CC = W
 		if (CC.get_amount() < 10)
@@ -307,7 +307,7 @@
 		stat = 0
 		return 0
 
-	if(isWelder(W))
+	if(is_welder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(!WT.isOn())
 			to_chat(user, "Turn on \the [WT] first!")
@@ -319,7 +319,7 @@
 			to_chat(user, "You repair all structural damage to \the [src]")
 			damage = 0
 		return 0
-	else if(isWirecutter(W) && !building_terminal)
+	else if(is_wirecutter(W) && !building_terminal)
 		building_terminal = 1
 		var/obj/machinery/power/terminal/term
 		for(var/obj/machinery/power/terminal/T in get_turf(user))
@@ -366,27 +366,26 @@
 		ui.open()
 
 /obj/machinery/power/smes/ui_data(mob/user)
-	// this is the data which will be sent to the ui
-	var/data[0]
-	data["nameTag"] = name_tag
-	data["storedCapacity"] = round(100.0*charge/capacity, 0.1)
-	data["storedCapacityAbs"] = charge
-	data["storedCapacityMax"] = capacity
-	data["inputting"] = inputting
-	data["inputAttempt"] = input_attempt
-	data["inputLevel"] = input_level
-	data["inputLevelMax"] = input_level_max
-	data["inputAvailable"] = input_available
-	data["outputting"] = outputting
-	data["outputAttempt"] = output_attempt
-	data["outputLevel"] = output_level
-	data["outputLevelMax"] = output_level_max
-	data["outputUsed"] = output_used
-	data["failureTimer"] = failure_timer * 2
-
-	return data
+	. = ..()
+	.["nameTag"] = name_tag
+	.["storedCapacity"] = round(100.0*charge/capacity, 0.1)
+	.["storedCapacityAbs"] = charge
+	.["storedCapacityMax"] = capacity
+	.["inputting"] = inputting
+	.["inputAttempt"] = input_attempt
+	.["inputLevel"] = input_level
+	.["inputLevelMax"] = input_level_max
+	.["inputAvailable"] = input_available
+	.["outputting"] = outputting
+	.["outputAttempt"] = output_attempt
+	.["outputLevel"] = output_level
+	.["outputLevelMax"] = output_level_max
+	.["outputUsed"] = output_used
+	.["failureTimer"] = failure_timer * 2
 
 /obj/machinery/power/smes/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("try_input")
 			inputting(!input_attempt)

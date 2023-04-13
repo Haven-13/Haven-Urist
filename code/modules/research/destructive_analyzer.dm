@@ -62,7 +62,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 		to_chat(user, "<span class='notice'>\The [src] must be linked to an R&D console first.</span>")
 		return
 	if(!loaded_item)
-		if(isrobot(user)) //Don't put your module items in there!
+		if(is_robot(user)) //Don't put your module items in there!
 			return
 		if(!O.origin_tech)
 			to_chat(user, "<span class='notice'>This doesn't seem to have a tech origin.</span>")

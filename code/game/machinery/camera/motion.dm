@@ -56,5 +56,5 @@
 	return 1
 
 /obj/machinery/camera/HasProximity(atom/movable/AM as mob|obj)
-	if(isliving(AM))
+	if(is_living_mob(AM))
 		newTarget(AM)

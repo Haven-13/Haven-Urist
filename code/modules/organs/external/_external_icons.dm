@@ -104,7 +104,7 @@ var/list/limb_icon_cache = list()
 		mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
 		icon_cache_key += "[M][markings[M]["color"]]"
 
-	if(body_hair && islist(h_col) && h_col.len >= 3)
+	if(body_hair && is_list(h_col) && h_col.len >= 3)
 		var/cache_key = "[body_hair]-[icon_name]-[h_col[1]][h_col[2]][h_col[3]]"
 		if(!limb_icon_cache[cache_key])
 			var/icon/I = icon(species.get_icobase(owner), "[icon_name]_[body_hair]")

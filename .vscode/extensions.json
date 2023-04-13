@@ -2,6 +2,5 @@
 	"recommendations": [
 		"Goonstation.goonstation-extpack",
 		"github.vscode-pull-request-github",
-		"ms-azuretools.vscode-docker"
 	]
 }

@@ -100,7 +100,7 @@
 	if(..()) return
 
 	/* Ghosts can't use this one because it's a direct selection */
-	if(isobserver(user)) return
+	if(is_observer(user)) return
 
 	var/list/L = list()
 	var/list/areaindex = list()
@@ -119,7 +119,7 @@
 		L[tmpname] = R
 
 	for (var/obj/item/weapon/implant/tracking/I in world)
-		if (!I.implanted || !ismob(I.loc))
+		if (!I.implanted || !is_mob(I.loc))
 			continue
 		else
 			var/mob/M = I.loc
@@ -141,7 +141,7 @@
 	var/desc = input("Please select a location to lock in.", "Locking Computer") in L|null
 	if(!desc)
 		return
-	if(get_dist(src, usr) > 1 && !issilicon(usr))
+	if(get_dist(src, usr) > 1 && !is_silicon(usr))
 		return
 	set_target(L[desc])
 	for(var/mob/O in hearers(src, null))

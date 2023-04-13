@@ -63,7 +63,7 @@
 /obj/item/device/radio/headset/receive_range(freq, level, aiOverride = 0)
 	if (aiOverride)
 		return ..(freq, level)
-	if(ishuman(src.loc))
+	if(is_human_mob(src.loc))
 		var/mob/living/carbon/human/H = src.loc
 		if(H.l_ear == src || H.r_ear == src)
 			return ..(freq, level)
@@ -308,10 +308,10 @@
 /obj/item/device/radio/headset/attackby(obj/item/weapon/W as obj, mob/user as mob)
 //	..()
 	user.set_machine(src)
-	if (!( isScrewdriver(W) || (istype(W, /obj/item/device/encryptionkey/ ))))
+	if (!( is_screwdriver(W) || (istype(W, /obj/item/device/encryptionkey/ ))))
 		return
 
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		if(encryption_keys.len)
 			for(var/ch_name in channels)
 				radio_controller.remove_object(src, radiochannels[ch_name])

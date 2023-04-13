@@ -206,7 +206,7 @@ var/global/datum/ntnet/ntnet_global = new()
 	if(user.mind)
 		user.mind.initial_email_login["login"] = new_login
 		user.mind.store_memory("Your email account address has been changed to [new_login].")
-	if(issilicon(user))
+	if(is_silicon(user))
 		var/mob/living/silicon/S = user
 		var/datum/ui_module/program/email_client/my_client = S.get_subsystem_from_path(/datum/ui_module/program/email_client)
 		if(my_client)
@@ -233,7 +233,7 @@ var/global/datum/ntnet/ntnet_global = new()
 			user.mind.initial_email_login["login"] = EA.login
 			user.mind.initial_email_login["password"] = EA.password
 			user.mind.store_memory("Your email account address is [EA.login] and the password is [EA.password].")
-		if(issilicon(user))
+		if(is_silicon(user))
 			var/mob/living/silicon/S = user
 			var/datum/ui_module/program/email_client/my_client = S.get_subsystem_from_path(/datum/ui_module/program/email_client)
 			if(my_client)

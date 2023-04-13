@@ -165,9 +165,9 @@
 		if(prob(5) && active_breathing && breath_fail_ratio > 0.4)
 			owner.emote("gasp")
 		failed_inhale = 1
-		breath_fail_ratio = Clamp(0,(1 - inhale_efficiency + breath_fail_ratio)/2,1)
+		breath_fail_ratio = clamp(0,(1 - inhale_efficiency + breath_fail_ratio)/2,1)
 	else
-		breath_fail_ratio = Clamp(0,breath_fail_ratio-0.15,1)
+		breath_fail_ratio = clamp(0,breath_fail_ratio-0.15,1)
 
 	owner.oxygen_alert = failed_inhale * 2
 
@@ -239,7 +239,7 @@
 
 /obj/item/organ/internal/lungs/proc/handle_failed_breath(var/complete_failure)
 	if(complete_failure) //If we never got any air to try and process we'll need to update our failure rate here.
-		breath_fail_ratio = Clamp(0,(breath_fail_ratio + 1)/2,1)
+		breath_fail_ratio = clamp(0,(breath_fail_ratio + 1)/2,1)
 	if(prob(15) && !owner.nervous_system_failure())
 		if(!owner.is_asystole())
 			if(active_breathing)

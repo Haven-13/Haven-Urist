@@ -199,7 +199,7 @@
 
 // If you adjust any of the values below, please also update /proc/unit_test_weight_of_path(var/path)
 /obj/structure/closet/proc/content_size(atom/movable/AM)
-	if(ismob(AM))
+	if(is_mob(AM))
 		var/mob/M = AM
 		return M.mob_size
 	if(istype(AM, /obj/item))
@@ -266,7 +266,7 @@
 			return 0
 		if(istype(W,/obj/item/tk_grab))
 			return 0
-		if(isWelder(W))
+		if(is_welder(W))
 			var/obj/item/weapon/weldingtool/WT = W
 			if(WT.isOn())
 				slice_into_parts(WT, user)
@@ -298,7 +298,7 @@
 			open()
 	else if(istype(W, /obj/item/stack/package_wrap))
 		return
-	else if(isWelder(W) && (setup & CLOSET_CAN_BE_WELDED))
+	else if(is_welder(W) && (setup & CLOSET_CAN_BE_WELDED))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(!WT.remove_fuel(0,user))
 			if(!WT.isOn())
@@ -330,13 +330,13 @@
 		return
 	if(O.loc == user)
 		return
-	if(ismob(O) && src.large)
+	if(is_mob(O) && src.large)
 		return
 	if(user.restrained() || user.stat || user.weakened || user.stunned || user.paralysis)
 		return
 	if((!( istype(O, /atom/movable) ) || O.anchored || !Adjacent(user) || !Adjacent(O) || !user.Adjacent(O) || user.contents.Find(src)))
 		return
-	if(!isturf(user.loc)) // are you in a container/closet/pod/etc?
+	if(!is_turf(user.loc)) // are you in a container/closet/pod/etc?
 		return
 	if(!src.opened)
 		return
@@ -353,7 +353,7 @@
 		attack_hand(user)
 
 /obj/structure/closet/relaymove(mob/user as mob)
-	if(user.stat || !isturf(src.loc))
+	if(user.stat || !is_turf(src.loc))
 		return
 
 	if(!src.open())
@@ -383,7 +383,7 @@
 	if(!CanPhysicallyInteract(usr))
 		return
 
-	if(ishuman(usr))
+	if(is_human_mob(usr))
 		src.add_fingerprint(usr)
 		src.toggle(usr)
 	else

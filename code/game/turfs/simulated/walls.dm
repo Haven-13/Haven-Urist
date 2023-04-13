@@ -83,7 +83,7 @@
 		else if(Proj.damage_type == DAMAGE_TYPE_BRUTE)
 			proj_damage /= reinf_material.brute_armor
 
-	..() //jesus fuck bay, why isn't this here
+	. = ..() //jesus fuck bay, why isn't this here
 
 	if(Proj.ship) //why the fuck would anyone hardcode a cap on weapon damage to walls. fuck bay so hard.
 		take_damage(proj_damage)
@@ -97,7 +97,7 @@
 
 /turf/simulated/wall/hitby(AM as mob|obj, var/speed=THROWFORCE_SPEED_DIVISOR)
 	..()
-	if(ismob(AM))
+	if(is_mob(AM))
 		return
 
 	var/obj/O = AM

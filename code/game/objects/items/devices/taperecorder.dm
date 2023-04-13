@@ -129,7 +129,7 @@
 
 /obj/item/device/taperecorder/proc/explode()
 	var/turf/T = get_turf(loc)
-	if(ismob(loc))
+	if(is_mob(loc))
 		var/mob/M = loc
 		to_chat(M, "<span class='danger'>\The [src] explodes!</span>")
 	if(T)
@@ -168,7 +168,7 @@
 			sleep(10)
 			mytape.used_capacity++
 			if(mytape.used_capacity >= mytape.max_capacity)
-				if(ismob(loc))
+				if(is_mob(loc))
 					var/mob/M = loc
 					to_chat(M, "<span class='notice'>The tape is full.</span>")
 				stop_recording()
@@ -185,7 +185,7 @@
 	recording = 0
 	update_icon()
 	mytape.record_speech("Recording stopped.")
-	if(ismob(loc))
+	if(is_mob(loc))
 		var/mob/M = loc
 		to_chat(M, "<span class='notice'>Recording stopped.</span>")
 
@@ -406,7 +406,7 @@
 
 
 /obj/item/device/tape/attackby(obj/item/I, mob/user, params)
-	if(ruined && isScrewdriver(I))
+	if(ruined && is_screwdriver(I))
 		to_chat(user, "<span class='notice'>You start winding the tape back in...</span>")
 		if(do_after(user, 120, target = src))
 			to_chat(user, "<span class='notice'>You wound the tape back in.</span>")
@@ -428,5 +428,6 @@
 
 
 //Random colour tapes
-/obj/item/device/tape/random/New()
+/obj/item/device/tape/random/Initialize()
+	. = ..()
 	icon_state = "tape_[pick("white", "blue", "red", "yellow", "purple")]"

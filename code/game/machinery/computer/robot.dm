@@ -34,11 +34,11 @@
 		if(!target || !istype(target))
 			return FALSE
 
-		if(isAI(user) && (target.connected_ai != user))
+		if(is_ai(user) && (target.connected_ai != user))
 			to_chat(user, "<span class='warning'>Access Denied. This robot is not linked to you.</span>")
 			return FALSE
 
-		if(isrobot(user))
+		if(is_robot(user))
 			to_chat(user, "<span class='warning'>Access Denied.</span>")
 			return FALSE
 

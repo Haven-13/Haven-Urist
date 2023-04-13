@@ -19,7 +19,7 @@
 	if(extensions)
 		for(var/expansion_key in extensions)
 			var/list/extension = extensions[expansion_key]
-			if(islist(extension))
+			if(is_list(extension))
 				extension.Cut()
 			else
 				qdel(extension)
@@ -54,7 +54,7 @@
 	. = source.extensions[base_type]
 	if(!.)
 		return
-	if(islist(.)) //a list, so it's expecting to be lazy-loaded
+	if(is_list(.)) //a list, so it's expecting to be lazy-loaded
 		var/list/extension_data = .
 		. = construct_extension_instance(extension_data[1], extension_data[2], extension_data.Copy(3))
 		source.extensions[base_type] = .

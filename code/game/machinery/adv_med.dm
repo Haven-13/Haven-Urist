@@ -289,13 +289,13 @@
 		dat = stored_scan
 		dat += "<br><HR><A href='?src=[REF(src)];print=1'>Print Scan</A>"
 		dat += "<br><HR><A href='?src=[REF(src)];erase=1'>Erase Scan</A>"
-		if(ishuman(connected.occupant))
+		if(is_human_mob(connected.occupant))
 			dat += "<br><HR><A href='?src=[REF(src)];scan=1'>Rescan Occupant</A>"
 	else
 		dat = "<b>Scan Menu</b>"
 		if (!connected.occupant)
 			dat += "<br><HR><span class='warning'>The body scanner is empty.</span>"
-		else if(!ishuman(connected.occupant))
+		else if(!is_human_mob(connected.occupant))
 			dat += "<br><HR><span class='warning'>This device can only scan compatible lifeforms.</span>"
 		else
 			dat += "<br><HR><A href='?src=[REF(src)];scan=1'>Scan Occupant</A>"
@@ -381,7 +381,7 @@
 				table += " [capitalize(get_wound_severity(E.burn_ratio))] burns ([E.burn_dam])"
 			if(E.brute_dam + E.burn_dam == 0)
 				table += "None"
-			table += "</td><td>[english_list(E.get_scan_results(), nothing_text = "", and_text = ", ")]</td></tr>"
+			table += "</td><td>[english_list(E.get_scan_results(), "", ", ", ", ", "")]</td></tr>"
 
 	table += "<tr><td>---</td><td><b>INTERNAL ORGANS</b></td><td>---</td></tr>"
 	for(var/obj/item/organ/internal/I in H.internal_organs)
@@ -395,7 +395,7 @@
 			table += "Minor"
 		else
 			table += "None"
-		table += "</td><td>[english_list(I.get_scan_results(), nothing_text = "", and_text = ", ")]</td></tr>"
+		table += "</td><td>[english_list(I.get_scan_results(), "", ", ", ", ", "")]</td></tr>"
 	table += "</table>"
 	dat += jointext(table,null)
 	table.Cut()

@@ -103,6 +103,7 @@ GLOBAL_LIST_INIT(atmos_pipe_recipes, list(
 	var/active_direction
 
 /obj/item/weapon/rpd/New()
+	..()
 	if(!activedesign)
 		activedesign = GLOB.atmos_pipe_recipes[GLOB.atmos_pipe_recipes[1]][1]
 	active_category = GLOB.atmos_pipe_recipes[1]

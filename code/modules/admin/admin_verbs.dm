@@ -185,6 +185,7 @@ var/list/admin_verbs_debug = list(
 	/client/proc/cmd_debug_tog_aliens,
 	/client/proc/air_report,
 	/client/proc/reload_admins,
+	/client/proc/reload_all_css,
 	/client/proc/restart_controller,
 	/client/proc/print_random_map,
 	/client/proc/create_random_map,
@@ -290,6 +291,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/callproc_target,
 	/client/proc/Debug2,
 	/client/proc/reload_admins,
+	/client/proc/reload_all_css,
 	/client/proc/cmd_debug_make_powernets,
 	/client/proc/debug_controller,
 	/client/proc/startSinglo,
@@ -420,7 +422,7 @@ var/list/admin_verbs_mentor = list(
 	set category = "Admin"
 	set name = "Aghost"
 	if(!holder)	return
-	if(isghost(mob))
+	if(is_ghost(mob))
 		//re-enter
 		var/mob/observer/ghost/ghost = mob
 		if(!is_mentor(usr.client))

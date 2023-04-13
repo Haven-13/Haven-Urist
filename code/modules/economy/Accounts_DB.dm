@@ -143,7 +143,7 @@
 				var/account_name = href_list["holder_name"]
 				var/starting_funds = max(text2num(href_list["starting_funds"]), 0)
 
-				starting_funds = Clamp(starting_funds, 0, station_account.money)	// Not authorized to put the station in debt.
+				starting_funds = clamp(starting_funds, 0, station_account.money)	// Not authorized to put the station in debt.
 				starting_funds = min(starting_funds, fund_cap)						// Not authorized to give more than the fund cap.
 
 				create_account(account_name, starting_funds, src)
@@ -163,7 +163,7 @@
 				if(held_card)
 					held_card.loc = src.loc
 
-					if(ishuman(usr) && !usr.get_active_hand())
+					if(is_human_mob(usr) && !usr.get_active_hand())
 						usr.put_in_hands(held_card)
 					held_card = null
 

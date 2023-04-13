@@ -84,7 +84,7 @@
 	//Actually replace the light.
 	if(istype(A, /obj/machinery/light/))
 		var/obj/machinery/light/L = A
-		if(isliving(user))
+		if(is_living_mob(user))
 			var/mob/living/U = user
 			ReplaceLight(L, U)
 			add_fingerprint(user)
@@ -120,7 +120,7 @@
 
 /obj/item/device/lightreplacer/attack_self(mob/user)
 	/* // This would probably be a bit OP. If you want it though, uncomment the code.
-	if(isrobot(user))
+	if(is_robot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.emagged)
 			src.Emag()

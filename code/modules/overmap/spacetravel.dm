@@ -9,6 +9,7 @@ var/list/cached_space = list()
 	known = 0
 
 /obj/effect/overmap/sector/temporary/New(var/nx, var/ny, var/nz)
+	..()
 	loc = locate(nx, ny, GLOB.using_map.overmap_z)
 	x = nx
 	y = ny
@@ -95,7 +96,7 @@ var/list/cached_space = list()
 	var/turf/dest = locate(nx,ny,nz)
 	if(dest)
 		A.forceMove(dest)
-		if(ismob(A))
+		if(is_mob(A))
 			var/mob/D = A
 			if(D.pulling)
 				D.pulling.forceMove(dest)

@@ -4,14 +4,14 @@
 	if(!client)
 		return
 
-	if(speaker && !speaker.client && isghost(src) && get_preference_value(/datum/client_preference/ghost_ears) == GLOB.PREF_ALL_SPEECH && !(speaker in view(src)))
+	if(speaker && !speaker.client && is_ghost(src) && get_preference_value(/datum/client_preference/ghost_ears) == GLOB.PREF_ALL_SPEECH && !(speaker in view(src)))
 			//Does the speaker have a client?  It's either random stuff that observers won't care about (Experiment 97B says, 'EHEHEHEHEHEHEHE')
 			//Or someone snoring.  So we make it where they won't hear it.
 		return
 
 	//make sure the air can transmit speech - hearer's side
 	var/turf/T = get_turf(src)
-	if ((T) && (!(isghost(src)))) //Ghosts can hear even in vacuum.
+	if ((T) && (!(is_ghost(src)))) //Ghosts can hear even in vacuum.
 		var/datum/gas_mixture/environment = T.return_air()
 		var/pressure = (environment)? environment.return_pressure() : 0
 		if(pressure < SOUND_MINIMUM_PRESSURE && get_dist(speaker, src) > 1)
@@ -53,7 +53,7 @@
 		message = "<i>[message]</i>"
 
 	var/track = null
-	if(isghost(src))
+	if(is_ghost(src))
 		if(speaker_name != speaker.real_name && speaker.real_name)
 			speaker_name = "[speaker.real_name] ([speaker_name])"
 		track = "([ghost_follow_link(speaker, src)]) "
@@ -132,7 +132,7 @@
 			if(hard_to_hear <= 5)
 				message = stars(message)
 			else // Used for compression
-				message = RadioChat(null, message, 80, 1+(hard_to_hear/10))
+				message = distort_chat_electric(null, message, 80, 1+(hard_to_hear/10))
 
 	var/speaker_name = vname || speaker.name
 
@@ -150,7 +150,7 @@
 		var/jobname // the mob's "job"
 		var/mob/living/carbon/human/impersonating //The crew member being impersonated, if any.
 
-		if (ishuman(speaker))
+		if (is_human_mob(speaker))
 			var/mob/living/carbon/human/H = speaker
 
 			if(H.wear_mask && istype(H.wear_mask,/obj/item/clothing/mask/chameleon/voice))
@@ -175,11 +175,11 @@
 			else
 				jobname = H.get_assignment()
 
-		else if (iscarbon(speaker)) // Nonhuman carbon mob
+		else if (is_carbon_mob(speaker)) // Nonhuman carbon mob
 			jobname = "No id"
-		else if (isAI(speaker))
+		else if (is_ai(speaker))
 			jobname = "AI"
-		else if (isrobot(speaker))
+		else if (is_robot(speaker))
 			jobname = "Robot"
 		else if (istype(speaker, /mob/living/silicon/pai))
 			jobname = "Personal AI"
@@ -194,8 +194,8 @@
 		else
 			track = "<a href='byond://?src=[REF(src)];trackname=[html_encode(speaker_name)];track=[REF(speaker)]'>[speaker_name] ([jobname])</a>"
 
-	if(isghost(src))
-		if(speaker_name != speaker.real_name && !isAI(speaker)) //Announce computer and various stuff that broadcasts doesn't use it's real name but AI's can't pretend to be other mobs.
+	if(is_ghost(src))
+		if(speaker_name != speaker.real_name && !is_ai(speaker)) //Announce computer and various stuff that broadcasts doesn't use it's real name but AI's can't pretend to be other mobs.
 			speaker_name = "[speaker.real_name] ([speaker_name])"
 		track = "[speaker_name] ([ghost_follow_link(speaker, src)])"
 
@@ -291,3 +291,89 @@
 		heard = "<span class = 'game_say'>...<i>You almost hear someone talking</i>...</span>"
 
 	to_chat(src, heard)
+
+/*
+distort_chat_eletric - distort a given message similar to electronically-transmitted communication
+using onomatopoeias and like
+
+Previously 'RadioChat' in modules/flufftext/TextFilters.dm
+args:
+message - returns a distorted version of this
+distortion_chance - the chance of a filter being applied to each character.
+distortion_speed - multiplier for the chance increase.
+distortion - starting distortion.
+*/
+/proc/distort_chat_electric(mob/living/user, message, distortion_chance = 60, distortion_speed = 1, distortion = 1)
+	var/datum/language/language
+	if(user)
+		language = user.get_default_language()
+	message = html_decode(message)
+	var/new_message = ""
+	var/input_size = length(message)
+	var/lentext = 0
+	if(input_size < 20) // Short messages get distorted too. Bit hacksy.
+		distortion += (20-input_size)/2
+	while(lentext <= input_size)
+		var/newletter=copytext(message, lentext, lentext+1)
+		if(!prob(distortion_chance))
+			new_message += newletter
+			lentext += 1
+			continue
+		if(newletter != " ")
+			if(prob(0.08 * distortion)) // Major cutout
+				newletter = "*zzzt*"
+				lentext += rand(1, (length(message) - lentext)) // Skip some characters
+				distortion += 1 * distortion_speed
+			else if(prob(0.8 * distortion)) // Minor cut out
+				if(prob(25))
+					newletter = ".."
+				else if(prob(25))
+					newletter = " "
+				else
+					newletter = ""
+				distortion += 0.25 * distortion_speed
+			else if(prob(2 * distortion)) // Mishearing
+				if(language && language.syllables && prob(50))
+					newletter = pick(language.syllables)
+				else
+					newletter =	pick("a","e","i","o","u")
+				distortion += 0.25 * distortion_speed
+			else if(prob(1.5 * distortion)) // Mishearing
+				if(language && prob(50))
+					if(language.syllables)
+						newletter = pick (language.syllables)
+					else
+						newletter = "*"
+				else
+					newletter += "*"
+				distortion += 0.5 * distortion_speed
+			else if(prob(0.75 * distortion)) // Incomprehensible
+				newletter = pick("<", ">", "!", "$", "%", "^", "&", "*", "~", "#")
+				distortion += 0.75 * distortion_speed
+			else if(prob(0.05 * distortion)) // Total cut out
+				new_message += "--- -BZZT-"
+				break
+			else if(prob(2.5 * distortion)) // Sound distortion. Still recognisable, mostly.
+				switch(lowertext(newletter))
+					if("s")
+						newletter = "sh"
+					if("e")
+						newletter = "i"
+					if("w")
+						newletter = "v"
+					if("y")
+						newletter = "i"
+					if("x")
+						newletter = "ks"
+					if("u")
+						newletter = "v"
+		else
+			if(prob(0.2 * distortion))
+				newletter = " *crackle* "
+				distortion += 0.25 * distortion_speed
+		if(prob(20))
+			capitalize(newletter)
+		new_message += newletter
+		lentext += 1
+	return new_message
+

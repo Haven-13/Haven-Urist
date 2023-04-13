@@ -80,17 +80,17 @@
 /obj/vehicle/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/hand_labeler))
 		return
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		if(!locked)
 			open = !open
 			update_icon()
 			to_chat(user, "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>")
-	else if(isCrowbar(W) && cell && open)
+	else if(is_crowbar(W) && cell && open)
 		remove_cell(user)
 
 	else if(istype(W, /obj/item/weapon/cell) && !cell && open)
 		insert_cell(W, user)
-	else if(isWelder(W))
+	else if(is_welder(W))
 		var/obj/item/weapon/weldingtool/T = W
 		if(T.welding)
 			if(health < maxhealth)
@@ -271,7 +271,7 @@
 /obj/vehicle/proc/load(var/atom/movable/C)
 	//This loads objects onto the vehicle so they can still be interacted with.
 	//Define allowed items for loading in specific vehicle definitions.
-	if(!isturf(C.loc)) //To prevent loading things from someone's inventory, which wouldn't get handled properly.
+	if(!is_turf(C.loc)) //To prevent loading things from someone's inventory, which wouldn't get handled properly.
 		return 0
 	if(load || C.anchored)
 		return 0
@@ -291,10 +291,10 @@
 		C.plane = plane
 		C.layer = ABOVE_VEHICLE_LAYER		//so it sits above the vehicle
 
-	if(ismob(C))
+	if(is_mob(C))
 		buckle_mob(C)
 	else if(load_item_visible)
-		if(ismob(C) && mob_offset_x != 0 && mob_offset_y != 0) //if the offset is not set, use load offset
+		if(is_mob(C) && mob_offset_x != 0 && mob_offset_y != 0) //if the offset is not set, use load offset
 			C.pixel_x += mob_offset_x
 			C.pixel_y += mob_offset_y
 		else
@@ -332,13 +332,13 @@
 		else
 			dest = get_turf(src)	//otherwise just dump it on the same turf as the vehicle
 
-	if(!isturf(dest))	//if there still is nowhere to unload, cancel out since the vehicle is probably in nullspace
+	if(!is_turf(dest))	//if there still is nowhere to unload, cancel out since the vehicle is probably in nullspace
 		return 0
 
 	load.forceMove(dest)
 	load.set_dir(get_dir(loc, dest))
 	load.anchored = 0		//we can only load non-anchored items, so it makes sense to set this to false
-	if(ismob(load)) //atoms should probably have their own procs to define how their pixel shifts and layer can be manipulated, someday
+	if(is_mob(load)) //atoms should probably have their own procs to define how their pixel shifts and layer can be manipulated, someday
 		var/mob/M = load
 		M.pixel_x = M.default_pixel_x
 		M.pixel_y = M.default_pixel_y
@@ -347,7 +347,7 @@
 		load.pixel_y = initial(load.pixel_y)
 	load.reset_plane_and_layer()
 
-	if(ismob(load))
+	if(is_mob(load))
 		unbuckle_mob(load)
 
 	load = null

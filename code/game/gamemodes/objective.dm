@@ -24,7 +24,7 @@ var/global/list/all_objectives = list()
 /datum/objective/proc/find_target()
 	var/list/possible_targets = list()
 	for(var/datum/mind/possible_target in SSticker.minds)
-		if(possible_target != owner && ishuman(possible_target.current) && (possible_target.current.stat != 2))
+		if(possible_target != owner && is_human_mob(possible_target.current) && (possible_target.current.stat != 2))
 			possible_targets += possible_target
 	if(possible_targets.len > 0)
 		target = pick(possible_targets)
@@ -32,7 +32,7 @@ var/global/list/all_objectives = list()
 
 /datum/objective/proc/find_target_by_role(role, role_type=0)//Option sets either to check assigned role or special role. Default to assigned.
 	for(var/datum/mind/possible_target in SSticker.minds)
-		if((possible_target != owner) && ishuman(possible_target.current) && ((role_type ? possible_target.special_role : possible_target.assigned_role) == role) )
+		if((possible_target != owner) && is_human_mob(possible_target.current) && ((role_type ? possible_target.special_role : possible_target.assigned_role) == role) )
 			target = possible_target
 			break
 
@@ -59,7 +59,7 @@ var/global/list/all_objectives = list()
 
 /datum/objective/assassinate/check_completion()
 	if(target && target.current)
-		if(target.current.stat == DEAD || issilicon(target.current) || isbrain(target.current) || target.current.z > 6 || !target.current.ckey) //Borgs/brains/AIs count as dead for traitor objectives. --NeoFite
+		if(target.current.stat == DEAD || is_silicon(target.current) || is_brain(target.current) || target.current.z > 6 || !target.current.ckey) //Borgs/brains/AIs count as dead for traitor objectives. --NeoFite
 			return 1
 		return 0
 	return 1
@@ -85,7 +85,7 @@ var/global/list/all_objectives = list()
 
 /datum/objective/anti_revolution/execute/check_completion()
 	if(target && target.current)
-		if(target.current.stat == DEAD || !ishuman(target.current))
+		if(target.current.stat == DEAD || !is_human_mob(target.current))
 			return 1
 		return 0
 	return 1
@@ -174,7 +174,7 @@ var/already_completed = 0
 		return 1
 	if( !owner.current || owner.current.stat==DEAD )//If you're otherwise dead.
 		return 0
-	if( !target.current || !isbrain(target.current) )
+	if( !target.current || !is_brain(target.current) )
 		return 0
 	var/atom/A = target.current
 	while(A.loc)			//check to see if the brainmob is on our person
@@ -206,7 +206,7 @@ var/already_completed = 0
 	if(!target)			//If it's a free objective.
 		return 1
 	if(target.current)
-		if(target.current.stat == DEAD || issilicon(target.current) || isbrain(target.current))
+		if(target.current.stat == DEAD || is_silicon(target.current) || is_brain(target.current))
 			return 0
 		return 1
 	return 0
@@ -220,7 +220,7 @@ var/already_completed = 0
 		return 0
 	if(!evacuation_controller.has_evacuated())
 		return 0
-	if(issilicon(owner.current))
+	if(is_silicon(owner.current))
 		return 0
 
 	var/area/shuttle/shuttle_area = get_area(owner.current)
@@ -258,9 +258,9 @@ var/already_completed = 0
 
 
 /datum/objective/escape/check_completion()
-	if(issilicon(owner.current))
+	if(is_silicon(owner.current))
 		return 0
-	if(isbrain(owner.current))
+	if(is_brain(owner.current))
 		return 0
 	if(!evacuation_controller.has_evacuated())
 		return 0
@@ -283,9 +283,9 @@ var/already_completed = 0
 	explanation_text = "Stay alive until the end."
 
 /datum/objective/survive/check_completion()
-	if(!owner.current || owner.current.stat == DEAD || isbrain(owner.current))
+	if(!owner.current || owner.current.stat == DEAD || is_brain(owner.current))
 		return 0		//Brains no longer win survive objectives. --NEO
-	if(issilicon(owner.current) && owner.current != owner.original)
+	if(is_silicon(owner.current) && owner.current != owner.original)
 		return 0
 	return 1
 
@@ -440,7 +440,7 @@ var/already_completed = 0
 
 /datum/objective/steal/check_completion()
 	if(!steal_target || !owner.current)	return 0
-	if(!isliving(owner.current))	return 0
+	if(!is_living_mob(owner.current))	return 0
 	var/list/all_items = owner.current.get_contents()
 	switch (target_name)
 		if("a functional AI")
@@ -466,7 +466,7 @@ var/already_completed = 0
 
 
 /datum/objective/download/check_completion()
-	if(!ishuman(owner.current))
+	if(!is_human_mob(owner.current))
 		return 0
 	if(!owner.current || owner.current.stat == 2)
 		return 0
@@ -531,7 +531,7 @@ var/already_completed = 0
 	var/list/priority_targets = list()
 
 	for(var/datum/mind/possible_target in SSticker.minds)
-		if(possible_target != owner && ishuman(possible_target.current) && (possible_target.current.stat != 2) && (!possible_target.special_role))
+		if(possible_target != owner && is_human_mob(possible_target.current) && (possible_target.current.stat != 2) && (!possible_target.special_role))
 			possible_targets += possible_target
 			for(var/role in roles)
 				if(possible_target.assigned_role == role)

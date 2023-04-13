@@ -107,7 +107,7 @@
 			if(href_list["amount"])
 				var/datum/reagent/their_reagent = locate(href_list["add"]) in R.reagent_list
 				if(their_reagent)
-					var/amount = Clamp((text2num(href_list["amount"])), 0, 200)
+					var/amount = clamp((text2num(href_list["amount"])), 0, 200)
 					R.trans_type_to(src, their_reagent.type, amount)
 
 		else if (href_list["addcustom"])
@@ -115,14 +115,14 @@
 			if(their_reagent)
 				useramount = input("Select the amount to transfer.", 30, useramount) as null|num
 				if(useramount)
-					useramount = Clamp(useramount, 0, 200)
+					useramount = clamp(useramount, 0, 200)
 					src.Topic(href, list("amount" = "[useramount]", "add" = href_list["addcustom"]), state)
 
 		else if (href_list["remove"])
 			if(href_list["amount"])
 				var/datum/reagent/my_reagents = locate(href_list["remove"]) in reagents.reagent_list
 				if(my_reagents)
-					var/amount = Clamp((text2num(href_list["amount"])), 0, 200)
+					var/amount = clamp((text2num(href_list["amount"])), 0, 200)
 					if(mode)
 						reagents.trans_type_to(beaker, my_reagents.type, amount)
 					else
@@ -134,7 +134,7 @@
 			if(my_reagents)
 				useramount = input("Select the amount to transfer.", 30, useramount) as null|num
 				if(useramount)
-					useramount = Clamp(useramount, 0, 200)
+					useramount = clamp(useramount, 0, 200)
 					src.Topic(href, list("amount" = "[useramount]", "remove" = href_list["removecustom"]), state)
 
 		else if (href_list["toggle"])
@@ -157,7 +157,7 @@
 
 			if (href_list["createpill_multiple"])
 				count = input("Select the number of pills to make.", "Max [max_pill_count]", pillamount) as num
-				count = Clamp(count, 1, max_pill_count)
+				count = clamp(count, 1, max_pill_count)
 
 			if(reagents.total_volume/count < 1) //Sanity checking.
 				return
@@ -291,11 +291,9 @@
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 /obj/machinery/reagentgrinder
-
 	name = "All-In-One Grinder"
 	icon = 'resources/icons/obj/kitchen.dmi'
 	icon_state = "juicer1"
-	layer = BELOW_OBJ_LAYER
 	density = 0
 	anchored = 0
 	use_power = 1

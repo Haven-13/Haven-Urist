@@ -34,7 +34,7 @@
 		. = TRUE
 		for(var/target_url in urls)
 			var/list/httpresponse = http_post(target_url, message)
-			if(!islist(httpresponse))
+			if(!is_list(httpresponse))
 				. = FALSE
 				continue
 			switch(httpresponse["status_code"])

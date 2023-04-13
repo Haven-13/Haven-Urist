@@ -148,7 +148,7 @@ The _flatIcons list is a cache for generated icon files.
 
 	if(A.color)
 		// Probably a colour matrix, could also check length(A.color) == 20 if color normalization becomes more complex in the future.
-		if(islist(A.color))
+		if(is_list(A.color))
 			flat.MapColors(arglist(A.color))
 
 		// Probably a valid color, could check length_char(A.color) == 7 if color normalization becomes etc etc etc.
@@ -156,7 +156,7 @@ The _flatIcons list is a cache for generated icon files.
 			flat.Blend(A.color, ICON_MULTIPLY)
 
 	// Colour matrices track/apply alpha changes in MapColors() above, so only apply if color isn't a matrix.
-	if(A.alpha < 255 && !islist(A.color))
+	if(A.alpha < 255 && !is_list(A.color))
 		flat.Blend(rgb(255, 255, 255, A.alpha), ICON_MULTIPLY)
 
 	return icon(flat, "", SOUTH)
@@ -206,9 +206,9 @@ The _flatIcons list is a cache for generated icon files.
 	if (!value) return color
 
 	var/list/RGB = ReadRGB(color)
-	RGB[1] = Clamp(RGB[1]+value,0,255)
-	RGB[2] = Clamp(RGB[2]+value,0,255)
-	RGB[3] = Clamp(RGB[3]+value,0,255)
+	RGB[1] = clamp(RGB[1]+value,0,255)
+	RGB[2] = clamp(RGB[2]+value,0,255)
+	RGB[3] = clamp(RGB[3]+value,0,255)
 	return rgb(RGB[1],RGB[2],RGB[3])
 
 /proc/sort_atoms_by_layer(var/list/atoms)

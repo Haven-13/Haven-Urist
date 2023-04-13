@@ -106,7 +106,7 @@ GLOBAL_LIST_EMPTY(adminfaxes)	//cache for faxes that have been sent to admins
 
 	if(href_list["scan"])
 		if (scan)
-			if(ishuman(usr))
+			if(is_human_mob(usr))
 				scan.loc = usr.loc
 				if(!usr.get_active_hand())
 					usr.put_in_hands(scan)

@@ -101,7 +101,7 @@
 
 	var/mob/living/T = input(src,"Who do you wish to leap at?") as null|anything in choices
 
-	if(!T || !isturf(T.loc) || !src || !isturf(loc)) return
+	if(!T || !is_turf(T.loc) || !src || !is_turf(loc)) return
 
 	if(get_dist(get_turf(T), get_turf(src)) > 4) return
 
@@ -158,7 +158,7 @@
 
 	var/mob/M = targets[target]
 
-	if(isghost(M) || M.stat == DEAD)
+	if(is_ghost(M) || M.stat == DEAD)
 		to_chat(src, "<span class='warning'>Not even a [src.species.name] can speak to the dead.</span>")
 		return
 

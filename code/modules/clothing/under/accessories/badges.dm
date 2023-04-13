@@ -46,14 +46,14 @@
 		set_desc(user)
 		return
 
-	if(isliving(user))
+	if(is_living_mob(user))
 		if(stored_name)
 			user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [stored_name], [badge_string].</span>","<span class='notice'>You display your [src.name].\nIt reads: [stored_name], [badge_string].</span>")
 		else
 			user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [badge_string].</span>","<span class='notice'>You display your [src.name]. It reads: [badge_string].</span>")
 
 /obj/item/clothing/accessory/badge/attack(mob/living/carbon/human/M, mob/living/user)
-	if(isliving(user))
+	if(is_living_mob(user))
 		user.visible_message("<span class='danger'>[user] invades [M]'s personal space, thrusting \the [src] into their face insistently.</span>","<span class='danger'>You invade [M]'s personal space, thrusting \the [src] into their face insistently.</span>")
 		if(stored_name)
 			to_chat(M, "<span class='warning'>It reads: [stored_name], [badge_string].</span>")

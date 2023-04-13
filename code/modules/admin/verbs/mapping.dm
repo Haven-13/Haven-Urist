@@ -27,6 +27,7 @@ var/intercom_range_display_status = 0
 	icon_state = "25percent"
 
 /obj/effect/debugging/camera_range/New()
+	..()
 	src.pixel_x = -224
 	src.pixel_y = -224
 
@@ -85,7 +86,7 @@ var/intercom_range_display_status = 0
 				if(C1.loc == C2.loc)
 					output += "<li>overlapping sec. cameras at \[[C1.x], [C1.y], [C1.z]\] ([C1.loc.loc]) Networks: [C1.network] and [C2.network]</font></li>"
 		var/turf/T = get_step(C1,turn(C1.dir,180))
-		if(!T || !isturf(T) || !T.density )
+		if(!T || !is_turf(T) || !T.density )
 			if(!(locate(/obj/structure/grille,T)))
 				var/window_check = 0
 				for(var/obj/structure/window/W in T)
@@ -277,7 +278,7 @@ var/list/debug_verbs = list (
 	for(var/atom/A in world)
 		if(istype(A,type_path))
 			var/atom/B = A
-			while(!(isturf(B.loc)))
+			while(!(is_turf(B.loc)))
 				if(B && B.loc)
 					B = B.loc
 				else

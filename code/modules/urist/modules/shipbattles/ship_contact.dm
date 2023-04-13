@@ -31,25 +31,21 @@
 		ui.open()
 
 /datum/ui_module/ship_contact/ui_data(mob/user)
-	var/list/data = host.initial_data()
+	. = host.initial_data()
+	.["nearby_ship"] = category_contents
 
-	data["nearby_ship"] = category_contents
+/datum/ui_module/ship_contact/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return .
 
-	return data
-
-/datum/ui_module/ship_contact/Topic(href, href_list)
-	ship = CC.target
-
-//	var/mob/user = usr
-	if(..())
-		return 1
-	if(href_list["engage"])
-		if(!CC.homeship.incombat) //ew
-			engage()
-
-	if(href_list["dock"])
-		if(!CC.homeship.incombat) //ew
-			dock()
+	switch(action)
+		if("engage")
+			if(!CC.homeship.incombat) //ew
+				engage()
+		if("dock")
+			if(!CC.homeship.incombat) //ew
+				dock()
 
 /datum/ui_module/ship_contact/proc/engage()
 	CC.homeship.enter_combat()
@@ -77,7 +73,7 @@
 		category.Add(list(list(
 			"name" = ship.name,
 			"desc" = ship.desc,
-			"faction" = ship.hiddenfaction,
+			"faction" = ship.hiddenfaction.name,
 			"hull" = ship.health,
 			"shield" = ship.shields
 		)))

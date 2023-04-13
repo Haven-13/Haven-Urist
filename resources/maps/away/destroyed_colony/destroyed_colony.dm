@@ -46,7 +46,7 @@
 	icon_state = ""
 
 /turf/simulated/floor/fixed/destroyedroad/attackby(var/obj/item/C, var/mob/user)
-	if(isCrowbar(C))
+	if(is_crowbar(C))
 		to_chat(user, "<span class='notice'>There aren't any openings big enough to pry it away...</span>")
 		return
 	return ..()

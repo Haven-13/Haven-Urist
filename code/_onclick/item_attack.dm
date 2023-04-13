@@ -38,7 +38,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		visible_message("<span class='danger'>[src] has been hit by [user] with [W].</span>")
 
 /mob/living/attackby(obj/item/I, mob/user)
-	if(!ismob(user))
+	if(!is_mob(user))
 		return 0
 	if(can_operate(src,user) && I.do_surgery(src,user)) //Surgery
 		return 1

@@ -50,6 +50,10 @@
 	RETURN_TYPE(/datum/ui_state)
 	return GLOB.admin_state
 
+/proc/ui_silicon_only_state()
+	RETURN_TYPE(/datum/ui_state)
+	return GLOB.silicon_only_state
+
 /proc/CanInteractWith(datum/user, datum/target, state)
 	return (target.CanUseTopic(user, state) == UI_INTERACTIVE)
 

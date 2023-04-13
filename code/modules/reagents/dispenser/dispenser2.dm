@@ -74,7 +74,7 @@
 	if(istype(W, /obj/item/weapon/reagent_containers/chem_disp_cartridge))
 		add_cartridge(W, user)
 
-	else if(isScrewdriver(W))
+	else if(is_screwdriver(W))
 		var/label = input(user, "Which cartridge would you like to remove?", "Chemical Dispenser") as null|anything in cartridges
 		if(!label) return
 		var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = remove_cartridge(label)
@@ -141,6 +141,8 @@
 	return data
 
 /obj/machinery/chemical_dispenser/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("amount")
 			amount = round(text2num(params["amount"]), 1) // round to nearest 1

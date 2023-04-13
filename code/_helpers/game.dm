@@ -45,7 +45,7 @@
 
 /proc/get_area_master(const/O)
 	var/area/A = get_area(O)
-	if (isarea(A))
+	if (is_area(A))
 		return A
 
 /proc/in_range(source, user)
@@ -171,7 +171,7 @@
 
 	for(var/I in O.contents)
 
-		if(ismob(I))
+		if(is_mob(I))
 			if(!sight_check || isInSight(I, O))
 				L |= recursive_content_check(I, L, recursion_limit - 1, client_check, sight_check, include_mobs, include_objects)
 				if(include_mobs)
@@ -203,7 +203,7 @@
 	var/list/range = hear(R, T)
 
 	for(var/I in range)
-		if(ismob(I))
+		if(is_mob(I))
 			hear |= recursive_content_check(I, hear, 3, 1, 0, include_mobs, include_objects)
 			if(include_mobs)
 				var/mob/M = I
@@ -249,7 +249,7 @@
 			var/turf/ear = get_turf(M)
 			if(ear)
 				// Ghostship is magic: Ghosts can hear radio chatter from anywhere
-				if(speaker_coverage[ear] || (isghost(M) && M.get_preference_value(/datum/client_preference/ghost_radio) == GLOB.PREF_ALL_CHATTER))
+				if(speaker_coverage[ear] || (is_ghost(M) && M.get_preference_value(/datum/client_preference/ghost_radio) == GLOB.PREF_ALL_CHATTER))
 					. |= M		// Since we're already looping through mobs, why bother using |= ? This only slows things down.
 	return .
 
@@ -259,10 +259,10 @@
 	var/list/hearturfs = list()
 
 	for(var/atom/movable/AM in hear)
-		if(ismob(AM))
+		if(is_mob(AM))
 			mobs += AM
 			hearturfs += get_turf(AM)
-		else if(isobj(AM))
+		else if(is_obj(AM))
 			objs += AM
 			hearturfs += get_turf(AM)
 
@@ -369,7 +369,7 @@
 	return candidates
 
 /proc/ScreenText(obj/O, maptext="", screen_loc="CENTER-7,CENTER-7", maptext_height=480, maptext_width=480)
-	if(!isobj(O))	O = new /atom/movable/screen/text()
+	if(!is_obj(O))	O = new /atom/movable/screen/text()
 	O.maptext = maptext
 	O.maptext_height = maptext_height
 	O.maptext_width = maptext_width
@@ -377,7 +377,7 @@
 	return O
 
 /proc/Show2Group4Delay(obj/O, list/group, delay=0)
-	if(!isobj(O))	return
+	if(!is_obj(O))	return
 	if(!group)	group = GLOB.clients
 	for(var/client/C in group)
 		C.screen += O

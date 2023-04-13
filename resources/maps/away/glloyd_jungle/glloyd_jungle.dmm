@@ -135,7 +135,7 @@
 /turf/simulated/floor/planet/jungle/impenetrable,
 /area/planet/jungle/away)
 "aK" = (
-/obj/effect/landmark/animal_spawner/random/jungle/crosstrigger,
+/obj/effect/landmark/random_animal_spawner/jungle/crosstrigger,
 /turf/simulated/floor/planet/jungle/impenetrable,
 /area/planet/jungle/away)
 "aL" = (

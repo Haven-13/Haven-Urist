@@ -7,7 +7,7 @@
 		to_chat(usr, "Wait until the game starts")
 		return FALSE
 
-	if(!ishuman(M))
+	if(!is_human_mob(M))
 		to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
 		return FALSE
 

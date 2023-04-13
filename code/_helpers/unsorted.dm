@@ -334,9 +334,9 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/list/logged_list = list()
 	for(var/named in old_list)
 		var/mob/M = old_list[named]
-		if(issilicon(M))
+		if(is_silicon(M))
 			AI_list |= M
-		else if(isghost(M) || M.stat == DEAD)
+		else if(is_ghost(M) || M.stat == DEAD)
 			Dead_list |= M
 		else if(M.key && M.client)
 			keyclient_list |= M
@@ -371,7 +371,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		if (M.real_name && M.real_name != M.name)
 			name += " \[[M.real_name]\]"
 		if (M.stat == DEAD)
-			if(isobserver(M))
+			if(is_observer(M))
 				name += " \[observer\]"
 			else
 				name += " \[dead\]"
@@ -558,7 +558,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /proc/get_areas(var/areatype)
 	if(!areatype) return null
 	if(istext(areatype)) areatype = text2path(areatype)
-	if(isarea(areatype))
+	if(is_area(areatype))
 		var/area/areatemp = areatype
 		areatype = areatemp.type
 
@@ -572,7 +572,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /proc/get_area_all_atoms(var/areatype)
 	if(!areatype)
 		return null
-	if(isarea(areatype))
+	if(is_area(areatype))
 		var/area/areatemp = areatype
 		areatype = areatemp.type
 	if(!ispath(areatype, /area))
@@ -1046,7 +1046,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 
 //clicking to move pulled objects onto assignee's turf/loc
 /proc/do_pull_click(mob/user, atom/A)
-	if(ismob(user.pulling))
+	if(is_mob(user.pulling))
 		var/mob/M = user.pulling
 		var/atom/movable/t = M.pulling
 		M.stop_pulling()

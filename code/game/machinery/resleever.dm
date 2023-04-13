@@ -122,8 +122,7 @@
 	return data
 
 /obj/machinery/resleever/ui_act(action, params)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 	switch(action)
 		if("begin")
 			sleeve()
@@ -168,7 +167,7 @@
 		else
 			to_chat(user, "<span class='warning'>\The [src] already has a neural lace inside it!</span>")
 			return
-	else if(isWrench(W))
+	else if(is_wrench(W))
 		if(isnull(occupant))
 			if(anchored)
 				anchored = 0
@@ -186,7 +185,7 @@
 			to_chat(user, "<span class='notice'>\The [src] is in use.</span>")
 			return
 
-		if(!ismob(grab.affecting))
+		if(!is_mob(grab.affecting))
 			return
 
 		if(!check_occupant_allowed(grab.affecting))

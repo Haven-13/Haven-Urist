@@ -28,7 +28,7 @@
 		return 1
 
 	var/chance = 20
-	if(ismob(P.original) && get_turf(P.original) == cover)
+	if(is_mob(P.original) && get_turf(P.original) == cover)
 		var/mob/M = P.original
 		if (M.lying)
 			chance += 20				//Lying down lets you catch less bullets
@@ -71,7 +71,7 @@
 
 	if ((!( istype(O, /obj/item/weapon) ) || user.get_active_hand() != O))
 		return ..()
-	if(isrobot(user))
+	if(is_robot(user))
 		return
 	user.unequip_item()
 	if (O.loc != src.loc)
@@ -101,7 +101,7 @@
 			return
 
 	// Handle dismantling or placing things on the table from here on.
-	if(isrobot(user))
+	if(is_robot(user))
 		return
 
 	if(W.loc != user) // This should stop mounted modules ending up outside the module.
@@ -156,8 +156,8 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 	var/mouse_x = text2num(click_data["icon-x"])-1 // Ranging from 0 to 31
 	var/mouse_y = text2num(click_data["icon-y"])-1
 
-	var/cell_x = Clamp(round(mouse_x/CELLSIZE), 0, CELLS-1) // Ranging from 0 to CELLS-1
-	var/cell_y = Clamp(round(mouse_y/CELLSIZE), 0, CELLS-1)
+	var/cell_x = clamp(round(mouse_x/CELLSIZE), 0, CELLS-1) // Ranging from 0 to CELLS-1
+	var/cell_y = clamp(round(mouse_y/CELLSIZE), 0, CELLS-1)
 
 	var/list/center = cached_key_number_decode(W.center_of_mass)
 

@@ -70,7 +70,7 @@
 /mob/living/simple_animal/hostile/scom/GiveTarget(var/new_target)
 	target = new_target
 	if(target != null)
-		if(isliving(target))
+		if(is_living_mob(target))
 			Aggro()
 			stance = HOSTILE_STANCE_ATTACK
 

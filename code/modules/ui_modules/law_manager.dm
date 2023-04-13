@@ -94,7 +94,7 @@
 	if(href_list["change_supplied_law_position"])
 		var/new_position = input(usr, "Enter new supplied law position between 1 and [MAX_SUPPLIED_LAW_NUMBER], inclusive. Inherent laws at the same index as a supplied law will not be stated.", "Law Position", supplied_law_position) as num|null
 		if(isnum(new_position) && can_still_topic())
-			supplied_law_position = Clamp(new_position, 1, MAX_SUPPLIED_LAW_NUMBER)
+			supplied_law_position = clamp(new_position, 1, MAX_SUPPLIED_LAW_NUMBER)
 		return 1
 
 	if(href_list["edit_law"])
@@ -136,7 +136,7 @@
 	if(href_list["notify_laws"])
 		to_chat(owner, "<span class='danger'>Law Notice</span>")
 		owner.laws.show_laws(owner)
-		if(isAI(owner))
+		if(is_ai(owner))
 			var/mob/living/silicon/ai/AI = owner
 			for(var/mob/living/silicon/robot/R in AI.connected_robots)
 				to_chat(R, "<span class='danger'>Law Notice</span>")
@@ -169,7 +169,7 @@
 	package_laws(data, "inherent_laws", owner.laws.inherent_laws)
 	package_laws(data, "supplied_laws", owner.laws.supplied_laws)
 
-	data["isAI"] = isAI(owner)
+	data["isAI"] = is_ai(owner)
 	data["isMalf"] = is_malf(user)
 	data["isSlaved"] = owner.is_slaved()
 	data["isAdmin"] = is_admin(user)

@@ -34,7 +34,7 @@ Proc returns a boolean if successful.
 	if( !( damage_type in list( DAMAGE_TYPE_BRUTE, DAMAGE_TYPE_BURN, DAMAGE_TYPE_TOXIN, DAMAGE_TYPE_ASPHYXIA, DAMAGE_TYPE_GENETIC, DAMAGE_TYPE_PAIN ) ) ) //End the proc with a false return if we're not doing a valid damage type.
 		return FALSE
 
-	if(!iscarbon(target)) //No. You cannot backstab the borg.
+	if(!is_carbon_mob(target)) //No. You cannot backstab the borg.
 		return FALSE
 
 	if(damage < 0) //No negative values allowed.
@@ -73,7 +73,7 @@ Proc returns a boolean if successful.
 		//Let's actually do the backstab.
 		var/mob/living/carbon/human/H
 
-		if(ishuman(target))
+		if(is_human_mob(target))
 
 			H = target
 			var/obj/item/organ/external/stabbed_part = H.get_organ(target_zone)

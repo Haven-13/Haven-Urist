@@ -128,7 +128,7 @@ var/datum/uplink/uplink = new()
 		var/list/L = I
 		if(L.len) I = L[1]
 
-	if(istype(I) && ishuman(user))
+	if(istype(I) && is_human_mob(user))
 		var/mob/living/carbon/human/A = user
 		A.put_in_any_hand_if_possible(I)
 	return I

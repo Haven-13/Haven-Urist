@@ -441,3 +441,101 @@
   - bugfix: Fixed initialization issues related to explosions spawned in map init.
   - bugfix: Fixes the multi-z rendering issue, in which it would be permanently broken
       for a player the moment they enter a submap with incorrect Z ordering.
+2022-01-22:
+  martinlyra:
+  - bugfix: Fixed atoms not being loaded correctly when spawned midgame.
+2022-01-24:
+  Glloyd, martinlyra, Naxodile:
+  - rscadd: Added a pirate station that periodically spawns pirate vessels to fight
+  - rscadd: Added more features to ship combat against NPC vessels
+  - rscadd: Added the datumized faction system from Urist
+  - rscadd: Added factions reputation and relation from Urist
+  - rscadd: Ghosts should be able to spawn as defenders on the pirate station upon
+      the first breach
+  - tweak: Datumized ship weapon ammunition
+  - tweak: Player-controlled vessels should be able to engage in PvP ship combat,
+      untested
+  - tweak: Most Urist content now uses the datumized faction system
+  - tweak: Ports revised burst firing mechanic for ship weapons
+  - balance: NPC ship shields are now generally tougher
+2022-01-29:
+  martinlyra:
+  - bugfix: Fixed the main elevator using the wrong turf for the bottommost deck on
+      Pluto
+  - tweak: Due to outdated code, the projectile effect for the ninja net thrower has
+      been disabled
+  - bugfix: Fixed mining turfs showing up as bright when they should not
+  - bugfix: Fixed projectiles not showing up properly
+  - tweak: Optimized how global variables and information are handled by the game.
+  - tweak: Globals, statics, and constants are now unit-tested for sanity
+  - rscadd: Added the missing UI for gas tanks
+  - bugfix: Fixed the UI being missing for all gas tanks that can be activated in
+      hand
+  - tweak: Show Server Revision now shows both the client's and server's full version
+  - tweak: Updated the TGS host to attempt fix withstanding issues with the version
+      information and more features.
+  - bugfix: Fixed test-merge information not showing up properly
+  - bugfix: Fixed sever-revision info not showing up properly
+  - spellcheck: Oxford Comma is now default for text from `english_list`, expect to
+      see them in plenty of places
+  - bugfix: Fixed a runtime error related to vis_locs when viewed in View-Variables
+      debug tool
+2022-02-01:
+  martinlyra:
+  - rscadd: Added the missing RCON program UI
+  - bugfix: Addressed a security issue related to dependency in tgUI
+  - rscadd: Added the missing UI for airlocks being controlled by silicons
+  - bugfix: Fixed AI not being able to "see" objects despite player vision
+  - rscadd: Added UI for the Shield Monitoring program
+  - tweak: Changed the toggle button on the shields' mode settings to larger checkbox
+      buttons
+  - bugfix: Fixed the Shield Monitoring program's UI being missing among with few
+      immediate fixes to the UI data and interaction
+2022-02-02:
+  martinlyra:
+  - bugfix: Fixed a priority issue with background ticker subsystems
+  - bugfix: Fixed permission check issues with UI where ghosts would be able to interact
+      UI unrestricted
+  - bugfix: Fixed users never leaving fingerprints on objects they interact with via
+      UI due to improper use of the interaction proc
+2022-02-04:
+  Lohikar, Semoro, and azizonkg:
+  - tweak: Updated the timer subsystem to latest critical Baystation12 code.
+  - tweak: Optimized the timer performance
+  - tweak: Improved the reliability of the timer subsystem and its logic
+2022-02-07:
+  martinlyra:
+  - tweak: Updated tgUI dependencies; hopefully improving its overall performance
+      or stability
+  - tweak: Some initialization reporting and metrics are now publicly visible
+  - bugfix: Fixed few oddities with few items and objectes due to improper initalization
+  - tweak: Tweaked the textbox colours and fixed links being too dark against the
+      dark background
+  - tweak: Most CSS are now external, allowing them to be reloaded without the need
+      of recompiling the game
+2022-02-17:
+  martinlyra:
+  - rscdel: Removed dreaming from mobs
+  - tweak: Changed how radio distortion change certain letters
+  - tweak: Changed how drunk slurring distort speech, adding few more different flavours
+      to it
+2022-10-30:
+  martinlyra:
+  - rscadd: Added a way to reload the CSS for the chatbox and map-view.
+  - tweak: Restyled some chat box messages
+  - tweak: Changed language style in the chat box to be more readable
+  - bugfix: Fixed the chat channel icons not showing up proper
+  - rscadd: Added the missing tgUI for Atmospheric Control
+  - tweak: Instead of opening a new window, remoting into an air alarm using the Atmospheric
+      Control will show the interface on the same window.
+  - tweak: Bulk strings are handled as resources rather than configuration objects
+      or hardcoded values
+  - bugfix: Fixed controller stat-entries for developers
+  - bugfix: Fixed the all-around-grinders appearing under tables
+  - bugfix: Fixed areas appearing underneath the world in map editors
+  - tweak: AIs can no longer interact with portable generators
+  - bugfix: Fixed the Pacman generator reopening the UI when running
+2023-04-03:
+  martinlyra:
+  - bugfix: Fixed a critical bug regarding subsystem priority discovered by wixoaGit
+      and fix implemented @ tgstation

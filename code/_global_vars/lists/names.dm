@@ -9,8 +9,5 @@ GLOBAL_LIST_INIT(first_names_female, world.file2list("resources/strings/names/fi
 GLOBAL_LIST_INIT(last_names, world.file2list("resources/strings/names/last.txt"))
 GLOBAL_LIST_INIT(clown_names, world.file2list("resources/strings/names/clown.txt"))
 
-
-GLOBAL_LIST_INIT(verbs, world.file2list("resources/strings/verbs.txt"))
-GLOBAL_LIST_INIT(adjectives, world.file2list("cresources/strings/adjectives.txt"))
 //loaded on startup because of "
 //would include in rsc if ' was used

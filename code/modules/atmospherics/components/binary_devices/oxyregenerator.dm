@@ -49,7 +49,7 @@
 		return
 	if(default_part_replacement(user, O))
 		return
-	if(isWrench(O))
+	if(is_wrench(O))
 		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 75, 1)
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \

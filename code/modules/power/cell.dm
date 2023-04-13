@@ -92,7 +92,7 @@
 
 /obj/item/weapon/cell/emp_act(severity)
 	//remove this once emp changes on dev are merged in
-	if(isrobot(loc))
+	if(is_robot(loc))
 		var/mob/living/silicon/robot/R = loc
 		severity *= R.cell_emp_mult
 

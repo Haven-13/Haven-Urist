@@ -52,7 +52,7 @@
 		var/mob/M = null
 		if(A == src)
 			continue
-		if(isliving(A))
+		if(is_living_mob(A))
 			M = A
 		if(istype(A,/obj/mecha))
 			var/obj/mecha/mecha = A

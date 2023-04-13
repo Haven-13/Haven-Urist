@@ -121,13 +121,13 @@
 
 	var/damage = rand(20,30)
 
-	if(ishuman(target))
+	if(is_human_mob(target))
 		var/mob/living/carbon/human/H = target
 		var/dam_zone = pick(BP_CHEST, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG)
 		var/obj/item/organ/external/affecting = H.get_organ(ran_zone(dam_zone))
 		H.apply_damage(damage, DAMAGE_TYPE_BRUTE, affecting, H.run_armor_check(affecting, "melee"), DAMAGE_FLAGS_SHARP|DAMAGE_FLAGS_EDGE) //TODO damage_flags var on simple_animals, maybe?
 		return H
-	else if(isliving(target))
+	else if(is_living_mob(target))
 		var/mob/living/L = target
 		L.adjustBruteLoss(damage)
 		return L

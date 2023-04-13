@@ -27,7 +27,7 @@
 
 /mob/living/carbon/human/RangedAttack(var/atom/A)
 	//Climbing up open spaces
-	if((istype(A, /turf/simulated/floor) || istype(A, /turf/unsimulated/floor) || istype(A, /obj/structure/lattice) || istype(A, /obj/structure/catwalk)) && isturf(loc) && shadow && !is_physically_disabled()) //Climbing through openspace
+	if((istype(A, /turf/simulated/floor) || istype(A, /turf/unsimulated/floor) || istype(A, /obj/structure/lattice) || istype(A, /obj/structure/catwalk)) && is_turf(loc) && shadow && !is_physically_disabled()) //Climbing through openspace
 		var/turf/T = get_turf(A)
 		var/turf/above = shadow.loc
 		if(T.Adjacent(shadow) && above.CanZPass(src, UP)) //Certain structures will block passage from below, others not
@@ -131,7 +131,7 @@
 			if (I_GRAB) // We feed
 				Wrap(M)
 			if (I_HURT) // Attacking
-				if(iscarbon(M) && prob(15))
+				if(is_carbon_mob(M) && prob(15))
 					M.visible_message("<span class='danger'>[src] has pounced at [M]!</span>", "<span class='danger'>[src] has pounced at you!</span>")
 					M.Weaken(power)
 				else

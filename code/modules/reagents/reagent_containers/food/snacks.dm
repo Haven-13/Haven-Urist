@@ -152,7 +152,7 @@
 
 	if (is_sliceable())
 		//these are used to allow hiding edge items in food that is not on a table/tray
-		var/can_slice_here = isturf(src.loc) && ((locate(/obj/structure/table) in src.loc) || (locate(/obj/machinery/optable) in src.loc) || (locate(/obj/item/weapon/tray) in src.loc))
+		var/can_slice_here = is_turf(src.loc) && ((locate(/obj/structure/table) in src.loc) || (locate(/obj/machinery/optable) in src.loc) || (locate(/obj/item/weapon/tray) in src.loc))
 		var/hide_item = !has_edge(W) || !can_slice_here
 
 		if (hide_item)
@@ -198,7 +198,7 @@
 /// FOOD END
 ////////////////////////////////////////////////////////////////////////////////
 /obj/item/weapon/reagent_containers/food/snacks/attack_generic(var/mob/living/user)
-	if(!isanimal(user) && !isalien(user))
+	if(!is_animal(user) && !is_alien(user))
 		return
 	user.visible_message("<b>[user]</b> nibbles away at \the [src].","You nibble away at \the [src].")
 	bitecount++
@@ -1432,7 +1432,7 @@
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube/On_Consume(var/mob/M)
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		H.visible_message("<span class='warning'>A screeching creature bursts out of [M]'s chest!</span>")
 		var/obj/item/organ/external/organ = H.get_organ(BP_CHEST)
@@ -2924,18 +2924,22 @@
 	..()
 
 /obj/item/pizzabox/margherita/New()
+	..()
 	pizza = new /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/margherita(src)
 	boxtag = "Margherita Deluxe"
 
 /obj/item/pizzabox/vegetable/New()
+	..()
 	pizza = new /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/vegetablepizza(src)
 	boxtag = "Gourmet Vegatable"
 
 /obj/item/pizzabox/mushroom/New()
+	..()
 	pizza = new /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/mushroompizza(src)
 	boxtag = "Mushroom Special"
 
 /obj/item/pizzabox/meat/New()
+	..()
 	pizza = new /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/meatpizza(src)
 	boxtag = "Meatlover's Supreme"
 

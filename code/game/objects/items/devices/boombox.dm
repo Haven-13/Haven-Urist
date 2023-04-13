@@ -87,7 +87,7 @@
 		return FALSE
 
 /obj/item/device/boombox/attackby(var/obj/item/W, var/mob/user)
-	if(isScrewdriver(W))
+	if(is_screwdriver(W))
 		if(!panel)
 			user.visible_message(SPAN_NOTICE("\The [user] re-attaches \the [src]'s front panel with \the [W]."), SPAN_NOTICE("You re-attach \the [src]'s front panel."))
 			playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
@@ -142,7 +142,7 @@
 		frequency += 0.1
 	else if(operation == tighten)
 		frequency -= 0.1
-	frequency = Clamp(frequency, MIN_FREQUENCY, MAX_FREQUENCY)
+	frequency = clamp(frequency, MIN_FREQUENCY, MAX_FREQUENCY)
 
 	user.visible_message(SPAN_NOTICE("\The [user] adjusts \the [src]'s player head."), SPAN_NOTICE("You adjust \the [src]'s player head."))
 	playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
@@ -186,7 +186,7 @@
 	stop()
 
 /obj/item/device/boombox/proc/change_volume(var/new_volume)
-	volume = Clamp(new_volume, 0, max_volume)
+	volume = clamp(new_volume, 0, max_volume)
 	if(sound_token)
 		sound_token.SetVolume(volume)
 

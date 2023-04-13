@@ -101,14 +101,14 @@
 		update_name()
 		if(do_after(user,30, progress = 1))
 			user.visible_message("\The [user] finishes wiping off the [A]!")
-			if(isturf(A))
+			if(is_turf(A))
 				var/turf/T = A
 				T.clean(src, user)
 			else
 				A.clean_blood()
 
 /obj/item/weapon/reagent_containers/glass/rag/attack(atom/target as obj|turf|area, mob/user as mob , flag)
-	if(isliving(target))
+	if(is_living_mob(target))
 		var/mob/living/M = target
 		if(on_fire)
 			user.visible_message("<span class='danger'>\The [user] hits [target] with [src]!</span>",)
@@ -149,7 +149,7 @@
 	if(!on_fire && istype(A) && (src in user))
 		if(A.is_open_container() && !(A in user))
 			remove_contents(user, A)
-		else if(!ismob(A)) //mobs are handled in attack() - this prevents us from wiping down people while smothering them.
+		else if(!is_mob(A)) //mobs are handled in attack() - this prevents us from wiping down people while smothering them.
 			wipe_down(A, user)
 		return
 
@@ -207,7 +207,7 @@
 		extinguish()
 
 	//copied from matches
-	if(isliving(loc))
+	if(is_living_mob(loc))
 		var/mob/living/M = loc
 		M.IgniteMob()
 	var/turf/location = get_turf(src)

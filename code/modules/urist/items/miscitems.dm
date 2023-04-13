@@ -285,7 +285,7 @@
 	..()
 
 /obj/item/weapon/flame/torch/Process()
-	if(isliving(loc))
+	if(is_living_mob(loc))
 		var/mob/living/M = loc
 		M.IgniteMob()
 	var/turf/location = get_turf(src)

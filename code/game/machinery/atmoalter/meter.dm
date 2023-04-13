@@ -78,7 +78,7 @@
 /obj/machinery/meter/examine(mob/user)
 	. = ..()
 
-	if(get_dist(user, src) > 3 && !(istype(user, /mob/living/silicon/ai) || isghost(user)))
+	if(get_dist(user, src) > 3 && !(istype(user, /mob/living/silicon/ai) || is_ghost(user)))
 		to_chat(user, "<span class='warning'>You are too far away to read it.</span>")
 
 	else if(stat & (NOPOWER|BROKEN))
@@ -103,7 +103,7 @@
 	return ..()
 
 /obj/machinery/meter/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(!isWrench(W))
+	if(!is_wrench(W))
 		return ..()
 	playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")

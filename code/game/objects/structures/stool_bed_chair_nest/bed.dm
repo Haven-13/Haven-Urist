@@ -90,7 +90,7 @@
 				return
 
 /obj/structure/bed/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isWrench(W))
+	if(is_wrench(W))
 		playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
 		dismantle()
 		qdel(src)
@@ -119,7 +119,7 @@
 		add_padding(padding_type)
 		return
 
-	else if(isWirecutter(W))
+	else if(is_wirecutter(W))
 		if(!padding_material)
 			to_chat(user, "\The [src] has no padding to remove.")
 			return
@@ -145,7 +145,7 @@
 /obj/structure/bed/forceMove()
 	. = ..()
 	if(buckled_mob)
-		if(isturf(src.loc))
+		if(is_turf(src.loc))
 			buckled_mob.forceMove(src.loc)
 		else
 			unbuckle_mob()
@@ -202,7 +202,7 @@
 		icon_state = "down"
 
 /obj/structure/bed/roller/attackby(obj/item/I as obj, mob/user as mob)
-	if(isWrench(I) || istype(I, /obj/item/stack) || isWirecutter(I))
+	if(is_wrench(I) || istype(I, /obj/item/stack) || is_wirecutter(I))
 		return
 	..()
 
@@ -238,7 +238,7 @@
 /obj/structure/bed/roller/MouseDrop(over_object, src_location, over_location)
 	..()
 	if(!CanMouseDrop(over_object))	return
-	if(!(ishuman(usr) || isrobot(usr)))	return
+	if(!(is_human_mob(usr) || is_robot(usr)))	return
 	if(buckled_mob)	return
 
 	collapse()

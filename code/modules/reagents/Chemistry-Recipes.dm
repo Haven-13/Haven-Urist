@@ -76,7 +76,7 @@
 //called after processing reactions, if they occurred
 /datum/chemical_reaction/proc/post_reaction(var/datum/reagents/holder)
 	var/atom/container = holder.my_atom
-	if(mix_message && container && !ismob(container))
+	if(mix_message && container && !is_mob(container))
 		var/turf/T = get_turf(container)
 		var/list/seen = viewers(4, T)
 		for(var/mob/M in seen)
@@ -479,7 +479,7 @@
 /datum/chemical_reaction/explosion_potassium/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/datum/effect/effect/system/reagents_explosion/e = new()
 	e.set_up(round (created_volume/10, 1), holder.my_atom, 0, 0)
-	if(isliving(holder.my_atom))
+	if(is_living_mob(holder.my_atom))
 		e.amount *= 0.5
 		var/mob/living/L = holder.my_atom
 		if(L.stat != DEAD)
@@ -539,7 +539,7 @@
 /datum/chemical_reaction/nitroglycerin/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/datum/effect/effect/system/reagents_explosion/e = new()
 	e.set_up(round (created_volume/2, 1), holder.my_atom, 0, 0)
-	if(isliving(holder.my_atom))
+	if(is_living_mob(holder.my_atom))
 		e.amount *= 0.5
 		var/mob/living/L = holder.my_atom
 		if(L.stat!=DEAD)

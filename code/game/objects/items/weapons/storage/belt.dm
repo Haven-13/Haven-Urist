@@ -23,7 +23,7 @@
 	update_icon()
 
 /obj/item/weapon/storage/belt/update_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_belt()
 
@@ -38,7 +38,7 @@
 		var/list/ret_overlays = list()
 		for(var/obj/item/I in contents)
 			var/use_state = (I.item_state || I.icon_state)
-			if(ishuman(user_mob))
+			if(is_human_mob(user_mob))
 				var/mob/living/carbon/human/H = user_mob
 				ret_overlays += H.species.get_offset_overlay_image(FALSE, 'resources/icons/mob/onmob/belt.dmi', use_state, I.color, slot)
 			else
@@ -85,7 +85,7 @@
 	H.examine_holster(user)
 
 /obj/item/weapon/storage/belt/holster/update_icon()
-	if (ismob(src.loc))
+	if (is_mob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_belt()
 

@@ -142,7 +142,7 @@
 
 	if(panel_open)
 		//Don't eat multitools or wirecutters used on an open lathe.
-		if(isMultitool(O) || isWirecutter(O))
+		if(is_multitool(O) || is_wirecutter(O))
 			attack_hand(user)
 			return
 
@@ -288,9 +288,9 @@
 
 /obj/machinery/autolathe/MouseDrop(var/over_location)
 	..()
-	if(!isliving(usr))
+	if(!is_living_mob(usr))
 		return
-	if(!isturf(over_location))
+	if(!is_turf(over_location))
 		over_location = get_turf(over_location)
 	if(Adjacent(over_location) && Adjacent(usr))
 		for(var/obj/item/O in over_location)
@@ -364,7 +364,7 @@
 	var/mat_number = input(user, "How much do you want to extract? (Max: 60)", "Materials Extraction") as num
 	if(!mat_number)
 		return
-	mat_number = Clamp(mat_number, 0, 60)
+	mat_number = clamp(mat_number, 0, 60)
 	var/extraction_path
 	switch(material)
 		if("steel")
@@ -379,7 +379,7 @@
 	if(stored_materials < mat_cost) //Not enough material stored. Settle for the next best thing.
 		var/new_mat_number = stored_materials / SHEET_MATERIAL_AMOUNT
 		mat_number = new_mat_number
-	mat_number = Clamp(mat_number, 0, 60) // Clamp and round to prevent decimal issues.
+	mat_number = clamp(mat_number, 0, 60) // clamp and round to prevent decimal issues.
 	mat_number = Floor(mat_number)
 	mat_cost = mat_number * SHEET_MATERIAL_AMOUNT
 	if(SHEET_MATERIAL_AMOUNT > stored_materials)

@@ -79,7 +79,7 @@
 	var/computerid
 	var/ip
 
-	if(ismob(banned_mob))
+	if(is_mob(banned_mob))
 		ckey = banned_mob.ckey
 		if(banned_mob.client)
 			computerid = banned_mob.client.computer_id

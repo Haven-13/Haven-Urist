@@ -8,7 +8,7 @@
 			log_bad("[sh] does not have a valid handled type. Expected a path, was [log_info_line(sh.handled_type)]")
 			faulty_handlers |= sh
 
-		if(!islist(sh.handled_vars))
+		if(!is_list(sh.handled_vars))
 			log_bad("[sh] does not have a handled variables list. Expected a list, was [log_info_line(sh.handled_vars)]")
 			faulty_handlers |= sh
 		else if(!sh.handled_vars.len)

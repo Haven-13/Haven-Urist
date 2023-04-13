@@ -3,11 +3,11 @@
 	if(!C || !user)
 		return 0
 
-	if(isCoil(C) || (flooring && istype(C, /obj/item/stack/rods)))
+	if(is_coil(C) || (flooring && istype(C, /obj/item/stack/rods)))
 		return ..(C, user)
 
 	if(flooring)
-		if(isCrowbar(C))
+		if(is_crowbar(C))
 			if(broken || burnt)
 				to_chat(user, "<span class='notice'>You remove the broken [flooring.descriptor].</span>")
 				make_plating()
@@ -21,14 +21,14 @@
 				return
 			playsound(src, 'resources/sound/items/Crowbar.ogg', 80, 1)
 			return
-		else if(isScrewdriver(C) && (flooring.flags & TURF_REMOVE_SCREWDRIVER))
+		else if(is_screwdriver(C) && (flooring.flags & TURF_REMOVE_SCREWDRIVER))
 			if(broken || burnt)
 				return
 			to_chat(user, "<span class='notice'>You unscrew and remove the [flooring.descriptor].</span>")
 			make_plating(1)
 			playsound(src, 'resources/sound/items/Screwdriver.ogg', 80, 1)
 			return
-		else if(isWrench(C) && (flooring.flags & TURF_REMOVE_WRENCH))
+		else if(is_wrench(C) && (flooring.flags & TURF_REMOVE_WRENCH))
 			to_chat(user, "<span class='notice'>You unwrench and remove the [flooring.descriptor].</span>")
 			make_plating(1)
 			playsound(src, 'resources/sound/items/Ratchet.ogg', 80, 1)
@@ -38,7 +38,7 @@
 			make_plating(1)
 			playsound(src, 'resources/sound/items/Deconstruct.ogg', 80, 1)
 			return
-		else if(isCoil(C))
+		else if(is_coil(C))
 			to_chat(user, "<span class='warning'>You must remove the [flooring.descriptor] first.</span>")
 			return
 	else
@@ -74,7 +74,7 @@
 				playsound(src, 'resources/sound/items/Deconstruct.ogg', 80, 1)
 				return
 		// Repairs and Deconstruction.
-		else if(isCrowbar(C))
+		else if(is_crowbar(C))
 			if(broken || burnt)
 				playsound(src, 'resources/sound/items/Crowbar.ogg', 80, 1)
 				visible_message("<span class='notice'>[user] has begun prying off the damaged plating.</span>")
@@ -91,7 +91,7 @@
 			else
 				return
 			return
-		else if(isWelder(C))
+		else if(is_welder(C))
 			var/obj/item/weapon/weldingtool/welder = C
 			if(welder.isOn() && (is_plating()))
 				if(broken || burnt)

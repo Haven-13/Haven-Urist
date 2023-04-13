@@ -16,7 +16,7 @@
 	if(strength)
 		M.add_chemical_effect(CE_TOXIN, strength)
 		var/dam = (strength * removed)
-		if(target_organ && ishuman(M))
+		if(target_organ && is_human_mob(M))
 			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
 			if(I)
@@ -134,7 +134,7 @@
 
 /datum/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien)
 	..()
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		if(H.stat != 1)
 			if(H.losebreath >= 10)
@@ -155,7 +155,7 @@
 
 /datum/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(ishuman(M))
+	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		if(H.stat != 1)
 			if(H.losebreath >= 10)
@@ -185,7 +185,7 @@
 	M.add_chemical_effect(CE_NOPULSE, 1)
 
 /datum/reagent/toxin/zombiepowder/Destroy()
-	if(holder && holder.my_atom && ismob(holder.my_atom))
+	if(holder && holder.my_atom && is_mob(holder.my_atom))
 		var/mob/M = holder.my_atom
 		M.status_flags &= ~FAKEDEATH
 	. = ..()

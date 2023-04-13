@@ -28,45 +28,44 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	var/hidden
 	var/category
 	var/power_use = 0
-	var/is_stack
 
 /datum/autolathe/recipe/bucket
 	name = "bucket"
 	path = /obj/item/weapon/reagent_containers/glass/bucket
 	category = "General"
 
-/datum/autolathe/recipe/drinkingglass
+/datum/autolathe/recipe/drinking_glass
 	name = "drinking glass"
 	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/square
 	category = "General"
 
-/datum/autolathe/recipe/drinkingglass/New()
+/datum/autolathe/recipe/drinking_glass/New()
 	..()
 	var/obj/O = path
 	name = initial(O.name) // generic recipes yay
 
-/datum/autolathe/recipe/drinkingglass/rocks
+/datum/autolathe/recipe/drinking_glass/rocks
 	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/rocks
 
-/datum/autolathe/recipe/drinkingglass/shake
+/datum/autolathe/recipe/drinking_glass/shake
 	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/shake
 
-/datum/autolathe/recipe/drinkingglass/cocktail
+/datum/autolathe/recipe/drinking_glass/cocktail
 	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/cocktail
 
-/datum/autolathe/recipe/drinkingglass/shot
+/datum/autolathe/recipe/drinking_glass/shot
 	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/shot
 
-/datum/autolathe/recipe/drinkingglass/pint
+/datum/autolathe/recipe/drinking_glass/pint
 	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/pint
 
-/datum/autolathe/recipe/drinkingglass/mug
+/datum/autolathe/recipe/drinking_glass/mug
 	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/mug
 
-/datum/autolathe/recipe/drinkingglass/wine
+/datum/autolathe/recipe/drinking_glass/wine
 	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/wine
 
-/datum/autolathe/recipe/drinkingglass/wine
+/datum/autolathe/recipe/drinking_glass/wine
 	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/carafe
 
 /datum/autolathe/recipe/flashlight
@@ -109,7 +108,7 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	path = /obj/item/device/t_scanner
 	category = "Tools"
 
-/datum/autolathe/recipe/weldertool
+/datum/autolathe/recipe/weldingtool
 	name = "welding tool"
 	path = /obj/item/weapon/weldingtool
 	category = "Tools"
@@ -154,7 +153,7 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	path = /obj/item/device/suit_cooling_unit
 	category = "General"
 
-/datum/autolathe/recipe/weldermask
+/datum/autolathe/recipe/welder_mask
 	name = "welding mask"
 	path = /obj/item/clothing/head/welding
 	category = "General"
@@ -163,28 +162,24 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	name = "steel sheets"
 	path = /obj/item/stack/material/steel
 	category = "General"
-	is_stack = 1
 	resources = list("steel" = SHEET_MATERIAL_AMOUNT * EXTRA_COST_FACTOR)
 
 /datum/autolathe/recipe/glass
 	name = "glass sheets"
 	path = /obj/item/stack/material/glass
 	category = "General"
-	is_stack = 1
 	resources = list("glass" = SHEET_MATERIAL_AMOUNT * EXTRA_COST_FACTOR)
 
 /datum/autolathe/recipe/rglass
 	name = "reinforced glass sheets"
 	path = /obj/item/stack/material/glass/reinforced
 	category = "General"
-	is_stack = 1
 	resources = list("glass" = (SHEET_MATERIAL_AMOUNT/2) * EXTRA_COST_FACTOR, "steel" = (SHEET_MATERIAL_AMOUNT/2) * EXTRA_COST_FACTOR)
 
 /datum/autolathe/recipe/rods
 	name = "metal rods"
 	path = /obj/item/stack/rods
 	category = "General"
-	is_stack = 1
 
 /datum/autolathe/recipe/knife
 	name = "kitchen knife"
@@ -201,17 +196,17 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	path = /obj/item/device/tape
 	category = "General"
 
-/datum/autolathe/recipe/airlockmodule
+/datum/autolathe/recipe/airlock_electronics
 	name = "airlock electronics"
 	path = /obj/item/weapon/airlock_electronics
 	category = "Engineering"
 
-/datum/autolathe/recipe/airalarm
+/datum/autolathe/recipe/airalarm_electronics
 	name = "air alarm electronics"
 	path = /obj/item/weapon/airalarm_electronics
 	category = "Engineering"
 
-/datum/autolathe/recipe/firealarm
+/datum/autolathe/recipe/firealarm_electronics
 	name = "fire alarm electronics"
 	path = /obj/item/weapon/firealarm_electronics
 	category = "Engineering"
@@ -235,7 +230,7 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	path = /obj/item/weapon/scalpel
 	category = "Medical"
 
-/datum/autolathe/recipe/circularsaw
+/datum/autolathe/recipe/circular_saw
 	name = "circular saw"
 	path = /obj/item/weapon/circular_saw
 	category = "Medical"
@@ -354,7 +349,7 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	hidden = 1
 	category = "Arms and Ammunition"
 
-/datum/autolathe/recipe/consolescreen
+/datum/autolathe/recipe/console_screen
 	name = "console screen"
 	path = /obj/item/weapon/stock_parts/console_screen
 	category = "Devices and Components"
@@ -379,7 +374,7 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	path = /obj/item/device/assembly/timer
 	category = "Devices and Components"
 
-/datum/autolathe/recipe/sensor_prox
+/datum/autolathe/recipe/prox_sensor
 	name = "proximity sensor"
 	path = /obj/item/device/assembly/prox_sensor
 	category = "Devices and Components"
@@ -388,7 +383,6 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	name = "cable coil"
 	path = /obj/item/stack/cable_coil/single
 	category = "Devices and Components"
-	is_stack = 1
 
 /datum/autolathe/recipe/tube/large
 	name = "spotlight tube"
@@ -415,27 +409,27 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	path = /obj/item/weapon/camera_assembly
 	category = "Engineering"
 
-/datum/autolathe/recipe/weldinggoggles
+/datum/autolathe/recipe/welding_goggles
 	name = "welding goggles"
 	path = /obj/item/clothing/glasses/welding
 	category = "General"
 
-/datum/autolathe/recipe/blackpen
+/datum/autolathe/recipe/black_pen
 	name = "black ink pen"
 	path = /obj/item/weapon/pen
 	category = "General"
 
-/datum/autolathe/recipe/bluepen
+/datum/autolathe/recipe/blue_pen
 	name = "blue ink pen"
 	path = /obj/item/weapon/pen/blue
 	category = "General"
 
-/datum/autolathe/recipe/redpen
+/datum/autolathe/recipe/red_pen
 	name = "red ink pen"
 	path = /obj/item/weapon/pen/red
 	category = "General"
 
-/datum/autolathe/recipe/greenpen
+/datum/autolathe/recipe/green_pen
 	name = "green ink pen"
 	path = /obj/item/weapon/pen/green
 	category = "General"
@@ -450,7 +444,7 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	path = /obj/item/device/destTagger
 	category = "General"
 
-/datum/autolathe/recipe/labeler
+/datum/autolathe/recipe/hand_labeler
 	name = "hand labeler"
 	path = /obj/item/weapon/hand_labeler
 	category = "General"
@@ -652,7 +646,7 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	path = /obj/item/weapon/cell/device/standard
 	category = "Devices and Components"
 
-/datum/autolathe/recipe/ecigcartridge
+/datum/autolathe/recipe/ecig_cartridge
 	name = "ecigarette cartridge"
 	path = /obj/item/weapon/reagent_containers/ecig_cartridge/blank
 	category = "Devices and Components"
@@ -668,25 +662,25 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	category = "Replacement Parts"
 	resources = list("glass" = 50, "steel" = 50)
 
-/datum/autolathe/recipe/microlaser
+/datum/autolathe/recipe/micro_laser
 	name = "micro-laser"
 	path = /obj/item/weapon/stock_parts/micro_laser
 	category = "Replacement Parts"
 	resources = list("glass" = 10, "steel" = 10)
 
-/datum/autolathe/recipe/micromanip
+/datum/autolathe/recipe/manipulator
 	name = "micro-manipulator"
 	path = /obj/item/weapon/stock_parts/manipulator
 	category = "Replacement Parts"
 	resources = list("steel" = 30)
 
-/datum/autolathe/recipe/scanningmodule
+/datum/autolathe/recipe/scanning_module
 	name = "scanning module"
 	path = /obj/item/weapon/stock_parts/scanning_module
 	category = "Replacement Parts"
 	resources = list("glass" = 20, "steel" = 50)
 
-/datum/autolathe/recipe/matterbin
+/datum/autolathe/recipe/matter_bin
 	name = "matter bin"
 	path = /obj/item/weapon/stock_parts/matter_bin
 	category = "Replacement Parts"

@@ -4,7 +4,7 @@
 
 /datum/ui_module/program/forceauthorization/ui_data(mob/user)
 	var/list/data = host.initial_data()
-	data["is_silicon_usr"] = issilicon(user)
+	data["is_silicon_usr"] = is_silicon(user)
 
 	data["guns"] = list()
 	var/atom/movable/AM = ui_host()
@@ -50,8 +50,7 @@
 	return data
 
 /datum/ui_module/program/forceauthorization/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 
 	switch(action)
 		if("authorize")
@@ -61,7 +60,7 @@
 				if("gun")
 					G = locate(params["ref"]) in GLOB.registered_weapons
 				if("cyborg_gun")
-					if (issilicon(usr))
+					if (is_silicon(usr))
 						return FALSE
 					G = locate(params["ref"]) in GLOB.registered_cyborg_weapons
 			var/authorize = !!!text2num(params["value"])

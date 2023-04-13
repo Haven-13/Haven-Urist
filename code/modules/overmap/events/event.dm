@@ -7,6 +7,7 @@
 	opacity = 1
 
 /obj/effect/overmap_event/New(turf/T, datum/overmap_event/E)
+	..()
 	src.loc = T
 	SetName(E.name)
 	icon_state = pick(E.event_icon_states)

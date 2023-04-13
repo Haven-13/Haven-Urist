@@ -41,84 +41,10 @@
 		-->
 		<div class="commit sansserif">
 
-			<h2 class="date">13 January 2022</h2>
+			<h2 class="date">03 April 2023</h2>
 			<h3 class="author">martinlyra updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="bugfix">Cleaned up away maps that were causing errors for the game.</li>
-				<li class="bugfix">Fixed a layering issue with disposal pipes.</li>
-				<li class="bugfix">Fixed initialization issues related to explosions spawned in map init.</li>
-				<li class="bugfix">Fixes the multi-z rendering issue, in which it would be permanently broken for a player the moment they enter a submap with incorrect Z ordering.</li>
-			</ul>
-
-			<h2 class="date">21 December 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="tweak">Modular computers' UI-state changed from physical-only to default</li>
-				<li class="bugfix">Fixed AI being unable to interact with all physical objects that can be accessible by the AI:</li>
-				<li class="bugfix">Fixed some mob icon updates getting deferred too late instead of being done immediately, should see less blank images now.</li>
-				<li class="imageadd">Replaced the old ship sprite with Pawn's ship sprite for overmap</li>
-				<li class="imageadd">Added Pawn's shuttle sprite for overmap</li>
-				<li class="rscadd">Added Ion Drives for use with overmap-capable shuttles</li>
-				<li class="rscadd">Added overmap flight for Pluto's shuttles and future ones</li>
-				<li class="tweak">Readjusted the vessel mass of Styx and Eris shuttles</li>
-				<li class="bugfix">Fixed a bug where shuttles would act as control and helms for the mothership</li>
-				<li class="bugfix">Pluto's Eris and Styx shuttles are overmap capable, finally</li>
-				<li class="imageadd">Added premliminary art for shuttles on the overmap</li>
-				<li class="imageadd">Added sprites for the Ion Drives</li>
-				<li class="bugfix">Fixed AI-vision obfuscation layering issue</li>
-				<li class="server">Added metrics from Paradise for profiling and analysing performance without interfering the server itself</li>
-			</ul>
-
-			<h2 class="date">18 December 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="bugfix">Fixed aways not spawning properly</li>
-				<li class="bugfix">Fixed "Destroyed Colony" not loading proper</li>
-				<li class="bugfix">Fixed "Derelict Station" not loading proper</li>
-				<li class="bugfix">Fixed "Noctis" ship not loading proper</li>
-				<li class="bugfix">Fixed broken geometry of Lost Supply Station</li>
-			</ul>
-
-			<h2 class="date">29 November 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="tweak">Converted the elevator panel from hardcoded popup to tgUI</li>
-				<li class="tweak">The elevator panel now shows its current floor</li>
-				<li class="tweak">Elevators are now unit-tested</li>
-				<li class="bugfix">Fixed improper consistency with the world in elevator panels</li>
-			</ul>
-
-			<h2 class="date">28 November 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Added tgUI interface for the Power Cell Rack PSU</li>
-				<li class="tweak">Power Cell PSUs no longer require matter bins and always will have capacity for 9 cells.</li>
-				<li class="tweak">Added property to Knob component in tgUI for positioning the tooltip appearing when dragging the knob</li>
-				<li class="bugfix">Fixed the missing interface for tgUI</li>
-				<li class="bugfix">Fixed names being missing from the old plain HTML manifests</li>
-			</ul>
-
-			<h2 class="date">17 November 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="bugfix">Fixed the UI for the card modification program</li>
-			</ul>
-
-			<h2 class="date">15 November 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="tweak">Changed how the server is listed on the public BYOND Hub</li>
-				<li class="bugfix">Fixed wall sanity checks for window and window-wallframe spawners not functioning properly.</li>
-				<li class="bugfix">Fixed two instances of walls in place where windows should spawn and allow obstructed vision on the Pluto.</li>
-				<li class="tweak">For future mapping and propserity, airlocks and doors now sanity-check their turf locations for illegal turfs like walls.</li>
-				<li class="bugfix">Fixed invalid turfs for airlocks at the Pluto map</li>
-			</ul>
-
-			<h2 class="date">14 November 2021</h2>
-			<h3 class="author">martinlyra updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="bugfix">Fixed the time display being broken on all UIs that use it</li>
-				<li class="bugfix">Fixed the ship helm being unable to be used</li>
+				<li class="bugfix">Fixed a critical bug regarding subsystem priority discovered by wixoaGit and fix implemented @ tgstation</li>
 			</ul>
 		</div>
 

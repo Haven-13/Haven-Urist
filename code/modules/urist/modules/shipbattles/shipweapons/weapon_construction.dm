@@ -1,5 +1,6 @@
 /obj/structure/shipweapons
 	var/shipid = null
+	var/external = FALSE
 
 /obj/structure/shipweapons/hardpoint
 	name = "weapon hardpoint"
@@ -10,7 +11,21 @@
 	density = 0
 	var/attached = FALSE
 
+/obj/structure/shipweapons/hardpoint/ex_act()
+	return
+
 /obj/structure/shipweapons/hardpoint/nerva
+	shipid = "nerva"
+
+/obj/structure/shipweapons/hardpoint/attached
+	attached = TRUE
+
+/obj/structure/shipweapons/hardpoint/external
+	external = TRUE
+//	icon = ''
+	icon_state = ""
+
+/obj/structure/shipweapons/hardpoint/external/nerva
 	shipid = "nerva"
 
 /obj/structure/shipweapons/incomplete_weapon
@@ -22,16 +37,18 @@
 	density = 1
 	var/state = 0
 	var/weapon_type = null
+	pixel_y = -18
 
 /obj/structure/shipweapons/incomplete_weapon/attackby(obj/item/W as obj, mob/living/user as mob)
 	switch(state)
 
 		if(0)
 			var/turf/T = get_turf(src)
-			if(isWrench(W) && locate(/obj/structure/shipweapons/hardpoint) in T)
+			if(is_wrench(W) && locate(/obj/structure/shipweapons/hardpoint) in T)
 				var/obj/structure/shipweapons/hardpoint/H = (locate(/obj/structure/shipweapons/hardpoint) in T)
 				//qdel(H)
 				if(!H.attached)
+					animate(src, pixel_x = src.pixel_x, pixel_y = src.pixel_y, 3, 1, LINEAR_EASING)
 					H.attached = TRUE
 					src.shipid = H.shipid
 					playsound(src.loc, 'resources/sound/items/Ratchet.ogg', 50, 1)
@@ -52,7 +69,7 @@
 					desc = "It's a ship-to-ship weapon assembly. It has some loose external sheeting."
 					return
 
-			else if(isWrench(W))
+			else if(is_wrench(W))
 				var/turf/T = get_turf(src)
 				var/obj/structure/shipweapons/hardpoint/H = (locate(/obj/structure/shipweapons/hardpoint) in T)
 				H.attached = FALSE
@@ -60,13 +77,15 @@
 				to_chat(user, "You unattach the assembly from its place.")
 				anchored = 0
 				state = 0
+				animate(src, pixel_x = initial(pixel_x), pixel_y = initial(pixel_y), 3, 1, LINEAR_EASING)
+				desc = initial(desc)
 				update_icon()
-				desc = "It's a ship-to-ship weapon assembly. Wrench it into a hardpoint to make it functional, or just chuck it out an airlock at an enemy vessel and see how far that gets you."
+
 				return
 
 		if(2)
 
-			if(isWelder(W))
+			if(is_welder(W))
 
 				var/obj/item/weapon/weldingtool/F = W
 				if(F.isOn())
@@ -79,7 +98,7 @@
 							desc = "It's a ship-to-ship weapon assembly with secured external plating. It is missing wiring."
 					return
 
-			if(isCrowbar(W))
+			if(is_crowbar(W))
 				playsound(src.loc, 'resources/sound/items/Crowbar.ogg', 50, 1)
 				to_chat(user, "You pry off the external sheeting.")
 				new /obj/item/stack/material/steel(get_turf(src), 2)
@@ -89,7 +108,7 @@
 				return
 
 		if(3)
-			if(isCoil(W))
+			if(is_coil(W))
 				var/obj/item/stack/cable_coil/C = W
 				if(C.use(2))
 					to_chat(user, "<span class='notice'>You add wires to the weapon assembly.</span>")
@@ -100,7 +119,7 @@
 					to_chat(user, "<span class='warning'>You need 2 coils of wire to wire the weapon assembly.</span>")
 				return
 
-			else if(isWelder(W))
+			else if(is_welder(W))
 
 				var/obj/item/weapon/weldingtool/F = W
 				if(F.isOn())
@@ -113,16 +132,18 @@
 					return
 
 		if(4)
-			if(isScrewdriver(W))
+			if(is_screwdriver(W))
 				playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "<span class='warning'>You secure the wires and screw down the external hatches: the weapon is ready to fire.</span>")
 				var/obj/machinery/shipweapons/S = new weapon_type(get_turf(src))
-				S.shipid = src.shipid
+				if(shipid)
+					S.shipid = shipid
+					S.ConnectWeapons()
 				qdel(src)
 
-			else if(isWirecutter(W))
+			else if(is_wirecutter(W))
 
-				new/obj/item/stack/cable_coil(get_turf(src), 2)
+				new /obj/item/stack/cable_coil(get_turf(src), 2)
 				playsound(src.loc, 'resources/sound/items/Wirecutter.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You cut the wires from the weapon assembly.</span>")
 				desc = "It's a ship-to-ship weapon assembly with secured external plating. It is missing wiring."
@@ -141,3 +162,7 @@
 /obj/structure/shipweapons/incomplete_weapon/lightlaser
 	name = "light laser cannon assembly"
 	weapon_type = /obj/machinery/shipweapons/beam/lightlaser
+
+/obj/structure/shipweapons/incomplete_weapon/lightpulse
+	name = "light pulse cannon assembly"
+	weapon_type = /obj/machinery/shipweapons/beam/lightpulse

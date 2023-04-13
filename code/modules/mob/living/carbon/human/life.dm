@@ -194,7 +194,7 @@
 		if(gene.is_active(src))
 			gene.OnMobLife(src)
 
-	radiation = Clamp(radiation,0,500)
+	radiation = clamp(radiation,0,500)
 
 	if(!radiation)
 		if(species.appearance_flags & RADIATION_GLOWS)
@@ -568,7 +568,6 @@
 			animate_tail_reset()
 			adjustHalLoss(-3)
 			if(sleeping)
-				handle_dreams()
 				if (mind)
 					//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of stoxin or similar.
 					if(client || sleeping > 3)
@@ -740,7 +739,7 @@
 		if(isSynthetic())
 			var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
 			if (istype(C))
-				var/chargeNum = Clamp(Ceiling(C.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
+				var/chargeNum = clamp(Ceiling(C.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
 				cells.icon_state = "charge[chargeNum]"
 			else
 				cells.icon_state = "charge-empty"
@@ -824,7 +823,7 @@
 		spawn vomit(1, vomit_score, vomit_score/25)
 
 	//0.1% chance of playing a scary sound to someone who's in complete darkness
-	if(isturf(loc) && rand(1,1000) == 1)
+	if(is_turf(loc) && rand(1,1000) == 1)
 		var/turf/T = loc
 		if(T.get_lumcount() <= LIGHTING_SOFT_THRESHOLD)
 			playsound_local(src,pick(GLOB.scarySounds),50, 1, -1)
@@ -841,7 +840,7 @@
 			if(!(a in contents) || isnull(a))
 				stomach_contents.Remove(a)
 				continue
-			if(iscarbon(a)|| isanimal(a))
+			if(is_carbon_mob(a)|| is_animal(a))
 				var/mob/living/M = a
 				if(M.stat == DEAD)
 					M.death(1)

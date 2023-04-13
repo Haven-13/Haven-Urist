@@ -37,6 +37,7 @@ var/global/photo_count = 0
 	var/photo_size = 3
 
 /obj/item/weapon/photo/New()
+	..()
 	id = photo_count++
 
 /obj/item/weapon/photo/attack_self(mob/user as mob)
@@ -220,7 +221,7 @@ var/global/photo_count = 0
 	return mob_detail
 
 /obj/item/device/camera/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
-	if(!on || !pictures_left || ismob(target.loc)) return
+	if(!on || !pictures_left || is_mob(target.loc)) return
 	captureimage(target, user, flag)
 
 	playsound(loc, pick('resources/sound/items/polaroid1.ogg', 'resources/sound/items/polaroid2.ogg'), 75, 1, -3)

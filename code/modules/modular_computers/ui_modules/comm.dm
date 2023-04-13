@@ -50,7 +50,7 @@
 	data["net_syscont"] = !!program?.get_signal(NTNET_SYSTEMCONTROL) || 1
 	data["have_printer"] = !!program?.computer.nano_printer || 0
 
-	data["isAI"] = issilicon(user)
+	data["isAI"] = is_silicon(user)
 	data["authenticated"] = is_autenthicated(user)
 	data["boss_short"] = GLOB.using_map.boss_short
 	data["boss_name"] = GLOB.using_map.boss_name
@@ -106,8 +106,7 @@
 	return GLOB.global_message_listener
 
 /datum/ui_module/program/comm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 	var/mob/user = usr
 	var/ntn_comm = program ? !!program.get_signal(NTNET_COMMUNICATION) : 1
 	var/ntn_cont = program ? !!program.get_signal(NTNET_SYSTEMCONTROL) : 1
@@ -115,7 +114,7 @@
 	switch(action)
 		if("announce")
 			. = 1
-			if(is_autenthicated(user) && !issilicon(usr) && ntn_comm)
+			if(is_autenthicated(user) && !is_silicon(usr) && ntn_comm)
 				if(user)
 					var/obj/item/weapon/card/id/id_card = user.GetIdCard()
 					crew_announcement.announcer = GetNameAndAssignmentFromId(id_card)
@@ -135,7 +134,7 @@
 			. = 1
 			switch(params["target"])
 				if("regular")
-					if(is_autenthicated(user) && !issilicon(usr) && ntn_comm)
+					if(is_autenthicated(user) && !is_silicon(usr) && ntn_comm)
 						if(centcomm_message_cooldown)
 							to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
 							return 1
@@ -157,14 +156,14 @@
 				var/datum/evacuation_option/selected_evac_option = evacuation_controller.evacuation_options[params["target"]]
 				if (isnull(selected_evac_option) || !istype(selected_evac_option))
 					return
-				if (!selected_evac_option.silicon_allowed && issilicon(user))
+				if (!selected_evac_option.silicon_allowed && is_silicon(user))
 					return
 				if (selected_evac_option.needs_syscontrol && !ntn_cont)
 					return
 				evacuation_controller.handle_evac_option(selected_evac_option.option_target, user)
 		if("setalert")
 			. = 1
-			if(is_autenthicated(user) && !issilicon(usr) && ntn_cont && ntn_comm)
+			if(is_autenthicated(user) && !is_silicon(usr) && ntn_cont && ntn_comm)
 				var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 				var/decl/security_level/target_level = locate(params["target"]) in security_state.comm_console_security_levels
 				if(target_level && security_state.can_switch_to(target_level))

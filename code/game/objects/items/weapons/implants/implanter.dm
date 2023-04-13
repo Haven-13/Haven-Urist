@@ -26,7 +26,7 @@
 	set name = "Remove implant"
 	set src in usr
 
-	if(issilicon(usr))
+	if(is_silicon(usr))
 		return
 
 	if(can_use(usr))
@@ -45,7 +45,7 @@
 
 /obj/item/weapon/implanter/proc/can_use()
 
-	if(!ismob(loc))
+	if(!is_mob(loc))
 		return 0
 
 	var/mob/M = loc

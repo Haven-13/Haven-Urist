@@ -102,13 +102,13 @@
 	if(ignorezeros) //prevents very pure colors from averaging asymptotically to black
 		//note that the parameter being set to 1 makes the coloring non-symmetrical!
 		if(color1 == 0)
-			resultcolor = Clamp(color2, low, high)
+			resultcolor = clamp(color2, low, high)
 		else if(color2 == 0)
-			resultcolor = Clamp(color1, low, high)
+			resultcolor = clamp(color1, low, high)
 		else
-			resultcolor = Clamp(((color1 + color2)/2), low, high)
+			resultcolor = clamp(((color1 + color2)/2), low, high)
 	else
-		resultcolor = Clamp(((color1 + color2)/2), low, high)
+		resultcolor = clamp(((color1 + color2)/2), low, high)
 	return resultcolor
 
 //as above, but handles 2 RGB color lists and the min/max are for lightness; defaults to unbound, so can be black to white)
@@ -346,7 +346,7 @@
 		return J
 	return 0*/
 
-//Monkeys et al being a human type mess with the purpose of regular ishuman; ishumanoid is intended to check strictly 'sentient' races
+//Monkeys et al being a human type mess with the purpose of regular is_human_mob; ishumanoid is intended to check strictly 'sentient' races
 /proc/ishumanoid(A)
 	if(istype(A, /mob/living/carbon/human) && !(istype (A, /mob/living/carbon/human/monkey)) && !(istype (A, /mob/living/carbon/human/stok)) && !(istype (A, /mob/living/carbon/human/farwa))) // && !(istype (A, /mob/living/carbon/human/neara)))
 		return 1 //whoever thought subtyping all these under /human/monkey or whatever was a bad idea is literally Hitler

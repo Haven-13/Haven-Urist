@@ -242,7 +242,7 @@
 			crashed = 1
 	else if(!A.anchored)
 		var/turf/T = get_step(A, dir)
-		if(isturf(T))
+		if(is_turf(T))
 			A.Move(T)
 	else
 		if(cur_move_speed > 1)

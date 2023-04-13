@@ -11,7 +11,7 @@
 		user.unset_machine()
 		return
 
-	if(!isAI(user))
+	if(!is_ai(user))
 		user.set_machine(src)
 
 	ui_interact(user)
@@ -47,6 +47,8 @@
 	return data
 
 /obj/machinery/computer/ship/engines/ui_act(action, list/params)
+	UI_ACT_CHECK
+
 	switch(action)
 		if("global_set_state")
 			linked.engines_state = params["state"]
@@ -54,7 +56,7 @@
 				if(linked.engines_state != E.is_on())
 					E.toggle()
 		if("set_global_limit")
-			linked.thrust_limit = Clamp(params["set_global_limit"], 0, 1)
+			linked.thrust_limit = clamp(params["set_global_limit"], 0, 1)
 			for(var/datum/ship_engine/E in linked.engines)
 				E.set_thrust_limit(linked.thrust_limit)
 		if("engine")
@@ -62,7 +64,7 @@
 			if (istype(E))
 				switch(params["action"])
 					if("set_limit")
-						E.set_thrust_limit(Clamp(params["value"], 0, 1))
+						E.set_thrust_limit(clamp(params["value"], 0, 1))
 					if("toggle")
 						E.toggle()
 	. = TRUE

@@ -27,7 +27,7 @@
 
 	if(supplied_drop)
 		drop_type = supplied_drop
-	else if(islist(supplied_drops) && supplied_drops.len)
+	else if(is_list(supplied_drops) && supplied_drops.len)
 		supplied_drop_types = supplied_drops
 		drop_type = "custom"
 	if(automated)
@@ -112,7 +112,7 @@
 	// Splatter anything under us that survived the explosion.
 	if(value != SD_EMPTY_TILE && T.contents.len)
 		for(var/atom/movable/AM in T)
-			if(AM.simulated && !isobserver(AM))
+			if(AM.simulated && !is_observer(AM))
 				qdel(AM)
 
 	// Also spawn doors and loot.
@@ -131,7 +131,7 @@
 	// Use the supply pod if you don't want to drop mobs.
 	// Mobs will not double up; if you want multiple mobs, you
 	// will need multiple drop tiles.
-	if(islist(supplied_drop_types) && supplied_drop_types.len)
+	if(is_list(supplied_drop_types) && supplied_drop_types.len)
 		while(supplied_drop_types.len)
 			drop = pick(supplied_drop_types)
 			supplied_drop_types -= drop
@@ -173,7 +173,7 @@
 	else
 		var/list/candidates = list()
 		for(var/client/player in GLOB.clients)
-			if(player.mob && isghost(player.mob))
+			if(player.mob && is_ghost(player.mob))
 				candidates |= player
 
 		if(!candidates.len)

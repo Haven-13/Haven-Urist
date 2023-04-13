@@ -52,7 +52,7 @@
 // Build a species-specific descriptor string.
 /datum/mob_descriptor/proc/get_initial_comparison_component(var/mob/me, var/datum/gender/my_gender, var/datum/gender/other_gender, var/my_value)
 	var/species_text
-	if(ishuman(me) && !skip_species_mention)
+	if(is_human_mob(me) && !skip_species_mention)
 		var/mob/living/carbon/human/H = me
 		var/use_name = "\improper [H.species.name]"
 		species_text = " for \a [use_name]"
@@ -81,7 +81,7 @@
 
 	// Append the same-descriptor comparison text.
 	var/comparing_value
-	if(ishuman(observer))
+	if(is_human_mob(observer))
 		var/mob/living/carbon/human/human_observer = observer
 		if(LAZY_LENGTH(human_observer.descriptors) && !isnull(human_observer.species.descriptors[name]) && !isnull(human_observer.descriptors[name]))
 			var/datum/mob_descriptor/obs_descriptor = human_observer.species.descriptors[name]
@@ -98,10 +98,10 @@
 
 /datum/mob_descriptor/proc/get_comparative_value_string_smaller(var/value, var/datum/gender/my_gender, var/datum/gender/other_gender)
 	var/maxval = LAZY_LENGTH(comparative_value_descriptors_smaller)
-	value = Clamp(Ceiling(value * maxval), 1, maxval)
+	value = clamp(Ceiling(value * maxval), 1, maxval)
 	return comparative_value_descriptors_smaller[value]
 
 /datum/mob_descriptor/proc/get_comparative_value_string_larger(var/value, var/datum/gender/my_gender, var/datum/gender/other_gender)
 	var/maxval = LAZY_LENGTH(comparative_value_descriptors_larger)
-	value = Clamp(Ceiling(value * maxval), 1, maxval)
+	value = clamp(Ceiling(value * maxval), 1, maxval)
 	return comparative_value_descriptors_larger[value]

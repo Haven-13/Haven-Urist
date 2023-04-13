@@ -24,14 +24,14 @@
 		overlays.Cut()
 
 /obj/item/weapon/material/coin/attackby(var/obj/item/W, var/mob/user)
-	if(isCoil(W) && isnull(string_colour))
+	if(is_coil(W) && isnull(string_colour))
 		var/obj/item/stack/cable_coil/CC = W
 		if(CC.use(1))
 			string_colour = CC.color
 			to_chat(user, "<span class='notice'>You attach a string to the coin.</span>")
 			update_icon()
 			return
-	else if(isWirecutter(W) && !isnull(string_colour))
+	else if(is_wirecutter(W) && !isnull(string_colour))
 		new /obj/item/stack/cable_coil/single(get_turf(user))
 		string_colour = null
 		to_chat(user, "<span class='notice'>You detach the string from the coin.</span>")

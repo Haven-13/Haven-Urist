@@ -126,8 +126,7 @@
 	return data
 
 /obj/machinery/media/jukebox/ui_act(action, params)
-	if(..())
-		return TRUE
+	UI_ACT_CHECK
 	switch(action)
 		if("change_track")
 			for(var/datum/track/T in tracks)
@@ -190,7 +189,7 @@
 	qdel(src)
 
 /obj/machinery/media/jukebox/attackby(obj/item/W as obj, mob/user as mob)
-	if(isWrench(W))
+	if(is_wrench(W))
 		add_fingerprint(user)
 		wrench_floor_bolts(user, 0)
 		power_change()
@@ -225,6 +224,6 @@
 	update_icon()
 
 /obj/machinery/media/jukebox/proc/AdjustVolume(var/new_volume)
-	volume = Clamp(new_volume, 0, 50)
+	volume = clamp(new_volume, 0, 50)
 	if(sound_token)
 		sound_token.SetVolume(volume)

@@ -169,7 +169,7 @@
 		for(var/mob/living/carbon/C in GLOB.human_mob_list)
 			if(isscom(C) || find_scom_ghost(C)) //no need to teleport random non-operatives
 				if(C.z != 2) //already on-site, skip teleporting
-					if(C.z != 0 || (isobj(C.loc) && C.loc.z != 2)) //being in stuff sets coords to 0, so rechecks for holder
+					if(C.z != 0 || (is_obj(C.loc) && C.loc.z != 2)) //being in stuff sets coords to 0, so rechecks for holder
 						var/obj/machinery/scom/teleporter2/destination
 						var/list/all_destinations = list()
 						for(var/obj/machinery/scom/teleporter2/T in SSmachines.machinery)

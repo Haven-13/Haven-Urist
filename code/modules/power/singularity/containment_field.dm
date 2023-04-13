@@ -50,7 +50,7 @@
 	if(!FG1 || !FG2)
 		qdel(src)
 		return 0
-	if(isliving(user))
+	if(is_living_mob(user))
 		hasShocked = 1
 		var/shock_damage = min(rand(30,40),rand(30,40))
 		user.electrocute_act(shock_damage, src)

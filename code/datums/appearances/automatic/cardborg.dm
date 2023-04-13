@@ -4,7 +4,7 @@
 /decl/appearance_handler/cardborg/proc/item_equipped(var/obj/item/item, var/mob/user, var/slot)
 	if(!(slot == slot_head || slot == slot_wear_suit|| slot == slot_back))
 		return
-	if(!ishuman(user))
+	if(!is_human_mob(user))
 		return
 	if(!(istype(item, /obj/item/clothing/suit/cardborg) || istype(item, /obj/item/clothing/head/cardborg) || istype(item, /obj/item/weapon/storage/backpack)))
 		return
@@ -26,7 +26,7 @@
 			GLOB.logged_in_event.unregister_global(src)	// Only listen to the logged in event for as long as it's relevant
 
 /decl/appearance_handler/cardborg/proc/mob_joined(var/mob/user)
-	if(issilicon(user))
+	if(is_silicon(user))
 		DisplayAllAltAppearancesTo(user)
 
 /decl/appearance_handler/cardborg/proc/get_image_from_backpack(var/mob/living/carbon/human/H)

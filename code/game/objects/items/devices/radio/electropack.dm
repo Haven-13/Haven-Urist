@@ -82,7 +82,7 @@
 	if(!signal || signal.encryption != code)
 		return
 
-	if(ismob(loc) && on)
+	if(is_mob(loc) && on)
 		var/mob/M = loc
 		var/turf/T = M.loc
 		if(istype(T, /turf))

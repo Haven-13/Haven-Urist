@@ -55,7 +55,7 @@
 		pulse_mod++
 
 	if(owner.status_flags & FAKEDEATH || owner.chem_effects[CE_NOPULSE])
-		pulse = Clamp(PULSE_NONE + pulse_mod, PULSE_NONE, PULSE_2FAST) //pretend that we're dead. unlike actual death, can be inflienced by meds
+		pulse = clamp(PULSE_NONE + pulse_mod, PULSE_NONE, PULSE_2FAST) //pretend that we're dead. unlike actual death, can be inflienced by meds
 		return
 
 	//If heart is stopped, it isn't going to restart itself randomly.
@@ -73,7 +73,7 @@
 		pulse = PULSE_THREADY
 		return
 
-	pulse = Clamp(PULSE_NORM + pulse_mod, PULSE_SLOW, PULSE_2FAST)
+	pulse = clamp(PULSE_NORM + pulse_mod, PULSE_SLOW, PULSE_2FAST)
 	if(pulse != PULSE_NORM && owner.chem_effects[CE_STABLE])
 		if(pulse > PULSE_NORM)
 			pulse--
@@ -121,7 +121,7 @@
 
 					if(W.bleeding())
 						if(temp.applied_pressure)
-							if(ishuman(temp.applied_pressure))
+							if(is_human_mob(temp.applied_pressure))
 								var/mob/living/carbon/human/H = temp.applied_pressure
 								H.bloody_hands(owner, 0)
 							//somehow you can apply pressure to every wound on the organ at the same time

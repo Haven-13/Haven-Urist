@@ -105,7 +105,7 @@
 
 /datum/hud/proc/hidden_inventory_update()
 	if(!mymob) return
-	if(ishuman(mymob))
+	if(is_human_mob(mymob))
 		var/mob/living/carbon/human/H = mymob
 		for(var/gear_slot in H.species.hud.gear)
 			var/list/hud_data = H.species.hud.gear[gear_slot]
@@ -155,7 +155,7 @@
 	if(!mymob)
 		return
 
-	if(ishuman(mymob))
+	if(is_human_mob(mymob))
 		var/mob/living/carbon/human/H = mymob
 		for(var/gear_slot in H.species.hud.gear)
 			var/list/hud_data = H.species.hud.gear[gear_slot]
@@ -190,7 +190,7 @@
 
 
 /datum/hud/proc/instantiate()
-	if(!ismob(mymob)) return 0
+	if(!is_mob(mymob)) return 0
 	if(!mymob.client) return 0
 	var/ui_style = ui_style2icon(mymob.client.prefs.UI_style)
 	var/ui_color = mymob.client.prefs.UI_style_color
@@ -212,7 +212,7 @@
 		to_chat(usr, "<span class='warning'>This mob type does not use a HUD.</span>")
 		return
 
-	if(!ishuman(src))
+	if(!is_human_mob(src))
 		to_chat(usr, "<span class='warning'>Inventory hiding is currently only supported for human mobs, sorry.</span>")
 		return
 
@@ -269,7 +269,7 @@
 /mob/proc/toggle_zoom_hud()
 	if(!hud_used)
 		return
-	if(!ishuman(src))
+	if(!is_human_mob(src))
 		return
 	if(!client)
 		return
