@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - tweak: Added an opt-in feature to wrap callbacks in try-catch for enhanced error-reporting
+      information
