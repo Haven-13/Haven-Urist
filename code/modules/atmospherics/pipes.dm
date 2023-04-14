@@ -88,6 +88,10 @@
 
 	return parent.return_network(reference)
 
+/obj/machinery/atmospherics/pipe/return_connected_networks()
+	LAZY_ADD_SAFE(., src.return_network(src))
+	if(!.) return list()
+
 /obj/machinery/atmospherics/pipe/Destroy()
 	QDEL_NULL(parent)
 	QDEL_NULL(sound_token)

@@ -107,6 +107,13 @@
 
 	return null
 
+/obj/machinery/atmospherics/portables_connector/return_connected_networks()
+	build_network()
+
+	. = list()
+	if(network)
+		. += network
+
 /obj/machinery/atmospherics/portables_connector/reassign_network(datum/pipe_network/old_network, datum/pipe_network/new_network)
 	if(network == old_network)
 		network = new_network

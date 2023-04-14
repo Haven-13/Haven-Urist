@@ -246,6 +246,18 @@
 
 	return null
 
+/obj/machinery/atmospherics/tvalve/return_connected_networks()
+	build_network()
+
+	. = list()
+	if(network_node1)
+		. += network_node1
+	if(network_node2)
+		. += network_node2
+	if(network_node3)
+		. += network_node3
+
+
 /obj/machinery/atmospherics/tvalve/reassign_network(datum/pipe_network/old_network, datum/pipe_network/new_network)
 	if(network_node1 == old_network)
 		network_node1 = new_network

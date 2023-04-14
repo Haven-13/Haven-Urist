@@ -156,20 +156,26 @@ var/list/ventcrawl_machinery = list(
 			to_chat(src, "This vent is not connected to anything.")
 	else
 		to_chat(src, "You must be standing on or beside an air vent to enter it.")
+
 /mob/living/proc/add_ventcrawl(obj/machinery/atmospherics/starting_machine)
 	is_ventcrawling = 1
 	//candrop = 0
-	var/datum/pipe_network/network = starting_machine.return_network(starting_machine)
-	if(!network)
+
+	var/list/datum/pipe_network/networks = starting_machine.return_connected_networks()
+	if(!LAZY_LENGTH(networks))
 		return
-	for(var/datum/pipeline/pipeline in network.line_members)
-		for(var/obj/machinery/atmospherics/A in (pipeline.members || pipeline.edges))
-			if(!A.pipe_image)
-				A.pipe_image = image(A, A.loc, dir = A.dir)
-			A.pipe_image.layer = ABOVE_LIGHTING_LAYER
-			A.pipe_image.plane = EMISSIVE_PLANE
-			pipes_shown += A.pipe_image
-			client.images += A.pipe_image
+
+	for(var/datum/pipe_network/network in networks)
+		for(var/obj/machinery/atmospherics/A in network.normal_members)
+			var/image/pipe_image = A.get_pipe_iamge()
+			pipes_shown += pipe_image
+
+		for(var/datum/pipeline/pipeline in network.line_members)
+			for(var/obj/machinery/atmospherics/A in (pipeline.members || pipeline.edges))
+				var/image/pipe_image = A.get_pipe_iamge()
+				pipes_shown += pipe_image
+
+	client.images |= pipes_shown
 
 /mob/living/proc/remove_ventcrawl()
 	is_ventcrawling = 0
