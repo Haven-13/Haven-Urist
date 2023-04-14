@@ -539,3 +539,7 @@
   martinlyra:
   - bugfix: Fixed a critical bug regarding subsystem priority discovered by wixoaGit
       and fix implemented @ tgstation
+2023-04-14:
+  martinlyra:
+  - tweak: Added an opt-in feature to wrap callbacks in try-catch for enhanced error-reporting
+      information
