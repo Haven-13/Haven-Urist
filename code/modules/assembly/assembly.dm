@@ -103,7 +103,7 @@
 	return 1
 
 //Called when attack_self is called
-/obj/item/device/assembly/proc/interact(mob/user as mob)
+/obj/item/device/assembly/interact(mob/user as mob)
 	return //HTML MENU FOR WIRES GOES HERE
 
 /obj/item/device/assembly/ui_host()
