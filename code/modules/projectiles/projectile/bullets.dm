@@ -229,14 +229,6 @@
 	embed = 0
 	edge = 1
 
-/obj/item/projectile/bullet/gyro
-	fire_sound = 'resources/sound/effects/Explosion1.ogg'
-
-/obj/item/projectile/bullet/gyro/on_hit(var/atom/target, var/blocked = 0)
-	if(is_turf(target))
-		explosion(target, -1, 0, 2)
-	..()
-
 /obj/item/projectile/bullet/blank
 	invisibility = 101
 	damage = 1
