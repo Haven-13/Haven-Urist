@@ -65,14 +65,7 @@
 	var/mob/living/silicon/robot/current = null
 
 
-/obj/machinery/computer/aiupload/attackby(obj/item/weapon/aiModule/module as obj, mob/user as mob)
-	if(istype(module, /obj/item/weapon/aiModule))
-		module.install(src)
-	else
-		return ..()
-
-
-/obj/machinery/computer/aiupload/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/borgupload/attack_hand(var/mob/user as mob)
 	if(src.stat & NOPOWER)
 		to_chat(usr, "The upload computer has no power!")
 		return
@@ -88,5 +81,5 @@
 		to_chat(usr, "[src.current.name] selected for law changes.")
 	return
 
-/obj/machinery/computer/aiupload/attack_ghost(user as mob)
+/obj/machinery/computer/borgupload/attack_ghost(user as mob)
 	return 1

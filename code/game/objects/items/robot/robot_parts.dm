@@ -317,6 +317,13 @@
 
 /obj/item/robot_parts/head/attackby(obj/item/W as obj, mob/user as mob)
 	..()
+	if (istype(W, /obj/item/device/assembly/infra))
+		to_chat(user, "<span class='notice'>You add the infrared sensor to the robot head.</span>")
+		var/obj/item/weapon/TVAssembly/A = new(user)
+		user.put_in_hands(A)
+		qdel(W)
+		qdel(src)
+		return
 	if(istype(W, /obj/item/device/flash))
 		if(istype(user,/mob/living/silicon/robot))
 			var/current_module = user.get_active_hand()

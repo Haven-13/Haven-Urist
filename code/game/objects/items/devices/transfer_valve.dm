@@ -13,7 +13,12 @@
 	var/toggle = 1
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 
-/obj/item/device/transfer_valve/proc/process_activation(var/obj/item/device/D)
+/obj/item/device/transfer_valve/proc/process_activation(obj/item/device/D)
+	if(toggle)
+		toggle = 0
+		toggle_valve()
+		spawn(50) // To stop a signal being spammed from a proxy sensor constantly going off or whatever
+			toggle = 1
 
 /obj/item/device/transfer_valve/IsAssemblyHolder()
 	return 1
@@ -117,13 +122,6 @@
 		if(href_list["device"])
 			attached_device.attack_self(usr)
 	return 1 // Returning 1 sends an update to attached UIs
-
-/obj/item/device/transfer_valve/process_activation(var/obj/item/device/D)
-	if(toggle)
-		toggle = 0
-		toggle_valve()
-		spawn(50) // To stop a signal being spammed from a proxy sensor constantly going off or whatever
-			toggle = 1
 
 /obj/item/device/transfer_valve/update_icon()
 	overlays.Cut()

@@ -121,10 +121,6 @@
 		set_dir(d)
 	START_PROCESSING(SSmachines, src)
 
-/obj/machinery/Initialize()
-	. = ..()
-	START_PROCESSING(SSmachines, src)
-
 /obj/machinery/Destroy()
 	STOP_PROCESSING(SSmachines, src)
 	if(component_parts)
@@ -204,6 +200,8 @@
 /obj/machinery/CouldUseTopic(var/mob/user)
 	..()
 	user.set_machine(src)
+	if(clicksound && istype(user, /mob/living/carbon))
+		playsound(src, clicksound, clickvol)
 
 /obj/machinery/CouldNotUseTopic(var/mob/user)
 	user.unset_machine()
@@ -371,11 +369,6 @@
 
 /obj/machinery/proc/malf_upgrade(var/mob/living/silicon/ai/user)
 	return 0
-
-/obj/machinery/CouldUseTopic(var/mob/user)
-	..()
-	if(clicksound && istype(user, /mob/living/carbon))
-		playsound(src, clicksound, clickvol)
 
 /obj/machinery/proc/display_parts(mob/user)
 	to_chat(user, "<span class='notice'>Following parts detected in the machine:</span>")

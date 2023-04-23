@@ -12,9 +12,6 @@
 	var/timing = 0
 	var/time = 10
 
-/obj/item/device/assembly/timer/proc/timer_end()
-
-
 /obj/item/device/assembly/timer/activate()
 	if(!..())	return 0//Cooldown check
 
@@ -35,7 +32,7 @@
 	return secured
 
 
-/obj/item/device/assembly/timer/timer_end()
+/obj/item/device/assembly/timer/proc/timer_end()
 	if(!secured)	return 0
 	pulse(0)
 	if(!holder)

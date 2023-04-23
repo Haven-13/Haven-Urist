@@ -732,9 +732,6 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			to_chat(user, "<span class='notice'>This does nothing.</span>")
 	update_icon()
 
-/obj/machinery/newscaster/attack_ai(mob/user as mob)
-	return src.attack_hand(user) //or maybe it'll have some special functions? No idea.
-
 /datum/news_photo
 	var/is_synth = 0
 	var/obj/item/weapon/photo/photo = null

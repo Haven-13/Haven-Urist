@@ -15,10 +15,6 @@
 
 	var/range = 2
 
-/obj/item/device/assembly/prox_sensor/proc/toggle_scan()
-/obj/item/device/assembly/prox_sensor/proc/sense()
-
-
 /obj/item/device/assembly/prox_sensor/activate()
 	if(!..())	return 0//Cooldown check
 	timing = !timing

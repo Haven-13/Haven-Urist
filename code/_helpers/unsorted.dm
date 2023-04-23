@@ -884,9 +884,6 @@ var/global/list/common_tools = list(
 /obj/item/weapon/weldingtool/can_puncture()
 	return 1
 
-/obj/item/weapon/screwdriver/can_puncture()
-	return 1
-
 /obj/item/weapon/shovel/can_puncture() //includes spades
 	return 1
 

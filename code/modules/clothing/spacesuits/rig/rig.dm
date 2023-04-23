@@ -178,6 +178,13 @@
 		ret.icon = icon_override
 	else if(slot == slot_back_str)
 		ret.icon = mob_icon
+
+	if(slot != slot_back_str || offline)
+		return ret
+	if(equipment_overlay_icon && LAZY_LENGTH(installed_modules))
+		for(var/obj/item/rig_module/module in installed_modules)
+			if(module.suit_overlay)
+				ret.overlays += image("icon" = equipment_overlay_icon, "icon_state" = "[module.suit_overlay]")
 	return ret
 
 /obj/item/weapon/rig/proc/set_slowdown_and_vision(var/active)
@@ -533,17 +540,6 @@
 		wearer.update_inv_w_uniform()
 		wearer.update_inv_back()
 	return
-
-/obj/item/weapon/rig/get_mob_overlay(mob/user_mob, slot)
-	var/image/ret = ..()
-	if(slot != slot_back_str || offline)
-		return ret
-
-	if(equipment_overlay_icon && LAZY_LENGTH(installed_modules))
-		for(var/obj/item/rig_module/module in installed_modules)
-			if(module.suit_overlay)
-				ret.overlays += image("icon" = equipment_overlay_icon, "icon_state" = "[module.suit_overlay]")
-	return ret
 
 /obj/item/weapon/rig/proc/check_suit_access(var/mob/living/carbon/human/user)
 
