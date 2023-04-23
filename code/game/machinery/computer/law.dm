@@ -64,6 +64,12 @@
 	circuit = /obj/item/weapon/circuitboard/borgupload
 	var/mob/living/silicon/robot/current = null
 
+/obj/machinery/computer/borgupload/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/weapon/aiModule))
+		var/obj/item/weapon/aiModule/M = W
+		M.install(src)
+	else
+		return ..()
 
 /obj/machinery/computer/borgupload/attack_hand(var/mob/user as mob)
 	if(src.stat & NOPOWER)
