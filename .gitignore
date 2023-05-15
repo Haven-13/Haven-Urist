@@ -54,3 +54,8 @@ dump.txt
 # tool-generated files
 .cache/
 check_regex_output.txt
+
+# byond-tracy libraries, because at time of writing, 2023-04-14, it is not ready for production server use
+# and should not be redistributed
+prof.dll
+prof.so

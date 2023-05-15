@@ -16,6 +16,15 @@
 //		0 will disable this feature
 #define TRY_CATCH_CALLBACKS 1
 
+// Toggle whether we shall compile in the function to call the prof.so slash prof.dll
+// to use the tracy profiler (via https://github.com/mafemergency/byond-tracy)
+// Keep in mind that at point of commenting this, byond-tracy is not made for production use
+// and it won't be shipped or added to this git. Please follow the guide available at the README
+// in the Github repository linked above on how to compile it.
+//		1 will enable this feature
+// 		0 will disable this feature
+#define USE_BYOND_TRACY 0
+
 #ifdef CIBUILDING
 #define UNIT_TEST
 #endif
