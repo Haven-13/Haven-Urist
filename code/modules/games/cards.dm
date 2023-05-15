@@ -159,17 +159,6 @@
 		return
 	..()
 
-/obj/item/weapon/hand/attackby(obj/O as obj, mob/user as mob)
-	if(istype(O,/obj/item/weapon/hand))
-		var/obj/item/weapon/hand/H = O
-		for(var/datum/playingcard/P in cards)
-			H.cards += P
-		H.concealed = src.concealed
-		qdel(src)
-		H.update_icon()
-		return
-	..()
-
 /obj/item/weapon/deck/attack_self(var/mob/user as mob)
 
 	cards = shuffle(cards)

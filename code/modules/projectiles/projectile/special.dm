@@ -21,6 +21,7 @@
 /obj/item/projectile/bullet/gyro
 	name ="explosive bolt"
 	icon_state= "bolter"
+	fire_sound = 'resources/sound/effects/Explosion1.ogg'
 	damage = 50
 	check_armour = "bullet"
 	sharp = 1

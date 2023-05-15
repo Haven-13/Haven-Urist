@@ -461,9 +461,6 @@ About the new airlock wires panel:
 				return
 	..(user)
 
-/obj/machinery/door/airlock/bumpopen(mob/living/simple_animal/user as mob)
-	..(user)
-
 /obj/machinery/door/airlock/proc/isElectrified()
 	if(src.electrified_until != 0)
 		return 1
@@ -1146,13 +1143,6 @@ About the new airlock wires panel:
 	audible_message("You hear a click from the bottom of the door.", hearing_distance = 1)
 	update_icon()
 	return 1
-
-
-/obj/machinery/door/airlock/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "AiAirlockControl", name)
-		ui.open()
 
 /obj/machinery/door/airlock/allowed(mob/M)
 	if(locked)

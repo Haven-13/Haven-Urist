@@ -399,7 +399,7 @@
 	name = "data disk - 'Mr. Muggles'"
 	read_only = 1
 
-/obj/item/weapon/disk/data/demo/New()
+/obj/item/weapon/disk/data/monkey/New()
 	..()
 	initializeDisk()
 	buf.types=DNA2_BUF_SE

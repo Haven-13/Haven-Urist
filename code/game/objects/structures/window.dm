@@ -325,6 +325,7 @@
 	//player-constructed windows
 	if (constructed)
 		set_anchored(FALSE)
+		state = 0
 
 	if (start_dir)
 		set_dir(start_dir)
@@ -492,14 +493,6 @@
 	glasstype = /obj/item/stack/material/glass/reinforced
 	material_color = GLASS_COLOR
 	color = GLASS_COLOR
-
-/obj/structure/window/New(Loc, constructed=0)
-	..()
-
-	//player-constructed windows
-	if (constructed)
-		state = 0
-	update_connections(1)
 
 /obj/structure/window/Initialize()
 	. = ..()
