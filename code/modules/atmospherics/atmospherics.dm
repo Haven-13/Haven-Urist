@@ -124,6 +124,12 @@ Pipelines + Other Objects -> Pipe network
 
 	return null
 
+/obj/machinery/atmospherics/proc/return_connected_networks()
+	// Returns all the networks that this node is connected to
+	// Should not contain null, leave null networks as empty
+	// Build network if necessary
+	return list()
+
 /obj/machinery/atmospherics/proc/reassign_network(datum/pipe_network/old_network, datum/pipe_network/new_network)
 	// Used when two pipe_networks are combining
 

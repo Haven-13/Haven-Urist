@@ -86,6 +86,15 @@
 
 	return null
 
+/obj/machinery/atmospherics/binary/return_connected_networks()
+	build_network()
+
+	. = list()
+	if(network1)
+		. += network1
+	if(network2)
+		. += network2
+
 /obj/machinery/atmospherics/binary/reassign_network(datum/pipe_network/old_network, datum/pipe_network/new_network)
 	if(network1 == old_network)
 		network1 = new_network
