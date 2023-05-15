@@ -1,0 +1,5 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Fixed vent-crawling images not being layered properly
+  - bugfix: Fixed vent-crawling not showing complete networks sometimes
