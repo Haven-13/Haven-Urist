@@ -1,4 +1,0 @@
-author: martinlyra
-delete-after: true
-changes:
-  - code_imp: Integration with the Tracy profiler using byond-tracy

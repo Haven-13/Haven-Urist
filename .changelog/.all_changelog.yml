@@ -543,3 +543,13 @@
   martinlyra:
   - tweak: Added an opt-in feature to wrap callbacks in try-catch for enhanced error-reporting
       information
+2023-05-16:
+  martinlyra:
+  - bugfix: Fixed the human DNA demo disc containing pure monkey DNA only
+  - bugfix: Fixed the AI and Borg law upload computers not working at all
+  - bugfix: Fixed the electric using combustion engine noises
+  - bugfix: Fixed the terran marine voidsuit not properly slowing the user down
+  - bugfix: Fixed the Lactera heavy freighter being misassigned a Hivebot vessel loadout
+  - code_imp: Integration with the Tracy profiler using byond-tracy
+  - bugfix: Fixed vent-crawling images not being layered properly
+  - bugfix: Fixed vent-crawling not showing complete networks sometimes
