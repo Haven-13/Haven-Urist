@@ -1,0 +1,30 @@
+[language_spacer_basic]
+name = "Santiago Básico"
+shorthand = "SB"
+description = """
+	A pidgin language spoken by haulers, merchants, traders, travellers, and cocky fly-boys across the Santiago galaxy.
+	Considered the trade language of the Santiago galaxy next to few languages exclusively native to few species.
+	Despite the namesake from a Romantic language, the language contains the easiest element every language in Santiago can offer.
+"""
+syllables = [
+	"die", "en", "skei", "van", "son", "der", "aar", "ch", "op", "ruk", "aa", "be", "ne", "het",
+	"ek", "ras", "ver", "zan", "das", "waa", "geb", "vol", "lu", "min", "breh", "rus", "stv",
+	"ee", "goe", "sk","la", "ver", "we", "ge", "luk", "an", "ar", "at", "es", "et", "bel", "du",
+	"jaa", "ch", "kk", "gh", "ll", "uu", "wat"
+]
+colour = "spacer"
+key = "e"
+
+[language_sign]
+name = "Hand Sign Language"
+shorthand = "HSL"
+description = """
+	A sign language commonly used for those who are deaf or mute, but also
+	spacemen to communicate in less than ideal conditions in the unforgiving void.
+"""
+colour = "say_quote"
+key = "s"
+flags = ["signlang", "no_stutter", "nonverbal", "restricted"]
+
+[language_spacer_sign.verbs]
+sign = ["gestures"]

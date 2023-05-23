@@ -3,7 +3,7 @@
 //Totally-not-kobaian, because why not? It's a conlang and I'm a massive nerd.
 /datum/language/mekanik
 	name = "Sol-Divergent"
-	desc = "A strange, militaristic-sounding amalgamation of Germanic and Slavic languages contaminated with French and long isolation from mainstream humanity."
+	description = "A strange, militaristic-sounding amalgamation of Germanic and Slavic languages contaminated with French and long isolation from mainstream humanity."
 	speech_verb = "says"
 	whisper_verb = "whispers"
 	colour = "rough"
@@ -16,10 +16,10 @@
 /datum/language/mekanik/get_spoken_verb(var/msg_end)
 	switch(msg_end)
 		if("!")
-			return pick("exclaims","shouts","yells")
+			return pick(exclaim_verb)
 		if("?")
-			return ask_verb
-	return speech_verb
+			return pick(ask_verb)
+	return pick(speech_verb)
 
 /datum/language/mekanik/get_random_name(var/gender) //TODO: custom Germanesque name list
 	if (prob(80))

@@ -191,15 +191,15 @@ var/global/floorIsLava = 0
 	// language toggles
 	body += "<br><br><b>Languages:</b><br>"
 	var/f = 1
-	for(var/k in all_languages)
-		var/datum/language/L = all_languages[k]
+	for(var/k in SSculture.language_by_id)
+		var/datum/language/L = SSculture.language_by_id[k]
 		if(!(L.flags & INNATE))
 			if(!f) body += " | "
 			else f = 0
 			if(L in M.languages)
-				body += "<a href='?src=[REF(src)];toglang=[REF(M)];lang=[html_encode(k)]' style='color:#006600'>[k]</a>"
+				body += "<a href='?src=[REF(src)];toglang=[REF(M)];lang=[html_encode(k)]' style='color:#006600'>[L.name]</a>"
 			else
-				body += "<a href='?src=[REF(src)];toglang=[REF(M)];lang=[html_encode(k)]' style='color:#ff0000'>[k]</a>"
+				body += "<a href='?src=[REF(src)];toglang=[REF(M)];lang=[html_encode(k)]' style='color:#ff0000'>[L.name]</a>"
 
 	body += {"<br>
 		</body></html>

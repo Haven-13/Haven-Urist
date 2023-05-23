@@ -17,7 +17,7 @@
 	else
 		real_name = random_name(gender) //fallback
 
-	species_language = all_languages[C.default_language]
+	species_language = SSculture.get_language(C.default_language)
 
 	if(npc_job_title)
 		name = "[real_name] ([npc_job_title])"

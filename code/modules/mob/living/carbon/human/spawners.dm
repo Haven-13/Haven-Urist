@@ -27,7 +27,7 @@
 	H.set_dir(dir)
 	H.set_species(species)
 
-	var/datum/language/L = all_languages[language]
+	var/datum/language/L = SSculture.get_language(language)
 
 	if(new_gender)
 		H.change_gender(new_gender)

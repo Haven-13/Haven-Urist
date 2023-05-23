@@ -1,0 +1,28 @@
+[culture_human]
+language = "language_orion_common"
+secondary_languages = ["language_spacer_basic", "language_sign"]
+category = ["culture"]
+
+[culture_human_aursian]
+__extends = 'culture_human'
+name = "Aursian"
+
+[culture_human_faxlandi]
+__extends = 'culture_human'
+name = "Faxlangdian"
+
+[culture_human_solarian]
+__extends = 'culture_human'
+name = "Solarian"
+language = "language_sol_common"
+secondary_languages = []
+
+[culture_human_octavian]
+__extends = 'culture_human'
+name = "Octavian"
+
+[culture_human_old_earther]
+__extends = 'culture_human'
+name = "Old Earther"
+language = "language_sol_common"
+secondary_languages = []

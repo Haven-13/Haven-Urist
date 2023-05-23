@@ -3,29 +3,197 @@ SUBSYSTEM_DEF(culture)
 	init_order = SS_INIT_CULTURE
 	flags = SS_NO_FIRE
 
-	var/list/cultural_info_by_name = list()
-	var/list/cultural_info_by_path = list()
-	var/list/tagged_info = list()
+	var/list/language_by_name = list()
+	var/list/language_by_id = list()
+	var/list/language_by_key = list()
 
-/datum/controller/subsystem/culture/proc/get_all_entries_tagged_with(var/token)
-	return tagged_info[token]
+	var/list/cultural_info_by_name = list()
+	var/list/cultural_info_by_id = list()
+	var/list/cultural_info_by_tag = list()
 
 /datum/controller/subsystem/culture/Initialize()
-	for(var/ftype in typesof(/decl/cultural_info)-/decl/cultural_info)
-		var/decl/cultural_info/culture = ftype
-		if(!initial(culture.name))
-			continue
-		culture = new culture
-		if(cultural_info_by_name[culture.name])
-			crash_with("Duplicate cultural datum ID - [culture.name] - [ftype]")
-		cultural_info_by_name[culture.name] = culture
-		cultural_info_by_path[ftype] = culture
-		if(culture.category && !culture.hidden)
-			if(!tagged_info[culture.category])
-				tagged_info[culture.category] = list()
-			var/list/tag_list = tagged_info[culture.category]
-			tag_list[culture.name] = culture
+	initialize_name_lists()
+	initialize_builtin_languages()
+	initialize_languages()
+	initialize_culture_infos()
 	. = ..()
 
-/datum/controller/subsystem/culture/proc/get_culture(var/culture_ident)
-	return cultural_info_by_name[culture_ident] ? cultural_info_by_name[culture_ident] : cultural_info_by_path[culture_ident]
+/datum/controller/subsystem/culture/proc/initialize_name_lists()
+	var/list/config = rustg_read_toml_file("resources/strings/names/name_lists.toml")
+	var/list/fcache = list()
+
+	for(var/key in config)
+		var/list/files = config[key]
+		var/list/contents = list()
+
+		for(var/f in files)
+			var/filename = "resources/strings/names/[f]"
+			if (!(f in fcache))
+				var/list/data = file2list(filename)
+				if(file_get_extension(filename) == "csv")
+					data.Cut(1,1) // Remove the header (for CSV files)
+				fcache[f] = data
+			contents.Add(fcache[f])
+
+		SSstrings.create_list(key, contents)
+
+/datum/controller/subsystem/culture/proc/initialize_builtin_languages()
+	var/list/types = subtypesof(/datum/language)
+	for(var/type in types)
+		var/datum/language/lang = new type
+
+		language_by_id["[lang.type]"] = lang
+		language_by_name[lang.name] = lang
+		if(!(lang.flags & NONGLOBAL) && length(lang.key))
+			language_by_key[lowertext(lang.key)] = lang
+
+/datum/controller/subsystem/culture/proc/initialize_languages()
+	var/files = GLOB.using_map.get_language_files()
+	var/list/raw = list()
+	for (var/file in files)
+		if(!rustg_file_exists(file))
+			log_error("SSculture: File [file] does not exist")
+			continue
+		var/list/data = rustg_read_toml_file(file)
+		for(var/key in data)
+			data[key]["@source"] = file
+		raw.Add(data)
+
+	for (var/key in raw)
+		var/toml_def = resolve(key, raw)
+		var/datum/language/lang = try_build_language_decl(key, toml_def)
+
+		if(!lang.name)
+			continue
+		if(language_by_id[key])
+			log_error("Duplicate language ID: \[[key]\] from [toml_def["@source"]]")
+		if(language_by_name[lang.name])
+			log_error("Duplicate language name: '[lang.name]' by \[[key]\] from [toml_def["@source"]]")
+
+		language_by_id[key] = lang
+		language_by_name[lang.name] = lang
+		language_by_key[lang.key] = lang
+
+/datum/controller/subsystem/culture/proc/initialize_culture_infos()
+	var/files = GLOB.using_map.get_culture_files()
+	var/list/raw = list()
+	for (var/file in files)
+		if(!rustg_file_exists(file))
+			log_error("SSculture: File [file] does not exist")
+			continue
+		var/list/data = rustg_read_toml_file(file)
+		for(var/key in data)
+			data[key]["@source"] = file
+		raw.Add(data)
+
+	for (var/key in raw)
+		var/toml_def = resolve(key, raw)
+		var/decl/cultural_info/culture = try_build_culture_decl(key, toml_def)
+
+		if(!culture.name)
+			continue
+		if(cultural_info_by_id[key])
+			log_error("Duplicate cultural ID: \[[key]\] from [toml_def["@source"]]")
+		if(cultural_info_by_name[culture.name])
+			log_error("Duplicate cultural name: '[culture.name]' by \[[key]\] from [toml_def["@source"]]")
+
+		cultural_info_by_id[key] = culture
+		cultural_info_by_name[culture.name] = culture
+		if(culture.category && !culture.hidden)
+			if(!cultural_info_by_tag[culture.category])
+				cultural_info_by_tag[culture.category] = list()
+			var/list/tag_list = cultural_info_by_tag[culture.category]
+			tag_list[culture.name] = culture
+
+/datum/controller/subsystem/culture/proc/resolve(key, list/raw_toml_data)
+	var/list/def = raw_toml_data[key]
+	if(def["__extends"] && !def["@extension"])
+		def["@extension"] = resolve(def["__extends"], raw_toml_data)
+	if(!def["@full"])
+		def["@full"] = def + (def["@extension"] || list())
+	return def["@full"]
+
+/datum/controller/subsystem/culture/proc/resolve_languages(keys, who)
+	var/datum/language/L
+	var/list/languages = list()
+	if(!islist(keys))
+		keys = list(keys)
+
+	for (var/k in keys)
+		if (k in language_by_id)
+			L = language_by_id[k]
+			languages.Add(L.name)
+		else
+			log_error("Culture: Language id '[k]' is undefined! -- Used by '[who]'")
+	return languages
+
+/datum/controller/subsystem/culture/proc/parse_language_flags(list/flags, who)
+	. = 0
+	for(var/flag in flags)
+		switch(lowertext(flag))
+			if ("whitelisted")
+				. |= WHITELISTED
+			if ("restricted")
+				. |= RESTRICTED
+			if ("nonverbal")
+				. |= NONVERBAL
+			if ("signlang")
+				. |= SIGNLANG
+			if ("hivemind")
+				. |= HIVEMIND
+			if ("nonglobal")
+				. |= NONGLOBAL
+			if ("innate")
+				. |= INNATE
+			if ("no_talk_msg")
+				. |= NO_TALK_MSG
+			if ("no_stutter")
+				. |= NO_STUTTER
+			if ("alt_transmit")
+				. |= ALT_TRANSMIT
+			else
+				log_error("'[who]''s '[flag]' flag is unknown")
+
+/datum/controller/subsystem/culture/proc/try_build_language_decl(key, list/data)
+	var/datum/language/language = new
+	language.name = data["name"]
+	language.description = data["description"]
+	language.syllables = data["syllables"]
+	language.colour = data["colour"]
+	language.shorthand = data["short_hand"]
+	language.key = lowertext(data["key"])
+	language.flags = parse_language_flags(data["flags"], key)
+
+	var/list/verbs = data["verbs"]
+	if(!!verbs && length(verbs))
+		if(verbs["speech"])  language.speech_verb = verbs["speech"]
+		if(verbs["ask"])     language.ask_verb = verbs["ask"]
+		if(verbs["exclaim"]) language.speech_verb = verbs["exclaim"]
+		if(verbs["sign"])    language.signlang_verb = verbs["sign"]
+
+	return language
+
+/datum/controller/subsystem/culture/proc/try_build_culture_decl(key, list/data)
+	var/decl/cultural_info/culture = new
+	culture.name = data["name"]
+	culture.description = data["description"]
+	culture.hidden = data["hidden"] || FALSE
+	culture.category = data["category"]
+
+	var/list/langs = resolve_languages(data["language"], key)
+	culture.language = LAZY_ACCESS(langs, 1)
+	culture.secondary_langs = resolve_languages(data["secondary_languages"] || list(), key)
+	culture.additional_langs = resolve_languages(data["additional_languages"] || list(), key)
+	return culture
+
+/datum/controller/subsystem/culture/proc/get_language(var/identifier)
+	return language_by_id[identifier] || language_by_name[identifier]
+
+/datum/controller/subsystem/culture/proc/get_culture(var/identifier)
+	return cultural_info_by_id[identifier] || cultural_info_by_name[identifier]
+
+/datum/controller/subsystem/culture/proc/pick_random_culture()
+	return cultural_info_by_id[pick(cultural_info_by_id)]
+
+/datum/controller/subsystem/culture/proc/get_all_entries_tagged_with(var/token)
+	return cultural_info_by_tag[token]

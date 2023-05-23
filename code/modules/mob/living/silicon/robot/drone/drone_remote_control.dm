@@ -27,7 +27,7 @@
 	languages = controlling_ai.languages.Copy()
 
 	add_language("Drone Talk", 1)
-	default_language = all_languages["Drone Talk"]
+	default_language = SSculture.get_language("Drone Talk")
 
 	stat = CONSCIOUS
 	if(user.mind)

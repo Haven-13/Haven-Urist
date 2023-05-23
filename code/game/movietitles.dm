@@ -162,7 +162,7 @@ GLOBAL_LIST(end_titles)
 		if(!C.holder)
 			continue
 		if(C.holder.rights & (R_DEBUG|R_ADMIN))
-			var/decl/cultural_info/cult = SSculture.cultural_info_by_name[pick(SSculture.cultural_info_by_name)]
+			var/decl/cultural_info/cult = SSculture.pick_random_culture()
 			staff += "[uppertext(pick(staffjobs))] - [cult.get_random_name(pick(MALE, FEMALE))] a.k.a. '[C.key]'"
 		else if(C.holder.rights & R_MOD)
 			goodboys += "[C.key]"
