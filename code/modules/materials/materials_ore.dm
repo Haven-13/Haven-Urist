@@ -5,7 +5,6 @@
 	randpixel = 8
 	w_class = 2
 	var/material/material
-	var/datum/geosample/geologic_data
 
 /obj/item/weapon/ore/get_material()
 	return material
