@@ -79,8 +79,6 @@
 	var/say_time = 0
 	var/say_next = 0
 
-	var/datum/controller/process/SStrade_controller/SStrade_controller_debug
-
 	var/sell_modifier = 0.90 //how much less than the sell price will the merchants buy items from you
 	var/price_increase = 1.02 //how much does the price go up after they sell an item. a value of 1 means no increase.
 	var/no_resell = 0
