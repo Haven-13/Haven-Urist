@@ -25,8 +25,6 @@
 	var/lastgenlev = 0
 	var/lubricated = 0
 
-	var/datum/effect_system/sparks/spark_system
-
 	var/list/soundverb = list("shudders violently", "rumbles brutally", "vibrates disturbingly", "shakes with a deep rumble", "bangs and thumps")
 	var/list/soundlist = list('resources/sound/ambience/ambigen9.ogg','resources/sound/effects/meteorimpact.ogg','resources/sound/effects/caution.ogg')
 
