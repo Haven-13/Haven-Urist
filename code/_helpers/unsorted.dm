@@ -1054,12 +1054,12 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 
 // get coordinates to an atom
 
-/proc/coordinates(atom/src, jump_link = 0)
-	return src ? src.coordinates(jump_link) : "nullspace"
-
 /atom/proc/coordinates(jump_link = 0)
 	var/turf/T = src.loc
 	return T ? "([T.x],[T.y],[T.z])[jump_link ? admin_jump_link(T) : ""]" : "nullspace"
+
+/proc/coordinates(atom/source, jump_link = 0)
+	return source ? source.coordinates(jump_link) : "nullspace"
 
 // get memory reference
 /proc/REF(input)
