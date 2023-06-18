@@ -7,7 +7,7 @@
 
 /datum/overmap_generator/random/spawn_events(number_of_events)
 	var/list/candidate_turfs = empty_map_tiles.Copy()
-	candidate_turfs = where(candidate_turfs, /proc/can_not_locate, /obj/effect/overmap)
+	candidate_turfs = where(candidate_turfs, GLOBAL_PROC_REF(can_not_locate), /obj/effect/overmap)
 
 	for(var/i = 1 to number_of_events)
 		if(!candidate_turfs.len)

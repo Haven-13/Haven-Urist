@@ -681,11 +681,11 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	user.visible_message("\The [user] peers through [zoomdevicename ? "the [zoomdevicename] of [src]" : "[src]"].")
 
-	GLOB.destroyed_event.register(src, src, /obj/item/proc/unzoom)
-	GLOB.moved_event.register(src, src, /obj/item/proc/unzoom)
-	GLOB.dir_set_event.register(src, src, /obj/item/proc/unzoom)
-	GLOB.item_unequipped_event.register(src, src, /obj/item/proc/zoom_drop)
-	GLOB.stat_set_event.register(user, src, /obj/item/proc/unzoom)
+	GLOB.destroyed_event.register(src, src, TYPE_PROC_REF(/obj/item, unzoom))
+	GLOB.moved_event.register(src, src, TYPE_PROC_REF(/obj/item, unzoom))
+	GLOB.dir_set_event.register(src, src, TYPE_PROC_REF(/obj/item, unzoom))
+	GLOB.item_unequipped_event.register(src, src, TYPE_PROC_REF(/obj/item, zoom_drop))
+	GLOB.stat_set_event.register(user, src, TYPE_PROC_REF(/obj/item, unzoom))
 
 /obj/item/proc/zoom_drop(var/obj/item/I, var/mob/user)
 	unzoom(user)
@@ -695,17 +695,17 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return
 	zoom = 0
 
-	GLOB.destroyed_event.unregister(src, src, /obj/item/proc/unzoom)
-	GLOB.moved_event.unregister(src, src, /obj/item/proc/unzoom)
-	GLOB.dir_set_event.unregister(src, src, /obj/item/proc/unzoom)
-	GLOB.item_unequipped_event.unregister(src, src, /obj/item/proc/zoom_drop)
+	GLOB.destroyed_event.unregister(src, src, TYPE_PROC_REF(/obj/item, unzoom))
+	GLOB.moved_event.unregister(src, src, TYPE_PROC_REF(/obj/item, unzoom))
+	GLOB.dir_set_event.unregister(src, src, TYPE_PROC_REF(/obj/item, unzoom))
+	GLOB.item_unequipped_event.unregister(src, src, TYPE_PROC_REF(/obj/item, zoom_drop))
 
 	user = user == src ? loc : (user || loc)
 	if(!istype(user))
 		crash_with("[log_info_line(src)]: Zoom user lost]")
 		return
 
-	GLOB.stat_set_event.unregister(user, src, /obj/item/proc/unzoom)
+	GLOB.stat_set_event.unregister(user, src, TYPE_PROC_REF(/obj/item, unzoom))
 
 	if(!user.client)
 		return

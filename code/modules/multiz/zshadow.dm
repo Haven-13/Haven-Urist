@@ -24,8 +24,8 @@
 		return
 	..() // I'm cautious about this, but its the right thing to do.
 	owner = L
-	GLOB.dir_set_event.register(L, src, /mob/zshadow/proc/update_dir)
-	GLOB.invisibility_set_event.register(L, src, /mob/zshadow/proc/update_invisibility)
+	GLOB.dir_set_event.register(L, src, TYPE_PROC_REF(/mob/zshadow, update_dir))
+	GLOB.invisibility_set_event.register(L, src, TYPE_PROC_REF(/mob/zshadow, update_invisibility))
 
 /mob/Destroy()
 	if(shadow)
@@ -34,8 +34,8 @@
 	. = ..()
 
 /mob/zshadow/Destroy()
-	GLOB.dir_set_event.unregister(owner, src, /mob/zshadow/proc/update_dir)
-	GLOB.invisibility_set_event.unregister(owner, src, /mob/zshadow/proc/update_invisibility)
+	GLOB.dir_set_event.unregister(owner, src, TYPE_PROC_REF(/mob/zshadow, update_dir))
+	GLOB.invisibility_set_event.unregister(owner, src, TYPE_PROC_REF(/mob/zshadow, update_invisibility))
 	. = ..()
 
 /mob/zshadow/examine(mob/user, distance, infix, suffix)

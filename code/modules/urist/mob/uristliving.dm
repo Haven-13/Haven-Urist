@@ -89,4 +89,4 @@ GLOBAL_LIST_INIT(mutation_color_matrices, list("[M_NOIR]"=COLMX_EXPRESSIONIST))
 			time = 170
 		client.cached_colormatrix = colormatrix
 		client.color_transition(colormatrix, time = time)
-		addtimer(CALLBACK(client, /client/proc/_update_client_color_callback, color_to_apply), time, TIMER_UNIQUE)
+		addtimer(CALLBACK(client, TYPE_PROC_REF(/client, _update_client_color_callback), color_to_apply), time, TIMER_UNIQUE)

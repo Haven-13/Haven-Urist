@@ -25,7 +25,7 @@
 	if(reagents && reagents.total_volume)
 		atom_flags &= ~ATOM_FLAG_NO_REACT
 		reagents.handle_update()
-		addtimer(CALLBACK(src, .proc/stop_react), SSmaterials.wait)
+		addtimer(CALLBACK(src, PROC_REF(stop_react)), SSmaterials.wait)
 
 /obj/item/weapon/reagent_containers/food/drinks/shaker/proc/stop_react()
 	atom_flags |= ATOM_FLAG_NO_REACT

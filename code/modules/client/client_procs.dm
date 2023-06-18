@@ -385,7 +385,7 @@
 
 		//Precache the client with all other assets slowly, so as to not block other browse() calls
 		if (config.asset_simple_preload)
-			addtimer(CALLBACK(SSassets.transport, /datum/asset_transport.proc/send_assets_slow, src, SSassets.transport.preload), 5 SECONDS)
+			addtimer(CALLBACK(SSassets.transport,  TYPE_PROC_REF(/datum/asset_transport, send_assets_slow), src, SSassets.transport.preload), 5 SECONDS)
 
 /mob/proc/MayRespawn()
 	return 0

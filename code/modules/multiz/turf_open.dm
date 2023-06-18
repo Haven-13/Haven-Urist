@@ -26,9 +26,9 @@
 
 /turf/simulated/open/proc/update()
 	below = GetBelow(src)
-	GLOB.turf_changed_event.register(below, src,/turf/simulated/open/proc/turf_change)
-	GLOB.exited_event.register(below, src, /turf/simulated/open/proc/handle_move)
-	GLOB.entered_event.register(below, src, /turf/simulated/open/proc/handle_move)
+	GLOB.turf_changed_event.register(below, src,TYPE_PROC_REF(/turf/simulated/open, turf_change))
+	GLOB.exited_event.register(below, src, TYPE_PROC_REF(/turf/simulated/open, handle_move))
+	GLOB.entered_event.register(below, src, TYPE_PROC_REF(/turf/simulated/open, handle_move))
 	levelupdate()
 	fall_check()
 	update_icon()
@@ -118,9 +118,9 @@
 /turf/simulated/open/proc/clean_up()
 	vis_contents.Cut()
 	//Unregister
-	GLOB.turf_changed_event.unregister(below, src,/turf/simulated/open/proc/turf_change)
-	GLOB.exited_event.unregister(below, src, /turf/simulated/open/proc/handle_move)
-	GLOB.entered_event.unregister(below, src, /turf/simulated/open/proc/handle_move)
+	GLOB.turf_changed_event.unregister(below, src,TYPE_PROC_REF(/turf/simulated/open, turf_change))
+	GLOB.exited_event.unregister(below, src, TYPE_PROC_REF(/turf/simulated/open, handle_move))
+	GLOB.entered_event.unregister(below, src, TYPE_PROC_REF(/turf/simulated/open, handle_move))
 	//Take care of shadow
 	for(var/mob/zshadow/M in src)
 		qdel(M)

@@ -43,7 +43,7 @@ GLOBAL_LIST_EMPTY(emergency_responses)
 
 /obj/machinery/emergency_beacon/proc/try_response_force()
 	beacon_announcer.Announce("Emergency Rescue Sequence initiated, on standby for incoming signals.")
-	timer_id = addtimer(CALLBACK(src, .proc/spawn_response_force), rand(2 MINUTES, 5 MINUTES), TIMER_UNIQUE|TIMER_STOPPABLE)
+	timer_id = addtimer(CALLBACK(src, PROC_REF(spawn_response_force)), rand(2 MINUTES, 5 MINUTES), TIMER_UNIQUE|TIMER_STOPPABLE)
 
 /obj/machinery/emergency_beacon/proc/spawn_response_force()
 	for(var/obj/machinery/shipsensors/S in SSmachines.machinery)

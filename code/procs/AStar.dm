@@ -12,7 +12,7 @@ And for the distance one i wrote:
 /turf/proc/Distance
 So an example use might be:
 
-src.path_list = AStar(src.loc, target.loc, /turf/proc/AdjacentTurfs, /turf/proc/Distance)
+src.path_list = AStar(src.loc, target.loc, TYPE_PROC_REF(/turf, AdjacentTurfs), TYPE_PROC_REF(/turf, Distance))
 
 Note: The path is returned starting at the END node, so i wrote reverselist to reverse it for ease of use.
 
@@ -61,7 +61,7 @@ length to avoid portals or something i guess?? Not that they're counted right no
 	return a.estimated_cost - b.estimated_cost
 
 /proc/AStar(var/start, var/end, var/adjacent_proc, var/dist_proc, var/max_nodes, var/max_node_depth = 30, var/min_target_dist = 0, var/min_node_dist_proc, var/id, var/datum/exclude)
-	var/PriorityQueue/open = new /PriorityQueue(/proc/PathWeightCompare)
+	var/PriorityQueue/open = new /PriorityQueue(GLOBAL_PROC_REF(PathWeightCompare))
 	var/list/closed = list()
 	var/list/path
 	var/list/path_node_by_position = list()

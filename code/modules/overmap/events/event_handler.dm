@@ -10,8 +10,8 @@
 	connected_effects = list()
 
 /decl/overmap_event_handler/proc/bind_event_to(datum/overmap_event/E, turf/target)
-	GLOB.entered_event.register(target, src, /decl/overmap_event_handler/proc/on_turf_entered)
-	GLOB.exited_event.register(target, src, /decl/overmap_event_handler/proc/on_turf_exited)
+	GLOB.entered_event.register(target, src, TYPE_PROC_REF(/decl/overmap_event_handler, on_turf_entered))
+	GLOB.exited_event.register(target, src, TYPE_PROC_REF(/decl/overmap_event_handler, on_turf_exited))
 
 	var/obj/effect/overmap_event/event = new(target, E)
 	connected_effects += event
