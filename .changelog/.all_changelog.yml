@@ -535,3 +535,11 @@
   - bugfix: Fixed areas appearing underneath the world in map editors
   - tweak: AIs can no longer interact with portable generators
   - bugfix: Fixed the Pacman generator reopening the UI when running
+2023-04-03:
+  martinlyra:
+  - bugfix: Fixed a critical bug regarding subsystem priority discovered by wixoaGit
+      and fix implemented @ tgstation
+2023-04-14:
+  martinlyra:
+  - tweak: Added an opt-in feature to wrap callbacks in try-catch for enhanced error-reporting
+      information

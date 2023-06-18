@@ -221,13 +221,6 @@
 	if (B && B.damage < B.min_broken_damage)
 		B.take_internal_damage(5)
 
-/datum/disease2/effect/deaf
-	name = "Hard of Hearing Syndrome"
-	stage = 3
-
-/datum/disease2/effect/deaf/activate(var/mob/living/carbon/human/mob,var/multiplier)
-	mob.ear_deaf = 5
-
 /datum/disease2/effect/confusion
 	name = "Topographical Cretinism"
 	stage = 3

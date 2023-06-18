@@ -69,11 +69,28 @@ GLOBAL_VAR(restart_counter)
 
 	return match
 
+// Was called prof_init in https://github.com/mafemergency/byond-tracy
+/proc/tracy_profiler_init()
+	var/lib
+
+	switch(world.system_type)
+		if(MS_WINDOWS) lib = "prof.dll"
+		if(UNIX) lib = "libprof.so"
+		else CRASH("unsupported platform")
+
+	var/init = call(lib, "init")()
+	if("0" != init) CRASH("[lib] init error: [init]")
+
 /world/New()
 	global.world_init_time = REALTIMEOFDAY
 
+#if USE_BYOND_TRACY
+	#warn USE_BYOND_TRACY is enabled
+	tracy_profiler_init()
+#else
 	if(config.start_byond_profiling)
 		Profile(PROFILE_START)
+#endif
 
 	SSmetrics.world_init_time = global.world_init_time
 

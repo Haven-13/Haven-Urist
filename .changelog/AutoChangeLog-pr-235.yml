@@ -1,0 +1,8 @@
+author: martinlyra
+delete-after: true
+changes:
+  - bugfix: Fixed the human DNA demo disc containing pure monkey DNA only
+  - bugfix: Fixed the AI and Borg law upload computers not working at all
+  - bugfix: Fixed the electric using combustion engine noises
+  - bugfix: Fixed the terran marine voidsuit not properly slowing the user down
+  - bugfix: Fixed the Lactera heavy freighter being misassigned a Hivebot vessel loadout

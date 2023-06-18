@@ -15,10 +15,6 @@
 
 	var/range = 2
 
-/obj/item/device/assembly/prox_sensor/proc/toggle_scan()
-/obj/item/device/assembly/prox_sensor/proc/sense()
-
-
 /obj/item/device/assembly/prox_sensor/activate()
 	if(!..())	return 0//Cooldown check
 	timing = !timing
@@ -49,7 +45,7 @@
 	return
 
 
-/obj/item/device/assembly/prox_sensor/sense()
+/obj/item/device/assembly/prox_sensor/proc/sense()
 	var/turf/mainloc = get_turf(src)
 //		if(scanning && cooldown <= 0)
 //			mainloc.visible_message("\icon[src] *boop* *boop*", "*boop* *boop*")
@@ -86,7 +82,7 @@
 	return
 
 
-/obj/item/device/assembly/prox_sensor/toggle_scan()
+/obj/item/device/assembly/prox_sensor/proc/toggle_scan()
 	if(!secured)	return 0
 	scanning = !scanning
 	update_icon()

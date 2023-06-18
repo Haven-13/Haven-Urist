@@ -32,6 +32,7 @@
 	else
 		call(thingtocall, proctocall)(arglist(calling_arguments))
 
+#if (TRY_CATCH_CALLBACKS)
 #define DO_INVOKE \
 	try { \
 		if (object == GLOBAL_PROC) { \
@@ -49,6 +50,13 @@
 			throw e; \
 		} \
 	}
+#else
+#define DO_INVOKE \
+	if (object == GLOBAL_PROC) { \
+		return call(delegate)(arglist(calling_arguments)); \
+	} \
+	return call(object, delegate)(arglist(calling_arguments));
+#endif
 
 /datum/callback/proc/Invoke(...)
 	if (!object)

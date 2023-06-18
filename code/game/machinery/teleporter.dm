@@ -93,9 +93,6 @@
 
 	return
 
-/obj/machinery/teleport/station/attack_ai(var/mob/user)
-	attack_hand(user)
-
 /obj/machinery/computer/teleporter/attack_hand(var/mob/user)
 	if(..()) return
 

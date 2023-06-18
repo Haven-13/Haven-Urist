@@ -49,6 +49,11 @@
 	verbs |= /mob/living/proc/ventcrawl
 	verbs |= /mob/living/proc/hide
 
+	radio = new /obj/item/device/radio/borg(src)
+	camera = new /obj/machinery/camera(src)
+	camera.c_tag = "spiderbot-[real_name]"
+	camera.replace_networks(list("SS13"))
+
 /mob/living/simple_animal/spiderbot/attackby(var/obj/item/O as obj, var/mob/user as mob)
 
 	if(istype(O, /obj/item/device/mmi) || istype(O, /obj/item/organ/internal/posibrain))
@@ -181,15 +186,6 @@
 
 /mob/living/simple_animal/spiderbot/Destroy()
 	eject_brain()
-	..()
-
-/mob/living/simple_animal/spiderbot/New()
-
-	radio = new /obj/item/device/radio/borg(src)
-	camera = new /obj/machinery/camera(src)
-	camera.c_tag = "spiderbot-[real_name]"
-	camera.replace_networks(list("SS13"))
-
 	..()
 
 /mob/living/simple_animal/spiderbot/death()

@@ -1237,7 +1237,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	armor = list(melee = 65, bullet = 60, laser = 40,energy = 20, bomb = 40, bio = 100, rad = 30)
 	can_breach = 0
 
-/obj/item/clothing/suit/space/void/commando/New()
+/obj/item/clothing/suit/space/void/terran_marine/New()
 	..()
 	slowdown_per_slot[slot_wear_suit] = 1
 

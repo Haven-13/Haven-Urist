@@ -70,7 +70,7 @@
 		current.Attach(newSegment)
 		current = newSegment
 
-/mob/living/simple_animal/space_worm/update_icon()
+/mob/living/simple_animal/space_worm/head/update_icon()
 	if(stat == CONSCIOUS || stat == UNCONSCIOUS)
 		icon_state = "spacewormhead[previous?1:0]"
 		if(previous)

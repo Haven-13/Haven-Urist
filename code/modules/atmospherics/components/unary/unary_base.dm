@@ -70,6 +70,13 @@
 
 	return null
 
+/obj/machinery/atmospherics/unary/return_connected_networks()
+	build_network()
+
+	. = list()
+	if (network)
+		. += network
+
 /obj/machinery/atmospherics/unary/reassign_network(datum/pipe_network/old_network, datum/pipe_network/new_network)
 	if(network == old_network)
 		network = new_network

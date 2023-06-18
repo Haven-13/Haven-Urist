@@ -25,20 +25,18 @@
 	max_w_class = ITEM_SIZE_LARGE
 	max_storage_space = DEFAULT_BACKPACK_STORAGE
 
-/obj/item/weapon/storage/backpack/equipped()
+/obj/item/weapon/storage/backpack/equipped(mob/user, slot)
+	if (slot == slot_back && src.use_sound)
+		playsound(src.loc, src.use_sound, 50, 1, -5)
 	if(!has_extension(src, /datum/extension/appearance))
 		set_extension(src, /datum/extension/appearance, /datum/extension/appearance/cardborg)
-	..()
+	..(user, slot)
 
 /obj/item/weapon/storage/backpack/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (src.use_sound)
 		playsound(src.loc, src.use_sound, 50, 1, -5)
 	return ..()
 
-/obj/item/weapon/storage/backpack/equipped(var/mob/user, var/slot)
-	if (slot == slot_back && src.use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
-	..(user, slot)
 
 /*
  * Backpack Types

@@ -15,22 +15,13 @@
 	var/obj/item/device/assembly/a_right = null
 	var/obj/special_assembly = null
 
-/obj/item/device/assembly_holder/proc/attach(var/obj/item/device/D, var/obj/item/device/D2, var/mob/user)
-	return
-
-/obj/item/device/assembly_holder/proc/attach_special(var/obj/O, var/mob/user)
-	return
-
-/obj/item/device/assembly_holder/proc/process_activation(var/obj/item/device/D)
-	return
-
 /obj/item/device/assembly_holder/proc/detached()
 	return
 
 /obj/item/device/assembly_holder/IsAssemblyHolder()
 	return 1
 
-/obj/item/device/assembly_holder/attach(var/obj/item/device/assembly/D, var/obj/item/device/assembly/D2, var/mob/user)
+/obj/item/device/assembly_holder/proc/attach(var/obj/item/device/assembly/D, var/obj/item/device/assembly/D2, var/mob/user)
 	if((!D)||(!D2))
 		return 0
 	if((!istype(D))||(!istype(D2)))
@@ -52,7 +43,7 @@
 
 	return 1
 
-/obj/item/device/assembly_holder/attach_special(var/obj/O, var/mob/user)
+/obj/item/device/assembly_holder/proc/attach_special(var/obj/O, var/mob/user)
 	if(!O)	return
 	if(!O.IsSpecialAssembly())	return 0
 
@@ -170,7 +161,7 @@
 			qdel(src)
 	return
 
-/obj/item/device/assembly_holder/process_activation(var/obj/D, var/normal = 1, var/special = 1)
+/obj/item/device/assembly_holder/proc/process_activation(var/obj/D, var/normal = 1, var/special = 1)
 	if(!D)	return 0
 	if(!secured)
 		visible_message("\icon[src] *beep* *beep*", "*beep* *beep*")

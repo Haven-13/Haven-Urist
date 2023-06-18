@@ -81,9 +81,9 @@
 	if(default_part_replacement(user, O))
 		return
 	if(!istype(O, /obj/item/grab/normal))
-		return ..(O, user)
+		return src.handle_grab(O, user)
 
-/obj/machinery/bodyscanner/attackby(obj/item/grab/normal/G, user as mob)
+/obj/machinery/bodyscanner/proc/handle_grab(obj/item/grab/normal/G, mob/user)
 	if(!istype(G))
 		if(default_deconstruction_screwdriver(user, G))
 			updateUsrDialog()

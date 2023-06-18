@@ -42,14 +42,11 @@
 	if(prob(100-availablity_chance))	//Close positions, blah blah.
 		total_positions = 0
 		spawn_positions = 0
+	if(!hud_icon)
+		hud_icon = "hud[ckey(title)]"
 
 /datum/job/dd_SortValue()
 	return title
-
-/datum/job/New()
-	..()
-	if(!hud_icon)
-		hud_icon = "hud[ckey(title)]"
 
 /datum/job/proc/equip(var/mob/living/carbon/human/H, var/alt_title)
 	var/decl/hierarchy/outfit/outfit = get_outfit(H, alt_title)

@@ -52,6 +52,8 @@
 	icon_state = "light0"
 
 /obj/machinery/button/holosign/update_icon()
+	icon_state = "light[active]"
+	return
 
 /obj/machinery/button/holosign/attack_hand(mob/user as mob)
 	if(..())
@@ -68,8 +70,4 @@
 				M.toggle()
 				return
 
-	return
-
-/obj/machinery/button/holosign/update_icon()
-	icon_state = "light[active]"
 	return

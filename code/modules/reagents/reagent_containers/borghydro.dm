@@ -25,15 +25,11 @@
 
 /obj/item/weapon/reagent_containers/borghypo/Initialize()
 	. = ..()
-
+	START_PROCESSING(SSobj, src)
 	for(var/T in reagent_ids)
 		reagent_volumes[T] = volume
 		var/datum/reagent/R = T
 		reagent_names += initial(R.name)
-
-/obj/item/weapon/reagent_containers/borghypo/Initialize()
-	. = ..()
-	START_PROCESSING(SSobj, src)
 
 /obj/item/weapon/reagent_containers/borghypo/Destroy()
 	STOP_PROCESSING(SSobj, src)

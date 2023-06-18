@@ -881,6 +881,19 @@ FIRE ALARM
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
 	var/seclevel
 
+/obj/machinery/firealarm/New(loc, dir, atom/frame)
+	..(loc)
+
+	if(dir)
+		src.set_dir(dir)
+
+	if(istype(frame))
+		buildstage = 0
+		wiresexposed = 1
+		pixel_x = (dir & 3)? 0 : (dir == 4 ? -21 : 21)
+		pixel_y = (dir & 3)? (dir ==1 ? -21 : 21) : 0
+		frame.transfer_fingerprints_to(src)
+
 /obj/machinery/firealarm/examine(mob/user)
 	. = ..(user)
 	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
@@ -1049,25 +1062,6 @@ FIRE ALARM
 	playsound(src, 'resources/sound/machines/fire_alarm.ogg', 75, 0)
 	return
 
-
-
-/obj/machinery/firealarm/New(loc, dir, atom/frame)
-	..(loc)
-
-	if(dir)
-		src.set_dir(dir)
-
-	if(istype(frame))
-		buildstage = 0
-		wiresexposed = 1
-		pixel_x = (dir & 3)? 0 : (dir == 4 ? -21 : 21)
-		pixel_y = (dir & 3)? (dir ==1 ? -21 : 21) : 0
-		frame.transfer_fingerprints_to(src)
-
-/obj/machinery/firealarm/Initialize()
-	. = ..()
-	if(z in GLOB.using_map.contact_levels)
-		update_icon()
 
 /*
 FIRE ALARM CIRCUIT

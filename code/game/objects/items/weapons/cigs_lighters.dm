@@ -257,7 +257,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(lit)
 		overlays += overlay_image(icon, "cigarello-on", flags=RESET_COLOR)
 
-/obj/item/clothing/mask/smokable/extinguish(var/mob/user, var/no_message)
+/obj/item/clothing/mask/smokable/cigarette/extinguish(var/mob/user, var/no_message)
 	..()
 	if (type_butt)
 		var/obj/item/butt = new type_butt(get_turf(src))

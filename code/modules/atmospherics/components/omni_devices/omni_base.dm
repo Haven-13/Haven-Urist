@@ -267,6 +267,15 @@
 
 	return null
 
+/obj/machinery/atmospherics/omni/return_connected_networks()
+	build_network()
+
+	. = list()
+	for(var/datum/omni_port/P in ports)
+		if(P.network)
+			. += P.network
+
+
 /obj/machinery/atmospherics/omni/reassign_network(datum/pipe_network/old_network, datum/pipe_network/new_network)
 	for(var/datum/omni_port/P in ports)
 		if(P.network == old_network)

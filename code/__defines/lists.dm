@@ -19,6 +19,8 @@
 #define LAZY_REMOVE(L, I) if(L) { L -= I; if(!L.len) { L = null; } }
 // Adds I to L, initalizing L if necessary
 #define LAZY_ADD(L, I) if(!L) { L = list(); } L += I;
+// Adds I to L, if I is not null, initalizing L if necessary
+#define LAZY_ADD_SAFE(L, I) if(I != null) { if(!L) { L = list(); } L += I; }
 // Insert I into L at position X, initalizing L if necessary
 #define LAZY_INSERT(L, I, X) if(!L) { L = list(); } L.Insert(X, I);
 // Adds I to L, initalizing L if necessary, if I is not already in L

@@ -1,5 +1,12 @@
 /obj/machinery/atmospherics/var/image/pipe_image
 
+/obj/machinery/atmospherics/proc/get_pipe_iamge()
+	if(!pipe_image)
+		pipe_image = image(src, loc, dir = dir)
+		pipe_image.layer = EMISSIVE_UNBLOCKABLE_LAYER
+		pipe_image.plane = calculate_plane(z, EMISSIVE_PLANE)
+	return pipe_image
+
 /obj/machinery/atmospherics/Destroy()
 	for(var/mob/living/M in src) //ventcrawling is serious business
 		M.remove_ventcrawl()
