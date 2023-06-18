@@ -9,9 +9,9 @@ var/const/FINGERPRINT_COMPLETE = 6
 	return stringpercent(print) <= FINGERPRINT_COMPLETE
 
 /atom/var/list/suit_fibers
-/atom/var/var/list/fingerprints
-/atom/var/var/list/fingerprintshidden
-/atom/var/var/fingerprintslast
+/atom/var/list/fingerprints
+/atom/var/list/fingerprintshidden
+/atom/var/fingerprintslast
 /obj/item/var/list/trace_DNA
 /mob/living/carbon/human/var/gunshot_residue
 /obj/item/clothing/var/gunshot_residue
