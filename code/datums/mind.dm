@@ -53,7 +53,6 @@
 	var/has_been_rev = 0//Tracks if this mind has been a rev or not
 
 	var/faction 			//associated faction
-	var/datum/vampire/vampire			//vamp holder; really have to clean this up someday.
 
 	var/rev_cooldown = 0
 
