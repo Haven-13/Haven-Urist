@@ -5,7 +5,7 @@ Pillow==10.0.1
 # check_regex
 colorama==0.4.4
 PyYaml==5.4
-gitpython==3.1.32
+gitpython==3.1.37
 unidiff==0.7.0
 
 # changelogs
