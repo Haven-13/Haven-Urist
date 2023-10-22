@@ -1,0 +1,4 @@
+author: martinlyra
+delete-after: true
+changes:
+  - tweak: Cleaned up & modified code for compatibility with both BYOND & OpenDream
