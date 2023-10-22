@@ -18,7 +18,7 @@
 	var/const/perunit = SHEET_MATERIAL_AMOUNT
 	var/apply_colour //temp pending icon rewrite
 
-/obj/item/stack/material/New(var/loc, var/amount, var/_material)
+/obj/item/stack/material/New(loc, amount, _material)
 	if(_material)
 		default_type = _material
 	if(!default_type)
@@ -46,7 +46,7 @@
 
 	update_strings()
 
-/obj/item/stack/material/proc/set_amount(var/_amount)
+/obj/item/stack/material/proc/set_amount(_amount)
 	amount = max(1, min(_amount, max_amount))
 	update_strings()
 
@@ -70,12 +70,12 @@
 		desc = "A [material.sheet_singular_name] of [material.use_name]."
 		gender = NEUTER
 
-/obj/item/stack/material/use(var/used)
+/obj/item/stack/material/use(used)
 	. = ..()
 	update_strings()
 	return
 
-/obj/item/stack/material/transfer_to(obj/item/stack/S, var/tamount=null, var/type_verified)
+/obj/item/stack/material/transfer_to(obj/item/stack/S, tamount=null, type_verified)
 	var/obj/item/stack/material/M = S
 	if(!istype(M) || material.name != M.material.name)
 		return 0
@@ -84,11 +84,11 @@
 	if(M) M.update_strings()
 	return transfer
 
-/obj/item/stack/material/attack_self(var/mob/user)
+/obj/item/stack/material/attack_self(mob/user)
 	if(!material.build_windows(user, src))
 		..()
 
-/obj/item/stack/material/attackby(var/obj/item/W, var/mob/user)
+/obj/item/stack/material/attackby(obj/item/W, mob/user)
 	if(is_coil(W))
 		material.build_wired_product(user, W, src)
 		return

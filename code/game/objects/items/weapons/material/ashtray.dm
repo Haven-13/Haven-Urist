@@ -62,11 +62,11 @@
 		update_icon()
 	return ..()
 
-/obj/item/weapon/material/ashtray/plastic/New(var/newloc)
+/obj/item/weapon/material/ashtray/plastic/New(newloc)
 	..(newloc, "plastic")
 
-/obj/item/weapon/material/ashtray/bronze/New(var/newloc)
+/obj/item/weapon/material/ashtray/bronze/New(newloc)
 	..(newloc, "bronze")
 
-/obj/item/weapon/material/ashtray/glass/New(var/newloc)
+/obj/item/weapon/material/ashtray/glass/New(newloc)
 	..(newloc, "glass")

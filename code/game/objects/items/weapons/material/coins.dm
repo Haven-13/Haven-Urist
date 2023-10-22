@@ -23,7 +23,7 @@
 	else
 		overlays.Cut()
 
-/obj/item/weapon/material/coin/attackby(var/obj/item/W, var/mob/user)
+/obj/item/weapon/material/coin/attackby(obj/item/W, mob/user)
 	if(is_coil(W) && isnull(string_colour))
 		var/obj/item/stack/cable_coil/CC = W
 		if(CC.use(1))
@@ -38,7 +38,7 @@
 		update_icon()
 	else ..()
 
-/obj/item/weapon/material/coin/attack_self(var/mob/user)
+/obj/item/weapon/material/coin/attack_self(mob/user)
 	user.visible_message("<span class='notice'>\The [user] has thrown \the [src]. It lands on [rand(1, 2) == 1 ? "tails" : "heads"]!</span>")
 
 // Subtypes.

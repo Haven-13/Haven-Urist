@@ -10,7 +10,7 @@
 	name = "Basic"
 	sort_order = 1
 
-/datum/category_item/player_setup_item/physical/basic/load_character(var/savefile/S)
+/datum/category_item/player_setup_item/physical/basic/load_character(savefile/S)
 	from_file(S["gender"],                pref.gender)
 	from_file(S["age"],                   pref.age)
 	from_file(S["spawnpoint"],            pref.spawnpoint)
@@ -18,7 +18,7 @@
 	from_file(S["real_name"],             pref.real_name)
 	from_file(S["name_is_always_random"], pref.be_random_name)
 
-/datum/category_item/player_setup_item/physical/basic/save_character(var/savefile/S)
+/datum/category_item/player_setup_item/physical/basic/save_character(savefile/S)
 	to_file(S["gender"],                  pref.gender)
 	to_file(S["age"],                     pref.age)
 	to_file(S["spawnpoint"],              pref.spawnpoint)
@@ -56,7 +56,7 @@
 		. += "<br><b>OOC Notes:</b> <a href='?src=[REF(src)];metadata=1'> Edit </a>"
 	. = jointext(.,null)
 
-/datum/category_item/player_setup_item/physical/basic/OnTopic(var/href,var/list/href_list, var/mob/user)
+/datum/category_item/player_setup_item/physical/basic/OnTopic(href,list/href_list, mob/user)
 	var/datum/species/S = all_species[pref.species]
 
 	if(href_list["rename"])

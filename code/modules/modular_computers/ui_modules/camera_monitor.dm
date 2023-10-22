@@ -1,5 +1,5 @@
 // Returns which access is relevant to passed network. Used by the program.
-/proc/get_camera_access(var/network)
+/proc/get_camera_access(network)
 	if(!network)
 		return 0
 	. = GLOB.using_map.get_network_access(network)
@@ -179,10 +179,10 @@
 	return data
 
 // Intended to be overriden by subtypes to manually add non-station networks to the list.
-/datum/ui_module/program/camera_monitor/proc/modify_networks_list(var/list/networks)
+/datum/ui_module/program/camera_monitor/proc/modify_networks_list(list/networks)
 	return networks
 
-/datum/ui_module/program/camera_monitor/proc/can_access_network(var/mob/user, var/network_access)
+/datum/ui_module/program/camera_monitor/proc/can_access_network(mob/user, network_access)
 	// No access passed, or 0 which is considered no access requirement. Allow it.
 	if(!network_access)
 		return 1

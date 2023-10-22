@@ -84,7 +84,7 @@
 		do_pull_click(user, src)
 	return 1
 
-/turf/attack_robot(var/mob/user)
+/turf/attack_robot(mob/user)
 	if(Adjacent(user))
 		attack_hand(user)
 
@@ -176,7 +176,7 @@ var/const/enterloopsanity = 100
 /turf/proc/is_plating()
 	return 0
 
-/turf/proc/protects_atom(var/atom/A)
+/turf/proc/protects_atom(atom/A)
 	return FALSE
 
 /turf/proc/inertial_drift(atom/movable/A)
@@ -197,7 +197,7 @@ var/const/enterloopsanity = 100
 	for(var/obj/O in src)
 		O.hide(O.hides_under_flooring() && !is_plating())
 
-/turf/proc/AdjacentTurfs(var/check_blockage = TRUE)
+/turf/proc/AdjacentTurfs(check_blockage = TRUE)
 	. = list()
 	for(var/turf/t in (trange(1,src) - src))
 		if(check_blockage)
@@ -207,7 +207,7 @@ var/const/enterloopsanity = 100
 		else
 			. += t
 
-/turf/proc/CardinalTurfs(var/check_blockage = TRUE)
+/turf/proc/CardinalTurfs(check_blockage = TRUE)
 	. = list()
 	for(var/ad in AdjacentTurfs(check_blockage))
 		var/turf/T = ad
@@ -239,7 +239,7 @@ var/const/enterloopsanity = 100
 	return 0
 
 //expects an atom containing the reagents used to clean the turf
-/turf/proc/clean(atom/source, mob/user = null, var/time = null, var/message = null)
+/turf/proc/clean(atom/source, mob/user = null, time = null, message = null)
 	if(source.reagents.has_reagent(/datum/reagent/water, 1) || source.reagents.has_reagent(/datum/reagent/space_cleaner, 1))
 		if(user && time && !do_after(user, time, src))
 			return
@@ -265,7 +265,7 @@ var/const/enterloopsanity = 100
 		decals = null
 
 // Called when turf is hit by a thrown object
-/turf/hitby(atom/movable/AM as mob|obj, var/speed)
+/turf/hitby(atom/movable/AM as mob|obj, speed)
 	if(src.density)
 		spawn(2)
 			step(AM, turn(AM.last_move, 180))
@@ -276,7 +276,7 @@ var/const/enterloopsanity = 100
 /turf/proc/can_engrave()
 	return FALSE
 
-/turf/proc/try_graffiti(var/mob/vandal, var/obj/item/tool)
+/turf/proc/try_graffiti(mob/vandal, obj/item/tool)
 
 	if(!is_sharp(tool))
 		to_chat(vandal, "<span class='warning'>You need something sharp to write with.</span>")

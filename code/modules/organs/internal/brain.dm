@@ -41,7 +41,7 @@
 	. = ..()
 	icon_state = "brain-prosthetic"
 
-/obj/item/organ/internal/brain/New(var/mob/living/carbon/holder)
+/obj/item/organ/internal/brain/New(mob/living/carbon/holder)
 	..()
 	if(species)
 		set_max_damage(species.total_health)
@@ -52,7 +52,7 @@
 		if(brainmob && brainmob.client)
 			brainmob.client.screen.len = null //clear the hud
 
-/obj/item/organ/internal/brain/set_max_damage(var/ndamage)
+/obj/item/organ/internal/brain/set_max_damage(ndamage)
 	..()
 	damage_threshold_value = round(max_damage / damage_threshold_count)
 
@@ -60,7 +60,7 @@
 	QDEL_NULL(brainmob)
 	. = ..()
 
-/obj/item/organ/internal/brain/proc/transfer_identity(var/mob/living/carbon/H)
+/obj/item/organ/internal/brain/proc/transfer_identity(mob/living/carbon/H)
 
 	if(!brainmob)
 		brainmob = new(src)
@@ -75,14 +75,14 @@
 	to_chat(brainmob, "<span class='notice'>You feel slightly disoriented. That's normal when you're just \a [initial(src.name)].</span>")
 	callHook("debrain", list(brainmob))
 
-/obj/item/organ/internal/brain/examine(mob/user) // -- TLE
+/obj/item/organ/internal/brain/examine(mob/user)
 	. = ..(user)
 	if(brainmob && brainmob.client)//if thar be a brain inside... the brain.
 		to_chat(user, "You can feel the small spark of life still left in this one.")
 	else
 		to_chat(user, "This one seems particularly lifeless. Perhaps it will regain some of its luster later..")
 
-/obj/item/organ/internal/brain/removed(var/mob/living/user)
+/obj/item/organ/internal/brain/removed(mob/living/user)
 	if(!istype(owner))
 		return ..()
 
@@ -93,7 +93,7 @@
 
 	..()
 
-/obj/item/organ/internal/brain/replaced(var/mob/living/target)
+/obj/item/organ/internal/brain/replaced(mob/living/target)
 
 	if(!..()) return 0
 
@@ -114,7 +114,7 @@
 /obj/item/organ/internal/brain/proc/get_current_damage_threshold()
 	return round(damage / damage_threshold_value)
 
-/obj/item/organ/internal/brain/proc/past_damage_threshold(var/threshold)
+/obj/item/organ/internal/brain/proc/past_damage_threshold(threshold)
 	return (get_current_damage_threshold() > threshold)
 
 /obj/item/organ/internal/brain/Process()
@@ -174,7 +174,7 @@
 						take_internal_damage(1)
 	..()
 
-/obj/item/organ/internal/brain/take_internal_damage(var/damage, var/silent)
+/obj/item/organ/internal/brain/take_internal_damage(damage, silent)
 	set waitfor = 0
 	..()
 	if(damage >= 10) //This probably won't be triggered by oxyloss or mercury. Probably.
@@ -187,7 +187,7 @@
 		if(prob(30))
 			addtimer(CALLBACK(src, PROC_REF(brain_damage_callback), damage), rand(6, 20) SECONDS, TIMER_UNIQUE)
 
-/obj/item/organ/internal/brain/proc/brain_damage_callback(var/damage) //Confuse them as a somewhat uncommon aftershock. Side note: Only here so a spawn isn't used. Also, for the sake of a unique timer.
+/obj/item/organ/internal/brain/proc/brain_damage_callback(damage)
 	to_chat(owner, "<span class = 'notice' font size='10'><B>I can't remember which way is forward...</B></span>")
 	owner.confused += damage
 

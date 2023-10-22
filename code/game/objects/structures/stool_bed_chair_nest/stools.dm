@@ -18,7 +18,7 @@ var/global/list/stool_cache = list() //haha stool
 /obj/item/weapon/stool/padded
 	icon_state = "stool_padded_preview" //set for the map
 
-/obj/item/weapon/stool/New(var/newloc, var/new_material, var/new_padding_material)
+/obj/item/weapon/stool/New(newloc, new_material, new_padding_material)
 	..(newloc)
 	if(!new_material)
 		new_material = DEFAULT_WALL_MATERIAL
@@ -31,7 +31,7 @@ var/global/list/stool_cache = list() //haha stool
 	force = round(material.get_blunt_damage()*0.4)
 	update_icon()
 
-/obj/item/weapon/stool/padded/New(var/newloc, var/new_material)
+/obj/item/weapon/stool/padded/New(newloc, new_material)
 	..(newloc, "steel", "carpet")
 
 /obj/item/weapon/stool/bar
@@ -43,7 +43,7 @@ var/global/list/stool_cache = list() //haha stool
 /obj/item/weapon/stool/bar/padded
 	icon_state = "bar_stool_padded_preview"
 
-/obj/item/weapon/stool/bar/padded/New(var/newloc, var/new_material)
+/obj/item/weapon/stool/bar/padded/New(newloc, new_material)
 	..(newloc, "steel", "carpet")
 
 /obj/item/weapon/stool/update_icon()
@@ -74,7 +74,7 @@ var/global/list/stool_cache = list() //haha stool
 		SetName("[material.display_name] [initial(name)]")
 		desc = "A stool. Apply butt with care. It's made of [material.use_name]."
 
-/obj/item/weapon/stool/proc/add_padding(var/padding_type)
+/obj/item/weapon/stool/proc/add_padding(padding_type)
 	padding_material = SSmaterials.get_material_by_name(padding_type)
 	update_icon()
 
@@ -84,7 +84,7 @@ var/global/list/stool_cache = list() //haha stool
 		padding_material = null
 	update_icon()
 
-/obj/item/weapon/stool/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
+/obj/item/weapon/stool/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
 	if (prob(5))
 		user.visible_message("<span class='danger'>[user] breaks [src] over [target]'s back!</span>")
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

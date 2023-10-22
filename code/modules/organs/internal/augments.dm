@@ -8,7 +8,7 @@
 	desc = "A control center and power supply for all your augmentations. It inserts synthetic nerves endings into you to allow instanenous control."
 	var/obj/item/weapon/cell/augcell = /obj/item/weapon/cell/standard
 
-/obj/item/organ/internal/cybernetic/controller/proc/change_controller(var/mob/living/carbon/human/owner, var/target_controller)
+/obj/item/organ/internal/cybernetic/controller/proc/change_controller(mob/living/carbon/human/owner, target_controller)
 	for(var/obj/item/organ/internal/cybernetic/aug/O in owner.internal_organs)
 		O.controller = target_controller
 

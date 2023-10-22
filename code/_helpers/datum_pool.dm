@@ -29,7 +29,7 @@
  * @args : datum type, normal arguments
  * Example call: getFromPool(/datum/pipeline, args)
  */
-/proc/getFromPool(var/type, ...)
+/proc/getFromPool(type, ...)
 	var/list/B = (args - type)
 
 	if(length(masterdatumPool[type]) <= 0)
@@ -159,5 +159,5 @@
 	show_browser(usr, jointext(L,""),"window=poolingvariablelogs")
 
 // Shim - this method doesn't natively exist in this implementation.
-/proc/IsPooled(var/datum/D)
+/proc/IsPooled(datum/D)
 	return "[D.type]" in masterdatumPool

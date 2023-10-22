@@ -145,7 +145,7 @@
 	icon_state = "plastic-explosive0"
 	item_state = "device"
 
-/obj/item/weapon/plastique/alienexplosive/explode(var/location)
+/obj/item/weapon/plastique/alienexplosive/explode(location)
 	if(!target)
 		target = get_atom_on_turf(src)
 	if(!target)
@@ -167,7 +167,7 @@
 		target.overlays -= image_overlay
 	qdel(src)
 
-/obj/item/weapon/plastique/alienexplosive/attackby(var/obj/item/I, var/mob/user)
+/obj/item/weapon/plastique/alienexplosive/attackby(obj/item/I, mob/user)
 	return
 
 /obj/item/clothing/under/lactera

@@ -71,7 +71,7 @@
 	src.icon_state = "body_scanner_0"
 	return
 
-/obj/machinery/bodyscanner/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/bodyscanner/attackby(obj/item/O as obj, mob/user as mob)
 	if(default_deconstruction_screwdriver(user, O))
 		go_out()
 		return
@@ -106,7 +106,7 @@
 	src.add_fingerprint(user)
 	qdel(G)
 
-/obj/machinery/bodyscanner/proc/user_can_move_target_inside(var/mob/target, var/mob/user)
+/obj/machinery/bodyscanner/proc/user_can_move_target_inside(mob/target, mob/user)
 	if(!istype(user) || !istype(target))
 		return FALSE
 	if(!CanMouseDrop(target, user))
@@ -123,7 +123,7 @@
 	return TRUE
 
 //Like grap-put, but for mouse-drop.
-/obj/machinery/bodyscanner/MouseDrop_T(var/mob/target, var/mob/user)
+/obj/machinery/bodyscanner/MouseDrop_T(mob/target, mob/user)
 	if(!user_can_move_target_inside(target, user))
 		return
 	user.visible_message("<span class='notice'>\The [user] begins placing \the [target] into \the [src].</span>", "<span class='notice'>You start placing \the [target] into \the [src].</span>")
@@ -235,7 +235,7 @@
 	generate_window(user)
 	return
 
-/obj/machinery/body_scanconsole/attackby(var/obj/item/O, var/mob/user)
+/obj/machinery/body_scanconsole/attackby(obj/item/O, mob/user)
 	if(default_deconstruction_screwdriver(user, O))
 		return
 	if(default_deconstruction_crowbar(user, O))

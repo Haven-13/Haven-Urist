@@ -184,7 +184,7 @@ var/global/remaininggens = 6
 			cell.maxcharge = INFINITY
 			cell.charge = INFINITY*/
 
-/mob/new_player/proc/AssaultLateJoin(var/mob/living/L)
+/mob/new_player/proc/AssaultLateJoin(mob/living/L)
 	if(remaininglactera <= 0)
 		for(var/obj/effect/landmark/assault/lacteraspawn/S in landmarks_list)
 			var/mob/observer/H = new /mob/observer(S.loc)

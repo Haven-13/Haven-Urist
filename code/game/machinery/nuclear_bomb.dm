@@ -52,7 +52,7 @@ var/bomb_set
 	auth = null
 	return ..()
 
-/obj/machinery/nuclearbomb/Process(var/wait)
+/obj/machinery/nuclearbomb/Process(wait)
 	if(timing)
 		time_left = max(time_left - (wait / 10), 0)
 		playsound(loc, 'resources/sound/items/timer.ogg', 50)
@@ -198,7 +198,7 @@ var/bomb_set
 		deployable = 1
 	return
 
-/obj/machinery/nuclearbomb/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/nuclearbomb/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "NuclearBomb")
@@ -476,7 +476,7 @@ var/bomb_set
 		/obj/item/modular_computer/laptop/preset/custom_loadout/cheap/
 	)
 
-/obj/item/weapon/storage/secure/briefcase/nukedisk/examine(var/user)
+/obj/item/weapon/storage/secure/briefcase/nukedisk/examine(user)
 	..()
 	to_chat(user,"On closer inspection, you see \a [GLOB.using_map.company_name] emblem is etched into the front of it.")
 

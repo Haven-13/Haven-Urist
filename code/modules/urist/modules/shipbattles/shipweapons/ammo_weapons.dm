@@ -27,7 +27,7 @@
 		to_chat(user, "<span class='warning'>The [src.name] isn't loaded!</span>")
 		return
 
-/obj/machinery/shipweapons/ammo/proc/DoLoading(var/obj/structure/shipammo/ammo)
+/obj/machinery/shipweapons/ammo/proc/DoLoading(obj/structure/shipammo/ammo)
 	if(istype(ammo, ammo_type)) //checking this again, just to be sure
 		if(ammo.load_amount && !src.loaded && !src.loaded_ammo) //are we out of ammo, and does the ammo have ammo?
 			src.loaded += ammo.load_amount //load the gun
@@ -38,7 +38,7 @@
 			UpdateStats(TRUE) //and get the damage stats from it
 			playsound(src, load_sound, 40, 1)
 
-/obj/machinery/shipweapons/ammo/proc/UpdateStats(var/loading)
+/obj/machinery/shipweapons/ammo/proc/UpdateStats(loading)
 	if(loading && loaded_ammo)
 		name = "[initial(name)] ([loaded_ammo.name])"
 		shield_damage = loaded_ammo.shield_damage //here we pass the damage values along
@@ -66,7 +66,7 @@
 		var/obj/structure/shipammo/ammo = AM
 		DoLoading(ammo)
 
-/obj/machinery/shipweapons/ammo/Crossed(var/atom/movable/AM)
+/obj/machinery/shipweapons/ammo/Crossed(atom/movable/AM)
 	..()
 	if(istype(AM, ammo_type))
 		var/obj/structure/shipammo/ammo = AM

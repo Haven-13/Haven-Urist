@@ -32,7 +32,7 @@
 	item_state = "hazard"
 	armor = list(melee = 27, bullet = 12, laser = 5, energy = 0, bomb = 5, bio = 0, rad = 0)//roughly half as effective as sec armour
 
-/obj/item/clothing/suit/storage/hazardvest/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/clothing/suit/storage/hazardvest/attackby(obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/weapon/wirecutters))
 		for(var/obj/item/weapon/storage/internal/O in contents)
@@ -49,7 +49,7 @@
 
 		qdel(src)
 
-/obj/item/improv/hazardvest/step1/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/improv/hazardvest/step1/attackby(obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/R = I
@@ -63,7 +63,7 @@
 
 		qdel(src)
 
-/obj/item/improv/hazardvest/step2/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/improv/hazardvest/step2/attackby(obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/material/steel))
 		var/obj/item/stack/material/steel/R = I
@@ -77,7 +77,7 @@
 
 		qdel(src)
 
-/obj/item/improv/hazardvest/step3/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/improv/hazardvest/step3/attackby(obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/R = I

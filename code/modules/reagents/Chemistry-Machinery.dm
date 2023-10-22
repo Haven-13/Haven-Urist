@@ -41,7 +41,7 @@
 				qdel(src)
 				return
 
-/obj/machinery/chem_master/attackby(var/obj/item/weapon/B as obj, var/mob/user as mob)
+/obj/machinery/chem_master/attackby(obj/item/weapon/B as obj, mob/user as mob)
 
 	if(istype(B, /obj/item/weapon/reagent_containers/glass))
 
@@ -317,7 +317,7 @@
 	icon_state = "juicer"+num2text(!isnull(beaker))
 	return
 
-/obj/machinery/reagentgrinder/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/reagentgrinder/attackby(obj/item/O as obj, mob/user as mob)
 
 	if (istype(O,/obj/item/weapon/reagent_containers/glass) || \
 		istype(O,/obj/item/weapon/reagent_containers/food/drinks/glass2) || \
@@ -381,7 +381,7 @@
 	add_item(O,user)
 	return 0
 
-/obj/machinery/reagentgrinder/proc/add_item(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/reagentgrinder/proc/add_item(obj/item/O as obj, mob/user as mob)
 	if(!user.unEquip(O, src))
 		return
 	holdingitems += O
@@ -394,14 +394,14 @@
 /obj/machinery/reagentgrinder/attack_hand(mob/user as mob)
 	interact(user)
 
-/obj/machinery/reagentgrinder/attack_robot(var/mob/user)
+/obj/machinery/reagentgrinder/attack_robot(mob/user)
 	//Calling for adjacency as I don't think grinders are wireless.
 	if(Adjacent(user))
 		//Calling attack_hand(user) to make ensure no functionality is missed.
 		//If attack_hand is updated, this segment won't have to be updated as well.
 		return attack_hand(user)
 
-/obj/machinery/reagentgrinder/interact(mob/user as mob) // The microwave Menu
+/obj/machinery/reagentgrinder/interact(mob/user as mob)
 	if(inoperable())
 		return
 	user.set_machine(src)

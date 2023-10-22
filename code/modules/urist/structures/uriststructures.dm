@@ -243,7 +243,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'resources/icons/urist/objects/structures.dmi'
 	icon_state = "tallcabinet"
 
-/obj/structure/filingcabinet/wood/attackby(var/obj/item/P, mob/user as mob)
+/obj/structure/filingcabinet/wood/attackby(obj/item/P, mob/user as mob)
 	if(istype(P, /obj/item/weapon/screwdriver))
 		playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You disassemble \the [src].</span>")
@@ -302,7 +302,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'resources/icons/urist/objects/structures.dmi'
 	icon_state = "rack"
 
-/obj/structure/table/rack/wood/attackby(var/obj/item/P, mob/user as mob)
+/obj/structure/table/rack/wood/attackby(obj/item/P, mob/user as mob)
 	if(istype(P, /obj/item/weapon/wrench))
 		playsound(src, 'resources/sound/items/Deconstruct.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You disassemble \the [src].</span>")
@@ -433,7 +433,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/raft/update_icon()
 	icon_state = "raft_frame[buildstate]"
 
-/obj/structure/raft/proc/do_pulling_stuff(var/turf/T)
+/obj/structure/raft/proc/do_pulling_stuff(turf/T)
 	for(var/obj/item/O in src.loc)
 		O.loc = get_turf(T)
 

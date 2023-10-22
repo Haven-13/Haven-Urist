@@ -3,7 +3,7 @@
 
 var/list/ghost_traps
 
-/proc/get_ghost_trap(var/trap_key)
+/proc/get_ghost_trap(trap_key)
 	if(!ghost_traps)
 		populate_ghost_traps()
 	return ghost_traps[trap_key]
@@ -36,7 +36,7 @@ var/list/ghost_traps
 	..()
 
 // Check for bans, proper atom types, etc.
-/datum/ghosttrap/proc/assess_candidate(var/mob/observer/ghost/candidate, var/mob/target, var/feedback = TRUE)
+/datum/ghosttrap/proc/assess_candidate(mob/observer/ghost/candidate, mob/target, feedback = TRUE)
 	if(!candidate.MayRespawn(1, minutes_since_death))
 		return 0
 	if(is_list(ban_checks))
@@ -48,7 +48,7 @@ var/list/ghost_traps
 	return 1
 
 // Print a message to all ghosts with the right prefs/lack of bans.
-/datum/ghosttrap/proc/request_player(var/mob/target, var/request_string, var/request_timeout)
+/datum/ghosttrap/proc/request_player(mob/target, request_string, request_timeout)
 	if(request_timeout)
 		request_timeouts[target] = world.time + request_timeout
 		GLOB.destroyed_event.register(target, src, TYPE_PROC_REF(/datum/ghosttrap, unregister_target))
@@ -63,7 +63,7 @@ var/list/ghost_traps
 		if(O.client)
 			to_chat(O, "[request_string] <a href='?src=[REF(src)];candidate=[REF(O)];target=[REF(target)]'>(Occupy)</a> ([ghost_follow_link(target, O)])")
 
-/datum/ghosttrap/proc/unregister_target(var/target)
+/datum/ghosttrap/proc/unregister_target(target)
 	request_timeouts -= target
 	GLOB.destroyed_event.unregister(target, src, TYPE_PROC_REF(/datum/ghosttrap, unregister_target))
 
@@ -89,7 +89,7 @@ var/list/ghost_traps
 		return 1
 
 // Shunts the ckey/mind into the target mob.
-/datum/ghosttrap/proc/transfer_personality(var/mob/candidate, var/mob/target)
+/datum/ghosttrap/proc/transfer_personality(mob/candidate, mob/target)
 	if(!assess_candidate(candidate, target))
 		return 0
 	target.ckey = candidate.ckey
@@ -101,7 +101,7 @@ var/list/ghost_traps
 	return 1
 
 // Fluff!
-/datum/ghosttrap/proc/welcome_candidate(var/mob/target)
+/datum/ghosttrap/proc/welcome_candidate(mob/target)
 	to_chat(target, "<b>You are a positronic brain, brought into existence on [station_name()].</b>")
 	to_chat(target, "<b>As a synthetic intelligence, you answer to all crewmembers, as well as the AI.</b>")
 	to_chat(target, "<b>Remember, the purpose of your existence is to serve the crew and the [station_name()]. Above all else, do no harm.</b>")
@@ -116,7 +116,7 @@ var/list/ghost_traps
 	P.update_icon()
 
 // Allows people to set their own name. May or may not need to be removed for posibrains if people are dumbasses.
-/datum/ghosttrap/proc/set_new_name(var/mob/target)
+/datum/ghosttrap/proc/set_new_name(mob/target)
 	if(!can_set_own_name)
 		return
 
@@ -140,12 +140,12 @@ var/list/ghost_traps
 	minutes_since_death = DRONE_SPAWN_DELAY
 	..()
 
-/datum/ghosttrap/drone/assess_candidate(var/mob/observer/ghost/candidate, var/mob/target)
+/datum/ghosttrap/drone/assess_candidate(mob/observer/ghost/candidate, mob/target)
 	. = ..()
 	if(. && !target.can_be_possessed_by(candidate))
 		return 0
 
-/datum/ghosttrap/drone/transfer_personality(var/mob/candidate, var/mob/living/silicon/robot/drone/drone)
+/datum/ghosttrap/drone/transfer_personality(mob/candidate, mob/living/silicon/robot/drone/drone)
 	if(!assess_candidate(candidate))
 		return 0
 	drone.transfer_personality(candidate.client)
@@ -159,8 +159,8 @@ var/list/ghost_traps
 	ghost_trap_message = "They are occupying a pAI now."
 	ghost_trap_role = "pAI"
 
-/datum/ghosttrap/pai/assess_candidate(var/mob/observer/ghost/candidate, var/mob/target)
+/datum/ghosttrap/pai/assess_candidate(mob/observer/ghost/candidate, mob/target)
 	return 0
 
-/datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silicon/robot/drone/drone)
+/datum/ghosttrap/pai/transfer_personality(mob/candidate, mob/living/silicon/robot/drone/drone)
 	return 0

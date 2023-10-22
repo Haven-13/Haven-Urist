@@ -225,7 +225,7 @@
 	moved = ..()
 	return moved*/
 
-/obj/vehicle/bike/motorcycle/Bump(var/atom/thing)
+/obj/vehicle/bike/motorcycle/Bump(atom/thing)
 
 	if(!istype(thing, /atom/movable))
 		return
@@ -277,7 +277,7 @@
 			M.Weaken(rand(5,10))
 			M.throw_at(get_edge_target_turf(src,get_dir(src,M)),rand(1,2), move_delay)
 
-/obj/vehicle/bike/motorcycle/RunOver(var/mob/living/carbon/human/H)
+/obj/vehicle/bike/motorcycle/RunOver(mob/living/carbon/human/H)
 	if(istype(load, /mob/living))
 		to_chat(load, "<span class='danger'>You run \the [H] down!</span>")
 		to_chat(H, "<span class='danger'>\The [load] runs you down!</span>")

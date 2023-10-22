@@ -14,7 +14,7 @@
 	build_default_parts(/obj/item/weapon/circuitboard/diseaseanalyser)
 	. = ..()
 
-/obj/machinery/disease2/diseaseanalyser/attackby(var/obj/O as obj, var/mob/user as mob)
+/obj/machinery/disease2/diseaseanalyser/attackby(obj/O as obj, mob/user as mob)
 	if(!istype(O,/obj/item/weapon/virusdish)) return ..()
 
 	if(dish)

@@ -3,12 +3,12 @@ Holds the proc for backstabbing.
 
 usage:
 
-/obj/item/weapon/attack(mob/living/target, mob/user, var/target_zone)
+/obj/item/weapon/attack(mob/living/target, mob/user, target_zone)
 	backstab(target, user, 60, DAMAGE_TYPE_BRUTE, DAMAGE_FLAGS_SHARP, target_zone)
 	..()
 May also be used as:
 
-/obj/item/weapon/attack(mob/living/target, mob/user, var/target_zone)
+/obj/item/weapon/attack(mob/living/target, mob/user, target_zone)
 	..()
 	if(backstab(target, user, 60, DAMAGE_TYPE_BRUTE, DAMAGE_FLAGS_SHARP, target_zone))
 		[insert code here]
@@ -28,7 +28,7 @@ location_check: bool. allows facestabs if set to false, skipping the check for b
 Proc returns a boolean if successful.
 */
 
-/obj/item/weapon/proc/backstab(var/mob/living/target, mob/user, var/damage = 30, var/damage_type = DAMAGE_TYPE_BRUTE, var/damage_flags, var/target_zone = BP_CHEST, var/location_check = TRUE)
+/obj/item/weapon/proc/backstab(mob/living/target, mob/user, damage = 30, damage_type = DAMAGE_TYPE_BRUTE, damage_flags, target_zone = BP_CHEST, location_check = TRUE)
 
 	//Runtime prevention.
 	if( !( damage_type in list( DAMAGE_TYPE_BRUTE, DAMAGE_TYPE_BURN, DAMAGE_TYPE_TOXIN, DAMAGE_TYPE_ASPHYXIA, DAMAGE_TYPE_GENETIC, DAMAGE_TYPE_PAIN ) ) ) //End the proc with a false return if we're not doing a valid damage type.

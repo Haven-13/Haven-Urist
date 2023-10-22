@@ -7,7 +7,7 @@
 	var/datum/remote_target
 	var/datum/ui_state/remoter_state
 
-/datum/ui_state/remote/New(var/remoter, var/remote_target, var/datum/ui_state/remoter_state = ui_default_state())
+/datum/ui_state/remote/New(remoter, remote_target, datum/ui_state/remoter_state = ui_default_state())
 	src.remoter = remoter
 	src.remote_target = remote_target
 	src.remoter_state = remoter_state
@@ -22,7 +22,7 @@
 	remote_target = null
 	return ..()
 
-/datum/ui_state/remote/can_use_topic(var/datum/src_object, var/mob/user)
+/datum/ui_state/remote/can_use_topic(datum/src_object, mob/user)
 	if(!(remoter && remoter_state))	// The remoter is gone, let us leave
 		return UI_CLOSE
 

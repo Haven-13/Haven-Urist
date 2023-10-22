@@ -99,7 +99,7 @@
 	if(!ui)
 		ui = new(user, src, "Intellicard", name)
 		ui.open()
-/obj/item/weapon/aicard/proc/grab_ai(var/mob/living/silicon/ai/ai, var/mob/living/user)
+/obj/item/weapon/aicard/proc/grab_ai(mob/living/silicon/ai/ai, mob/living/user)
 	if(!ai.client)
 		to_chat(user, "<span class='danger'>ERROR:</span> AI [ai.name] is offline. Unable to download.")
 		return 0
@@ -155,7 +155,7 @@
 		carded_ai.show_message(rendered, type)
 	..()
 
-/obj/item/weapon/aicard/relaymove(var/mob/user, var/direction)
+/obj/item/weapon/aicard/relaymove(mob/user, direction)
 	if(user.stat || user.stunned)
 		return
 	var/obj/item/weapon/rig/rig = src.get_rig()

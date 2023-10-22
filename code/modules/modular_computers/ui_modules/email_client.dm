@@ -25,7 +25,7 @@
 	var/datum/computer_file/data/email_account/current_account = null
 	var/datum/computer_file/data/email_message/current_message = null
 
-/datum/ui_module/program/email_client/proc/mail_received(var/datum/computer_file/data/email_message/received_message)
+/datum/ui_module/program/email_client/proc/mail_received(datum/computer_file/data/email_message/received_message)
 	var/mob/living/L = get_holder_of_type(host, /mob/living)
 	if(L)
 		var/list/msg = list()
@@ -89,7 +89,7 @@
 
 // Returns 0 if no new messages were received, 1 if there is an unread message but notification has already been sent.
 // and 2 if there is a new message that appeared in this tick (and therefore notification should be sent by the program).
-/datum/ui_module/program/email_client/proc/check_for_new_messages(var/messages_read = FALSE)
+/datum/ui_module/program/email_client/proc/check_for_new_messages(messages_read = FALSE)
 	if(!current_account)
 		return 0
 
@@ -210,7 +210,7 @@
 
 	return data
 
-/datum/ui_module/program/email_client/proc/find_message_by_fuid(var/fuid)
+/datum/ui_module/program/email_client/proc/find_message_by_fuid(fuid)
 	if(!istype(current_account))
 		return null
 
@@ -230,7 +230,7 @@
 	msg_attachment = null
 	current_message = null
 
-/datum/ui_module/program/email_client/proc/relayed_process(var/netspeed)
+/datum/ui_module/program/email_client/proc/relayed_process(netspeed)
 	download_speed = netspeed
 	if(!downloading)
 		return FALSE

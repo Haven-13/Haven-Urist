@@ -87,7 +87,7 @@
 		)
 	)
 
-/datum/species/vox/equip_survival_gear(var/mob/living/carbon/human/H)
+/datum/species/vox/equip_survival_gear(mob/living/carbon/human/H)
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vox(H), slot_wear_mask)
 
 	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))
@@ -102,6 +102,6 @@
 	if(H.internals)
 		H.internals.icon_state = "internal1"
 
-/datum/species/vox/disfigure_msg(var/mob/living/carbon/human/H)
+/datum/species/vox/disfigure_msg(mob/living/carbon/human/H)
 	var/datum/gender/T = gender_datums[H.get_gender()]
 	return "<span class='danger'>[T.His] beak is chipped! [T.He] [T.is] not even recognizable.</span>\n" //Pretty birds.

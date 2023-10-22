@@ -7,7 +7,7 @@
 	icon_state = "steel"
 	initial_flooring = null
 
-/turf/simulated/floor/fixed/attackby(var/obj/item/C, var/mob/user)
+/turf/simulated/floor/fixed/attackby(obj/item/C, mob/user)
 	if(istype(C, /obj/item/stack) && !is_coil(C))
 		return
 	return ..()
@@ -31,7 +31,7 @@
 	icon = 'resources/icons/turf/flooring/alium.dmi'
 	icon_state = "jaggy"
 
-/turf/simulated/floor/fixed/alium/attackby(var/obj/item/C, var/mob/user)
+/turf/simulated/floor/fixed/alium/attackby(obj/item/C, mob/user)
 	if(is_crowbar(C))
 		to_chat(user, "<span class='notice'>There aren't any openings big enough to pry it away...</span>")
 		return

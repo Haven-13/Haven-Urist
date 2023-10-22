@@ -6,7 +6,7 @@
 	var/chops = 0 //how many times it's been chopped. Gotta make them work for it!
 	var/size = 0
 
-/obj/structure/flora/tree/planet/attackby(var/obj/item/I, mob/user as mob)
+/obj/structure/flora/tree/planet/attackby(obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/carpentry/axe) || istype(I, /obj/item/weapon/material/twohanded/fireaxe))
 		to_chat(user, "<span class='notice'>You chop [src] with [I].</span>")
 
@@ -81,7 +81,7 @@
 	density = 1
 	anchored = 0
 
-/obj/structure/log/attackby(var/obj/item/I, mob/user as mob)
+/obj/structure/log/attackby(obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/carpentry/saw))
 		to_chat(user, "<span class='notice'>You saw the [src] with [I].</span>")
 

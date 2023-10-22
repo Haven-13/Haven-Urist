@@ -260,7 +260,7 @@
 	handled_vars = list("can_fire")
 	predicates = list(GLOBAL_PROC_REF(is_num_predicate))
 
-/decl/vv_set_handler/subsystem_handler/handle_set_var(var/datum/controller/subsystem/SS, variable, var_value, client)
+/decl/vv_set_handler/subsystem_handler/handle_set_var(datum/controller/subsystem/SS, variable, var_value, client)
 	if (var_value)
 		SS.enable()
 	else

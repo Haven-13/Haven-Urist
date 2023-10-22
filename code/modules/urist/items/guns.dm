@@ -154,7 +154,7 @@ the sprite and make my own projectile -Glloyd*/
 	else
 		icon_state = "deckard-empty"
 
-/obj/item/weapon/gun/projectile/revolver/detective/deckard/load_ammo(var/obj/item/A, mob/user)
+/obj/item/weapon/gun/projectile/revolver/detective/deckard/load_ammo(obj/item/A, mob/user)
 	if(istype(A, /obj/item/ammo_magazine))
 		flick("deckard-reloading",src)
 	..()
@@ -472,12 +472,12 @@ the sprite and make my own projectile -Glloyd*/
 		return 0
 	return ..()
 
-/obj/item/weapon/gun/projectile/manualcycle/load_ammo(var/obj/item/A, mob/user)
+/obj/item/weapon/gun/projectile/manualcycle/load_ammo(obj/item/A, mob/user)
 	if(!bolt_open)
 		return
 	..()
 
-/obj/item/weapon/gun/projectile/manualcycle/unload_ammo(mob/user, var/allow_dump=1)
+/obj/item/weapon/gun/projectile/manualcycle/unload_ammo(mob/user, allow_dump=1)
 	if(!bolt_open)
 		return
 	..()
@@ -699,7 +699,7 @@ the sprite and make my own projectile -Glloyd*/
 		return
 	return ..()
 
-/obj/item/weapon/gun/projectile/revolver/shotrevolver/load_ammo(var/obj/item/A, mob/user)
+/obj/item/weapon/gun/projectile/revolver/shotrevolver/load_ammo(obj/item/A, mob/user)
 	chamber_offset = 0
 	return ..()
 */

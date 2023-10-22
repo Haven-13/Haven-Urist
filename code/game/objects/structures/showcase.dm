@@ -19,13 +19,13 @@
 	var/area/A = loc
 	reset_button = locate(/obj/machinery/button/alternate/biohazard) in A
 
-/obj/structure/showcase/blob_hazard/take_damage(var/damage)
+/obj/structure/showcase/blob_hazard/take_damage(damage)
 	health -= damage
 	if(health < 0)
 		reset_button.activate(null, TRUE)
 		health = 100
 
-/obj/structure/showcase/blob_hazard/attackby(var/obj/item/weapon/W, var/mob/user)
+/obj/structure/showcase/blob_hazard/attackby(obj/item/weapon/W, mob/user)
 	if(is_welder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		to_chat(user, "<span class = 'notice'You begin to repair \the [src].</span>")

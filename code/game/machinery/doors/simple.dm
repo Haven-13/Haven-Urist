@@ -16,7 +16,7 @@
 /obj/machinery/door/unpowered/simple/proc/TemperatureAct(temperature)
 	take_damage(100*material.combustion_effect(get_turf(src),temperature, 0.3))
 
-/obj/machinery/door/unpowered/simple/New(var/newloc, var/material_name, var/locked)
+/obj/machinery/door/unpowered/simple/New(newloc, material_name, locked)
 	..()
 	if(!material_name)
 		material_name = DEFAULT_WALL_MATERIAL
@@ -52,7 +52,7 @@
 /obj/machinery/door/unpowered/simple/get_material_name()
 	return material.name
 
-/obj/machinery/door/unpowered/simple/bullet_act(var/obj/item/projectile/Proj)
+/obj/machinery/door/unpowered/simple/bullet_act(obj/item/projectile/Proj)
 	var/damage = Proj.get_structure_damage()
 	if(damage)
 		//cap projectile damage so that there's still a minimum number of hits required to break the door
@@ -73,16 +73,16 @@
 			flick("[icon_base]closing", src)
 	return
 
-/obj/machinery/door/unpowered/simple/inoperable(var/additional_flags = 0)
+/obj/machinery/door/unpowered/simple/inoperable(additional_flags = 0)
 	return (stat & (BROKEN|additional_flags))
 
-/obj/machinery/door/unpowered/simple/close(var/forced = 0)
+/obj/machinery/door/unpowered/simple/close(forced = 0)
 	if(!can_close(forced))
 		return
 	playsound(src.loc, material.dooropen_noise, 100, 1)
 	..()
 
-/obj/machinery/door/unpowered/simple/open(var/forced = 0)
+/obj/machinery/door/unpowered/simple/open(forced = 0)
 	if(!can_open(forced))
 		return
 	playsound(src.loc, material.dooropen_noise, 100, 1)
@@ -96,7 +96,7 @@
 	material.place_dismantled_product(get_turf(src))
 	qdel(src)
 
-/obj/machinery/door/unpowered/simple/attack_ai(mob/user as mob) //those aren't machinery, they're just big fucking slabs of a mineral
+/obj/machinery/door/unpowered/simple/attack_ai(mob/user as mob)
 	if(is_ai(user)) //so the AI can't open it
 		return
 	else if(is_robot(user)) //but cyborgs can
@@ -198,32 +198,32 @@
 	lock = null
 	..()
 
-/obj/machinery/door/unpowered/simple/iron/New(var/newloc,var/material_name,var/complexity)
+/obj/machinery/door/unpowered/simple/iron/New(newloc,material_name,complexity)
 	..(newloc, "iron", complexity)
 
-/obj/machinery/door/unpowered/simple/silver/New(var/newloc,var/material_name,var/complexity)
+/obj/machinery/door/unpowered/simple/silver/New(newloc,material_name,complexity)
 	..(newloc, "silver", complexity)
 
-/obj/machinery/door/unpowered/simple/gold/New(var/newloc,var/material_name,var/complexity)
+/obj/machinery/door/unpowered/simple/gold/New(newloc,material_name,complexity)
 	..(newloc, "gold", complexity)
 
-/obj/machinery/door/unpowered/simple/uranium/New(var/newloc,var/material_name,var/complexity)
+/obj/machinery/door/unpowered/simple/uranium/New(newloc,material_name,complexity)
 	..(newloc, "uranium", complexity)
 
-/obj/machinery/door/unpowered/simple/sandstone/New(var/newloc,var/material_name,var/complexity)
+/obj/machinery/door/unpowered/simple/sandstone/New(newloc,material_name,complexity)
 	..(newloc, "sandstone", complexity)
 
-/obj/machinery/door/unpowered/simple/diamond/New(var/newloc,var/material_name,var/complexity)
+/obj/machinery/door/unpowered/simple/diamond/New(newloc,material_name,complexity)
 	..(newloc, "diamond", complexity)
 
-/obj/machinery/door/unpowered/simple/phoron/New(var/newloc,var/material_name,var/complexity)
+/obj/machinery/door/unpowered/simple/phoron/New(newloc,material_name,complexity)
 	..(newloc, "phoron", complexity)
 
 /obj/machinery/door/unpowered/simple/wood
 	icon_state = "wood"
 	color = "#824b28"
 
-/obj/machinery/door/unpowered/simple/wood/New(var/newloc,var/material_name,var/complexity)
+/obj/machinery/door/unpowered/simple/wood/New(newloc,material_name,complexity)
 	..(newloc, "wood", complexity)
 
 /obj/machinery/door/unpowered/simple/wood/saloon
@@ -231,19 +231,19 @@
 	autoclose = 1
 	normalspeed = 0
 
-/obj/machinery/door/unpowered/simple/wood/saloon/New(var/newloc,var/material_name,var/complexity)
+/obj/machinery/door/unpowered/simple/wood/saloon/New(newloc,material_name,complexity)
 	..(newloc, "wood", complexity)
 	glass = 1
 	set_opacity(0)
 
-/obj/machinery/door/unpowered/simple/resin/New(var/newloc,var/material_name,var/complexity)
+/obj/machinery/door/unpowered/simple/resin/New(newloc,material_name,complexity)
 	..(newloc, "resin", complexity)
 
-/obj/machinery/door/unpowered/simple/cult/New(var/newloc,var/material_name,var/complexity)
+/obj/machinery/door/unpowered/simple/cult/New(newloc,material_name,complexity)
 	..(newloc, "cult", complexity)
 
-/obj/machinery/door/unpowered/simple/alium/New(var/newloc,var/material_name,var/complexity)
+/obj/machinery/door/unpowered/simple/alium/New(newloc,material_name,complexity)
 	..(newloc, "alien alloy", complexity)
 
-/obj/machinery/door/unpowered/simple/biomass/New(var/newloc,var/material_name,var/complexity)
+/obj/machinery/door/unpowered/simple/biomass/New(newloc,material_name,complexity)
 	..(newloc, "biomass", complexity)

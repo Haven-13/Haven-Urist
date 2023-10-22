@@ -99,7 +99,7 @@
 
 	updatehealth()
 
-/mob/living/carbon/harvester/instantiate_hud(var/datum/hud/HUD)
+/mob/living/carbon/harvester/instantiate_hud(datum/hud/HUD)
 	HUD.infestharvester_hud()
 
 /datum/hud/proc/infestharvester_hud()
@@ -263,7 +263,7 @@
 	return 1
 
 
-/mob/living/carbon/harvester/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/carbon/harvester/UnarmedAttack(atom/A, proximity)
 
 	if(!..())
 		return 0

@@ -20,7 +20,7 @@
 	var/material/material
 	var/drops_debris = 1
 
-/obj/item/weapon/material/New(var/newloc, var/material_key)
+/obj/item/weapon/material/New(newloc, material_key)
 	..(newloc)
 	if(!material_key)
 		material_key = default_material
@@ -49,7 +49,7 @@
 	//spawn(1)
 //		log_debug("[src] has force [force] and throwforce [throwforce] when made from default material [material.name]")
 
-/obj/item/weapon/material/proc/set_material(var/new_material)
+/obj/item/weapon/material/proc/set_material(new_material)
 	material = SSmaterials.get_material_by_name(new_material)
 	if(!material)
 		qdel(src)
@@ -85,11 +85,11 @@
 			health--
 		check_health()
 
-/obj/item/weapon/material/proc/check_health(var/consumed)
+/obj/item/weapon/material/proc/check_health(consumed)
 	if(health<=0)
 		shatter(consumed)
 
-/obj/item/weapon/material/proc/shatter(var/consumed)
+/obj/item/weapon/material/proc/shatter(consumed)
 	var/turf/T = get_turf(src)
 	T.visible_message("<span class='danger'>\The [src] [material.destruction_desc]!</span>")
 	playsound(src, "shatter", 70, 1)

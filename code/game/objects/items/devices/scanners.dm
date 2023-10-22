@@ -37,7 +37,7 @@ REAGENT SCANNER
 
 	medical_scan_action(target, user, src, mode)
 
-/proc/medical_scan_action(atom/target, mob/living/user, obj/scanner, var/verbose)
+/proc/medical_scan_action(atom/target, mob/living/user, obj/scanner, verbose)
 	if (!user.IsAdvancedToolUser())
 		to_chat(user, "<span class='warning'>You are not nimble enough to use this device.</span>")
 		return
@@ -196,7 +196,7 @@ REAGENT SCANNER
 				))
 
 
-/proc/medical_scan_results(var/mob/living/carbon/human/H, var/verbose)
+/proc/medical_scan_results(mob/living/carbon/human/H, verbose)
 	. = list()
 	. += "<span class='notice'><b>Scan results for \the [H]:</b></span>"
 
@@ -397,7 +397,7 @@ REAGENT SCANNER
 	. = jointext(.,"<br>")
 
 // Calculates severity based on the ratios defined external limbs.
-/proc/get_wound_severity(var/damage_ratio, var/can_heal_overkill = 0)
+/proc/get_wound_severity(damage_ratio, can_heal_overkill = 0)
 	var/degree
 
 	switch(damage_ratio)
@@ -621,7 +621,7 @@ REAGENT SCANNER
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
 
-/obj/item/device/slime_scanner/proc/list_gases(var/gases)
+/obj/item/device/slime_scanner/proc/list_gases(gases)
 	. = list()
 	for(var/g in gases)
 		. += "[gas_data.name[g]] ([gases[g]]%)"

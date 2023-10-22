@@ -31,7 +31,7 @@
 		icon_state = "bigtorpedo-[warhead.icon_state]"
 		name = "[warhead.ammo_name] torpedo"
 
-/obj/structure/shipammo/torpedo/attackby(var/obj/item/I, mob/user as mob)
+/obj/structure/shipammo/torpedo/attackby(obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/shipweapons/torpedo_warhead))
 		if(!src.load_amount && user.unEquip(I, src))
 			load_amount = 1

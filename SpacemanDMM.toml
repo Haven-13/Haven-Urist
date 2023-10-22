@@ -56,7 +56,7 @@ final_no_effect =               "unset"
 as_local_var =                  "unset"
 
 # Raised by Parser
-var_in_proc_parameter =         "unset"
+var_in_proc_parameter =         "error"
 
 # Raised by PreProcessor
 duplicate_include =             "unset"

@@ -101,7 +101,7 @@
 	else
 		return ..()
 
-/obj/item/weapon/defibrillator/emag_act(var/uses, var/mob/user)
+/obj/item/weapon/defibrillator/emag_act(uses, mob/user)
 	if(paddles)
 		return paddles.emag_act(uses, user, src)
 	return NO_EMAG_ACT
@@ -212,7 +212,7 @@
 	var/cooldown = 0
 	var/busy = 0
 
-/obj/item/weapon/shockpaddles/proc/set_cooldown(var/delay)
+/obj/item/weapon/shockpaddles/proc/set_cooldown(delay)
 	cooldown = 1
 	update_icon()
 
@@ -256,14 +256,14 @@
 	return 1
 
 //Checks for various conditions to see if the mob is revivable
-/obj/item/weapon/shockpaddles/proc/can_defib(mob/living/carbon/human/H) //This is checked before doing the defib operation
+/obj/item/weapon/shockpaddles/proc/can_defib(mob/living/carbon/human/H)
 	if((H.species.species_flags & SPECIES_FLAG_NO_SCAN) || H.isSynthetic())
 		return "buzzes, \"Unrecogized physiology. Operation aborted.\""
 
 	if(!check_contact(H))
 		return "buzzes, \"Patient's chest is obstructed. Operation aborted.\""
 
-/obj/item/weapon/shockpaddles/proc/can_revive(mob/living/carbon/human/H) //This is checked right before attempting to revive
+/obj/item/weapon/shockpaddles/proc/can_revive(mob/living/carbon/human/H)
 	if(H.stat == DEAD)
 		return "buzzes, \"Resuscitation failed - Severe neurological decay makes recovery of patient impossible. Further attempts futile.\""
 
@@ -282,13 +282,13 @@
 		return TRUE
 	return FALSE
 
-/obj/item/weapon/shockpaddles/proc/check_charge(var/charge_amt)
+/obj/item/weapon/shockpaddles/proc/check_charge(charge_amt)
 	return 0
 
-/obj/item/weapon/shockpaddles/proc/checked_use(var/charge_amt)
+/obj/item/weapon/shockpaddles/proc/checked_use(charge_amt)
 	return 0
 
-/obj/item/weapon/shockpaddles/attack(mob/living/M, mob/living/user, var/target_zone)
+/obj/item/weapon/shockpaddles/attack(mob/living/M, mob/living/user, target_zone)
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || user.a_intent == I_HURT)
 		return ..() //Do a regular attack. Harm intent shocking happens as a hit effect
@@ -305,7 +305,7 @@
 	return 1
 
 //Since harm-intent now skips the delay for deliberate placement, you have to be able to hit them in combat in order to shock people.
-/obj/item/weapon/shockpaddles/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
+/obj/item/weapon/shockpaddles/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
 	if(is_human_mob(target) && can_use(user, target))
 		busy = 1
 		update_icon()
@@ -379,7 +379,7 @@
 	log_and_message_admins("used \a [src] to revive [key_name(H)].")
 
 
-/obj/item/weapon/shockpaddles/proc/do_electrocute(mob/living/carbon/human/H, mob/user, var/target_zone)
+/obj/item/weapon/shockpaddles/proc/do_electrocute(mob/living/carbon/human/H, mob/user, target_zone)
 	var/obj/item/organ/external/affecting = H.get_organ(target_zone)
 	if(!affecting)
 		to_chat(user, "<span class='warning'>They are missing that body part!</span>")
@@ -417,7 +417,7 @@
 
 	admin_attack_log(user, H, "Electrocuted using \a [src]", "Was electrocuted with \a [src]", "used \a [src] to electrocute")
 
-/obj/item/weapon/shockpaddles/proc/make_alive(mob/living/carbon/human/M) //This revives the mob
+/obj/item/weapon/shockpaddles/proc/make_alive(mob/living/carbon/human/M)
 	var/deadtime = world.time - M.timeofdeath
 
 	M.switch_from_dead_to_living_mob_list()
@@ -432,7 +432,7 @@
 	M.updatehealth()
 	apply_brain_damage(M, deadtime)
 
-/obj/item/weapon/shockpaddles/proc/apply_brain_damage(mob/living/carbon/human/H, var/deadtime)
+/obj/item/weapon/shockpaddles/proc/apply_brain_damage(mob/living/carbon/human/H, deadtime)
 	if(deadtime < DEFIB_TIME_LOSS) return
 
 	if(!H.should_have_organ(BP_BRAIN)) return //no brain
@@ -443,10 +443,10 @@
 	var/brain_damage = clamp((deadtime - DEFIB_TIME_LOSS)/(DEFIB_TIME_LIMIT - DEFIB_TIME_LOSS)*brain.max_damage, H.getBrainLoss(), brain.max_damage)
 	H.setBrainLoss(brain_damage)
 
-/obj/item/weapon/shockpaddles/proc/make_announcement(var/message, var/msg_class)
+/obj/item/weapon/shockpaddles/proc/make_announcement(message, msg_class)
 	audible_message("<b>\The [src]</b> <span class='[msg_class]'>[message]</span>", "\The [src] vibrates slightly.")
 
-/obj/item/weapon/shockpaddles/emag_act(var/uses, var/mob/user, var/obj/item/weapon/defibrillator/base)
+/obj/item/weapon/shockpaddles/emag_act(uses, mob/user, obj/item/weapon/defibrillator/base)
 	if(istype(src, /obj/item/weapon/shockpaddles/linked))
 		var/obj/item/weapon/shockpaddles/linked/dfb = src
 		if(dfb.base_unit)
@@ -488,12 +488,12 @@
 	item_state = "defibpaddles0"
 	cooldowntime = (3 SECONDS)
 
-/obj/item/weapon/shockpaddles/robot/check_charge(var/charge_amt)
+/obj/item/weapon/shockpaddles/robot/check_charge(charge_amt)
 	if(is_robot(src.loc))
 		var/mob/living/silicon/robot/R = src.loc
 		return (R.cell && R.cell.check_charge(charge_amt))
 
-/obj/item/weapon/shockpaddles/robot/checked_use(var/charge_amt)
+/obj/item/weapon/shockpaddles/robot/checked_use(charge_amt)
 	if(is_robot(src.loc))
 		var/mob/living/silicon/robot/R = src.loc
 		return (R.cell && R.cell.checked_use(charge_amt))
@@ -522,13 +522,13 @@
 	if(base_unit)
 		base_unit.reattach_paddles(user) //paddles attached to a base unit should never exist outside of their base unit or the mob equipping the base unit
 
-/obj/item/weapon/shockpaddles/linked/check_charge(var/charge_amt)
+/obj/item/weapon/shockpaddles/linked/check_charge(charge_amt)
 	return (base_unit.bcell && base_unit.bcell.check_charge(charge_amt))
 
-/obj/item/weapon/shockpaddles/linked/checked_use(var/charge_amt)
+/obj/item/weapon/shockpaddles/linked/checked_use(charge_amt)
 	return (base_unit.bcell && base_unit.bcell.checked_use(charge_amt))
 
-/obj/item/weapon/shockpaddles/linked/make_announcement(var/message, var/msg_class)
+/obj/item/weapon/shockpaddles/linked/make_announcement(message, msg_class)
 	base_unit.audible_message("<b>\The [base_unit]</b> <span class='[msg_class]'>[message]</span>", "\The [base_unit] vibrates slightly.")
 
 /*
@@ -544,10 +544,10 @@
 	if(fail_counter)
 		STOP_PROCESSING(SSobj, src)
 
-/obj/item/weapon/shockpaddles/standalone/check_charge(var/charge_amt)
+/obj/item/weapon/shockpaddles/standalone/check_charge(charge_amt)
 	return 1
 
-/obj/item/weapon/shockpaddles/standalone/checked_use(var/charge_amt)
+/obj/item/weapon/shockpaddles/standalone/checked_use(charge_amt)
 	SSradiation.radiate(src, charge_amt/12) //just a little bit of radiation. It's the price you pay for being powered by magic I guess
 	return 1
 

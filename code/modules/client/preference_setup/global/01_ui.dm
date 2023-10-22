@@ -10,14 +10,14 @@
 	name = "UI"
 	sort_order = 1
 
-/datum/category_item/player_setup_item/player_global/ui/load_preferences(var/savefile/S)
+/datum/category_item/player_setup_item/player_global/ui/load_preferences(savefile/S)
 	from_file(S["UI_style"], pref.UI_style)
 	from_file(S["UI_style_color"], pref.UI_style_color)
 	from_file(S["UI_style_alpha"], pref.UI_style_alpha)
 	from_file(S["ooccolor"], pref.ooccolor)
 	from_file(S["clientfps"], pref.clientfps)
 
-/datum/category_item/player_setup_item/player_global/ui/save_preferences(var/savefile/S)
+/datum/category_item/player_setup_item/player_global/ui/save_preferences(savefile/S)
 	to_file(S["UI_style"], pref.UI_style)
 	to_file(S["UI_style_color"], pref.UI_style_color)
 	to_file(S["UI_style_alpha"], pref.UI_style_alpha)
@@ -31,7 +31,7 @@
 	pref.ooccolor		= sanitize_hexcolor(pref.ooccolor, initial(pref.ooccolor))
 	pref.clientfps	    = sanitize_integer(pref.clientfps, CLIENT_MIN_FPS, CLIENT_MAX_FPS, initial(pref.clientfps))
 
-/datum/category_item/player_setup_item/player_global/ui/content(var/mob/user)
+/datum/category_item/player_setup_item/player_global/ui/content(mob/user)
 	. += "<b>UI Settings</b><br>"
 	. += "<b>UI Style:</b> <a href='?src=[REF(src)];select_style=1'><b>[pref.UI_style]</b></a><br>"
 	. += "<b>Custom UI</b> (recommended for White UI):<br>"
@@ -45,7 +45,7 @@
 			. += "<a href='?src=[REF(src)];select_ooc_color=1'><b>[pref.ooccolor]</b></a> <table style='display:inline;' bgcolor='[pref.ooccolor]'><tr><td>__</td></tr></table><a href='?src=[REF(src)];reset=ooc'>reset</a><br>"
 	. += "<b>Client FPS:</b> <a href='?src=[REF(src)];select_fps=1'><b>[pref.clientfps]</b></a><br>"
 
-/datum/category_item/player_setup_item/player_global/ui/OnTopic(var/href,var/list/href_list, var/mob/user)
+/datum/category_item/player_setup_item/player_global/ui/OnTopic(href,list/href_list, mob/user)
 	if(href_list["select_style"])
 		var/UI_style_new = input(user, "Choose UI style.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.UI_style) as null|anything in all_ui_styles
 		if(!UI_style_new || !CanUseTopic(user)) return FALSE
@@ -97,5 +97,5 @@
 
 	return ..()
 
-/proc/can_select_ooc_color(var/mob/user)
+/proc/can_select_ooc_color(mob/user)
 	return config.allow_admin_ooccolor && check_rights(R_ADMIN, 0, user)

@@ -167,7 +167,7 @@
 	return
 
 //sets the use_power var and then forces an area power update
-/obj/machinery/proc/update_use_power(var/new_use_power)
+/obj/machinery/proc/update_use_power(new_use_power)
 	use_power = new_use_power
 
 /obj/machinery/proc/auto_use_power()
@@ -179,16 +179,16 @@
 		use_power(active_power_usage,power_channel, 1)
 	return 1
 
-/proc/is_operable(var/obj/machinery/M, var/mob/user)
+/proc/is_operable(obj/machinery/M, mob/user)
 	return istype(M) && M.operable()
 
-/obj/machinery/proc/operable(var/additional_flags = 0)
+/obj/machinery/proc/operable(additional_flags = 0)
 	return !inoperable(additional_flags)
 
-/obj/machinery/proc/inoperable(var/additional_flags = 0)
+/obj/machinery/proc/inoperable(additional_flags = 0)
 	return (stat & (NOPOWER|BROKEN|additional_flags))
 
-/obj/machinery/CanUseTopic(var/mob/user)
+/obj/machinery/CanUseTopic(mob/user)
 	if(stat & BROKEN)
 		return UI_CLOSE
 
@@ -197,13 +197,13 @@
 
 	return ..()
 
-/obj/machinery/CouldUseTopic(var/mob/user)
+/obj/machinery/CouldUseTopic(mob/user)
 	..()
 	user.set_machine(src)
 	if(clicksound && istype(user, /mob/living/carbon))
 		playsound(src, clicksound, clickvol)
 
-/obj/machinery/CouldNotUseTopic(var/mob/user)
+/obj/machinery/CouldNotUseTopic(mob/user)
 	user.unset_machine()
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -271,7 +271,7 @@
 	uid = gl_uid
 	gl_uid++
 
-/obj/machinery/proc/state(var/msg)
+/obj/machinery/proc/state(msg)
 	for(var/mob/O in hearers(src, null))
 		O.show_message("\icon[src] <span class = 'notice'>[msg]</span>", 2)
 
@@ -301,14 +301,14 @@
 			return 1
 	return 0
 
-/obj/machinery/proc/default_deconstruction_crowbar(var/mob/user, var/obj/item/weapon/crowbar/C)
+/obj/machinery/proc/default_deconstruction_crowbar(mob/user, obj/item/weapon/crowbar/C)
 	if(!istype(C))
 		return 0
 	if(!panel_open)
 		return 0
 	. = dismantle()
 
-/obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/weapon/screwdriver/S)
+/obj/machinery/proc/default_deconstruction_screwdriver(mob/user, obj/item/weapon/screwdriver/S)
 	if(!istype(S))
 		return 0
 	playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
@@ -317,7 +317,7 @@
 	update_icon()
 	return 1
 
-/obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/weapon/storage/part_replacer/R, var/override = 0)
+/obj/machinery/proc/default_part_replacement(mob/user, obj/item/weapon/storage/part_replacer/R, override = 0)
 	if(!istype(R))
 		return 0
 	if(!component_parts)
@@ -367,7 +367,7 @@
 /datum/proc/remove_visual(mob/M)
 	return
 
-/obj/machinery/proc/malf_upgrade(var/mob/living/silicon/ai/user)
+/obj/machinery/proc/malf_upgrade(mob/living/silicon/ai/user)
 	return 0
 
 /obj/machinery/proc/display_parts(mob/user)
@@ -380,12 +380,12 @@
 	if(component_parts && hasHUD(user, HUD_SCIENCE))
 		display_parts(user)
 
-/obj/machinery/proc/build_default_parts(var/obj/item/weapon/circuitboard/CB)
+/obj/machinery/proc/build_default_parts(obj/item/weapon/circuitboard/CB)
 	var/obj/item/weapon/circuitboard/C = new CB(src)
 	C.apply_default_parts(src)
 
 // This is really pretty crap and should be overridden for specific machines.
-/obj/machinery/water_act(var/depth)
+/obj/machinery/water_act(depth)
 	..()
 	if(!(stat & (NOPOWER|BROKEN)) && !waterproof && (depth > FLUID_DEEP))
 		ex_act(3)

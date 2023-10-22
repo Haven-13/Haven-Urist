@@ -175,7 +175,7 @@
 	icon = 'resources/icons/mob/screen1.dmi'
 	var/faction_id
 
-/obj/effect/urist/triggers/station_disk/proc/spawn_disk(var/obj/effect/overmap/sector/station/stored_station)
+/obj/effect/urist/triggers/station_disk/proc/spawn_disk(obj/effect/overmap/sector/station/stored_station)
 	var/obj/item/weapon/disk/station_disk/D = new /obj/item/weapon/disk/station_disk(src.loc)
 	D.master_station = stored_station
 	qdel(src)

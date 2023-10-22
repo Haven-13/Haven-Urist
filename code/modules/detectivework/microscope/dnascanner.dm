@@ -19,7 +19,7 @@
 	build_default_parts(/obj/item/weapon/circuitboard/dnaforensics)
 	. = ..()
 
-/obj/machinery/dnaforensics/attackby(var/obj/item/W, mob/user as mob)
+/obj/machinery/dnaforensics/attackby(obj/item/W, mob/user as mob)
 
 	if(bloodsamp)
 		to_chat(user, "<span class='warning'>There is already a sample in the machine.</span>")

@@ -15,7 +15,7 @@
 	GLOB.ship_projectile_landmarks += src
 	. = ..()
 
-/obj/effect/urist/projectile_landmark/ship/Fire(var/obj/projectile_type = null)
+/obj/effect/urist/projectile_landmark/ship/Fire(obj/projectile_type = null)
 	var/obj/item/projectile/P = new projectile_type
 
 	var/target_x = rand(mothership.target_x_bounds[1],mothership.target_x_bounds[2])
@@ -34,7 +34,7 @@
 	GLOB.target_projectile_landmarks += src
 	. = ..()
 
-/obj/effect/urist/projectile_landmark/target/Fire(var/projectile_type)
+/obj/effect/urist/projectile_landmark/target/Fire(projectile_type)
 	var/obj/item/projectile/P = new projectile_type
 
 	var/target_x = 100 //set up values for enemy ships

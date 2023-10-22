@@ -18,7 +18,7 @@
 	active_planes = null
 	active_overlays = null
 
-/atom/movable/map_view/proc/update_map_view(var/z_depth)
+/atom/movable/map_view/proc/update_map_view(z_depth)
 	active_planes.Cut()
 	active_overlays.Cut()
 
@@ -48,7 +48,7 @@
 					openspace_overlay_cache[key] = oover
 				active_overlays[key] += openspace_overlay_cache[key]
 
-/atom/movable/map_view/proc/add_all_active(var/mob/mymob)
+/atom/movable/map_view/proc/add_all_active(mob/mymob)
 	. = client_add_all_active(mymob.client)
 
 /atom/movable/map_view/proc/client_add_all_active(client/C)
@@ -64,7 +64,7 @@
 		var/atom/movable/screen/openspace_overlay/OO = active_overlays[key]
 		C.screen |= OO
 
-/atom/movable/map_view/proc/clear_all(var/mob/mymob)
+/atom/movable/map_view/proc/clear_all(mob/mymob)
 	. = client_clear_all(mymob.client)
 
 /atom/movable/map_view/proc/client_clear_all(client/C)

@@ -32,7 +32,7 @@
 			stance = HOSTILE_STANCE_ATTACK
 			return A
 
-/mob/living/simple_animal/hostile/proc/ValidTarget(var/atom/A)
+/mob/living/simple_animal/hostile/proc/ValidTarget(atom/A)
 	if(A == src)
 		return FALSE
 
@@ -57,7 +57,7 @@
 
 	return TRUE
 
-/mob/living/simple_animal/hostile/proc/Found(var/atom/A)
+/mob/living/simple_animal/hostile/proc/Found(atom/A)
 	return
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
@@ -116,7 +116,7 @@
 	walk(src, 0)
 
 
-/mob/living/simple_animal/hostile/proc/ListTargets(var/dist = 7)
+/mob/living/simple_animal/hostile/proc/ListTargets(dist = 7)
 	var/list/L = hearers(src, dist)
 
 	for (var/obj/mecha/M in mechas_list)
@@ -161,7 +161,7 @@
 			target_mob = null
 
 
-/mob/living/simple_animal/hostile/attackby(var/obj/item/O, var/mob/user)
+/mob/living/simple_animal/hostile/attackby(obj/item/O, mob/user)
 	var/oldhealth = health
 	. = ..()
 	if(health < oldhealth && !incapacitated(INCAPACITATION_KNOCKOUT))
@@ -174,7 +174,7 @@
 		target_mob = M
 		MoveToTarget()
 
-/mob/living/simple_animal/hostile/bullet_act(var/obj/item/projectile/Proj)
+/mob/living/simple_animal/hostile/bullet_act(obj/item/projectile/Proj)
 	var/oldhealth = health
 	. = ..()
 	if(!target_mob && health < oldhealth && !incapacitated(INCAPACITATION_KNOCKOUT))
@@ -208,7 +208,7 @@
 	return
 
 
-/mob/living/simple_animal/hostile/proc/Shoot(var/target, var/start, var/user, var/bullet = 0)
+/mob/living/simple_animal/hostile/proc/Shoot(target, start, user, bullet = 0)
 	if(target == start)
 		return
 

@@ -39,13 +39,13 @@
 			if(!current_value|| !_cultures[current_value])
 				pref.cultural_info[token] = _cultures[1]
 
-/datum/category_item/player_setup_item/background/culture/load_character(var/savefile/S)
+/datum/category_item/player_setup_item/background/culture/load_character(savefile/S)
 	for(var/token in tokens)
 		var/load_val
 		from_file(S[token], load_val)
 		pref.cultural_info[token] = load_val
 
-/datum/category_item/player_setup_item/background/culture/save_character(var/savefile/S)
+/datum/category_item/player_setup_item/background/culture/save_character(savefile/S)
 	for(var/token in tokens)
 		to_file(S[token], pref.cultural_info[token])
 
@@ -59,7 +59,7 @@
 		. += culture.get_description(title, append_text, verbose = !hidden[token])
 	. = jointext(.,null)
 
-/datum/category_item/player_setup_item/background/culture/OnTopic(var/href,var/list/href_list, var/mob/user)
+/datum/category_item/player_setup_item/background/culture/OnTopic(href,list/href_list, mob/user)
 
 	for(var/token in tokens)
 

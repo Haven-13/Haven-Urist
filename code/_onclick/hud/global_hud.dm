@@ -11,7 +11,7 @@ GLOBAL_DATUM_INIT(global_hud, /datum/global_hud, new())
 	var/atom/movable/screen/meson
 	var/atom/movable/screen/science
 
-/datum/global_hud/proc/setup_overlay(var/icon_state)
+/datum/global_hud/proc/setup_overlay(icon_state)
 	var/atom/movable/screen/screen = new /atom/movable/screen()
 	screen.screen_loc = "1,1"
 	screen.icon = 'resources/icons/obj/hud_full.dmi'

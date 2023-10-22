@@ -64,7 +64,7 @@
 		icon_state = "biogen-work"
 	return
 
-/obj/machinery/biogenerator/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/biogenerator/attackby(obj/item/O as obj, mob/user as mob)
 	if(default_deconstruction_screwdriver(user, O))
 		return
 	if(default_deconstruction_crowbar(user, O))
@@ -105,7 +105,7 @@
  *
  *  See NanoUI documentation for details.
  */
-/obj/machinery/biogenerator/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/biogenerator/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "Biogenerator", name)
@@ -194,7 +194,7 @@
 		state = BG_EMPTY
 	return
 
-/obj/machinery/biogenerator/proc/create_product(var/type, var/path, var/amount)
+/obj/machinery/biogenerator/proc/create_product(type, path, amount)
 	state = BG_PROCESSING
 	var/cost = products[type][path] * amount
 	cost = round(cost/build_eff)

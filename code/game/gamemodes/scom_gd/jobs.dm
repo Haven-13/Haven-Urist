@@ -1,5 +1,5 @@
 
-/datum/job/scom/equip(var/mob/living/carbon/human/H, var/alt_title)
+/datum/job/scom/equip(mob/living/carbon/human/H, alt_title)
 	..()
 	if(!H.mind)
 		return

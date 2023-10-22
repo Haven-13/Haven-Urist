@@ -65,7 +65,7 @@
 		to_chat(user, "You cut the tag off \the [src].")
 		return
 
-/obj/structure/closet/body_bag/store_mobs(var/stored_units)
+/obj/structure/closet/body_bag/store_mobs(stored_units)
 	contains_body = ..()
 	return contains_body
 
@@ -75,7 +75,7 @@
 		return 1
 	return 0
 
-/obj/structure/closet/body_bag/proc/fold(var/user)
+/obj/structure/closet/body_bag/proc/fold(user)
 	if(!(is_human_mob(user) || is_robot(user)))	return 0
 	if(opened)	return 0
 	if(contents.len)	return 0

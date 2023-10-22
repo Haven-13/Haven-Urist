@@ -62,7 +62,7 @@ SUBSYSTEM_DEF(weather)
 	return act_weathers
 
 //handles changes; call with initial=1 to ensure every area is changed
-/datum/controller/subsystem/weather/proc/change_weather(var/initial = 0)
+/datum/controller/subsystem/weather/proc/change_weather(initial = 0)
 	var/list/processed = list()
 	for(var/weather_handler in weather_cache)
 		if(istype(weather_handler, /obj/effect/weather))

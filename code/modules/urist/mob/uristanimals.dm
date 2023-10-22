@@ -135,7 +135,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	var/list/ban_excepted = list()
 
 //pretty basic random chem picker; blacklist overriden and picks from 1 to argument chem types
-/obj/item/venom_sac/proc/generate_venom(var/maxchems = 3)
+/obj/item/venom_sac/proc/generate_venom(maxchems = 3)
 	var/list/mix = list()
 	var/new_chem = null
 	var/max_chemtypes = rand(1, maxchems)

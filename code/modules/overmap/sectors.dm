@@ -84,7 +84,7 @@
 	else
 		generic_waypoints -= landmark
 
-/obj/effect/overmap/proc/get_waypoints(var/shuttle_name)
+/obj/effect/overmap/proc/get_waypoints(shuttle_name)
 	. = generic_waypoints.Copy()
 	if(shuttle_name in restricted_waypoints)
 		. += restricted_waypoints[shuttle_name]

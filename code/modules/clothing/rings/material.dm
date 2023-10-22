@@ -5,7 +5,7 @@
 	icon_state = "material"
 	var/material/material
 
-/obj/item/clothing/ring/material/New(var/newloc, var/new_material)
+/obj/item/clothing/ring/material/New(newloc, new_material)
 	..(newloc)
 	if(!new_material)
 		new_material = DEFAULT_WALL_MATERIAL
@@ -20,26 +20,26 @@
 /obj/item/clothing/ring/material/get_material()
 	return material
 
-/obj/item/clothing/ring/material/wood/New(var/newloc)
+/obj/item/clothing/ring/material/wood/New(newloc)
 	..(newloc, "wood")
 
-/obj/item/clothing/ring/material/plastic/New(var/newloc)
+/obj/item/clothing/ring/material/plastic/New(newloc)
 	..(newloc, "plastic")
 
-/obj/item/clothing/ring/material/steel/New(var/newloc)
+/obj/item/clothing/ring/material/steel/New(newloc)
 	..(newloc, "steel")
 
-/obj/item/clothing/ring/material/silver/New(var/newloc)
+/obj/item/clothing/ring/material/silver/New(newloc)
 	..(newloc, "silver")
 
-/obj/item/clothing/ring/material/gold/New(var/newloc)
+/obj/item/clothing/ring/material/gold/New(newloc)
 	..(newloc, "gold")
 
-/obj/item/clothing/ring/material/platinum/New(var/newloc)
+/obj/item/clothing/ring/material/platinum/New(newloc)
 	..(newloc, "platinum")
 
-/obj/item/clothing/ring/material/bronze/New(var/newloc)
+/obj/item/clothing/ring/material/bronze/New(newloc)
 	..(newloc, "bronze")
 
-/obj/item/clothing/ring/material/glass/New(var/newloc)
+/obj/item/clothing/ring/material/glass/New(newloc)
 	..(newloc, "glass")

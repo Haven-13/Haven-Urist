@@ -29,14 +29,14 @@
 // Stealth Enhancers
 /////////////////////////
 
-/datum/dna/gene/basic/stealth/can_activate(var/mob/M, var/flags)
+/datum/dna/gene/basic/stealth/can_activate(mob/M, flags)
 	// Can only activate one of these at a time.
 	if(is_type_in_list(/datum/dna/gene/basic/stealth,M.active_genes))
 		testing("Cannot activate [type]: /datum/dna/gene/basic/stealth in M.active_genes.")
 		return 0
 	return ..(M,flags)
 
-/datum/dna/gene/basic/stealth/deactivate(var/mob/M)
+/datum/dna/gene/basic/stealth/deactivate(mob/M)
 	..(M)
 	M.alpha=255
 
@@ -50,7 +50,7 @@
 /datum/dna/gene/basic/stealth/darkcloak/New()
 	block=SHADOWBLOCK
 
-/datum/dna/gene/basic/stealth/darkcloak/OnMobLife(var/mob/M)
+/datum/dna/gene/basic/stealth/darkcloak/OnMobLife(mob/M)
 	if(is_turf(M.loc))
 		var/turf/T = M.loc
 		if(shadow_check(T, 2, 1))

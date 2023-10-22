@@ -17,12 +17,12 @@ SUBSYSTEM_DEF(persistence)
 		var/datum/persistent/P = persistence_datums[thing]
 		P.Shutdown()
 
-/datum/controller/subsystem/persistence/proc/track_value(var/atom/value, var/track_type)
+/datum/controller/subsystem/persistence/proc/track_value(atom/value, track_type)
 	if((value.z in GLOB.using_map.station_levels) && initialized)
 		if(!tracking_values[track_type])
 			tracking_values[track_type] = list()
 		tracking_values[track_type] += value
 
-/datum/controller/subsystem/persistence/proc/forget_value(var/atom/value, var/track_type)
+/datum/controller/subsystem/persistence/proc/forget_value(atom/value, track_type)
 	if(tracking_values[track_type])
 		tracking_values[track_type] -= value

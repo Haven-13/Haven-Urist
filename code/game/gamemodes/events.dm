@@ -36,7 +36,7 @@ var/hadevent    = 0
 			break
 
 
-/proc/alien_infestation(var/spawncount = 1) // -- TLE
+/proc/alien_infestation(spawncount = 1)
 	//command_alert("Unidentified lifesigns detected coming aboard [station_name()]. Secure any exterior access, including ducting and ventilation.", "Lifesign Alert")
 //	sound_to(world, sound('resources/sound/AI/aliens.ogg'))
 
@@ -142,7 +142,7 @@ var/hadevent    = 0
 	spawn(rand(300, 600)) //Delayed announcements to keep the crew on their toes.
 		GLOB.using_map.unknown_biological_entities_announcement()
 
-/proc/lightsout(isEvent = 0, lightsoutAmount = 1,lightsoutRange = 25) //leave lightsoutAmount as 0 to break ALL lights
+/proc/lightsout(isEvent = 0, lightsoutAmount = 1,lightsoutRange = 25)
 	if(isEvent)
 		command_announcement.Announce("An Electrical storm has been detected in your area, please repair potential electronic overloads.","Electrical Storm Alert")
 

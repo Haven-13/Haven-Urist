@@ -22,7 +22,7 @@
 	flags = RESTRICTED | HIVEMIND
 	shorthand = "N/A"
 
-/datum/language/xenos/check_special_condition(var/mob/other)
+/datum/language/xenos/check_special_condition(mob/other)
 
 	var/mob/living/carbon/M = other
 	if(!istype(M))

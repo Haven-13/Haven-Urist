@@ -10,7 +10,7 @@
 /obj/structure/bed/chair/couch/update_icon()
 	return
 
-/obj/structure/bed/chair/couch/New(var/newloc,var/newmaterial)
+/obj/structure/bed/chair/couch/New(newloc,newmaterial)
 //	..(newloc,"steel","black")
 
 	if(couchpart == 1)
@@ -145,7 +145,7 @@
 	anchored = 1
 	layer = 9
 
-/obj/structure/flora/pottedplant/Nienplants/Glloydtree/attackby(var/obj/item/I, mob/user as mob)
+/obj/structure/flora/pottedplant/Nienplants/Glloydtree/attackby(obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/carpentry/axe))
 		to_chat(user, "<span class='notice'>Your axe bounces off the tree! Holy shit, is it metal? Cheapass Nanotrasen corporate bastards.</span>")
 		return

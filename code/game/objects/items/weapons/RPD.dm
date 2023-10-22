@@ -67,7 +67,7 @@ GLOBAL_LIST_INIT(atmos_pipe_recipes, list(
 	var/list/cardinal	 = list(NORTH, SOUTH, EAST, WEST)
 	var/list/cornerdirs	 = list(NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
 
-/datum/pipe_info/pipe/New(var/labelname, var/obj/machinery/atmospherics/path, var/pdir)
+/datum/pipe_info/pipe/New(labelname, obj/machinery/atmospherics/path, pdir)
 	name = labelname
 	id = path
 	pipedir = pdir
@@ -121,7 +121,7 @@ GLOBAL_LIST_INIT(atmos_pipe_recipes, list(
 	playsound(src.loc, 'resources/sound/effects/pop.ogg', 50, 0)
 	active_direction = activedesign.pipedirdefault
 
-/obj/item/weapon/rpd/afterattack(var/atom/A, var/mob/user, proximity, params)
+/obj/item/weapon/rpd/afterattack(atom/A, mob/user, proximity, params)
 	if(!proximity)
 		return
 	var/list/mouse_control = params2list(params)

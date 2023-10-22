@@ -74,7 +74,7 @@
 	icon = 'resources/icons/urist/items/wood.dmi'
 	matter = list(DEFAULT_WALL_MATERIAL = 300, "wood" = 300)
 
-/obj/item/weapon/material/ashtray/wood/New(var/newloc)
+/obj/item/weapon/material/ashtray/wood/New(newloc)
 	..(newloc, "wood")
 
 //for the blueshield
@@ -219,7 +219,7 @@
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
 	default_material = "wood"
 
-/obj/item/weapon/material/woodwirerod/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/weapon/material/woodwirerod/attackby(obj/item/I, mob/user as mob)
 	..()
 	var/obj/item/finished
 	if(istype(I, /obj/item/weapon/material/shard) || istype(I, /obj/item/weapon/material/butterflyblade))
@@ -312,7 +312,7 @@
 			if(L.lit)
 				light()
 
-/obj/item/weapon/flame/torch/proc/light(var/flavor_text = "<span class='notice'>\The [usr] lights the [name].</span>")
+/obj/item/weapon/flame/torch/proc/light(flavor_text = "<span class='notice'>\The [usr] lights the [name].</span>")
 	if(!lit)
 		lit = 1
 		src.damtype = "fire"

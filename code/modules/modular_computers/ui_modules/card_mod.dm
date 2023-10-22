@@ -61,7 +61,7 @@
 
 	return formatted
 
-/datum/ui_module/program/card_mod/proc/get_accesses(var/is_centcom = 0)
+/datum/ui_module/program/card_mod/proc/get_accesses(is_centcom = 0)
 	. = list()
 	if(program.computer.card_slot && program.computer.card_slot.stored_card)
 		var/obj/item/weapon/card/id/id_card = program.computer.card_slot.stored_card

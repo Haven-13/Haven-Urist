@@ -41,12 +41,12 @@
 	if(.)
 		emote("flutters towards [.]")
 
-/mob/living/simple_animal/hostile/scarybat/Found(var/atom/A)//This is here as a potential override to pick a specific target if available
+/mob/living/simple_animal/hostile/scarybat/Found(atom/A)
 	if(istype(A) && A == owner)
 		return 0
 	return ..()
 
-/mob/living/simple_animal/hostile/scarybat/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/hostile/scarybat/UnarmedAttack(atom/A, proximity)
 	if(A && A == owner)
 		// No attacking the owner! Bad bat!
 		return 0

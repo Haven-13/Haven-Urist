@@ -20,7 +20,7 @@
 /obj/item/weapon/card/id/syndicate/prevent_tracking()
 	return electronic_warfare
 
-/obj/item/weapon/card/id/syndicate/afterattack(var/obj/item/weapon/O as obj, mob/user as mob, proximity)
+/obj/item/weapon/card/id/syndicate/afterattack(obj/item/weapon/O as obj, mob/user as mob, proximity)
 	if(!proximity) return
 	if(istype(O, /obj/item/weapon/card/id))
 		var/obj/item/weapon/card/id/I = O
@@ -41,7 +41,7 @@
 	else
 		..()
 
-/obj/item/weapon/card/id/syndicate/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/item/weapon/card/id/syndicate/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "AgentId")
@@ -65,7 +65,7 @@
 
 	return data
 
-/obj/item/weapon/card/id/syndicate/proc/register_user(var/mob/user)
+/obj/item/weapon/card/id/syndicate/proc/register_user(mob/user)
 	if(!istype(user) || user == registered_user)
 		return FALSE
 	unset_registered_user()
@@ -74,7 +74,7 @@
 	GLOB.destroyed_event.register(user, src, TYPE_PROC_REF(/obj/item/weapon/card/id/syndicate, unset_registered_user))
 	return TRUE
 
-/obj/item/weapon/card/id/syndicate/proc/unset_registered_user(var/mob/user)
+/obj/item/weapon/card/id/syndicate/proc/unset_registered_user(mob/user)
 	if(!registered_user || (user && user != registered_user))
 		return
 	GLOB.destroyed_event.unregister(registered_user, src)
@@ -85,7 +85,7 @@
 		return UI_CLOSE
 	return ..()
 
-/obj/item/weapon/card/id/syndicate/Topic(href, href_list, var/datum/ui_state/state)
+/obj/item/weapon/card/id/syndicate/Topic(href, href_list, datum/ui_state/state)
 	if(..())
 		return 1
 

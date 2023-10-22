@@ -35,7 +35,7 @@
 	docking_controller = "supply_drone_dock"
 
 /*
-/datum/shuttle/autodock/ferry/supply/drone/pluto/attempt_move(var/obj/effect/shuttle_landmark/destination)
+/datum/shuttle/autodock/ferry/supply/drone/pluto/attempt_move(obj/effect/shuttle_landmark/destination)
 	if(!destination)
 		return FALSE
 

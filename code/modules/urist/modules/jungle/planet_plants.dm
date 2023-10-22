@@ -41,7 +41,7 @@
 
 	else ..()
 
-/obj/structure/bush/attackby(var/obj/I as obj, var/mob/user as mob)
+/obj/structure/bush/attackby(obj/I as obj, mob/user as mob)
 	//hatchets can clear away undergrowth
 	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/material/sword/machete) || istype(I, /obj/item/weapon/carpentry/axe))
 		if(indestructable)
@@ -73,7 +73,7 @@
 				else
 					qdel(src)
 
-/obj/structure/bush/do_climb(var/mob/living/user)
+/obj/structure/bush/do_climb(mob/living/user)
 	if (!can_climb(user))
 		return
 
@@ -152,7 +152,7 @@ var/jungle_plants_init = 0
 	overlays += fruit_overlay
 //	plant_strength = rand(20,200)
 
-/obj/structure/jungle_plant/attack_hand(var/mob/user as mob)
+/obj/structure/jungle_plant/attack_hand(mob/user as mob)
 	if(fruits_left > 0)
 		fruits_left--
 		to_chat(user, "<span class='notice'> You pick a fruit off [src].</span>")
@@ -171,7 +171,7 @@ var/jungle_plants_init = 0
 	else
 		to_chat(user, "<span class='warning'> There are no fruit left on [src].</span>")
 
-/obj/structure/jungle_plant/attackby(var/obj/I as obj, var/mob/user as mob)
+/obj/structure/jungle_plant/attackby(obj/I as obj, mob/user as mob)
 	//hatchets can clear away undergrowth
 	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/material/sword/machete) || istype(I, /obj/item/weapon/carpentry/axe))
 
@@ -203,7 +203,7 @@ var/jungle_plants_init = 0
 	if(prob(25))
 		icon_state = "reedbush_4"
 
-/obj/structure/flora/reeds/attackby(var/obj/I as obj, var/mob/user as mob)
+/obj/structure/flora/reeds/attackby(obj/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/material/sword/machete) || istype(I, /obj/item/weapon/carpentry/axe))
 		user.visible_message("<span class='danger'>[user] begins clearing away [src].</span>","<span class='danger'>You begin clearing away [src].</span>")
 		spawn(rand(5,10))

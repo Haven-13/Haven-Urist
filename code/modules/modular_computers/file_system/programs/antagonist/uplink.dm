@@ -12,5 +12,5 @@
 	var/password
 	var/authenticated = 0
 
-/datum/computer_file/program/uplink/New(var/password)
+/datum/computer_file/program/uplink/New(password)
 	src.password = password

@@ -40,7 +40,7 @@
 	*/
 
 
-/datum/array/proc/get(var/position=null)
+/datum/array/proc/get(position=null)
 	/*
 	Expects a string of comma-separated integers or ':' wildcards;
 	basically Python slice notation.
@@ -107,7 +107,7 @@
 	result += lens
 	return result
 
-/datum/array/proc/assign(var/position, var/value=null)
+/datum/array/proc/assign(position, value=null)
 	/*
 	Expects a string of comma-separated integers and a numeric value to set.
 
@@ -136,7 +136,7 @@
 	array[coords[1]][coords[2]] = value
 	return 1
 
-/datum/array/New(var/paramstring=null, var/as_json=null)
+/datum/array/New(paramstring=null, as_json=null)
 	var/from_json = 0
 
 	if(isnull(as_json))

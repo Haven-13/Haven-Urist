@@ -67,7 +67,7 @@
 	melee_damage_upper = 20
 	diesnormally = 1
 
-/mob/living/simple_animal/hostile/scom/GiveTarget(var/new_target)
+/mob/living/simple_animal/hostile/scom/GiveTarget(new_target)
 	target = new_target
 	if(target != null)
 		if(is_living_mob(target))

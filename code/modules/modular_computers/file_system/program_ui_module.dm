@@ -4,7 +4,7 @@
 	var/ui_interface_name = "programs/NotDefined"
 	var/datum/computer_file/program/program = null	// Program-Based computer program that runs this nano module. Defaults to null.
 
-/datum/ui_module/program/New(var/host, var/program)
+/datum/ui_module/program/New(host, program)
 	..()
 	src.program = program
 

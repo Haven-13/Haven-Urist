@@ -68,11 +68,11 @@
 	poison_per_bite = 5
 	move_to_delay = 4
 
-/mob/living/simple_animal/hostile/giant_spider/New(var/location, var/atom/parent)
+/mob/living/simple_animal/hostile/giant_spider/New(location, atom/parent)
 	get_light_and_color(parent)
 	..()
 
-/mob/living/simple_animal/hostile/giant_spider/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/hostile/giant_spider/UnarmedAttack(atom/A, proximity)
 	. = ..()
 	if(is_living_mob(A))
 		var/mob/living/L = A
@@ -82,7 +82,7 @@
 				to_chat(L, "<span class='warning'>You feel a tiny prick.</span>")
 				L.reagents.add_reagent(poison_type, 5)
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/hostile/giant_spider/nurse/UnarmedAttack(atom/A, proximity)
 	. = ..()
 	if(is_human_mob(A))
 		var/mob/living/carbon/human/H = A
@@ -107,7 +107,7 @@
 					stop_automated_movement = 0
 					walk(src,0)
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/proc/GiveUp(var/C)
+/mob/living/simple_animal/hostile/giant_spider/nurse/proc/GiveUp(C)
 	spawn(100)
 		if(busy == MOVING_TO_TARGET)
 			if(cocoon_target == C && get_dist(src,cocoon_target) > 1)

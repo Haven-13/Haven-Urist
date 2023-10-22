@@ -42,10 +42,10 @@
 		carried = new/datum/disease2/disease()
 		carried.makerandom(rand(2, 4))
 
-/mob/living/simple_animal/hostile/vagrant/Allow_Spacemove(var/check_drift = 0)
+/mob/living/simple_animal/hostile/vagrant/Allow_Spacemove(check_drift = 0)
 	return 1
 
-/mob/living/simple_animal/hostile/vagrant/bullet_act(var/obj/item/projectile/Proj)
+/mob/living/simple_animal/hostile/vagrant/bullet_act(obj/item/projectile/Proj)
 	var/oldhealth = health
 	. = ..()
 	if((target != Proj.firer) && health < oldhealth && !incapacitated(INCAPACITATION_KNOCKOUT)) //Respond to being shot at
@@ -96,7 +96,7 @@
 		set_light(0.2, 0.1, 3)
 		move_to_delay = 2
 
-/mob/living/simple_animal/hostile/vagrant/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/hostile/vagrant/UnarmedAttack(atom/A, proximity)
 	. = ..()
 	if(is_human_mob(A))
 		var/mob/living/carbon/human/H = A

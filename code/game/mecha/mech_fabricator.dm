@@ -84,7 +84,7 @@
 		T += M.rating
 	speed = T / 2 // 1 -> 3
 
-/obj/machinery/mecha_part_fabricator/attack_hand(var/mob/user)
+/obj/machinery/mecha_part_fabricator/attack_hand(mob/user)
 	if(..())
 		return
 	if(!allowed(user))
@@ -149,7 +149,7 @@
 			sync()
 	return TRUE
 
-/obj/machinery/mecha_part_fabricator/attackby(var/obj/item/I, var/mob/user)
+/obj/machinery/mecha_part_fabricator/attackby(obj/item/I, mob/user)
 	if(busy)
 		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
 		return 1
@@ -193,7 +193,7 @@
 		to_chat(user, "The fabricator cannot hold more [stack_plural].")// use the plural form even if the given sheet is singular
 
 
-/obj/machinery/mecha_part_fabricator/emag_act(var/remaining_charges, var/mob/user)
+/obj/machinery/mecha_part_fabricator/emag_act(remaining_charges, mob/user)
 	switch(emagged)
 		if(0)
 			emagged = 0.5
@@ -226,24 +226,24 @@
 	else
 		busy = 0
 
-/obj/machinery/mecha_part_fabricator/proc/add_to_queue(var/index)
+/obj/machinery/mecha_part_fabricator/proc/add_to_queue(index)
 	var/datum/design/D = files.known_designs[index]
 	queue += D
 	update_busy()
 
-/obj/machinery/mecha_part_fabricator/proc/add_to_queue_set(var/list/category)
+/obj/machinery/mecha_part_fabricator/proc/add_to_queue_set(list/category)
 	if (!istype(category) || !category.len)
 		return
 	for (var/i = 1 to category.len)
 		add_to_queue(category[i])
 
-/obj/machinery/mecha_part_fabricator/proc/remove_from_queue(var/index)
+/obj/machinery/mecha_part_fabricator/proc/remove_from_queue(index)
 	if(index == 1)
 		progress = 0
 	queue.Cut(index, index + 1)
 	update_busy()
 
-/obj/machinery/mecha_part_fabricator/proc/can_build(var/datum/design/D)
+/obj/machinery/mecha_part_fabricator/proc/can_build(datum/design/D)
 	for(var/M in D.materials)
 		if(materials[M] <= D.materials[M] * mat_efficiency)
 			return 0
@@ -296,7 +296,7 @@
 			continue
 		.[D.category] += list(get_design_info(D, i))
 
-/obj/machinery/mecha_part_fabricator/proc/get_design_info(var/datum/design/D, idx=0)
+/obj/machinery/mecha_part_fabricator/proc/get_design_info(datum/design/D, idx=0)
 	. = list(
 		"name" = D.name,
 		"desc" = D.desc,
@@ -305,12 +305,12 @@
 		"time" = get_design_time(D)
 	)
 
-/obj/machinery/mecha_part_fabricator/proc/get_design_cost(var/datum/design/D)
+/obj/machinery/mecha_part_fabricator/proc/get_design_cost(datum/design/D)
 	. = list()
 	for(var/T in D.materials)
 		.[T] = D.materials[T] * mat_efficiency
 
-/obj/machinery/mecha_part_fabricator/proc/get_design_time(var/datum/design/D)
+/obj/machinery/mecha_part_fabricator/proc/get_design_time(datum/design/D)
 	return time2text(round(10 * D.time / speed), "mm:ss")
 
 /obj/machinery/mecha_part_fabricator/proc/update_categories()
@@ -349,7 +349,7 @@
 			"ref" = T
 		))
 
-/obj/machinery/mecha_part_fabricator/proc/eject_materials(var/material, var/amount) // 0 amount = 0 means ejecting a full stack; -1 means eject everything
+/obj/machinery/mecha_part_fabricator/proc/eject_materials(material, amount)
 	var/recursive = amount == -1 ? 1 : 0
 	var/mattype
 	switch(material)

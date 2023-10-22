@@ -128,11 +128,11 @@ var/const/NO_EMAG_ACT = -50
 			assignment = rank
 			access |= j.get_access()
 
-/obj/item/weapon/card/id/CanUseTopic(var/user)
+/obj/item/weapon/card/id/CanUseTopic(user)
 	if(user in view(get_turf(src)))
 		return UI_INTERACTIVE
 
-/obj/item/weapon/card/id/OnTopic(var/mob/user, var/list/href_list)
+/obj/item/weapon/card/id/OnTopic(mob/user, list/href_list)
 	if(href_list["look_at_id"])
 		if(istype(user))
 			user.examinate(src)
@@ -162,11 +162,11 @@ var/const/NO_EMAG_ACT = -50
 	if(assignment)
 		. += ", [assignment]"
 
-/obj/item/weapon/card/id/proc/set_id_photo(var/mob/M)
+/obj/item/weapon/card/id/proc/set_id_photo(mob/M)
 	front = getFlatIcon(M, SOUTH, always_use_defdir = 1)
 	side = getFlatIcon(M, WEST, always_use_defdir = 1)
 
-/mob/proc/set_id_info(var/obj/item/weapon/card/id/id_card)
+/mob/proc/set_id_info(obj/item/weapon/card/id/id_card)
 	id_card.age = 0
 	id_card.registered_name		= real_name
 	id_card.sex 				= capitalize(gender)
@@ -177,7 +177,7 @@ var/const/NO_EMAG_ACT = -50
 		id_card.dna_hash		= dna.unique_enzymes
 		id_card.fingerprint_hash= md5(dna.uni_identity)
 
-/mob/living/carbon/human/set_id_info(var/obj/item/weapon/card/id/id_card)
+/mob/living/carbon/human/set_id_info(obj/item/weapon/card/id/id_card)
 	..()
 	id_card.age = age
 

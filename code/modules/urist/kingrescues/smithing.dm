@@ -16,7 +16,7 @@
 	density = 0
 	anchored = 1
 
-/obj/structure/blacksmithingfurnace/furnace/attackby(obj/item/W, mob/user, var/click_params)
+/obj/structure/blacksmithingfurnace/furnace/attackby(obj/item/W, mob/user, click_params)
 	if(istype(W, /obj/item/weapon/ore/iron))
 		user.drop_item(W)
 		playsound(loc, 'resources/sound/urist/furnace.ogg', 100, 5, 5)
@@ -85,7 +85,7 @@
 
 /obj/item/stack/material/var/list/techniques = list()
 
-/obj/item/stack/material/proc/metal_technique(var/mob/user)
+/obj/item/stack/material/proc/metal_technique(mob/user)
 
 	var/technique = input("Select an item to forge..","Techniques") as null|anything in techniques
 
@@ -171,7 +171,7 @@
 		qdel(src)
 
 
-/obj/item/weapon/ore/hot/attackby(obj/item/W, mob/user, var/click_params)
+/obj/item/weapon/ore/hot/attackby(obj/item/W, mob/user, click_params)
 	if((istype(W, /obj/item/weapon/hammer)) && (locate(/obj/structure/anvil) in loc))
 		if(!busy)
 			busy = 1

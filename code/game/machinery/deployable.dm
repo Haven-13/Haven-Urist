@@ -69,7 +69,7 @@ for reference:
 	layer = ABOVE_WINDOW_LAYER
 	var/use_material_colour = 1
 
-/obj/structure/barricade/New(var/newloc, var/material_name)
+/obj/structure/barricade/New(newloc, material_name)
 	..(newloc)
 	if(!material_name)
 		material_name = "wood"
@@ -136,7 +136,7 @@ for reference:
 				dismantle()
 			return
 
-/obj/structure/barricade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
+/obj/structure/barricade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0))
 		return 1
 	if(istype(mover) && mover.checkpass(PASS_FLAG_TABLE))
@@ -229,7 +229,7 @@ for reference:
 		anchored = !anchored
 		icon_state = "barrier[src.locked]"
 
-/obj/machinery/deployable/barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
+/obj/machinery/deployable/barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0))
 		return 1
 	if(istype(mover) && mover.checkpass(PASS_FLAG_TABLE))
@@ -252,7 +252,7 @@ for reference:
 		qdel(src)
 
 
-/obj/machinery/deployable/barrier/emag_act(var/remaining_charges, var/mob/user)
+/obj/machinery/deployable/barrier/emag_act(remaining_charges, mob/user)
 	if (src.emagged == 0)
 		src.emagged = 1
 		src.req_access.Cut()

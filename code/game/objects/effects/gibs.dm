@@ -1,4 +1,4 @@
-/proc/gibs(atom/location, var/datum/dna/MobDNA, gibber_type = /obj/effect/gibspawner/generic, var/fleshcolor, var/bloodcolor)
+/proc/gibs(atom/location, datum/dna/MobDNA, gibber_type = /obj/effect/gibspawner/generic, fleshcolor, bloodcolor)
 	new gibber_type(location,MobDNA,fleshcolor,bloodcolor)
 
 /obj/effect/gibspawner
@@ -11,7 +11,7 @@
 	var/bloodcolor //Used for gibbed humans.
 	var/datum/dna/MobDNA
 
-/obj/effect/gibspawner/New(location, var/datum/dna/newMobDNA, var/newfleshcolor, var/newbloodcolor)
+/obj/effect/gibspawner/New(location, datum/dna/newMobDNA, newfleshcolor, newbloodcolor)
 	if(fleshcolor) fleshcolor = newfleshcolor
 	if(bloodcolor) bloodcolor = newbloodcolor
 	if(MobDNA)     MobDNA = newMobDNA

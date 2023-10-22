@@ -15,7 +15,7 @@
 
 	var/eyes_shielded
 
-/obj/item/organ/internal/eyes/nabber/additional_flash_effects(var/intensity)
+/obj/item/organ/internal/eyes/nabber/additional_flash_effects(intensity)
 	if(!eyes_shielded)
 		take_internal_damage(max(0, 4 * (intensity)))
 		return 1
@@ -28,7 +28,7 @@
 		action.button_icon_state = "nabber-shield-[eyes_shielded ? 1 : 0]"
 		if(action.button) action.button.UpdateIcon()
 
-/obj/item/organ/internal/eyes/nabber/attack_self(var/mob/user)
+/obj/item/organ/internal/eyes/nabber/attack_self(mob/user)
 	. = ..()
 	if(.)
 		eyes_shielded = !eyes_shielded
@@ -47,12 +47,12 @@
 /obj/item/organ/internal/eyes/nabber/proc/remove_shield()
 	owner.clear_fullscreen("eyeshield")
 
-/obj/item/organ/internal/eyes/nabber/New(var/mob/living/carbon/holder)
+/obj/item/organ/internal/eyes/nabber/New(mob/living/carbon/holder)
 	. = ..()
 	if(dna)
 		color = rgb(dna.GetUIValue(DNA_UI_EYES_R), dna.GetUIValue(DNA_UI_EYES_G), dna.GetUIValue(DNA_UI_EYES_B))
 
-/obj/item/organ/internal/eyes/nabber/set_dna(var/datum/dna/new_dna)
+/obj/item/organ/internal/eyes/nabber/set_dna(datum/dna/new_dna)
 	. = ..()
 	color = rgb(new_dna.GetUIValue(DNA_UI_EYES_R), new_dna.GetUIValue(DNA_UI_EYES_G), new_dna.GetUIValue(DNA_UI_EYES_B))
 

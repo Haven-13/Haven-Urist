@@ -132,7 +132,7 @@
 				user.set_dir(i)
 				sleep(1)
 
-/obj/item/weapon/material/twohanded/dualsaber/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/weapon/material/twohanded/dualsaber/handle_shield(mob/user, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
 	if(wielded)
 		if(default_parry_check(user, attacker, damage_source) && prob(50))
 			user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
@@ -163,7 +163,7 @@
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	default_material = "glass"*/
 
-/obj/item/weapon/material/twohanded/spear/shatter(var/consumed)
+/obj/item/weapon/material/twohanded/spear/shatter(consumed)
 	if(!consumed)
 		new /obj/item/weapon/material/wirerod(get_turf(src)) //give back the wired rod
 	..()

@@ -33,7 +33,7 @@ var/const/SAFETY_COOLDOWN = 100
 	update_icon()
 
 
-/obj/machinery/recycler/attackby(var/obj/item/I, var/mob/user)
+/obj/machinery/recycler/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/weapon/card/emag) && !emagged)
 		emagged = 1
 		if(safety_mode)
@@ -57,13 +57,13 @@ var/const/SAFETY_COOLDOWN = 100
 	icon_state = icon_name + "[is_powered]" + "[(blood ? "bld" : "")]" // add the blood tag at the end
 
 // This is purely for admin possession !FUN!.
-/obj/machinery/recycler/Bump(var/atom/movable/AM)
+/obj/machinery/recycler/Bump(atom/movable/AM)
 	..()
 	if(AM)
 		Bumped(AM)
 
 
-/obj/machinery/recycler/Bumped(var/atom/movable/AM)
+/obj/machinery/recycler/Bumped(atom/movable/AM)
 
 	if(stat & (BROKEN|NOPOWER))
 		return
@@ -90,7 +90,7 @@ var/const/SAFETY_COOLDOWN = 100
 			playsound(src.loc, 'resources/sound/machines/buzz-sigh.ogg', 50, 0)
 			AM.loc = src.loc
 
-/obj/machinery/recycler/proc/recycle(var/obj/item/I, var/sound = 1)
+/obj/machinery/recycler/proc/recycle(obj/item/I, sound = 1)
 	I.loc = src.loc
 	if(!istype(I, /obj/item/weapon/disk/nuclear))
 		qdel(I)
@@ -106,7 +106,7 @@ var/const/SAFETY_COOLDOWN = 100
 			playsound(src.loc, 'resources/sound/items/Welder.ogg', 50, 1)
 
 
-/obj/machinery/recycler/proc/stop(var/mob/living/L)
+/obj/machinery/recycler/proc/stop(mob/living/L)
 	playsound(src.loc, 'resources/sound/machines/buzz-sigh.ogg', 50, 0)
 	safety_mode = 1
 	update_icon()
@@ -117,7 +117,7 @@ var/const/SAFETY_COOLDOWN = 100
 		safety_mode = 0
 		update_icon()
 
-/obj/machinery/recycler/proc/eat(var/mob/living/L)
+/obj/machinery/recycler/proc/eat(mob/living/L)
 
 	L.loc = src.loc
 

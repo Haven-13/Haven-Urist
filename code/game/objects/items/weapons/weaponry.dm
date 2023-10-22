@@ -10,7 +10,7 @@
 	throwforce = 7
 	w_class = ITEM_SIZE_NORMAL
 
-/obj/item/weapon/nullrod/attack(mob/M as mob, mob/living/user as mob) //Paste from old-code to decult with a null rod.
+/obj/item/weapon/nullrod/attack(mob/M as mob, mob/living/user as mob)
 	admin_attack_log(user, M, "Attacked using \a [src]", "Was attacked with \a [src]", "used \a [src] to attack")
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -27,7 +27,7 @@
 		return
 	..()
 
-/obj/item/weapon/nullrod/afterattack(var/atom/A, var/mob/user, var/proximity)
+/obj/item/weapon/nullrod/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)
 		return
 
@@ -164,7 +164,7 @@
 			visible_message("<span class='danger'>\The [src] is torn apart!</span>")
 		qdel(src)
 
-/obj/effect/energy_net/bullet_act(var/obj/item/projectile/Proj)
+/obj/effect/energy_net/bullet_act(obj/item/projectile/Proj)
 	health -= Proj.get_structure_damage()
 	healthcheck()
 	return 0
@@ -173,7 +173,7 @@
 	health = 0
 	healthcheck()
 
-/obj/effect/energy_net/attack_hand(var/mob/user)
+/obj/effect/energy_net/attack_hand(mob/user)
 
 	var/mob/living/carbon/human/H = user
 	if(istype(H))

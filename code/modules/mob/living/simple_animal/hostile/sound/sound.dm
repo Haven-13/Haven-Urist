@@ -8,14 +8,14 @@
 	. = ..()
 	last_saw = list()
 
-/mob/living/simple_animal/hostile/sound/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
+/mob/living/simple_animal/hostile/sound/hear_say(message, verb = "says", datum/language/language = null, alt_name = "",italics = 0, mob/speaker = null, sound/speech_sound, sound_vol)
 	if(speaker)
 		alerted(speaker)
 	if(!client)
 		MoveToTarget()
 	..()
 
-/mob/living/simple_animal/hostile/sound/PickTarget(var/list/visible)
+/mob/living/simple_animal/hostile/sound/PickTarget(list/visible)
 	var/list/moved = list()
 	if(!visible.len)
 		return
@@ -37,7 +37,7 @@
 	..()
 	last_saw = list()
 
-/mob/living/simple_animal/hostile/sound/proc/alerted(var/mob/detected)
+/mob/living/simple_animal/hostile/sound/proc/alerted(mob/detected)
 	if(is_list(alert_message) && alert_message.len)
 		if(next_alert > world.time)
 			var/message = pick(alert_message)

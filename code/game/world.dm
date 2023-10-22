@@ -486,7 +486,7 @@ var/world_topic_spam_protect_time = world.timeofday
 		return GLOB.prometheus_metrics.collect()
 
 
-/world/Reboot(var/reason)
+/world/Reboot(reason)
 	/*spawn(0)
 		sound_to(world, sound(pick('resources/sound/AI/newroundsexy.ogg','resources/sound/misc/apcdestroyed.ogg','resources/sound/misc/bangindonk.ogg')))// random end sounds!! - LastyBatsy
 
@@ -545,7 +545,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			SSticker.master_mode = Lines[1]
 			log_misc("Saved mode is '[SSticker.master_mode]'")
 
-/world/proc/save_mode(var/the_mode)
+/world/proc/save_mode(the_mode)
 	var/F = file("data/mode.txt")
 	fdel(F)
 	to_file(F, the_mode)

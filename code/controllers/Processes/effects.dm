@@ -70,7 +70,7 @@ var/datum/controller/process/effects/effect_master
 	if (!processing_effects.len && !processing_visuals.len && !effects_objects.len && !effects_visuals.len)
 		disable()
 
-/datum/controller/process/effects/proc/queue(var/datum/effect_system/E)
+/datum/controller/process/effects/proc/queue(datum/effect_system/E)
 	if (!E || E.gc_destroyed)
 		return
 

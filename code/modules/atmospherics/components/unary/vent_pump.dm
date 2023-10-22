@@ -103,7 +103,7 @@
 	..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 500 //meant to match air injector
 
-/obj/machinery/atmospherics/unary/vent_pump/update_icon(var/safety = 0)
+/obj/machinery/atmospherics/unary/vent_pump/update_icon(safety = 0)
 	if(!check_icon_cache())
 		return
 	// previously shut the vent off due to lack of nodes when spawned over open

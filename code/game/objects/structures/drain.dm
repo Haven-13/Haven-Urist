@@ -20,7 +20,7 @@
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/structure/drain/attackby(var/obj/item/thing, var/mob/user)
+/obj/structure/drain/attackby(obj/item/thing, mob/user)
 	if(is_welder(thing))
 		var/obj/item/weapon/weldingtool/WT = thing
 		if(WT.isOn())

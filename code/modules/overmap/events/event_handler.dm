@@ -16,14 +16,14 @@
 	var/obj/effect/overmap_event/event = new(target, E)
 	connected_effects += event
 
-/decl/overmap_event_handler/proc/get_event_turfs_by_z_level(var/z_level)
+/decl/overmap_event_handler/proc/get_event_turfs_by_z_level(z_level)
 	var/z_level_text = num2text(z_level)
 	. = event_turfs_by_z_level[z_level_text]
 	if(!.)
 		. = list()
 		event_turfs_by_z_level[z_level_text] = .
 
-/decl/overmap_event_handler/proc/on_turf_exited(var/turf/old_loc, var/obj/effect/overmap/ship/entering_ship, var/new_loc)
+/decl/overmap_event_handler/proc/on_turf_exited(turf/old_loc, obj/effect/overmap/ship/entering_ship, new_loc)
 	if(!istype(entering_ship))
 		return
 	if(new_loc == old_loc)
@@ -40,7 +40,7 @@
 			return
 		old_event.leave(entering_ship)
 
-/decl/overmap_event_handler/proc/on_turf_entered(var/turf/new_loc, var/obj/effect/overmap/ship/entering_ship, var/old_loc)
+/decl/overmap_event_handler/proc/on_turf_entered(turf/new_loc, obj/effect/overmap/ship/entering_ship, old_loc)
 	if(!istype(entering_ship))
 		return
 	if(new_loc == old_loc)

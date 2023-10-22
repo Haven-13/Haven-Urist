@@ -17,7 +17,7 @@
 	var/static/datum/asset/simple/namespaced/common/common_asset = get_asset_datum(/datum/asset/simple/namespaced/common)
 
 
-/datum/browser/New(nuser, nwindow_id, ntitle = 0, nwidth = 0, nheight = 0, var/atom/nref = null)
+/datum/browser/New(nuser, nwindow_id, ntitle = 0, nwidth = 0, nheight = 0, atom/nref = null)
 	user = nuser
 	window_id = nwindow_id
 	if (ntitle)
@@ -117,7 +117,7 @@
 	if (use_onclose)
 		setup_onclose()
 
-/datum/browser/proc/update(var/force_open = 0, var/use_onclose = 1)
+/datum/browser/proc/update(force_open = 0, use_onclose = 1)
 	if(force_open)
 		open(use_onclose)
 	else
@@ -168,7 +168,7 @@
 // to pass a "close=1" parameter to the atom's Topic() proc for special handling.
 // Otherwise, the user mob's machine var will be reset directly.
 //
-/proc/onclose(mob/user, windowid, var/atom/ref=null)
+/proc/onclose(mob/user, windowid, atom/ref=null)
 	if(!user || !user.client) return
 	var/param = "null"
 	if(ref)
@@ -187,7 +187,7 @@
 // if a valid atom reference is supplied, call the atom's Topic() with "close=1"
 // otherwise, just reset the client mob's machine var.
 //
-/client/verb/windowclose(var/atomref as text)
+/client/verb/windowclose(atomref as text)
 	set hidden = 1						// hide this verb from the user's panel
 	set name = ".windowclose"			// no autocomplete on cmd line
 
