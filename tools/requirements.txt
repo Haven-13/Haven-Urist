@@ -1,11 +1,11 @@
 pygit2==1.0.1
 bidict==0.13.1
-Pillow==9.3.0
+Pillow==10.0.1
 
 # check_regex
 colorama==0.4.4
 PyYaml==5.4
-gitpython==3.1.30
+gitpython==3.1.37
 unidiff==0.7.0
 
 # changelogs

@@ -553,3 +553,7 @@
   - code_imp: Integration with the Tracy profiler using byond-tracy
   - bugfix: Fixed vent-crawling images not being layered properly
   - bugfix: Fixed vent-crawling not showing complete networks sometimes
+2023-06-19:
+  martinlyra:
+  - rscadd: Preliminary support for 515
+  - refactor: Changed how procs are being referenced
