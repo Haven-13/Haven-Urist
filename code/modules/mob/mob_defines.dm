@@ -53,7 +53,6 @@
 	var/atom/movable/screen/gun/item/item_use_icon = null
 	var/atom/movable/screen/gun/radio/radio_use_icon = null
 	var/atom/movable/screen/gun/move/gun_move_icon = null
-	var/atom/movable/screen/gun/run/gun_run_icon = null
 	var/atom/movable/screen/gun/mode/gun_setting_icon = null
 
 	var/atom/movable/screen/movable/ability_master/ability_master = null
