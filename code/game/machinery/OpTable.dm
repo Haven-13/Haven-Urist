@@ -30,7 +30,7 @@
 			break
 
 
-/obj/machinery/optable/examine(var/mob/user)
+/obj/machinery/optable/examine(mob/user)
 	. = ..()
 	to_chat(user, "<span class='notice'>The neural suppressors are switched [suppressing ? "on" : "off"].</span>")
 
@@ -50,7 +50,7 @@
 			if (prob(25))
 				src.set_density(0)
 
-/obj/machinery/optable/attackby(var/obj/item/O, var/mob/user)
+/obj/machinery/optable/attackby(obj/item/O, mob/user)
 	if(default_deconstruction_screwdriver(user, O))
 		updateUsrDialog()
 		return
@@ -66,10 +66,10 @@
 			return
 	return ..()
 
-/obj/machinery/optable/attack_ai(var/mob/user)
+/obj/machinery/optable/attack_ai(mob/user)
 	attack_hand(user)
 
-/obj/machinery/optable/attack_hand(var/mob/user)
+/obj/machinery/optable/attack_hand(mob/user)
 
 	if(HULK in user.mutations)
 		visible_message("<span class='danger'>\The [usr] destroys \the [src]!</span>")

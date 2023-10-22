@@ -94,7 +94,7 @@
 		BP_EYES =     /obj/item/organ/internal/eyes
 		)
 
-/datum/species/skrell/water_act(var/mob/living/carbon/human/H, var/depth)
+/datum/species/skrell/water_act(mob/living/carbon/human/H, depth)
 	..()
 	if(depth >= 40)
 		if(H.getHalLoss())

@@ -65,7 +65,7 @@
 		holder.update_icon()
 	update_beams()
 
-/obj/item/device/assembly/infra/interact(mob/user as mob)//TODO: change this this to the wire control panel
+/obj/item/device/assembly/infra/interact(mob/user as mob)
 	if(!secured)
 		return
 	if(!CanInteract(user, ui_physical_state()))
@@ -106,7 +106,7 @@
 
 	set_dir(turn(dir, 90))
 
-/obj/item/device/assembly/infra/proc/on_beam_entered(var/atom/enterer)
+/obj/item/device/assembly/infra/proc/on_beam_entered(atom/enterer)
 	if(enterer == src)
 		return
 	if(enterer.invisibility > INVISIBILITY_LEVEL_TWO)
@@ -123,7 +123,7 @@
 	spawn(10)
 		process_cooldown()
 
-/obj/item/device/assembly/infra/proc/on_visibility_change(var/list/old_turfs, var/list/new_turfs)
+/obj/item/device/assembly/infra/proc/on_visibility_change(list/old_turfs, list/new_turfs)
 	seen_turfs = new_turfs
 	update_beams()
 
@@ -135,7 +135,7 @@
 		ui = new(user, src, "InfraredEmitter", name)
 		ui.open()
 
-/proc/create_update_and_delete_beams(var/active, var/visible, var/dir, var/list/seen_turfs, var/list/existing_beams)
+/proc/create_update_and_delete_beams(active, visible, dir, list/seen_turfs, list/existing_beams)
 	if(!active)
 		for(var/b in existing_beams)
 			qdel(b)

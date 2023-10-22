@@ -8,7 +8,7 @@
 	var/faceup = 1
 	w_class = 2
 
-/obj/item/toy/card/New(var/location, var/suit, var/rank,var/faceup=1)
+/obj/item/toy/card/New(location, suit, rank,faceup=1)
 	..()
 	src.rank = rank
 	src.suit = suit

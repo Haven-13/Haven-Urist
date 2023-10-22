@@ -14,7 +14,7 @@
 	. = ..()
 	overlays |= get_emissive_overlay(no_block=TRUE, no_base=TRUE)
 
-/obj/effect/projectile/proc/set_transform(var/matrix/M)
+/obj/effect/projectile/proc/set_transform(matrix/M)
 	if(istype(M))
 		transform = M
 

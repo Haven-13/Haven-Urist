@@ -3,7 +3,7 @@
 	available_to_ai = FALSE
 
 // The ERT variant has access to ERT and crescent cams, but still checks for accesses. ERT members should be able to use it.
-/datum/ui_module/program/camera_monitor/ert/modify_networks_list(var/list/networks)
+/datum/ui_module/program/camera_monitor/ert/modify_networks_list(list/networks)
 	..()
 	networks.Add(list(list("tag" = NETWORK_ERT, "has_access" = 1)))
 	networks.Add(list(list("tag" = NETWORK_CRESCENT, "has_access" = 1)))

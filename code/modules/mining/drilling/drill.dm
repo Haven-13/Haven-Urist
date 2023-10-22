@@ -145,7 +145,7 @@
 		need_player_check = 1
 		update_icon()
 
-/obj/machinery/mining/drill/attack_ai(var/mob/user as mob)
+/obj/machinery/mining/drill/attack_ai(mob/user as mob)
 	return src.attack_hand(user)
 
 /obj/machinery/mining/drill/attackby(obj/item/O as obj, mob/user as mob)
@@ -247,7 +247,7 @@
 
 	update_icon()
 
-/obj/machinery/mining/drill/proc/system_error(var/error)
+/obj/machinery/mining/drill/proc/system_error(error)
 
 	if(error)
 		src.visible_message("<span class='notice'>\The [src] flashes a '[error]' warning.</span>")
@@ -377,7 +377,7 @@
 	src.set_dir(turn(src.dir, 90))
 	return 1
 
-/obj/machinery/mining/brace/default_deconstruction_crowbar(var/mob/user, var/obj/item/weapon/crowbar/C)
+/obj/machinery/mining/brace/default_deconstruction_crowbar(mob/user, obj/item/weapon/crowbar/C)
 	if(connected)
 		disconnect()
 	..()

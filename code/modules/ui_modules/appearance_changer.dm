@@ -11,7 +11,7 @@
 	var/list/whitelist
 	var/list/blacklist
 
-/datum/ui_module/appearance_changer/New(var/location, var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list())
+/datum/ui_module/appearance_changer/New(location, mob/living/carbon/human/H, check_species_whitelist = 1, list/species_whitelist = list(), list/species_blacklist = list())
 	..()
 	owner = H
 	src.check_whitelist = check_species_whitelist
@@ -152,7 +152,7 @@
 	if(owner && (flags & APPEARANCE_UPDATE_DNA))
 		owner.update_dna()
 
-/datum/ui_module/appearance_changer/proc/can_change(var/flag)
+/datum/ui_module/appearance_changer/proc/can_change(flag)
 	return owner && (flags & flag)
 
 /datum/ui_module/appearance_changer/proc/can_change_skin_tone()

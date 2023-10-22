@@ -6,7 +6,7 @@
 	icon_screen = "engines"
 	circuit = /obj/item/weapon/circuitboard/engine
 
-/obj/machinery/computer/ship/engines/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/ship/engines/attack_hand(mob/user as mob)
 	if(..())
 		user.unset_machine()
 		return
@@ -16,7 +16,7 @@
 
 	ui_interact(user)
 
-/obj/machinery/computer/ship/engines/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/computer/ship/engines/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "spacecraft/ShipEnginesControl", name)

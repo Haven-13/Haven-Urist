@@ -14,7 +14,7 @@
 	attack_verb = list("slices", "cuts", "stabs", "jabs")
 	var/childpart = /obj/item/weapon/improvised/scissorknife //This is so any thing made is specified. It's helpful for things
 
-/obj/item/weapon/scissors/attackby(var/obj/item/I, mob/user as mob) //Seperation of the scissors
+/obj/item/weapon/scissors/attackby(obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/screwdriver))
 
 		var/obj/item/weapon/improvised/scissorknife/left_part = new childpart
@@ -66,7 +66,7 @@
 	attack_verb = list("prods", "pokes", "nudges", "annoys")
 	parentscissor = /obj/item/weapon/scissors/craft
 
-/obj/item/weapon/improvised/scissorsassembly/attackby(var/obj/item/I, mob/user as mob) //Putting it together
+/obj/item/weapon/improvised/scissorsassembly/attackby(obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/screwdriver))
 
 		var/obj/item/weapon/scissors/N = new parentscissor

@@ -10,7 +10,7 @@ GLOBAL_VAR_INIT(last_message_id, 0)
 	GLOB.last_message_id += 1
 	return GLOB.last_message_id
 
-/proc/post_comm_message(var/message_title, var/message_text)
+/proc/post_comm_message(message_title, message_text)
 	var/list/message = list()
 	message["id"] = get_comm_message_id()
 	message["title"] = message_title
@@ -27,13 +27,13 @@ GLOBAL_VAR_INIT(last_message_id, 0)
 	messages = list()
 	GLOB.comm_message_listeners.Add(src)
 
-/datum/comm_message_listener/proc/Add(var/list/message)
+/datum/comm_message_listener/proc/Add(list/message)
 	messages[++messages.len] = message
 
-/datum/comm_message_listener/proc/Remove(var/list/message)
+/datum/comm_message_listener/proc/Remove(list/message)
 	messages -= list(message)
 
-/proc/post_status(var/command, var/data1, var/data2)
+/proc/post_status(command, data1, data2)
 
 	var/datum/radio_frequency/frequency = radio_controller.return_frequency(1435)
 
@@ -53,7 +53,7 @@ GLOBAL_VAR_INIT(last_message_id, 0)
 
 	frequency.post_signal(signal = status_signal)
 
-/proc/cancel_call_proc(var/mob/user)
+/proc/cancel_call_proc(mob/user)
 	if (!evacuation_controller)
 		return
 
@@ -70,7 +70,7 @@ GLOBAL_VAR_INIT(last_message_id, 0)
 			return 1
 	return 0
 
-/proc/call_shuttle_proc(var/mob/user, var/emergency)
+/proc/call_shuttle_proc(mob/user, emergency)
 	if (!evacuation_controller)
 		return
 

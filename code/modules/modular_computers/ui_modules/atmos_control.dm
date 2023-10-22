@@ -6,7 +6,7 @@
 	var/alarm_ref
 	var/list/monitored_alarms = list()
 
-/datum/ui_module/program/atmos_control/New(atmos_computer, var/list/req_access, var/list/req_one_access, monitored_alarm_ids)
+/datum/ui_module/program/atmos_control/New(atmos_computer, list/req_access, list/req_one_access, monitored_alarm_ids)
 	..()
 
 	if(program)

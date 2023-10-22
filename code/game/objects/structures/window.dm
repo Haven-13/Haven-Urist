@@ -50,10 +50,10 @@
 		else
 			to_chat(user, "<span class='notice'>There is a thick layer of silicate covering it.</span>")
 
-/obj/structure/window/CanFluidPass(var/coming_from)
+/obj/structure/window/CanFluidPass(coming_from)
 	return (!is_full_window() && coming_from != dir)
 
-/obj/structure/window/take_damage(var/damage = 0,  var/sound_effect = 1)
+/obj/structure/window/take_damage(damage = 0,  sound_effect = 1)
 	var/initialhealth = health
 
 	if(silicate)
@@ -74,7 +74,7 @@
 			visible_message("Cracks begin to appear in [src]!" )
 	return
 
-/obj/structure/window/proc/apply_silicate(var/amount)
+/obj/structure/window/proc/apply_silicate(amount)
 	if(health < maxhealth) // Mend the damage
 		health = min(health + amount * 3, maxhealth)
 		if(health == maxhealth)
@@ -92,7 +92,7 @@
 	img.alpha = silicate * 255 / 100
 	overlays += img
 
-/obj/structure/window/proc/shatter(var/display_message = 1)
+/obj/structure/window/proc/shatter(display_message = 1)
 	playsound(src, "shatter", 70, 1)
 	if(display_message)
 		visible_message("[src] shatters!")
@@ -103,7 +103,7 @@
 	return
 
 
-/obj/structure/window/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/window/bullet_act(obj/item/projectile/Proj)
 
 	var/proj_damage = Proj.get_structure_damage()
 	if(!proj_damage) return
@@ -199,7 +199,7 @@
 							"You hear a knocking sound.")
 	return
 
-/obj/structure/window/attack_generic(var/mob/user, var/damage, var/attack_verb, var/environment_smash)
+/obj/structure/window/attack_generic(mob/user, damage, attack_verb, environment_smash)
 	if(environment_smash >= 1)
 		damage = max(damage, 10)
 
@@ -276,7 +276,7 @@
 		..()
 	return
 
-/obj/structure/window/proc/hit(var/damage, var/sound_effect = 1)
+/obj/structure/window/proc/hit(damage, sound_effect = 1)
 	if(reinf) damage *= 0.5
 	take_damage(damage)
 	return
@@ -366,7 +366,7 @@
 		return 1
 	return 0
 
-/obj/structure/window/proc/set_anchored(var/new_anchored)
+/obj/structure/window/proc/set_anchored(new_anchored)
 	if(anchored == new_anchored)
 		return
 	anchored = new_anchored
@@ -394,7 +394,7 @@
 /obj/structure/window/can_visually_connect()
 	return ..() && is_fulltile()
 
-/obj/structure/window/can_visually_connect_to(var/obj/structure/S)
+/obj/structure/window/can_visually_connect_to(obj/structure/S)
 	return istype(S, /obj/structure/window)
 
 //merges adjacent full-tile windows into one (blatant ripoff from game/smoothwall.dm)

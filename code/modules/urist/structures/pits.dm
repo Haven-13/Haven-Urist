@@ -69,7 +69,7 @@
 			M.Weaken(punji)
 
 
-/obj/structure/pit/attack_hand(var/mob/user as mob)
+/obj/structure/pit/attack_hand(mob/user as mob)
 	if(punji)
 		to_chat(user, "You yank out one of the sharpened sticks from the pit.")
 		new /obj/item/weapon/sharpwoodrod(src.loc)
@@ -90,7 +90,7 @@
 		A.forceMove(src.loc)
 	update_icon()
 
-/obj/structure/pit/proc/close(var/user)
+/obj/structure/pit/proc/close(user)
 	name = "mound"
 	desc = "Some things are better left buried."
 	open = 0

@@ -8,7 +8,7 @@
 
 	Otherwise pretty standard.
 */
-/mob/living/carbon/human/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/carbon/human/UnarmedAttack(atom/A, proximity)
 
 	if(!..())
 		return
@@ -22,10 +22,10 @@
 
 	A.attack_hand(src)
 
-/mob/living/carbon/human/RestrainedClickOn(var/atom/A)
+/mob/living/carbon/human/RestrainedClickOn(atom/A)
 	return
 
-/mob/living/carbon/human/RangedAttack(var/atom/A)
+/mob/living/carbon/human/RangedAttack(atom/A)
 	//Climbing up open spaces
 	if((istype(A, /turf/simulated/floor) || istype(A, /turf/unsimulated/floor) || istype(A, /obj/structure/lattice) || istype(A, /obj/structure/catwalk)) && is_turf(loc) && shadow && !is_physically_disabled()) //Climbing through openspace
 		var/turf/T = get_turf(A)
@@ -58,17 +58,17 @@
 	else if(TK in mutations)
 		A.attack_tk(src)
 
-/mob/living/RestrainedClickOn(var/atom/A)
+/mob/living/RestrainedClickOn(atom/A)
 	return
 
 /*
 	Aliens
 */
 
-/mob/living/carbon/alien/RestrainedClickOn(var/atom/A)
+/mob/living/carbon/alien/RestrainedClickOn(atom/A)
 	return
 
-/mob/living/carbon/alien/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/carbon/alien/UnarmedAttack(atom/A, proximity)
 
 	if(!..())
 		return 0
@@ -81,10 +81,10 @@
 	Nothing happening here
 */
 
-/mob/living/carbon/slime/RestrainedClickOn(var/atom/A)
+/mob/living/carbon/slime/RestrainedClickOn(atom/A)
 	return
 
-/mob/living/carbon/slime/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/carbon/slime/UnarmedAttack(atom/A, proximity)
 
 	if(!..())
 		return
@@ -147,7 +147,7 @@
 /*
 	Animals
 */
-/mob/living/simple_animal/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/UnarmedAttack(atom/A, proximity)
 	var/extra_data = environment_smash
 	if(!..())
 		return

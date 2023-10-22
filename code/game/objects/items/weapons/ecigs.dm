@@ -148,7 +148,7 @@
 		M.update_inv_r_hand(1)
 
 
-/obj/item/clothing/mask/smokable/ecig/attackby(var/obj/item/I, var/mob/user as mob)
+/obj/item/clothing/mask/smokable/ecig/attackby(obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/reagent_containers/ecig_cartridge))
 		if (ec_cartridge)//can't add second one
 			to_chat(user, "<span class='notice'>A cartridge has already been installed.</span> ")
@@ -199,7 +199,7 @@
 		else
 			to_chat(user, "<span class='warning'>\The [src] does not have a battery installed.</span>")
 
-/obj/item/clothing/mask/smokable/ecig/attack_hand(mob/user as mob)//eject cartridge
+/obj/item/clothing/mask/smokable/ecig/attack_hand(mob/user as mob)
 	if(user.get_inactive_hand() == src)//if being hold
 		if (ec_cartridge)
 			active=0
@@ -224,7 +224,7 @@
 	..()
 	create_reagents(volume)
 
-/obj/item/weapon/reagent_containers/ecig_cartridge/examine(mob/user as mob)//to see how much left
+/obj/item/weapon/reagent_containers/ecig_cartridge/examine(mob/user as mob)
 	..()
 	to_chat(user, "The cartridge has [reagents.total_volume] units of liquid remaining.")
 

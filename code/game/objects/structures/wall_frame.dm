@@ -22,12 +22,12 @@
 	blend_objects = list(/obj/machinery/door, /turf/simulated/wall) // Objects which to blend with
 	noblend_objects = list(/obj/machinery/door/window)
 
-/obj/structure/wall_frame/New(var/new_loc)
+/obj/structure/wall_frame/New(new_loc)
 	..(new_loc)
 	update_connections(1)
 	update_icon()
 
-/obj/structure/wall_frame/attackby(var/obj/item/weapon/W, var/mob/user)
+/obj/structure/wall_frame/attackby(obj/item/weapon/W, mob/user)
 	src.add_fingerprint(user)
 
 	//grille placing begin
@@ -149,13 +149,13 @@
 			color = adjust_brightness(color, bleach_factor)
 	update_icon()
 
-/obj/structure/wall_frame/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/wall_frame/bullet_act(obj/item/projectile/Proj)
 	var/proj_damage = Proj.get_structure_damage()
 	var/damage = min(proj_damage, 100)
 	take_damage(damage)
 	return
 
-/obj/structure/wall_frame/hitby(AM as mob|obj, var/speed=THROWFORCE_SPEED_DIVISOR)
+/obj/structure/wall_frame/hitby(AM as mob|obj, speed=THROWFORCE_SPEED_DIVISOR)
 	..()
 	if(is_mob(AM))
 		return

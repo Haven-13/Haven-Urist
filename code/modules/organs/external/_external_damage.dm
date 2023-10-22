@@ -2,11 +2,11 @@
 			DAMAGE PROCS
 ****************************************************/
 
-/obj/item/organ/external/proc/is_damageable(var/additional_damage = 0)
+/obj/item/organ/external/proc/is_damageable(additional_damage = 0)
 	//Continued damage to vital organs can kill you, and robot organs don't count towards total damage so no need to cap them.
 	return (BP_IS_ROBOTIC(src) || brute_dam + burn_dam + additional_damage < max_damage * 4)
 
-/obj/item/organ/external/take_general_damage(var/amount, var/silent = FALSE)
+/obj/item/organ/external/take_general_damage(amount, silent = FALSE)
 	take_external_damage(amount)
 
 /obj/item/organ/external/proc/take_external_damage(brute, burn, damage_flags, used_weapon = null)
@@ -180,7 +180,7 @@
 /obj/item/organ/external/proc/get_genetic_damage()
 	return ((species && (species.species_flags & SPECIES_FLAG_NO_SCAN)) || BP_IS_ROBOTIC(src)) ? 0 : genetic_degradation
 
-/obj/item/organ/external/proc/remove_genetic_damage(var/amount)
+/obj/item/organ/external/proc/remove_genetic_damage(amount)
 	if((species.species_flags & SPECIES_FLAG_NO_SCAN) || BP_IS_ROBOTIC(src))
 		genetic_degradation = 0
 		status &= ~ORGAN_MUTATED
@@ -193,7 +193,7 @@
 			to_chat(src, "<span class = 'notice'>Your [name] is shaped normally again.</span>")
 	return -(genetic_degradation - last_gene_dam)
 
-/obj/item/organ/external/proc/add_genetic_damage(var/amount)
+/obj/item/organ/external/proc/add_genetic_damage(amount)
 	if((species.species_flags & SPECIES_FLAG_NO_SCAN) || BP_IS_ROBOTIC(src))
 		genetic_degradation = 0
 		status &= ~ORGAN_MUTATED
@@ -230,7 +230,7 @@
 		tox_dam += I.getToxLoss()
 	return pain + lasting_pain + 0.7 * brute_dam + 0.8 * burn_dam + 0.3 * tox_dam + 0.5 * get_genetic_damage()
 
-/obj/item/organ/external/proc/remove_pain(var/amount)
+/obj/item/organ/external/proc/remove_pain(amount)
 	if(!can_feel_pain())
 		pain = 0
 		return
@@ -238,7 +238,7 @@
 	pain = max(0,min(max_damage,pain-amount))
 	return -(pain-last_pain)
 
-/obj/item/organ/external/proc/add_pain(var/amount)
+/obj/item/organ/external/proc/add_pain(amount)
 	if(!can_feel_pain())
 		pain = 0
 		return
@@ -248,7 +248,7 @@
 		owner.emote("scream")
 	return pain-last_pain
 
-/obj/item/organ/external/proc/stun_act(var/stun_amount, var/agony_amount)
+/obj/item/organ/external/proc/stun_act(stun_amount, agony_amount)
 	if(agony_amount > 5 && owner)
 
 		if((limb_flags & ORGAN_FLAG_CAN_GRASP) && prob(25))

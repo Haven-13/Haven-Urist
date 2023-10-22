@@ -37,7 +37,7 @@
 		if(!success)
 			break
 
-/mob/living/simple_animal/hostile/npc/proc/spawn_trade_item(var/datum/trade_item/I, var/hidden = 0)
+/mob/living/simple_animal/hostile/npc/proc/spawn_trade_item(datum/trade_item/I, hidden = 0)
 	if(!I)
 		return
 
@@ -79,11 +79,11 @@
 		//add it to the shop list in the NanoUI window
 		generate_trade_item_ui(I)
 
-/mob/living/simple_animal/hostile/npc/proc/generate_trade_item_ui(var/datum/trade_item/T)
+/mob/living/simple_animal/hostile/npc/proc/generate_trade_item_ui(datum/trade_item/T)
 	if(T)
 		interact_inventory.Add(list(list("name" = T.name, "quantity" = T.quantity, "value" = T.value)))
 
-/mob/living/simple_animal/hostile/npc/proc/update_trade_item_ui(var/datum/trade_item/T)
+/mob/living/simple_animal/hostile/npc/proc/update_trade_item_ui(datum/trade_item/T)
 	if(T)
 		var/found = 0
 		for(var/i=1, i<=interact_inventory.len, i++)

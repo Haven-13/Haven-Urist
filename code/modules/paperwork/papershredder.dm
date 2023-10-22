@@ -19,7 +19,7 @@
 		/obj/item/weapon/sample/print = 1
 		)
 
-/obj/machinery/papershredder/attackby(var/obj/item/W, var/mob/user)
+/obj/machinery/papershredder/attackby(obj/item/W, mob/user)
 
 	if(istype(W, /obj/item/weapon/storage))
 		empty_bin(user, W)
@@ -62,7 +62,7 @@
 
 	empty_bin(usr)
 
-/obj/machinery/papershredder/proc/empty_bin(var/mob/living/user, var/obj/item/weapon/storage/empty_into)
+/obj/machinery/papershredder/proc/empty_bin(mob/living/user, obj/item/weapon/storage/empty_into)
 
 	// Sanity.
 	if(empty_into && !istype(empty_into))
@@ -98,13 +98,13 @@
 /obj/machinery/papershredder/update_icon()
 	icon_state = "papershredder[max(0,min(5,Floor(paperamount/2)))]"
 
-/obj/item/weapon/shreddedp/attackby(var/obj/item/W as obj, var/mob/user)
+/obj/item/weapon/shreddedp/attackby(obj/item/W as obj, mob/user)
 	if(istype(W, /obj/item/weapon/flame/lighter))
 		burnpaper(W, user)
 	else
 		..()
 
-/obj/item/weapon/shreddedp/proc/burnpaper(var/obj/item/weapon/flame/lighter/P, var/mob/user)
+/obj/item/weapon/shreddedp/proc/burnpaper(obj/item/weapon/flame/lighter/P, mob/user)
 	if(user.restrained())
 		return
 	if(!P.lit)

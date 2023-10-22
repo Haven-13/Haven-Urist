@@ -82,7 +82,7 @@
 
 
 // Sets input/output depending on our "mode" var.
-/obj/machinery/power/smes/batteryrack/proc/update_io(var/newmode)
+/obj/machinery/power/smes/batteryrack/proc/update_io(newmode)
 	mode = newmode
 	switch(mode)
 		if(PSU_OFFLINE)
@@ -99,7 +99,7 @@
 			output_attempt = 1
 
 // Store charge in the power cells, instead of using the charge var. Amount is in joules.
-/obj/machinery/power/smes/batteryrack/add_charge(var/amount)
+/obj/machinery/power/smes/batteryrack/add_charge(amount)
 	amount *= CELLRATE // Convert to CELLRATE first.
 	if(equalise)
 		// Now try to get least charged cell and use the power from it.
@@ -115,7 +115,7 @@
 			return
 
 
-/obj/machinery/power/smes/batteryrack/remove_charge(var/amount)
+/obj/machinery/power/smes/batteryrack/remove_charge(amount)
 	amount *= CELLRATE // Convert to CELLRATE first.
 	if(equalise)
 		// Now try to get most charged cell and use the power from it.
@@ -148,7 +148,7 @@
 			CL = C
 	return CL
 
-/obj/machinery/power/smes/batteryrack/proc/insert_cell(var/obj/item/weapon/cell/C, var/mob/user)
+/obj/machinery/power/smes/batteryrack/proc/insert_cell(obj/item/weapon/cell/C, mob/user)
 	if(!istype(C))
 		return 0
 
@@ -196,7 +196,7 @@
 		celldiff = min(min(celldiff, most.charge), least.maxcharge - least.charge)
 		least.give(most.use(celldiff))
 
-/obj/machinery/power/smes/batteryrack/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/power/smes/batteryrack/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "power/PowerBatteryRack", src.name)
@@ -265,7 +265,7 @@
 		internal_cells -= C
 	return ..()
 
-/obj/machinery/power/smes/batteryrack/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/machinery/power/smes/batteryrack/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(!..())
 		return 0
 	if(default_deconstruction_crowbar(user, W))

@@ -230,7 +230,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	level = 1
 	cant_hold = list(/obj/item/weapon/storage/backpack/satchel_flat) //muh recursive backpacks
 
-/obj/item/weapon/storage/backpack/satchel_flat/hide(var/intact)
+/obj/item/weapon/storage/backpack/satchel_flat/hide(intact)
 	if(intact)
 		invisibility = 101
 		anchored = 1 //otherwise you can start pulling, cover it, and drag around an invisible backpack.

@@ -1,7 +1,7 @@
 /mob/living/carbon/human
 	var/obj/structure/emplacement/mounted
 
-/mob/living/carbon/human/ClickOn(var/atom/A, params)
+/mob/living/carbon/human/ClickOn(atom/A, params)
 	if(mounted)
 		if(mounted.loc == src.loc)
 			if(A && mounted.nextshot <= world.time && mounted.anchored)
@@ -81,7 +81,7 @@
 	..()
 	START_PROCESSING(SSobj, src)
 
-/obj/structure/emplacement/proc/shoot(var/turf/T)
+/obj/structure/emplacement/proc/shoot(turf/T)
 	if(ammo <= 0)
 		if(User)
 			playsound(src, empty_sound, 70, 1)

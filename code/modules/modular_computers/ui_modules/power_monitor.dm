@@ -60,7 +60,7 @@
 				grid_sensors += S
 				GLOB.destroyed_event.register(S, src, TYPE_PROC_REF(/datum/ui_module/program/power_monitor, remove_sensor))
 
-/datum/ui_module/program/power_monitor/proc/remove_sensor(var/removed_sensor, var/update_ui = TRUE)
+/datum/ui_module/program/power_monitor/proc/remove_sensor(removed_sensor, update_ui = TRUE)
 	if(active_sensor == removed_sensor)
 		active_sensor = null
 		if(update_ui)

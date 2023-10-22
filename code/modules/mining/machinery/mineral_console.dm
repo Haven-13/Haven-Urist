@@ -6,7 +6,7 @@
 	circuit = /obj/item/weapon/circuitboard/mineral_processing
 	var/obj/machinery/mineral/connected
 
-/obj/machinery/computer/mining/attack_hand(var/mob/user)
+/obj/machinery/computer/mining/attack_hand(mob/user)
 	if(!connected)
 		to_chat(user, "<span class='warning'>\The [src] is not connected to a processing machine. <a href='?src=[REF(src)];scan_for_machine=1'>Scan</a></span>")
 		return

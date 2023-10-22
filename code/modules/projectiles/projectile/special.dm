@@ -9,7 +9,7 @@
 	var/heavy_effect_range = 1
 	var/light_effect_range = 2
 
-/obj/item/projectile/ion/on_impact(var/atom/A)
+/obj/item/projectile/ion/on_impact(atom/A)
 	empulse(A, heavy_effect_range, light_effect_range)
 	return 1
 
@@ -27,7 +27,7 @@
 	sharp = 1
 	edge = 1
 
-/obj/item/projectile/bullet/gyro/on_hit(var/atom/target, var/blocked = 0)
+/obj/item/projectile/bullet/gyro/on_hit(atom/target, blocked = 0)
 	explosion(target, -1, 0, 2)
 	return 1
 
@@ -40,7 +40,7 @@
 	check_armour = "energy"
 	var/temperature = 300
 
-/obj/item/projectile/temp/launch_from_gun(atom/target, mob/user, obj/item/weapon/gun/launcher, var/target_zone, var/x_offset=0, var/y_offset=0)
+/obj/item/projectile/temp/launch_from_gun(atom/target, mob/user, obj/item/weapon/gun/launcher, target_zone, x_offset=0, y_offset=0)
 	var/obj/item/weapon/gun/energy/temperature/T = launcher
 	if(!T)
 		..(target, user, launcher, target_zone, x_offset, y_offset)
@@ -49,7 +49,7 @@
 	..(target, user, launcher, target_zone, x_offset, y_offset)
 
 
-/obj/item/projectile/temp/on_hit(var/atom/target, var/blocked = 0)//These two could likely check temp protection on the mob
+/obj/item/projectile/temp/on_hit(atom/target, blocked = 0)
 	if(istype(target, /mob/living))
 		var/mob/M = target
 		M.bodytemperature = temperature
@@ -92,7 +92,7 @@
 	nodamage = 1
 	check_armour = "energy"
 
-/obj/item/projectile/energy/floramut/on_hit(var/atom/target, var/blocked = 0)
+/obj/item/projectile/energy/floramut/on_hit(atom/target, blocked = 0)
 	var/mob/living/M = target
 	if(is_human_mob(target))
 		var/mob/living/carbon/human/H = M
@@ -136,7 +136,7 @@
 	nodamage = 1
 	check_armour = "energy"
 
-/obj/item/projectile/energy/florayield/on_hit(var/atom/target, var/blocked = 0)
+/obj/item/projectile/energy/florayield/on_hit(atom/target, blocked = 0)
 	var/mob/M = target
 	if(is_human_mob(target)) //These rays make plantmen fat.
 		var/mob/living/carbon/human/H = M
@@ -151,7 +151,7 @@
 /obj/item/projectile/beam/mindflayer
 	name = "flayer ray"
 
-/obj/item/projectile/beam/mindflayer/on_hit(var/atom/target, var/blocked = 0)
+/obj/item/projectile/beam/mindflayer/on_hit(atom/target, blocked = 0)
 	if(is_human_mob(target))
 		var/mob/living/carbon/human/M = target
 		M.confused += rand(5,8)

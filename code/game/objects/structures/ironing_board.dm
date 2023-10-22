@@ -23,7 +23,7 @@
 
 	. = ..()
 
-/obj/structure/bed/roller/ironingboard/proc/remove_item(var/obj/item/I)
+/obj/structure/bed/roller/ironingboard/proc/remove_item(obj/item/I)
 	if(I == cloth)
 		cloth = null
 	else if(I == holding)
@@ -41,7 +41,7 @@
 
 	. = ..()
 
-/obj/structure/bed/roller/ironingboard/examine(var/mob/user)
+/obj/structure/bed/roller/ironingboard/examine(mob/user)
 	. = ..()
 	if(cloth)
 		to_chat(user, "<span class='notice'>\The \icon[cloth] [cloth] lies on it.</span>")
@@ -58,7 +58,7 @@
 	if(cloth)
 		overlays += new /icon(cloth.icon, cloth.icon_state)
 
-/obj/structure/bed/roller/ironingboard/attackby(var/obj/item/I, var/mob/user)
+/obj/structure/bed/roller/ironingboard/attackby(obj/item/I, mob/user)
 	if(!density)
 		if(istype(I,/obj/item/clothing) || istype(I,/obj/item/weapon/ironingiron))
 			to_chat(user, "<span class='notice'>[src] isn't deployed!</span>")
@@ -118,7 +118,7 @@
 
 	..()
 
-/obj/structure/bed/roller/ironingboard/attack_hand(var/mob/user)
+/obj/structure/bed/roller/ironingboard/attack_hand(mob/user)
 	if(density) // check if it's deployed
 		if(holding && user.put_in_hands(holding))
 			remove_item(holding)

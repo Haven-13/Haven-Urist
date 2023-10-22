@@ -88,11 +88,11 @@
 
 //repository/images/proc/overlay_image(var/icon, var/icon_state, var/alpha, var/appearance_flags, var/color, var/dir, var/plane = FLOAT_PLANE, var/layer = FLOAT_LAYER)
 /mob/living/simple_animal/hostile/npc/var/list/overlay_images = list()
-/mob/living/simple_animal/hostile/npc/proc/sprite_equip(var/obj/item/I, var/slot)
+/mob/living/simple_animal/hostile/npc/proc/sprite_equip(obj/item/I, slot)
 	overlays += I.get_mob_overlay(src, slot)
 	overlay_images += I.get_mob_overlay(src, slot)
 
-/mob/living/simple_animal/hostile/npc/proc/h_style(var/image/res)
+/mob/living/simple_animal/hostile/npc/proc/h_style(image/res)
 	//appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR
 	var/h_style
 	if(hats.len && prob(hat_chance))
@@ -111,7 +111,7 @@
 			hair_s.Blend(rgb(h_col[1], h_col[2], h_col[3]), ICON_ADD)*/
 		res.overlays |= hair_s
 
-/mob/living/simple_animal/hostile/npc/proc/f_style(var/image/res2)
+/mob/living/simple_animal/hostile/npc/proc/f_style(image/res2)
 	//give them some facial hair
 	var/f_style = random_facial_hair_style(gender, my_species.name)
 	var/datum/sprite_accessory/facial_hair_style = GLOB.facial_hair_styles_list[f_style]
@@ -138,7 +138,7 @@
 		src.icon_state = "body_m_s"
 
 //repository/images/proc/overlay_image(var/icon, var/icon_state, var/alpha, var/appearance_flags, var/color, var/dir, var/plane = FLOAT_PLANE, var/layer = FLOAT_LAYER)
-/mob/living/simple_animal/hostile/npc/proc/sprite_equip_human(var/obj/item/I, var/slot)
+/mob/living/simple_animal/hostile/npc/proc/sprite_equip_human(obj/item/I, slot)
 	overlays += I.get_mob_overlay(src, slot)
 
 /mob/living/simple_animal/hostile/npc/proc/update_interact_icon()

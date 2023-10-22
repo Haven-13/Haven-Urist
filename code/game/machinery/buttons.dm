@@ -79,7 +79,7 @@
 /obj/machinery/button/alternate/biohazard
 	var/blob_active
 
-/obj/machinery/button/alternate/biohazard/activate(mob/living/user, var/override)
+/obj/machinery/button/alternate/biohazard/activate(mob/living/user, override)
 	if((input(user, "The simulation is currently [blob_active ? "active" : "offline"], confirm command?", "Toggle simulation") in list("Yes","No")) == "Yes" || (!user && override))
 		visible_message("[src] buzzes: [blob_active ? "Resetting" : "Activating"] biohazard simulation.")
 		var/turf/T = get_turf(src)
@@ -120,7 +120,7 @@
 	density = TRUE
 	anchored = TRUE
 
-/obj/structure/holo_shield/New(var/T)
+/obj/structure/holo_shield/New(T)
 	..()
 	spawn(T)
 		qdel(src)

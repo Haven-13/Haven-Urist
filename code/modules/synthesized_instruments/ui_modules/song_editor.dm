@@ -6,7 +6,7 @@
 	var/page = 1
 
 
-/datum/ui_module/song_editor/New(var/host, var/topic_manager, datum/synthesized_song/song)
+/datum/ui_module/song_editor/New(host, topic_manager, datum/synthesized_song/song)
 	..()
 	src.host = host
 	src.song = song

@@ -45,7 +45,7 @@
 		add_underlay(T, node1, turn(dir, 180))
 		add_underlay(T, node2, dir)
 
-/obj/machinery/atmospherics/binary/passive_gate/hide(var/i)
+/obj/machinery/atmospherics/binary/passive_gate/hide(i)
 	update_underlays()
 
 /obj/machinery/atmospherics/binary/passive_gate/Process()
@@ -181,7 +181,7 @@
 		return UI_CLOSE
 	return ..()
 
-/obj/machinery/atmospherics/binary/passive_gate/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/atmospherics/binary/passive_gate/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "atmospherics/PassiveGate", name)
@@ -240,7 +240,7 @@
 	if(.)
 		src.update_icon()
 
-/obj/machinery/atmospherics/binary/passive_gate/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/machinery/atmospherics/binary/passive_gate/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(!is_wrench(W))
 		return ..()
 	if (unlocked)

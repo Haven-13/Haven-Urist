@@ -28,7 +28,7 @@
 /obj/item/weapon/gun/energy/laser/practice/proc/hacked()
 	return projectile_type != /obj/item/projectile/beam/practice
 
-/obj/item/weapon/gun/energy/laser/practice/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
+/obj/item/weapon/gun/energy/laser/practice/emag_act(remaining_charges, mob/user, emag_source)
 	if(hacked())
 		return NO_EMAG_ACT
 	to_chat(user, "<span class='warning'>You disable the safeties on [src] and crank the output to the lethal levels.</span>")
@@ -38,7 +38,7 @@
 	max_shots = rand(3,6) //will melt down after those
 	return 1
 
-/obj/item/weapon/gun/energy/laser/practice/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0)
+/obj/item/weapon/gun/energy/laser/practice/handle_post_fire(mob/user, atom/target, pointblank=0, reflex=0)
 	..()
 	if(hacked())
 		max_shots--
@@ -162,7 +162,7 @@
 	projectile_type = /obj/item/projectile/beam/lastertag/blue
 	var/required_vest
 
-/obj/item/weapon/gun/energy/lasertag/special_check(var/mob/living/carbon/human/M)
+/obj/item/weapon/gun/energy/lasertag/special_check(mob/living/carbon/human/M)
 	if(is_human_mob(M))
 		if(!istype(M.wear_suit, required_vest))
 			to_chat(M, "<span class='warning'>You need to be wearing your laser tag vest!</span>")

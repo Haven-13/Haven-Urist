@@ -28,7 +28,7 @@
 	. = ..()
 	unregister_monitor()
 
-/obj/machinery/computer/station_alert/proc/register_monitor(var/datum/ui_module/program/alarm_monitor/monitor)
+/obj/machinery/computer/station_alert/proc/register_monitor(datum/ui_module/program/alarm_monitor/monitor)
 	if(monitor.host != src)
 		return
 

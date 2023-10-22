@@ -1,5 +1,5 @@
 
-/mob/living/simple_animal/hostile/npc/proc/check_tradeable(var/obj/O)
+/mob/living/simple_animal/hostile/npc/proc/check_tradeable(obj/O)
 	. = 0
 
 	if(!O)
@@ -24,7 +24,7 @@
 	if(O.type in trade_items_by_type)
 		return 1
 
-/mob/living/simple_animal/hostile/npc/proc/get_trade_value(var/obj/O)
+/mob/living/simple_animal/hostile/npc/proc/get_trade_value(obj/O)
 	if(!O)
 		return 0
 
@@ -33,7 +33,7 @@
 
 	get_trade_info(O)
 
-/mob/living/simple_animal/hostile/npc/proc/get_trade_info(var/obj/tradingobject)
+/mob/living/simple_animal/hostile/npc/proc/get_trade_info(obj/tradingobject)
 	//see if we are already selling the item
 	var/datum/trade_item/T = trade_items_inventory_by_type[tradingobject.type]
 	if(T)

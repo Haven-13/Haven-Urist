@@ -25,7 +25,7 @@
 	dummy_terminals.Cut()
 	return ..()
 
-/obj/machinery/embedded_controller/radio/airlock/CanUseTopic(var/mob/user)
+/obj/machinery/embedded_controller/radio/airlock/CanUseTopic(mob/user)
 	if(!allowed(user))
 		return min(UI_UPDATE, ..())
 	else

@@ -4,23 +4,23 @@
 /datum/storage_ui/tgui/ui_host()
 	return storage.ui_host()
 
-/datum/storage_ui/tgui/show_to(var/mob/user)
+/datum/storage_ui/tgui/show_to(mob/user)
 	ui_interact(user)
 
-/datum/storage_ui/tgui/hide_from(var/mob/user)
+/datum/storage_ui/tgui/hide_from(mob/user)
 	ui_interact(user)
 
 /datum/storage_ui/tgui/close_all()
 	SStgui.close_uis(src)
 
-/datum/storage_ui/tgui/on_open(var/mob/user)
+/datum/storage_ui/tgui/on_open(mob/user)
 	ui_interact(user)
 
-/datum/storage_ui/tgui/on_insertion(var/mob/user)
+/datum/storage_ui/tgui/on_insertion(mob/user)
 	cached_ui_data = null
 	ui_interact(user)
 
-/datum/storage_ui/tgui/on_post_remove(var/mob/user, var/obj/item/W)
+/datum/storage_ui/tgui/on_post_remove(mob/user, obj/item/W)
 	cached_ui_data = null
 	ui_interact(user)
 
@@ -60,7 +60,7 @@
 		if(remove_item_by_name_and_type(params["name"], item_type))
 			return TRUE
 
-/datum/storage_ui/tgui/proc/remove_item_by_name_and_type(var/name, var/item_type)
+/datum/storage_ui/tgui/proc/remove_item_by_name_and_type(name, item_type)
 	if(!istext(name))
 		return FALSE
 	if(!item_type)

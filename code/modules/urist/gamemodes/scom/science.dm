@@ -64,7 +64,7 @@
 	icon = 'resources/icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "royce_kit"
 
-/obj/item/scom/borgmodkit/attack(var/mob/living/silicon/robot/R)
+/obj/item/scom/borgmodkit/attack(mob/living/silicon/robot/R)
 //	R/var/module_sprites[0]
 	R.module = new /obj/item/weapon/robot_module/security/combat/(src)
 	R.modtype = "Combat"

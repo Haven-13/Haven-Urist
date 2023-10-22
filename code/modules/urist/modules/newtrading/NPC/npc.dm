@@ -96,7 +96,7 @@
 
 
 
-/mob/living/simple_animal/hostile/npc/proc/can_use(var/mob/M)
+/mob/living/simple_animal/hostile/npc/proc/can_use(mob/M)
 	if(M.stat || M.restrained() || M.lying || !istype(M, /mob/living) || get_dist(M, src) > 1)
 		return 0
 	return 1

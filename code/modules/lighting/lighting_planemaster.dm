@@ -1,4 +1,4 @@
 
 
-/mob/proc/change_light_colour(var/new_colour)
+/mob/proc/change_light_colour(new_colour)
 

@@ -8,7 +8,7 @@
 	var/obj/effect/overmap/ship/combat/homeship
 	var/fallback_connect = FALSE
 
-/obj/machinery/computer/combatcomputer/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/combatcomputer/attack_hand(mob/user as mob)
 	if(..())
 		user.unset_machine()
 		return
@@ -34,7 +34,7 @@
 
 	ui_interact(user)
 
-/obj/machinery/computer/combatcomputer/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/computer/combatcomputer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "spacecraft/ShipCombatComputer", name)

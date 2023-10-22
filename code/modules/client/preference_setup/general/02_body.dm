@@ -52,7 +52,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	sort_order = 2
 	var/hide_species = TRUE
 
-/datum/category_item/player_setup_item/physical/body/load_character(var/savefile/S)
+/datum/category_item/player_setup_item/physical/body/load_character(savefile/S)
 	from_file(S["species"], pref.species)
 	from_file(S["hair_red"], pref.r_hair)
 	from_file(S["hair_green"], pref.g_hair)
@@ -79,7 +79,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	from_file(S["body_descriptors"], pref.body_descriptors)
 	from_file(S["background_state"], pref.background_state)
 
-/datum/category_item/player_setup_item/physical/body/save_character(var/savefile/S)
+/datum/category_item/player_setup_item/physical/body/save_character(savefile/S)
 	to_file(S["species"], pref.species)
 	to_file(S["hair_red"], pref.r_hair)
 	to_file(S["hair_green"], pref.g_hair)
@@ -106,7 +106,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	to_file(S["body_descriptors"], pref.body_descriptors)
 	to_file(S["background_state"], pref.background_state)
 
-/datum/category_item/player_setup_item/physical/body/sanitize_character(var/savefile/S)
+/datum/category_item/player_setup_item/physical/body/sanitize_character(savefile/S)
 	pref.r_hair			= sanitize_integer(pref.r_hair, 0, 255, initial(pref.r_hair))
 	pref.g_hair			= sanitize_integer(pref.g_hair, 0, 255, initial(pref.g_hair))
 	pref.b_hair			= sanitize_integer(pref.b_hair, 0, 255, initial(pref.b_hair))
@@ -162,7 +162,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	if(!pref.background_state || !(pref.background_state in pref.background_options))
 		pref.background_state = "Void"
 
-/datum/category_item/player_setup_item/physical/body/content(var/mob/user)
+/datum/category_item/player_setup_item/physical/body/content(mob/user)
 	. = list()
 
 	var/datum/species/mob_species = all_species[pref.species]
@@ -317,10 +317,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	. = jointext(.,null)
 
-/datum/category_item/player_setup_item/physical/body/proc/has_flag(var/datum/species/mob_species, var/flag)
+/datum/category_item/player_setup_item/physical/body/proc/has_flag(datum/species/mob_species, flag)
 	return mob_species && (mob_species.appearance_flags & flag)
 
-/datum/category_item/player_setup_item/physical/body/OnTopic(var/href,var/list/href_list, var/mob/user)
+/datum/category_item/player_setup_item/physical/body/OnTopic(href,list/href_list, mob/user)
 
 	var/datum/species/mob_species = all_species[pref.species]
 	if(href_list["toggle_species_verbose"])

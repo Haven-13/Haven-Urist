@@ -102,10 +102,10 @@
 					qdel(src)
 
 
-/obj/machinery/telecomms/attack_ai(var/mob/user as mob)
+/obj/machinery/telecomms/attack_ai(mob/user as mob)
 	attack_hand(user)
 
-/obj/machinery/telecomms/attack_hand(var/mob/user as mob)
+/obj/machinery/telecomms/attack_hand(mob/user as mob)
 
 	// You need a multitool to use this, or be silicon
 	if(!is_silicon(user))
@@ -449,7 +449,7 @@
 
 	updateUsrDialog()
 
-/obj/machinery/telecomms/proc/canAccess(var/mob/user)
+/obj/machinery/telecomms/proc/canAccess(mob/user)
 	if(is_silicon(user) || in_range(user, src))
 		return 1
 	return 0

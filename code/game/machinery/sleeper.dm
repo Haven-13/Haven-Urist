@@ -131,10 +131,10 @@
 				stasis = text2num(params["stasis"])
 				return TRUE
 
-/obj/machinery/sleeper/attack_ai(var/mob/user)
+/obj/machinery/sleeper/attack_ai(mob/user)
 	return attack_hand(user)
 
-/obj/machinery/sleeper/attackby(var/obj/item/I, var/mob/user)
+/obj/machinery/sleeper/attackby(obj/item/I, mob/user)
 	if(default_deconstruction_screwdriver(user, I))
 		updateUsrDialog()
 		return
@@ -172,7 +172,7 @@
 	if(techlevel >= 4)
 		available_chemicals |= list("Ethylredoxrazine" = /datum/reagent/ethylredoxrazine)
 
-/obj/machinery/sleeper/MouseDrop_T(var/mob/target, var/mob/user)
+/obj/machinery/sleeper/MouseDrop_T(mob/target, mob/user)
 	if(!CanMouseDrop(target, user))
 		return
 	if(!istype(target))
@@ -182,11 +182,11 @@
 		return
 	go_in(target, user)
 
-/obj/machinery/sleeper/relaymove(var/mob/user)
+/obj/machinery/sleeper/relaymove(mob/user)
 	..()
 	go_out()
 
-/obj/machinery/sleeper/emp_act(var/severity)
+/obj/machinery/sleeper/emp_act(severity)
 	if(filtering)
 		toggle_filter()
 
@@ -212,7 +212,7 @@
 	to_chat(occupant, "<span class='warning'>You feel a tube jammed down your throat.</span>")
 	pump = !pump
 
-/obj/machinery/sleeper/proc/go_in(var/mob/M, var/mob/user)
+/obj/machinery/sleeper/proc/go_in(mob/M, mob/user)
 	if(!M)
 		return
 	if(stat & (BROKEN|NOPOWER))
@@ -263,7 +263,7 @@
 		toggle_filter()
 		toggle_pump()
 
-/obj/machinery/sleeper/proc/inject_chemical(var/mob/living/user, var/chemical_name, var/amount)
+/obj/machinery/sleeper/proc/inject_chemical(mob/living/user, chemical_name, amount)
 	if(stat & (BROKEN|NOPOWER))
 		return
 

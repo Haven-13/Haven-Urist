@@ -119,7 +119,7 @@
 /mob/living/simple_animal/hostile/huntable
 	var/hide = 0
 
-/mob/living/simple_animal/hostile/huntable/harvest(var/mob/user)
+/mob/living/simple_animal/hostile/huntable/harvest(mob/user)
 	if (do_after(user, 60, src))
 		to_chat(user, "<span class='notice'>You gut and skin [src], getting some usable meat and hide.</span>")
 		for(var/i, i<=meat_amount, i++)
@@ -133,7 +133,7 @@
 /mob/living/simple_animal/huntable
 	var/hide = 0
 
-/mob/living/simple_animal/huntable/harvest(var/mob/user)
+/mob/living/simple_animal/huntable/harvest(mob/user)
 	if (do_after(user, 60, src))
 		to_chat(user, "<span class='notice'>You gut and skin [src], getting some usable meat and hide.</span>")
 		for(var/i, i<=meat_amount, i++)
@@ -226,7 +226,7 @@
 	if(.)
 		emote("nashes at [.]")
 
-/mob/living/simple_animal/hostile/huntable/panther/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/hostile/huntable/panther/UnarmedAttack(atom/A, proximity)
 	. =..()
 	var/mob/living/L = .
 	if(istype(L))
@@ -284,13 +284,13 @@
 	if(.)
 		emote("hisses wickedly")
 
-/mob/living/simple_animal/hostile/snake/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/hostile/snake/UnarmedAttack(atom/A, proximity)
 	. =..()
 	if(istype(A, /mob/living/carbon))
 		var/mob/living/carbon/L = A
 		bite(L)
 
-/mob/living/simple_animal/hostile/snake/proc/bite(var/mob/living/L)
+/mob/living/simple_animal/hostile/snake/proc/bite(mob/living/L)
 	L.apply_damage(rand(3,12), DAMAGE_TYPE_TOXIN)
 
 /mob/living/simple_animal/hostile/snake/AttackTarget()
@@ -325,7 +325,7 @@
 		venomsac = null
 	..()
 
-/mob/living/simple_animal/hostile/snake/randvenom/bite(var/mob/living/L)
+/mob/living/simple_animal/hostile/snake/randvenom/bite(mob/living/L)
 	if(L && venomsac && (venomsac in src.contents))
 		venomsac.reagents.trans_to_mob(L, bite_vol, CHEM_BLOOD, copy=1)
 
@@ -368,7 +368,7 @@
 	hide = 4
 	meat_amount = 2
 
-/mob/living/simple_animal/hostile/huntable/deer/GiveTarget(var/new_target)
+/mob/living/simple_animal/hostile/huntable/deer/GiveTarget(new_target)
 	target = new_target
 	if(target != null)
 		if(is_living_mob(target))

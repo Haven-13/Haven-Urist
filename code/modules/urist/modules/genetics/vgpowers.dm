@@ -10,10 +10,10 @@
 	block=NOIRBLOCK
 	..()
 
-/datum/dna/gene/basic/noir/activate(var/mob/M)
+/datum/dna/gene/basic/noir/activate(mob/M)
 	..()
 	M.update_color()
 
-/datum/dna/gene/basic/noir/deactivate(var/mob/M,var/connected,var/flags)
+/datum/dna/gene/basic/noir/deactivate(mob/M,connected,flags)
 	if(..())
 		M.update_color()

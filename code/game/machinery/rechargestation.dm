@@ -146,7 +146,7 @@
 		cell.emp_act(severity)
 	..(severity)
 
-/obj/machinery/recharge_station/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/recharge_station/attackby(obj/item/O as obj, mob/user as mob)
 	if(!occupant)
 		if(default_deconstruction_screwdriver(user, O))
 			return
@@ -215,10 +215,10 @@
 	if(icon_update_tick == 0)
 		update_overlays()
 
-/obj/machinery/recharge_station/Bumped(var/mob/living/silicon/robot/R)
+/obj/machinery/recharge_station/Bumped(mob/living/silicon/robot/R)
 	go_in(R)
 
-/obj/machinery/recharge_station/proc/go_in(var/mob/M)
+/obj/machinery/recharge_station/proc/go_in(mob/M)
 
 
 	if(occupant)
@@ -234,7 +234,7 @@
 	update_icon()
 	return 1
 
-/obj/machinery/recharge_station/proc/hascell(var/mob/M)
+/obj/machinery/recharge_station/proc/hascell(mob/M)
 	if(is_robot(M))
 		var/mob/living/silicon/robot/R = M
 		return (R.cell)

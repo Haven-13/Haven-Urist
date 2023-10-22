@@ -63,7 +63,7 @@
 	if(..(user, 2))
 		to_chat(user, "It has [uses] light\s remaining.")
 
-/obj/item/device/lightreplacer/resolve_attackby(var/atom/A, mob/user)
+/obj/item/device/lightreplacer/resolve_attackby(atom/A, mob/user)
 
 	//Check for lights in a container, refilling our charges.
 	if(istype(A, /obj/item/weapon/storage/))
@@ -133,23 +133,23 @@
 	icon_state = "lightreplacer[emagged]"
 
 
-/obj/item/device/lightreplacer/proc/Use(var/mob/user)
+/obj/item/device/lightreplacer/proc/Use(mob/user)
 
 	playsound(src.loc, 'resources/sound/machines/click.ogg', 50, 1)
 	AddUses(-1)
 	return 1
 
 // Negative numbers will subtract
-/obj/item/device/lightreplacer/proc/AddUses(var/amount = 1)
+/obj/item/device/lightreplacer/proc/AddUses(amount = 1)
 	uses = min(max(uses + amount, 0), max_uses)
 
-/obj/item/device/lightreplacer/proc/Charge(var/mob/user, var/amount = 1)
+/obj/item/device/lightreplacer/proc/Charge(mob/user, amount = 1)
 	charge += amount
 	if(charge > 6)
 		AddUses(1)
 		charge = 0
 
-/obj/item/device/lightreplacer/proc/ReplaceLight(var/obj/machinery/light/target, var/mob/living/U)
+/obj/item/device/lightreplacer/proc/ReplaceLight(obj/machinery/light/target, mob/living/U)
 
 	if(target.get_status() == LIGHT_OK)
 		to_chat(U, "There is a working [target.get_fitting_name()] already inserted.")
@@ -166,7 +166,7 @@
 		target.insert_bulb(L)
 
 
-/obj/item/device/lightreplacer/emag_act(var/remaining_charges, var/mob/user)
+/obj/item/device/lightreplacer/emag_act(remaining_charges, mob/user)
 	emagged = !emagged
 	playsound(src.loc, "sparks", 100, 1)
 	update_icon()
@@ -174,7 +174,7 @@
 
 //Can you use it?
 
-/obj/item/device/lightreplacer/proc/CanUse(var/mob/living/user)
+/obj/item/device/lightreplacer/proc/CanUse(mob/living/user)
 	src.add_fingerprint(user)
 	//Not sure what else to check for. Maybe if clumsy?
 	if(uses > 0)

@@ -205,7 +205,7 @@
 			S.fail(1)
 
 
-/obj/machinery/power/shield_generator/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/power/shield_generator/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "AdvancedShieldGenerator", name)
@@ -297,13 +297,13 @@
 			toggle_flag(params["toggle_mode"])
 			return TRUE
 
-/obj/machinery/power/shield_generator/attack_hand(var/mob/user)
+/obj/machinery/power/shield_generator/attack_hand(mob/user)
 	ui_interact(user)
 	if(panel_open)
 		wires.Interact(user)
 
 
-/obj/machinery/power/shield_generator/CanUseTopic(var/mob/user)
+/obj/machinery/power/shield_generator/CanUseTopic(mob/user)
 	if(is_silicon(user) && !Adjacent(user) && ai_control_disabled)
 		return UI_UPDATE
 	return ..()
@@ -316,7 +316,7 @@
 
 
 // Takes specific amount of damage
-/obj/machinery/power/shield_generator/proc/take_damage(var/damage, var/shield_damtype)
+/obj/machinery/power/shield_generator/proc/take_damage(damage, shield_damtype)
 	var/energy_to_use = damage * ENERGY_PER_HP
 	if(check_flag(MODEFLAG_MODULATE))
 		mitigation_em -= MITIGATION_HIT_LOSS
@@ -355,11 +355,11 @@
 
 
 // Checks whether specific flags are enabled
-/obj/machinery/power/shield_generator/proc/check_flag(var/flag)
+/obj/machinery/power/shield_generator/proc/check_flag(flag)
 	return (shield_modes & flag)
 
 
-/obj/machinery/power/shield_generator/proc/toggle_flag(var/flag)
+/obj/machinery/power/shield_generator/proc/toggle_flag(flag)
 	shield_modes ^= flag
 	update_upkeep_multiplier()
 	for(var/obj/effect/shield/S in field_segments)

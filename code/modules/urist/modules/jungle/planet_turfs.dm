@@ -122,7 +122,7 @@
 	else
 		..()
 
-/turf/simulated/floor/planet/attackby(var/obj/item/I as obj, mob/user as mob)
+/turf/simulated/floor/planet/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/weapon/shovel))
 		if(!farmed) //todo; add a way to remove the soil
 			user.visible_message("<span class='notice'>[user] starts to dig up some soil and prepare the ground for planting.</span>", \
@@ -279,7 +279,7 @@
 		/mob/living/simple_animal/huntable/monkey
 		)
 
-/turf/simulated/floor/planet/jungle/proc/Spread(var/probability, var/prob_loss = 50)
+/turf/simulated/floor/planet/jungle/proc/Spread(probability, prob_loss = 50)
 	if(probability <= 0)
 		return
 
@@ -423,7 +423,7 @@
 	. = ..()
 	fishleft = rand(1,6)
 
-/turf/simulated/floor/planet/jungle/water/attackby(var/obj/item/I, mob/user as mob)
+/turf/simulated/floor/planet/jungle/water/attackby(obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/fishingrod))
 		if(bridge)
 			to_chat(user, "<span class='notice'>There's a bridge here, try fishing somewhere else.</span>")
@@ -615,7 +615,7 @@
 
 	else ..()
 
-/turf/simulated/floor/planet/jungle/water/deep/attackby(var/obj/item/I, mob/user as mob)
+/turf/simulated/floor/planet/jungle/water/deep/attackby(obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/paddle))
 		if(!bridge)
 			for(var/obj/structure/raft/R in user.loc)
@@ -674,7 +674,7 @@
 	light_max_bright = 0
 	terrain_type = null
 
-/turf/simulated/floor/planet/jungle/clear/underground/weather_enable(var/override = 0)
+/turf/simulated/floor/planet/jungle/clear/underground/weather_enable(override = 0)
 	if(override)
 		..()
 

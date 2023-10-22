@@ -19,7 +19,7 @@
 	var/broken
 	var/panel = TRUE
 
-/obj/item/device/boombox/attack_self(var/mob/user)
+/obj/item/device/boombox/attack_self(mob/user)
 	interact(user)
 
 /obj/item/device/boombox/Initialize()
@@ -42,7 +42,7 @@
 	stop()
 	. = ..()
 
-/obj/item/device/boombox/interact(var/mob/user)
+/obj/item/device/boombox/interact(mob/user)
 	if(!CanPhysicallyInteract(user))
 		return
 	var/dat = "<A href='?src=[REF(src)];tracknum=1;'>NEXT</a>"
@@ -58,11 +58,11 @@
 /obj/item/device/boombox/DefaultTopicState()
 	return ui_physical_state()
 
-/obj/item/device/boombox/CouldUseTopic(var/mob/user)
+/obj/item/device/boombox/CouldUseTopic(mob/user)
 	..()
 	playsound(src, "switch", 40)
 
-/obj/item/device/boombox/OnTopic(var/user, var/list/href_list)
+/obj/item/device/boombox/OnTopic(user, list/href_list)
 	if(href_list["tracknum"])
 		var/diff = text2num(href_list["tracknum"])
 		track_num += diff
@@ -86,7 +86,7 @@
 		change_volume(volume - 10)
 		return FALSE
 
-/obj/item/device/boombox/attackby(var/obj/item/W, var/mob/user)
+/obj/item/device/boombox/attackby(obj/item/W, mob/user)
 	if(is_screwdriver(W))
 		if(!panel)
 			user.visible_message(SPAN_NOTICE("\The [user] re-attaches \the [src]'s front panel with \the [W]."), SPAN_NOTICE("You re-attach \the [src]'s front panel."))
@@ -111,7 +111,7 @@
 	else
 		. = ..()
 
-/obj/item/device/boombox/proc/AdjustFrequency(var/obj/item/W, var/mob/user)
+/obj/item/device/boombox/proc/AdjustFrequency(obj/item/W, mob/user)
 	var/const/MIN_FREQUENCY = 0.5
 	var/const/MAX_FREQUENCY = 1.5
 
@@ -156,7 +156,7 @@
 
 	return TRUE
 
-/obj/item/device/boombox/proc/MayAdjust(var/mob/user)
+/obj/item/device/boombox/proc/MayAdjust(mob/user)
 	if(playing)
 		to_chat(user, "<span class='warning'>You can only adjust \the [src] when it's not playing.</span>")
 		return FALSE
@@ -185,7 +185,7 @@
 	broken = TRUE
 	stop()
 
-/obj/item/device/boombox/proc/change_volume(var/new_volume)
+/obj/item/device/boombox/proc/change_volume(new_volume)
 	volume = clamp(new_volume, 0, max_volume)
 	if(sound_token)
 		sound_token.SetVolume(volume)

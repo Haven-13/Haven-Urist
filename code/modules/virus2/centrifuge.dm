@@ -14,7 +14,7 @@
 	build_default_parts(/obj/item/weapon/circuitboard/centrifuge)
 	. = ..()
 
-/obj/machinery/disease2/centrifuge/attackby(var/obj/O as obj, var/mob/user as mob)
+/obj/machinery/disease2/centrifuge/attackby(obj/O as obj, mob/user as mob)
 	if(..())
 		return
 	if(istype(O,/obj/item/weapon/reagent_containers/glass/beaker/vial))
@@ -35,7 +35,7 @@
 	if(! (stat & (BROKEN|NOPOWER)))
 		icon_state = (isolating || curing) ? "centrifuge_moving" : "centrifuge"
 
-/obj/machinery/disease2/centrifuge/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/disease2/centrifuge/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "virology/PathogenicCentrifuge", name)
@@ -164,7 +164,7 @@
 	update_icon()
 	ping("\The [src] pings, \"Pathogen isolated.\"")
 
-/obj/machinery/disease2/centrifuge/proc/print(var/mob/user)
+/obj/machinery/disease2/centrifuge/proc/print(mob/user)
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(loc)
 	P.SetName("paper - Pathology Report")
 	P.info = {"

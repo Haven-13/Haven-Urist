@@ -22,7 +22,7 @@
 /obj/item/modular_computer/pda/LateInitialize()
 	enable_computer()
 
-/obj/item/modular_computer/pda/AltClick(var/mob/user)
+/obj/item/modular_computer/pda/AltClick(mob/user)
 	if(!CanPhysicallyInteract(user))
 		return
 	if(card_slot && istype(card_slot.stored_card))

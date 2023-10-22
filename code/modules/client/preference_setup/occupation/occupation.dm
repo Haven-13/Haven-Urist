@@ -20,14 +20,14 @@
 	sort_order = 1
 	var/datum/browser/panel
 
-/datum/category_item/player_setup_item/occupation/load_character(var/savefile/S)
+/datum/category_item/player_setup_item/occupation/load_character(savefile/S)
 	from_file(S["alternate_option"], 	pref.alternate_option)
 	from_file(S["job_high"],			pref.job_high)
 	from_file(S["job_medium"],			pref.job_medium)
 	from_file(S["job_low"],				pref.job_low)
 	from_file(S["player_alt_titles"],	pref.player_alt_titles)
 
-/datum/category_item/player_setup_item/occupation/save_character(var/savefile/S)
+/datum/category_item/player_setup_item/occupation/save_character(savefile/S)
 	to_file(S["alternate_option"],		pref.alternate_option)
 	to_file(S["job_high"],				pref.job_high)
 	to_file(S["job_medium"],			pref.job_medium)
@@ -245,7 +245,7 @@
 
 	return 1
 
-/datum/category_item/player_setup_item/occupation/proc/SetJobDepartment(var/datum/job/job, var/level)
+/datum/category_item/player_setup_item/occupation/proc/SetJobDepartment(datum/job/job, level)
 	if(!job || !level)	return 0
 
 	var/current_level = JOB_LEVEL_NEVER
@@ -276,7 +276,7 @@
 
 	return 1
 
-/datum/preferences/proc/CorrectLevel(var/datum/job/job, var/level)
+/datum/preferences/proc/CorrectLevel(datum/job/job, level)
 	if(!job || !level)	return 0
 	switch(level)
 		if(1)

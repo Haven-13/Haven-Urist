@@ -47,7 +47,7 @@
 		fall_check()
 
 // Called when thrown object lands on this turf.
-/turf/simulated/open/hitby(var/atom/movable/AM, var/speed)
+/turf/simulated/open/hitby(atom/movable/AM, speed)
 	. = ..()
 	AM.fall()
 
@@ -109,7 +109,7 @@
 		for(var/atom/movable/AM in src)
 			AM.fall()
 
-/turf/simulated/open/proc/handle_move(var/atom/current_loc, var/atom/movable/am, var/atom/changed_loc)
+/turf/simulated/open/proc/handle_move(atom/current_loc, atom/movable/am, atom/changed_loc)
 	//Check for mobs and create/destroy their shadows
 	if(is_living_mob(am))
 		var/mob/living/M = am
@@ -126,12 +126,12 @@
 		qdel(M)
 
 //When turf changes, a bunch of things can take place
-/turf/simulated/open/proc/turf_change(var/turf/affected)
+/turf/simulated/open/proc/turf_change(turf/affected)
 	update_icon()
 
 //The two situations which require unregistering
 
-/turf/simulated/open/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_lighting_update = 0)
+/turf/simulated/open/ChangeTurf(turf/N, tell_universe=1, force_lighting_update = 0)
 	//We do not want to change any of the behaviour, just make sure this goes away
 	src.clean_up()
 	. = ..()

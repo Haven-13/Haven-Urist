@@ -31,19 +31,19 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	if (T) // Baycode overmap may be the simplest, but it is also the shittest
 		return T.loc
 
-/obj/machinery/computer/ship/helm/relaymove(var/mob/user, direction)
+/obj/machinery/computer/ship/helm/relaymove(mob/user, direction)
 	if(viewing && linked)
 		linked.relaymove(user,direction)
 		return 1
 
-/obj/machinery/computer/ship/helm/check_eye(var/mob/user as mob)
+/obj/machinery/computer/ship/helm/check_eye(mob/user as mob)
 	if (!viewing)
 		return -1
 	if (!get_dist(user, src) > 1 || user.blinded || !linked )
 		return -1
 	return 0
 
-/obj/machinery/computer/ship/helm/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/ship/helm/attack_hand(mob/user as mob)
 	if(..())
 		user.unset_machine()
 		unlook(user)
@@ -57,7 +57,7 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 
 	ui_interact(user)
 
-/obj/machinery/computer/ship/helm/proc/look(var/mob/user)
+/obj/machinery/computer/ship/helm/proc/look(mob/user)
 	if(linked)
 		user.reset_view(linked)
 	if(user.client)
@@ -66,7 +66,7 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	GLOB.stat_set_event.register(user, src, TYPE_PROC_REF(/obj/machinery/computer/ship/helm, unlook))
 	LAZY_ADD_UNIQUE(viewers, weakref(user))
 
-/obj/machinery/computer/ship/helm/proc/unlook(var/mob/user)
+/obj/machinery/computer/ship/helm/proc/unlook(mob/user)
 	user.reset_view()
 	if(user.client)
 		user.client.view = world.view
@@ -79,7 +79,7 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 		return UI_CLOSE
 	return ..()
 
-/obj/machinery/computer/ship/helm/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/computer/ship/helm/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "spacecraft/ShipHelm")

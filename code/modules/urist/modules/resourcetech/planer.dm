@@ -20,7 +20,7 @@
 	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
 	component_parts += new /obj/item/stack/cable_coil(src, 2)
 
-/obj/machinery/carpentry/planer/attackby(var/obj/item/I, mob/user as mob)
+/obj/machinery/carpentry/planer/attackby(obj/item/I, mob/user as mob)
 	if(default_deconstruction_screwdriver(user, I))
 		return
 	if(default_deconstruction_crowbar(user, I))
@@ -87,7 +87,7 @@
 	name = "unprocessed wooden planks"
 	singular_name = "unprocessed wood plank"
 
-/obj/item/stack/material/r_wood/attack_self(var/mob/user)
+/obj/item/stack/material/r_wood/attack_self(mob/user)
 	return
 
 /obj/machinery/carpentry/woodprocessor
@@ -96,7 +96,7 @@
 	icon_state = "paper"
 	active_power_usage = 800
 
-/obj/machinery/carpentry/woodprocessor/attackby(var/obj/item/I, mob/user as mob)
+/obj/machinery/carpentry/woodprocessor/attackby(obj/item/I, mob/user as mob)
 	if(default_deconstruction_screwdriver(user, I))
 		return
 	if(default_deconstruction_crowbar(user, I))
@@ -153,7 +153,7 @@
 	else
 		to_chat(user, "<span class='notice'>There's no wood stored in the [src]!</span>")
 
-/obj/machinery/carpentry/woodprocessor/Topic(href, href_list) //still instantly creates stuff, but eh. Space magic.
+/obj/machinery/carpentry/woodprocessor/Topic(href, href_list)
 	..()
 
 	if(anchored && !busy)

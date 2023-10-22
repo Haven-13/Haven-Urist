@@ -117,7 +117,7 @@
 		user_unbuckle_mob(user)
 	return
 
-/obj/structure/bed/chair/wheelchair/CtrlClick(var/mob/user)
+/obj/structure/bed/chair/wheelchair/CtrlClick(mob/user)
 	if(in_range(src, user))
 		if(!is_human_mob(user))	return
 		if(user == buckled_mob)
@@ -190,6 +190,6 @@
 		usr.pulledby = null
 	..()
 
-/proc/equip_wheelchair(mob/living/carbon/human/H) //Proc for spawning in a wheelchair if a new character has no legs. Used in new_player.dm
+/proc/equip_wheelchair(mob/living/carbon/human/H)
 	var/obj/structure/bed/chair/wheelchair/W = new(H.loc)
 	W.buckle_mob(H)

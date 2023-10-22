@@ -131,7 +131,7 @@
 	else
 		aw_EPR = FALSE
 
-/obj/machinery/power/supermatter/proc/status_adminwarn_check(var/min_status, var/current_state, var/message, var/send_to_irc = FALSE)
+/obj/machinery/power/supermatter/proc/status_adminwarn_check(min_status, current_state, message, send_to_irc = FALSE)
 	var/status = get_status()
 	if(status >= min_status)
 		if(!current_state)
@@ -265,7 +265,7 @@
 		to_chat(user, "Eyeballing it, you place the relative EER at around [display_power] MeV/cm3.")
 
 //Changes color and luminosity of the light to these values if they were not already set
-/obj/machinery/power/supermatter/proc/shift_light(var/lum, var/clr)
+/obj/machinery/power/supermatter/proc/shift_light(lum, clr)
 	if(lum != light_outer_range || clr != light_color)
 		set_light(1, 0.1, lum, l_color = clr)
 
@@ -422,7 +422,7 @@
 	return 1
 
 
-/obj/machinery/power/supermatter/bullet_act(var/obj/item/projectile/Proj)
+/obj/machinery/power/supermatter/bullet_act(obj/item/projectile/Proj)
 	var/turf/L = loc
 	if(!istype(L))		// We don't run process() when we are in space
 		return 0	// This stops people from being able to really power up the supermatter
@@ -454,7 +454,7 @@
 	Consume(user)
 
 // This is purely informational UI that may be accessed by AIs or robots
-/obj/machinery/power/supermatter/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/power/supermatter/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "SupermatterCrystal")
@@ -510,7 +510,7 @@
 	Consume(AM)
 
 
-/obj/machinery/power/supermatter/proc/Consume(var/mob/living/user, var/amount = 200)
+/obj/machinery/power/supermatter/proc/Consume(mob/living/user, amount = 200)
 	if(istype(user))
 		user.dust()
 		power += amount
@@ -530,11 +530,11 @@
 	SSradiation.radiate(src, rads)
 
 
-/proc/supermatter_pull(var/atom/target, var/pull_range = 255, var/pull_power = STAGE_FIVE)
+/proc/supermatter_pull(atom/target, pull_range = 255, pull_power = STAGE_FIVE)
 	for(var/atom/A in range(pull_range, target))
 		A.singularity_pull(target, pull_power)
 
-/obj/machinery/power/supermatter/GotoAirflowDest(n) //Supermatter not pushed around by airflow
+/obj/machinery/power/supermatter/GotoAirflowDest(n)
 	return
 
 /obj/machinery/power/supermatter/RepelAirflowDest(n)

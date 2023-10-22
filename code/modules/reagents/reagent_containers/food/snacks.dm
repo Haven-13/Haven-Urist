@@ -24,7 +24,7 @@
 		reagents.add_reagent(/datum/reagent/nutriment,nutriment_amt,nutriment_desc)
 
 	//Placeholder for effect that trigger on eating that aren't tied to reagents.
-/obj/item/weapon/reagent_containers/food/snacks/proc/On_Consume(var/mob/M)
+/obj/item/weapon/reagent_containers/food/snacks/proc/On_Consume(mob/M)
 	if(!reagents.total_volume)
 		M.visible_message("<span class='notice'>[M] finishes eating \the [src].</span>","<span class='notice'>You finish eating \the [src].</span>")
 
@@ -197,7 +197,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 /// FOOD END
 ////////////////////////////////////////////////////////////////////////////////
-/obj/item/weapon/reagent_containers/food/snacks/attack_generic(var/mob/living/user)
+/obj/item/weapon/reagent_containers/food/snacks/attack_generic(mob/living/user)
 	if(!is_animal(user) && !is_alien(user))
 		return
 	user.visible_message("<b>[user]</b> nibbles away at \the [src].","You nibble away at \the [src].")
@@ -1412,7 +1412,7 @@
 	..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 10)
 
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/attack_self(var/mob/user)
+/obj/item/weapon/reagent_containers/food/snacks/monkeycube/attack_self(mob/user)
 	if(wrapped)
 		Unwrap(user)
 
@@ -1424,14 +1424,14 @@
 		monkey.dropInto(src.loc)
 		qdel(src)
 
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/proc/Unwrap(var/mob/user)
+/obj/item/weapon/reagent_containers/food/snacks/monkeycube/proc/Unwrap(mob/user)
 	icon_state = "monkeycube"
 	desc = "Just add water!"
 	to_chat(user, "You unwrap the cube.")
 	wrapped = 0
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/On_Consume(var/mob/M)
+/obj/item/weapon/reagent_containers/food/snacks/monkeycube/On_Consume(mob/M)
 	if(is_human_mob(M))
 		var/mob/living/carbon/human/H = M
 		H.visible_message("<span class='warning'>A screeching creature bursts out of [M]'s chest!</span>")

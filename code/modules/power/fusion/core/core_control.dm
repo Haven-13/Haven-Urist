@@ -11,7 +11,7 @@
 	var/list/connected_devices = list()
 	var/obj/machinery/power/fusion_core/cur_viewed_device
 
-/obj/machinery/computer/fusion_core_control/attackby(var/obj/item/thing, var/mob/user)
+/obj/machinery/computer/fusion_core_control/attackby(obj/item/thing, mob/user)
 	if(is_multitool(thing))
 		var/new_ident = input("Enter a new ident tag.", "Core Control", id_tag) as null|text
 		if(new_ident && user.Adjacent(src))
@@ -132,7 +132,7 @@
 	popup.open()
 	user.set_machine(src)
 
-/obj/machinery/computer/fusion_core_control/OnTopic(var/mob/user, var/href_list, var/datum/ui_state/state)
+/obj/machinery/computer/fusion_core_control/OnTopic(mob/user, href_list, datum/ui_state/state)
 	if(href_list["access_device"])
 		var/idx = clamp(text2num(href_list["toggle_active"]), 1, connected_devices.len)
 		cur_viewed_device = connected_devices[idx]
@@ -164,7 +164,7 @@
 		return TRUE
 
 //Returns 1 if the machine can be interacted with via this console.
-/obj/machinery/computer/fusion_core_control/proc/check_core_status(var/obj/machinery/power/fusion_core/C)
+/obj/machinery/computer/fusion_core_control/proc/check_core_status(obj/machinery/power/fusion_core/C)
 	if(isnull(C))
 		return
 	if(C.stat & BROKEN)

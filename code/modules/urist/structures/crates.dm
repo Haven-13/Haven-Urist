@@ -87,7 +87,7 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 				qdel(trap) //no frags for you!
 	..()
 
-/obj/structure/closet/crate/secure/boobytrapped/damage(var/damage)
+/obj/structure/closet/crate/secure/boobytrapped/damage(damage)
 	/* full override since I'd rather not touch qdel(), keep this updated with closet's damage() */
 	health -= damage
 	if(health <= 0)

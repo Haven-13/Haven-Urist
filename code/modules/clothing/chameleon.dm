@@ -65,7 +65,7 @@ var/global/datum/chameleon_choice_cache/chameleon_cache = new
 		)
 	)
 
-/datum/chameleon_choice_cache/proc/generate_chameleon_choices(var/basetype, var/blacklist=list())
+/datum/chameleon_choice_cache/proc/generate_chameleon_choices(basetype, blacklist=list())
 	. = list()
 
 	var/i = 1 //in case there is a collision with both name AND icon_state
@@ -83,7 +83,7 @@ var/global/datum/chameleon_choice_cache/chameleon_cache = new
 //**Cham Jumpsuit**
 //*****************
 
-/obj/item/proc/disguise(var/newtype, var/mob/user)
+/obj/item/proc/disguise(newtype, mob/user)
 	if(!user || user.incapacitated())
 		return
 	//this is necessary, unfortunately, as initial() does not play well with list vars
@@ -326,7 +326,7 @@ var/global/datum/chameleon_choice_cache/chameleon_cache = new
 		P.impact_type = initial(copy_projectile.impact_type)
 	return P
 
-/obj/item/weapon/gun/energy/chameleon/disguise(var/newtype)
+/obj/item/weapon/gun/energy/chameleon/disguise(newtype)
 	var/obj/item/weapon/gun/copy = ..()
 	if(!copy)
 		return

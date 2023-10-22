@@ -607,7 +607,7 @@
 
 	to_chat(usr, "<span class='notice'> You think you can see fermented chunks of \a [whatsinside] in there.</span>")
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/proc/ferment(var/boozetype)
+/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/proc/ferment(boozetype)
 	if(!(boozetype))
 		boozetype = /datum/reagent/ethanol/hooch
 	var/datum/reagents/R = src.reagents

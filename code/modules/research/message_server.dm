@@ -11,7 +11,7 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 	var/id_auth = "Unauthenticated"
 	var/priority = "Normal"
 
-/datum/data_rc_msg/New(var/param_rec = "",var/param_sender = "",var/param_message = "",var/param_stamp = "",var/param_id_auth = "",var/param_priority)
+/datum/data_rc_msg/New(param_rec = "",param_sender = "",param_message = "",param_stamp = "",param_id_auth = "",param_priority)
 	if(param_rec)
 		rec_dpt = param_rec
 	if(param_sender)
@@ -76,7 +76,7 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 			active = 1
 			update_icon()
 
-/obj/machinery/message_server/proc/send_rc_message(var/recipient = "",var/sender = "",var/message = "",var/stamp = "", var/id_auth = "", var/priority = 1)
+/obj/machinery/message_server/proc/send_rc_message(recipient = "",sender = "",message = "",stamp = "", id_auth = "", priority = 1)
 	rc_msgs += new/datum/data_rc_msg(recipient,sender,message,stamp,id_auth)
 	var/authmsg = "[message]<br>"
 	if (id_auth)
@@ -135,7 +135,7 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 
 	return
 
-/obj/machinery/message_server/proc/send_to_department(var/department, var/message, var/tone)
+/obj/machinery/message_server/proc/send_to_department(department, message, tone)
 	var/reached = 0
 
 	for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
@@ -158,11 +158,11 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 	var/value
 	var/details
 
-/datum/feedback_variable/New(var/param_variable,var/param_value = 0)
+/datum/feedback_variable/New(param_variable,param_value = 0)
 	variable = param_variable
 	value = param_value
 
-/datum/feedback_variable/proc/inc(var/num = 1)
+/datum/feedback_variable/proc/inc(num = 1)
 	if(isnum(value))
 		value += num
 	else
@@ -172,7 +172,7 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 		else
 			value = num
 
-/datum/feedback_variable/proc/dec(var/num = 1)
+/datum/feedback_variable/proc/dec(num = 1)
 	if(isnum(value))
 		value -= num
 	else
@@ -182,7 +182,7 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 		else
 			value = -num
 
-/datum/feedback_variable/proc/set_value(var/num)
+/datum/feedback_variable/proc/set_value(num)
 	if(isnum(num))
 		value = num
 
@@ -192,11 +192,11 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 /datum/feedback_variable/proc/get_variable()
 	return variable
 
-/datum/feedback_variable/proc/set_details(var/text)
+/datum/feedback_variable/proc/set_details(text)
 	if(istext(text))
 		details = text
 
-/datum/feedback_variable/proc/add_details(var/text)
+/datum/feedback_variable/proc/add_details(text)
 	if(istext(text))
 		if(!details)
 			details = text
@@ -270,7 +270,7 @@ var/obj/machinery/blackbox_recorder/blackbox
 			blackbox = BR
 	..()
 
-/obj/machinery/blackbox_recorder/proc/find_feedback_datum(var/variable)
+/obj/machinery/blackbox_recorder/proc/find_feedback_datum(variable)
 	for(var/datum/feedback_variable/FV in feedback)
 		if(FV.get_variable() == variable)
 			return FV
@@ -334,13 +334,13 @@ var/obj/machinery/blackbox_recorder/blackbox
 		query_insert.Execute()
 
 // Sanitize inputs to avoid SQL injection attacks
-/proc/sql_sanitize_text(var/text)
+/proc/sql_sanitize_text(text)
 	text = replacetext(text, "'", "''")
 	text = replacetext(text, ";", "")
 	text = replacetext(text, "&", "")
 	return text
 
-/proc/feedback_set(var/variable,var/value)
+/proc/feedback_set(variable,value)
 	if(!blackbox) return
 
 	variable = sql_sanitize_text(variable)
@@ -351,7 +351,7 @@ var/obj/machinery/blackbox_recorder/blackbox
 
 	FV.set_value(value)
 
-/proc/feedback_inc(var/variable,var/value)
+/proc/feedback_inc(variable,value)
 	if(!blackbox) return
 
 	variable = sql_sanitize_text(variable)
@@ -362,7 +362,7 @@ var/obj/machinery/blackbox_recorder/blackbox
 
 	FV.inc(value)
 
-/proc/feedback_dec(var/variable,var/value)
+/proc/feedback_dec(variable,value)
 	if(!blackbox) return
 
 	variable = sql_sanitize_text(variable)
@@ -373,7 +373,7 @@ var/obj/machinery/blackbox_recorder/blackbox
 
 	FV.dec(value)
 
-/proc/feedback_set_details(var/variable,var/details)
+/proc/feedback_set_details(variable,details)
 	if(!blackbox) return
 
 	variable = sql_sanitize_text(variable)
@@ -385,7 +385,7 @@ var/obj/machinery/blackbox_recorder/blackbox
 
 	FV.set_details(details)
 
-/proc/feedback_add_details(var/variable,var/details)
+/proc/feedback_add_details(variable,details)
 	if(!blackbox) return
 
 	variable = sql_sanitize_text(variable)

@@ -8,7 +8,7 @@
 	var/list/genes = list()
 	var/genesource = "unknown"
 
-/obj/item/weapon/disk/botany/attack_self(var/mob/user as mob)
+/obj/item/weapon/disk/botany/attack_self(mob/user as mob)
 	if(genes.len)
 		var/choice = alert(user, "Are you sure you want to wipe the disk?", "Xenobotany Data", "No", "Yes")
 		if(src && user && genes && choice && choice == "Yes" && user.Adjacent(get_turf(src)))
@@ -124,7 +124,7 @@
 	var/datum/seed/genetics // Currently scanned seed genetic structure.
 	var/degradation = 0     // Increments with each scan, stops allowing gene mods after a certain point.
 
-/obj/machinery/botany/extractor/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/botany/extractor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "BotanyIsolator")
@@ -250,7 +250,7 @@
 	icon_state = "traitgun"
 	disk_needs_genes = 1
 
-/obj/machinery/botany/editor/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/botany/editor/ui_interact(mob/user, datum/tgui/ui)
 	if(!user)
 		return
 

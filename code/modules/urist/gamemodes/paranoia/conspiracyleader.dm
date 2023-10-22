@@ -40,7 +40,7 @@ var/datum/antagonist/agent/agents
 	if(leader.current)
 		faction_welcome = "Follow [leader.current]'s orders. Cooperate with fellow agents - but trust no-one."
 
-/datum/antagonist/agent/get_indicator(var/datum/mind/recipient, var/datum/mind/other)
+/datum/antagonist/agent/get_indicator(datum/mind/recipient, datum/mind/other)
 	if(!antag_indicator || !other.current || !recipient.current)
 		return
 	var/indicator = (faction_indicator && (other == leader)) ? faction_indicator : antag_indicator
@@ -83,7 +83,7 @@ var/datum/antagonist/agent/agents
 	convert_to_faction(M.mind, conspiracy)
 	M.mind.store_memory("You remember that <B>[conspiracy.leader] leads the [conspiracy.faction_descriptor]</B>", 0, 0)
 
-/datum/antagonist/agent/get_extra_panel_options(var/datum/mind/player)
+/datum/antagonist/agent/get_extra_panel_options(datum/mind/player)
 	return "<a href='?src=[REF(player)];common=crystals'>\[set crystals\]</a><a href='?src=[REF(src)];spawn_uplink=\ref[player.current]'>\[spawn uplink\]</a>"
 
 /datum/antagonist/agent/Topic(href, href_list)
@@ -91,7 +91,7 @@ var/datum/antagonist/agent/agents
 		return
 	if(href_list["spawn_uplink"]) spawn_uplink(locate(href_list["spawn_uplink"]))
 
-/datum/antagonist/agent/equip(var/mob/living/carbon/human/agent_mob)
+/datum/antagonist/agent/equip(mob/living/carbon/human/agent_mob)
 
 	if(!..())
 		return 0
@@ -101,7 +101,7 @@ var/datum/antagonist/agent/agents
 	if(!(agent_mob.equip_to_storage(intel_laptop)))
 		agent_mob.put_in_hands(intel_laptop)
 
-/datum/antagonist/agent/proc/spawn_uplink(var/mob/living/carbon/human/agent_mob)
+/datum/antagonist/agent/proc/spawn_uplink(mob/living/carbon/human/agent_mob)
 	if(!istype(agent_mob))
 		return
 

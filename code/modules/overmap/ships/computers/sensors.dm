@@ -35,7 +35,7 @@
 			sensors = S
 			break
 
-/obj/machinery/computer/ship/sensors/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/computer/ship/sensors/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "spacecraft/ShipSensors", name)
@@ -94,7 +94,7 @@
 				sensors.toggle()
 				. = TRUE
 
-/obj/machinery/computer/ship/sensors/check_eye(var/mob/user as mob)
+/obj/machinery/computer/ship/sensors/check_eye(mob/user as mob)
 	if (!get_dist(user, src) > 1 || user.blinded || !linked )
 		viewing = 0
 	if (!viewing)
@@ -102,7 +102,7 @@
 	else
 		return 0
 
-/obj/machinery/computer/ship/sensors/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/ship/sensors/attack_hand(mob/user as mob)
 	if(..())
 		user.unset_machine()
 		viewing = 0
@@ -115,7 +115,7 @@
 			look(user)
 	ui_interact(user)
 
-/obj/machinery/computer/ship/sensors/proc/look(var/mob/user)
+/obj/machinery/computer/ship/sensors/proc/look(mob/user)
 	if(linked)
 		user.reset_view(linked)
 	if(user.client)
@@ -124,7 +124,7 @@
 	GLOB.stat_set_event.register(user, src, TYPE_PROC_REF(/obj/machinery/computer/ship/sensors, unlook))
 	LAZY_ADD_UNIQUE(viewers, weakref(user))
 
-/obj/machinery/computer/ship/sensors/proc/unlook(var/mob/user)
+/obj/machinery/computer/ship/sensors/proc/unlook(mob/user)
 	user.reset_view()
 	if(user.client)
 		user.client.view = world.view
@@ -201,7 +201,7 @@
 	else if(health < max_health * 0.75)
 		to_chat(user, "\The [src] shows signs of damage!")
 
-/obj/machinery/shipsensors/bullet_act(var/obj/item/projectile/Proj)
+/obj/machinery/shipsensors/bullet_act(obj/item/projectile/Proj)
 	take_damage(Proj.get_structure_damage())
 	..()
 

@@ -16,7 +16,7 @@
 	add_fingerprint(user)
 	interact(user)
 
-/obj/machinery/computer/fusion_fuel_control/interact(var/mob/user)
+/obj/machinery/computer/fusion_fuel_control/interact(mob/user)
 
 	if(stat & (BROKEN|NOPOWER))
 		user.unset_machine()
@@ -74,7 +74,7 @@
 	popup.open()
 	user.set_machine(src)
 
-/obj/machinery/computer/fusion_fuel_control/OnTopic(var/mob/user, var/href_list, var/datum/ui_state/state)
+/obj/machinery/computer/fusion_fuel_control/OnTopic(mob/user, href_list, datum/ui_state/state)
 	if(href_list["toggle_injecting"])
 		var/obj/machinery/fusion_fuel_injector/I = locate(href_list["toggle_injecting"])
 		if(I.id_tag != id_tag || get_dist(src, I) > scan_range)
@@ -95,7 +95,7 @@
 	return TRUE
 
 
-/obj/machinery/computer/fusion_fuel_control/attackby(var/obj/item/W, var/mob/user)
+/obj/machinery/computer/fusion_fuel_control/attackby(obj/item/W, mob/user)
 	if(is_multitool(W))
 		var/new_ident = input("Enter a new ident tag.", "Fuel Control", id_tag) as null|text
 		if(new_ident && user.Adjacent(src))

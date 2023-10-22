@@ -22,5 +22,5 @@
 		testing("Spawning [A]")
 		A.load_new_z(FALSE)
 
-/proc/cmp_sort_templates_tallest_to_shortest(var/datum/map_template/a, var/datum/map_template/b)
+/proc/cmp_sort_templates_tallest_to_shortest(datum/map_template/a, datum/map_template/b)
 	return b.tallness - a.tallness

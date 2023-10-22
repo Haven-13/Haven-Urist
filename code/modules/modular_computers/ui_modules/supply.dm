@@ -206,7 +206,7 @@
 		"can_control" = shuttle?.can_launch()
 	)
 
-/datum/ui_module/program/supply/proc/order_to_ui_json(var/datum/supply_order/SO)
+/datum/ui_module/program/supply/proc/order_to_ui_json(datum/supply_order/SO)
 	return list(list(
 		"id" = SO.ordernum,
 		"object" = SO.object.name,
@@ -221,7 +221,7 @@
 		return 0
 	return 1
 
-/datum/ui_module/program/supply/proc/print_order(var/datum/supply_order/O, var/mob/user)
+/datum/ui_module/program/supply/proc/print_order(datum/supply_order/O, mob/user)
 	if(!O)
 		return
 
@@ -237,7 +237,7 @@
 	t += "<hr>"
 	print_text(t, user)
 
-/datum/ui_module/program/supply/proc/print_summary(var/mob/user)
+/datum/ui_module/program/supply/proc/print_summary(mob/user)
 	var/t = ""
 	t += "<center><BR><b><large>[GLOB.using_map.station_name]</large></b><BR><i>[station_date]</i><BR><i>Export overview<field></i></center><hr>"
 	for(var/source in SSsupply.point_source_descriptions)

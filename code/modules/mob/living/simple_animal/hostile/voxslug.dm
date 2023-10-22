@@ -28,7 +28,7 @@ Small, little HP, poisonous.
 	holder_type = /obj/item/weapon/holder/voxslug
 	faction = SPECIES_VOX
 
-/mob/living/simple_animal/hostile/voxslug/ListTargets(var/dist = 7)
+/mob/living/simple_animal/hostile/voxslug/ListTargets(dist = 7)
 	var/list/L = list()
 	for(var/a in hearers(src, dist))
 		if(istype(a,/mob/living/carbon/human))
@@ -47,20 +47,20 @@ Small, little HP, poisonous.
 
 	return L
 
-/mob/living/simple_animal/hostile/voxslug/get_scooped(var/mob/living/carbon/grabber)
+/mob/living/simple_animal/hostile/voxslug/get_scooped(mob/living/carbon/grabber)
 	if(grabber.species.get_bodytype() != SPECIES_VOX)
 		to_chat(grabber, "<span class='warning'>\The [src] wriggles out of your hands before you can pick it up!</span>")
 		return
 	else return ..()
 
-/mob/living/simple_animal/hostile/voxslug/proc/attach(var/mob/living/carbon/human/H)
+/mob/living/simple_animal/hostile/voxslug/proc/attach(mob/living/carbon/human/H)
 	var/obj/item/organ/external/chest = H.organs_by_name["chest"]
 	var/obj/item/weapon/holder/voxslug/holder = new(get_turf(src))
 	src.forceMove(holder)
 	chest.embed(holder,0,"\The [src] latches itself onto \the [H]!")
 	holder.sync(src)
 
-/mob/living/simple_animal/hostile/voxslug/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/hostile/voxslug/UnarmedAttack(atom/A, proximity)
 	. = ..()
 	if(istype(A, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = A
@@ -77,7 +77,7 @@ Small, little HP, poisonous.
 			var/datum/reagents/R = L.reagents
 			R.add_reagent(/datum/reagent/cryptobiolin, 0.5)
 
-/obj/item/weapon/holder/voxslug/attack(var/mob/target, var/mob/user)
+/obj/item/weapon/holder/voxslug/attack(mob/target, mob/user)
 	var/mob/living/simple_animal/hostile/voxslug/V = contents[1]
 	if(!V.stat && istype(target, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = target

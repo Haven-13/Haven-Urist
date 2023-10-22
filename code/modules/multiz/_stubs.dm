@@ -48,18 +48,18 @@
 		return ..()
 	return QDEL_HINT_LETMELIVE // refuse to get deleted
 
-/proc/HasSubmapData(var/z)
+/proc/HasSubmapData(z)
 	return (GetSubmapData(z) != null)
 
-/proc/GetSubmapData(var/z)
+/proc/GetSubmapData(z)
 	RETURN_TYPE(/obj/effect/landmark/submap_data)
 	. = (locate(/obj/effect/landmark/submap_data) in locate(1,1,z))
 
 // FOR THE LOVE OF GOD USE THESE.  DO NOT FUCKING SPAGHETTIFY THIS.
 // Use the Has*() functions if you ONLY need to check.
 // If you need to do something, use Get*().
-/HasAbove(var/z)
-/HasBelow(var/z)
+/HasAbove(z)
+/HasBelow(z)
 // These give either the turf or null.
-/GetAbove(var/atom/atom)
-/GetBelow(var/atom/atom)
+/GetAbove(atom/atom)
+/GetBelow(atom/atom)

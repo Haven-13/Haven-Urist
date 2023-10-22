@@ -81,7 +81,7 @@
 	var/max_equip = 3
 	var/datum/events/events
 
-/obj/mecha/drain_power(var/drain_check)
+/obj/mecha/drain_power(drain_check)
 
 	if(drain_check)
 		return 1
@@ -201,7 +201,7 @@
 		return 1
 	return 0
 
-/obj/mecha/proc/enter_after(delay as num, var/mob/user as mob, var/numticks = 5)
+/obj/mecha/proc/enter_after(delay as num, mob/user as mob, numticks = 5)
 	var/delayfraction = delay/numticks
 
 	var/turf/T = user.loc
@@ -395,7 +395,7 @@
 		playsound(src,'resources/sound/mecha/mechstep.ogg',40,1)
 	return result
 
-/obj/mecha/Bump(var/atom/obstacle)
+/obj/mecha/Bump(atom/obstacle)
 //	src.inertia_dir = null
 	if(istype(obstacle, /obj))
 		var/obj/O = obstacle
@@ -418,7 +418,7 @@
 ////////  Internal damage  ////////
 ///////////////////////////////////
 
-/obj/mecha/proc/check_for_internal_damage(var/list/possible_int_damage,var/ignore_threshold=null)
+/obj/mecha/proc/check_for_internal_damage(list/possible_int_damage,ignore_threshold=null)
 	if(!is_list(possible_int_damage) || isemptylist(possible_int_damage)) return
 	if(prob(20))
 		if(ignore_threshold || src.health*100/initial(src.health)<src.internal_damage_threshold)
@@ -532,7 +532,7 @@
 			B.set_ready_state(0)
 			B.do_after_cooldown()
 
-/obj/mecha/airlock_crush(var/crush_damage)
+/obj/mecha/airlock_crush(crush_damage)
 	..()
 	hit_damage(crush_damage, is_melee=1)
 	check_for_internal_damage(list(MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST))
@@ -597,7 +597,7 @@
 			src.check_for_internal_damage(list(MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST))
 	return
 
-/obj/mecha/bullet_act(var/obj/item/projectile/Proj)
+/obj/mecha/bullet_act(obj/item/projectile/Proj)
 	if(Proj.damage_type == DAMAGE_TYPE_PAIN && !(src.r_deflect_coeff > 1))
 		use_power(Proj.agony * 5)
 
@@ -826,7 +826,7 @@
 	return
 
 /*
-/obj/mecha/attack_ai(var/mob/living/silicon/ai/user as mob)
+/obj/mecha/attack_ai(mob/living/silicon/ai/user as mob)
 	if(!istype(user, /mob/living/silicon/ai))
 		return
 	var/output = {"<b>Assume direct control over [src]?</b>
@@ -1039,7 +1039,7 @@
 		to_chat(usr, "You stop entering the exosuit.")
 	return
 
-/obj/mecha/proc/moved_inside(var/mob/living/carbon/human/H as mob)
+/obj/mecha/proc/moved_inside(mob/living/carbon/human/H as mob)
 	if(H && H.client && (H in range(1)))
 		H.reset_view(src)
 		/*
@@ -1689,7 +1689,7 @@
 		icon_state = initial(icon_state)
 	return icon_state
 
-/obj/mecha/attack_generic(var/mob/user, var/damage, var/attack_message)
+/obj/mecha/attack_generic(mob/user, damage, attack_message)
 
 	if(!damage)
 		return 0
@@ -1710,7 +1710,7 @@
 		admin_attacker_log(user, "attacked \the [src] but rebounded")
 	return 1
 
-/obj/mecha/onDropInto(var/atom/movable/AM)
+/obj/mecha/onDropInto(atom/movable/AM)
 	dropped_items |= AM
 
 //////////////////////////////////////////
@@ -1721,7 +1721,7 @@
 /datum/global_iterator/mecha_preserve_temp  //normalizing cabin air temperature to 20 degrees celsius
 	delay = 20
 
-/datum/global_iterator/mecha_preserve_temp/process(var/obj/mecha/mecha)
+/datum/global_iterator/mecha_preserve_temp/process(obj/mecha/mecha)
 	if(mecha.cabin_air && mecha.cabin_air.volume > 0)
 		var/delta = mecha.cabin_air.temperature - T20C
 		mecha.cabin_air.temperature -= max(-10, min(10, round(delta/4,0.1)))
@@ -1730,7 +1730,7 @@
 /datum/global_iterator/mecha_tank_give_air
 	delay = 15
 
-/datum/global_iterator/mecha_tank_give_air/process(var/obj/mecha/mecha)
+/datum/global_iterator/mecha_tank_give_air/process(obj/mecha/mecha)
 	if(mecha.internal_tank)
 		var/datum/gas_mixture/tank_air = mecha.internal_tank.return_air()
 		var/datum/gas_mixture/cabin_air = mecha.cabin_air
@@ -1763,7 +1763,7 @@
 /datum/global_iterator/mecha_inertial_movement //inertial movement in space
 	delay = 7
 
-/datum/global_iterator/mecha_inertial_movement/process(var/obj/mecha/mecha as obj,direction)
+/datum/global_iterator/mecha_inertial_movement/process(obj/mecha/mecha as obj,direction)
 	if(direction)
 		if(!step(mecha, direction)||mecha.check_for_support())
 			src.stop()
@@ -1773,7 +1773,7 @@
 
 /datum/global_iterator/mecha_internal_damage // processing internal damage
 
-/datum/global_iterator/mecha_internal_damage/process(var/obj/mecha/mecha)
+/datum/global_iterator/mecha_internal_damage/process(obj/mecha/mecha)
 	if(!mecha.hasInternalDamage())
 		return stop()
 	if(mecha.hasInternalDamage(MECHA_INT_FIRE))
