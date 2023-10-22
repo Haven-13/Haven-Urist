@@ -98,7 +98,7 @@ GLOBAL_LIST_INIT(music_tracks, list(
 	"Wake" = /music_track/wake,
 ))
 
-/proc/setup_music_tracks(var/list/tracks)
+/proc/setup_music_tracks(list/tracks)
 	. = list()
 	var/track_list = LAZY_LENGTH(tracks) ? tracks : GLOB.music_tracks
 	for(var/track_name in track_list)

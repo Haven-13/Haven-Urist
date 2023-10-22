@@ -41,7 +41,7 @@
 	if(is_rigged)
 		to_chat(user, "<span class='warning'>There is \a [attached_device] attached to the warhead.</span>")
 
-/obj/item/shipweapons/torpedo_warhead/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/shipweapons/torpedo_warhead/attackby(obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/crowbar))
 		if(riggedstate == CIRCUITRY_EXPOSED && !attached_device) // can't close it if it's got something it's not supposed to have.
 			to_chat(user, "<span class='notice'>You carefully close the warhead's circuitry panel.</span>")
@@ -116,7 +116,7 @@
 /obj/item/shipweapons/torpedo_warhead/proc/process_activation() // uh oh, time to boom
 	detonate()
 
-/obj/item/shipweapons/torpedo_warhead/proc/detonate(var/forced = 0)
+/obj/item/shipweapons/torpedo_warhead/proc/detonate(forced = 0)
 	playsound(src.loc, 'resources/sound/machines/buttonbeep.ogg', 25, 0, 10)
 	if(safety && !forced)
 		visible_message("<span class='danger'>[src] beeps stubbornly, refusing to detonate!</span>")
@@ -154,7 +154,7 @@ var/const/TWARHEAD_DETONATE = 4
 	. += ..()
 	. += "Amid the various components, you see the safety interlocks are [N.safety ? "engaged" : "disengaged"].<BR>"
 
-/datum/wires/torpedowarhead/UpdatePulsed(var/index)
+/datum/wires/torpedowarhead/UpdatePulsed(index)
 	var/obj/item/shipweapons/torpedo_warhead/N = holder
 	switch(index)
 		if(TWARHEAD_SAFE)
@@ -174,7 +174,7 @@ var/const/TWARHEAD_DETONATE = 4
 		if(TWARHEAD_DETONATE)
 			N.detonate()
 
-/datum/wires/torpedowarhead/UpdateCut(var/index, var/mended)
+/datum/wires/torpedowarhead/UpdateCut(index, mended)
 	var/obj/item/shipweapons/torpedo_warhead/N = holder
 	switch(index)
 		if(TWARHEAD_SAFE)

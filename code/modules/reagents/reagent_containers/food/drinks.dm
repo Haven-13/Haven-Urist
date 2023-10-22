@@ -50,28 +50,28 @@
 		return
 	return ..()
 
-/obj/item/weapon/reagent_containers/food/drinks/standard_feed_mob(var/mob/user, var/mob/target)
+/obj/item/weapon/reagent_containers/food/drinks/standard_feed_mob(mob/user, mob/target)
 	if(!is_open_container())
 		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
 		return 1
 	return ..()
 
-/obj/item/weapon/reagent_containers/food/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
+/obj/item/weapon/reagent_containers/food/drinks/standard_dispenser_refill(mob/user, obj/structure/reagent_dispensers/target)
 	if(!is_open_container())
 		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
 		return 1
 	return ..()
 
-/obj/item/weapon/reagent_containers/food/drinks/standard_pour_into(var/mob/user, var/atom/target)
+/obj/item/weapon/reagent_containers/food/drinks/standard_pour_into(mob/user, atom/target)
 	if(!is_open_container())
 		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
 		return 1
 	return ..()
 
-/obj/item/weapon/reagent_containers/food/drinks/self_feed_message(var/mob/user)
+/obj/item/weapon/reagent_containers/food/drinks/self_feed_message(mob/user)
 	to_chat(user, "<span class='notice'>You swallow a gulp from \the [src].</span>")
 
-/obj/item/weapon/reagent_containers/food/drinks/feed_sound(var/mob/user)
+/obj/item/weapon/reagent_containers/food/drinks/feed_sound(mob/user)
 	playsound(user.loc, pick(drinksounds), rand(10, 50), 1)
 
 //	playsound(src, pick(climbsounds), 50)

@@ -43,7 +43,7 @@
 
 	atmos_canpass = CANPASS_PROC
 
-/obj/machinery/door/attack_generic(var/mob/user, var/damage, var/attack_verb, var/environment_smash)
+/obj/machinery/door/attack_generic(mob/user, damage, attack_verb, environment_smash)
 	if(environment_smash >= 1)
 		damage = max(damage, 10)
 
@@ -130,7 +130,7 @@
 				ADJUSTIT(NORTH)
 #undef ADJUSTIT
 
-/obj/machinery/door/proc/set_dummy_opacity(var/atom/A, var/old_opacity, var/new_opacity)
+/obj/machinery/door/proc/set_dummy_opacity(atom/A, old_opacity, new_opacity)
 	if(!isnull(dummy))
 		dummy.set_opacity(new_opacity)
 
@@ -191,7 +191,7 @@
 			do_animate("deny")
 	return
 
-/obj/machinery/door/bullet_act(var/obj/item/projectile/Proj)
+/obj/machinery/door/bullet_act(obj/item/projectile/Proj)
 	..()
 
 	var/damage = Proj.get_structure_damage()
@@ -215,7 +215,7 @@
 
 
 
-/obj/machinery/door/hitby(AM as mob|obj, var/speed=5)
+/obj/machinery/door/hitby(AM as mob|obj, speed=5)
 
 	..()
 	visible_message("<span class='danger'>[src.name] was hit by [AM].</span>")
@@ -317,7 +317,7 @@
 	update_icon()
 	return
 
-/obj/machinery/door/emag_act(var/remaining_charges)
+/obj/machinery/door/emag_act(remaining_charges)
 	if(density && operable())
 		do_animate("emag")
 		sleep(6)
@@ -339,7 +339,7 @@
 				playsound(src.loc, hitsound, 100, 1)
 				take_damage(W.force)
 
-/obj/machinery/door/proc/take_damage(var/damage)
+/obj/machinery/door/proc/take_damage(damage)
 	var/initialhealth = src.health
 	src.health = max(0, src.health - damage)
 	if(src.health <= 0 && initialhealth > 0)
@@ -431,7 +431,7 @@
 	return
 
 
-/obj/machinery/door/proc/open(var/forced = 0)
+/obj/machinery/door/proc/open(forced = 0)
 	if(!can_open(forced))
 		return
 	operating = 1
@@ -456,7 +456,7 @@
 /obj/machinery/door/proc/next_close_time()
 	return world.time + (normalspeed ? 150 : 5)
 
-/obj/machinery/door/proc/close(var/forced = 0)
+/obj/machinery/door/proc/close(forced = 0)
 	if(!can_close(forced))
 		return
 	operating = 1
@@ -494,7 +494,7 @@
 		SSair.mark_for_update(turf)
 	return 1
 
-/obj/machinery/door/proc/update_heat_protection(var/turf/simulated/source)
+/obj/machinery/door/proc/update_heat_protection(turf/simulated/source)
 	if(istype(source))
 		if(src.density && (src.opacity || src.heat_proof))
 			source.thermal_conductivity = DOOR_HEAT_TRANSFER_COEFFICIENT
@@ -516,19 +516,19 @@
 	if(.)
 		deconstruct(null, TRUE)
 
-/obj/machinery/door/proc/CheckPenetration(var/base_chance, var/damage)
+/obj/machinery/door/proc/CheckPenetration(base_chance, damage)
 	. = damage/maxhealth*180
 	if(glass)
 		. *= 2
 	. = round(.)
 
-/obj/machinery/door/proc/deconstruct(mob/user, var/moved = FALSE)
+/obj/machinery/door/proc/deconstruct(mob/user, moved = FALSE)
 	return null
 
 /obj/machinery/door/morgue
 	icon = 'resources/icons/obj/doors/doormorgue.dmi'
 
-/obj/machinery/door/proc/update_connections(var/propagate = 0)
+/obj/machinery/door/proc/update_connections(propagate = 0)
 	var/dirs = 0
 
 	for(var/direction in GLOB.cardinal)
@@ -559,5 +559,5 @@
 			dirs |= direction
 	connections = dirs
 
-/obj/machinery/door/CanFluidPass(var/coming_from)
+/obj/machinery/door/CanFluidPass(coming_from)
 	return !density

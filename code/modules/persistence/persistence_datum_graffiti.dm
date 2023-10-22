@@ -9,19 +9,19 @@
 	filename = "data/persistent/[lowertext(GLOB.using_map.name)]-graffiti.txt"
 	entries_decay_at = Floor(entries_expire_at * 0.5)
 
-/datum/persistent/graffiti/label_tokens(var/list/tokens)
+/datum/persistent/graffiti/label_tokens(list/tokens)
 	var/list/labelled_tokens = ..()
 	var/entries = LAZY_LENGTH(labelled_tokens)
 	labelled_tokens["author"] =  tokens[entries+1]
 	labelled_tokens["message"] = tokens[entries+2]
 	return labelled_tokens
 
-/datum/persistent/graffiti/get_valid_turf(var/turf/T, var/list/tokens)
+/datum/persistent/graffiti/get_valid_turf(turf/T, list/tokens)
 	var/turf/checking_turf = ..()
 	if(istype(checking_turf) && checking_turf.can_engrave())
 		return checking_turf
 
-/datum/persistent/graffiti/check_turf_contents(var/turf/T, var/list/tokens)
+/datum/persistent/graffiti/check_turf_contents(turf/T, list/tokens)
 	var/too_much_graffiti = 0
 	for(var/obj/effect/decal/writing/W in .)
 		too_much_graffiti++
@@ -29,7 +29,7 @@
 			return FALSE
 	return TRUE
 
-/datum/persistent/graffiti/process_and_apply_tokens(var/list/tokens)
+/datum/persistent/graffiti/process_and_apply_tokens(list/tokens)
 
 	var/_n =       tokens["age"]
 	var/_message = tokens["message"]
@@ -50,20 +50,20 @@
 		tokens["message"] = _message
 		. = ..()
 
-/datum/persistent/graffiti/create_entry_instance(var/turf/creating, var/list/tokens)
+/datum/persistent/graffiti/create_entry_instance(turf/creating, list/tokens)
 	new /obj/effect/decal/writing(creating, tokens["age"]+1, tokens["message"], tokens["author"])
 
-/datum/persistent/graffiti/is_valid_entry(var/atom/entry)
+/datum/persistent/graffiti/is_valid_entry(atom/entry)
 	. = ..()
 	if(.)
 		var/turf/T = entry.loc
 		. = T.can_engrave()
 
-/datum/persistent/graffiti/get_entry_age(var/atom/entry)
+/datum/persistent/graffiti/get_entry_age(atom/entry)
 	var/obj/effect/decal/writing/save_graffiti = entry
 	return save_graffiti.graffiti_age
 
-/datum/persistent/graffiti/compile_entry(var/atom/entry, var/write_file)
+/datum/persistent/graffiti/compile_entry(atom/entry, write_file)
 	. = ..()
 	var/obj/effect/decal/writing/save_graffiti = entry
 	LAZY_ADD(., "[save_graffiti.author || "unknown"]")

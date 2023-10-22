@@ -1,5 +1,5 @@
 /* Helper for grabbing and instantiating new weather types */
-/proc/take_weather_from(var/list/climate)
+/proc/take_weather_from(list/climate)
 	var/weather = pick_n_take(climate)
 	if(ispath(weather, /obj/weathertype))
 		var/obj/weathertype/WT = weather
@@ -7,7 +7,7 @@
 	return
 
 //Gets weather based on what the area can get
-/proc/get_climate_weather(var/area/WA)
+/proc/get_climate_weather(area/WA)
 	var/list/local_climate = list()
 	var/list/nuweather = list(/obj/weathertype/error) //highly visible failure mode
 	if(WA)

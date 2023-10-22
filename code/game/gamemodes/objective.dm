@@ -8,7 +8,7 @@ var/global/list/all_objectives = list()
 	var/target_amount = 0				//If they are focused on a particular number. Steal objectives have their own counter.
 	var/completed = 0					//currently only used for custom objectives.
 
-/datum/objective/New(var/text)
+/datum/objective/New(text)
 	all_objectives |= src
 	if(text)
 		explanation_text = text
@@ -30,7 +30,7 @@ var/global/list/all_objectives = list()
 		target = pick(possible_targets)
 
 
-/datum/objective/proc/find_target_by_role(role, role_type=0)//Option sets either to check assigned role or special role. Default to assigned.
+/datum/objective/proc/find_target_by_role(role, role_type=0)
 	for(var/datum/mind/possible_target in SSticker.minds)
 		if((possible_target != owner) && is_human_mob(possible_target.current) && ((role_type ? possible_target.special_role : possible_target.assigned_role) == role) )
 			target = possible_target

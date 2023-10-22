@@ -143,7 +143,7 @@
 			error_message = ""
 		return 1
 
-/datum/ui_module/program/library/proc/view_book(var/id)
+/datum/ui_module/program/library/proc/view_book(id)
 	if(current_book || !id)
 		return 0
 

@@ -108,7 +108,7 @@
 	src.add_fingerprint(usr)
 	return
 
-/obj/machinery/dna_scannernew/attackby(var/obj/item/weapon/item as obj, var/mob/user as mob)
+/obj/machinery/dna_scannernew/attackby(obj/item/weapon/item as obj, mob/user as mob)
 	if(istype(item, /obj/item/weapon/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
@@ -136,7 +136,7 @@
 	return
 
 //Like grab-putting, but for mouse-drop.
-/obj/machinery/dna_scannernew/MouseDrop_T(var/mob/target, var/mob/user)
+/obj/machinery/dna_scannernew/MouseDrop_T(mob/target, mob/user)
 	if(!istype(target))
 		return
 	if (!CanMouseDrop(target, user))
@@ -156,7 +156,7 @@
 	put_in(target)
 	src.add_fingerprint(user)
 
-/obj/machinery/dna_scannernew/proc/put_in(var/mob/M)
+/obj/machinery/dna_scannernew/proc/put_in(mob/M)
 	if(M.client)
 		M.client.perspective = EYE_PERSPECTIVE
 		M.client.eye = src
@@ -289,13 +289,13 @@
 			break
 	injector_ready = TRUE
 
-/obj/machinery/computer/scan_consolenew/proc/all_dna_blocks(var/list/buffer)
+/obj/machinery/computer/scan_consolenew/proc/all_dna_blocks(list/buffer)
 	var/list/arr = list()
 	for(var/i = 1, i <= buffer.len, i++)
 		arr += "[i]:[EncodeDNABlock(buffer[i])]"
 	return arr
 
-/obj/machinery/computer/scan_consolenew/proc/setInjectorBlock(var/obj/item/weapon/dnainjector/I, var/blk, var/datum/dna2/record/buffer)
+/obj/machinery/computer/scan_consolenew/proc/setInjectorBlock(obj/item/weapon/dnainjector/I, blk, datum/dna2/record/buffer)
 	var/pos = findtext(blk,":")
 	if(!pos) return 0
 	var/id = text2num(copytext(blk,1,pos))
@@ -332,7 +332,7 @@
   *
   * @return nothing
   */
-/obj/machinery/computer/scan_consolenew/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/computer/scan_consolenew/ui_interact(mob/user, datum/tgui/ui)
 
 	if(!connected)
 		to_chat(user, "<span class='notice'>No scanner detected, re-link this machine with a multitool.</span>")

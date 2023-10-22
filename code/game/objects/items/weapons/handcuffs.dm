@@ -28,7 +28,7 @@
 		return "legcuff1"
 	return ..()
 
-/obj/item/weapon/handcuffs/attack(var/mob/living/carbon/C, var/mob/living/user)
+/obj/item/weapon/handcuffs/attack(mob/living/carbon/C, mob/living/user)
 
 	if(!user.IsAdvancedToolUser())
 		return
@@ -47,7 +47,7 @@
 	else
 		..()
 
-/obj/item/weapon/handcuffs/proc/place_handcuffs(var/mob/living/carbon/target, var/mob/user)
+/obj/item/weapon/handcuffs/proc/place_handcuffs(mob/living/carbon/target, mob/user)
 	playsound(src.loc, cuff_sound, 30, 1, -2)
 
 	var/mob/living/carbon/human/H = target
@@ -86,7 +86,7 @@
 	return 1
 
 var/last_chew = 0
-/mob/living/carbon/human/RestrainedClickOn(var/atom/A)
+/mob/living/carbon/human/RestrainedClickOn(atom/A)
 	if (A != src) return ..()
 	if (last_chew + 26 > world.time) return
 
@@ -140,7 +140,7 @@ var/last_chew = 0
 /obj/item/weapon/handcuffs/cable/white
 	color = COLOR_SILVER
 
-/obj/item/weapon/handcuffs/cable/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/weapon/handcuffs/cable/attackby(obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = I

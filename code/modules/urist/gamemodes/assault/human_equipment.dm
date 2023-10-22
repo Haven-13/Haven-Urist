@@ -89,7 +89,7 @@
 
 	return
 
-/obj/structure/assaultshieldgen/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/assaultshieldgen/bullet_act(obj/item/projectile/Proj)
 	health -= Proj.damage
 
 	if(health <= 0)

@@ -29,7 +29,7 @@
 	else if(M.stat == DEAD)
 		activate("death")
 
-/obj/item/weapon/implant/death_alarm/activate(var/cause)
+/obj/item/weapon/implant/death_alarm/activate(cause)
 	var/mob/M = imp_in
 	var/area/t = get_area(M)
 	var/location = t.name
@@ -46,7 +46,7 @@
 	for(var/channel in list("Security", "Medical", "Command"))
 		GLOB.global_headset.autosay(death_message, "[mobname]'s Death Alarm", channel)
 
-/obj/item/weapon/implant/death_alarm/emp_act(severity)			//for some reason alarms stop going off in case they are emp'd, even without this
+/obj/item/weapon/implant/death_alarm/emp_act(severity)
 	if (malfunction)		//so I'm just going to add a meltdown chance here
 		return
 	malfunction = MALFUNCTION_TEMPORARY

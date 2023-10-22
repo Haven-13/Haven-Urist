@@ -11,7 +11,7 @@
 		return UI_CLOSE
 	return ..()
 
-/obj/machinery/computer/ship/navigation/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/computer/ship/navigation/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "spacecraft/ShipNavigation")
@@ -33,7 +33,7 @@
 		"etaNext" = linked.get_speed() ? round(linked.ETA()/10) : "N/A"
 	)
 
-/obj/machinery/computer/ship/navigation/check_eye(var/mob/user as mob)
+/obj/machinery/computer/ship/navigation/check_eye(mob/user as mob)
 	if (!viewing)
 		return -1
 	if (!get_dist(user, src) > 1 || user.blinded || !linked )
@@ -41,7 +41,7 @@
 		return -1
 	return 0
 
-/obj/machinery/computer/ship/navigation/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/ship/navigation/attack_hand(mob/user as mob)
 	if(..())
 		user.unset_machine()
 		viewing = 0

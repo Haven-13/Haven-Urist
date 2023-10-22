@@ -4,7 +4,7 @@
 	var/list/jobs
 	var/associated_z
 
-/datum/submap/New(var/existing_z)
+/datum/submap/New(existing_z)
 	SSmapping.submaps[src] = TRUE
 	associated_z = existing_z
 
@@ -12,7 +12,7 @@
 	SSmapping.submaps -= src
 	. = ..()
 
-/datum/submap/proc/setup_submap(var/decl/submap_archetype/_archetype)
+/datum/submap/proc/setup_submap(decl/submap_archetype/_archetype)
 	if(!istype(_archetype))
 		to_world_log("Submap error - [name] - null or invalid archetype supplied ([_archetype]).")
 		qdel(src)

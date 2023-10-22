@@ -17,7 +17,7 @@
 	show_browser(usr, dat, "window=adminpollpanel;size=200x150")
 	return
 
-/datum/admins/proc/view_poll_panel(var/pollid)
+/datum/admins/proc/view_poll_panel(pollid)
 	if(!check_rights(R_ADMIN,1))	return
 
 	establish_db_connection()
@@ -318,7 +318,7 @@
 	show_browser(usr, dat, "window=admincreatepolls;size=600x650")
 	return
 
-/datum/admins/proc/remove_poll(var/pollid)
+/datum/admins/proc/remove_poll(pollid)
 	if(!check_rights(R_ADMIN,1))	return
 
 	establish_db_connection()
@@ -353,7 +353,7 @@
 	return
 
 
-/datum/admins/proc/create_new_poll(var/polltype,var/timelength,var/question,list/polloptions,var/adminonly,var/multilimit,var/maxval,var/minval,var/descmax,var/descmin,var/descmed)
+/datum/admins/proc/create_new_poll(polltype,timelength,question,list/polloptions,adminonly,multilimit,maxval,minval,descmax,descmin,descmed)
 
 	if(!check_rights(R_ADMIN,1))	return
 

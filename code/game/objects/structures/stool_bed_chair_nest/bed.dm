@@ -22,7 +22,7 @@
 	var/base_icon = "bed"
 	var/material_alteration = MATERIAL_ALTERATION_ALL
 
-/obj/structure/bed/New(var/newloc, var/new_material, var/new_padding_material)
+/obj/structure/bed/New(newloc, new_material, new_padding_material)
 	..(newloc)
 	color = null
 	if(!new_material)
@@ -156,7 +156,7 @@
 		padding_material = null
 	update_icon()
 
-/obj/structure/bed/proc/add_padding(var/padding_type)
+/obj/structure/bed/proc/add_padding(padding_type)
 	padding_material = SSmaterials.get_material_by_name(padding_type)
 	update_icon()
 
@@ -171,17 +171,17 @@
 	icon_state = "psychbed"
 	base_icon = "psychbed"
 
-/obj/structure/bed/psych/New(var/newloc)
+/obj/structure/bed/psych/New(newloc)
 	..(newloc,"wood","leather")
 
-/obj/structure/bed/padded/New(var/newloc)
+/obj/structure/bed/padded/New(newloc)
 	..(newloc,"plastic","cotton")
 
 /obj/structure/bed/alien
 	name = "resting contraption"
 	desc = "This looks similar to contraptions from earth. Could aliens be stealing our technology?"
 
-/obj/structure/bed/alien/New(var/newloc)
+/obj/structure/bed/alien/New(newloc)
 	..(newloc,"resin")
 
 /*

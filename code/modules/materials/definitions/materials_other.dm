@@ -17,7 +17,7 @@
 	sheet_plural_name = "bricks"
 	conductive = 0
 
-/material/cult/place_dismantled_girder(var/turf/target)
+/material/cult/place_dismantled_girder(turf/target)
 	new /obj/structure/girder/cult(target)
 
 /material/cult/reinf
@@ -35,7 +35,7 @@
 	conductive = 0
 	stack_type = null
 
-/material/resin/can_open_material_door(var/mob/living/user)
+/material/resin/can_open_material_door(mob/living/user)
 	var/mob/living/carbon/M = user
 	if(istype(M) && locate(/obj/item/organ/internal/xeno/hivenode) in M.internal_organs)
 		return 1

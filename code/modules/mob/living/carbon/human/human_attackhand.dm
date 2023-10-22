@@ -1,4 +1,4 @@
-/mob/living/carbon/human/proc/get_unarmed_attack(var/mob/target, var/hit_zone = null)
+/mob/living/carbon/human/proc/get_unarmed_attack(mob/target, hit_zone = null)
 	if(!hit_zone)
 		hit_zone = zone_sel.selecting
 
@@ -243,7 +243,7 @@
 /mob/living/carbon/human/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
 	return
 
-/mob/living/carbon/human/attack_generic(var/mob/user, var/damage, var/attack_message, var/environment_smash, var/damtype = DAMAGE_TYPE_BRUTE, var/armorcheck = "melee")
+/mob/living/carbon/human/attack_generic(mob/user, damage, attack_message, environment_smash, damtype = DAMAGE_TYPE_BRUTE, armorcheck = "melee")
 
 	if(!damage || !istype(user))
 		return
@@ -289,7 +289,7 @@
 	If you are applying pressure to another and attempt to apply pressure to yourself, you'll have to switch to an empty hand which will also stop do_mob()
 	Changing targeted zones should also stop do_mob(), preventing you from applying pressure to more than one body part at once.
 */
-/mob/living/carbon/human/proc/apply_pressure(mob/living/user, var/target_zone)
+/mob/living/carbon/human/proc/apply_pressure(mob/living/user, target_zone)
 	var/obj/item/organ/external/organ = get_organ(target_zone)
 	if(!organ || !(organ.status & ORGAN_BLEEDING || organ.status & ORGAN_ARTERY_CUT) || BP_IS_ROBOTIC(organ))
 		return 0
@@ -315,7 +315,7 @@
 	var/obj/item/organ/external/applied
 	var/mob/living/carbon/human/H
 
-/obj/item/pressure/New(var/newloc, var/mob/user, var/obj/item/organ/external/O)
+/obj/item/pressure/New(newloc, mob/user, obj/item/organ/external/O)
 	..(newloc)
 	if(!O || !user || !O.owner)
 		qdel(src)

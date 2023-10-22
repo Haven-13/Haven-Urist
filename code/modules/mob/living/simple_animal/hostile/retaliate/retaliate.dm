@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/retaliate
 	var/list/enemies = list()
 
-/mob/living/simple_animal/hostile/retaliate/Found(var/atom/A)
+/mob/living/simple_animal/hostile/retaliate/Found(atom/A)
 	if(is_living_mob(A))
 		var/mob/living/L = A
 		if(!L.stat)
@@ -46,6 +46,6 @@
 			H.enemies |= enemies
 	return 0
 
-/mob/living/simple_animal/hostile/retaliate/adjustBruteLoss(var/damage)
+/mob/living/simple_animal/hostile/retaliate/adjustBruteLoss(damage)
 	..(damage)
 	Retaliate()

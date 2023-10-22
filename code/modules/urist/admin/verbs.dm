@@ -13,7 +13,7 @@
 		log_admin("[key_name(src)] has warped all players to their location.")
 
 //Urist mass-callproc, call it by regular callproc. SUPER risky.
-/client/proc/mass_callproc(var/atom/A, var/procpath, var/strict_typing = 1)
+/client/proc/mass_callproc(atom/A, procpath, strict_typing = 1)
 	set category = "Debug"
 	set name = "ProcCall All"
 	set background = 1

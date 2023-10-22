@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/npc/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
+/mob/living/simple_animal/hostile/npc/hear_say(message, verb = "says", datum/language/language = null, alt_name = "",italics = 0, mob/speaker = null, sound/speech_sound, sound_vol)
 	if(speech_triggers.len)
 		if(speaker in view(7, src))
 			for(var/datum/npc_speech_trigger/T in speech_triggers)
@@ -10,7 +10,7 @@
 						if(findtext(message,triggerword))
 							do_react(T)
 
-/mob/living/simple_animal/hostile/npc/proc/do_react(var/datum/npc_speech_trigger/T)
+/mob/living/simple_animal/hostile/npc/proc/do_react(datum/npc_speech_trigger/T)
 	if(prob(T.response_chance))
 		if(!angryspeak)
 			if(T.response_phrase)

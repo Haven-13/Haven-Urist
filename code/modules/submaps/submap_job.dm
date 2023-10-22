@@ -17,12 +17,12 @@
 	var/list/blacklisted_species
 	var/list/whitelisted_species
 
-/datum/job/submap/New(var/datum/submap/_owner)
+/datum/job/submap/New(datum/submap/_owner)
 	spawnpoints = list()
 	owner = _owner
 	..()
 
-/datum/job/submap/is_restricted(var/datum/preferences/prefs, var/feedback)
+/datum/job/submap/is_restricted(datum/preferences/prefs, feedback)
 	if(minimum_character_age && (prefs.age < minimum_character_age))
 		to_chat(feedback, "<span class='boldannounce'>Not old enough. Minimum character age is [minimum_character_age].</span>")
 		return TRUE
@@ -34,5 +34,5 @@
 		return TRUE
 	return FALSE
 
-/datum/job/submap/check_is_active(var/mob/M)
+/datum/job/submap/check_is_active(mob/M)
 	. = (..() && M.faction == owner.name)

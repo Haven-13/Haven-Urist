@@ -7,7 +7,7 @@ var/const/NETWORK_EXPLORATION_SHUTTLE_PLUTO     = "Styx (Shuttle)"
 var/const/NETWORK_COURIER_SHUTTLE_PLUTO         = "Eris (Shuttle)"
 var/const/NETWORK_PRISON                        = "Prison"
 
-/datum/map/tyclo_pluto/get_network_access(var/network)
+/datum/map/tyclo_pluto/get_network_access(network)
 	if(network == NETWORK_COMMAND)
 		return access_heads
 	return ..()

@@ -103,7 +103,7 @@
 			input = /mob/living/carbon/monkey
 			output = null
 
-/obj/machinery/processor/proc/select_recipe(var/X)
+/obj/machinery/processor/proc/select_recipe(X)
 	for (var/Type in typesof(/datum/food_processor_process) - /datum/food_processor_process - /datum/food_processor_process/mob)
 		var/datum/food_processor_process/P = new Type()
 		if (!istype(X, P.input))
@@ -111,7 +111,7 @@
 		return P
 	return 0
 
-/obj/machinery/processor/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/processor/attackby(obj/item/O as obj, mob/user as mob)
 	if(src.processing)
 		to_chat(user, "\red The processor is in the process of processing.")
 		return 1
@@ -133,7 +133,7 @@
 	what:loc = src
 	return
 
-/obj/machinery/processor/attack_hand(var/mob/user as mob)
+/obj/machinery/processor/attack_hand(mob/user as mob)
 	if (src.stat != 0) //NOPOWER etc
 		return
 	if(src.processing)

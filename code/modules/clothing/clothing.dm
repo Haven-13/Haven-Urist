@@ -101,12 +101,12 @@
 				return 0
 	return 1
 
-/obj/item/clothing/equipped(var/mob/user)
+/obj/item/clothing/equipped(mob/user)
 	if(needs_vision_update())
 		update_vision()
 	return ..()
 
-/obj/item/clothing/proc/refit_for_species(var/target_species)
+/obj/item/clothing/proc/refit_for_species(target_species)
 	if(!species_restricted)
 		return //this item doesn't use the species_restricted system
 
@@ -122,7 +122,7 @@
 	else
 		icon = initial(icon)
 
-/obj/item/clothing/head/helmet/refit_for_species(var/target_species)
+/obj/item/clothing/head/helmet/refit_for_species(target_species)
 	if(!species_restricted)
 		return //this item doesn't use the species_restricted system
 
@@ -151,11 +151,11 @@
 	if(accessories.len > ties.len)
 		.+= ". <a href='?src=[REF(src)];list_ungabunga=1'>\[See accessories\]</a>"
 
-/obj/item/clothing/CanUseTopic(var/user)
+/obj/item/clothing/CanUseTopic(user)
 	if(user in view(get_turf(src)))
 		return UI_INTERACTIVE
 
-/obj/item/clothing/OnTopic(var/user, var/list/href_list, var/datum/ui_state/state)
+/obj/item/clothing/OnTopic(user, list/href_list, datum/ui_state/state)
 	if(href_list["list_ungabunga"])
 		if(accessories.len)
 			var/list/ties = list()
@@ -336,7 +336,7 @@
 	return "material from a pair of [name]."
 
 // Called just before an attack_hand(), in mob/UnarmedAttack()
-/obj/item/clothing/gloves/proc/Touch(var/atom/A, var/proximity)
+/obj/item/clothing/gloves/proc/Touch(atom/A, proximity)
 	return 0 // return 1 to cancel attack_hand()
 
 /obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user)
@@ -453,7 +453,7 @@
 	else
 		return ..(user)
 
-/obj/item/clothing/head/proc/update_flashlight(var/mob/user = null)
+/obj/item/clothing/head/proc/update_flashlight(mob/user = null)
 	if(on && !light_applied)
 		set_light(0.5, 1, 3)
 		light_applied = 1
@@ -463,15 +463,15 @@
 	update_icon(user)
 	user.update_action_buttons()
 
-/obj/item/clothing/head/attack_ai(var/mob/user)
+/obj/item/clothing/head/attack_ai(mob/user)
 	if(!mob_wear_hat(user))
 		return ..()
 
-/obj/item/clothing/head/attack_generic(var/mob/user)
+/obj/item/clothing/head/attack_generic(mob/user)
 	if(!istype(user) || !mob_wear_hat(user))
 		return ..()
 
-/obj/item/clothing/head/proc/mob_wear_hat(var/mob/user)
+/obj/item/clothing/head/proc/mob_wear_hat(mob/user)
 	if(!Adjacent(user))
 		return 0
 	var/success
@@ -491,7 +491,7 @@
 		to_chat(user, "<span class='notice'>You crawl under \the [src].</span>")
 	return 1
 
-/obj/item/clothing/head/update_icon(var/mob/user)
+/obj/item/clothing/head/update_icon(mob/user)
 
 	overlays.Cut()
 	if(on)
@@ -551,7 +551,7 @@
 /obj/item/clothing/mask/proc/filter_air(datum/gas_mixture/air)
 	return
 
-/obj/item/clothing/mask/proc/adjust_mask(var/mob/user)
+/obj/item/clothing/mask/proc/adjust_mask(mob/user)
 	set category = "Object"
 	set name = "Adjust mask"
 	set src in usr
@@ -635,13 +635,13 @@
 	update_icon()
 	return
 
-/obj/item/clothing/shoes/attack_hand(var/mob/living/M)
+/obj/item/clothing/shoes/attack_hand(mob/living/M)
 	if(can_hold_knife && holding && src.loc == M)
 		draw_knife()
 		return
 	..()
 
-/obj/item/clothing/shoes/attackby(var/obj/item/I, var/mob/user)
+/obj/item/clothing/shoes/attackby(obj/item/I, mob/user)
 	if(can_hold_knife && is_type_in_list(I, list(/obj/item/weapon/material/shard, /obj/item/weapon/material/butterfly, /obj/item/weapon/material/kitchen/utensil, /obj/item/weapon/material/hatchet/tacknife)))
 		if(holding)
 			to_chat(user, "<span class='warning'>\The [src] is already holding \a [holding].</span>")
@@ -661,7 +661,7 @@
 		overlays += image(icon, "[icon_state]_knife")
 	return ..()
 
-/obj/item/clothing/shoes/proc/handle_movement(var/turf/walking, var/running)
+/obj/item/clothing/shoes/proc/handle_movement(turf/walking, running)
 	return
 
 /obj/item/clothing/shoes/update_clothing_icon()
@@ -764,7 +764,7 @@
 		ret = icon_state
 	return "[ret]_s"
 
-/obj/item/clothing/under/attack_hand(var/mob/user)
+/obj/item/clothing/under/attack_hand(mob/user)
 	if(accessories && accessories.len)
 		..()
 	if ((is_human_mob(usr) || issmall(usr)) && src.loc == user)
@@ -888,7 +888,7 @@
 	else
 		user.visible_message("[user] adjusts the tracking sensor on [src]", "You adjust the sensor on [src].")
 
-/obj/item/clothing/under/emp_act(var/severity)
+/obj/item/clothing/under/emp_act(severity)
 	..()
 	var/new_mode
 	switch(severity)

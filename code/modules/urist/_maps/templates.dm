@@ -136,7 +136,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 	GLOB.SSmatrix.init_matrix_memory(src)
 	. = ..()
 
-/obj/effect/template_loader/matrix/Load(var/security_rating = LOW_SEC, datum/map_template/template = null)
+/obj/effect/template_loader/matrix/Load(security_rating = LOW_SEC, datum/map_template/template = null)
 	switch(security_rating)
 		if(LOW_SEC)
 			template = safepick(low_matrix_templates)

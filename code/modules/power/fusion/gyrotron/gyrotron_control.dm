@@ -9,14 +9,14 @@
 	var/id_tag
 	var/scan_range = 25
 
-/obj/machinery/computer/gyrotron_control/attack_ai(var/mob/user)
+/obj/machinery/computer/gyrotron_control/attack_ai(mob/user)
 	attack_hand(user)
 
-/obj/machinery/computer/gyrotron_control/attack_hand(var/mob/user)
+/obj/machinery/computer/gyrotron_control/attack_hand(mob/user)
 	add_fingerprint(user)
 	interact(user)
 
-/obj/machinery/computer/gyrotron_control/interact(var/mob/user)
+/obj/machinery/computer/gyrotron_control/interact(mob/user)
 
 	if(!id_tag)
 		to_chat(user, "<span class='warning'>This console has not been assigned an ident tag. Please contact your system administrator or conduct a manual update with a standard multitool.</span>")
@@ -52,7 +52,7 @@
 	add_fingerprint(user)
 	user.set_machine(src)
 
-/obj/machinery/computer/gyrotron_control/OnTopic(var/mob/user, var/href_list, var/datum/ui_state/state)
+/obj/machinery/computer/gyrotron_control/OnTopic(mob/user, href_list, datum/ui_state/state)
 	var/obj/machinery/power/emitter/gyrotron/G = locate(href_list["machine"])
 	if(!G || G.id_tag != id_tag || get_dist(src, G) > scan_range)
 		return
@@ -83,7 +83,7 @@
 
 	return FALSE
 
-/obj/machinery/computer/gyrotron_control/attackby(var/obj/item/W, var/mob/user)
+/obj/machinery/computer/gyrotron_control/attackby(obj/item/W, mob/user)
 	if(is_multitool(W))
 		var/new_ident = input("Enter a new ident tag.", "Gyrotron Control", id_tag) as null|text
 		if(new_ident && user.Adjacent(src))

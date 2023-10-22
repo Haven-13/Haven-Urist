@@ -319,7 +319,7 @@
 	layer = 4.1		//just above mobs
 	density = 1
 
-/obj/structure/scom/shieldwall/shieldwall1/Bumped(var/obj/mecha/working/hoverpod/fighter/small/alien/M)
+/obj/structure/scom/shieldwall/shieldwall1/Bumped(obj/mecha/working/hoverpod/fighter/small/alien/M)
 	M.x = src.x
 	M.y = src.y
 
@@ -332,7 +332,7 @@
 	layer = 4.1		//just above mobs
 	density = 1
 
-/obj/structure/scom/shieldwall/shieldwall2/Bumped(var/obj/mecha/working/hoverpod/fighter/M)
+/obj/structure/scom/shieldwall/shieldwall2/Bumped(obj/mecha/working/hoverpod/fighter/M)
 	M.x = src.x
 	M.y = src.y
 

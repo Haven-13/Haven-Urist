@@ -145,7 +145,7 @@
 					visible_emote("[pick(emote_see)].")
 	return 1
 
-/mob/living/simple_animal/proc/handle_atmos(var/atmos_suitable = 1)
+/mob/living/simple_animal/proc/handle_atmos(atmos_suitable = 1)
 	//Atmos
 
 	if(!loc)
@@ -194,13 +194,13 @@
 /mob/living/simple_animal/gib()
 	..(icon_gib,1)
 
-/mob/living/simple_animal/proc/visible_emote(var/act_desc)
+/mob/living/simple_animal/proc/visible_emote(act_desc)
 	custom_emote(1, act_desc)
 
-/mob/living/simple_animal/proc/audible_emote(var/act_desc)
+/mob/living/simple_animal/proc/audible_emote(act_desc)
 	custom_emote(2, act_desc)
 
-/mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
+/mob/living/simple_animal/bullet_act(obj/item/projectile/Proj)
 	if(!Proj || Proj.nodamage)
 		return
 
@@ -242,7 +242,7 @@
 
 	return
 
-/mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)
+/mob/living/simple_animal/attackby(obj/item/O, mob/user)
 	if(istype(O, /obj/item/stack/medical))
 		if(stat != DEAD)
 			var/obj/item/stack/medical/MED = O
@@ -266,7 +266,7 @@
 		else
 			O.attack(src, user, user.zone_sel.selecting)
 
-/mob/living/simple_animal/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
+/mob/living/simple_animal/hit_with_weapon(obj/item/O, mob/living/user, effective_force, hit_zone)
 
 	visible_message("<span class='danger'>\The [src] has been attacked with \the [O] by [user]!</span>")
 
@@ -348,7 +348,7 @@
 	..()
 	updatehealth()
 
-/mob/living/simple_animal/electrocute_act(damage, var/obj/source)
+/mob/living/simple_animal/electrocute_act(damage, obj/source)
 	health -= damage
 	playsound(loc, "sparks", 50, 1, -1)
 	if (damage > 15)
@@ -376,7 +376,7 @@
 			return (0)
 	return 1
 
-/mob/living/simple_animal/say(var/message)
+/mob/living/simple_animal/say(message)
 	var/verb = "says"
 	if(speak_emote.len)
 		verb = pick(speak_emote)
@@ -385,15 +385,15 @@
 
 	..(message, species_language, verb)
 
-/mob/living/simple_animal/get_speech_ending(verb, var/ending)
+/mob/living/simple_animal/get_speech_ending(verb, ending)
 	return verb
 
-/mob/living/simple_animal/put_in_hands(var/obj/item/W) // No hands.
+/mob/living/simple_animal/put_in_hands(obj/item/W)
 	W.loc = get_turf(src)
 	return 1
 
 // Harvest an animal's delicious byproducts
-/mob/living/simple_animal/proc/harvest(var/mob/user)
+/mob/living/simple_animal/proc/harvest(mob/user)
 	var/actual_meat_amount = max(1,(meat_amount/2))
 	if(meat_type && actual_meat_amount>0 && (stat == DEAD))
 		for(var/i=0;i<actual_meat_amount;i++)
@@ -423,7 +423,7 @@
 /mob/living/simple_animal/is_burnable()
 	return heat_damage_per_tick
 
-/mob/living/simple_animal/proc/adjustBleedTicks(var/amount)
+/mob/living/simple_animal/proc/adjustBleedTicks(amount)
 	if(!can_bleed)
 		return
 

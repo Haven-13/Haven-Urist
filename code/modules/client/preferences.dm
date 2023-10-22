@@ -56,7 +56,7 @@ var/list/preferences_datums = list()
 		preview_background.set_plane(DEFAULT_PLANE)
 		preview_background.screen_loc = "character_preview_map:1,1 to 1,4"
 
-/datum/preferences/proc/load_and_update_character(var/slot)
+/datum/preferences/proc/load_and_update_character(slot)
 	load_character(slot)
 	if(update_setup(loaded_preferences, loaded_character))
 		save_preferences()

@@ -18,7 +18,7 @@
 			AM.forceMove(src)
 	update_icon()
 
-/obj/structure/displaycase/examine(var/user)
+/obj/structure/displaycase/examine(user)
 	..()
 	if(contents.len)
 		to_chat(user, "Inside you see [english_list(contents)].")
@@ -37,7 +37,7 @@
 			if (prob(50))
 				take_damage(5)
 
-/obj/structure/displaycase/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/displaycase/bullet_act(obj/item/projectile/Proj)
 	..()
 	take_damage(Proj.get_structure_damage())
 

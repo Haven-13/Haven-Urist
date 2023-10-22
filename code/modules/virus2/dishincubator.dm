@@ -18,7 +18,7 @@
 	build_default_parts(/obj/item/weapon/circuitboard/incubator)
 	. = ..()
 
-/obj/machinery/disease2/incubator/attackby(var/obj/O as obj, var/mob/user as mob)
+/obj/machinery/disease2/incubator/attackby(obj/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/weapon/reagent_containers/glass) || istype(O,/obj/item/weapon/reagent_containers/syringe))
 
 		if(beaker)
@@ -56,7 +56,7 @@
 		return
 	return ..()
 
-/obj/machinery/disease2/incubator/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/disease2/incubator/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "virology/PathogenicIncubator", name)

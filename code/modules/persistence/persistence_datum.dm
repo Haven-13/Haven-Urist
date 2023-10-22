@@ -17,7 +17,7 @@
 /datum/persistent/proc/set_filename()
 	return
 
-/datum/persistent/proc/label_tokens(var/list/tokens)
+/datum/persistent/proc/label_tokens(list/tokens)
 	var/list/labelled_tokens = list()
 	labelled_tokens["x"] = text2num(tokens[1])
 	labelled_tokens["y"] = text2num(tokens[2])
@@ -25,14 +25,14 @@
 	labelled_tokens["age"] = text2num(tokens[4])
 	return labelled_tokens
 
-/datum/persistent/proc/get_valid_turf(var/turf/T, var/list/tokens)
+/datum/persistent/proc/get_valid_turf(turf/T, list/tokens)
 	if(T && check_turf_contents(T, tokens))
 		return T
 
-/datum/persistent/proc/check_turf_contents(var/turf/T, var/list/tokens)
+/datum/persistent/proc/check_turf_contents(turf/T, list/tokens)
 	return TRUE
 
-/datum/persistent/proc/check_token_sanity(var/list/tokens)
+/datum/persistent/proc/check_token_sanity(list/tokens)
 	return ( \
 		!isnull(tokens["x"]) && \
 		!isnull(tokens["y"]) && \
@@ -41,17 +41,17 @@
 		tokens["age"] <= entries_expire_at \
 	)
 
-/datum/persistent/proc/create_entry_instance(var/turf/creating, var/list/tokens)
+/datum/persistent/proc/create_entry_instance(turf/creating, list/tokens)
 	return
 
-/datum/persistent/proc/process_and_apply_tokens(var/list/tokens)
+/datum/persistent/proc/process_and_apply_tokens(list/tokens)
 	var/_z = tokens["z"]
 	if(_z in GLOB.using_map.station_levels)
 		. = get_valid_turf(locate(tokens["x"], tokens["y"], _z), tokens)
 		if(.)
 			create_entry_instance(., tokens)
 
-/datum/persistent/proc/is_valid_entry(var/atom/entry)
+/datum/persistent/proc/is_valid_entry(atom/entry)
 	return ( \
 		istype(entry) && \
 		get_entry_age(entry) <= entries_expire_at && \
@@ -59,10 +59,10 @@
 		(entry.z in GLOB.using_map.station_levels) \
 	)
 
-/datum/persistent/proc/get_entry_age(var/atom/entry)
+/datum/persistent/proc/get_entry_age(atom/entry)
 	return 0
 
-/datum/persistent/proc/compile_entry(var/atom/entry)
+/datum/persistent/proc/compile_entry(atom/entry)
 	. = list(
 		entry.x,
 		entry.y,

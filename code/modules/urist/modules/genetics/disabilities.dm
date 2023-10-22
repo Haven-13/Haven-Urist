@@ -19,7 +19,7 @@
 	..()
 	block=MUTEBLOCK
 
-/datum/dna/gene/disability/mute/OnSay(var/mob/M, var/message)
+/datum/dna/gene/disability/mute/OnSay(mob/M, message)
 	return ""
 
 ////////////////////////////////////////
@@ -36,7 +36,7 @@
 	..()
 	block=RADBLOCK
 
-/datum/dna/gene/disability/radioactive/OnMobLife(var/mob/owner)
+/datum/dna/gene/disability/radioactive/OnMobLife(mob/owner)
 	owner.radiation = max(owner.radiation, 20)
 	for(var/mob/living/L in range(1, owner))
 		if(L == owner) continue
@@ -44,7 +44,7 @@
 		L.radiation += 5
 	return
 
-/datum/dna/gene/disability/radioactive/OnDrawUnderlays(var/mob/M,var/g,var/fat)
+/datum/dna/gene/disability/radioactive/OnDrawUnderlays(mob/M,g,fat)
 	return "rads[fat]_s"
 
 ////////////////////////////////////////
@@ -79,7 +79,7 @@
 	..()
 	block=CHAVBLOCK
 
-/datum/dna/gene/disability/speech/chav/OnSay(var/mob/M, var/message)
+/datum/dna/gene/disability/speech/chav/OnSay(mob/M, message)
 	// THIS ENTIRE THING BEGS FOR REGEX
 	message = replacetext(message,"dick","prat")
 	message = replacetext(message,"comdom","knob'ead")
@@ -123,7 +123,7 @@
 	..()
 	block=SWEDEBLOCK
 
-/datum/dna/gene/disability/speech/swedish/OnSay(var/mob/M, var/message)
+/datum/dna/gene/disability/speech/swedish/OnSay(mob/M, message)
 	// svedish
 	message = replacetext(message,"w","v")
 	if(prob(30))
@@ -141,7 +141,7 @@
 	..()
 	block=SCRAMBLEBLOCK
 
-/datum/dna/gene/disability/unintelligable/OnSay(var/mob/M, var/message)
+/datum/dna/gene/disability/unintelligable/OnSay(mob/M, message)
 	var/prefix=copytext(message,1,2)
 	if(prefix == ";")
 		message = copytext(message,2)
@@ -175,7 +175,7 @@
 	..()
 	block=HORNSBLOCK
 
-/datum/dna/gene/disability/horns/OnDrawUnderlays(var/mob/M,var/g,var/fat)
+/datum/dna/gene/disability/horns/OnDrawUnderlays(mob/M,g,fat)
 	return "horns_s"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -192,5 +192,5 @@
 	..()
 	block=LISPBLOCK
 
-/datum/dna/gene/disability/lisp/OnSay(var/mob/M, var/message)
+/datum/dna/gene/disability/lisp/OnSay(mob/M, message)
 	return replacetext(message,"s","th")

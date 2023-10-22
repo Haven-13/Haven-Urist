@@ -123,7 +123,7 @@
 	show_browser(user, dat, "window=autolathe")
 	onclose(user, "autolathe")
 
-/obj/machinery/autolathe/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/autolathe/attackby(obj/item/O as obj, mob/user as mob)
 
 	if(busy)
 		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
@@ -148,7 +148,7 @@
 
 	attempt_fill(O,user)
 
-/obj/machinery/autolathe/proc/attempt_fill(var/obj/item/O, var/mob/user)
+/obj/machinery/autolathe/proc/attempt_fill(obj/item/O, mob/user)
 	if(!(O.Adjacent(user)))
 		return 0
 
@@ -286,7 +286,7 @@
 	..()
 	return 1
 
-/obj/machinery/autolathe/MouseDrop(var/over_location)
+/obj/machinery/autolathe/MouseDrop(over_location)
 	..()
 	if(!is_living_mob(usr))
 		return
@@ -296,11 +296,11 @@
 		for(var/obj/item/O in over_location)
 			attempt_fill(O, usr)
 
-/obj/machinery/autolathe/proc/addToQueue(var/datum/autolathe/recipe/D)
+/obj/machinery/autolathe/proc/addToQueue(datum/autolathe/recipe/D)
 	queue += D
 	return
 
-/obj/machinery/autolathe/proc/removeFromQueue(var/index)
+/obj/machinery/autolathe/proc/removeFromQueue(index)
 	queue.Cut(index, index + 1)
 	return
 
@@ -313,7 +313,7 @@
 	if(queue.len)
 		build(D)
 
-/obj/machinery/autolathe/proc/build(var/datum/autolathe/recipe/D)
+/obj/machinery/autolathe/proc/build(datum/autolathe/recipe/D)
 	busy = 1
 	update_use_power(2)
 	var/datum/autolathe/recipe/making

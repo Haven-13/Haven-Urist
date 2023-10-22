@@ -263,7 +263,7 @@ GLOBAL_LIST_EMPTY(all_maps)
 		new_planet.build_level()
 
 // Used to apply various post-compile procedural effects to the map.
-/datum/map/proc/refresh_mining_turfs(var/zlevel)
+/datum/map/proc/refresh_mining_turfs(zlevel)
 
 	set background = 1
 	set waitfor = 0
@@ -276,11 +276,11 @@ GLOBAL_LIST_EMPTY(all_maps)
 		if(istype(M))
 			M.updateMineralOverlays()
 
-/datum/map/proc/get_network_access(var/network)
+/datum/map/proc/get_network_access(network)
 	return 0
 
 // By default transition randomly to another zlevel
-/datum/map/proc/get_transit_zlevel(var/current_z_level)
+/datum/map/proc/get_transit_zlevel(current_z_level)
 	var/list/candidates = GLOB.using_map.accessible_z_levels.Copy()
 	candidates.Remove(num2text(current_z_level))
 
@@ -329,7 +329,7 @@ GLOBAL_LIST_EMPTY(all_maps)
 	department_accounts["Vendor"] = create_account("Vendor Account", 0)
 	vendor_account = department_accounts["Vendor"]
 
-/datum/map/proc/map_info(var/client/victim)
+/datum/map/proc/map_info(client/victim)
 	return
 
 /datum/map/proc/bolt_saferooms()
@@ -338,11 +338,11 @@ GLOBAL_LIST_EMPTY(all_maps)
 /datum/map/proc/unbolt_saferooms()
 	return // overriden by torch
 
-/datum/map/proc/make_maint_all_access(var/radstorm = 0) // parameter used by torch
+/datum/map/proc/make_maint_all_access(radstorm = 0)
 	maint_all_access = 1
 	priority_announcement.Announce("The maintenance access requirement has been revoked on all maintenance airlocks.", "Attention!")
 
-/datum/map/proc/revoke_maint_all_access(var/radstorm = 0) // parameter used by torch
+/datum/map/proc/revoke_maint_all_access(radstorm = 0)
 	maint_all_access = 0
 	priority_announcement.Announce("The maintenance access requirement has been readded on all maintenance airlocks.", "Attention!")
 

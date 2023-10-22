@@ -23,7 +23,7 @@
 				cell.charge = INFINITY
 			qdel(S)
 
-/mob/new_player/proc/ScomRobotLateJoin(var/mob/living/silicon/L)
+/mob/new_player/proc/ScomRobotLateJoin(mob/living/silicon/L)
 	if(L.mind.assigned_role == "Cyborg")
 		L.loc = pick(scomspawn3)
 		for(var/obj/item/weapon/cell/cell in L)
@@ -32,11 +32,11 @@
 		return 1
 	return
 
-/mob/new_player/proc/ScomLateJoin(var/mob/living/carbon/RD)
+/mob/new_player/proc/ScomLateJoin(mob/living/carbon/RD)
 	HandleScomJoinFor(RD)
 	return 1
 
-/proc/HandleScomJoinFor(var/mob/living/carbon/L)
+/proc/HandleScomJoinFor(mob/living/carbon/L)
 	if(!GLOB.scommies) //hacky af, but there's no other easy way to hook into that
 		log_and_message_admins("S-COM Operative antagonist not properly initialized!")
 	var/squadpick = 0

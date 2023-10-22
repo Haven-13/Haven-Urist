@@ -22,7 +22,7 @@
 	return ..()
 
 // Operates tgUI
-/obj/item/modular_computer/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/item/modular_computer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "programs/NtosBase")

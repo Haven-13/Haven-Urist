@@ -36,7 +36,7 @@
 
 	pass_flags = PASS_FLAG_TABLE
 
-/mob/living/simple_animal/hostile/carp/Allow_Spacemove(var/check_drift = 0)
+/mob/living/simple_animal/hostile/carp/Allow_Spacemove(check_drift = 0)
 	return 1	//No drifting in space for space carp!	//original comments do not steal
 
 /mob/living/simple_animal/hostile/carp/FindTarget()
@@ -44,7 +44,7 @@
 	if(.)
 		custom_emote(1,"nashes at [.]")
 
-/mob/living/simple_animal/hostile/carp/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/hostile/carp/UnarmedAttack(atom/A, proximity)
 	. =..()
 	var/mob/living/L = A
 	if(istype(L))

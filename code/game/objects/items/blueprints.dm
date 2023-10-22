@@ -59,11 +59,11 @@
 	show_browser(usr, text, "window=blueprints")
 	onclose(usr, "blueprints")
 
-/obj/item/blueprints/proc/CheckArea(var/area/A)
+/obj/item/blueprints/proc/CheckArea(area/A)
 	if(is_space(A) || is_planet(A))
 		return 1
 
-/obj/item/blueprints/proc/getArea(var/o)
+/obj/item/blueprints/proc/getArea(o)
 	var/turf/T = get_turf(o)
 	var/area/A = T.loc
 	return A
@@ -112,7 +112,7 @@
 	return
 
 
-/obj/item/blueprints/proc/move_turfs_to_area(var/list/turf/turfs, var/area/A)
+/obj/item/blueprints/proc/move_turfs_to_area(list/turf/turfs, area/A)
 	A.contents.Add(turfs)
 
 
@@ -169,7 +169,7 @@
 	interact()
 	return
 
-/obj/item/blueprints/proc/getAdjacentAreas(var/n = 0)
+/obj/item/blueprints/proc/getAdjacentAreas(n = 0)
 	var/area/A = getArea(usr)
 	var/list/areas = list()
 	for(var/dir in GLOB.cardinal)
@@ -193,7 +193,7 @@
 	deleteArea(A)
 	interact()
 
-/obj/item/blueprints/proc/deleteArea(var/area/A)
+/obj/item/blueprints/proc/deleteArea(area/A)
 	var/area/newArea = locate(world.area)
 	for(var/turf/T in A.contents)
 		move_turfs_to_area(T, newArea)
@@ -202,7 +202,7 @@
 		qdel(A)
 
 
-/obj/item/blueprints/proc/set_area_machinery_title(var/area/A,var/title,var/oldtitle)
+/obj/item/blueprints/proc/set_area_machinery_title(area/A,title,oldtitle)
 	if (!oldtitle) // or replacetext goes to infinite loop
 		return
 
@@ -218,7 +218,7 @@
 		M.SetName(replacetext(M.name,oldtitle,title))
 	//TODO: much much more. Unnamed airlocks, cameras, etc.
 
-/obj/item/blueprints/proc/check_tile_is_border(var/turf/T2,var/dir)
+/obj/item/blueprints/proc/check_tile_is_border(turf/T2,dir)
 	if (istype(T2, /turf/space))
 		return BORDER_SPACE //omg hull breach we all going to die here
 	if (istype(T2, /turf/simulated/shuttle))
@@ -246,7 +246,7 @@
 
 	return BORDER_NONE
 
-/obj/item/blueprints/proc/detect_room(var/turf/first)
+/obj/item/blueprints/proc/detect_room(turf/first)
 	var/list/turf/found = new
 	var/list/turf/pending = list(first)
 	while(pending.len)

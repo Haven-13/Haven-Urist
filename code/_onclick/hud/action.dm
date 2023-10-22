@@ -25,14 +25,14 @@
 	var/background_icon_state = "bg_default"
 	var/mob/living/owner
 
-/datum/action/New(var/Target)
+/datum/action/New(Target)
 	target = Target
 
 /datum/action/Destroy()
 	if(owner)
 		Remove(owner)
 
-/datum/action/proc/SetTarget(var/atom/Target)
+/datum/action/proc/SetTarget(atom/Target)
 	target = Target
 
 /datum/action/proc/Grant(mob/living/T)
@@ -87,7 +87,7 @@
 /datum/action/proc/ProcessAction()
 	return
 
-/datum/action/proc/CheckRemoval(mob/living/user) // 1 if action is no longer valid for this mob and should be removed
+/datum/action/proc/CheckRemoval(mob/living/user)
 	return 0
 
 /datum/action/proc/IsAvailable()
@@ -171,7 +171,7 @@
 	usr.update_action_buttons()
 
 
-/atom/movable/screen/movable/action_button/hide_toggle/proc/InitialiseIcon(var/mob/living/user)
+/atom/movable/screen/movable/action_button/hide_toggle/proc/InitialiseIcon(mob/living/user)
 	if(is_alien(user))
 		icon_state = "bg_alien"
 	else
@@ -193,7 +193,7 @@
 #define AB_NORTH_OFFSET 26
 #define AB_MAX_COLUMNS 10
 
-/datum/hud/proc/ButtonNumberToScreenCoords(var/number) // TODO : Make this zero-indexed for readabilty
+/datum/hud/proc/ButtonNumberToScreenCoords(number)
 	var/row = round((number-1)/AB_MAX_COLUMNS)
 	var/col = ((number - 1)%(AB_MAX_COLUMNS)) + 1
 	var/coord_col = "+[col-1]"
@@ -202,7 +202,7 @@
 	var/coord_row_offset = AB_NORTH_OFFSET
 	return "WEST[coord_col]:[coord_col_offset],NORTH[coord_row]:[coord_row_offset]"
 
-/datum/hud/proc/SetButtonCoords(var/atom/movable/screen/button,var/number)
+/datum/hud/proc/SetButtonCoords(atom/movable/screen/button,number)
 	var/row = round((number-1)/AB_MAX_COLUMNS)
 	var/col = ((number - 1)%(AB_MAX_COLUMNS)) + 1
 	var/x_offset = 32*(col-1) + AB_WEST_OFFSET + 2*col
@@ -226,7 +226,7 @@
 	action_type = AB_ITEM_USE_ICON
 	button_icon = 'resources/icons/obj/action_buttons/organs.dmi'
 
-/datum/action/item_action/organ/SetTarget(var/atom/Target)
+/datum/action/item_action/organ/SetTarget(atom/Target)
 	. = ..()
 	var/obj/item/organ/O = target
 	if(istype(O))

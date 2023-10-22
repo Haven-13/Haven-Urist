@@ -14,12 +14,12 @@
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
 	miss_sounds = list('resources/sound/weapons/guns/miss1.ogg','resources/sound/weapons/guns/miss2.ogg','resources/sound/weapons/guns/miss3.ogg','resources/sound/weapons/guns/miss4.ogg')
 
-/obj/item/projectile/bullet/on_hit(var/atom/target, var/blocked = 0)
+/obj/item/projectile/bullet/on_hit(atom/target, blocked = 0)
 	if (..(target, blocked))
 		var/mob/living/L = target
 		shake_camera(L, 3, 2)
 
-/obj/item/projectile/bullet/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier)
+/obj/item/projectile/bullet/attack_mob(mob/living/target_mob, distance, miss_modifier)
 	if(penetrating > 0 && damage > 20 && prob(damage))
 		mob_passthrough_check = 1
 	else
@@ -35,7 +35,7 @@
 		return 0
 	return ..()
 
-/obj/item/projectile/bullet/check_penetrate(var/atom/A)
+/obj/item/projectile/bullet/check_penetrate(atom/A)
 	if(QDELETED(A) || !A.density) return 1 //if whatever it was got destroyed when we hit it, then I guess we can just keep going
 
 	if(istype(A, /obj/mecha))
@@ -73,11 +73,11 @@
 	. = ..()
 	bumped = 0 //can hit all mobs in a tile. pellets is decremented inside attack_mob so this should be fine.
 
-/obj/item/projectile/bullet/pellet/proc/get_pellets(var/distance)
+/obj/item/projectile/bullet/pellet/proc/get_pellets(distance)
 	var/pellet_loss = round((distance - 1)/range_step) //pellets lost due to distance
 	return max(pellets - pellet_loss, 1)
 
-/obj/item/projectile/bullet/pellet/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier)
+/obj/item/projectile/bullet/pellet/attack_mob(mob/living/target_mob, distance, miss_modifier)
 	if (pellets < 0) return 1
 
 	var/total_pellets = get_pellets(distance)

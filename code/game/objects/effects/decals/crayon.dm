@@ -4,7 +4,7 @@
 	icon = 'resources/icons/obj/rune.dmi'
 	anchored = 1
 
-/obj/effect/decal/cleanable/crayon/New(location,main = "#ffffff",shade = "#000000",var/type = "rune")
+/obj/effect/decal/cleanable/crayon/New(location,main = "#ffffff",shade = "#000000",type = "rune")
 	..()
 	loc = location
 

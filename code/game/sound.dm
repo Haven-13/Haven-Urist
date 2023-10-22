@@ -53,7 +53,7 @@ GLOBAL_LIST_INIT(switch_sound,list('resources/sound/machines/switch1.ogg','resou
 GLOBAL_LIST_INIT(button_sound,list('resources/sound/machines/button1.ogg','resources/sound/machines/button2.ogg','resources/sound/machines/button3.ogg','resources/sound/machines/button4.ogg'))
 GLOBAL_LIST_INIT(chop_sound,list('resources/sound/weapons/chop1.ogg','resources/sound/weapons/chop2.ogg','resources/sound/weapons/chop3.ogg'))
 
-/proc/playsound(var/atom/source, soundin, vol as num, vary, extrarange as num, falloff, var/is_global, var/frequency, var/is_ambiance = 0)
+/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, is_global, frequency, is_ambiance = 0)
 
 	soundin = get_sfx(soundin) // same sound for everyone
 
@@ -75,7 +75,7 @@ GLOBAL_LIST_INIT(chop_sound,list('resources/sound/weapons/chop1.ogg','resources/
 
 var/const/FALLOFF_SOUNDS = 0.5
 
-/mob/proc/playsound_local(var/turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global, extrarange)
+/mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global, extrarange)
 	if(!src.client || ear_deaf > 0)	return
 	var/sound/S = soundin
 	if(!istype(S))

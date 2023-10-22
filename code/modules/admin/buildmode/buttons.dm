@@ -9,7 +9,7 @@
 /obj/effect/bmode/update_plane()
 	return
 
-/obj/effect/bmode/New(var/host)
+/obj/effect/bmode/New(host)
 	..()
 	src.host = host
 
@@ -17,7 +17,7 @@
 	host = null
 	. = ..()
 
-/obj/effect/bmode/proc/OnClick(var/list/params)
+/obj/effect/bmode/proc/OnClick(list/params)
 	return
 
 /obj/effect/bmode/dir
@@ -28,7 +28,7 @@
 	..()
 	set_dir(host.dir)
 
-/obj/effect/bmode/dir/OnClick(var/list/parameters)
+/obj/effect/bmode/dir/OnClick(list/parameters)
 	switch(dir)
 		if(SOUTH)
 			set_dir(WEST)
@@ -56,7 +56,7 @@
 	..()
 	icon_state = host.current_build_mode.icon_state
 
-/obj/effect/bmode/mode/OnClick(var/list/parameters)
+/obj/effect/bmode/mode/OnClick(list/parameters)
 	if(parameters["left"])
 		var/datum/build_mode/build_mode = input("Select build mode", "Select build mode", host.current_build_mode) as null|anything in host.build_modes
 		if(build_mode && host && (build_mode in host.build_modes))

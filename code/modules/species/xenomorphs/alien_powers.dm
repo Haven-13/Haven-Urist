@@ -1,4 +1,4 @@
-/proc/alien_queen_exists(var/ignore_self,var/mob/living/carbon/human/self)
+/proc/alien_queen_exists(ignore_self,mob/living/carbon/human/self)
 	for(var/mob/living/carbon/human/Q in GLOB.living_mob_list_)
 		if(self && ignore_self && self == Q)
 			continue
@@ -9,7 +9,7 @@
 		return 1
 	return 0
 
-/mob/living/carbon/human/proc/gain_plasma(var/amount)
+/mob/living/carbon/human/proc/gain_plasma(amount)
 
 	var/obj/item/organ/internal/xeno/plasmavessel/I = internal_organs_by_name[BP_PLASMA]
 	if(!istype(I)) return
@@ -18,7 +18,7 @@
 		I.stored_plasma += amount
 	I.stored_plasma = max(0,min(I.stored_plasma,I.max_plasma))
 
-/mob/living/carbon/human/proc/check_alien_ability(var/cost,var/needs_foundation,var/needs_organ)
+/mob/living/carbon/human/proc/check_alien_ability(cost,needs_foundation,needs_organ)
 
 	var/obj/item/organ/internal/xeno/plasmavessel/P = internal_organs_by_name[BP_PLASMA]
 	if(!istype(P))
@@ -124,7 +124,7 @@
 		new /obj/structure/alien/node(loc)
 	return
 
-/mob/living/carbon/human/proc/corrosive_acid(O as obj|turf in oview(1)) //If they right click to corrode, an error will flash if its an invalid target./N
+/mob/living/carbon/human/proc/corrosive_acid(O as obj|turf in oview(1))
 	set name = "Corrosive Acid (200)"
 	set desc = "Drench an object in acid, destroying it over time."
 	set category = "Abilities"

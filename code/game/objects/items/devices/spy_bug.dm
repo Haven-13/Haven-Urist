@@ -48,7 +48,7 @@
 	else
 		..()
 
-/obj/item/device/spy_bug/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
+/obj/item/device/spy_bug/hear_talk(mob/M, msg, verb, datum/language/speaking)
 	radio.hear_talk(M, msg, speaking)
 
 
@@ -95,7 +95,7 @@
 	else
 		return ..()
 
-/obj/item/device/spy_monitor/proc/pair(var/obj/item/device/spy_bug/SB, var/mob/living/user)
+/obj/item/device/spy_monitor/proc/pair(obj/item/device/spy_bug/SB, mob/living/user)
 	if(SB.camera in cameras)
 		to_chat(user, "<span class='notice'>\The [SB] has been unpaired from \the [src].</span>")
 		cameras -= SB.camera
@@ -143,7 +143,7 @@
 
 	return 1
 
-/obj/item/device/spy_monitor/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
+/obj/item/device/spy_monitor/hear_talk(mob/M, msg, verb, datum/language/speaking)
 	return radio.hear_talk(M, msg, speaking)
 
 
@@ -156,7 +156,7 @@
 	name = "DV-136ZB #[random_id(/obj/machinery/camera/spy, 1000,9999)]"
 	c_tag = name
 
-/obj/machinery/camera/spy/check_eye(var/mob/user as mob)
+/obj/machinery/camera/spy/check_eye(mob/user as mob)
 	return 0
 
 /obj/item/device/radio/spy

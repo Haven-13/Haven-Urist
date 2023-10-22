@@ -39,7 +39,7 @@
 	else
 		to_chat(A, "<span class='warning'>Something blocks the path.</span>")
 
-/obj/structure/stairs/proc/upperStep(var/turf/T)
+/obj/structure/stairs/proc/upperStep(turf/T)
 	return (T == loc)
 
 /obj/structure/stairs/CanPass(obj/mover, turf/source, height, airflow)

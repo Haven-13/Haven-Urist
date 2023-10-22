@@ -3,7 +3,7 @@
 	name = "general shuttle control console"
 	ui_template = "spacecraft/ShuttleConsole"
 
-/obj/machinery/computer/shuttle_control/explore/get_shuttle_ui_data(var/datum/shuttle/autodock/overmap/shuttle)
+/obj/machinery/computer/shuttle_control/explore/get_shuttle_ui_data(datum/shuttle/autodock/overmap/shuttle)
 	. = ..()
 	if(istype(shuttle))
 		var/fuel_pressure = 0
@@ -27,7 +27,7 @@
 			"fuelPressureStatus" = (fuel_pressure/fuel_max_pressure > 0.2)? "good" : "bad"
 		)
 
-/obj/machinery/computer/shuttle_control/explore/handle_ui_act(var/datum/shuttle/autodock/overmap/shuttle, var/action, var/list/params)
+/obj/machinery/computer/shuttle_control/explore/handle_ui_act(datum/shuttle/autodock/overmap/shuttle, action, list/params)
 	if((. = ..()) || !istype(shuttle))
 		return .
 

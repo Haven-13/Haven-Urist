@@ -15,7 +15,7 @@
 	var/working = 0
 	var/balance=0
 
-/obj/machinery/slot_machine/attack_hand(var/mob/user as mob)
+/obj/machinery/slot_machine/attack_hand(mob/user as mob)
 	if(user.mind)
 		if(user.mind.initial_account)
 			balance = user.mind.initial_account.money

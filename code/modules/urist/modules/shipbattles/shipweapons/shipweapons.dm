@@ -63,7 +63,7 @@
 	if(!(HAS_FLAG(status, (CHARGED|RECHARGING)))) //if we're not charged, we'll try charging when the power changes. that way, if the power is off, and we didn't charge, we'll try again when it comes on
 		Charging()
 
-/obj/machinery/shipweapons/attack_hand(mob/user as mob) //we can fire it by hand in a pinch
+/obj/machinery/shipweapons/attack_hand(mob/user as mob)
 	..()
 
 	if((status == CHARGED) && target) //even if we don't have power, as long as we have a charge, we can do this
@@ -255,7 +255,7 @@
 	else
 		return FALSE
 
-/obj/machinery/shipweapons/proc/HitComponents(var/targetship)
+/obj/machinery/shipweapons/proc/HitComponents(targetship)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
 
 //	for(var/datum/shipcomponents/SC in OM.components)
@@ -268,7 +268,7 @@
 		if(targetcomponent.health <= 0)
 			targetcomponent.BlowUp()
 
-/obj/machinery/shipweapons/proc/TargetedHit(var/targetship, var/hull_damage, var/oc = FALSE)
+/obj/machinery/shipweapons/proc/TargetedHit(targetship, hull_damage, oc = FALSE)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
 	if(!targeted_component.broken)
 		targeted_component.health -= (hull_damage * 0.5) //we do more damage for aimed shots

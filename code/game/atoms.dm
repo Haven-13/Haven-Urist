@@ -133,10 +133,10 @@
 /atom/proc/HasProximity(atom/movable/AM as mob|obj)
 	return
 
-/atom/proc/emp_act(var/severity)
+/atom/proc/emp_act(severity)
 	return
 
-/atom/proc/set_density(var/new_density)
+/atom/proc/set_density(new_density)
 	if(density != new_density)
 		density = !!new_density
 
@@ -144,7 +144,7 @@
 	P.on_hit(src, 0, def_zone)
 	. = 0
 
-/atom/proc/in_contents_of(container)//can take class or object instance as argument
+/atom/proc/in_contents_of(container)
 	if(ispath(container))
 		if(istype(src.loc, container))
 			return 1
@@ -178,7 +178,7 @@
 	return found
 
 //All atoms
-/atom/proc/examine(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
+/atom/proc/examine(mob/user, distance = -1, infix = "", suffix = "")
 	//This reformat names to get a/an properly working on item descriptions when they are bloody
 	var/f_name = "\a [src][infix]."
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
@@ -209,7 +209,7 @@
 	dir = new_dir
 	return TRUE
 
-/atom/proc/set_icon_state(var/new_icon_state)
+/atom/proc/set_icon_state(new_icon_state)
 	if(has_extension(src, /datum/extension/base_icon_state))
 		var/datum/extension/base_icon_state/bis = get_extension(src, /datum/extension/base_icon_state)
 		bis.base_icon_state = new_icon_state
@@ -223,7 +223,7 @@
 /atom/proc/ex_act()
 	return
 
-/atom/proc/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
+/atom/proc/emag_act(remaining_charges, mob/user, emag_source)
 	return NO_EMAG_ACT
 
 /atom/proc/fire_act()
@@ -264,7 +264,7 @@
 	. = 1
 	return 1
 
-/atom/proc/add_vomit_floor(mob/living/carbon/M as mob, var/toxvomit = 0)
+/atom/proc/add_vomit_floor(mob/living/carbon/M as mob, toxvomit = 0)
 	if( istype(src, /turf/simulated) )
 		var/obj/effect/decal/cleanable/vomit/this = new /obj/effect/decal/cleanable/vomit(src)
 
@@ -313,7 +313,7 @@
 // message is output to anyone who can see, e.g. "The [src] does something!"
 // self_message (optional) is what the source will see
 // blind_message (optional) is what blind people will see e.g. "You hear something!"
-/atom/proc/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/checkghosts = null)
+/atom/proc/visible_message(message, self_message, blind_message, range = world.view, checkghosts = null)
 	var/turf/T = get_turf(src)
 	var/list/mobs = list()
 	var/list/objs = list()
@@ -336,7 +336,7 @@
 // self_message (optional) is what the source will hear.
 // deaf_message (optional) is what deaf people will hear.
 // hearing_distance (optional) is the range, how many tiles away the message can be heard.
-/atom/proc/audible_message(var/message, var/self_message, var/deaf_message, var/hearing_distance = world.view, var/checkghosts = null)
+/atom/proc/audible_message(message, self_message, deaf_message, hearing_distance = world.view, checkghosts = null)
 	var/turf/T = get_turf(src)
 	var/list/mobs = list()
 	var/list/objs = list()
@@ -349,7 +349,7 @@
 		var/obj/O = o
 		O.show_message(message,2,deaf_message,1)
 
-/atom/movable/proc/dropInto(var/atom/destination)
+/atom/movable/proc/dropInto(atom/destination)
 	while(istype(destination))
 		var/atom/drop_destination = destination.onDropInto(src)
 		if(!istype(drop_destination) || drop_destination == destination)
@@ -357,10 +357,10 @@
 		destination = drop_destination
 	return forceMove(null)
 
-/atom/proc/onDropInto(var/atom/movable/AM)
+/atom/proc/onDropInto(atom/movable/AM)
 	return // If onDropInto returns null, then dropInto will forceMove AM into us.
 
-/atom/movable/onDropInto(var/atom/movable/AM)
+/atom/movable/onDropInto(atom/movable/AM)
 	return loc // If onDropInto returns something, then dropInto will attempt to drop AM there.
 
 /atom/proc/InsertedContents()
@@ -383,7 +383,7 @@
 
 	do_climb(usr)
 
-/atom/proc/can_climb(var/mob/living/user, post_climb_check=0)
+/atom/proc/can_climb(mob/living/user, post_climb_check=0)
 	if (!(atom_flags & ATOM_FLAG_CLIMBABLE) || !can_touch(user) || (!post_climb_check && (user in climbers)))
 		return 0
 
@@ -397,7 +397,7 @@
 		return 0
 	return 1
 
-/atom/proc/can_touch(var/mob/user)
+/atom/proc/can_touch(mob/user)
 	if (!user)
 		return 0
 	if(!Adjacent(user))
@@ -423,7 +423,7 @@
 			return A
 	return 0
 
-/atom/proc/do_climb(var/mob/living/user)
+/atom/proc/do_climb(mob/living/user)
 	if (!can_climb(user))
 		return
 

@@ -2,7 +2,7 @@
 	name = "TaxQuickly 2559"
 	ui_interface_name = "programs/UplinkProgram"
 
-/datum/ui_module/program/uplink/ui_interact(var/mob/user)
+/datum/ui_module/program/uplink/ui_interact(mob/user)
 	var/datum/computer_file/program/uplink/prog = program
 	var/obj/item/modular_computer/computer = host
 	if(istype(computer) && istype(prog))

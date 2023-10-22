@@ -31,7 +31,7 @@
 	var/list/victims
 	var/continuous = TRUE //if it should form continous blob, or can have gaps
 
-/datum/overmap_event/proc/enter(var/obj/effect/overmap/ship/victim)
+/datum/overmap_event/proc/enter(obj/effect/overmap/ship/victim)
 	if(victim in victims)
 		log_error("Multiple attempts to trigger the same event by [victim] detected.")
 		return

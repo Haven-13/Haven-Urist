@@ -68,7 +68,7 @@
 //	var/obj/item/weapon/storage/fancy/cigarettes/cigs
 
 /*
-/obj/item/clothing/head/helmet/urist/anfor/attack_hand(var/mob/living/M)
+/obj/item/clothing/head/helmet/urist/anfor/attack_hand(mob/living/M)
 	if(cigs)
 		cigs.loc = get_turf(src)
 		if(M.put_in_active_hand(cigs))
@@ -80,7 +80,7 @@
 
 	..()
 
-/obj/item/clothing/head/helmet/urist/anfor/attackby(var/obj/item/I, var/mob/living/M)
+/obj/item/clothing/head/helmet/urist/anfor/attackby(obj/item/I, mob/living/M)
 	if(istype(I, /obj/item/weapon/storage/fancy/cigarettes))
 		if(cigs)	return
 		M.drop_item()
@@ -101,7 +101,7 @@
 	siemens_coefficient = 0.7
 	var/obj/item/weapon/material/hatchet/tacknife/knife
 
-/obj/item/clothing/shoes/urist/anforjackboots/attack_hand(var/mob/living/M)
+/obj/item/clothing/shoes/urist/anforjackboots/attack_hand(mob/living/M)
 	if(knife)
 		knife.loc = get_turf(src)
 		if(M.put_in_active_hand(knife))
@@ -113,7 +113,7 @@
 
 	..()
 
-/obj/item/clothing/shoes/urist/anforjackboots/attackby(var/obj/item/I, var/mob/living/M)
+/obj/item/clothing/shoes/urist/anforjackboots/attackby(obj/item/I, mob/living/M)
 	if(istype(I, /obj/item/weapon/material/hatchet/tacknife))
 		if(knife)	return
 		M.drop_item()
@@ -272,7 +272,7 @@
 	launcher = new(src)
 */
 /*
-/obj/item/weapon/gun/projectile/a18/attackby(obj/item/I, mob/user) //i really need to make a partent class for guns that can be modified, but right now it's only the one so fuck it. //GlloydTODO
+/obj/item/weapon/gun/projectile/a18/attackby(obj/item/I, mob/user)
 	..()
 
 	if(gl_attach)

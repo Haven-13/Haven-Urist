@@ -45,7 +45,7 @@
 			pulledby.pulling = null
 		pulledby = null
 
-/atom/movable/Bump(var/atom/A, yes)
+/atom/movable/Bump(atom/A, yes)
 	if(src.throwing)
 		src.throw_impact(A)
 		src.throwing = 0
@@ -105,7 +105,7 @@
 			update_plane()
 
 //called when src is thrown into hit_atom
-/atom/movable/proc/throw_impact(atom/hit_atom, var/speed)
+/atom/movable/proc/throw_impact(atom/hit_atom, speed)
 	if(istype(hit_atom,/mob/living))
 		var/mob/living/M = hit_atom
 		M.hitby(src,speed)
@@ -122,7 +122,7 @@
 		T.hitby(src,speed)
 
 //decided whether a movable atom being thrown can pass through the turf it is in.
-/atom/movable/proc/hit_check(var/speed)
+/atom/movable/proc/hit_check(speed)
 	if(src.throwing)
 		for(var/atom/A in get_turf(src))
 			if(A == src) continue
@@ -284,11 +284,11 @@
  * is the black-color mask of the base image, creating an obstruction of lights layered below.
  */
 /atom/movable/proc/get_normal_overlay(
-		var/icon = src.icon,
-		var/state = src.icon_state,
-		var/layer = FLOAT_LAYER,
-		var/icon_plane = src.original_plane,
-		var/alpha = src.alpha,
+		icon = src.icon,
+		state = src.icon_state,
+		layer = FLOAT_LAYER,
+		icon_plane = src.original_plane,
+		alpha = src.alpha,
 	)
 	var/_plane = get_float_plane(icon_plane)
 	var/mutable_appearance/base = mutable_appearance(
@@ -315,13 +315,13 @@
  * is the white-color mask of the base image, creating an emissive light effect.
  */
 /atom/movable/proc/get_emissive_overlay(
-		var/icon = src.icon,
-		var/state = src.icon_state,
-		var/layer = FLOAT_LAYER,
-		var/icon_plane = src.original_plane,
-		var/alpha = src.alpha,
-		var/no_block = FALSE,
-		var/no_base = FALSE
+		icon = src.icon,
+		state = src.icon_state,
+		layer = FLOAT_LAYER,
+		icon_plane = src.original_plane,
+		alpha = src.alpha,
+		no_block = FALSE,
+		no_base = FALSE
 	)
 	. = list()
 	if (!no_base)

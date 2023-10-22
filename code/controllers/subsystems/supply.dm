@@ -239,7 +239,7 @@ SUBSYSTEM_DEF(supply)
 	var/comment = null
 	var/orderedjob = null //used for supply console printing
 
-/datum/controller/subsystem/supply/proc/find_item_value(var/obj/object) //here we get the value of the items being traded
+/datum/controller/subsystem/supply/proc/find_item_value(obj/object)
 	if(!object)
 		return 0
 

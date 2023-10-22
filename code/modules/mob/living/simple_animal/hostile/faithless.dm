@@ -27,7 +27,7 @@
 	faction = "faithless"
 	supernatural = 1
 
-/mob/living/simple_animal/hostile/faithless/Allow_Spacemove(var/check_drift = 0)
+/mob/living/simple_animal/hostile/faithless/Allow_Spacemove(check_drift = 0)
 	return 1
 
 /mob/living/simple_animal/hostile/faithless/FindTarget()
@@ -35,7 +35,7 @@
 	if(.)
 		audible_emote("wails at [.]")
 
-/mob/living/simple_animal/hostile/faithless/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/hostile/faithless/UnarmedAttack(atom/A, proximity)
 	. =..()
 	var/mob/living/L = A
 	if(istype(L))

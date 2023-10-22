@@ -16,7 +16,7 @@
 	..()
 	return INITIALIZE_HINT_QDEL
 
-/proc/GetZDepth(var/z)
+/proc/GetZDepth(z)
 	var/obj/effect/landmark/submap_data/SMD = GetSubmapData(z)
 
 	var/bottom_z
@@ -27,14 +27,14 @@
 
 	return (z - bottom_z) + 1
 
-/proc/HasAbove(var/z)
+/proc/HasAbove(z)
 	if(z >= world.maxz || z < 1)
 		return FALSE
 	if (HasSubmapData(z))
 		return GetSubmapData(z).has_above()
 	return FALSE
 
-/proc/HasBelow(var/z)
+/proc/HasBelow(z)
 	if(z > world.maxz || z < 2)
 		return FALSE
 	if (HasSubmapData(z))
@@ -42,13 +42,13 @@
 	return FALSE
 
 // Thankfully, no bitwise magic is needed here.
-/proc/GetAbove(var/atom/atom)
+/proc/GetAbove(atom/atom)
 	var/turf/turf = get_turf(atom)
 	if(!turf)
 		return null
 	return HasAbove(turf.z) ? get_step(turf, UP) : null
 
-/proc/GetBelow(var/atom/atom)
+/proc/GetBelow(atom/atom)
 	var/turf/turf = get_turf(atom)
 	if(!turf)
 		return null
@@ -62,7 +62,7 @@
 	for(var/level = z, HasAbove(level), level++)
 		. |= level+1
 
-/proc/AreConnectedZLevels(var/zA, var/zB)
+/proc/AreConnectedZLevels(zA, zB)
 	return zA == zB || (zB in GetConnectedZlevels(zA))
 
 /proc/get_zstep(ref, dir)

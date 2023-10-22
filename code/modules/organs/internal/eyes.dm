@@ -55,7 +55,7 @@
 	..()
 	robotize()
 
-/obj/item/organ/internal/eyes/replaced(var/mob/living/carbon/human/target)
+/obj/item/organ/internal/eyes/replaced(mob/living/carbon/human/target)
 	if(status & ORGAN_ROBOTIC && istype(target.species, /datum/species/machine))
 		organ_tag = BP_OPTICS
 	else
@@ -78,7 +78,7 @@
 		owner.b_eyes ? owner.b_eyes : 0
 		)
 
-/obj/item/organ/internal/eyes/take_internal_damage(amount, var/silent=0)
+/obj/item/organ/internal/eyes/take_internal_damage(amount, silent=0)
 	var/oldbroken = is_broken()
 	. = ..()
 	if(is_broken() && !oldbroken && owner && !owner.stat)
@@ -93,8 +93,8 @@
 	if(is_broken())
 		owner.eye_blind = 20
 
-/obj/item/organ/internal/eyes/proc/get_total_protection(var/flash_protection = FLASH_PROTECTION_NONE)
+/obj/item/organ/internal/eyes/proc/get_total_protection(flash_protection = FLASH_PROTECTION_NONE)
 	return (flash_protection + innate_flash_protection)
 
-/obj/item/organ/internal/eyes/proc/additional_flash_effects(var/intensity)
+/obj/item/organ/internal/eyes/proc/additional_flash_effects(intensity)
 	return -1

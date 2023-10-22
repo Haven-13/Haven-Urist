@@ -4,14 +4,14 @@ These are the default click code call sequences used when clicking on stuff with
 
 Atoms:
 
-/mob/ClickOn() calls the item's resolve_attackby() proc.
+/mob/ClickOn() calls the item's resolve_attackby()
 item/resolve_attackby() calls the target atom's attackby() proc.
 
 Mobs:
 
-/mob/living/attackby() after checking for surgery, calls the item's attack() proc.
+/mob/living/attackby() after checking for surgery, calls the item's attack()
 item/attack() generates attack logs, sets click cooldown and calls the mob's attacked_with_item() proc. If you override this, consider whether you need to set a click cooldown, play attack animations, and generate logs yourself.
-/mob/attacked_with_item() should then do mob-type specific stuff (like determining hit/miss, handling shields, etc) and then possibly call the item's apply_hit_effect() proc to actually apply the effects of being hit.
+/mob/attacked_with_item() should then do mob-type specific stuff (like determining hit/miss, handling shields, etc) and then possibly call the item's apply_hit_effect()
 
 Item Hit Effects:
 
@@ -24,13 +24,13 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	return
 
 //I would prefer to rename this to attack(), but that would involve touching hundreds of files.
-/obj/item/proc/resolve_attackby(atom/A, mob/user, var/click_params)
+/obj/item/proc/resolve_attackby(atom/A, mob/user, click_params)
 	if(!(item_flags & ITEM_FLAG_NO_PRINT))
 		add_fingerprint(user)
 	return A.attackby(src, user, click_params)
 
 // No comment
-/atom/proc/attackby(obj/item/W, mob/user, var/click_params)
+/atom/proc/attackby(obj/item/W, mob/user, click_params)
 	return
 
 /atom/movable/attackby(obj/item/W, mob/user)
@@ -60,7 +60,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	return
 
 //I would prefer to rename this attack_as_weapon(), but that would involve touching hundreds of files.
-/obj/item/proc/attack(mob/living/M, mob/living/user, var/target_zone)
+/obj/item/proc/attack(mob/living/M, mob/living/user, target_zone)
 	if(!force || (item_flags & ITEM_FLAG_NO_BLUDGEON))
 		return 0
 	if(M == user && user.a_intent != I_HURT)
@@ -83,7 +83,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	return 1
 
 //Called when a weapon is used to make a successful melee attack on a mob. Returns the blocked result
-/obj/item/proc/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
+/obj/item/proc/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
 	if(hitsound)
 		playsound(loc, hitsound, 50, 1, -1)
 

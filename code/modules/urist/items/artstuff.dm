@@ -20,7 +20,7 @@
 
 
 //Adding canvases
-/obj/structure/easel/attackby(var/obj/item/I, var/mob/user, params)
+/obj/structure/easel/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/weapon/canvas))
 		var/obj/item/weapon/canvas/C = I
 		user.unEquip(C)
@@ -88,7 +88,7 @@ var/global/list/globalBlankCanvases[AMT_OF_CANVASES]
 
 
 //One pixel increments
-/obj/item/weapon/canvas/attackby(var/obj/item/I, var/mob/user, params)
+/obj/item/weapon/canvas/attackby(obj/item/I, mob/user, params)
 	//Click info
 	var/list/click_params = params2list(params)
 	var/pixX = text2num(click_params["icon-x"])
@@ -124,7 +124,7 @@ var/global/list/globalBlankCanvases[AMT_OF_CANVASES]
 	..()
 
 //Clean the whole canvas
-/obj/item/weapon/canvas/attack_self(var/mob/user)
+/obj/item/weapon/canvas/attack_self(mob/user)
 	if(!user)
 		return
 	var/icon/blank = getGlobalBackup()
@@ -134,7 +134,7 @@ var/global/list/globalBlankCanvases[AMT_OF_CANVASES]
 		user.visible_message("<span class='notice'>[user] cleans the canvas.</span>","<span class='notice'>You clean the canvas.</span>")
 
 //Examine to enlarge
-/obj/item/weapon/canvas/examine(var/mob/user = usr)
+/obj/item/weapon/canvas/examine(mob/user = usr)
 	..()
 	if(in_range(user, src) && get_turf(src) && user.client && is_human_mob(user)) //Let only humans be the robust zoominators. I'm too spooked other mobs trying to use it may get broken huds.
 		if(src.loc == user || get_turf(src) == get_turf(user))

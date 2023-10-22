@@ -62,7 +62,7 @@ Thus, the two variables affect pump operation are set in New():
 		add_underlay(T, node1, turn(dir, -180))
 		add_underlay(T, node2, dir)
 
-/obj/machinery/atmospherics/binary/pump/hide(var/i)
+/obj/machinery/atmospherics/binary/pump/hide(i)
 	update_underlays()
 
 /obj/machinery/atmospherics/binary/pump/Process()
@@ -125,7 +125,7 @@ Thus, the two variables affect pump operation are set in New():
 		return UI_CLOSE
 	return ..()
 
-/obj/machinery/atmospherics/binary/pump/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/atmospherics/binary/pump/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "atmospherics/Pump", name)
@@ -216,7 +216,7 @@ Thus, the two variables affect pump operation are set in New():
 	ui_interact(user)
 	return
 
-/obj/machinery/atmospherics/binary/pump/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/machinery/atmospherics/binary/pump/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(!is_wrench(W))
 		return ..()
 	if (!(stat & NOPOWER) && use_power)

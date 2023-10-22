@@ -116,7 +116,7 @@
 	var/xarch_source_mineral = "iron"
 
 // Placeholders for light tiles and rglass.
-/material/proc/build_rod_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
+/material/proc/build_rod_product(mob/user, obj/item/stack/used_stack, obj/item/stack/target_stack)
 	if(!rod_product)
 		to_chat(user, "<span class='warning'>You cannot make anything out of \the [target_stack]</span>")
 		return
@@ -129,7 +129,7 @@
 	S.add_fingerprint(user)
 	S.add_to_stacks(user)
 
-/material/proc/build_wired_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
+/material/proc/build_wired_product(mob/user, obj/item/stack/used_stack, obj/item/stack/target_stack)
 	if(!wire_product)
 		to_chat(user, "<span class='warning'>You cannot make anything out of \the [target_stack]</span>")
 		return
@@ -159,7 +159,7 @@
 		burn_armor = brute_armor
 
 // This is a placeholder for proper integration of windows/windoors into the system.
-/material/proc/build_windows(var/mob/living/user, var/obj/item/stack/used_stack)
+/material/proc/build_windows(mob/living/user, obj/item/stack/used_stack)
 	return 0
 
 // Return the matter comprising this material.
@@ -184,7 +184,7 @@
 	return DEFAULT_WEAPON_COOLDOWN
 
 // Snowflakey, only checked for alien doors at the moment.
-/material/proc/can_open_material_door(var/mob/living/user)
+/material/proc/can_open_material_door(mob/living/user)
 	return 1
 
 // Currently used for weapons and objects made of uranium to irradiate things.
@@ -196,7 +196,7 @@
 	name = "placeholder"
 
 // Places a girder object when a wall is dismantled, also applies reinforced material.
-/material/proc/place_dismantled_girder(var/turf/target, var/material/reinf_material)
+/material/proc/place_dismantled_girder(turf/target, material/reinf_material)
 	var/obj/structure/girder/G = new(target)
 	if(reinf_material)
 		G.reinf_material = reinf_material
@@ -204,15 +204,15 @@
 
 // General wall debris product placement.
 // Not particularly necessary aside from snowflakey cult girders.
-/material/proc/place_dismantled_product(var/turf/target,var/is_devastated)
+/material/proc/place_dismantled_product(turf/target,is_devastated)
 	place_sheet(target, is_devastated ? 2 : 3)
 
 // Debris product. Used ALL THE TIME.
-/material/proc/place_sheet(var/turf/target, var/amount = 1)
+/material/proc/place_sheet(turf/target, amount = 1)
 	return stack_type ? new stack_type(target, amount, name) : null
 
 // As above.
-/material/proc/place_shard(var/turf/target)
+/material/proc/place_shard(turf/target)
 	if(shard_type)
 		return new /obj/item/weapon/material/shard(target, src.name)
 
@@ -220,5 +220,5 @@
 /material/proc/is_brittle()
 	return !!(flags & MATERIAL_BRITTLE)
 
-/material/proc/combustion_effect(var/turf/T, var/temperature)
+/material/proc/combustion_effect(turf/T, temperature)
 	return

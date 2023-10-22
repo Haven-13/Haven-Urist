@@ -73,7 +73,7 @@
 		return 0
 	return 1
 
-/datum/ui_module/contract_database/proc/print_summary(var/mob/user)
+/datum/ui_module/contract_database/proc/print_summary(mob/user)
 	var/t = ""
 	t += "<center><BR><b><large>[GLOB.using_map.station_name]</large></b><BR><i>[station_date]</i><BR><i>Contract overview<field></i></center><hr>"
 	print_text(t, user)

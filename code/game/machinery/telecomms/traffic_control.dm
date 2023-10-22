@@ -163,7 +163,7 @@
 	updateUsrDialog()
 	return
 
-/obj/machinery/computer/telecomms/traffic/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
+/obj/machinery/computer/telecomms/traffic/attackby(obj/item/weapon/D as obj, mob/user as mob)
 	if(is_screwdriver(D))
 		playsound(src.loc, 'resources/sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 20, src))
@@ -193,7 +193,7 @@
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/computer/telecomms/traffic/emag_act(var/remaining_charges, var/mob/user)
+/obj/machinery/computer/telecomms/traffic/emag_act(remaining_charges, mob/user)
 	if(!emagged)
 		playsound(src.loc, 'resources/sound/effects/sparks4.ogg', 75, 1)
 		emagged = 1

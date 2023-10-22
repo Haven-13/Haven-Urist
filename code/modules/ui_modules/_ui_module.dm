@@ -4,7 +4,7 @@
 	var/available_to_ai = TRUE
 	var/list/using_access = list()
 
-/datum/ui_module/New(var/datum/host)
+/datum/ui_module/New(datum/host)
 	..()
 	src.host = host.ui_host()
 
@@ -19,7 +19,7 @@
 /datum/ui_module/proc/can_still_topic(datum/ui_state/state = ui_default_state())
 	return CanUseTopic(usr, state) == UI_INTERACTIVE
 
-/datum/ui_module/proc/check_eye(var/mob/user)
+/datum/ui_module/proc/check_eye(mob/user)
 	return -1
 
 //returns a list.
@@ -30,7 +30,7 @@
 		if(I)
 			. |= I.access
 
-/datum/ui_module/proc/check_access(var/mob/user, var/access)
+/datum/ui_module/proc/check_access(mob/user, access)
 	if(!access)
 		return 1
 	if(!is_list(access))
@@ -46,7 +46,7 @@
 	var/atom/host = ui_host()
 	return istype(host) ? get_z(host) : 0
 
-/datum/ui_module/proc/print_text(var/text, var/mob/user)
+/datum/ui_module/proc/print_text(text, mob/user)
 	var/obj/item/modular_computer/MC = ui_host()
 	if(istype(MC))
 		if(!MC.nano_printer)

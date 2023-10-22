@@ -82,7 +82,7 @@
 	sharp = 1
 	edge = 1
 
-/obj/item/weapon/material/shard/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/weapon/material/shard/attackby(obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/weapon/bedsheet))
 		var/obj/item/weapon/shiv/S = new /obj/item/weapon/shiv
@@ -126,7 +126,7 @@
 	w_class = 3
 	item_icons = DEF_URIST_INHANDS
 
-/obj/item/weapon/baseballbat/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/weapon/baseballbat/attackby(obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = I
@@ -160,7 +160,7 @@
 	item_icons = DEF_URIST_INHANDS
 	var/parentassembly = /obj/item/weapon/improvised/scissorsassembly
 
-/obj/item/weapon/improvised/scissorknife/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/weapon/improvised/scissorknife/attackby(obj/item/I, mob/user as mob)
 	..()
 	if((istype(I, /obj/item/weapon/improvised/scissorknife) && istype(src, I))) //If they're both scissor knives
 		var/obj/item/weapon/improvised/scissorsassembly/N = new src.parentassembly
@@ -214,7 +214,7 @@
 
 	qdel(src)
 
-/obj/item/weapon/improvised/mbrick/attackby(var/obj/item/weapon/W, mob/user as mob)
+/obj/item/weapon/improvised/mbrick/attackby(obj/item/weapon/W, mob/user as mob)
 	..()
 	if(istype(W, /obj/item/weapon/material/shard) || istype(W, /obj/item/weapon/improvised/scissorknife))
 		var/obj/item/weapon/improvised/mbrick/sharp/S = new /obj/item/weapon/improvised/mbrick/sharp

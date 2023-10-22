@@ -24,7 +24,7 @@ GLOBAL_DATUM_INIT(ert, /datum/antagonist/ert, new)
 	initial_spawn_target = 7
 	show_objectives_on_creation = 0 //we are not antagonists, we do not need the antagonist shpiel/objectives
 
-/datum/antagonist/ert/create_default(var/mob/source)
+/datum/antagonist/ert/create_default(mob/source)
 	var/mob/living/carbon/human/M = ..()
 	if(istype(M)) M.age = rand(25,45)
 
@@ -33,7 +33,7 @@ GLOBAL_DATUM_INIT(ert, /datum/antagonist/ert, new)
 	leader_welcome_text = "As leader of the Emergency Response Team, you answer only to [GLOB.using_map.company_name], and have authority to override the Captain where it is necessary to achieve your mission goals. It is recommended that you attempt to cooperate with the captain where possible, however."
 	welcome_text = "As member of the Emergency Response Team, you answer only to your leader and [GLOB.using_map.company_name] officials."
 
-/datum/antagonist/ert/greet(var/datum/mind/player)
+/datum/antagonist/ert/greet(datum/mind/player)
 	if(!..())
 		return
 	to_chat(player.current, "The Emergency Response Team works for Asset Protection; your job is to protect [GLOB.using_map.company_name]'s ass-ets. There is a code red alert on [station_name()], you are tasked to go and fix the problem.")

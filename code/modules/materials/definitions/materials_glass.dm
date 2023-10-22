@@ -23,7 +23,7 @@
 	conductive = 0
 	sale_price = 1
 
-/material/glass/build_windows(var/mob/living/user, var/obj/item/stack/used_stack)
+/material/glass/build_windows(mob/living/user, obj/item/stack/used_stack)
 
 	if(!user || !used_stack || !created_window || !window_options.len)
 		return 0

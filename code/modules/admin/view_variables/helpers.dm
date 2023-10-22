@@ -107,7 +107,7 @@
 /datum/proc/get_initial_variable_value(varname)
 	return initial(vars[varname])
 
-/datum/proc/make_view_variables_variable_entry(var/varname, var/value, var/hide_watch = 0)
+/datum/proc/make_view_variables_variable_entry(varname, value, hide_watch = 0)
 	return {"
 			(<a href='?_src_=vars;datumedit=[REF(src)];varnameedit=[varname]'>E</a>)
 			(<a href='?_src_=vars;datumchange=[REF(src)];varnamechange=[varname]'>C</a>)
@@ -116,7 +116,7 @@
 			"}
 
 // No mass editing of clients
-/client/make_view_variables_variable_entry(var/varname, var/value, var/hide_watch = 0)
+/client/make_view_variables_variable_entry(varname, value, hide_watch = 0)
 	return {"
 			(<a href='?_src_=vars;datumedit=[REF(src)];varnameedit=[varname]'>E</a>)
 			(<a href='?_src_=vars;datumchange=[REF(src)];varnamechange=[varname]'>C</a>)
@@ -176,7 +176,7 @@
 /client/VV_ckey_edit()
 	return list("key", "ckey")
 
-/datum/proc/may_edit_var(var/user, var/var_to_edit)
+/datum/proc/may_edit_var(user, var_to_edit)
 	if(!user)
 		return FALSE
 	if(!(var_to_edit in vars))

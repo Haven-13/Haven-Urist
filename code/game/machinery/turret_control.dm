@@ -106,7 +106,7 @@
 		return
 	return ..()
 
-/obj/machinery/turretid/emag_act(var/remaining_charges, var/mob/user)
+/obj/machinery/turretid/emag_act(remaining_charges, mob/user)
 	if(!emagged)
 		to_chat(user, "<span class='danger'>You short out the turret controls' access analysis module.</span>")
 		emagged = 1
@@ -114,7 +114,7 @@
 		ailock = 0
 		return 1
 
-/obj/machinery/turretid/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/turretid/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "TurretControl")
@@ -234,7 +234,7 @@
 	..()
 
 
-/obj/machinery/turretid/malf_upgrade(var/mob/living/silicon/ai/user)
+/obj/machinery/turretid/malf_upgrade(mob/living/silicon/ai/user)
 	..()
 	malf_upgraded = 1
 	locked = 1

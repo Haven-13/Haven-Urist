@@ -18,7 +18,7 @@ var/global/datum/controller/occupations/job_master
 		//Cache of icons for job info window
 	var/list/job_icons = list()
 
-/datum/controller/occupations/proc/SetupOccupations(var/setup_titles = 0)
+/datum/controller/occupations/proc/SetupOccupations(setup_titles = 0)
 	occupations = list()
 	occupations_by_type = list()
 	occupations_by_title = list()
@@ -62,20 +62,20 @@ var/global/datum/controller/occupations/job_master
 	return 1
 
 
-/datum/controller/occupations/proc/Debug(var/text)
+/datum/controller/occupations/proc/Debug(text)
 	if(!Debug2)	return 0
 	job_debug.Add(text)
 	return 1
 
 
-/datum/controller/occupations/proc/GetJob(var/rank)
+/datum/controller/occupations/proc/GetJob(rank)
 	if(!rank)	return null
 	for(var/datum/job/J in occupations)
 		if(!J)	continue
 		if(J.title == rank)	return J
 	return null
 
-/datum/controller/occupations/proc/ShouldCreateRecords(var/rank)
+/datum/controller/occupations/proc/ShouldCreateRecords(rank)
 	if(!rank) return 0
 	var/datum/job/job = GetJob(rank)
 	if(!job) return 0
@@ -84,7 +84,7 @@ var/global/datum/controller/occupations/job_master
 /datum/controller/occupations/proc/GetPlayerAltTitle(mob/new_player/player, rank)
 	return player.client.prefs.GetPlayerAltTitle(GetJob(rank))
 
-/datum/controller/occupations/proc/CheckGeneralJoinBlockers(var/mob/new_player/joining, var/datum/job/job)
+/datum/controller/occupations/proc/CheckGeneralJoinBlockers(mob/new_player/joining, datum/job/job)
 	if(!istype(joining) || !joining.client || !joining.client.prefs)
 		return FALSE
 	if(!istype(job))
@@ -101,7 +101,7 @@ var/global/datum/controller/occupations/job_master
 		return FALSE
 	return TRUE
 
-/datum/controller/occupations/proc/CheckLatejoinBlockers(var/mob/new_player/joining, var/datum/job/job)
+/datum/controller/occupations/proc/CheckLatejoinBlockers(mob/new_player/joining, datum/job/job)
 	if(!CheckGeneralJoinBlockers(joining, job))
 		return FALSE
 	if(job.minimum_character_age && (joining.client.prefs.age < job.minimum_character_age))
@@ -115,7 +115,7 @@ var/global/datum/controller/occupations/job_master
 		return FALSE
 	return TRUE
 
-/datum/controller/occupations/proc/CheckUnsafeSpawn(var/mob/living/spawner, var/turf/spawn_turf)
+/datum/controller/occupations/proc/CheckUnsafeSpawn(mob/living/spawner, turf/spawn_turf)
 	var/radlevel = SSradiation.get_rads_at_turf(spawn_turf)
 	var/airstatus = IsTurfAtmosUnsafe(spawn_turf)
 	if(airstatus || radlevel > 0)
@@ -129,7 +129,7 @@ var/global/datum/controller/occupations/job_master
 			log_and_message_admins("User [spawner] spawned at spawn point with dangerous atmosphere.")
 	return TRUE
 
-/datum/controller/occupations/proc/AssignRole(var/mob/new_player/player, var/rank, var/latejoin = 0)
+/datum/controller/occupations/proc/AssignRole(mob/new_player/player, rank, latejoin = 0)
 	Debug("Running AR, Player: [player], Rank: [rank], LJ: [latejoin]")
 	if(player && player.mind && rank)
 		var/datum/job/job = GetJob(rank)
@@ -157,14 +157,14 @@ var/global/datum/controller/occupations/job_master
 	Debug("AR has failed, Player: [player], Rank: [rank]")
 	return 0
 
-/datum/controller/occupations/proc/FreeRole(var/rank)	//making additional slot on the fly
+/datum/controller/occupations/proc/FreeRole(rank)
 	var/datum/job/job = GetJob(rank)
 	if(job && !job.is_position_available())
 		job.make_position_available()
 		return 1
 	return 0
 
-/datum/controller/occupations/proc/ClearSlot(var/rank) // Removing one from the current filled counter
+/datum/controller/occupations/proc/ClearSlot(rank)
 	var/datum/job/job = GetJob(rank)
 	if (job && job.current_positions > 0)
 		job.current_positions -= 1
@@ -192,7 +192,7 @@ var/global/datum/controller/occupations/job_master
 			candidates += player
 	return candidates
 
-/datum/controller/occupations/proc/GiveRandomJob(var/mob/new_player/player)
+/datum/controller/occupations/proc/GiveRandomJob(mob/new_player/player)
 	Debug("GRJ Giving random job, Player: [player]")
 	for(var/datum/job/job in shuffle(occupations))
 		if(!job)
@@ -280,7 +280,7 @@ var/global/datum/controller/occupations/job_master
 	return 0
 
 ///This proc is called at the start of the level loop of DivideOccupations() and will cause head jobs to be checked before any other jobs of the same level
-/datum/controller/occupations/proc/CheckHeadPositions(var/level)
+/datum/controller/occupations/proc/CheckHeadPositions(level)
 	for(var/command_position in GLOB.command_positions)
 		var/datum/job/job = GetJob(command_position)
 		if(!job)	continue
@@ -399,7 +399,7 @@ var/global/datum/controller/occupations/job_master
 			unassigned -= player
 	return 1
 
-/datum/controller/occupations/proc/EquipCustomLoadout(var/mob/living/carbon/human/H, var/datum/job/job)
+/datum/controller/occupations/proc/EquipCustomLoadout(mob/living/carbon/human/H, datum/job/job)
 
 	if(!H || !H.client)
 		return
@@ -434,7 +434,7 @@ var/global/datum/controller/occupations/job_master
 					loadout_taken_slots.Add(G.slot)
 	return spawn_in_storage
 
-/datum/controller/occupations/proc/EquipRank(var/mob/living/carbon/human/H, var/rank, var/joined_late = 0)
+/datum/controller/occupations/proc/EquipRank(mob/living/carbon/human/H, rank, joined_late = 0)
 	if(!H)	return null
 
 	var/datum/job/job = GetJob(rank)
@@ -538,7 +538,7 @@ var/global/datum/controller/occupations/job_master
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
 	return H
 
-/datum/controller/occupations/proc/LoadJobs(jobsfile) //ran during round setup, reads info from jobs.txt -- Urist
+/datum/controller/occupations/proc/LoadJobs(jobsfile)
 	if(!config.load_jobs_from_txt)
 		return 0
 
@@ -611,7 +611,7 @@ var/global/datum/controller/occupations/job_master
  *  preference is not set, or the preference is not appropriate for the rank, in
  *  which case a fallback will be selected.
  */
-/datum/controller/occupations/proc/get_spawnpoint_for(var/client/C, var/rank)
+/datum/controller/occupations/proc/get_spawnpoint_for(client/C, rank)
 
 	if(!C)
 		CRASH("Null client passed to get_spawnpoint_for() proc!")
@@ -651,10 +651,10 @@ var/global/datum/controller/occupations/job_master
 
 	return spawnpos
 
-/datum/controller/occupations/proc/GetJobByType(var/job_type)
+/datum/controller/occupations/proc/GetJobByType(job_type)
 	return occupations_by_type[job_type]
 
-/datum/controller/occupations/proc/get_roundstart_spawnpoint(var/rank)
+/datum/controller/occupations/proc/get_roundstart_spawnpoint(rank)
 	var/list/loc_list = list()
 	for(var/obj/effect/landmark/start/sloc in landmarks_list)
 		if(sloc.name != rank)	continue

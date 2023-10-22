@@ -250,7 +250,7 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/Topic(href, href_list) //I fucking HATE this proc
+/obj/machinery/suit_storage_unit/Topic(href, href_list)
 	if(..())
 		return
 	usr.set_machine(src)
@@ -797,7 +797,7 @@
 
 	..()
 
-/obj/machinery/suit_cycler/emag_act(var/remaining_charges, var/mob/user)
+/obj/machinery/suit_cycler/emag_act(remaining_charges, mob/user)
 	if(emagged)
 		to_chat(user, "<span class='danger'>The cycler has already been subverted.</span>")
 		return

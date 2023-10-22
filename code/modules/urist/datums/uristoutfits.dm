@@ -14,7 +14,7 @@
 	pda_type = /obj/item/modular_computer/pda/heads
 	id_pda_assignment = "ANTAG Operative"
 
-/decl/hierarchy/outfit/ANTAG/post_equip(var/mob/living/carbon/human/H)
+/decl/hierarchy/outfit/ANTAG/post_equip(mob/living/carbon/human/H)
 	var/obj/item/weapon/storage/secure/briefcase/sec_briefcase = new(H)
 	for(var/obj/item/briefcase_item in sec_briefcase)
 		qdel(briefcase_item)
@@ -146,7 +146,7 @@
 	else
 		return
 
-/decl/hierarchy/outfit/wwii/germanrifleman/post_equip(var/mob/living/carbon/human/H)
+/decl/hierarchy/outfit/wwii/germanrifleman/post_equip(mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/uniform = H.w_uniform
 	if(uniform)
@@ -168,7 +168,7 @@
 	l_hand = /obj/item/ammo_magazine/mc9mm/p38
 	belt = /obj/item/weapon/gun/projectile/p38
 
-/decl/hierarchy/outfit/wwii/germanofficer/post_equip(var/mob/living/carbon/human/H)
+/decl/hierarchy/outfit/wwii/germanofficer/post_equip(mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/uniform = H.w_uniform
 	if(uniform)
@@ -222,7 +222,7 @@
 	else
 		return
 
-/decl/hierarchy/outfit/wwii/sovietrifleman/post_equip(var/mob/living/carbon/human/H)
+/decl/hierarchy/outfit/wwii/sovietrifleman/post_equip(mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/uniform = H.w_uniform
 	if(uniform)
@@ -253,7 +253,7 @@
 	else
 		return
 
-/decl/hierarchy/outfit/wwii/sovietofficer/post_equip(var/mob/living/carbon/human/H)
+/decl/hierarchy/outfit/wwii/sovietofficer/post_equip(mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/uniform = H.w_uniform
 	if(uniform)
@@ -378,7 +378,7 @@
 	l_hand = /obj/item/weapon/melee/energy/sword/pirate
 	gloves = /obj/item/clothing/gloves/guards
 
-/decl/hierarchy/outfit/newpirate/melee/post_equip(var/mob/living/carbon/human/H)
+/decl/hierarchy/outfit/newpirate/melee/post_equip(mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/uniform = H.w_uniform
 	if(uniform)

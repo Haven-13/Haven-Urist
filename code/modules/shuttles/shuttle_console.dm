@@ -20,7 +20,7 @@
 
 	ui_interact(user)
 
-/obj/machinery/computer/shuttle_control/proc/get_shuttle_ui_data(var/datum/shuttle/autodock/shuttle)
+/obj/machinery/computer/shuttle_control/proc/get_shuttle_ui_data(datum/shuttle/autodock/shuttle)
 	var/shuttle_state
 	switch(shuttle.moving_status)
 		if(SHUTTLE_IDLE) shuttle_state = "idle"
@@ -67,7 +67,7 @@
 
 	return get_shuttle_ui_data(shuttle)
 
-/obj/machinery/computer/shuttle_control/proc/handle_ui_act(var/datum/shuttle/autodock/shuttle, var/action, var/list/params, var/user)
+/obj/machinery/computer/shuttle_control/proc/handle_ui_act(datum/shuttle/autodock/shuttle, action, list/params, user)
 	if(!istype(shuttle))
 		return FALSE
 
@@ -90,7 +90,7 @@
 			shuttle.set_docking_codes(uppertext(newcode))
 			. = TRUE
 
-/obj/machinery/computer/shuttle_control/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/computer/shuttle_control/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, ui_template, name)
@@ -100,7 +100,7 @@
 	UI_ACT_CHECK
 	return handle_ui_act(SSshuttle.shuttles[shuttle_tag], action, params, usr)
 
-/obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user)
+/obj/machinery/computer/shuttle_control/emag_act(remaining_charges, mob/user)
 	if (!hacked)
 		req_access = list()
 		req_one_access = list()
@@ -108,7 +108,7 @@
 		to_chat(user, "You short out the console's ID checking system. It's now available to everyone!")
 		return 1
 
-/obj/machinery/computer/shuttle_control/bullet_act(var/obj/item/projectile/Proj)
+/obj/machinery/computer/shuttle_control/bullet_act(obj/item/projectile/Proj)
 	visible_message("\The [Proj] ricochets off \the [src]!")
 
 /obj/machinery/computer/shuttle_control/ex_act()

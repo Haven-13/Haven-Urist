@@ -28,12 +28,12 @@
 	update_icon()
 	return ..(loc)
 
-/obj/effect/blob/CanPass(var/atom/movable/mover, var/turf/target, var/height = 0, var/air_group = 0)
+/obj/effect/blob/CanPass(atom/movable/mover, turf/target, height = 0, air_group = 0)
 	if(air_group || height == 0)
 		return 1
 	return 0
 
-/obj/effect/blob/ex_act(var/severity)
+/obj/effect/blob/ex_act(severity)
 	switch(severity)
 		if(1)
 			take_damage(rand(100, 120) / brute_resist)
@@ -48,7 +48,7 @@
 	else
 		icon_state = "blob_damaged"
 
-/obj/effect/blob/proc/take_damage(var/damage)
+/obj/effect/blob/proc/take_damage(damage)
 	health -= damage
 	if(health < 0)
 		playsound(loc, 'resources/sound/effects/splat.ogg', 50, 1)
@@ -60,7 +60,7 @@
 	health = min(health + regen_rate, maxHealth)
 	update_icon()
 
-/obj/effect/blob/proc/expand(var/turf/T)
+/obj/effect/blob/proc/expand(turf/T)
 	if(istype(T, /turf/unsimulated/) || istype(T, /turf/space) || (istype(T, /turf/simulated/mineral) && T.density))
 		return
 	if(istype(T, /turf/simulated/wall))
@@ -128,7 +128,7 @@
 	else
 		new expandType(T, min(health, 30))
 
-/obj/effect/blob/proc/pulse(var/forceLeft, var/list/dirs)
+/obj/effect/blob/proc/pulse(forceLeft, list/dirs)
 	if(!dirs)	return
 	regen()
 	sleep(4)
@@ -142,7 +142,7 @@
 	if(forceLeft)
 		B.pulse(forceLeft - 1, dirs)
 
-/obj/effect/blob/bullet_act(var/obj/item/projectile/Proj)
+/obj/effect/blob/bullet_act(obj/item/projectile/Proj)
 	if(!Proj)
 		return
 
@@ -153,7 +153,7 @@
 			take_damage((Proj.damage / laser_resist) / fire_resist)
 	return 0
 
-/obj/effect/blob/attackby(var/obj/item/weapon/W, var/mob/user)
+/obj/effect/blob/attackby(obj/item/weapon/W, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	playsound(loc, 'resources/sound/effects/attackblob.ogg', 50, 1)
@@ -259,5 +259,5 @@
 	else
 		icon_state = "blob_damaged"
 
-/obj/effect/blob/shield/CanPass(var/atom/movable/mover, var/turf/target, var/height = 0, var/air_group = 0)
+/obj/effect/blob/shield/CanPass(atom/movable/mover, turf/target, height = 0, air_group = 0)
 	return !density

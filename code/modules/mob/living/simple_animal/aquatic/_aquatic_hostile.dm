@@ -20,5 +20,5 @@
 		SetStunned(3)
 	. = ..()
 
-/mob/living/simple_animal/hostile/aquatic/handle_atmos(var/atmos_suitable = 1)
+/mob/living/simple_animal/hostile/aquatic/handle_atmos(atmos_suitable = 1)
 	. = ..(atmos_suitable = submerged())

@@ -33,7 +33,7 @@
 // ===========
 /mob/living/carbon/human/var/list/datum/medical_effect/side_effects = list()
 /mob/proc/add_side_effect(name, strength = 0)
-/mob/living/carbon/human/add_side_effect(var/datum/medical_effect/ME, strength = 0)
+/mob/living/carbon/human/add_side_effect(datum/medical_effect/ME, strength = 0)
 	for(var/datum/medical_effect/M in side_effects)
 		if(M.name == ME.name)
 			M.strength = max(M.strength, 10)

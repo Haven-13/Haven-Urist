@@ -1,5 +1,5 @@
 // Generates a simple HTML crew manifest for use in various places
-/proc/html_crew_manifest(var/monochrome, var/OOC)
+/proc/html_crew_manifest(monochrome, OOC)
 	var/list/dept_data = list(
 		list("names" = list(), "header" = "Heads of Staff", "flag" = COM),
 		list("names" = list(), "header" = "Command Support", "flag" = SPT),
@@ -84,7 +84,7 @@
 	dat = replacetext(dat, "\t", "")
 	return dat
 
-/proc/silicon_nano_crew_manifest(var/list/filter)
+/proc/silicon_nano_crew_manifest(list/filter)
 	var/list/filtered_entries = list()
 
 	for(var/mob/living/silicon/ai/ai in SSmobs.mob_list)
@@ -103,7 +103,7 @@
 		)))
 	return filtered_entries
 
-/proc/filtered_nano_crew_manifest(var/list/filter, var/blacklist = FALSE)
+/proc/filtered_nano_crew_manifest(list/filter, blacklist = FALSE)
 	var/list/filtered_entries = list()
 	for(var/datum/computer_file/report/crew_record/CR in department_crew_manifest(filter, blacklist))
 		filtered_entries.Add(list(list(
@@ -134,7 +134,7 @@
 	. += filtered_nano_crew_manifest(null, TRUE)
 	. += silicon_nano_crew_manifest(GLOB.nonhuman_positions)
 
-/proc/filtered_ui_crew_manifest(var/name, var/flag, var/list/filter, var/blacklist = FALSE)
+/proc/filtered_ui_crew_manifest(name, flag, list/filter, blacklist = FALSE)
 	. = list(
 		"name" = name,
 		"flag" = flag,
@@ -147,7 +147,7 @@
 			"status" = CR.get_status()
 		))
 
-/proc/silicon_ui_crew_manifest(var/list/filter)
+/proc/silicon_ui_crew_manifest(list/filter)
 	. = list(
 		"name" = "Silicon",
 		"flag" = 0,

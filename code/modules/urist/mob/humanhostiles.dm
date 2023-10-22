@@ -167,7 +167,7 @@
 	attack_sound = 'resources/sound/weapons/punch3.ogg' //overridden in AttackTarget!
 	attack_same = 0
 
-/mob/living/simple_animal/hostile/urist/stalker/ntis/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/hostile/urist/stalker/ntis/UnarmedAttack(atom/A, proximity)
 	attack_sound = pick('resources/sound/weapons/bladeslice.ogg','resources/sound/weapons/genhit1.ogg','resources/sound/weapons/genhit2.ogg','resources/sound/weapons/punch2.ogg','resources/sound/weapons/punch3.ogg','resources/sound/weapons/smash.ogg')
 	. = ..()
 

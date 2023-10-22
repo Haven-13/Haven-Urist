@@ -16,7 +16,7 @@
 	var/gas_filter_strength = 1			//For gas mask filters
 	var/list/filtered_gases = list("phoron", "nitrous_oxide")
 
-/obj/item/clothing/mask/gas/examine(var/mob/user)
+/obj/item/clothing/mask/gas/examine(mob/user)
 	. = ..()
 	if(clogged)
 		to_chat(user, "<span class='warning'>The intakes are clogged with [clogged]!</span>")
@@ -24,7 +24,7 @@
 /obj/item/clothing/mask/gas/filters_water()
 	return (filter_water && !clogged)
 
-/obj/item/clothing/mask/gas/attack_self(var/mob/user)
+/obj/item/clothing/mask/gas/attack_self(mob/user)
 	if(clogged)
 		user.visible_message("<span class='notice'>\The [user] begins unclogging the intakes of \the [src].</span>")
 		if(do_after(user, 100, progress = 1) && clogged)

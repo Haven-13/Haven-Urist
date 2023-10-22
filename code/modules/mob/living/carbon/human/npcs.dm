@@ -39,7 +39,7 @@
 		"Zeta"
 	)
 
-/mob/living/carbon/human/blank/New(var/new_loc)
+/mob/living/carbon/human/blank/New(new_loc)
 	..(new_loc, "Vat-Grown Human")
 
 /mob/living/carbon/human/blank/Initialize()

@@ -13,7 +13,7 @@
 	item_icons = DEF_URIST_INHANDS
 	icon = 'resources/icons/urist/items/papercrafts.dmi'
 
-/obj/item/weapon/papercrafts/proc/fold(var/obj/item/weapon/papercrafts/N, var/foldText, mob/user as mob) //So i don't have to write this over and over again
+/obj/item/weapon/papercrafts/proc/fold(obj/item/weapon/papercrafts/N, foldText, mob/user as mob)
 	user.remove_from_mob(src)
 	user.put_in_hands(N)
 	to_chat(user, foldText)
@@ -113,7 +113,7 @@
 	foldable = /obj/item/weapon/papercrafts/square //Turns into a square paper when unfolded
 
 // Cutting of paper for papercrafts. Square paper is traditionally used in oragami.
-/obj/item/weapon/paper/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/weapon/paper/attackby(obj/item/I, mob/user as mob)
 	// Any type of scissor can be used on paper.
 	if(istype(I, /obj/item/weapon/scissors))
 		var/want = input("Choose what you want to make", "Your Choice", "Cancel") in list ("Cancel", "Paper Square", "Paper Hat")

@@ -22,7 +22,7 @@
 	find_console()
 	. = ..()
 
-/obj/machinery/mineral/attackby(var/obj/item/O, var/mob/user)
+/obj/machinery/mineral/attackby(obj/item/O, mob/user)
 	if(default_deconstruction_screwdriver(user, O))
 		updateUsrDialog()
 		return
@@ -32,10 +32,10 @@
 		return
 	. = ..()
 
-/obj/machinery/mineral/proc/set_input(var/_dir)
+/obj/machinery/mineral/proc/set_input(_dir)
 	input_turf = _dir ? get_step(loc, _dir) : null
 
-/obj/machinery/mineral/proc/set_output(var/_dir)
+/obj/machinery/mineral/proc/set_output(_dir)
 	output_turf = _dir ? get_step(loc, _dir) : null
 
 /obj/machinery/mineral/proc/get_console_data()
@@ -50,7 +50,7 @@
 		. += "<b>Output</b>: disabled."
 	. += "<br><a href='?src=[REF(src)];configure_input_output=1'>Configure.</a>"
 
-/obj/machinery/mineral/CanUseTopic(var/mob/user)
+/obj/machinery/mineral/CanUseTopic(mob/user)
 	return max(..(), (console && console.CanUseTopic(user)))
 
 /obj/machinery/mineral/proc/find_console()
@@ -77,21 +77,21 @@
 		usr.set_machine(console)
 		console.add_fingerprint(usr)
 
-/obj/machinery/mineral/attack_ai(var/mob/user)
+/obj/machinery/mineral/attack_ai(mob/user)
 	interact(user)
 
-/obj/machinery/mineral/attack_hand(var/mob/user)
+/obj/machinery/mineral/attack_hand(mob/user)
 	add_fingerprint(user)
 	interact(user)
 
-/obj/machinery/mineral/proc/can_configure(var/mob/user)
+/obj/machinery/mineral/proc/can_configure(mob/user)
 	if(user.incapacitated())
 		return FALSE
 	if(istype(user, /mob/living/silicon))
 		return TRUE
 	return (Adjacent(user) || (console && console.Adjacent(user)))
 
-/obj/machinery/mineral/interact(var/mob/user)
+/obj/machinery/mineral/interact(mob/user)
 
 	if(!can_configure(user)) return
 

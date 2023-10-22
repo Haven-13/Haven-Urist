@@ -35,7 +35,7 @@
 	var/basedesc = "A file containing top-secret data."
 	var/faction = "Broken Code Initiative"
 
-/obj/item/weapon/conspiracyintel/New(loc = src.loc, var/presetconspiracy)
+/obj/item/weapon/conspiracyintel/New(loc = src.loc, presetconspiracy)
 	..()
 	if(presetconspiracy)
 		faction = presetconspiracy
@@ -107,7 +107,7 @@
 		else if(open)
 			close_computer()
 
-/obj/item/device/inteluplink/New(var/maker)
+/obj/item/device/inteluplink/New(maker)
 	..()
 	if(maker)
 		faction = maker
@@ -178,7 +178,7 @@
 		icon_state = "adv-laptop-closed"
 		desc = "A clamshell portable computer. It is closed."
 
-/obj/item/device/inteluplink/attackby(var/obj/item/I,mob/user as mob)
+/obj/item/device/inteluplink/attackby(obj/item/I,mob/user as mob)
 	if(!open)
 		return
 	if(istype(I,/obj/item/weapon/conspiracyintel))

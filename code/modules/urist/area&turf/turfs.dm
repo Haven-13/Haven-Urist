@@ -126,7 +126,7 @@ transit/east is the same thing now AFAIK
 	name = "catwalk"
 	update_icon(1)
 
-/turf/simulated/floor/plating/airless/catwalk/update_icon(var/propogate=1)
+/turf/simulated/floor/plating/airless/catwalk/update_icon(propogate=1)
 	underlays.Cut()
 	underlays += new /icon('resources/icons/turf/space.dmi',"[((x + y) ^ ~(x * y) + z) % 25]")
 
@@ -209,7 +209,7 @@ transit/east is the same thing now AFAIK
 	icon = 'resources/icons/urist/turf/walls.dmi'
 	icon_state = "wood0"
 
-/turf/simulated/wall/wood/New(var/newloc)
+/turf/simulated/wall/wood/New(newloc)
 	..(newloc,"wood")
 
 //unsimulated floor w/ plating icon, for base-turf in hangars and such

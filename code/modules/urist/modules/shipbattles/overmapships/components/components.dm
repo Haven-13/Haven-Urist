@@ -25,7 +25,7 @@
 /datum/shipcomponents/proc/DoActivate()
 	return
 
-/datum/shipcomponents/proc/GetInitial(var/initial_thing)
+/datum/shipcomponents/proc/GetInitial(initial_thing)
 	return initial(initial_thing)
 
 //shields

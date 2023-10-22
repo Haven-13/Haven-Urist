@@ -30,7 +30,7 @@
 	else
 		icon_state = "[base_state]open"
 
-/obj/machinery/door/window/proc/shatter(var/display_message = 1)
+/obj/machinery/door/window/proc/shatter(display_message = 1)
 	new /obj/item/weapon/material/shard(src.loc)
 	var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(src.loc)
 	CC.amount = 2
@@ -57,7 +57,7 @@
 		visible_message("[src] shatters!")
 	qdel(src)
 
-/obj/machinery/door/window/deconstruct(mob/user, var/moved = FALSE)
+/obj/machinery/door/window/deconstruct(mob/user, moved = FALSE)
 	shatter()
 
 /obj/machinery/door/window/Destroy()
@@ -144,7 +144,7 @@
 	src.operating = 0
 	return 1
 
-/obj/machinery/door/window/take_damage(var/damage)
+/obj/machinery/door/window/take_damage(damage)
 	src.health = max(0, src.health - damage)
 	if (src.health <= 0)
 		shatter()
@@ -164,7 +164,7 @@
 			return
 	return src.attackby(user, user)
 
-/obj/machinery/door/window/emag_act(var/remaining_charges, var/mob/user)
+/obj/machinery/door/window/emag_act(remaining_charges, mob/user)
 	if (density && operable())
 		operating = -1
 		flick("[src.base_state]spark", src)
@@ -178,7 +178,7 @@
 			open()
 	..()
 
-/obj/machinery/door/window/CanFluidPass(var/coming_from)
+/obj/machinery/door/window/CanFluidPass(coming_from)
 	return ((dir in GLOB.cardinal) && coming_from != dir)
 
 /obj/machinery/door/window/attackby(obj/item/weapon/I as obj, mob/user as mob)

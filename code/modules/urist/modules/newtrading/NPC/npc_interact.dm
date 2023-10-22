@@ -6,7 +6,7 @@
 
 	attack_hand(usr)
 
-/mob/living/simple_animal/hostile/npc/attack_hand(var/mob/living/user)
+/mob/living/simple_animal/hostile/npc/attack_hand(mob/living/user)
 	if(user && istype(user) && can_use(user))
 
 		if(interacting_mob && !can_use(interacting_mob))
@@ -29,7 +29,7 @@
 /mob/living/simple_animal/hostile/npc/ui_state(mob/user)
 	return ui_default_state()
 
-/mob/living/simple_animal/hostile/npc/ui_interact(mob/user, var/datum/tgui/ui)
+/mob/living/simple_animal/hostile/npc/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "npcs/NpcInteraction", name)
@@ -116,14 +116,14 @@
 		if("close")
 			close_ui(ui)
 
-/mob/living/simple_animal/hostile/npc/proc/close_ui(var/datum/tgui/ui = null)
+/mob/living/simple_animal/hostile/npc/proc/close_ui(datum/tgui/ui = null)
 	if(ui)
 		ui.close()
 	interacting_mob = null
 	say(pick(goodbyes))
 	speak_chance = initial(speak_chance)
 
-/mob/living/simple_animal/hostile/npc/proc/handle_question(var/mob/living/carbon/user, var/choice)
+/mob/living/simple_animal/hostile/npc/proc/handle_question(mob/living/carbon/user, choice)
 	if(!choice)
 		return
 

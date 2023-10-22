@@ -94,7 +94,7 @@
 
 	return data
 
-/datum/ui_module/program/comm/proc/is_autenthicated(var/mob/user)
+/datum/ui_module/program/comm/proc/is_autenthicated(mob/user)
 	if(program)
 		return program.can_run(user)
 	return 1
