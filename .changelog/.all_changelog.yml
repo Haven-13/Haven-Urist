@@ -557,3 +557,6 @@
   martinlyra:
   - rscadd: Preliminary support for 515
   - refactor: Changed how procs are being referenced
+2023-10-23:
+  martinlyra:
+  - tweak: Cleaned up & modified code for compatibility with both BYOND & OpenDream
