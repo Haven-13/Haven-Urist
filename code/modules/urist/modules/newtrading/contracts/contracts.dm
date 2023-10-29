@@ -4,27 +4,27 @@
 /datum/contract
 	var/name = null
 	var/desc = null
-	var/datum/factions/faction = null //who are we doing this for
+	var/datum/factions/issuer_faction = null //who are we doing this for
 	var/money = 0 //how much money are we getting
 	var/rep_points = 0 //how much rep are we getting
 	var/points_per_unit = 0
 	var/neg_rep_points = 0 //how much rep do we lose
-	var/datum/factions/neg_faction = null //and from who
+	var/datum/factions/target_faction = null //and against who
 	var/amount = 0 //how much of whatever we have to do
 	var/completed = 0 //how much have we done
 
-/datum/contract/New()
+/datum/contract/New(issuer_faction)
 	..()
 
-	if(faction)
-		for(var/datum/factions/F in SSfactions.factions) //maybe turn this into an SSfactions proc?
-			if(F.type == faction)
-				faction = F
+	var/issuer = issuer_faction || src.issuer_faction  // New() takes precedence
+	if(issuer)
+		if (istype(issuer, /datum/factions))
+			src.issuer_faction = issuer
+		else
+			src.issuer_faction = SSfactions.factions_by_type[issuer]
 
-	if(neg_faction)
-		for(var/datum/factions/F in SSfactions.factions)
-			if(F.type == neg_faction)
-				neg_faction = F
+	if(target_faction)
+		target_faction = SSfactions.factions_by_type[target_faction]
 
 	if(points_per_unit && amount)
 		rep_points = (points_per_unit * amount)
@@ -32,19 +32,19 @@
 /datum/contract/proc/Complete(number = 0)
 	completed += number
 	if(completed >= amount)
-		SSfactions.update_reputation(faction, rep_points)
+		SSfactions.update_reputation(issuer_faction, rep_points)
 
-		if(neg_faction)
-			SSfactions.update_reputation(neg_faction, neg_rep_points)
+		if(target_faction)
+			SSfactions.update_reputation(target_faction, neg_rep_points)
 
-		var/datum/transaction/T = new("[GLOB.using_map.station_name]", "Contract Completion", money, "[faction.name]")
+		var/datum/transaction/T = new("[GLOB.using_map.station_name]", "Contract Completion", money, "[issuer_faction.name]")
 		station_account.do_transaction(T)
 		GLOB.using_map.completed_contracts += 1
 		GLOB.using_map.contracts -= src
 		qdel(src)
 
 /datum/contract/nanotrasen
-	faction = /datum/factions/nanotrasen
+	issuer_faction = /datum/factions/nanotrasen
 
 /datum/contract/nanotrasen/anomaly //code\modules\xenoarcheaology\tools\artifact_analyser.dm
 	name = "Anomaly Research Contract"
@@ -58,24 +58,24 @@
 	..()
 
 /datum/contract/terran
-	faction = /datum/factions/terran
+	issuer_faction = /datum/factions/terran
 
 /datum/contract/uha //united human alliance
-	faction = /datum/factions/uha
+	issuer_faction = /datum/factions/uha
 
 //shiphunting
 
 /datum/contract/shiphunt/New()
+	..()
+
 	if(!amount)
 		amount = rand(1,3)
 
 	var/oldmoney = money
 	money = (amount * oldmoney)
 
-	if(!desc)
-		desc = "This sector is plagued by [neg_faction.factionid]s, [faction.name] needs the [GLOB.using_map.station_name] to hunt down and destroy [amount] [neg_faction.name] ships in this sector."
+	desc = "This sector is plagued by [target_faction.factionid]s, [issuer_faction.name] need the [GLOB.using_map.station_name] to hunt down and destroy [amount] [target_faction.name] ships in this sector."
 
-	..()
 
 	if(!neg_rep_points)
 		neg_rep_points -= rep_points
@@ -84,13 +84,13 @@
 
 /datum/contract/shiphunt/pirate
 	name = "Pirate Ship Hunt Contract"
-	neg_faction = /datum/factions/pirate
+	target_faction = /datum/factions/pirate
 	points_per_unit = 3
 	money = 4000
 
 /datum/contract/shiphunt/alien
 	name = "Lactera Ship Hunt Contract"
-	neg_faction = /datum/factions/alien
+	target_faction = /datum/factions/alien
 	rep_points = 7
 	amount = 1
 	money = 8500
@@ -100,7 +100,7 @@
 /datum/contract/station_destroy/pirate
 	name = "Pirate Hideout Destruction Contract"
 	desc = "This sector is plagued by pirates. We need you to hunt down their hideout and destroy it for good."
-	neg_faction = /datum/factions/pirate
+	target_faction = /datum/factions/pirate
 	rep_points = 10
 	amount = 1
 	money = 20000

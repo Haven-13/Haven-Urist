@@ -3,7 +3,7 @@
 
 /datum/contract/cargo
 	var/list/wanted_types //types of items accepted for the contract
-	faction = "NanoTrasen"
+	issuer_faction = "NanoTrasen"
 
 /datum/contract/cargo/New()
 	..()
