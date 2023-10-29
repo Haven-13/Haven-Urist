@@ -1,0 +1,6 @@
+author: martinlyra
+changes:
+  - {bugfix: 'Fixed ship-hunt contracts not being generated correctly, rendering them
+      useless and impossible to complete.'}
+  - {bugfix: Fixed contract papers not showing up as filled.}
+delete-after: true
