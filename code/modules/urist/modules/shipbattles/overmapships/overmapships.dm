@@ -142,7 +142,7 @@
 			GLOB.using_map.destroyed_ships += 1
 
 			for(var/datum/contract/shiphunt/A in GLOB.using_map.contracts)
-				if(A.neg_faction == src.hiddenfaction)
+				if(A.target_faction == src.hiddenfaction)
 					A.Complete(1)
 
 		if(home_station)

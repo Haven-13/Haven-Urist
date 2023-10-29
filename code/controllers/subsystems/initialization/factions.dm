@@ -2,13 +2,15 @@ SUBSYSTEM_DEF(factions)
 	name = "Faction"
 	flags = SS_NO_FIRE
 	var/list/factions = list()
+	var/list/factions_by_type = list()
 	var/list/hostile_factions = list()
 
 /datum/controller/subsystem/factions/Initialize()
-	for(var/faction_type in typesof(/datum/factions) - /datum/factions)
+	for(var/faction_type in subtypesof(/datum/factions))
 		var/datum/factions/F = new faction_type()
 		if(F.allow_spawn)
 			factions.Add(F)
+			factions_by_type[faction_type] = F
 
 			if(F.reputation < 0 || F.hostile)
 				hostile_factions.Add(F)

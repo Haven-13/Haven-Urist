@@ -1,28 +1,27 @@
 /obj/item/weapon/paper/contract
 	var/contract_type = null
-	var/datum/contract/Contract = null
+	var/datum/contract/contract_datum = null
 	var/stored_faction = null
 	var/list/potential_contracts = null //only use this for random ones, it'll pick one
 
-/obj/item/weapon/paper/contract/New()
-	..()
+/obj/item/weapon/paper/contract/New(loc)
+	..(loc)
 
 	if(potential_contracts)
 		contract_type = pick(potential_contracts)
 
-	Contract = new contract_type
+	// TODO: STOP USING HARDCODED FACTION AND UNFUCK THE WAY CONTRACTS ARE GRAFTED ONTO TRADING
+	contract_datum = new contract_type(/datum/factions/nanotrasen) // hard-coded faction for now
 
-	name = Contract.name
-	info = Contract.desc
+	name = contract_datum.name
+	info = contract_datum.desc
 
-	if(stored_faction && !Contract.faction)
-		Contract.faction = src.stored_faction
+	update_icon()
 
-	GLOB.using_map.contracts += Contract
-//	AddContract()
+	if(stored_faction && !contract_datum.issuer_faction)
+		contract_datum.issuer_faction = src.stored_faction
 
-///obj/item/weapon/paper/contract/proc/AddContract(var/contract)
-//	GLOB.using_map.contracts += contract
+	GLOB.using_map.contracts += contract_datum
 
 /obj/item/weapon/paper/contract/nanotrasen
 	stored_faction = "NanoTrasen"

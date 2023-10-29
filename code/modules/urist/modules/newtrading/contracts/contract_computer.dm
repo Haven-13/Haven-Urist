@@ -34,7 +34,7 @@
 		category.Add(list(list(
 			"name" = C.name,
 			"desc" = C.desc,
-			"issuer" = C.faction,
+			"issuer" = C.issuer_faction,
 			"money" = C.money,
 			"amount" = C.amount,
 			"progress" = C.completed
