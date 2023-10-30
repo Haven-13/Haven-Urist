@@ -560,3 +560,9 @@
 2023-10-23:
   martinlyra:
   - tweak: Cleaned up & modified code for compatibility with both BYOND & OpenDream
+2023-10-30:
+  martinlyra:
+  - bugfix: Fixed ship-hunt contracts not being generated correctly, rendering them
+      useless and impossible to complete.
+  - bugfix: Fixed contract papers not showing up as filled.
+  - server: Updated TGS integration from TGS 4 to TGS 5

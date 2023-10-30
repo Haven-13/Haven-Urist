@@ -1,4 +1,0 @@
-author: martinlyra
-changes:
-  - {server: Updated TGS integration from TGS 4 to TGS 5}
-delete-after: true
