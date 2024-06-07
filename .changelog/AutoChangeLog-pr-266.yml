@@ -1,0 +1,10 @@
+author: martinlyra
+changes:
+  - {bugfix: Fixes dispensers being layered below tables.}
+  - {bugfix: Fixes curtains disappearing when used.}
+  - {bugfix: Fixes microwaves being layered below tables.}
+  - {bugfix: Fixes vendor-mats being layered below tables.}
+  - {bugfix: Fixes wall girders being layered below most objects.}
+  - {bugfix: Fixes grilles being layered below most objects.}
+  - {bugfix: Fixes miscellaneous structures being layered most objects.}
+delete-after: true
