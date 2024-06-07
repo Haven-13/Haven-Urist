@@ -29,12 +29,10 @@
 	set_opacity(!opacity)
 	if(opacity)
 		icon_state = "closed"
-		plane = DEFAULT_PLANE
 		layer = ABOVE_WINDOW_LAYER
 	else
 		icon_state = "open"
-		plane = DEFAULT_PLANE
-		layer = ABOVE_WINDOW_LAYER
+		layer = ABOVE_MOB_LAYER
 
 /obj/structure/curtain/black
 	name = "black curtain"
