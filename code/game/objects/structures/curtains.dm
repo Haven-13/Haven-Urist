@@ -3,14 +3,14 @@
 	icon = 'resources/icons/obj/curtain.dmi'
 	icon_state = "closed"
 	plane = DEFAULT_PLANE
-	layer = ABOVE_WINDOW_LAYER
+	layer = ABOVE_MOB_LAYER
 	opacity = 1
 	density = 0
 
 /obj/structure/curtain/open
 	icon_state = "open"
 	plane = DEFAULT_PLANE
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_WINDOW_LAYER
 	opacity = 0
 
 /obj/structure/curtain/bullet_act(obj/item/projectile/P, def_zone)
@@ -29,10 +29,10 @@
 	set_opacity(!opacity)
 	if(opacity)
 		icon_state = "closed"
-		layer = ABOVE_WINDOW_LAYER
+		layer = ABOVE_MOB_LAYER
 	else
 		icon_state = "open"
-		layer = ABOVE_MOB_LAYER
+		layer = ABOVE_WINDOW_LAYER
 
 /obj/structure/curtain/black
 	name = "black curtain"
