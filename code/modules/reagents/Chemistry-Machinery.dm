@@ -9,7 +9,7 @@
 	anchored = 1
 	icon = 'resources/icons/obj/chemical.dmi'
 	icon_state = "mixer0"
-	layer = BELOW_OBJ_LAYER //Beakers were appearing below it
+	layer = STRUCTURE_LAYER //Beakers were appearing below it
 	use_power = 1
 	idle_power_usage = 20
 	clicksound = "button"

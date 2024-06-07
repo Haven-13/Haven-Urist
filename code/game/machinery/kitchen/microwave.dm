@@ -3,7 +3,7 @@
 	name = "microwave"
 	icon = 'resources/icons/obj/kitchen.dmi'
 	icon_state = "mw"
-	layer = BELOW_OBJ_LAYER
+	layer = STRUCTURE_LAYER
 	density = 1
 	anchored = 1
 	use_power = 1

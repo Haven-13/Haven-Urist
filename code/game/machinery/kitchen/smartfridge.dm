@@ -5,7 +5,7 @@
 	name = "\improper SmartFridge"
 	icon = 'resources/icons/obj/vending.dmi'
 	icon_state = "smartfridge"
-	layer = BELOW_OBJ_LAYER
+	layer = STRUCTURE_LAYER
 	density = 1
 	anchored = 1
 	use_power = 1
