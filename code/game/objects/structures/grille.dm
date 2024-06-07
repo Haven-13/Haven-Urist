@@ -6,7 +6,7 @@
 	density = 1
 	anchored = 1
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	layer = BELOW_OBJ_LAYER
+	layer = STRUCTURE_LAYER
 	explosion_resistance = 1
 	health = 10
 	var/destroyed = 0
