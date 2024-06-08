@@ -566,3 +566,12 @@
       useless and impossible to complete.
   - bugfix: Fixed contract papers not showing up as filled.
   - server: Updated TGS integration from TGS 4 to TGS 5
+2024-06-08:
+  martinlyra:
+  - bugfix: Fixes dispensers being layered below tables.
+  - bugfix: Fixes curtains disappearing when used.
+  - bugfix: Fixes microwaves being layered below tables.
+  - bugfix: Fixes vendor-mats being layered below tables.
+  - bugfix: Fixes wall girders being layered below most objects.
+  - bugfix: Fixes grilles being layered below most objects.
+  - bugfix: Fixes miscellaneous structures being layered most objects.
