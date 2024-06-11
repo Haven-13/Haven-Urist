@@ -268,21 +268,6 @@ var/list/mob/living/forced_ambiance_list = new
 	if(!(L && L.client && L.get_preference_value(/datum/client_preference/play_ambiance) == GLOB.PREF_YES))	return
 
 	var/turf/T = get_turf(L)
-	var/hum = 0
-	if(!L.ear_deaf && !always_unpowered && power_environ && !is_planet(src))
-		for(var/obj/machinery/atmospherics/unary/vent_pump/vent in src)
-			if(vent.can_pump())
-				hum = 1
-				break
-	if(hum)
-		if(!L.client.ambience_playing)
-			L.client.ambience_playing = 1
-			L.playsound_local(T,sound('resources/sound/ambience/vents.ogg', repeat = 1, wait = 0, volume = 20, channel = GLOB.ambience_sound_channel))
-	else
-		if(L.client.ambience_playing)
-			L.client.ambience_playing = 0
-			sound_to(L, sound(null, channel = 2))
-
 	if(L.lastarea != src)
 		if(LAZY_LENGTH(forced_ambience))
 			forced_ambiance_list |= L
