@@ -41,7 +41,7 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 	set_species(H ? H.get_species() : SPECIES_HUMAN)
 
 	// Medical record
-	set_bloodtype(H ? H.b_type : "Unset")
+	set_bloodtype(H ? H.blood_type : "Unset")
 	set_medRecord((H && H.med_record && !jobban_isbanned(H, "Records") ? html_decode(H.med_record) : "No record supplied"))
 
 	// Security record

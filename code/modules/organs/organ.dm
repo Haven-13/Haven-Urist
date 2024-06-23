@@ -83,7 +83,7 @@ var/list/organ_cache = list()
 		if(!blood_DNA)
 			blood_DNA = list()
 		blood_DNA.Cut()
-		blood_DNA[dna.unique_enzymes] = dna.b_type
+		blood_DNA[dna.unique_enzymes] = dna.blood_type
 		species = all_species[dna.species]
 		if (!species)
 			crash_with("Invalid DNA species. Expected a valid species name as string, was: [log_info_line(dna.species)]")
@@ -184,7 +184,7 @@ var/list/organ_cache = list()
 		return
 	if(dna)
 		if(!rejecting)
-			if(owner.blood_incompatible(dna.b_type, species))
+			if(owner.blood_incompatible(dna.blood_type, species))
 				rejecting = 1
 		else
 			rejecting++ //Rejection severity increases over time.
@@ -210,10 +210,10 @@ var/list/organ_cache = list()
 	damage = 0
 	status = 0
 	if(!ignore_prosthetic_prefs && owner && owner.client && owner.client.prefs && owner.client.prefs.real_name == owner.real_name)
-		var/status = owner.client.prefs.organ_data[organ_tag]
-		if(status == "assisted")
+		var/status = owner.client.prefs.organ_augmentation_data[organ_tag]
+		if(status == ORGAN_OPTION_ASSISTED)
 			mechassist()
-		else if(status == "mechanical")
+		else if(status == ORGAN_OPTION_SYNTHETIC)
 			robotize()
 	if(species)
 		species.post_organ_rejuvenate(src, owner)

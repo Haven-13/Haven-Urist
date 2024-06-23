@@ -28,7 +28,7 @@
 				"species" = species.name,
 				"blood_DNA" = dna.unique_enzymes,
 				"blood_colour" = species.get_blood_colour(src),
-				"blood_type" = dna.b_type,
+				"blood_type" = dna.blood_type,
 				"trace_chem" = null,
 				"virus2" = list(),
 				"antibodies" = list()
@@ -183,9 +183,9 @@
 			return 1
 
 	var/donor_antigen = copytext(blood_type, 1, length(blood_type))
-	var/receiver_antigen = copytext(dna.b_type, 1, length(dna.b_type))
+	var/receiver_antigen = copytext(dna.blood_type, 1, length(dna.blood_type))
 	var/donor_rh = (findtext(blood_type, "+") > 0)
-	var/receiver_rh = (findtext(dna.b_type, "+") > 0)
+	var/receiver_rh = (findtext(dna.blood_type, "+") > 0)
 
 	if(donor_rh && !receiver_rh) return 1
 	switch(receiver_antigen)

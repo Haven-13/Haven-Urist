@@ -20,6 +20,13 @@
 	to_file(S["gen_record"],pref.gen_record)
 	to_file(S["memory"],pref.memory)
 
+/datum/category_item/player_setup_item/background/records/setup_character(mob/living/carbon/human/character, is_preview_copy)
+	if (is_preview_copy) return
+	character.med_record = pref.med_record
+	character.sec_record = pref.sec_record
+	character.gen_record = pref.gen_record
+	character.exploit_record = pref.exploit_record
+
 /datum/category_item/player_setup_item/background/records/content(mob/user)
 	. = list()
 	. += "<br/><b>Records</b>:<br/>"

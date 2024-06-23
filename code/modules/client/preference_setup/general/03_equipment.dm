@@ -36,6 +36,24 @@
 	to_file(S["backpack"], pref.backpack.name)
 	to_file(S["backpack_metadata"], pref.backpack_metadata)
 
+/datum/category_item/player_setup_item/physical/equipment/setup_character(mob/living/carbon/human/character, is_preview_copy)
+	QDEL_NULL_LIST(character.worn_underwear)
+	character.worn_underwear = list()
+
+	for(var/underwear_category_name in pref.all_underwear)
+		var/datum/category_group/underwear/underwear_category = GLOB.underwear.categories_by_name[underwear_category_name]
+		if(underwear_category)
+			var/underwear_item_name = pref.all_underwear[underwear_category_name]
+			var/datum/category_item/underwear/UWD = underwear_category.items_by_name[underwear_item_name]
+			var/metadata = pref.all_underwear_metadata[underwear_category_name]
+			var/obj/item/underwear/UW = UWD.create_underwear(metadata)
+			if(UW)
+				UW.ForceEquipUnderwear(character, FALSE)
+		else
+			pref.all_underwear -= underwear_category_name
+
+	character.backpack_setup = new(pref.backpack, pref.backpack_metadata["[pref.backpack]"])
+
 /datum/category_item/player_setup_item/physical/equipment/sanitize_character()
 	if(!istype(pref.all_underwear))
 		pref.all_underwear = list()

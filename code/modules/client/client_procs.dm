@@ -93,7 +93,7 @@
 	switch(href_list["_src_"])
 		if("holder")	hsrc = holder
 		if("usr")		hsrc = mob
-		if("prefs")		return prefs.process_link(usr,href_list)
+		if("prefs")		return prefs.get_ui().process_link(usr,href_list)
 		if("vars")		return view_var_Topic(href,href_list,hsrc)
 
 	switch(href_list["action"])
@@ -401,7 +401,7 @@
 	set name = "Character Setup"
 	set category = "OOC"
 	if(prefs)
-		prefs.ShowChoices(usr)
+		prefs.get_ui().ShowChoices(usr)
 
 /client/proc/apply_fps(client_fps)
 	if(world.byond_version >= 511 && byond_version >= 511 && client_fps >= CLIENT_MIN_FPS && client_fps <= CLIENT_MAX_FPS)

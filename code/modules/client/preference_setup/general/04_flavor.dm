@@ -37,6 +37,18 @@
 	for(var/module in GLOB.robot_module_types)
 		to_file(S["flavour_texts_robot_[module]"], pref.flavour_texts_robot[module])
 
+/datum/category_item/player_setup_item/physical/flavor/setup_character(mob/living/carbon/human/character, is_preview_copy)
+	if (is_preview_copy) return
+	character.flavor_texts["general"] 	= pref.flavor_texts["general"]
+	character.flavor_texts["head"] 		= pref.flavor_texts["head"]
+	character.flavor_texts["face"] 		= pref.flavor_texts["face"]
+	character.flavor_texts["eyes"] 		= pref.flavor_texts["eyes"]
+	character.flavor_texts["torso"] 	= pref.flavor_texts["torso"]
+	character.flavor_texts["arms"] 		= pref.flavor_texts["arms"]
+	character.flavor_texts["hands"] 	= pref.flavor_texts["hands"]
+	character.flavor_texts["legs"] 		= pref.flavor_texts["legs"]
+	character.flavor_texts["feet"] 		= pref.flavor_texts["feet"]
+
 /datum/category_item/player_setup_item/physical/flavor/sanitize_character()
 	if(!istype(pref.flavor_texts))        pref.flavor_texts = list()
 	if(!istype(pref.flavour_texts_robot)) pref.flavour_texts_robot = list()

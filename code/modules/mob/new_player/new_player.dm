@@ -98,7 +98,7 @@
 	if(!client)	return 0
 
 	if(href_list["show_preferences"])
-		client.prefs.ShowChoices(src)
+		client.prefs.get_ui().ShowChoices(src)
 		return 1
 
 	if(href_list["ready"])
@@ -138,7 +138,7 @@
 				announce_ghost_joinleave(src)
 
 			var/mob/living/carbon/human/dummy/mannequin = new()
-			client.prefs.dress_preview_mob(mannequin)
+			client.prefs.get_ui().dress_preview_mob(mannequin)
 			observer.set_appearance(mannequin)
 			qdel(mannequin)
 
@@ -216,7 +216,7 @@
 
 	if(!ready && href_list["preference"])
 		if(client)
-			client.prefs.process_link(src, href_list)
+			client.prefs.get_ui().process_link(src, href_list)
 	else if(!href_list["late_join"])
 		new_player_panel()
 
@@ -482,7 +482,7 @@
 
 	new_character.SetName(real_name)
 	new_character.dna.ready_dna(new_character)
-	new_character.dna.b_type = client.prefs.b_type
+	new_character.dna.blood_type = client.prefs.blood_type
 	new_character.sync_organ_dna()
 	if(client.prefs.disabilities)
 		// Set defer to 1 if you add more crap here so it only recalculates struc_enzymes once. - N3X
@@ -497,6 +497,9 @@
 	new_character.force_update_limbs()
 	new_character.update_eyes()
 	new_character.regenerate_icons()
+
+	if(!new_character.isSynthetic())
+		new_character.nutrition = rand(140,360)
 
 	new_character.key = key		//Manually transfer the key to log them in
 	return new_character
