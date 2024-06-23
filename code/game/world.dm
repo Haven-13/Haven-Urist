@@ -73,13 +73,22 @@ GLOBAL_VAR(restart_counter)
 /proc/tracy_profiler_init()
 	var/lib
 
+	var/bind_address = world.GetConfig("env", "UTRACY_BIND_ADDRESS")
+	var/bind_port = world.GetConfig("env", "UTRACY_BIND_PORT")
+
+	if(!bind_address)
+		world.SetConfig("env", "UTRACY_BIND_ADDRESS", "127.0.0.1")
+	if(!bind_port)
+		world.SetConfig("env", "UTRACY_BIND_PORT", "3000")
+
 	switch(world.system_type)
 		if(MS_WINDOWS) lib = "prof.dll"
 		if(UNIX) lib = "libprof.so"
 		else CRASH("unsupported platform")
 
-	var/init = call(lib, "init")()
+	var/init = LIBCALL(lib, "init")()
 	if("0" != init) CRASH("[lib] init error: [init]")
+	to_world_log("Tracy profiling started.")
 
 /world/New()
 	global.world_init_time = REALTIMEOFDAY

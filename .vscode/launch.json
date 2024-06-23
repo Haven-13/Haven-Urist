@@ -13,7 +13,7 @@
 			"request": "launch",
 			"name": "Launch DreamSeeker - Example",
 			"preLaunchTask": "Build All (Dev)",
-			"dmb": "${workspaceFolder}/${command:CurrentDMB}"
+			"dmb": "${workspaceFolder}/${command:CurrentDMB}",
 		},
 		{
 			"type": "byond",
