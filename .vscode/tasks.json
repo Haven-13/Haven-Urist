@@ -18,7 +18,7 @@
 		{
 			"type": "process",
 			"command": "tools/build/build",
-			"args": ["--map-override=debug_00", "-DUSE_BYOND_TRACY"],
+			"args": ["-DUSE_BYOND_TRACY"],
 			"windows": {
 				"command": ".\\tools\\build\\build.bat"
 			},
