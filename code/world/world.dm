@@ -1,7 +1,3 @@
-#define WORLD_ICON_SIZE 32
-
-#define DEFAULT_VIEW_SIZE 15
-
 //This file is just for the necessary /world definition
 //Try looking in game/world.dm
 
