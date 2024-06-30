@@ -13,7 +13,11 @@
 			"request": "launch",
 			"name": "Launch DreamSeeker - Example",
 			"preLaunchTask": "Build All (Dev)",
-			"dmb": "${workspaceFolder}/${command:CurrentDMB}"
+			"dmb": "${workspaceFolder}/${command:CurrentDMB}",
+			"env": {
+				"UTRACY_BIND_ADDRESS": "127.0.0.1",
+				"UTRACY_BIND_PORT": "3000",
+			},
 		},
 		{
 			"type": "byond",

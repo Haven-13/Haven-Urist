@@ -78,8 +78,9 @@ GLOBAL_VAR(restart_counter)
 		if(UNIX) lib = "libprof.so"
 		else CRASH("unsupported platform")
 
-	var/init = call(lib, "init")()
+	var/init = LIBCALL(lib, "init")()
 	if("0" != init) CRASH("[lib] init error: [init]")
+	to_world_log("Tracy profiling started.")
 
 /world/New()
 	global.world_init_time = REALTIMEOFDAY
