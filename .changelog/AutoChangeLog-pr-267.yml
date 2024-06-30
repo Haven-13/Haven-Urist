@@ -1,0 +1,5 @@
+author: martinlyra
+changes:
+  - {bugfix: "Removed vent hum, which caused a major performance dump due to a 'for
+      (thing in /area)' loop."}
+delete-after: true
