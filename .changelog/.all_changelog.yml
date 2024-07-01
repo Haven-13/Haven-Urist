@@ -575,3 +575,7 @@
   - bugfix: Fixes wall girders being layered below most objects.
   - bugfix: Fixes grilles being layered below most objects.
   - bugfix: Fixes miscellaneous structures being layered most objects.
+2024-07-01:
+  martinlyra:
+  - bugfix: Removed vent hum, which caused a major performance dump due to a 'for
+      (thing in /area)' loop.
