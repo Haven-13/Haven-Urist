@@ -2,6 +2,7 @@
 // All manual changes should be made outside the BEGIN_ and END_ blocks.
  // New source code should be placed in .dm files: choose File/New --> Code File.
 // BEGIN_INTERNALS
+var/global/static/pre_map_loaded = world.pre_map_load()
 // END_INTERNALS
 // BEGIN_FILE_DIR
 #define FILE_DIR .
@@ -16,14 +17,13 @@
 #include "code\_uristdefines.dm"
 #include "code\client_macros.dm"
 #include "code\global_init.dm"
-#include "code\hub.dm"
-#include "code\world.dm"
 #include "code\__datastructures\globals.dm"
 #include "code\__datastructures\priority_queue.dm"
 #include "code\__datastructures\stack.dm"
 #include "code\__datastructures\string_listing.dm"
 #include "code\__defines\_layering.dm"
 #include "code\__defines\_tick.dm"
+#include "code\__defines\_view_size.dm"
 #include "code\__defines\admin.dm"
 #include "code\__defines\appearance.dm"
 #include "code\__defines\atmos.dm"
@@ -465,7 +465,6 @@
 #include "code\game\response_team.dm"
 #include "code\game\shuttle_engines.dm"
 #include "code\game\sound.dm"
-#include "code\game\world.dm"
 #include "code\game\antagonist\_antagonist_setup.dm"
 #include "code\game\antagonist\antagonist.dm"
 #include "code\game\antagonist\antagonist_add.dm"
@@ -2629,6 +2628,12 @@
 #include "code\procs\statistics.dm"
 #include "code\unit_tests\_includes.dm"
 #include "code\unit_tests\_unit_tests.dm"
+#include "code\world\0_pre_map_load.dm"
+#include "code\world\1_new.dm"
+#include "code\world\9_shutdown.dm"
+#include "code\world\hub.dm"
+#include "code\world\topic.dm"
+#include "code\world\world.dm"
 #include "resources\Haven\Maps\TycloPluto\tyclo-pluto_define.dm"
 #include "resources\maps\_map_include.dm"
 #include "resources\maps\away\away_sites.dm"

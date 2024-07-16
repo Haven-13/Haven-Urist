@@ -13,7 +13,9 @@ GLOBAL_REAL(GLOB, /datum/controller/global_vars)
 	GLOB = src
 
 	var/datum/controller/exclude_these = new
-	gvars_datum_in_built_vars = exclude_these.vars + list("gvars_datum_protected_varlist", "gvars_datum_in_built_vars", "gvars_datum_init_order")
+	var/list/controller_vars = exclude_these.vars.Copy()
+	controller_vars["vars"] = null
+	gvars_datum_in_built_vars = controller_vars + list("gvars_datum_protected_varlist", "gvars_datum_in_built_vars", "gvars_datum_init_order")
 	qdel(exclude_these)
 
 	var/global_vars = vars.len - gvars_datum_in_built_vars.len

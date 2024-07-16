@@ -23,7 +23,11 @@
 // in the Github repository linked above on how to compile it.
 //		1 will enable this feature
 // 		0 will disable this feature
+#ifndef USE_BYOND_TRACY
 #define USE_BYOND_TRACY 0
+#else
+#define USE_BYOND_TRACY 1
+#endif
 
 #ifdef CIBUILDING
 #define UNIT_TEST
