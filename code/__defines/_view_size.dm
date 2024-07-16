@@ -1,0 +1,2 @@
+#define WORLD_ICON_SIZE 32
+#define DEFAULT_VIEW_SIZE 15
