@@ -2,6 +2,24 @@
 #define EQUIP_PREVIEW_JOB 2
 #define EQUIP_PREVIEW_ALL (EQUIP_PREVIEW_LOADOUT|EQUIP_PREVIEW_JOB)
 
+/datum/preferences
+	var/equip_preview_mob = EQUIP_PREVIEW_ALL
+	var/list/background_options = list(
+		"Void" = list(
+			"icon" = null,
+			"icon_state" = ""
+		),
+		"Dark" = list(
+			"icon" = 'resources/icons/turf/flooring/techfloor.dmi',
+			"icon_state" = "techfloor_gray"
+		),
+		"Rusty" = list(
+			"icon" = 'resources/icons/turf/flooring/tiles.dmi',
+			"icon_state" = "steel_dirty"
+		)
+	)
+	var/background_state = "Void"
+
 /datum/preferences_ui
 	var/datum/preferences/preferences
 
@@ -34,8 +52,9 @@
 		close_load_dialog(user)
 		return
 
-	var/list/dat = list("<html><body><center>")
-
+	var/list/dat = list()
+	dat += "<table style='height:100%;width:100%'>"
+	dat += "<tr><td><center>"
 	if(preferences.path)
 		dat += "Slot - "
 		dat += "<a href='?src=[REF(src)];load=1'>Load slot</a> - "
@@ -48,10 +67,21 @@
 
 	dat += "<br>"
 	dat += preferences.player_setup.header()
+	dat += "<br><HR>"
+	dat += "Preview - "
+	dat += "<a href='?src=[REF(src)];cycle_bg=1'>Cycle background</a>"
+	dat += "<a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[preferences.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
+	dat += "<a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[preferences.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
 	dat += "<br><HR></center>"
-	dat += preferences.player_setup.content(user)
+	dat += "</td></tr>"
 
-	dat += "</html></body>"
+	dat += "<tr style='height:100%'><td>"
+	dat += "<div style='position:relative;display:inline-block;width:100%;height:100%;overflow:auto'>"
+	dat += "<div style='position:absolute;width:100%'>"
+	dat += preferences.player_setup.content(user)
+	dat += "</div></div></td></tr>"
+
+	dat += "</table>"
 
 	winshow(user, "preferences_window", TRUE)
 	var/datum/browser/popup = new(user, "preferences_browser", "<div align='center'>Character Setup</div>", 640, 825)
@@ -97,6 +127,12 @@
 			return 0
 		preferences.load_character(SAVE_RESET)
 		preferences.sanitize_preferences()
+	else if(href_list["toggle_preview_value"])
+		preferences.equip_preview_mob ^= text2num(href_list["toggle_preview_value"])
+		update_preview_icon()
+	else if(href_list["cycle_bg"])
+		preferences.background_state = next_in_list(preferences.background_state, preferences.background_options)
+		update_preview_icon()
 	else
 		return 0
 
@@ -105,23 +141,26 @@
 
 /datum/preferences_ui/proc/open_load_dialog(mob/user)
 	var/dat  = list()
-	dat += "<body>"
-	dat += "<tt><center>"
+	dat += "<body><center>"
 
 	var/savefile/S = new /savefile(preferences.path)
 	if(S)
 		dat += "<b>Select a character slot to load</b><hr>"
+		dat += "<table style='width:100%'>"
 		var/name
+		var/is_selected
 		for(var/i=1, i<= config.character_slots, i++)
+			is_selected = (i == preferences.default_slot)
 			S.cd = GLOB.using_map.character_load_path(S, i)
-			from_file(S["real_name"], name)
-			if(!name)	name = "Character[i]"
-			if(i==preferences.default_slot)
+			from_file(S["save_slot_name"], name)
+			if(!name)	name = "Character [i]"
+			if(is_selected)
 				name = "<b>[name]</b>"
-			dat += "<a href='?src=[REF(src)];changeslot=[i]'>[name]</a><br>"
+			dat += "<tr><td><a href='?src=[REF(src)];changeslot=[i]' class='[is_selected && "linkOn" || ""]' style='display:inline-block;width:100%;text-align:center'>[name]</a></td></tr>"
+		dat += "</table>"
 
-	dat += "<hr>"
-	dat += "</center></tt>"
+	dat += "<hr></center></body>"
+
 	panel = new(user, "Character Slots", "Character Slots", 300, 390, src)
 	panel.set_content(jointext(dat,null))
 	panel.open()

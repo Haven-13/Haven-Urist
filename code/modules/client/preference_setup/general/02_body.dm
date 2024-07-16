@@ -30,24 +30,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	// will probably not be able to do this for head and torso ;)
 	var/disabilities = 0
 
-	var/equip_preview_mob = EQUIP_PREVIEW_ALL
-
-	var/list/background_options = list(
-		"Void" = list(
-			"icon" = null,
-			"icon_state" = ""
-		),
-		"Dark" = list(
-			"icon" = 'resources/icons/turf/flooring/techfloor.dmi',
-			"icon_state" = "techfloor_gray"
-		),
-		"Rusty" = list(
-			"icon" = 'resources/icons/turf/flooring/tiles.dmi',
-			"icon_state" = "steel_dirty"
-		)
-	)
-	var/background_state = "Void"
-
 /datum/category_item/player_setup_item/physical/body
 	name = "Body"
 	sort_order = 2
@@ -83,7 +65,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	from_file(S["disabilities"], pref.disabilities)
 
 	from_file(S["has_cortical_stack"], pref.has_cortical_stack)
-	from_file(S["background_state"], pref.background_state)
 
 /datum/category_item/player_setup_item/physical/body/save_character(savefile/S)
 	to_file(S["species"], pref.species)
@@ -115,7 +96,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	to_file(S["disabilities"], pref.disabilities)
 
 	to_file(S["has_cortical_stack"], pref.has_cortical_stack)
-	to_file(S["background_state"], pref.background_state)
 
 /datum/category_item/player_setup_item/physical/body/setup_character(mob/living/carbon/human/character, is_preview_copy = FALSE)
 	character.set_species(pref.species)
@@ -216,9 +196,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				else
 					pref.body_descriptors[entry] = clamp(last_descriptors[entry], 1, LAZY_LENGTH(descriptor.standalone_value_descriptors))
 
-	if(!pref.background_state || !(pref.background_state in pref.background_options))
-		pref.background_state = "Void"
-
 /datum/category_item/player_setup_item/physical/body/content(mob/user)
 	. = list()
 
@@ -248,10 +225,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			. += "<tr><td><b>[capitalize(descriptor.chargen_label)]:</b></td><td>[descriptor.get_standalone_value_descriptor(pref.body_descriptors[entry])]</td><td><a href='?src=[REF(src)];change_descriptor=[entry]'>Change</a><br/></td></tr>"
 		. += "</table><br>"
 
-	. += "</td><td><b>Preview</b><br>"
-	. += "<br><a href='?src=[REF(src)];cycle_bg=1'>Cycle background</a>"
-	. += "<br><a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
-	. += "<br><a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
 	. += "</td></tr></table>"
 
 	. += "<b>Hair</b><br>"
@@ -445,14 +418,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["disabilities"])
 		var/disability_flag = text2num(href_list["disabilities"])
 		pref.disabilities ^= disability_flag
-		return UPDATE_PREVIEW
-
-	else if(href_list["toggle_preview_value"])
-		pref.equip_preview_mob ^= text2num(href_list["toggle_preview_value"])
-		return UPDATE_PREVIEW
-
-	else if(href_list["cycle_bg"])
-		pref.background_state = next_in_list(pref.background_state, pref.background_options)
 		return UPDATE_PREVIEW
 
 	return ..()
