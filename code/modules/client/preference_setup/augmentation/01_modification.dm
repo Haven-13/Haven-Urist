@@ -98,7 +98,7 @@ var/list/organ_option_names = list(
 
 	. += "<a href='?src=[REF(src)];reset_limbs=1'>Reset All</a>"
 	. += "<table style='width:100%;height:100%'><tr><th style='width:50%'></th><th style='width:50%'></th></tr>"
-	. += "<tr><td>"
+	. += "<tr style='vertical-align:top'><td style='height:100%'>"
 	. += "<b>Implants</b><br>"
 	if(config.use_cortical_stacks)
 		. += "Neural lace: "
@@ -109,36 +109,36 @@ var/list/organ_option_names = list(
 			. += " \[<a href='?src=[REF(src)];toggle_stack=1'>toggle</a>\]"
 		. += "<br>"
 	. += "<b>Organs</b>"
-	. += "<table>"
+	. += "<table style='width:100%'>"
 	for(var/organ_key in mob_species.has_organ)
 		var/limb_info = get_organ_info(organ_key)
 		var/is_selected = organ_key == pref.ui_selected_organ
 		. += "<tr>"
-		. += "<td><a href='?src=[REF(src)];select_organ=[organ_key]' [is_selected && "class='linkOn'"]>[limb_info[1]]</a></td>"
+		. += "<td style='width:100px'><a href='?src=[REF(src)];select_organ=[organ_key]' [is_selected && "class='linkOn'"]>[limb_info[1]]</a></td>"
 		. += "<td>[limb_info[2]]</td>"
 		. += "</tr>"
 	. += "</table>"
 
 	. += "<hr>"
 	. += "<b>Limbs</b>"
-	. += "<table>"
+	. += "<table style='width:100%'>"
 	for(var/limb_key in mob_species.has_limbs)
 		var/limb_info = get_organ_info(limb_key)
 		var/is_selected = limb_key == pref.ui_selected_organ
 		. += "<tr>"
-		. += "<td><a href='?src=[REF(src)];select_organ=[limb_key]' [is_selected && "class='linkOn'"]>[limb_info[1]]</a></td>"
+		. += "<td style='width:100px'><a href='?src=[REF(src)];select_organ=[limb_key]' [is_selected && "class='linkOn'"]>[limb_info[1]]</a></td>"
 		. += "<td>[limb_info[2]]</td>"
 		. += "</tr>"
 	. += "</table>"
 
-	. += "</td><td>"
-	. += "<b>Selected organ:</b> [pref.ui_selected_organ]<br>"
+	. += "</td><td style='height:100%'>"
+	. += "<b>Selected organ:</b> [capitalize(parse_zone(pref.ui_selected_organ))]<br>"
 	. += show_organ_options(mob_species, pref.ui_selected_organ)
 	. += "</td></tr></table>"
 	. = jointext(.,null)
 
 /datum/category_item/player_setup_item/augmentation/modification/proc/get_organ_info(organ_key)
-	var/name = organ_key
+	var/name = capitalize(parse_zone(organ_key))
 	var/status
 	switch(pref.organ_augmentation_data[organ_key])
 		if(ORGAN_OPTION_CYBORG)

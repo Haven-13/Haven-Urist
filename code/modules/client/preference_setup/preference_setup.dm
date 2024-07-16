@@ -96,13 +96,13 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 		. = PS.update_setup(preferences, character) || .
 
 /datum/category_collection/player_setup_collection/proc/header()
-	var/dat = ""
+	var/list/l = list()
 	for(var/datum/category_group/player_setup_category/PS in categories)
 		if(PS == selected_category)
-			dat += "[PS.name] "	// TODO: Check how to properly mark a href/button selected in a classic browser window
+			l += "<a class='linkOn'>[PS.name]</a>"	// TODO: Check how to properly mark a href/button selected in a classic browser window
 		else
-			dat += "<a href='?src=[REF(src)];category=[REF(PS)]'>[PS.name]</a> "
-	return dat
+			l += "<a href='?src=[REF(src)];category=[REF(PS)]'>[PS.name]</a>"
+	return l.Join(" ")
 
 /datum/category_collection/player_setup_collection/proc/content(mob/user)
 	if(selected_category)
