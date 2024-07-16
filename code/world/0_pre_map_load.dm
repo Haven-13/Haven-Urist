@@ -21,7 +21,6 @@
 
 /world/proc/pre_map_load()
 	auxtools_init()
-	load_configuration()
 
 #if USE_BYOND_TRACY
 	#warn USE_BYOND_TRACY is enabled
@@ -31,5 +30,6 @@
 		Profile(PROFILE_START)
 #endif
 
+	load_configuration()
 	Master = new
 	return TRUE
