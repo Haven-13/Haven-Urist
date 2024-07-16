@@ -11,25 +11,22 @@
 	sort_order = 1
 
 /datum/category_item/player_setup_item/physical/identity/load_character(savefile/S)
-	var/list/data
-	from_file(S["physical_identity"], data)
-
-	pref.gender = data["gender"]
-	pref.age = data["age"]
-	pref.spawnpoint = data["spawnpoint"]
-	pref.metadata = data["metadata"]
-	pref.real_name = data["real_name"]
-	pref.be_random_name = data["name_is_always_random"]
+	from_file(S["physical_identity/gender"], pref.gender)
+	from_file(S["physical_identity/age"], pref.age)
+	from_file(S["physical_identity/spawnpoint"], pref.spawnpoint)
+	from_file(S["physical_identity/metadata"], pref.metadata)
+	from_file(S["physical_identity/real_name"], pref.real_name)
+	from_file(S["physical_identity/name_is_always_random"], pref.be_random_name)
 
 /datum/category_item/player_setup_item/physical/identity/save_character(savefile/S)
-	to_file(S["physical_identity"], list(
-		"gender" = pref.gender,
-		"age" = pref.age,
-		"spawnpoint" = pref.spawnpoint,
-		"metadata" = pref.metadata,
-		"real_name" = pref.real_name,
-		"name_is_always_random" = pref.be_random_name,
-	))
+	to_file(S["save_slot_name"], pref.real_name)
+
+	to_file(S["physical_identity/gender"], pref.gender)
+	to_file(S["physical_identity/age"], pref.age)
+	to_file(S["physical_identity/spawnpoint"], pref.spawnpoint)
+	to_file(S["physical_identity/metadata"], pref.metadata)
+	to_file(S["physical_identity/real_name"], pref.real_name)
+	to_file(S["physical_identity/name_is_always_random"], pref.be_random_name)
 
 /datum/category_item/player_setup_item/physical/identity/setup_character(mob/living/carbon/human/character, is_preview_copy = FALSE)
 	if(pref.be_random_name)
@@ -86,7 +83,8 @@
 		var/raw_name = input(user, "Choose your character's name:", "Character Name")  as text|null
 		if (!isnull(raw_name) && CanUseTopic(user))
 
-			var/decl/cultural_info/check = SSculture.get_culture(pref.cultural_info[TAG_CULTURE])
+			var/culture_key = pref.cultural_info[TAG_CULTURE] || CULTURE_HUMAN
+			var/decl/cultural_info/check = SSculture.get_culture(culture_key)
 			var/new_name = check.sanitize_name(raw_name, pref.species)
 			if(new_name)
 				pref.real_name = new_name
