@@ -579,3 +579,8 @@
   martinlyra:
   - bugfix: Removed vent hum, which caused a major performance dump due to a 'for
       (thing in /area)' loop.
+2024-07-17:
+  martinlyra:
+  - bugfix: Fixed a debugger issue related to world init order.
+  - bugfix: Fixed a garbage collector issue related to a cyclic reference in an other
+      object.

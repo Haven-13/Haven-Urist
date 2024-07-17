@@ -1,6 +1,0 @@
-author: martinlyra
-changes:
-  - {bugfix: Fixed a debugger issue related to world init order.}
-  - {bugfix: Fixed a garbage collector issue related to a cyclic reference in an other
-      object.}
-delete-after: true
