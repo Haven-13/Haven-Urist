@@ -2,7 +2,15 @@
 #define EQUIP_PREVIEW_JOB 2
 #define EQUIP_PREVIEW_ALL (EQUIP_PREVIEW_LOADOUT|EQUIP_PREVIEW_JOB)
 
-/datum/preferences
+/datum/preferences_ui
+	var/datum/preferences/preferences
+
+	var/datum/browser/panel
+
+	//Mob preview
+	var/atom/movable/map_view/preview_view = null
+	var/atom/movable/screen/preview_background = null
+
 	var/equip_preview_mob = EQUIP_PREVIEW_ALL
 	var/list/background_options = list(
 		"Void" = list(
@@ -19,15 +27,6 @@
 		)
 	)
 	var/background_state = "Void"
-
-/datum/preferences_ui
-	var/datum/preferences/preferences
-
-	var/datum/browser/panel
-
-	//Mob preview
-	var/atom/movable/map_view/preview_view = null
-	var/atom/movable/screen/preview_background = null
 
 /datum/preferences_ui/New(datum/preferences/preferences)
 	src.preferences = preferences
@@ -70,8 +69,8 @@
 	dat += "<br><HR>"
 	dat += "Preview - "
 	dat += "<a href='?src=[REF(src)];cycle_bg=1'>Cycle background</a>"
-	dat += "<a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[preferences.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
-	dat += "<a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[preferences.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
+	dat += "<a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
+	dat += "<a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
 	dat += "<br><HR></center>"
 	dat += "</td></tr>"
 
@@ -108,12 +107,9 @@
 		return 1
 
 	if(href_list["save"])
-		preferences.save_preferences()
-		preferences.save_character()
+		preferences.save()
 	else if(href_list["reload"])
-		preferences.load_preferences()
-		preferences.load_character()
-		preferences.sanitize_preferences()
+		preferences.reload()
 	else if(href_list["load"])
 		if(!IsGuestKey(usr.key))
 			open_load_dialog(usr)
@@ -128,10 +124,10 @@
 		preferences.load_character(SAVE_RESET)
 		preferences.sanitize_preferences()
 	else if(href_list["toggle_preview_value"])
-		preferences.equip_preview_mob ^= text2num(href_list["toggle_preview_value"])
+		equip_preview_mob ^= text2num(href_list["toggle_preview_value"])
 		update_preview_icon()
 	else if(href_list["cycle_bg"])
-		preferences.background_state = next_in_list(preferences.background_state, preferences.background_options)
+		background_state = next_in_list(background_state, background_options)
 		update_preview_icon()
 	else
 		return 0
@@ -176,7 +172,7 @@
 	preferences.copy_to(mannequin, TRUE)
 
 	var/datum/job/previewJob
-	if(preferences.equip_preview_mob && job_master)
+	if(equip_preview_mob && job_master)
 		// Determine what job is marked as 'High' priority, and dress them up as such.
 		if("Assistant" in preferences.job_low)
 			previewJob = job_master.GetJob("Assistant")
@@ -188,12 +184,12 @@
 	else
 		return
 
-	if((preferences.equip_preview_mob & EQUIP_PREVIEW_JOB) && previewJob)
+	if((equip_preview_mob & EQUIP_PREVIEW_JOB) && previewJob)
 		mannequin.job = previewJob.title
 		previewJob.equip_preview(mannequin, preferences.player_alt_titles[previewJob.title])
 		update_icon = TRUE
 
-	if((preferences.equip_preview_mob & EQUIP_PREVIEW_LOADOUT) && !(previewJob && (preferences.equip_preview_mob & EQUIP_PREVIEW_JOB) && (previewJob.type == /datum/job/ai || previewJob.type == /datum/job/cyborg)))
+	if((equip_preview_mob & EQUIP_PREVIEW_LOADOUT) && !(previewJob && (equip_preview_mob & EQUIP_PREVIEW_JOB) && (previewJob.type == /datum/job/ai || previewJob.type == /datum/job/cyborg)))
 		// Equip custom gear loadout, replacing any job items
 		var/list/loadout_taken_slots = list()
 		for(var/thing in preferences.Gear())
@@ -231,8 +227,8 @@
 	COMPILE_OVERLAYS(mannequin)
 	preferences.client.show_character_previews(new /mutable_appearance(mannequin))
 
-	preview_background.icon = preferences.background_options[preferences.background_state]["icon"]
-	preview_background.icon_state = preferences.background_options[preferences.background_state]["icon_state"]
+	preview_background.icon = background_options[background_state]["icon"]
+	preview_background.icon_state = background_options[background_state]["icon_state"]
 	preferences.client.screen |= preview_background
 
 	preview_view.client_add_all_active(preferences.client)

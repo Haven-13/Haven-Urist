@@ -46,8 +46,17 @@ var/list/preferences_datums = list()
 /datum/preferences/proc/load_and_update_character(slot)
 	load_character(slot)
 	if(update_setup(loaded_preferences, loaded_character))
-		save_preferences()
-		save_character()
+		save()
+
+/datum/preferences/proc/save()
+	sanitize_preferences()
+	save_preferences()
+	save_character()
+
+/datum/preferences/proc/reload()
+	load_preferences()
+	load_character()
+	sanitize_preferences()
 
 /datum/preferences/proc/copy_to(mob/living/carbon/human/character, is_preview_copy = FALSE)
 	// Sanitizing rather than saving as someone might still be editing when copy_to occurs.

@@ -179,10 +179,11 @@
 			var/choice = input("Choose an title for [job.title].", "Choose Title", pref.GetPlayerAltTitle(job)) as anything in choices|null
 			if(choice && CanUseTopic(user))
 				SetPlayerAltTitle(job, choice)
-				return (pref.equip_preview_mob ? UPDATE_PREVIEW : TRUE)
+				return pref.get_ui().equip_preview_mob & EQUIP_PREVIEW_JOB ? UPDATE_PREVIEW : TRUE
 
 	else if(href_list["set_job"] && href_list["set_level"])
-		if(SetJob(user, href_list["set_job"], text2num(href_list["set_level"]))) return (pref.equip_preview_mob ? UPDATE_PREVIEW : TRUE)
+		if(SetJob(user, href_list["set_job"], text2num(href_list["set_level"])))
+			return pref.get_ui().equip_preview_mob & EQUIP_PREVIEW_JOB ? UPDATE_PREVIEW : TRUE
 
 	else if(href_list["job_info"])
 		var/title = href_list["job_info"]
