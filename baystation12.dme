@@ -2628,6 +2628,7 @@ var/global/static/pre_map_loaded = world.pre_map_load()
 #include "code\procs\statistics.dm"
 #include "code\unit_tests\_includes.dm"
 #include "code\unit_tests\_unit_tests.dm"
+#include "code\unit_tests\preference_tests.dm"
 #include "code\world\0_pre_map_load.dm"
 #include "code\world\1_new.dm"
 #include "code\world\9_shutdown.dm"
