@@ -9,16 +9,16 @@
 	sort_order = 3
 
 /datum/category_item/player_setup_item/background/records/load_character(savefile/S)
-	from_file(S["med_record"],pref.med_record)
-	from_file(S["sec_record"],pref.sec_record)
-	from_file(S["gen_record"],pref.gen_record)
-	from_file(S["memory"],pref.memory)
+	from_file(S["background/med_record"],pref.med_record)
+	from_file(S["background/sec_record"],pref.sec_record)
+	from_file(S["background/gen_record"],pref.gen_record)
+	from_file(S["background/memory"],pref.memory)
 
 /datum/category_item/player_setup_item/background/records/save_character(savefile/S)
-	to_file(S["med_record"],pref.med_record)
-	to_file(S["sec_record"],pref.sec_record)
-	to_file(S["gen_record"],pref.gen_record)
-	to_file(S["memory"],pref.memory)
+	to_file(S["background/med_record"],pref.med_record)
+	to_file(S["background/sec_record"],pref.sec_record)
+	to_file(S["background/gen_record"],pref.gen_record)
+	to_file(S["background/memory"],pref.memory)
 
 /datum/category_item/player_setup_item/background/records/setup_character(mob/living/carbon/human/character, is_preview_copy)
 	if (is_preview_copy) return
