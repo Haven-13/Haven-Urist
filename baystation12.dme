@@ -16,7 +16,6 @@ var/global/static/pre_map_loaded = world.pre_map_load()
 #include "code\_macros.dm"
 #include "code\_uristdefines.dm"
 #include "code\client_macros.dm"
-#include "code\global_init.dm"
 #include "code\__datastructures\globals.dm"
 #include "code\__datastructures\priority_queue.dm"
 #include "code\__datastructures\stack.dm"

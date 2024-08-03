@@ -174,4 +174,4 @@ jobs:
 
       - name: Log post-processing
         run: |
-          bash tools/ci/check_log.sh data/logs/ci/diary.log
+          bash tools/ci/check_log.sh data/logs/ci/dd.log
