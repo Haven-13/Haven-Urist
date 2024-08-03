@@ -174,4 +174,5 @@ jobs:
 
       - name: Log post-processing
         run: |
+          ls data/logs/ci -la
           bash tools/ci/check_log.sh data/logs/ci/dd.log
