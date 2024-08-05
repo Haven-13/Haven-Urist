@@ -14,7 +14,7 @@ var/list/organ_option_names = list(
 )
 
 /datum/preferences
-	var/ui_selected_organ
+	var/ui_selected_organ = null
 
 	var/list/organ_augmentation_data
 	var/list/robotic_limb_data
@@ -33,6 +33,16 @@ var/list/organ_option_names = list(
 	to_file(S["organ_augmentation_data"], pref.organ_augmentation_data)
 	to_file(S["robotic_limb_data"], pref.robotic_limb_data)
 	to_file(S["has_cortical_stack"], pref.has_cortical_stack)
+
+/datum/category_item/player_setup_item/augmentation/modification/sanitize_character(savefile/S)
+	var/datum/species/species = all_species[pref.species]
+	pref.ui_selected_organ = sanitize_inlist(pref.ui_selected_organ, species.has_organ | species.has_limbs, initial(pref.ui_selected_organ))
+
+	pref.has_cortical_stack = sanitize_bool(pref.has_cortical_stack, initial(pref.has_cortical_stack))
+	if(!istype(pref.organ_augmentation_data))
+		pref.organ_augmentation_data = list()
+	if(!istype(pref.robotic_limb_data))
+		pref.robotic_limb_data = list()
 
 /datum/category_item/player_setup_item/augmentation/modification/setup_character(mob/living/carbon/human/character, is_preview_copy = FALSE)
 	// Replace any missing limbs.
@@ -84,13 +94,6 @@ var/list/organ_option_names = list(
 					I.mechassist()
 				else if(status == ORGAN_OPTION_SYNTHETIC)
 					I.robotize()
-
-/datum/category_item/player_setup_item/augmentation/modification/sanitize_character(savefile/S)
-	pref.has_cortical_stack = sanitize_bool(pref.has_cortical_stack, initial(pref.has_cortical_stack))
-	if(!istype(pref.organ_augmentation_data))
-		pref.organ_augmentation_data = list()
-	if(!istype(pref.robotic_limb_data))
-		pref.robotic_limb_data = list()
 
 /datum/category_item/player_setup_item/augmentation/modification/content(mob/user)
 	. = list()

@@ -279,14 +279,6 @@
 					if(!isnull(href_list["option_[optionid]"]))	//Test if this optionid was selected
 						vote_on_poll(pollid, optionid, 1)
 
-/mob/new_player/proc/get_branch_pref()
-	if(client)
-		return client.prefs.char_branch
-
-/mob/new_player/proc/get_rank_pref()
-	if(client)
-		return client.prefs.char_rank
-
 /mob/new_player/proc/AttemptLateSpawn(datum/job/job, spawning_at)
 
 	if(src != usr)
@@ -444,7 +436,7 @@
 		chosen_species = all_species[client.prefs.species]
 
 	if(!spawn_turf)
-		var/datum/spawnpoint/spawnpoint = job_master.get_spawnpoint_for(client, get_rank_pref())
+		var/datum/spawnpoint/spawnpoint = job_master.get_spawnpoint_for(client, new_character.job)
 		spawn_turf = pick(spawnpoint.turfs)
 
 	if(chosen_species)

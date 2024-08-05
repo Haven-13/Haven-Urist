@@ -17,10 +17,6 @@ var/list/preferences_datums = list()
 	//game-preferences
 	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change
 
-	//tgui preferences
-	var/tgui_fancy = TRUE
-	var/tgui_lock = FALSE
-
 	var/client/client = null
 	var/client_ckey = null
 

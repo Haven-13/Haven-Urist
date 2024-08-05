@@ -4,11 +4,17 @@
 
 /datum/unit_test/preferences_sanity/New()
 	key_ignore_list = list(
-		"client",
-		"client_ckey",
-		"path",
-		"ui_holder",
-		"player_setup",
+		"client",              // client
+		"client_ckey",         // client
+		"last_id",             // administrative action
+		"last_ip",             // administrative action
+		"loaded_preferences",  // savefile
+		"loaded_character",    // savefile
+		"muted",               // administrative action
+		"path",                // savefile
+		"player_setup",        // player UI
+		"ui_holder",           // player UI
+		"warns",               // administrative action
 	)
 	var/datum/D = new()
 	for(var/key in D.vars)
@@ -20,7 +26,7 @@
 	P.load_path("test")
 
 	P.save()
-	var/list/before_load = P.vars.Copy()
+	var/list/before_load = deepCopyList(P.vars)
 
 	if(!fexists(P.path))
 		fail("Failed to save to [P.path]")
@@ -49,8 +55,14 @@
 
 		before = before_load[key]
 		after = after_load[key]
-		if(before != after)
-			fail("Save field mismatch: variable: '[key]', before: [before], after: [after]")
+		if(islist(before) && islist(after))
+			var/diff = difflist(before, after)
+			if (length(diff))
+				log_bad("Save field mismatch: variable '[key]', lists differ: [english_list(diff)]")
+				bad = TRUE
+			continue
+		if (before != after)
+			log_bad("Save field mismatch: variable: '[key]', before: [before], after: [after]")
 			bad = TRUE
 
 	before_load.Cut()
