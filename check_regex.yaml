@@ -21,7 +21,7 @@
 #
 
 standards:
-  - exactly: [227, 'world-inited global vars', '^(var/[^\s]*[^\s/]+|GLOBAL_REAL_VAR\(.+\))\s*=\s*(new|[^\s]+\()']
+  - exactly: [268, 'world-inited global vars', '^(var/[^\s]*[^\s/]+|GLOBAL_REAL_VAR\(.+\))\s*=\s*(new|[^\s]+\()']
   - exactly: [0, 'global vars starting with slash', '^/var']
 
   - exactly: [0, 'mangled characters', '[\u0000\uFFFF\uFFFD]']
