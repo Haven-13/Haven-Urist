@@ -103,8 +103,10 @@ export const DmTestTarget = new Juke.Target({
       warningsAsErrors: get(WarningParameter).includes('error'),
     });
     Juke.rm('data/logs/ci', { recursive: true });
+    fs.mkdir('data/logs/ci', () => {});
     await DreamDaemon(
       `${DME_NAME}.test.dmb`,
+      '-invisible',
       '-close', '-trusted', '-verbose',
       '-log', 'data/logs/ci/dd.log',
       '-params', 'log-directory=ci',
