@@ -106,7 +106,7 @@ export const DmTestTarget = new Juke.Target({
     await DreamDaemon(
       `${DME_NAME}.test.dmb`,
       '-close', '-trusted', '-verbose',
-      '-logself', '-log', 'data/logs/ci/dd.log',
+      '-log', 'data/logs/ci/dd.log',
       '-params', 'log-directory=ci',
     );
     Juke.rm('*.test.*');
