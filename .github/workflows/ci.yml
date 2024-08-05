@@ -171,9 +171,8 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           tools/build/build --map-override=${MAP_PATH} test
+          ls data/logs/ci -la
 
       - name: Log post-processing
         run: |
-          ls . -la
-          ls data/logs/ci -la
           bash tools/ci/check_log.sh data/logs/ci/dd.log
