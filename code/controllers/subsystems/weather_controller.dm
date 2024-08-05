@@ -1,5 +1,5 @@
 /* fuck it, let's store that in a global until the controller wakes the fuck up for now */
-/var/global/list/pending_weathers = list()
+var/global/list/pending_weathers = list()
 
 SUBSYSTEM_DEF(weather)
 	wait = 1 SECOND

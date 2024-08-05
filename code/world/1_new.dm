@@ -1,11 +1,11 @@
-/var/default_server_name = "SpaceUrist McDefaultStation 12"
+var/default_server_name = "SpaceUrist McDefaultStation 12"
 
 #define RESTART_COUNTER_PATH "data/round_counter.txt"
 
 GLOBAL_VAR(restart_counter)
 
-/var/global/game_id = null
-/var/global/world_init_time = -1
+var/global/game_id = null
+var/global/world_init_time = -1
 /hook/global_init/proc/generate_gameid()
 	if(game_id != null)
 		return

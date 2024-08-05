@@ -1,4 +1,4 @@
-/var/create_mob_html = null
+var/create_mob_html = null
 /datum/admins/proc/create_mob(mob/user)
 	if (!create_mob_html)
 		var/mobjs = null
