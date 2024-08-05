@@ -173,7 +173,7 @@
 /datum/ui_module/program/supply/proc/generate_categories()
 	category_names = list()
 	category_contents = list()
-	for(var/decl/hierarchy/supply_pack/sp in cargo_supply_pack_root.children)
+	for(var/decl/hierarchy/supply_pack/sp in SSsupply.cargo_supply_pack_root.children)
 		if(sp.is_category())
 			category_names.Add(sp.name)
 			var/list/category[0]

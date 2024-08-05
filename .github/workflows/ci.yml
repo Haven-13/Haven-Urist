@@ -174,4 +174,7 @@ jobs:
 
       - name: Log post-processing
         run: |
-          bash tools/ci/check_log.sh data/logs/ci/diary.log
+          echo "::group::Output of dd.log"
+          cat data/logs/ci/dd.log
+          echo "::endgroup::"
+          bash tools/ci/check_log.sh data/logs/ci/dd.log

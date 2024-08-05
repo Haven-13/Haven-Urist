@@ -109,12 +109,14 @@
 	gl_uid++
 	build_default_parts(/obj/item/weapon/circuitboard/ntnet_relay)
 	RefreshParts()
+	..()
 
+/obj/machinery/ntnet_relay/Initialize(mapload, d)
+	. = ..()
 	if(ntnet_global)
 		ntnet_global.relays.Add(src)
 		NTNet = ntnet_global
 		ntnet_global.add_log("New quantum relay activated. Current amount of linked relays: [NTNet.relays.len]")
-	..()
 
 /obj/machinery/ntnet_relay/Destroy()
 	if(ntnet_global)

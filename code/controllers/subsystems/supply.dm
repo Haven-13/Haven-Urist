@@ -30,6 +30,8 @@ SUBSYSTEM_DEF(supply)
 		"total" = "Total" // If you're adding additional point sources, add it here in a new line. Don't forget to put a comma after the old last line.
 	)
 
+	var/decl/hierarchy/supply_pack/cargo_supply_pack_root
+
 /datum/controller/subsystem/supply/Initialize()
 	. = ..()
 	ordernum = rand(1,9000)
@@ -47,6 +49,8 @@ SUBSYSTEM_DEF(supply)
 			"trade" = "From trading items",
 			"total" = "Total" // If you're adding additional point sources, add it here in a new line. Don't forget to put a comma after the old last line.
 		)
+
+	cargo_supply_pack_root = new()
 
 	//Build master supply list
 	for(var/decl/hierarchy/supply_pack/sp in cargo_supply_pack_root.children)
