@@ -1,6 +1,6 @@
 
 
-/var/all_ui_styles = list(
+var/all_ui_styles = list(
 	"Midnight"     = 'resources/icons/mob/screen/midnight.dmi',
 	"Orange"       = 'resources/icons/mob/screen/orange.dmi',
 	"old"          = 'resources/icons/mob/screen/old.dmi',

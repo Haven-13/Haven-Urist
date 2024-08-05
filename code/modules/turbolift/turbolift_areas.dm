@@ -1,6 +1,6 @@
 // Used for creating the exchange areas.
 
-/var/list/area/turbolift_areas = list()
+var/list/area/turbolift_areas = list()
 
 /area/turbolift
 	name = "Turbolift"

@@ -7,7 +7,7 @@
 #define MAINTAINING_OBJECT_POOL_COUNT 500
 
 // Read-only or compile-time vars and special exceptions.
-/var/list/variable_exclusions = list(
+var/list/variable_exclusions = list(
 	"animate_movement",
 	"group",
 	"inhand_states",
@@ -22,8 +22,8 @@
 	"z",
 )
 
-/var/global/list/masterdatumPool = new
-/var/global/list/pooledvariables = new
+var/global/list/masterdatumPool = new
+var/global/list/pooledvariables = new
 
 /*
  * @args : datum type, normal arguments
