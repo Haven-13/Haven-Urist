@@ -1,5 +1,8 @@
-var/global/datum/ntnet/ntnet_global = new()
+var/global/datum/ntnet/ntnet_global
 
+/hook/startup/proc/ntnet_create()
+	ntnet_global = new()
+	return 1
 
 // This is the NTNet datum. There can be only one NTNet datum in game at once. Modular computers read data from this.
 /datum/ntnet/
@@ -30,7 +33,7 @@ var/global/datum/ntnet/ntnet_global = new()
 
 // If new NTNet datum is spawned, it replaces the old one.
 /datum/ntnet/New()
-	if(ntnet_global && (ntnet_global != src))
+	if(!ntnet_global || (ntnet_global && (ntnet_global != src)))
 		ntnet_global = src // There can be only one.
 	build_software_lists()
 	build_emails_list()
