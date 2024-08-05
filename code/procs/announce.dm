@@ -26,8 +26,8 @@ var/datum/announcement/minor/minor_announcement = new(new_sound = 'resources/sou
 
 /datum/announcement/priority/command/New(do_log = 1, new_sound = 'resources/sound/misc/notice2.ogg', do_newscast = 0)
 	..(do_log, new_sound, do_newscast)
-	title = "[command_name()] Update"
-	announcement_type = "[command_name()] Update"
+	title = "Command Update"
+	announcement_type = "Command Update"
 
 /datum/announcement/proc/Announce(message as text, new_title = "", new_sound = null, do_newscast = newscast, msg_sanitized = 0, zlevels = GLOB.using_map.contact_levels)
 	if(!message)
