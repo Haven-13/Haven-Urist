@@ -40,7 +40,7 @@
 /obj/item/clothing/suit/armor/pcarrier/light/hijacker
 	color = "#ff0000"
 
-/var/const/access_noctis = 850
+var/const/access_noctis = 850
 /datum/access/noctis
 	id = access_noctis
 	desc = "Explorer Crew"

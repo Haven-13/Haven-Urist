@@ -21,6 +21,9 @@
 #
 
 standards:
+  - exactly: [267, 'world-inited global vars', '^(var/[^\s]*[^\s/]+|GLOBAL_REAL_VAR\(.+\))\s*=\s*(new|[^\s]+\()']
+  - exactly: [0, 'global vars starting with slash', '^/var']
+
   - exactly: [0, 'mangled characters', '[\u0000\uFFFF\uFFFD]']
   - exactly: [0, 'escapes', '\\\\(red|blue|green|black|b|i[^mc])']
   - exactly: [6, 'Del()s', '\WDel\(']
@@ -45,6 +48,6 @@ standards:
   - exactly: [14, 'non-bitwise << uses', '(?<!\d)(?<!\d\s)(?<!<)<<(?!=|\s\d|\d|<|\/)']
   - exactly: [0, 'incorrect indentations', '^(?:  +)(?!\*)']
   - exactly: [0, 'superflous whitespace', '[ \t]+$']
-  - exactly: [8, 'mixed indentation', '^( +\t+|\t+ +)']
+  - exactly: [7, 'mixed indentation', '^( +\t+|\t+ +)']
 
   - no_more: [1419, 'indentions inside defines', '^(\s*)#define (\w*)( {2,}| ?\t+)(?!(\/\/|\/\*))']

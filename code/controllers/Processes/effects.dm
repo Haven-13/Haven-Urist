@@ -4,8 +4,8 @@
 
 var/datum/controller/process/effects/effect_master
 
-/var/list/datum/effect_system/effects_objects = list()	// The effect-spawning objects. Shouldn't be many of these.
-/var/list/obj/visual_effect/effects_visuals	= list()	// The visible component of an effect. Should be created by effect objects.
+var/list/datum/effect_system/effects_objects = list()	// The effect-spawning objects. Shouldn't be many of these.
+var/list/obj/visual_effect/effects_visuals	= list()	// The visible component of an effect. Should be created by effect objects.
 
 /datum/controller/process/effects
 	var/tmp/list/processing_effects = list()

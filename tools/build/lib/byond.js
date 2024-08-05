@@ -134,5 +134,6 @@ export const DreamDaemon = async (dmbFile, ...args) => {
   const baseDir = path.dirname(dmPath);
   const ddExeName = process.platform === 'win32' ? 'dreamdaemon.exe' : 'DreamDaemon';
   const ddExePath = baseDir === '.' ? ddExeName : path.join(baseDir, ddExeName);
+  Juke.logger.info(`Running DreamDaemon: ${ddExePath}`)
   return Juke.exec(ddExePath, [dmbFile, ...args]);
 };
