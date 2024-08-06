@@ -1,6 +1,0 @@
-author: martinlyra
-changes:
-  - {bugfix: Fixed supply cargo packs not being properly initialized}
-  - {bugfix: Fixed command announcement not being properly initialized}
-  - {bugfix: Fixed NTnet not being properly initialized}
-delete-after: true

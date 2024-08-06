@@ -584,3 +584,8 @@
   - bugfix: Fixed a debugger issue related to world init order.
   - bugfix: Fixed a garbage collector issue related to a cyclic reference in an other
       object.
+2024-08-06:
+  martinlyra:
+  - bugfix: Fixed supply cargo packs not being properly initialized
+  - bugfix: Fixed command announcement not being properly initialized
+  - bugfix: Fixed NTnet not being properly initialized
