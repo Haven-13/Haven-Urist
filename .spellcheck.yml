@@ -1,0 +1,15 @@
+matrix:
+- name: DM
+  sources:
+  - code/**/*.dm
+  - resources/**/*.dm
+  aspell:
+    lang: en
+  dictionary:
+    wordlists:
+    - .github/spellchecking/dm.txt
+    - .github/spellchecking/dm-builtins.txt
+    - .github/spellchecking/file-types.txt
+    - .github/spellchecking/html-tags.txt
+    - .github/spellchecking/ss-lingo.txt
+    encoding: utf-8

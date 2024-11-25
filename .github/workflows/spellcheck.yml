@@ -1,0 +1,20 @@
+# This is workflow for spell checking using PySpelling lib (https://pypi.org/project/pyspelling/)
+name: Typo CI
+
+on:
+  push:
+    branches:
+    - latest
+  pull_request:
+    branches:
+    - latest
+  workflow_dispatch:
+
+jobs:
+  spellcheck:
+    name: Check spelling
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: igsekor/pyspelling-any@v0.0.2
+        name: Run spellchecker
