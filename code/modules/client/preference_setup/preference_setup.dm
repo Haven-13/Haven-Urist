@@ -8,9 +8,14 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 	sort_order = 1
 	category_item_type = /datum/category_item/player_setup_item/physical
 
+/datum/category_group/player_setup_category/augmentation_preferences
+	name = "Augmentation"
+	sort_order = 2
+	category_item_type = /datum/category_item/player_setup_item/augmentation
+
 /datum/category_group/player_setup_category/background_preferences
 	name = "Background"
-	sort_order = 2
+	sort_order = 3
 	category_item_type = /datum/category_item/player_setup_item/background
 
 /datum/category_group/player_setup_category/background_preferences/content(mob/user)
@@ -20,27 +25,27 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 
 /datum/category_group/player_setup_category/occupation_preferences
 	name = "Occupation"
-	sort_order = 3
+	sort_order = 4
 	category_item_type = /datum/category_item/player_setup_item/occupation
 
 /datum/category_group/player_setup_category/appearance_preferences
 	name = "Roles"
-	sort_order = 4
+	sort_order = 5
 	category_item_type = /datum/category_item/player_setup_item/antagonism
 
 /datum/category_group/player_setup_category/loadout_preferences
 	name = "Loadout"
-	sort_order = 6
+	sort_order = 7
 	category_item_type = /datum/category_item/player_setup_item/loadout
 
 /datum/category_group/player_setup_category/global_preferences
 	name = "Global"
-	sort_order = 7
+	sort_order = 8
 	category_item_type = /datum/category_item/player_setup_item/player_global
 
 /datum/category_group/player_setup_category/law_pref
 	name = "Laws"
-	sort_order = 8
+	sort_order = 9
 	category_item_type = /datum/category_item/player_setup_item/law_pref
 
 
@@ -74,6 +79,10 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 	for(var/datum/category_group/player_setup_category/PS in categories)
 		PS.save_character(S)
 
+/datum/category_collection/player_setup_collection/proc/setup_character(mob/living/carbon/human/character, is_preview_copy)
+	for(var/datum/category_group/player_setup_category/PS in categories)
+		PS.setup_character(character, is_preview_copy)
+
 /datum/category_collection/player_setup_collection/proc/load_preferences(savefile/S)
 	for(var/datum/category_group/player_setup_category/PS in categories)
 		PS.load_preferences(S)
@@ -87,13 +96,13 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 		. = PS.update_setup(preferences, character) || .
 
 /datum/category_collection/player_setup_collection/proc/header()
-	var/dat = ""
+	var/list/l = list()
 	for(var/datum/category_group/player_setup_category/PS in categories)
 		if(PS == selected_category)
-			dat += "[PS.name] "	// TODO: Check how to properly mark a href/button selected in a classic browser window
+			l += "<a class='linkOn'>[PS.name]</a>"	// TODO: Check how to properly mark a href/button selected in a classic browser window
 		else
-			dat += "<a href='?src=[REF(src)];category=[REF(PS)]'>[PS.name]</a> "
-	return dat
+			l += "<a href='?src=[REF(src)];category=[REF(PS)]'>[PS.name]</a>"
+	return l.Join(" ")
 
 /datum/category_collection/player_setup_collection/proc/content(mob/user)
 	if(selected_category)
@@ -113,7 +122,7 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 		. = 1
 
 	if(.)
-		user.client.prefs.ShowChoices(user)
+		user.client.prefs.get_ui().ShowChoices(user)
 
 /**************************
 * Category Category Setup *
@@ -140,6 +149,10 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 		PI.sanitize_character()
 	for(var/datum/category_item/player_setup_item/PI in items)
 		PI.save_character(S)
+
+/datum/category_group/player_setup_category/proc/setup_character(mob/living/carbon/human/character, is_preview_copy)
+	for(var/datum/category_item/player_setup_item/PI in items)
+		PI.setup_character(character, is_preview_copy)
 
 /datum/category_group/player_setup_category/proc/load_preferences(savefile/S)
 	for(var/datum/category_item/player_setup_item/PI in items)
@@ -202,6 +215,12 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 	return
 
 /*
+* Called when the item is asked to setup an in-game character mob per settings.
+*/
+/datum/category_item/player_setup_item/proc/setup_character(mob/living/carbon/human/character, is_preview_copy)
+	return
+
+/*
 * Called when the item is asked to load user/global settings
 */
 /datum/category_item/player_setup_item/proc/load_preferences(savefile/S)
@@ -243,9 +262,9 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 		return 1
 
 	if(. & TOPIC_UPDATE_PREVIEW)
-		pref_mob.client.prefs.update_preview_icon()
+		pref_mob.client.prefs.get_ui().update_preview_icon()
 	if(. & TRUE)
-		pref_mob.client.prefs.ShowChoices(usr)
+		pref_mob.client.prefs.get_ui().ShowChoices(usr)
 
 /datum/category_item/player_setup_item/CanUseTopic(mob/user)
 	return 1

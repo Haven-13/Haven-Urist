@@ -33,7 +33,7 @@
 	data["virus2"] |= virus_copylist(C.virus2)
 	data["antibodies"] = C.antibodies
 	data["blood_DNA"] = C.dna.unique_enzymes
-	data["blood_type"] = C.dna.b_type
+	data["blood_type"] = C.dna.blood_type
 	data["species"] = C.species.name
 	data["has_oxy"] = C.species.blood_oxy
 	var/list/temp_chem = list()

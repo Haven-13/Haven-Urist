@@ -48,12 +48,12 @@ var/list/gear_datums = list()
 	var/hide_unavailable_gear = 0
 
 /datum/category_item/player_setup_item/loadout/load_character(savefile/S)
-	from_file(S["gear_list"], pref.gear_list)
-	from_file(S["gear_slot"], pref.gear_slot)
+	from_file(S["loadout/gear_list"], pref.gear_list)
+	from_file(S["loadout/gear_slot"], pref.gear_slot)
 
 /datum/category_item/player_setup_item/loadout/save_character(savefile/S)
-	to_file(S["gear_list"], pref.gear_list)
-	to_file(S["gear_slot"], pref.gear_slot)
+	to_file(S["loadout/gear_list"], pref.gear_list)
+	to_file(S["loadout/gear_slot"], pref.gear_slot)
 
 /datum/category_item/player_setup_item/loadout/proc/valid_gear_choices(max_cost)
 	. = list()

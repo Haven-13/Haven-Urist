@@ -2,50 +2,33 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 /datum/preferences
 	var/species = SPECIES_HUMAN
-	var/b_type = "A+"					//blood type (not-chooseable)
+	var/blood_type = "A+"				//Blood type (not-chooseable)
 	var/h_style = "Bald"				//Hair type
 	var/r_hair = 0						//Hair color
 	var/g_hair = 0						//Hair color
 	var/b_hair = 0						//Hair color
+
 	var/f_style = "Shaved"				//Face hair type
 	var/r_facial = 0					//Face hair color
 	var/g_facial = 0					//Face hair color
 	var/b_facial = 0					//Face hair color
+
 	var/s_tone = 0						//Skin tone
 	var/r_skin = 0						//Skin color
 	var/g_skin = 0						//Skin color
 	var/b_skin = 0						//Skin color
+
 	var/r_eyes = 0						//Eye color
 	var/g_eyes = 0						//Eye color
 	var/b_eyes = 0						//Eye color
+
 	var/s_base = ""						//Base skin colour
 	var/list/body_markings = list()
 	var/list/body_descriptors = list()
 
 	// maps each organ to either null(intact), "cyborg" or "amputated"
 	// will probably not be able to do this for head and torso ;)
-	var/list/organ_data
-	var/list/rlimb_data
 	var/disabilities = 0
-
-	var/has_cortical_stack = TRUE
-	var/equip_preview_mob = EQUIP_PREVIEW_ALL
-
-	var/list/background_options = list(
-		"Void" = list(
-			"icon" = null,
-			"icon_state" = ""
-		),
-		"Dark" = list(
-			"icon" = 'resources/icons/turf/flooring/techfloor.dmi',
-			"icon_state" = "techfloor_gray"
-		),
-		"Rusty" = list(
-			"icon" = 'resources/icons/turf/flooring/tiles.dmi',
-			"icon_state" = "steel_dirty"
-		)
-	)
-	var/background_state = "Void"
 
 /datum/category_item/player_setup_item/physical/body
 	name = "Body"
@@ -54,57 +37,110 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 /datum/category_item/player_setup_item/physical/body/load_character(savefile/S)
 	from_file(S["species"], pref.species)
-	from_file(S["hair_red"], pref.r_hair)
-	from_file(S["hair_green"], pref.g_hair)
-	from_file(S["hair_blue"], pref.b_hair)
-	from_file(S["facial_red"], pref.r_facial)
-	from_file(S["facial_green"], pref.g_facial)
-	from_file(S["facial_blue"], pref.b_facial)
-	from_file(S["skin_tone"], pref.s_tone)
-	from_file(S["skin_red"], pref.r_skin)
-	from_file(S["skin_green"], pref.g_skin)
-	from_file(S["skin_blue"], pref.b_skin)
-	from_file(S["skin_base"], pref.s_base)
-	from_file(S["hair_style_name"], pref.h_style)
-	from_file(S["facial_style_name"], pref.f_style)
-	from_file(S["eyes_red"], pref.r_eyes)
-	from_file(S["eyes_green"], pref.g_eyes)
-	from_file(S["eyes_blue"], pref.b_eyes)
-	from_file(S["b_type"], pref.b_type)
-	from_file(S["disabilities"], pref.disabilities)
-	from_file(S["organ_data"], pref.organ_data)
-	from_file(S["rlimb_data"], pref.rlimb_data)
-	from_file(S["has_cortical_stack"], pref.has_cortical_stack)
+
+	from_file(S["hair/style_name"], pref.h_style)
+	from_file(S["hair/red"], pref.r_hair)
+	from_file(S["hair/green"], pref.g_hair)
+	from_file(S["hair/blue"], pref.b_hair)
+
+	from_file(S["facial/style_name"], pref.f_style)
+	from_file(S["facial/red"], pref.r_facial)
+	from_file(S["facial/green"], pref.g_facial)
+	from_file(S["facial/blue"], pref.b_facial)
+
+	from_file(S["skin/tone"], pref.s_tone)
+	from_file(S["skin/base"], pref.s_base)
+	from_file(S["skin/red"], pref.r_skin)
+	from_file(S["skin/green"], pref.g_skin)
+	from_file(S["skin/blue"], pref.b_skin)
+
+	from_file(S["eyes/red"], pref.r_eyes)
+	from_file(S["eyes/green"], pref.g_eyes)
+	from_file(S["eyes/blue"], pref.b_eyes)
+
+	from_file(S["blood_type"], pref.blood_type)
 	from_file(S["body_markings"], pref.body_markings)
 	from_file(S["body_descriptors"], pref.body_descriptors)
-	from_file(S["background_state"], pref.background_state)
+
+	from_file(S["disabilities"], pref.disabilities)
 
 /datum/category_item/player_setup_item/physical/body/save_character(savefile/S)
 	to_file(S["species"], pref.species)
-	to_file(S["hair_red"], pref.r_hair)
-	to_file(S["hair_green"], pref.g_hair)
-	to_file(S["hair_blue"], pref.b_hair)
-	to_file(S["facial_red"], pref.r_facial)
-	to_file(S["facial_green"], pref.g_facial)
-	to_file(S["facial_blue"], pref.b_facial)
-	to_file(S["skin_tone"], pref.s_tone)
-	to_file(S["skin_red"], pref.r_skin)
-	to_file(S["skin_green"], pref.g_skin)
-	to_file(S["skin_base"], pref.s_base)
-	to_file(S["skin_blue"], pref.b_skin)
-	to_file(S["hair_style_name"],pref.h_style)
-	to_file(S["facial_style_name"],pref.f_style)
-	to_file(S["eyes_red"], pref.r_eyes)
-	to_file(S["eyes_green"], pref.g_eyes)
-	to_file(S["eyes_blue"], pref.b_eyes)
-	to_file(S["b_type"], pref.b_type)
-	to_file(S["disabilities"], pref.disabilities)
-	to_file(S["organ_data"], pref.organ_data)
-	to_file(S["rlimb_data"], pref.rlimb_data)
-	to_file(S["has_cortical_stack"], pref.has_cortical_stack)
+
+	to_file(S["hair/style_name"],pref.h_style)
+	to_file(S["hair/red"], pref.r_hair)
+	to_file(S["hair/green"], pref.g_hair)
+	to_file(S["hair/blue"], pref.b_hair)
+
+	to_file(S["facial/style_name"],pref.f_style)
+	to_file(S["facial/red"], pref.r_facial)
+	to_file(S["facial/green"], pref.g_facial)
+	to_file(S["facial/blue"], pref.b_facial)
+
+	to_file(S["skin/tone"], pref.s_tone)
+	to_file(S["skin/base"], pref.s_base)
+	to_file(S["skin/red"], pref.r_skin)
+	to_file(S["skin/green"], pref.g_skin)
+	to_file(S["skin/blue"], pref.b_skin)
+
+	to_file(S["eyes/red"], pref.r_eyes)
+	to_file(S["eyes/green"], pref.g_eyes)
+	to_file(S["eyes/blue"], pref.b_eyes)
+
+	to_file(S["blood_type"], pref.blood_type)
 	to_file(S["body_markings"], pref.body_markings)
 	to_file(S["body_descriptors"], pref.body_descriptors)
-	to_file(S["background_state"], pref.background_state)
+
+	to_file(S["disabilities"], pref.disabilities)
+
+/datum/category_item/player_setup_item/physical/body/setup_character(mob/living/carbon/human/character, is_preview_copy = FALSE)
+	character.set_species(pref.species)
+
+	character.blood_type = pref.blood_type
+
+	character.r_eyes = pref.r_eyes
+	character.g_eyes = pref.g_eyes
+	character.b_eyes = pref.b_eyes
+
+	character.h_style = pref.h_style
+	character.r_hair = pref.r_hair
+	character.g_hair = pref.g_hair
+	character.b_hair = pref.b_hair
+
+	character.f_style = pref.f_style
+	character.r_facial = pref.r_facial
+	character.g_facial = pref.g_facial
+	character.b_facial = pref.b_facial
+
+	character.r_skin = pref.r_skin
+	character.g_skin = pref.g_skin
+	character.b_skin = pref.b_skin
+
+	character.s_tone = pref.s_tone
+	character.s_base = pref.s_base
+
+	character.h_style = pref.h_style
+	character.f_style = pref.f_style
+
+	for(var/N in character.organs_by_name)
+		var/obj/item/organ/external/O = character.organs_by_name[N]
+		O.markings.Cut()
+
+	for(var/M in pref.body_markings)
+		var/datum/sprite_accessory/marking/mark_datum = GLOB.body_marking_styles_list[M]
+		var/mark_color = "[pref.body_markings[M]]"
+
+		for(var/BP in mark_datum.body_parts)
+			var/obj/item/organ/external/O = character.organs_by_name[BP]
+			if(O)
+				O.markings[M] = list("color" = mark_color, "datum" = mark_datum)
+
+	if (is_preview_copy)
+		return
+
+	if(LAZY_LENGTH(character.descriptors))
+		for(var/entry in pref.body_descriptors)
+			character.descriptors[entry] = pref.body_descriptors[entry]
 
 /datum/category_item/player_setup_item/physical/body/sanitize_character(savefile/S)
 	pref.r_hair			= sanitize_integer(pref.r_hair, 0, 255, initial(pref.r_hair))
@@ -121,8 +157,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.r_eyes			= sanitize_integer(pref.r_eyes, 0, 255, initial(pref.r_eyes))
 	pref.g_eyes			= sanitize_integer(pref.g_eyes, 0, 255, initial(pref.g_eyes))
 	pref.b_eyes			= sanitize_integer(pref.b_eyes, 0, 255, initial(pref.b_eyes))
-	pref.b_type			= sanitize_text(pref.b_type, initial(pref.b_type))
-	pref.has_cortical_stack = sanitize_bool(pref.has_cortical_stack, initial(pref.has_cortical_stack))
+	pref.blood_type			= sanitize_text(pref.blood_type, initial(pref.blood_type))
 
 	if(!pref.species || !(pref.species in playable_species))
 		pref.species = SPECIES_HUMAN
@@ -138,8 +173,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.s_base = ""
 
 	pref.disabilities	= sanitize_integer(pref.disabilities, 0, 65535, initial(pref.disabilities))
-	if(!istype(pref.organ_data)) pref.organ_data = list()
-	if(!istype(pref.rlimb_data)) pref.rlimb_data = list()
 	if(!istype(pref.body_markings))
 		pref.body_markings = list()
 	else
@@ -159,9 +192,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				else
 					pref.body_descriptors[entry] = clamp(last_descriptors[entry], 1, LAZY_LENGTH(descriptor.standalone_value_descriptors))
 
-	if(!pref.background_state || !(pref.background_state in pref.background_options))
-		pref.background_state = "Void"
-
 /datum/category_item/player_setup_item/physical/body/content(mob/user)
 	. = list()
 
@@ -174,15 +204,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	. += "(<a href='?src=[REF(src)];random=1'>&reg;</A>)"
 	. += "<br>"
 
-	if(config.use_cortical_stacks)
-		. += "Neural lace: "
-		if(mob_species.spawn_flags & SPECIES_NO_LACE)
-			. += "incompatible."
-		else
-			. += pref.has_cortical_stack ? "present." : "<b>not present.</b>"
-			. += " \[<a href='byond://?src=[REF(src)];toggle_stack=1'>toggle</a>\]"
-		. += "<br>"
-	. += "Blood Type: <a href='?src=[REF(src)];blood_type=1'>[pref.b_type]</a><br>"
+	. += "Blood Type: <a href='?src=[REF(src)];blood_type=1'>[pref.blood_type]</a><br>"
 
 	if(has_flag(mob_species, HAS_BASE_SKIN_COLOURS))
 		. += "Base Colour: <a href='?src=[REF(src)];base_skin=1'>[pref.s_base]</a><br>"
@@ -191,92 +213,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		. += "Skin Tone: <a href='?src=[REF(src)];skin_tone=1'>[-pref.s_tone + 35]/[mob_species.max_skin_tone()]</a><br>"
 
 	. += "Needs Glasses: <a href='?src=[REF(src)];disabilities=[NEARSIGHTED]'><b>[pref.disabilities & NEARSIGHTED ? "Yes" : "No"]</b></a><br>"
-	. += "Limbs: <a href='?src=[REF(src)];limbs=1'>Adjust</a> <a href='?src=[REF(src)];reset_limbs=1'>Reset</a><br>"
-	. += "Internal Organs: <a href='?src=[REF(src)];organs=1'>Adjust</a><br>"
-
-	//display limbs below
-	var/ind = 0
-	for(var/name in pref.organ_data)
-		var/status = pref.organ_data[name]
-		var/organ_name = null
-		switch(name)
-			if(BP_L_ARM)
-				organ_name = "left arm"
-			if(BP_R_ARM)
-				organ_name = "right arm"
-			if(BP_L_LEG)
-				organ_name = "left leg"
-			if(BP_R_LEG)
-				organ_name = "right leg"
-			if(BP_L_FOOT)
-				organ_name = "left foot"
-			if(BP_R_FOOT)
-				organ_name = "right foot"
-			if(BP_L_HAND)
-				organ_name = "left hand"
-			if(BP_R_HAND)
-				organ_name = "right hand"
-			if(BP_HEART)
-				organ_name = BP_HEART
-			if(BP_EYES)
-				organ_name = BP_EYES
-			if(BP_BRAIN)
-				organ_name = BP_BRAIN
-			if(BP_LUNGS)
-				organ_name = BP_LUNGS
-			if(BP_LIVER)
-				organ_name = BP_LIVER
-			if(BP_KIDNEYS)
-				organ_name = BP_KIDNEYS
-			if(BP_CHEST)
-				organ_name = "upper body"
-			if(BP_GROIN)
-				organ_name = "lower body"
-			if(BP_HEAD)
-				organ_name = "head"
-
-		if(status == "cyborg")
-			++ind
-			if(ind > 1)
-				. += ", "
-			var/datum/robolimb/R
-			if(pref.rlimb_data[name] && all_robolimbs[pref.rlimb_data[name]])
-				R = all_robolimbs[pref.rlimb_data[name]]
-			else
-				R = basic_robolimb
-			. += "\t[R.company] [organ_name] prosthesis"
-		else if(status == "amputated")
-			++ind
-			if(ind > 1)
-				. += ", "
-			. += "\tAmputated [organ_name]"
-		else if(status == "mechanical")
-			++ind
-			if(ind > 1)
-				. += ", "
-			if(organ_name == BP_BRAIN)
-				. += "\tPositronic [organ_name]"
-			else
-				. += "\tSynthetic [organ_name]"
-		else if(status == "assisted")
-			++ind
-			if(ind > 1)
-				. += ", "
-			switch(organ_name)
-				if(BP_HEART)
-					. += "\tPacemaker-assisted [organ_name]"
-				if("voicebox") //on adding voiceboxes for speaking skrell/similar replacements
-					. += "\tSurgically altered [organ_name]"
-				if(BP_EYES)
-					. += "\tRetinal overlayed [organ_name]"
-				if(BP_BRAIN)
-					. += "\tMachine-interface [organ_name]"
-				else
-					. += "\tMechanically assisted [organ_name]"
-	if(!ind)
-		. += "\[...\]<br><br>"
-	else
-		. += "<br><br>"
 
 	if(LAZY_LENGTH(pref.body_descriptors))
 		. += "<table>"
@@ -285,10 +221,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			. += "<tr><td><b>[capitalize(descriptor.chargen_label)]:</b></td><td>[descriptor.get_standalone_value_descriptor(pref.body_descriptors[entry])]</td><td><a href='?src=[REF(src)];change_descriptor=[entry]'>Change</a><br/></td></tr>"
 		. += "</table><br>"
 
-	. += "</td><td><b>Preview</b><br>"
-	. += "<br><a href='?src=[REF(src)];cycle_bg=1'>Cycle background</a>"
-	. += "<br><a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
-	. += "<br><a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
 	. += "</td></tr></table>"
 
 	. += "<b>Hair</b><br>"
@@ -341,14 +273,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					pref.body_descriptors[desc_id] = descriptor.chargen_value_descriptors[choice]
 					return TRUE
 
-	else if(href_list["toggle_stack"])
-		pref.has_cortical_stack = !pref.has_cortical_stack
-		return TRUE
-
 	else if(href_list["blood_type"])
-		var/new_b_type = input(user, "Choose your character's blood-type:", CHARACTER_PREFERENCE_INPUT_TITLE) as null|anything in valid_bloodtypes
-		if(new_b_type && CanUseTopic(user))
-			pref.b_type = new_b_type
+		var/new_blood_type = input(user, "Choose your character's blood-type:", CHARACTER_PREFERENCE_INPUT_TITLE) as null|anything in valid_bloodtypes
+		if(new_blood_type && CanUseTopic(user))
+			pref.blood_type = new_blood_type
 			return TRUE
 
 	else if(href_list["show_species"])
@@ -378,31 +306,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.species = choice
 		if(prev_species != pref.species)
 			mob_species = all_species[pref.species]
-			if(!(pref.gender in mob_species.genders))
-				pref.gender = mob_species.genders[1]
-
-			ResetAllHair()
-
-			//reset hair colour and skin colour
-			pref.r_hair = 0//hex2num(copytext(new_hair, 2, 4))
-			pref.g_hair = 0//hex2num(copytext(new_hair, 4, 6))
-			pref.b_hair = 0//hex2num(copytext(new_hair, 6, 8))
-			pref.s_tone = 0
-			pref.age = max(min(pref.age, mob_species.max_age), mob_species.min_age)
-
-			reset_limbs() // Safety for species with incompatible manufacturers; easier than trying to do it case by case.
-			pref.body_markings.Cut() // Basically same as above.
-
-			prune_occupation_prefs()
-
-			pref.cultural_info = mob_species.default_cultural_info.Copy()
-
-			//So you want to check your languages huh?
-			var/datum/category_collection/player_setup_collection/pref_collection = pref.player_setup
-			var/datum/category_group/player_setup_category/background_preferences/pref_background = pref_collection.categories_by_name["Background"]
-			var/datum/category_item/player_setup_item/background/languages/endless_accesses = pref_background.items_by_name["Languages"]
-			endless_accesses.sanitize_alt_languages()
-
+			on_species_change(mob_species)
 			return UPDATE_PREVIEW
 
 	else if(href_list["hair_color"])
@@ -507,182 +411,40 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.body_markings[M] = "[mark_color]"
 			return UPDATE_PREVIEW
 
-	else if(href_list["reset_limbs"])
-		reset_limbs()
-		return UPDATE_PREVIEW
-
-	else if(href_list["limbs"])
-
-		var/list/limb_selection_list = list("Left Leg","Right Leg","Left Arm","Right Arm","Left Foot","Right Foot","Left Hand","Right Hand","Full Body")
-
-		// Full prosthetic bodies without a brain are borderline unkillable so make sure they have a brain to remove/destroy.
-		var/datum/species/current_species = all_species[pref.species]
-		if(current_species.spawn_flags & SPECIES_NO_FBP_CHARGEN)
-			limb_selection_list -= "Full Body"
-		else if(pref.organ_data[BP_CHEST] == "cyborg")
-			limb_selection_list |= "Head"
-
-		var/organ_tag = input(user, "Which limb do you want to change?") as null|anything in limb_selection_list
-
-		if(!organ_tag || !CanUseTopic(user)) return FALSE
-
-		var/limb = null
-		var/second_limb = null // if you try to change the arm, the hand should also change
-		var/third_limb = null  // if you try to unchange the hand, the arm should also change
-
-		// Do not let them amputate their entire body, ty.
-		var/list/choice_options = list("Normal","Amputated","Prosthesis")
-
-		//Dare ye who decides to one day make fbps be able to have fleshy bits. Heed my warning, recursion is a bitch. - Snapshot
-		if(pref.organ_data[BP_CHEST] == "cyborg")
-			choice_options = list("Amputated", "Prosthesis")
-
-		switch(organ_tag)
-			if("Left Leg")
-				limb = BP_L_LEG
-				second_limb = BP_L_FOOT
-			if("Right Leg")
-				limb = BP_R_LEG
-				second_limb = BP_R_FOOT
-			if("Left Arm")
-				limb = BP_L_ARM
-				second_limb = BP_L_HAND
-			if("Right Arm")
-				limb = BP_R_ARM
-				second_limb = BP_R_HAND
-			if("Left Foot")
-				limb = BP_L_FOOT
-				third_limb = BP_L_LEG
-			if("Right Foot")
-				limb = BP_R_FOOT
-				third_limb = BP_R_LEG
-			if("Left Hand")
-				limb = BP_L_HAND
-				third_limb = BP_L_ARM
-			if("Right Hand")
-				limb = BP_R_HAND
-				third_limb = BP_R_ARM
-			if("Head")
-				limb =        BP_HEAD
-				choice_options = list("Prosthesis")
-			if("Full Body")
-				limb =        BP_CHEST
-				third_limb =  BP_GROIN
-				choice_options = list("Normal","Prosthesis")
-
-		var/new_state = input(user, "What state do you wish the limb to be in?") as null|anything in choice_options
-		if(!new_state || !CanUseTopic(user)) return FALSE
-
-		switch(new_state)
-			if("Normal")
-				if(limb == BP_CHEST)
-					for(var/other_limb in (BP_ALL_LIMBS - BP_CHEST))
-						pref.organ_data[other_limb] = null
-						pref.rlimb_data[other_limb] = null
-						for(var/internal_organ in list(BP_HEART,BP_EYES,BP_LUNGS,BP_LIVER,BP_KIDNEYS,BP_BRAIN))
-							pref.organ_data[internal_organ] = null
-				pref.organ_data[limb] = null
-				pref.rlimb_data[limb] = null
-				if(third_limb)
-					pref.organ_data[third_limb] = null
-					pref.rlimb_data[third_limb] = null
-			if("Amputated")
-				if(limb == BP_CHEST)
-					return
-				pref.organ_data[limb] = "amputated"
-				pref.rlimb_data[limb] = null
-				if(second_limb)
-					pref.organ_data[second_limb] = "amputated"
-					pref.rlimb_data[second_limb] = null
-
-			if("Prosthesis")
-				var/tmp_species = pref.species || SPECIES_HUMAN
-				var/list/usable_manufacturers = list()
-				for(var/company in chargen_robolimbs)
-					var/datum/robolimb/M = chargen_robolimbs[company]
-					if(tmp_species in M.species_cannot_use)
-						continue
-					if(M.restricted_to.len && !(tmp_species in M.restricted_to))
-						continue
-					if(M.applies_to_part.len && !(limb in M.applies_to_part))
-						continue
-					usable_manufacturers[company] = M
-				if(!usable_manufacturers.len)
-					return
-				var/choice = input(user, "Which manufacturer do you wish to use for this limb?") as null|anything in usable_manufacturers
-				if(!choice)
-					return
-				pref.rlimb_data[limb] = choice
-				pref.organ_data[limb] = "cyborg"
-				if(second_limb)
-					pref.rlimb_data[second_limb] = choice
-					pref.organ_data[second_limb] = "cyborg"
-				if(third_limb && pref.organ_data[third_limb] == "amputated")
-					pref.organ_data[third_limb] = null
-
-				if(limb == BP_CHEST)
-					for(var/other_limb in BP_ALL_LIMBS - BP_CHEST)
-						pref.organ_data[other_limb] = "cyborg"
-						pref.rlimb_data[other_limb] = choice
-					if(!pref.organ_data[BP_BRAIN])
-						pref.organ_data[BP_BRAIN] = "assisted"
-					for(var/internal_organ in list(BP_HEART,BP_EYES,BP_LUNGS,BP_LIVER,BP_KIDNEYS))
-						pref.organ_data[internal_organ] = "mechanical"
-
-		return UPDATE_PREVIEW
-
-	else if(href_list["organs"])
-		var/organ_name = input(user, "Which internal function do you want to change?") as null|anything in list("Heart", "Eyes", "Lungs", "Liver", "Kidneys")
-		if(!organ_name) return
-
-		var/organ = null
-		switch(organ_name)
-			if("Heart")
-				organ = BP_HEART
-			if("Eyes")
-				organ = BP_EYES
-			if("Lungs")
-				organ = BP_LUNGS
-			if("Liver")
-				organ = BP_LIVER
-			if("Kidneys")
-				organ = BP_KIDNEYS
-
-		var/list/organ_choices = list("Normal","Assisted","Synthetic")
-		if(pref.organ_data[BP_CHEST] == "cyborg")
-			organ_choices -= "Normal"
-			organ_choices += "Synthetic"
-
-		var/new_state = input(user, "What state do you wish the organ to be in?") as null|anything in organ_choices
-		if(!new_state) return
-
-		switch(new_state)
-			if("Normal")
-				pref.organ_data[organ] = null
-			if("Assisted")
-				pref.organ_data[organ] = "assisted"
-			if("Synthetic")
-				pref.organ_data[organ] = "mechanical"
-		return TRUE
-
 	else if(href_list["disabilities"])
 		var/disability_flag = text2num(href_list["disabilities"])
 		pref.disabilities ^= disability_flag
 		return UPDATE_PREVIEW
 
-	else if(href_list["toggle_preview_value"])
-		pref.equip_preview_mob ^= text2num(href_list["toggle_preview_value"])
-		return UPDATE_PREVIEW
-
-	else if(href_list["cycle_bg"])
-		pref.background_state = next_in_list(pref.background_state, pref.background_options)
-		return UPDATE_PREVIEW
-
 	return ..()
 
-/datum/category_item/player_setup_item/physical/body/proc/reset_limbs()
-	pref.organ_data.Cut()
-	pref.rlimb_data.Cut()
+/datum/category_item/player_setup_item/physical/body/proc/on_species_change(datum/species/new_species)
+	if(!(pref.gender in new_species.genders))
+		pref.gender = new_species.genders[1]
+
+	ResetAllHair()
+
+	//reset hair colour and skin colour
+	pref.r_hair = 0//hex2num(copytext(new_hair, 2, 4))
+	pref.g_hair = 0//hex2num(copytext(new_hair, 4, 6))
+	pref.b_hair = 0//hex2num(copytext(new_hair, 6, 8))
+	pref.s_tone = 0
+	pref.age = max(min(pref.age, new_species.max_age), new_species.min_age)
+
+	pref.body_markings.Cut() // Basically same as above.
+
+	var/datum/category_collection/player_setup_collection/pref_collection = pref.player_setup
+	var/datum/category_group/player_setup_category/augmentation_preferences/pref_aug = pref_collection.categories_by_name["Augmentation"]
+	var/datum/category_item/player_setup_item/augmentation/modification/mod = pref_aug.items_by_name["Modification"]
+	mod.reset_limbs() // Safety for species with incompatible manufacturers; easier than trying to do it case by case.
+
+	prune_occupation_prefs()
+
+	pref.cultural_info = new_species.default_cultural_info.Copy()
+	//So you want to check your languages huh?
+	var/datum/category_group/player_setup_category/background_preferences/pref_background = pref_collection.categories_by_name["Background"]
+	var/datum/category_item/player_setup_item/background/languages/endless_accesses = pref_background.items_by_name["Languages"]
+	endless_accesses.sanitize_alt_languages()
 
 /datum/category_item/player_setup_item/proc/ResetAllHair()
 	ResetHair()

@@ -10,10 +10,15 @@
 	var/list/free_languages
 
 /datum/category_item/player_setup_item/background/languages/load_character(savefile/S)
-	from_file(S["language"], pref.alternate_languages)
+	from_file(S["background/language"], pref.alternate_languages)
 
 /datum/category_item/player_setup_item/background/languages/save_character(savefile/S)
-	to_file(S["language"],   pref.alternate_languages)
+	to_file(S["background/language"],   pref.alternate_languages)
+
+/datum/category_item/player_setup_item/background/languages/setup_character(mob/living/carbon/human/character, is_preview_copy)
+	if (is_preview_copy) return
+	for(var/lang in pref.alternate_languages)
+		character.add_language(lang)
 
 /datum/category_item/player_setup_item/background/languages/sanitize_character()
 	if(!is_list(pref.alternate_languages))

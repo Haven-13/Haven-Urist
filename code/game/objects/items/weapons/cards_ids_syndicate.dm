@@ -122,7 +122,7 @@
 				if(default == initial(blood_type) && is_human_mob(user))
 					var/mob/living/carbon/human/H = user
 					if(H.dna)
-						default = H.dna.b_type
+						default = H.dna.blood_type
 				var/new_blood_type = sanitize(input(user,"What blood type would you like to be written on this card?","Agent Card Blood Type",default) as null|text)
 				if(!isnull(new_blood_type) && CanUseTopic(user, state))
 					src.blood_type = new_blood_type

@@ -1187,7 +1187,7 @@ window "browserwindow"
 	elem "browser"
 		type = BROWSER
 		pos = 0,0
-		size = 640x499
+		size = 640x480
 		anchor1 = 0,0
 		anchor2 = 100,100
 		background-color = #ffffff

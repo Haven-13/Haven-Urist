@@ -42,12 +42,18 @@
 /datum/category_item/player_setup_item/background/culture/load_character(savefile/S)
 	for(var/token in tokens)
 		var/load_val
-		from_file(S[token], load_val)
+		from_file(S["background/[token]"], load_val)
 		pref.cultural_info[token] = load_val
 
 /datum/category_item/player_setup_item/background/culture/save_character(savefile/S)
 	for(var/token in tokens)
-		to_file(S[token], pref.cultural_info[token])
+		to_file(S["background/[token]"], pref.cultural_info[token])
+
+/datum/category_item/player_setup_item/background/culture/setup_character(mob/living/carbon/human/character, is_preview_copy)
+	if (is_preview_copy) return
+	for(var/token in pref.cultural_info)
+		character.set_cultural_value(token, pref.cultural_info[token], defer_language_update = TRUE)
+	character.update_languages()
 
 /datum/category_item/player_setup_item/background/culture/content()
 	. = list()

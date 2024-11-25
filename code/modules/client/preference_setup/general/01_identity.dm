@@ -6,27 +6,47 @@
 	var/real_name						//our character's name
 	var/be_random_name = 0				//whether we are a random name every round
 
-/datum/category_item/player_setup_item/physical/basic
-	name = "Basic"
+/datum/category_item/player_setup_item/physical/identity
+	name = "Identity"
 	sort_order = 1
 
-/datum/category_item/player_setup_item/physical/basic/load_character(savefile/S)
-	from_file(S["gender"],                pref.gender)
-	from_file(S["age"],                   pref.age)
-	from_file(S["spawnpoint"],            pref.spawnpoint)
-	from_file(S["OOC_Notes"],             pref.metadata)
-	from_file(S["real_name"],             pref.real_name)
-	from_file(S["name_is_always_random"], pref.be_random_name)
+/datum/category_item/player_setup_item/physical/identity/load_character(savefile/S)
+	from_file(S["physical_identity/gender"], pref.gender)
+	from_file(S["physical_identity/age"], pref.age)
+	from_file(S["physical_identity/spawnpoint"], pref.spawnpoint)
+	from_file(S["physical_identity/metadata"], pref.metadata)
+	from_file(S["physical_identity/real_name"], pref.real_name)
+	from_file(S["physical_identity/name_is_always_random"], pref.be_random_name)
 
-/datum/category_item/player_setup_item/physical/basic/save_character(savefile/S)
-	to_file(S["gender"],                  pref.gender)
-	to_file(S["age"],                     pref.age)
-	to_file(S["spawnpoint"],              pref.spawnpoint)
-	to_file(S["OOC_Notes"],               pref.metadata)
-	to_file(S["real_name"],               pref.real_name)
-	to_file(S["name_is_always_random"],   pref.be_random_name)
+/datum/category_item/player_setup_item/physical/identity/save_character(savefile/S)
+	to_file(S["save_slot_name"], pref.real_name)
 
-/datum/category_item/player_setup_item/physical/basic/sanitize_character()
+	to_file(S["physical_identity/gender"], pref.gender)
+	to_file(S["physical_identity/age"], pref.age)
+	to_file(S["physical_identity/spawnpoint"], pref.spawnpoint)
+	to_file(S["physical_identity/metadata"], pref.metadata)
+	to_file(S["physical_identity/real_name"], pref.real_name)
+	to_file(S["physical_identity/name_is_always_random"], pref.be_random_name)
+
+/datum/category_item/player_setup_item/physical/identity/setup_character(mob/living/carbon/human/character, is_preview_copy = FALSE)
+	if(pref.be_random_name)
+		var/decl/cultural_info/culture = SSculture.get_culture(pref.cultural_info[TAG_CULTURE])
+		if(culture) pref.real_name = culture.get_random_name(pref.gender)
+
+	if(config.humans_need_surnames)
+		var/firstspace = findtext(pref.real_name, " ")
+		var/name_length = length(pref.real_name)
+		if(!firstspace)	//we need a surname
+			pref.real_name += " [pick(GLOB.last_names)]"
+		else if(firstspace == name_length)
+			pref.real_name += "[pick(GLOB.last_names)]"
+
+	character.fully_replace_character_name(pref.real_name)
+
+	character.gender = pref.gender
+	character.age = pref.age
+
+/datum/category_item/player_setup_item/physical/identity/sanitize_character()
 	var/datum/species/S = all_species[pref.species || SPECIES_HUMAN]
 	if(!S) S = all_species[SPECIES_HUMAN]
 	pref.age                = sanitize_integer(pref.age, S.min_age, S.max_age, initial(pref.age))
@@ -42,7 +62,7 @@
 			if(!pref.real_name)
 				pref.real_name = random_name(pref.gender, pref.species)
 
-/datum/category_item/player_setup_item/physical/basic/content()
+/datum/category_item/player_setup_item/physical/identity/content()
 	. = list()
 	. += "<b>Name:</b> "
 	. += "<a href='?src=[REF(src)];rename=1'><b>[pref.real_name]</b></a><br>"
@@ -56,14 +76,15 @@
 		. += "<br><b>OOC Notes:</b> <a href='?src=[REF(src)];metadata=1'> Edit </a>"
 	. = jointext(.,null)
 
-/datum/category_item/player_setup_item/physical/basic/OnTopic(href,list/href_list, mob/user)
+/datum/category_item/player_setup_item/physical/identity/OnTopic(href,list/href_list, mob/user)
 	var/datum/species/S = all_species[pref.species]
 
 	if(href_list["rename"])
 		var/raw_name = input(user, "Choose your character's name:", "Character Name")  as text|null
 		if (!isnull(raw_name) && CanUseTopic(user))
 
-			var/decl/cultural_info/check = SSculture.get_culture(pref.cultural_info[TAG_CULTURE])
+			var/culture_key = pref.cultural_info[TAG_CULTURE] || CULTURE_HUMAN
+			var/decl/cultural_info/check = SSculture.get_culture(culture_key)
 			var/new_name = check.sanitize_name(raw_name, pref.species)
 			if(new_name)
 				pref.real_name = new_name

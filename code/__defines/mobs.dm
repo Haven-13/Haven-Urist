@@ -194,12 +194,12 @@
 #define BP_ACETONE  "acetone reactor"
 
 // Robo Organs.
-#define BP_POSIBRAIN	"posibrain"
-#define BP_VOICE		"vocal synthesiser"
-#define BP_STACK		"stack"
-#define BP_OPTICS		"optics"
-#define BP_FLOAT		"floatation disc"
-#define BP_JETS			"maneuvering jets"
+#define BP_POSIBRAIN    "posibrain"
+#define BP_VOICE        "vocal synthesiser"
+#define BP_STACK        "stack"
+#define BP_OPTICS       "optics"
+#define BP_FLOAT        "floatation disc"
+#define BP_JETS         "maneuvering jets"
 #define BP_COOLING_FINS "cooling fins"
 
 // Limbs.
@@ -216,6 +216,24 @@
 #define BP_GROIN  "groin"
 #define BP_ALL_LIMBS list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
 #define BP_BY_DEPTH list(BP_HEAD, BP_L_HAND, BP_R_HAND, BP_L_ARM, BP_R_ARM, BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG, BP_GROIN, BP_CHEST)
+
+var/global/list/generic_body_part_name_dictionary = list(
+	BP_L_FOOT = "left foot",
+	BP_R_FOOT = "right foot",
+	BP_L_LEG = "left leg",
+	BP_R_LEG = "right leg",
+	BP_L_HAND = "left hand",
+	BP_R_HAND = "right hand",
+	BP_L_ARM = "left arm",
+	BP_R_ARM = "right arm",
+	BP_HEAD = "head",
+	BP_CHEST = "chest",
+	BP_GROIN = "groin",
+)
+
+/proc/parse_zone(zone)
+	return LAZY_ACCESS_ASSOC(global.generic_body_part_name_dictionary, zone) || zone
+
 
 // Prosthetic helpers.
 #define BP_IS_ROBOTIC(org)  (org.status & ORGAN_ROBOTIC)

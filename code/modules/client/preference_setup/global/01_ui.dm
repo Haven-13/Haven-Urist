@@ -6,30 +6,39 @@
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
 
+	var/tgui_fancy = TRUE
+	var/tgui_lock = FALSE
+
 /datum/category_item/player_setup_item/player_global/ui
 	name = "UI"
 	sort_order = 1
 
 /datum/category_item/player_setup_item/player_global/ui/load_preferences(savefile/S)
-	from_file(S["UI_style"], pref.UI_style)
-	from_file(S["UI_style_color"], pref.UI_style_color)
-	from_file(S["UI_style_alpha"], pref.UI_style_alpha)
-	from_file(S["ooccolor"], pref.ooccolor)
-	from_file(S["clientfps"], pref.clientfps)
+	from_file(S["ui/style"], pref.UI_style)
+	from_file(S["ui/style_color"], pref.UI_style_color)
+	from_file(S["ui/style_alpha"], pref.UI_style_alpha)
+	from_file(S["ooc_color"], pref.ooccolor)
+	from_file(S["client_fps"], pref.clientfps)
+	from_file(S["tgui_fancy"], pref.tgui_fancy)
+	from_file(S["tgui_lock"], pref.tgui_lock)
 
 /datum/category_item/player_setup_item/player_global/ui/save_preferences(savefile/S)
-	to_file(S["UI_style"], pref.UI_style)
-	to_file(S["UI_style_color"], pref.UI_style_color)
-	to_file(S["UI_style_alpha"], pref.UI_style_alpha)
-	to_file(S["ooccolor"], pref.ooccolor)
-	to_file(S["clientfps"], pref.clientfps)
+	to_file(S["ui/style"], pref.UI_style)
+	to_file(S["ui/style_color"], pref.UI_style_color)
+	to_file(S["ui/style_alpha"], pref.UI_style_alpha)
+	to_file(S["ooc_color"], pref.ooccolor)
+	to_file(S["client_fps"], pref.clientfps)
+	to_file(S["tgui_fancy"], pref.tgui_fancy)
+	to_file(S["tgui_lock"], pref.tgui_lock)
 
 /datum/category_item/player_setup_item/player_global/ui/sanitize_preferences()
-	pref.UI_style		= sanitize_inlist(pref.UI_style, all_ui_styles, initial(pref.UI_style))
-	pref.UI_style_color	= sanitize_hexcolor(pref.UI_style_color, initial(pref.UI_style_color))
-	pref.UI_style_alpha	= sanitize_integer(pref.UI_style_alpha, 0, 255, initial(pref.UI_style_alpha))
-	pref.ooccolor		= sanitize_hexcolor(pref.ooccolor, initial(pref.ooccolor))
-	pref.clientfps	    = sanitize_integer(pref.clientfps, CLIENT_MIN_FPS, CLIENT_MAX_FPS, initial(pref.clientfps))
+	pref.UI_style       = sanitize_inlist(pref.UI_style, all_ui_styles, initial(pref.UI_style))
+	pref.UI_style_color = sanitize_hexcolor(pref.UI_style_color, initial(pref.UI_style_color))
+	pref.UI_style_alpha = sanitize_integer(pref.UI_style_alpha, 0, 255, initial(pref.UI_style_alpha))
+	pref.ooccolor       = sanitize_hexcolor(pref.ooccolor, initial(pref.ooccolor))
+	pref.clientfps      = sanitize_integer(pref.clientfps, CLIENT_MIN_FPS, CLIENT_MAX_FPS, initial(pref.clientfps))
+	pref.tgui_fancy     = sanitize_bool(pref.tgui_fancy, initial(pref.tgui_fancy))
+	pref.tgui_lock      = sanitize_bool(pref.tgui_fancy, initial(pref.tgui_lock))
 
 /datum/category_item/player_setup_item/player_global/ui/content(mob/user)
 	. += "<b>UI Settings</b><br>"

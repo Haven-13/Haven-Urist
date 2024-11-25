@@ -9,8 +9,6 @@
 	var/list/job_medium        //List of all things selected for medium weight
 	var/list/job_low           //List of all the things selected for low weight
 	var/list/player_alt_titles // the default name of a job like "Medical Doctor"
-	var/char_branch	= "None"   // military branch
-	var/char_rank = "None"     // military rank
 
 	//Keeps track of preferrence for not getting any wanted jobs
 	var/alternate_option = 2
@@ -21,18 +19,18 @@
 	var/datum/browser/panel
 
 /datum/category_item/player_setup_item/occupation/load_character(savefile/S)
-	from_file(S["alternate_option"], 	pref.alternate_option)
-	from_file(S["job_high"],			pref.job_high)
-	from_file(S["job_medium"],			pref.job_medium)
-	from_file(S["job_low"],				pref.job_low)
-	from_file(S["player_alt_titles"],	pref.player_alt_titles)
+	from_file(S["occupation/alternate_option"], 	pref.alternate_option)
+	from_file(S["occupation/job_high"],			pref.job_high)
+	from_file(S["occupation/job_medium"],			pref.job_medium)
+	from_file(S["occupation/job_low"],				pref.job_low)
+	from_file(S["occupation/player_alt_titles"],	pref.player_alt_titles)
 
 /datum/category_item/player_setup_item/occupation/save_character(savefile/S)
-	to_file(S["alternate_option"],		pref.alternate_option)
-	to_file(S["job_high"],				pref.job_high)
-	to_file(S["job_medium"],			pref.job_medium)
-	to_file(S["job_low"],				pref.job_low)
-	to_file(S["player_alt_titles"],		pref.player_alt_titles)
+	to_file(S["occupation/alternate_option"],		pref.alternate_option)
+	to_file(S["occupation/job_high"],				pref.job_high)
+	to_file(S["occupation/job_medium"],			pref.job_medium)
+	to_file(S["occupation/job_low"],				pref.job_low)
+	to_file(S["occupation/player_alt_titles"],		pref.player_alt_titles)
 
 /datum/category_item/player_setup_item/occupation/sanitize_character()
 	if(!istype(pref.job_medium)) 		pref.job_medium = list()
@@ -179,10 +177,11 @@
 			var/choice = input("Choose an title for [job.title].", "Choose Title", pref.GetPlayerAltTitle(job)) as anything in choices|null
 			if(choice && CanUseTopic(user))
 				SetPlayerAltTitle(job, choice)
-				return (pref.equip_preview_mob ? UPDATE_PREVIEW : TRUE)
+				return pref.get_ui().equip_preview_mob & EQUIP_PREVIEW_JOB ? UPDATE_PREVIEW : TRUE
 
 	else if(href_list["set_job"] && href_list["set_level"])
-		if(SetJob(user, href_list["set_job"], text2num(href_list["set_level"]))) return (pref.equip_preview_mob ? UPDATE_PREVIEW : TRUE)
+		if(SetJob(user, href_list["set_job"], text2num(href_list["set_level"])))
+			return pref.get_ui().equip_preview_mob & EQUIP_PREVIEW_JOB ? UPDATE_PREVIEW : TRUE
 
 	else if(href_list["job_info"])
 		var/title = href_list["job_info"]
